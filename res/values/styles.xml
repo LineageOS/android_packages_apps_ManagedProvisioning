@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2014 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources>
+<style name="WelcomeTheme" parent="@android:Theme.Holo.NoActionBar">
+</style>
+    <style name="WelcomeTitle">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/title_color</item>
+        <item name="android:clickable">false</item>
+        <item name="android:longClickable">false</item>
+    </style>
+    <style name="WelcomeOuterFrame">
+        <item name="android:paddingTop">@dimen/welcome_screen_margin_top</item>
+        <item name="android:paddingBottom">@dimen/welcome_screen_margin_bottom</item>
+        <item name="android:paddingLeft">@dimen/screen_margin_sides</item>
+        <item name="android:paddingRight">@dimen/screen_margin_sides</item>
+    </style>
+</resources>
