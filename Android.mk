@@ -5,6 +5,8 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
+LOCAL_STATIC_JAVA_LIBRARIES := google-common
+
 LOCAL_PACKAGE_NAME := ManagedProvisioning
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true

@@ -18,6 +18,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.managedprovisioning" >
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowClearUserData="false"
         android:hardwareAccelerated="true"
@@ -36,6 +39,11 @@
             android:theme="@style/WelcomeTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/com.android.managedprovisioning" />
             </intent-filter>
         </activity>
   </application>
