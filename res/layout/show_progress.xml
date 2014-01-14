@@ -33,7 +33,7 @@
         android:layout_alignParentLeft="true"
         android:minHeight="@dimen/title_height"
         android:gravity="bottom"
-        android:text="@string/provisioning_tablet" />
+        android:text="@string/provisioning_device" />
 
 </LinearLayout>
 
