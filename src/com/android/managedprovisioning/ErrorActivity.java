@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,20 +16,19 @@
 
 package com.android.managedprovisioning;
 
-import android.content.ContentResolver;
-import android.provider.Settings;
+import android.app.Activity;
+import android.os.Bundle;
 
 /**
- * A layer of abstraction above Settings.
+ * An empty activity, used to show the error dialog when the error occurs in the service.
  */
-public class SettingsAdapter {
-    private ContentResolver mContentResolver;
+public class ErrorActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.base_error_activity);
 
-    public SettingsAdapter(ContentResolver contentResolver) {
-        mContentResolver = contentResolver;
-    }
-
-    public boolean isDeviceProvisioned() {
-        return Settings.Global.getInt(mContentResolver, Settings.Global.DEVICE_PROVISIONED, 0) != 0;
+        ErrorDialog errorDialog = new ErrorDialog();
+        errorDialog.show(getFragmentManager(), "ErrorDialogFragment");
     }
 }

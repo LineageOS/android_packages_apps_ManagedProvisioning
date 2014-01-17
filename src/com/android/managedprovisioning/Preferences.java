@@ -20,27 +20,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Preferences for NfcProvision.
+ * Preferences for ManagedProvisioning.
  */
-// TODO When common provisioning code is moved, double check that there are no
-// unused keys and access methods here.
 public class Preferences {
     private static final String PREF_FILE = "prefs";
 
-    static final String NFC_BUMP_PACKET = "nfcBumpPacket";
+    public static final String NFC_BUMP_PACKET = "nfcBumpPacket";
 
     // Keys for the properties in the packet.
     static final String TIMEOUT_KEY = "timeout";
     static final String TIME_ZONE_KEY = "timeZone";
     static final String LOCAL_TIME_KEY = "localTime";
     static final String LOCALE_KEY = "locale";
-    static final String BLUETOOTH_RETRY_KEY = "bluetoothRetries";
     static final String TASK_RETRY_KEY = "taskRetries";
-    static final String BLUETOOTH_UUID_KEY = "uuid";
-    static final String BLUETOOTH_MAC_KEY = "macAddress";
 
-    public static final String OWNER_INFO_KEY = "ownerInfo";
-    public static final String CLOSE_BLUETOOTH_KEY = "closeBluetooth";
     public static final String WIFI_SSID_KEY = "wifiSsid";
     public static final String WIFI_HIDDEN_KEY = "wifiHidden";
     public static final String WIFI_SECURITY_TYPE_KEY = "wifiSecurityType";
@@ -50,22 +43,26 @@ public class Preferences {
     public static final String WIFI_PROXY_PORT_INT_KEY = "wifiProxyPort";
     public static final String WIFI_PROXY_BYPASS_KEY = "wifiProxyBypassHosts";
 
-    // Where to report this device's android ID.
-    static final String RPC_URL_KEY = "rpcUrl";
+    public static final String DEVICE_IDENTIFIER_KEY = "deviceIdentifier";
+
+    public static final String EXTERNAL_PROVISION_PKG = "externalProvisionPkg";
+
+    public static final String OWNER_KEY = "owner";
+
+    // TODO Add download location support rather than pre-installed package.
+    public static final String MDM_PACKAGE = "dmPackage";
+    public static final String MDM_ADMIN_RECEIVER = "dmAdminReceiver";
 
     public static String[] propertiesToStore = {
-            RPC_URL_KEY, BLUETOOTH_MAC_KEY, BLUETOOTH_UUID_KEY, OWNER_INFO_KEY,
-            WIFI_SSID_KEY, WIFI_PASSWORD_KEY, WIFI_SECURITY_TYPE_KEY, WIFI_PROXY_BYPASS_KEY,
-            WIFI_PROXY_HOST_KEY, BLUETOOTH_RETRY_KEY, TASK_RETRY_KEY, CLOSE_BLUETOOTH_KEY
+            OWNER_KEY, WIFI_SSID_KEY, WIFI_PASSWORD_KEY, WIFI_SECURITY_TYPE_KEY,
+            WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_HOST_KEY, TASK_RETRY_KEY,
+            EXTERNAL_PROVISION_PKG, MDM_ADMIN_RECEIVER, MDM_PACKAGE
     };
 
-    private static final String DEVICE_POLICY_REGISTERD_KEY = "devicePolicyRegistered";
     private static final String ERROR_KEY = "error";
     private static final String DOESNT_NEED_RESUME_KEY = "doesntNeedResume";
 
     public static final String TASK_STATE = "taskState";
-
-    public static final String BLUETOOTH_ONLY = "keyBluetoothOnly";
 
     private final Context mContext;
 
@@ -78,35 +75,8 @@ public class Preferences {
         return prefs;
     }
 
-    public String getRpc() {
-        return getPrefs().getString(RPC_URL_KEY, null);
-    }
-
-    public void setRpc(String rpcUrl) {
-        getPrefs().edit()
-                .putString(RPC_URL_KEY, rpcUrl)
-                .commit();
-    }
-
-    /**
-     * Returns true if we have registered the device policy.
-     */
-    public boolean isDevicePolicyRegistered() {
-        return getPrefs().getBoolean(DEVICE_POLICY_REGISTERD_KEY, false);
-    }
-
-    public void setDevicePolicyRegistered(boolean started) {
-        getPrefs().edit()
-                .putBoolean(DEVICE_POLICY_REGISTERD_KEY, started)
-                .commit();
-    }
-
-    public boolean isConfigureUserComplete(String account) {
-        return account == null ? false : getBooleanProperty(account);
-    }
-
-    public void setConfigureUserComplete(String account, boolean complete) {
-        if (account != null) setProperty(account, complete);
+    public String getOwner() {
+        return getPrefs().getString(OWNER_KEY, null);
     }
 
     public boolean doesntNeedResume() {

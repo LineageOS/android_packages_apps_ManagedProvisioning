@@ -18,9 +18,11 @@ package com.android.managedprovisioning;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
 import android.nfc.NdefMessage;
@@ -31,14 +33,17 @@ import android.os.Handler;
 import android.os.Parcelable;
 
 import com.android.internal.app.LocalePicker;
-import com.google.common.collect.Sets;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Properties;
-import java.util.Set;
 
+/**
+ * Handles intents initiating the provisioning process then launches the ConfigureUserActivity
+ * as needed to handle the provisioning flow.
+ */
 public class ManagedProvisioningActivity extends Activity {
 
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
@@ -50,34 +55,71 @@ public class ManagedProvisioningActivity extends Activity {
     // The packet that we receive over NFC is this serialized properties object.
     private Properties mProps;
 
+    private boolean mHasLaunchedConfiguration = false;
+
     // Abstraction above settings for testing.
     private SettingsAdapter mSettingsAdapter;
 
-    // TODO Make this a boolean if it turns out that we only have one or two states to be
-    // tracked here. If we don't remove it, rename to make the difference between this state and the
-    // task state used in the task manager more clear.
-    enum State {
-        BUMP_DETECTED, // We've received a NFC packet.
-        MAX_VALUES
+    private BroadcastReceiver mStatusReceiver;
+    private Handler mHandler;
+    private Runnable mTimeoutRunnable;
+
+    public static class ProvisioningState {
+        public static final int CONNECTED_NETWORK = 0;
+        public static final int REGISTERED_DEVICE_POLICY = 1;
+        public static final int SETUP_COMPLETE = 2;
+        public static final int UPDATE = 3;
+        public static final int ERROR = 4;
     }
 
-    private State mState = State.BUMP_DETECTED;
+    // Catches updates in provisioning process, watching for errors or completion.
+    private class StatusReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ProvisionLogger.logd("Received broadcast: " + intent.getAction());
 
-    // Used to determine which state to enter.
-    private static Set<State> mCompletedStates = Sets.newHashSet();
+            if (ConfigureUserService.PROVISIONING_STATUS_REPORT_ACTION.
+                    equals(intent.getAction())) {
+                int state = intent.
+                        getIntExtra(ConfigureUserService.PROVISIONING_STATUS_REPORT_EXTRA, -1);
+                String stateText = intent.
+                        getStringExtra(ConfigureUserService.PROVISIONING_STATUS_TEXT_EXTRA);
+                ProvisionLogger.logd("Received state broadcast: " + state);
+
+                if (state != -1) {
+                    switch (state) {
+                        case ProvisioningState.SETUP_COMPLETE:
+                            cleanupAndFinish();
+                            break;
+                        case ProvisioningState.ERROR:
+                            error(stateText);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // TODO Find better location/flow for disabling the NFC receiver during provisioning.
+        // Re-enabling currently takes place in the ConfigureUserService.
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(getComponentName(this),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
         mSettingsAdapter = new SettingsAdapter(getContentResolver());
 
-        // TODO Register status receiver for error handling only if needed.
-        // (Might be possible to simplify this)
+        if (mStatusReceiver == null) {
+            mStatusReceiver = new StatusReceiver();
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(ConfigureUserService.PROVISIONING_STATUS_REPORT_ACTION);
+            registerReceiver(mStatusReceiver, filter);
+        }
 
         // Sometimes ManagedProvisioning gets killed and restarted, and needs to resume
         // provisioning already in progress. Provisioning doesn't need to resume if
@@ -87,21 +129,11 @@ public class ManagedProvisioningActivity extends Activity {
 
         // TODO Check if we need the settingsAdapter for tests.
         if (prefs.doesntNeedResume() && (mSettingsAdapter.isDeviceProvisioned())) {
+            // TODO Add double bump checking/handling.
 
-            Intent intent = getIntent();
-            if (intent != null) {
-                processNfcPayload(intent);
-                sendProvisioningError("Device bumped twice.");
-            }
-
-            ProvisionLogger.logd("Device already provisioned or running in sandbox, exiting.");
-            if (savedInstanceState == null) {
-                cleanupAndFinish();
-            } else {
-                ProvisionLogger.logd("onCreate() called, provisioning in progress. Exiting.");
+            if ((savedInstanceState == null) || prefs.doesntNeedResume()) {
                 finish();
             }
-            return;
         }
 
         setContentView(R.layout.show_progress);
@@ -113,22 +145,18 @@ public class ManagedProvisioningActivity extends Activity {
 
         Intent intent = getIntent();
         // Check to see that the Activity started due to an Android Beam.
-        // Don't restart an provisioning in progress
+        // Don't restart an provisioning in progress.
 
-        // TODO also react to bluetooth
-        if ((mState == State.BUMP_DETECTED) &&
-                NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+        if (!mHasLaunchedConfiguration
+                && NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
             processNfcPayload(intent);
             if (mProps != null) {
                 initialize();
-                completeState(State.BUMP_DETECTED);
+
+                startConfigureUserActivity();
+                mHasLaunchedConfiguration = true;
             }
         }
-    }
-
-    private void sendProvisioningError(final String message) {
-        // TODO implement error message for Programmer app.
-        ProvisionLogger.logd("send provision error code: " + " " + message);
     }
 
     @Override
@@ -156,7 +184,6 @@ public class ManagedProvisioningActivity extends Activity {
                 }
             }
         }
-        // TODO Add bluetooth alternative to NFC.
     }
 
     private void loadProps(String data) {
@@ -168,7 +195,7 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
-    // TODO This initialisation should be different for BYOD (e.g don't set time zone).
+    // TODO This initialization should be different for BYOD (e.g don't set time zone).
     private void initialize() {
         registerErrorTimeout();
         setTimeAndTimezone();
@@ -178,20 +205,16 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private void registerErrorTimeout() {
-        Runnable checkForDoneness = new Runnable() {
+        mTimeoutRunnable = new Runnable() {
             @Override
             public void run() {
-                if (mState == State.MAX_VALUES) {
-                    return;
-                }
                 error("timeout");
             }
         };
 
-        final Handler handler = new Handler();
-        long timeout = Long.parseLong(
-                mProps.getProperty(Preferences.TIMEOUT_KEY, TIMEOUT_IN_MS));
-        handler.postDelayed(checkForDoneness, timeout);
+        mHandler = new Handler();
+        long timeout = Long.parseLong(mProps.getProperty(Preferences.TIMEOUT_KEY, TIMEOUT_IN_MS));
+        mHandler.postDelayed(mTimeoutRunnable, timeout);
     }
 
     private void setTimeAndTimezone() {
@@ -241,39 +264,33 @@ public class ManagedProvisioningActivity extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        // TODO unregister status receiver if added
-    }
 
-    public void completeState(State completed) {
-        completeState(completed, true);
-    }
-
-    private synchronized void completeState(State completed, boolean startNext) {
-        mCompletedStates.add(completed);
-        ProvisionLogger.logv("Completed state:" + completed);
-
-        // Find the first state that isn't done.
-        for (State state : State.values()) {
-            if (!mCompletedStates.contains(state)) {
-                if (mState == state) {
-                    ProvisionLogger.logv("No state change");
-                    return; // No state change.
-                } else {
-                    ProvisionLogger.logv("New State: " + state);
-                    mState = state;
-                    break;
-                }
-            }
+        if (mStatusReceiver != null) {
+            unregisterReceiver(mStatusReceiver);
+            mStatusReceiver = null;
         }
+    }
 
-        // TODO Start the task manager to start the setup.
-        // Ensure that the execute() method is called on the UI thread.
-        // Message taskMsg = mHandler.obtainMessage(RUN_TASK_MSG);
-        // skMsg.sendToTarget();
+    private void startConfigureUserActivity() {
+        Intent intent = new Intent(getApplicationContext(), ConfigureUserActivity.class);
+
+        // Copy properties to intent.
+        Enumeration<Object> propertyNames = mProps.keys();
+        while (propertyNames.hasMoreElements()) {
+            String propName = (String) propertyNames.nextElement();
+            intent.putExtra(propName, mProps.getProperty(propName));
+        }
+        intent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
+
+        startActivity(intent);
     }
 
     private void cleanupAndFinish() {
         ProvisionLogger.logd("Finishing NfcBumpActivity");
+
+        if (mHandler != null) {
+            mHandler.removeCallbacks(mTimeoutRunnable);
+        }
         finish();
     }
 
@@ -285,11 +302,10 @@ public class ManagedProvisioningActivity extends Activity {
         Preferences prefs = new Preferences(this);
         prefs.setError(logMsg.toString());
         ProvisionLogger.loge("Error: " + logMsg, t);
-        // TODO add error Dialog.
-        // ErrorDialog.showError(NfcBumpActivity.this);
+        ErrorDialog.showError(ManagedProvisioningActivity.this);
     }
 
-    private ComponentName getComponentName(Context context) {
+    public static ComponentName getComponentName(Context context) {
         String ourPackage = context.getPackageName();
         String bumpLauncher = ourPackage + BUMP_LAUNCHER_ACTIVITY;
         return new ComponentName(ourPackage, bumpLauncher);

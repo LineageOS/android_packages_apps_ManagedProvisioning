@@ -35,16 +35,12 @@
         android:gravity="bottom"
         android:text="@string/provisioning_device" />
 
-    <!-- Divider -->
     <FrameLayout
         android:id="@+id/top_divider"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/provisioning_device">
-        <View
-            android:id="@+id/static_divider"
-            style="@style/TopDivider" />
         <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -55,25 +51,4 @@
             android:indeterminate="true"
             android:visibility="visible" />
     </FrameLayout>
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        style="@style/ChecklistList">
-      <CheckedTextView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/connecting_wifi"
-          style="@style/ChecklistItem"
-          android:text="@string/connecting_network" />
-      <CheckedTextView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/device_policy"
-          style="@style/ChecklistItem"
-          android:text="@string/device_policy_reg" />
-      <CheckedTextView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/setup_complete"
-          style="@style/ChecklistItem"
-          android:text="@string/setup_complete" />
-   </LinearLayout>
 </LinearLayout>

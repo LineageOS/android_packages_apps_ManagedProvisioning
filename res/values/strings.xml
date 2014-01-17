@@ -1,27 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-**
-** Copyright 2014, The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 -->
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
   <!-- Name of the application [CHAR LIMIT=NONE] -->
   <string name="app_name">Device Provisioner</string>
+
   <!-- Title of the main activity. CHAR LIMIT=NONE] -->
   <string name="provisioning_device">Provisioning...</string>
 
+  <!-- Progress status. Adding the WiFi network. [CHAR LIMIT=45] -->
+  <string name="adding_network">Added network.</string>
+
+  <!-- Progress status. Connecting to the WiFi network. [CHAR LIMIT=45] -->
+  <string name="connecting_network">Connected to network.</string>
+
+  <!-- Progress status. Device Management installed as the owner. [CHAR LIMIT=45] -->
+  <string name="device_policy_reg">Device Management Registered.</string>
+
+  <!-- Progress status. Entire configuration has finished. [CHAR LIMIT=45] -->
+  <string name="setup_complete">Setup Complete.</string>
+
+  <!-- Title of the error dialog. CHAR LIMIT=NONE] -->
+  <string name="error_title">Couldn\'t provision</string>
+
+  <!-- Title of the button that will reset the device. CHAR LIMIT=NONE] -->
+  <string name="reset_button">Reset</string>
+
+  <!-- Explains what to do if provisioning fails. CHAR LIMIT=NONE] -->
+  <string name="error_desc">Wait for the device to reset before trying again.\n\nMake
+  sure the Wi-Fi connection is strong.</string>
+
+  <!-- Error explanation for errors that occur after the device is provisioned. CHAR LIMIT=NONE] -->
+  <string name="error_desc_secondary">Please reset this device and try again.</string>
+
+  <!-- Button to go to backup and reset screen. CHAR LIMIT=NONE] -->
+  <string name="backup_and_reset">Backup &amp; Reset</string>
 </resources>
