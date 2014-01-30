@@ -46,14 +46,15 @@ import java.util.Properties;
  */
 public class ManagedProvisioningActivity extends Activity {
 
+    // TODO: Put this action somewhere public.
+    private static final String ACTION_PROVISION_MANAGED_PROFILE
+        = "android.managedprovisioning.PROVISION_MANAGED_PROFILE";
+
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
     private static final String BUMP_LAUNCHER_ACTIVITY = ".ManagedProvisioningActivity";
 
     // Five minute timeout by default.
     private static final String TIMEOUT_IN_MS = "300000";
-
-    // The packet that we receive over NFC is this serialized properties object.
-    private Properties mProps;
 
     private boolean mHasLaunchedConfiguration = false;
 
@@ -144,32 +145,48 @@ public class ManagedProvisioningActivity extends Activity {
         super.onResume();
 
         Intent intent = getIntent();
-        // Check to see that the Activity started due to an Android Beam.
-        // Don't restart an provisioning in progress.
 
-        if (!mHasLaunchedConfiguration
-                && NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            processNfcPayload(intent);
-            if (mProps != null) {
-                initialize();
+        // Build the provisioning intent from either the NFC properties or BYOD intent.
+        Intent provisioningIntent = null;
+        if (!mHasLaunchedConfiguration) {
+            if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
 
-                startConfigureUserActivity();
+                // NFC provisioning for Device Owner flow.
+                provisioningIntent = processNfcPayload(intent);
+            } else if (ACTION_PROVISION_MANAGED_PROFILE.equals(intent.getAction())) {
+
+                // Programmatic intent for BYOD flow.
+                // Add a flag so the ConfigureUserService knows this is the incoming intent.
+
+                // TODO: Uncomment this once the BYOD flow is in place. We can't trigger this
+                // activity yet since it'll make it possible to set device owner from an intent
+                // which we don't want.
+                // provisioningIntent = new Intent(intent);
+                // provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
+            }
+
+            if (provisioningIntent != null) {
+
+                // TODO: Validate incoming intent.
+
+                // Launch ConfigureUserActivity.
+                provisioningIntent.setClass(getApplicationContext(), ConfigureUserActivity.class);
+                initialize(provisioningIntent);
+
+                startActivity(provisioningIntent);
                 mHasLaunchedConfiguration = true;
             }
         }
     }
-
     @Override
     public void onNewIntent(Intent intent) {
         setIntent(intent);
     }
 
     /**
-     * Parses the NDEF Message from the intent and prints to the TextView.
+     * Parses the NDEF Message from the intent and returns it in the form of intent extras.
      */
-    void processNfcPayload(Intent intent) {
-
-        // TODO internationalization for messages.
+    private Intent processNfcPayload(Intent intent) {
         ProvisionLogger.logi("Processing NFC Payload.");
 
         if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
@@ -180,31 +197,43 @@ public class ManagedProvisioningActivity extends Activity {
                 String mimeType = new String(firstRecord.getType());
 
                 if (NFC_MIME_TYPE.equals(mimeType)) {
-                    loadProps(new String(firstRecord.getPayload()));
+                    return parseNfcProperties(new String(firstRecord.getPayload()));
                 }
             }
         }
+        return null;
     }
 
-    private void loadProps(String data) {
+    private Intent parseNfcProperties(String data) {
         try {
-            mProps = new Properties();
-            mProps.load(new StringReader(data));
+            Properties props = new Properties();
+            props.load(new StringReader(data));
+
+            // Copy properties to intent.
+            Intent provisioningIntent = new Intent();
+            Enumeration<Object> propertyNames = props.keys();
+            while (propertyNames.hasMoreElements()) {
+                String propName = (String) propertyNames.nextElement();
+                provisioningIntent.putExtra(propName, props.getProperty(propName));
+            }
+            provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
+            return provisioningIntent;
         } catch (IOException e) {
             error("Couldn't load payload", e);
+            return null;
         }
     }
 
     // TODO This initialization should be different for BYOD (e.g don't set time zone).
-    private void initialize() {
-        registerErrorTimeout();
-        setTimeAndTimezone();
+    private void initialize(Intent provisioningIntent) {
+        registerErrorTimeout(provisioningIntent);
+        setTimeAndTimezone(provisioningIntent);
 
         enableWifi();
-        setLanguage();
+        setLanguage(provisioningIntent);
     }
 
-    private void registerErrorTimeout() {
+    private void registerErrorTimeout(Intent provisioningIntent) {
         mTimeoutRunnable = new Runnable() {
             @Override
             public void run() {
@@ -213,13 +242,14 @@ public class ManagedProvisioningActivity extends Activity {
         };
 
         mHandler = new Handler();
-        long timeout = Long.parseLong(mProps.getProperty(Preferences.TIMEOUT_KEY, TIMEOUT_IN_MS));
+        long timeout = Long.parseLong(getStringExtra(provisioningIntent,
+                Preferences.TIMEOUT_KEY, TIMEOUT_IN_MS));
         mHandler.postDelayed(mTimeoutRunnable, timeout);
     }
 
-    private void setTimeAndTimezone() {
-        String timeZoneId = mProps.getProperty(Preferences.TIME_ZONE_KEY);
-        String localTimeString = mProps.getProperty(Preferences.LOCAL_TIME_KEY);
+    private void setTimeAndTimezone(Intent provisioningIntent) {
+        String timeZoneId = provisioningIntent.getStringExtra(Preferences.TIME_ZONE_KEY);
+        String localTimeString = provisioningIntent.getStringExtra(Preferences.LOCAL_TIME_KEY);
         Long localTime = localTimeString != null ? Long.valueOf(localTimeString) : null;
 
         try {
@@ -244,8 +274,8 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
-    private void setLanguage() {
-        String locale = mProps.getProperty(Preferences.LOCALE_KEY);
+    private void setLanguage(Intent provisioningIntent) {
+        String locale = provisioningIntent.getStringExtra(Preferences.LOCALE_KEY);
         ProvisionLogger.logd("About to set locale: " + locale);
         if (locale == null || locale.equals(Locale.getDefault().toString())) {
             return;
@@ -269,20 +299,6 @@ public class ManagedProvisioningActivity extends Activity {
             unregisterReceiver(mStatusReceiver);
             mStatusReceiver = null;
         }
-    }
-
-    private void startConfigureUserActivity() {
-        Intent intent = new Intent(getApplicationContext(), ConfigureUserActivity.class);
-
-        // Copy properties to intent.
-        Enumeration<Object> propertyNames = mProps.keys();
-        while (propertyNames.hasMoreElements()) {
-            String propName = (String) propertyNames.nextElement();
-            intent.putExtra(propName, mProps.getProperty(propName));
-        }
-        intent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
-
-        startActivity(intent);
     }
 
     private void cleanupAndFinish() {
@@ -309,5 +325,10 @@ public class ManagedProvisioningActivity extends Activity {
         String ourPackage = context.getPackageName();
         String bumpLauncher = ourPackage + BUMP_LAUNCHER_ACTIVITY;
         return new ComponentName(ourPackage, bumpLauncher);
+    }
+
+    private String getStringExtra(Intent intent, String key, String defaultValue) {
+        String rtn = intent.getStringExtra(key);
+        return (rtn != null) ? rtn : defaultValue;
     }
 }

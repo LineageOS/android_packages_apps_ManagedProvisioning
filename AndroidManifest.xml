@@ -61,6 +61,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/com.android.managedprovisioning" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.managedprovisioning.PROVISION_MANAGED_PROFILE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name="ConfigureUserActivity"
