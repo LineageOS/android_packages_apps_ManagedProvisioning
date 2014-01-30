@@ -72,8 +72,9 @@ public class ConfigureUserService extends Service  {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
 
-        // This key indicates the original intent with the provisioning parameters which we want to
-        // save and pass to the external setup (if one is specified).
+        // This key indicates the intent that started the provisioning and contains all initial
+        // parameters. We pass it to the external setup if the initial intent indicates that there
+        // is one by containing Preferences.EXTERNAL_PROVISION_PKG.
         if (intent.getBooleanExtra(ORIGINAL_INTENT_KEY, false)) {
             mTaskManager.setBumpIntent(intent);
         }

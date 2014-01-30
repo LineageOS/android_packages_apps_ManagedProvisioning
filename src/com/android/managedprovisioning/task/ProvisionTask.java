@@ -48,7 +48,7 @@ public abstract class ProvisionTask implements Runnable {
     /**
      * Call this when task is successful.
      */
-    public void success() {
+    public void onSuccess() {
         if (!mHasSentSuccess) {
             mTaskManager.completeTask(mId);
             mHasSentSuccess = true;
@@ -61,18 +61,18 @@ public abstract class ProvisionTask implements Runnable {
      * Call this when a task has failed and needs to be retried.
      * @param string
      */
-    public void failure(String reason) {
+    public void onFailure(String reason) {
         mLastFailure = reason;
         int retryDelay = mTaskManager.getRetryDelay();
         ProvisionLogger.logd(mTaskName + " Requesting retry in " + retryDelay + " seconds");
-        failure(retryDelay * 1000);
+        onFailure(retryDelay * 1000);
     }
 
     /**
      * Call this when a task has failed and needs to be retried in millis ms later.
      * @param millis Number of millis to delay.
      */
-    private void failure(long millis) {
+    private void onFailure(long millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
@@ -87,7 +87,7 @@ public abstract class ProvisionTask implements Runnable {
             executeTask(mArguments);
         } catch (Exception e) {
             ProvisionLogger.logw("Found exception", e);
-            failure(e + "");
+            onFailure(e + "");
         }
     }
 

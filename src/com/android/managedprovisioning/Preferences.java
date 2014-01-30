@@ -50,8 +50,8 @@ public class Preferences {
     public static final String OWNER_KEY = "owner";
 
     // TODO Add download location support rather than pre-installed package.
-    public static final String MDM_PACKAGE = "dmPackage";
-    public static final String MDM_ADMIN_RECEIVER = "dmAdminReceiver";
+    public static final String MDM_PACKAGE = "mdmPackage";
+    public static final String MDM_ADMIN_RECEIVER = "mdmAdminReceiver";
 
     public static String[] propertiesToStore = {
             OWNER_KEY, WIFI_SSID_KEY, WIFI_PASSWORD_KEY, WIFI_SECURITY_TYPE_KEY,

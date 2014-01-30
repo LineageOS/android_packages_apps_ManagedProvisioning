@@ -61,7 +61,7 @@ public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.
             new NetworkMonitor(mContext, this);
             addWifiNetwork();
         } else {
-            success();
+            onSuccess();
         }
     }
 
@@ -99,7 +99,7 @@ public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.
                     (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
 
             if (!wifiManager.reconnect()) {
-                failure("Unable to connect to wifi");
+                onFailure("Unable to connect to wifi");
             }
 
         }
@@ -112,7 +112,7 @@ public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.
                 mWifiManager.getConnectionInfo().getSSID().equals(mWifiSsid)) {
             ProvisionLogger.logd("Connected to the correct network");
             mTaskManager.registerProvisioningState(ProvisioningState.CONNECTED_NETWORK, "");
-            success();
+            onSuccess();
             return;
         }
     }
@@ -120,16 +120,6 @@ public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.
     @Override
     public void onNetworkDisconnected() {
 
-    }
-
-    @Override
-    public void onCheckinComplete() {
-        if (NetworkMonitor.isConnectedToWifi(mContext) &&
-                mWifiManager.getConnectionInfo().getSSID().equals(mWifiSsid)) {
-            ProvisionLogger.logd("Already connected to the correct network");
-            success();
-            return;
-        }
     }
 
     @Override

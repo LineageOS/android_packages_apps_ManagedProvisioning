@@ -36,16 +36,12 @@ public class NetworkMonitor {
         void onNetworkConnected();
 
         void onNetworkDisconnected();
-
-        void onCheckinComplete();
     }
 
     private Context mContext = null;
     private Callback mCallback = null;
 
     private boolean mNetworkConnected = false;
-    private boolean mCheckinSucceeded = false;
-    private boolean mLastReported = false;
 
     private boolean mReceiverRegistered;
 
@@ -73,7 +69,6 @@ public class NetworkMonitor {
         context.registerReceiver(mBroadcastReceiver, filter);
         mReceiverRegistered = true;
 
-        onStateChanged();
     }
 
     /**
@@ -88,18 +83,6 @@ public class NetworkMonitor {
         if (mReceiverRegistered) {
             mContext.unregisterReceiver(mBroadcastReceiver);
             mReceiverRegistered = false;
-        }
-    }
-
-    /**
-     * Called when anything we're watching changes. Takes the appropriate action, idempotently.
-     */
-    private void onStateChanged() {
-        boolean up = (mNetworkConnected && mCheckinSucceeded);
-        if (up != mLastReported && mCallback != null) {
-            if ((mLastReported = up)) {
-                mCallback.onCheckinComplete();
-            }
         }
     }
 
@@ -118,8 +101,6 @@ public class NetworkMonitor {
                     mCallback.onNetworkDisconnected();
                 }
             }
-
-            onStateChanged();
         }
     };
 
@@ -141,9 +122,5 @@ public class NetworkMonitor {
 
     public boolean isNetworkConnected() {
         return mNetworkConnected;
-    }
-
-    public boolean isEverythingUp() {
-        return mNetworkConnected && mCheckinSucceeded;
     }
 }

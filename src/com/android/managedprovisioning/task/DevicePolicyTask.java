@@ -56,7 +56,7 @@ public class DevicePolicyTask extends ProvisionTask {
         installDevicePolicy();
 
         mTaskManager.registerProvisioningState(ProvisioningState.REGISTERED_DEVICE_POLICY, "");
-        success();
+        onSuccess();
     }
 
     private void findDevicePolicyComponentName() {

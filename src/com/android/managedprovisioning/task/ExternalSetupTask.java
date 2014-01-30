@@ -58,7 +58,7 @@ public class ExternalSetupTask extends ProvisionTask {
 
         if (TextUtils.isEmpty(pkg)) {
             ProvisionLogger.logd("No action, skipping external setup");
-            success();
+            onSuccess();
         } else {
             // TODO Add timeout for external task.
             registerReceiver();
@@ -98,13 +98,13 @@ public class ExternalSetupTask extends ProvisionTask {
                 boolean success = intent.getBooleanExtra(SUCCESS_KEY, false);
                 ProvisionLogger.logd("Got response " + success);
                 if (success) {
-                    success();
+                    onSuccess();
                 } else {
                     String reason = intent.getStringExtra(FAILURE_REASON_KEY);
                     if (reason == null) {
                         reason = "";
                     }
-                    failure(reason);
+                    onFailure(reason);
                 }
             }
         };
