@@ -23,6 +23,7 @@ import android.text.TextUtils;
 
 import com.android.managedprovisioning.ConfigureUserService;
 import com.android.managedprovisioning.ErrorDialog;
+import com.android.managedprovisioning.ManagedProvisioningActivity;
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
 
@@ -41,14 +42,8 @@ public class TaskManager {
     public static final String PROVISIONING_STATUS_REPORT_ACTION =
             "com.android.managedprovision.PROVISIONING_STATUS";
 
-    // TODO Allow different sets of tasks for different flows.
-    private final ProvisionTask[] mProvisionTasks = new ProvisionTask[] {
-            new AddWifiNetworkTask(),
-            new ExternalSetupTask(true),
-            new DevicePolicyTask(),
-            new ExternalSetupTask(false),
-            new SendCompleteTask()
-    };
+    // The setup tasks that need to be done. They depend on the type of provisioning.
+    private final ProvisionTask[] mProvisionTasks;
 
     private int mCurrentRetries;
     private int mCurrentTask;
@@ -77,6 +72,12 @@ public class TaskManager {
         mExecutor = Executors.newCachedThreadPool();
         mContext = context;
         mPreferences = preferences;
+
+        // Get the setup tasks for the type of provisioning that we are running.
+        boolean isDeviceOwner = mPreferences.getBooleanProperty(Preferences.IS_DEVICE_OWNER_KEY);
+        mProvisionTasks = isDeviceOwner
+                ? getDeviceOwnerProvisioningTasks() : getSecondaryProfileProvisioningTasks();
+
         mCurrentTask = mPreferences.getIntProperty(Preferences.TASK_STATE);
         if (mCurrentTask == -1) mCurrentTask = 0;
         for (int i = 0; i < mProvisionTasks.length; ++i) {
@@ -238,4 +239,20 @@ public class TaskManager {
         return mBumpBundle;
     }
 
+    private ProvisionTask[] getDeviceOwnerProvisioningTasks() {
+        return new ProvisionTask[] {
+                new AddWifiNetworkTask(),
+                new ExternalSetupTask(true),
+                new DevicePolicyTask(),
+                new ExternalSetupTask(false),
+                new SendCompleteTask()
+        };
+    }
+
+    private ProvisionTask[] getSecondaryProfileProvisioningTasks() {
+        return new ProvisionTask[] {
+                new CreateProfileTask(),
+                new SendCompleteTask()
+        };
+    }
 }

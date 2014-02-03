@@ -48,15 +48,15 @@ public class Preferences {
     public static final String EXTERNAL_PROVISION_PKG = "externalProvisionPkg";
 
     public static final String OWNER_KEY = "owner";
+    public static final String IS_DEVICE_OWNER_KEY = "isDeviceOwner";
 
     // TODO Add download location support rather than pre-installed package.
     public static final String MDM_PACKAGE = "mdmPackage";
     public static final String MDM_ADMIN_RECEIVER = "mdmAdminReceiver";
 
-    public static String[] propertiesToStore = {
-            OWNER_KEY, WIFI_SSID_KEY, WIFI_PASSWORD_KEY, WIFI_SECURITY_TYPE_KEY,
-            WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_HOST_KEY, TASK_RETRY_KEY,
-            EXTERNAL_PROVISION_PKG, MDM_ADMIN_RECEIVER, MDM_PACKAGE
+    public static String[] propertiesToStore = {OWNER_KEY, WIFI_SSID_KEY, WIFI_PASSWORD_KEY,
+        WIFI_SECURITY_TYPE_KEY, WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_HOST_KEY, TASK_RETRY_KEY,
+        EXTERNAL_PROVISION_PKG, MDM_ADMIN_RECEIVER, MDM_PACKAGE
     };
 
     private static final String ERROR_KEY = "error";

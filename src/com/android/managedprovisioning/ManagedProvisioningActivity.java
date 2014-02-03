@@ -43,8 +43,16 @@ import java.util.Properties;
 /**
  * Handles intents initiating the provisioning process then launches the ConfigureUserActivity
  * as needed to handle the provisioning flow.
+ *
+ * Provisioning types that are supported are:
+ * - Managed profile: A device that already has a user, but needs to be set up for a
+ *   secondary usage purpose (e.g using your personal device as a corporate device).
+ * - Device owner: a new device is set up for a single use case (e.g. a tablet with restricted
+ *   usage options, which a company wants to provide for clients
  */
 public class ManagedProvisioningActivity extends Activity {
+
+    public static final String PACKAGE_NAME = "com.android.managedprovisioning";
 
     // TODO: Put this action somewhere public.
     private static final String ACTION_PROVISION_MANAGED_PROFILE
@@ -64,9 +72,16 @@ public class ManagedProvisioningActivity extends Activity {
     private BroadcastReceiver mStatusReceiver;
     private Handler mHandler;
     private Runnable mTimeoutRunnable;
+    
+    private boolean mIsDeviceOwner;
 
+    /**
+     * States that provisioning can have completed. Not all states are reached for each of
+     * the provisioning types.
+     */
     public static class ProvisioningState {
-        public static final int CONNECTED_NETWORK = 0;
+        public static final int CONNECTED_NETWORK = 0; // Device owner only
+        public static final int CREATE_PROFILE = 1; // Managed profile only
         public static final int REGISTERED_DEVICE_POLICY = 1;
         public static final int SETUP_COMPLETE = 2;
         public static final int UPDATE = 3;
@@ -111,7 +126,7 @@ public class ManagedProvisioningActivity extends Activity {
         // Re-enabling currently takes place in the ConfigureUserService.
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(getComponentName(this),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
         mSettingsAdapter = new SettingsAdapter(getContentResolver());
 
@@ -146,23 +161,25 @@ public class ManagedProvisioningActivity extends Activity {
 
         Intent intent = getIntent();
 
-        // Build the provisioning intent from either the NFC properties or BYOD intent.
+        // Build the provisioning intent from either the NFC properties or managed profile intent.
         Intent provisioningIntent = null;
         if (!mHasLaunchedConfiguration) {
             if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
 
-                // NFC provisioning for Device Owner flow.
-                provisioningIntent = processNfcPayload(intent);
+              // NFC provisioning for Device Owner flow.
+              mIsDeviceOwner = true;
+              provisioningIntent = processNfcPayload(intent);
             } else if (ACTION_PROVISION_MANAGED_PROFILE.equals(intent.getAction())) {
 
-                // Programmatic intent for BYOD flow.
+                // Programmatic intent for managed profile flow.
                 // Add a flag so the ConfigureUserService knows this is the incoming intent.
 
-                // TODO: Uncomment this once the BYOD flow is in place. We can't trigger this
-                // activity yet since it'll make it possible to set device owner from an intent
+                // TODO: Uncomment this once the managed profile flow is in place. We can't trigger
+                // this activity yet since it'll make it possible to set device owner from an intent
                 // which we don't want.
-                // provisioningIntent = new Intent(intent);
-                // provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
+                mIsDeviceOwner = false;
+                provisioningIntent = new Intent(intent);
+                provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
             }
 
             if (provisioningIntent != null) {
@@ -170,14 +187,19 @@ public class ManagedProvisioningActivity extends Activity {
                 // TODO: Validate incoming intent.
 
                 // Launch ConfigureUserActivity.
+                provisioningIntent.putExtra(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);
                 provisioningIntent.setClass(getApplicationContext(), ConfigureUserActivity.class);
                 initialize(provisioningIntent);
 
                 startActivity(provisioningIntent);
                 mHasLaunchedConfiguration = true;
+            } else {
+                ProvisionLogger.logd("Unknown provisioning intent, exiting.");
+                cleanupAndFinish();
             }
         }
     }
+
     @Override
     public void onNewIntent(Intent intent) {
         setIntent(intent);
@@ -224,7 +246,7 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
-    // TODO This initialization should be different for BYOD (e.g don't set time zone).
+    // TODO Initialization should be different for managed profile flow (e.g don't set time zone).
     private void initialize(Intent provisioningIntent) {
         registerErrorTimeout(provisioningIntent);
         setTimeAndTimezone(provisioningIntent);

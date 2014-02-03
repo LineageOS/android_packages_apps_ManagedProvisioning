@@ -67,6 +67,11 @@
           android:text="@string/connecting_network" />
       <CheckedTextView
           xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/creating_profile"
+          style="@style/ChecklistItem"
+          android:text="@string/creating_profile" />
+      <CheckedTextView
+          xmlns:android="http://schemas.android.com/apk/res/android"
           android:id="@+id/device_policy"
           style="@style/ChecklistItem"
           android:text="@string/device_policy_reg" />

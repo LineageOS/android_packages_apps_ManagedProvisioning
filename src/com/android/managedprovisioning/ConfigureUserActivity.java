@@ -22,7 +22,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -41,10 +40,7 @@ import java.util.Map;
 public class ConfigureUserActivity extends Activity {
     private static final String STATE_KEY = "stateKey";
 
-    private Preferences mPrefs;
     private StatusReceiver mStatusReceiver;
-
-    private Handler mHander = new Handler();
 
     private BroadcastReceiver mProvisioningDoneReceiver;
 
@@ -54,6 +50,7 @@ public class ConfigureUserActivity extends Activity {
 
     static {
         mStateToCheckbox.put(ProvisioningState.CONNECTED_NETWORK, R.id.connecting_wifi);
+        mStateToCheckbox.put(ProvisioningState.CREATE_PROFILE, R.id.creating_profile);
         mStateToCheckbox.put(ProvisioningState.REGISTERED_DEVICE_POLICY, R.id.device_policy);
         mStateToCheckbox.put(ProvisioningState.SETUP_COMPLETE, R.id.setup_complete);
     }
@@ -171,29 +168,37 @@ public class ConfigureUserActivity extends Activity {
         // Do nothing.
     }
 
+    /**
+     * Sets preferences that are shared and persisted between activities and services.
+     * 
+     * TODO: Refactor Preferences so the state created by this method is clear.
+     */
     private void setPreferences(Intent intent) {
-        mPrefs = new Preferences(this);
+        Preferences prefs = new Preferences(this);
         // Copy most values directly from bump packet to preferences.
         for (String propertyName : Preferences.propertiesToStore) {
-            mPrefs.setProperty(propertyName, intent.getStringExtra(propertyName));
+            prefs.setProperty(propertyName, intent.getStringExtra(propertyName));
         }
 
-        if (mPrefs.getStringProperty(Preferences.WIFI_SSID_KEY) != null) {
-            String hiddenString = intent.getStringExtra(Preferences.WIFI_HIDDEN_KEY);
-            mPrefs.setProperty(Preferences.WIFI_HIDDEN_KEY, Boolean.parseBoolean(hiddenString));
+        prefs.setProperty(Preferences.IS_DEVICE_OWNER_KEY,
+                intent.getBooleanExtra(Preferences.IS_DEVICE_OWNER_KEY, true));
 
-            if (mPrefs.getStringProperty(Preferences.WIFI_PROXY_HOST_KEY) != null) {
+        if (prefs.getStringProperty(Preferences.WIFI_SSID_KEY) != null) {
+            String hiddenString = intent.getStringExtra(Preferences.WIFI_HIDDEN_KEY);
+            prefs.setProperty(Preferences.WIFI_HIDDEN_KEY, Boolean.parseBoolean(hiddenString));
+
+            if (prefs.getStringProperty(Preferences.WIFI_PROXY_HOST_KEY) != null) {
 
                 String proxyPortStr = intent.getStringExtra(Preferences.WIFI_PROXY_PORT_STRING_KEY);
                 try {
                     if (proxyPortStr != null) {
-                        mPrefs.setProperty(Preferences.WIFI_PROXY_PORT_INT_KEY,
+                        prefs.setProperty(Preferences.WIFI_PROXY_PORT_INT_KEY,
                                 Integer.valueOf(proxyPortStr));
                     }
                 } catch (NumberFormatException e) {
                     ProvisionLogger.loge("Proxy port " + proxyPortStr
                             + " could not be parsed as a number.");
-                    mPrefs.setProperty(Preferences.WIFI_PROXY_HOST_KEY, null);
+                    prefs.setProperty(Preferences.WIFI_PROXY_HOST_KEY, null);
                 }
             }
         }

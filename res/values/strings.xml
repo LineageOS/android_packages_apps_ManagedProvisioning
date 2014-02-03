@@ -30,6 +30,9 @@
   <!-- Progress status. Connecting to the WiFi network. [CHAR LIMIT=45] -->
   <string name="connecting_network">Connected to network.</string>
 
+  <!-- Progress status. Creating a secondary profile. [CHAR LIMIT=45] -->
+  <string name="creating_profile">Creating profile.</string>
+
   <!-- Progress status. Device Management installed as the owner. [CHAR LIMIT=45] -->
   <string name="device_policy_reg">Device Management Registered.</string>
 

@@ -33,7 +33,6 @@ import com.android.managedprovisioning.task.TaskManager;
  * the activities associated with provisioning, e.g. when external setup is triggered.
  */
 public class ConfigureUserService extends Service  {
-    public static final String OUR_PACKAGE = "com.android.managedprovision";
 
     public static final String PROVISIONING_COMPLETE_ACTION =
             "com.android.managedprovision.SETUP_COMPLETE_ACTION";
@@ -65,6 +64,7 @@ public class ConfigureUserService extends Service  {
                 taskRetries[i] = Integer.parseInt(split[i]);
             }
         }
+
         mTaskManager = new TaskManager(this, taskRetries, mPrefs, this);
     }
 
