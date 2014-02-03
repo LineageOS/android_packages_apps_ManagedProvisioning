@@ -30,10 +30,9 @@ public class SendCompleteTask extends ProvisionTask {
 
     @Override
     public void executeTask(String... params) {
-        mTaskManager.registerProvisioningState(ProvisioningState.SETUP_COMPLETE, "");
-        mTaskManager.getPreferences().setDoesntNeedResume(true);
-        mContext.sendBroadcast(new Intent(ConfigureUserService.PROVISIONING_COMPLETE_ACTION));
-        onSuccess();
+      mTaskManager.getPreferences().setDoesntNeedResume(true);
+      mTaskManager.registerProvisioningState(ProvisioningState.SETUP_COMPLETE, "");
+      onSuccess();
     }
 
     @Override

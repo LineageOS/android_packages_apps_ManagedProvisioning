@@ -33,18 +33,26 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.CheckedTextView;
 
 import com.android.internal.app.LocalePicker;
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 
 /**
- * Handles intents initiating the provisioning process then launches the ConfigureUserActivity
- * as needed to handle the provisioning flow.
+ * Handles intents initiating the provisioning process then launches the ConfigureUserService
+ * to start the provisioning tasks.
  *
  * Provisioning types that are supported are:
  * - Managed profile: A device that already has a user, but needs to be set up for a
@@ -60,6 +68,11 @@ public class ManagedProvisioningActivity extends Activity {
     private static final String ACTION_PROVISION_MANAGED_PROFILE
         = "android.managedprovisioning.PROVISION_MANAGED_PROFILE";
 
+    // TODO: Put this action somewhere public.
+    // TODO: Send this broadcast across to the managed profile.
+    public static final String PROVISIONING_COMPLETE_ACTION =
+            "com.android.managedprovision.SETUP_COMPLETE_ACTION";
+
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
     private static final String BUMP_LAUNCHER_ACTIVITY = ".ManagedProvisioningActivity";
 
@@ -68,15 +81,14 @@ public class ManagedProvisioningActivity extends Activity {
     // Five minute timeout by default.
     private static final String TIMEOUT_IN_MS = "300000";
 
-    private boolean mHasLaunchedConfiguration = false;
-
-    // Abstraction above settings for testing.
-    private SettingsAdapter mSettingsAdapter;
+    // Base string for keys that are used to save UI state in onSaveInstanceState.
+    private static final String BASE_STATE_KEY = "stateKey";
 
     private BroadcastReceiver mStatusReceiver;
     private Handler mHandler;
     private Runnable mTimeoutRunnable;
 
+    private boolean mHasLaunchedConfiguration = false;
     private boolean mIsDeviceOwner;
     private Preferences mPrefs;
 
@@ -91,6 +103,19 @@ public class ManagedProvisioningActivity extends Activity {
         public static final int SETUP_COMPLETE = 2;
         public static final int UPDATE = 3;
         public static final int ERROR = 4;
+    }
+
+    /**
+     * The UI shows a bunch of checkboxes that roughly correspond to states.
+     * If completing a state should flip a checkbox, it is registered here.
+     */
+    private static Map<Integer, Integer> mStateToCheckbox = new HashMap<Integer, Integer>();
+
+    static {
+      mStateToCheckbox.put(ProvisioningState.CONNECTED_NETWORK, R.id.connecting_wifi);
+      mStateToCheckbox.put(ProvisioningState.CREATE_PROFILE, R.id.creating_profile);
+      mStateToCheckbox.put(ProvisioningState.REGISTERED_DEVICE_POLICY, R.id.device_policy);
+      mStateToCheckbox.put(ProvisioningState.SETUP_COMPLETE, R.id.setup_complete);
     }
 
     // Catches updates in provisioning process, watching for errors or completion.
@@ -108,8 +133,14 @@ public class ManagedProvisioningActivity extends Activity {
                 ProvisionLogger.logd("Received state broadcast: " + state);
 
                 if (state != -1) {
+                  ProvisionLogger.logd("Received state broadcast: " + state);
+                  if (mStateToCheckbox.containsKey(state)) {
+                    completeCheckbox(state);
+                }
+
                     switch (state) {
                         case ProvisioningState.SETUP_COMPLETE:
+                            sendBroadcast(new Intent(PROVISIONING_COMPLETE_ACTION));
                             cleanupAndFinish();
                             break;
                         case ProvisioningState.ERROR:
@@ -135,7 +166,7 @@ public class ManagedProvisioningActivity extends Activity {
         pkgMgr.setComponentEnabledSetting(getComponentName(this),
             PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
-        mSettingsAdapter = new SettingsAdapter(getContentResolver());
+        SettingsAdapter settingsAdapter = new SettingsAdapter(getContentResolver());
 
         if (mStatusReceiver == null) {
             mStatusReceiver = new StatusReceiver();
@@ -144,7 +175,7 @@ public class ManagedProvisioningActivity extends Activity {
             registerReceiver(mStatusReceiver, filter);
         }
 
-        mPrefs = new Preferences(this);
+        initializePreferences(getIntent());
 
         // Avoid that provisioning is done twice.
         // Sometimes ManagedProvisioning gets killed and restarted, and needs to resume
@@ -152,11 +183,17 @@ public class ManagedProvisioningActivity extends Activity {
         // provisioning has already succeeded, in which case prefs.doesntNeedResume() returns true.
         // TODO Check if we need the settingsAdapter for tests.
         // TODO Add double bump checking/handling.
-        if (mPrefs.doesntNeedResume() && (mSettingsAdapter.isDeviceProvisioned())) {
+        if (mPrefs.doesntNeedResume() && (settingsAdapter.isDeviceProvisioned())) {
             finish();
         }
 
-        setContentView(R.layout.show_progress);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                                            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        final LayoutInflater inflater = getLayoutInflater();
+        final View contentView = inflater.inflate(R.layout.show_progress, null);
+        setContentView(contentView);
     }
 
     @Override
@@ -206,25 +243,37 @@ public class ManagedProvisioningActivity extends Activity {
         setIntent(intent);
     }
 
-    /**
-     * Start provisioning. The type of provisioning that is started depends on the input intent.
-     */
-    private void startProvisioning(Intent provisioningIntent) {
-        if (provisioningIntent != null) {
-
-            // TODO: Validate incoming intent.
-
-            // Launch ConfigureUserActivity.
-            provisioningIntent.putExtra(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);
-            provisioningIntent.setClass(getApplicationContext(), ConfigureUserActivity.class);
-            initialize(provisioningIntent);
-
-            startActivity(provisioningIntent);
-            mHasLaunchedConfiguration = true;
-        } else {
-            ProvisionLogger.logd("Unknown provisioning intent, exiting.");
-            cleanupAndFinish();
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        Iterator<Integer> stateIterator = mStateToCheckbox.keySet().iterator();
+        while (stateIterator.hasNext()) {
+            int state = stateIterator.next();
+            CheckedTextView cb = (CheckedTextView) findViewById(mStateToCheckbox.get(state));
+            if (cb != null) {
+                savedInstanceState.putBoolean(BASE_STATE_KEY + state, cb.isChecked());
+            }
         }
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        Iterator<Integer> stateIterator = mStateToCheckbox.keySet().iterator();
+        while (stateIterator.hasNext()) {
+            int state = stateIterator.next();
+            CheckedTextView cb = (CheckedTextView) findViewById(mStateToCheckbox.get(state));
+            if (cb != null) {
+                cb.setChecked(savedInstanceState.getBoolean(BASE_STATE_KEY + state));
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
     }
 
     /**
@@ -256,6 +305,26 @@ public class ManagedProvisioningActivity extends Activity {
         provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
 
         startProvisioning(intent);
+    }
+
+    /**
+     * Start provisioning. The type of provisioning that is started depends on the input intent.
+     */
+    private void startProvisioning(Intent provisioningIntent) {
+        if (provisioningIntent != null) {
+
+            // TODO: Validate incoming intent.
+
+            // Launch ConfigureUserService.
+            provisioningIntent.setClass(getApplicationContext(), ConfigureUserService.class);
+            initialize(provisioningIntent);
+
+            startService(provisioningIntent);
+            mHasLaunchedConfiguration = true;
+        } else {
+            ProvisionLogger.logd("Unknown provisioning intent, exiting.");
+            cleanupAndFinish();
+        }
     }
 
     /**
@@ -375,6 +444,50 @@ public class ManagedProvisioningActivity extends Activity {
             mStatusReceiver = null;
         }
     }
+
+    /**
+     * Sets preferences that are shared and persisted between activities and services.
+     *
+     * TODO: Refactor Preferences so the state created by this method is clear.
+     */
+    private void initializePreferences(Intent intent) {
+        mPrefs = new Preferences(this);
+        // Copy most values directly from bump packet to preferences.
+        for (String propertyName : Preferences.propertiesToStore) {
+            mPrefs.setProperty(propertyName, intent.getStringExtra(propertyName));
+        }
+
+        if (mPrefs.getStringProperty(Preferences.WIFI_SSID_KEY) != null) {
+            String hiddenString = intent.getStringExtra(Preferences.WIFI_HIDDEN_KEY);
+            mPrefs.setProperty(Preferences.WIFI_HIDDEN_KEY, Boolean.parseBoolean(hiddenString));
+
+            if (mPrefs.getStringProperty(Preferences.WIFI_PROXY_HOST_KEY) != null) {
+
+                String proxyPortStr = intent.getStringExtra(Preferences.WIFI_PROXY_PORT_STRING_KEY);
+                try {
+                    if (proxyPortStr != null) {
+                        mPrefs.setProperty(Preferences.WIFI_PROXY_PORT_INT_KEY,
+                                Integer.valueOf(proxyPortStr));
+                    }
+                } catch (NumberFormatException e) {
+                    ProvisionLogger.loge("Proxy port " + proxyPortStr
+                            + " could not be parsed as a number.");
+                    mPrefs.setProperty(Preferences.WIFI_PROXY_HOST_KEY, null);
+                }
+            }
+        }
+    }
+
+    protected void completeCheckbox(int state) {
+      ProvisionLogger.logd("Setting checkbox for state " + state);
+      Integer id = mStateToCheckbox.get(state);
+      if (id != null) {
+          CheckedTextView check = (CheckedTextView) findViewById(id);
+          if (check != null) {
+              check.setChecked(true);
+          }
+      }
+  }
 
     private void cleanupAndFinish() {
         ProvisionLogger.logd("Finishing NfcBumpActivity");

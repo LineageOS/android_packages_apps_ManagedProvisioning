@@ -34,8 +34,6 @@ import com.android.managedprovisioning.task.TaskManager;
  */
 public class ConfigureUserService extends Service  {
 
-    public static final String PROVISIONING_COMPLETE_ACTION =
-            "com.android.managedprovision.SETUP_COMPLETE_ACTION";
     public static final String PROVISIONING_STATUS_REPORT_ACTION =
             "com.android.managedprovision.PROVISIONING_STATUS";
 
