@@ -50,11 +50,11 @@ public class Preferences {
     public static final String OWNER_KEY = "owner";
     public static final String IS_DEVICE_OWNER_KEY = "isDeviceOwner";
 
+    public static final String DEFAULT_MANAGED_PROFILE_NAME_KEY = "defaultManagedProfileName";
+
     // TODO Add download location support rather than pre-installed package.
     public static final String MDM_PACKAGE_KEY = "mdmPackageName";
     public static final String MDM_ADMIN_RECEIVER_KEY = "mdmAdminReceiver";
-
-    public static final String DEFAULT_MANAGED_PROFILE_NAME_KEY = "defaultManagedProfileName";
 
     public static String[] propertiesToStore = {OWNER_KEY, WIFI_SSID_KEY, WIFI_PASSWORD_KEY,
         WIFI_SECURITY_TYPE_KEY, WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_HOST_KEY, TASK_RETRY_KEY,

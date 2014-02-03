@@ -20,38 +20,47 @@
 
   <!-- Name of the application [CHAR LIMIT=NONE] -->
   <string name="app_name">Device Provisioner</string>
-
   <!-- Title of the main activity. CHAR LIMIT=NONE] -->
   <string name="provisioning_device">Provisioning...</string>
 
-  <!-- Progress status. Adding the WiFi network. [CHAR LIMIT=45] -->
-  <string name="adding_network">Added network.</string>
+  <!-- Progress status -->
 
+  <!-- Adding the WiFi network. [CHAR LIMIT=45] -->
+  <string name="adding_network">Added network.</string>
   <!-- Progress status. Connecting to the WiFi network. [CHAR LIMIT=45] -->
   <string name="connecting_network">Connected to network.</string>
-
   <!-- Progress status. Creating a secondary profile. [CHAR LIMIT=45] -->
   <string name="creating_profile">Creating profile.</string>
-
   <!-- Progress status. Device Management installed as the owner. [CHAR LIMIT=45] -->
   <string name="device_policy_reg">Device Management Registered.</string>
-
   <!-- Progress status. Entire configuration has finished. [CHAR LIMIT=45] -->
   <string name="setup_complete">Setup Complete.</string>
 
+  <!-- Error messaging -->
+
   <!-- Title of the error dialog. CHAR LIMIT=NONE] -->
   <string name="error_title">Couldn\'t provision</string>
-
   <!-- Title of the button that will reset the device. CHAR LIMIT=NONE] -->
   <string name="reset_button">Reset</string>
-
   <!-- Explains what to do if provisioning fails. CHAR LIMIT=NONE] -->
   <string name="error_desc">Wait for the device to reset before trying again.\n\nMake
   sure the Wi-Fi connection is strong.</string>
-
   <!-- Error explanation for errors that occur after the device is provisioned. CHAR LIMIT=NONE] -->
   <string name="error_desc_secondary">Please reset this device and try again.</string>
-
   <!-- Button to go to backup and reset screen. CHAR LIMIT=NONE] -->
   <string name="backup_and_reset">Backup &amp; Reset</string>
+
+  <!-- Managed profile provisioning flow UI. -->
+
+  <!-- Title of the dialog that asks for user consent to create a profile. CHAR LIMIT=NONE] -->
+  <string name="what_is_corporate_profile">What is corporate profile?</string>
+  <!-- String for negative button on user consent dialog for creating a profile CHAR LIMIT=NONE] -->
+  <string name="no_thanks">No, thanks</string>
+    <!-- String for positive button on user consent dialog for creating a profile CHAR LIMIT=NONE] -->
+  <string name="lets_start">Let\'s start</string>
+  <!-- Placeholder for text that expains what a corporate profile is CHAR LIMIT=NONE] -->
+  <string name="placeholder">A managed profile is:.... By consenting here you are allowing
+      the creation of a managed profile that will be owned by the application "name". "Name" will
+      have full control over the new profile and any data created on that profile. </string>
+
 </resources>

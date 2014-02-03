@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning;
 
+import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
@@ -61,6 +63,8 @@ public class ManagedProvisioningActivity extends Activity {
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
     private static final String BUMP_LAUNCHER_ACTIVITY = ".ManagedProvisioningActivity";
 
+    private static final int USER_CONSENT_REQUEST_CODE = 1;
+
     // Five minute timeout by default.
     private static final String TIMEOUT_IN_MS = "300000";
 
@@ -74,6 +78,7 @@ public class ManagedProvisioningActivity extends Activity {
     private Runnable mTimeoutRunnable;
 
     private boolean mIsDeviceOwner;
+    private Preferences mPrefs;
 
     /**
      * States that provisioning can have completed. Not all states are reached for each of
@@ -116,7 +121,7 @@ public class ManagedProvisioningActivity extends Activity {
                 }
             }
         }
-    };
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -124,6 +129,8 @@ public class ManagedProvisioningActivity extends Activity {
 
         // TODO Find better location/flow for disabling the NFC receiver during provisioning.
         // Re-enabling currently takes place in the ConfigureUserService.
+        // We need to reassess the whole of enabling/disabling and not provisioning twice for
+        // both managed profile and device owner provisioning.
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(getComponentName(this),
             PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
@@ -137,7 +144,7 @@ public class ManagedProvisioningActivity extends Activity {
             registerReceiver(mStatusReceiver, filter);
         }
 
-        Preferences prefs = new Preferences(this);
+        mPrefs = new Preferences(this);
 
         // Avoid that provisioning is done twice.
         // Sometimes ManagedProvisioning gets killed and restarted, and needs to resume
@@ -145,7 +152,7 @@ public class ManagedProvisioningActivity extends Activity {
         // provisioning has already succeeded, in which case prefs.doesntNeedResume() returns true.
         // TODO Check if we need the settingsAdapter for tests.
         // TODO Add double bump checking/handling.
-        if (prefs.doesntNeedResume() && (mSettingsAdapter.isDeviceProvisioned())) {
+        if (mPrefs.doesntNeedResume() && (mSettingsAdapter.isDeviceProvisioned())) {
             finish();
         }
 
@@ -156,52 +163,99 @@ public class ManagedProvisioningActivity extends Activity {
     public void onResume() {
         super.onResume();
 
-        Intent intent = getIntent();
-
-        // Build the provisioning intent from either the NFC properties or managed profile intent.
-        Intent provisioningIntent = null;
         if (!mHasLaunchedConfiguration) {
-            if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-
-              // NFC provisioning for Device Owner flow.
-              mIsDeviceOwner = true;
-              provisioningIntent = processNfcPayload(intent);
-            } else if (ACTION_PROVISION_MANAGED_PROFILE.equals(intent.getAction())) {
-
-                // TODO: Ask user for permission to create a secondary profile.
-                
-                // Programmatic intent for managed profile flow.
-                // Add a flag so the ConfigureUserService knows this is the incoming intent.
-                // TODO: Uncomment this once a confirmation dialogue is shown before provisioning.
-                // We can't trigger this activity yet since it'll make it possible to create a
-                // managed profile from an intent without user consent.
-                // which we don't want.
-//                mIsDeviceOwner = false;
-//                provisioningIntent = new Intent(intent);
-//                provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
-            }
-
-            if (provisioningIntent != null) {
-
-                // TODO: Validate incoming intent. E.g check that package name provided.
-
-                // Launch ConfigureUserActivity.
-                provisioningIntent.putExtra(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);
-                provisioningIntent.setClass(getApplicationContext(), ConfigureUserActivity.class);
-                initialize(provisioningIntent);
-
-                startActivity(provisioningIntent);
-                mHasLaunchedConfiguration = true;
-            } else {
-                ProvisionLogger.logd("Unknown provisioning intent, exiting.");
-                cleanupAndFinish();
+            if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {
+                mIsDeviceOwner = true;
+                mPrefs.setProperty(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);
+                startDeviceOwnerProvisioning();
+            } else if (ACTION_PROVISION_MANAGED_PROFILE.equals(getIntent().getAction())) {
+                mIsDeviceOwner = false;
+                mPrefs.setProperty(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);
+                startManagedProfileProvisioningAfterConsent();
             }
         }
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        // Wait for the user to consent before starting managed profile provisioning.
+        if (requestCode == USER_CONSENT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+
+                boolean userConsented = data.getBooleanExtra(USER_CONSENT_KEY, false);
+
+                // Only start provisioning if the user has consented.
+                if (userConsented) {
+                    startManagedProfileProvisioning();
+                } else {
+                    // TODO: Proper error handling to report back to the mdm.
+                    ProvisionLogger.logd("User did not consent to profile creation, "
+                            + "cancelling provisioing");
+                    cleanupAndFinish();
+                }
+            }
+            if (resultCode == RESULT_CANCELED)
+                ProvisionLogger.logd("User consent cancelled.");
+                cleanupAndFinish();
+            }
+    }
+
+    @Override
     public void onNewIntent(Intent intent) {
         setIntent(intent);
+    }
+
+    /**
+     * Start provisioning. The type of provisioning that is started depends on the input intent.
+     */
+    private void startProvisioning(Intent provisioningIntent) {
+        if (provisioningIntent != null) {
+
+            // TODO: Validate incoming intent.
+
+            // Launch ConfigureUserActivity.
+            provisioningIntent.putExtra(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);
+            provisioningIntent.setClass(getApplicationContext(), ConfigureUserActivity.class);
+            initialize(provisioningIntent);
+
+            startActivity(provisioningIntent);
+            mHasLaunchedConfiguration = true;
+        } else {
+            ProvisionLogger.logd("Unknown provisioning intent, exiting.");
+            cleanupAndFinish();
+        }
+    }
+
+    /**
+     *  Build the provisioning intent from the NFC properties and start the device owner
+     *  provisioning.
+     */
+    private void startDeviceOwnerProvisioning() {
+        Intent intent = getIntent();
+        Intent provisioningIntent = processNfcPayload(intent);
+        startProvisioning(provisioningIntent);
+    }
+
+    /**
+     *  Build the provisioning intent from the managed profile intent and start the managed profile
+     *  provisioning.
+     */
+    private void startManagedProfileProvisioningAfterConsent() {
+        Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
+        startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
+
+        // Wait for user consent, continue in onActivityResult();
+    }
+
+    private void startManagedProfileProvisioning() {
+        Intent intent = getIntent();
+        Intent provisioningIntent = new Intent(intent);
+
+        // Add a flag so the ConfigureUserService knows this is the incoming intent.
+        provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
+
+        startProvisioning(intent);
     }
 
     /**
@@ -328,6 +382,13 @@ public class ManagedProvisioningActivity extends Activity {
         if (mHandler != null) {
             mHandler.removeCallbacks(mTimeoutRunnable);
         }
+
+        PackageManager pkgMgr = getPackageManager();
+        pkgMgr.setComponentEnabledSetting(
+                ManagedProvisioningActivity.getComponentName(this),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+
         finish();
     }
 
@@ -336,8 +397,7 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private void error(String logMsg, Throwable t) {
-        Preferences prefs = new Preferences(this);
-        prefs.setError(logMsg.toString());
+        mPrefs.setError(logMsg.toString());
         ProvisionLogger.loge("Error: " + logMsg, t);
         ErrorDialog.showError(ManagedProvisioningActivity.this);
     }

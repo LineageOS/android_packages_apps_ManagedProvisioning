@@ -83,6 +83,11 @@
             android:launchMode="singleTop"
             android:theme="@style/ErrorTheme" >
         </activity>
+        <activity
+            android:name="UserConsentActivity"
+            android:immersive="true"
+            android:launchMode="singleTop" >
+        </activity>
 
         <service android:name="com.android.managedprovisioning.ConfigureUserService" />
   </application>
