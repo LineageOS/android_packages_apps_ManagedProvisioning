@@ -32,7 +32,7 @@ import com.android.managedprovisioning.task.TaskManager;
  * Service that allows long running operations when configuring the user.  This out lives
  * the activities associated with provisioning, e.g. when external setup is triggered.
  */
-public class ConfigureUserService extends Service  {
+public class DeviceProvisioningService extends Service  {
 
     public static final String PROVISIONING_STATUS_REPORT_ACTION =
             "com.android.managedprovision.PROVISIONING_STATUS";
@@ -92,7 +92,7 @@ public class ConfigureUserService extends Service  {
      * consider removing this.
      */
     public void failedAndRetry() {
-        Intent intent = new Intent(this, ConfigureUserService.class);
+        Intent intent = new Intent(this, DeviceProvisioningService.class);
         PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         long timeTillTrigger = RETRY_TIME_MS + SystemClock.elapsedRealtime();
@@ -102,8 +102,8 @@ public class ConfigureUserService extends Service  {
     }
 
     /**
-     * Called by the TaskManager when it wants to shut down the ConfigureUserService because it is
-     * done.
+     * Called by the TaskManager when it wants to shut down the DeviceProvisioningService because it
+     * is done.
      */
     public void stop() {
         PackageManager pkgMgr = getPackageManager();

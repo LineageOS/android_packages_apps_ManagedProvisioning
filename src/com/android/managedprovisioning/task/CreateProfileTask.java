@@ -17,16 +17,14 @@
 package com.android.managedprovisioning.task;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserManager;
-import android.content.pm.ApplicationInfo;
-import java.util.List;
-import android.util.Log;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 
 import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningState;
 import com.android.managedprovisioning.Preferences;
@@ -34,7 +32,9 @@ import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import java.util.Arrays;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 /**
  * This tasks
  *     - creates a secondary user

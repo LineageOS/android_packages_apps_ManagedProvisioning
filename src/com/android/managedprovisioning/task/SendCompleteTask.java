@@ -16,11 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
-import android.content.Intent;
-
-import com.android.managedprovisioning.ConfigureUserService;
 import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningState;
-
 
 public class SendCompleteTask extends ProvisionTask {
 
