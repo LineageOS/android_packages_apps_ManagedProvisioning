@@ -33,7 +33,7 @@ import java.util.concurrent.Executors;
 /**
  * Manages a set of ProvisionTask objects to be executed in order if each one
  * succeeds.  Also handles some central functionality for those tasks such as
- * status reporting and access to data passed in the bump.
+ * status reporting and access to data passed in the intent that started provisioning.
  */
 public class TaskManager {
     // Allow retries so that exponential backoff is around a minute.
@@ -64,7 +64,7 @@ public class TaskManager {
     private boolean mHasStarted;
 
     private int[] mTaskRetries;
-    private Bundle mBumpBundle;
+    private Bundle mProvisioningBundle;
 
     public TaskManager(Context context, int[] taskRetries, Preferences preferences,
             ConfigureUserService service) {
@@ -130,7 +130,7 @@ public class TaskManager {
 
     public void finish() {
         ProvisionLogger.logd("ConfigureUserService - All tasks complete, shutting down");
-        mPreferences.setProperty(Preferences.TASK_STATE, mProvisionTasks.length);
+        mPreferences.setProperty(Preferences.TASK_STATE, 0);
         mService.stop();
     }
 
@@ -228,15 +228,15 @@ public class TaskManager {
         }
     }
 
-    public void setBumpIntent(Intent intent) {
-        mBumpBundle = intent.getExtras();
+    public void setOriginalProvisioningIntent(Intent intent) {
+        mProvisioningBundle = intent.getExtras();
     }
 
     /**
-     * Returns the bundle that contains the bump parameters.
+     * Returns the bundle that contains the provisioning parameters.
      */
-    public Bundle getBumpBundle() {
-        return mBumpBundle;
+    public Bundle getProvisioningBundle() {
+        return mProvisioningBundle;
     }
 
     private ProvisionTask[] getDeviceOwnerProvisioningTasks() {

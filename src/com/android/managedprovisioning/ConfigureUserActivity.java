@@ -37,6 +37,7 @@ import java.util.Map;
 /**
  * This activity launches ConfigureUserService. It gets called from the ManagedProvisioningActivity.
  */
+// TODO: Merge this activity with the ManagedProvisioningActivity.
 public class ConfigureUserActivity extends Activity {
     private static final String STATE_KEY = "stateKey";
 
@@ -145,7 +146,7 @@ public class ConfigureUserActivity extends Activity {
         mProvisioningDoneReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                ProvisionLogger.logv("NFC setup done.");
+                ProvisionLogger.logv("Setup done.");
                 mProvisioningDoneReceiver = null;
                 unregisterReceiver(this);
                 finish();
@@ -165,12 +166,12 @@ public class ConfigureUserActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        // Do nothing.
+        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
     }
 
     /**
      * Sets preferences that are shared and persisted between activities and services.
-     * 
+     *
      * TODO: Refactor Preferences so the state created by this method is clear.
      */
     private void setPreferences(Intent intent) {

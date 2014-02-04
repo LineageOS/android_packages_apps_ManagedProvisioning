@@ -48,7 +48,7 @@ import java.util.Properties;
  * - Managed profile: A device that already has a user, but needs to be set up for a
  *   secondary usage purpose (e.g using your personal device as a corporate device).
  * - Device owner: a new device is set up for a single use case (e.g. a tablet with restricted
- *   usage options, which a company wants to provide for clients
+ *   usage options, which a company wants to provide for clients.
  */
 public class ManagedProvisioningActivity extends Activity {
 
@@ -72,7 +72,7 @@ public class ManagedProvisioningActivity extends Activity {
     private BroadcastReceiver mStatusReceiver;
     private Handler mHandler;
     private Runnable mTimeoutRunnable;
-    
+
     private boolean mIsDeviceOwner;
 
     /**
@@ -137,19 +137,16 @@ public class ManagedProvisioningActivity extends Activity {
             registerReceiver(mStatusReceiver, filter);
         }
 
+        Preferences prefs = new Preferences(this);
+
+        // Avoid that provisioning is done twice.
         // Sometimes ManagedProvisioning gets killed and restarted, and needs to resume
         // provisioning already in progress. Provisioning doesn't need to resume if
         // provisioning has already succeeded, in which case prefs.doesntNeedResume() returns true.
-
-        Preferences prefs = new Preferences(this);
-
         // TODO Check if we need the settingsAdapter for tests.
+        // TODO Add double bump checking/handling.
         if (prefs.doesntNeedResume() && (mSettingsAdapter.isDeviceProvisioned())) {
-            // TODO Add double bump checking/handling.
-
-            if ((savedInstanceState == null) || prefs.doesntNeedResume()) {
-                finish();
-            }
+            finish();
         }
 
         setContentView(R.layout.show_progress);
@@ -171,20 +168,22 @@ public class ManagedProvisioningActivity extends Activity {
               provisioningIntent = processNfcPayload(intent);
             } else if (ACTION_PROVISION_MANAGED_PROFILE.equals(intent.getAction())) {
 
+                // TODO: Ask user for permission to create a secondary profile.
+                
                 // Programmatic intent for managed profile flow.
                 // Add a flag so the ConfigureUserService knows this is the incoming intent.
-
-                // TODO: Uncomment this once the managed profile flow is in place. We can't trigger
-                // this activity yet since it'll make it possible to set device owner from an intent
+                // TODO: Uncomment this once a confirmation dialogue is shown before provisioning.
+                // We can't trigger this activity yet since it'll make it possible to create a
+                // managed profile from an intent without user consent.
                 // which we don't want.
-                mIsDeviceOwner = false;
-                provisioningIntent = new Intent(intent);
-                provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
+//                mIsDeviceOwner = false;
+//                provisioningIntent = new Intent(intent);
+//                provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
             }
 
             if (provisioningIntent != null) {
 
-                // TODO: Validate incoming intent.
+                // TODO: Validate incoming intent. E.g check that package name provided.
 
                 // Launch ConfigureUserActivity.
                 provisioningIntent.putExtra(Preferences.IS_DEVICE_OWNER_KEY, mIsDeviceOwner);

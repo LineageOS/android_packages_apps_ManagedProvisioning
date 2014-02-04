@@ -82,7 +82,7 @@ public class ExternalSetupTask extends ProvisionTask {
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(IS_PRE_MDM_KEY, mIsPreMdm);
-            intent.putExtras(mTaskManager.getBumpBundle());
+            intent.putExtras(mTaskManager.getProvisioningBundle());
 
             mContext.startActivity(intent);
         } else {

@@ -16,31 +16,67 @@
 
 package com.android.managedprovisioning.task;
 
-import com.android.managedprovisioning.ProvisionLogger;
+import android.content.Context;
+import android.content.pm.IPackageManager;
+import android.content.pm.UserInfo;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.UserManager;
+
 import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningState;
+import com.android.managedprovisioning.Preferences;
+import com.android.managedprovisioning.ProvisionLogger;
 
 /**
- * This tasks creates a secondary user and sets the application that triggered the provisioning as
- * the profile owner for this user.
- *
- * TODO This is a stubb
- *   - Create a secondary user as related user to primary user
- *   - start new activity as secondary user
- *   - set secondary user as profile owner
- *   - disable mdm for primary user (either here or elsewhere)
- *
- * TODO Here or somewhere else in the BYOD flow check for permissions and ask user for their
- *      permission to create a secondary profile.
+ * This tasks
+ *     - creates a secondary user
+ *     - installs the mdm app that started the provisioning on that new profile
+ *     - sets the mdm as the profile owner for the new profile
+ *     - removes the mdm from the primary user
  */
 public class CreateProfileTask extends ProvisionTask {
 
     public CreateProfileTask() {
-        super("Create Profile task");
+        super("Create Profile");
     }
 
     @Override
     public void executeTask(String... params) {
-        ProvisionLogger.logd("creating secondary user stubb");
+
+        // Preferences that persist initial parameters of provisioning.
+        Preferences prefs = mTaskManager.getPreferences();
+
+        IPackageManager ipm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+        UserManager userManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+        String mdmPackageName = prefs.getStringProperty(Preferences.MDM_PACKAGE_KEY);
+        String defaultManagedProfileName = prefs.getStringProperty(
+                Preferences.DEFAULT_MANAGED_PROFILE_NAME_KEY);
+        // TODO: allow sending a default bitmap for the profile image in the intent.
+
+        // Create the new user for the managed profile
+        // TODO make this a related user.
+        UserInfo user = userManager.createUser(defaultManagedProfileName, 0);
+
+        // Install the mdm for the new profile.
+        // TODO: Include proper error handling for both catch blocks to report back to the mdm.
+        try {
+            ipm.installExistingPackageAsUser(mdmPackageName, user.id);
+        } catch (RemoteException e) {
+            ProvisionLogger.logd("RemoteException, installing the mobile device management application "
+                    + "for the managed profile failed.");
+        }
+
+        // TODO: Set the mdm as the profile owner of the managed profile.
+
+        // Remove the mdm from the primary user.
+        try {
+            ipm.deletePackageAsUser(mdmPackageName, null, userManager.getUserHandle(), 0);
+        } catch (Exception e) {
+            ProvisionLogger.logd("RemoteException, removing the mobile device management application "
+                    + "from the primary user failed failed.");
+            e.printStackTrace();
+        }
+
         mTaskManager.registerProvisioningState(ProvisioningState.CREATE_PROFILE, "");
         onSuccess();
     }

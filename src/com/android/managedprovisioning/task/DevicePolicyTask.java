@@ -60,9 +60,9 @@ public class DevicePolicyTask extends ProvisionTask {
     }
 
     private void findDevicePolicyComponentName() {
-        mPkg = mTaskManager.getPreferences().getStringProperty(Preferences.MDM_PACKAGE);
+        mPkg = mTaskManager.getPreferences().getStringProperty(Preferences.MDM_PACKAGE_KEY);
         String adminReceiver =
-                mTaskManager.getPreferences().getStringProperty(Preferences.MDM_ADMIN_RECEIVER);
+                mTaskManager.getPreferences().getStringProperty(Preferences.MDM_ADMIN_RECEIVER_KEY);
         if (!TextUtils.isEmpty(adminReceiver) && adminReceiver.startsWith(".")) {
             adminReceiver = mPkg + adminReceiver;
         }

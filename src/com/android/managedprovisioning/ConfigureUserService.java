@@ -42,7 +42,7 @@ public class ConfigureUserService extends Service  {
     public static final String PROVISIONING_STATUS_REPORT_EXTRA = "statusReport";
     public static final String PROVISIONING_STATUS_TEXT_EXTRA = "statusText";
 
-    public static final String ORIGINAL_INTENT_KEY = "bumpIntent";
+    public static final String ORIGINAL_INTENT_KEY = "originalProvisioningIntent";
 
     // 1 Minute.
     private static final long RETRY_TIME_MS = 60000;
@@ -76,7 +76,7 @@ public class ConfigureUserService extends Service  {
         // parameters. We pass it to the external setup if the initial intent indicates that there
         // is one by containing Preferences.EXTERNAL_PROVISION_PKG.
         if (intent.getBooleanExtra(ORIGINAL_INTENT_KEY, false)) {
-            mTaskManager.setBumpIntent(intent);
+            mTaskManager.setOriginalProvisioningIntent(intent);
         }
 
         if (!mTaskManager.isStarted()) {
