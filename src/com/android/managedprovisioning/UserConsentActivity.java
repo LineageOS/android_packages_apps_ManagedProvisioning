@@ -21,10 +21,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Activity to show a dialog that asks the user for their content to create a managed profile.
- * 
+ *
  * This is a separate activity instead of a standard Dialog, because it needs to be shown on top
  * of other activities that are full screen immersive and therefore don't allow popups.
  */
@@ -39,6 +40,10 @@ public class UserConsentActivity extends Activity {
         final LayoutInflater inflater = getLayoutInflater();
         final View contentView = inflater.inflate(R.layout.user_consent, null);
         setContentView(contentView);
+
+        TextView titleView = (TextView) contentView.findViewById(R.id.title);
+        String title = getResources().getString(R.string.what_is_corporate_profile);
+        titleView.setText(title.toUpperCase());
 
         Button negativeButton = (Button) contentView.findViewById(R.id.negative_button);
         Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);

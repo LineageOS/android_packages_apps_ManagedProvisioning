@@ -103,4 +103,37 @@
         <item name="android:textSize">@dimen/description_text_size</item>
     </style>
 
+    <style name="UserConsentBackground">
+        <item name="android:background">@color/light_grey_user_consent</item>
+        <item name="android:textColor">@color/dark_grey_user_consent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">20dip</item>
+    </style>
+
+    <style name="UserConsentTitle">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/dark_grey_user_consent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name ="android:layout_weight">1</item>
+    </style>
+
+    <style name="UserConsentMainText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/medium_grey_user_consent</item>
+        <item name="android:padding">30dip</item>
+        <item name="android:layout_height">0dp</item>
+        <item name ="android:layout_weight">5</item>
+    </style>
+
+    <style name="UserConsentButtonBar">
+        <item name="android:paddingTop">50dip</item>
+        <item name="android:layout_height">0dp</item>
+        <item name ="android:layout_weight">1</item>
+        </style>
+
+    <style name="UserConsentButton">
+        <item name="android:layout_height">0dp</item>
+        <item name ="android:layout_weight">1</item>
+    </style>
+
 </resources>

@@ -20,32 +20,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/UserConsentBackground">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:hint="@string/what_is_corporate_profile"
+        style="@style/UserConsentTitle"/>
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/what_is_corporate_profile" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/placeholder" />
+        android:hint="@string/placeholder"
+        style="@style/UserConsentMainText"/>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        style="@style/UserConsentButtonBar">
         <Button
             android:id="@+id/negative_button"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="@string/no_thanks"/>
+            android:text="@string/no_thanks"
+            style="@style/UserConsentButton"/>
         <Button
             android:id="@+id/positive_button"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="@string/lets_start"/>
+            android:text="@string/lets_start"
+            style="@style/UserConsentButton"/>
      </LinearLayout>
 
 </LinearLayout>

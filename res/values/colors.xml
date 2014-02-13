@@ -22,4 +22,9 @@
     <color name="checklist_item_color">#FFFFFF</color>
 
     <color name="error_title_color">#EE2222</color>
+
+    <color name="dark_grey_user_consent">#454545</color>
+    <color name="medium_grey_user_consent">#E6E6E6</color>
+    <color name="light_grey_user_consent">#F8F8F8</color>
+
 </resources>
