@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A temporary list of apps to be retained in the managed profile. This will be removed in a future CL. -->
+    <string-array name="required_managedprofile_apps">
+        <item>com.android.providers.userdictionary</item>
+        <item>com.google.android.marvin.talkback</item>
+        <item>com.android.inputdevices</item>
+        <item>com.google.android.apps.inputmethod.hindi</item>
+        <item>com.google.android.inputmethod.korean</item>
+        <item>com.google.android.inputmethod.pinyin</item>
+    </string-array>
+</resources>
