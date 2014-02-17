@@ -251,7 +251,7 @@ public class TaskManager {
 
     private ProvisionTask[] getSecondaryProfileProvisioningTasks() {
         return new ProvisionTask[] {
-                new CreateProfileTask(),
+                new CreateProfileTask(mContext),
                 new SendCompleteTask()
         };
     }
