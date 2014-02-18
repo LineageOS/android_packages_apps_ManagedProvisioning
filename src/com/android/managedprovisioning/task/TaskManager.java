@@ -21,8 +21,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.DeviceProvisioningService;
+import com.android.managedprovisioning.ConfigureUserService;
 import com.android.managedprovisioning.ErrorDialog;
+import com.android.managedprovisioning.ManagedProvisioningActivity;
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
 
@@ -58,7 +59,7 @@ public class TaskManager {
     private Context mContext;
     private Preferences mPreferences;
 
-    private DeviceProvisioningService mService;
+    private ConfigureUserService mService;
 
     private boolean mHasStarted;
 
@@ -66,7 +67,7 @@ public class TaskManager {
     private Bundle mProvisioningBundle;
 
     public TaskManager(Context context, int[] taskRetries, Preferences preferences,
-            DeviceProvisioningService service) {
+            ConfigureUserService service) {
         mCurrentRetries = 0;
         mExecutor = Executors.newCachedThreadPool();
         mContext = context;
@@ -128,7 +129,7 @@ public class TaskManager {
     }
 
     public void finish() {
-        ProvisionLogger.logd("DeviceProvisioningService - All tasks complete, shutting down");
+        ProvisionLogger.logd("ConfigureUserService - All tasks complete, shutting down");
         mPreferences.setProperty(Preferences.TASK_STATE, 0);
         mService.stop();
     }
@@ -198,10 +199,10 @@ public class TaskManager {
 
         Intent message = new Intent(PROVISIONING_STATUS_REPORT_ACTION);
         if (state != -1) {
-            message.putExtra(DeviceProvisioningService.PROVISIONING_STATUS_REPORT_EXTRA, state);
+            message.putExtra(ConfigureUserService.PROVISIONING_STATUS_REPORT_EXTRA, state);
         }
         if (!TextUtils.isEmpty(reason)) {
-            message.putExtra(DeviceProvisioningService.PROVISIONING_STATUS_TEXT_EXTRA, reason);
+            message.putExtra(ConfigureUserService.PROVISIONING_STATUS_TEXT_EXTRA, reason);
         }
         mContext.sendBroadcast(message);
     }
