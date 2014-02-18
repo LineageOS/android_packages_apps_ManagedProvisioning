@@ -124,8 +124,10 @@ public class CreateProfileTask extends ProvisionTask {
                         + app.packageName + " for the managed profile");
             }
 
-            boolean isRequired = packageInfo.requiredForAllUsers
-                    || requiredApps.contains(app.packageName);
+            // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
+            boolean isRequired = requiredApps.contains(app.packageName)
+                    || packageInfo.requiredForAllUsers
+                    || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0;
 
             if (!isRequired) {
                 try {
