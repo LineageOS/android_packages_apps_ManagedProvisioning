@@ -32,7 +32,6 @@ import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningS
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.ConfigureUserActivity;
 import java.util.Arrays;
 
 import java.util.HashSet;
