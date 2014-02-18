@@ -51,7 +51,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Handles intents initiating the provisioning process then launches the DeviceProvisioningService
+ * Handles intents initiating the provisioning process then launches the ConfigureUserService
  * to start the provisioning tasks.
  *
  * Provisioning types that are supported are:
@@ -124,12 +124,12 @@ public class ManagedProvisioningActivity extends Activity {
         public void onReceive(Context context, Intent intent) {
             ProvisionLogger.logd("Received broadcast: " + intent.getAction());
 
-            if (DeviceProvisioningService.PROVISIONING_STATUS_REPORT_ACTION.
+            if (ConfigureUserService.PROVISIONING_STATUS_REPORT_ACTION.
                     equals(intent.getAction())) {
                 int state = intent.
-                        getIntExtra(DeviceProvisioningService.PROVISIONING_STATUS_REPORT_EXTRA, -1);
+                        getIntExtra(ConfigureUserService.PROVISIONING_STATUS_REPORT_EXTRA, -1);
                 String stateText = intent.
-                        getStringExtra(DeviceProvisioningService.PROVISIONING_STATUS_TEXT_EXTRA);
+                        getStringExtra(ConfigureUserService.PROVISIONING_STATUS_TEXT_EXTRA);
                 ProvisionLogger.logd("Received state broadcast: " + state);
 
                 if (state != -1) {
@@ -159,7 +159,7 @@ public class ManagedProvisioningActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         // TODO Find better location/flow for disabling the NFC receiver during provisioning.
-        // Re-enabling currently takes place in the DeviceProvisioningService.
+        // Re-enabling currently takes place in the ConfigureUserService.
         // We need to reassess the whole of enabling/disabling and not provisioning twice for
         // both managed profile and device owner provisioning.
         PackageManager pkgMgr = getPackageManager();
@@ -171,7 +171,7 @@ public class ManagedProvisioningActivity extends Activity {
         if (mStatusReceiver == null) {
             mStatusReceiver = new StatusReceiver();
             IntentFilter filter = new IntentFilter();
-            filter.addAction(DeviceProvisioningService.PROVISIONING_STATUS_REPORT_ACTION);
+            filter.addAction(ConfigureUserService.PROVISIONING_STATUS_REPORT_ACTION);
             registerReceiver(mStatusReceiver, filter);
         }
 
@@ -301,8 +301,8 @@ public class ManagedProvisioningActivity extends Activity {
         Intent intent = getIntent();
         Intent provisioningIntent = new Intent(intent);
 
-        // Add a flag so the DeviceProvisioningService knows this is the incoming intent.
-        provisioningIntent.putExtra(DeviceProvisioningService.ORIGINAL_INTENT_KEY, true);
+        // Add a flag so the ConfigureUserService knows this is the incoming intent.
+        provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
 
         startProvisioning(intent);
     }
@@ -315,8 +315,8 @@ public class ManagedProvisioningActivity extends Activity {
 
             // TODO: Validate incoming intent.
 
-            // Launch DeviceProvisioningService.
-            provisioningIntent.setClass(getApplicationContext(), DeviceProvisioningService.class);
+            // Launch ConfigureUserService.
+            provisioningIntent.setClass(getApplicationContext(), ConfigureUserService.class);
             initialize(provisioningIntent);
 
             startService(provisioningIntent);
@@ -360,7 +360,7 @@ public class ManagedProvisioningActivity extends Activity {
                 String propName = (String) propertyNames.nextElement();
                 provisioningIntent.putExtra(propName, props.getProperty(propName));
             }
-            provisioningIntent.putExtra(DeviceProvisioningService.ORIGINAL_INTENT_KEY, true);
+            provisioningIntent.putExtra(ConfigureUserService.ORIGINAL_INTENT_KEY, true);
             return provisioningIntent;
         } catch (IOException e) {
             error("Couldn't load payload", e);
