@@ -175,7 +175,7 @@ public class ManagedProvisioningActivity extends Activity {
             registerReceiver(mStatusReceiver, filter);
         }
 
-        initializePreferences(getIntent());
+        mPrefs = new Preferences(this);
 
         // Avoid that provisioning is done twice.
         // Sometimes ManagedProvisioning gets killed and restarted, and needs to resume
@@ -315,10 +315,13 @@ public class ManagedProvisioningActivity extends Activity {
 
             // TODO: Validate incoming intent.
 
+            initializePreferences(provisioningIntent);
+
             // Launch DeviceProvisioningService.
             provisioningIntent.setClass(getApplicationContext(), DeviceProvisioningService.class);
             initialize(provisioningIntent);
 
+            ProvisionLogger.logd("Starting DeviceProvisioningService");
             startService(provisioningIntent);
             mHasLaunchedConfiguration = true;
         } else {
@@ -451,7 +454,6 @@ public class ManagedProvisioningActivity extends Activity {
      * TODO: Refactor Preferences so the state created by this method is clear.
      */
     private void initializePreferences(Intent intent) {
-        mPrefs = new Preferences(this);
         // Copy most values directly from bump packet to preferences.
         for (String propertyName : Preferences.propertiesToStore) {
             mPrefs.setProperty(propertyName, intent.getStringExtra(propertyName));
@@ -490,7 +492,7 @@ public class ManagedProvisioningActivity extends Activity {
   }
 
     private void cleanupAndFinish() {
-        ProvisionLogger.logd("Finishing NfcBumpActivity");
+        ProvisionLogger.logd("Finishing ManagedProvisioningActivity");
 
         if (mHandler != null) {
             mHandler.removeCallbacks(mTimeoutRunnable);

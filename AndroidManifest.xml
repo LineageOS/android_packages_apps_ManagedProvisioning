@@ -89,6 +89,6 @@
             android:launchMode="singleTop" >
         </activity>
 
-        <service android:name="com.android.managedprovisioning.ConfigureUserService" />
+        <service android:name="com.android.managedprovisioning.DeviceProvisioningService" />
   </application>
 </manifest>
