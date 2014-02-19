@@ -112,10 +112,10 @@ public class ManagedProvisioningActivity extends Activity {
     private static Map<Integer, Integer> mStateToCheckbox = new HashMap<Integer, Integer>();
 
     static {
-      mStateToCheckbox.put(ProvisioningState.CONNECTED_NETWORK, R.id.connecting_wifi);
-      mStateToCheckbox.put(ProvisioningState.CREATE_PROFILE, R.id.creating_profile);
-      mStateToCheckbox.put(ProvisioningState.REGISTERED_DEVICE_POLICY, R.id.device_policy);
-      mStateToCheckbox.put(ProvisioningState.SETUP_COMPLETE, R.id.setup_complete);
+        mStateToCheckbox.put(ProvisioningState.CONNECTED_NETWORK, R.id.connecting_wifi);
+        mStateToCheckbox.put(ProvisioningState.CREATE_PROFILE, R.id.creating_profile);
+        mStateToCheckbox.put(ProvisioningState.REGISTERED_DEVICE_POLICY, R.id.device_policy);
+        mStateToCheckbox.put(ProvisioningState.SETUP_COMPLETE, R.id.setup_complete);
     }
 
     // Catches updates in provisioning process, watching for errors or completion.
@@ -133,10 +133,10 @@ public class ManagedProvisioningActivity extends Activity {
                 ProvisionLogger.logd("Received state broadcast: " + state);
 
                 if (state != -1) {
-                  ProvisionLogger.logd("Received state broadcast: " + state);
-                  if (mStateToCheckbox.containsKey(state)) {
-                    completeCheckbox(state);
-                }
+                    ProvisionLogger.logd("Received state broadcast: " + state);
+                    if (mStateToCheckbox.containsKey(state)) {
+                        completeCheckbox(state);
+                    }
 
                     switch (state) {
                         case ProvisioningState.SETUP_COMPLETE:
@@ -189,7 +189,7 @@ public class ManagedProvisioningActivity extends Activity {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                                            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final LayoutInflater inflater = getLayoutInflater();
         final View contentView = inflater.inflate(R.layout.show_progress, null);
@@ -232,10 +232,11 @@ public class ManagedProvisioningActivity extends Activity {
                     cleanupAndFinish();
                 }
             }
-            if (resultCode == RESULT_CANCELED)
+            if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.logd("User consent cancelled.");
                 cleanupAndFinish();
             }
+        }
     }
 
     @Override
@@ -481,15 +482,15 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     protected void completeCheckbox(int state) {
-      ProvisionLogger.logd("Setting checkbox for state " + state);
-      Integer id = mStateToCheckbox.get(state);
-      if (id != null) {
-          CheckedTextView check = (CheckedTextView) findViewById(id);
-          if (check != null) {
-              check.setChecked(true);
-          }
-      }
-  }
+        ProvisionLogger.logd("Setting checkbox for state " + state);
+        Integer id = mStateToCheckbox.get(state);
+        if (id != null) {
+            CheckedTextView check = (CheckedTextView) findViewById(id);
+            if (check != null) {
+                check.setChecked(true);
+            }
+        }
+    }
 
     private void cleanupAndFinish() {
         ProvisionLogger.logd("Finishing ManagedProvisioningActivity");
