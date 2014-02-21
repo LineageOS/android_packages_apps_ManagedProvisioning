@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.task;
 
 import android.app.ActivityManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
@@ -67,6 +68,8 @@ public class CreateProfileTask extends ProvisionTask {
         // TODO: allow sending a default bitmap for the profile image in the intent.
 
         // Create the new user for the managed profile
+        // TODO: Handle the case when this returns null because the maximum number of users is
+        //       exceeded.
         mManagedProfileUserInfo = userManager.createRelatedUser(defaultManagedProfileName,
                 UserInfo.FLAG_MANAGED_PROFILE, ActivityManager.getCurrentUser());
 
@@ -81,7 +84,9 @@ public class CreateProfileTask extends ProvisionTask {
                     + "for the managed profile failed.");
         }
 
-        // TODO: Set the mdm as the profile owner of the managed profile.
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) mContext.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        dpm.setProfileOwner(mdmPackageName, defaultManagedProfileName, mManagedProfileUserInfo.id);
 
         // Remove the mdm from the primary user.
         try {

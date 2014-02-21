@@ -314,7 +314,7 @@ public class ManagedProvisioningActivity extends Activity {
     private void startProvisioning(Intent provisioningIntent) {
         if (provisioningIntent != null) {
 
-            // TODO: Validate incoming intent.
+            // TODO: Validate incoming intent. Check that default user name is provided etc.
 
             initializePreferences(provisioningIntent);
 
