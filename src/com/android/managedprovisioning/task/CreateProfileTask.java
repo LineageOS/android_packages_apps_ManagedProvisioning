@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
@@ -30,7 +31,6 @@ import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningS
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import java.util.Arrays;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -67,8 +67,8 @@ public class CreateProfileTask extends ProvisionTask {
         // TODO: allow sending a default bitmap for the profile image in the intent.
 
         // Create the new user for the managed profile
-        // TODO make this a related user.
-        mManagedProfileUserInfo = userManager.createUser(defaultManagedProfileName, 0);
+        mManagedProfileUserInfo = userManager.createRelatedUser(defaultManagedProfileName,
+                UserInfo.FLAG_MANAGED_PROFILE, ActivityManager.getCurrentUser());
 
         deleteNonRequiredAppsForManagedProfile();
 
@@ -80,7 +80,6 @@ public class CreateProfileTask extends ProvisionTask {
             ProvisionLogger.logd("RemoteException, installing the mobile device management application "
                     + "for the managed profile failed.");
         }
-
 
         // TODO: Set the mdm as the profile owner of the managed profile.
 

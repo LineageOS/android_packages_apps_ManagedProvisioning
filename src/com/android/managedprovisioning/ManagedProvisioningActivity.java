@@ -305,7 +305,7 @@ public class ManagedProvisioningActivity extends Activity {
         // Add a flag so the DeviceProvisioningService knows this is the incoming intent.
         provisioningIntent.putExtra(DeviceProvisioningService.ORIGINAL_INTENT_KEY, true);
 
-        startProvisioning(intent);
+        startProvisioning(provisioningIntent);
     }
 
     /**
