@@ -27,6 +27,11 @@ import android.content.pm.UserInfo;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserManager;
+import android.view.inputmethod.InputMethodManager;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.accessibility.AccessibilityManager;
+import android.accessibilityservice.AccessibilityServiceInfo;
+import android.content.res.Resources.NotFoundException;
 
 import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningState;
 import com.android.managedprovisioning.Preferences;
@@ -35,7 +40,10 @@ import com.android.managedprovisioning.R;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
+import android.util.Log;
+import java.util.ArrayList;
 /**
  * This tasks
  *     - creates a secondary user
@@ -116,6 +124,8 @@ public class CreateProfileTask extends ProvisionTask {
 
         HashSet<String> requiredApps = new HashSet<String> (Arrays.asList(
                 mContext.getResources().getStringArray(R.array.required_managedprofile_apps)));
+        requiredApps.addAll(getImePackages());
+        requiredApps.addAll(getAccessibilityPackages());
 
         for (ApplicationInfo app : allApps) {
             PackageInfo packageInfo = null;
@@ -142,6 +152,54 @@ public class CreateProfileTask extends ProvisionTask {
             }
         }
     }
+
+    private List<String> getImePackages() {
+        ArrayList<String> imePackages = new ArrayList<String>();
+        InputMethodManager imm = (InputMethodManager)
+                mContext.getSystemService(mContext.INPUT_METHOD_SERVICE);
+        List<InputMethodInfo> imis = imm.getInputMethodList();
+        for (InputMethodInfo imi : imis) {
+            try {
+                if (imi.isDefault(mContext) && isSystemPackage(imi.getPackageName())) {
+                    imePackages.add(imi.getPackageName());
+                }
+            } catch (NotFoundException rnfe) {
+                // Not default
+            }
+        }
+        return imePackages;
+    }
+
+    private boolean isSystemPackage(String packageName) {
+        try {
+            final PackageInfo pi = mIpm.getPackageInfo(packageName, 0, mManagedProfileUserInfo.id);
+            if (pi.applicationInfo == null) return false;
+            final int flags = pi.applicationInfo.flags;
+            if ((flags & ApplicationInfo.FLAG_SYSTEM) != 0
+                    || (flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
+                return true;
+            }
+        } catch (RemoteException nnfe) {
+            // Missing package?
+        }
+        return false;
+    }
+
+    private List<String> getAccessibilityPackages() {
+        ArrayList<String> accessibilityPackages = new ArrayList<String>();
+        AccessibilityManager am = (AccessibilityManager)
+                mContext.getSystemService(mContext.ACCESSIBILITY_SERVICE);
+        List<AccessibilityServiceInfo> asis = am.getInstalledAccessibilityServiceList();
+        for (AccessibilityServiceInfo asi : asis) {
+            String packageName = asi.getResolveInfo().serviceInfo.packageName;
+            if (isSystemPackage(packageName)) {
+                accessibilityPackages.add(packageName);
+            }
+        }
+        return accessibilityPackages;
+    }
+
+
 
     @Override
     public void shutdown() {
