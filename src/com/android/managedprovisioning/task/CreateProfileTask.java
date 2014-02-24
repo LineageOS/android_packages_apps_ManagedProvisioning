@@ -81,6 +81,12 @@ public class CreateProfileTask extends ProvisionTask {
         mManagedProfileUserInfo = userManager.createRelatedUser(defaultManagedProfileName,
                 UserInfo.FLAG_MANAGED_PROFILE, ActivityManager.getCurrentUser());
 
+        if (mManagedProfileUserInfo == null) {
+            onFailure("Couldn't create related user.");
+            return;
+        }
+
+        ProvisionLogger.logd("Created managed profile: " + mManagedProfileUserInfo);
         deleteNonRequiredAppsForManagedProfile();
 
         // Install the mdm for the new profile.
@@ -94,6 +100,7 @@ public class CreateProfileTask extends ProvisionTask {
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) mContext.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        ProvisionLogger.logd("Setting profile owner: " + mdmPackageName);
         dpm.setProfileOwner(mdmPackageName, defaultManagedProfileName, mManagedProfileUserInfo.id);
 
         // Remove the mdm from the primary user.
@@ -105,6 +112,7 @@ public class CreateProfileTask extends ProvisionTask {
             e.printStackTrace();
         }
 
+        ProvisionLogger.logd("Create Profile Task Complete");
         mTaskManager.registerProvisioningState(ProvisioningState.CREATE_PROFILE, "");
         onSuccess();
     }

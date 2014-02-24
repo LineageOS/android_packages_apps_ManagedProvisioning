@@ -59,12 +59,13 @@ public abstract class ProvisionTask implements Runnable {
 
     /**
      * Call this when a task has failed and needs to be retried.
-     * @param string
+     * @param reason The reason that this task failed.
      */
     public void onFailure(String reason) {
         mLastFailure = reason;
         int retryDelay = mTaskManager.getRetryDelay();
-        ProvisionLogger.logd(mTaskName + " Requesting retry in " + retryDelay + " seconds");
+        ProvisionLogger.logw(mTaskName + " failed. Reason: '" + reason
+                + "' Requesting retry in " + retryDelay + " seconds");
         onFailure(retryDelay * 1000);
     }
 

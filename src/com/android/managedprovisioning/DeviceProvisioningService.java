@@ -63,6 +63,7 @@ public class DeviceProvisioningService extends Service  {
             }
         }
 
+        ProvisionLogger.logd("Started DeviceProvisioningService");
         mTaskManager = new TaskManager(this, taskRetries, mPrefs, this);
     }
 
@@ -106,6 +107,7 @@ public class DeviceProvisioningService extends Service  {
      * is done.
      */
     public void stop() {
+        ProvisionLogger.logd("Stopping DeviceProvisioningService");
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(
                 ManagedProvisioningActivity.getComponentName(this),

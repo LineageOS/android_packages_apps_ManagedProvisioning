@@ -23,7 +23,7 @@
         <item name="android:clickable">false</item>
         <item name="android:longClickable">false</item>
     </style>
-    <!-- We'd like to have this as 16dip hight including paddingTop/paddingBottom to
+    <!-- We'd like to have this as 16dp hight including paddingTop/paddingBottom to
          be consistent with ProgressBar -->
     <style name="TopDivider">
         <item name="android:layout_width">match_parent</item>
@@ -46,8 +46,8 @@
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:checkMark">?android:attr/textCheckMark</item>
-        <item name="android:paddingLeft">5dip</item>
-        <item name="android:paddingRight">50dip</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">50dp</item>
         <item name="android:textColor">@color/checklist_item_color</item>
         <item name="android:focusable">false</item>
         <item name="android:clickable">false</item>
@@ -87,9 +87,9 @@
         <item name="android:layout_marginTop">@dimen/button_margin_top</item>
         <item name="android:minWidth">@dimen/button_min_width</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:paddingRight">16dip</item>
-        <item name="android:paddingLeft">16dip</item>
-        <item name="android:textSize">20dip</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:textSize">20dp</item>
     </style>
 
     <style name="DescriptionText">
@@ -107,32 +107,30 @@
         <item name="android:background">@color/light_grey_user_consent</item>
         <item name="android:textColor">@color/dark_grey_user_consent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:padding">20dip</item>
+        <item name="android:padding">20dp</item>
     </style>
 
     <style name="UserConsentTitle">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/dark_grey_user_consent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name ="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="UserConsentMainText">
         <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">20dp</item>
         <item name="android:background">@color/medium_grey_user_consent</item>
-        <item name="android:padding">30dip</item>
-        <item name="android:layout_height">0dp</item>
-        <item name ="android:layout_weight">5</item>
+        <item name="android:padding">30dp</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="UserConsentButtonBar">
-        <item name="android:paddingTop">50dip</item>
-        <item name="android:layout_height">0dp</item>
-        <item name ="android:layout_weight">1</item>
-        </style>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
     <style name="UserConsentButton">
-        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name ="android:layout_weight">1</item>
     </style>
 
