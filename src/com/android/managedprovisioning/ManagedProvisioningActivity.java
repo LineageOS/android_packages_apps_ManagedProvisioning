@@ -24,6 +24,7 @@ import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -104,11 +105,24 @@ public class ManagedProvisioningActivity extends Activity {
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
-        // Ask for user consent.
-        Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
-        startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
-
-        // Wait for user consent, in onActivityResult
+        if (!alreadyHasManagedProfile()) {
+            // Ask for user consent.
+            Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
+            startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
+            // Wait for user consent, in onActivityResult
+        }
+        else {
+            AlertDialog dlg = new AlertDialog.Builder(this)
+                .setMessage(R.string.managed_profile_already_present)
+                .setNeutralButton(android.R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                })
+                .create();
+            dlg.show();
+        }
     }
 
     private boolean isIntentValid(Intent intent) {
@@ -372,6 +386,15 @@ public class ManagedProvisioningActivity extends Activity {
 
     public void showErrorAndClose() {
         new ManagedProvisioningErrorDialog().show(getFragmentManager(), "ErrorDialogFragment");
+    }
+
+    boolean alreadyHasManagedProfile(){
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        List<UserInfo> relatedUsers = userManager.getRelatedUsers(getUserId());
+        for (UserInfo userInfo : relatedUsers) {
+            if (userInfo.isManagedProfile()) return true;
+        }
+        return false;
     }
 }
 

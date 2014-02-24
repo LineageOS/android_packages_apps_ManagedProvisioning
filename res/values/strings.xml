@@ -18,6 +18,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+  <!-- TODO: Review all strings before launch -->
+
   <!-- Name of the application [CHAR LIMIT=NONE] -->
   <string name="app_name">Device Provisioner</string>
   <!-- Title of the main activity for device owner provisioning. CHAR LIMIT=NONE] -->
@@ -69,5 +71,8 @@
   <string name="placeholder">A managed profile is:.... By consenting here you are allowing
       the creation of a managed profile that will be owned by the application "name". "Name" will
       have full control over the new profile and any data created on that profile. </string>
+  <!-- string shown when there already is a managed profile for this user. CHAR LIMIT=NONE] -->
+  <string name="managed_profile_already_present"> You already have a managed profile.
+      You cannot create a second one. </string>
 
 </resources>
