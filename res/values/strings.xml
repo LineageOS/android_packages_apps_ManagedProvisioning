@@ -49,6 +49,11 @@
   <string name="error_desc_secondary">Please reset this device and try again.</string>
   <!-- Button to go to backup and reset screen. CHAR LIMIT=NONE] -->
   <string name="backup_and_reset">Backup &amp; Reset</string>
+  <!-- Title of the managed provisioning error dialog. CHAR LIMIT=NONE] -->
+  <string name="managed_provisioning_error_title">Oops!</string>
+  <!-- Explains the failure and what to do to next. CHAR LIMIT=NONE] -->
+  <string name="managed_provisioning_error_text">
+            Device provisioning failed. Please try again later!</string>
 
   <!-- Managed profile provisioning flow UI. -->
 

@@ -31,8 +31,6 @@ import com.android.managedprovisioning.DeviceOwnerProvisioningActivity.Provision
  */
 public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.Callback {
 
-    private String mSsid;
-
     private WifiConfig mWifiConfig;
     private String mWifiSsid;
 
@@ -54,13 +52,14 @@ public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.
         reconnectWifi();
 
         Preferences mPrefs = mTaskManager.getPreferences();
-        mSsid = mPrefs.getStringProperty(Preferences.WIFI_SSID_KEY);
-        if (!TextUtils.isEmpty(mSsid)) {
+        mWifiSsid = mPrefs.getStringProperty(Preferences.WIFI_SSID_KEY);
+        if (!TextUtils.isEmpty(mWifiSsid)) {
             mWifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
             mWifiConfig = new WifiConfig(mWifiManager);
             new NetworkMonitor(mContext, this);
             addWifiNetwork();
         } else {
+            // There is no wifi network to add
             onSuccess();
         }
     }
@@ -73,7 +72,6 @@ public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.
 
     protected void addWifiNetwork() {
         Preferences mPrefs = mTaskManager.getPreferences();
-        mWifiSsid = mPrefs.getStringProperty(Preferences.WIFI_SSID_KEY);
         if (mWifiSsid == null) {
             ProvisionLogger.logd("Tried to add wifi network with null SSID");
             return;

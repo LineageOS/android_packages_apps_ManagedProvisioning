@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.wifi.WifiManager;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -172,7 +173,10 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         // TODO Check if we need the settingsAdapter for tests.
         // TODO Add double bump checking/handling.
         if (mPrefs.doesntNeedResume() && (settingsAdapter.isDeviceProvisioned())) {
+            // TODO: Display message to the user.
+            ProvisionLogger.logi("Device already provisioned. Stopping.");
             finish();
+            return;
         }
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -239,10 +243,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         Intent provisioningIntent = processNfcPayload(intent);
 
         if (provisioningIntent != null) {
-
-            // TODO: Validate incoming intent. Check that default user name is provided etc.
-
-            initializePreferences(provisioningIntent);
+            if (isProvisioningIntentValid(provisioningIntent)) {
+                initializePreferences(provisioningIntent);
+            } else {
+                cleanupAndFinish();
+            }
 
             // Launch DeviceProvisioningService.
             provisioningIntent.setClass(getApplicationContext(), DeviceProvisioningService.class);
@@ -375,11 +380,34 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     }
 
     /**
+     * Checks that the required preferences in the incoming intent are valid.
+     */
+    private boolean isProvisioningIntentValid(Intent intent) {
+
+      // Needed in {@code CreateProfileTask}
+      if (!checkIntentHasExtra(intent, Preferences.MDM_PACKAGE_KEY)) {
+        return false;
+      }
+      String mdmPackageName = intent.getStringExtra(Preferences.MDM_PACKAGE_KEY);
+      // Check if the package is installed
+      try {
+        this.getPackageManager().getPackageInfo(mdmPackageName, 0);
+      } catch (NameNotFoundException e) {
+          ProvisionLogger.loge("Mdm "+ mdmPackageName + " is not installed.", e);
+          return false;
+      }
+
+      // TODO: Validate incoming preferences required by the other tasks.
+      return true;
+    }
+
+    /**
      * Sets preferences that are shared and persisted between activities and services.
      *
      * TODO: Refactor Preferences so the state created by this method is clear.
      */
     private void initializePreferences(Intent intent) {
+
         // Copy most values directly from bump packet to preferences.
         for (String propertyName : Preferences.propertiesToStore) {
             mPrefs.setProperty(propertyName, intent.getStringExtra(propertyName));
@@ -452,5 +480,13 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     private String getStringExtra(Intent intent, String key, String defaultValue) {
         String rtn = intent.getStringExtra(key);
         return (rtn != null) ? rtn : defaultValue;
+    }
+
+    private boolean checkIntentHasExtra(Intent intent, String name) {
+        if (!intent.hasExtra(name)) {
+          ProvisionLogger.loge("Intent missing extra: " + name);
+          return false;
+        }
+        return true;
     }
 }
