@@ -24,7 +24,7 @@ import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.WifiConfig;
-import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningState;
+import com.android.managedprovisioning.DeviceOwnerProvisioningActivity.ProvisioningState;
 
 /**
  * Adds a wifi network to system if one is specified in the bump.

@@ -53,7 +53,7 @@
             (phone calls) will still pop up a small window that can be activated.
         -->
         <activity
-            android:name="ManagedProvisioningActivity"
+            android:name="DeviceOwnerProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
@@ -66,6 +66,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/com.android.managedprovisioning" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="ManagedProvisioningActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/WelcomeTheme" >
             <intent-filter>
                 <action android:name="android.managedprovisioning.PROVISION_MANAGED_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />

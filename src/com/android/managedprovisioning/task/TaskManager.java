@@ -67,10 +67,14 @@ public class TaskManager {
         mContext = context;
         mPreferences = preferences;
 
-        // Get the setup tasks for the type of provisioning that we are running.
-        boolean isDeviceOwner = mPreferences.getBooleanProperty(Preferences.IS_DEVICE_OWNER_KEY);
-        mProvisionTasks = isDeviceOwner
-                ? getDeviceOwnerProvisioningTasks() : getSecondaryProfileProvisioningTasks();
+        // Get all tasks that need to be completed to provision the device.
+        mProvisionTasks = new ProvisionTask[] {
+                new AddWifiNetworkTask(),
+                new ExternalSetupTask(true),
+                new DevicePolicyTask(),
+                new ExternalSetupTask(false),
+                new SendCompleteTask()
+        };
 
         mCurrentTask = mPreferences.getIntProperty(Preferences.TASK_STATE);
         if (mCurrentTask == -1) mCurrentTask = 0;
@@ -216,22 +220,5 @@ public class TaskManager {
      */
     public Bundle getProvisioningBundle() {
         return mProvisioningBundle;
-    }
-
-    private ProvisionTask[] getDeviceOwnerProvisioningTasks() {
-        return new ProvisionTask[] {
-                new AddWifiNetworkTask(),
-                new ExternalSetupTask(true),
-                new DevicePolicyTask(),
-                new ExternalSetupTask(false),
-                new SendCompleteTask()
-        };
-    }
-
-    private ProvisionTask[] getSecondaryProfileProvisioningTasks() {
-        return new ProvisionTask[] {
-                new CreateProfileTask(mContext),
-                new SendCompleteTask()
-        };
     }
 }

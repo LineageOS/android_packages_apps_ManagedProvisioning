@@ -48,7 +48,6 @@ public class Preferences {
     public static final String EXTERNAL_PROVISION_PKG = "externalProvisionPkg";
 
     public static final String OWNER_KEY = "owner";
-    public static final String IS_DEVICE_OWNER_KEY = "isDeviceOwner";
 
     // TODO: put all keys that are used for incoming data somewhere externally visible.
     // Used to set the name of the profile and the label used for batching of applications.

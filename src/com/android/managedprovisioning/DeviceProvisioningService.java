@@ -29,7 +29,7 @@ import android.text.TextUtils;
 import com.android.managedprovisioning.task.TaskManager;
 
 /**
- * Service that allows long running operations when configuring the user.  This out lives
+ * Service that allows long running operations during device owner provisioning.  This out lives
  * the activities associated with provisioning, e.g. when external setup is triggered.
  */
 public class DeviceProvisioningService extends Service  {
@@ -110,7 +110,7 @@ public class DeviceProvisioningService extends Service  {
         ProvisionLogger.logd("Stopping DeviceProvisioningService");
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(
-                ManagedProvisioningActivity.getComponentName(this),
+                DeviceOwnerProvisioningActivity.getComponentName(this),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
 
@@ -127,5 +127,4 @@ public class DeviceProvisioningService extends Service  {
         super.onDestroy();
         mTaskManager.shutdown();
     }
-
 }

@@ -25,7 +25,7 @@ import android.text.TextUtils;
 
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ManagedProvisioningActivity.ProvisioningState;
+import com.android.managedprovisioning.DeviceOwnerProvisioningActivity.ProvisioningState;
 
 /**
  * Enables the specified device policy package and sets it as the device owner and as an active
