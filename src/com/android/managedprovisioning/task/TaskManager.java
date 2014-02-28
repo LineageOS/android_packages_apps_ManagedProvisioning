@@ -49,12 +49,6 @@ public class TaskManager {
 
     private ExecutorService mExecutor;
 
-    public interface CompletionListener {
-        public void allTasksCompleted(boolean successful, String message);
-    }
-
-    private CompletionListener mCompletionListener;
-
     private Context mContext;
     private Preferences mPreferences;
 
@@ -62,6 +56,7 @@ public class TaskManager {
 
     private boolean mHasStarted;
 
+    // TODO: Clarify what mTaskRetries[index] represents and fix the code.
     private int[] mTaskRetries;
     private Bundle mProvisioningBundle;
 
@@ -85,14 +80,6 @@ public class TaskManager {
         mService = service;
         mHasStarted = false;
         mTaskRetries = taskRetries;
-    }
-
-    public ProvisionTask getTask(int id) {
-        return mProvisionTasks[id];
-    }
-
-    public void setCompleteListener(CompletionListener listener) {
-        mCompletionListener = listener;
     }
 
     public void requestRetry(int mId) {
@@ -151,11 +138,6 @@ public class TaskManager {
     private void advanceTask() {
         ++mCurrentTask;
         mCurrentRetries = 0;
-        if (mCurrentTask == mProvisionTasks.length) {
-            if (mCompletionListener != null) {
-                mCompletionListener.allTasksCompleted(true, "");
-            }
-        }
     }
 
     public boolean isStarted() {
@@ -188,9 +170,7 @@ public class TaskManager {
      * Failures that can have retry's should call ProvisionTask.fail().
      */
     void fail(String message) {
-        if (mCompletionListener != null) {
-            mCompletionListener.allTasksCompleted(false, message);
-        }
+      // TODO: figure out if we do need this functionality and implement it
     }
 
     void registerProvisioningState(int state, String reason) {
