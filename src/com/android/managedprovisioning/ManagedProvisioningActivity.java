@@ -21,10 +21,10 @@ import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_K
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
-import android.app.Dialog;
+import android.app.IActivityManager;
 import android.app.admin.DevicePolicyManager;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,6 +38,7 @@ import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -45,9 +46,6 @@ import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
-
-import com.android.managedprovisioning.ManagedProvisioningErrorDialog;
-
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,7 +67,7 @@ public class ManagedProvisioningActivity extends Activity {
     // Used to set the name of the profile and for batching of applications.
     public static final String DEFAULT_MANAGED_PROFILE_NAME_EXTRA = "defaultManagedProfileName";
     public static final String ACTION_PROVISIONING_COMPLETE =
-            "android.managedprovision.ACTION_PROVISIONING_COMPLETE";
+            "android.managedprovisioning.ACTION_PROVISIONING_COMPLETE";
 
     private static final int USER_CONSENT_REQUEST_CODE = 1;
 
@@ -126,7 +124,7 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private boolean isIntentValid(Intent intent) {
-      String mdmPackageName = getIntent().getStringExtra(MDM_PACKAGE_EXTRA);
+      String mdmPackageName = intent.getStringExtra(MDM_PACKAGE_EXTRA);
       // Validate package name
       if (TextUtils.isEmpty(mdmPackageName)) {
         ProvisionLogger.loge("Missing intent extra: " + MDM_PACKAGE_EXTRA);
@@ -188,12 +186,14 @@ public class ManagedProvisioningActivity extends Activity {
         ProvisionLogger.logd("Starting managed profile provisioning");
         // Work through the provisioning steps in their corresponding order
         boolean success = createProfile(mDefaultManagedProfileName)
+            && startManagedProfile()
             && deleteNonRequiredAppsForManagedProfile()
             && installMdmOnManagedProfile()
             && setMdmAsManagedProfileOwner()
             && removeMdmFromPrimaryUser();
 
         if (success) {
+          sendProvisioningCompleteToManagedProfile(this);
           ProvisionLogger.logd("Finishing managed profile provisioning.");
           finish();
         } else {
@@ -222,6 +222,23 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     /**
+     * Initializes the user that underlies the managed profile.
+     * This is required so that the provisioning complete broadcast can be sent across to the
+     * profile and apps can run on it.
+     */
+    private boolean startManagedProfile() {
+        ProvisionLogger.logd("Starting user in background");
+        IActivityManager iActivityManager = ActivityManagerNative.getDefault();
+        try {
+            iActivityManager.startUserInBackground(mManagedProfileUserInfo.id);
+        } catch (RemoteException e) {
+            ProvisionLogger.logd("RemoteException when starting the managed profile");
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Removes all apps that are not marked as required for a managed profile. This includes UI
      * components such as the launcher.
      */
@@ -244,6 +261,7 @@ public class ManagedProvisioningActivity extends Activity {
 
         HashSet<String> requiredApps = new HashSet<String> (Arrays.asList(
                 getResources().getStringArray(R.array.required_managedprofile_apps)));
+        requiredApps.add(mMdmPackageName);
         requiredApps.addAll(getImePackages());
         requiredApps.addAll(getAccessibilityPackages());
 
@@ -396,5 +414,18 @@ public class ManagedProvisioningActivity extends Activity {
         }
         return false;
     }
+
+    private void sendProvisioningCompleteToManagedProfile(Context context) {
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        UserHandle userHandle = userManager.getUserForSerialNumber(
+                mManagedProfileUserInfo.serialNumber);
+
+        Intent completeIntent = new Intent(ACTION_PROVISIONING_COMPLETE);
+        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        context.sendBroadcastAsUser(completeIntent, userHandle);
+
+        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
+            + userHandle.getIdentifier());
+      }
 }
 
