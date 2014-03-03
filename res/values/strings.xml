@@ -20,8 +20,10 @@
 
   <!-- Name of the application [CHAR LIMIT=NONE] -->
   <string name="app_name">Device Provisioner</string>
-  <!-- Title of the main activity. CHAR LIMIT=NONE] -->
+  <!-- Title of the main activity for device owner provisioning. CHAR LIMIT=NONE] -->
   <string name="provisioning_device">Provisioning...</string>
+  <!-- Title of the main activity for profile owner provisioning. CHAR LIMIT=NONE] -->
+  <string name="provisioning_profile">Provisioning...</string>
 
   <!-- Progress status -->
 

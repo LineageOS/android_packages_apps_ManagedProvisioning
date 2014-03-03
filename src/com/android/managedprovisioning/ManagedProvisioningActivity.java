@@ -69,7 +69,7 @@ public class ManagedProvisioningActivity extends Activity {
 
         // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.show_progress, null);
+        final View contentView = inflater.inflate(R.layout.progress_profile_owner, null);
         setContentView(contentView);
 
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));

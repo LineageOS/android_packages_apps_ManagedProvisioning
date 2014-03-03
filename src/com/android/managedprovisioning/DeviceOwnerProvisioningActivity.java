@@ -180,7 +180,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.show_progress, null);
+        final View contentView = inflater.inflate(R.layout.progress_device_owner, null);
         setContentView(contentView);
     }
 
