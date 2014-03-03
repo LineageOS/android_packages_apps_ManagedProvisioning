@@ -56,8 +56,8 @@ public class TaskManager {
 
     private boolean mHasStarted;
 
-    // TODO: Clarify what mTaskRetries[index] represents and fix the code.
-    private int[] mTaskRetries;
+    // mTaskRetryDelays[i] represents the length of the ith delay
+    private int[] mTaskRetryDelays;
     private Bundle mProvisioningBundle;
 
     public TaskManager(Context context, int[] taskRetries, Preferences preferences,
@@ -83,7 +83,7 @@ public class TaskManager {
         }
         mService = service;
         mHasStarted = false;
-        mTaskRetries = taskRetries;
+        mTaskRetryDelays = taskRetries;
     }
 
     public void requestRetry(int mId) {
@@ -112,8 +112,8 @@ public class TaskManager {
     }
 
     private boolean hasRetries() {
-        if (mTaskRetries != null) {
-            return mCurrentRetries < mTaskRetries.length;
+        if (mTaskRetryDelays != null) {
+            return mCurrentRetries < mTaskRetryDelays.length;
         }
         return mCurrentRetries < MAX_RETRIES;
     }
@@ -201,11 +201,11 @@ public class TaskManager {
     }
 
     int getRetryDelay() {
-        if (mTaskRetries != null) {
-            if (mCurrentRetries >= mTaskRetries.length) {
+        if (mTaskRetryDelays != null) {
+            if (mCurrentRetries >= mTaskRetryDelays.length) {
                 return 0;
             }
-            return mTaskRetries[mCurrentRetries];
+            return mTaskRetryDelays[mCurrentRetries];
         } else {
             return (int)Math.pow(2, mCurrentRetries);
         }
