@@ -7,5 +7,13 @@
         <item>com.google.android.apps.inputmethod.hindi</item>
         <item>com.google.android.inputmethod.korean</item>
         <item>com.google.android.inputmethod.pinyin</item>
+        <item>com.android.keyguard</item>
+        <item>com.android.launcher</item>
+        <item>com.google.android.gm</item>
+        <item>com.android.wallpaper.livepicker</item>
+        <item>com.android.wallpapercropper</item>
+        <item>com.android.wallpaper</item>
+        <item>com.android.wallpaper.holospiral</item>
+        <item>com.android.systemui</item>
     </string-array>
 </resources>
