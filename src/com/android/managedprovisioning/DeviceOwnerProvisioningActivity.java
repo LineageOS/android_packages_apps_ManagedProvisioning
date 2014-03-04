@@ -128,7 +128,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
                     switch (state) {
                         case ProvisioningState.SETUP_COMPLETE:
-                            sendBroadcast(new Intent(ManagedProvisioningActivity.PROVISIONING_COMPLETE_ACTION));
+                            sendBroadcast(new Intent(ManagedProvisioningActivity.ACTION_PROVISIONING_COMPLETE));
                             cleanupAndFinish();
                             break;
                         case ProvisioningState.ERROR:
