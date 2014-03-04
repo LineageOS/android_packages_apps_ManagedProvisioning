@@ -74,7 +74,7 @@
             android:launchMode="singleTop"
             android:theme="@style/WelcomeTheme" >
             <intent-filter>
-                <action android:name="android.managedprovisioning.PROVISION_MANAGED_PROFILE" />
+                <action android:name="android.managedprovisioning.ACTION_PROVISION_MANAGED_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

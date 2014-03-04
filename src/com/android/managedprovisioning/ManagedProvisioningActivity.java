@@ -38,12 +38,12 @@ public class ManagedProvisioningActivity extends Activity {
 
     // TODO: Put actions and extra keys somewhere externally visible
     private static final String ACTION_PROVISION_MANAGED_PROFILE
-        = "android.managedprovisioning.PROVISION_MANAGED_PROFILE";
+        = "android.managedprovisioning.ACTION_PROVISION_MANAGED_PROFILE";
     public static final String MDM_PACKAGE_EXTRA = "mdmPackageName";
     // Used to set the name of the profile and for batching of applications.
     public static final String DEFAULT_MANAGED_PROFILE_NAME_EXTRA = "defaultManagedProfileName";
-    public static final String PROVISIONING_COMPLETE_ACTION =
-            "com.android.managedprovision.SETUP_COMPLETE_ACTION";
+    public static final String ACTION_PROVISIONING_COMPLETE =
+            "android.managedprovision.ACTION_PROVISIONING_COMPLETE";
 
     private static final int USER_CONSENT_REQUEST_CODE = 1;
 
