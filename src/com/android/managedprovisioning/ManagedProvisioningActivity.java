@@ -37,6 +37,7 @@ import java.util.List;
 public class ManagedProvisioningActivity extends Activity {
 
     // TODO: Put actions and extra keys somewhere externally visible
+    //       and update places that refer to this intent with @link.
     private static final String ACTION_PROVISION_MANAGED_PROFILE
         = "android.managedprovisioning.ACTION_PROVISION_MANAGED_PROFILE";
     public static final String MDM_PACKAGE_EXTRA = "mdmPackageName";
