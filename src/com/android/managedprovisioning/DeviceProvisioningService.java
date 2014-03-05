@@ -93,6 +93,11 @@ public class DeviceProvisioningService extends Service  {
      * consider removing this.
      */
     public void failedAndRetry() {
+        // Note that this does not set the extras, or set the system locale
+        // All preferences are available for the retries from the system shared preferences,
+        // initialized in {@code ManagedProvisioningService#startProvisioning}
+        // and not from the intent restarting the service.
+
         Intent intent = new Intent(this, DeviceProvisioningService.class);
         PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);

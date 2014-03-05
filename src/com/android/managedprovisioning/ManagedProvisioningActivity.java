@@ -1,3 +1,19 @@
+/*
+ * Copyright 2014, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.android.managedprovisioning;
 
 import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
@@ -5,24 +21,32 @@ import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_K
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
+
+import com.android.managedprovisioning.ManagedProvisioningErrorDialog;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,6 +87,10 @@ public class ManagedProvisioningActivity extends Activity {
 
         ProvisionLogger.logd("Managed provisioning activity ONCREATE");
 
+        if (!isIntentValid(getIntent())) {
+          showErrorAndClose();
+          return;
+        }
         // TODO: Check that no managed profile exists yet.
 
         mMdmPackageName = getIntent().getStringExtra(MDM_PACKAGE_EXTRA);
@@ -83,6 +111,31 @@ public class ManagedProvisioningActivity extends Activity {
         // Wait for user consent, in onActivityResult
     }
 
+    private boolean isIntentValid(Intent intent) {
+      String mdmPackageName = getIntent().getStringExtra(MDM_PACKAGE_EXTRA);
+      // Validate package name
+      if (TextUtils.isEmpty(mdmPackageName)) {
+        ProvisionLogger.loge("Missing intent extra: " + MDM_PACKAGE_EXTRA);
+        return false;
+      } else {
+        // Check if the package is installed
+        try {
+          this.getPackageManager().getPackageInfo(mdmPackageName, 0);
+        } catch (NameNotFoundException e) {
+            ProvisionLogger.loge("Mdm "+ mdmPackageName + " is not installed.", e);
+            return false;
+        }
+      }
+
+      String defaultManagedProfileName = getIntent()
+              .getStringExtra(DEFAULT_MANAGED_PROFILE_NAME_EXTRA);
+      // Validate profile name
+      if (TextUtils.isEmpty(defaultManagedProfileName)) {
+        ProvisionLogger.loge("Missing intent extra: " + DEFAULT_MANAGED_PROFILE_NAME_EXTRA);
+        return false;
+      }
+      return true;
+    }
 
     @Override
     public void onBackPressed() {
@@ -119,18 +172,23 @@ public class ManagedProvisioningActivity extends Activity {
     private void startManagedProfileProvisioning() {
 
         ProvisionLogger.logd("Starting managed profile provisioning");
+        // Work through the provisioning steps in their corresponding order
+        boolean success = createProfile(mDefaultManagedProfileName)
+            && deleteNonRequiredAppsForManagedProfile()
+            && installMdmOnManagedProfile()
+            && setMdmAsManagedProfileOwner()
+            && removeMdmFromPrimaryUser();
 
-        createProfile(mDefaultManagedProfileName);
-        deleteNonRequiredAppsForManagedProfile();
-        installMdmOnManagedProfile();
-        setMdmAsManagedProfileOwner();
-        removeMdmFromPrimaryUser();
-
-        ProvisionLogger.logd("Finishing managed profile provisioning.");
-        finish();
+        if (success) {
+          ProvisionLogger.logd("Finishing managed profile provisioning.");
+          finish();
+        } else {
+          ProvisionLogger.logw("Could not finish managed profile provisioning.");
+          showErrorAndClose();
+        }
     }
 
-    private void createProfile(String profileName) {
+    private boolean createProfile(String profileName) {
 
         ProvisionLogger.logd("Creating managed profile with name " + profileName);
 
@@ -139,21 +197,21 @@ public class ManagedProvisioningActivity extends Activity {
 
         if (mManagedProfileUserInfo == null) {
             if (UserManager.getMaxSupportedUsers() == mUserManager.getUserCount()) {
-                ProvisionLogger.loge("User creation failed, maximum number of users reached.");
-                finish();
+                ProvisionLogger.logw("User creation failed, maximum number of users reached.");
+                return false;
             } else {
-                ProvisionLogger.logd("Couldn't create related user. Reason unknown.");
-                finish();
+                ProvisionLogger.logw("Couldn't create related user. Reason unknown.");
+                return false;
             }
         }
-
+        return true;
     }
 
     /**
      * Removes all apps that are not marked as required for a managed profile. This includes UI
      * components such as the launcher.
      */
-    public void deleteNonRequiredAppsForManagedProfile() {
+    public boolean deleteNonRequiredAppsForManagedProfile() {
 
         ProvisionLogger.logd("Deleting non required apps from managed profile.");
 
@@ -162,8 +220,9 @@ public class ManagedProvisioningActivity extends Activity {
             allApps = mIpm.getInstalledApplications(
                     PackageManager.GET_UNINSTALLED_PACKAGES, mManagedProfileUserInfo.id).getList();
         } catch (RemoteException e) {
-            ProvisionLogger.logd("RemoteException when getting the installed applications for the "
+            ProvisionLogger.logw("RemoteException when getting the installed applications for the "
                     + "managed profile");
+            return false;
         }
 
         //TODO: Remove hardcoded list of required apps. This is just a temporary list to aid
@@ -181,8 +240,9 @@ public class ManagedProvisioningActivity extends Activity {
                         PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_SIGNATURES,
                         mManagedProfileUserInfo.id);
             } catch (RemoteException e) {
-                ProvisionLogger.logd("RemoteException when getting package info for "
+                ProvisionLogger.logw("RemoteException when getting package info for "
                         + app.packageName + " for the managed profile");
+                // TODO: We should probably stop here, but some apps are better than no apps for now
             }
 
             // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
@@ -195,11 +255,13 @@ public class ManagedProvisioningActivity extends Activity {
                     mIpm.deletePackageAsUser(app.packageName, null, mManagedProfileUserInfo.id,
                             PackageManager.DELETE_SYSTEM_APP);
                 } catch (RemoteException e) {
-                    ProvisionLogger.logd("RemoteException when deleting " + app.packageName
+                    ProvisionLogger.logw("RemoteException when deleting " + app.packageName
                             + " for the managed profile");
+                    return false;
                 }
             }
         }
+        return true;
     }
 
     private List<String> getImePackages() {
@@ -227,8 +289,9 @@ public class ManagedProvisioningActivity extends Activity {
                     || (flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
                 return true;
             }
-        } catch (RemoteException nnfe) {
-            // Missing package?
+        } catch (RemoteException e) {
+            ProvisionLogger.logw("RemoteException when getting package info for "
+                + packageName + " for the managed profile", e);
         }
         return false;
     }
@@ -246,38 +309,69 @@ public class ManagedProvisioningActivity extends Activity {
         return accessibilityPackages;
     }
 
-    private void installMdmOnManagedProfile() {
+    private boolean installMdmOnManagedProfile() {
 
         ProvisionLogger.logd("Installing mdm on managed profile: " + mMdmPackageName);
 
         try {
-            mIpm.installExistingPackageAsUser(mMdmPackageName, mManagedProfileUserInfo.id);
+            int status = mIpm.installExistingPackageAsUser(
+                mMdmPackageName, mManagedProfileUserInfo.id);
+            switch (status) {
+              case PackageManager.INSTALL_SUCCEEDED:
+                  return true;
+              case PackageManager.INSTALL_FAILED_USER_RESTRICTED:
+                  // Should not happen because we're not installing a restricted user
+                  ProvisionLogger.logw("Could not install mdm on managed profile because the " +
+                            "user is restricted");
+                  return false;
+              case PackageManager.INSTALL_FAILED_INVALID_URI:
+                  // Should not happen because we already checked
+                  ProvisionLogger.logw("Could not install mdm on managed profile because the " +
+                            "package could not be found");
+                  return false;
+              default:
+                  ProvisionLogger.logw("Could not install mdm on managed profile. Unknown status: "
+                          + status);
+                  return false;
+            }
         } catch (RemoteException e) {
-            ProvisionLogger.logd("RemoteException, installing the mobile device management application "
+            ProvisionLogger.logw("RemoteException, installing the mobile device management application "
                     + "for the managed profile failed.");
+            return false;
         }
     }
 
-    private void setMdmAsManagedProfileOwner() {
+    private boolean setMdmAsManagedProfileOwner() {
 
         ProvisionLogger.logd("Setting package as managed profile owner: " + mMdmPackageName);
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        dpm.setProfileOwner(mMdmPackageName, mDefaultManagedProfileName, mManagedProfileUserInfo.id);
+        if (dpm.setProfileOwner(
+            mMdmPackageName, mDefaultManagedProfileName, mManagedProfileUserInfo.id)) {
+          return true;
+        }
+        ProvisionLogger.logw("Could not set profile owner.");
+        return false;
     }
 
-    private void removeMdmFromPrimaryUser (){
+    private boolean removeMdmFromPrimaryUser (){
 
-        ProvisionLogger.logd("Removing mdm from primary user: " + mMdmPackageName);
+        ProvisionLogger.logd("Removing mdm: " + mMdmPackageName + " from primary user.");
 
         try {
             mIpm.deletePackageAsUser(mMdmPackageName, null, mUserManager.getUserHandle(), 0);
         } catch (Exception e) {
-            ProvisionLogger.logd("RemoteException, removing the mobile device management application "
-                    + "from the primary user failed failed.");
+            ProvisionLogger.logw("RemoteException, removing the mobile device management application "
+                    + "from the primary user failed.");
             e.printStackTrace();
+            return false;
         }
+        return true;
+    }
+
+    public void showErrorAndClose() {
+        new ManagedProvisioningErrorDialog().show(getFragmentManager(), "ErrorDialogFragment");
     }
 }
 
