@@ -185,24 +185,23 @@ public class ManagedProvisioningActivity extends Activity {
 
         ProvisionLogger.logd("Starting managed profile provisioning");
         // Work through the provisioning steps in their corresponding order
-        boolean success = createProfile(mDefaultManagedProfileName)
-            && startManagedProfile()
-            && deleteNonRequiredAppsForManagedProfile()
-            && installMdmOnManagedProfile()
-            && setMdmAsManagedProfileOwner()
-            && removeMdmFromPrimaryUser();
 
-        if (success) {
-          sendProvisioningCompleteToManagedProfile(this);
-          ProvisionLogger.logd("Finishing managed profile provisioning.");
-          finish();
-        } else {
-          ProvisionLogger.logw("Could not finish managed profile provisioning.");
+        try {
+            createProfile(mDefaultManagedProfileName);
+            deleteNonRequiredAppsForManagedProfile();
+            installMdmOnManagedProfile();
+            setMdmAsManagedProfileOwner();
+            removeMdmFromPrimaryUser();
+            sendProvisioningCompleteToManagedProfile(this);
+            ProvisionLogger.logd("Finishing managed profile provisioning.");
+            finish();
+        } catch (ManagedProvisioningFailedException e) {
+          ProvisionLogger.logw("Could not finish managed profile provisioning: " + e.getMessage());
           showErrorAndClose();
         }
     }
 
-    private boolean createProfile(String profileName) {
+    private void createProfile(String profileName) throws ManagedProvisioningFailedException {
 
         ProvisionLogger.logd("Creating managed profile with name " + profileName);
 
@@ -211,14 +210,13 @@ public class ManagedProvisioningActivity extends Activity {
 
         if (mManagedProfileUserInfo == null) {
             if (UserManager.getMaxSupportedUsers() == mUserManager.getUserCount()) {
-                ProvisionLogger.logw("User creation failed, maximum number of users reached.");
-                return false;
+                throw new ManagedProvisioningFailedException(
+                        "User creation failed, maximum number of users reached.");
             } else {
-                ProvisionLogger.logw("Couldn't create related user. Reason unknown.");
-                return false;
+                throw new ManagedProvisioningFailedException(
+                        "Couldn't create related user. Reason unknown.");
             }
         }
-        return true;
     }
 
     /**
@@ -242,7 +240,7 @@ public class ManagedProvisioningActivity extends Activity {
      * Removes all apps that are not marked as required for a managed profile. This includes UI
      * components such as the launcher.
      */
-    public boolean deleteNonRequiredAppsForManagedProfile() {
+    public void deleteNonRequiredAppsForManagedProfile() {
 
         ProvisionLogger.logd("Deleting non required apps from managed profile.");
 
@@ -250,10 +248,9 @@ public class ManagedProvisioningActivity extends Activity {
         try {
             allApps = mIpm.getInstalledApplications(0 /*no flags*/,
                     mManagedProfileUserInfo.id).getList();
-        } catch (RemoteException e) {
-            ProvisionLogger.logw("RemoteException when getting the installed applications for the "
-                    + "managed profile");
-            return false;
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
         }
 
         //TODO: Remove hardcoded list of required apps. This is just a temporary list to aid
@@ -271,10 +268,9 @@ public class ManagedProvisioningActivity extends Activity {
                 packageInfo = mIpm.getPackageInfo(app.packageName,
                         PackageManager.GET_SIGNATURES,
                         mManagedProfileUserInfo.id);
-            } catch (RemoteException e) {
-                ProvisionLogger.logw("RemoteException when getting package info for "
-                        + app.packageName + " for the managed profile");
-                // TODO: We should probably stop here, but some apps are better than no apps for now
+            } catch (RemoteException neverThrown) {
+                // Never thrown, as we are making local calls.
+                ProvisionLogger.loge("This should not happen.", neverThrown);
             }
 
             // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
@@ -286,14 +282,12 @@ public class ManagedProvisioningActivity extends Activity {
                 try {
                     mIpm.deletePackageAsUser(app.packageName, null, mManagedProfileUserInfo.id,
                             PackageManager.DELETE_SYSTEM_APP);
-                } catch (RemoteException e) {
-                    ProvisionLogger.logw("RemoteException when deleting " + app.packageName
-                            + " for the managed profile");
-                    return false;
+                } catch (RemoteException neverThrown) {
+                    // Never thrown, as we are making local calls.
+                    ProvisionLogger.loge("This should not happen.", neverThrown);
                 }
             }
         }
-        return true;
     }
 
     private List<String> getImePackages() {
@@ -321,9 +315,9 @@ public class ManagedProvisioningActivity extends Activity {
                     || (flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
                 return true;
             }
-        } catch (RemoteException e) {
-            ProvisionLogger.logw("RemoteException when getting package info for "
-                + packageName + " for the managed profile", e);
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
         }
         return false;
     }
@@ -341,72 +335,68 @@ public class ManagedProvisioningActivity extends Activity {
         return accessibilityPackages;
     }
 
-    private boolean installMdmOnManagedProfile() {
+    private void installMdmOnManagedProfile() throws ManagedProvisioningFailedException {
 
-        ProvisionLogger.logd("Installing mdm on managed profile: " + mMdmPackageName);
+        ProvisionLogger.logd("Installing mobile device management app " + mMdmPackageName +
+              " on managed profile");
 
         try {
             int status = mIpm.installExistingPackageAsUser(
                 mMdmPackageName, mManagedProfileUserInfo.id);
             switch (status) {
               case PackageManager.INSTALL_SUCCEEDED:
-                  return true;
+                  return;
               case PackageManager.INSTALL_FAILED_USER_RESTRICTED:
                   // Should not happen because we're not installing a restricted user
-                  ProvisionLogger.logw("Could not install mdm on managed profile because the " +
-                            "user is restricted");
-                  return false;
+                  throw new ManagedProvisioningFailedException(
+                          "Could not install mobile device management app on managed profile " +
+                          "because the user is restricted");
               case PackageManager.INSTALL_FAILED_INVALID_URI:
                   // Should not happen because we already checked
-                  ProvisionLogger.logw("Could not install mdm on managed profile because the " +
-                            "package could not be found");
-                  return false;
+                  throw new ManagedProvisioningFailedException(
+                          "Could not install mobile device management app on managed profile " +
+                          "because the package could not be found");
               default:
-                  ProvisionLogger.logw("Could not install mdm on managed profile. Unknown status: "
-                          + status);
-                  return false;
+                  throw new ManagedProvisioningFailedException(
+                          "Could not install mobile device management app on managed profile. " +
+                          "Unknown status: " + status);
             }
-        } catch (RemoteException e) {
-            ProvisionLogger.logw("RemoteException, installing the mobile device management application "
-                    + "for the managed profile failed.");
-            return false;
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
         }
     }
 
-    private boolean setMdmAsManagedProfileOwner() {
+    private void setMdmAsManagedProfileOwner() throws ManagedProvisioningFailedException {
 
         ProvisionLogger.logd("Setting package as managed profile owner: " + mMdmPackageName);
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (dpm.setProfileOwner(
-            mMdmPackageName, mDefaultManagedProfileName, mManagedProfileUserInfo.id)) {
-          return true;
+        if (!dpm.setProfileOwner(
+                mMdmPackageName, mDefaultManagedProfileName, mManagedProfileUserInfo.id)) {
+            ProvisionLogger.logw("Could not set profile owner.");
+            throw new ManagedProvisioningFailedException("Could not set profile owner.");
         }
-        ProvisionLogger.logw("Could not set profile owner.");
-        return false;
     }
 
-    private boolean removeMdmFromPrimaryUser (){
+    private void removeMdmFromPrimaryUser() {
 
-        ProvisionLogger.logd("Removing mdm: " + mMdmPackageName + " from primary user.");
+        ProvisionLogger.logd("Removing: " + mMdmPackageName + " from primary user.");
 
         try {
             mIpm.deletePackageAsUser(mMdmPackageName, null, mUserManager.getUserHandle(), 0);
-        } catch (Exception e) {
-            ProvisionLogger.logw("RemoteException, removing the mobile device management application "
-                    + "from the primary user failed.");
-            e.printStackTrace();
-            return false;
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+          ProvisionLogger.loge("This should not happen.", neverThrown);
         }
-        return true;
     }
 
     public void showErrorAndClose() {
         new ManagedProvisioningErrorDialog().show(getFragmentManager(), "ErrorDialogFragment");
     }
 
-    boolean alreadyHasManagedProfile(){
+    boolean alreadyHasManagedProfile() {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         List<UserInfo> relatedUsers = userManager.getRelatedUsers(getUserId());
         for (UserInfo userInfo : relatedUsers) {
@@ -427,5 +417,20 @@ public class ManagedProvisioningActivity extends Activity {
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
             + userHandle.getIdentifier());
       }
+
+    /**
+     * Exception thrown when the managed provisioning has failed completely.
+     *
+     * Note: We're using a custom exception to avoid catching subsequent exceptions that might be
+     * significant.
+     */
+    private class ManagedProvisioningFailedException extends Exception {
+      public ManagedProvisioningFailedException(String message) {
+          super(message);
+      }
+      public ManagedProvisioningFailedException(String message, Throwable t) {
+          super(message, t);
+      }
+    }
 }
 
