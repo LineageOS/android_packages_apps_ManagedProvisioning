@@ -16,8 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
-
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
@@ -62,6 +60,10 @@ import java.util.Properties;
  *   usage options, which a company wants to provide for clients.
  */
 public class DeviceOwnerProvisioningActivity extends Activity {
+
+    // TODO: Move action to DeviceAdminReceiver.
+    private static final String ACTION_DEVICE_OWNER_PROVISIONING_COMPLETE
+        = "android.managedprovisioning.ACTION_DEVICE_OWNER_PROVISIONING_COMPLETE";
 
     public static final String PACKAGE_NAME = "com.android.managedprovisioning";
 
@@ -129,7 +131,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
                     switch (state) {
                         case ProvisioningState.SETUP_COMPLETE:
-                            sendBroadcast(new Intent(ManagedProvisioningActivity.ACTION_PROVISIONING_COMPLETE));
+                            sendBroadcast(new Intent(ACTION_DEVICE_OWNER_PROVISIONING_COMPLETE));
                             cleanupAndFinish();
                             break;
                         case ProvisioningState.ERROR:

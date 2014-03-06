@@ -16,6 +16,9 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
@@ -59,16 +62,6 @@ import java.util.List;
 // TODO: Proper error handling to report back to the user and potentially the mdm.
 public class ManagedProvisioningActivity extends Activity {
 
-    // TODO: Put actions and extra keys somewhere externally visible
-    //       and update places that refer to this intent with @link.
-    private static final String ACTION_PROVISION_MANAGED_PROFILE
-        = "android.managedprovisioning.ACTION_PROVISION_MANAGED_PROFILE";
-    public static final String MDM_PACKAGE_EXTRA = "mdmPackageName";
-    // Used to set the name of the profile and for batching of applications.
-    public static final String DEFAULT_MANAGED_PROFILE_NAME_EXTRA = "defaultManagedProfileName";
-    public static final String ACTION_PROVISIONING_COMPLETE =
-            "android.managedprovisioning.ACTION_PROVISIONING_COMPLETE";
-
     private static final int USER_CONSENT_REQUEST_CODE = 1;
 
     private String mMdmPackageName;
@@ -92,8 +85,9 @@ public class ManagedProvisioningActivity extends Activity {
         }
         // TODO: Check that no managed profile exists yet.
 
-        mMdmPackageName = getIntent().getStringExtra(MDM_PACKAGE_EXTRA);
-        mDefaultManagedProfileName = getIntent().getStringExtra(DEFAULT_MANAGED_PROFILE_NAME_EXTRA);
+        mMdmPackageName = getIntent().getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        mDefaultManagedProfileName = getIntent().getStringExtra(
+                EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
 
         // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
@@ -114,6 +108,7 @@ public class ManagedProvisioningActivity extends Activity {
                 .setMessage(R.string.managed_profile_already_present)
                 .setNeutralButton(android.R.string.ok,
                     new DialogInterface.OnClickListener() {
+                        @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
                         }
@@ -124,29 +119,31 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private boolean isIntentValid(Intent intent) {
-      String mdmPackageName = intent.getStringExtra(MDM_PACKAGE_EXTRA);
-      // Validate package name
-      if (TextUtils.isEmpty(mdmPackageName)) {
-        ProvisionLogger.loge("Missing intent extra: " + MDM_PACKAGE_EXTRA);
-        return false;
-      } else {
-        // Check if the package is installed
-        try {
-          this.getPackageManager().getPackageInfo(mdmPackageName, 0);
-        } catch (NameNotFoundException e) {
-            ProvisionLogger.loge("Mdm "+ mdmPackageName + " is not installed.", e);
+        String mdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        // Validate package name
+        if (TextUtils.isEmpty(mdmPackageName)) {
+            ProvisionLogger.loge("Missing intent extra: "
+                    + EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+            return false;
+        } else {
+            // Check if the package is installed
+            try {
+                this.getPackageManager().getPackageInfo(mdmPackageName, 0);
+            } catch (NameNotFoundException e) {
+                ProvisionLogger.loge("Mdm "+ mdmPackageName + " is not installed.", e);
+                return false;
+            }
+        }
+
+        String defaultManagedProfileName = getIntent()
+                .getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
+        // Validate profile name
+        if (TextUtils.isEmpty(defaultManagedProfileName)) {
+            ProvisionLogger.loge("Missing intent extra: "
+                    + EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
             return false;
         }
-      }
-
-      String defaultManagedProfileName = getIntent()
-              .getStringExtra(DEFAULT_MANAGED_PROFILE_NAME_EXTRA);
-      // Validate profile name
-      if (TextUtils.isEmpty(defaultManagedProfileName)) {
-        ProvisionLogger.loge("Missing intent extra: " + DEFAULT_MANAGED_PROFILE_NAME_EXTRA);
-        return false;
-      }
-      return true;
+        return true;
     }
 
     @Override
@@ -406,12 +403,13 @@ public class ManagedProvisioningActivity extends Activity {
         return false;
     }
 
+    // TODO: Restrict broadcast to mdm package.
     private void sendProvisioningCompleteToManagedProfile(Context context) {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         UserHandle userHandle = userManager.getUserForSerialNumber(
                 mManagedProfileUserInfo.serialNumber);
 
-        Intent completeIntent = new Intent(ACTION_PROVISIONING_COMPLETE);
+        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         context.sendBroadcastAsUser(completeIntent, userHandle);
 
