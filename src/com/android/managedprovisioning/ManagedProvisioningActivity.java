@@ -248,8 +248,8 @@ public class ManagedProvisioningActivity extends Activity {
 
         List<ApplicationInfo> allApps = null;
         try {
-            allApps = mIpm.getInstalledApplications(
-                    PackageManager.GET_UNINSTALLED_PACKAGES, mManagedProfileUserInfo.id).getList();
+            allApps = mIpm.getInstalledApplications(0 /*no flags*/,
+                    mManagedProfileUserInfo.id).getList();
         } catch (RemoteException e) {
             ProvisionLogger.logw("RemoteException when getting the installed applications for the "
                     + "managed profile");
@@ -269,7 +269,7 @@ public class ManagedProvisioningActivity extends Activity {
             PackageInfo packageInfo = null;
             try {
                 packageInfo = mIpm.getPackageInfo(app.packageName,
-                        PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_SIGNATURES,
+                        PackageManager.GET_SIGNATURES,
                         mManagedProfileUserInfo.id);
             } catch (RemoteException e) {
                 ProvisionLogger.logw("RemoteException when getting package info for "
