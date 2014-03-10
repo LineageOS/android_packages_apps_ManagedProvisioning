@@ -188,6 +188,7 @@ public class ManagedProvisioningActivity extends Activity {
 
         try {
             createProfile(mDefaultManagedProfileName);
+            startManagedProfile();
             deleteNonRequiredAppsForManagedProfile();
             installMdmOnManagedProfile();
             setMdmAsManagedProfileOwner();
