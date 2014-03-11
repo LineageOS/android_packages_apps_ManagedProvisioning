@@ -53,7 +53,7 @@
             (phone calls) will still pop up a small window that can be activated.
         -->
         <activity
-            android:name="DeviceOwnerProvisioningActivity"
+            android:name="HandsFreeProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
@@ -96,6 +96,6 @@
             android:launchMode="singleTop" >
         </activity>
 
-        <service android:name="com.android.managedprovisioning.DeviceProvisioningService" />
+        <service android:name="com.android.managedprovisioning.HandsFreeProvisioningService" />
   </application>
 </manifest>

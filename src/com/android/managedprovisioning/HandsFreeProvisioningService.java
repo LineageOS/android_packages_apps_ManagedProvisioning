@@ -32,7 +32,7 @@ import com.android.managedprovisioning.task.TaskManager;
  * Service that allows long running operations during device owner provisioning.  This out lives
  * the activities associated with provisioning, e.g. when external setup is triggered.
  */
-public class DeviceProvisioningService extends Service  {
+public class HandsFreeProvisioningService extends Service  {
 
     public static final String PROVISIONING_STATUS_REPORT_ACTION =
             "com.android.managedprovision.PROVISIONING_STATUS";
@@ -63,7 +63,7 @@ public class DeviceProvisioningService extends Service  {
             }
         }
 
-        ProvisionLogger.logd("Started DeviceProvisioningService");
+        ProvisionLogger.logd("Started HandsFreeProvisioningService");
         mTaskManager = new TaskManager(this, taskRetries, mPrefs, this);
     }
 
@@ -98,7 +98,7 @@ public class DeviceProvisioningService extends Service  {
         // initialized in {@code ManagedProvisioningService#startProvisioning}
         // and not from the intent restarting the service.
 
-        Intent intent = new Intent(this, DeviceProvisioningService.class);
+        Intent intent = new Intent(this, HandsFreeProvisioningService.class);
         PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         long timeTillTrigger = RETRY_TIME_MS + SystemClock.elapsedRealtime();
@@ -108,14 +108,14 @@ public class DeviceProvisioningService extends Service  {
     }
 
     /**
-     * Called by the TaskManager when it wants to shut down the DeviceProvisioningService because it
+     * Called by the TaskManager when it wants to shut down the HandsFreeProvisioningService because it
      * is done.
      */
     public void stop() {
-        ProvisionLogger.logd("Stopping DeviceProvisioningService");
+        ProvisionLogger.logd("Stopping HandsFreeProvisioningService");
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(
-                DeviceOwnerProvisioningActivity.getComponentName(this),
+                HandsFreeProvisioningActivity.getComponentName(this),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
 

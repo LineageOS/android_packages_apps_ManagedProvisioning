@@ -50,16 +50,18 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Handles intents initiating the provisioning process then launches the DeviceProvisioningService
- * to start the provisioning tasks.
+ * Handles intents initiating the provisioning process, then launches the
+ * HandsFreeProvisioningService to start the provisioning tasks.
  *
- * Provisioning types that are supported are:
- * - Managed profile: A device that already has a user, but needs to be set up for a
- *   secondary usage purpose (e.g using your personal device as a corporate device).
- * - Device owner: a new device is set up for a single use case (e.g. a tablet with restricted
- *   usage options, which a company wants to provide for clients.
+ * During this provisioning process wifi is set up, and a package
+ * (which should be already installed on the device) is set as DeviceOwner.
+ * Furthermore there are two phases during which an external activity can take over
+ * and do additional provisioning work.
+ *
+ * The entire provisioning process is handsfree; failed tasks are automatically retried
+ * (multiple times and with exponential backoff).
  */
-public class DeviceOwnerProvisioningActivity extends Activity {
+public class HandsFreeProvisioningActivity extends Activity {
 
     // TODO: Move action to DeviceAdminReceiver.
     private static final String ACTION_DEVICE_OWNER_PROVISIONING_COMPLETE
@@ -68,7 +70,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     public static final String PACKAGE_NAME = "com.android.managedprovisioning";
 
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
-    private static final String BUMP_LAUNCHER_ACTIVITY = ".DeviceOwnerProvisioningActivity";
+    private static final String BUMP_LAUNCHER_ACTIVITY = ".HandsFreeProvisioningActivity";
 
     // Five minute timeout by default.
     private static final String TIMEOUT_IN_MS = "300000";
@@ -88,8 +90,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
      * the provisioning types.
      */
     public static class ProvisioningState {
-        public static final int CONNECTED_NETWORK = 0; // Device owner only
-        public static final int CREATE_PROFILE = 1; // Managed profile only
+        public static final int CONNECTED_NETWORK = 0;
         public static final int REGISTERED_DEVICE_POLICY = 1;
         public static final int SETUP_COMPLETE = 2;
         public static final int UPDATE = 3;
@@ -104,7 +105,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     static {
         mStateToCheckbox.put(ProvisioningState.CONNECTED_NETWORK, R.id.connecting_wifi);
-        mStateToCheckbox.put(ProvisioningState.CREATE_PROFILE, R.id.creating_profile);
         mStateToCheckbox.put(ProvisioningState.REGISTERED_DEVICE_POLICY, R.id.device_policy);
         mStateToCheckbox.put(ProvisioningState.SETUP_COMPLETE, R.id.setup_complete);
     }
@@ -115,12 +115,12 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         public void onReceive(Context context, Intent intent) {
             ProvisionLogger.logd("Received broadcast: " + intent.getAction());
 
-            if (DeviceProvisioningService.PROVISIONING_STATUS_REPORT_ACTION.
+            if (HandsFreeProvisioningService.PROVISIONING_STATUS_REPORT_ACTION.
                     equals(intent.getAction())) {
                 int state = intent.
-                        getIntExtra(DeviceProvisioningService.PROVISIONING_STATUS_REPORT_EXTRA, -1);
+                        getIntExtra(HandsFreeProvisioningService.PROVISIONING_STATUS_REPORT_EXTRA, -1);
                 String stateText = intent.
-                        getStringExtra(DeviceProvisioningService.PROVISIONING_STATUS_TEXT_EXTRA);
+                        getStringExtra(HandsFreeProvisioningService.PROVISIONING_STATUS_TEXT_EXTRA);
                 ProvisionLogger.logd("Received state broadcast: " + state);
 
                 if (state != -1) {
@@ -149,9 +149,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ProvisionLogger.logd("DeviceOwnerProvisioning started");
+        ProvisionLogger.logd("HandsFreeProvisioning started");
         // TODO Find better location/flow for disabling the NFC receiver during provisioning.
-        // Re-enabling currently takes place in the DeviceProvisioningService.
+        // Re-enabling currently takes place in the HandsFreeProvisioningService.
         // We need to reassess the whole of enabling/disabling and not provisioning twice
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(getComponentName(this),
@@ -162,7 +162,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         if (mStatusReceiver == null) {
             mStatusReceiver = new StatusReceiver();
             IntentFilter filter = new IntentFilter();
-            filter.addAction(DeviceProvisioningService.PROVISIONING_STATUS_REPORT_ACTION);
+            filter.addAction(HandsFreeProvisioningService.PROVISIONING_STATUS_REPORT_ACTION);
             registerReceiver(mStatusReceiver, filter);
         }
 
@@ -194,7 +194,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     public void onResume() {
         super.onResume();
         if (!mHasLaunchedConfiguration) {
-            startDeviceOwnerProvisioning();
+            startHandsFreeProvisioning();
         }
     }
 
@@ -240,7 +240,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
      *  Build the provisioning intent from the NFC properties and start the device owner
      *  provisioning.
      */
-    private void startDeviceOwnerProvisioning() {
+    private void startHandsFreeProvisioning() {
         Intent intent = getIntent();
         Intent provisioningIntent = processNfcPayload(intent);
 
@@ -251,11 +251,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 cleanupAndFinish();
             }
 
-            // Launch DeviceProvisioningService.
-            provisioningIntent.setClass(getApplicationContext(), DeviceProvisioningService.class);
+            // Launch HandsFreeProvisioningService.
+            provisioningIntent.setClass(getApplicationContext(), HandsFreeProvisioningService.class);
             initialize(provisioningIntent);
 
-            ProvisionLogger.logd("Starting DeviceProvisioningService");
+            ProvisionLogger.logd("Starting HandsFreeProvisioningService");
             startService(provisioningIntent);
             mHasLaunchedConfiguration = true;
         } else {
@@ -297,7 +297,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 String propName = (String) propertyNames.nextElement();
                 provisioningIntent.putExtra(propName, props.getProperty(propName));
             }
-            provisioningIntent.putExtra(DeviceProvisioningService.ORIGINAL_INTENT_KEY, true);
+            provisioningIntent.putExtra(HandsFreeProvisioningService.ORIGINAL_INTENT_KEY, true);
             return provisioningIntent;
         } catch (IOException e) {
             error("Couldn't load payload", e);
@@ -448,7 +448,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     }
 
     private void cleanupAndFinish() {
-        ProvisionLogger.logd("Finishing DeviceOwnerProvisioningActivity");
+        ProvisionLogger.logd("Finishing HandsFreeProvisioningActivity");
 
         if (mHandler != null) {
             mHandler.removeCallbacks(mTimeoutRunnable);
@@ -456,7 +456,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
         PackageManager pkgMgr = getPackageManager();
         pkgMgr.setComponentEnabledSetting(
-                DeviceOwnerProvisioningActivity.getComponentName(this),
+                HandsFreeProvisioningActivity.getComponentName(this),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
 
@@ -470,7 +470,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     private void error(String logMsg, Throwable t) {
         mPrefs.setError(logMsg.toString());
         ProvisionLogger.loge("Error: " + logMsg, t);
-        ErrorDialog.showError(DeviceOwnerProvisioningActivity.this);
+        ErrorDialog.showError(HandsFreeProvisioningActivity.this);
     }
 
     public static ComponentName getComponentName(Context context) {

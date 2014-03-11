@@ -21,7 +21,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.DeviceProvisioningService;
+import com.android.managedprovisioning.HandsFreeProvisioningService;
 import com.android.managedprovisioning.ErrorDialog;
 import com.android.managedprovisioning.Preferences;
 import com.android.managedprovisioning.ProvisionLogger;
@@ -52,7 +52,7 @@ public class TaskManager {
     private Context mContext;
     private Preferences mPreferences;
 
-    private DeviceProvisioningService mService;
+    private HandsFreeProvisioningService mService;
 
     private boolean mHasStarted;
 
@@ -61,7 +61,7 @@ public class TaskManager {
     private Bundle mProvisioningBundle;
 
     public TaskManager(Context context, int[] taskRetries, Preferences preferences,
-            DeviceProvisioningService service) {
+            HandsFreeProvisioningService service) {
         mCurrentRetries = 0;
         mExecutor = Executors.newCachedThreadPool();
         mContext = context;
@@ -119,7 +119,7 @@ public class TaskManager {
     }
 
     public void finish() {
-        ProvisionLogger.logd("DeviceProvisioningService - All tasks complete, shutting down");
+        ProvisionLogger.logd("HandsFreeProvisioningService - All tasks complete, shutting down");
         mPreferences.setProperty(Preferences.TASK_STATE, 0);
         mService.stop();
     }
@@ -182,10 +182,10 @@ public class TaskManager {
 
         Intent message = new Intent(PROVISIONING_STATUS_REPORT_ACTION);
         if (state != -1) {
-            message.putExtra(DeviceProvisioningService.PROVISIONING_STATUS_REPORT_EXTRA, state);
+            message.putExtra(HandsFreeProvisioningService.PROVISIONING_STATUS_REPORT_EXTRA, state);
         }
         if (!TextUtils.isEmpty(reason)) {
-            message.putExtra(DeviceProvisioningService.PROVISIONING_STATUS_TEXT_EXTRA, reason);
+            message.putExtra(HandsFreeProvisioningService.PROVISIONING_STATUS_TEXT_EXTRA, reason);
         }
         mContext.sendBroadcast(message);
     }
