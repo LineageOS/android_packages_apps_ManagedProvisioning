@@ -110,6 +110,7 @@ public class ManagedProvisioningActivity extends Activity {
             // Wait for user consent, in onActivityResult
         }
         else {
+            ProvisionLogger.loge("The device already has a managed profile, nothing to do.");
             AlertDialog dlg = new AlertDialog.Builder(this)
                 .setMessage(R.string.managed_profile_already_present)
                 .setNeutralButton(android.R.string.ok,
