@@ -195,8 +195,10 @@ public class ManagedProvisioningActivity extends Activity {
             ProvisionLogger.logd("Finishing managed profile provisioning.");
             finish();
         } catch (ManagedProvisioningFailedException e) {
-          ProvisionLogger.logw("Could not finish managed profile provisioning: " + e.getMessage());
-          showErrorAndClose();
+            ProvisionLogger.logw(
+                    "Could not finish managed profile provisioning: " + e.getMessage());
+            cleanup();
+            showErrorAndClose();
         }
     }
 
@@ -215,6 +217,17 @@ public class ManagedProvisioningActivity extends Activity {
                 throw new ManagedProvisioningFailedException(
                         "Couldn't create related user. Reason unknown.");
             }
+        }
+    }
+
+    /**
+     * Performs cleanup of the device on failure.
+     */
+    private void cleanup() {
+        // The only cleanup we need to do is remove the profile we created.
+        if (mManagedProfileUserInfo != null) {
+            ProvisionLogger.logd("Removing managed profile");
+            mUserManager.removeUser(mManagedProfileUserInfo.id);
         }
     }
 
