@@ -223,16 +223,18 @@ public class ManagedProvisioningActivity extends Activity {
      * This is required so that the provisioning complete broadcast can be sent across to the
      * profile and apps can run on it.
      */
-    private boolean startManagedProfile() {
+    private void startManagedProfile() throws ManagedProvisioningFailedException {
         ProvisionLogger.logd("Starting user in background");
         IActivityManager iActivityManager = ActivityManagerNative.getDefault();
         try {
-            iActivityManager.startUserInBackground(mManagedProfileUserInfo.id);
-        } catch (RemoteException e) {
-            ProvisionLogger.logd("RemoteException when starting the managed profile");
-            return false;
+            boolean success = iActivityManager.startUserInBackground(mManagedProfileUserInfo.id);
+            if (!success) {
+                throw new ManagedProvisioningFailedException("Could not start user in background");
+            }
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
         }
-        return true;
     }
 
     /**
