@@ -29,14 +29,14 @@ import com.android.managedprovisioning.HandsFreeProvisioningActivity.Provisionin
 /**
  * Adds a wifi network to system if one is specified in the bump.
  */
-public class AddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.Callback {
+public class HandsFreeAddWifiNetworkTask extends ProvisionTask implements NetworkMonitor.Callback {
 
     private WifiConfig mWifiConfig;
     private String mWifiSsid;
 
     private WifiManager mWifiManager;
 
-    public AddWifiNetworkTask() {
+    public HandsFreeAddWifiNetworkTask() {
         super("Wifi task");
     }
 

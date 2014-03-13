@@ -32,14 +32,14 @@ import com.android.managedprovisioning.HandsFreeProvisioningActivity.Provisionin
  * admin.
  */
 //TODO Add download location support rather than pre-installed package.
-public class DevicePolicyTask extends ProvisionTask {
+public class HandsFreeDevicePolicyTask extends ProvisionTask {
 
     private ComponentName mDeviceManagementAgentComponentName;
     private DevicePolicyManager mDevicePolicyManager;
 
     private String mPkg;
 
-    public DevicePolicyTask() {
+    public HandsFreeDevicePolicyTask() {
         super("Device policy task");
     }
 

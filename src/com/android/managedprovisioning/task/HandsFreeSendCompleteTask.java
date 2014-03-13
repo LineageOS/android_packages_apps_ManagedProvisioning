@@ -18,9 +18,9 @@ package com.android.managedprovisioning.task;
 
 import com.android.managedprovisioning.HandsFreeProvisioningActivity.ProvisioningState;
 
-public class SendCompleteTask extends ProvisionTask {
+public class HandsFreeSendCompleteTask extends ProvisionTask {
 
-    public SendCompleteTask() {
+    public HandsFreeSendCompleteTask() {
         super("Send Complete Task");
     }
 

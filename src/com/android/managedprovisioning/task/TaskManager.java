@@ -69,11 +69,11 @@ public class TaskManager {
 
         // Get all tasks that need to be completed to provision the device.
         mProvisionTasks = new ProvisionTask[] {
-                new AddWifiNetworkTask(),
-                new ExternalSetupTask(true),
-                new DevicePolicyTask(),
-                new ExternalSetupTask(false),
-                new SendCompleteTask()
+                new HandsFreeAddWifiNetworkTask(),
+                new HandsFreeExternalSetupTask(true),
+                new HandsFreeDevicePolicyTask(),
+                new HandsFreeExternalSetupTask(false),
+                new HandsFreeSendCompleteTask()
         };
 
         mCurrentTask = mPreferences.getIntProperty(Preferences.TASK_STATE);

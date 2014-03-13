@@ -29,7 +29,7 @@ import com.android.managedprovisioning.ProvisionLogger;
  * Launches an activity on a bump-specified package that must be privileged.
  * Then waits for a response broadcast indicating the external setup has completed.
  */
-public class ExternalSetupTask extends ProvisionTask {
+public class HandsFreeExternalSetupTask extends ProvisionTask {
     public static final String EXTERNAL_PROVISION_COMPLETE =
             "android.intent.action.EXTERNAL_PROVISION_COMPLETE";
     public static final String EXTERNAL_PROVISION_ACTION =
@@ -46,7 +46,7 @@ public class ExternalSetupTask extends ProvisionTask {
 
     private BroadcastReceiver mReceiver;
 
-    public ExternalSetupTask(boolean isPreMdm) {
+    public HandsFreeExternalSetupTask(boolean isPreMdm) {
         super("External Provision Task");
         mIsPreMdm = isPreMdm;
     }
