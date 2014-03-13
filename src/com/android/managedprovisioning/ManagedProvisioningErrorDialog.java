@@ -31,8 +31,11 @@ import android.os.Bundle;
  */
 public class ManagedProvisioningErrorDialog extends DialogFragment {
 
-  public ManagedProvisioningErrorDialog() {
-      // Empty constructor required for DialogFragment
+  private final String message;
+
+  public ManagedProvisioningErrorDialog(String message) {
+      super();
+      this.message = message;
   }
 
   @Override
@@ -42,7 +45,7 @@ public class ManagedProvisioningErrorDialog extends DialogFragment {
       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
       // TODO: Get strings from PM.
       alertDialogBuilder.setTitle(R.string.managed_provisioning_error_title)
-              .setMessage(R.string.managed_provisioning_error_text)
+              .setMessage(message)
               .setCancelable(false)
               .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {

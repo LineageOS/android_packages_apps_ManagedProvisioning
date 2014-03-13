@@ -25,7 +25,6 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
-import android.app.AlertDialog;
 import android.app.IActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -80,10 +79,9 @@ public class ManagedProvisioningActivity extends Activity {
         ProvisionLogger.logd("Managed provisioning activity ONCREATE");
 
         if (!isIntentValid(getIntent())) {
-          showErrorAndClose();
+          showErrorAndClose(R.string.managed_provisioning_error_text);
           return;
         }
-        // TODO: Check that no managed profile exists yet.
 
         mMdmPackageName = getIntent().getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         mDefaultManagedProfileName = getIntent().getStringExtra(
@@ -102,20 +100,9 @@ public class ManagedProvisioningActivity extends Activity {
             Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
             startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
             // Wait for user consent, in onActivityResult
-        }
-        else {
+        } else {
             ProvisionLogger.loge("The device already has a managed profile, nothing to do.");
-            AlertDialog dlg = new AlertDialog.Builder(this)
-                .setMessage(R.string.managed_profile_already_present)
-                .setNeutralButton(android.R.string.ok,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                })
-                .create();
-            dlg.show();
+            showErrorAndClose(R.string.managed_profile_already_present);
         }
     }
 
@@ -198,7 +185,7 @@ public class ManagedProvisioningActivity extends Activity {
             ProvisionLogger.logw(
                     "Could not finish managed profile provisioning: " + e.getMessage());
             cleanup();
-            showErrorAndClose();
+            showErrorAndClose(R.string.managed_provisioning_error_text);
         }
     }
 
@@ -406,8 +393,9 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
-    public void showErrorAndClose() {
-        new ManagedProvisioningErrorDialog().show(getFragmentManager(), "ErrorDialogFragment");
+    public void showErrorAndClose(int resourceId) {
+      new ManagedProvisioningErrorDialog(getString(resourceId))
+              .show(getFragmentManager(), "ErrorDialogFragment");
     }
 
     boolean alreadyHasManagedProfile() {
