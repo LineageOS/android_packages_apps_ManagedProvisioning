@@ -411,7 +411,8 @@ public class ManagedProvisioningActivity extends Activity {
                 mManagedProfileUserInfo.serialNumber);
 
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+            Intent.FLAG_RECEIVER_FOREGROUND);
         context.sendBroadcastAsUser(completeIntent, userHandle);
 
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
