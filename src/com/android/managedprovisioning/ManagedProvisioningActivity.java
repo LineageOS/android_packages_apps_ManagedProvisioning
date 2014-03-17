@@ -419,13 +419,13 @@ public class ManagedProvisioningActivity extends Activity {
         return false;
     }
 
-    // TODO: Restrict broadcast to mdm package.
     private void sendProvisioningCompleteToManagedProfile(Context context) {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         UserHandle userHandle = userManager.getUserForSerialNumber(
                 mManagedProfileUserInfo.serialNumber);
 
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        completeIntent.setPackage(mMdmPackageName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
             Intent.FLAG_RECEIVER_FOREGROUND);
         context.sendBroadcastAsUser(completeIntent, userHandle);
@@ -443,9 +443,6 @@ public class ManagedProvisioningActivity extends Activity {
     private class ManagedProvisioningFailedException extends Exception {
       public ManagedProvisioningFailedException(String message) {
           super(message);
-      }
-      public ManagedProvisioningFailedException(String message, Throwable t) {
-          super(message, t);
       }
     }
 }
