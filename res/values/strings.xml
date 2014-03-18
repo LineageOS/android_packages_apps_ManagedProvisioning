@@ -77,14 +77,16 @@
 
   <!-- Device owner provisioning flow UI. -->
 
-  <!-- Title of the error dialog. -->
+  <!-- Title of the error dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_error_title">Provisioning failed</string>
-  <!-- Message of the error dialog. -->
+  <!-- Message of the error dialog. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_general">An error occured.</string>
-  <!-- Message of the error dialog when already provisioned. -->
+  <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_already_provisioned">The device is already provisioned.</string>
-  <!-- Message of the error dialog when already owned. -->
+  <!-- Message of the error dialog when already owned. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_already_owned">The device is already owned by another device owner.</string>
-  <!-- Message of the error dialog when nfc message parsing failed. -->
+  <!-- Message of the error dialog when nfc message parsing failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_nfc_parse_fail">Parsing of Nfc data failed. Please check that the data is sent correctly by your programmer app.</string>
+  <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_wifi">Could not connect to wifi.</string>
 </resources>
