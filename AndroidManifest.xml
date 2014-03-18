@@ -68,6 +68,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="DeviceOwnerProvisioningActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="nosensor"
+            android:theme="@style/WelcomeTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/com.android.managedprovisioning" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="ManagedProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
