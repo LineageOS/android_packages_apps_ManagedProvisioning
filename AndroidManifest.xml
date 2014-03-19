@@ -57,6 +57,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -72,6 +73,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" >
             <intent-filter>
                 <action android:name="android.managedprovisioning.ACTION_PROVISION_MANAGED_PROFILE" />
@@ -82,18 +84,21 @@
             android:name="ConfigureUserActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="ErrorActivity"
             android:immersive="true"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/ErrorTheme" >
         </activity>
         <activity
             android:name="UserConsentActivity"
             android:immersive="true"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
         </activity>
 
         <service android:name="com.android.managedprovisioning.HandsFreeProvisioningService" />
