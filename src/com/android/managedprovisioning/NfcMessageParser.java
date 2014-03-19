@@ -24,6 +24,8 @@ import android.os.Parcelable;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.math.BigInteger;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Properties;
@@ -59,6 +61,8 @@ public class NfcMessageParser {
     private static final String WIFI_PROXY_BYPASS_KEY = "wifiProxyBypassHosts";
     private static final String MDM_PACKAGE_KEY = "mdmPackageName";
     private static final String MDM_ADMIN_RECEIVER_KEY = "mdmAdminReceiver";
+    private static final String MDM_DOWNLOAD_URL_KEY = "mdmDownloadUrl";
+    private static final String MDM_PACKAGE_HASH_KEY = "mdmPackageHash";
 
     // Ids of properties.
     private static final int TIMEOUT_ID = 0;
@@ -75,6 +79,8 @@ public class NfcMessageParser {
     private static final int WIFI_PROXY_BYPASS_ID = 11;
     private static final int MDM_PACKAGE_ID = 12;
     private static final int MDM_ADMIN_RECEIVER_ID = 13;
+    private static final int MDM_DOWNLOAD_URL_ID = 14;
+    private static final int MDM_PACKAGE_HASH_ID = 15;
 
     private static final HashMap<String, Integer> mKeyToId = new HashMap<String, Integer>();
 
@@ -94,6 +100,8 @@ public class NfcMessageParser {
         mKeyToId.put(WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_BYPASS_ID);
         mKeyToId.put(MDM_PACKAGE_KEY, MDM_PACKAGE_ID);
         mKeyToId.put(MDM_ADMIN_RECEIVER_KEY, MDM_ADMIN_RECEIVER_ID);
+        mKeyToId.put(MDM_DOWNLOAD_URL_KEY, MDM_DOWNLOAD_URL_ID);
+        mKeyToId.put(MDM_PACKAGE_HASH_KEY, MDM_PACKAGE_HASH_ID);
     }
 
     public ProvisioningParams parseNfcIntent(Intent nfcIntent) throws NfcParseException {
@@ -108,10 +116,10 @@ public class NfcMessageParser {
 
                 // Assume only first record of message is used.
                 NdefRecord firstRecord = msg.getRecords()[0];
-                String mimeType = new String(firstRecord.getType());
+                String mimeType = new String(firstRecord.getType(), UTF_8);
 
                 if (NFC_MIME_TYPE.equals(mimeType)) {
-                    return parseNfcProperties(new String(firstRecord.getPayload()));
+                    return parseNfcProperties(new String(firstRecord.getPayload(), UTF_8));
                 }
             }
         } else {
@@ -199,6 +207,12 @@ public class NfcMessageParser {
                 break;
             case MDM_ADMIN_RECEIVER_ID:
                 params.mMdmAdminReceiver = value;
+                break;
+            case MDM_DOWNLOAD_URL_ID:
+                params.mDownloadLocation = value;
+                break;
+            case MDM_PACKAGE_HASH_ID:
+                params.mHash = new BigInteger(value,16).toByteArray();
                 break;
             default:
 

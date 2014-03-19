@@ -31,6 +31,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.managedprovisioning.task.DownloadPackageTask;
 
 /**
  * This activity starts device owner provisioning:
@@ -110,14 +111,18 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         final AddWifiNetworkTask addWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
                 params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
                 params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts);
+        final DownloadPackageTask downloadPackageTask = new DownloadPackageTask(this,
+                params.mDownloadLocation, params.mHash);
 
         // Set callbacks.
         addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
             public void onSuccess() {
-                // TODO: Start second task here.
-
-                // Done with provisioning. Success.
-                onProvisioningSuccess();
+                if (downloadPackageTask.downloadLocationWasProvided()) {
+                    downloadPackageTask.run();
+                } else {
+                    // TODO: replace success by starting the next task.
+                    onProvisioningSuccess();
+                }
             }
 
             public void onError(){
@@ -125,12 +130,32 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             }
         });
 
+        downloadPackageTask.setCallback(new DownloadPackageTask.Callback() {
+            public void onSuccess(String downloadedPackageLocation) {
+                // Done with provisioning. Success.
+                onProvisioningSuccess();
+            }
+            public void onError(int errorCode) {
+                switch(errorCode) {
+                    case DownloadPackageTask.ERROR_HASH_MISMATCH:
+                        error(R.string.device_owner_error_hash_mismatch);
+                        break;
+                    case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
+                        error(R.string.device_owner_error_download_failed);
+                        break;
+                    default:
+                        error(R.string.device_owner_error_general);
+                        break;
+                }
+            }
+        });
 
-        // Start first task.
-        if (addWifiNetworkTask.shouldRun()) {
+
+        // Start first task, which starts next task in its callback, etc.
+        if (addWifiNetworkTask.wifiCredentialsWereProvided()) {
             addWifiNetworkTask.run();
         } else {
-            onProvisioningSuccess();
+            finish(); // For debugging purposes only.
         }
     }
 
