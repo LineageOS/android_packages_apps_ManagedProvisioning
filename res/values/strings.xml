@@ -75,4 +75,16 @@
   <string name="managed_profile_already_present"> You already have a managed profile.
       You cannot create a second one. </string>
 
+  <!-- Device owner provisioning flow UI. -->
+
+  <!-- Title of the error dialog. -->
+  <string name="device_owner_error_title">Provisioning failed</string>
+  <!-- Message of the error dialog. -->
+  <string name="device_owner_error_general">An error occured.</string>
+  <!-- Message of the error dialog when already provisioned. -->
+  <string name="device_owner_error_already_provisioned">The device is already provisioned.</string>
+  <!-- Message of the error dialog when already owned. -->
+  <string name="device_owner_error_already_owned">The device is already owned by another device owner.</string>
+  <!-- Message of the error dialog when nfc message parsing failed. -->
+  <string name="device_owner_error_nfc_parse_fail">Parsing of Nfc data failed. Please check that the data is sent correctly by your programmer app.</string>
 </resources>
