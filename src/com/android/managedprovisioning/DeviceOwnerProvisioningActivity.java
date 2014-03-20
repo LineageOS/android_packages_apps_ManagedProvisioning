@@ -32,6 +32,9 @@ import android.view.View;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
+import com.android.managedprovisioning.task.InstallPackageTask;
+
+import java.lang.Runnable;
 
 /**
  * This activity starts device owner provisioning:
@@ -52,7 +55,10 @@ import com.android.managedprovisioning.task.DownloadPackageTask;
  * com.example.android.apis.app.DeviceProvisioningProgrammerSample.
  * </p>
  *
- * TODO: Handle the unlikely scenario of this activity being killed.
+ * <p>
+ * In the unlikely case that this activity is killed the whole provisioning process so far is
+ * repeated. We made sure that all tasks can be done twice without causing any problems.
+ * </p>
  */
 public class DeviceOwnerProvisioningActivity extends Activity {
     @Override
@@ -113,9 +119,12 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts);
         final DownloadPackageTask downloadPackageTask = new DownloadPackageTask(this,
                 params.mDownloadLocation, params.mHash);
+        final InstallPackageTask installPackageTask = new InstallPackageTask(this,
+                params.mMdmPackageName, params.mMdmAdminReceiver);
 
         // Set callbacks.
         addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
+            @Override
             public void onSuccess() {
                 if (downloadPackageTask.downloadLocationWasProvided()) {
                     downloadPackageTask.run();
@@ -125,16 +134,21 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 }
             }
 
+            @Override
             public void onError(){
                 error(R.string.device_owner_error_wifi);
             }
         });
 
         downloadPackageTask.setCallback(new DownloadPackageTask.Callback() {
-            public void onSuccess(String downloadedPackageLocation) {
-                // Done with provisioning. Success.
-                onProvisioningSuccess();
+            @Override
+            public void onSuccess() {
+                String downloadLocation = downloadPackageTask.getDownloadedPackageLocation();
+                Runnable cleanupRunnable = downloadPackageTask.getCleanUpDownloadRunnable();
+                installPackageTask.run(downloadLocation, cleanupRunnable);
             }
+
+            @Override
             public void onError(int errorCode) {
                 switch(errorCode) {
                     case DownloadPackageTask.ERROR_HASH_MISMATCH:
@@ -142,6 +156,29 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                         break;
                     case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
                         error(R.string.device_owner_error_download_failed);
+                        break;
+                    default:
+                        error(R.string.device_owner_error_general);
+                        break;
+                }
+            }
+        });
+
+        installPackageTask.setCallback(new InstallPackageTask.Callback() {
+            @Override
+            public void onSuccess() {
+                // Done with provisioning. Success.
+                onProvisioningSuccess();
+            }
+
+            @Override
+            public void onError(int errorCode) {
+                switch(errorCode) {
+                    case InstallPackageTask.ERROR_PACKAGE_INVALID:
+                        error(R.string.device_owner_error_package_invalid);
+                        break;
+                    case InstallPackageTask.ERROR_INSTALLATION_FAILED:
+                        error(R.string.device_owner_error_installation_failed);
                         break;
                     default:
                         error(R.string.device_owner_error_general);
@@ -167,7 +204,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 new ComponentName(getPackageName(), getClass().getName()),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
-
         finish();
     }
 
