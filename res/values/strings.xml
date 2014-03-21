@@ -97,4 +97,6 @@
   <string name="device_owner_error_package_invalid">Device owner package file does not contain the required package and/or components.</string>
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_installation_failed">Installation of the device owner package failed.</string>
+  <!-- Message of the error dialog when device owner package is not installed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_package_not_installed">Specified device owner package is not installed on device.</string>
 </resources>
