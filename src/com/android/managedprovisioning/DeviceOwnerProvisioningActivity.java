@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -30,12 +31,14 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
 
 import java.lang.Runnable;
+import java.util.Locale;
 
 /**
  * This activity starts device owner provisioning:
@@ -95,17 +98,14 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             return;
         }
 
+        initializeProvisioningEnvironment(params);
+
         // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
         final View contentView = inflater.inflate(R.layout.progress_profile_owner, null);
         setContentView(contentView);
 
         startDeviceOwnerProvisioning(params);
-    }
-
-    @Override
-    public void onBackPressed() {
-        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
     }
 
     /**
@@ -224,6 +224,46 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
         finish();
+    }
+
+    private void initializeProvisioningEnvironment(ProvisioningParams params) {
+        setTimeAndTimezone(params.mTimeZone, params.mLocalTime);
+        setLocale(params.mLocale);
+    }
+
+    private void setTimeAndTimezone(String timeZone, Long localTime) {
+        try {
+            final AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            if (timeZone != null) {
+                ProvisionLogger.logd("Setting time zone to " + timeZone);
+                am.setTimeZone(timeZone);
+            }
+            if (localTime != null) {
+                ProvisionLogger.logd("Setting time to " + localTime);
+                am.setTime(localTime);
+            }
+        } catch (Exception e) {
+            ProvisionLogger.loge("Alarm manager failed to set the system time/timezone.");
+            // Do not stop provisioning process, but ignore this error.
+        }
+    }
+
+    private void setLocale(Locale locale) {
+        if (locale == null || locale.equals(Locale.getDefault())) {
+            return;
+        }
+        try {
+            ProvisionLogger.logd("Setting locale to " + locale);
+            LocalePicker.updateLocale(locale);
+        } catch (Exception e) {
+            ProvisionLogger.loge("Failed to set the system locale.");
+            // Do not stop provisioning process, but ignore this error.
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
     }
 
     public void error(int dialogMessage) {

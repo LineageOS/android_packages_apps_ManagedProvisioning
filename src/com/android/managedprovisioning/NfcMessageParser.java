@@ -28,6 +28,7 @@ import java.math.BigInteger;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Properties;
 
 /**
@@ -176,7 +177,11 @@ public class NfcMessageParser {
                 params.mLocalTime = Long.parseLong(value);
                 break;
             case LOCALE_ID:
-                params.mLocale = value;
+                if (value.length() == 5) {
+                    params.mLocale = new Locale(value.substring(0, 2), value.substring(3, 5));
+                } else {
+                    throw new NumberFormatException("The locale code is not 5 characters long.");
+                }
                 break;
             case OWNER_ID:
                 params.mOwner = value;

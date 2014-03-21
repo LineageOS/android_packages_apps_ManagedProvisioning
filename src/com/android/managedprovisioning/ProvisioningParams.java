@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning;
 
+import java.util.Locale;
+
 /**
  * Provisioning Parameters for DeviceOwner Provisioning
  */
@@ -23,7 +25,7 @@ public class ProvisioningParams {
     public static Integer mTimeout;
     public static String mTimeZone;
     public static Long mLocalTime;
-    public static String mLocale;
+    public static Locale mLocale;
     public static String mOwner;
 
     public static String mWifiSsid;
