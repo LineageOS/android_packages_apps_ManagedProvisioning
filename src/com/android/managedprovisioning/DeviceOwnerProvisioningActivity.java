@@ -19,14 +19,18 @@ package com.android.managedprovisioning;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings.Global;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import com.android.managedprovisioning.task.AddWifiNetworkTask;
 
 /**
  * This activity starts device owner provisioning:
@@ -102,7 +106,43 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     private void startDeviceOwnerProvisioning(ProvisioningParams params) {
         ProvisionLogger.logd("Starting device owner provisioning");
 
-        // TODO: Work through the provisioning steps in their corresponding order
+        // Construct Tasks. Do not start them yet.
+        final AddWifiNetworkTask addWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
+                params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
+                params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts);
+
+        // Set callbacks.
+        addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
+            public void onSuccess() {
+                // TODO: Start second task here.
+
+                // Done with provisioning. Success.
+                onProvisioningSuccess();
+            }
+
+            public void onError(){
+                error(R.string.device_owner_error_wifi);
+            }
+        });
+
+
+        // Start first task.
+        if (addWifiNetworkTask.shouldRun()) {
+            addWifiNetworkTask.run();
+        } else {
+            onProvisioningSuccess();
+        }
+    }
+
+    public void onProvisioningSuccess() {
+
+        // This package is no longer needed by the system, so disable it.
+        PackageManager pkgMgr = getPackageManager();
+        pkgMgr.setComponentEnabledSetting(
+                new ComponentName(getPackageName(), getClass().getName()),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
+
         finish();
     }
 
