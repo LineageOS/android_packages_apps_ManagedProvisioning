@@ -58,7 +58,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mCallback = callback;
     }
 
-    public boolean shouldRun() {
+    public boolean wifiCredentialsWereProvided() {
         return !TextUtils.isEmpty(mSsid);
     }
 

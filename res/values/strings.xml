@@ -89,4 +89,8 @@
   <string name="device_owner_error_nfc_parse_fail">Parsing of Nfc data failed. Please check that the data is sent correctly by your programmer app.</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Could not connect to wifi.</string>
+  <!-- Message of the error dialog when hashes do not match. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_hash_mismatch">Hash of downloaded file does not match hash provided by programmer app.</string>
+  <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_download_failed">Could not download the device owner package.</string>
 </resources>

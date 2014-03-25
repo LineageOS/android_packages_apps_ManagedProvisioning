@@ -36,4 +36,7 @@ public class ProvisioningParams {
 
     public static String mMdmPackageName;
     public static String mMdmAdminReceiver;
+
+    public static String mDownloadLocation;
+    public static byte[] mHash;
 }
