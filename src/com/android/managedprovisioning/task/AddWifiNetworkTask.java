@@ -38,7 +38,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     private String mProxyBypassHosts;
     private Callback mCallback;
     private WifiManager mWifiManager;
-    private boolean mHasSucceeded;
+    private NetworkMonitor mNetworkMonitor;
 
     public AddWifiNetworkTask(Context context, String ssid, boolean hidden, String securityType,
             String password, String proxyHost, int proxyPort, String proxyBypassHosts) {
@@ -51,7 +51,6 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mProxyPort = proxyPort;
         mProxyBypassHosts = proxyBypassHosts;
         mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
-        mHasSucceeded = false;
     }
 
     public void setCallback(Callback callback) {
@@ -70,7 +69,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         }
 
         WifiConfig wifiConfig = new WifiConfig(mWifiManager);
-        new NetworkMonitor(mContext, this);
+        mNetworkMonitor = new NetworkMonitor(mContext, this);
 
         int netId = wifiConfig.addNetwork(mSsid, mHidden, mSecurityType, mPassword, mProxyHost,
                 mProxyPort, mProxyBypassHosts);
@@ -113,10 +112,8 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         if (NetworkMonitor.isConnectedToWifi(mContext) &&
                 mWifiManager.getConnectionInfo().getSSID().equals(mSsid)) {
             ProvisionLogger.logd("Connected to the correct network");
-            if (!mHasSucceeded) {
-                mCallback.onSuccess();
-                mHasSucceeded = true;
-            }
+            mNetworkMonitor.close();
+            mCallback.onSuccess();
         }
     }
 
