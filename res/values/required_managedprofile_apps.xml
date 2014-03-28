@@ -3,14 +3,13 @@
     <!-- A temporary list of apps to be retained in the managed profile. This will be removed in a future CL. -->
     <string-array name="required_managedprofile_apps">
         <item>android</item>
+        <item>com.android.providers.downloads</item>
+        <item>com.android.development</item>
+        <item>com.android.defcontainer</item>
         <item>com.android.providers.userdictionary</item>
         <item>com.android.inputdevices</item>
-        <item>com.google.android.apps.inputmethod.hindi</item>
-        <item>com.google.android.inputmethod.korean</item>
-        <item>com.google.android.inputmethod.pinyin</item>
         <item>com.android.keyguard</item>
         <item>com.android.launcher</item>
-        <item>com.google.android.gm</item>
         <item>com.android.wallpaper.livepicker</item>
         <item>com.android.wallpapercropper</item>
         <item>com.android.wallpaper</item>
