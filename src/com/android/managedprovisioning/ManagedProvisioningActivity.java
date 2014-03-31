@@ -36,7 +36,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
-import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -296,12 +295,8 @@ public class ManagedProvisioningActivity extends Activity {
         InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
         List<InputMethodInfo> imis = imm.getInputMethodList();
         for (InputMethodInfo imi : imis) {
-            try {
-                if (imi.isDefault(this) && isSystemPackage(imi.getPackageName())) {
-                    imePackages.add(imi.getPackageName());
-                }
-            } catch (NotFoundException rnfe) {
-                // No default IME available
+            if (isSystemPackage(imi.getPackageName())) {
+                imePackages.add(imi.getPackageName());
             }
         }
         return imePackages;
