@@ -245,15 +245,14 @@ public class ManagedProvisioningActivity extends Activity {
 
         ProvisionLogger.logd("Deleting non required apps from managed profile.");
 
-        List<ApplicationInfo> allApps = null;
+        List<PackageInfo> allPackages = null;
         try {
-            allApps = mIpm.getInstalledApplications(0 /*no flags*/,
-                    mManagedProfileUserInfo.id).getList();
+            allPackages = mIpm.getInstalledPackages(PackageManager.GET_SIGNATURES,
+                        mManagedProfileUserInfo.id).getList();
         } catch (RemoteException neverThrown) {
             // Never thrown, as we are making local calls.
             ProvisionLogger.loge("This should not happen.", neverThrown);
         }
-
         //TODO: Remove hardcoded list of required apps. This is just a temporary list to aid
         // development and testing.
 
@@ -263,26 +262,16 @@ public class ManagedProvisioningActivity extends Activity {
         requiredApps.addAll(getImePackages());
         requiredApps.addAll(getAccessibilityPackages());
 
-        for (ApplicationInfo app : allApps) {
-            PackageInfo packageInfo = null;
-            try {
-                packageInfo = mIpm.getPackageInfo(app.packageName,
-                        PackageManager.GET_SIGNATURES,
-                        mManagedProfileUserInfo.id);
-            } catch (RemoteException neverThrown) {
-                // Never thrown, as we are making local calls.
-                ProvisionLogger.loge("This should not happen.", neverThrown);
-            }
-
+        for (PackageInfo packageInfo : allPackages) {
             // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
-            boolean isRequired = requiredApps.contains(app.packageName)
+            boolean isRequired = requiredApps.contains(packageInfo.packageName)
                     || packageInfo.requiredForAllUsers
                     || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0;
 
             if (!isRequired) {
                 try {
-                    mIpm.deletePackageAsUser(app.packageName, null, mManagedProfileUserInfo.id,
-                            PackageManager.DELETE_SYSTEM_APP);
+                    mIpm.deletePackageAsUser(packageInfo.packageName, null,
+                            mManagedProfileUserInfo.id, PackageManager.DELETE_SYSTEM_APP);
                 } catch (RemoteException neverThrown) {
                     // Never thrown, as we are making local calls.
                     ProvisionLogger.loge("This should not happen.", neverThrown);
