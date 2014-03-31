@@ -28,9 +28,9 @@ import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -52,6 +52,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Handles managed profile provisioning: A device that already has a user, but needs to be set up
@@ -172,10 +174,27 @@ public class ManagedProvisioningActivity extends Activity {
 
         try {
             createProfile(mDefaultManagedProfileName);
-            startManagedProfile();
-            deleteNonRequiredAppsForManagedProfile();
+            deleteNonRequiredAppsForManagedProfile(new Runnable() {
+                    public void run() {
+                        setUpProfileAndFinish();
+                    }});
+        } catch (ManagedProvisioningFailedException e) {
+            ProvisionLogger.logw(
+                    "Could not finish managed profile provisioning: " + e.getMessage());
+            cleanup();
+            showErrorAndClose(R.string.managed_provisioning_error_text);
+        }
+    }
+
+    /**
+     * Called when the new profile is ready for provisioning (the profile is created and all the
+     * apps not needed have been deleted).
+     */
+    private void setUpProfileAndFinish() {
+        try {
             installMdmOnManagedProfile();
             setMdmAsManagedProfileOwner();
+            startManagedProfile();
             removeMdmFromPrimaryUser();
             sendProvisioningCompleteToManagedProfile(this);
             ProvisionLogger.logd("Finishing managed profile provisioning.");
@@ -240,7 +259,8 @@ public class ManagedProvisioningActivity extends Activity {
      * Removes all apps that are not marked as required for a managed profile. This includes UI
      * components such as the launcher.
      */
-    public void deleteNonRequiredAppsForManagedProfile() {
+    public void deleteNonRequiredAppsForManagedProfile(Runnable nextTask)
+            throws ManagedProvisioningFailedException {
 
         ProvisionLogger.logd("Deleting non required apps from managed profile.");
 
@@ -261,6 +281,7 @@ public class ManagedProvisioningActivity extends Activity {
         requiredApps.addAll(getImePackages());
         requiredApps.addAll(getAccessibilityPackages());
 
+        Set<PackageInfo> packagesToDelete = new HashSet<PackageInfo>();
         for (PackageInfo packageInfo : allPackages) {
             // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
             boolean isRequired = requiredApps.contains(packageInfo.packageName)
@@ -268,13 +289,18 @@ public class ManagedProvisioningActivity extends Activity {
                     || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0;
 
             if (!isRequired) {
-                try {
-                    mIpm.deletePackageAsUser(packageInfo.packageName, null,
-                            mManagedProfileUserInfo.id, PackageManager.DELETE_SYSTEM_APP);
-                } catch (RemoteException neverThrown) {
-                    // Never thrown, as we are making local calls.
-                    ProvisionLogger.loge("This should not happen.", neverThrown);
-                }
+                packagesToDelete.add(packageInfo);
+            }
+        }
+        PackageDeleteObserver packageDeleteObserver =
+                    new PackageDeleteObserver(packagesToDelete.size(), nextTask);
+        for (PackageInfo packageInfo : packagesToDelete) {
+            try {
+                mIpm.deletePackageAsUser(packageInfo.packageName, packageDeleteObserver,
+                        mManagedProfileUserInfo.id, PackageManager.DELETE_SYSTEM_APP);
+            } catch (RemoteException neverThrown) {
+                // Never thrown, as we are making local calls.
+                ProvisionLogger.loge("This should not happen.", neverThrown);
             }
         }
     }
@@ -416,6 +442,34 @@ public class ManagedProvisioningActivity extends Activity {
       public ManagedProvisioningFailedException(String message) {
           super(message);
       }
+    }
+
+    /**
+     * Runs the next task when all packages have been deleted or shuts down the activity if package
+     * deletion fails.
+     */
+    class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
+        private final AtomicInteger packageCount = new AtomicInteger(0);
+        private final Runnable nextTask;
+
+        public PackageDeleteObserver(int packageCount, Runnable nextTask) {
+            this.nextTask = nextTask;
+            this.packageCount.set(packageCount);
+        }
+
+        @Override
+        public void packageDeleted(String packageName, int returnCode) {
+            if (returnCode != PackageManager.DELETE_SUCCEEDED) {
+                ProvisionLogger.logw(
+                        "Could not finish managed profile provisioning: package deletion failed");
+                cleanup();
+                showErrorAndClose(R.string.managed_provisioning_error_text);
+            }
+            int currentPackageCount = packageCount.decrementAndGet();
+            if (currentPackageCount == 0) {
+                nextTask.run();
+            }
+        }
     }
 }
 
