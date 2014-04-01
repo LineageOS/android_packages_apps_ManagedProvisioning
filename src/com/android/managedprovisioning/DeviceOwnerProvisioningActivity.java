@@ -33,6 +33,7 @@ import android.view.View;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
+import com.android.managedprovisioning.task.SetDevicePolicyTask;
 
 import java.lang.Runnable;
 
@@ -121,6 +122,8 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 params.mDownloadLocation, params.mHash);
         final InstallPackageTask installPackageTask = new InstallPackageTask(this,
                 params.mMdmPackageName, params.mMdmAdminReceiver);
+        final SetDevicePolicyTask setDevicePolicyTask = new SetDevicePolicyTask(this,
+                params.mMdmPackageName, params.mMdmAdminReceiver, params.mOwner);
 
         // Set callbacks.
         addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
@@ -167,8 +170,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         installPackageTask.setCallback(new InstallPackageTask.Callback() {
             @Override
             public void onSuccess() {
-                // Done with provisioning. Success.
-                onProvisioningSuccess();
+                setDevicePolicyTask.run();
             }
 
             @Override
@@ -187,12 +189,29 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             }
         });
 
+        setDevicePolicyTask.setCallback(new SetDevicePolicyTask.Callback() {
+            public void onSuccess() {
+                // Done with provisioning. Success.
+                onProvisioningSuccess();
+            }
+            public void onError(int errorCode) {
+                switch(errorCode) {
+                    case SetDevicePolicyTask.ERROR_PACKAGE_NOT_INSTALLED:
+                        error(R.string.device_owner_error_package_not_installed);
+                        break;
+                    default:
+                        error(R.string.device_owner_error_general);
+                        break;
+                }
+            }
+        });
+
 
         // Start first task, which starts next task in its callback, etc.
         if (addWifiNetworkTask.wifiCredentialsWereProvided()) {
             addWifiNetworkTask.run();
         } else {
-            finish(); // For debugging purposes only.
+            setDevicePolicyTask.run();
         }
     }
 
