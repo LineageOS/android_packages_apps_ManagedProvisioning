@@ -34,6 +34,7 @@ import com.android.managedprovisioning.ProvisionLogger;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.FileInputStream;
+import java.lang.Runnable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -50,16 +51,16 @@ public class DownloadPackageTask {
     private static final String HASH_TYPE = "SHA-1";
 
     private Context mContext;
-    private String mDownloadLocation;
+    private String mDownloadLocationFrom;
+    private String mDownloadLocationTo;
     private Callback mCallback;
     private byte[] mHash;
     private boolean mDoneDownloading;
-
     private long mDownloadId;
 
     public DownloadPackageTask (Context context, String downloadLocation, byte[] hash) {
         mContext = context;
-        mDownloadLocation = downloadLocation;
+        mDownloadLocationFrom = downloadLocation;
         mHash = hash;
         mDoneDownloading = false;
     }
@@ -69,17 +70,17 @@ public class DownloadPackageTask {
     }
 
     public boolean downloadLocationWasProvided() {
-        return !TextUtils.isEmpty(mDownloadLocation);
+        return !TextUtils.isEmpty(mDownloadLocationFrom);
     }
 
     public void run() {
         mContext.registerReceiver(createDownloadReceiver(),
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
-        ProvisionLogger.logd("Starting download from " + mDownloadLocation);
+        ProvisionLogger.logd("Starting download from " + mDownloadLocationFrom);
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
-        Request r = new Request(Uri.parse(mDownloadLocation));
+        Request r = new Request(Uri.parse(mDownloadLocationFrom));
         mDownloadId = dm.enqueue(r);
     }
 
@@ -97,11 +98,15 @@ public class DownloadPackageTask {
                         int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
                         if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
                             mContext.unregisterReceiver(this);
-                            onDownloadSuccess(c.getString(
-                                    c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME)));
+                            String location = c.getString(
+                                    c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+                            c.close();
+                            onDownloadSuccess(location);
                         } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
                             mContext.unregisterReceiver(this);
-                            onDownloadFail(c.getColumnIndex(DownloadManager.COLUMN_REASON));
+                            int reason = c.getColumnIndex(DownloadManager.COLUMN_REASON);
+                            c.close();
+                            onDownloadFail(reason);
                         }
                     }
                 }
@@ -130,15 +135,14 @@ public class DownloadPackageTask {
         if (Arrays.equals(mHash, hash)) {
             ProvisionLogger.logd(HASH_TYPE + "-hashes matched, both are "
                     + byteArrayToHex(hash));
-            mCallback.onSuccess(location);
+            mDownloadLocationTo = location;
+            mCallback.onSuccess();
         } else {
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file does not match given hash.");
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file: "
                     + byteArrayToHex(hash));
             ProvisionLogger.loge(HASH_TYPE + "-hash provided by programmer: "
                     + byteArrayToHex(mHash));
-
-            // TODO: delete the file at location location.
 
             mCallback.onError(ERROR_HASH_MISMATCH);
         }
@@ -190,6 +194,27 @@ public class DownloadPackageTask {
         return hash;
     }
 
+    public String getDownloadedPackageLocation() {
+        return mDownloadLocationTo;
+    }
+
+    public Runnable getCleanUpDownloadRunnable() {
+        return new Runnable() {
+            @Override
+            public void run() {
+                DownloadManager dm = (DownloadManager) mContext
+                        .getSystemService(Context.DOWNLOAD_SERVICE);
+                boolean removeSuccess = dm.remove(mDownloadId) == 1;
+                if (removeSuccess) {
+                    ProvisionLogger.logd("Successfully removed the device owner installer file.");
+                } else {
+                    ProvisionLogger.loge("Could not remove the device owner installer file.");
+                    // Ignore this error. Failing cleanup should not stop provisioning flow.
+                }
+            }
+        };
+    }
+
     // For logging purposes only.
     String byteArrayToHex(byte[] ba) {
         StringBuilder sb = new StringBuilder();
@@ -200,7 +225,7 @@ public class DownloadPackageTask {
     }
 
     public abstract static class Callback {
-        public abstract void onSuccess(String downloadedPackageLocation);
+        public abstract void onSuccess();
         public abstract void onError(int errorCode);
     }
 }
