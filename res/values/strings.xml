@@ -79,6 +79,9 @@
 
   <!-- Device owner provisioning flow UI. -->
 
+  <!-- Placeholder progress subtitle. [CHAR LIMIT=45] -->
+  <string name="device_owner_subtitle">Placeholder text.</string>
+
   <!-- Title of the error dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_error_title">Provisioning failed</string>
   <!-- Message of the error dialog. [CHAR LIMIT=NONE] -->

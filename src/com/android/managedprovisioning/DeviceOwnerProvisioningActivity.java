@@ -102,7 +102,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
         // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.progress_profile_owner, null);
+        final View contentView = inflater.inflate(R.layout.progress_device_owner, null);
         setContentView(contentView);
 
         startDeviceOwnerProvisioning(params);

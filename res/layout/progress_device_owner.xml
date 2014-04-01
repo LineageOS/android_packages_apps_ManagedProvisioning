@@ -18,62 +18,33 @@
 -->
 
 <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="vertical"
-  style="@style/WelcomeOuterFrame">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    style="@style/UserConsentBackground">
 
     <TextView
-        android:id="@+id/provisioning_device"
-        style="@style/WelcomeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:minHeight="@dimen/title_height"
         android:gravity="bottom"
-        android:text="@string/provisioning_device" />
+        android:text="@string/provisioning_device"
+        android:textSize="40sp" />
 
-    <!-- Divider -->
-    <FrameLayout
-        android:id="@+id/top_divider"
-        android:orientation="vertical"
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/provisioning_device">
-        <View
-            android:id="@+id/static_divider"
-            style="@style/TopDivider" />
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/divider_margin_top"
-            android:layout_marginBottom="@dimen/divider_margin_bottom"
-            android:indeterminate="true"
-            android:visibility="visible" />
-    </FrameLayout>
+        android:indeterminate="true" />
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        style="@style/ChecklistList">
-      <CheckedTextView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/connecting_wifi"
-          style="@style/ChecklistItem"
-          android:text="@string/connecting_network" />
-      <CheckedTextView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/device_policy"
-          style="@style/ChecklistItem"
-          android:text="@string/device_policy_reg" />
-      <CheckedTextView
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/setup_complete"
-          style="@style/ChecklistItem"
-          android:text="@string/setup_complete" />
-   </LinearLayout>
+    <TextView
+        android:id="@+id/dev_owner_prog_text"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:text="@string/device_owner_subtitle"
+        android:textSize="30sp" />
+
 </LinearLayout>
