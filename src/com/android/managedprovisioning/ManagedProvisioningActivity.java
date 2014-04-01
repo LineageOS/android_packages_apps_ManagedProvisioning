@@ -77,6 +77,12 @@ public class ManagedProvisioningActivity extends Activity {
 
         ProvisionLogger.logd("Managed provisioning activity ONCREATE");
 
+        PackageManager pm = getPackageManager();
+        if (!pm.hasSystemFeature(PackageManager.FEATURE_MANAGEDPROFILES)) {
+            showErrorAndClose(R.string.managed_provisioning_not_supported);
+            return;
+        }
+
         if (!isIntentValid(getIntent())) {
           showErrorAndClose(R.string.managed_provisioning_error_text);
           return;
