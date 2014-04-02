@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
@@ -26,6 +27,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageManager;
@@ -55,6 +57,7 @@ public class ManagedProvisioningActivity extends Activity {
     private static final int USER_CONSENT_REQUEST_CODE = 1;
 
     private String mMdmPackageName;
+    private ComponentName mActiveAdminComponentName;
     private String mDefaultManagedProfileName;
 
     private IPackageManager mIpm;
@@ -71,18 +74,18 @@ public class ManagedProvisioningActivity extends Activity {
 
         PackageManager pm = getPackageManager();
         if (!pm.hasSystemFeature(PackageManager.FEATURE_MANAGEDPROFILES)) {
-            showErrorAndClose(R.string.managed_provisioning_not_supported);
+            showErrorAndClose(R.string.managed_provisioning_not_supported,
+                    "Exiting managed provisioning, managed profiles feature is not available");
             return;
         }
 
-        if (!isIntentValid(getIntent())) {
-          showErrorAndClose(R.string.managed_provisioning_error_text);
-          return;
+        // Initialize member variables from the intent, stop if the intent wasn't valid.
+        try {
+            initialize(getIntent());
+        } catch (ManagedProvisioningFailedException e) {
+            showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
+            return;
         }
-
-        mMdmPackageName = getIntent().getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        mDefaultManagedProfileName = getIntent().getStringExtra(
-                EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
 
         // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
@@ -98,37 +101,41 @@ public class ManagedProvisioningActivity extends Activity {
             startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
             // Wait for user consent, in onActivityResult
         } else {
-            ProvisionLogger.loge("The device already has a managed profile, nothing to do.");
-            showErrorAndClose(R.string.managed_profile_already_present);
+            showErrorAndClose(R.string.managed_profile_already_present,
+                    "The device already has a managed profile, nothing to do.");
         }
     }
 
-    private boolean isIntentValid(Intent intent) {
-        String mdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+    private void initialize(Intent intent)
+            throws ManagedProvisioningFailedException {
+        mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         // Validate package name
-        if (TextUtils.isEmpty(mdmPackageName)) {
-            ProvisionLogger.loge("Missing intent extra: "
+        if (TextUtils.isEmpty(mMdmPackageName)) {
+            throw new ManagedProvisioningFailedException("Missing intent extra: "
                     + EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-            return false;
         } else {
             // Check if the package is installed
             try {
-                this.getPackageManager().getPackageInfo(mdmPackageName, 0);
+                this.getPackageManager().getPackageInfo(mMdmPackageName, 0);
             } catch (NameNotFoundException e) {
-                ProvisionLogger.loge("Mdm "+ mdmPackageName + " is not installed.", e);
-                return false;
+                throw new ManagedProvisioningFailedException("Mdm "+ mMdmPackageName
+                        + " is not installed. " + e);
             }
         }
 
-        String defaultManagedProfileName = getIntent()
+        mActiveAdminComponentName = intent.getParcelableExtra(EXTRA_DEVICE_ADMIN);
+        if (mActiveAdminComponentName == null) {
+            throw new ManagedProvisioningFailedException("Missing intent extra: "
+                    + EXTRA_DEVICE_ADMIN);
+        }
+
+        mDefaultManagedProfileName = getIntent()
                 .getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
         // Validate profile name
-        if (TextUtils.isEmpty(defaultManagedProfileName)) {
-            ProvisionLogger.loge("Missing intent extra: "
+        if (TextUtils.isEmpty(mDefaultManagedProfileName)) {
+            throw new ManagedProvisioningFailedException("Missing intent extra: "
                     + EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
-            return false;
         }
-        return true;
     }
 
     @Override
@@ -183,14 +190,14 @@ public class ManagedProvisioningActivity extends Activity {
                                 @Override
                                 public void onError() {
                                     cleanup();
-                                    showErrorAndClose(R.string.managed_provisioning_error_text);
+                                    showErrorAndClose(R.string.managed_provisioning_error_text,
+                                            "Delete non required apps task failed.");
                                 }});
             deleteTask.run();
         } catch (ManagedProvisioningFailedException e) {
-            ProvisionLogger.logw(
-                    "Could not finish managed profile provisioning: " + e.getMessage());
             cleanup();
-            showErrorAndClose(R.string.managed_provisioning_error_text);
+            showErrorAndClose(R.string.managed_provisioning_error_text,
+                    "Could not finish managed profile provisioning: " + e.getMessage());
         }
     }
 
@@ -201,6 +208,7 @@ public class ManagedProvisioningActivity extends Activity {
     private void setUpProfileAndFinish() {
         try {
             installMdmOnManagedProfile();
+            setMdmAsActiveAdmin();
             setMdmAsManagedProfileOwner();
             startManagedProfile();
             removeMdmFromPrimaryUser();
@@ -208,10 +216,9 @@ public class ManagedProvisioningActivity extends Activity {
             ProvisionLogger.logd("Finishing managed profile provisioning.");
             finish();
         } catch (ManagedProvisioningFailedException e) {
-            ProvisionLogger.logw(
-                    "Could not finish managed profile provisioning: " + e.getMessage());
             cleanup();
-            showErrorAndClose(R.string.managed_provisioning_error_text);
+            showErrorAndClose(R.string.managed_provisioning_error_text,
+                    "Could not finish managed profile provisioning: " + e.getMessage());
         }
     }
 
@@ -297,7 +304,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private void setMdmAsManagedProfileOwner() throws ManagedProvisioningFailedException {
 
-        ProvisionLogger.logd("Setting package as managed profile owner: " + mMdmPackageName);
+        ProvisionLogger.logd("Setting package " + mMdmPackageName + " as managed profile owner.");
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -306,6 +313,16 @@ public class ManagedProvisioningActivity extends Activity {
             ProvisionLogger.logw("Could not set profile owner.");
             throw new ManagedProvisioningFailedException("Could not set profile owner.");
         }
+    }
+
+    private void setMdmAsActiveAdmin() {
+
+        ProvisionLogger.logd("Setting package " + mMdmPackageName + " as active admin.");
+
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        dpm.setActiveAdmin(mActiveAdminComponentName, true /* refreshing*/,
+                mManagedProfileUserInfo.id);
     }
 
     private void removeMdmFromPrimaryUser() {
@@ -320,8 +337,9 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
-    public void showErrorAndClose(int resourceId) {
-      new ManagedProvisioningErrorDialog(getString(resourceId))
+    public void showErrorAndClose(int resourceId, String logText) {
+        ProvisionLogger.loge(logText);
+        new ManagedProvisioningErrorDialog(getString(resourceId))
               .show(getFragmentManager(), "ErrorDialogFragment");
     }
 
@@ -340,7 +358,7 @@ public class ManagedProvisioningActivity extends Activity {
                 mManagedProfileUserInfo.serialNumber);
 
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setPackage(mMdmPackageName);
+        completeIntent.setComponent(mActiveAdminComponentName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
             Intent.FLAG_RECEIVER_FOREGROUND);
         context.sendBroadcastAsUser(completeIntent, userHandle);
@@ -360,6 +378,5 @@ public class ManagedProvisioningActivity extends Activity {
           super(message);
       }
     }
-
 }
 
