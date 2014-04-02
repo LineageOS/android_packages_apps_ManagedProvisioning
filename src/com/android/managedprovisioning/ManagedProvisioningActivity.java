@@ -211,16 +211,16 @@ public class ManagedProvisioningActivity extends Activity {
 
         ProvisionLogger.logd("Creating managed profile with name " + profileName);
 
-        mManagedProfileUserInfo = mUserManager.createRelatedUser(profileName,
+        mManagedProfileUserInfo = mUserManager.createProfileForUser(profileName,
                 UserInfo.FLAG_MANAGED_PROFILE, ActivityManager.getCurrentUser());
 
         if (mManagedProfileUserInfo == null) {
             if (UserManager.getMaxSupportedUsers() == mUserManager.getUserCount()) {
                 throw new ManagedProvisioningFailedException(
-                        "User creation failed, maximum number of users reached.");
+                        "Profile creation failed, maximum number of users reached.");
             } else {
                 throw new ManagedProvisioningFailedException(
-                        "Couldn't create related user. Reason unknown.");
+                        "Couldn't create profile. Reason unknown.");
             }
         }
     }
@@ -410,8 +410,8 @@ public class ManagedProvisioningActivity extends Activity {
 
     boolean alreadyHasManagedProfile() {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        List<UserInfo> relatedUsers = userManager.getRelatedUsers(getUserId());
-        for (UserInfo userInfo : relatedUsers) {
+        List<UserInfo> profiles = userManager.getProfiles(getUserId());
+        for (UserInfo userInfo : profiles) {
             if (userInfo.isManagedProfile()) return true;
         }
         return false;
