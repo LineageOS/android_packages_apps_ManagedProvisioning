@@ -285,8 +285,8 @@ public class ManagedProvisioningActivity extends Activity {
         for (PackageInfo packageInfo : allPackages) {
             // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
             boolean isRequired = requiredApps.contains(packageInfo.packageName)
-                    || packageInfo.requiredForAllUsers
-                    || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0;
+                    || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0
+                    || (packageInfo.requiredForProfile == 0 && packageInfo.requiredForAllUsers);
 
             if (!isRequired) {
                 packagesToDelete.add(packageInfo);
