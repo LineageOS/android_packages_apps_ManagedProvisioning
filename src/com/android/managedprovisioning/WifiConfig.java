@@ -16,9 +16,9 @@
 
 package com.android.managedprovisioning;
 
-import android.net.IpConfiguration.ProxySettings;
 import android.net.ProxyProperties;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiConfiguration.ProxySettings;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 
