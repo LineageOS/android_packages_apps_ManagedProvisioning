@@ -2,5 +2,6 @@
 <resources>
     <!-- A temporary list of apps to be retained in the managed profile. This will be removed in a future CL. -->
     <string-array name="required_managedprofile_apps">
+        <item>com.android.development</item>
     </string-array>
 </resources>
