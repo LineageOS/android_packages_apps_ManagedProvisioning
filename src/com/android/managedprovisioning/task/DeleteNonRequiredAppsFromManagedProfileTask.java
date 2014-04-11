@@ -2,11 +2,13 @@ package com.android.managedprovisioning.task;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -32,6 +34,7 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
     private final Callback mCallback;
     private final Context mContext;
     private final IPackageManager mIpm;
+    private final PackageManager mPm;
     private final UserInfo mManagedProfileUserInfo;
     private final String mMdmPackageName;
 
@@ -42,6 +45,7 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
         mMdmPackageName = mdmPackageName;
         mManagedProfileUserInfo = managedProfileUserInfo;
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+        mPm = context.getPackageManager();
     }
 
     public void run() {
@@ -64,22 +68,37 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
         requiredApps.addAll(getImePackages());
         requiredApps.addAll(getAccessibilityPackages());
 
-        Set<PackageInfo> packagesToDelete = new HashSet<PackageInfo>();
-        for (PackageInfo packageInfo : allPackages) {
+        Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
+        launcherIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> launcherActivities = mPm.queryIntentActivitiesAsUser(
+                launcherIntent, 0 /* no flags */, mManagedProfileUserInfo.id);
+
+        Set<String> packagesToDelete = new HashSet<String>();
+        for (ResolveInfo activity : launcherActivities) {
+            String packageName = activity.activityInfo.packageName;
+            PackageInfo packageInfo = null;
+            try {
+                packageInfo = mIpm.getPackageInfo(
+                        packageName, 0 /* no flags */ , mManagedProfileUserInfo.id);
+            } catch (RemoteException neverThrown) {
+                // If the package manager is dead, we have bigger problems.
+                ProvisionLogger.loge("This should not happen.", neverThrown);
+            }
             // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
             boolean isRequired = requiredApps.contains(packageInfo.packageName)
                     || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0
                     || (packageInfo.requiredForProfile == 0 && packageInfo.requiredForAllUsers);
 
             if (!isRequired) {
-                packagesToDelete.add(packageInfo);
+                packagesToDelete.add(packageName);
             }
         }
+
         PackageDeleteObserver packageDeleteObserver =
                     new PackageDeleteObserver(packagesToDelete.size());
-        for (PackageInfo packageInfo : packagesToDelete) {
+        for (String packageName : packagesToDelete) {
             try {
-                mIpm.deletePackageAsUser(packageInfo.packageName, packageDeleteObserver,
+                mIpm.deletePackageAsUser(packageName, packageDeleteObserver,
                         mManagedProfileUserInfo.id, PackageManager.DELETE_SYSTEM_APP);
             } catch (RemoteException neverThrown) {
                 // Never thrown, as we are making local calls.
