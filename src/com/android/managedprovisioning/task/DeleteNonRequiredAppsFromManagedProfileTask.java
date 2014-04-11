@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Removes all apps that are not marked as required for a managed profile. This includes UI
+ * Removes all apps that are not required for a managed profile to work. This includes UI
  * components such as the launcher.
  */
 public class DeleteNonRequiredAppsFromManagedProfileTask {
@@ -59,14 +59,14 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
             // Never thrown, as we are making local calls.
             ProvisionLogger.loge("This should not happen.", neverThrown);
         }
-        //TODO: Remove hardcoded list of required apps. This is just a temporary list to aid
-        // development and testing.
 
         HashSet<String> requiredApps = new HashSet<String> (Arrays.asList(
                 mContext.getResources().getStringArray(R.array.required_managedprofile_apps)));
         requiredApps.add(mMdmPackageName);
         requiredApps.addAll(getImePackages());
         requiredApps.addAll(getAccessibilityPackages());
+        requiredApps.addAll(Arrays.asList(mContext.getResources().getStringArray(
+                R.array.vendor_required_managedprofile_apps)));
 
         Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
         launcherIntent.addCategory(Intent.CATEGORY_LAUNCHER);
