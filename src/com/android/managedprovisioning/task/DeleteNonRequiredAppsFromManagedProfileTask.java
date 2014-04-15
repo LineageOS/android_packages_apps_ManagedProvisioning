@@ -76,20 +76,7 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
         Set<String> packagesToDelete = new HashSet<String>();
         for (ResolveInfo activity : launcherActivities) {
             String packageName = activity.activityInfo.packageName;
-            PackageInfo packageInfo = null;
-            try {
-                packageInfo = mIpm.getPackageInfo(
-                        packageName, 0 /* no flags */ , mManagedProfileUserInfo.id);
-            } catch (RemoteException neverThrown) {
-                // If the package manager is dead, we have bigger problems.
-                ProvisionLogger.loge("This should not happen.", neverThrown);
-            }
-            // TODO: Remove check for requiredForAllUsers once that flag has been fully deprecated.
-            boolean isRequired = requiredApps.contains(packageInfo.packageName)
-                    || (packageInfo.requiredForProfile & PackageInfo.MANAGED_PROFILE) != 0
-                    || (packageInfo.requiredForProfile == 0 && packageInfo.requiredForAllUsers);
-
-            if (!isRequired) {
+            if (!requiredApps.contains(packageName)) {
                 packagesToDelete.add(packageName);
             }
         }
