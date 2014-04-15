@@ -123,7 +123,7 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
     private boolean isSystemPackage(String packageName) {
         try {
             final PackageInfo pi = mIpm.getPackageInfo(packageName, 0, mManagedProfileUserInfo.id);
-            if (pi.applicationInfo == null) return false;
+            if (pi == null || pi.applicationInfo == null) return false;
             final int flags = pi.applicationInfo.flags;
             if ((flags & ApplicationInfo.FLAG_SYSTEM) != 0
                     || (flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
