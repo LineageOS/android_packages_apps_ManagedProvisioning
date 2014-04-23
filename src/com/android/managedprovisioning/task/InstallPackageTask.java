@@ -22,6 +22,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.provider.Settings.Global;
 import android.text.TextUtils;
 import android.Manifest.permission;
 
@@ -49,6 +50,7 @@ public class InstallPackageTask {
     private String mAdminReceiver;
     private PackageManager mPm;
     private Runnable mCleanUpDownloadRunnable;
+    private int mPackageVerifierEnable;
 
     public InstallPackageTask (Context context, String packageName, String adminReceiver) {
         mContext = context;
@@ -74,6 +76,11 @@ public class InstallPackageTask {
         mPm = mContext.getPackageManager();
 
         if (packageContentIsCorrect()) {
+            // Temporarily turn of package verification.
+            mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
+                    Global.PACKAGE_VERIFIER_ENABLE, 1);
+            Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0);
+
             // Allow for replacing an existing package.
             // Needed in case this task is performed multiple times.
             mPm.installPackage(Uri.parse(mPackageLocation), observer,
@@ -122,6 +129,9 @@ public class InstallPackageTask {
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
         @Override
         public void packageInstalled(String packageName, int returnCode) {
+            Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
+                    mPackageVerifierEnable);
+
             if (!packageName.equals(mPackageName)) {
                 ProvisionLogger.loge("Something went wrong: Installed package " + packageName
                         + " and not " + mPackageName + ".");
