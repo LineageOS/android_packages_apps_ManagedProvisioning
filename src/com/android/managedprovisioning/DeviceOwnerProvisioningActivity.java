@@ -92,9 +92,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         Intent bumpData = getIntent();
         try {
             params = parser.parseNfcIntent(bumpData);
-        } catch (NfcMessageParser.NfcParseException e) {
+        } catch (NfcMessageParser.ParseException e) {
             ProvisionLogger.loge("Could not read Nfc data from intent", e);
-            error(R.string.device_owner_error_nfc_parse_fail);
+            error(e.getErrorMessageId());
             return;
         }
 
@@ -121,9 +121,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         final DownloadPackageTask downloadPackageTask = new DownloadPackageTask(this,
                 params.mDownloadLocation, params.mHash);
         final InstallPackageTask installPackageTask = new InstallPackageTask(this,
-                params.mMdmPackageName, params.mMdmAdminReceiver);
+                params.mDeviceAdminPackageName, params.mAdminReceiver);
         final SetDevicePolicyTask setDevicePolicyTask = new SetDevicePolicyTask(this,
-                params.mMdmPackageName, params.mMdmAdminReceiver, params.mOwner);
+                params.mDeviceAdminPackageName, params.mAdminReceiver, params.mOwner);
 
         // Set callbacks.
         addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
@@ -254,6 +254,8 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
         try {
             ProvisionLogger.logd("Setting locale to " + locale);
+            // If locale is different from current locale this results in a configuration change,
+            // which will trigger the restarting of the activity.
             LocalePicker.updateLocale(locale);
         } catch (Exception e) {
             ProvisionLogger.loge("Failed to set the system locale.");
