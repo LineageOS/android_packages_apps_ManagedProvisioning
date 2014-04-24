@@ -54,22 +54,6 @@
             (phone calls) will still pop up a small window that can be activated.
         -->
         <activity
-            android:name="HandsFreeProvisioningActivity"
-            android:excludeFromRecents="true"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:screenOrientation="nosensor"
-            android:theme="@style/WelcomeTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/com.android.managedprovisioning" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="DeviceOwnerProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
@@ -98,26 +82,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ConfigureUserActivity"
-            android:excludeFromRecents="true"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:screenOrientation="nosensor" >
-        </activity>
-        <activity
-            android:name="ErrorActivity"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:screenOrientation="nosensor"
-            android:theme="@style/ErrorTheme" >
-        </activity>
-        <activity
             android:name="UserConsentActivity"
             android:immersive="true"
             android:launchMode="singleTop"
             android:screenOrientation="nosensor" >
         </activity>
-
-        <service android:name="com.android.managedprovisioning.HandsFreeProvisioningService" />
   </application>
 </manifest>

@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:gravity="bottom"
-        android:text="@string/provisioning_device"
+        android:text="@string/provisioning_title"
         android:textSize="40sp" />
 
     <ProgressBar

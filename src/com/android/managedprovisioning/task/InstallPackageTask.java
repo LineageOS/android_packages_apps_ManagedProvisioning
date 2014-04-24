@@ -76,7 +76,7 @@ public class InstallPackageTask {
         mPm = mContext.getPackageManager();
 
         if (packageContentIsCorrect()) {
-            // Temporarily turn of package verification.
+            // Temporarily turn off package verification.
             mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
                     Global.PACKAGE_VERIFIER_ENABLE, 1);
             Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0);
@@ -129,6 +129,7 @@ public class InstallPackageTask {
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
         @Override
         public void packageInstalled(String packageName, int returnCode) {
+            // Set package verification flag to its original value.
             Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
                     mPackageVerifierEnable);
 

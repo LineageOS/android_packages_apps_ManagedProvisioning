@@ -17,28 +17,8 @@
  */
 -->
 <resources>
-    <dimen name="checklist_check_width">50dip</dimen>
-
-    <dimen name="button_min_width">128dip</dimen>
-    <dimen name="button_min_height">48dip</dimen>
-    <dimen name="button_margin_top">16dip</dimen>
-
-    <dimen name="content_margin_sides">0dp</dimen>
-
-    <dimen name="description_margin_top">26dip</dimen>
-    <dimen name="description_text_size">20sp</dimen>
-
-    <dimen name="divider_height">3dip</dimen>
-    <dimen name="divider_margin_top">6dip</dimen>
-    <dimen name="divider_margin_bottom">7dip</dimen>
-
     <dimen name="title_height">104dip</dimen>
     <dimen name="title_size">25sp</dimen>
     <dimen name="title_margin_sides">0dp</dimen>
-
-    <dimen name="welcome_screen_margin_top">0dip</dimen>
-    <dimen name="welcome_screen_margin_bottom">0dip</dimen>
-
-    <dimen name="screen_margin_sides">20dip</dimen>
 
 </resources>

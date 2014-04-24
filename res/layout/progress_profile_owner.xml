@@ -31,6 +31,6 @@
         android:layout_height="wrap_content"
         android:minHeight="@dimen/title_height"
         android:gravity="bottom"
-        android:text="@string/provisioning_profile" />
+        android:text="@string/provisioning_title" />
 
 </LinearLayout>

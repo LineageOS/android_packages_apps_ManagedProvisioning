@@ -23,84 +23,8 @@
         <item name="android:clickable">false</item>
         <item name="android:longClickable">false</item>
     </style>
-    <!-- We'd like to have this as 16dp hight including paddingTop/paddingBottom to
-         be consistent with ProgressBar -->
-    <style name="TopDivider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/divider_height</item>
-        <item name="android:background">@color/divider_color</item>
-        <item name="android:focusable">false</item>
-        <item name="android:clickable">false</item>
-        <item name="android:layout_marginTop">@dimen/divider_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/divider_margin_bottom</item>
-    </style>
-
-    <style name="ChecklistList">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="ChecklistItem">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?android:attr/listPreferredItemHeight</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:checkMark">?android:attr/textCheckMark</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">50dp</item>
-        <item name="android:textColor">@color/checklist_item_color</item>
-        <item name="android:focusable">false</item>
-        <item name="android:clickable">false</item>
-        <item name="android:longClickable">false</item>
-    </style>
 
     <style name="WelcomeTheme" parent="@android:Theme.Holo.NoActionBar">
-    </style>
-
-    <style name="WelcomeOuterFrame">
-        <item name="android:paddingTop">@dimen/welcome_screen_margin_top</item>
-        <item name="android:paddingBottom">@dimen/welcome_screen_margin_bottom</item>
-        <item name="android:paddingLeft">@dimen/screen_margin_sides</item>
-        <item name="android:paddingRight">@dimen/screen_margin_sides</item>
-    </style>
-
-    <style name="ErrorOuterFrame">
-        <item name="android:paddingTop">@dimen/welcome_screen_margin_top</item>
-        <item name="android:paddingBottom">@dimen/welcome_screen_margin_bottom</item>
-        <item name="android:paddingLeft">@dimen/screen_margin_sides</item>
-        <item name="android:paddingRight">@dimen/screen_margin_sides</item>
-    </style>
-
-    <style name="ErrorTheme" parent="@android:Theme.Holo.NoActionBar">
-
-    </style>
-        <style name="ErrorTitle">
-        <item name="android:textSize">40sp</item>
-        <item name="android:textColor">@color/error_title_color</item>
-        <item name="android:clickable">false</item>
-        <item name="android:longClickable">false</item>
-    </style>
-
-    <style name="Button">
-        <item name="android:layout_height">@dimen/button_min_height</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/button_margin_top</item>
-        <item name="android:minWidth">@dimen/button_min_width</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:textSize">20dp</item>
-    </style>
-
-    <style name="DescriptionText">
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/description_margin_top</item>
-        <item name="android:layout_marginLeft">@dimen/content_margin_sides</item>
-        <item name="android:layout_marginRight">@dimen/content_margin_sides</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:textSize">@dimen/description_text_size</item>
     </style>
 
     <style name="UserConsentBackground">
