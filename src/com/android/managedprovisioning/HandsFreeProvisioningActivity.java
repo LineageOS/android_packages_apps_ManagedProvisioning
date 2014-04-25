@@ -186,7 +186,7 @@ public class HandsFreeProvisioningActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.progress_device_owner, null);
+        final View contentView = inflater.inflate(R.layout.progress_handsfree, null);
         setContentView(contentView);
     }
 
