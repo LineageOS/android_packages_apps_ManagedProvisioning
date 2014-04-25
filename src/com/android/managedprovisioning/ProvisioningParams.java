@@ -22,11 +22,9 @@ import java.util.Locale;
  * Provisioning Parameters for DeviceOwner Provisioning
  */
 public class ProvisioningParams {
-    public static Integer mTimeout;
     public static String mTimeZone;
     public static Long mLocalTime;
     public static Locale mLocale;
-    public static String mOwner;
 
     public static String mWifiSsid;
     public static boolean mWifiHidden = false;
@@ -36,9 +34,10 @@ public class ProvisioningParams {
     public static int mWifiProxyPort = 0;
     public static String mWifiProxyBypassHosts;
 
-    public static String mMdmPackageName;
-    public static String mMdmAdminReceiver;
+    public static String mDeviceAdminPackageName; // Package name of the device admin package.
+    public static String mAdminReceiver; // Full class name of the admin receiver inside package.
+    public static String mOwner; // Human readable name of the institution that owns this device.
 
-    public static String mDownloadLocation;
-    public static byte[] mHash;
+    public static String mDownloadLocation; // Url where the device admin .apk is downloaded from.
+    public static byte[] mHash; // Hash of the .apk file (see {@link DownloadPackageTask).
 }

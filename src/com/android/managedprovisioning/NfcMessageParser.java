@@ -48,50 +48,47 @@ public class NfcMessageParser {
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
 
     // Keys for the properties in the packet.
-    private static final String TIMEOUT_KEY = "timeout"; // int
+    // They correspond to fields of ProvisioningParams (see {@link ProvisioningParams}).
     private static final String TIME_ZONE_KEY = "timeZone";
-    private static final String LOCAL_TIME_KEY = "localTime"; // long
+    private static final String LOCAL_TIME_KEY = "localTime";
     private static final String LOCALE_KEY = "locale";
-    private static final String OWNER_KEY = "owner";
     private static final String WIFI_SSID_KEY = "wifiSsid";
-    private static final String WIFI_HIDDEN_KEY = "wifiHidden"; // boolean
+    private static final String WIFI_HIDDEN_KEY = "wifiHidden";
     private static final String WIFI_SECURITY_TYPE_KEY = "wifiSecurityType";
     private static final String WIFI_PASSWORD_KEY = "wifiPassword";
     private static final String WIFI_PROXY_HOST_KEY = "wifiProxyHost";
     private static final String WIFI_PROXY_PORT_KEY = "wifiProxyPort"; // int
     private static final String WIFI_PROXY_BYPASS_KEY = "wifiProxyBypassHosts";
-    private static final String MDM_PACKAGE_KEY = "mdmPackageName";
-    private static final String MDM_ADMIN_RECEIVER_KEY = "mdmAdminReceiver";
-    private static final String MDM_DOWNLOAD_URL_KEY = "mdmDownloadUrl";
-    private static final String MDM_PACKAGE_HASH_KEY = "mdmPackageHash";
+    private static final String DEVICE_ADMIN_PACKAGE_KEY = "deviceAdminPackage";
+    private static final String ADMIN_RECEIVER_KEY = "adminReceiver";
+    private static final String OWNER_KEY = "owner";
+    private static final String DOWNLOAD_LOCATION_KEY = "downloadLocation";
+    private static final String HASH_KEY = "hash";
 
     // Ids of properties.
-    private static final int TIMEOUT_ID = 0;
-    private static final int TIME_ZONE_ID = 1;
-    private static final int LOCAL_TIME_ID = 2;
-    private static final int LOCALE_ID = 3;
-    private static final int OWNER_ID = 4;
-    private static final int WIFI_SSID_ID = 5;
-    private static final int WIFI_HIDDEN_ID = 6;
-    private static final int WIFI_SECURITY_TYPE_ID = 7;
-    private static final int WIFI_PASSWORD_ID = 8;
-    private static final int WIFI_PROXY_HOST_ID = 9;
-    private static final int WIFI_PROXY_PORT_ID = 10;
-    private static final int WIFI_PROXY_BYPASS_ID = 11;
-    private static final int MDM_PACKAGE_ID = 12;
-    private static final int MDM_ADMIN_RECEIVER_ID = 13;
-    private static final int MDM_DOWNLOAD_URL_ID = 14;
-    private static final int MDM_PACKAGE_HASH_ID = 15;
+    private static final int TIME_ZONE_ID = 0;
+    private static final int LOCAL_TIME_ID = 1;
+    private static final int LOCALE_ID = 2;
+    private static final int WIFI_SSID_ID = 3;
+    private static final int WIFI_HIDDEN_ID = 4;
+    private static final int WIFI_SECURITY_TYPE_ID = 5;
+    private static final int WIFI_PASSWORD_ID = 6;
+    private static final int WIFI_PROXY_HOST_ID = 7;
+    private static final int WIFI_PROXY_PORT_ID = 8;
+    private static final int WIFI_PROXY_BYPASS_ID = 9;
+    private static final int DEVICE_ADMIN_PACKAGE_ID = 10;
+    private static final int ADMIN_RECEIVER_ID = 11;
+    private static final int OWNER_ID = 12;
+    private static final int DOWNLOAD_LOCATION_ID = 13;
+    private static final int HASH_ID = 14;
 
+    // Map from keys to ids.
     private static final HashMap<String, Integer> mKeyToId = new HashMap<String, Integer>();
 
     static {
-        mKeyToId.put(TIMEOUT_KEY, TIMEOUT_ID);
         mKeyToId.put(TIME_ZONE_KEY, TIME_ZONE_ID);
         mKeyToId.put(LOCAL_TIME_KEY, LOCAL_TIME_ID);
-        mKeyToId.put(LOCAL_TIME_KEY, LOCAL_TIME_ID);
         mKeyToId.put(LOCALE_KEY, LOCALE_ID);
-        mKeyToId.put(OWNER_KEY, OWNER_ID);
         mKeyToId.put(WIFI_SSID_KEY, WIFI_SSID_ID);
         mKeyToId.put(WIFI_HIDDEN_KEY, WIFI_HIDDEN_ID);
         mKeyToId.put(WIFI_SECURITY_TYPE_KEY, WIFI_SECURITY_TYPE_ID);
@@ -99,13 +96,15 @@ public class NfcMessageParser {
         mKeyToId.put(WIFI_PROXY_HOST_KEY, WIFI_PROXY_HOST_ID);
         mKeyToId.put(WIFI_PROXY_PORT_KEY, WIFI_PROXY_PORT_ID);
         mKeyToId.put(WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_BYPASS_ID);
-        mKeyToId.put(MDM_PACKAGE_KEY, MDM_PACKAGE_ID);
-        mKeyToId.put(MDM_ADMIN_RECEIVER_KEY, MDM_ADMIN_RECEIVER_ID);
-        mKeyToId.put(MDM_DOWNLOAD_URL_KEY, MDM_DOWNLOAD_URL_ID);
-        mKeyToId.put(MDM_PACKAGE_HASH_KEY, MDM_PACKAGE_HASH_ID);
+        mKeyToId.put(DEVICE_ADMIN_PACKAGE_KEY, DEVICE_ADMIN_PACKAGE_ID);
+        mKeyToId.put(ADMIN_RECEIVER_KEY, ADMIN_RECEIVER_ID);
+        mKeyToId.put(OWNER_KEY, OWNER_ID);
+        mKeyToId.put(DOWNLOAD_LOCATION_KEY, DOWNLOAD_LOCATION_ID);
+        mKeyToId.put(HASH_KEY, HASH_ID);
     }
 
-    public ProvisioningParams parseNfcIntent(Intent nfcIntent) throws NfcParseException {
+    public ProvisioningParams parseNfcIntent(Intent nfcIntent)
+            throws ParseException {
         ProvisionLogger.logi("Processing NFC Payload.");
 
         if (nfcIntent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
@@ -124,13 +123,15 @@ public class NfcMessageParser {
                 }
             }
         } else {
-            throw new NfcParseException(
-                    "Intent does not contain EXTRA_NDEF_MESSAGES.");
+            throw new ParseException(
+                    "Intent does not contain EXTRA_NDEF_MESSAGES.",
+                    R.string.device_owner_error_nfc_parse_fail);
         }
         return null;
     }
 
-    private ProvisioningParams parseNfcProperties(String data) throws NfcParseException {
+    private ProvisioningParams parseNfcProperties(String data)
+            throws ParseException {
         ProvisionLogger.logd("Processing NFC Properties.");
         ProvisioningParams params = new ProvisioningParams();
         try {
@@ -142,11 +143,15 @@ public class NfcMessageParser {
                 String propName = (String) propertyNames.nextElement();
                 putPropertyByString(propName, props.getProperty(propName), params);
             }
+
+            checkValidityOfProvisioningParams(params);
             return params;
         } catch (IOException e) {
-            throw new NfcParseException("Couldn't load payload", e);
+            throw new ParseException("Couldn't load payload",
+                    R.string.device_owner_error_nfc_parse_fail, e);
         } catch (NumberFormatException e) {
-            throw new NfcParseException("Incorrect numberformat in Nfc message.", e);
+            throw new ParseException("Incorrect numberformat in Nfc message.",
+                    R.string.device_owner_error_nfc_parse_fail, e);
         }
     }
 
@@ -167,9 +172,6 @@ public class NfcMessageParser {
             return;
         }
         switch(id) {
-            case TIMEOUT_ID:
-                params.mTimeout = Integer.parseInt(value);
-                break;
             case TIME_ZONE_ID:
                 params.mTimeZone = value;
                 break;
@@ -182,9 +184,6 @@ public class NfcMessageParser {
                 } else {
                     throw new NumberFormatException("The locale code is not 5 characters long.");
                 }
-                break;
-            case OWNER_ID:
-                params.mOwner = value;
                 break;
             case WIFI_SSID_ID:
                 params.mWifiSsid = value;
@@ -207,16 +206,19 @@ public class NfcMessageParser {
             case WIFI_PROXY_BYPASS_ID:
                 params.mWifiProxyBypassHosts = value;
                 break;
-            case MDM_PACKAGE_ID:
-                params.mMdmPackageName = value;
+            case DEVICE_ADMIN_PACKAGE_ID:
+                params.mDeviceAdminPackageName = value;
                 break;
-            case MDM_ADMIN_RECEIVER_ID:
-                params.mMdmAdminReceiver = value;
+            case ADMIN_RECEIVER_ID:
+                params.mAdminReceiver = value;
                 break;
-            case MDM_DOWNLOAD_URL_ID:
+            case OWNER_ID:
+                params.mOwner = value;
+                break;
+            case DOWNLOAD_LOCATION_ID:
                 params.mDownloadLocation = value;
                 break;
-            case MDM_PACKAGE_HASH_ID:
+            case HASH_ID:
                 params.mHash = new BigInteger(value,16).toByteArray();
                 break;
             default:
@@ -228,17 +230,54 @@ public class NfcMessageParser {
     }
 
     /**
+     * Check whether necessary fields are set.
+     */
+    private void checkValidityOfProvisioningParams(ProvisioningParams params)
+        throws ParseException  {
+        if (params.mDeviceAdminPackageName == null) {
+            throw new ParseException("Must provide the name of the device admin package.",
+                    R.string.device_owner_error_no_package_name);
+        }
+        if (params.mAdminReceiver == null) {
+            throw new ParseException("Must provide the full class name of the admin receiver " +
+                    "that is inside the device owner package.",
+                    R.string.device_owner_error_no_admin_receiver);
+        }
+        if (params.mDownloadLocation != null) {
+            if (params.mHash == null) {
+                throw new ParseException("Hash of installer file is required for downloading " +
+                        "device admin file, but not provided.",
+                        R.string.device_owner_error_no_hash);
+            }
+            if (params.mWifiSsid == null) {
+                throw new ParseException("Wifi ssid is required for downloading device admin " +
+                        "file, but not provided.",
+                        R.string.device_owner_error_no_wifi_ssid);
+            }
+        }
+    }
+
+    /**
      * Exception thrown when the ProvisioningParams initialization failed completely.
      *
      * Note: We're using a custom exception to avoid catching subsequent exceptions that might be
      * significant.
      */
-    public static class NfcParseException extends Exception {
-      public NfcParseException(String message) {
-          super(message);
-      }
-      public NfcParseException(String message, Throwable t) {
-          super(message, t);
-      }
+    public static class ParseException extends Exception {
+        private int mErrorMessageId;
+
+        public ParseException(String message, int errorMessageId) {
+            super(message);
+            mErrorMessageId = errorMessageId;
+        }
+
+        public ParseException(String message, int errorMessageId, Throwable t) {
+            super(message, t);
+            mErrorMessageId = errorMessageId;
+        }
+
+        public int getErrorMessageId() {
+            return mErrorMessageId;
+        }
     }
 }
