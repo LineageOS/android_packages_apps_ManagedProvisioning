@@ -52,8 +52,16 @@
 
   <!-- Device owner provisioning flow UI. -->
 
-  <!-- Placeholder progress subtitle. [CHAR LIMIT=45] -->
-  <string name="device_owner_subtitle">Placeholder text.</string>
+  <!-- Progress text indicating that Nfc message is being processed. [CHAR LIMIT=45] -->
+  <string name="progress_processing_nfc">Processing Nfc message.</string>
+  <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
+  <string name="progress_connect_to_wifi">Connecting to Wifi.</string>
+  <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
+  <string name="progress_download">Downloading Device Admin package.</string>
+  <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
+  <string name="progress_install">Installing Device Admin package.</string>
+  <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
+  <string name="progress_set_owner">Setting Device Owner.</string>
 
   <!-- Title of the error dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_error_title">Provisioning failed</string>

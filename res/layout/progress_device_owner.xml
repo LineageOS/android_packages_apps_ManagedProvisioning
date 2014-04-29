@@ -44,7 +44,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
-        android:text="@string/device_owner_subtitle"
         android:textSize="30sp" />
 
 </LinearLayout>

@@ -87,5 +87,8 @@
             android:launchMode="singleTop"
             android:screenOrientation="nosensor" >
         </activity>
+        <service
+            android:name="DeviceOwnerProvisioningService" >
+        </service>
   </application>
 </manifest>
