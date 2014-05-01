@@ -23,7 +23,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.admin.DevicePolicyManager;
@@ -35,6 +34,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -227,7 +227,8 @@ public class ManagedProvisioningActivity extends Activity {
         ProvisionLogger.logd("Creating managed profile with name " + profileName);
 
         mManagedProfileUserInfo = mUserManager.createProfileForUser(profileName,
-                UserInfo.FLAG_MANAGED_PROFILE, ActivityManager.getCurrentUser());
+                UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
+                Process.myUserHandle().getIdentifier());
 
         if (mManagedProfileUserInfo == null) {
             if (UserManager.getMaxSupportedUsers() == mUserManager.getUserCount()) {
