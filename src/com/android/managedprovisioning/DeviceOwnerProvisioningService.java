@@ -23,6 +23,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
+import android.provider.Settings.Global;
+import android.provider.Settings.Secure;
 import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
@@ -46,6 +48,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * </p>
  */
 public class DeviceOwnerProvisioningService extends Service {
+    /**
+     * Intent action to activate the CDMA phone connection by OTASP.
+     * This is not necessary for a GSM phone connection, which is activated automatically.
+     * String must agree with the constants in com.android.phone.InCallScreenShowActivation.
+     */
+    private static final String ACTION_PERFORM_CDMA_PROVISIONING =
+            "com.android.phone.PERFORM_CDMA_PROVISIONING";
+
+    // Intent actions for communication with DeviceOwnerProvisioningService.
     public static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
     public static final String ACTION_PROVISIONING_ERROR =
@@ -224,12 +235,23 @@ public class DeviceOwnerProvisioningService extends Service {
 
     private void onProvisioningSuccess() {
         sendBroadcast(new Intent(ACTION_PROVISIONING_SUCCESS));
+
+        // Skip the setup wizard.
+        Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
+        Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
+
         stopSelf(mStartIdProvisioning);
     }
 
     private void initializeProvisioningEnvironment(ProvisioningParams params) {
         setTimeAndTimezone(params.mTimeZone, params.mLocalTime);
         setLocale(params.mLocale);
+
+        // Start CDMA activation to enable phone calls.
+        final Intent intent = new Intent(ACTION_PERFORM_CDMA_PROVISIONING);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ProvisionLogger.logv("Starting cdma activation activity");
+        startActivity(intent); // Activity will be a Nop if not a CDMA device.
     }
 
     private void setTimeAndTimezone(String timeZone, Long localTime) {
