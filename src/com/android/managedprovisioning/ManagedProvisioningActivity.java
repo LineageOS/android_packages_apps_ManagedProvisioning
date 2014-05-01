@@ -29,6 +29,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -42,6 +43,8 @@ import android.os.UserManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+
+
 
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsFromManagedProfileTask;
 
@@ -212,6 +215,7 @@ public class ManagedProvisioningActivity extends Activity {
             setMdmAsManagedProfileOwner();
             startManagedProfile();
             removeMdmFromPrimaryUser();
+            forwardIntentsToPrimaryUser();
             sendProvisioningCompleteToManagedProfile(this);
             ProvisionLogger.logd("Finishing managed profile provisioning.");
             finish();
@@ -367,6 +371,65 @@ public class ManagedProvisioningActivity extends Activity {
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
             + userHandle.getIdentifier());
       }
+
+    private void forwardIntentsToPrimaryUser() {
+        ProvisionLogger.logd("Setting forwarding intent filters");
+        PackageManager pm = getPackageManager();
+
+        IntentFilter mimeTypeTelephony = new IntentFilter();
+        mimeTypeTelephony.addAction("android.intent.action.DIAL");
+        mimeTypeTelephony.addCategory("android.intent.category.DEFAULT");
+        mimeTypeTelephony.addCategory("android.intent.category.BROWSABLE");
+        try {
+            mimeTypeTelephony.addDataType("vnd.android.cursor.item/phone");
+            mimeTypeTelephony.addDataType("vnd.android.cursor.item/person");
+            mimeTypeTelephony.addDataType("vnd.android.cursor.dir/calls");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            //will not happen
+        }
+        pm.addForwardingIntentFilter(mimeTypeTelephony, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+
+        IntentFilter callDial = new IntentFilter();
+        callDial.addAction("android.intent.action.DIAL");
+        callDial.addAction("android.intent.action.CALL");
+        callDial.addAction("android.intent.action.VIEW");
+        callDial.addCategory("android.intent.category.DEFAULT");
+        callDial.addCategory("android.intent.category.BROWSABLE");
+        callDial.addDataScheme("tel");
+        callDial.addDataScheme("voicemail");
+        callDial.addDataScheme("sip");
+        callDial.addDataScheme("tel");
+        pm.addForwardingIntentFilter(callDial, false /*non-removable*/, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER);
+
+        IntentFilter callDialNoData = new IntentFilter();
+        callDialNoData.addAction("android.intent.action.DIAL");
+        callDialNoData.addAction("android.intent.action.CALL");
+        callDialNoData.addAction("android.intent.action.CALL_BUTTON");
+        callDialNoData.addCategory("android.intent.category.DEFAULT");
+        callDialNoData.addCategory("android.intent.category.BROWSABLE");
+        pm.addForwardingIntentFilter(callDialNoData, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+
+        IntentFilter smsMms = new IntentFilter();
+        smsMms.addAction("android.intent.action.VIEW");
+        smsMms.addAction("android.intent.action.SENDTO");
+        smsMms.addCategory("android.intent.category.DEFAULT");
+        smsMms.addCategory("android.intent.category.BROWSABLE");
+        smsMms.addDataScheme("sms");
+        smsMms.addDataScheme("smsto");
+        smsMms.addDataScheme("mms");
+        smsMms.addDataScheme("mmsto");
+        pm.addForwardingIntentFilter(smsMms, false /*non-removable*/, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER);
+
+        IntentFilter setPassword = new IntentFilter();
+        setPassword.addAction("android.app.action.SET_NEW_PASSWORD");
+        setPassword.addCategory("android.intent.category.DEFAULT");
+        pm.addForwardingIntentFilter(setPassword, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+    }
 
     /**
      * Exception thrown when the managed provisioning has failed completely.
