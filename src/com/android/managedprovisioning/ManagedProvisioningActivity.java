@@ -58,6 +58,7 @@ import java.util.List;
 public class ManagedProvisioningActivity extends Activity {
 
     private static final int USER_CONSENT_REQUEST_CODE = 1;
+    private static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
 
     private String mMdmPackageName;
     private ComponentName mActiveAdminComponentName;
@@ -155,17 +156,32 @@ public class ManagedProvisioningActivity extends Activity {
                 userConsented = data.getBooleanExtra(USER_CONSENT_KEY, false);
 
                 // Only start provisioning if the user has consented.
-                if (userConsented) {
-                    startManagedProfileProvisioning();
-                } else {
+                if (!userConsented) {
                     ProvisionLogger.logd("User did not consent to profile creation, "
                             + "cancelling provisioing");
                     finish();
+                    return;
                 }
+
+                // Ask to encrypt the device before proceeding
+                if (!EncryptDeviceActivity.isDeviceEncrypted()) {
+                    Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
+                            .putExtra(EncryptDeviceActivity.EXTRA_RESUME, getIntent().getExtras());
+                    startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
+                    return;
+                }
+
+                startManagedProfileProvisioning();
             }
             if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.logd("User consent cancelled.");
                 finish();
+            }
+        } else if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
+            if (resultCode == RESULT_CANCELED) {
+                // Move back to user consent screen
+                Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
+                startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
             }
         }
     }

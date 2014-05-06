@@ -17,7 +17,6 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
   <!-- TODO: Review all strings before launch -->
 
   <!-- General provisioning strings used for both device owner and managed profile provisioning -->
@@ -42,6 +41,15 @@
   <!-- string shown when there already is a managed profile for this user. CHAR LIMIT=NONE] -->
   <string name="managed_profile_already_present"> You already have a managed profile.
       You cannot create a second one. </string>
+
+  <!-- Strings shown on prompt for user to encrypt and reboot the device -->
+  <string name="encrypt_device_title">Encrypt device</string>
+  <string name="encrypt_device_text">To continue, restart your device so it can be encrypted. This may take some time.</string>
+  <string name="encrypt_device_confirm">Restart</string>
+
+  <!-- Reminder notification to resume provisioning after device has been encrypted -->
+  <string name="continue_provisioning_notify_title">Managed provisioning</string>
+  <string name="continue_provisioning_notify_text">Continue with managed provisioning</string>
 
   <string name="managed_provisioning_error_title">Oops!</string>
   <!-- Explains the failure and what to do to next. CHAR LIMIT=NONE] -->
