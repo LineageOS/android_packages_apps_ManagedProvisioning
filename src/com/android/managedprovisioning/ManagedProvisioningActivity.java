@@ -347,15 +347,7 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private void removeMdmFromPrimaryUser() {
-
-        ProvisionLogger.logd("Removing: " + mMdmPackageName + " from primary user.");
-
-        try {
-            mIpm.deletePackageAsUser(mMdmPackageName, null, mUserManager.getUserHandle(), 0);
-        } catch (RemoteException neverThrown) {
-            // Never thrown, as we are making local calls.
-          ProvisionLogger.loge("This should not happen.", neverThrown);
-        }
+        // TODO implement this when b/14453684 is fixed.
     }
 
     public void showErrorAndClose(int resourceId, String logText) {
