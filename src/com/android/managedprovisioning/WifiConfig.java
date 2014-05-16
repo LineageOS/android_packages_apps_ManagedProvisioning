@@ -17,8 +17,8 @@
 package com.android.managedprovisioning;
 
 import android.net.ProxyInfo;
+import android.net.IpConfiguration.ProxySettings;
 import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiConfiguration.ProxySettings;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 
@@ -127,7 +127,6 @@ public class WifiConfig {
             return;
         }
         ProxyInfo proxy = new ProxyInfo(proxyHost, proxyPort, proxyBypassHosts);
-        wifiConf.proxySettings = ProxySettings.STATIC;
-        wifiConf.linkProperties.setHttpProxy(proxy);
+        wifiConf.setProxy(ProxySettings.STATIC, proxy);
     }
 }
