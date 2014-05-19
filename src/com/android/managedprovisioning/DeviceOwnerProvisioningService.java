@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+
 import android.app.AlarmManager;
 import android.app.Service;
 import android.content.ComponentName;
@@ -104,7 +106,7 @@ public class DeviceOwnerProvisioningService extends Service {
     /**
      * This is the core method of this class. It goes through every provisioning step.
      */
-    private void startDeviceOwnerProvisioning(ProvisioningParams params) {
+    private void startDeviceOwnerProvisioning(final ProvisioningParams params) {
         ProvisionLogger.logd("Starting device owner provisioning");
 
         // Construct Tasks. Do not start them yet.
@@ -188,7 +190,8 @@ public class DeviceOwnerProvisioningService extends Service {
         setDevicePolicyTask.setCallback(new SetDevicePolicyTask.Callback() {
             public void onSuccess() {
                 // Done with provisioning. Success.
-                onProvisioningSuccess();
+                onProvisioningSuccess(
+                        new ComponentName(params.mDeviceAdminPackageName, params.mAdminReceiver));
             }
             public void onError(int errorCode) {
                 switch(errorCode) {
@@ -233,12 +236,18 @@ public class DeviceOwnerProvisioningService extends Service {
         sendBroadcast(intent);
     }
 
-    private void onProvisioningSuccess() {
+    private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
         sendBroadcast(new Intent(ACTION_PROVISIONING_SUCCESS));
 
         // Skip the setup wizard.
         Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
+
+        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        completeIntent.setComponent(deviceAdminComponent);
+        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+            Intent.FLAG_RECEIVER_FOREGROUND);
+        sendBroadcast(completeIntent);
 
         stopSelf(mStartIdProvisioning);
     }
