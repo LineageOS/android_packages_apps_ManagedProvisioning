@@ -31,6 +31,7 @@ import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
@@ -119,6 +120,10 @@ public class DeviceOwnerProvisioningService extends Service {
                 params.mDeviceAdminPackageName, params.mAdminReceiver);
         final SetDevicePolicyTask setDevicePolicyTask = new SetDevicePolicyTask(this,
                 params.mDeviceAdminPackageName, params.mAdminReceiver, params.mOwner);
+        final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask =  new DeleteNonRequiredAppsTask(
+                this, params.mDeviceAdminPackageName, 0 /* primary user's UserId */, null,
+                R.array.required_apps_managed_device,
+                R.array.vendor_required_apps_managed_device);
 
         // Set callbacks.
         addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
@@ -189,9 +194,7 @@ public class DeviceOwnerProvisioningService extends Service {
 
         setDevicePolicyTask.setCallback(new SetDevicePolicyTask.Callback() {
             public void onSuccess() {
-                // Done with provisioning. Success.
-                onProvisioningSuccess(
-                        new ComponentName(params.mDeviceAdminPackageName, params.mAdminReceiver));
+                deleteNonRequiredAppsTask.run();
             }
             public void onError(int errorCode) {
                 switch(errorCode) {
@@ -204,6 +207,20 @@ public class DeviceOwnerProvisioningService extends Service {
                 }
             }
         });
+
+        deleteNonRequiredAppsTask.setCallback(new DeleteNonRequiredAppsTask
+                .Callback() {
+                    public void onSuccess() {
+                        // Done with provisioning. Success.
+                        onProvisioningSuccess(new ComponentName(params.mDeviceAdminPackageName,
+                                        params.mAdminReceiver));
+                    }
+
+                    public void onError() {
+                        error(R.string.device_owner_error_general);
+                    };
+                }
+        );
 
 
         // Start first task, which starts next task in its callback, etc.

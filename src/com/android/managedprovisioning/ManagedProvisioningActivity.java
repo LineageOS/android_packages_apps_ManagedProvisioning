@@ -46,7 +46,7 @@ import android.view.View;
 
 
 
-import com.android.managedprovisioning.task.DeleteNonRequiredAppsFromManagedProfileTask;
+import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 
 import java.util.List;
 
@@ -196,10 +196,10 @@ public class ManagedProvisioningActivity extends Activity {
 
         try {
             createProfile(mDefaultManagedProfileName);
-            DeleteNonRequiredAppsFromManagedProfileTask deleteTask =
-                    new DeleteNonRequiredAppsFromManagedProfileTask(this,
-                            mMdmPackageName, mManagedProfileUserInfo,
-                            new DeleteNonRequiredAppsFromManagedProfileTask.Callback() {
+            DeleteNonRequiredAppsTask deleteTask =
+                    new DeleteNonRequiredAppsTask(this,
+                            mMdmPackageName, mManagedProfileUserInfo.id,
+                            new DeleteNonRequiredAppsTask.Callback() {
 
                                 @Override
                                 public void onSuccess() {
@@ -211,7 +211,9 @@ public class ManagedProvisioningActivity extends Activity {
                                     cleanup();
                                     showErrorAndClose(R.string.managed_provisioning_error_text,
                                             "Delete non required apps task failed.");
-                                }});
+                                }},
+                            R.array.required_apps_managed_profile,
+                            R.array.vendor_required_apps_managed_profile);
             deleteTask.run();
         } catch (ManagedProvisioningFailedException e) {
             cleanup();

@@ -17,8 +17,8 @@
  */
 -->
 <resources>
-    <!-- A list of apps to be retained in the managed profile. -->
-    <string-array name="required_managedprofile_apps">
-        <item>com.android.development</item>
+    <!-- A list of apps to be retained in the managed profile by a particular vendor.
+    Apps with launcher icons will be removed if they are not present in this list. -->
+    <string-array name="vendor_required_apps_managed_profile">
     </string-array>
 </resources>
