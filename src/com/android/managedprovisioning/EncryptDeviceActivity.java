@@ -23,15 +23,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
 import android.os.BatteryManager;
+import android.os.Bundle;
+import android.os.ServiceManager;
 import android.os.storage.IMountService;
 import android.os.storage.StorageManager;
 import android.os.RemoteException;
-import android.os.ServiceManager;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * Activity to ask for permission to activate full-filesystem encryption.

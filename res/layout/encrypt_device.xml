@@ -20,56 +20,47 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    style="@style/UserConsentBackground">
+    android:orientation="vertical">
+    <LinearLayout
+        style="@style/SetupWorkSpaceHeader">
+    </LinearLayout>
     <TextView
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:text="@string/encrypt_device_title"
-        style="@style/UserConsentTitle"/>
-
+        style="@style/SetupWorkSpaceTitle"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
+        android:fillViewport="true"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/SetupWorkSpaceTextContainer">
             <TextView
-                android:layout_width="fill_parent"
                 android:text="@string/encrypt_device_text"
-                style="@style/UserConsentMainText"/>
+                style="@style/SetupWorkSpaceMainText"/>
             <TextView
                 android:id="@+id/warning_low_charge"
-                android:layout_width="fill_parent"
                 android:text="@string/encrypt_device_low_charge_text"
                 android:textStyle="bold"
                 android:visibility="gone"
-                style="@style/UserConsentMainText"/>
+                style="@style/SetupWorkSpaceMainText"/>
             <TextView
                 android:id="@+id/warning_unplugged"
-                android:layout_width="fill_parent"
                 android:text="@string/encrypt_device_unplugged_text"
                 android:textStyle="bold"
                 android:visibility="gone"
-                style="@style/UserConsentMainText"/>
+                style="@style/SetupWorkSpaceMainText"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/accept_button"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/encrypt_device_confirm"
+                    style="@style/SetupButton"/>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
-
-    <!-- Button bar -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        style="@style/UserConsentButtonBar">
-        <Button
-            android:id="@+id/accept_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/encrypt_device_confirm"
-            style="@style/UserConsentButton"/>
-     </LinearLayout>
-
 </LinearLayout>

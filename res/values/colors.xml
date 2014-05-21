@@ -17,10 +17,10 @@
  */
 -->
 <resources>
-    <color name="title_color">#33B5E5</color>
-
-    <color name="dark_grey_user_consent">#454545</color>
-    <color name="medium_grey_user_consent">#E6E6E6</color>
-    <color name="light_grey_user_consent">#F8F8F8</color>
-
+    <color name="title_color">#45316f</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="light_turquoise">#b2dfdb</color>
+    <color name="dark_turquoise">#4db6ac</color>
+    <color name="blue">#4285f4</color>
 </resources>

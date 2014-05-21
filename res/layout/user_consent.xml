@@ -20,43 +20,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    style="@style/UserConsentBackground">
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:hint="@string/what_is_corporate_profile"
-        style="@style/UserConsentTitle"/>
-    <TextView
-        android:layout_width="fill_parent"
-        android:hint="@string/placeholder"
-        style="@style/UserConsentMainText"/>
-
-    <!-- Padding -->
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
-    <!-- Button bar -->
+    android:orientation="vertical">
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        style="@style/UserConsentButtonBar">
-        <Button
-            android:id="@+id/negative_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/no_thanks"
-            style="@style/UserConsentButton"/>
-        <Button
-            android:id="@+id/positive_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/lets_start"
-            style="@style/UserConsentButton"/>
-     </LinearLayout>
+        style="@style/SetupWorkSpaceHeader">
+    </LinearLayout>
+    <TextView
+        style="@style/SetupWorkSpaceTitle"/>
+    <LinearLayout
+        style="@style/SetupWorkSpaceTextContainer">
+        <TextView
+            android:text="@string/separate_work_spaces"
+            style="@style/SetupWorkSpaceMainText"/>
+        <TextView
+            android:text="@string/company_controls_workspace"
+            style="@style/SetupWorkSpaceMainText"/>
 
+        <!-- Button bar -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <Button
+                    android:id="@+id/positive_button"
+                    android:layout_gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/set_up"
+                    style="@style/SetupButton"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
