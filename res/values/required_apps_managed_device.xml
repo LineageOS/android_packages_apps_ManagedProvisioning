@@ -19,8 +19,6 @@
 <resources>
     <!-- A list of apps to be retained on the managed device. -->
     <string-array name="required_apps_managed_device">
-        <!--
-        <item>com.example.this</item>
-        -->
+        <item>com.android.settings</item>
     </string-array>
 </resources>
