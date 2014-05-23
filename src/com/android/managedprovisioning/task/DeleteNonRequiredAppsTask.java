@@ -2,7 +2,6 @@ package com.android.managedprovisioning.task;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -16,7 +15,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Removes all apps with a launcher that are not required.
@@ -66,17 +64,17 @@ public class DeleteNonRequiredAppsTask {
             }
         }
 
-        PackageDeleteObserver packageDeleteObserver =
-                    new PackageDeleteObserver(packagesToDelete.size());
         for (String packageName : packagesToDelete) {
             try {
-                mIpm.deletePackageAsUser(packageName, packageDeleteObserver, mUserId,
-                        PackageManager.DELETE_SYSTEM_APP);
+                mIpm.setApplicationBlockedSettingAsUser(packageName, true, mUserId);
             } catch (RemoteException neverThrown) {
                 // Never thrown, as we are making local calls.
                 ProvisionLogger.loge("This should not happen.", neverThrown);
+                mCallback.onError();
             }
         }
+
+        mCallback.onSuccess();
     }
 
     protected Set<String> getRequiredApps() {
@@ -91,31 +89,6 @@ public class DeleteNonRequiredAppsTask {
 
     public void setCallback(Callback callback) {
         mCallback = callback;
-    }
-
-    /**
-     * Runs the next task when all packages have been deleted or shuts down the activity if package
-     * deletion fails.
-     */
-    class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
-        private final AtomicInteger packageCount = new AtomicInteger(0);
-
-        public PackageDeleteObserver(int packageCount) {
-            this.packageCount.set(packageCount);
-        }
-
-        @Override
-        public void packageDeleted(String packageName, int returnCode) {
-            if (returnCode != PackageManager.DELETE_SUCCEEDED) {
-                ProvisionLogger.logw(
-                        "Could not finish managed profile provisioning: package deletion failed");
-                mCallback.onError();
-            }
-            int currentPackageCount = packageCount.decrementAndGet();
-            if (currentPackageCount == 0) {
-                mCallback.onSuccess();
-            }
-        }
     }
 
     public abstract static class Callback {
