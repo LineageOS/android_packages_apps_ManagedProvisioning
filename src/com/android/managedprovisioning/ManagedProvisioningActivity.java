@@ -20,6 +20,7 @@ import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_
 import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TOKEN;
 import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
 
 import android.app.Activity;
@@ -47,6 +48,7 @@ import android.view.View;
 
 
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
+import com.android.managedprovisioning.UserConsentSaver;
 
 import java.util.List;
 
@@ -63,6 +65,7 @@ public class ManagedProvisioningActivity extends Activity {
     private String mMdmPackageName;
     private ComponentName mActiveAdminComponentName;
     private String mDefaultManagedProfileName;
+    private int mToken;
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
@@ -100,10 +103,7 @@ public class ManagedProvisioningActivity extends Activity {
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         if (!alreadyHasManagedProfile()) {
-            // Ask for user consent.
-            Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
-            startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
-            // Wait for user consent, in onActivityResult
+            checkUserConsentAndProceed();
         } else {
             showErrorAndClose(R.string.managed_profile_already_present,
                     "The device already has a managed profile, nothing to do.");
@@ -140,11 +140,34 @@ public class ManagedProvisioningActivity extends Activity {
             throw new ManagedProvisioningFailedException("Missing intent extra: "
                     + EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
         }
+        mToken = intent.getIntExtra(EXTRA_PROVISIONING_TOKEN, UserConsentSaver.NO_TOKEN_RECEIVED);
     }
 
     @Override
     public void onBackPressed() {
         // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
+    }
+
+    private void checkUserConsentAndProceed() {
+        if (UserConsentSaver.hasUserConsented(this, mMdmPackageName, mToken)) {
+            checkEncryptedAndProceed();
+        } else {
+            // Ask for user consent.
+            Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
+            startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
+            // Wait for user consent, in onActivityResult.
+        }
+    }
+
+    private void checkEncryptedAndProceed() {
+        if (EncryptDeviceActivity.isDeviceEncrypted()) {
+            startManagedProfileProvisioning();
+        } else {
+            Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
+                    .putExtra(EncryptDeviceActivity.EXTRA_RESUME, getIntent().getExtras());
+            startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
+            // Continue in onActivityResult.
+        }
     }
 
     @Override
@@ -164,14 +187,7 @@ public class ManagedProvisioningActivity extends Activity {
                 }
 
                 // Ask to encrypt the device before proceeding
-                if (!EncryptDeviceActivity.isDeviceEncrypted()) {
-                    Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
-                            .putExtra(EncryptDeviceActivity.EXTRA_RESUME, getIntent().getExtras());
-                    startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
-                    return;
-                }
-
-                startManagedProfileProvisioning();
+                checkEncryptedAndProceed();
             }
             if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.logd("User consent cancelled.");
@@ -179,9 +195,8 @@ public class ManagedProvisioningActivity extends Activity {
             }
         } else if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
             if (resultCode == RESULT_CANCELED) {
-                // Move back to user consent screen
-                Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
-                startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
+                // Move back to user consent
+                checkUserConsentAndProceed();
             }
         }
     }
@@ -234,6 +249,7 @@ public class ManagedProvisioningActivity extends Activity {
             startManagedProfile();
             forwardIntentsToPrimaryUser();
             sendProvisioningCompleteToManagedProfile(this);
+            UserConsentSaver.unsetUserConsent(this);
             ProvisionLogger.logd("Finishing managed profile provisioning.");
             finish();
         } catch (ManagedProvisioningFailedException e) {
