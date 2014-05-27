@@ -16,21 +16,26 @@
  * limitations under the License.
  */
 -->
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    style="@style/ProvisioningProgress">
-
+    android:orientation="vertical">
+    <LinearLayout
+        style="@style/SetupWorkSpaceHeader">
+    </LinearLayout>
     <TextView
-        android:id="@+id/provisioning_profile"
-        style="@style/WelcomeTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="@dimen/title_height"
-        android:gravity="bottom"
-        android:text="@string/provisioning_title" />
-
+        style="@style/SetupWorkSpaceTitle"/>
+    <LinearLayout
+        style="@style/SetupWorkSpaceTextContainer">
+        <ProgressBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:paddingTop="24dp"/>
+        <TextView
+            android:text="@string/setting_up"
+            android:gravity="center_horizontal"
+            style="@style/SetupWorkSpaceMainText"/>
+    </LinearLayout>
 </LinearLayout>

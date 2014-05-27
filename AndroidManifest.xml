@@ -81,8 +81,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:screenOrientation="nosensor"
-            android:theme="@style/WelcomeTheme" >
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.app.action.ACTION_PROVISION_MANAGED_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
