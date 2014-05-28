@@ -434,6 +434,59 @@ public class ManagedProvisioningActivity extends Activity {
         setPassword.addCategory("android.intent.category.DEFAULT");
         pm.addForwardingIntentFilter(setPassword, false /*non-removable*/,
                 mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+
+        IntentFilter send = new IntentFilter();
+        send.addAction("android.intent.action.SEND");
+        send.addAction("android.intent.action.SEND_MULTIPLE");
+        send.addCategory("android.intent.category.DEFAULT");
+        try {
+            send.addDataType("*/*");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            //will not happen
+        }
+        pm.addForwardingIntentFilter(send, false /*non-removable*/,
+                UserHandle.USER_OWNER, mManagedProfileUserInfo.id);
+
+        IntentFilter getContent = new IntentFilter();
+        getContent.addAction("android.intent.action.GET_CONTENT");
+        getContent.addCategory("android.intent.category.DEFAULT");
+        getContent.addCategory("android.intent.category.OPENABLE");
+        try {
+            getContent.addDataType("*/*");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            //will not happen
+        }
+        pm.addForwardingIntentFilter(getContent, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+
+        IntentFilter openDocument = new IntentFilter();
+        openDocument.addAction("android.intent.action.OPEN_DOCUMENT");
+        openDocument.addCategory("android.intent.category.DEFAULT");
+        openDocument.addCategory("android.intent.category.OPENABLE");
+        try {
+            openDocument.addDataType("*/*");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            //will not happen
+        }
+        pm.addForwardingIntentFilter(openDocument, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+
+        IntentFilter pick = new IntentFilter();
+        pick.addAction("android.intent.action.PICK");
+        pick.addCategory("android.intent.category.DEFAULT");
+        try {
+            pick.addDataType("*/*");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            //will not happen
+        }
+        pm.addForwardingIntentFilter(pick, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+
+        IntentFilter pickNoData = new IntentFilter();
+        pickNoData.addAction("android.intent.action.PICK");
+        pickNoData.addCategory("android.intent.category.DEFAULT");
+        pm.addForwardingIntentFilter(pickNoData, false /*non-removable*/,
+                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
     }
 
     /**
