@@ -232,7 +232,6 @@ public class ManagedProvisioningActivity extends Activity {
             setMdmAsActiveAdmin();
             setMdmAsManagedProfileOwner();
             startManagedProfile();
-            removeMdmFromPrimaryUser();
             forwardIntentsToPrimaryUser();
             sendProvisioningCompleteToManagedProfile(this);
             ProvisionLogger.logd("Finishing managed profile provisioning.");
@@ -346,10 +345,6 @@ public class ManagedProvisioningActivity extends Activity {
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         dpm.setActiveAdmin(mActiveAdminComponentName, true /* refreshing*/,
                 mManagedProfileUserInfo.id);
-    }
-
-    private void removeMdmFromPrimaryUser() {
-        // TODO implement this when b/14453684 is fixed.
     }
 
     public void showErrorAndClose(int resourceId, String logText) {
