@@ -47,6 +47,10 @@
   <string name="encrypt_device_text">To continue, restart your device so it can be encrypted. This may take some time.</string>
   <string name="encrypt_device_confirm">Restart</string>
 
+  <!-- Warning strings that will be displayed when encryption cannot be started -->
+  <string name="encrypt_device_low_charge_text">Charge your battery and try again.</string>
+  <string name="encrypt_device_unplugged_text">Plug in your charger and try again.</string>
+
   <!-- Reminder notification to resume provisioning after device has been encrypted -->
   <string name="continue_provisioning_notify_title">Managed provisioning</string>
   <string name="continue_provisioning_notify_text">Continue with managed provisioning</string>
