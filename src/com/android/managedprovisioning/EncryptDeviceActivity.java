@@ -15,20 +15,19 @@
  */
 package com.android.managedprovisioning;
 
+import com.android.internal.widget.LockPatternUtils;
+
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import android.os.BatteryManager;
-import android.os.IBinder;
-import android.os.ServiceManager;
 import android.os.storage.IMountService;
 import android.os.storage.StorageManager;
 import android.os.RemoteException;
@@ -84,15 +83,35 @@ public class EncryptDeviceActivity extends Activity {
         mBatteryWarning = contentView.findViewById(R.id.warning_low_charge);
         setContentView(contentView);
 
+        if (passwordOrPatternSet()) {
+            mEncryptButton.setText(R.string.encrypt_device_launch_settings);
+        } else {
+            mEncryptButton.setText(R.string.encrypt_device_confirm);
+        }
+
         mEncryptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Bundle resumeInfo = getIntent().getBundleExtra(EXTRA_RESUME);
                 BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, resumeInfo);
-
-                if (!encryptDevice()) {
-                    setResult(RESULT_CANCELED, new Intent().putExtra(ENCRYPTION_ACTIVE_KEY, false));
+                // TODO intent to settings for both cases when we have a nicer UI.
+                if (passwordOrPatternSet()) {
+                    // Use settings so user confirms password/pattern and its passed
+                    // to encryption tool.
+                    Intent intent = new Intent();
+                    intent.setAction(DevicePolicyManager.ACTION_START_ENCRYPTION);
+                    startActivity(intent);
                     finish();
+                    // If user doesn't actually encrypt but presses back or starts
+                    // flow again then we will check again if device is encrypted.
+                } else {
+                    // We didn't need a confirmation so just encrypt with no password.
+                    if (!encryptDeviceEmptyPassword()) {
+                        // Failed to encrypt
+                        setResult(RESULT_CANCELED, new Intent().putExtra(ENCRYPTION_ACTIVE_KEY,
+                                false));
+                        finish();
+                    }
                 }
             }
         });
@@ -124,7 +143,7 @@ public class EncryptDeviceActivity extends Activity {
         }
     }
 
-    private static boolean encryptDevice() {
+    private static boolean encryptDeviceEmptyPassword() {
         IMountService mountService = IMountService.Stub.asInterface(
                 ServiceManager.getService("mount"));
 
@@ -137,7 +156,29 @@ public class EncryptDeviceActivity extends Activity {
             ProvisionLogger.loge("Unable to enable encryption: ", e);
             return false;
         }
-
         return true;
+    }
+
+    /**
+     * @return true if the user has an existing password or pattern set.
+     */
+    private boolean passwordOrPatternSet() {
+        LockPatternUtils lockPatternUtils = new LockPatternUtils(this);
+        switch (lockPatternUtils.getKeyguardStoredPasswordQuality()) {
+            case DevicePolicyManager.PASSWORD_QUALITY_SOMETHING:
+                if (lockPatternUtils.isLockPatternEnabled()
+                        && lockPatternUtils.savedPatternExists()) {
+                    return true;
+                }
+                break;
+            case DevicePolicyManager.PASSWORD_QUALITY_NUMERIC:
+            case DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC:
+            case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
+            case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
+                if (lockPatternUtils.isLockPasswordEnabled()) {
+                    return true;
+                }
+        }
+        return false;
     }
 }
