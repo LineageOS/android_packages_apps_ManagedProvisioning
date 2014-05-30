@@ -16,14 +16,17 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import android.os.BatteryManager;
 import android.os.IBinder;
 import android.os.ServiceManager;
 import android.os.storage.IMountService;
@@ -40,15 +43,48 @@ public class EncryptDeviceActivity extends Activity {
     protected static final String EXTRA_RESUME = "com.android.managedprovisioning.RESUME";
     protected static final String ENCRYPTION_ACTIVE_KEY = "encryptionActiveKey";
 
+    // Minimum battery charge level (in percent) to launch encryption.  If the battery charge is
+    // lower than this, encryption should not be activated.
+    private static final int MIN_BATTERY_LEVEL = 80;
+
+    private Button mEncryptButton;
+    private View mCableWarning;
+    private View mBatteryWarning;
+    private IntentFilter mIntentFilter;
+
+    private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (Intent.ACTION_BATTERY_CHANGED.equals(intent.getAction())) {
+                final int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+                final int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
+                final int invalidCharger = intent.getIntExtra(
+                    BatteryManager.EXTRA_INVALID_CHARGER, 0);
+
+                final boolean levelOk = (level >= MIN_BATTERY_LEVEL);
+                final boolean pluggedOk =
+                        ((plugged & BatteryManager.BATTERY_PLUGGED_ANY) != 0) &&
+                        (invalidCharger == 0);
+
+                final boolean encryptOk = (levelOk && pluggedOk);
+                mEncryptButton.setEnabled(encryptOk);
+                mCableWarning.setVisibility(pluggedOk ? View.GONE : View.VISIBLE);
+                mBatteryWarning.setVisibility(levelOk ? View.GONE : View.VISIBLE);
+            }
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         final View contentView = getLayoutInflater().inflate(R.layout.encrypt_device, null);
-        final Button encryptButton = (Button) contentView.findViewById(R.id.accept_button);
+        mEncryptButton = (Button) contentView.findViewById(R.id.accept_button);
+        mCableWarning = contentView.findViewById(R.id.warning_unplugged);
+        mBatteryWarning = contentView.findViewById(R.id.warning_low_charge);
         setContentView(contentView);
 
-        encryptButton.setOnClickListener(new View.OnClickListener() {
+        mEncryptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Bundle resumeInfo = getIntent().getBundleExtra(EXTRA_RESUME);
@@ -60,6 +96,21 @@ public class EncryptDeviceActivity extends Activity {
                 }
             }
         });
+
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(mIntentReceiver, mIntentFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(mIntentReceiver);
     }
 
     public static boolean isDeviceEncrypted() {

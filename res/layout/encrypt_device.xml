@@ -27,16 +27,36 @@
         android:layout_width="fill_parent"
         android:text="@string/encrypt_device_title"
         style="@style/UserConsentTitle"/>
-    <TextView
-        android:layout_width="fill_parent"
-        android:text="@string/encrypt_device_text"
-        style="@style/UserConsentMainText"/>
 
-    <!-- Padding -->
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:text="@string/encrypt_device_text"
+                style="@style/UserConsentMainText"/>
+            <TextView
+                android:id="@+id/warning_low_charge"
+                android:layout_width="fill_parent"
+                android:text="@string/encrypt_device_low_charge_text"
+                android:textStyle="bold"
+                android:visibility="gone"
+                style="@style/UserConsentMainText"/>
+            <TextView
+                android:id="@+id/warning_unplugged"
+                android:layout_width="fill_parent"
+                android:text="@string/encrypt_device_unplugged_text"
+                android:textStyle="bold"
+                android:visibility="gone"
+                style="@style/UserConsentMainText"/>
+        </LinearLayout>
+    </ScrollView>
 
     <!-- Button bar -->
     <LinearLayout
