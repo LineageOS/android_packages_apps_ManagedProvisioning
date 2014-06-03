@@ -81,9 +81,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
 
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.progress_device_owner, null);
+        final View contentView = inflater.inflate(R.layout.progress, null);
         setContentView(contentView);
-        mProgressTextView = (TextView) findViewById(R.id.dev_owner_prog_text);
+        mProgressTextView = (TextView) findViewById(R.id.prog_text);
 
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
