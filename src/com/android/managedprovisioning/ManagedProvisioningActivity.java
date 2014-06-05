@@ -20,6 +20,7 @@ import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_
 import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TOKEN;
 import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
 
@@ -65,6 +66,7 @@ public class ManagedProvisioningActivity extends Activity {
     private String mMdmPackageName;
     private ComponentName mActiveAdminComponentName;
     private String mDefaultManagedProfileName;
+    private String mManagedProfileEmailAddress;
     private int mToken;
 
     private IPackageManager mIpm;
@@ -113,6 +115,8 @@ public class ManagedProvisioningActivity extends Activity {
     private void initialize(Intent intent)
             throws ManagedProvisioningFailedException {
         mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        mManagedProfileEmailAddress =
+                intent.getStringExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS);
         // Validate package name
         if (TextUtils.isEmpty(mMdmPackageName)) {
             throw new ManagedProvisioningFailedException("Missing intent extra: "
@@ -387,6 +391,9 @@ public class ManagedProvisioningActivity extends Activity {
         completeIntent.setComponent(mActiveAdminComponentName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
             Intent.FLAG_RECEIVER_FOREGROUND);
+        if (mManagedProfileEmailAddress != null) {
+            completeIntent.putExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS, mManagedProfileEmailAddress);
+        }
         context.sendBroadcastAsUser(completeIntent, userHandle);
 
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
