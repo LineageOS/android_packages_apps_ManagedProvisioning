@@ -172,8 +172,11 @@ public class ManagedProvisioningActivity extends Activity {
         if (EncryptDeviceActivity.isDeviceEncrypted()) {
             startManagedProfileProvisioning();
         } else {
+            Bundle resumeExtras = getIntent().getExtras();
+            resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
+                    EncryptDeviceActivity.TARGET_PROFILE_OWNER);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
-                    .putExtra(EncryptDeviceActivity.EXTRA_RESUME, getIntent().getExtras());
+                    .putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult.
         }
@@ -223,6 +226,8 @@ public class ManagedProvisioningActivity extends Activity {
             DeleteNonRequiredAppsTask deleteTask =
                     new DeleteNonRequiredAppsTask(this,
                             mMdmPackageName, mManagedProfileUserInfo.id,
+                            R.array.required_apps_managed_profile,
+                            R.array.vendor_required_apps_managed_profile,
                             new DeleteNonRequiredAppsTask.Callback() {
 
                                 @Override
@@ -235,9 +240,8 @@ public class ManagedProvisioningActivity extends Activity {
                                     cleanup();
                                     showErrorAndClose(R.string.managed_provisioning_error_text,
                                             "Delete non required apps task failed.");
-                                }},
-                            R.array.required_apps_managed_profile,
-                            R.array.vendor_required_apps_managed_profile);
+                                }
+                            });
             deleteTask.run();
         } catch (ManagedProvisioningFailedException e) {
             cleanup();

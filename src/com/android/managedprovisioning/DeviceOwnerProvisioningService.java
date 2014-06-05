@@ -24,6 +24,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
@@ -68,10 +69,19 @@ public class DeviceOwnerProvisioningService extends Service {
     public static final String ACTION_PROGRESS_UPDATE =
             "com.android.managedprovisioning.progress_update";
     public static final String EXTRA_PROGRESS_MESSAGE_ID_KEY = "ProgressMessageId";
+    public static final String ACTION_REQUEST_ENCRYPTION =
+            "com.android.managedprovisioning.request_encryption";
 
     private AtomicBoolean mProvisioningInFlight = new AtomicBoolean(false);
     private int mLastProgressMessage;
     private int mStartIdProvisioning;
+
+    // Provisioning tasks.
+    private AddWifiNetworkTask mAddWifiNetworkTask;
+    private DownloadPackageTask mDownloadPackageTask;
+    private InstallPackageTask mInstallPackageTask;
+    private SetDevicePolicyTask mSetDevicePolicyTask;
+    private DeleteNonRequiredAppsTask mDeleteNonRequiredAppsTask;
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
@@ -80,24 +90,33 @@ public class DeviceOwnerProvisioningService extends Service {
             sendProgressUpdateToActivity();
             stopSelf(startId);
         } else {
+            progressUpdate(R.string.progress_data_process);
+
             mStartIdProvisioning = startId;
+
+            // Load the ProvisioningParams (from message in Intent).
+            MessageParser parser = new MessageParser();
+            final ProvisioningParams params;
+            try {
+                params = parser.parseIntent(intent);
+            } catch (MessageParser.ParseException e) {
+                ProvisionLogger.loge("Could not read data from intent", e);
+                error(e.getErrorMessageId());
+                return START_NOT_STICKY;
+            }
+
+            // Ask to encrypt the device before proceeding
+            if (!EncryptDeviceActivity.isDeviceEncrypted()) {
+                requestEncryption(parser.getCachedProvisioningProperties());
+                stopSelf(startId);
+                return START_NOT_STICKY;
+            }
 
             // Do the work on a separate thread.
             new Thread(new Runnable() {
                     public void run() {
-                        // Load the ProvisioningParams (from Nfc message in Intent).
-                        progressUpdate(R.string.progress_processing_nfc);
-                        ProvisioningParams params;
-                        NfcMessageParser parser = new NfcMessageParser();
-                        try {
-                            params = parser.parseNfcIntent(intent);
-                            initializeProvisioningEnvironment(params);
-                            startDeviceOwnerProvisioning(params);
-                        } catch (NfcMessageParser.ParseException e) {
-                            ProvisionLogger.loge("Could not read Nfc data from intent", e);
-                            error(e.getErrorMessageId());
-                            return;
-                        }
+                        initializeProvisioningEnvironment(params);
+                        startDeviceOwnerProvisioning(params);
                     }
                 }).start();
         }
@@ -111,105 +130,106 @@ public class DeviceOwnerProvisioningService extends Service {
         ProvisionLogger.logd("Starting device owner provisioning");
 
         // Construct Tasks. Do not start them yet.
-        final AddWifiNetworkTask addWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
+        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
                 params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
-                params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts);
-        final DownloadPackageTask downloadPackageTask = new DownloadPackageTask(this,
-                params.mDownloadLocation, params.mHash);
-        final InstallPackageTask installPackageTask = new InstallPackageTask(this,
-                params.mDeviceAdminPackageName, params.mAdminReceiver);
-        final SetDevicePolicyTask setDevicePolicyTask = new SetDevicePolicyTask(this,
-                params.mDeviceAdminPackageName, params.mAdminReceiver, params.mOwner);
-        final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask =  new DeleteNonRequiredAppsTask(
-                this, params.mDeviceAdminPackageName, 0 /* primary user's UserId */, null,
-                R.array.required_apps_managed_device,
-                R.array.vendor_required_apps_managed_device);
+                params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
+                new AddWifiNetworkTask.Callback() {
+                        @Override
+                        public void onSuccess() {
+                            if (mDownloadPackageTask.downloadLocationWasProvided()) {
+                                progressUpdate(R.string.progress_download);
+                                mDownloadPackageTask.run();
+                            } else {
+                                progressUpdate(R.string.progress_set_owner);
+                                mSetDevicePolicyTask.run();
+                            }
+                        }
 
-        // Set callbacks.
-        addWifiNetworkTask.setCallback(new AddWifiNetworkTask.Callback() {
-            @Override
-            public void onSuccess() {
-                if (downloadPackageTask.downloadLocationWasProvided()) {
-                    progressUpdate(R.string.progress_download);
-                    downloadPackageTask.run();
-                } else {
-                    progressUpdate(R.string.progress_set_owner);
-                    setDevicePolicyTask.run();
-                }
-            }
+                        @Override
+                        public void onError(){
+                            error(R.string.device_owner_error_wifi);
+                        }
+                });
 
-            @Override
-            public void onError(){
-                error(R.string.device_owner_error_wifi);
-            }
-        });
+        mDownloadPackageTask = new DownloadPackageTask(this,
+                params.mDownloadLocation, params.mHash,
+                new DownloadPackageTask.Callback() {
+                        @Override
+                        public void onSuccess() {
+                            String downloadLocation =
+                                    mDownloadPackageTask.getDownloadedPackageLocation();
+                            Runnable cleanupRunnable =
+                                    mDownloadPackageTask.getCleanUpDownloadRunnable();
+                            progressUpdate(R.string.progress_install);
+                            mInstallPackageTask.run(downloadLocation, cleanupRunnable);
+                        }
 
-        downloadPackageTask.setCallback(new DownloadPackageTask.Callback() {
-            @Override
-            public void onSuccess() {
-                String downloadLocation = downloadPackageTask.getDownloadedPackageLocation();
-                Runnable cleanupRunnable = downloadPackageTask.getCleanUpDownloadRunnable();
-                progressUpdate(R.string.progress_install);
-                installPackageTask.run(downloadLocation, cleanupRunnable);
-            }
+                        @Override
+                        public void onError(int errorCode) {
+                            switch(errorCode) {
+                                case DownloadPackageTask.ERROR_HASH_MISMATCH:
+                                    error(R.string.device_owner_error_hash_mismatch);
+                                    break;
+                                case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
+                                    error(R.string.device_owner_error_download_failed);
+                                    break;
+                                default:
+                                    error(R.string.device_owner_error_general);
+                                    break;
+                            }
+                        }
+                    });
 
-            @Override
-            public void onError(int errorCode) {
-                switch(errorCode) {
-                    case DownloadPackageTask.ERROR_HASH_MISMATCH:
-                        error(R.string.device_owner_error_hash_mismatch);
-                        break;
-                    case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
-                        error(R.string.device_owner_error_download_failed);
-                        break;
-                    default:
-                        error(R.string.device_owner_error_general);
-                        break;
-                }
-            }
-        });
+        mInstallPackageTask = new InstallPackageTask(this,
+                params.mDeviceAdminPackageName, params.mAdminReceiver,
+                new InstallPackageTask.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        progressUpdate(R.string.progress_set_owner);
+                        mSetDevicePolicyTask.run();
+                    }
 
-        installPackageTask.setCallback(new InstallPackageTask.Callback() {
-            @Override
-            public void onSuccess() {
-                progressUpdate(R.string.progress_set_owner);
-                setDevicePolicyTask.run();
-            }
+                    @Override
+                    public void onError(int errorCode) {
+                        switch(errorCode) {
+                            case InstallPackageTask.ERROR_PACKAGE_INVALID:
+                                error(R.string.device_owner_error_package_invalid);
+                                break;
+                            case InstallPackageTask.ERROR_INSTALLATION_FAILED:
+                                error(R.string.device_owner_error_installation_failed);
+                                break;
+                            default:
+                                error(R.string.device_owner_error_general);
+                                break;
+                        }
+                    }
+                });
 
-            @Override
-            public void onError(int errorCode) {
-                switch(errorCode) {
-                    case InstallPackageTask.ERROR_PACKAGE_INVALID:
-                        error(R.string.device_owner_error_package_invalid);
-                        break;
-                    case InstallPackageTask.ERROR_INSTALLATION_FAILED:
-                        error(R.string.device_owner_error_installation_failed);
-                        break;
-                    default:
-                        error(R.string.device_owner_error_general);
-                        break;
-                }
-            }
-        });
+        mSetDevicePolicyTask = new SetDevicePolicyTask(this,
+                params.mDeviceAdminPackageName, params.mAdminReceiver, params.mOwner,
+                new SetDevicePolicyTask.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        mDeleteNonRequiredAppsTask.run();
+                    }
 
-        setDevicePolicyTask.setCallback(new SetDevicePolicyTask.Callback() {
-            public void onSuccess() {
-                deleteNonRequiredAppsTask.run();
-            }
-            public void onError(int errorCode) {
-                switch(errorCode) {
-                    case SetDevicePolicyTask.ERROR_PACKAGE_NOT_INSTALLED:
-                        error(R.string.device_owner_error_package_not_installed);
-                        break;
-                    default:
-                        error(R.string.device_owner_error_general);
-                        break;
-                }
-            }
-        });
+                    @Override
+                    public void onError(int errorCode) {
+                        switch(errorCode) {
+                            case SetDevicePolicyTask.ERROR_PACKAGE_NOT_INSTALLED:
+                                error(R.string.device_owner_error_package_not_installed);
+                                break;
+                            default:
+                                error(R.string.device_owner_error_general);
+                                break;
+                        }
+                    }
+                });
 
-        deleteNonRequiredAppsTask.setCallback(new DeleteNonRequiredAppsTask
-                .Callback() {
+        mDeleteNonRequiredAppsTask =  new DeleteNonRequiredAppsTask(
+                this, params.mDeviceAdminPackageName, 0 /* primary user's UserId */,
+                R.array.required_apps_managed_device, R.array.vendor_required_apps_managed_device,
+                new DeleteNonRequiredAppsTask.Callback() {
                     public void onSuccess() {
                         // Done with provisioning. Success.
                         onProvisioningSuccess(new ComponentName(params.mDeviceAdminPackageName,
@@ -219,22 +239,21 @@ public class DeviceOwnerProvisioningService extends Service {
                     public void onError() {
                         error(R.string.device_owner_error_general);
                     };
-                }
-        );
+                });
 
 
         // Start first task, which starts next task in its callback, etc.
-        if (addWifiNetworkTask.wifiCredentialsWereProvided()) {
+        if (mAddWifiNetworkTask.wifiCredentialsWereProvided()) {
             progressUpdate(R.string.progress_connect_to_wifi);
-            addWifiNetworkTask.run();
+            mAddWifiNetworkTask.run();
         } else {
             progressUpdate(R.string.progress_set_owner);
-            setDevicePolicyTask.run();
+            mSetDevicePolicyTask.run();
         }
     }
 
     private void error(int dialogMessage) {
-        ProvisionLogger.logd("Reporting Error with code " + dialogMessage);
+        ProvisionLogger.logd("Reporting Error: " + getResources().getString(dialogMessage));
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
         intent.putExtra(EXTRA_PROVISIONING_ERROR_ID_KEY, dialogMessage);
         sendBroadcast(intent);
@@ -242,7 +261,8 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void progressUpdate(int progressMessage) {
-        ProvisionLogger.logd("Reporting progress update with code " + progressMessage);
+        ProvisionLogger.logd("Reporting progress update: "
+                + getResources().getString(progressMessage));
         mLastProgressMessage = progressMessage;
         sendProgressUpdateToActivity();
     }
@@ -252,6 +272,18 @@ public class DeviceOwnerProvisioningService extends Service {
         intent.putExtra(EXTRA_PROGRESS_MESSAGE_ID_KEY, mLastProgressMessage);
         sendBroadcast(intent);
     }
+
+    private void requestEncryption(String propertiesForResume) {
+        Bundle resumeExtras = new Bundle();
+        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
+                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
+        resumeExtras.putString(MessageParser.EXTRA_PROVISIONING_PROPERTIES,
+                propertiesForResume);
+        Intent intent = new Intent(ACTION_REQUEST_ENCRYPTION);
+        intent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
+        sendBroadcast(intent);
+    }
+
 
     private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
         sendBroadcast(new Intent(ACTION_PROVISIONING_SUCCESS));
@@ -309,6 +341,13 @@ public class DeviceOwnerProvisioningService extends Service {
         } catch (Exception e) {
             ProvisionLogger.loge("Failed to set the system locale.");
             // Do not stop provisioning process, but ignore this error.
+        }
+    }
+
+    @Override
+    public void onDestroy () {
+        if (mAddWifiNetworkTask != null) {
+            mAddWifiNetworkTask.unRegister();
         }
     }
 

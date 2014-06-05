@@ -30,16 +30,18 @@ public class SetDevicePolicyTask {
     public static final int ERROR_PACKAGE_NOT_INSTALLED = 0;
     public static final int ERROR_OTHER = 1;
 
-    private Callback mCallback;
-    private Context mContext;
-    private String mPackageName;
-    private String mAdminReceiver;
-    private String mOwner;
+    private final Callback mCallback;
+    private final Context mContext;
+    private final String mPackageName;
+    private final String mAdminReceiver;
+    private final String mOwner;
+
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
     public SetDevicePolicyTask(Context context, String packageName, String adminReceiver,
-            String owner) {
+            String owner, Callback callback) {
+        mCallback = callback;
         mContext = context;
         mPackageName = packageName;
         mAdminReceiver = adminReceiver;
@@ -47,10 +49,6 @@ public class SetDevicePolicyTask {
         mPackageManager = mContext.getPackageManager();
         mDevicePolicyManager = (DevicePolicyManager) mContext.
                 getSystemService(Context.DEVICE_POLICY_SERVICE);
-    }
-
-    public void setCallback(Callback callback) {
-        mCallback = callback;
     }
 
     public void run() {

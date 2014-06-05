@@ -56,6 +56,8 @@ import android.widget.TextView;
  * </p>
  */
 public class DeviceOwnerProvisioningActivity extends Activity {
+    private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
+
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
 
@@ -91,6 +93,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS);
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE);
+        filter.addAction(DeviceOwnerProvisioningService.ACTION_REQUEST_ENCRYPTION);
         registerReceiver(mServiceMessageReceiver, filter);
 
         // Start service.
@@ -112,7 +115,8 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR)) {
                 int errorCode = intent.getIntExtra(
                         DeviceOwnerProvisioningService.EXTRA_PROVISIONING_ERROR_ID_KEY, -1);
-                ProvisionLogger.logd("Error reported with code " + errorCode);
+                ProvisionLogger.logd("Error reported with code "
+                        + getResources().getString(errorCode));
                 if (errorCode < 0) {
                     error(R.string.device_owner_error_general);
                     return;
@@ -122,10 +126,17 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE)) {
                 int progressMessage = intent.getIntExtra(
                         DeviceOwnerProvisioningService.EXTRA_PROGRESS_MESSAGE_ID_KEY, -1);
-                ProvisionLogger.logd("Progress update reported with code " + progressMessage);
-                if (progressMessage > 0) {
+                ProvisionLogger.logd("Progress update reported with code "
+                        + getResources().getString(progressMessage));
+                if (progressMessage >= 0) {
                     progressUpdate(progressMessage);
                 }
+            } else if (action.equals(DeviceOwnerProvisioningService.ACTION_REQUEST_ENCRYPTION)) {
+                ProvisionLogger.logd("Received request to encrypt device.");
+                Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
+                        EncryptDeviceActivity.class);
+                encryptIntent.putExtras(intent);
+                startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             }
         }
     }
@@ -137,12 +148,23 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     @Override
     public void onDestroy() {
+        ProvisionLogger.logd("Device owner provisioning activity ONDESTROY");
         unregisterReceiver(mServiceMessageReceiver);
         super.onDestroy();
     }
 
     private void progressUpdate(int progressMessage) {
         mProgressTextView.setText(progressMessage);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
+            if (resultCode == RESULT_CANCELED) {
+                ProvisionLogger.loge("User canceled device encryption.");
+                finish();
+            }
+        }
     }
 
     private void error(int dialogMessage) {
@@ -158,6 +180,26 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             })
             .create();
         dlg.show();
+    }
+
+    protected void onRestart() {
+        ProvisionLogger.logd("Device owner provisioning activity ONRESTART");
+        super.onRestart();
+    }
+
+    protected void onResume() {
+        ProvisionLogger.logd("Device owner provisioning activity ONRESUME");
+        super.onResume();
+    }
+
+    protected void onPause() {
+        ProvisionLogger.logd("Device owner provisioning activity ONPAUSE");
+        super.onPause();
+    }
+
+    protected void onStop() {
+        ProvisionLogger.logd("Device owner provisioning activity ONSTOP");
+        super.onStop();
     }
 }
 

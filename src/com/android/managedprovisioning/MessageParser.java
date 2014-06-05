@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -25,7 +27,6 @@ import android.os.Parcelable;
 import java.io.IOException;
 import java.io.StringReader;
 import java.math.BigInteger;
-import static java.nio.charset.StandardCharsets.UTF_8;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
@@ -33,8 +34,21 @@ import java.util.Properties;
 
 /**
  * This class can initialize a ProvisioningParams object from an intent.
- * This intent has to contain Nfc data as produced by:
- * com.example.android.apis.app.DeviceProvisioningProgrammerSample.
+ * There are two kinds of intents that can be parsed. Both store all data in a serialized
+ * {@link Properties} object.
+ *
+ * <p>
+ * The intent has the extra {@link NfcAdapter.EXTRA_NDEF_MESSAGES} when provisioning is started via
+ * Nfc bump.
+ * (constructed by for example
+ * {@link com.example.android.apis.app.DeviceProvisioningProgrammerSample}).
+ * </p>
+ *
+ * <p>
+ * The intent has the extra {@link EXTRA_PROVISIONING_PROPERTIES} when provisioning is resumed after
+ * encryption.
+ * (constructed by {@link BootReminder}).
+ * </p>
  *
  * <p>
  * To add extra fields:
@@ -44,8 +58,14 @@ import java.util.Properties;
  * ProvisioningParams.
  * </p>
  */
-public class NfcMessageParser {
+public class MessageParser {
+    protected static final String EXTRA_PROVISIONING_PROPERTIES
+        = "com.android.managedprovisioning.provisioningProperties";
+
     private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
+
+    // Used to store the {@link String} that was used in the last call to {@link parseProperties}.
+    private static String cachedProvisioningProperties;
 
     // Keys for the properties in the packet.
     // They correspond to fields of ProvisioningParams (see {@link ProvisioningParams}).
@@ -103,36 +123,43 @@ public class NfcMessageParser {
         mKeyToId.put(HASH_KEY, HASH_ID);
     }
 
-    public ProvisioningParams parseNfcIntent(Intent nfcIntent)
-            throws ParseException {
-        ProvisionLogger.logi("Processing NFC Payload.");
-
-        if (nfcIntent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-
-            // Only one first message with NFC_MIME_TYPE is used.
-            for (Parcelable rawMsg : nfcIntent
-                    .getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-                NdefMessage msg = (NdefMessage) rawMsg;
-
-                // Assume only first record of message is used.
-                NdefRecord firstRecord = msg.getRecords()[0];
-                String mimeType = new String(firstRecord.getType(), UTF_8);
-
-                if (NFC_MIME_TYPE.equals(mimeType)) {
-                    return parseNfcProperties(new String(firstRecord.getPayload(), UTF_8));
-                }
-            }
+    public ProvisioningParams parseIntent(Intent intent) throws ParseException {
+        ProvisionLogger.logi("Processing intent.");
+        if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
+            return parseNfcIntent(intent);
+        } else if (intent.hasExtra(EXTRA_PROVISIONING_PROPERTIES)) {
+            return parseProperties(intent.getStringExtra(EXTRA_PROVISIONING_PROPERTIES));
         } else {
             throw new ParseException(
-                    "Intent does not contain EXTRA_NDEF_MESSAGES.",
-                    R.string.device_owner_error_nfc_parse_fail);
+                    "Intent does not contain EXTRA_NDEF_MESSAGES or EXTRA_PROVISIONING_PROPERTIES.",
+                    R.string.device_owner_error_parse_fail);
         }
-        return null;
     }
 
-    private ProvisioningParams parseNfcProperties(String data)
+    public ProvisioningParams parseNfcIntent(Intent nfcIntent)
+        throws ParseException {
+        ProvisionLogger.logi("Processing Nfc Payload.");
+        // Only one first message with NFC_MIME_TYPE is used.
+        for (Parcelable rawMsg : nfcIntent
+                     .getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
+            NdefMessage msg = (NdefMessage) rawMsg;
+
+            // Assume only first record of message is used.
+            NdefRecord firstRecord = msg.getRecords()[0];
+            String mimeType = new String(firstRecord.getType(), UTF_8);
+
+            if (NFC_MIME_TYPE.equals(mimeType)) {
+                return parseProperties(new String(firstRecord.getPayload(), UTF_8));
+            }
+        }
+        throw new ParseException(
+                "Intent does not contain NfcRecord with the correct MIME type.",
+                R.string.device_owner_error_parse_fail);
+    }
+
+    private ProvisioningParams parseProperties(String data)
             throws ParseException {
-        ProvisionLogger.logd("Processing NFC Properties.");
+        ProvisionLogger.logi("Parsing Properties.");
         ProvisioningParams params = new ProvisioningParams();
         try {
             Properties props = new Properties();
@@ -145,13 +172,14 @@ public class NfcMessageParser {
             }
 
             checkValidityOfProvisioningParams(params);
+            cachedProvisioningProperties = data;
             return params;
         } catch (IOException e) {
             throw new ParseException("Couldn't load payload",
-                    R.string.device_owner_error_nfc_parse_fail, e);
+                    R.string.device_owner_error_parse_fail, e);
         } catch (NumberFormatException e) {
-            throw new ParseException("Incorrect numberformat in Nfc message.",
-                    R.string.device_owner_error_nfc_parse_fail, e);
+            throw new ParseException("Incorrect numberformat.",
+                    R.string.device_owner_error_parse_fail, e);
         }
     }
 
@@ -161,14 +189,14 @@ public class NfcMessageParser {
      */
     public void putPropertyByString(String key, String value, ProvisioningParams params)
             throws NumberFormatException {
-        ProvisionLogger.logd("Processing NFC key " + key + " with value " + value);
+        ProvisionLogger.logd("Processing property key " + key + " with value " + value);
 
         // Can't switch on string, so use integer id.
         Integer id = mKeyToId.get(key);
         if (id == null) {
 
             // Ignore unknown keys.
-            ProvisionLogger.logi("Unknown key " + key + " in Nfc data.");
+            ProvisionLogger.logi("Unknown key " + key + " in properties data.");
             return;
         }
         switch(id) {
@@ -255,6 +283,10 @@ public class NfcMessageParser {
                         R.string.device_owner_error_no_wifi_ssid);
             }
         }
+    }
+
+    public static String getCachedProvisioningProperties() {
+        return cachedProvisioningProperties;
     }
 
     /**
