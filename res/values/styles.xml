@@ -27,35 +27,61 @@
     <style name="WelcomeTheme" parent="@android:Theme.Holo.NoActionBar">
     </style>
 
-    <style name="UserConsentBackground">
-        <item name="android:background">@color/light_grey_user_consent</item>
-        <item name="android:textColor">@color/dark_grey_user_consent</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="SetupWorkSpaceTheme" parent="@android:Theme.NoTitleBar">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="SetupWorkSpaceHeader">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">151dp</item>
+        <item name="android:background">@color/light_turquoise</item>
+    </style>
+
+    <style name="SetupWorkSpaceTitle" parent ="@style/SetupWorkSpaceLeftRightPadding">
+        <item name="android:text">@string/setup_work_space</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@color/dark_turquoise</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="SetupWorkSpaceMainText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+
+    <style name="SetupButton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/blue</item>
+    </style>
+
+    <style name="SetupWorkSpaceTextContainer" parent ="@style/SetupWorkSpaceLeftRightPadding">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingBottom">24dp</item>
+    </style>
+
+    <style name="SetupWorkSpaceLeftRightPadding">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="ProvisioningProgress">
+       <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/dark_turquoise</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:padding">20dp</item>
-    </style>
-
-    <style name="UserConsentTitle">
-        <item name="android:textSize">30sp</item>
-        <item name="android:textColor">@color/dark_grey_user_consent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="UserConsentMainText">
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:background">@color/medium_grey_user_consent</item>
-        <item name="android:padding">30dp</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="UserConsentButtonBar">
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="UserConsentButton">
-        <item name="android:layout_height">40dp</item>
-        <item name ="android:layout_weight">1</item>
     </style>
 
 </resources>

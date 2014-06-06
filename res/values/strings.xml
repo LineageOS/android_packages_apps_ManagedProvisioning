@@ -26,24 +26,25 @@
   <!-- Title of the main activity for profile owner provisioning. CHAR LIMIT=NONE] -->
   <string name="provisioning_title">Provisioning...</string>
 
+
   <!-- Managed profile provisioning flow UI. -->
 
-  <!-- Title of the dialog that asks for user consent to create a profile. CHAR LIMIT=NONE] -->
-  <string name="what_is_corporate_profile">What is corporate profile?</string>
-  <!-- String for negative button on user consent dialog for creating a profile CHAR LIMIT=NONE] -->
-  <string name="no_thanks">No, thanks</string>
-    <!-- String for positive button on user consent dialog for creating a profile CHAR LIMIT=NONE] -->
-  <string name="lets_start">Let\'s start</string>
-  <!-- Placeholder for text that expains what a corporate profile is CHAR LIMIT=NONE] -->
-  <string name="placeholder">A managed profile is:.... By consenting here you are allowing
-      the creation of a managed profile that will be owned by the application "name". "Name" will
-      have full control over the new profile and any data created on that profile. </string>
+  <!-- User consent -->
+  <!-- Title of all managed profile setup screens. CHAR LIMIT=NONE] -->
+  <string name="setup_work_space">Setup work space</string>
+  <!-- Part 1 of the text that asks for user consent to create a corporate profile CHAR LIMIT=NONE] -->
+  <string name="separate_work_spaces">Setup a separate work space from your personal space</string>
+  <!-- Part 2 of the text that asks for user consent to create a corporate profile CHAR LIMIT=NONE] -->
+  <string name="company_controls_workspace">Your company controls your work space on this device and keeps
+      it secure. You control your personal space. Your company can\'t access it.</string>
+  <!-- String for positive button on user consent dialog for creating a profile CHAR LIMIT=NONE] -->
+  <string name="set_up">Set up</string>
+
   <!-- string shown when there already is a managed profile for this user. CHAR LIMIT=NONE] -->
   <string name="managed_profile_already_present"> You already have a managed profile.
       You cannot create a second one. </string>
 
   <!-- Strings shown on prompt for user to encrypt and reboot the device -->
-  <string name="encrypt_device_title">Encrypt device</string>
   <string name="encrypt_device_text">To continue, restart your device so it can be encrypted. This may take some time.</string>
   <string name="encrypt_device_confirm">Restart</string>
   <string name="encrypt_device_launch_settings">Encrypt Device</string>
@@ -58,8 +59,7 @@
 
   <string name="managed_provisioning_error_title">Oops!</string>
   <!-- Explains the failure and what to do to next. CHAR LIMIT=NONE] -->
-  <string name="managed_provisioning_error_text">
-            Device provisioning failed. Please try again later!</string>
+  <string name="managed_provisioning_error_text"> Device provisioning failed. Please try again later!</string>
   <!-- Error string displayed if this device doesn't support managed profiles. -->
   <string name="managed_provisioning_not_supported">Sorry, managed profiles are not supported on this device.</string>
 

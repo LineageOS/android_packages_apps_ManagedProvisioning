@@ -52,7 +52,8 @@
     <application
         android:allowClearUserData="false"
         android:hardwareAccelerated="true"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/SetupWorkSpaceTheme" >
 
         <!--
              Note: Setup activities are android:immersive to prevent full-screen notifications (USB

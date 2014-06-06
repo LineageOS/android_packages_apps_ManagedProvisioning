@@ -41,20 +41,7 @@ public class UserConsentActivity extends Activity {
         final View contentView = inflater.inflate(R.layout.user_consent, null);
         setContentView(contentView);
 
-        TextView titleView = (TextView) contentView.findViewById(R.id.title);
-        String title = getResources().getString(R.string.what_is_corporate_profile);
-        titleView.setText(title.toUpperCase());
-
-        Button negativeButton = (Button) contentView.findViewById(R.id.negative_button);
         Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);
-
-        negativeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                returnUserConsentResult(false);
-            }
-        });
-
         positiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
