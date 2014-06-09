@@ -81,17 +81,17 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
             }
         }
 
-        PackageDeleteObserver packageDeleteObserver =
-                    new PackageDeleteObserver(packagesToDelete.size());
         for (String packageName : packagesToDelete) {
             try {
-                mIpm.deletePackageAsUser(packageName, packageDeleteObserver,
-                        mManagedProfileUserInfo.id, PackageManager.DELETE_SYSTEM_APP);
+                mIpm.setApplicationBlockedSettingAsUser(packageName, true,
+                        mManagedProfileUserInfo.id);
             } catch (RemoteException neverThrown) {
                 // Never thrown, as we are making local calls.
                 ProvisionLogger.loge("This should not happen.", neverThrown);
+                mCallback.onError();
             }
         }
+        mCallback.onSuccess();
     }
 
     private List<String> getImePackages() {
@@ -135,31 +135,6 @@ public class DeleteNonRequiredAppsFromManagedProfileTask {
             }
         }
         return accessibilityPackages;
-    }
-
-    /**
-     * Runs the next task when all packages have been deleted or shuts down the activity if package
-     * deletion fails.
-     */
-    class PackageDeleteObserver extends IPackageDeleteObserver.Stub {
-        private final AtomicInteger packageCount = new AtomicInteger(0);
-
-        public PackageDeleteObserver(int packageCount) {
-            this.packageCount.set(packageCount);
-        }
-
-        @Override
-        public void packageDeleted(String packageName, int returnCode) {
-            if (returnCode != PackageManager.DELETE_SUCCEEDED) {
-                ProvisionLogger.logw(
-                        "Could not finish managed profile provisioning: package deletion failed");
-                mCallback.onError();
-            }
-            int currentPackageCount = packageCount.decrementAndGet();
-            if (currentPackageCount == 0) {
-                mCallback.onSuccess();
-            }
-        }
     }
 
     public abstract static class Callback {
