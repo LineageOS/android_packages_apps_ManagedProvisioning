@@ -17,7 +17,7 @@
  */
 -->
 <resources>
-    <style name="SetupWorkSpaceTheme" parent="@android:Theme.Quantum.Light">
+    <style name="SetupWorkSpaceTheme" parent="@android:Theme.Material.Light">
       <item name="android:windowActionBar">false</item>
       <item name="android:windowNoTitle">true</item>
     </style>
