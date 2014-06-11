@@ -158,6 +158,8 @@ public class ManagedProvisioningActivity extends Activity {
         } else {
             // Ask for user consent.
             Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
+            userConsentIntent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+                    mMdmPackageName);
             startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
             // Wait for user consent, in onActivityResult.
         }

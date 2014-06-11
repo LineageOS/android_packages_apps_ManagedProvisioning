@@ -15,12 +15,18 @@
  */
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -48,6 +54,28 @@ public class UserConsentActivity extends Activity {
                 returnUserConsentResult(true);
             }
         });
+
+        Intent intent = getIntent();
+        String packageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        if (packageName != null) {
+            PackageManager pm = getPackageManager();
+            try {
+                ApplicationInfo ai = pm.getApplicationInfo(packageName, /* default flags */ 0);
+                if (ai != null) {
+                    Drawable packageIcon = pm.getApplicationIcon(packageName);
+                    ImageView imageView = (ImageView) contentView.findViewById(R.id.image_view);
+                    imageView.setImageDrawable(packageIcon);
+
+                    String appLabel = pm.getApplicationLabel(ai).toString();
+                    TextView deviceManagerName = (TextView) contentView
+                            .findViewById(R.id.device_manager_name);
+                    deviceManagerName.setText(appLabel);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                // Package does not exist, ignore. Should never happen.
+                ProvisionLogger.loge("Package does not exist. Should never happen.");
+            }
+        }
     }
 
     private void returnUserConsentResult(Boolean userHasConsented) {
