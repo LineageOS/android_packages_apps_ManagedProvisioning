@@ -45,7 +45,7 @@ import android.os.UserManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-
+import android.widget.TextView;
 
 
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
@@ -98,8 +98,11 @@ public class ManagedProvisioningActivity extends Activity {
 
         // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.progress_profile_owner, null);
+        final View contentView = inflater.inflate(R.layout.progress, null);
         setContentView(contentView);
+        TextView progressTextView = (TextView) findViewById(R.id.prog_text);
+        progressTextView.setText(R.string.setting_up);
+
 
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);

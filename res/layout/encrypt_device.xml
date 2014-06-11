@@ -21,9 +21,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-    <LinearLayout
-        style="@style/SetupWorkSpaceHeader">
-    </LinearLayout>
+    <ImageView
+        style="@style/SetupWorkSpaceHeader"/>
     <TextView
         style="@style/SetupWorkSpaceTitle"/>
     <ScrollView

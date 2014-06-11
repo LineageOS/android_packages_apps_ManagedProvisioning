@@ -21,9 +21,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-    <LinearLayout
-        style="@style/SetupWorkSpaceHeader">
-    </LinearLayout>
+    <ImageView
+        style="@style/SetupWorkSpaceHeader"/>
     <TextView
         style="@style/SetupWorkSpaceTitle"/>
     <LinearLayout
@@ -34,7 +33,7 @@
             android:indeterminate="true"
             android:paddingTop="24dp"/>
         <TextView
-            android:text="@string/setting_up"
+            android:id="@+id/prog_text"
             android:gravity="center_horizontal"
             style="@style/SetupWorkSpaceMainText"/>
     </LinearLayout>
