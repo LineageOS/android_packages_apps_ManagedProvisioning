@@ -25,7 +25,27 @@
         style="@style/SetupWorkSpaceHeader"/>
     <TextView
         style="@style/SetupWorkSpaceTitle"/>
+
+    <!-- Progress indicator that replaces main view during provisioning. -->
     <LinearLayout
+        android:id="@+id/progress_container"
+        style="@style/SetupWorkSpaceTextContainer"
+        android:layout_height="700dp"
+        android:visibility="gone" >
+    <TextView
+        android:text="@string/setting_up_workspace"
+        style="@style/SetupWorkSpaceMainText"/>
+    <ProgressBar
+        style="?android:style/Widget.ProgressBar.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:indeterminate="true"/>
+    </LinearLayout>
+
+    <!-- Main view -->
+    <LinearLayout
+        android:id="@+id/main_text_container"
         style="@style/SetupWorkSpaceTextContainer">
         <TextView
             android:text="@string/separate_work_spaces"
@@ -40,7 +60,7 @@
             android:paddingTop="16dp"
             android:orientation="horizontal">
             <ImageView
-                android:id="@+id/image_view"
+                android:id="@+id/mdm_icon_view"
                 android:layout_width="56dp"
                 android:layout_height="fill_parent"
                 android:scaleType="center"/>
