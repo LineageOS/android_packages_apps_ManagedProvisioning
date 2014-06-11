@@ -57,6 +57,12 @@ import java.util.List;
 // TODO: Proper error handling to report back to the user and potentially the mdm.
 public class ManagedProvisioningActivity extends Activity {
 
+    // TODO remove these when the new constant values are in use in all relevant places.
+    private static final String EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME =
+            "deviceAdminPackageName";
+    private static final String EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME =
+            "defaultManagedProfileName";
+
     private static final int USER_CONSENT_REQUEST_CODE = 1;
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
 
@@ -112,7 +118,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private void initialize(Intent intent)
             throws ManagedProvisioningFailedException {
-        mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        mMdmPackageName = getMdmPackageName(intent);
         // Validate package name
         if (TextUtils.isEmpty(mMdmPackageName)) {
             throw new ManagedProvisioningFailedException("Missing intent extra: "
@@ -133,8 +139,8 @@ public class ManagedProvisioningActivity extends Activity {
                     + EXTRA_DEVICE_ADMIN);
         }
 
-        mDefaultManagedProfileName = getIntent()
-                .getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
+         mDefaultManagedProfileName = getDefaultManagedProfileName(intent);
+
         // Validate profile name
         if (TextUtils.isEmpty(mDefaultManagedProfileName)) {
             throw new ManagedProvisioningFailedException("Missing intent extra: "
@@ -145,6 +151,22 @@ public class ManagedProvisioningActivity extends Activity {
     @Override
     public void onBackPressed() {
         // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
+    }
+
+    private String getMdmPackageName(Intent intent) {
+        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        if (TextUtils.isEmpty(name)) {
+            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        }
+        return name;
+    }
+
+    private String getDefaultManagedProfileName(Intent intent) {
+        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
+        if (TextUtils.isEmpty(name)) {
+            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
+        }
+        return name;
     }
 
     @Override
