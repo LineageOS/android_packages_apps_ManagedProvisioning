@@ -17,7 +17,6 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -102,7 +101,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         startService(intent);
     }
 
-    private class ServiceMessageReceiver extends BroadcastReceiver
+    class ServiceMessageReceiver extends BroadcastReceiver
     {
         @Override
         public void onReceive(Context context, Intent intent)
@@ -114,7 +113,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 return;
             } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR)) {
                 int errorCode = intent.getIntExtra(
-                        DeviceOwnerProvisioningService.EXTRA_PROVISIONING_ERROR_ID_KEY, -1);
+                        DeviceOwnerProvisioningService.EXTRA_USER_VISIBLE_ERROR_ID_KEY, -1);
                 ProvisionLogger.logd("Error reported with code "
                         + getResources().getString(errorCode));
                 if (errorCode < 0) {
@@ -173,6 +172,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             .setMessage(dialogMessage)
             .setCancelable(false)
             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
                 public void onClick(DialogInterface dialog,int id) {
                     // Close activity
                     finish();
@@ -182,21 +182,25 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         dlg.show();
     }
 
+    @Override
     protected void onRestart() {
         ProvisionLogger.logd("Device owner provisioning activity ONRESTART");
         super.onRestart();
     }
 
+    @Override
     protected void onResume() {
         ProvisionLogger.logd("Device owner provisioning activity ONRESUME");
         super.onResume();
     }
 
+    @Override
     protected void onPause() {
         ProvisionLogger.logd("Device owner provisioning activity ONPAUSE");
         super.onPause();
     }
 
+    @Override
     protected void onStop() {
         ProvisionLogger.logd("Device owner provisioning activity ONSTOP");
         super.onStop();

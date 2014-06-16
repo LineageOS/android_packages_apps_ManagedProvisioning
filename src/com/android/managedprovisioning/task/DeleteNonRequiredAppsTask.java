@@ -19,8 +19,8 @@ import java.util.Set;
 /**
  * Removes all apps with a launcher that are not required.
  * There are two decendants of this class:
- * {@link DeleteNonRequiredAppsFromManagedProfileTask} for profile owner provisioning,
- * and {@link DeleteNonRequiredAppsFromManagedDeviceTask} for device owner provisioning.
+ * {@link DeleteNonRequiredAppsTask} for profile owner provisioning,
+ * and {@link DeleteNonRequiredAppsTask} for device owner provisioning.
  * The decendents specify which apps are required.
  */
 public class DeleteNonRequiredAppsTask {

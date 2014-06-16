@@ -23,12 +23,10 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
-import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
@@ -65,7 +63,7 @@ public class DeviceOwnerProvisioningService extends Service {
             "com.android.managedprovisioning.provisioning_success";
     public static final String ACTION_PROVISIONING_ERROR =
             "com.android.managedprovisioning.error";
-    public static final String EXTRA_PROVISIONING_ERROR_ID_KEY = "ErrorMessageId";
+    public static final String EXTRA_USER_VISIBLE_ERROR_ID_KEY = "UserVisibleErrorMessage-Id";
     public static final String ACTION_PROGRESS_UPDATE =
             "com.android.managedprovisioning.progress_update";
     public static final String EXTRA_PROGRESS_MESSAGE_ID_KEY = "ProgressMessageId";
@@ -114,6 +112,7 @@ public class DeviceOwnerProvisioningService extends Service {
 
             // Do the work on a separate thread.
             new Thread(new Runnable() {
+                    @Override
                     public void run() {
                         initializeProvisioningEnvironment(params);
                         startDeviceOwnerProvisioning(params);
@@ -236,11 +235,11 @@ public class DeviceOwnerProvisioningService extends Service {
                                         params.mAdminReceiver));
                     }
 
+                    @Override
                     public void onError() {
                         error(R.string.device_owner_error_general);
                     };
                 });
-
 
         // Start first task, which starts next task in its callback, etc.
         if (mAddWifiNetworkTask.wifiCredentialsWereProvided()) {
@@ -253,10 +252,14 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void error(int dialogMessage) {
+
         ProvisionLogger.logd("Reporting Error: " + getResources().getString(dialogMessage));
+
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
-        intent.putExtra(EXTRA_PROVISIONING_ERROR_ID_KEY, dialogMessage);
+        intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
+        intent.putExtra(EXTRA_USER_VISIBLE_ERROR_ID_KEY, dialogMessage);
         sendBroadcast(intent);
+
         stopSelf(mStartIdProvisioning);
     }
 
@@ -270,6 +273,7 @@ public class DeviceOwnerProvisioningService extends Service {
     private void sendProgressUpdateToActivity() {
         Intent intent = new Intent(ACTION_PROGRESS_UPDATE);
         intent.putExtra(EXTRA_PROGRESS_MESSAGE_ID_KEY, mLastProgressMessage);
+        intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         sendBroadcast(intent);
     }
 
@@ -284,9 +288,10 @@ public class DeviceOwnerProvisioningService extends Service {
         sendBroadcast(intent);
     }
 
-
     private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
-        sendBroadcast(new Intent(ACTION_PROVISIONING_SUCCESS));
+        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+        successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
+        sendBroadcast(successIntent);
 
         // Skip the setup wizard.
         Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
