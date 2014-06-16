@@ -28,20 +28,23 @@ import com.android.managedprovisioning.WifiConfig;
  * Adds a wifi network to system.
  */
 public class AddWifiNetworkTask implements NetworkMonitor.Callback {
-    private Context mContext;
-    private String mSsid;
-    private boolean mHidden;
-    private String mSecurityType;
-    private String mPassword;
-    private String mProxyHost;
-    private int mProxyPort;
-    private String mProxyBypassHosts;
-    private Callback mCallback;
+    private final Context mContext;
+    private final String mSsid;
+    private final boolean mHidden;
+    private final String mSecurityType;
+    private final String mPassword;
+    private final String mProxyHost;
+    private final int mProxyPort;
+    private final String mProxyBypassHosts;
+    private final Callback mCallback;
+
     private WifiManager mWifiManager;
     private NetworkMonitor mNetworkMonitor;
 
     public AddWifiNetworkTask(Context context, String ssid, boolean hidden, String securityType,
-            String password, String proxyHost, int proxyPort, String proxyBypassHosts) {
+            String password, String proxyHost, int proxyPort, String proxyBypassHosts,
+            Callback callback) {
+        mCallback = callback;
         mContext = context;
         mSsid = ssid;
         mHidden = hidden;
@@ -51,10 +54,6 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mProxyPort = proxyPort;
         mProxyBypassHosts = proxyBypassHosts;
         mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
-    }
-
-    public void setCallback(Callback callback) {
-        mCallback = callback;
     }
 
     public boolean wifiCredentialsWereProvided() {
@@ -113,7 +112,15 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
                 mWifiManager.getConnectionInfo().getSSID().equals(mSsid)) {
             ProvisionLogger.logd("Connected to the correct network");
             mNetworkMonitor.close();
+            mNetworkMonitor = null;
             mCallback.onSuccess();
+        }
+    }
+
+    public void unRegister() {
+        if (mNetworkMonitor != null) {
+            mNetworkMonitor.close();
+            mNetworkMonitor = null;
         }
     }
 

@@ -50,23 +50,22 @@ public class DownloadPackageTask {
 
     private static final String HASH_TYPE = "SHA-1";
 
-    private Context mContext;
-    private String mDownloadLocationFrom;
-    private String mDownloadLocationTo;
-    private Callback mCallback;
-    private byte[] mHash;
+    private final Context mContext;
+    private final String mDownloadLocationFrom;
+    private final Callback mCallback;
+    private final byte[] mHash;
+
     private boolean mDoneDownloading;
+    private String mDownloadLocationTo;
     private long mDownloadId;
 
-    public DownloadPackageTask (Context context, String downloadLocation, byte[] hash) {
+    public DownloadPackageTask (Context context, String downloadLocation, byte[] hash,
+            Callback callback) {
+        mCallback = callback;
         mContext = context;
         mDownloadLocationFrom = downloadLocation;
         mHash = hash;
         mDoneDownloading = false;
-    }
-
-    public void setCallback(Callback callback) {
-        mCallback = callback;
     }
 
     public boolean downloadLocationWasProvided() {

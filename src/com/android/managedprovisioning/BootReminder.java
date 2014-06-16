@@ -27,7 +27,6 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import android.os.Bundle;
 
@@ -38,19 +37,67 @@ import android.os.Bundle;
 public class BootReminder extends BroadcastReceiver {
     private static final int NOTIFY_ID = 1;
 
-    private static final String PREFERENCES_NAME = "managed-provisioning-resume";
-    private static final String RESUME_DATA_SETTING = "resume-uri";
+    /*
+     * Profile owner parameters that are stored in the IntentStore for resuming provisioning.
+     */
+    private static final String PROFILE_OWNER_PREFERENCES_NAME =
+            "profile-owner-provisioning-resume";
+
+    private static final String[] PROFILE_OWNER_STRING_EXTRAS = {
+        // Key for the default name of the managed profile
+        EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME,
+        // Key for the device admin package name
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
+    };
+
+    private static final String[] PROFILE_OWNER_COMPONENT_EXTRAS = {
+        // Key for the device admin component that started provisioning
+        EXTRA_DEVICE_ADMIN
+    };
+
+    private static final ComponentName PROFILE_OWNER_INTENT_TARGET =
+            new ComponentName("com.android.managedprovisioning",
+                    "com.android.managedprovisioning.ManagedProvisioningActivity");
+
+    /*
+     * Device owner parameters that are stored in the IntentStore for resuming provisioning.
+     */
+    private static final String DEVICE_OWNER_PREFERENCES_NAME =
+            "device-owner-provisioning-resume";
+
+    private static final String[] DEVICE_OWNER_STRING_EXTRAS = {
+        // Key for the string storing the properties from the intent that started the provisioning
+        MessageParser.EXTRA_PROVISIONING_PROPERTIES
+    };
+
+    private static final String[] DEVICE_OWNER_COMPONENT_EXTRAS = {
+        // No ComponentNames are persisted in the device owner case.
+    };
+
+    private static final ComponentName DEVICE_OWNER_INTENT_TARGET =
+            new ComponentName("com.android.managedprovisioning",
+                    "com.android.managedprovisioning.DeviceOwnerProvisioningActivity");
 
     @Override
     public void onReceive(Context context, Intent intent) {
         if (android.content.Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            final IntentStore store = new IntentStore(context);
-            final Intent resumeIntent = store.load();
 
-            if (resumeIntent != null ) {
+            // Resume profile owner provisioning if applicable.
+            IntentStore profileOwnerIntentStore = getProfileOwnerIntentStore(context);
+            final Intent resumeProfileOwnerPrvIntent = profileOwnerIntentStore.load();
+            if (resumeProfileOwnerPrvIntent != null ) {
                 // Show reminder notification and then forget about it for next boot
-                setNotification(context, resumeIntent);
-                store.clear();
+                setNotification(context, resumeProfileOwnerPrvIntent);
+                profileOwnerIntentStore.clear();
+            }
+
+            // Resume device owner provisioning if applicable.
+            IntentStore deviceOwnerIntentStore = getDeviceOwnerIntentStore(context);
+            Intent resumeDeviceOwnerPrvIntent = deviceOwnerIntentStore.load();
+            if (resumeDeviceOwnerPrvIntent != null) {
+                deviceOwnerIntentStore.clear();
+                resumeDeviceOwnerPrvIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(resumeDeviceOwnerPrvIntent);
             }
         }
     }
@@ -58,7 +105,13 @@ public class BootReminder extends BroadcastReceiver {
     /**
      * Schedule a provisioning reminder notification for the next reboot.
      *
-     * {@code extras} should be a Bundle containing values for at least the following set of keys:
+     * {@code extras} should be a Bundle containing the
+     * {@link EncryptDeviceActivity.EXTRA_RESUME_TARGET}.
+     * This field has only two supported values:
+     *
+     * <p>
+     * In case of TARGET_PROFILE_OWNER {@code extras} should further contain values for at least the
+     * following set of keys:
      * <ul>
      * <li>{@link EXTRA_DEVICE_ADMIN}, the {@link ComponentName} for the admin receiver to
      *     set up.</li>
@@ -66,70 +119,53 @@ public class BootReminder extends BroadcastReceiver {
      *     default name to suggest to the user for the new managed profile.</li>
      * <li>{@link EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME}, a {@link String} specifying the
      *     package to set as profile owner.</li>
+     * </ul></p>
      *
+     * <p>
+     * In case of TARGET_DEVICE_OWNER {@code extras} should further contain values for at least the
+     * following set of keys:
+     * <ul>
+     * <li>{@link MessageParser.EXTRA_PROVISIONING_PROPERTIES}, a {@link String} storing the
+     *     serialized {@link Properties} that contains all key value pairs specified in
+     *     {@link MessageParser} that were used to initiate this provisioning flow.</li>
+     * </ul></p>
+     *
+     * <p>
      * These fields will be persisted and restored to the provisioner after rebooting. Any other
-     * key/value pairs will be ignored.
+     * key/value pairs will be ignored.</p>
      */
     public static void setProvisioningReminder(Context context, Bundle extras) {
-        new IntentStore(context).save(extras);
+        IntentStore intentStore;
+        String resumeTarget = extras.getString(EncryptDeviceActivity.EXTRA_RESUME_TARGET, null);
+        if (resumeTarget == null) {
+            ProvisionLogger.loge("Resume target not specify. Missing EXTRA_RESUME_TARGET.");
+            return;
+        }
+        if (resumeTarget.equals(EncryptDeviceActivity.TARGET_PROFILE_OWNER)) {
+            intentStore = getProfileOwnerIntentStore(context);
+        } else if (resumeTarget.equals(EncryptDeviceActivity.TARGET_DEVICE_OWNER)) {
+            intentStore = getDeviceOwnerIntentStore(context);
+        } else {
+            ProvisionLogger.loge("Unknown resume target for bootreminder.");
+            return;
+        }
+        intentStore.save(extras);
     }
 
-    /** Helper class to load/save resume information from Intents into a SharedPreferences */
-    private static class IntentStore {
-        private SharedPreferences mPrefs;
-        private Context mContext;
+    private static IntentStore getProfileOwnerIntentStore(Context context) {
+        return new IntentStore(context,
+                PROFILE_OWNER_STRING_EXTRAS,
+                PROFILE_OWNER_COMPONENT_EXTRAS,
+                PROFILE_OWNER_INTENT_TARGET,
+                PROFILE_OWNER_PREFERENCES_NAME);
+    }
 
-        private static final String[] stringKeys = {
-            EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME,
-            EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
-        };
-        private static final String[] componentKeys = {
-            EXTRA_DEVICE_ADMIN
-        };
-
-        public IntentStore(Context context) {
-            mContext = context;
-            mPrefs = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
-        }
-
-        public void clear() {
-            mPrefs.edit().clear().commit();
-        }
-
-        public void save(Bundle data){
-            SharedPreferences.Editor editor = mPrefs.edit();
-
-            editor.clear();
-            for (String stringKey : stringKeys) {
-                editor.putString(stringKey, data.getString(stringKey));
-            }
-            for (String componentKey : componentKeys) {
-                editor.putString(componentKey, ((ComponentName)
-                        data.getParcelable(componentKey)).flattenToShortString());
-            }
-            editor.commit();
-        }
-
-        public Intent load() {
-            Intent result = new Intent(mContext, ManagedProvisioningActivity.class);
-
-            for (String key : stringKeys) {
-                String value = mPrefs.getString(key, null);
-                if (value == null) {
-                    return null;
-                }
-                result.putExtra(key, value);
-            }
-            for (String key : componentKeys) {
-                String value = mPrefs.getString(key, null);
-                if (value == null) {
-                    return null;
-                }
-                result.putExtra(key, ComponentName.unflattenFromString(value));
-            }
-
-            return result;
-        }
+    private static IntentStore getDeviceOwnerIntentStore(Context context) {
+        return new IntentStore(context,
+                DEVICE_OWNER_STRING_EXTRAS,
+                DEVICE_OWNER_COMPONENT_EXTRAS,
+                DEVICE_OWNER_INTENT_TARGET,
+                DEVICE_OWNER_PREFERENCES_NAME);
     }
 
     /** Create and show the provisioning reminder notification. */

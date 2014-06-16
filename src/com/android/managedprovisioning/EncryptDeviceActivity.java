@@ -39,12 +39,18 @@ import android.widget.Button;
  */
 public class EncryptDeviceActivity extends Activity {
     protected static final String EXTRA_RESUME = "com.android.managedprovisioning.RESUME";
+    protected static final String EXTRA_RESUME_TARGET =
+            "com.android.managedprovisioning.RESUME_TARGET";
+    protected static final String TARGET_PROFILE_OWNER = "profile_owner";
+    protected static final String TARGET_DEVICE_OWNER = "device_owner";
+
     protected static final String ENCRYPTION_ACTIVE_KEY = "encryptionActiveKey";
 
     // Minimum battery charge level (in percent) to launch encryption.  If the battery charge is
     // lower than this, encryption should not be activated.
     private static final int MIN_BATTERY_LEVEL = 80;
 
+    private Button mCancelButton;
     private Button mEncryptButton;
     private View mCableWarning;
     private View mBatteryWarning;
@@ -78,6 +84,7 @@ public class EncryptDeviceActivity extends Activity {
 
         final View contentView = getLayoutInflater().inflate(R.layout.encrypt_device, null);
         mEncryptButton = (Button) contentView.findViewById(R.id.accept_button);
+        mCancelButton = (Button) contentView.findViewById(R.id.cancel_button);
         mCableWarning = contentView.findViewById(R.id.warning_unplugged);
         mBatteryWarning = contentView.findViewById(R.id.warning_low_charge);
         setContentView(contentView);
@@ -112,6 +119,13 @@ public class EncryptDeviceActivity extends Activity {
                         finish();
                     }
                 }
+            }
+        });
+
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

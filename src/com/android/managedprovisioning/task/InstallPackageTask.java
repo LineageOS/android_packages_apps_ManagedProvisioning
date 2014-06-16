@@ -43,24 +43,23 @@ public class InstallPackageTask {
     public static final int ERROR_INSTALLATION_FAILED = 1;
     public static final int ERROR_OTHER = 2;
 
-    private Context mContext;
-    private Callback mCallback;
+    private final Context mContext;
+    private final Callback mCallback;
+    private final String mPackageName;
+    private final String mAdminReceiver;
+
     private String mPackageLocation;
-    private String mPackageName;
-    private String mAdminReceiver;
     private PackageManager mPm;
     private Runnable mCleanUpDownloadRunnable;
     private int mPackageVerifierEnable;
 
-    public InstallPackageTask (Context context, String packageName, String adminReceiver) {
+    public InstallPackageTask (Context context, String packageName, String adminReceiver,
+            Callback callback) {
+        mCallback = callback;
         mContext = context;
         mPackageLocation = null; // Initialized in run().
         mPackageName = packageName;
         mAdminReceiver = adminReceiver;
-    }
-
-    public void setCallback(Callback callback) {
-        mCallback = callback;
     }
 
     public void run(String packageLocation, Runnable cleanUpDownloadRunnable) {

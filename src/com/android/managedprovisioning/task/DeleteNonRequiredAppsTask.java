@@ -24,8 +24,7 @@ import java.util.Set;
  * The decendents specify which apps are required.
  */
 public class DeleteNonRequiredAppsTask {
-    private Callback mCallback;
-
+    private final Callback mCallback;
     private final Context mContext;
     private final IPackageManager mIpm;
     private final String mMdmPackageName;
@@ -35,7 +34,7 @@ public class DeleteNonRequiredAppsTask {
     private final int mUserId;
 
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName, int userId,
-            Callback callback, int requiredAppsList, int vendorRequiredAppsList) {
+            int requiredAppsList, int vendorRequiredAppsList, Callback callback) {
         mCallback = callback;
         mContext = context;
         mMdmPackageName = mdmPackageName;
@@ -84,11 +83,6 @@ public class DeleteNonRequiredAppsTask {
                         mContext.getResources().getStringArray(mVendorReqAppsList)));
         requiredApps.add(mMdmPackageName);
         return requiredApps;
-    }
-
-
-    public void setCallback(Callback callback) {
-        mCallback = callback;
     }
 
     public abstract static class Callback {
