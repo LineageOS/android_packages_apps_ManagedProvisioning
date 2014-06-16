@@ -40,7 +40,7 @@
   <!-- String for positive button on user consent dialog for creating a profile CHAR LIMIT=NONE] -->
   <string name="set_up">Set up</string>
   <!-- Progress text shown when setting up work space CHAR LIMIT=NONE] -->
-  <string name="setting_up">Setting up your work space</string>
+  <string name="setting_up_workspace">Setting up your work space</string>
 
   <!-- string shown when there already is a managed profile for this user. CHAR LIMIT=NONE] -->
   <string name="managed_profile_already_present"> You already have a managed profile.

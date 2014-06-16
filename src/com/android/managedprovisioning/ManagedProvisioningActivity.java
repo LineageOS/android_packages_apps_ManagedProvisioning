@@ -22,7 +22,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_M
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TOKEN;
-import static com.android.managedprovisioning.UserConsentActivity.USER_CONSENT_KEY;
 
 import android.app.Activity;
 import android.app.ActivityManagerNative;
@@ -32,10 +31,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Process;
 import android.os.RemoteException;
@@ -45,8 +46,9 @@ import android.os.UserManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Button;
 
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.UserConsentSaver;
@@ -66,7 +68,6 @@ public class ManagedProvisioningActivity extends Activity {
     private static final String EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME =
             "defaultManagedProfileName";
 
-    private static final int USER_CONSENT_REQUEST_CODE = 1;
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
 
     private String mMdmPackageName;
@@ -79,13 +80,14 @@ public class ManagedProvisioningActivity extends Activity {
     private UserInfo mManagedProfileUserInfo;
     private UserManager mUserManager;
 
-    private Boolean userConsented;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ProvisionLogger.logd("Managed provisioning activity ONCREATE");
+
+        mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+        mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         PackageManager pm = getPackageManager();
         if (!pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_PROFILES)) {
@@ -102,22 +104,56 @@ public class ManagedProvisioningActivity extends Activity {
             return;
         }
 
-        // TODO: update UI
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.progress, null);
+        final View contentView = inflater.inflate(R.layout.user_consent, null);
+        final View mainTextView = contentView.findViewById(R.id.main_text_container);
+        final View progressView = contentView.findViewById(R.id.progress_container);
         setContentView(contentView);
-        TextView progressTextView = (TextView) findViewById(R.id.prog_text);
-        progressTextView.setText(R.string.setting_up);
+        setMdmIcon(mMdmPackageName, contentView);
 
-
-        mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
-        mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
-
-        if (!alreadyHasManagedProfile()) {
-            checkUserConsentAndProceed();
-        } else {
+        // Don't continue if a managed profile already exists
+        if (alreadyHasManagedProfile()) {
             showErrorAndClose(R.string.managed_profile_already_present,
                     "The device already has a managed profile, nothing to do.");
+        } else {
+
+            // If we previously received an intent confirming user consent, skip the user consent.
+            // Otherwise wait for the user to consent.
+            if (UserConsentSaver.hasUserConsented(this, mMdmPackageName, mToken)) {
+                checkEncryptedAndProceed();
+            } else {
+                Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);
+                positiveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        progressView.setVisibility(View.VISIBLE);
+                        mainTextView.setVisibility(View.GONE);
+                        checkEncryptedAndProceed();
+                    }
+                });
+            }
+        }
+    }
+
+    private void setMdmIcon(String packageName, View contentView) {
+        if (packageName != null) {
+            PackageManager pm = getPackageManager();
+            try {
+                ApplicationInfo ai = pm.getApplicationInfo(packageName, /* default flags */ 0);
+                if (ai != null) {
+                    Drawable packageIcon = pm.getApplicationIcon(packageName);
+                    ImageView imageView = (ImageView) contentView.findViewById(R.id.mdm_icon_view);
+                    imageView.setImageDrawable(packageIcon);
+
+                    String appLabel = pm.getApplicationLabel(ai).toString();
+                    TextView deviceManagerName = (TextView) contentView
+                            .findViewById(R.id.device_manager_name);
+                    deviceManagerName.setText(appLabel);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                // Package does not exist, ignore. Should never happen.
+                ProvisionLogger.loge("Package does not exist. Should never happen.");
+            }
         }
     }
 
@@ -177,19 +213,6 @@ public class ManagedProvisioningActivity extends Activity {
         // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
     }
 
-    private void checkUserConsentAndProceed() {
-        if (UserConsentSaver.hasUserConsented(this, mMdmPackageName, mToken)) {
-            checkEncryptedAndProceed();
-        } else {
-            // Ask for user consent.
-            Intent userConsentIntent = new Intent(this, UserConsentActivity.class);
-            userConsentIntent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                    mMdmPackageName);
-            startActivityForResult(userConsentIntent, USER_CONSENT_REQUEST_CODE);
-            // Wait for user consent, in onActivityResult.
-        }
-    }
-
     private void checkEncryptedAndProceed() {
         if (EncryptDeviceActivity.isDeviceEncrypted()) {
             startManagedProfileProvisioning();
@@ -207,30 +230,12 @@ public class ManagedProvisioningActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        // Wait for the user to consent before starting managed profile provisioning.
-        if (requestCode == USER_CONSENT_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                userConsented = data.getBooleanExtra(USER_CONSENT_KEY, false);
-
-                // Only start provisioning if the user has consented.
-                if (!userConsented) {
-                    ProvisionLogger.logd("User did not consent to profile creation, "
-                            + "cancelling provisioing");
-                    finish();
-                    return;
+        if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
+            if (resultCode == RESULT_CANCELED) {
+                // Move back to user consent.
+                if (UserConsentSaver.hasUserConsented(this, mMdmPackageName, mToken)) {
+                    checkEncryptedAndProceed();
                 }
-
-                // Ask to encrypt the device before proceeding
-                checkEncryptedAndProceed();
-            }
-            if (resultCode == RESULT_CANCELED) {
-                ProvisionLogger.logd("User consent cancelled.");
-                finish();
-            }
-        } else if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
-            if (resultCode == RESULT_CANCELED) {
-                // Move back to user consent
-                checkUserConsentAndProceed();
             }
         }
     }
