@@ -16,14 +16,16 @@
 
 package com.android.managedprovisioning;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import java.util.Locale;
 
 /**
  * Provisioning Parameters for DeviceOwner Provisioning
  */
-public class ProvisioningParams {
+public class ProvisioningParams implements Parcelable {
     public static String mTimeZone;
-    public static Long mLocalTime;
+    public static long mLocalTime = -1;
     public static Locale mLocale;
 
     public static String mWifiSsid;
@@ -38,5 +40,56 @@ public class ProvisioningParams {
     public static String mOwner; // Human readable name of the institution that owns this device.
 
     public static String mDownloadLocation; // Url where the device admin .apk is downloaded from.
-    public static byte[] mHash; // Hash of the .apk file (see {@link DownloadPackageTask).
+    public static byte[] mHash = new byte[0]; // Hash of the .apk file.
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(mTimeZone);
+        out.writeLong(mLocalTime);
+        out.writeSerializable(mLocale);
+        out.writeString(mWifiSsid);
+        out.writeInt(mWifiHidden ? 1 : 0);
+        out.writeString(mWifiSecurityType);
+        out.writeString(mWifiPassword);
+        out.writeString(mWifiProxyHost);
+        out.writeInt(mWifiProxyPort);
+        out.writeString(mWifiProxyBypassHosts);
+        out.writeString(mDeviceAdminPackageName);
+        out.writeString(mOwner);
+        out.writeString(mDownloadLocation);
+        out.writeByteArray(mHash);
+    }
+
+    public static final Parcelable.Creator<ProvisioningParams> CREATOR
+        = new Parcelable.Creator<ProvisioningParams>() {
+        @Override
+        public ProvisioningParams createFromParcel(Parcel in) {
+            ProvisioningParams params = new ProvisioningParams();
+            params.mTimeZone = in.readString();
+            params.mLocalTime = in.readLong();
+            params.mLocale = (Locale) in.readSerializable();
+            params.mWifiSsid = in.readString();
+            params.mWifiHidden = in.readInt()==1;
+            params.mWifiSecurityType = in.readString();
+            params.mWifiPassword = in.readString();
+            params.mWifiProxyHost = in.readString();
+            params.mWifiProxyPort = in.readInt();
+            params.mWifiProxyBypassHosts = in.readString();
+            params.mDeviceAdminPackageName = in.readString();
+            params.mOwner = in.readString();
+            params.mDownloadLocation = in.readString();
+            in.readByteArray(params.mHash);
+            return params;
+        }
+
+        @Override
+        public ProvisioningParams[] newArray(int size) {
+            return new ProvisioningParams[size];
+        }
+    };
 }

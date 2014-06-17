@@ -16,8 +16,11 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,6 +29,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.provider.Settings.Global;
+import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +64,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
+    private Dialog mDialog; // The cancel or error dialog that is currently shown.
+    private boolean mDone; // Indicates whether the service has sent ACTION_PROVISIONING_SUCCESS.
+    private String mDeviceAdminPackageName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,20 +75,20 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         ProvisionLogger.logd("Device owner provisioning activity ONCREATE");
 
         // Check whether we can provision.
-        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, /* default */ 0) != 0) {
+        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /* default */) != 0) {
             ProvisionLogger.loge("Device already provisioned.");
-            error(R.string.device_owner_error_already_provisioned);
+            error(R.string.device_owner_error_already_provisioned, false /* no factory reset */);
             return;
         }
-
         DevicePolicyManager dpm = (DevicePolicyManager)
                 getSystemService(Context.DEVICE_POLICY_SERVICE);
         if (dpm.getDeviceOwner() != null) {
             ProvisionLogger.loge("Device owner already present.");
-            error(R.string.device_owner_error_already_owned);
+            error(R.string.device_owner_error_already_owned, false /* no factory reset */);
             return;
         }
 
+        // Setup the UI.
         final LayoutInflater inflater = getLayoutInflater();
         final View contentView = inflater.inflate(R.layout.progress, null);
         setContentView(contentView);
@@ -93,13 +100,46 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS);
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE);
-        filter.addAction(DeviceOwnerProvisioningService.ACTION_REQUEST_ENCRYPTION);
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
+
+        // Parse the incoming intent.
+        MessageParser parser = new MessageParser();
+        ProvisioningParams params;
+        try {
+            params = parser.parseIntent(getIntent());
+        } catch (MessageParser.ParseException e) {
+            ProvisionLogger.loge("Could not read data from intent", e);
+            error(e.getErrorMessageId(), false /* no factory reset */);
+            return;
+        }
+        mDeviceAdminPackageName = params.mDeviceAdminPackageName;
+
+        // Ask to encrypt the device before proceeding
+        if (!EncryptDeviceActivity.isDeviceEncrypted()) {
+            requestEncryption(parser.getCachedProvisioningProperties());
+            finish();
+            return;
+        }
 
         // Start service.
         Intent intent = new Intent(this, DeviceOwnerProvisioningService.class);
+        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, params);
         intent.putExtras(getIntent());
         startService(intent);
+    }
+
+    private void requestEncryption(String propertiesForResume) {
+        Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
+                EncryptDeviceActivity.class);
+
+        Bundle resumeExtras = new Bundle();
+        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
+                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
+        resumeExtras.putString(MessageParser.EXTRA_PROVISIONING_PROPERTIES,
+                propertiesForResume);
+        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
+
+        startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver
@@ -110,19 +150,24 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             String action = intent.getAction();
             if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
                 ProvisionLogger.logd("Successfully provisioned");
-                finish();
+                synchronized(this) {
+                    if (mDialog == null) {
+                        onProvisioningSuccess();
+                    } else {
+                        // Postpone finishing this activity till the user has decided whether
+                        // he/she wants to reset or not.
+                        mDone = true;
+                    }
+                }
                 return;
             } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR)) {
-                int errorCode = intent.getIntExtra(
-                        DeviceOwnerProvisioningService.EXTRA_USER_VISIBLE_ERROR_ID_KEY, -1);
+                int errorMessageId = intent.getIntExtra(
+                        DeviceOwnerProvisioningService.EXTRA_USER_VISIBLE_ERROR_ID_KEY,
+                        R.string.device_owner_error_general);
+
                 ProvisionLogger.logd("Error reported with code "
-                        + getResources().getString(errorCode));
-                if (errorCode < 0) {
-                    error(R.string.device_owner_error_general);
-                    return;
-                } else {
-                    error(errorCode);
-                }
+                        + getResources().getString(errorMessageId));
+                error(errorMessageId, true /* always factory reset */);
             } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE)) {
                 int progressMessage = intent.getIntExtra(
                         DeviceOwnerProvisioningService.EXTRA_PROGRESS_MESSAGE_ID_KEY, -1);
@@ -131,25 +176,80 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                 if (progressMessage >= 0) {
                     progressUpdate(progressMessage);
                 }
-            } else if (action.equals(DeviceOwnerProvisioningService.ACTION_REQUEST_ENCRYPTION)) {
-                ProvisionLogger.logd("Received request to encrypt device.");
-                Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
-                        EncryptDeviceActivity.class);
-                encryptIntent.putExtras(intent);
-                startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             }
         }
     }
 
+    private void onProvisioningSuccess() {
+        stopService(new Intent(DeviceOwnerProvisioningActivity.this,
+                        DeviceOwnerProvisioningService.class));
+
+        // Skip the setup wizard.
+        Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
+        Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
+
+        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        completeIntent.setPackage(mDeviceAdminPackageName);
+        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                Intent.FLAG_RECEIVER_FOREGROUND);
+        sendBroadcast(completeIntent);
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
-        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
+        showCancelResetDialog();
+    }
+
+    private void showCancelResetDialog() {
+        AlertDialog.Builder alertBuilder =
+                new AlertDialog.Builder(DeviceOwnerProvisioningActivity.this)
+                .setTitle(R.string.device_owner_cancel_title)
+                .setMessage(R.string.device_owner_cancel_message)
+                .setNegativeButton(R.string.device_owner_cancel_cancel,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.dismiss();
+                                synchronized(this) {
+                                    mDialog = null;
+                                    if (mDone) {
+                                        onProvisioningSuccess();
+                                    }
+                                }
+                            }
+                        })
+                .setPositiveButton(R.string.device_owner_error_reset,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                // Factory reset the device.
+                                sendBroadcast(
+                                        new Intent("android.intent.action.MASTER_CLEAR"));
+                                stopService(new Intent(DeviceOwnerProvisioningActivity.this,
+                                                DeviceOwnerProvisioningService.class));
+                                finish();
+                            }
+                        });
+
+        if (mDialog != null) {
+            mDialog.dismiss();
+        }
+        mDialog = alertBuilder.create();
+        mDialog.show();
     }
 
     @Override
     public void onDestroy() {
         ProvisionLogger.logd("Device owner provisioning activity ONDESTROY");
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
+        if (mServiceMessageReceiver != null) {
+            LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
+            mServiceMessageReceiver = null;
+        }
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
         super.onDestroy();
     }
 
@@ -167,20 +267,37 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
     }
 
-    private void error(int dialogMessage) {
-        AlertDialog dlg = new AlertDialog.Builder(this)
+    private void error(int dialogMessage, boolean resetRequired) {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this)
             .setTitle(R.string.device_owner_error_title)
             .setMessage(dialogMessage)
-            .setCancelable(false)
-            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog,int id) {
-                    // Close activity
-                    finish();
-                }
-            })
-            .create();
-        dlg.show();
+            .setCancelable(false);
+        if (resetRequired) {
+            alertBuilder.setPositiveButton(R.string.device_owner_error_reset,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,int id) {
+                            // Factory reset the device.
+                            sendBroadcast(new Intent("android.intent.action.MASTER_CLEAR"));
+                            stopService(new Intent(DeviceOwnerProvisioningActivity.this,
+                                            DeviceOwnerProvisioningService.class));
+                            finish();
+                        }
+                    });
+        } else {
+            alertBuilder.setPositiveButton(R.string.device_owner_error_ok,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,int id) {
+                            // Close activity.
+                            stopService(new Intent(DeviceOwnerProvisioningActivity.this,
+                                            DeviceOwnerProvisioningService.class));
+                            finish();
+                        }
+                    });
+        }
+        mDialog = alertBuilder.create();
+        mDialog.show();
     }
 
     @Override

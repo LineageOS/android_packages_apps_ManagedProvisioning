@@ -85,7 +85,17 @@
 
   <!-- Title of the error dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_error_title">Provisioning failed</string>
-  <!-- Message of the error dialog. [CHAR LIMIT=NONE] -->
+  <!-- Title of the cancel provisioning dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_cancel_title">Stop provisioning?</string>
+  <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_cancel_message">Are you sure you want to stop provisioning and factory reset the device? The factory reset can take a while.</string>
+  <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_cancel_cancel">Cancel</string>
+  <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_ok">Ok</string>
+  <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_reset">Reset</string>
+  <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_general">An error occured.</string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_already_provisioned">The device is already provisioned.</string>
