@@ -260,10 +260,8 @@ public class ManagedProvisioningActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
             if (resultCode == RESULT_CANCELED) {
-                // Move back to user consent.
-                if (UserConsentSaver.hasUserConsented(this, mMdmPackageName, mToken)) {
-                    checkEncryptedAndStartProvisioningService();
-                }
+                ProvisionLogger.loge("User canceled device encryption.");
+                finish();
             }
         }
     }
