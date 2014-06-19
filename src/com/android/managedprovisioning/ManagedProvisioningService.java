@@ -142,7 +142,7 @@ public class ManagedProvisioningService extends Service {
             setMdmAsActiveAdmin();
             setMdmAsManagedProfileOwner();
             startManagedProfile();
-            forwardIntentsToPrimaryUser();
+            setCrossProfileIntentFilters();
             UserConsentSaver.unsetUserConsent(this);
             onProvisioningSuccess(mActiveAdminComponentName);
     }
@@ -253,8 +253,8 @@ public class ManagedProvisioningService extends Service {
             + userHandle.getIdentifier());
       }
 
-    private void forwardIntentsToPrimaryUser() {
-        ProvisionLogger.logd("Setting forwarding intent filters");
+    private void setCrossProfileIntentFilters() {
+        ProvisionLogger.logd("Setting cross-profile intent filters");
         PackageManager pm = getPackageManager();
 
         IntentFilter mimeTypeTelephony = new IntentFilter();
@@ -268,8 +268,8 @@ public class ManagedProvisioningService extends Service {
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
-        pm.addCrossProfileIntentFilter(mimeTypeTelephony, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(mimeTypeTelephony, mManagedProfileUserInfo.id,
+            UserHandle.USER_OWNER, PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter callDial = new IntentFilter();
         callDial.addAction("android.intent.action.DIAL");
@@ -281,8 +281,8 @@ public class ManagedProvisioningService extends Service {
         callDial.addDataScheme("voicemail");
         callDial.addDataScheme("sip");
         callDial.addDataScheme("tel");
-        pm.addCrossProfileIntentFilter(callDial, false /*non-removable*/, mManagedProfileUserInfo.id,
-                UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(callDial, mManagedProfileUserInfo.id, UserHandle.USER_OWNER,
+                PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter callDialNoData = new IntentFilter();
         callDialNoData.addAction("android.intent.action.DIAL");
@@ -290,8 +290,8 @@ public class ManagedProvisioningService extends Service {
         callDialNoData.addAction("android.intent.action.CALL_BUTTON");
         callDialNoData.addCategory("android.intent.category.DEFAULT");
         callDialNoData.addCategory("android.intent.category.BROWSABLE");
-        pm.addCrossProfileIntentFilter(callDialNoData, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(callDialNoData, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter smsMms = new IntentFilter();
         smsMms.addAction("android.intent.action.VIEW");
@@ -302,14 +302,14 @@ public class ManagedProvisioningService extends Service {
         smsMms.addDataScheme("smsto");
         smsMms.addDataScheme("mms");
         smsMms.addDataScheme("mmsto");
-        pm.addCrossProfileIntentFilter(smsMms, false /*non-removable*/, mManagedProfileUserInfo.id,
-                UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(smsMms, mManagedProfileUserInfo.id, UserHandle.USER_OWNER,
+                PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter setPassword = new IntentFilter();
         setPassword.addAction("android.app.action.SET_NEW_PASSWORD");
         setPassword.addCategory("android.intent.category.DEFAULT");
-        pm.addCrossProfileIntentFilter(setPassword, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(setPassword, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter send = new IntentFilter();
         send.addAction("android.intent.action.SEND");
@@ -320,8 +320,7 @@ public class ManagedProvisioningService extends Service {
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
-        pm.addCrossProfileIntentFilter(send, false /*non-removable*/,
-                UserHandle.USER_OWNER, mManagedProfileUserInfo.id);
+        pm.addCrossProfileIntentFilter(send, UserHandle.USER_OWNER, mManagedProfileUserInfo.id, 0);
 
         IntentFilter getContent = new IntentFilter();
         getContent.addAction("android.intent.action.GET_CONTENT");
@@ -332,8 +331,8 @@ public class ManagedProvisioningService extends Service {
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
-        pm.addCrossProfileIntentFilter(getContent, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(getContent, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, 0);
 
         IntentFilter openDocument = new IntentFilter();
         openDocument.addAction("android.intent.action.OPEN_DOCUMENT");
@@ -344,8 +343,8 @@ public class ManagedProvisioningService extends Service {
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
-        pm.addCrossProfileIntentFilter(openDocument, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(openDocument, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, 0);
 
         IntentFilter pick = new IntentFilter();
         pick.addAction("android.intent.action.PICK");
@@ -355,14 +354,13 @@ public class ManagedProvisioningService extends Service {
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
-        pm.addCrossProfileIntentFilter(pick, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(pick, mManagedProfileUserInfo.id, UserHandle.USER_OWNER, 0);
 
         IntentFilter pickNoData = new IntentFilter();
         pickNoData.addAction("android.intent.action.PICK");
         pickNoData.addCategory("android.intent.category.DEFAULT");
-        pm.addCrossProfileIntentFilter(pickNoData, false /*non-removable*/,
-                mManagedProfileUserInfo.id, UserHandle.USER_OWNER);
+        pm.addCrossProfileIntentFilter(pickNoData, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, 0);
     }
 
     /**
