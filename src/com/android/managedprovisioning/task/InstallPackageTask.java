@@ -46,20 +46,18 @@ public class InstallPackageTask {
     private final Context mContext;
     private final Callback mCallback;
     private final String mPackageName;
-    private final String mAdminReceiver;
 
     private String mPackageLocation;
     private PackageManager mPm;
     private Runnable mCleanUpDownloadRunnable;
     private int mPackageVerifierEnable;
 
-    public InstallPackageTask (Context context, String packageName, String adminReceiver,
+    public InstallPackageTask (Context context, String packageName,
             Callback callback) {
         mCallback = callback;
         mContext = context;
         mPackageLocation = null; // Initialized in run().
         mPackageName = packageName;
-        mAdminReceiver = adminReceiver;
     }
 
     public void run(String packageLocation, Runnable cleanUpDownloadRunnable) {
@@ -108,16 +106,7 @@ public class InstallPackageTask {
         for (ActivityInfo ai : pi.receivers) {
             if (!TextUtils.isEmpty(ai.permission) &&
                     ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
-                ProvisionLogger.logd("Found admin receiver " + ai.name);
-                if (ai.name.equals(mAdminReceiver)) {
-                    return true;
-                } else {
-                    ProvisionLogger.loge("Admin receiver in apk (." + ai.name
-                    + ") does not match admin receiver specified by programmer ("
-                    + mAdminReceiver + ").");
-                    mCallback.onError(ERROR_PACKAGE_INVALID);
-                    return false;
-                }
+                return true;
             }
         }
         ProvisionLogger.loge("Installed package has no admin receiver.");

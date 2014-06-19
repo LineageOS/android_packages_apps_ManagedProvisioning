@@ -35,7 +35,6 @@ public class ProvisioningParams {
     public static String mWifiProxyBypassHosts;
 
     public static String mDeviceAdminPackageName; // Package name of the device admin package.
-    public static String mAdminReceiver; // Full class name of the admin receiver inside package.
     public static String mOwner; // Human readable name of the institution that owns this device.
 
     public static String mDownloadLocation; // Url where the device admin .apk is downloaded from.

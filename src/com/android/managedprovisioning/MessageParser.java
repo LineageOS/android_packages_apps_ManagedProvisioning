@@ -80,7 +80,6 @@ public class MessageParser {
     private static final String WIFI_PROXY_PORT_KEY = "wifiProxyPort"; // int
     private static final String WIFI_PROXY_BYPASS_KEY = "wifiProxyBypassHosts";
     private static final String DEVICE_ADMIN_PACKAGE_KEY = "deviceAdminPackage";
-    private static final String ADMIN_RECEIVER_KEY = "adminReceiver";
     private static final String OWNER_KEY = "owner";
     private static final String DOWNLOAD_LOCATION_KEY = "downloadLocation";
     private static final String HASH_KEY = "hash";
@@ -97,10 +96,9 @@ public class MessageParser {
     private static final int WIFI_PROXY_PORT_ID = 8;
     private static final int WIFI_PROXY_BYPASS_ID = 9;
     private static final int DEVICE_ADMIN_PACKAGE_ID = 10;
-    private static final int ADMIN_RECEIVER_ID = 11;
-    private static final int OWNER_ID = 12;
-    private static final int DOWNLOAD_LOCATION_ID = 13;
-    private static final int HASH_ID = 14;
+    private static final int OWNER_ID = 11;
+    private static final int DOWNLOAD_LOCATION_ID = 12;
+    private static final int HASH_ID = 13;
 
     // Map from keys to ids.
     private static final HashMap<String, Integer> mKeyToId = new HashMap<String, Integer>();
@@ -117,7 +115,6 @@ public class MessageParser {
         mKeyToId.put(WIFI_PROXY_PORT_KEY, WIFI_PROXY_PORT_ID);
         mKeyToId.put(WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_BYPASS_ID);
         mKeyToId.put(DEVICE_ADMIN_PACKAGE_KEY, DEVICE_ADMIN_PACKAGE_ID);
-        mKeyToId.put(ADMIN_RECEIVER_KEY, ADMIN_RECEIVER_ID);
         mKeyToId.put(OWNER_KEY, OWNER_ID);
         mKeyToId.put(DOWNLOAD_LOCATION_KEY, DOWNLOAD_LOCATION_ID);
         mKeyToId.put(HASH_KEY, HASH_ID);
@@ -237,9 +234,6 @@ public class MessageParser {
             case DEVICE_ADMIN_PACKAGE_ID:
                 params.mDeviceAdminPackageName = value;
                 break;
-            case ADMIN_RECEIVER_ID:
-                params.mAdminReceiver = value;
-                break;
             case OWNER_ID:
                 params.mOwner = value;
                 break;
@@ -265,11 +259,6 @@ public class MessageParser {
         if (params.mDeviceAdminPackageName == null) {
             throw new ParseException("Must provide the name of the device admin package.",
                     R.string.device_owner_error_no_package_name);
-        }
-        if (params.mAdminReceiver == null) {
-            throw new ParseException("Must provide the full class name of the admin receiver " +
-                    "that is inside the device owner package.",
-                    R.string.device_owner_error_no_admin_receiver);
         }
         if (params.mDownloadLocation != null) {
             if (params.mHash == null) {
