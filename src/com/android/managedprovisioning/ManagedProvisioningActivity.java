@@ -101,8 +101,8 @@ public class ManagedProvisioningActivity extends Activity {
 
         final LayoutInflater inflater = getLayoutInflater();
         final View contentView = inflater.inflate(R.layout.user_consent, null);
-        final View mMainTextView = contentView.findViewById(R.id.main_text_container);
-        final View mProgressView = contentView.findViewById(R.id.progress_container);
+        mMainTextView = contentView.findViewById(R.id.main_text_container);
+        mProgressView = contentView.findViewById(R.id.progress_container);
         setContentView(contentView);
         setMdmIcon(mMdmPackageName, contentView);
 
