@@ -239,6 +239,8 @@ public class ManagedProvisioningActivity extends Activity {
      */
     private void checkEncryptedAndStartProvisioningService() {
         if (EncryptDeviceActivity.isDeviceEncrypted()) {
+            // Remove any pre-provisioning UI in favour of progress display
+            BootReminder.cancelProvisioningReminder(this);
             mProgressView.setVisibility(View.VISIBLE);
             mMainTextView.setVisibility(View.GONE);
 

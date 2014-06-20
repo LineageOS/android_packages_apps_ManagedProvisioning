@@ -152,6 +152,15 @@ public class BootReminder extends BroadcastReceiver {
         intentStore.save(extras);
     }
 
+    /**
+     * Cancel all active provisioning reminders.
+     */
+    public static void cancelProvisioningReminder(Context context) {
+        getProfileOwnerIntentStore(context).clear();
+        getDeviceOwnerIntentStore(context).clear();
+        setNotification(context, null);
+    }
+
     private static IntentStore getProfileOwnerIntentStore(Context context) {
         return new IntentStore(context,
                 PROFILE_OWNER_STRING_EXTRAS,
@@ -172,6 +181,10 @@ public class BootReminder extends BroadcastReceiver {
     private static void setNotification(Context context, Intent intent) {
         final NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (intent == null) {
+            notificationManager.cancel(NOTIFY_ID);
+            return;
+        }
         final PendingIntent resumePendingIntent = PendingIntent.getActivity(
                 context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         final Notification.Builder notify = new Notification.Builder(context)
@@ -180,7 +193,6 @@ public class BootReminder extends BroadcastReceiver {
                 .setContentText(context.getString(R.string.continue_provisioning_notify_text))
                 .setSmallIcon(android.R.drawable.ic_dialog_alert)
                 .setAutoCancel(true);
-
         notificationManager.notify(NOTIFY_ID, notify.build());
     }
 }
