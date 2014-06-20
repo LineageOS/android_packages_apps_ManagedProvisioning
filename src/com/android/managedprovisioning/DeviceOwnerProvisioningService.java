@@ -180,7 +180,7 @@ public class DeviceOwnerProvisioningService extends Service {
                     });
 
         mInstallPackageTask = new InstallPackageTask(this,
-                params.mDeviceAdminPackageName, params.mAdminReceiver,
+                params.mDeviceAdminPackageName,
                 new InstallPackageTask.Callback() {
                     @Override
                     public void onSuccess() {
@@ -205,7 +205,7 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
-                params.mDeviceAdminPackageName, params.mAdminReceiver, params.mOwner,
+                params.mDeviceAdminPackageName, params.mOwner,
                 new SetDevicePolicyTask.Callback() {
                     @Override
                     public void onSuccess() {
@@ -217,6 +217,9 @@ public class DeviceOwnerProvisioningService extends Service {
                         switch(errorCode) {
                             case SetDevicePolicyTask.ERROR_PACKAGE_NOT_INSTALLED:
                                 error(R.string.device_owner_error_package_not_installed);
+                                break;
+                            case SetDevicePolicyTask.ERROR_NO_RECEIVER:
+                                error(R.string.device_owner_error_missing_receiver);
                                 break;
                             default:
                                 error(R.string.device_owner_error_general);
@@ -231,8 +234,7 @@ public class DeviceOwnerProvisioningService extends Service {
                 new DeleteNonRequiredAppsTask.Callback() {
                     public void onSuccess() {
                         // Done with provisioning. Success.
-                        onProvisioningSuccess(new ComponentName(params.mDeviceAdminPackageName,
-                                        params.mAdminReceiver));
+                        onProvisioningSuccess(params.mDeviceAdminPackageName);
                     }
 
                     @Override
@@ -288,7 +290,7 @@ public class DeviceOwnerProvisioningService extends Service {
         sendBroadcast(intent);
     }
 
-    private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
+    private void onProvisioningSuccess(String deviceAdminPackage) {
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         sendBroadcast(successIntent);
@@ -298,7 +300,7 @@ public class DeviceOwnerProvisioningService extends Service {
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
 
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setComponent(deviceAdminComponent);
+        completeIntent.setPackage(deviceAdminPackage);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
             Intent.FLAG_RECEIVER_FOREGROUND);
         sendBroadcast(completeIntent);

@@ -91,8 +91,6 @@
   <string name="device_owner_error_parse_fail">Processing device admin setup data failed. Please check that the data is sent correctly.</string>
   <!-- Message of the error dialog when no device admin package name was provided. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_no_package_name">No device admin package name was provided.</string>
-  <!-- Message of the error dialog when no admin receiver was provided. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_no_admin_receiver">No admin receiver name was provided.</string>
   <!-- Message of the error dialog when checksum for device admin file was not provided. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_no_hash">No checksum for the verification of the downloaded device admin package provided.</string>
   <!-- Message of the error dialog when required wifi ssid was not provided. [CHAR LIMIT=NONE] -->
@@ -109,4 +107,6 @@
   <string name="device_owner_error_installation_failed">Installation of the device admin package failed.</string>
   <!-- Message of the error dialog when device admin package is not installed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_package_not_installed">Specified device admin package is not installed on device.</string>
+  <!-- Message of the error dialog when device admin package has no device admin receiver. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_missing_receiver">Specified device admin package is missing a device admin receiver.</string>
 </resources>

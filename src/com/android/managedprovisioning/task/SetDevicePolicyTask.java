@@ -20,6 +20,8 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.text.TextUtils;
@@ -28,23 +30,23 @@ import com.android.managedprovisioning.ProvisionLogger;
 
 public class SetDevicePolicyTask {
     public static final int ERROR_PACKAGE_NOT_INSTALLED = 0;
-    public static final int ERROR_OTHER = 1;
+    public static final int ERROR_NO_RECEIVER = 1;
+    public static final int ERROR_OTHER = 2;
 
     private final Callback mCallback;
     private final Context mContext;
     private final String mPackageName;
-    private final String mAdminReceiver;
     private final String mOwner;
 
+    private String mAdminReceiver;
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
-    public SetDevicePolicyTask(Context context, String packageName, String adminReceiver,
-            String owner, Callback callback) {
+    public SetDevicePolicyTask(Context context, String packageName, String owner,
+            Callback callback) {
         mCallback = callback;
         mContext = context;
         mPackageName = packageName;
-        mAdminReceiver = adminReceiver;
         mOwner = owner;
         mPackageManager = mContext.getPackageManager();
         mDevicePolicyManager = (DevicePolicyManager) mContext.
@@ -52,12 +54,8 @@ public class SetDevicePolicyTask {
     }
 
     public void run() {
-        // Check whether package is installed.
-        // Relevant when it is not downloaded and installed by the DeviceOwnerProvisioningActivity.
-        if (!isPackageInstalled()) {
-            mCallback.onError(ERROR_PACKAGE_NOT_INSTALLED);
-            return;
-        } else {
+        // Check whether package is installed and find the admin receiver.
+        if (isPackageInstalled()) {
             enableDevicePolicyApp();
             setActiveAdmin();
             setDeviceOwner();
@@ -67,11 +65,21 @@ public class SetDevicePolicyTask {
 
     private boolean isPackageInstalled() {
         try {
-            mPackageManager.getPackageInfo(mPackageName, 0);
+            PackageInfo pi = mPackageManager.getPackageInfo(mPackageName,
+                    PackageManager.GET_RECEIVERS);
+            for (ActivityInfo ai : pi.receivers) {
+                if (!TextUtils.isEmpty(ai.permission) &&
+                        ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
+                    mAdminReceiver = ai.name;
+                    return true;
+                }
+            }
+            mCallback.onError(ERROR_NO_RECEIVER);
+            return false;
         } catch (NameNotFoundException e) {
+            mCallback.onError(ERROR_PACKAGE_NOT_INSTALLED);
             return false;
         }
-        return true;
     }
 
     private void enableDevicePolicyApp() {
