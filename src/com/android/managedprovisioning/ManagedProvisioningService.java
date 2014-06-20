@@ -1,7 +1,6 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
@@ -16,8 +15,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.IBinder;
 import android.os.Process;
@@ -84,22 +86,48 @@ public class ManagedProvisioningService extends Service {
         mManagedProfileEmailAddress =
                 intent.getStringExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS);
 
-        mActiveAdminComponentName = intent.getParcelableExtra(EXTRA_DEVICE_ADMIN);
+        mActiveAdminComponentName = getAdminReceiverComponent(mMdmPackageName);
         mDefaultManagedProfileName = getDefaultManagedProfileName(intent);
     }
 
-    private String getMdmPackageName(Intent intent) {
-        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        if (TextUtils.isEmpty(name)) {
-            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+    /**
+     * Find the Device admin receiver component from the manifest.
+     */
+    private ComponentName getAdminReceiverComponent(String packageName) {
+        ComponentName adminReceiverComponent = null;
+
+        try {
+            PackageInfo pi = getPackageManager().getPackageInfo(packageName,
+                    PackageManager.GET_RECEIVERS);
+            for (ActivityInfo ai : pi.receivers) {
+                if (!TextUtils.isEmpty(ai.permission) &&
+                        ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
+                    adminReceiverComponent = new ComponentName(packageName, ai.name);
+
+                }
+            }
+        } catch (NameNotFoundException e) {
+            error("Error: The provided mobile device management package does not define a device"
+                    + "admin receiver component in its manifest.");
         }
-        return name;
+        return adminReceiverComponent;
     }
 
     private String getDefaultManagedProfileName(Intent intent) {
         String name = intent.getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
         if (TextUtils.isEmpty(name)) {
             name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
+        }
+        if (TextUtils.isEmpty(name)) {
+            name = getString(R.string.default_managed_profile_name);
+        }
+        return name;
+    }
+
+    private String getMdmPackageName(Intent intent) {
+        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        if (TextUtils.isEmpty(name)) {
+            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         }
         return name;
     }
@@ -143,7 +171,6 @@ public class ManagedProvisioningService extends Service {
             setMdmAsManagedProfileOwner();
             startManagedProfile();
             setCrossProfileIntentFilters();
-            UserConsentSaver.unsetUserConsent(this);
             onProvisioningSuccess(mActiveAdminComponentName);
     }
 
@@ -377,10 +404,10 @@ public class ManagedProvisioningService extends Service {
         stopSelf(mStartIdProvisioning);
     }
 
-    private void error(String dialogMessage) {
+    private void error(String logMessage) {
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
         intent.setClass(this, ManagedProvisioningActivity.ServiceMessageReceiver.class);
-        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, dialogMessage);
+        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, logMessage);
         sendBroadcast(intent);
         cleanup();
         stopSelf(mStartIdProvisioning);

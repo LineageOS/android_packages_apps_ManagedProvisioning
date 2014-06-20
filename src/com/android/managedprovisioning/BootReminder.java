@@ -50,11 +50,6 @@ public class BootReminder extends BroadcastReceiver {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
     };
 
-    private static final String[] PROFILE_OWNER_COMPONENT_EXTRAS = {
-        // Key for the device admin component that started provisioning
-        EXTRA_DEVICE_ADMIN
-    };
-
     private static final ComponentName PROFILE_OWNER_INTENT_TARGET =
             new ComponentName("com.android.managedprovisioning",
                     "com.android.managedprovisioning.ManagedProvisioningActivity");
@@ -68,10 +63,6 @@ public class BootReminder extends BroadcastReceiver {
     private static final String[] DEVICE_OWNER_STRING_EXTRAS = {
         // Key for the string storing the properties from the intent that started the provisioning
         MessageParser.EXTRA_PROVISIONING_PROPERTIES
-    };
-
-    private static final String[] DEVICE_OWNER_COMPONENT_EXTRAS = {
-        // No ComponentNames are persisted in the device owner case.
     };
 
     private static final ComponentName DEVICE_OWNER_INTENT_TARGET =
@@ -107,38 +98,25 @@ public class BootReminder extends BroadcastReceiver {
      *
      * {@code extras} should be a Bundle containing the
      * {@link EncryptDeviceActivity.EXTRA_RESUME_TARGET}.
-     * This field has only two supported values:
+     * This field has only two supported values {@link EncryptDeviceActivity.TARGET_PROFILE_OWNER}
+     * and {@link EncryptDeviceActivity.TARGET_DEVICE_OWNER}
      *
-     * <p>
-     * In case of TARGET_PROFILE_OWNER {@code extras} should further contain values for at least the
-     * following set of keys:
-     * <ul>
-     * <li>{@link EXTRA_DEVICE_ADMIN}, the {@link ComponentName} for the admin receiver to
-     *     set up.</li>
-     * <li>{@link EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME}, a {@link String} giving a
-     *     default name to suggest to the user for the new managed profile.</li>
-     * <li>{@link EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME}, a {@link String} specifying the
-     *     package to set as profile owner.</li>
-     * </ul></p>
+     * <p> In case of TARGET_PROFILE_OWNER {@code extras} should further contain a value for at
+     * least the key: {@link EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME}, a {@link String} which
+     * specifies the package to set as profile owner.
      *
-     * <p>
-     * In case of TARGET_DEVICE_OWNER {@code extras} should further contain values for at least the
-     * following set of keys:
-     * <ul>
-     * <li>{@link MessageParser.EXTRA_PROVISIONING_PROPERTIES}, a {@link String} storing the
-     *     serialized {@link Properties} that contains all key value pairs specified in
-     *     {@link MessageParser} that were used to initiate this provisioning flow.</li>
-     * </ul></p>
+     * <p> In case of TARGET_DEVICE_OWNER {@code extras} should further contain a value for at least
+     * the key {@link MessageParser.EXTRA_PROVISIONING_PROPERTIES}, a {@link String} storing the
+     * serialized {@link Properties} that contains all key value pairs specified in
+     * {@link MessageParser} that were used to initiate this provisioning flow.
      *
-     * <p>
-     * These fields will be persisted and restored to the provisioner after rebooting. Any other
-     * key/value pairs will be ignored.</p>
+     * <p> These fields will be persisted and restored to the provisioner after rebooting. Any other
+     * key/value pairs will be ignored.
      */
     public static void setProvisioningReminder(Context context, Bundle extras) {
         IntentStore intentStore;
         String resumeTarget = extras.getString(EncryptDeviceActivity.EXTRA_RESUME_TARGET, null);
         if (resumeTarget == null) {
-            ProvisionLogger.loge("Resume target not specify. Missing EXTRA_RESUME_TARGET.");
             return;
         }
         if (resumeTarget.equals(EncryptDeviceActivity.TARGET_PROFILE_OWNER)) {
@@ -155,7 +133,6 @@ public class BootReminder extends BroadcastReceiver {
     private static IntentStore getProfileOwnerIntentStore(Context context) {
         return new IntentStore(context,
                 PROFILE_OWNER_STRING_EXTRAS,
-                PROFILE_OWNER_COMPONENT_EXTRAS,
                 PROFILE_OWNER_INTENT_TARGET,
                 PROFILE_OWNER_PREFERENCES_NAME);
     }
@@ -163,7 +140,6 @@ public class BootReminder extends BroadcastReceiver {
     private static IntentStore getDeviceOwnerIntentStore(Context context) {
         return new IntentStore(context,
                 DEVICE_OWNER_STRING_EXTRAS,
-                DEVICE_OWNER_COMPONENT_EXTRAS,
                 DEVICE_OWNER_INTENT_TARGET,
                 DEVICE_OWNER_PREFERENCES_NAME);
     }
