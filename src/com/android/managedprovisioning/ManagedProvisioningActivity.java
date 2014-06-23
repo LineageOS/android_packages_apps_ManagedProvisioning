@@ -33,6 +33,7 @@ import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,7 +90,7 @@ public class ManagedProvisioningActivity extends Activity {
         IntentFilter filter = new IntentFilter();
         filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS);
         filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_ERROR);
-        registerReceiver(mServiceMessageReceiver, filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
         // Initialize member variables from the intent, stop if the intent wasn't valid.
         try {
@@ -229,7 +230,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     @Override
     public void onDestroy() {
-        unregisterReceiver(mServiceMessageReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
         super.onDestroy();
     }
 
