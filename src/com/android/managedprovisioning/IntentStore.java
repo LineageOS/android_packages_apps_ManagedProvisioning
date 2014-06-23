@@ -27,13 +27,25 @@ import android.os.Bundle;
  */
 public class IntentStore {
     private SharedPreferences mPrefs;
+    private String mPrefsName; // Name of the file where mPrefs is stored.
+    private Context mContext;
     private String[] mStringKeys;
+    private String[] mLongKeys;
+    private String[] mIntKeys;
+    private String[] mBooleanKeys;
     private ComponentName mIntentTarget;
 
-    public IntentStore(Context context, String[] stringKeys, ComponentName intentTarget,
-            String preferencesName) {
+    private static final String IS_SET = "isSet";
+
+    public IntentStore(Context context, String[] stringKeys, String[] longKeys, String[] intKeys,
+            String[] booleanKeys, ComponentName intentTarget, String preferencesName) {
+        mContext = context;
+        mPrefsName = preferencesName;
         mPrefs = context.getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
         mStringKeys = stringKeys;
+        mLongKeys = longKeys;
+        mIntKeys = intKeys;
+        mBooleanKeys = booleanKeys;
         mIntentTarget = intentTarget;
     }
 
@@ -45,22 +57,50 @@ public class IntentStore {
         SharedPreferences.Editor editor = mPrefs.edit();
 
         editor.clear();
-        for (String stringKey : mStringKeys) {
-            editor.putString(stringKey, data.getString(stringKey));
+        for (String key : mStringKeys) {
+            editor.putString(key, data.getString(key));
         }
+        for (String key : mLongKeys) {
+            editor.putLong(key, data.getLong(key));
+        }
+        for (String key : mIntKeys) {
+            editor.putInt(key, data.getInt(key));
+        }
+        for (String key : mBooleanKeys) {
+            editor.putBoolean(key, data.getBoolean(key));
+        }
+        editor.putBoolean(IS_SET, true);
         editor.commit();
     }
 
     public Intent load() {
+        if (!mPrefs.getBoolean(IS_SET, false)) {
+            return null;
+        }
+
         Intent result = new Intent();
         result.setComponent(mIntentTarget);
 
         for (String key : mStringKeys) {
             String value = mPrefs.getString(key, null);
-            if (value == null) {
-                return null;
+            if (value != null) {
+                result.putExtra(key, value);
             }
-            result.putExtra(key, value);
+        }
+        for (String key : mLongKeys) {
+            if (mPrefs.contains(key)) {
+                result.putExtra(key, mPrefs.getLong(key, 0));
+            }
+        }
+        for (String key : mIntKeys) {
+            if (mPrefs.contains(key)) {
+                result.putExtra(key, mPrefs.getInt(key, 0));
+            }
+        }
+        for (String key : mBooleanKeys) {
+            if (mPrefs.contains(key)) {
+                result.putExtra(key, mPrefs.getBoolean(key, false));
+            }
         }
 
         return result;
