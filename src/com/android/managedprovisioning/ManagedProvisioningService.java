@@ -305,12 +305,6 @@ public class ManagedProvisioningService extends Service {
         pm.addCrossProfileIntentFilter(smsMms, mManagedProfileUserInfo.id, UserHandle.USER_OWNER,
                 PackageManager.SKIP_CURRENT_PROFILE);
 
-        IntentFilter setPassword = new IntentFilter();
-        setPassword.addAction("android.app.action.SET_NEW_PASSWORD");
-        setPassword.addCategory("android.intent.category.DEFAULT");
-        pm.addCrossProfileIntentFilter(setPassword, mManagedProfileUserInfo.id,
-                UserHandle.USER_OWNER, PackageManager.SKIP_CURRENT_PROFILE);
-
         IntentFilter send = new IntentFilter();
         send.addAction("android.intent.action.SEND");
         send.addAction("android.intent.action.SEND_MULTIPLE");
@@ -361,6 +355,15 @@ public class ManagedProvisioningService extends Service {
         pickNoData.addCategory("android.intent.category.DEFAULT");
         pm.addCrossProfileIntentFilter(pickNoData, mManagedProfileUserInfo.id,
                 UserHandle.USER_OWNER, 0);
+
+        try {
+            mIpm.addCrossProfileIntentsForPackage("com.android.settings",
+                    mManagedProfileUserInfo.id,
+                    Process.myUserHandle().getIdentifier());
+        } catch (RemoteException neverThrown) {
+            // If the package manager is not working, we've got bigger problems.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
+        }
     }
 
     /**
