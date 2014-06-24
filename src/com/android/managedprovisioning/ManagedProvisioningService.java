@@ -25,6 +25,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
@@ -373,8 +374,7 @@ public class ManagedProvisioningService extends Service {
      */
     private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-        successIntent.setClass(this, ManagedProvisioningActivity.ServiceMessageReceiver.class);
-        sendBroadcast(successIntent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
 
         sendProvisioningCompleteToManagedProfile(this);
         stopSelf(mStartIdProvisioning);

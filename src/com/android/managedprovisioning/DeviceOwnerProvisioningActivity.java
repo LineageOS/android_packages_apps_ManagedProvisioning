@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.provider.Settings.Global;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -93,7 +94,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE);
         filter.addAction(DeviceOwnerProvisioningService.ACTION_REQUEST_ENCRYPTION);
-        registerReceiver(mServiceMessageReceiver, filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
         // Start service.
         Intent intent = new Intent(this, DeviceOwnerProvisioningService.class);
@@ -148,7 +149,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     @Override
     public void onDestroy() {
         ProvisionLogger.logd("Device owner provisioning activity ONDESTROY");
-        unregisterReceiver(mServiceMessageReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
         super.onDestroy();
     }
 

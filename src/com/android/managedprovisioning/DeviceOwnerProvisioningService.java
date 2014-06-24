@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
@@ -260,7 +261,7 @@ public class DeviceOwnerProvisioningService extends Service {
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
         intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         intent.putExtra(EXTRA_USER_VISIBLE_ERROR_ID_KEY, dialogMessage);
-        sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 
         stopSelf(mStartIdProvisioning);
     }
@@ -276,7 +277,7 @@ public class DeviceOwnerProvisioningService extends Service {
         Intent intent = new Intent(ACTION_PROGRESS_UPDATE);
         intent.putExtra(EXTRA_PROGRESS_MESSAGE_ID_KEY, mLastProgressMessage);
         intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
-        sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     private void requestEncryption(String propertiesForResume) {
@@ -293,7 +294,7 @@ public class DeviceOwnerProvisioningService extends Service {
     private void onProvisioningSuccess(String deviceAdminPackage) {
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
-        sendBroadcast(successIntent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
 
         // Skip the setup wizard.
         Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
