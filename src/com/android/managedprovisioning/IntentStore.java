@@ -27,17 +27,13 @@ import android.os.Bundle;
  */
 public class IntentStore {
     private SharedPreferences mPrefs;
-    private Context mContext;
     private String[] mStringKeys;
-    private String[] mComponentKeys;
     private ComponentName mIntentTarget;
 
-    public IntentStore(Context context, String[] stringKeys, String[] componentKeys,
-            ComponentName intentTarget, String preferencesName) {
-        mContext = context;
+    public IntentStore(Context context, String[] stringKeys, ComponentName intentTarget,
+            String preferencesName) {
         mPrefs = context.getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
         mStringKeys = stringKeys;
-        mComponentKeys = componentKeys;
         mIntentTarget = intentTarget;
     }
 
@@ -52,10 +48,6 @@ public class IntentStore {
         for (String stringKey : mStringKeys) {
             editor.putString(stringKey, data.getString(stringKey));
         }
-        for (String componentKey : mComponentKeys) {
-            editor.putString(componentKey, ((ComponentName)
-                            data.getParcelable(componentKey)).flattenToShortString());
-        }
         editor.commit();
     }
 
@@ -69,13 +61,6 @@ public class IntentStore {
                 return null;
             }
             result.putExtra(key, value);
-        }
-        for (String key : mComponentKeys) {
-            String value = mPrefs.getString(key, null);
-            if (value == null) {
-                return null;
-            }
-            result.putExtra(key, ComponentName.unflattenFromString(value));
         }
 
         return result;

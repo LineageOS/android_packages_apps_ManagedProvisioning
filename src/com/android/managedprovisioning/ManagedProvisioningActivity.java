@@ -16,8 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TOKEN;
 
@@ -41,7 +39,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 
-import com.android.managedprovisioning.UserConsentSaver;
 
 import java.util.List;
 
@@ -57,6 +54,11 @@ import java.util.List;
 // TODO: Proper error handling to report back to the user and potentially the mdm.
 public class ManagedProvisioningActivity extends Activity {
 
+    // Can only be used by system apps
+    // TODO: make public in DevicePolicyManager
+    private static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
+            "com.android.managedprovisioning.EXTRA_USER_HAS_CONSENTED_PROVISIONING";
+
     // TODO remove these when the new constant values are in use in all relevant places.
     protected static final String EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME =
             "deviceAdminPackageName";
@@ -66,8 +68,8 @@ public class ManagedProvisioningActivity extends Activity {
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
 
     private String mMdmPackageName;
-    private int mToken;
     private BroadcastReceiver mServiceMessageReceiver;
+    private boolean mUserHasConsented;
 
     private View mMainTextView;
     private View mProgressView;
@@ -112,10 +114,8 @@ public class ManagedProvisioningActivity extends Activity {
             showErrorAndClose(R.string.managed_profile_already_present,
                     "The device already has a managed profile, nothing to do.");
         } else {
-
-            // If we previously received an intent confirming user consent, skip the user consent.
-            // Otherwise wait for the user to consent.
-            if (UserConsentSaver.hasUserConsented(this, mMdmPackageName, mToken)) {
+            if (mUserHasConsented) {
+                // TODO check for manage user permission if this extra is provided.
                 checkEncryptedAndStartProvisioningService();
             } else {
                 Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);
@@ -191,34 +191,18 @@ public class ManagedProvisioningActivity extends Activity {
             }
         }
 
-        // Validate the provided device admin component.
-        if (intent.getParcelableExtra(EXTRA_DEVICE_ADMIN) == null) {
-            throw new ManagedProvisioningFailedException("Missing intent extra: "
-                    + EXTRA_DEVICE_ADMIN);
+        // Only system apps with the permission manage users can claim that the user consented.
+        if (intent.hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING)) {
+            // TODO Check for permsion of sender app before skipping consent
+            mUserHasConsented = intent.getBooleanExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING,
+                    false);
         }
-
-        // Validate the default profile name.
-        if (TextUtils.isEmpty(getDefaultManagedProfileName(intent))) {
-            throw new ManagedProvisioningFailedException("Missing intent extra: "
-                    + EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
-        }
-
-        // The token will be empty if the user has not previously consented.
-        mToken = intent.getIntExtra(EXTRA_PROVISIONING_TOKEN, UserConsentSaver.NO_TOKEN_RECEIVED);
     }
 
     private String getMdmPackageName(Intent intent) {
         String name = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         if (TextUtils.isEmpty(name)) {
             name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        }
-        return name;
-    }
-
-    private String getDefaultManagedProfileName(Intent intent) {
-        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
-        if (TextUtils.isEmpty(name)) {
-            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
         }
         return name;
     }
