@@ -110,8 +110,6 @@
   <string name="device_owner_error_no_package_name">No device admin package name was provided.</string>
   <!-- Message of the error dialog when checksum for device admin file was not provided. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_no_hash">No checksum for the verification of the downloaded device admin package provided.</string>
-  <!-- Message of the error dialog when required wifi ssid was not provided. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_no_wifi_ssid">No wifi ssid provided, but wifi connection is required for downloading the device admin package.</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Could not connect to wifi.</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->

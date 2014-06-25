@@ -47,9 +47,12 @@ import android.os.Bundle;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.android.managedprovisioning.task.AddWifiNetworkTask;
 
 import java.util.Locale;
 
@@ -79,12 +82,13 @@ import java.util.Locale;
  */
 public class DeviceOwnerProvisioningActivity extends Activity {
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
+    private static final int WIFI_REQUEST_CODE = 2;
 
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
     private Dialog mDialog; // The cancel or error dialog that is currently shown.
     private boolean mDone; // Indicates whether the service has sent ACTION_PROVISIONING_SUCCESS.
-    private String mDeviceAdminPackageName;
+    private ProvisioningParams mParams;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -122,26 +126,36 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
-        ProvisioningParams params;
         try {
-            params = parser.parseIntent(getIntent());
+            mParams = parser.parseIntent(getIntent());
         } catch (MessageParser.ParseException e) {
             ProvisionLogger.loge("Could not read data from intent", e);
             error(e.getErrorMessageId(), false /* no factory reset */);
             return;
         }
-        mDeviceAdminPackageName = params.mDeviceAdminPackageName;
 
         // Ask to encrypt the device before proceeding
         if (!EncryptDeviceActivity.isDeviceEncrypted()) {
-            requestEncryption(params);
+            requestEncryption();
             finish();
             return;
+            // System will reboot. Bootreminder will restart this activity.
         }
 
-        // Start service.
+        // Have the user pick a wifi network if necessary.
+        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.mWifiSsid) &&
+                !TextUtils.isEmpty(mParams.mDeviceAdminPackageDownloadLocation)) {
+            requestWifiPick();
+            return;
+            // Wait for onActivityResult.
+        }
+
+        startDeviceOwnerProvisioningService();
+    }
+
+    private void startDeviceOwnerProvisioningService() {
         Intent intent = new Intent(this, DeviceOwnerProvisioningService.class);
-        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, params);
+        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, mParams);
         intent.putExtras(getIntent());
         startService(intent);
     }
@@ -193,14 +207,14 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
 
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setPackage(mDeviceAdminPackageName);
+        completeIntent.setPackage(mParams.mDeviceAdminPackageName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                 Intent.FLAG_RECEIVER_FOREGROUND);
         sendBroadcast(completeIntent);
         finish();
     }
 
-    private void requestEncryption(ProvisioningParams params) {
+    private void requestEncryption() {
         Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
                 EncryptDeviceActivity.class);
 
@@ -208,27 +222,31 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
                 EncryptDeviceActivity.TARGET_DEVICE_OWNER);
 
-        resumeExtras.putString(EXTRA_PROVISIONING_TIME_ZONE, params.mTimeZone);
-        resumeExtras.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.mLocalTime);
-        resumeExtras.putString(EXTRA_PROVISIONING_LOCALE, params.getLocaleAsString());
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SSID, params.mWifiSsid);
-        resumeExtras.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.mWifiHidden);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.mWifiSecurityType);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, params.mWifiPassword);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.mWifiProxyHost);
-        resumeExtras.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.mWifiProxyPort);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.mWifiProxyBypassHosts);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.mWifiPacUrl);
+        resumeExtras.putString(EXTRA_PROVISIONING_TIME_ZONE, mParams.mTimeZone);
+        resumeExtras.putLong(EXTRA_PROVISIONING_LOCAL_TIME, mParams.mLocalTime);
+        resumeExtras.putString(EXTRA_PROVISIONING_LOCALE, mParams.getLocaleAsString());
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SSID, mParams.mWifiSsid);
+        resumeExtras.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, mParams.mWifiHidden);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, mParams.mWifiSecurityType);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, mParams.mWifiPassword);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, mParams.mWifiProxyHost);
+        resumeExtras.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, mParams.mWifiProxyPort);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, mParams.mWifiProxyBypassHosts);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, mParams.mWifiPacUrl);
         resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                params.mDeviceAdminPackageName);
+                mParams.mDeviceAdminPackageName);
         resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-                params.mDeviceAdminPackageDownloadLocation);
+                mParams.mDeviceAdminPackageDownloadLocation);
         resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                params.getDeviceAdminPackageChecksumAsString());
+                mParams.getDeviceAdminPackageChecksumAsString());
 
         encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
 
         startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
+    }
+
+    private void requestWifiPick() {
+        startActivityForResult(AddWifiNetworkTask.getWifiPickIntent(), WIFI_REQUEST_CODE);
     }
 
     @Override
@@ -284,6 +302,20 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.loge("User canceled device encryption.");
                 finish();
+            }
+        } else if (requestCode == WIFI_REQUEST_CODE) {
+            if (resultCode == RESULT_CANCELED) {
+                ProvisionLogger.loge("User canceled wifi picking.");
+                stopService(new Intent(DeviceOwnerProvisioningActivity.this,
+                                DeviceOwnerProvisioningService.class));
+                finish();
+            } else if (resultCode == RESULT_OK) {
+                ProvisionLogger.logd("Wifi request result is OK");
+                if (AddWifiNetworkTask.isConnectedToWifi(this)) {
+                    startDeviceOwnerProvisioningService();
+                } else {
+                    requestWifiPick();
+                }
             }
         }
     }

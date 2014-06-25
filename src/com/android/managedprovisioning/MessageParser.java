@@ -204,11 +204,6 @@ public class MessageParser {
                         "device admin file, but not provided.",
                         R.string.device_owner_error_no_hash);
             }
-            if (TextUtils.isEmpty(params.mWifiSsid)) {
-                throw new ParseException("Wifi ssid is required for downloading device admin " +
-                        "file, but not provided.",
-                        R.string.device_owner_error_no_wifi_ssid);
-            }
         }
     }
 
