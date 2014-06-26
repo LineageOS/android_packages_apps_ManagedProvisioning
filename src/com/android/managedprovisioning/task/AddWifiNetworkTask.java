@@ -36,6 +36,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     private final String mProxyHost;
     private final int mProxyPort;
     private final String mProxyBypassHosts;
+    private final String mPacUrl;
     private final Callback mCallback;
 
     private WifiManager mWifiManager;
@@ -43,7 +44,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
 
     public AddWifiNetworkTask(Context context, String ssid, boolean hidden, String securityType,
             String password, String proxyHost, int proxyPort, String proxyBypassHosts,
-            Callback callback) {
+            String pacUrl, Callback callback) {
         mCallback = callback;
         mContext = context;
         mSsid = ssid;
@@ -53,6 +54,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mProxyHost = proxyHost;
         mProxyPort = proxyPort;
         mProxyBypassHosts = proxyBypassHosts;
+        mPacUrl = pacUrl;
         mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
     }
 
@@ -71,7 +73,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mNetworkMonitor = new NetworkMonitor(mContext, this);
 
         int netId = wifiConfig.addNetwork(mSsid, mHidden, mSecurityType, mPassword, mProxyHost,
-                mProxyPort, mProxyBypassHosts);
+                mProxyPort, mProxyBypassHosts, mPacUrl);
 
         if (netId == -1) {
             ProvisionLogger.loge("Failed to save network.");
