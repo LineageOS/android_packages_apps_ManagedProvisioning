@@ -17,7 +17,6 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TOKEN;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
