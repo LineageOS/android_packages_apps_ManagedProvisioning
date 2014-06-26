@@ -33,6 +33,7 @@ public class ProvisioningParams {
     public static String mWifiProxyHost;
     public static int mWifiProxyPort = 0;
     public static String mWifiProxyBypassHosts;
+    public static String mWifiPacUrl;
 
     public static String mDeviceAdminPackageName; // Package name of the device admin package.
     public static String mOwner; // Human readable name of the institution that owns this device.

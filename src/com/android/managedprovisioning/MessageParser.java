@@ -79,6 +79,7 @@ public class MessageParser {
     private static final String WIFI_PROXY_HOST_KEY = "wifiProxyHost";
     private static final String WIFI_PROXY_PORT_KEY = "wifiProxyPort"; // int
     private static final String WIFI_PROXY_BYPASS_KEY = "wifiProxyBypassHosts";
+    private static final String WIFI_PAC_URL_KEY = "wifiPacUrl";
     private static final String DEVICE_ADMIN_PACKAGE_KEY = "deviceAdminPackage";
     private static final String OWNER_KEY = "owner";
     private static final String DOWNLOAD_LOCATION_KEY = "downloadLocation";
@@ -99,6 +100,7 @@ public class MessageParser {
     private static final int OWNER_ID = 11;
     private static final int DOWNLOAD_LOCATION_ID = 12;
     private static final int HASH_ID = 13;
+    private static final int WIFI_PAC_URL_ID = 14;
 
     // Map from keys to ids.
     private static final HashMap<String, Integer> mKeyToId = new HashMap<String, Integer>();
@@ -114,6 +116,7 @@ public class MessageParser {
         mKeyToId.put(WIFI_PROXY_HOST_KEY, WIFI_PROXY_HOST_ID);
         mKeyToId.put(WIFI_PROXY_PORT_KEY, WIFI_PROXY_PORT_ID);
         mKeyToId.put(WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_BYPASS_ID);
+        mKeyToId.put(WIFI_PAC_URL_KEY, WIFI_PAC_URL_ID);
         mKeyToId.put(DEVICE_ADMIN_PACKAGE_KEY, DEVICE_ADMIN_PACKAGE_ID);
         mKeyToId.put(OWNER_KEY, OWNER_ID);
         mKeyToId.put(DOWNLOAD_LOCATION_KEY, DOWNLOAD_LOCATION_ID);
@@ -230,6 +233,9 @@ public class MessageParser {
                 break;
             case WIFI_PROXY_BYPASS_ID:
                 params.mWifiProxyBypassHosts = value;
+                break;
+            case WIFI_PAC_URL_ID:
+                params.mWifiPacUrl = value;
                 break;
             case DEVICE_ADMIN_PACKAGE_ID:
                 params.mDeviceAdminPackageName = value;

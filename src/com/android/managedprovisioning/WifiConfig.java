@@ -43,7 +43,7 @@ public class WifiConfig {
      * Adds a new WiFi network.
      */
     public int addNetwork(String ssid, boolean hidden, String type, String password,
-            String proxyHost, int proxyPort, String proxyBypassHosts) {
+            String proxyHost, int proxyPort, String proxyBypassHosts, String pacUrl) {
         if (!mWifiManager.isWifiEnabled()) {
             mWifiManager.setWifiEnabled(true);
         }
@@ -77,7 +77,7 @@ public class WifiConfig {
                 break;
         }
 
-        updateForProxy(wifiConf, proxyHost, proxyPort, proxyBypassHosts);
+        updateForProxy(wifiConf, proxyHost, proxyPort, proxyBypassHosts, pacUrl);
 
         int netId = mWifiManager.addNetwork(wifiConf);
 
@@ -122,11 +122,16 @@ public class WifiConfig {
     }
 
     private void updateForProxy(WifiConfiguration wifiConf, String proxyHost, int proxyPort,
-            String proxyBypassHosts) {
-        if (proxyHost == null) {
+            String proxyBypassHosts, String pacUrl) {
+        if (TextUtils.isEmpty(proxyHost) && TextUtils.isEmpty(pacUrl)) {
             return;
         }
-        ProxyInfo proxy = new ProxyInfo(proxyHost, proxyPort, proxyBypassHosts);
-        wifiConf.setProxy(ProxySettings.STATIC, proxy);
+        if (!TextUtils.isEmpty(proxyHost)) {
+            ProxyInfo proxy = new ProxyInfo(proxyHost, proxyPort, proxyBypassHosts);
+            wifiConf.setProxy(ProxySettings.STATIC, proxy);
+        } else {
+            ProxyInfo proxy = new ProxyInfo(pacUrl);
+            wifiConf.setProxy(ProxySettings.PAC, proxy);
+        }
     }
 }

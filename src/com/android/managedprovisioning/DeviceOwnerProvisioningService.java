@@ -133,7 +133,7 @@ public class DeviceOwnerProvisioningService extends Service {
         mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
                 params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
                 params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
-                new AddWifiNetworkTask.Callback() {
+                params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
                         @Override
                         public void onSuccess() {
                             if (mDownloadPackageTask.downloadLocationWasProvided()) {
