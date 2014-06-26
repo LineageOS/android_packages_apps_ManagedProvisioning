@@ -16,8 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-
 import android.app.AlarmManager;
 import android.app.Service;
 import android.content.ComponentName;
@@ -25,8 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.Settings.Global;
-import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.internal.app.LocalePicker;
@@ -38,7 +34,6 @@ import com.android.managedprovisioning.task.SetDevicePolicyTask;
 
 import java.lang.Runnable;
 import java.util.Locale;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * This service does the work for the DeviceOwnerProvisioningActivity.
@@ -60,20 +55,23 @@ public class DeviceOwnerProvisioningService extends Service {
             "com.android.phone.PERFORM_CDMA_PROVISIONING";
 
     // Intent actions for communication with DeviceOwnerProvisioningService.
-    public static final String ACTION_PROVISIONING_SUCCESS =
+    protected static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
-    public static final String ACTION_PROVISIONING_ERROR =
+    protected static final String ACTION_PROVISIONING_ERROR =
             "com.android.managedprovisioning.error";
-    public static final String EXTRA_USER_VISIBLE_ERROR_ID_KEY = "UserVisibleErrorMessage-Id";
-    public static final String ACTION_PROGRESS_UPDATE =
+    protected static final String EXTRA_USER_VISIBLE_ERROR_ID_KEY =
+            "UserVisibleErrorMessage-Id";
+    protected static final String ACTION_PROGRESS_UPDATE =
             "com.android.managedprovisioning.progress_update";
-    public static final String EXTRA_PROGRESS_MESSAGE_ID_KEY = "ProgressMessageId";
-    public static final String ACTION_REQUEST_ENCRYPTION =
-            "com.android.managedprovisioning.request_encryption";
+    protected static final String EXTRA_PROGRESS_MESSAGE_ID_KEY =
+            "ProgressMessageId";
+    protected static final String EXTRA_PROVISIONING_PARAMS =
+            "ProvisioningParams";
 
-    private AtomicBoolean mProvisioningInFlight = new AtomicBoolean(false);
-    private int mLastProgressMessage;
-    private int mStartIdProvisioning;
+    private boolean mProvisioningInFlight = false;
+    private int mLastProgressMessage = -1;
+    private int mLastErrorMessage = -1;
+    private boolean mDone = false;
 
     // Provisioning tasks.
     private AddWifiNetworkTask mAddWifiNetworkTask;
@@ -82,43 +80,42 @@ public class DeviceOwnerProvisioningService extends Service {
     private SetDevicePolicyTask mSetDevicePolicyTask;
     private DeleteNonRequiredAppsTask mDeleteNonRequiredAppsTask;
 
+    private ProvisioningParams mParams;
+
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
-        if (mProvisioningInFlight.getAndSet(true)) {
-            ProvisionLogger.logd("Provisioning already in flight. Ignoring intent.");
-            sendProgressUpdateToActivity();
-            stopSelf(startId);
-        } else {
-            progressUpdate(R.string.progress_data_process);
+        ProvisionLogger.logd("Device owner provisioning service ONSTARTCOMMAND.");
 
-            mStartIdProvisioning = startId;
+        synchronized (this) { // Make operations on mProvisioningInFlight atomic.
+            if (mProvisioningInFlight) {
+                ProvisionLogger.logd("Provisioning already in flight.");
 
-            // Load the ProvisioningParams (from message in Intent).
-            MessageParser parser = new MessageParser();
-            final ProvisioningParams params;
-            try {
-                params = parser.parseIntent(intent);
-            } catch (MessageParser.ParseException e) {
-                ProvisionLogger.loge("Could not read data from intent", e);
-                error(e.getErrorMessageId());
-                return START_NOT_STICKY;
+                sendProgressUpdateToActivity();
+
+                // Send error message if currently in error state.
+                if (mLastErrorMessage >= 0) {
+                    sendError();
+                }
+
+                if (mDone) {
+                    onProvisioningSuccess(mParams.mDeviceAdminPackageName);
+                }
+            } else {
+                mProvisioningInFlight = true;
+                ProvisionLogger.logd("First start of the service.");
+                progressUpdate(R.string.progress_data_process);
+
+                // Load the ProvisioningParams (from message in Intent).
+                mParams = (ProvisioningParams) intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
+
+                // Do the work on a separate thread.
+                new Thread(new Runnable() {
+                        public void run() {
+                            initializeProvisioningEnvironment(mParams);
+                            startDeviceOwnerProvisioning(mParams);
+                        }
+                    }).start();
             }
-
-            // Ask to encrypt the device before proceeding
-            if (!EncryptDeviceActivity.isDeviceEncrypted()) {
-                requestEncryption(parser.getCachedProvisioningProperties());
-                stopSelf(startId);
-                return START_NOT_STICKY;
-            }
-
-            // Do the work on a separate thread.
-            new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        initializeProvisioningEnvironment(params);
-                        startDeviceOwnerProvisioning(params);
-                    }
-                }).start();
         }
         return START_NOT_STICKY;
     }
@@ -158,10 +155,8 @@ public class DeviceOwnerProvisioningService extends Service {
                         public void onSuccess() {
                             String downloadLocation =
                                     mDownloadPackageTask.getDownloadedPackageLocation();
-                            Runnable cleanupRunnable =
-                                    mDownloadPackageTask.getCleanUpDownloadRunnable();
                             progressUpdate(R.string.progress_install);
-                            mInstallPackageTask.run(downloadLocation, cleanupRunnable);
+                            mInstallPackageTask.run(downloadLocation);
                         }
 
                         @Override
@@ -255,15 +250,17 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void error(int dialogMessage) {
+        mLastErrorMessage = dialogMessage;
+        sendError();
+        // Wait for stopService() call from the activity.
+    }
 
-        ProvisionLogger.logd("Reporting Error: " + getResources().getString(dialogMessage));
-
+    private void sendError() {
+        ProvisionLogger.logd("Reporting Error: " + getResources().getString(mLastErrorMessage));
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
         intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
-        intent.putExtra(EXTRA_USER_VISIBLE_ERROR_ID_KEY, dialogMessage);
+        intent.putExtra(EXTRA_USER_VISIBLE_ERROR_ID_KEY, mLastErrorMessage);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-
-        stopSelf(mStartIdProvisioning);
     }
 
     private void progressUpdate(int progressMessage) {
@@ -280,33 +277,14 @@ public class DeviceOwnerProvisioningService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
-    private void requestEncryption(String propertiesForResume) {
-        Bundle resumeExtras = new Bundle();
-        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
-                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
-        resumeExtras.putString(MessageParser.EXTRA_PROVISIONING_PROPERTIES,
-                propertiesForResume);
-        Intent intent = new Intent(ACTION_REQUEST_ENCRYPTION);
-        intent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
-        sendBroadcast(intent);
-    }
 
     private void onProvisioningSuccess(String deviceAdminPackage) {
+        ProvisionLogger.logv("Reporting success.");
+        mDone = true;
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
-
-        // Skip the setup wizard.
-        Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
-        Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
-
-        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setPackage(deviceAdminPackage);
-        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-            Intent.FLAG_RECEIVER_FOREGROUND);
-        sendBroadcast(completeIntent);
-
-        stopSelf(mStartIdProvisioning);
+        // Wait for stopService() call from the activity.
     }
 
     private void initializeProvisioningEnvironment(ProvisioningParams params) {
@@ -320,14 +298,14 @@ public class DeviceOwnerProvisioningService extends Service {
         startActivity(intent); // Activity will be a Nop if not a CDMA device.
     }
 
-    private void setTimeAndTimezone(String timeZone, Long localTime) {
+    private void setTimeAndTimezone(String timeZone, long localTime) {
         try {
             final AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             if (timeZone != null) {
                 ProvisionLogger.logd("Setting time zone to " + timeZone);
                 am.setTimeZone(timeZone);
             }
-            if (localTime != null) {
+            if (localTime > 0) {
                 ProvisionLogger.logd("Setting time to " + localTime);
                 am.setTime(localTime);
             }
@@ -353,9 +331,18 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     @Override
+    public void onCreate () {
+        ProvisionLogger.logd("Device owner provisioning service ONCREATE.");
+    }
+
+    @Override
     public void onDestroy () {
+        ProvisionLogger.logd("Device owner provisioning service ONDESTROY");
         if (mAddWifiNetworkTask != null) {
-            mAddWifiNetworkTask.unRegister();
+            mAddWifiNetworkTask.cleanUp();
+        }
+        if (mDownloadPackageTask != null) {
+            mDownloadPackageTask.cleanUp();
         }
     }
 

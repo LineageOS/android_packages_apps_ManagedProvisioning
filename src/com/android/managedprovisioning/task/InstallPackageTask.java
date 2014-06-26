@@ -29,7 +29,6 @@ import android.Manifest.permission;
 import com.android.managedprovisioning.ProvisionLogger;
 
 import java.io.File;
-import java.lang.Runnable;
 
 /**
  * Installs a device owner package from a given path.
@@ -41,7 +40,6 @@ import java.lang.Runnable;
 public class InstallPackageTask {
     public static final int ERROR_PACKAGE_INVALID = 0;
     public static final int ERROR_INSTALLATION_FAILED = 1;
-    public static final int ERROR_OTHER = 2;
 
     private final Context mContext;
     private final Callback mCallback;
@@ -49,7 +47,6 @@ public class InstallPackageTask {
 
     private String mPackageLocation;
     private PackageManager mPm;
-    private Runnable mCleanUpDownloadRunnable;
     private int mPackageVerifierEnable;
 
     public InstallPackageTask (Context context, String packageName,
@@ -60,14 +57,13 @@ public class InstallPackageTask {
         mPackageName = packageName;
     }
 
-    public void run(String packageLocation, Runnable cleanUpDownloadRunnable) {
+    public void run(String packageLocation) {
         if (TextUtils.isEmpty(packageLocation)) {
             ProvisionLogger.loge("Package Location is empty.");
             mCallback.onError(ERROR_PACKAGE_INVALID);
             return;
         }
         mPackageLocation = packageLocation;
-        mCleanUpDownloadRunnable = cleanUpDownloadRunnable;
 
         PackageInstallObserver observer = new PackageInstallObserver();
         mPm = mContext.getPackageManager();
@@ -117,25 +113,22 @@ public class InstallPackageTask {
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
         @Override
         public void packageInstalled(String packageName, int returnCode) {
+            if (!packageName.equals(mPackageName)) {
+                return;
+            }
+
             // Set package verification flag to its original value.
             Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
                     mPackageVerifierEnable);
 
-            if (!packageName.equals(mPackageName)) {
-                ProvisionLogger.loge("Something went wrong: Installed package " + packageName
-                        + " and not " + mPackageName + ".");
-                mCallback.onError(ERROR_OTHER);
-                return;
-            }
             if (returnCode == PackageManager.INSTALL_SUCCEEDED) {
                 ProvisionLogger.logd("Package " + packageName + " is succesfully installed.");
-                mCleanUpDownloadRunnable.run();
+
                 mCallback.onSuccess();
             } else {
                 ProvisionLogger.logd("Installing package " + packageName + " failed.");
                 ProvisionLogger.logd("Errorcode returned by IPackageInstallObserver = "
                         + returnCode);
-                mCleanUpDownloadRunnable.run();
                 mCallback.onError(ERROR_INSTALLATION_FAILED);
             }
         }

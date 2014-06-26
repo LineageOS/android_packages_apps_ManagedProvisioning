@@ -34,7 +34,6 @@ import com.android.managedprovisioning.ProvisionLogger;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.FileInputStream;
-import java.lang.Runnable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -58,6 +57,7 @@ public class DownloadPackageTask {
     private boolean mDoneDownloading;
     private String mDownloadLocationTo;
     private long mDownloadId;
+    private BroadcastReceiver mReceiver;
 
     public DownloadPackageTask (Context context, String downloadLocation, byte[] hash,
             Callback callback) {
@@ -73,7 +73,8 @@ public class DownloadPackageTask {
     }
 
     public void run() {
-        mContext.registerReceiver(createDownloadReceiver(),
+        mReceiver = createDownloadReceiver();
+        mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         ProvisionLogger.logd("Starting download from " + mDownloadLocationFrom);
@@ -96,13 +97,11 @@ public class DownloadPackageTask {
                     if (c.moveToFirst()) {
                         int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
                         if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-                            mContext.unregisterReceiver(this);
                             String location = c.getString(
                                     c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
                             c.close();
                             onDownloadSuccess(location);
                         } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
-                            mContext.unregisterReceiver(this);
                             int reason = c.getColumnIndex(DownloadManager.COLUMN_REASON);
                             c.close();
                             onDownloadFail(reason);
@@ -197,21 +196,23 @@ public class DownloadPackageTask {
         return mDownloadLocationTo;
     }
 
-    public Runnable getCleanUpDownloadRunnable() {
-        return new Runnable() {
-            @Override
-            public void run() {
-                DownloadManager dm = (DownloadManager) mContext
-                        .getSystemService(Context.DOWNLOAD_SERVICE);
-                boolean removeSuccess = dm.remove(mDownloadId) == 1;
-                if (removeSuccess) {
-                    ProvisionLogger.logd("Successfully removed the device owner installer file.");
-                } else {
-                    ProvisionLogger.loge("Could not remove the device owner installer file.");
-                    // Ignore this error. Failing cleanup should not stop provisioning flow.
-                }
+    public void cleanUp() {
+        if (mReceiver != null) {
+            //Unregister receiver.
+            mContext.unregisterReceiver(mReceiver);
+            mReceiver = null;
+
+            //Remove download.
+            DownloadManager dm = (DownloadManager) mContext
+                    .getSystemService(Context.DOWNLOAD_SERVICE);
+            boolean removeSuccess = dm.remove(mDownloadId) == 1;
+            if (removeSuccess) {
+                ProvisionLogger.logd("Successfully removed the device owner installer file.");
+            } else {
+                ProvisionLogger.loge("Could not remove the device owner installer file.");
+                // Ignore this error. Failing cleanup should not stop provisioning flow.
             }
-        };
+        }
     }
 
     // For logging purposes only.

@@ -23,6 +23,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -262,17 +263,17 @@ public class MessageParser {
      */
     private void checkValidityOfProvisioningParams(ProvisioningParams params)
         throws ParseException  {
-        if (params.mDeviceAdminPackageName == null) {
+        if (TextUtils.isEmpty(params.mDeviceAdminPackageName)) {
             throw new ParseException("Must provide the name of the device admin package.",
                     R.string.device_owner_error_no_package_name);
         }
-        if (params.mDownloadLocation != null) {
-            if (params.mHash == null) {
+        if (!TextUtils.isEmpty(params.mDownloadLocation)) {
+            if (params.mHash == null || params.mHash.length == 0) {
                 throw new ParseException("Hash of installer file is required for downloading " +
                         "device admin file, but not provided.",
                         R.string.device_owner_error_no_hash);
             }
-            if (params.mWifiSsid == null) {
+            if (TextUtils.isEmpty(params.mWifiSsid)) {
                 throw new ParseException("Wifi ssid is required for downloading device admin " +
                         "file, but not provided.",
                         R.string.device_owner_error_no_wifi_ssid);

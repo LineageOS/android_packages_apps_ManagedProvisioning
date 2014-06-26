@@ -119,7 +119,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         }
     }
 
-    public void unRegister() {
+    public void cleanUp() {
         if (mNetworkMonitor != null) {
             mNetworkMonitor.close();
             mNetworkMonitor = null;
