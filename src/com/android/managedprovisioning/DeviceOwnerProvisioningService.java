@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
@@ -54,7 +55,11 @@ public class DeviceOwnerProvisioningService extends Service {
     private static final String ACTION_PERFORM_CDMA_PROVISIONING =
             "com.android.phone.PERFORM_CDMA_PROVISIONING";
 
-    // Intent actions for communication with DeviceOwnerProvisioningService.
+    // Intent actions and extras for communication from DeviceOwnerProvisioningService to Activity.
+    protected static final String EXTRA_PROVISIONING_PARAMS =
+            "ProvisioningParams";
+
+    // Intent actions and extras for communication from DeviceOwnerProvisioningActivity to Service.
     protected static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
     protected static final String ACTION_PROVISIONING_ERROR =
@@ -65,12 +70,19 @@ public class DeviceOwnerProvisioningService extends Service {
             "com.android.managedprovisioning.progress_update";
     protected static final String EXTRA_PROGRESS_MESSAGE_ID_KEY =
             "ProgressMessageId";
-    protected static final String EXTRA_PROVISIONING_PARAMS =
-            "ProvisioningParams";
+    protected static final String ACTION_REQUEST_WIFI_PICK =
+            "com.android.managedprovisioning.request_wifi_pick";
 
+    // Indicates whether provisioning has started.
     private boolean mProvisioningInFlight = false;
+
+    // MessageId of the last progress message.
     private int mLastProgressMessage = -1;
+
+    // MessageId of the last error message.
     private int mLastErrorMessage = -1;
+
+    // Indicates whether provisioning has finished succesfully (service waiting to stop).
     private boolean mDone = false;
 
     // Provisioning tasks.
@@ -97,6 +109,7 @@ public class DeviceOwnerProvisioningService extends Service {
                     sendError();
                 }
 
+                // Send success if provisioning was succesful.
                 if (mDone) {
                     onProvisioningSuccess(mParams.mDeviceAdminPackageName);
                 }
@@ -133,13 +146,8 @@ public class DeviceOwnerProvisioningService extends Service {
                 params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
                         @Override
                         public void onSuccess() {
-                            if (mDownloadPackageTask.downloadLocationWasProvided()) {
-                                progressUpdate(R.string.progress_download);
-                                mDownloadPackageTask.run();
-                            } else {
-                                progressUpdate(R.string.progress_set_owner);
-                                mSetDevicePolicyTask.run();
-                            }
+                            progressUpdate(R.string.progress_download);
+                            mDownloadPackageTask.run();
                         }
 
                         @Override
@@ -241,10 +249,14 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         // Start first task, which starts next task in its callback, etc.
-        if (mAddWifiNetworkTask.wifiCredentialsWereProvided()) {
+        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+            // Device Admin has to be downloaded:
+            // Connect to wifi, download, install, set as device owner, delete apps.
             progressUpdate(R.string.progress_connect_to_wifi);
             mAddWifiNetworkTask.run();
         } else {
+            // Device Admin will not be downloaded (but is already present):
+            // Just set as device owner, delete apps.
             progressUpdate(R.string.progress_set_owner);
             mSetDevicePolicyTask.run();
         }
@@ -277,7 +289,6 @@ public class DeviceOwnerProvisioningService extends Service {
         intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
-
 
     private void onProvisioningSuccess(String deviceAdminPackage) {
         ProvisionLogger.logv("Reporting success.");

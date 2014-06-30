@@ -17,6 +17,9 @@
 package com.android.managedprovisioning.task;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 
@@ -58,10 +61,6 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
     }
 
-    public boolean wifiCredentialsWereProvided() {
-        return !TextUtils.isEmpty(mSsid);
-    }
-
     public void run() {
         if (!enableWifi()) {
             ProvisionLogger.loge("Failed to enable wifi");
@@ -69,8 +68,23 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
             return;
         }
 
-        WifiConfig wifiConfig = new WifiConfig(mWifiManager);
         mNetworkMonitor = new NetworkMonitor(mContext, this);
+
+        if (!isConnectedToWifi(mContext)) {
+            if (TextUtils.isEmpty(mSsid)) {
+                ProvisionLogger.loge("Wifi is supposed to be setup in activity," +
+                        " or a valid wifi ssid has to be specified.");
+                mCallback.onError();
+                return;
+            }
+            connectToProvidedNetwork();
+        } else {
+            mCallback.onSuccess();
+        }
+    }
+
+    private void connectToProvidedNetwork() {
+        WifiConfig wifiConfig = new WifiConfig(mWifiManager);
 
         int netId = wifiConfig.addNetwork(mSsid, mHidden, mSecurityType, mPassword, mProxyHost,
                 mProxyPort, mProxyBypassHosts, mPacUrl);
@@ -87,7 +101,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
             }
         }
 
-        // NetworkMonitor will call onNetworkConnected if in Wifi mode.
+        // NetworkMonitor will call onNetworkConnected when in Wifi mode.
     }
 
     private boolean enableWifi() {
@@ -119,6 +133,11 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         }
     }
 
+    @Override
+    public void onNetworkDisconnected() {
+
+    }
+
     public void cleanUp() {
         if (mNetworkMonitor != null) {
             mNetworkMonitor.close();
@@ -126,9 +145,19 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         }
     }
 
-    @Override
-    public void onNetworkDisconnected() {
+    public static boolean isConnectedToWifi(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return info.isConnected();
+    }
 
+    public static Intent getWifiPickIntent() {
+        Intent wifiIntent = new Intent(WifiManager.ACTION_PICK_WIFI_NETWORK);
+        wifiIntent.putExtra("only_access_points", true);
+        wifiIntent.putExtra("extra_prefs_show_button_bar", true);
+        wifiIntent.putExtra("wifi_enable_next_on_connect", true);
+        return wifiIntent;
     }
 
     public abstract static class Callback {
