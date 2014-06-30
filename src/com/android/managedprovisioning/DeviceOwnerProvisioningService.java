@@ -149,7 +149,7 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mDownloadPackageTask = new DownloadPackageTask(this,
-                params.mDownloadLocation, params.mHash,
+                params.mDeviceAdminPackageDownloadLocation, params.mDeviceAdminPackageChecksum,
                 new DownloadPackageTask.Callback() {
                         @Override
                         public void onSuccess() {
@@ -201,7 +201,8 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
-                params.mDeviceAdminPackageName, params.mOwner,
+                params.mDeviceAdminPackageName,
+                getResources().getString(R.string.default_owned_device_username),
                 new SetDevicePolicyTask.Callback() {
                     @Override
                     public void onSuccess() {

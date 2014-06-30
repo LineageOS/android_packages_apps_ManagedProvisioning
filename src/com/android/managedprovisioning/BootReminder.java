@@ -15,9 +15,21 @@
  */
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -31,8 +43,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 /**
- * Class to handle showing a prompt to continue provisioning after the device is rebooted for
- * setting up encryption
+ * Class that handles the resuming process that takes place after a reboot for encryption
+ * during the provisioining process.
  */
 public class BootReminder extends BroadcastReceiver {
     private static final int NOTIFY_ID = 1;
@@ -61,8 +73,30 @@ public class BootReminder extends BroadcastReceiver {
             "device-owner-provisioning-resume";
 
     private static final String[] DEVICE_OWNER_STRING_EXTRAS = {
-        // Key for the string storing the properties from the intent that started the provisioning
-        MessageParser.EXTRA_PROVISIONING_PROPERTIES
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+        EXTRA_PROVISIONING_TIME_ZONE,
+        EXTRA_PROVISIONING_LOCALE,
+        EXTRA_PROVISIONING_WIFI_SSID,
+        EXTRA_PROVISIONING_WIFI_SECURITY_TYPE,
+        EXTRA_PROVISIONING_WIFI_PASSWORD,
+        EXTRA_PROVISIONING_WIFI_PROXY_HOST,
+        EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
+        EXTRA_PROVISIONING_WIFI_PAC_URL,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
+    };
+
+    private static final String[] DEVICE_OWNER_LONG_EXTRAS = {
+        EXTRA_PROVISIONING_LOCAL_TIME
+    };
+
+    private static final String[] DEVICE_OWNER_INT_EXTRAS = {
+        EXTRA_PROVISIONING_WIFI_PROXY_PORT
+    };
+
+    private static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
+        EXTRA_PROVISIONING_WIFI_HIDDEN
     };
 
     private static final ComponentName DEVICE_OWNER_INTENT_TARGET =
@@ -105,10 +139,20 @@ public class BootReminder extends BroadcastReceiver {
      * least the key: {@link EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME}, a {@link String} which
      * specifies the package to set as profile owner.
      *
-     * <p> In case of TARGET_DEVICE_OWNER {@code extras} should further contain a value for at least
-     * the key {@link MessageParser.EXTRA_PROVISIONING_PROPERTIES}, a {@link String} storing the
-     * serialized {@link Properties} that contains all key value pairs specified in
-     * {@link MessageParser} that were used to initiate this provisioning flow.
+     * <p>
+     * In case of TARGET_DEVICE_OWNER {@code extras} should further contain values for at least
+     * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} and may contain
+     * {@link #EXTRA_PROVISIONING_TIME_ZONE}, {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and
+     * {@link #EXTRA_PROVISIONING_LOCALE}.
+     * A download location may be specified using
+     * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION} accompanied by the
+     * checksum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}.
+     * Furthermore a wifi network may be specified using {@link #EXTRA_PROVISIONING_WIFI_SSID}, and
+     * if applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
+     * {@link #EXTRA_PROVISIONING_WIFI_PASSWORD}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST},
+     * {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT}, {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE},
+     * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}, {@link #EXTRA_PROVISIONING_WIFI_PAC_URL}.
+     * </ul>
      *
      * <p> These fields will be persisted and restored to the provisioner after rebooting. Any other
      * key/value pairs will be ignored.
@@ -142,6 +186,9 @@ public class BootReminder extends BroadcastReceiver {
     private static IntentStore getProfileOwnerIntentStore(Context context) {
         return new IntentStore(context,
                 PROFILE_OWNER_STRING_EXTRAS,
+                new String[0],
+                new String[0],
+                new String[0],
                 PROFILE_OWNER_INTENT_TARGET,
                 PROFILE_OWNER_PREFERENCES_NAME);
     }
@@ -149,6 +196,9 @@ public class BootReminder extends BroadcastReceiver {
     private static IntentStore getDeviceOwnerIntentStore(Context context) {
         return new IntentStore(context,
                 DEVICE_OWNER_STRING_EXTRAS,
+                DEVICE_OWNER_LONG_EXTRAS,
+                DEVICE_OWNER_INT_EXTRAS,
+                DEVICE_OWNER_BOOLEAN_EXTRAS,
                 DEVICE_OWNER_INTENT_TARGET,
                 DEVICE_OWNER_PREFERENCES_NAME);
     }

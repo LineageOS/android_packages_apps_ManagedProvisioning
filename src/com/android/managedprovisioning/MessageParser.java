@@ -16,6 +16,21 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_NFC_MIME_TYPE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.content.Intent;
@@ -27,7 +42,6 @@ import android.text.TextUtils;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.math.BigInteger;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
@@ -35,105 +49,39 @@ import java.util.Properties;
 
 /**
  * This class can initialize a ProvisioningParams object from an intent.
- * There are two kinds of intents that can be parsed. Both store all data in a serialized
- * {@link Properties} object.
+ * There are two kinds of intents that can be parsed.
  *
  * <p>
- * The intent has the extra {@link NfcAdapter.EXTRA_NDEF_MESSAGES} when provisioning is started via
- * Nfc bump.
- * (constructed by for example
- * {@link com.example.android.apis.app.DeviceProvisioningProgrammerSample}).
- * </p>
+ * Intent was received via Nfc.
+ * The intent contains the extra {@link NfcAdapter.EXTRA_NDEF_MESSAGES}, which indicates that
+ * provisioning was started via Nfc bump. This extra contains an NDEF message, which contains an
+ * NfcRecord with mime type {@link PROVISIONING_NFC_MIME_TYPE}. This record stores a serialized
+ * properties object, which contains the serialized extra's described in the next option.
+ * A typical use case would be a programmer application that sends an Nfc bump to start Nfc
+ * provisioning from a programmer device.
  *
  * <p>
- * The intent has the extra {@link EXTRA_PROVISIONING_PROPERTIES} when provisioning is resumed after
- * encryption.
- * (constructed by {@link BootReminder}).
- * </p>
- *
- * <p>
- * To add extra fields:
- * Add a static key string and id int.
- * Add a mapping from key to id in the mKeyToId.
- * Ad a case in putPropertyByString in which you parse the field and set corresponding field in the
- * ProvisioningParams.
- * </p>
+ * Intent was received directly.
+ * The intent contains the extra {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME},
+ * and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
+ * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and {@link #EXTRA_PROVISIONING_LOCALE}. A download
+ * location may be specified in {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}
+ * accompanied by the SHA-1 sum of the target file
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}. Furthermore a wifi network may be
+ * specified in {@link #EXTRA_PROVISIONING_WIFI_SSID}, and if applicable
+ * {@link #EXTRA_PROVISIONING_WIFI_HIDDEN}, {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE},
+ * {@link #EXTRA_PROVISIONING_WIFI_PASSWORD}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST},
+ * {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}.
+ * A typical use case would be the {@link BootReminder} sending the intent after device encryption
+ * and reboot.
  */
 public class MessageParser {
-    protected static final String EXTRA_PROVISIONING_PROPERTIES
-        = "com.android.managedprovisioning.provisioningProperties";
-
-    private static final String NFC_MIME_TYPE = "application/com.android.managedprovisioning";
-
-    // Used to store the {@link String} that was used in the last call to {@link parseProperties}.
-    private static String cachedProvisioningProperties;
-
-    // Keys for the properties in the packet.
-    // They correspond to fields of ProvisioningParams (see {@link ProvisioningParams}).
-    private static final String TIME_ZONE_KEY = "timeZone";
-    private static final String LOCAL_TIME_KEY = "localTime";
-    private static final String LOCALE_KEY = "locale";
-    private static final String WIFI_SSID_KEY = "wifiSsid";
-    private static final String WIFI_HIDDEN_KEY = "wifiHidden";
-    private static final String WIFI_SECURITY_TYPE_KEY = "wifiSecurityType";
-    private static final String WIFI_PASSWORD_KEY = "wifiPassword";
-    private static final String WIFI_PROXY_HOST_KEY = "wifiProxyHost";
-    private static final String WIFI_PROXY_PORT_KEY = "wifiProxyPort"; // int
-    private static final String WIFI_PROXY_BYPASS_KEY = "wifiProxyBypassHosts";
-    private static final String WIFI_PAC_URL_KEY = "wifiPacUrl";
-    private static final String DEVICE_ADMIN_PACKAGE_KEY = "deviceAdminPackage";
-    private static final String OWNER_KEY = "owner";
-    private static final String DOWNLOAD_LOCATION_KEY = "downloadLocation";
-    private static final String HASH_KEY = "hash";
-
-    // Ids of properties.
-    private static final int TIME_ZONE_ID = 0;
-    private static final int LOCAL_TIME_ID = 1;
-    private static final int LOCALE_ID = 2;
-    private static final int WIFI_SSID_ID = 3;
-    private static final int WIFI_HIDDEN_ID = 4;
-    private static final int WIFI_SECURITY_TYPE_ID = 5;
-    private static final int WIFI_PASSWORD_ID = 6;
-    private static final int WIFI_PROXY_HOST_ID = 7;
-    private static final int WIFI_PROXY_PORT_ID = 8;
-    private static final int WIFI_PROXY_BYPASS_ID = 9;
-    private static final int DEVICE_ADMIN_PACKAGE_ID = 10;
-    private static final int OWNER_ID = 11;
-    private static final int DOWNLOAD_LOCATION_ID = 12;
-    private static final int HASH_ID = 13;
-    private static final int WIFI_PAC_URL_ID = 14;
-
-    // Map from keys to ids.
-    private static final HashMap<String, Integer> mKeyToId = new HashMap<String, Integer>();
-
-    static {
-        mKeyToId.put(TIME_ZONE_KEY, TIME_ZONE_ID);
-        mKeyToId.put(LOCAL_TIME_KEY, LOCAL_TIME_ID);
-        mKeyToId.put(LOCALE_KEY, LOCALE_ID);
-        mKeyToId.put(WIFI_SSID_KEY, WIFI_SSID_ID);
-        mKeyToId.put(WIFI_HIDDEN_KEY, WIFI_HIDDEN_ID);
-        mKeyToId.put(WIFI_SECURITY_TYPE_KEY, WIFI_SECURITY_TYPE_ID);
-        mKeyToId.put(WIFI_PASSWORD_KEY, WIFI_PASSWORD_ID);
-        mKeyToId.put(WIFI_PROXY_HOST_KEY, WIFI_PROXY_HOST_ID);
-        mKeyToId.put(WIFI_PROXY_PORT_KEY, WIFI_PROXY_PORT_ID);
-        mKeyToId.put(WIFI_PROXY_BYPASS_KEY, WIFI_PROXY_BYPASS_ID);
-        mKeyToId.put(WIFI_PAC_URL_KEY, WIFI_PAC_URL_ID);
-        mKeyToId.put(DEVICE_ADMIN_PACKAGE_KEY, DEVICE_ADMIN_PACKAGE_ID);
-        mKeyToId.put(OWNER_KEY, OWNER_ID);
-        mKeyToId.put(DOWNLOAD_LOCATION_KEY, DOWNLOAD_LOCATION_ID);
-        mKeyToId.put(HASH_KEY, HASH_ID);
-    }
-
     public ProvisioningParams parseIntent(Intent intent) throws ParseException {
         ProvisionLogger.logi("Processing intent.");
         if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
             return parseNfcIntent(intent);
-        } else if (intent.hasExtra(EXTRA_PROVISIONING_PROPERTIES)) {
-            return parseProperties(intent.getStringExtra(EXTRA_PROVISIONING_PROPERTIES));
         } else {
-            throw new ParseException(
-                    "Intent does not contain EXTRA_NDEF_MESSAGES or EXTRA_PROVISIONING_PROPERTIES.",
-                    R.string.device_owner_error_parse_fail);
+            return parseNonNfcIntent(intent);
         }
     }
 
@@ -149,7 +97,7 @@ public class MessageParser {
             NdefRecord firstRecord = msg.getRecords()[0];
             String mimeType = new String(firstRecord.getType(), UTF_8);
 
-            if (NFC_MIME_TYPE.equals(mimeType)) {
+            if (PROVISIONING_NFC_MIME_TYPE.equals(mimeType)) {
                 return parseProperties(new String(firstRecord.getPayload(), UTF_8));
             }
         }
@@ -160,20 +108,41 @@ public class MessageParser {
 
     private ProvisioningParams parseProperties(String data)
             throws ParseException {
-        ProvisionLogger.logi("Parsing Properties.");
         ProvisioningParams params = new ProvisioningParams();
         try {
             Properties props = new Properties();
             props.load(new StringReader(data));
 
-            Enumeration<Object> propertyNames = props.keys();
-            while (propertyNames.hasMoreElements()) {
-                String propName = (String) propertyNames.nextElement();
-                putPropertyByString(propName, props.getProperty(propName), params);
+            String s; // Used for parsing non-Strings.
+            params.mDeviceAdminPackageName
+                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+            params.mTimeZone
+                    = props.getProperty(EXTRA_PROVISIONING_TIME_ZONE);
+            if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
+                params.mLocalTime = Long.parseLong(s);
+            }
+            if ((s = props.getProperty(EXTRA_PROVISIONING_LOCALE)) != null) {
+                params.mLocale = stringToLocale(s);
+            }
+            params.mWifiSsid = props.getProperty(EXTRA_PROVISIONING_WIFI_SSID);
+            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
+                params.mWifiHidden = Boolean.parseBoolean(s);
+            }
+            params.mWifiSecurityType = props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
+            params.mWifiPassword = props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD);
+            params.mWifiProxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
+            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
+                params.mWifiProxyPort = Integer.parseInt(s);
+            }
+            params.mWifiProxyBypassHosts = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
+            params.mWifiPacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
+            params.mDeviceAdminPackageDownloadLocation
+                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
+            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
+                params.mDeviceAdminPackageChecksum = stringToByteArray(s);
             }
 
             checkValidityOfProvisioningParams(params);
-            cachedProvisioningProperties = data;
             return params;
         } catch (IOException e) {
             throw new ParseException("Couldn't load payload",
@@ -184,78 +153,39 @@ public class MessageParser {
         }
     }
 
-    /**
-     * Fill a parameter field (indicated by the key) with its value after parsing it to the correct
-     * type.
-     */
-    public void putPropertyByString(String key, String value, ProvisioningParams params)
-            throws NumberFormatException {
-        ProvisionLogger.logd("Processing property key " + key + " with value " + value);
+    public ProvisioningParams parseNonNfcIntent(Intent intent)
+        throws ParseException {
+        ProvisionLogger.logi("Processing intent.");
+        ProvisioningParams params = new ProvisioningParams();
 
-        // Can't switch on string, so use integer id.
-        Integer id = mKeyToId.get(key);
-        if (id == null) {
-
-            // Ignore unknown keys.
-            ProvisionLogger.logi("Unknown key " + key + " in properties data.");
-            return;
+        params.mDeviceAdminPackageName
+                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        params.mTimeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
+        params.mLocalTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
+                ProvisioningParams.DEFAULT_LOCAL_TIME);
+        String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
+        if (localeString != null) {
+            params.mLocale = stringToLocale(localeString);
         }
-        switch(id) {
-            case TIME_ZONE_ID:
-                params.mTimeZone = value;
-                break;
-            case LOCAL_TIME_ID:
-                params.mLocalTime = Long.parseLong(value);
-                break;
-            case LOCALE_ID:
-                if (value.length() == 5) {
-                    params.mLocale = new Locale(value.substring(0, 2), value.substring(3, 5));
-                } else {
-                    throw new NumberFormatException("The locale code is not 5 characters long.");
-                }
-                break;
-            case WIFI_SSID_ID:
-                params.mWifiSsid = value;
-                break;
-            case WIFI_HIDDEN_ID:
-                params.mWifiHidden = Boolean.parseBoolean(value);
-                break;
-            case WIFI_SECURITY_TYPE_ID:
-                params.mWifiSecurityType = value;
-                break;
-            case WIFI_PASSWORD_ID:
-                params.mWifiPassword = value;
-                break;
-            case WIFI_PROXY_HOST_ID:
-                params.mWifiProxyHost = value;
-                break;
-            case WIFI_PROXY_PORT_ID:
-                params.mWifiProxyPort = Integer.parseInt(value);
-                break;
-            case WIFI_PROXY_BYPASS_ID:
-                params.mWifiProxyBypassHosts = value;
-                break;
-            case WIFI_PAC_URL_ID:
-                params.mWifiPacUrl = value;
-                break;
-            case DEVICE_ADMIN_PACKAGE_ID:
-                params.mDeviceAdminPackageName = value;
-                break;
-            case OWNER_ID:
-                params.mOwner = value;
-                break;
-            case DOWNLOAD_LOCATION_ID:
-                params.mDownloadLocation = value;
-                break;
-            case HASH_ID:
-                params.mHash = new BigInteger(value,16).toByteArray();
-                break;
-            default:
-
-                // Should never happen!
-                ProvisionLogger.loge("Ignoring known key " + key + ", should never happen!");
-                break;
+        params.mWifiSsid = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID);
+        params.mWifiHidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
+                ProvisioningParams.DEFAULT_WIFI_HIDDEN);
+        params.mWifiSecurityType = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
+        params.mWifiPassword = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PASSWORD);
+        params.mWifiProxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
+        params.mWifiProxyPort = intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
+                ProvisioningParams.DEFAULT_WIFI_PROXY_PORT);
+        params.mWifiProxyBypassHosts = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
+        params.mWifiPacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
+        params.mDeviceAdminPackageDownloadLocation
+                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
+        String hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
+        if (hashString != null) {
+            params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
         }
+
+        checkValidityOfProvisioningParams(params);
+        return params;
     }
 
     /**
@@ -267,9 +197,10 @@ public class MessageParser {
             throw new ParseException("Must provide the name of the device admin package.",
                     R.string.device_owner_error_no_package_name);
         }
-        if (!TextUtils.isEmpty(params.mDownloadLocation)) {
-            if (params.mHash == null || params.mHash.length == 0) {
-                throw new ParseException("Hash of installer file is required for downloading " +
+        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+            if (params.mDeviceAdminPackageChecksum == null ||
+                    params.mDeviceAdminPackageChecksum.length == 0) {
+                throw new ParseException("Checksum of installer file is required for downloading " +
                         "device admin file, but not provided.",
                         R.string.device_owner_error_no_hash);
             }
@@ -279,10 +210,6 @@ public class MessageParser {
                         R.string.device_owner_error_no_wifi_ssid);
             }
         }
-    }
-
-    public static String getCachedProvisioningProperties() {
-        return cachedProvisioningProperties;
     }
 
     /**
@@ -306,6 +233,38 @@ public class MessageParser {
 
         public int getErrorMessageId() {
             return mErrorMessageId;
+        }
+    }
+
+    public static byte[] stringToByteArray(String s)
+        throws NumberFormatException {
+        int l = s.length();
+        if (l%2!=0) {
+            throw new NumberFormatException("Hex String should have even length.");
+        }
+        byte[] data = new byte[l / 2];
+        for (int i = 0; i < l; i += 2) {
+            int firstDigit = Character.digit(s.charAt(i), 16);
+            if (firstDigit<0) {
+                throw new NumberFormatException("Hex String contains invalid character " +
+                        s.charAt(i));
+            }
+            int secondDigit = Character.digit(s.charAt(i+1), 16);
+            if (secondDigit<0) {
+                throw new NumberFormatException("Hex String contains invalid character " +
+                        s.charAt(i+1));
+            }
+            data[i / 2] = (byte) (( firstDigit << 4) + secondDigit);
+        }
+        return data;
+    }
+
+    public static Locale stringToLocale(String s)
+        throws NumberFormatException {
+        if (s.length() == 5) {
+            return new Locale(s.substring(0, 2), s.substring(3, 5));
+        } else {
+            throw new NumberFormatException("The locale code is not 5 characters long.");
         }
     }
 }

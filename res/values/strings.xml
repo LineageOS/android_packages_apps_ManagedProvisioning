@@ -72,6 +72,9 @@
 
   <!-- Device owner provisioning flow UI. -->
 
+  <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
+  <string name="default_owned_device_username">User of managed device</string>
+
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
   <string name="progress_data_process">Processing setup data.</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->

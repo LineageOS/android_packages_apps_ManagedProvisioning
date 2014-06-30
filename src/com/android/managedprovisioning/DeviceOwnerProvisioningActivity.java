@@ -17,6 +17,22 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,6 +50,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 /**
  * This activity starts device owner provisioning:
@@ -116,7 +134,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
         // Ask to encrypt the device before proceeding
         if (!EncryptDeviceActivity.isDeviceEncrypted()) {
-            requestEncryption(parser.getCachedProvisioningProperties());
+            requestEncryption(params);
             finish();
             return;
         }
@@ -126,20 +144,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, params);
         intent.putExtras(getIntent());
         startService(intent);
-    }
-
-    private void requestEncryption(String propertiesForResume) {
-        Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
-                EncryptDeviceActivity.class);
-
-        Bundle resumeExtras = new Bundle();
-        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
-                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
-        resumeExtras.putString(MessageParser.EXTRA_PROVISIONING_PROPERTIES,
-                propertiesForResume);
-        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
-
-        startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver
@@ -196,6 +200,37 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         finish();
     }
 
+    private void requestEncryption(ProvisioningParams params) {
+        Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
+                EncryptDeviceActivity.class);
+
+        Bundle resumeExtras = new Bundle();
+        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
+                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
+
+        resumeExtras.putString(EXTRA_PROVISIONING_TIME_ZONE, params.mTimeZone);
+        resumeExtras.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.mLocalTime);
+        resumeExtras.putString(EXTRA_PROVISIONING_LOCALE, params.getLocaleAsString());
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SSID, params.mWifiSsid);
+        resumeExtras.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.mWifiHidden);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.mWifiSecurityType);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, params.mWifiPassword);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.mWifiProxyHost);
+        resumeExtras.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.mWifiProxyPort);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.mWifiProxyBypassHosts);
+        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.mWifiPacUrl);
+        resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+                params.mDeviceAdminPackageName);
+        resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+                params.mDeviceAdminPackageDownloadLocation);
+        resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+                params.getDeviceAdminPackageChecksumAsString());
+
+        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
+
+        startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
+    }
+
     @Override
     public void onBackPressed() {
         showCancelResetDialog();
@@ -237,20 +272,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
         mDialog = alertBuilder.create();
         mDialog.show();
-    }
-
-    @Override
-    public void onDestroy() {
-        ProvisionLogger.logd("Device owner provisioning activity ONDESTROY");
-        if (mServiceMessageReceiver != null) {
-            LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
-            mServiceMessageReceiver = null;
-        }
-        if (mDialog != null) {
-            mDialog.dismiss();
-            mDialog = null;
-        }
-        super.onDestroy();
     }
 
     private void progressUpdate(int progressMessage) {
@@ -298,6 +319,20 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
         mDialog = alertBuilder.create();
         mDialog.show();
+    }
+
+    @Override
+    public void onDestroy() {
+        ProvisionLogger.logd("Device owner provisioning activity ONDESTROY");
+        if (mServiceMessageReceiver != null) {
+            LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
+            mServiceMessageReceiver = null;
+        }
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
+        super.onDestroy();
     }
 
     @Override

@@ -24,24 +24,42 @@ import java.util.Locale;
  * Provisioning Parameters for DeviceOwner Provisioning
  */
 public class ProvisioningParams implements Parcelable {
+    public static final long DEFAULT_LOCAL_TIME = -1;
+    public static final boolean DEFAULT_WIFI_HIDDEN = false;
+    public static final int DEFAULT_WIFI_PROXY_PORT = 0;
+
     public static String mTimeZone;
-    public static long mLocalTime = -1;
+    public static long mLocalTime = DEFAULT_LOCAL_TIME;
     public static Locale mLocale;
 
     public static String mWifiSsid;
-    public static boolean mWifiHidden = false;
+    public static boolean mWifiHidden = DEFAULT_WIFI_HIDDEN;
     public static String mWifiSecurityType;
     public static String mWifiPassword;
     public static String mWifiProxyHost;
-    public static int mWifiProxyPort = 0;
+    public static int mWifiProxyPort = DEFAULT_WIFI_PROXY_PORT;
     public static String mWifiProxyBypassHosts;
     public static String mWifiPacUrl;
 
     public static String mDeviceAdminPackageName; // Package name of the device admin package.
-    public static String mOwner; // Human readable name of the institution that owns this device.
 
-    public static String mDownloadLocation; // Url where the device admin .apk is downloaded from.
-    public static byte[] mHash = new byte[0]; // Hash of the .apk file.
+    public static String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
+    public static byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
+
+    public String getLocaleAsString() {
+        if (mLocale != null) {
+            return mLocale.getLanguage() + "_" + mLocale.getCountry();
+        } else {
+            return null;
+        }
+    }
+
+    public String getDeviceAdminPackageChecksumAsString() {
+        StringBuilder sb = new StringBuilder(mDeviceAdminPackageChecksum.length * 2);
+        for(byte b: mDeviceAdminPackageChecksum)
+            sb.append(String.format("%02x", b & 0xff));
+        return sb.toString();
+    }
 
     @Override
     public int describeContents() {
@@ -61,9 +79,8 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(mWifiProxyPort);
         out.writeString(mWifiProxyBypassHosts);
         out.writeString(mDeviceAdminPackageName);
-        out.writeString(mOwner);
-        out.writeString(mDownloadLocation);
-        out.writeByteArray(mHash);
+        out.writeString(mDeviceAdminPackageDownloadLocation);
+        out.writeByteArray(mDeviceAdminPackageChecksum);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -82,9 +99,8 @@ public class ProvisioningParams implements Parcelable {
             params.mWifiProxyPort = in.readInt();
             params.mWifiProxyBypassHosts = in.readString();
             params.mDeviceAdminPackageName = in.readString();
-            params.mOwner = in.readString();
-            params.mDownloadLocation = in.readString();
-            in.readByteArray(params.mHash);
+            params.mDeviceAdminPackageDownloadLocation = in.readString();
+            in.readByteArray(params.mDeviceAdminPackageChecksum);
             return params;
         }
 
