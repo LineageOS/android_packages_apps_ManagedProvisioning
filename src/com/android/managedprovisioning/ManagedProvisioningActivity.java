@@ -38,7 +38,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 
-
 import java.util.List;
 
 /**
@@ -53,8 +52,8 @@ import java.util.List;
 // TODO: Proper error handling to report back to the user and potentially the mdm.
 public class ManagedProvisioningActivity extends Activity {
 
-    // Can only be used by system apps
-    // TODO: make public in DevicePolicyManager
+    private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
+
     private static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
             "com.android.managedprovisioning.EXTRA_USER_HAS_CONSENTED_PROVISIONING";
 
@@ -68,7 +67,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private String mMdmPackageName;
     private BroadcastReceiver mServiceMessageReceiver;
-    private boolean mUserHasConsented;
+    private boolean mUserConsented;
 
     private View mMainTextView;
     private View mProgressView;
@@ -112,19 +111,49 @@ public class ManagedProvisioningActivity extends Activity {
         if (alreadyHasManagedProfile()) {
             showErrorAndClose(R.string.managed_profile_already_present,
                     "The device already has a managed profile, nothing to do.");
+            return;
+        }
+
+        // Don't continue if the caller tries to skip user consent without permission.
+        boolean needsPermission = getIntent().hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING);
+        if (needsPermission && !callerHasUserConsentPermission()) {
+            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied,"
+                    + "you need MANAGE_USERS permission to skip user consent");
+            return;
+        }
+
+        // Skip the user consent if user has previously consented.
+        mUserConsented = getIntent().getBooleanExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING, false);
+        if (mUserConsented) {
+            checkEncryptedAndStartProvisioningService();
         } else {
-            if (mUserHasConsented) {
-                // TODO check for manage user permission if this extra is provided.
-                checkEncryptedAndStartProvisioningService();
-            } else {
-                Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);
-                positiveButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        checkEncryptedAndStartProvisioningService();
-                    }
-                });
-            }
+            Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);
+            positiveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkEncryptedAndStartProvisioningService();
+                }
+            });
+        }
+    }
+
+    /**
+     *  Only system apps with the permission manage users can claim that the user consented.
+     */
+    private boolean callerHasUserConsentPermission() {
+        String callingPackage = getCallingPackage();
+        if (callingPackage == null) {
+            ProvisionLogger.loge("Calling package is null. "
+                    + "Was startActivityForResult used to start this activity?");
+            return false;
+        }
+
+        int callingPackagePermission = this.getPackageManager().checkPermission
+            (MANAGE_USERS_PERMISSION, callingPackage);
+        if (callingPackagePermission == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -134,7 +163,8 @@ public class ManagedProvisioningActivity extends Activity {
             String action = intent.getAction();
             if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
                 ProvisionLogger.logd("Successfully provisioned");
-                finish();
+                ManagedProvisioningActivity.this.setResult(Activity.RESULT_OK);
+                ManagedProvisioningActivity.this.finish();
                 return;
             } else if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_ERROR)) {
                 String errorLogMessage = intent.getStringExtra(
@@ -189,13 +219,6 @@ public class ManagedProvisioningActivity extends Activity {
                         + " is not installed. " + e);
             }
         }
-
-        // Only system apps with the permission manage users can claim that the user consented.
-        if (intent.hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING)) {
-            // TODO Check for permsion of sender app before skipping consent
-            mUserHasConsented = intent.getBooleanExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING,
-                    false);
-        }
     }
 
     private String getMdmPackageName(Intent intent) {
@@ -247,6 +270,7 @@ public class ManagedProvisioningActivity extends Activity {
         if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
             if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.loge("User canceled device encryption.");
+                setResult(Activity.RESULT_CANCELED);
                 finish();
             }
         }

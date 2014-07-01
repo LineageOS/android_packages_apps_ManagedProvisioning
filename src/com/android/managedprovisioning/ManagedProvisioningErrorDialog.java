@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -48,8 +49,10 @@ public class ManagedProvisioningErrorDialog extends DialogFragment {
               .setMessage(message)
               .setCancelable(false)
               .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
                         public void onClick(DialogInterface dialog,int id) {
                             // Close activity
+                            getActivity().setResult(Activity.RESULT_CANCELED);
                             getActivity().finish();
                       }});
       return alertDialogBuilder.create();
