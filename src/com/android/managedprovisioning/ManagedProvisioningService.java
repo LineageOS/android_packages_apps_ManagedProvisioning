@@ -4,6 +4,7 @@ import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
+import static android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH;
 import static com.android.managedprovisioning.ManagedProvisioningActivity.EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static com.android.managedprovisioning.ManagedProvisioningActivity.EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
@@ -286,9 +287,9 @@ public class ManagedProvisioningService extends Service {
         PackageManager pm = getPackageManager();
 
         IntentFilter mimeTypeTelephony = new IntentFilter();
-        mimeTypeTelephony.addAction("android.intent.action.DIAL");
-        mimeTypeTelephony.addCategory("android.intent.category.DEFAULT");
-        mimeTypeTelephony.addCategory("android.intent.category.BROWSABLE");
+        mimeTypeTelephony.addAction(Intent.ACTION_DIAL);
+        mimeTypeTelephony.addCategory(Intent.CATEGORY_DEFAULT);
+        mimeTypeTelephony.addCategory(Intent.CATEGORY_BROWSABLE);
         try {
             mimeTypeTelephony.addDataType("vnd.android.cursor.item/phone");
             mimeTypeTelephony.addDataType("vnd.android.cursor.item/person");
@@ -300,11 +301,11 @@ public class ManagedProvisioningService extends Service {
             UserHandle.USER_OWNER, PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter callDial = new IntentFilter();
-        callDial.addAction("android.intent.action.DIAL");
-        callDial.addAction("android.intent.action.CALL");
-        callDial.addAction("android.intent.action.VIEW");
-        callDial.addCategory("android.intent.category.DEFAULT");
-        callDial.addCategory("android.intent.category.BROWSABLE");
+        callDial.addAction(Intent.ACTION_DIAL);
+        callDial.addAction(Intent.ACTION_CALL);
+        callDial.addAction(Intent.ACTION_VIEW);
+        callDial.addCategory(Intent.CATEGORY_DEFAULT);
+        callDial.addCategory(Intent.CATEGORY_BROWSABLE);
         callDial.addDataScheme("tel");
         callDial.addDataScheme("voicemail");
         callDial.addDataScheme("sip");
@@ -313,19 +314,19 @@ public class ManagedProvisioningService extends Service {
                 PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter callDialNoData = new IntentFilter();
-        callDialNoData.addAction("android.intent.action.DIAL");
-        callDialNoData.addAction("android.intent.action.CALL");
-        callDialNoData.addAction("android.intent.action.CALL_BUTTON");
-        callDialNoData.addCategory("android.intent.category.DEFAULT");
-        callDialNoData.addCategory("android.intent.category.BROWSABLE");
+        callDialNoData.addAction(Intent.ACTION_DIAL);
+        callDialNoData.addAction(Intent.ACTION_CALL);
+        callDialNoData.addAction(Intent.ACTION_CALL_BUTTON);
+        callDialNoData.addCategory(Intent.CATEGORY_DEFAULT);
+        callDialNoData.addCategory(Intent.CATEGORY_BROWSABLE);
         pm.addCrossProfileIntentFilter(callDialNoData, mManagedProfileUserInfo.id,
                 UserHandle.USER_OWNER, PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter smsMms = new IntentFilter();
-        smsMms.addAction("android.intent.action.VIEW");
-        smsMms.addAction("android.intent.action.SENDTO");
-        smsMms.addCategory("android.intent.category.DEFAULT");
-        smsMms.addCategory("android.intent.category.BROWSABLE");
+        smsMms.addAction(Intent.ACTION_VIEW);
+        smsMms.addAction(Intent.ACTION_SENDTO);
+        smsMms.addCategory(Intent.CATEGORY_DEFAULT);
+        smsMms.addCategory(Intent.CATEGORY_BROWSABLE);
         smsMms.addDataScheme("sms");
         smsMms.addDataScheme("smsto");
         smsMms.addDataScheme("mms");
@@ -334,9 +335,9 @@ public class ManagedProvisioningService extends Service {
                 PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter send = new IntentFilter();
-        send.addAction("android.intent.action.SEND");
-        send.addAction("android.intent.action.SEND_MULTIPLE");
-        send.addCategory("android.intent.category.DEFAULT");
+        send.addAction(Intent.ACTION_SEND);
+        send.addAction(Intent.ACTION_SEND_MULTIPLE);
+        send.addCategory(Intent.CATEGORY_DEFAULT);
         try {
             send.addDataType("*/*");
         } catch (IntentFilter.MalformedMimeTypeException e) {
@@ -345,9 +346,9 @@ public class ManagedProvisioningService extends Service {
         pm.addCrossProfileIntentFilter(send, UserHandle.USER_OWNER, mManagedProfileUserInfo.id, 0);
 
         IntentFilter getContent = new IntentFilter();
-        getContent.addAction("android.intent.action.GET_CONTENT");
-        getContent.addCategory("android.intent.category.DEFAULT");
-        getContent.addCategory("android.intent.category.OPENABLE");
+        getContent.addAction(Intent.ACTION_GET_CONTENT);
+        getContent.addCategory(Intent.CATEGORY_DEFAULT);
+        getContent.addCategory(Intent.CATEGORY_OPENABLE);
         try {
             getContent.addDataType("*/*");
         } catch (IntentFilter.MalformedMimeTypeException e) {
@@ -357,9 +358,9 @@ public class ManagedProvisioningService extends Service {
                 UserHandle.USER_OWNER, 0);
 
         IntentFilter openDocument = new IntentFilter();
-        openDocument.addAction("android.intent.action.OPEN_DOCUMENT");
-        openDocument.addCategory("android.intent.category.DEFAULT");
-        openDocument.addCategory("android.intent.category.OPENABLE");
+        openDocument.addAction(Intent.ACTION_OPEN_DOCUMENT);
+        openDocument.addCategory(Intent.CATEGORY_DEFAULT);
+        openDocument.addCategory(Intent.CATEGORY_OPENABLE);
         try {
             openDocument.addDataType("*/*");
         } catch (IntentFilter.MalformedMimeTypeException e) {
@@ -369,8 +370,8 @@ public class ManagedProvisioningService extends Service {
                 UserHandle.USER_OWNER, 0);
 
         IntentFilter pick = new IntentFilter();
-        pick.addAction("android.intent.action.PICK");
-        pick.addCategory("android.intent.category.DEFAULT");
+        pick.addAction(Intent.ACTION_PICK);
+        pick.addCategory(Intent.CATEGORY_DEFAULT);
         try {
             pick.addDataType("*/*");
         } catch (IntentFilter.MalformedMimeTypeException e) {
@@ -379,10 +380,17 @@ public class ManagedProvisioningService extends Service {
         pm.addCrossProfileIntentFilter(pick, mManagedProfileUserInfo.id, UserHandle.USER_OWNER, 0);
 
         IntentFilter pickNoData = new IntentFilter();
-        pickNoData.addAction("android.intent.action.PICK");
-        pickNoData.addCategory("android.intent.category.DEFAULT");
+        pickNoData.addAction(Intent.ACTION_PICK);
+        pickNoData.addCategory(Intent.CATEGORY_DEFAULT);
         pm.addCrossProfileIntentFilter(pickNoData, mManagedProfileUserInfo.id,
                 UserHandle.USER_OWNER, 0);
+
+        IntentFilter recognizeSpeech = new IntentFilter();
+        recognizeSpeech.addAction(ACTION_RECOGNIZE_SPEECH);
+        recognizeSpeech.addCategory(Intent.CATEGORY_DEFAULT);
+        pm.addCrossProfileIntentFilter(recognizeSpeech, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, 0);
+
 
         try {
             mIpm.addCrossProfileIntentsForPackage("com.android.settings",
