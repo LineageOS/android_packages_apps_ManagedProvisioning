@@ -20,5 +20,6 @@
     <!-- A list of apps to be retained on the managed device. -->
     <string-array name="required_apps_managed_device">
         <item>com.android.settings</item>
+        <item>com.android.contacts</item>
     </string-array>
 </resources>
