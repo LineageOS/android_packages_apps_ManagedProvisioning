@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import com.android.managedprovisioning.ProvisionLogger;
 
@@ -132,15 +133,15 @@ public class DownloadPackageTask {
 
         if (Arrays.equals(mHash, hash)) {
             ProvisionLogger.logd(HASH_TYPE + "-hashes matched, both are "
-                    + byteArrayToHex(hash));
+                    + byteArrayToString(hash));
             mDownloadLocationTo = location;
             mCallback.onSuccess();
         } else {
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file does not match given hash.");
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file: "
-                    + byteArrayToHex(hash));
+                    + byteArrayToString(hash));
             ProvisionLogger.loge(HASH_TYPE + "-hash provided by programmer: "
-                    + byteArrayToHex(mHash));
+                    + byteArrayToString(mHash));
 
             mCallback.onError(ERROR_HASH_MISMATCH);
         }
@@ -216,12 +217,8 @@ public class DownloadPackageTask {
     }
 
     // For logging purposes only.
-    String byteArrayToHex(byte[] ba) {
-        StringBuilder sb = new StringBuilder();
-        for(byte b : ba) {
-            sb.append(String.format("%02x", b&0xff));
-        }
-        return sb.toString();
+    String byteArrayToString(byte[] ba) {
+        return Base64.encodeToString(ba, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
     public abstract static class Callback {
