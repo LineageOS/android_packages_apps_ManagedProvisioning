@@ -23,6 +23,8 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 
+import java.lang.Thread;
+
 import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.WifiConfig;
@@ -31,6 +33,10 @@ import com.android.managedprovisioning.WifiConfig;
  * Adds a wifi network to system.
  */
 public class AddWifiNetworkTask implements NetworkMonitor.Callback {
+    private static final int RETRY_SLEEP_DURATION_BASE_MS = 500;
+    private static final int RETRY_SLEEP_MULTIPLIER = 2;
+    private static final int MAX_RETRIES = 6;
+
     private final Context mContext;
     private final String mSsid;
     private final boolean mHidden;
@@ -44,6 +50,10 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
 
     private WifiManager mWifiManager;
     private NetworkMonitor mNetworkMonitor;
+    private WifiConfig mWifiConfig;
+
+    private int mDurationNextSleep = RETRY_SLEEP_DURATION_BASE_MS;
+    private int mRetriesLeft = MAX_RETRIES;
 
     public AddWifiNetworkTask(Context context, String ssid, boolean hidden, String securityType,
             String password, String proxyHost, int proxyPort, String proxyBypassHosts,
@@ -59,6 +69,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mProxyBypassHosts = proxyBypassHosts;
         mPacUrl = pacUrl;
         mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+        mWifiConfig = new WifiConfig(mWifiManager);
     }
 
     public void run() {
@@ -77,6 +88,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
                 mCallback.onError();
                 return;
             }
+
             connectToProvidedNetwork();
         } else {
             mCallback.onSuccess();
@@ -84,15 +96,28 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     }
 
     private void connectToProvidedNetwork() {
-        WifiConfig wifiConfig = new WifiConfig(mWifiManager);
-
-        int netId = wifiConfig.addNetwork(mSsid, mHidden, mSecurityType, mPassword, mProxyHost,
+        int netId = mWifiConfig.addNetwork(mSsid, mHidden, mSecurityType, mPassword, mProxyHost,
                 mProxyPort, mProxyBypassHosts, mPacUrl);
 
         if (netId == -1) {
             ProvisionLogger.loge("Failed to save network.");
-            mCallback.onError();
-            return;
+            if (mRetriesLeft > 0) {
+                ProvisionLogger.loge("Retrying in " + mDurationNextSleep + " ms.");
+                try {
+                    Thread.sleep(mDurationNextSleep);
+                } catch (InterruptedException e) {
+                    ProvisionLogger.loge("Retry interrupted.");
+                }
+                mDurationNextSleep *= RETRY_SLEEP_MULTIPLIER;
+                mRetriesLeft--;
+                connectToProvidedNetwork();
+                return;
+            } else {
+                ProvisionLogger.loge("Already retried " +  MAX_RETRIES + " times."
+                        + " Quit retrying and report error.");
+                mCallback.onError();
+                return;
+            }
         } else {
             if (!mWifiManager.reconnect()) {
                 ProvisionLogger.loge("Unable to connect to wifi");
