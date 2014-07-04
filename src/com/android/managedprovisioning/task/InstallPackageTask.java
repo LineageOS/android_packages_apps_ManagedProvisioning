@@ -74,9 +74,11 @@ public class InstallPackageTask {
                     Global.PACKAGE_VERIFIER_ENABLE, 1);
             Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0);
 
+            Uri packageUri = Uri.parse("file://" + mPackageLocation);
+
             // Allow for replacing an existing package.
             // Needed in case this task is performed multiple times.
-            mPm.installPackage(Uri.parse(mPackageLocation), observer,
+            mPm.installPackage(packageUri, observer,
                     /* flags */ PackageManager.INSTALL_REPLACE_EXISTING, mContext.getPackageName());
         } else {
             // Error should have been reported in packageContentIsCorrect().

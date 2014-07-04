@@ -201,17 +201,17 @@ public class DownloadPackageTask {
             //Unregister receiver.
             mContext.unregisterReceiver(mReceiver);
             mReceiver = null;
+        }
 
-            //Remove download.
-            DownloadManager dm = (DownloadManager) mContext
-                    .getSystemService(Context.DOWNLOAD_SERVICE);
-            boolean removeSuccess = dm.remove(mDownloadId) == 1;
-            if (removeSuccess) {
-                ProvisionLogger.logd("Successfully removed the device owner installer file.");
-            } else {
-                ProvisionLogger.loge("Could not remove the device owner installer file.");
-                // Ignore this error. Failing cleanup should not stop provisioning flow.
-            }
+        //Remove download.
+        DownloadManager dm = (DownloadManager) mContext
+                .getSystemService(Context.DOWNLOAD_SERVICE);
+        boolean removeSuccess = dm.remove(mDownloadId) == 1;
+        if (removeSuccess) {
+            ProvisionLogger.logd("Successfully removed the device owner installer file.");
+        } else {
+            ProvisionLogger.loge("Could not remove the device owner installer file.");
+            // Ignore this error. Failing cleanup should not stop provisioning flow.
         }
     }
 
