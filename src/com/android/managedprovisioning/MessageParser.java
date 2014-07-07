@@ -39,6 +39,7 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -233,25 +234,11 @@ public class MessageParser {
 
     public static byte[] stringToByteArray(String s)
         throws NumberFormatException {
-        int l = s.length();
-        if (l%2!=0) {
-            throw new NumberFormatException("Hex String should have even length.");
+        try {
+            return Base64.decode(s, Base64.URL_SAFE);
+        } catch (IllegalArgumentException e) {
+            throw new NumberFormatException("Incorrect checksum format.");
         }
-        byte[] data = new byte[l / 2];
-        for (int i = 0; i < l; i += 2) {
-            int firstDigit = Character.digit(s.charAt(i), 16);
-            if (firstDigit<0) {
-                throw new NumberFormatException("Hex String contains invalid character " +
-                        s.charAt(i));
-            }
-            int secondDigit = Character.digit(s.charAt(i+1), 16);
-            if (secondDigit<0) {
-                throw new NumberFormatException("Hex String contains invalid character " +
-                        s.charAt(i+1));
-            }
-            data[i / 2] = (byte) (( firstDigit << 4) + secondDigit);
-        }
-        return data;
     }
 
     public static Locale stringToLocale(String s)

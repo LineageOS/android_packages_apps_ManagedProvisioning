@@ -18,7 +18,9 @@ package com.android.managedprovisioning;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Base64;
 import java.util.Locale;
+
 
 /**
  * Provisioning Parameters for DeviceOwner Provisioning
@@ -55,10 +57,8 @@ public class ProvisioningParams implements Parcelable {
     }
 
     public String getDeviceAdminPackageChecksumAsString() {
-        StringBuilder sb = new StringBuilder(mDeviceAdminPackageChecksum.length * 2);
-        for(byte b: mDeviceAdminPackageChecksum)
-            sb.append(String.format("%02x", b & 0xff));
-        return sb.toString();
+        return Base64.encodeToString(mDeviceAdminPackageChecksum,
+                Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
     @Override
