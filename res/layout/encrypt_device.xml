@@ -36,35 +36,26 @@
             <TextView
                 android:text="@string/encrypt_device_text"
                 style="@style/SetupWorkSpaceMainText"/>
-            <TextView
-                android:id="@+id/warning_low_charge"
-                android:text="@string/encrypt_device_low_charge_text"
-                android:textStyle="bold"
-                android:visibility="gone"
-                style="@style/SetupWorkSpaceMainText"/>
-            <TextView
-                android:id="@+id/warning_unplugged"
-                android:text="@string/encrypt_device_unplugged_text"
-                android:textStyle="bold"
-                android:visibility="gone"
-                style="@style/SetupWorkSpaceMainText"/>
-            <RelativeLayout
+            <View
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_gravity="bottom"
-                android:layout_weight="1">
+                android:layout_weight="1" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
                 <Button
                     android:id="@+id/cancel_button"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/encrypt_device_cancel"/>
                 <Button
                     android:id="@+id/accept_button"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:text="@string/encrypt_device_confirm"
+                    android:layout_centerVertical="true"
+                    android:text="@string/encrypt_device_launch_settings"
                     style="@style/SetupButton"/>
             </RelativeLayout>
         </LinearLayout>

@@ -51,10 +51,9 @@
       You cannot create a second one. </string>
 
   <!-- Strings shown on prompt for user to encrypt and reboot the device -->
-  <string name="encrypt_device_text">To continue, restart your device so it can be encrypted. This may take some time.</string>
-  <string name="encrypt_device_confirm">Restart</string>
+  <string name="encrypt_device_text">To continue click to go to settings to encrypt your device. This may take some time.</string>
   <string name="encrypt_device_cancel">Cancel</string>
-  <string name="encrypt_device_launch_settings">Encrypt Device</string>
+  <string name="encrypt_device_launch_settings">Settings</string>
 
   <!-- Warning strings that will be displayed when encryption cannot be started -->
   <string name="encrypt_device_low_charge_text">Charge your battery and try again.</string>
