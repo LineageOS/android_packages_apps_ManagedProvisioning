@@ -45,6 +45,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.IllformedLocaleException;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -151,6 +152,9 @@ public class MessageParser {
         } catch (NumberFormatException e) {
             throw new ParseException("Incorrect numberformat.",
                     R.string.device_owner_error_parse_fail, e);
+        } catch (IllformedLocaleException e) {
+            throw new ParseException("Invalid locale.",
+                    R.string.device_owner_error_parse_fail, e);
         }
     }
 
@@ -242,11 +246,7 @@ public class MessageParser {
     }
 
     public static Locale stringToLocale(String s)
-        throws NumberFormatException {
-        if (s.length() == 5) {
-            return new Locale(s.substring(0, 2), s.substring(3, 5));
-        } else {
-            throw new NumberFormatException("The locale code is not 5 characters long.");
-        }
+        throws IllformedLocaleException {
+        return new Locale.Builder().setLanguageTag(s.replace("_", "-")).build();
     }
 }
