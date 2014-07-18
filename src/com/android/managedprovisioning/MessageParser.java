@@ -16,7 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
@@ -28,6 +27,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_NFC_MIME_TYPE;
@@ -37,6 +37,7 @@ import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -76,8 +77,61 @@ import java.util.Properties;
  * {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}.
  * A typical use case would be the {@link BootReminder} sending the intent after device encryption
  * and reboot.
+ *
+ * <p>
+ * Furthermore this class can construct the bundle of extras for the second kind of intent, and it
+ * keeps track of the types of the extras in the DEVICE_OWNER_x_EXTRAS, with x the appropriate type.
  */
 public class MessageParser {
+    protected static final String[] DEVICE_OWNER_STRING_EXTRAS = {
+        EXTRA_PROVISIONING_TIME_ZONE,
+        EXTRA_PROVISIONING_LOCALE,
+        EXTRA_PROVISIONING_WIFI_SSID,
+        EXTRA_PROVISIONING_WIFI_SECURITY_TYPE,
+        EXTRA_PROVISIONING_WIFI_PASSWORD,
+        EXTRA_PROVISIONING_WIFI_PROXY_HOST,
+        EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
+        EXTRA_PROVISIONING_WIFI_PAC_URL,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
+    };
+
+    protected static final String[] DEVICE_OWNER_LONG_EXTRAS = {
+        EXTRA_PROVISIONING_LOCAL_TIME
+    };
+
+    protected static final String[] DEVICE_OWNER_INT_EXTRAS = {
+        EXTRA_PROVISIONING_WIFI_PROXY_PORT
+    };
+
+    protected static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
+        EXTRA_PROVISIONING_WIFI_HIDDEN
+    };
+
+    public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
+        bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.mTimeZone);
+        bundle.putString(EXTRA_PROVISIONING_LOCALE, params.getLocaleAsString());
+        bundle.putString(EXTRA_PROVISIONING_WIFI_SSID, params.mWifiSsid);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.mWifiSecurityType);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, params.mWifiPassword);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.mWifiProxyHost);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.mWifiProxyBypassHosts);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.mWifiPacUrl);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+                params.mDeviceAdminPackageName);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+                params.mDeviceAdminPackageDownloadLocation);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+                params.getDeviceAdminPackageChecksumAsString());
+
+        bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.mLocalTime);
+
+        bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.mWifiProxyPort);
+
+        bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.mWifiHidden);
+    }
+
     public ProvisioningParams parseIntent(Intent intent) throws ParseException {
         ProvisionLogger.logi("Processing intent.");
         if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
@@ -116,32 +170,35 @@ public class MessageParser {
             props.load(new StringReader(data));
 
             String s; // Used for parsing non-Strings.
-            params.mDeviceAdminPackageName
-                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
             params.mTimeZone
                     = props.getProperty(EXTRA_PROVISIONING_TIME_ZONE);
-            if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
-                params.mLocalTime = Long.parseLong(s);
-            }
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCALE)) != null) {
                 params.mLocale = stringToLocale(s);
             }
             params.mWifiSsid = props.getProperty(EXTRA_PROVISIONING_WIFI_SSID);
-            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
-                params.mWifiHidden = Boolean.parseBoolean(s);
-            }
             params.mWifiSecurityType = props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
             params.mWifiPassword = props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD);
             params.mWifiProxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
-            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
-                params.mWifiProxyPort = Integer.parseInt(s);
-            }
             params.mWifiProxyBypassHosts = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
             params.mWifiPacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
+            params.mDeviceAdminPackageName
+                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
             params.mDeviceAdminPackageDownloadLocation
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
                 params.mDeviceAdminPackageChecksum = stringToByteArray(s);
+            }
+
+            if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
+                params.mLocalTime = Long.parseLong(s);
+            }
+
+            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
+                params.mWifiProxyPort = Integer.parseInt(s);
+            }
+
+            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
+                params.mWifiHidden = Boolean.parseBoolean(s);
             }
 
             checkValidityOfProvisioningParams(params);
@@ -163,31 +220,34 @@ public class MessageParser {
         ProvisionLogger.logi("Processing intent.");
         ProvisioningParams params = new ProvisioningParams();
 
-        params.mDeviceAdminPackageName
-                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         params.mTimeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
-        params.mLocalTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
-                ProvisioningParams.DEFAULT_LOCAL_TIME);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
         if (localeString != null) {
             params.mLocale = stringToLocale(localeString);
         }
         params.mWifiSsid = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID);
-        params.mWifiHidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
-                ProvisioningParams.DEFAULT_WIFI_HIDDEN);
         params.mWifiSecurityType = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
         params.mWifiPassword = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PASSWORD);
         params.mWifiProxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
-        params.mWifiProxyPort = intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-                ProvisioningParams.DEFAULT_WIFI_PROXY_PORT);
         params.mWifiProxyBypassHosts = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
         params.mWifiPacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
+        params.mDeviceAdminPackageName
+                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         params.mDeviceAdminPackageDownloadLocation
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
         String hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (hashString != null) {
             params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
         }
+
+        params.mLocalTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
+                ProvisioningParams.DEFAULT_LOCAL_TIME);
+
+        params.mWifiProxyPort = intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
+                ProvisioningParams.DEFAULT_WIFI_PROXY_PORT);
+
+        params.mWifiHidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
+                ProvisioningParams.DEFAULT_WIFI_HIDDEN);
 
         checkValidityOfProvisioningParams(params);
         return params;
