@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"ກຳ​ລັງ​ຈັດ​ການ..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"​ຕັ້ງ​ຄ່າ​ພື້ນ​ທີ່​ບ່ອນ​ເຮັດວຽກ"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"ຕັ້ງ​​ຄ່າ​ພື້ນ​ທີ່​ບ່ອນ​ເຮັດ​ວຽກ​ແຍກ​ອອກ​ຈາກ​ພື້ນ​ທີ່​ສ່ວນ​ໂຕ​ຂອງ​ທ່ານ"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"ບໍ​ລິ​ສັດ​ຂອງ​ທ່ານ​ຄວບ​ຄຸມ​​ພື້ນ​ທີ່​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ​ໃນ​ອຸ​ປະ​ກອນ​ນີ້ ແລະ​ຮັກ​ສາ​ຄວາມ​ປອດ​ໄພ​ໃຫ້​ກັບ​ມັນ. ທ່ານ​ຄວບ​ຄຸມ​ພື້ນ​ທີ່​ສ່ວນ​ໂຕ​ຂອງ​ທ່ານ ເຊິ່ງ​ບໍ​ລິ​ສັດ​ຂອງ​ທ່ານ​ບໍ່​ສາ​ມາດ​ເຂົ້າ​ເຖິງ​ໄດ້."</string>
+    <string name="set_up" msgid="7012862095553564169">"ຕັ້ງຄ່າ"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"​ຕັ້ງ​ຄ່າ​ພື້ນ​ທີ່​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"ໂປຣ​ໄຟລ໌​​ບ່ອ​ນ​ເຮັດ​ວຽກ​ທີ່​ມີ​ການ​ຈັດ​ການ"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"ທ່ານ​ມີ​ໂປຣ​ໄຟລ໌ທີ່​ມີ​ການ​ຈັດ​ການ​ຢູ່​ກ່ອນ​ແລ້ວ. ທ່ານບໍ່​ສາ​ມາດ​ສ້າງ​ອັນ​ທີ​ສອງ​ໄດ້."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"ເພື່ອ​ສືບ​ຕໍ່, ໃຫ້​ຄ​ລິກ​​ເພື່ອ​ໄປ​ທີ່​ການ​ຕັ້ງ​ຄ່າ​ເພື່ອ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ. ຂັ້ນ​ຕອນ​ນີ້​​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"​ຍົກ​ເລີກ"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"ການ​ຕັ້ງ​ຄ່າ"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"ສາກແບັດເຕີຣີຂອງທ່ານ ແລ້ວລອງອີກຄັ້ງ."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"​ກະ​ລຸ​ນາ​ສຽບ​ສາຍ​ສາກ​ຂອງ​ທ່ານ​ແລ້ວ​ລອງ​ໃໝ່​ອີກ​ເທື່ອ​ນຶ່ງ."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Managed provisioning"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"​ສືບ​ຕໍ່​​ດ້ວຍ managed provisioning"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"ອຸຍ!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"ການ​ຈັດ​ການ​ອຸ​ປະ​ກອນ​ລົ້ມ​ເຫລວ. ກະ​ລຸ​ນາ​ລອງ​ໃໝ່​ໃນ​ພາຍຫຼັງ!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ຂໍ​ອະ​ໄພ, ອຸ​ປະ​ກອນ​ນີ້ບໍ່​ຮອງ​ຮັບໂປຣ​ໄຟລ໌ທີ່​ມີ​ການ​ຈັດ​ການ."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"ຜູ່​ໃຊ້​ຂອງ​ອຸ​ປະ​ກອນ​ທີ່​​ມີ​ການຈັດ​ການ"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່ຫາ Wi-Fi."</string>
+    <string name="progress_download" msgid="3065988740843233820">"​ກຳ​ລັງ​ດາວ​ໂຫລດແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​."</string>
+    <string name="progress_install" msgid="1550693880279090395">"ກຳ​ລັງ​ຕິດ​ຕັ້ງແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"​ຕັ້ງ​ຄ່າ​​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"ການ​ຈັດ​ການ​ລົ້ມ​ເຫລວ"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"ຢຸດ​ການ​ຈັດ​​ການບໍ?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"​ທ່ານ​ແນ່​ໃຈ​ບໍ່​ວ່າ​ຕ້ອງການ​ຢຸດ​ການຈັດ​ການ ແລະ​ໃຫ້​ຣີ​ເຊັດ​ຄ່າ​ຈາກ​ໂຮງ​ງານ​ໃນ​ອຸ​ປະ​ກອນ? ການ​ຣີ​ເຊັດ​ຄ່າ​ຈາກ​ໂຮງ​ງານ​ອາດ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"​ຍົກ​ເລີກ"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ຕົກລົງ"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"ຣີເຊັດ"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"ເກີດ​ຄວາມ​ຜິດ​ພາດ​ຂຶ້ນ."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"ອຸ​ປະ​ກອນ​ດັ່ງ​ກ່າວ​ຖືກ​ຈັດ​ການ​ຢູ່​ກ່ອນ​ແລ້ວ."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"ອຸ​ປະ​ກອນ​ດັ່ງ​ກ່າວ​​ເປັນ​ເຈົ້າ​ຂອງ​ໂດຍ​​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ​ອື່ນ​ຢູ່​ແລ້ວ."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"ການ​ປະ​ມວນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ​ຜູ່​ເບິ່ງ​ແຍງ​ອຸ​ປະ​ກອນ​ລົ້ມ​ເຫລວ. ​ກະ​ລຸ​ນາ​ກວດ​ສອບ​ວ່າ​ຂໍ້​ມູນ​ຖືກ​ສົ່ງ​ອອກ​ຢ່າງ​ຖືກ​ຕ້ອງ​ແລ້ວ."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"ບໍ່​ມີ​ຊື່ແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​​ລະ​ບຸ."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"ບໍ່​ພົບ checksum ສຳ​ລັບ​ການ​ຢືນ​ຢັນ​​ຂອງແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​ທີ່​ດາ​ວ​ໂຫລດ​ມາ​ທີ່​ລະ​ບຸ."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"ບໍ່​ສາ​ມາດ​ເຊື່ອມ​ຕໍ່ Wi-Fi ໄດ້."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"ການກວດ​ສອບ​ຄວາມ​ຄົບ​ຖ້ວນ​ຂອງ​ຂໍ້​ມູນ​ລົ້ມ​ເຫລວ. Checksum ຂອງ​ໄຟລ໌​ທີ່​ດາ​ວ​ໂຫລດ​ມາບໍ່​ກົງ​ກັບ checksum ທີ່​ລະ​ບຸ​ໃຫ້​ໂດຍ​ແອັບຯ​ໂປຣ​ແກຣມ​ເມີ."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"ບໍ່​ສາ​ມາ​ດ​ດາວ​ໂຫລດ​​ແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​ໄດ້."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"ໄຟລ໌ແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​ບໍ່​ມີ​ແພັກ​ເກດ​ ແລະ/ຫຼື ສ່ວນ​ປະ​ກອບທີ່​ຕ້ອງ​ການ"</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"ການ​​ຕິດ​ຕັ້ງ​ຂອງ​ແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​ລົ້ມ​ເຫລວ."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"ແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​ທີ່​ລະ​ບຸບໍ່​ໄດ້​ມີ​ຕິດ​ຕັ້ງ​ໃນ​ອຸ​ປະ​ກອນ."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"ແພັກ​ເກດ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ​​ທີ່​ລະ​ບຸ​ນັ້ນ​ບໍ່​​ມີ​ໂຕ​ຮັບ​ຂໍ້​ມູນ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ອຸ​ປະ​ກອນ."</string>
+</resources>
