@@ -65,7 +65,7 @@ public class DeleteNonRequiredAppsTask {
 
         for (String packageName : packagesToDelete) {
             try {
-                mIpm.setApplicationBlockedSettingAsUser(packageName, true, mUserId);
+                mIpm.setApplicationHiddenSettingAsUser(packageName, true, mUserId);
             } catch (RemoteException neverThrown) {
                 // Never thrown, as we are making local calls.
                 ProvisionLogger.loge("This should not happen.", neverThrown);
