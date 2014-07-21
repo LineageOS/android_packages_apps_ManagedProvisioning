@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Podmiot obsługujący urządzenie administracyjnie"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Włączam obsługę administracyjną..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Konfigurowanie pamięci do pracy"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Skonfiguruj pamięć do pracy oddzielną od Twojej pamięci osobistej"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"Twoja firma kontroluje obszar pamięci przeznaczony do pracy na tym urządzeniu i dba o jego bezpieczeństwo. Ty masz kontrolę nad pamięcią osobistą na tym urządzeniu. Twoja firma nie ma do niej dostępu."</string>
+    <string name="set_up" msgid="7012862095553564169">"Skonfiguruj"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Konfigurowanie pamięci do pracy"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Zarządzany profil do pracy"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Masz już profil zarządzany. Nie możesz utworzyć drugiego."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"Aby kontynuować, kliknij, by otworzyć ustawienia i zaszyfrować urządzenie. To może trochę potrwać."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Anuluj"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Ustawienia"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Naładuj baterię i spróbuj ponownie."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Podłącz ładowarkę i spróbuj ponownie."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Zarządzana obsługa administracyjna"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Kontynuuj z zarządzaną obsługą administracyjną"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Ups!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Obsługa administracyjna nie powiodła się. Spróbuj ponownie później."</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"To urządzenie nie obsługuje profilów zarządzanych."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Użytkownik urządzenia zarządzanego"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Przetwarzanie danych konfiguracyjnych."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Łączenie z Wi-Fi."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Pobieranie pakietu administratora urządzenia."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Instalowanie pakietu administratora urządzenia."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Ustawianie właściciela urządzenia."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Obsługa administracyjna nie powiodła się"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Czy zatrzymać obsługę administracyjną?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Czy na pewno chcesz zatrzymać obsługę administracyjną i przywrócić na urządzeniu ustawienia fabryczne? To może trochę potrwać."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Anuluj"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Zresetuj"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Wystąpił błąd."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"To urządzenie jest już obsługiwane administracyjnie."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"To urządzenie ma już innego właściciela."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Przetwarzanie danych konfiguracji administratora urządzenia nie powiodło się. Sprawdź, czy dane zostały przesłane prawidłowo."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Nie podano nazwy pakietu administratora urządzenia."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Nie podano sumy kontrolnej do zweryfikowania pobranego pakietu administratora urządzenia."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Nie można połączyć się z Wi-Fi."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Sprawdzanie integralności danych nie powiodło się. Suma kontrolna pobranego pliku nie odpowiada sumie kontrolnej podanej przez programistę aplikacji."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Nie można pobrać pakietu administratora urządzenia."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Plik pakietu administratora urządzenia nie zawiera wymaganego pakietu i/lub składników."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Instalowanie pakietu administratora urządzenia nie powiodło się."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Określony pakiet administratora urządzenia nie jest zainstalowany na urządzeniu."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Do określonego pakietu administratora urządzenia nie jest przypisany administrator urządzenia."</string>
+</resources>
