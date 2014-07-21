@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"डिव्‍हाइस तरतूदकर्ता"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"तरतूद..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"कार्य स्‍थान सेट करा"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"आपल्‍या वैयक्तिक स्‍थानापासून एक वेगळे कार्य स्‍थान सेट करा"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"आपली कंपनी या डिव्‍हाइसवरील आपले कार्य स्‍थान नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्‍या वैयक्तिक स्‍थानावर नियंत्रण ठेवा. आपली कंपनी त्यावर प्रवेश करु शकत नाही."</string>
+    <string name="set_up" msgid="7012862095553564169">"सेट अप"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"आपले कार्य स्‍थान सेट करीत आहे"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"व्यवस्थापित केलेले कार्य प्रोफाईल"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"आपल्‍याकडे आधीपासूनच व्यवस्थापित केलेले प्रोफाईल आहे. आपण दुसरे तयार करू शकत नाही."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"आपले डिव्हाइस कूटबद्ध करण्याकरिता सुरू ठेवण्यासाठी सेटिंग्ज वर जा क्लिक करा. यास काही वेळ लागू शकतो."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द करा"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"सेटिंग्ज"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"आपली बॅटरी चार्ज करा आणि पुन्हा प्रयत्न करा."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"आपला चार्जर प्लग इन करा आणि पुन्हा प्रयत्न करा."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"व्यवस्थापित केलेली तरतूद"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"व्यवस्थापित केलेल्‍या तरतूद सह सुरू ठेवा"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"अरेरे!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"डिव्‍हाइस तरतूद अयशस्‍वी झाली. कृपया नंतर पुन्‍हा प्रयत्न करा!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"क्षमस्व, व्यवस्थापित केलेले प्रोफाईल या डिव्हाइसवर समर्थित नाहीत."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"व्यवस्थापित केलेल्‍या डिव्‍हाइसचा वापरकर्ता"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"सेटअप डेटावर प्रक्रिया करीत आहे."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"WiFi ला कनेक्ट करीत आहे."</string>
+    <string name="progress_download" msgid="3065988740843233820">"डिव्‍हाइस प्रशासक पॅकेज डाउनलोड करीत आहे."</string>
+    <string name="progress_install" msgid="1550693880279090395">"डिव्‍हाइस प्रशासक पॅकेज स्‍थापित करीत आहे."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"डिव्हाइस मालक सेट करीत आहे."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"तरतूद अयशस्वी झाली"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"तरतूद थांबवायची?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"आपल्‍याला खात्री आहे की आपण तरतूद थांबवू आणि डिव्‍हाइस फॅक्‍टरी रीसेट करु इच्‍छिता? फॅक्‍टरी रीसेटला थाडा वेळ लागू शकतो."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द करा"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ठिक आहे"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"रीसेट करा"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"एक त्रुटी आली."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"डिव्‍हाइसची आधीपासून तरतूद केली आहे."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"हिव्‍हाइस आधीपासून दुसर्‍या डिव्‍हाइस मालकाच्‍या मालकीचे आहे."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"डिव्‍हाइस प्रशासक सेटअप डेटावर प्रक्रिया करणे अयशस्‍वी झाले. कृपया डेटा योग्यरित्या पाठविला हे तपासा."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"कोणतेही डिव्‍हाइस प्रशासक पॅकेज नाव प्रदान केले नाही."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"डाउनलोड केलेल्‍या डिव्‍हाइस प्रशासक पॅकेजच्या सत्यापनासाठी कोणतेही checksum प्रदान केले नाही."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"WiFi शी कनेक्‍ट करु शकले नाही."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"डेटा एकात्मता तपासणी अयशस्‍वी झाली. डाउनलोड केलेल्‍या फाईलचे Checksum हे प्रोग्रामर अ‍ॅपद्वारे प्रदान केलेल्‍या checksum शी जुळत नाही."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"डिव्‍हाइस प्रशासक पॅकेज डाउनलोड करु शकले नाही."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"डिव्‍हाइस प्रशासक पॅकेज फाईल मध्‍ये आवश्‍यक असलेले पॅकेज आणि/किंवा भाग नसतात."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"डिव्‍हाइस प्रशासक पॅकेजचे स्‍थापित करणे अयशस्‍वी झाले."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"निर्दिष्‍ट केलेले डिव्‍हाइस प्रशासक पॅकेज डिव्‍हाइसवर स्‍थापित केले नाही."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"निर्दिष्‍ट केलेल्‍या डिव्‍हाइस प्रशासक पॅकेजमध्‍ये डिव्‍हाइस प्रशासक प्राप्तकर्ता गहाळ आहे."</string>
+</resources>

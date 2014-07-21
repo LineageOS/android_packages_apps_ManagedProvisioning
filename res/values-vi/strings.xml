@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Nhà cấp phép thiết bị"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Đang cấp phép..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Thiết lập không gian làm việc"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Thiết lập một không gian làm việc riêng biệt với không gian cá nhân của bạn"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"Công ty của bạn kiểm soát không gian làm việc của bạn trên thiết bị này và giữ cho không gian làm việc đó an toàn. Bạn kiểm soát không gian cá nhân của mình. Công ty của bạn không thể truy cập vào đó."</string>
+    <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Thiết lập không gian làm việc của bạn"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Hồ sơ công việc được quản lý"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Bạn đã có hồ sơ được quản lý. Bạn không thể tạo hồ sơ thứ hai."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"Để tiếp tục, nhấp để đi đến cài đặt mã hóa thiết bị của bạn. Quá trình này có thể mất vài phút."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Hủy"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Cài đặt"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Sạc pin và thử lại."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Cắm bộ sạc của bạn và thử lại."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Cấp phép được quản lý"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Tiếp tục với quy trình cấp phép được quản lý"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Rất tiếc!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Không cấp phép cho thiết bị được. Vui lòng thử lại sau!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Rất tiếc, hồ sơ được quản lý không được hỗ trợ trên thiết bị này."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Người dùng thiết bị được quản lý"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Xử lý dữ liệu thiết lập."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Kết nối với Wifi."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Tải xuống gói Quản trị thiết bị."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Cài đặt gói Quản trị thiết bị."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Đặt chủ sở hữu thiết bị."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Không cấp phép được"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Bạn có muốn dừng cấp phép?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Bạn có chắc chắn muốn dừng cấp phép và khôi phục thiết bị về cài đặt gốc không? Khôi phục cài đặt gốc có thể mất một khoảng thời gian."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Hủy"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Ok"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Đặt lại"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Đã xảy ra lỗi."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Thiết bị này đã được cấp phép."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Thiết bị này đã thuộc sở hữu của chủ sở hữu thiết bị khác."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Không xử lý được dữ liệu thiết lập quản trị thiết bị. Vui lòng kiểm tra xem dữ liệu đã được gửi đúng cách hay chưa."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Không cung cấp tên gói quản trị thiết bị."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Không cung cấp kiểm tra tổng để xác minh gói quản trị thiết bị đã tải xuống."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Không thể kết nối với wifi."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Không kiểm tra tính toàn vẹn dữ liệu được. Kết quả kiểm tra tổng của tệp đã tải xuống không khớp với kết quả kiểm tra tổng do ứng dụng của nhà lập trình cung cấp."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Không thể tải xuống gói quản trị thiết bị."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Tệp gói quản trị thiết bị không chứa gói và/hoặc các thành phần bắt buộc."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Không cài đặt được gói quản trị thiết bị."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Gói quản trị thiết bị đã chỉ định không được cài đặt trên thiết bị."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Gói quản trị thiết bị được chỉ định bị thiếu trình nhận quản trị thiết bị."</string>
+</resources>
