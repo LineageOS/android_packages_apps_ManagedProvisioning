@@ -29,6 +29,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
@@ -245,7 +246,8 @@ public class ManagedProvisioningActivity extends Activity {
      * user consent to encrypt the device.
      */
     private void checkEncryptedAndStartProvisioningService() {
-        if (EncryptDeviceActivity.isDeviceEncrypted()) {
+        if (EncryptDeviceActivity.isDeviceEncrypted()
+                || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)) {
             // Remove any pre-provisioning UI in favour of progress display
             BootReminder.cancelProvisioningReminder(this);
             mProgressView.setVisibility(View.VISIBLE);
