@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Administrador de dispositius"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"S\'està administrant..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Configuració de l\'espai de treball"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Configura un espai de treball independent de l\'espai personal."</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"La teva empresa controla el teu espai de treball en aquest dispositiu i el protegeix. Tu controles el teu espai personal. L\'empresa no hi pot accedir."</string>
+    <string name="set_up" msgid="7012862095553564169">"Configura"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Configurant l\'espai de treball."</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Perfil de treball gestionat"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Ja tens un perfil gestionat. No pots crear-ne un altre."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"Per continuar, fes clic i vés a la configuració per xifrar el dispositiu. Aquest procés pot tardar una mica."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Cancel·la"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Configuració"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Carrega la bateria i torna-ho a provar."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Endolla el carregador i torna-ho a provar."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Administració gestionada"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Continua amb l\'administració gestionada"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Error"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"S\'ha produït un error durant l\'administració del dispositiu. Torna-ho a provar més tard."</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Els perfils gestionats no són compatibles amb aquest dispositiu."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Usuari de dispositiu gestionat"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Processant les dades de configuració."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Connectant a la xarxa Wi-Fi."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Baixant el paquet d\'admin. del dispositiu."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Instal·lant el paquet d\'admin. del dispos."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Definint el propietari del dispositiu."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Error durant l\'administració"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Vols aturar l\'administració?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Confirmes que vols aturar l\'administració i restablir la configuració de fàbrica del dispositiu? Aquest procés pot tardar una mica."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Cancel·la"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"D\'acord"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Restableix"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"S\'ha produït un error."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Aquest dispositiu ja està administrat."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Aquest dispositiu ja té un altre propietari."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"S\'ha produït un error en processar les dades de configuració de l\'administrador del dispositiu. Comprova que les dades s\'enviïn correctament."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"No s\'ha introduït cap nom de paquet d\'administrador del dispositiu."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"No s\'ha introduït cap suma de comprovació per verificar el paquet d\'administrador del dispositiu que s\'ha baixat."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"No s\'ha pogut connectar a la xarxa Wi-Fi."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"S\'ha produït un error en comprovar la integritat de les dades. La suma de dades del fitxer que s\'ha baixat no coincideix amb la suma de dades de l\'aplicació del programador."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"No s\'ha pogut baixar el paquet d\'administrador del dispositiu."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"El fitxer del paquet d\'administrador del dispositiu no conté el paquet o els components necessaris."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"S\'ha produït un error en instal·lar el paquet d\'administrador del dispositiu."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"El paquet d\'administrador del dispositiu especificat no està instal·lat al dispositiu."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"El paquet d\'administrador del dispositiu especificat no conté cap receptor d\'administrador del dispositiu."</string>
+</resources>

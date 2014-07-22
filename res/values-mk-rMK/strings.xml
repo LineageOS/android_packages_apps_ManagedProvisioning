@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Обезбедувач на уред"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Се обезбедува..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Постави работен простор"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Поставете одделен работен простор од личниот простор"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"Вашата компанија го контролира работниот простор на уредот, а и го чува безбеден. Вие го контролирате приватниот простор. Компанијата не може да му пристапи."</string>
+    <string name="set_up" msgid="7012862095553564169">"Постави"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Поставување на работниот простор"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Управуван работен профил"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Веќе имате управуван профил. Не може да создадете втор."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"За да продолжите, кликнете за да појдете во поставките за дешифрирање на уредот. Тоа може да потрае."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Откажи"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Поставки"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Наполнете ја батеријата и обидете се повторно."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Приклучете го полначот и обидете се повторно."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Управувано обезбедување"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Продолжете со управувано обезбедување"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Оф леле!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Обезбедувањето на уредот не успеа. Обидете се повторно подоцна!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Жал ни е, уредот не поддржува управувани профили."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Корисник на управуван уред"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Обработување податоци за поставување."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Поврзување на Wi-Fi."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Преземање администраторски пакет за уред."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Инсталирање администраторски пакет за уред."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Поставување сопственик на уред."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Обезбедувањето не успеа"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Да запреме со обезбедување?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Дали сте сигурни дека сакате да запрете со обезбедување и уредот да го ресетирате до фабричките ведности? Ресетирањето до фабрички вредности може да потрае."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Откажи"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Во ред"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Ресетирај"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Настана грешка."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Уредот е веќе обезбеден."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Уредот е веќе сопственост на друг сопственик на уред."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Обработувањето податоци од поставувањето администратор за уредот не успеа. Проверете дали податоците се правилно испратени."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Нема наведено име на администраторскиот пакет за уредот."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Нема контролна сума за потврдувањето на преземениот обезбеден администраторски пакет за уредот."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Не можеше да се поврзе со Wi-Fi."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Проверката на целосноста на податоците не успеа. Контролната сума на преземената датотека не се совпаѓа со контролната сума што ја обезбедува програмерската апликација."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Не можеше да се преземе администраторскиот пакет за уредот."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Датотеката на администраторскиот пакет за уредот не ги содржи бараниот пакет и/или компоненти."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Инсталирањето на администраторскиот пакет за уредот не успеа."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Назначениот администраторски пакет за уредот не е инсталиран на уредот."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"На назначениот администраторски пакет за уредот му недостасува администраторски приемник за уред."</string>
+</resources>

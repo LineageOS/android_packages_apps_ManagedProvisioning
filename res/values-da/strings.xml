@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Enhedsklargøring"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Klargører..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Konfiguration af arbejdsområde"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Konfigurer et arbejdsområde, der er adskilt fra dit personlige område"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"Din arbejdsplads kontrollerer dit arbejdsområde på denne enhed og sørger for, at det er sikkert. Du kontrollerer dit personlige område. Din arbejdsplads kan ikke få adgang til det."</string>
+    <string name="set_up" msgid="7012862095553564169">"Konfigurer"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Dit arbejdsområde konfigureres"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Administreret arbejdsprofil"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Du har allerede en administreret profil. Du kan ikke oprette mere end én."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"For at komme videre skal du klikke for at gå til indstillinger og kryptere din enhed. Dette kan tage et stykke tid."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Annuller"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Indstillinger"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Lad dit batteri op, og prøv igen."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Tilslut din oplader, og prøv igen."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Administreret klargøring"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Fortsæt med administreret klargøring"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Hovsa!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Enhedsklargøring mislykkedes. Prøv igen senere."</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Vi beklager, men administrerede profiler understøttes ikke på denne enhed."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Bruger af administreret enhed"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Konfigurationsdata behandles."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wi-Fi-forbindelse oprettes."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Enhedsadministrationspakke downloades."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Enhedsadminstrationspakke installeres."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Enhedsejer angives."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Klargøring mislykkedes"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Vil du standse klargøringem?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Er du sikker på, at du vil standse klargøringen og gendanne enhedens fabriksdata? Gendannelse af fabriksdata kan tage et stykke tid."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Annuller"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Gendan fabriksdata"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Der opstod en fejl."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Enheden modtager allerede klargøring."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Enheden tilhører allerede af en anden enhedsejer."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Behandlingen af konfigurationsdata for enhedsadministration mislykkedes. Kontrollér, at dataene sendes korrekt."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Der blev ikke angivet noget navn på enhedsadministrationspakken."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Der er ikke angivet nogen kontrolsum til bekræftelse af den downloadede enhedsadministrationspakke."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Der kunne ikke oprettes forbindelse til Wi-Fi."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Kontrol af dataintegritet mislykkedes. Kontrolsummen for den downloadede fil passer ikke med kontrolsummen fra programmørappen."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Enhedsadministrationspakken kunne ikke downloades."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Enhedsadministrationspakkefilen indeholder ikke den krævede pakke og/eller de krævede komponenter."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Installationen af enhedsadministrationspakke mislykkedes."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Den angivne enhedsadministrationspakke er ikke installeret på enheden."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Den angivne enhedsadministrationspakke har ingen modtager af enhedsadministration."</string>
+</resources>

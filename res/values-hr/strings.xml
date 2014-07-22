@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Pružatelj usluga na uređaju"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Pružanje niza usluga..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Postavljanje radnog prostora"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Postavljanje radnog prostora odvojenog od osobnog prostora"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"Vaša tvrtka kontrolira i štiti vaš radni prostor na ovom uređaju. Vi kontrolirate svoj osobni prostor. Tvrtka mu ne može pristupiti."</string>
+    <string name="set_up" msgid="7012862095553564169">"Postavi"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Postavljanje radnog prostora"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Upravljani radni profil"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Već imate upravljani profil. Ne možete izraditi još jedan."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"Za nastavak kliknite Postavke kako biste kriptirali uređaj. To može potrajati dulje."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Odustani"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Postavke"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Napunite bateriju i pokušajte ponovo."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Uključite punjač i pokušajte ponovo."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Upravljano pružanje niza usluga"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Nastavi s upravljanim pružanjem niza usluga"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Ups!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Pružanje niza usluga za uređaj nije uspjelo Pokušajte ponovo kasnije!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Upravljani profili nisu podržani na ovom uređaju."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Korisnik upravljanog uređaja"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Obrada podataka o postavljanju."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Povezivanje s Wi-Fi-jem."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Preuzimanje administratorskog paketa uređaja."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Instaliranje administratorskog paketa uređaja"</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Postavljanje vlasnika uređaja."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Pružanje niza usluga nije uspjelo"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Želite li prekinuti pružanje niza usluga?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Jeste li sigurni da želite prekinuti pružanje niza usluga i vratiti uređaj na tvorničke postavke? Vraćanje na tvorničke postavke može potrajati dulje."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Odustani"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"U redu"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Vrati na zadano"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Došlo je do pogreške."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Uređaj već ima pružatelja niza usluga."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Uređaj već ima nekog drugog vlasnika."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Obrada podataka administratorskog postavljanja uređaja nije uspjela. Provjerite jesu li podaci ispravno poslani."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Nije naveden naziv administratorskog paketa uređaja."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Nije naveden kontrolni zbroj za potvrdu preuzetog administratorskog paketa uređaja."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Povezivanje s Wi-Fi-jem nije uspjelo."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Provjera integriteta podataka nije uspjela. Kontrolni zbroj preuzete datoteke ne podudara se s kontrolnim zbrojem aplikacije programera."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Administratorski paket uređaja nije preuzet."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Datoteka administratorskog paketa uređaja ne sadrži traženi paket i/ili komponente."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Instaliranje administratorskog paketa uređaja nije uspjelo."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Navedeni administratorski paket uređaja nije instaliran na uređaj."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Navedenom administratorskom paketu uređaja nedostaje administratorski primatelj uređaja."</string>
+</resources>
