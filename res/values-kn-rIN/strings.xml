@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"ಸಾಧನ ಪೂರೈಕೆದಾರ"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"ಒದಗಿಸಲಾಗುತ್ತಿದೆ..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"ಕೆಲಸದ ಸ್ಥಳವನ್ನು ಹೊಂದಿಸಿ"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಸ್ಥಳದಿಂದ ಪ್ರತ್ಯೇಕ ಕೆಲಸದ ಸ್ಥಳವನ್ನು ಹೊಂದಿಸಿ"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"ನಿಮ್ಮ ಕಂಪನಿಯು ಈ ಸಾಧನದಲ್ಲಿ ನಿಮ್ಮ ಕಾರ್ಯ ಸ್ಥಳವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಮತ್ತು ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ. ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಸ್ಥಳವನ್ನು ನೀವು ನಿಯಂತ್ರಿಸುತ್ತೀರಿ. ನಿಮ್ಮ ಕಂಪನಿಗೆ ಅದನ್ನು ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."</string>
+    <string name="set_up" msgid="7012862095553564169">"ಹೊಂದಿಸು"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"ನಿಮ್ಮ ಕೆಲಸದ ಸ್ಥಳವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"ನಿರ್ವಹಿಸಿದ ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"ನೀವು ಈಗಾಗಲೇ ನಿರ್ವಹಿಸಿದ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಹೊಂದಿರುವಿರಿ. ನೀವು ಎರಡನೆಯದನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"ಮುಂದುವರಿಯಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗು ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"ರದ್ದುಮಾಡು"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"ನಿಮ್ಮ ಬ್ಯಾಟರಿಯನ್ನು ಚಾರ್ಜ್‌ ಮಾಡಿ ಹಾಗೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"ನಿಮ್ಮ ಚಾರ್ಜರ್ ಅನ್ನು ಪ್ಲಗ್ ಮಾಡಿ ಹಾಗೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"ನಿರ್ವಹಿಸಿದ ಪೂರೈಕೆ"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"ನಿರ್ವಹಿಸಿದ ಪೂರೈಕೆಯಿಂದ ಮುಂದುವರೆಯಿರಿ"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"ಓಹ್!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"ಸಾಧನ ಪೂರೈಸುವಿಕೆ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ಕ್ಷಮಿಸಿ, ನಿರ್ವಹಿಸಿದ ಪ್ರೊಫೈಲ್‌ಗಳು ಈ ಸಾಧನದಲ್ಲಿ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"ನಿರ್ವಹಿಸಿದ ಸಾಧನದ ಬಳಕೆದಾರ"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"ಸೆಟಪ್ ಡೇಟಾವನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"WiFi ಗೆ ಸಂಪರ್ಕಪಡಿಸಲಾಗುತ್ತಿದೆ."</string>
+    <string name="progress_download" msgid="3065988740843233820">"ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ."</string>
+    <string name="progress_install" msgid="1550693880279090395">"ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"ಸಾಧನ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"ಪೂರೈಕೆ ವಿಫಲವಾಗಿದೆ"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"ಪೂರೈಕೆಯನ್ನು ನಿಲ್ಲಿಸಲು ಬಯಸುವಿರಾ?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"ನೀವು ಸಾಧನಕ್ಕೆ ಪೂರೈಕೆಯನ್ನು ನಿಲ್ಲಿಸಲು ಮತ್ತು ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸಲು ಖಚಿತವಾಗಿದ್ದೀರಾ? ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸುವಿಕೆ ಸ್ವಲ್ಪ ಸಮಯವನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ರದ್ದುಮಾಡು"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ಸರಿ"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"ಮರುಹೊಂದಿಸು"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"ದೋಷ ಸಂಭವಿಸಿದೆ."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"ಸಾಧನವನ್ನು ಈಗಾಗಲೇ ಪೂರೈಸಲಾಗಿದೆ."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"ಸಾಧನವು ಈಗಾಗಲೇ ಮತ್ತೊಂದು ಸಾಧನದ ಮಾಲೀಕರ ಮಾಲೀಕತ್ವದಲ್ಲಿದೆ."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"ಸಾಧನ ನಿರ್ವಹಣೆ ಸೆಟಪ್ ಡೇಟಾ ಪ್ರಕ್ರಿಯೆ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಡೇಟಾವನ್ನು ಸರಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆಯೇ ಎಂಬುದನ್ನು ಪರೀಕ್ಷಿಸಿ."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"ಯಾವುದೇ ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್ ಹೆಸರನ್ನು ಒದಗಿಸಿಲ್ಲ."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"ಒದಗಿಸಿರುವ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲಿ ಪರಿಶೀಲನೆಗಾಗಿ ಯಾವುದೇ ಚೆಕ್ಸಮ್ ಇಲ್ಲ."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"wifi ಗೆ ಸಂಪರ್ಕಹೊಂದಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"ಡೇಟಾ ಸಮಗ್ರತೆ ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ. ಪ್ರೊಗ್ರಾಮರ್ ಅಪ್ಲಿಕೇಶನ್ ಒದಗಿಸಿದ ಚೆಕ್ಸಮ್‌ಗೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಫೈಲ್‌ನ ಚೆಕ್ಸಮ್ ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್ ಫೈಲ್ ಅಗತ್ಯವಿರುವ ಪ್ಯಾಕೇಜ್ ಮತ್ತು/ಅಥವಾ ಅಂಶಗಳನ್ನು ಹೊಂದಿಲ್ಲ."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್‌ನ ಸ್ಥಾಪನೆ ವಿಫಲವಾಗಿದೆ."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"ಸಾಧನದಲ್ಲಿ ನಿರ್ದಿಷ್ಟಪಡಿಸಿದ ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿಲ್ಲ."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"ನಿರ್ದಿಷ್ಟಪಡಿಸಿದ ಸಾಧನ ನಿರ್ವಹಣೆ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲಿ ಸಾಧನ ನಿರ್ವಹಣೆ ಸ್ವೀಕೃತಿದಾರರು ಕಾಣೆಯಾಗಿದ್ದಾರೆ."</string>
+</resources>

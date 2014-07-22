@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"ผู้จัดสรรอุปกรณ์"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"กำลังจัดสรร..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"ตั้งค่าพื้นที่ทำงาน"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"ตั้งค่าพื้นที่ทำงานแยกจากพื้นที่ส่วนตัวของคุณ"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"บริษัทของคุณควบคุมพื้นที่การทำงานบนอุปกรณ์นี้ และรักษาความปลอดภัยของข้อมูล คุณควบคุมพื้นที่ส่วนตัว บริษัทจะไม่สามารถเข้าถึงได้"</string>
+    <string name="set_up" msgid="7012862095553564169">"ตั้งค่า"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"กำลังตั้งค่าพื้นที่ทำงานของคุณ"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"โปรไฟล์งานที่มีการจัดการ"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"คุณมีโปรไฟล์ที่มีการจัดการอยู่แล้ว ไม่สามารถสร้างโปรไฟล์ที่สองได้"</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"หากต้องการดำเนินการต่อ ให้คลิกเพื่อไปยังการตั้งค่าและเข้ารหัสอุปกรณ์ของคุณ ซึ่งขั้นตอนนี้อาจใช้เวลาพอสมควร"</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"ยกเลิก"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"การตั้งค่า"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"ชาร์จแบตเตอรี่และลองอีกครั้ง"</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"เสียบที่ชาร์จของคุณ แล้วลองอีกครั้ง"</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"การจัดสรรที่มีการจัดการ"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"ใช้การจัดสรรที่มีการจัดการต่อ"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"อ๊ะ!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"การจัดสรรอุปกรณ์ล้มเหลว โปรดลองอีกครั้งในภายหลัง!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ขออภัย โปรไฟล์ที่มีการจัดการไม่ได้รับการสนุบสนุนบนอุปกรณ์นี้"</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"ผู้ใช้อุปกรณ์ที่มีการจัดการ"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"กำลังดำเนินการข้อมูลการตั้งค่า"</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"กำลังเชื่อมต่อ Wi-Fi"</string>
+    <string name="progress_download" msgid="3065988740843233820">"กำลังดาวน์โหลดแพ็กเกจผู้ดูแลอุปกรณ์"</string>
+    <string name="progress_install" msgid="1550693880279090395">"กำลังติดตั้งแพ็กเกจผู้ดูแลอุปกรณ์"</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"กำลังตั้งเจ้าของอุปกรณ์"</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"การจัดสรรล้มเหลว"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"ต้องการหยุดการจัดสรรไหม"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"คุณต้องการหยุดการจัดสรรและรีเซ็ตอุปกรณ์เป็นค่าเริ่มต้นจากโรงงานไหม การรีเซ็ตเป็นค่าเริ่มต้นจากโรงงานอาจใช้เวลาพอสมควร"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ยกเลิก"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ตกลง"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"รีเซ็ต"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"เกิดข้อผิดพลาด"</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"อุปกรณ์มีการจัดสรรแล้ว"</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"อุปกรณ์นี้เป็นของเจ้าของอุปกรณ์อื่นแล้ว"</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"การดำเนินการข้อมูลการตั้งค่าผู้ดูแลอุปกรณ์ล้มเหลว โปรดตรวจสอบว่าได้ส่งข้อมูลอย่างถูกต้องแล้ว"</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"ไม่ได้ระบุชื่อแพ็กเกจผู้ดูแลอุปกรณ์"</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"ไม่ได้ระบุ Checksum สำหรับการยืนยันแพ็กเกจผู้ดูแลอุปกรณ์ที่ดาวน์โหลด"</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"ไม่สามารถเชื่อมต่อ Wi-Fi"</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"การตรวจสอบความสมบูรณ์ของข้อมูลล้มเหลว Checksum ของไฟล์ที่ดาวน์โหลดไม่ตรงกับ Checksum ที่แอปของโปรแกรมเมอร์ระบุ"</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"ไม่สามารถดาวน์โหลดแพ็กเกจผู้ดูแลอุปกรณ์"</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"ไฟล์แพ็กเกจผู้ดูแลอุปกรณ์ไม่มีแพ็กเกจและ/หรือส่วนประกอบที่กำหนด"</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"การติดตั้งแพ็กเกจผู้ดูแลอุปกรณ์ล้มเหลว"</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"ไม่ได้ติดตั้งแพ็กเกจผู้ดูแลอุปกรณ์ที่กำหนดบนอุปกรณ์"</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"แพ็กเกจผู้ดูแลอุปกรณ์ที่ระบุไม่มีตัวรับผู้ดูแลอุปกรณ์"</string>
+</resources>

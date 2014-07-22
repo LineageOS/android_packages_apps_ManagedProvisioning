@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Gailuaren hornitzailea"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Hornitzen…"</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"Konfiguratu lan-eremua"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"Konfiguratu lan-eremu bat eremu pertsonaletik bereiz"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"Zure enpresak gailu honen lan-eremua kontrolatzen eta babesten du. Zuk zeure eremu pertsonala kontrolatzen duzu eta enpresak ezin du atzitu."</string>
+    <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"Lan-eremua konfiguratzen"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Kudeatutako laneko profila"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Baduzu kudeatutako profil bat. Ezin duzu beste bat sortu."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"Jarraitzeko, egin klik ezarpenetara joateko eta gailua enkriptatzeko. Enkriptatze-prozesuak minutu batzuk iraun ditzake."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Utzi"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Ezarpenak"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Kargatu bateria eta saiatu berriro."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Entxufatu kargagailua eta saiatu berriro."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Kudeatutako horniketa"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Jarraitu kudeatutako horniketarekin"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Arazo bat izan da."</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Ezin izan da gailua hornitu. Saiatu berriro geroago."</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Gailu honek ez ditu kudeatutako profilak onartzen."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Kudeatutako gailuaren erabiltzailea"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Konfigurazio-datuak prozesatzen."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wi-Fi sarera konektatzen."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Gailuaren administrazio-paketea deskargatzen."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Gailuaren administrazio-paketea instalatzen."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Gailuaren jabea ezartzen."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Ezin izan da hornitu"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Hornitzeari utzi nahi diozu?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Ziur gailua hornitzeari utzi nahi diozula eta bere jatorrizko datuak berrezarri nahi dituzula? Berrezartzea nahiko luza daiteke."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Utzi"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Ados"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Berrezarri"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Errore bat gertatu da."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Gailua hornituta dago dagoeneko."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Gailuak beste jabe bat du dagoeneko."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Ezin izan dira prozesatu gailuaren administrazio-paketeko konfigurazio-datuak. Egiaztatu datuak behar bezala bidali direla."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Ez da eman gailuaren administrazio-paketearen izenik."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Ez da eman kontroleko baturarik deskargatutako gailuaren administrazio-paketea egiaztatzeko."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Ezin izan da Wi-Fi sarera konektatu."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Ezin izan da datuen osotasuna egiaztatu. Deskargatutako fitxategiaren kontroleko batura ez dator bat programatzailearen aplikazioak emandakoarekin."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Ezin izan da deskargatu gailuaren administrazio-paketea."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Gailuaren administrazio-paketearen fitxategiak ez du beharrezko paketerik edota osagairik."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Ezin izan da instalatu gailuaren administrazio-paketea."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Zehaztutako gailuaren administrazio-paketea ez dago instalatuta gailuan."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Zehaztutako gailuaren administrazio-paketeak ez du hartzailerik."</string>
+</resources>

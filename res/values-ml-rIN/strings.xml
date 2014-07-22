@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"ഉപകരണ പ്രൊവിഷണർ"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"പ്രൊവിഷൻ ചെയ്യുന്നു..."</string>
+    <string name="setup_work_space" msgid="6826878997161717819">"ഔദ്യോഗിക ഇടം സജ്ജീകരിക്കുക"</string>
+    <string name="separate_work_spaces" msgid="9010306043449887261">"നിങ്ങളുടെ സ്വകാര്യ ഇടത്തിൽ നിന്ന് ഒരു പ്രത്യേക ഔദ്യോഗിക ഇടം സജ്ജീകരിക്കുക"</string>
+    <string name="company_controls_workspace" msgid="4879871870932531025">"ഈ ഉപകരണത്തിൽ നിങ്ങളുടെ ഔദ്യോഗിക ഇടം കമ്പനി നിയന്ത്രിച്ച് അത് സുരക്ഷിതമായി നിലനിർത്തുന്നു. നിങ്ങളുടെ സ്വകാര്യ ഇടം നിങ്ങൾ നിയന്ത്രിക്കുക. ഇത് കമ്പനിക്ക് ആക്‌സസ്സുചെയ്യാനാകില്ല."</string>
+    <string name="set_up" msgid="7012862095553564169">"സജ്ജീകരിക്കുക"</string>
+    <string name="setting_up_workspace" msgid="314943758749000570">"നിങ്ങളുടെ ഔദ്യോഗിക ഇടം സജ്ജീകരിക്കുന്നു"</string>
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"നിയന്ത്രിത ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"നിങ്ങൾക്ക് ഇതിനകം ഒരു നിയന്ത്രിത പ്രൊഫൈലുണ്ട്. നിങ്ങൾക്ക് രണ്ടാമതൊന്ന് സൃ‌ഷ്‌ടിക്കാനാവില്ല."</string>
+    <string name="encrypt_device_text" msgid="186837930061240296">"തുടരുന്നതിന്, നിങ്ങളുടെ ഉപകരണം എൻക്രിപ്‌റ്റുചെയ്യുന്നതിനായി ക്രമീകരണങ്ങളിലേക്ക് പോകാൻ ക്ലിക്കുചെയ്യുക. ഇതിന് കുറച്ച് സമയമെടുക്കാം."</string>
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"റദ്ദാക്കുക"</string>
+    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"ക്രമീകരണങ്ങൾ"</string>
+    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"നിങ്ങളുടെ ബാറ്ററി ചാർജ്ജുചെയ്‌തതിനുശേഷം വീണ്ടും ശ്രമിക്കുക."</string>
+    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"നിങ്ങളുടെ ചാർജർ പ്ലഗ്ഗുചെയ്‌ത് വീണ്ടും ശ്രമിക്കുക."</string>
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"നിയന്ത്രിത പ്രൊവിഷൻ ചെയ്യൽ"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"നിയന്ത്രിത പ്രൊവിഷൻ ചെയ്യലിൽ തുടരുക"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"ക്ഷമിക്കണം!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"ഉപകരണം പ്രൊവിഷൻ ചെയ്യൽ പരാജയപ്പെട്ടു. പിന്നീട് വീണ്ടും ശ്രമിക്കുക!"</string>
+    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ക്ഷമിക്കണം, നിയന്ത്രിത പ്രൊഫൈലുകളെ ഈ ഉപകരണത്തിൽ പിന്തുണയ്‌ക്കില്ല."</string>
+    <string name="default_owned_device_username" msgid="7518518266589187045">"നിയന്ത്രിത ഉപകരണത്തിന്റെ ഉപയോക്താവ്"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"സജ്ജീകരണ ഡാറ്റ പ്രോസസ്സുചെയ്യുന്നു."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wifi-ലേക്ക് കണ‌ക്‌റ്റുചെയ്യുന്നു."</string>
+    <string name="progress_download" msgid="3065988740843233820">"ഉപകരണ അഡ്‌മിൻ പാക്കേജ് ഡൗൺലോഡുചെയ്യുന്നു."</string>
+    <string name="progress_install" msgid="1550693880279090395">"ഉപകരണ അഡ്‌മിൻ പാക്കേജ് ഇൻസ്‌റ്റാളുചെയ്യുന്നു."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"ഉപകരണ ഉടമയെ സജ്ജീകരിക്കുന്നു."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"പ്രൊവിഷൻ ചെയ്യൽ പരാജയപ്പെട്ടു"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"പ്രൊവിഷൻ ചെയ്യൽ അവസാനിപ്പിക്കണോ?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"പ്രൊവിഷൻ ചെയ്യൽ നിർത്തി ഉപകരണം ഫാക്‌ടറി പുനഃസജ്ജമാക്കണമെന്ന് തീർച്ചയാണോ? ഫാക്‌ടറി പുനഃസജ്ജീകരണത്തിന് അൽപ്പസമയമെടുക്കാം."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"റദ്ദാക്കുക"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ശരി"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"പുനഃസജ്ജമാക്കുക"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"ഒരു പിശകുണ്ടായി."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"ഉപകരണം ഇതിനകം പ്രൊവിഷൻ ചെയ്‌തു."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"മറ്റൊരു ഉപകരണ ഉടമസ്ഥൻ ഉപകരണം ഇതിനകം സ്വന്തമാക്കി."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"ഉപകരണ അഡ്‌മിൻ സജ്ജീകരണ ഡാറ്റ പ്രോസസ്സുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു. ഡാറ്റ ശരിയായ രീതിയിലാണോ അയച്ചതെന്ന് പരിശോധിക്കുക."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"ഉപകരണ അഡ്‌മിൻ പാക്കേജിന്റെ പേരൊന്നും നൽകിയിട്ടില്ല."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"ഡൗൺലോഡുചെയ്‌ത ഉപകരണ അഡ്‌മിൻ പാക്കേജിന്റെ പരിശോധിച്ചുറപ്പിക്കലിനായി ചെ‌ക്ക്സമ്മൊന്നും നൽകിയിട്ടില്ല."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"wifi-ലേക്ക് കണക്‌റ്റുചെയ്യാനായില്ല."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"ഡാറ്റ സംയോജിപ്പിക്കൽ പരിശോധന പരാജയപ്പെട്ടു. ഡൗൺലോഡുചെ‌യ്‌ത ഫയലിന്റെ ചെ‌ക്ക്‌സം, പ്രോഗ്രാമർ അപ്ലിക്കേഷൻ നൽകിയ ചെ‌ക്ക്‌സ‌മ്മുമായി പൊരുത്തപ്പെടുന്നില്ല."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"ഉപകരണ അഡ്‌മിൻ പാക്കേജ് ഡൗൺലോഡുചെയ്യാനായില്ല."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"ഉപകരണ അഡ്‌മിൻ പാക്കേജ് ഫയലിൽ ആവശ്യമായ പാക്കേജ് കൂടാതെ/അല്ലെങ്കിൽ ഘടകങ്ങളൊന്നും അടങ്ങിയിട്ടില്ല."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"ഉപകരണ അഡ്‌മിൻ പാക്കേജിന്റെ ഇൻസ്‌റ്റാളേഷൻ പരാജയപ്പെട്ടു."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"ഉപകരണത്തിൽ നിർദ്ദിഷ്‌ട ഉപകരണ അഡ്‌മിൻ പാക്കേജ് ഇൻസ്‌റ്റാളുചെയ്‌തിട്ടില്ല."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"ഒരു ഉപകരണ അഡ്‌മിൻ സ്വീകർത്താവിന് നിർദ്ദിഷ്‌ട ഉപകരണ അഡ്‌മിൻ പാക്കേജ് നഷ്‌ടമായിരിക്കുന്നു."</string>
+</resources>
