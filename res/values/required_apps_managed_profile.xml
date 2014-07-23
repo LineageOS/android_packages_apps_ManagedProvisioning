@@ -20,5 +20,6 @@
     <!-- A list of apps to be retained in the managed profile. -->
     <string-array name="required_apps_managed_profile">
         <item>com.android.contacts</item>
+        <item>com.android.settings</item>
     </string-array>
 </resources>
