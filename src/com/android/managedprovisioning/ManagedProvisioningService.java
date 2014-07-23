@@ -390,16 +390,6 @@ public class ManagedProvisioningService extends Service {
         recognizeSpeech.addCategory(Intent.CATEGORY_DEFAULT);
         pm.addCrossProfileIntentFilter(recognizeSpeech, mManagedProfileUserInfo.id,
                 UserHandle.USER_OWNER, 0);
-
-
-        try {
-            mIpm.addCrossProfileIntentsForPackage("com.android.settings",
-                    mManagedProfileUserInfo.id,
-                    Process.myUserHandle().getIdentifier());
-        } catch (RemoteException neverThrown) {
-            // If the package manager is not working, we've got bigger problems.
-            ProvisionLogger.loge("This should not happen.", neverThrown);
-        }
     }
 
     /**
