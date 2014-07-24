@@ -19,8 +19,10 @@ package com.android.managedprovisioning;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
@@ -70,6 +72,7 @@ public class ManagedProvisioningActivity extends Activity {
     private BroadcastReceiver mServiceMessageReceiver;
     private boolean mUserConsented;
 
+    private View mContentView;
     private View mMainTextView;
     private View mProgressView;
 
@@ -102,18 +105,11 @@ public class ManagedProvisioningActivity extends Activity {
         }
 
         final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.user_consent, null);
-        mMainTextView = contentView.findViewById(R.id.main_text_container);
-        mProgressView = contentView.findViewById(R.id.progress_container);
-        setContentView(contentView);
-        setMdmIcon(mMdmPackageName, contentView);
-
-        // Don't continue if a managed profile already exists
-        if (alreadyHasManagedProfile()) {
-            showErrorAndClose(R.string.managed_profile_already_present,
-                    "The device already has a managed profile, nothing to do.");
-            return;
-        }
+        mContentView = inflater.inflate(R.layout.user_consent, null);
+        mMainTextView = mContentView.findViewById(R.id.main_text_container);
+        mProgressView = mContentView.findViewById(R.id.progress_container);
+        setContentView(mContentView);
+        setMdmIcon(mMdmPackageName, mContentView);
 
         // Don't continue if the caller tries to skip user consent without permission.
         boolean needsPermission = getIntent().hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING);
@@ -123,12 +119,24 @@ public class ManagedProvisioningActivity extends Activity {
             return;
         }
 
+        // If there is already a managed profile, allow the user to cancel or delete it.
+        int existingManagedProfileUserId = alreadyHasManagedProfile();
+        if (existingManagedProfileUserId != -1) {
+            showManagedProfileExistsDialog(existingManagedProfileUserId);
+        } else {
+            showStartProvisioningScreen();
+        }
+    }
+
+    private void showStartProvisioningScreen() {
+
         // Skip the user consent if user has previously consented.
-        mUserConsented = getIntent().getBooleanExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING, false);
+        mUserConsented = getIntent().getBooleanExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING,
+                false);
         if (mUserConsented) {
             checkEncryptedAndStartProvisioningService();
         } else {
-            Button positiveButton = (Button) contentView.findViewById(R.id.positive_button);
+            Button positiveButton = (Button) mContentView.findViewById(R.id.positive_button);
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -284,15 +292,74 @@ public class ManagedProvisioningActivity extends Activity {
               .show(getFragmentManager(), "ErrorDialogFragment");
     }
 
-    boolean alreadyHasManagedProfile() {
+    /**
+     * @return The User id of an already existing managed profile or -1 if none
+     * exists
+     */
+    int alreadyHasManagedProfile() {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         List<UserInfo> profiles = userManager.getProfiles(getUserId());
         for (UserInfo userInfo : profiles) {
-            if (userInfo.isManagedProfile()) return true;
+            if (userInfo.isManagedProfile()) {
+                return userInfo.getUserHandle().getIdentifier();
+            }
         }
-        return false;
+        return -1;
     }
 
+    /**
+     * Builds a dialog that allows the user to remove an existing managed profile after they were
+     * shown an additional warning.
+     */
+    private void showManagedProfileExistsDialog(
+            final int existingManagedProfileUserId) {
+
+        // Before deleting, show a warning dialog
+        DialogInterface.OnClickListener warningListener =
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Really delete the profile if the user clicks delete on the warning dialog.
+                final DialogInterface.OnClickListener deleteListener =
+                        new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        UserManager userManager =
+                                (UserManager) getSystemService(Context.USER_SERVICE);
+                        userManager.removeUser(existingManagedProfileUserId);
+                        showStartProvisioningScreen();
+                    }
+                };
+                buildDeleteManagedProfileDialog(
+                        getString(R.string.sure_you_want_to_delete_profile),
+                        deleteListener).show();
+            }
+        };
+
+        buildDeleteManagedProfileDialog(
+                getString(R.string.managed_profile_already_present),
+                warningListener).show();
+    }
+
+    private AlertDialog buildDeleteManagedProfileDialog(String message,
+            DialogInterface.OnClickListener deleteListener) {
+        DialogInterface.OnClickListener cancelListener =
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ManagedProvisioningActivity.this.finish();
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message)
+        .setPositiveButton(getString(R.string.delete_profile),
+                deleteListener)
+                .setNegativeButton(getString(R.string.cancel_delete_profile),
+                        cancelListener);
+
+        return builder.create();
+    }
     /**
      * Exception thrown when the managed provisioning has failed completely.
      *
