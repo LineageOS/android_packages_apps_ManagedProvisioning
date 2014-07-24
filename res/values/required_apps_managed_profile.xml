@@ -21,5 +21,7 @@
     <string-array name="required_apps_managed_profile">
         <item>com.android.contacts</item>
         <item>com.android.settings</item>
-    </string-array>
+        <item>com.android.providers.downloads</item>
+        <item>com.android.providers.downloads.ui</item>
+        </string-array>
 </resources>

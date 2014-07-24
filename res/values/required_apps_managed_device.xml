@@ -21,5 +21,7 @@
     <string-array name="required_apps_managed_device">
         <item>com.android.settings</item>
         <item>com.android.contacts</item>
+        <item>com.android.providers.downloads</item>
+        <item>com.android.providers.downloads.ui</item>
     </string-array>
 </resources>
