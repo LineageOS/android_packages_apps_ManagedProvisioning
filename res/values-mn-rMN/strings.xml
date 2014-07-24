@@ -21,23 +21,21 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Төхөөрөмжийн Нийлүүлэгч"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"Нийлүүлж байна..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"Ажлын орчинг тохируулах"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"Өөрийн хувийн орчноос тусад нь ажлын зайг үүсгэнэ үү"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"Таны компани энэ төхөөрөмж дээрх таны ажлын орчинг хянаж аюулгүй байдлыг ханганад. Та өөрийн хувийн орчинг хянах бөгөөд компани хандалт хийх эрхгүй байга."</string>
+    <string name="setup_work_space" msgid="216766502284671082">"Өөрийн ажлын профайлыг тохируулах"</string>
+    <string name="separate_work_spaces" msgid="6546838303732855541">"Өөрийн хувийн профайлаас тусдаа ажлын профайл үүсгэх"</string>
+    <string name="company_controls_workspace" msgid="7634429976877738142">"Таны компани энэ төхөөрөмж дээрх таны ажлын профайлыг хянаж аюулгүй байдлыг хангана. Та өөрийн хувийн профайлыг хянах бөгөөд компани үүнд хандалт хийх эрхгүй."</string>
     <string name="set_up" msgid="7012862095553564169">"Тохируулах"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"Таны ажлын орон зайг тохируулж байна"</string>
+    <string name="setting_up_workspace" msgid="7542736602939254517">"Таны ажлын профайлыг тохируулж байна"</string>
     <string name="default_managed_profile_name" msgid="8627413301040841724">"Удирдсан ажлын профайл"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"Танд удирдсан профайл аль хэдийн байна. Та хоёрдохыг үүсгэх боломжгүй."</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"Үргэлжлүүлэхийн тулд тохиргоо руу явахыг товшиж, төхөөрөмжөө шифрлээрэй. Үүнд хэсэг хугацаа орж болно."</string>
+    <string name="encrypt_device_text" msgid="1823426228543576774">"Тохируулгыг үргэлжлүүлэхийн тулд та төхөөрөмжийг шифрлэх шаардлагатай. Үүнд нэлээн хугацаа орж болно."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Цуцлах"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Тохиргоо"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Зайгаа цэнэглээд дахин оролдоно уу."</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Цэнэглэгчээ залгаад дахин оролдоно уу."</string>
+    <string name="encrypt_device_launch_settings" msgid="5923879547331953153">"Дараах"</string>
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Удирдсан провижн"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Удирдсан провижныг үргэлжлүүлэх"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Алдаа!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Төхөөрөмжийн провижн амжилтгүй. Дараа дахин оролдоно уу!"</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Уучлаарай, удирдсан профайлууд энэ төхөөрөмж дээр дэмжигдээгүй байна."</string>
+    <string name="managed_provisioning_not_supported" msgid="8992544222080804433">"Уучлаарай, ажлын профайлууд энэ төхөөрөмж дээр дэмжигдээгүй байна."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Удирдсан төхөөрөмжийн хэрэглэгч"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"Тохируулах датаг боловсруулж байна."</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wifi руу холбогдож байна."</string>

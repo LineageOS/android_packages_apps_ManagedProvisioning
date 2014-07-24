@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Peruntukan Peranti"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Memperuntukkan..."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
+    <string name="set_up" msgid="7012862095553564169">"Sediakan"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Profil peruntukan yang diurus"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Anda sudah pun mempunyai profil yang diurus. Anda tidak boleh membuat profil kedua."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Batal"</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Peruntukan yang diurus"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Teruskan dengan peruntukan yang diurus"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Op!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Peruntukan peranti telah gagal. Sila cuba sebentar lagi!"</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Pengguna peranti yang diurus"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Memproses data persediaan."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Menyambung ke Wifi."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Memuat turun pakej Pentadbir Peranti."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Memasang pakej Pentadbir Peranti."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Menetapkan Pemilik Peranti."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Peruntukan telah gagal"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Hentikan peruntukan?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Adakah anda pasti anda mahu menghentikan peruntukan dan membuat tetapan semula kilang pada peranti? Tetapan semula kilang boleh mengambil sedikit masa."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Batal"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Ok"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Tetapkan semula"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Ralat telah berlaku."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Peranti ini sudah pun diperuntukkan."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Peranti ini sudah pun dimiliki oleh pemilik peranti lain."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Pemprosesan data persediaan pentadbir peranti telah gagal. Sila pastikan bahawa data dihantar dengan betul."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Tiada nama pakej pentadbir peranti disediakan."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Tiada kiraan jumlah untuk pengesahan pakej pentadbir peranti yang dimuat turun disediakan."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Tidak dapat menyambung ke wifi."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Semakan integriti data telah gagal. Kiraan jumlah fail yang dimuat turun tidak sepadan dengan kiraan jumlah yang diberikan oleh apl pengatur cara."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Tidak dapat memuat turun pakej pentadbir peranti."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Fail pakej pentadbir peranti tidak mengandungi pakej dan/atau komponen yang diperlukan."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Pemasangan pakej pentadbir peranti telah gagal."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Pakej pentadbir peranti yang dinyatakan tidak dipasang pada peranti."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Pakej pentadbir peranti yang dinyatakan tidak mempunyai penerima pentadbir peranti."</string>
+</resources>

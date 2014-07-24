@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Provisioning..."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
+    <string name="set_up" msgid="7012862095553564169">"创建"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"托管企业资料"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"您已有托管个人资料，不能再创建第二个。"</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"取消"</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"托管配置"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"继续进行托管配置"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"糟糕！"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"设备配置失败，请稍后重试！"</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
+    <string name="default_owned_device_username" msgid="7518518266589187045">"托管设备的用户"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"正在处理设置数据。"</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"正在连接到WLAN。"</string>
+    <string name="progress_download" msgid="3065988740843233820">"正在下载设备管理软件包。"</string>
+    <string name="progress_install" msgid="1550693880279090395">"正在安装设备管理软件包。"</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"正在设置设备所有者。"</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"配置失败"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"要停止配置吗？"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"确定要停止配置并让该设备恢复出厂设置吗？恢复出厂设置可能需要一段时间才能完成。"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"取消"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"确定"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"重置"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"出现错误。"</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"该设备已配置完毕。"</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"该设备已由另一位设备所有者拥有。"</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"设备管理设置数据处理失败，请检查数据是否已正确发送。"</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"未提供设备管理软件包名称。"</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"未提供用于验证已下载设备管理软件包的校验和。"</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"无法连接到WLAN。"</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"数据完整性校验失败。已下载文件的校验和与编程工具应用提供的校验和不一致。"</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"无法下载设备管理软件包。"</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"设备管理软件包文件未包含所需的软件包和/或组件。"</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"设备管理软件包安装失败。"</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"设备上未安装指定的设备管理软件包。"</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"指定的设备管理软件包缺少设备管理接收者。"</string>
+</resources>

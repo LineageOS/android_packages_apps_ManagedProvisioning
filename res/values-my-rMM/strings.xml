@@ -21,23 +21,28 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"ကိရိယာကို စီမံဆောင်ရွက်ပေးသူ"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"စီမံဆောင်ရွက်ပေးနေ..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"အလုပ်နေရာကို စဖွင့်သတ်မှတ်ရန်"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"အလုပ်နေရာ တစ်ခုကို သင်၏ ကိုယ်ပိုင် နေရာမှ သီးသန့် စဖွင့်သတ်မှတ်ရန်"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"သင်၏ ကုမ္ပဏီသည် ဒီကိရိယာ ထဲက သင်၏ လုပ်ကိုင်မှု နေရာကို ထိန်းချုပ်ထားကာ ၎င်းကို လုံခြုံအောင် ထားပေးသည်။ သင်သည် သင်၏ ကိုယ်ပိုင် နေရာကို ထိန်းချုပ်ထားသည်။ သင်၏ ကုမ္ပဏီက အဲဒါကို မရယူနိင်ပါ။"</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"စဖွင့်သတ်မှတ်ရန်"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"သင်၏ အလုပ်နေရာကို စဖွင့်သတ်မှတ်နေ"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"စီမံထားသည့် အလုပ် ပရိုဖိုင်"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"သင့်ဆီမှာ စီမံကွပ်ကဲခံ ပရိုဖိုင် ရှိနှင့်နေပြီ။ သင်သည် ဒုတိယ တစ်ခုကို ဖန်တီး မရနိုင်ပါ။"</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"ဆက်လုပ်ကိုင်ရန် အတွက် သင့် ကိရိယာကို လျှို့ဝှက်ကုဒ်သွင်းရန် ဆက်တင်ဆီကို သွားဖို့ ကလစ်လိုက်ပါ။ ဒါဟာ အချိန် အနည်းငယ် ကြာနိုင်သည်။"</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ပယ်ဖျက်ရန်"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"ဆက်တင်များ"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"သင့် ဘက်ထရီကို အားသွင်းပြီး ထပ်စမ်းကြည့်ပါ။"</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"သင့် အားသွင်းစက် ပလပ်ထိုးပြီး ထပ်စမ်းကြည့်ပါ။"</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"ကွပ်ကဲပေးသည့် စီမံဆောင်ရွက်မှု"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"ကွပ်ကဲပေးသည့် စီမံဆောင်ရွက်မှုဖြင့် ဆက်လုပ်ကိုင်ရန်"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"အူးပ်စ်!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"ကိရိယာကို စီမံဆောင်ရွက်ပေးမှု မအောင်မြင်ခဲ့ပါ။ ကျေးဇူးပြုပြီး နောက်မှာ ထပ်စမ်းပါ။"</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ဆော်ရီး၊ စီမံကွပ်ကဲခံ ပရိုဖိုင်များကို ဒီကိရိယာ ထဲမှာ ပံ့ပိုးမထားပါ။"</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"စီမံကွပ်ကဲထားသည့် ကိရိယာ၏ အသုံးပြုသူ"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"စဖွင့်သတ်မှတ်မှု ဒေတာကို စီမံလုပ်ကိုင်နေသည်။"</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"ကြိုးမဲ့သို့ ချိတ်ဆက်နေသည်။"</string>
