@@ -21,23 +21,28 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"పరికర కేటాయింపుదారు"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"కేటాయిస్తోంది..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"కార్యాలయ స్థలాన్ని సెటప్ చేయండి"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"మీ వ్యక్తిగత స్థలంలో ప్రత్యేక కార్యాలయ స్థలాన్ని సెటప్ చేయండి"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"మీ కంపెనీ ఈ పరికరంలో మీ కార్యాలయ స్థలాన్ని నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ వ్యక్తిగత స్థలాన్ని నియంత్రించండి. మీ కంపెనీ దాన్ని ప్రాప్యత చేయలేదు."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"సెటప్ చేయి"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"మీ కార్యాలయ స్థలాన్ని సెటప్ చేస్తోంది"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"నిర్వహించబడే కార్యాలయ ప్రొఫైల్"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"మీరు ఇప్పటికే నిర్వహించబడే ప్రొఫైల్‌ను కలిగి ఉన్నారు. మీరు రెండవదాన్ని సృష్టించలేరు."</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"కొనసాగించడానికి మీ పరికరాన్ని గుప్తీకరించడం కోసం సెట్టింగ్‌లకు వెళ్లు క్లిక్ చేయండి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"రద్దు చేయి"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"సెట్టింగ్‌లు"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"మీ బ్యాటరీని ఛార్జ్ చేసి, మళ్లీ ప్రయత్నించండి."</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"మీ ఛార్జర్‌ను ప్లగిన్ చేసి, మళ్లీ ప్రయత్నించండి."</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"నిర్వహించబడే కేటాయింపు"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"నిర్వహించబడే కేటాయింపుతో కొనసాగించండి"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"అయ్యో!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"పరికర కేటాయింపు విఫలమైంది. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి!"</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"క్షమించండి, నిర్వహించబడే ప్రొఫైల్‌లకు ఈ పరికరంలో మద్దతు లేదు."</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"నిర్వహించబడే పరికర వినియోగదారు"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది."</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wifiకి కనెక్ట్ చేస్తోంది."</string>

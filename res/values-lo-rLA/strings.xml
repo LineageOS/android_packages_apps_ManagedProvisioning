@@ -21,23 +21,28 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"ກຳ​ລັງ​ຈັດ​ການ..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"​ຕັ້ງ​ຄ່າ​ພື້ນ​ທີ່​ບ່ອນ​ເຮັດວຽກ"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"ຕັ້ງ​​ຄ່າ​ພື້ນ​ທີ່​ບ່ອນ​ເຮັດ​ວຽກ​ແຍກ​ອອກ​ຈາກ​ພື້ນ​ທີ່​ສ່ວນ​ໂຕ​ຂອງ​ທ່ານ"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"ບໍ​ລິ​ສັດ​ຂອງ​ທ່ານ​ຄວບ​ຄຸມ​​ພື້ນ​ທີ່​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ​ໃນ​ອຸ​ປະ​ກອນ​ນີ້ ແລະ​ຮັກ​ສາ​ຄວາມ​ປອດ​ໄພ​ໃຫ້​ກັບ​ມັນ. ທ່ານ​ຄວບ​ຄຸມ​ພື້ນ​ທີ່​ສ່ວນ​ໂຕ​ຂອງ​ທ່ານ ເຊິ່ງ​ບໍ​ລິ​ສັດ​ຂອງ​ທ່ານ​ບໍ່​ສາ​ມາດ​ເຂົ້າ​ເຖິງ​ໄດ້."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"ຕັ້ງຄ່າ"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"​ຕັ້ງ​ຄ່າ​ພື້ນ​ທີ່​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"ໂປຣ​ໄຟລ໌​​ບ່ອ​ນ​ເຮັດ​ວຽກ​ທີ່​ມີ​ການ​ຈັດ​ການ"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"ທ່ານ​ມີ​ໂປຣ​ໄຟລ໌ທີ່​ມີ​ການ​ຈັດ​ການ​ຢູ່​ກ່ອນ​ແລ້ວ. ທ່ານບໍ່​ສາ​ມາດ​ສ້າງ​ອັນ​ທີ​ສອງ​ໄດ້."</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"ເພື່ອ​ສືບ​ຕໍ່, ໃຫ້​ຄ​ລິກ​​ເພື່ອ​ໄປ​ທີ່​ການ​ຕັ້ງ​ຄ່າ​ເພື່ອ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ. ຂັ້ນ​ຕອນ​ນີ້​​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"​ຍົກ​ເລີກ"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"ການ​ຕັ້ງ​ຄ່າ"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"ສາກແບັດເຕີຣີຂອງທ່ານ ແລ້ວລອງອີກຄັ້ງ."</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"​ກະ​ລຸ​ນາ​ສຽບ​ສາຍ​ສາກ​ຂອງ​ທ່ານ​ແລ້ວ​ລອງ​ໃໝ່​ອີກ​ເທື່ອ​ນຶ່ງ."</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Managed provisioning"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"​ສືບ​ຕໍ່​​ດ້ວຍ managed provisioning"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"ອຸຍ!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"ການ​ຈັດ​ການ​ອຸ​ປະ​ກອນ​ລົ້ມ​ເຫລວ. ກະ​ລຸ​ນາ​ລອງ​ໃໝ່​ໃນ​ພາຍຫຼັງ!"</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ຂໍ​ອະ​ໄພ, ອຸ​ປະ​ກອນ​ນີ້ບໍ່​ຮອງ​ຮັບໂປຣ​ໄຟລ໌ທີ່​ມີ​ການ​ຈັດ​ການ."</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"ຜູ່​ໃຊ້​ຂອງ​ອຸ​ປະ​ກອນ​ທີ່​​ມີ​ການຈັດ​ການ"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ."</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່ຫາ Wi-Fi."</string>

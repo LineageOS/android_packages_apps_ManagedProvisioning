@@ -21,26 +21,31 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Provedor do dispositivo"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"Aprovisionando..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"Configurar o espazo de traballo"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"Configura un espazo de traballo independente do teu espazo persoal"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"A túa empresa controla o teu espazo de traballo neste dispositivo e manteno protexido. Ti controlas o teu espazo persoal. A túa empresa non pode acceder a el."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"Configurar"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"Configurando o teu espazo de traballo"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"Perfil de traballo xestionado"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"Xa tes un perfil xestionado. Non podes crear outro."</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"Para continuar, fai clic para acceder á configuración e cifrar o teu dispositivo. Esta acción pode tardar un pouco."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Cancelar"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Configuración"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Carga a batería e téntao de novo."</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Conecta o cargador e téntao de novo."</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Aprovisionamento xestionado"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Continuar co aprovisionamento xestionado"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Vaia!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Produciuse un erro no aprovisionamento do dispositivo. Téntao de novo máis tarde."</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Non se admiten os perfís xestionados neste dispositivo."</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"Usuario do dispositivo xestionado"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"Procesando datos de configuración."</string>
-    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Contectando coa wifi."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Contectando coa rede wifi."</string>
     <string name="progress_download" msgid="3065988740843233820">"Descargando paquete do dispositivo."</string>
     <string name="progress_install" msgid="1550693880279090395">"Instalando o paquete do dispositivo."</string>
     <string name="progress_set_owner" msgid="6737807046686035799">"Configurando o propietario do dispositivo."</string>
@@ -56,7 +61,7 @@
     <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Produciuse un erro no procesamento dos datos de configuración de administración do dispositivo. Comproba que os datos se envían correctamente."</string>
     <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Non se proporcionou ningún nome do paquete de administración do dispositivo."</string>
     <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Non hai suma de comprobación para a verificación do paquete de administración do dispositivo descargado que se proporcionou."</string>
-    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Non foi posible conectarse á wifi."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Non foi posible conectarse á rede wifi."</string>
     <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Produciuse un erro na comprobación da integridade dos datos. A suma de comprobación do ficheiro descargado non coincide coa suma de comprobación proporcionada pola aplicación do programador."</string>
     <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Non foi posible descargar o paquete de administración do dispositivo."</string>
     <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"O ficheiro do paquete de administración do dispositivo non contén o paquete nin os compoñentes necesarios."</string>
