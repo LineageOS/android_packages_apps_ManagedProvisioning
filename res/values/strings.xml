@@ -23,9 +23,6 @@
 
   <!-- Name of the application [CHAR LIMIT=NONE] -->
   <string name="app_name">Device Provisioner</string>
-  <!-- Title of the main activity for profile owner provisioning. [CHAR LIMIT=NONE] -->
-  <string name="provisioning_title">Provisioning...</string>
-
 
   <!-- Managed profile provisioning flow UI. -->
 
