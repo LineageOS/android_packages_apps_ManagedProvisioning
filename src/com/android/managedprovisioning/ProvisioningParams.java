@@ -48,6 +48,8 @@ public class ProvisioningParams implements Parcelable {
     public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
     public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
 
+    public String mManagedDeviceEmailAddress;
+
     public String getLocaleAsString() {
         if (mLocale != null) {
             return mLocale.getLanguage() + "_" + mLocale.getCountry();
@@ -81,6 +83,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mDeviceAdminPackageName);
         out.writeString(mDeviceAdminPackageDownloadLocation);
         out.writeByteArray(mDeviceAdminPackageChecksum);
+        out.writeString(mManagedDeviceEmailAddress);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -101,6 +104,7 @@ public class ProvisioningParams implements Parcelable {
             params.mDeviceAdminPackageName = in.readString();
             params.mDeviceAdminPackageDownloadLocation = in.readString();
             in.readByteArray(params.mDeviceAdminPackageChecksum);
+            params.mManagedDeviceEmailAddress = in.readString();
             return params;
         }
 

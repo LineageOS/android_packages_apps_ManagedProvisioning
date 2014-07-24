@@ -30,6 +30,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_NFC_MIME_TYPE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -94,7 +95,8 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_PAC_URL,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+        EXTRA_PROVISIONING_EMAIL_ADDRESS
     };
 
     protected static final String[] DEVICE_OWNER_LONG_EXTRAS = {
@@ -124,6 +126,7 @@ public class MessageParser {
                 params.mDeviceAdminPackageDownloadLocation);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 params.getDeviceAdminPackageChecksumAsString());
+        bundle.putString(EXTRA_PROVISIONING_EMAIL_ADDRESS, params.mManagedDeviceEmailAddress);
 
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.mLocalTime);
 
@@ -188,6 +191,7 @@ public class MessageParser {
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
                 params.mDeviceAdminPackageChecksum = stringToByteArray(s);
             }
+            params.mManagedDeviceEmailAddress = props.getProperty(EXTRA_PROVISIONING_EMAIL_ADDRESS);
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
                 params.mLocalTime = Long.parseLong(s);
@@ -239,6 +243,8 @@ public class MessageParser {
         if (hashString != null) {
             params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
         }
+        params.mManagedDeviceEmailAddress
+                = intent.getStringExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS);
 
         params.mLocalTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
                 ProvisioningParams.DEFAULT_LOCAL_TIME);

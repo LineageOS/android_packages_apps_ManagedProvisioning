@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -194,6 +195,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         completeIntent.setPackage(mParams.mDeviceAdminPackageName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                 Intent.FLAG_RECEIVER_FOREGROUND);
+        if (mParams.mManagedDeviceEmailAddress != null) {
+            completeIntent.putExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS,
+                    mParams.mManagedDeviceEmailAddress);
+        }
+
         sendBroadcast(completeIntent);
         finish();
     }
