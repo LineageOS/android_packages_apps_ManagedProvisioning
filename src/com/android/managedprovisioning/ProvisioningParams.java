@@ -30,23 +30,23 @@ public class ProvisioningParams implements Parcelable {
     public static final boolean DEFAULT_WIFI_HIDDEN = false;
     public static final int DEFAULT_WIFI_PROXY_PORT = 0;
 
-    public static String mTimeZone;
-    public static long mLocalTime = DEFAULT_LOCAL_TIME;
-    public static Locale mLocale;
+    public String mTimeZone;
+    public long mLocalTime = DEFAULT_LOCAL_TIME;
+    public Locale mLocale;
 
-    public static String mWifiSsid;
-    public static boolean mWifiHidden = DEFAULT_WIFI_HIDDEN;
-    public static String mWifiSecurityType;
-    public static String mWifiPassword;
-    public static String mWifiProxyHost;
-    public static int mWifiProxyPort = DEFAULT_WIFI_PROXY_PORT;
-    public static String mWifiProxyBypassHosts;
-    public static String mWifiPacUrl;
+    public String mWifiSsid;
+    public boolean mWifiHidden = DEFAULT_WIFI_HIDDEN;
+    public String mWifiSecurityType;
+    public String mWifiPassword;
+    public String mWifiProxyHost;
+    public int mWifiProxyPort = DEFAULT_WIFI_PROXY_PORT;
+    public String mWifiProxyBypassHosts;
+    public String mWifiPacUrl;
 
-    public static String mDeviceAdminPackageName; // Package name of the device admin package.
+    public String mDeviceAdminPackageName; // Package name of the device admin package.
 
-    public static String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
-    public static byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
+    public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
+    public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
 
     public String getLocaleAsString() {
         if (mLocale != null) {

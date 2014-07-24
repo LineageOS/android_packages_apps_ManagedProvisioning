@@ -17,22 +17,6 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.EXTRA_DEVICE_ADMIN;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -136,7 +120,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
         // Ask to encrypt the device before proceeding
         if (!EncryptDeviceActivity.isDeviceEncrypted()) {
-            requestEncryption();
+            requestEncryption(parser);
             finish();
             return;
             // System will reboot. Bootreminder will restart this activity.
@@ -214,31 +198,14 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         finish();
     }
 
-    private void requestEncryption() {
+    private void requestEncryption(MessageParser messageParser) {
         Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
                 EncryptDeviceActivity.class);
 
         Bundle resumeExtras = new Bundle();
         resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
                 EncryptDeviceActivity.TARGET_DEVICE_OWNER);
-
-        resumeExtras.putString(EXTRA_PROVISIONING_TIME_ZONE, mParams.mTimeZone);
-        resumeExtras.putLong(EXTRA_PROVISIONING_LOCAL_TIME, mParams.mLocalTime);
-        resumeExtras.putString(EXTRA_PROVISIONING_LOCALE, mParams.getLocaleAsString());
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SSID, mParams.mWifiSsid);
-        resumeExtras.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, mParams.mWifiHidden);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, mParams.mWifiSecurityType);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, mParams.mWifiPassword);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, mParams.mWifiProxyHost);
-        resumeExtras.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, mParams.mWifiProxyPort);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, mParams.mWifiProxyBypassHosts);
-        resumeExtras.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, mParams.mWifiPacUrl);
-        resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                mParams.mDeviceAdminPackageName);
-        resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-                mParams.mDeviceAdminPackageDownloadLocation);
-        resumeExtras.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                mParams.getDeviceAdminPackageChecksumAsString());
+        messageParser.addProvisioningParamsToBundle(resumeExtras, mParams);
 
         encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
 
