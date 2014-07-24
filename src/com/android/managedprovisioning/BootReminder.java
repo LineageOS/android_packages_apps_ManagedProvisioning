@@ -17,19 +17,6 @@ package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -71,33 +58,6 @@ public class BootReminder extends BroadcastReceiver {
      */
     private static final String DEVICE_OWNER_PREFERENCES_NAME =
             "device-owner-provisioning-resume";
-
-    private static final String[] DEVICE_OWNER_STRING_EXTRAS = {
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-        EXTRA_PROVISIONING_TIME_ZONE,
-        EXTRA_PROVISIONING_LOCALE,
-        EXTRA_PROVISIONING_WIFI_SSID,
-        EXTRA_PROVISIONING_WIFI_SECURITY_TYPE,
-        EXTRA_PROVISIONING_WIFI_PASSWORD,
-        EXTRA_PROVISIONING_WIFI_PROXY_HOST,
-        EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
-        EXTRA_PROVISIONING_WIFI_PAC_URL,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
-    };
-
-    private static final String[] DEVICE_OWNER_LONG_EXTRAS = {
-        EXTRA_PROVISIONING_LOCAL_TIME
-    };
-
-    private static final String[] DEVICE_OWNER_INT_EXTRAS = {
-        EXTRA_PROVISIONING_WIFI_PROXY_PORT
-    };
-
-    private static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
-        EXTRA_PROVISIONING_WIFI_HIDDEN
-    };
 
     private static final ComponentName DEVICE_OWNER_INTENT_TARGET =
             new ComponentName("com.android.managedprovisioning",
@@ -195,10 +155,10 @@ public class BootReminder extends BroadcastReceiver {
 
     private static IntentStore getDeviceOwnerIntentStore(Context context) {
         return new IntentStore(context,
-                DEVICE_OWNER_STRING_EXTRAS,
-                DEVICE_OWNER_LONG_EXTRAS,
-                DEVICE_OWNER_INT_EXTRAS,
-                DEVICE_OWNER_BOOLEAN_EXTRAS,
+                MessageParser.DEVICE_OWNER_STRING_EXTRAS,
+                MessageParser.DEVICE_OWNER_LONG_EXTRAS,
+                MessageParser.DEVICE_OWNER_INT_EXTRAS,
+                MessageParser.DEVICE_OWNER_BOOLEAN_EXTRAS,
                 DEVICE_OWNER_INTENT_TARGET,
                 DEVICE_OWNER_PREFERENCES_NAME);
     }
