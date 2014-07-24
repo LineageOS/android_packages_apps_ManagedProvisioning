@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
+    <string name="provisioning_title" msgid="6689527233198934212">"Дайындау…"</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
+    <string name="set_up" msgid="7012862095553564169">"Реттеу"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
+    <string name="default_managed_profile_name" msgid="8627413301040841724">"Басқарылатын жұмыс профилі"</string>
+    <string name="managed_profile_already_present" msgid="7429072595336780204">"Сізде басқарылатын профиль әлдеқашан бар. Екіншісін жасау мүмкін емес."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
+    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Бас тарту"</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
+    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Басқарылатын дайындау"</string>
+    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Басқарылатын дайындауды жалғастыру"</string>
+    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Ой!"</string>
+    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Құрылғыны дайындау сәтсіз аяқталды. Әрекетті кейінірек қайталаңыз!"</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
+    <string name="default_owned_device_username" msgid="7518518266589187045">"Басқарылатын құрылғының пайдаланушысы"</string>
+    <string name="progress_data_process" msgid="7178995225991058976">"Реттеу деректері өңделуде."</string>
+    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wi-Fi желісіне қосылу орындалуда."</string>
+    <string name="progress_download" msgid="3065988740843233820">"Device Admin бумасы жүктелуде."</string>
+    <string name="progress_install" msgid="1550693880279090395">"Device Admin бумасы орнатылуда."</string>
+    <string name="progress_set_owner" msgid="6737807046686035799">"Құрылғы иесі орнатылуда."</string>
+    <string name="device_owner_error_title" msgid="8729172979790369513">"Дайындау сәтсіз аяқталды"</string>
+    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Дайындауды тоқтату керек пе?"</string>
+    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Дайындауды тоқтату және құрылғының зауыттық параметрлерін қалпына келтіру керек пе? Зауыттық параметрлерді қалпына келтіру біраз уақыт алуы мүмкін."</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Бас тарту"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Жарайды"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Қалпына келтіру"</string>
+    <string name="device_owner_error_general" msgid="7912352652129401036">"Қате орын алды."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Құрылғы дайындалып қойылған."</string>
+    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Құрылғыға әлдеқашан басқа құрылғы иесі иелік етеді."</string>
+    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Құрылғыны басқаруды реттеу деректерін өңдеу сәтсіз аяқталды. Деректер дұрыс жіберілгенін тексеріңіз."</string>
+    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Device admin бумасының атауы көрсетілмеген."</string>
+    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Жүктелген Device admin бумасын верификациялау үшін бақылау сомасы көрсетілмеген."</string>
+    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Wi-Fi желісіне қосылу мүмкін болмады."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Деректер тұтастығын тексеру сәтсіз аяқталды. Жүктелген файлдың бақылау сомасы бағдарламалаушы қолданба берген бақылау сомасына сәйкес емес."</string>
+    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Device admin бумасын жүктеу мүмкін болмады."</string>
+    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Device admin бумасы файлында міндетті бума және/немесе құрамдастар жоқ."</string>
+    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Device admin бумасын орнату сәтсіз аяқталды."</string>
+    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Көрсетілген Device admin бумасы құрылғыда орнатылмаған."</string>
+    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Көрсетілген Device admin бумасында құрылғыны басқару қабылдағышы жоқ."</string>
+</resources>

@@ -21,23 +21,28 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"ผู้จัดสรรอุปกรณ์"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"กำลังจัดสรร..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"ตั้งค่าพื้นที่ทำงาน"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"ตั้งค่าพื้นที่ทำงานแยกจากพื้นที่ส่วนตัวของคุณ"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"บริษัทของคุณควบคุมพื้นที่การทำงานบนอุปกรณ์นี้ และรักษาความปลอดภัยของข้อมูล คุณควบคุมพื้นที่ส่วนตัว บริษัทจะไม่สามารถเข้าถึงได้"</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"ตั้งค่า"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"กำลังตั้งค่าพื้นที่ทำงานของคุณ"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"โปรไฟล์งานที่มีการจัดการ"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"คุณมีโปรไฟล์ที่มีการจัดการอยู่แล้ว ไม่สามารถสร้างโปรไฟล์ที่สองได้"</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"หากต้องการดำเนินการต่อ ให้คลิกเพื่อไปยังการตั้งค่าและเข้ารหัสอุปกรณ์ของคุณ ซึ่งขั้นตอนนี้อาจใช้เวลาพอสมควร"</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ยกเลิก"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"การตั้งค่า"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"ชาร์จแบตเตอรี่และลองอีกครั้ง"</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"เสียบที่ชาร์จของคุณ แล้วลองอีกครั้ง"</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"การจัดสรรที่มีการจัดการ"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"ใช้การจัดสรรที่มีการจัดการต่อ"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"อ๊ะ!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"การจัดสรรอุปกรณ์ล้มเหลว โปรดลองอีกครั้งในภายหลัง!"</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"ขออภัย โปรไฟล์ที่มีการจัดการไม่ได้รับการสนุบสนุนบนอุปกรณ์นี้"</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"ผู้ใช้อุปกรณ์ที่มีการจัดการ"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"กำลังดำเนินการข้อมูลการตั้งค่า"</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"กำลังเชื่อมต่อ Wi-Fi"</string>

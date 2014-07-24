@@ -21,23 +21,28 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Ierīces nodrošinātājs"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"Notiek nodrošināšana..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"Darba vides iestatīšana"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"Iestatiet no savas personīgās vides nošķirtu darba vidi."</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"Jūsu uzņēmums kontrolē un aizsargā jūsu darba vidi šajā ierīcē. Jūs kontrolējat savu personīgo vidi, un jūsu uzņēmums tai nevar piekļūt."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"Iestatīt"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"Notiek darba vides iestatīšana"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"Pārvaldīts darba profils"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"Jums jau ir pārvaldīts profils, un nevarat izveidot otru."</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"Noklikšķiniet, lai pārietu uz iestatījumiem un šifrētu ierīci. Tas var aizņemt kādu laiku."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Atcelt"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Iestatījumi"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Uzlādējiet akumulatoru un mēģiniet vēlreiz."</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Pievienojiet lādētāju un mēģiniet vēlreiz."</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Pārvaldīta nodrošināšana"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Turpināt pārvaldītu nodrošināšanu"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Hmm..."</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Ierīces nodrošināšana neizdevās. Lūdzu, vēlāk mēģiniet vēlreiz."</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"Diemžēl šajā ierīcē netiek atbalstīti pārvaldītie profili."</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"Pārvaldītas ierīces lietotājs"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"Tiek apstrādāti iestatīšanas dati."</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Notiek Wi-Fi savienojuma izveide."</string>

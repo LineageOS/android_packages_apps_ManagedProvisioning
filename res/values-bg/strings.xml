@@ -21,23 +21,28 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_title" msgid="6689527233198934212">"Обезпечаване..."</string>
-    <string name="setup_work_space" msgid="6826878997161717819">"Настройване на работно пространство"</string>
-    <string name="separate_work_spaces" msgid="9010306043449887261">"Настройте работно пространство, отделно от личното си"</string>
-    <string name="company_controls_workspace" msgid="4879871870932531025">"Фирмата ви контролира работното ви пространство на това устройство и се грижи за сигурността му. Вие управлявате личното си пространство. Фирмата ви няма достъп до него."</string>
+    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <skip />
+    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <skip />
+    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"Настройване"</string>
-    <string name="setting_up_workspace" msgid="314943758749000570">"Работното ви пространство се настройва"</string>
+    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="8627413301040841724">"Управляван служебен потребителски профил"</string>
     <string name="managed_profile_already_present" msgid="7429072595336780204">"Вече имате управляван потребителски профил. Не можете да създадете втори."</string>
-    <string name="encrypt_device_text" msgid="186837930061240296">"За продължаване кликнете, за да отворите „Настройки“, и шифровайте устройството си. Това може да отнеме известно време."</string>
+    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Отказ"</string>
-    <string name="encrypt_device_launch_settings" msgid="8013897924935213161">"Настройки"</string>
-    <string name="encrypt_device_low_charge_text" msgid="1032878059149636921">"Заредете батерията си и опитайте отново."</string>
-    <string name="encrypt_device_unplugged_text" msgid="9060788246248546204">"Включете зарядното си устройство и опитайте отново."</string>
+    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Управлявано обезпечаване"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Продължаване с управляваното обезпечаване"</string>
     <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Ами сега!"</string>
     <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Обезпечаването на устройството не бе успешно. Моля, опитайте отново по-късно!"</string>
-    <string name="managed_provisioning_not_supported" msgid="6308284739161428005">"За съжаление управляваните потребителски профили не се поддържат на това устройство."</string>
+    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"Потребител на управлявано устройство"</string>
     <string name="progress_data_process" msgid="7178995225991058976">"Данните за настройване се обработват."</string>
     <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Установява се връзка с Wi-Fi."</string>
