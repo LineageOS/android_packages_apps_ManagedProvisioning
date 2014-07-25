@@ -28,6 +28,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.MediaStore;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
@@ -389,6 +390,17 @@ public class ManagedProvisioningService extends Service {
         recognizeSpeech.addAction(ACTION_RECOGNIZE_SPEECH);
         recognizeSpeech.addCategory(Intent.CATEGORY_DEFAULT);
         pm.addCrossProfileIntentFilter(recognizeSpeech, mManagedProfileUserInfo.id,
+                UserHandle.USER_OWNER, 0);
+
+        IntentFilter capture = new IntentFilter();
+        capture.addAction(MediaStore.ACTION_IMAGE_CAPTURE);
+        capture.addAction(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
+        capture.addAction(MediaStore.ACTION_VIDEO_CAPTURE);
+        capture.addAction(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+        capture.addAction(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
+        capture.addAction(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
+        capture.addCategory(Intent.CATEGORY_DEFAULT);
+        pm.addCrossProfileIntentFilter(capture, mManagedProfileUserInfo.id,
                 UserHandle.USER_OWNER, 0);
     }
 
