@@ -84,6 +84,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mDeviceAdminPackageName);
         out.writeString(mDeviceAdminPackageDownloadLocation);
         out.writeString(mDeviceAdminPackageDownloadCookieHeader);
+        out.writeInt(mDeviceAdminPackageChecksum.length);
         out.writeByteArray(mDeviceAdminPackageChecksum);
         out.writeString(mManagedDeviceEmailAddress);
     }
@@ -106,6 +107,8 @@ public class ProvisioningParams implements Parcelable {
             params.mDeviceAdminPackageName = in.readString();
             params.mDeviceAdminPackageDownloadLocation = in.readString();
             params.mDeviceAdminPackageDownloadCookieHeader = in.readString();
+            int checksumLength = in.readInt();
+            params.mDeviceAdminPackageChecksum = new byte[checksumLength];
             in.readByteArray(params.mDeviceAdminPackageChecksum);
             params.mManagedDeviceEmailAddress = in.readString();
             return params;
