@@ -158,7 +158,7 @@ public class DeviceOwnerProvisioningService extends Service {
 
         mDownloadPackageTask = new DownloadPackageTask(this,
                 params.mDeviceAdminPackageDownloadLocation, params.mDeviceAdminPackageChecksum,
-                new DownloadPackageTask.Callback() {
+                params.mDeviceAdminPackageDownloadCookieHeader, new DownloadPackageTask.Callback() {
                         @Override
                         public void onSuccess() {
                             String downloadLocation =

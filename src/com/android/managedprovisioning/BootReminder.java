@@ -100,18 +100,7 @@ public class BootReminder extends BroadcastReceiver {
      * specifies the package to set as profile owner.
      *
      * <p>
-     * In case of TARGET_DEVICE_OWNER {@code extras} should further contain values for at least
-     * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} and may contain
-     * {@link #EXTRA_PROVISIONING_TIME_ZONE}, {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and
-     * {@link #EXTRA_PROVISIONING_LOCALE}.
-     * A download location may be specified using
-     * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION} accompanied by the
-     * checksum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}.
-     * Furthermore a wifi network may be specified using {@link #EXTRA_PROVISIONING_WIFI_SSID}, and
-     * if applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
-     * {@link #EXTRA_PROVISIONING_WIFI_PASSWORD}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST},
-     * {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT}, {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE},
-     * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}, {@link #EXTRA_PROVISIONING_WIFI_PAC_URL}.
+     * See {@link MessageParser} for the TARGET_DEVICE_OWNER case.
      * </ul>
      *
      * <p> These fields will be persisted and restored to the provisioner after rebooting. Any other

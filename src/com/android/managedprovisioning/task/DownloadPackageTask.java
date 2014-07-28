@@ -54,6 +54,7 @@ public class DownloadPackageTask {
     private final String mDownloadLocationFrom;
     private final Callback mCallback;
     private final byte[] mHash;
+    private final String mHttpCookieHeader;
 
     private boolean mDoneDownloading;
     private String mDownloadLocationTo;
@@ -61,11 +62,12 @@ public class DownloadPackageTask {
     private BroadcastReceiver mReceiver;
 
     public DownloadPackageTask (Context context, String downloadLocation, byte[] hash,
-            Callback callback) {
+            String httpCookieHeader, Callback callback) {
         mCallback = callback;
         mContext = context;
         mDownloadLocationFrom = downloadLocation;
         mHash = hash;
+        mHttpCookieHeader = httpCookieHeader;
         mDoneDownloading = false;
     }
 
@@ -81,8 +83,12 @@ public class DownloadPackageTask {
         ProvisionLogger.logd("Starting download from " + mDownloadLocationFrom);
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
-        Request r = new Request(Uri.parse(mDownloadLocationFrom));
-        mDownloadId = dm.enqueue(r);
+        Request request = new Request(Uri.parse(mDownloadLocationFrom));
+        if (mHttpCookieHeader != null) {
+            request.addRequestHeader("Cookie", mHttpCookieHeader);
+            ProvisionLogger.logd("Downloading with http cookie header: " + mHttpCookieHeader);
+        }
+        mDownloadId = dm.enqueue(request);
     }
 
     private BroadcastReceiver createDownloadReceiver() {
