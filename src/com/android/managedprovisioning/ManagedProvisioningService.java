@@ -265,8 +265,8 @@ public class ManagedProvisioningService extends Service {
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (!dpm.setProfileOwner(
-                mMdmPackageName, mDefaultManagedProfileName, mManagedProfileUserInfo.id)) {
+        if (!dpm.setProfileOwner(mActiveAdminComponentName,
+                mDefaultManagedProfileName, mManagedProfileUserInfo.id)) {
             ProvisionLogger.logw("Could not set profile owner.");
             error("Could not set profile owner.");
         }
