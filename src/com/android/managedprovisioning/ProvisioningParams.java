@@ -46,6 +46,7 @@ public class ProvisioningParams implements Parcelable {
     public String mDeviceAdminPackageName; // Package name of the device admin package.
 
     public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
+    public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
     public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
 
     public String mManagedDeviceEmailAddress;
@@ -82,6 +83,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mWifiProxyBypassHosts);
         out.writeString(mDeviceAdminPackageName);
         out.writeString(mDeviceAdminPackageDownloadLocation);
+        out.writeString(mDeviceAdminPackageDownloadCookieHeader);
         out.writeByteArray(mDeviceAdminPackageChecksum);
         out.writeString(mManagedDeviceEmailAddress);
     }
@@ -103,6 +105,7 @@ public class ProvisioningParams implements Parcelable {
             params.mWifiProxyBypassHosts = in.readString();
             params.mDeviceAdminPackageName = in.readString();
             params.mDeviceAdminPackageDownloadLocation = in.readString();
+            params.mDeviceAdminPackageDownloadCookieHeader = in.readString();
             in.readByteArray(params.mDeviceAdminPackageChecksum);
             params.mManagedDeviceEmailAddress = in.readString();
             return params;
