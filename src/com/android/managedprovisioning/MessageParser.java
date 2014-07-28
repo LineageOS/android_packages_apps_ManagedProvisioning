@@ -168,7 +168,7 @@ public class MessageParser {
         }
         throw new ParseException(
                 "Intent does not contain NfcRecord with the correct MIME type.",
-                R.string.device_owner_error_parse_fail);
+                R.string.device_owner_error_general);
     }
 
     private ProvisioningParams parseProperties(String data)
