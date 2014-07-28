@@ -29,6 +29,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_NFC_MIME_TYPE;
@@ -70,12 +71,14 @@ import java.util.Properties;
  * and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
  * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and {@link #EXTRA_PROVISIONING_LOCALE}. A download
  * location may be specified in {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}
- * accompanied by the SHA-1 sum of the target file
- * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}. Furthermore a wifi network may be
- * specified in {@link #EXTRA_PROVISIONING_WIFI_SSID}, and if applicable
- * {@link #EXTRA_PROVISIONING_WIFI_HIDDEN}, {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE},
- * {@link #EXTRA_PROVISIONING_WIFI_PASSWORD}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST},
- * {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}.
+ * together with an optional http cookie header
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER} accompanied by the SHA-1
+ * sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}.
+ * Furthermore a wifi network may be specified in {@link #EXTRA_PROVISIONING_WIFI_SSID}, and if
+ * applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
+ * {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE}, {@link #EXTRA_PROVISIONING_WIFI_PASSWORD},
+ * {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT},
+ * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}.
  * A typical use case would be the {@link BootReminder} sending the intent after device encryption
  * and reboot.
  *
@@ -95,6 +98,7 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_PAC_URL,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
         EXTRA_PROVISIONING_EMAIL_ADDRESS
     };
@@ -124,6 +128,8 @@ public class MessageParser {
                 params.mDeviceAdminPackageName);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
                 params.mDeviceAdminPackageDownloadLocation);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                params.mDeviceAdminPackageDownloadCookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 params.getDeviceAdminPackageChecksumAsString());
         bundle.putString(EXTRA_PROVISIONING_EMAIL_ADDRESS, params.mManagedDeviceEmailAddress);
@@ -188,6 +194,8 @@ public class MessageParser {
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
             params.mDeviceAdminPackageDownloadLocation
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
+            params.mDeviceAdminPackageDownloadCookieHeader = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
                 params.mDeviceAdminPackageChecksum = stringToByteArray(s);
             }
@@ -239,6 +247,8 @@ public class MessageParser {
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         params.mDeviceAdminPackageDownloadLocation
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
+        params.mDeviceAdminPackageDownloadCookieHeader = intent.getStringExtra(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
         String hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (hashString != null) {
             params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
