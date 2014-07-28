@@ -20,52 +20,70 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"តម្រូវ​ការ​ឧបករណ៍"</string>
-    <string name="provisioning_title" msgid="6689527233198934212">"កំពុង​ផ្ដល់..."</string>
-    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <!-- no translation found for provisioning_error_title (6320515739861578118) -->
     <skip />
-    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <string name="setup_work_space" msgid="216766502284671082">"រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក"</string>
+    <!-- no translation found for separate_work_spaces (3496001079642966876) -->
     <skip />
-    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="7634429976877738142">"ក្រុមហ៊ុន​របស់​អ្នក​ពិនិត្យ​ប្រវត្តិ​រូប​ការងារ​របស់​អ្នក​លើ​ឧបករណ៍​នេះ និង​រក្សាទុក​វា​ដោយ​សុវត្ថិភាព។ អ្នក​ពិនិត្យ​ប្រវត្តិរូប​ផ្ទាល់ខ្លួន​របស់​អ្នក។ ក្រុមហ៊ុន​របស់​អ្នក​មិន​អាច​ចូល​មើល​វា​​បាន​ទេ។"</string>
     <string name="set_up" msgid="7012862095553564169">"រៀបចំ"</string>
-    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <!-- no translation found for setting_up_workspace (6116976629983614927) -->
     <skip />
-    <string name="default_managed_profile_name" msgid="8627413301040841724">"ប្រវត្តិរូប​ការងារ​ដែល​បាន​គ្រប់គ្រង"</string>
-    <string name="managed_profile_already_present" msgid="7429072595336780204">"អ្នក​មាន​ប្រវត្តិរូប​ដែល​បាន​គ្រប់គ្រង​រួចហើយ។ អ្នក​មិន​អាច​បង្កើត​មួយ​ទៀត​បាន​ទេ។"</string>
-    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <!-- no translation found for default_managed_profile_name (5370257687074907055) -->
     <skip />
+    <!-- no translation found for managed_profile_already_present (6388446722470410655) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (3760648900665438655) -->
+    <skip />
+    <!-- no translation found for delete_profile (2299218578684663459) -->
+    <skip />
+    <!-- no translation found for cancel_delete_profile (5155447537894046036) -->
+    <skip />
+    <string name="encrypt_device_text" msgid="1823426228543576774">"ដើម្បី​បន្ត​ការ​រៀបចំ អ្នក​ត្រូវ​ដាក់លេខ​កូដ​ឧបករណ៍​របស់​អ្នក។ វា​អាច​ចំណាយ​ពេល​មួយ​រយៈ។"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"បោះបង់"</string>
-    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <!-- no translation found for encrypt_device_launch_settings (3483935402696018405) -->
     <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"ការ​ផ្ដល់​ដែល​បាន​គ្រប់គ្រង"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"បន្ត​ជា​មួយ​ការ​ផ្ដល់​ដែល​បាន​គ្រប់គ្រង"</string>
-    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"អូ​!"</string>
-    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"ការ​ផ្ដល់​ឧបករណ៍​បាន​បរាជ័យ។ សូម​ព្យាយាម​ម្ដងទៀត​ពេល​ក្រោយ!"</string>
-    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <!-- no translation found for managed_provisioning_error_text (7063621174570680890) -->
+    <skip />
+    <!-- no translation found for managed_provisioning_not_supported (8610434563811973345) -->
     <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"អ្នកប្រើ​ឧបករណ៍​ដែល​បាន​គ្រប់គ្រង"</string>
-    <string name="progress_data_process" msgid="7178995225991058976">"ដំណើរការ​ទិន្នន័យ​រៀបចំ។"</string>
-    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"ភ្ជាប់​វ៉ាយហ្វាយ។"</string>
-    <string name="progress_download" msgid="3065988740843233820">"ទាញ​យក​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍។"</string>
-    <string name="progress_install" msgid="1550693880279090395">"ដំឡើង​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍។"</string>
-    <string name="progress_set_owner" msgid="6737807046686035799">"កំណត់​ម្ចាស់​ឧបករណ៍។"</string>
-    <string name="device_owner_error_title" msgid="8729172979790369513">"ការ​ផ្ដល់​បាន​បរាជ័យ"</string>
+    <!-- no translation found for setup_device (6725265673245816366) -->
+    <skip />
+    <!-- no translation found for progress_data_process (7099462614425874283) -->
+    <skip />
+    <!-- no translation found for progress_connect_to_wifi (9214694010080838763) -->
+    <skip />
+    <!-- no translation found for progress_download (4995057798189799156) -->
+    <skip />
+    <!-- no translation found for progress_install (9169411715762296097) -->
+    <skip />
+    <!-- no translation found for progress_set_owner (1292946927202510987) -->
+    <skip />
     <string name="device_owner_cancel_title" msgid="3161144418010058328">"បញ្ឈប់​ការ​ផ្ដល់?"</string>
-    <string name="device_owner_cancel_message" msgid="1710372423698208187">"តើ​អ្នក​ប្រាកដ​ជា​ចង់​បញ្ឈប់​ការ​ផ្ដល់ និង​ការ​កំណត់​ឧបករណ៍​ដូច​ចេញពី​រោងចក្រ? ការកំណត់​ដូច​ចេញពី​រោងចក្រ​អាច​ចំណាយ​ពេល​មួយ​រយៈ។"</string>
+    <!-- no translation found for device_owner_cancel_message (7928007377743469904) -->
+    <skip />
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"បោះបង់"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"យល់ព្រម"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"កំណត់​ឡើងវិញ"</string>
-    <string name="device_owner_error_general" msgid="7912352652129401036">"កំហុស​មួយ​បាន​កើត​ឡើង។"</string>
-    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"ឧបករណ៍​នេះ​ត្រូវ​បាន​ផ្ដល់​រួចហើយ។"</string>
-    <string name="device_owner_error_already_owned" msgid="131679663202573865">"ឧបករណ៍​នេះ​ត្រូវ​បាន​គ្រប់គ្រង​ដោយ​ម្ចាស់​ផ្សេង​រួចហើយ។"</string>
-    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"​ដំណើរ​ការ​ទិន្នន័យ​រៀបចំ​ការគ្រប់គ្រង​ឧបករណ៍​បាន​បរាជ័យ។ សូម​ពិនិត្យមើល​​ថា​ទិន្នន័យ​ត្រូវ​បាន​ផ្ញើ​យ៉ាង​ត្រឹមត្រូវ។"</string>
-    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"មិន​មាន​ឈ្មោះ​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍​ត្រូវ​បាន​ផ្ដល់។"</string>
-    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"មិន​មាន​ឆែកសាំ​សម្រាប់​ផ្ទៀងផ្ទាត់​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍​ដែល​បាន​ផ្ដល់​ឲ្យ។"</string>
-    <string name="device_owner_error_wifi" msgid="5083884834325289160">"មិន​អាច​ភ្ជាប់​វ៉ាយហ្វាយ។"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"បាន​បរាជ័យ​ក្នុង​ការ​ពិនិត្យ​ភាព​ត្រឹមត្រូវ​របស់​ទិន្នន័យ​។ ឆែកសាំ​របស់​ឯកសារ​ទាញ​យក​មិន​​ត្រូវគ្នា​នឹង​​ឆែកសាំ​ដែល​បាន​ផ្ដល់​ដោយ​កម្មវិធី​របស់​អ្នក​សរសេរ​កម្មវិធី។"</string>
-    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"មិន​អាច​ទាញ​យក​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍។"</string>
-    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"ឯកសារ​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍​មិន​មាន​កញ្ចប់ និង/ឬ​សមាសភាគ​ដែល​ត្រូវការ។"</string>
-    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"បាន​បរាជ័យ​ក្នុង​ការ​ដំឡើង​កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍។"</string>
-    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍​ដែល​បាន​បញ្ជាក់​មិន​ត្រូវ​បាន​ដំឡើង​លើ​ឧបករណ៍។"</string>
-    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"កញ្ចប់​គ្រប់គ្រង​ឧបករណ៍​ដែល​បាន​បញ្ជាក់​បាត់​ឧបករណ៍​ទទួល​កញ្ចប់​គ្រប់គ្រង​របស់​ឧបករណ៍។"</string>
+    <!-- no translation found for device_owner_error_general (5962462955470123776) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned (3429027298074299155) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (284435773504860369) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (8060331878518019151) -->
+    <skip />
+    <!-- no translation found for device_owner_error_hash_mismatch (184518450016295596) -->
+    <skip />
+    <!-- no translation found for device_owner_error_download_failed (6098001002861024838) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_invalid (3816725179069202140) -->
+    <skip />
+    <!-- no translation found for device_owner_error_installation_failed (2357889137021529369) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (4853853793546318775) -->
+    <skip />
 </resources>

@@ -20,52 +20,70 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"උපාංග වෙන් කිරීම"</string>
-    <string name="provisioning_title" msgid="6689527233198934212">"ප්‍රතිපාදනය කරමින්..."</string>
-    <!-- no translation found for setup_work_space (216766502284671082) -->
+    <!-- no translation found for provisioning_error_title (6320515739861578118) -->
     <skip />
-    <!-- no translation found for separate_work_spaces (6546838303732855541) -->
+    <string name="setup_work_space" msgid="216766502284671082">"ඔබගේ වැඩ කරන පැතිකඩ සකසන්න"</string>
+    <!-- no translation found for separate_work_spaces (3496001079642966876) -->
     <skip />
-    <!-- no translation found for company_controls_workspace (7634429976877738142) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="7634429976877738142">"ඔබගේ සමාගම මෙම උපාංගයේ වැඩ කරන පැතිකඩ පාලනය කරයි සහ ආරක්ෂා කරයි. ඔබගේ පුද්ගලික වැඩ කරන පැතිකඩ ඔබ පාලනය කරයි. ඔබගේ සමාගමට එයට ප්‍රවේශ විය නොහැක."</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
-    <!-- no translation found for setting_up_workspace (7542736602939254517) -->
+    <!-- no translation found for setting_up_workspace (6116976629983614927) -->
     <skip />
-    <string name="default_managed_profile_name" msgid="8627413301040841724">"වැඩ පැතිකඩ කළමනාකරණය කරන ලදි"</string>
-    <string name="managed_profile_already_present" msgid="7429072595336780204">"ඔබ දැනටමත් පැතිකඩක් කළමනාකරණය කරයි. ඔබට දෙවන එකක් සැදිය නොහැක."</string>
-    <!-- no translation found for encrypt_device_text (1823426228543576774) -->
+    <!-- no translation found for default_managed_profile_name (5370257687074907055) -->
     <skip />
+    <!-- no translation found for managed_profile_already_present (6388446722470410655) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (3760648900665438655) -->
+    <skip />
+    <!-- no translation found for delete_profile (2299218578684663459) -->
+    <skip />
+    <!-- no translation found for cancel_delete_profile (5155447537894046036) -->
+    <skip />
+    <string name="encrypt_device_text" msgid="1823426228543576774">"සැකසීම ඉදිරියට කරගෙන යෑමට, ඔබගේ උපාංගය සංකේතනය කිරීමට ඔබට අවශ්‍ය වේ. මෙයට ටික වෙලාවක් ගත වේ."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"අවලංගු කරන්න"</string>
-    <!-- no translation found for encrypt_device_launch_settings (5923879547331953153) -->
+    <!-- no translation found for encrypt_device_launch_settings (3483935402696018405) -->
     <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"වෙන් කිරීම කළමනාකරණය කරන ලදි"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"වෙන් කිරීම කළමනාකරණයත් සමඟ ඉදිරියට යන්න"</string>
-    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"අපොයි!"</string>
-    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"උපාංගය වෙන් කිරීම අසාර්ථක විය. කරුණාකර පසුව උත්සාහ කරන්න!"</string>
-    <!-- no translation found for managed_provisioning_not_supported (8992544222080804433) -->
+    <!-- no translation found for managed_provisioning_error_text (7063621174570680890) -->
+    <skip />
+    <!-- no translation found for managed_provisioning_not_supported (8610434563811973345) -->
     <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"කළමනාකරණය කළ උපාංගයේ පරිශීලකයා"</string>
-    <string name="progress_data_process" msgid="7178995225991058976">"ස්ථාපන දත්ත සකසමින්."</string>
-    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"WiFi වෙත සම්බන්ධ කරමින්."</string>
-    <string name="progress_download" msgid="3065988740843233820">"උපාංග පරිපාලක පැකේජය බාගනිමින්."</string>
-    <string name="progress_install" msgid="1550693880279090395">"උපාංග පරිපාලක පැකේජය ස්ථාපනය කරමින්."</string>
-    <string name="progress_set_owner" msgid="6737807046686035799">"උපාංග හිමිකරු සකසමින්."</string>
-    <string name="device_owner_error_title" msgid="8729172979790369513">"වෙන් කිරීම අසාර්ථක වුනි"</string>
+    <!-- no translation found for setup_device (6725265673245816366) -->
+    <skip />
+    <!-- no translation found for progress_data_process (7099462614425874283) -->
+    <skip />
+    <!-- no translation found for progress_connect_to_wifi (9214694010080838763) -->
+    <skip />
+    <!-- no translation found for progress_download (4995057798189799156) -->
+    <skip />
+    <!-- no translation found for progress_install (9169411715762296097) -->
+    <skip />
+    <!-- no translation found for progress_set_owner (1292946927202510987) -->
+    <skip />
     <string name="device_owner_cancel_title" msgid="3161144418010058328">"Stop provisioning?"</string>
-    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Are you sure you want to stop provisioning and factory reset the device? The factory reset can take a while."</string>
+    <!-- no translation found for device_owner_cancel_message (7928007377743469904) -->
+    <skip />
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"අවලංගු කරන්න"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"හරි"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"යළි පිහිටුවන්න"</string>
-    <string name="device_owner_error_general" msgid="7912352652129401036">"An error occured."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"The device is already provisioned."</string>
-    <string name="device_owner_error_already_owned" msgid="131679663202573865">"The device is already owned by another device owner."</string>
-    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Processing device admin setup data failed. Please check that the data is sent correctly."</string>
-    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"No device admin package name was provided."</string>
-    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"No checksum for the verification of the downloaded device admin package provided."</string>
-    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Wifi වෙත සම්බන්ධ විය නොහැක."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Data integrity check failed. Checksum of downloaded file does not match checksum provided by programmer app."</string>
-    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Could not download the device admin package."</string>
-    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Device admin package file does not contain the required package and/or components."</string>
-    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Installation of the device admin package failed."</string>
-    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Specified device admin package is not installed on device."</string>
-    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Specified device admin package is missing a device admin receiver."</string>
+    <!-- no translation found for device_owner_error_general (5962462955470123776) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned (3429027298074299155) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (284435773504860369) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (8060331878518019151) -->
+    <skip />
+    <!-- no translation found for device_owner_error_hash_mismatch (184518450016295596) -->
+    <skip />
+    <!-- no translation found for device_owner_error_download_failed (6098001002861024838) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_invalid (3816725179069202140) -->
+    <skip />
+    <!-- no translation found for device_owner_error_installation_failed (2357889137021529369) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (4853853793546318775) -->
+    <skip />
 </resources>
