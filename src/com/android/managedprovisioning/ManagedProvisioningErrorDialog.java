@@ -45,7 +45,7 @@ public class ManagedProvisioningErrorDialog extends DialogFragment {
 
       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
       // TODO: Get strings from PM.
-      alertDialogBuilder.setTitle(R.string.managed_provisioning_error_title)
+      alertDialogBuilder.setTitle(R.string.provisioning_error_title)
               .setMessage(message)
               .setCancelable(false)
               .setPositiveButton("OK", new DialogInterface.OnClickListener() {

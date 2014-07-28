@@ -224,7 +224,7 @@ public class DeviceOwnerProvisioningService extends Service {
                                 error(R.string.device_owner_error_package_not_installed);
                                 break;
                             case SetDevicePolicyTask.ERROR_NO_RECEIVER:
-                                error(R.string.device_owner_error_missing_receiver);
+                                error(R.string.device_owner_error_package_invalid);
                                 break;
                             default:
                                 error(R.string.device_owner_error_general);

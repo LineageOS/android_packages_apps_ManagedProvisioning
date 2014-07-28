@@ -217,13 +217,13 @@ public class MessageParser {
             return params;
         } catch (IOException e) {
             throw new ParseException("Couldn't load payload",
-                    R.string.device_owner_error_parse_fail, e);
+                    R.string.device_owner_error_general, e);
         } catch (NumberFormatException e) {
             throw new ParseException("Incorrect numberformat.",
-                    R.string.device_owner_error_parse_fail, e);
+                    R.string.device_owner_error_general, e);
         } catch (IllformedLocaleException e) {
             throw new ParseException("Invalid locale.",
-                    R.string.device_owner_error_parse_fail, e);
+                    R.string.device_owner_error_general, e);
         }
     }
 
@@ -276,14 +276,14 @@ public class MessageParser {
         throws ParseException  {
         if (TextUtils.isEmpty(params.mDeviceAdminPackageName)) {
             throw new ParseException("Must provide the name of the device admin package.",
-                    R.string.device_owner_error_no_package_name);
+                    R.string.device_owner_error_general);
         }
         if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
             if (params.mDeviceAdminPackageChecksum == null ||
                     params.mDeviceAdminPackageChecksum.length == 0) {
                 throw new ParseException("Checksum of installer file is required for downloading " +
                         "device admin file, but not provided.",
-                        R.string.device_owner_error_no_hash);
+                        R.string.device_owner_error_general);
             }
         }
     }

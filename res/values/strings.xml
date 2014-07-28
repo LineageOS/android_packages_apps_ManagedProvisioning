@@ -23,6 +23,8 @@
 
   <!-- Name of the application [CHAR LIMIT=NONE] -->
   <string name="app_name">Device Provisioner</string>
+  <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
+  <string name="provisioning_error_title">Oops!</string>
 
   <!-- Managed profile provisioning flow UI. -->
 
@@ -30,17 +32,17 @@
   <!-- Title of all managed profile setup screens. [CHAR LIMIT=NONE] -->
   <string name="setup_work_space">Set up your work profile</string>
   <!-- Part 1 of the text that asks for user consent to create a corporate profile [CHAR LIMIT=NONE] -->
-  <string name="separate_work_spaces">Set up a separate work profile from your personal space</string>
+  <string name="separate_work_spaces">Set up a work profile for your corporate email and other apps.</string>
   <!-- Part 2 of the text that asks for user consent to create a corporate profile [CHAR LIMIT=NONE] -->
   <string name="company_controls_workspace">Your company controls your work profile on this device and keeps
       it secure. You control your personal profile. Your company can\'t access it.</string>
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
   <string name="set_up">Set up</string>
   <!-- Progress text shown when setting up work space [CHAR LIMIT=NONE] -->
-  <string name="setting_up_workspace">Setting up your work profile</string>
+  <string name="setting_up_workspace">Setting up your work profile...</string>
 
   <!-- Default profile name used for the creation of managed profiles. [CHAR LIMIT=NONE] -->
-  <string name="default_managed_profile_name">Managed work profile</string>
+  <string name="default_managed_profile_name">Work profile</string>
 
   <!-- String shown when there is already a managed profile for this user. CHAR LIMIT=NONE] -->
   <string name="managed_profile_already_present"> You can only have one work space on your device. It appears that you already have one. Would you like to remove it to proceed?</string>
@@ -56,40 +58,39 @@
   <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
   <string name="encrypt_device_cancel">Cancel</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
-  <string name="encrypt_device_launch_settings">Next</string>
+  <string name="encrypt_device_launch_settings">Encrypt device</string>
 
   <!-- Reminder notification to resume provisioning after device has been encrypted -->
   <string name="continue_provisioning_notify_title">Managed provisioning</string>
   <string name="continue_provisioning_notify_text">Continue with managed provisioning</string>
 
-  <string name="managed_provisioning_error_title">Oops!</string>
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
-  <string name="managed_provisioning_error_text"> Device provisioning failed. Please try again later!</string>
+  <string name="managed_provisioning_error_text">Couldn\'t set up your work profile. Contact your IT department or try again later.</string>
   <!-- Error string displayed if this device doesn't support managed profiles. -->
-  <string name="managed_provisioning_not_supported">Sorry, work profiles are not supported on this device.</string>
+  <string name="managed_provisioning_not_supported">Your device doesn\'t support work profiles.</string>
 
   <!-- Device owner provisioning flow UI. -->
 
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
   <string name="default_owned_device_username">User of managed device</string>
 
+  <!-- Title of the managed device setup screen. [CHAR LIMIT=NONE] -->
+  <string name="setup_device">Set up your device</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
-  <string name="progress_data_process">Processing setup data.</string>
+  <string name="progress_data_process">Processing setup data...</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
-  <string name="progress_connect_to_wifi">Connecting to Wifi.</string>
+  <string name="progress_connect_to_wifi">Connecting to Wi-Fi...</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
-  <string name="progress_download">Downloading Device Admin package.</string>
+  <string name="progress_download">Downloading the admin app...</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
-  <string name="progress_install">Installing Device Admin package.</string>
+  <string name="progress_install">Installing the admin app...</string>
   <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
-  <string name="progress_set_owner">Setting Device Owner.</string>
+  <string name="progress_set_owner">Setting the device owner...</string>
 
-  <!-- Title of the error dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_error_title">Provisioning failed</string>
   <!-- Title of the cancel provisioning dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_title">Stop provisioning?</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_cancel_message">Are you sure you want to stop provisioning and factory reset the device? The factory reset can take a while.</string>
+  <string name="device_owner_cancel_message">Are you sure you want to stop setting up and erase your device\'s data?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_cancel">Cancel</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
@@ -97,29 +98,21 @@
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_error_reset">Reset</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_general">An error occured.</string>
+  <string name="device_owner_error_general">Couldn\'t set up your device. Contact your IT department. </string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_already_provisioned">The device is already provisioned.</string>
+  <string name="device_owner_error_already_provisioned">The device is already set up.</string>
   <!-- Message of the error dialog when already owned. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_already_owned">The device is already owned by another device owner.</string>
-  <!-- Message of the error dialog when nfc message parsing failed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_parse_fail">Processing device admin setup data failed. Please check that the data is sent correctly.</string>
-  <!-- Message of the error dialog when no device admin package name was provided. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_no_package_name">No device admin package name was provided.</string>
-  <!-- Message of the error dialog when checksum for device admin file was not provided. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_no_hash">No checksum for the verification of the downloaded device admin package provided.</string>
+  <string name="device_owner_error_already_owned">This device already has an owner.</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_wifi">Could not connect to wifi.</string>
+  <string name="device_owner_error_wifi">Couldn\'t connect to wifi.</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_hash_mismatch">Data integrity check failed. Checksum of downloaded file does not match checksum provided by programmer app.</string>
+  <string name="device_owner_error_hash_mismatch">Couldn\'t use the admin app due to a checksum error. Contact your IT department.</string>
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_download_failed">Could not download the device admin package.</string>
+  <string name="device_owner_error_download_failed">Couldn\'t download the admin app.</string>
   <!-- Message of the error dialog when package to install is invalid. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_package_invalid">Device admin package file does not contain the required package and/or components.</string>
+  <string name="device_owner_error_package_invalid">Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department.</string>
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_installation_failed">Installation of the device admin package failed.</string>
+  <string name="device_owner_error_installation_failed">Couldn\'t install the admin app.</string>
   <!-- Message of the error dialog when device admin package is not installed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_package_not_installed">Specified device admin package is not installed on device.</string>
-  <!-- Message of the error dialog when device admin package has no device admin receiver. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_missing_receiver">Specified device admin package is missing a device admin receiver.</string>
+  <string name="device_owner_error_package_not_installed">The admin app isn\'t installed on your device.</string>
 </resources>
