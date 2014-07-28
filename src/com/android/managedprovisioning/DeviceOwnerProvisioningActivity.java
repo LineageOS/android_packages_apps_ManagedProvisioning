@@ -100,6 +100,8 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         final View contentView = inflater.inflate(R.layout.progress, null);
         setContentView(contentView);
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
+        TextView titleText = (TextView) findViewById(R.id.title);
+        if (titleText != null) titleText.setText(getString(R.string.setup_device));
 
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
@@ -295,7 +297,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     private void error(int dialogMessage, boolean resetRequired) {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this)
-            .setTitle(R.string.device_owner_error_title)
+            .setTitle(R.string.provisioning_error_title)
             .setMessage(dialogMessage)
             .setCancelable(false);
         if (resetRequired) {

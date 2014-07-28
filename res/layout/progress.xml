@@ -24,6 +24,7 @@
     <ImageView
         style="@style/SetupWorkSpaceHeader"/>
     <TextView
+        android:id="@+id/title"
         style="@style/SetupWorkSpaceTitle"/>
     <LinearLayout
         style="@style/SetupWorkSpaceTextContainer">
