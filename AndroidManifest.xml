@@ -111,6 +111,13 @@
         <receiver android:name="com.android.managedprovisioning.BootReminder">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.android.managedprovisioning.CrossProfileIntentFiltersHelper$FiltersReseter">
+            <intent-filter>
+                <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
