@@ -111,9 +111,26 @@ public class ManagedProvisioningActivity extends Activity {
         setContentView(mContentView);
         setMdmIcon(mMdmPackageName, mContentView);
 
+        // Calling package has to equal the requested device admin package or has to be system.
+        String callingPackage = getCallingPackage();
+        if (callingPackage == null) {
+            showErrorAndClose(R.string.managed_provisioning_error_text, "Calling package is null. "
+                    + "Was startActivityForResult used to start this activity?");
+            return;
+        }
+        boolean hasManageUsersPermission = packageHasManageUsersPermission(callingPackage);
+        if (!(callingPackage.equals(mMdmPackageName) || hasManageUsersPermission)) {
+            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
+                    + "calling package tried to set a different package as profile owner. "
+                    + "The system MANAGE_USERS permission is required.");
+            return;
+        }
+
+
         // Don't continue if the caller tries to skip user consent without permission.
+        // Only system apps with the MANAGE_USERS permission can claim that the user consented.
         boolean needsPermission = getIntent().hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING);
-        if (needsPermission && !callerHasUserConsentPermission()) {
+        if (needsPermission && !hasManageUsersPermission) {
             showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied,"
                     + "you need MANAGE_USERS permission to skip user consent");
             return;
@@ -146,20 +163,10 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
-    /**
-     *  Only system apps with the permission manage users can claim that the user consented.
-     */
-    private boolean callerHasUserConsentPermission() {
-        String callingPackage = getCallingPackage();
-        if (callingPackage == null) {
-            ProvisionLogger.loge("Calling package is null. "
-                    + "Was startActivityForResult used to start this activity?");
-            return false;
-        }
-
-        int callingPackagePermission = this.getPackageManager().checkPermission
-            (MANAGE_USERS_PERMISSION, callingPackage);
-        if (callingPackagePermission == PackageManager.PERMISSION_GRANTED) {
+    private boolean packageHasManageUsersPermission(String pkg) {
+        int packagePermission = this.getPackageManager()
+                .checkPermission(MANAGE_USERS_PERMISSION, pkg);
+        if (packagePermission == PackageManager.PERMISSION_GRANTED) {
             return true;
         } else {
             return false;
