@@ -20,45 +20,66 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Төхөөрөмжийн Нийлүүлэгч"</string>
-    <string name="provisioning_title" msgid="6689527233198934212">"Нийлүүлж байна..."</string>
+    <!-- no translation found for provisioning_error_title (6320515739861578118) -->
+    <skip />
     <string name="setup_work_space" msgid="216766502284671082">"Өөрийн ажлын профайлыг тохируулах"</string>
-    <string name="separate_work_spaces" msgid="6546838303732855541">"Өөрийн хувийн профайлаас тусдаа ажлын профайл үүсгэх"</string>
+    <!-- no translation found for separate_work_spaces (3496001079642966876) -->
+    <skip />
     <string name="company_controls_workspace" msgid="7634429976877738142">"Таны компани энэ төхөөрөмж дээрх таны ажлын профайлыг хянаж аюулгүй байдлыг хангана. Та өөрийн хувийн профайлыг хянах бөгөөд компани үүнд хандалт хийх эрхгүй."</string>
     <string name="set_up" msgid="7012862095553564169">"Тохируулах"</string>
-    <string name="setting_up_workspace" msgid="7542736602939254517">"Таны ажлын профайлыг тохируулж байна"</string>
-    <string name="default_managed_profile_name" msgid="8627413301040841724">"Удирдсан ажлын профайл"</string>
-    <string name="managed_profile_already_present" msgid="7429072595336780204">"Танд удирдсан профайл аль хэдийн байна. Та хоёрдохыг үүсгэх боломжгүй."</string>
+    <!-- no translation found for setting_up_workspace (6116976629983614927) -->
+    <skip />
+    <!-- no translation found for default_managed_profile_name (5370257687074907055) -->
+    <skip />
+    <string name="managed_profile_already_present" msgid="6388446722470410655">"Та төхөөрөмж дээрээ зөвхөн ганц ажлын профайлтай байж болно. Та аль хэдийн үүсгэсэн байна. Үргэлжлүүлэхийн тулд үүнийг устгах уу?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"Та одоо байгаа ажлын профайлыг устгахдаа итгэлтэй байна уу? Ингэснээр холбоотой бүх датаг устгах болно."</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Устгах"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Цуцлах"</string>
     <string name="encrypt_device_text" msgid="1823426228543576774">"Тохируулгыг үргэлжлүүлэхийн тулд та төхөөрөмжийг шифрлэх шаардлагатай. Үүнд нэлээн хугацаа орж болно."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Цуцлах"</string>
-    <string name="encrypt_device_launch_settings" msgid="5923879547331953153">"Дараах"</string>
+    <!-- no translation found for encrypt_device_launch_settings (3483935402696018405) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Удирдсан провижн"</string>
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Удирдсан провижныг үргэлжлүүлэх"</string>
-    <string name="managed_provisioning_error_title" msgid="3817947375879477297">"Алдаа!"</string>
-    <string name="managed_provisioning_error_text" msgid="1372544522572835738">"Төхөөрөмжийн провижн амжилтгүй. Дараа дахин оролдоно уу!"</string>
-    <string name="managed_provisioning_not_supported" msgid="8992544222080804433">"Уучлаарай, ажлын профайлууд энэ төхөөрөмж дээр дэмжигдээгүй байна."</string>
+    <!-- no translation found for managed_provisioning_error_text (7063621174570680890) -->
+    <skip />
+    <!-- no translation found for managed_provisioning_not_supported (8610434563811973345) -->
+    <skip />
     <string name="default_owned_device_username" msgid="7518518266589187045">"Удирдсан төхөөрөмжийн хэрэглэгч"</string>
-    <string name="progress_data_process" msgid="7178995225991058976">"Тохируулах датаг боловсруулж байна."</string>
-    <string name="progress_connect_to_wifi" msgid="1969155144057621439">"Wifi руу холбогдож байна."</string>
-    <string name="progress_download" msgid="3065988740843233820">"Төхөөрөмжийн админ багцыг татаж авч байна."</string>
-    <string name="progress_install" msgid="1550693880279090395">"Төхөөрөмжийн админ багцыг оруулж байна."</string>
-    <string name="progress_set_owner" msgid="6737807046686035799">"Төхөөрөмжийн эзэмшигчийг тохируулж байна."</string>
-    <string name="device_owner_error_title" msgid="8729172979790369513">"Провижнь амжилтгүй"</string>
+    <!-- no translation found for setup_device (6725265673245816366) -->
+    <skip />
+    <!-- no translation found for progress_data_process (7099462614425874283) -->
+    <skip />
+    <!-- no translation found for progress_connect_to_wifi (9214694010080838763) -->
+    <skip />
+    <!-- no translation found for progress_download (4995057798189799156) -->
+    <skip />
+    <!-- no translation found for progress_install (9169411715762296097) -->
+    <skip />
+    <!-- no translation found for progress_set_owner (1292946927202510987) -->
+    <skip />
     <string name="device_owner_cancel_title" msgid="3161144418010058328">"Провижныг зогсоох уу?"</string>
-    <string name="device_owner_cancel_message" msgid="1710372423698208187">"Та провижныг зогсоож төхөөрөмжийг үйлдвэрээс гарсан төлөв рүү буцаахад итгэлтэй байна уу.? Үйлдвэрээс гарсан төлөв рүү буцаахад тодорхой хугацаа орно."</string>
+    <!-- no translation found for device_owner_cancel_message (7928007377743469904) -->
+    <skip />
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Цуцлах"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Тийм"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Дахин шинэчлэх"</string>
-    <string name="device_owner_error_general" msgid="7912352652129401036">"Алдаа гарлаа."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1459406600795927821">"Төхөөрөмж провижнтэй байна."</string>
-    <string name="device_owner_error_already_owned" msgid="131679663202573865">"Энэ төхөөрөмжийг өөр төхөөрөмж эзэмшигч өмчилж байна."</string>
-    <string name="device_owner_error_parse_fail" msgid="67288231388675851">"Төхөөрөмжийн админ тохируулгын датаг боловсруулж чадсангүй. Датаг зөв илгээсэн эсэхийг шалгана уу."</string>
-    <string name="device_owner_error_no_package_name" msgid="4536691102077388614">"Төхөөрөмжийн админ багцын нэр олдсонгү."</string>
-    <string name="device_owner_error_no_hash" msgid="5989418188853348032">"Татаж авсан төхөөрөмжийн админ багцын тулгалтын чексам байхгүй байна."</string>
-    <string name="device_owner_error_wifi" msgid="5083884834325289160">"Wifi-д холбогдож чадсангүй."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7663940240542839079">"Дата бүтэн байдлыг шалгаж чадсангүй. Татаж авсан файлын чексам нь программер апп-н нийлүүлсэн чексамтай таарахгүй байна."</string>
-    <string name="device_owner_error_download_failed" msgid="3786942056669007121">"Төхөөрөмжийн админ багцыг татаж чадсангүй."</string>
-    <string name="device_owner_error_package_invalid" msgid="1484434473732347760">"Төхөөрөмжийн админ багцын файл нь шаардлагатай багц болон компонентуудыг агуулаагүй байна."</string>
-    <string name="device_owner_error_installation_failed" msgid="2776462154342710243">"Төхөөрөмжийн админ багцыг суулгах амжилтгүй боллоо."</string>
-    <string name="device_owner_error_package_not_installed" msgid="3277361273818070665">"Заасан төхөөрөмжийн админ багц нь төхөөрөмж дээр суугаагүй байна."</string>
-    <string name="device_owner_error_missing_receiver" msgid="7377023898012309672">"Заасан төхөөрөмжийн админ багц нь төхөөрөмжийн админ хүлээн авагч дутуу байна."</string>
+    <!-- no translation found for device_owner_error_general (5962462955470123776) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned (3429027298074299155) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (284435773504860369) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (8060331878518019151) -->
+    <skip />
+    <!-- no translation found for device_owner_error_hash_mismatch (184518450016295596) -->
+    <skip />
+    <!-- no translation found for device_owner_error_download_failed (6098001002861024838) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_invalid (3816725179069202140) -->
+    <skip />
+    <!-- no translation found for device_owner_error_installation_failed (2357889137021529369) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (4853853793546318775) -->
+    <skip />
 </resources>
