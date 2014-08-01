@@ -68,6 +68,8 @@
   <string name="managed_provisioning_error_text">Couldn\'t set up your work profile. Contact your IT department or try again later.</string>
   <!-- Error string displayed if this device doesn't support managed profiles. -->
   <string name="managed_provisioning_not_supported">Your device doesn\'t support work profiles.</string>
+  <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
+  <string name="user_is_not_owner">Work profiles can only be set up by the owner user of the device.</string>
 
   <!-- Device owner provisioning flow UI. -->
 
