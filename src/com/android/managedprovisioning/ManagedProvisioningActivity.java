@@ -31,7 +31,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
@@ -86,6 +88,11 @@ public class ManagedProvisioningActivity extends Activity {
         if (!pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_PROFILES)) {
             showErrorAndClose(R.string.managed_provisioning_not_supported,
                     "Exiting managed provisioning, managed profiles feature is not available");
+            return;
+        }
+        if (Process.myUserHandle().getIdentifier() != UserHandle.USER_OWNER) {
+            showErrorAndClose(R.string.user_is_not_owner,
+                    "Exiting managed provisioning, calling user is not owner.");
             return;
         }
 
