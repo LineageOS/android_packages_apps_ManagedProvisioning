@@ -17,6 +17,9 @@ package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static com.android.managedprovisioning.ManagedProvisioningActivity.
+        EXTRA_USER_HAS_CONSENTED_PROVISIONING;
+
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -49,9 +52,13 @@ public class BootReminder extends BroadcastReceiver {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
     };
 
+    private static final String[] PROFILE_OWNER_BOOLEAN_EXTRAS = {
+        // Key for whether the user already consented to provisioning
+        EXTRA_USER_HAS_CONSENTED_PROVISIONING
+    };
+
     private static final ComponentName PROFILE_OWNER_INTENT_TARGET =
-            new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.ManagedProvisioningActivity");
+            ManagedProvisioningActivity.ALIAS_NO_CHECK_CALLER;
 
     /*
      * Device owner parameters that are stored in the IntentStore for resuming provisioning.
@@ -70,10 +77,10 @@ public class BootReminder extends BroadcastReceiver {
             // Resume profile owner provisioning if applicable.
             IntentStore profileOwnerIntentStore = getProfileOwnerIntentStore(context);
             final Intent resumeProfileOwnerPrvIntent = profileOwnerIntentStore.load();
-            if (resumeProfileOwnerPrvIntent != null ) {
+            if (resumeProfileOwnerPrvIntent != null) {
+                profileOwnerIntentStore.clear();
                 // Show reminder notification and then forget about it for next boot
                 setNotification(context, resumeProfileOwnerPrvIntent);
-                profileOwnerIntentStore.clear();
             }
 
             // Resume device owner provisioning if applicable.
@@ -137,7 +144,7 @@ public class BootReminder extends BroadcastReceiver {
                 PROFILE_OWNER_STRING_EXTRAS,
                 new String[0],
                 new String[0],
-                new String[0],
+                PROFILE_OWNER_BOOLEAN_EXTRAS,
                 PROFILE_OWNER_INTENT_TARGET,
                 PROFILE_OWNER_PREFERENCES_NAME);
     }
@@ -166,7 +173,8 @@ public class BootReminder extends BroadcastReceiver {
                 .setContentIntent(resumePendingIntent)
                 .setContentTitle(context.getString(R.string.continue_provisioning_notify_title))
                 .setContentText(context.getString(R.string.continue_provisioning_notify_text))
-                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                .setSmallIcon(com.android.internal.R.drawable.ic_corp_icon)
+                .setVisibility(Notification.VISIBILITY_PUBLIC)
                 .setAutoCancel(true);
         notificationManager.notify(NOTIFY_ID, notify.build());
     }

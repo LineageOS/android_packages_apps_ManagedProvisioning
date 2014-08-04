@@ -17,10 +17,14 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
+import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
+import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -59,7 +63,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
-    private static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
+    protected static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
             "com.android.managedprovisioning.EXTRA_USER_HAS_CONSENTED_PROVISIONING";
 
     // TODO remove these when the new constant values are in use in all relevant places.
@@ -67,6 +71,15 @@ public class ManagedProvisioningActivity extends Activity {
             "deviceAdminPackageName";
     protected static final String EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME =
             "defaultManagedProfileName";
+
+    // Aliases to start managed provisioning with and without MANAGE_USERS permission
+    protected static final ComponentName ALIAS_CHECK_CALLER =
+            new ComponentName("com.android.managedprovisioning",
+                    "com.android.managedprovisioning.ManagedProvisioningActivity");
+
+    protected static final ComponentName ALIAS_NO_CHECK_CALLER =
+            new ComponentName("com.android.managedprovisioning",
+                    "com.android.managedprovisioning.ManagedProvisioningActivityNoCallerCheck");
 
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
 
@@ -118,29 +131,36 @@ public class ManagedProvisioningActivity extends Activity {
         setContentView(mContentView);
         setMdmIcon(mMdmPackageName, mContentView);
 
-        // Calling package has to equal the requested device admin package or has to be system.
-        String callingPackage = getCallingPackage();
-        if (callingPackage == null) {
-            showErrorAndClose(R.string.managed_provisioning_error_text, "Calling package is null. "
-                    + "Was startActivityForResult used to start this activity?");
-            return;
+        // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
+        // MANAGE_USERS since it is a restricted intent. Otherwise, check the calling package.
+        boolean hasManageUsersPermission = (getComponentName().equals(ALIAS_NO_CHECK_CALLER));
+        if (!hasManageUsersPermission) {
+            // Calling package has to equal the requested device admin package or has to be system.
+            String callingPackage = getCallingPackage();
+            if (callingPackage == null) {
+                showErrorAndClose(R.string.managed_provisioning_error_text,
+                        "Calling package is null. " +
+                        "Was startActivityForResult used to start this activity?");
+                return;
+            }
+            if (!callingPackage.equals(mMdmPackageName)
+                    && !packageHasManageUsersPermission(callingPackage)) {
+                showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
+                        + "calling package tried to set a different package as profile owner. "
+                        + "The system MANAGE_USERS permission is required.");
+                return;
+            }
         }
-        boolean hasManageUsersPermission = packageHasManageUsersPermission(callingPackage);
-        if (!(callingPackage.equals(mMdmPackageName) || hasManageUsersPermission)) {
-            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
-                    + "calling package tried to set a different package as profile owner. "
-                    + "The system MANAGE_USERS permission is required.");
-            return;
-        }
-
 
         // Don't continue if the caller tries to skip user consent without permission.
         // Only system apps with the MANAGE_USERS permission can claim that the user consented.
-        boolean needsPermission = getIntent().hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING);
-        if (needsPermission && !hasManageUsersPermission) {
-            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied,"
-                    + "you need MANAGE_USERS permission to skip user consent");
-            return;
+        if (getIntent().hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING)) {
+            if (!hasManageUsersPermission) {
+                showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
+                        + "you need MANAGE_USERS permission to skip user consent.");
+                return;
+            }
+            mUserConsented = true;
         }
 
         // If there is already a managed profile, allow the user to cancel or delete it.
@@ -153,10 +173,7 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private void showStartProvisioningScreen() {
-
         // Skip the user consent if user has previously consented.
-        mUserConsented = getIntent().getBooleanExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING,
-                false);
         if (mUserConsented) {
             checkEncryptedAndStartProvisioningService();
         } else {
@@ -164,6 +181,7 @@ public class ManagedProvisioningActivity extends Activity {
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mUserConsented = true;
                     checkEncryptedAndStartProvisioningService();
                 }
             });
@@ -280,10 +298,10 @@ public class ManagedProvisioningActivity extends Activity {
             startService(intent);
         } else {
             Bundle resumeExtras = getIntent().getExtras();
-            resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
-                    EncryptDeviceActivity.TARGET_PROFILE_OWNER);
+            resumeExtras.putBoolean(EXTRA_USER_HAS_CONSENTED_PROVISIONING, mUserConsented);
+            resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
-                    .putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
+                    .putExtra(EXTRA_RESUME, resumeExtras);
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult or after reboot.
         }
