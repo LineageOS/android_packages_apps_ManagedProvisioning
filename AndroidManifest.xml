@@ -88,6 +88,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity-alias
+            android:name="ManagedProvisioningActivityNoCallerCheck"
+            android:targetActivity="ManagedProvisioningActivity"
+            android:permission="android.permission.MANAGE_USERS"
+            android:exported="true">
+        </activity-alias>
         <activity
             android:name="UserConsentActivity"
             android:immersive="true"
