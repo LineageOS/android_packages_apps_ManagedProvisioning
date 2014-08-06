@@ -43,7 +43,7 @@
     <string name="default_owned_device_username" msgid="7518518266589187045">"Utilizador de dispositivo gerido"</string>
     <string name="setup_device" msgid="6725265673245816366">"Configurar o dispositivo"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"A processar dados de configuração..."</string>
-    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"A ligar ao Wi-Fi..."</string>
+    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"A estabelecer ligação Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"A transferir a aplicação de administração..."</string>
     <string name="progress_install" msgid="9169411715762296097">"A instalar a aplicação de administração..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"A configurar o proprietário do dispositivo..."</string>
@@ -55,7 +55,7 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"Não foi possível configurar o dispositivo. Contacte o departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"O dispositivo já está configurado."</string>
     <string name="device_owner_error_already_owned" msgid="284435773504860369">"Este dispositivo já tem um proprietário."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"Não foi possível ligar ao Wi-Fi."</string>
+    <string name="device_owner_error_wifi" msgid="8060331878518019151">"Não foi possível estabelecer ligação Wi-Fi."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Não foi possível utilizar a aplicação de administração devido a um erro de soma de verificação. Contacte o departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="6098001002861024838">"Não foi possível transferir a aplicação de administração."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Não é possível utilizar a aplicação de administração. Faltam componentes ou está danificada. Contacte o departamento de TI."</string>

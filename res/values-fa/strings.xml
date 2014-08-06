@@ -43,7 +43,7 @@
     <string name="default_owned_device_username" msgid="7518518266589187045">"کاربر دستگاه مدیریت شده"</string>
     <string name="setup_device" msgid="6725265673245816366">"تنظیم دستگاه‌تان"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"در حال پردازش اطلاعات تنظیم..."</string>
-    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏در حال برقراری ارتباط با Wi-Fi..."</string>
+    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏در حال برقراری اتصال به Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"در حال دانلود برنامه سرپرست..."</string>
     <string name="progress_install" msgid="9169411715762296097">"در حال نصب برنامه سرپرست..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"در حال تنظیم مالک دستگاه..."</string>
@@ -55,7 +55,7 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"دستگاه‌تان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
     <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"این دستگاه از قبل تنظیم شده است."</string>
     <string name="device_owner_error_already_owned" msgid="284435773504860369">"این دستگاه از قبل مالک دارد."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"‏به wifi مرتبط نشد."</string>
+    <string name="device_owner_error_wifi" msgid="8060331878518019151">"‏به wifi متصل نشد."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"به دلیل خطای چک‌سام، برنامه سرپرست استفاده نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
     <string name="device_owner_error_download_failed" msgid="6098001002861024838">"برنامه سرپرست دانلود نشد."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"برنامه سرپرست استفاده نمی‌شود. مؤلفه‌های آن وجود ندارند یا خراب هستند. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
