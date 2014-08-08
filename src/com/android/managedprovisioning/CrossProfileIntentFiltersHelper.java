@@ -82,10 +82,26 @@ public class CrossProfileIntentFiltersHelper {
         pm.addCrossProfileIntentFilter(mimeTypeTelephony, managedProfileUserId, parentUserId,
                 PackageManager.SKIP_CURRENT_PROFILE);
 
+        IntentFilter mimeTypeEmergencyPrivileged = new IntentFilter();
+        mimeTypeEmergencyPrivileged.addAction(Intent.ACTION_CALL_EMERGENCY);
+        mimeTypeEmergencyPrivileged.addAction(Intent.ACTION_CALL_PRIVILEGED);
+        mimeTypeEmergencyPrivileged.addCategory(Intent.CATEGORY_DEFAULT);
+        try {
+            mimeTypeEmergencyPrivileged.addDataType("vnd.android.cursor.item/phone");
+            mimeTypeEmergencyPrivileged.addDataType("vnd.android.cursor.item/phone_v2");
+            mimeTypeEmergencyPrivileged.addDataType("vnd.android.cursor.item/person");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            //will not happen
+        }
+        pm.addCrossProfileIntentFilter(mimeTypeEmergencyPrivileged, managedProfileUserId,
+                parentUserId, PackageManager.SKIP_CURRENT_PROFILE);
+
         IntentFilter callDial = new IntentFilter();
         callDial.addAction(Intent.ACTION_DIAL);
         callDial.addAction(Intent.ACTION_CALL);
         callDial.addAction(Intent.ACTION_VIEW);
+        callDial.addAction(Intent.ACTION_CALL_EMERGENCY);
+        callDial.addAction(Intent.ACTION_CALL_PRIVILEGED);
         callDial.addCategory(Intent.CATEGORY_DEFAULT);
         callDial.addCategory(Intent.CATEGORY_BROWSABLE);
         callDial.addDataScheme("tel");
@@ -115,6 +131,13 @@ public class CrossProfileIntentFiltersHelper {
         smsMms.addDataScheme("mmsto");
         pm.addCrossProfileIntentFilter(smsMms, managedProfileUserId, parentUserId,
                 PackageManager.SKIP_CURRENT_PROFILE);
+
+        IntentFilter mobileNetworkSettings = new IntentFilter();
+        mobileNetworkSettings.addAction(android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS);
+        mobileNetworkSettings.addAction(android.provider.Settings.ACTION_NETWORK_OPERATOR_SETTINGS);
+        mobileNetworkSettings.addCategory(Intent.CATEGORY_DEFAULT);
+        pm.addCrossProfileIntentFilter(mobileNetworkSettings, managedProfileUserId,
+                parentUserId, PackageManager.SKIP_CURRENT_PROFILE);
 
         IntentFilter send = new IntentFilter();
         send.addAction(Intent.ACTION_SEND);
