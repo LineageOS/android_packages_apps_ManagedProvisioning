@@ -44,6 +44,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
@@ -307,6 +308,9 @@ public class ManagedProvisioningService extends Service {
      * @param deviceAdminComponent The component of the mdm that will be notified.
      */
     private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
+        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
+                1, mManagedProfileUserInfo.id);
+
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
 
