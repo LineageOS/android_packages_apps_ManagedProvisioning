@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"পরিচালিত প্রভিশনিং সহ অবিরত থাকুন"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"আপনার কর্মস্থলের প্রোফাইলটি সেটআপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন অথবা পরে আবার চেষ্টা করুন।"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"আপনার ডিভাইস কর্মস্থলের প্রোফাইল সমর্থন করে না।"</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"কর্মস্থলের প্রোফাইল শুধুমাত্র কোনো ডিভাইসের ব্যবহারকারী মালিকের দ্বারা সেট আপ করা যাবে।"</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"পরিচালিত ডিভাইস ব্যবহারকারী"</string>
     <string name="setup_device" msgid="6725265673245816366">"আপনার ডিভাইস সেট আপ করুন"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"সেটআপ ডেটা প্রক্রিয়াকৃত হচ্ছে..."</string>

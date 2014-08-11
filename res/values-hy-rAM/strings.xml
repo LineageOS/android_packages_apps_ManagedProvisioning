@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Շարունակել կառավարվող մատակարարումը"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Չհաջողվեց ստեղծել ձեր աշխատանքը պրոֆիլը: Դիմեք ձեր տեխնիկական սպասարկման բաժին կամ փորձեք մի փոքր ուշ:"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Ձեր սարքում աշխատանքային պրոֆիլներ չեն աջակցվում:"</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Աշխատանքային պրոֆիլները կարող են ստեղծվել է միայն սարքի սեփականատիրոջ կողմից:"</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Կառավարվող սարքի օգտագործող"</string>
     <string name="setup_device" msgid="6725265673245816366">"Կարգավորեք ձեր սարքը"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Կարգավորման տվյալները մշակվում են..."</string>

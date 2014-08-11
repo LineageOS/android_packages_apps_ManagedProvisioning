@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Fortsæt med administreret klargøring"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Din arbejdsprofil kunne ikke oprettes. Kontakt din IT-afdeling, eller prøv igen senere."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Din enhed understøtter ikke arbejdsprofiler."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Work-profiler kan kun konfigureres af ejeren af enheden."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Bruger af administreret enhed"</string>
     <string name="setup_device" msgid="6725265673245816366">"Konfigurer din enhed"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Behandler konfigurationsdata..."</string>
