@@ -139,6 +139,13 @@ public class CrossProfileIntentFiltersHelper {
         pm.addCrossProfileIntentFilter(mobileNetworkSettings, managedProfileUserId,
                 parentUserId, PackageManager.SKIP_CURRENT_PROFILE);
 
+        IntentFilter home = new IntentFilter();
+        home.addAction(Intent.ACTION_MAIN);
+        home.addCategory(Intent.CATEGORY_DEFAULT);
+        home.addCategory(Intent.CATEGORY_HOME);
+        pm.addCrossProfileIntentFilter(home, managedProfileUserId, parentUserId,
+                PackageManager.SKIP_CURRENT_PROFILE);
+
         IntentFilter send = new IntentFilter();
         send.addAction(Intent.ACTION_SEND);
         send.addAction(Intent.ACTION_SEND_MULTIPLE);
