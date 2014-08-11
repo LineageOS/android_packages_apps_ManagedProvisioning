@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Boshqaruvdagi sinxronlashni davom ettirish"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ishchi profilingizni sozlab bo‘lmadi. IT bo‘limiga murojaat qiling yoki keyinroq qayta urinib ko‘ring."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Qurilmangiz ishchi profillarni qo‘llab-quvvatlamaydi."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Ishchi profillar faqat qurilma egalari tomonidan sozlanishi mumkin."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Boshqaruvdagi qurilma foydalanuvchisi"</string>
     <string name="setup_device" msgid="6725265673245816366">"Qurilmangizni sozlash"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Sozlash ma’lumotlari qayta ishlanmoqda…"</string>

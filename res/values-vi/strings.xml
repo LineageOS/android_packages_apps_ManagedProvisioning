@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Tiếp tục với quy trình cấp phép được quản lý"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Không thiết lập được hồ sơ công việc của bạn. Hãy liên hệ với bộ phận CNTT hoặc thử lại sau."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Thiết bị của bạn không hỗ trợ hồ sơ công việc."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Chỉ người dùng là chủ sở hữu thiết bị mới có thể thiết lập hồ sơ công việc."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Người dùng thiết bị được quản lý"</string>
     <string name="setup_device" msgid="6725265673245816366">"Thiết lập thiết bị của bạn"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Đang xử lý dữ liệu thiết lập..."</string>
