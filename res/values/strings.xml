@@ -61,7 +61,7 @@
   <string name="encrypt_device_launch_settings">Encrypt device</string>
 
   <!-- Reminder notification to resume provisioning after device has been encrypted -->
-  <string name="continue_provisioning_notify_title">Work profile isn't ready</string>
+  <string name="continue_provisioning_notify_title">Work profile isn\'t ready</string>
   <string name="continue_provisioning_notify_text">Continue setting up work profile</string>
 
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
