@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"관리 프로비저닝 계속"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"직장 프로필을 설정할 수 없습니다. IT 부서에 문의하거나 나중에 다시 시도해 주시기 바랍니다."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"기기에서 직장 프로필을 지원하지 않습니다."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"직장 프로필은 기기의 소유자만 설정할 수 있습니다."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"관리 기기의 사용자"</string>
     <string name="setup_device" msgid="6725265673245816366">"기기 설정"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"설정 데이터 처리 중..."</string>
