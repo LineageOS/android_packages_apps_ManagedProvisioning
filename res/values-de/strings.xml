@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Weiter zur verwalteten Bereitstellung"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ihr Arbeitsprofil konnte nicht eingerichtet werden. Bitte wenden Sie sich an Ihre IT-Abteilung oder versuchen Sie es später erneut."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Ihr Gerät unterstützt keine Arbeitsprofile."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Arbeitsprofile können nur von dem Nutzer eingerichtet werden, der als Eigentümer des Geräts angegeben ist."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Nutzer eines verwalteten Geräts"</string>
     <string name="setup_device" msgid="6725265673245816366">"Gerät einrichten"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Einrichtungsdaten werden verarbeitet…"</string>

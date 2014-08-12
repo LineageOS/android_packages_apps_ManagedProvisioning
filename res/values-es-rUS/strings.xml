@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Continuar con aprovisionamiento administrado"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No se pudo configurar el perfil de trabajo. Comunícate con el Departamento de TI o vuelve a intentarlo más tarde."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Tu dispositivo no admite perfiles de trabajo."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Solo el usuario propietario del dispositivo puede configurar los perfiles de trabajo."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Usuario de dispositivo administrado"</string>
     <string name="setup_device" msgid="6725265673245816366">"Configurar el dispositivo"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Procesando datos de configuración…"</string>

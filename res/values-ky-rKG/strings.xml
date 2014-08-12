@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Башкарылган демилгелөөнү улантуу"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Жумуш профилиңиз негизделген жок. IT бөлүмүңүзгө кайрылыңыз же бир аздан кийин дагы аракет кылып көрүңүз."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Түзмөгүңүздө жумуш профилдери колдоого алынбайт."</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Жумуш профилдерин түзмөктүн ээси болгон колдонуучу гана негиздей алат."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Башкарылган түзмөктүн колдонуучусу"</string>
     <string name="setup_device" msgid="6725265673245816366">"Түзмөгүңүздү негиздөө"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Негиздөө дайындары иштетилүүдө…"</string>

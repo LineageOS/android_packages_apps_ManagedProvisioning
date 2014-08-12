@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"منظم فراہمی کے ساتھ جاری رکھیں"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏آپ کے دفتر کے پروفائل کو ترتیب نہیں دیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں یا بعد میں دوبارہ کوشش کریں۔"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"آپ کا آلہ دفتری پروفائلز کا تعاون نہیں کرتا ہے۔"</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"دفتری پروفائلز کو صرف وہی صارف ترتیب دے سکتا ہے جو آلہ کا مالک ہے۔"</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"منظم آلہ کا صارف"</string>
     <string name="setup_device" msgid="6725265673245816366">"اپنے آلہ کو ترتیب دیں"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"سیٹ اپ ڈیٹا پر کارروائی کی جا رہی ہے…"</string>

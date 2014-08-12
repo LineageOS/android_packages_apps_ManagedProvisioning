@@ -38,8 +38,7 @@
     <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"व्यवस्थित छुट्याउने प्रावधान सँग जारी गर्नुहोस्"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"तपाईंको उपकरणले कार्य प्रोफाइलहरू समर्थन गर्दैन।"</string>
-    <!-- no translation found for user_is_not_owner (5350898966027521370) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="5350898966027521370">"उपकरणको मालिक प्रयोगकर्ता द्वारा मात्र कार्य प्रोफाइल स्थापित गर्न सकिन्छ।"</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"व्यवस्थित उपकरणको प्रयोगकर्ता"</string>
     <string name="setup_device" msgid="6725265673245816366">"तपाईँको उपकरण स्थापना गर्नुहोस्"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"स्थापना डेटा प्रशोधन गर्दै..."</string>
