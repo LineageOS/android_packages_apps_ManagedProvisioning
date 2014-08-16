@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"หากต้องการตั้งค่าต่อ คุณต้องเข้ารหัสอุปกรณ์ ซึ่งอาจใช้เวลาสักครู่หนึ่ง"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ยกเลิก"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"เข้ารหัสอุปกรณ์"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"การจัดสรรที่มีการจัดการ"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"ใช้การจัดสรรที่มีการจัดการต่อ"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ไม่สามารถตั้งค่าโปรไฟล์งานของคุณได้ โปรดติดต่อฝ่ายไอทีหรือลองอีกครั้งในภายหลัง"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"อุปกรณ์ของคุณไม่สนับสนุนโปรไฟล์งาน"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"เฉพาะผู้ใช้ที่เป็นเจ้าของอุปกรณ์จึงจะสามารถตั้งค่าโปรไฟล์งานได้"</string>

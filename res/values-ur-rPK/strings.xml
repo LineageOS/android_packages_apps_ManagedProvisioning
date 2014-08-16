@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"ترتیب دینا جاری رکھنے کیلئے، آپ کو اپنے آلہ کو مرموز کرنے کی ضرورت ہوگی۔ اس میں کچھ وقت لگ سکتا ہے۔"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"منسوخ کریں"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"آلہ مرموز کریں"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"منظم فراہمی"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"منظم فراہمی کے ساتھ جاری رکھیں"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏آپ کے دفتر کے پروفائل کو ترتیب نہیں دیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں یا بعد میں دوبارہ کوشش کریں۔"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"آپ کا آلہ دفتری پروفائلز کا تعاون نہیں کرتا ہے۔"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"دفتری پروفائلز کو صرف وہی صارف ترتیب دے سکتا ہے جو آلہ کا مالک ہے۔"</string>

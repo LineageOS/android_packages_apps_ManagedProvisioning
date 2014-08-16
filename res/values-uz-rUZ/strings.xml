@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"Sozlashni davom ettirish uchun qurilmangizni shifrlash lozim. Bu biroz vaqt olishi mumkin."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Bekor qilish"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Qurilmani shifrlash"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Boshqaruvdagi sinxronlash"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Boshqaruvdagi sinxronlashni davom ettirish"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ishchi profilingizni sozlab bo‘lmadi. IT bo‘limiga murojaat qiling yoki keyinroq qayta urinib ko‘ring."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Qurilmangiz ishchi profillarni qo‘llab-quvvatlamaydi."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Ishchi profillar faqat qurilma egalari tomonidan sozlanishi mumkin."</string>

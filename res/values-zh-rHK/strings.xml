@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"您必須為裝置加密才能繼續設定。這項操作可能需要一段時間才能完成。"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"取消"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"加密裝置"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"受管理的佈建操作"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"繼續受管理的佈建操作"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定您的工作設定檔，請與您的 IT 部門聯絡或稍後再試。"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"您的裝置不支援工作設定檔。"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"只有裝置擁有者可以設定工作設定檔。"</string>

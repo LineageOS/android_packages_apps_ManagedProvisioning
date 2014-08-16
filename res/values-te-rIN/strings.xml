@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"సెటప్ చేయడాన్ని కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"రద్దు చేయి"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"పరికరం గుప్తీకరించు"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"నిర్వహించబడే కేటాయింపు"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"నిర్వహించబడే కేటాయింపుతో కొనసాగించండి"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"మీ పరికరం కార్యాలయ ప్రొఫైల్‌లకు మద్దతు ఇవ్వదు."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"కార్యాలయ ప్రొఫైల్‌లను పరికరం యొక్క యజమాని వినియోగదారు మాత్రమే సెటప్ చేయగలరు."</string>

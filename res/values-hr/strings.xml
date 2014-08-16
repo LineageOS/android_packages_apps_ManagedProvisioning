@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"Da biste nastavili s postavljanjem, morat ćete kriptirati uređaj. To može potrajati dulje."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Odustani"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Kriptiraj uređaj"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Upravljano pružanje niza usluga"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Nastavi s upravljanim pružanjem niza usluga"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Postavljanje vašeg radnog profila nije uspjelo. Obratite se IT odjelu ili pokušajte ponovno kasnije."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Vaš uređaj ne podržava radne profile."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Radne profile može postaviti samo vlasnik uređaja."</string>

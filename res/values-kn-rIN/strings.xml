@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"ಹೊಂದಿಸುವಿಕೆ ಮುಂದುವರೆಸಲು, ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡುವ ಅಗತ್ಯವಿದೆ. ಇದು ಸ್ವಲ್ಪ ಸಮಯವನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ರದ್ದುಮಾಡು"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"ಸಾಧನವನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿ"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"ನಿರ್ವಹಿಸಿದ ಪೂರೈಕೆ"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"ನಿರ್ವಹಿಸಿದ ಪೂರೈಕೆಯಿಂದ ಮುಂದುವರೆಯಿರಿ"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"ನಿಮ್ಮ ಸಾಧನವು ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಮಾಲೀಕ ಬಳಕೆದಾರರಿಂದ ಮಾತ್ರ ಹೊಂದಿಸಬಹುದಾಗಿರುತ್ತದೆ."</string>

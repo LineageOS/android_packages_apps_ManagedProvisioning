@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"सेट करणे सुरु ठेवण्‍यासाठी, आपल्‍याला आपले डिव्‍हाइस कूटबद्ध करणे आवश्‍यक असेल. यास काही वेळ लागू शकतो."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द करा"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"डिव्हाइस कूटबद्ध करा"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"व्यवस्थापित केलेली तरतूद"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"व्यवस्थापित केलेल्‍या तरतूद सह सुरू ठेवा"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"आपले डिव्हाइस कार्य प्रोफाईलना समर्थन देत नाही."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"कार्य प्रोफाईल केवळ डिव्हाइसच्या मालक वापरकर्त्याद्वारे सेट केले जाऊ शकतात."</string>
