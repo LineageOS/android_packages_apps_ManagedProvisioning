@@ -21,14 +21,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
-import android.content.SharedPreferences;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.MediaStore;
-import android.util.Log;
 
 import com.android.managedprovisioning.ProvisionLogger;
 
@@ -68,53 +65,68 @@ public class CrossProfileIntentFiltersHelper {
     public static void setFilters(PackageManager pm, int parentUserId, int managedProfileUserId) {
         ProvisionLogger.logd("Setting cross-profile intent filters");
 
+        // Voicemail scheme, phone/call related MIME types and emergency/priviledged calls are sent
+        // directly to the parent user.
         IntentFilter mimeTypeTelephony = new IntentFilter();
         mimeTypeTelephony.addAction(Intent.ACTION_DIAL);
+        mimeTypeTelephony.addAction(Intent.ACTION_VIEW);
+        mimeTypeTelephony.addAction(Intent.ACTION_CALL_EMERGENCY);
+        mimeTypeTelephony.addAction(Intent.ACTION_CALL_PRIVILEGED);
         mimeTypeTelephony.addCategory(Intent.CATEGORY_DEFAULT);
         mimeTypeTelephony.addCategory(Intent.CATEGORY_BROWSABLE);
         try {
             mimeTypeTelephony.addDataType("vnd.android.cursor.item/phone");
+            mimeTypeTelephony.addDataType("vnd.android.cursor.item/phone_v2");
             mimeTypeTelephony.addDataType("vnd.android.cursor.item/person");
             mimeTypeTelephony.addDataType("vnd.android.cursor.dir/calls");
+            mimeTypeTelephony.addDataType("vnd.android.cursor.item/calls");
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
         pm.addCrossProfileIntentFilter(mimeTypeTelephony, managedProfileUserId, parentUserId,
                 PackageManager.SKIP_CURRENT_PROFILE);
 
-        IntentFilter mimeTypeEmergencyPrivileged = new IntentFilter();
-        mimeTypeEmergencyPrivileged.addAction(Intent.ACTION_CALL_EMERGENCY);
-        mimeTypeEmergencyPrivileged.addAction(Intent.ACTION_CALL_PRIVILEGED);
-        mimeTypeEmergencyPrivileged.addCategory(Intent.CATEGORY_DEFAULT);
-        try {
-            mimeTypeEmergencyPrivileged.addDataType("vnd.android.cursor.item/phone");
-            mimeTypeEmergencyPrivileged.addDataType("vnd.android.cursor.item/phone_v2");
-            mimeTypeEmergencyPrivileged.addDataType("vnd.android.cursor.item/person");
-        } catch (IntentFilter.MalformedMimeTypeException e) {
-            //will not happen
-        }
-        pm.addCrossProfileIntentFilter(mimeTypeEmergencyPrivileged, managedProfileUserId,
-                parentUserId, PackageManager.SKIP_CURRENT_PROFILE);
+        IntentFilter callEmergency = new IntentFilter();
+        callEmergency.addAction(Intent.ACTION_CALL_EMERGENCY);
+        callEmergency.addAction(Intent.ACTION_CALL_PRIVILEGED);
+        callEmergency.addCategory(Intent.CATEGORY_DEFAULT);
+        callEmergency.addCategory(Intent.CATEGORY_BROWSABLE);
+        callEmergency.addDataScheme("tel");
+        callEmergency.addDataScheme("sip");
+        callEmergency.addDataScheme("voicemail");
+        pm.addCrossProfileIntentFilter(callEmergency, managedProfileUserId, parentUserId,
+                PackageManager.SKIP_CURRENT_PROFILE);
 
+        IntentFilter callVoicemail = new IntentFilter();
+        callVoicemail.addAction(Intent.ACTION_DIAL);
+        callVoicemail.addAction(Intent.ACTION_CALL);
+        callVoicemail.addAction(Intent.ACTION_VIEW);
+        callVoicemail.addCategory(Intent.CATEGORY_DEFAULT);
+        callVoicemail.addCategory(Intent.CATEGORY_BROWSABLE);
+        callVoicemail.addDataScheme("voicemail");
+        pm.addCrossProfileIntentFilter(callVoicemail, managedProfileUserId, parentUserId,
+                PackageManager.SKIP_CURRENT_PROFILE);
+
+        // Let VoIP apps from the managed profile handle tel: and sip: schemes (except emergency)
+        // and call button intents.
         IntentFilter callDial = new IntentFilter();
         callDial.addAction(Intent.ACTION_DIAL);
         callDial.addAction(Intent.ACTION_CALL);
         callDial.addAction(Intent.ACTION_VIEW);
-        callDial.addAction(Intent.ACTION_CALL_EMERGENCY);
-        callDial.addAction(Intent.ACTION_CALL_PRIVILEGED);
         callDial.addCategory(Intent.CATEGORY_DEFAULT);
         callDial.addCategory(Intent.CATEGORY_BROWSABLE);
         callDial.addDataScheme("tel");
-        callDial.addDataScheme("voicemail");
         callDial.addDataScheme("sip");
-        callDial.addDataScheme("tel");
-        pm.addCrossProfileIntentFilter(callDial, managedProfileUserId, parentUserId,
-                PackageManager.SKIP_CURRENT_PROFILE);
+        pm.addCrossProfileIntentFilter(callDial, managedProfileUserId, parentUserId, 0);
+
+        IntentFilter callButton = new IntentFilter();
+        callButton.addAction(Intent.ACTION_CALL_BUTTON);
+        callButton.addCategory(Intent.CATEGORY_DEFAULT);
+        pm.addCrossProfileIntentFilter(callButton, managedProfileUserId, parentUserId, 0);
 
         IntentFilter callDialNoData = new IntentFilter();
         callDialNoData.addAction(Intent.ACTION_DIAL);
         callDialNoData.addAction(Intent.ACTION_CALL);
-        callDialNoData.addAction(Intent.ACTION_CALL_BUTTON);
         callDialNoData.addCategory(Intent.CATEGORY_DEFAULT);
         callDialNoData.addCategory(Intent.CATEGORY_BROWSABLE);
         pm.addCrossProfileIntentFilter(callDialNoData, managedProfileUserId, parentUserId,
@@ -155,6 +167,7 @@ public class CrossProfileIntentFiltersHelper {
         } catch (IntentFilter.MalformedMimeTypeException e) {
             //will not happen
         }
+        // This is the only filter set on the opposite direction (from parent to managed profile).
         pm.addCrossProfileIntentFilter(send, parentUserId, managedProfileUserId, 0);
 
         IntentFilter getContent = new IntentFilter();
