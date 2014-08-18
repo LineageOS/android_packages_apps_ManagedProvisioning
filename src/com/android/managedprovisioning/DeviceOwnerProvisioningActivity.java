@@ -203,6 +203,8 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
 
         sendBroadcast(completeIntent);
+
+        setResult(Activity.RESULT_OK);
         finish();
     }
 
