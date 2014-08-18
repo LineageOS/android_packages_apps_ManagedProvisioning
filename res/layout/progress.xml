@@ -21,21 +21,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-    <ImageView
-        style="@style/SetupWorkSpaceHeader"/>
-    <TextView
-        android:id="@+id/title"
-        style="@style/SetupWorkSpaceTitle"/>
+    <include layout="@layout/header_and_title"/>
     <LinearLayout
-        style="@style/SetupWorkSpaceTextContainer">
+        style="@style/MainTextContainer">
         <ProgressBar
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:paddingTop="24dp"/>
+            style="@style/ProgressBar"/>
         <TextView
             android:id="@+id/prog_text"
             android:gravity="center_horizontal"
-            style="@style/SetupWorkSpaceMainText"/>
+            style="@style/MainText"/>
     </LinearLayout>
 </LinearLayout>
