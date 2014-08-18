@@ -37,8 +37,10 @@
     <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Anulați"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Criptați dispozitiv"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Alocare de resurse gestionată"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Continuați cu alocarea de resurse gestionată"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nu s-a putut configura profilul de serviciu. Contactați departamentul IT sau încercați din nou mai târziu."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Dispozitivul dvs. nu acceptă profiluri de serviciu."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Profilurile de serviciu pot fi configurate numai de către proprietarul dispozitivului."</string>

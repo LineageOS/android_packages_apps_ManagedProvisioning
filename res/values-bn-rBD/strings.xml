@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"সেট আপ অবিরত রাখতে, আপনাকে আপনার ডিভাইস এনক্রিপ্ট করতে হবে। এর জন্য কিছুক্ষণ সময় লাগবে।"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"বাতিল করুন"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"ডিভাইস এনক্রিপ্ট করুন"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"পরিচালিত প্রভিশনিং"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"পরিচালিত প্রভিশনিং সহ অবিরত থাকুন"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"আপনার কর্মস্থলের প্রোফাইলটি সেটআপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন অথবা পরে আবার চেষ্টা করুন।"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"আপনার ডিভাইস কর্মস্থলের প্রোফাইল সমর্থন করে না।"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"কর্মস্থলের প্রোফাইল শুধুমাত্র কোনো ডিভাইসের ব্যবহারকারী মালিকের দ্বারা সেট আপ করা যাবে।"</string>

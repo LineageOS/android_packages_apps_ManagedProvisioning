@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"За да продължите с настройването, трябва да шифровате устройството си. Това може да отнеме известно време."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Отказ"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Шифроване на у-вото"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Управлявано обезпечаване"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Продължаване с управляваното обезпечаване"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Служебният ви потребителски профил не можа да се настрои. Свържете се с отдела си за информационни технологии или опитайте отново по-късно."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Устройството ви не поддържа служебни потребителски профили."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Служебните потребителски профили могат да бъдат настроени само от собственика на устройството."</string>

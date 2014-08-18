@@ -34,11 +34,13 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"For at fortsætte konfigurationen skal du kryptere din enhed. Dette kan tage lidt tid."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Annuller"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Kryptér enheden"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Administreret klargøring"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Fortsæt med administreret klargøring"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Din arbejdsprofil kunne ikke oprettes. Kontakt din IT-afdeling, eller prøv igen senere."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Din enhed understøtter ikke arbejdsprofiler."</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"Work-profiler kan kun konfigureres af ejeren af enheden."</string>
+    <string name="user_is_not_owner" msgid="5350898966027521370">"Arbejdsprofiler kan kun konfigureres af ejeren af enheden."</string>
     <string name="default_owned_device_username" msgid="7518518266589187045">"Bruger af administreret enhed"</string>
     <string name="setup_device" msgid="6725265673245816366">"Konfigurer din enhed"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Behandler konfigurationsdata..."</string>

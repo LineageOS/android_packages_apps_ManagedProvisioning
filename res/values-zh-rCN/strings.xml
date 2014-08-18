@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"要继续设置，您需要对您的设备进行加密。此过程可能需要一段时间。"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"取消"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"加密设备"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"托管配置"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"继续进行托管配置"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"无法设置您的工作资料，请与您公司的IT部门联系或稍后重试。"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"您的设备不支持工作资料。"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"工作资料只能由相应设备的所有者设置。"</string>

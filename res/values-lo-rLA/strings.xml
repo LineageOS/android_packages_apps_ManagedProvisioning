@@ -34,8 +34,8 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"ເພື່ອ​ສືບ​ຕໍ່​ການ​ຕັ້ງ​ຄ່າ, ທ່ານ​ຈະ​ຕ້ອງ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ. ຂັ້ນ​ຕອນ​ນີ້​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"​ຍົກ​ເລີກ"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Managed provisioning"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"​ສືບ​ຕໍ່​​ດ້ວຍ managed provisioning"</string>
+    <string name="continue_provisioning_notify_title" msgid="1389974667804240101">"ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຍັງ​ບໍ່​ພ້ອມ​ເທື່ອ"</string>
+    <string name="continue_provisioning_notify_text" msgid="3770982225641115906">"ສືບ​ຕໍ່​ການ​ຕັ້ງ​ຄ​່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ບໍ່​ສາ​ມາດ​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ໄດ້. ກະ​ລຸ​ນາ​ຕິດ​ຕໍ່​ພະ​ແນກ​ໄອ​ທີ​ຂອງ​ທ່ານ ຫຼື​ລອງ​ໃໝ່​ໃນ​ພາຍຫຼັງ."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານບໍ່​ຮອງ​ຮັບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ສາ​ມາດ​ຖືກ​ຕັ້ງ​ຄ່າ​ໄດ້​ໂດຍ​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ​ເທົ່າ​ນັ້ນ."</string>

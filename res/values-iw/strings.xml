@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"כדי להמשיך בהגדרה, יהיה עליך להצפין את המכשיר. פעולה זו עשויה להימשך זמן מה."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"בטל"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"הצפן מכשיר"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"ניהול תצורה מנוהל"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"המשך בניהול תצורה מנוהל"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏לא ניתן להגדיר את פרופיל העבודה שלך. צור קשר עם מחלקת ה-IT או נסה שוב מאוחר יותר."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"המכשיר שלך אינו תומך בפרופילי עבודה."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"רק המשתמש המוגדר כבעלים של המכשיר יכול להגדיר פרופילי עבודה."</string>

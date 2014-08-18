@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"Þú þarft að dulkóða tækið til að halda uppsetningunni áfram. Þetta gæti tekið einhverja stund."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Hætta við"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Dulkóða tæki"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Stýrð úthlutun"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Halda stýrðri úthlutun áfram"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ekki var hægt að setja upp vinnusniðið þitt. Hafðu samband við upplýsingatæknisvið eða reyndu aftur síðar."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Tækið þitt styður ekki vinnusnið."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Aðeins eigandi tækisins getur sett upp vinnusnið."</string>
