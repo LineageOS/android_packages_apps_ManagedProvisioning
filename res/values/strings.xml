@@ -45,9 +45,9 @@
   <string name="default_managed_profile_name">Work profile</string>
 
   <!-- String shown when there is already a managed profile for this user. CHAR LIMIT=NONE] -->
-  <string name="managed_profile_already_present"> You can only have one work space on your device. It appears that you already have one. Would you like to remove it to proceed?</string>
+  <string name="managed_profile_already_present"> You can only have one work profile on your device. It appears that you already have one. Would you like to remove it to proceed?</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing managed profile-->
-  <string name="sure_you_want_to_delete_profile"> Are you sure you want to delete your existing work space? This will delete all data associated with it.</string>
+  <string name="sure_you_want_to_delete_profile"> Are you sure you want to delete your existing work profile? This will delete all data associated with it.</string>
   <!-- String on the button that triggers the deletion of a managed profile.-->
   <string name="delete_profile">Delete</string>
   <!-- String on the button that cancels out of the deletion of a managed profile.-->
