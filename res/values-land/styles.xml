@@ -16,23 +16,15 @@
  * limitations under the License.
  */
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Container" >
-    <include layout="@layout/header_and_title"/>
+<resources>
 
-    <!-- Progress indicator that replaces main view during provisioning. -->
-    <LinearLayout
-        android:id="@+id/progress_container"
-        style="@style/MainTextContainer"
-        android:visibility="gone" >
-        <TextView
-            android:text="@string/setting_up_workspace"
-            style="@style/MainText"/>
-        <ProgressBar
-            style="@style/ProgressBar"/>
-    </LinearLayout>
+    <style name="SetupWorkSpaceTheme" parent="@android:style/Theme.Material" >
+      <item name="android:windowActionBar">false</item>
+      <item name="android:windowNoTitle">true</item>
+      <item name="android:colorPrimary">@color/teal</item>
+      <item name="android:colorAccent">@color/accent</item>
+      <!-- Match the status bar to the header rather than the image, only for landscape, small -->
+      <item name="android:colorPrimaryDark">@color/accent</item>
+    </style>
 
-    <!-- Main view -->
-    <include layout="@layout/user_consent_main_text"/>
-</LinearLayout>
+</resources>

@@ -17,55 +17,99 @@
  */
 -->
 <resources>
-    <style name="SetupWorkSpaceTheme" parent="@android:Theme.Material.Light">
+
+    <style name="SetupWorkSpaceTheme" parent="@android:style/Theme.Material" >
       <item name="android:windowActionBar">false</item>
       <item name="android:windowNoTitle">true</item>
+      <item name="android:colorPrimary">@color/teal</item>
+      <item name="android:colorAccent">@color/dark_turquoise</item>
+      <item name="android:colorPrimaryDark">@color/light_teal</item>
     </style>
 
-    <style name="SetupWorkSpaceHeader">
+    <style name="LightButtonOverlayTheme">
+        <item name="android:colorButtonNormal">@color/white</item>
+        <item name="android:textColorPrimary">@color/accent</item>
+        <item name="android:colorControlHighlight">@color/accent_transparent</item>
+    </style>
+
+    <style name="ColoredButtonOverlayTheme">
+        <item name="android:colorButtonNormal">@color/colored_button</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="Container">
+      <item name="android:layout_width">fill_parent</item>
+      <item name="android:layout_height">fill_parent</item>
+      <item name="android:orientation">vertical</item>
+      <item name="android:background">@color/teal</item>
+    </style>
+
+    <style name="HeaderAndTitleContainer">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/light_turquoise</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/teal</item>
+    </style>
+
+    <style name="HeaderImage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:src">@drawable/setup_illustration</item>
     </style>
 
-    <style name="SetupWorkSpaceTitle" parent ="@style/SetupWorkSpaceLeftRightPadding">
-        <item name="android:text">@string/setup_work_space</item>
+    <style name="Title">
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">72dp</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:background">@color/dark_turquoise</item>
+        <item name="android:layout_height">@dimen/title_height</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:background">@color/teal</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/title_padding</item>
     </style>
 
-    <style name="SetupWorkSpaceMainText">
+    <style name="MainText">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:paddingTop">16dp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:paddingTop">@dimen/main_text_padding_top</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
     </style>
 
-    <style name="SetupButton">
-        <item name="android:layout_width">100dp</item>
-        <item name="android:layout_height">35dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/blue</item>
+    <style name="ColoredButton" parent="@android:style/Widget.Material.Button">
+        <item name="android:theme">@style/ColoredButtonOverlayTheme</item>
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
     </style>
 
-    <style name="SetupWorkSpaceTextContainer" parent ="@style/SetupWorkSpaceLeftRightPadding">
+    <style name="LightButton" parent="@android:style/Widget.Material.Button">
+        <item name="android:theme">@style/LightButtonOverlayTheme</item>
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
+    </style>
+
+    <style name="MainTextContainer">
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">fill_parent</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:paddingBottom">24dp</item>
         <item name="android:background">@color/white</item>
+        <item name="android:paddingBottom">@dimen/main_text_padding_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/main_text_margins_left_right</item>
+        <item name="android:layout_marginRight">@dimen/main_text_margins_left_right</item>
+        <item name="android:paddingLeft">@dimen/main_text_padding_left_right</item>
+        <item name="android:paddingRight">@dimen/main_text_padding_left_right</item>
+        <item name="android:paddingTop">@dimen/main_text_container_padding_top</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
     </style>
 
-    <style name="SetupWorkSpaceLeftRightPadding">
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
+    <style name="ProgressBar" parent="@android:Widget.ProgressBar.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/main_text_padding_top</item>
+        <item name="android:indeterminate">true</item>
     </style>
+
 </resources>

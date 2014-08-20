@@ -18,46 +18,7 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
-    <ImageView
-        style="@style/SetupWorkSpaceHeader"/>
-    <TextView
-        style="@style/SetupWorkSpaceTitle"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:orientation="vertical">
-        <LinearLayout
-            style="@style/SetupWorkSpaceTextContainer">
-            <TextView
-                android:text="@string/encrypt_device_text"
-                style="@style/SetupWorkSpaceMainText"/>
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-                <Button
-                    android:id="@+id/cancel_button"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/encrypt_device_cancel"/>
-                <Button
-                    android:id="@+id/accept_button"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:text="@string/encrypt_device_launch_settings"
-                    style="@style/SetupButton"/>
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+    style="@style/Container" >
+    <include layout="@layout/header_and_title"/>
+    <include layout="@layout/encrypt_device_main_text"/>
 </LinearLayout>
