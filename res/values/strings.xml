@@ -30,16 +30,27 @@
 
   <!-- User consent -->
   <!-- Title of all managed profile setup screens. [CHAR LIMIT=NONE] -->
-  <string name="setup_work_space">Set up your work profile</string>
+  <string name="setup_work_space">Set up your profile</string>
   <!-- Part 1 of the text that asks for user consent to create a corporate profile [CHAR LIMIT=NONE] -->
   <string name="separate_work_spaces">Set up a work profile for your corporate email and other apps.</string>
   <!-- Part 2 of the text that asks for user consent to create a corporate profile [CHAR LIMIT=NONE] -->
-  <string name="company_controls_workspace">Your company controls your work profile on this device and keeps
-      it secure. You control your personal profile. Your company can\'t access it.</string>
+  <string name="company_controls_workspace">Your organization controls this profile and keeps it secure. You control everything else on your device.</string>
+  <!-- String shown above the icon of the app that will control the corporate profile after it is set up. [CHAR LIMIT=NONE]-->
+  <string name="the_following_is_your_mdm">The following app will need to access this profile:</string>
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
   <string name="set_up">Set up</string>
   <!-- Progress text shown when setting up work space [CHAR LIMIT=NONE] -->
   <string name="setting_up_workspace">Setting up your work profile...</string>
+  <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor">Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information.</string>
+  <!-- String telling the user how to get more information about their work profile-->
+  <string name="contact_your_admin_for_more_info">Contact your administrator for more information, including your organizations\'s privacy policies.</string>
+  <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
+  <string name="learn_more_link">Learn more </string>
+  <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="cancel_setup">Cancel</string>
+  <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="ok_setup">OK</string>
 
   <!-- Default profile name used for the creation of managed profiles. [CHAR LIMIT=NONE] -->
   <string name="default_managed_profile_name">Work profile</string>
