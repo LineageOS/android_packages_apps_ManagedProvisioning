@@ -32,7 +32,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_NFC_MIME_TYPE;
+import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.content.Intent;
@@ -60,7 +60,7 @@ import java.util.Properties;
  * Intent was received via Nfc.
  * The intent contains the extra {@link NfcAdapter.EXTRA_NDEF_MESSAGES}, which indicates that
  * provisioning was started via Nfc bump. This extra contains an NDEF message, which contains an
- * NfcRecord with mime type {@link PROVISIONING_NFC_MIME_TYPE}. This record stores a serialized
+ * NfcRecord with mime type {@link MIME_TYPE_PROVISIONING_NFC}. This record stores a serialized
  * properties object, which contains the serialized extra's described in the next option.
  * A typical use case would be a programmer application that sends an Nfc bump to start Nfc
  * provisioning from a programmer device.
@@ -162,7 +162,7 @@ public class MessageParser {
             NdefRecord firstRecord = msg.getRecords()[0];
             String mimeType = new String(firstRecord.getType(), UTF_8);
 
-            if (PROVISIONING_NFC_MIME_TYPE.equals(mimeType)) {
+            if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
                 return parseProperties(new String(firstRecord.getPayload(), UTF_8));
             }
         }
