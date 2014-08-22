@@ -19,13 +19,19 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/MainTextContainer" >
-    <TextView
-        android:text="@string/encrypt_device_text"
-        style="@style/MainText"/>
-    <View
+    <ScrollView
         android:layout_weight="1"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        style="@style/ScrollView">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/encrypt_device_text"
+                style="@style/MainText"/>
+        </LinearLayout>
+    </ScrollView>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/row_height"
