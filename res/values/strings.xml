@@ -69,7 +69,7 @@
   <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
   <string name="encrypt_device_cancel">Cancel</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
-  <string name="encrypt_device_launch_settings">Encrypt device</string>
+  <string name="encrypt_device_launch_settings">Encrypt</string>
 
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <string name="continue_provisioning_notify_title">Encryption complete</string>
