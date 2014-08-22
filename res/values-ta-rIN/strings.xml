@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"அமைப்பதைத் தொடர, சாதனத்தைக் குறியாக்க வேண்டும். அதற்கு சிறிது நேரம் ஆகலாம்."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ரத்துசெய்"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"சாதனத்தை மறைகுறியாக்கு"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"நிர்வகிக்கப்பட்ட ஃப்ரோவிஷனிங்"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"நிர்வகிக்கப்பட்ட ஃப்ரோவிஷனிங்குடன் தொடர்க"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"சாதனம் பணி சுயவிவரங்களை ஆதரிக்காது."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"சாதன உரிமையாளர் மட்டுமே பணி சுயவிவரங்களை அமைக்க முடியும்."</string>

@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"Ili uendelee kusanidi, utahitajika kusimba kifaa chako kwa njia fiche. Hii inaweza kuchukua muda."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Ghairi"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Simba kifaa kwa njia fiche"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Uandaaji unaosimamiwa"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Endelea na uandaaji unaosimamiwa"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Haikuweza kusanidi wasifu wako wa kazi. Wasiliana na idara yako ya Teknolojia ya Habari au ujaribu tena baadaye."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Kifaa chako hakitumii wasifu wa kazi."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Wasifu wa kazi unaweza kusanidiwa na mmiliki mtumiaji wa kifaa pekee."</string>

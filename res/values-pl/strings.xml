@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"Aby kontynuować konfigurowanie, musisz zaszyfrować swoje urządzenie. Może to zająć trochę czasu."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Anuluj"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Zaszyfruj urządzenie"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Zarządzana obsługa administracyjna"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Kontynuuj z zarządzaną obsługą administracyjną"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nie można skonfigurować profilu do pracy. Skontaktuj się z działem IT lub spróbuj później jeszcze raz."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Urządzenie nie obsługuje profili do pracy."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Tylko właściciel urządzenia może skonfigurować profile do pracy."</string>

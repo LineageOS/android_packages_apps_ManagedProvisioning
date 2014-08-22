@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"സജ്ജീകരിക്കുന്നത് തുടരണമെങ്കിൽ നിങ്ങളുടെ ഉപകരണം എൻക്രിപ്റ്റ് ചെയ്യേണ്ടതാവശ്യമാണ്. ഇത് കുറച്ച് സമയമെടുത്തേക്കാം."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"റദ്ദാക്കുക"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"ഉപകരണം എൻക്രിപ്‌റ്റുചെയ്യുക"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"നിയന്ത്രിത പ്രൊവിഷൻ ചെയ്യൽ"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"നിയന്ത്രിത പ്രൊവിഷൻ ചെയ്യലിൽ തുടരുക"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കാനായില്ല. നിങ്ങളുടെ ഐടി വിഭാഗവുമായി ബന്ധപ്പെടുക അല്ലെങ്കിൽ പിന്നീട് വീണ്ടും ശ്രമിക്കുക."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"നിങ്ങളുടെ ഉപകരണം ഔദ്യോഗിക പ്രൊഫൈലുകളെ പിന്തുണയ്‌ക്കുന്നില്ല."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"ഉപകരണത്തിന്റെ ഉടമയായ ഉപയോക്താവിന് മാത്രമേ ഔദ്യോഗിക പ്രൊഫൈലുകൾ സജ്ജീകരിക്കാനാകൂ."</string>

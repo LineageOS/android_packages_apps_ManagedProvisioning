@@ -34,8 +34,8 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"Тохируулгыг үргэлжлүүлэхийн тулд та төхөөрөмжийг шифрлэх шаардлагатай. Үүнд нэлээн хугацаа орж болно."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Цуцлах"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Төхөөрөмжийг шифрлэх"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"Удирдсан провижн"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"Удирдсан провижныг үргэлжлүүлэх"</string>
+    <string name="continue_provisioning_notify_title" msgid="1389974667804240101">"Ажлын профайл бэлэн биш байна"</string>
+    <string name="continue_provisioning_notify_text" msgid="3770982225641115906">"Ажлын профайлыг үргэлжлүүлэн тохируулах"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Таны ажлын профайлыг тохируулж чадсангүй. МТ хэлтэстэй холбогдох буюу дараа дахин оролдоно уу."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Таны төхөөрөмж ажлын профайлыг дэмждэггүй."</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"Ажлын профайлыг зөвхөн төхөөрөмжийн эзэмшигч хэрэглэгч тохируулах боломжтой."</string>

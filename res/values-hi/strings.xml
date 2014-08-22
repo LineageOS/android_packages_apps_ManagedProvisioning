@@ -34,8 +34,10 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"सेट अप करना जारी रखने के लिए, आपको अपने उपकरण को एन्क्रिप्ट करना होगा. इसमें कुछ समय लग सकता है."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द करें"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"उपकरण एन्क्रिप्ट करें"</string>
-    <string name="continue_provisioning_notify_title" msgid="7359305958955371977">"प्रबंधित प्रावधानीकरण"</string>
-    <string name="continue_provisioning_notify_text" msgid="2358591444954987744">"प्रबंधित प्रावधानीकरण के साथ जारी रखें"</string>
+    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <skip />
+    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
+    <skip />
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपकी कार्य प्रोफ़ाइल सेट नहीं की जा सकी. अपने IT विभाग से संपर्क करें या बाद में पुन: प्रयास करें."</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"आपका उपकरण कार्य प्रोफ़ाइल का समर्थन नहीं करता है"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"कार्य प्रोफ़ाइलों को केवल उपकरण के स्‍वामी उपयोगकर्ता द्वारा ही सेट किया जा सकता है."</string>
