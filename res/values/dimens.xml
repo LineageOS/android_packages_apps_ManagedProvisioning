@@ -27,7 +27,6 @@
     <dimen name="main_text_size">16sp</dimen>
 
     <!-- Buttons -->
-    <dimen name="button_height">35dp</dimen>
     <dimen name="button_width">100dp</dimen>
 
     <!-- Edit Texts -->

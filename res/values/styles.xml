@@ -18,7 +18,7 @@
 -->
 <resources>
 
-    <style name="SetupWorkSpaceTheme" parent="@android:style/Theme.Material" >
+    <style name="SetupWorkSpaceTheme" parent="@android:style/Theme.Material.Light" >
       <item name="android:windowActionBar">false</item>
       <item name="android:windowNoTitle">true</item>
       <item name="android:colorPrimary">@color/teal</item>
@@ -35,6 +35,10 @@
     <style name="ColoredButtonOverlayTheme">
         <item name="android:colorButtonNormal">@color/colored_button</item>
         <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="ControlOverlayTheme">
+      <item name="android:colorControlNormal">@color/accent_transparent</item>
     </style>
 
     <style name="Container">
@@ -75,17 +79,19 @@
         <item name="android:textSize">@dimen/main_text_size</item>
     </style>
 
-    <style name="ColoredButton" parent="@android:style/Widget.Material.Button">
+    <style name="ColoredButton" parent="@android:style/Widget.Material.Light.Button">
         <item name="android:theme">@style/ColoredButtonOverlayTheme</item>
-        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:minWidth">@dimen/button_width</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/main_text_size</item>
     </style>
 
-    <style name="LightButton" parent="@android:style/Widget.Material.Button">
+    <style name="LightButton" parent="@android:style/Widget.Material.Light.Button">
         <item name="android:theme">@style/LightButtonOverlayTheme</item>
-        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:minWidth">@dimen/button_width</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/main_text_size</item>
@@ -103,6 +109,12 @@
         <item name="android:paddingRight">@dimen/main_text_padding_left_right</item>
         <item name="android:paddingTop">@dimen/main_text_container_padding_top</item>
         <item name="android:textSize">@dimen/main_text_size</item>
+    </style>
+
+    <style name="ScrollView" parent="@android:style/Widget.Material.Light.ScrollView">
+        <item name="android:theme">@style/ControlOverlayTheme</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:fadeScrollbars">false</item>
     </style>
 
     <style name="ProgressBar" parent="@android:Widget.ProgressBar.Small">
