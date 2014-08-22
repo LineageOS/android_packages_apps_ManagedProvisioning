@@ -34,10 +34,8 @@
     <string name="encrypt_device_text" msgid="1823426228543576774">"စဖွင့်သတ်မှတ်မှုကို ဆက်လုပ်ရန်၊ သင်သည် သင်၏ ကိရိယာကို လျှို့ဝှက်ကုဒ် သွင်းရမည်။ အဲဒါ အချိန် အနည်းငယ် ကြာနိုင်သည်။"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ပယ်ဖျက်ရန်"</string>
     <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"ကိရိယာကို လျှို့ဝှက်ကုဒ် သွင်းရန်"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
-    <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="1389974667804240101">"အလုပ် ပရိုဖိုင်ကို အသင့်မရှိသေးပါ"</string>
+    <string name="continue_provisioning_notify_text" msgid="3770982225641115906">"အလုပ် ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်မှု ဆက်လုပ်ရန်"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ် မရခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ သို့မဟုတ် နောက်မှာ ထပ်စမ်းပါ။"</string>
     <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"သင့် ကိရိယာက အလုပ် ပရိုဖိုင်များကို မပံ့ပိုးပါ။"</string>
     <string name="user_is_not_owner" msgid="5350898966027521370">"အလုပ် ပရိုဖိုင်ကို ကိရိယာကို သုံးစွဲသူ ပိုင်ရှင်ကသာလျှင် စဖွင့်သတ်မှတ်နိုင်သည်။"</string>
