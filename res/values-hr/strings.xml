@@ -21,45 +21,73 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Pružatelj usluga na uređaju"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
-    <string name="setup_work_space" msgid="216766502284671082">"Postavljanje radnog profila"</string>
+    <!-- no translation found for setup_work_space (6539913744903244870) -->
+    <skip />
     <string name="separate_work_spaces" msgid="3496001079642966876">"Postavite radni profil za poslovnu e-poštu i ostale aplikacije."</string>
-    <string name="company_controls_workspace" msgid="7634429976877738142">"Vaša tvrtka kontrolira i štiti vaš radni profil na ovom uređaju. Sami kontrolirate svoj osobni profil. Tvrtka mu ne može pristupiti."</string>
+    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
+    <skip />
+    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"Postavi"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Postavljanje radnog profila..."</string>
+    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
+    <skip />
+    <!-- no translation found for learn_more_link (3012495805919550043) -->
+    <skip />
+    <!-- no translation found for cancel_setup (2949928239276274745) -->
+    <skip />
+    <!-- no translation found for ok_setup (5148111905838329307) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Radni profil"</string>
-    <string name="managed_profile_already_present" msgid="6388446722470410655">"Na uređaju možete imati samo jedan radni prostor, a čini se da ga već imate. Želite li ga ukloniti da biste nastavili?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"Želite li doista izbrisati postojeći radni prostor? Time će se izbrisati svi podaci povezani s njime."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"Izbriši"</string>
+    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
+    <skip />
+    <!-- no translation found for delete_profile (7107020982626129151) -->
+    <skip />
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Odustani"</string>
-    <string name="encrypt_device_text" msgid="1823426228543576774">"Da biste nastavili s postavljanjem, morat ćete kriptirati uređaj. To može potrajati dulje."</string>
+    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Odustani"</string>
-    <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Kriptiraj uređaj"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripcija je dovršena"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Dodirnite da biste nastavili postavljati radni profil"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Postavljanje vašeg radnog profila nije uspjelo. Obratite se IT odjelu ili pokušajte ponovno kasnije."</string>
-    <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Vaš uređaj ne podržava radne profile."</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"Radne profile može postaviti samo vlasnik uređaja."</string>
-    <string name="default_owned_device_username" msgid="7518518266589187045">"Korisnik upravljanog uređaja"</string>
+    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
+    <skip />
+    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
+    <skip />
+    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
+    <skip />
     <string name="setup_device" msgid="6725265673245816366">"Postavljanje uređaja"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Obrada podataka o postavljanju..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Povezivanje s Wi-Fi mrežom..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Preuzimanje administratorske aplikacije..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Instaliranje administratorske aplikacije..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Postavljanje vlasnika uređaja..."</string>
-    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Želite li prekinuti pružanje niza usluga?"</string>
+    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Jeste li sigurni da želite zaustaviti postavljanje i izbrisati podatke uređaja?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Odustani"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"U redu"</string>
+    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
+    <skip />
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Vrati na zadano"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Postavljanje uređaja nije uspjelo. Obratite se IT odjelu."</string>
-    <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"Ovaj je uređaj već postavljen."</string>
-    <string name="device_owner_error_already_owned" msgid="284435773504860369">"Ovaj uređaj već ima vlasnika."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"Povezivanje s Wi-Fi-jem nije uspjelo."</string>
+    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Upotreba administratorske aplikacije nije uspjela zbog pogreške kontrolnog zbroja. Obratite se IT odjelu."</string>
-    <string name="device_owner_error_download_failed" msgid="6098001002861024838">"Preuzimanje administratorske aplikacije nije uspjelo."</string>
+    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
+    <skip />
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administratorska aplikacija ne može se upotrebljavati. Nedostaju joj neke komponente ili je oštećena. Obratite se IT odjelu."</string>
-    <string name="device_owner_error_installation_failed" msgid="2357889137021529369">"Instaliranje administratorske aplikacije nije uspjelo."</string>
-    <string name="device_owner_error_package_not_installed" msgid="4853853793546318775">"Administratorska aplikacija nije instalirana na uređaju."</string>
+    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
+    <skip />
 </resources>

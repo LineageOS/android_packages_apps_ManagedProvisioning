@@ -21,45 +21,73 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"តម្រូវ​ការ​ឧបករណ៍"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"អូ​!"</string>
-    <string name="setup_work_space" msgid="216766502284671082">"រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក"</string>
+    <!-- no translation found for setup_work_space (6539913744903244870) -->
+    <skip />
     <string name="separate_work_spaces" msgid="3496001079642966876">"រៀបចំ​ប្រវត្តិរូប​ការងារ​​សម្រាប់​អ៊ីមែល​សហការ​របស់​អ្នក និង​កម្មវិធី​ផ្សេងៗ។"</string>
-    <string name="company_controls_workspace" msgid="7634429976877738142">"ក្រុមហ៊ុន​របស់​អ្នក​ពិនិត្យ​ប្រវត្តិ​រូប​ការងារ​របស់​អ្នក​លើ​ឧបករណ៍​នេះ និង​រក្សាទុក​វា​ដោយ​សុវត្ថិភាព។ អ្នក​ពិនិត្យ​ប្រវត្តិរូប​ផ្ទាល់ខ្លួន​របស់​អ្នក។ ក្រុមហ៊ុន​របស់​អ្នក​មិន​អាច​ចូល​មើល​វា​​បាន​ទេ។"</string>
+    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
+    <skip />
+    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"រៀបចំ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"កំពុង​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក..."</string>
+    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
+    <skip />
+    <!-- no translation found for learn_more_link (3012495805919550043) -->
+    <skip />
+    <!-- no translation found for cancel_setup (2949928239276274745) -->
+    <skip />
+    <!-- no translation found for ok_setup (5148111905838329307) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
-    <string name="managed_profile_already_present" msgid="6388446722470410655">"អ្នក​អាច​មាន​​​​ទំហំ​ការងារ​តែ​​មួយ​ប៉ុណ្ណោះ​នៅ​លើ​ឧបករណ៍​របស់​អ្នក។ វា​បង្ហាញ​ថា អ្នក​មាន​​ទំហំ​ការងារ​​មួយ​រួចហើយ។ តើ​អ្នក​ចង់​លុប​វា​ ដើម្បី​បន្ត​ដែរ​ឬ​ទេ?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"តើ​អ្នក​ប្រាកដ​​ជា​ចង់​លុប​ទំហំ​ការងារ​​របស់​អ្នក​ដែល​មាន​ស្រាប់? វា​នឹង​លុប​​ទិន្នន័យ​ទាំងអស់​ដែល​បាន​ភ្ជាប់​ជាមួយ​វា។"</string>
-    <string name="delete_profile" msgid="2299218578684663459">"លុប"</string>
+    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
+    <skip />
+    <!-- no translation found for delete_profile (7107020982626129151) -->
+    <skip />
     <string name="cancel_delete_profile" msgid="5155447537894046036">"បោះបង់"</string>
-    <string name="encrypt_device_text" msgid="1823426228543576774">"ដើម្បី​បន្ត​ការ​រៀបចំ អ្នក​ត្រូវ​ដាក់លេខ​កូដ​ឧបករណ៍​របស់​អ្នក។ វា​អាច​ចំណាយ​ពេល​មួយ​រយៈ។"</string>
+    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"បោះបង់"</string>
-    <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"ដាក់​លេខ​កូដ​ឧបករណ៍"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ការ​ដាក់​លេខ​កូដ​បាន​បញ្ចប់"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ប៉ះ​ដើម្បី​បន្ត​ការ​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"មិន​អាច​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក ឬ​ព្យាយាម​ម្ដងទៀត​ពេល​ក្រោយ។"</string>
-    <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"ឧបករណ៍​របស់​អ្នក​មិន​គាំទ្រ​ប្រវត្តិរូប​ការងារ។"</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"ជីវប្រវត្តិ​​ការងារ​អាច​ត្រូវ​បាន​កំណត់​ដោយ​អ្នក​ប្រើ​​ដែល​ជា​ម្ចាក់​​ឧបករណ៍​​តែ​ប៉ុណ្ណោះ។"</string>
-    <string name="default_owned_device_username" msgid="7518518266589187045">"អ្នកប្រើ​ឧបករណ៍​ដែល​បាន​គ្រប់គ្រង"</string>
+    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
+    <skip />
+    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
+    <skip />
+    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
+    <skip />
     <string name="setup_device" msgid="6725265673245816366">"រៀបចំ​ឧបករណ៍​របស់​អ្នក"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"កំពុង​ដំណើរការ​រៀបចំ​ទិន្នន័យ..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"កំពុង​ភ្ជាប់​វ៉ាយហ្វាយ..."</string>
     <string name="progress_download" msgid="4995057798189799156">"កំពុង​ទាញ​យក​កម្មវិធី​របស់​អ្នក​គ្រប់គ្រង..."</string>
     <string name="progress_install" msgid="9169411715762296097">"កំពុង​ដំឡើង​កម្មវិធី​របស់​អ្នកគ្រប់គ្រង..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"កំពុង​រៀបចំ​ម្ចាស់​ឧបករណ៍..."</string>
-    <string name="device_owner_cancel_title" msgid="3161144418010058328">"បញ្ឈប់​ការ​ផ្ដល់?"</string>
+    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"តើ​អ្នក​ប្រាកដ​ជា​ចង់​បញ្ឈប់​ការ​រៀបចំ ហើយ​លុប​ទិន្នន័យ​ក្នុង​ឧបករណ៍​របស់​អ្នក?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"បោះបង់"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"យល់ព្រម"</string>
+    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
+    <skip />
     <string name="device_owner_error_reset" msgid="1609782972753569267">"កំណត់​ឡើងវិញ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"មិន​អាច​រៀបចំ​ឧបករណ៍​របស់​អ្នក។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក។"</string>
-    <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"បាន​រៀបចំ​ឧបករណ៍​រួចហើយ។"</string>
-    <string name="device_owner_error_already_owned" msgid="284435773504860369">"ឧបករណ៍​នេះ​មាន​ម្ចាស់​រួចហើយ។"</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"មិន​អាច​ភ្ជាប់​វ៉ាយហ្វាយ។"</string>
+    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"មិន​អាច​ប្រើ​កម្មវិធី​របស់​អ្នកគ្រប់គ្រង ដោយសារ​កំហុស​​ឆែកសាំ​។​ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក។"</string>
-    <string name="device_owner_error_download_failed" msgid="6098001002861024838">"មិន​អាច​ទាញ​យក​​កម្មវិធី​របស់​អ្នកគ្រប់គ្រង។"</string>
+    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
+    <skip />
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"មិន​អាច​ប្រើ​កម្មវិធី​របស់​អ្នក​គ្រប់គ្រង។ វា​បាត់​សមាសធាតុ ឬ​ក៏​ខូច។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក។"</string>
-    <string name="device_owner_error_installation_failed" msgid="2357889137021529369">"មិន​អាច​ដំឡើង​កម្មវិធី​របស់​អ្នក​គ្រប់គ្រង។"</string>
-    <string name="device_owner_error_package_not_installed" msgid="4853853793546318775">"កម្មវិធី​របស់​អ្នក​គ្រប់គ្រង​មិន​ត្រូវ​បាន​ដំឡើង​ក្នុង​ឧបករណ៍​របស់​អ្នក។"</string>
+    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
+    <skip />
 </resources>

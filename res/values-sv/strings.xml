@@ -21,45 +21,65 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppsan!"</string>
-    <string name="setup_work_space" msgid="216766502284671082">"Konfigurera en arbetsprofil"</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"Konfigurera profilen"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"Konfigurera en arbetsprofil för företagets e-post och andra företagsappar."</string>
-    <string name="company_controls_workspace" msgid="7634429976877738142">"Företaget hanterar din arbetsprofil på enheten och håller den säker. Du hanterar din personliga profil. Företaget har inte tillgång till den."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Organisationen kontrollerar profilen och håller den säker. Du har kontroll över allt annat på enheten."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Följande app behöver åtkomst till profilen:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfigurera"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Konfigurerar arbetsprofilen …"</string>
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administratören har möjlighet att kontrollera och hantera inställningar, företagsåtkomst, appar och data som är kopplade till profilen, inklusive nätverksaktivitet och enhetens platsuppgifter."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Kontakta administratören om du vill veta mer, inklusive om du vill veta mer om organisationens sekretesspolicy."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Läs mer"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Avbryt"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbetsprofil"</string>
-    <string name="managed_profile_already_present" msgid="6388446722470410655">"Det kan bara finnas ett arbetsutrymme på enheten. Det finns redan ett. Vill du ta bort det och fortsätta?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"Vill du ta bort det befintliga arbetsutrymmet? All data som hör till det tas bort."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"Radera"</string>
+    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
+    <skip />
+    <!-- no translation found for delete_profile (7107020982626129151) -->
+    <skip />
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Avbryt"</string>
-    <string name="encrypt_device_text" msgid="1823426228543576774">"Du måste kryptera enheten om du vill fortsätta med konfigureringen. Det kan ta ett tag."</string>
+    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Avbryt"</string>
-    <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Kryptera enheten"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Krypteringen är klar"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Tryck här om du vill fortsätta konfigurera din jobbprofil"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Det gick inte att konfigurera arbetsprofilen. Kontakta IT-avdelningen eller försök igen senare."</string>
-    <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Enheten stöder inte arbetsprofiler."</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"Arbetsprofiler kan endast ställas in av enhetens ägaranvändare."</string>
-    <string name="default_owned_device_username" msgid="7518518266589187045">"Person som använder en hanterad enhet"</string>
+    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
+    <skip />
+    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
+    <skip />
+    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
+    <skip />
     <string name="setup_device" msgid="6725265673245816366">"Konfigurera enheten"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Bearbetar konfigurationsdata …"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Ansluter till Wi-Fi …"</string>
     <string name="progress_download" msgid="4995057798189799156">"Hämtar administrationsappen …"</string>
     <string name="progress_install" msgid="9169411715762296097">"Installerar administrationsappen …"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Ställer in enhetsägare …"</string>
-    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Vill du sluta administrera?"</string>
+    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Vill du avsluta konfigureringen och radera data på enheten?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Avbryt"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
+    <skip />
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Återställ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Det gick inte att konfigurera enheten. Kontakta IT-avdelningen."</string>
-    <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"Enheten har redan konfigurerats."</string>
-    <string name="device_owner_error_already_owned" msgid="284435773504860369">"Den här enheten har redan en ägare."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"Det gick inte att ansluta till Wi-Fi."</string>
+    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Det gick inte att använda administrationsappen på grund av en felaktig kontrollsumma. Kontakta IT-avdelningen."</string>
-    <string name="device_owner_error_download_failed" msgid="6098001002861024838">"Det gick inte att hämta administrationsappen."</string>
+    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
+    <skip />
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrationsappen kan inte användas. Komponenter saknas eller appen har skadats. Kontakta IT-avdelningen."</string>
-    <string name="device_owner_error_installation_failed" msgid="2357889137021529369">"Det gick inte att installera administrationsappen."</string>
-    <string name="device_owner_error_package_not_installed" msgid="4853853793546318775">"Administrationsappen har inte installerats på enheten."</string>
+    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
+    <skip />
 </resources>

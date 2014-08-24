@@ -21,45 +21,73 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Gailuaren hornitzailea"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Arazo bat izan da."</string>
-    <string name="setup_work_space" msgid="216766502284671082">"Konfiguratu laneko profila"</string>
+    <!-- no translation found for setup_work_space (6539913744903244870) -->
+    <skip />
     <string name="separate_work_spaces" msgid="3496001079642966876">"Konfiguratu laneko profila, lanerako erabiliko dituzun enpresako posta-kontu eta aplikazioekin."</string>
-    <string name="company_controls_workspace" msgid="7634429976877738142">"Zure enpresak gailu honen laneko profila kontrolatzen eta babesten du. Zuk, aldiz, zeure profil pertsonala kontrolatzen duzu eta enpresak ezin du atzitu."</string>
+    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
+    <skip />
+    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Laneko profila konfiguratzen…"</string>
+    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
+    <skip />
+    <!-- no translation found for learn_more_link (3012495805919550043) -->
+    <skip />
+    <!-- no translation found for cancel_setup (2949928239276274745) -->
+    <skip />
+    <!-- no translation found for ok_setup (5148111905838329307) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Laneko profila"</string>
-    <string name="managed_profile_already_present" msgid="6388446722470410655">"Lan-eremu bakarra izan dezakezu gailuan. Dirudienez, baduzu bat dagoneneko. Aurrera jarraitzeko, lehendik duzun lan-eremua kendu nahi duzu?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"Ziur lan-eremua ezabatu nahi duzula? Ezabatzen baduzu, harekin lotutako datu guztiak ere ezabatuko dira."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"Ezabatu"</string>
+    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
+    <skip />
+    <!-- no translation found for delete_profile (7107020982626129151) -->
+    <skip />
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Utzi"</string>
-    <string name="encrypt_device_text" msgid="1823426228543576774">"Konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Minutu batzuk behar izan daitezke horretarako."</string>
+    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Utzi"</string>
-    <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Enkriptatu gailua"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
+    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkriptatu da"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Ukitu hau laneko profila konfiguratzen jarraitzeko"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ezin izan da konfiguratu laneko profila. Jarri informatika-sailarekin harremanetan edo saiatu berriro geroago."</string>
-    <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Zure gailuak ez ditu laneko profilak onartzen."</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"Laneko profilak gailuaren jabeak bakarrik konfigura ditzake."</string>
-    <string name="default_owned_device_username" msgid="7518518266589187045">"Kudeatutako gailuaren erabiltzailea"</string>
+    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
+    <skip />
+    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
+    <skip />
+    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
+    <skip />
     <string name="setup_device" msgid="6725265673245816366">"Konfiguratu gailua"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Konfigurazio-datuak prozesatzen…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi sarera konektatzen…"</string>
     <string name="progress_download" msgid="4995057798189799156">"Administrazio-aplikazioa deskargatzen…"</string>
     <string name="progress_install" msgid="9169411715762296097">"Administrazio-aplikazioa instalatzen…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Gailuaren jabea ezartzen…"</string>
-    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Hornitzeari utzi nahi diozu?"</string>
+    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Ziur konfiguratzeari utzi eta gailuko datu guztiak ezabatu nahi dituzula?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Utzi"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"Ados"</string>
+    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
+    <skip />
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Berrezarri"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Ezin izan da konfiguratu gailua. Jarri informatika-sailarekin harremanetan."</string>
-    <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"Gailua konfiguratuta dago dagoeneko."</string>
-    <string name="device_owner_error_already_owned" msgid="284435773504860369">"Gailu honek badu jabe bat."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"Ezin izan da konektatu Wi-Fi sarera."</string>
+    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
+    <skip />
+    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ezin izan da erabili administrazio-aplikazioa, batuketa egitean errore bat gertatu delako. Jarri informatika-sailarekin harremanetan."</string>
-    <string name="device_owner_error_download_failed" msgid="6098001002861024838">"Ezin izan da deskargatu administrazio-aplikazioa."</string>
+    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
+    <skip />
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ezin da erabili administrazio-aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Jarri informatika-sailarekin harremanetan."</string>
-    <string name="device_owner_error_installation_failed" msgid="2357889137021529369">"Ezin izan da instalatu administrazio-aplikazioa."</string>
-    <string name="device_owner_error_package_not_installed" msgid="4853853793546318775">"Administrazio-aplikazioa instalatu gabe dago gailuan."</string>
+    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
+    <skip />
+    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
+    <skip />
 </resources>
