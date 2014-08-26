@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageDeleteObserver;
@@ -64,8 +65,23 @@ public class DeleteNonRequiredAppsTask {
     }
 
     public void run() {
-        ProvisionLogger.logd("Deleting non required apps.");
+        // Disabling sharing via nfc and bluetooth.
+        ComponentName beamShare = new ComponentName("com.android.nfc",
+                "com.android.nfc.BeamShareActivity");
+        ComponentName bluetoothShare = new ComponentName("com.android.bluetooth",
+                "com.android.bluetooth.opp.BluetoothOppLauncherActivity");
+        try {
+            mIpm.setComponentEnabledSetting(beamShare,
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP,
+                    mUserId);
+            mIpm.setComponentEnabledSetting(bluetoothShare,
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP,
+                    mUserId);
+        } catch (RemoteException neverThrown) {
+            ProvisionLogger.loge("This should not happen.", neverThrown);
+        }
 
+        ProvisionLogger.logd("Deleting non required apps.");
         Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
         launcherIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> launcherActivities = mPm.queryIntentActivitiesAsUser(
