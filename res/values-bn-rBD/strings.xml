@@ -33,53 +33,37 @@
     <string name="cancel_setup" msgid="2949928239276274745">"বাতিল করুন"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ঠিক আছে"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"কর্মস্থলের প্রোফাইল"</string>
-    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
-    <skip />
-    <!-- no translation found for delete_profile (7107020982626129151) -->
-    <skip />
+    <string name="managed_profile_already_present" msgid="888277922880582498">"আপনার ডিভাইসে ইতিমধ্যে একটি কর্মস্থলের প্রফাইল আছে। আপনি কি এটি সরাতে চান?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"আপনি কি নিশ্চিত আপনি কর্মস্থলের প্রফাইল সরাতে চান ? এর সব ডেটা মুছে ফেলা হবে।"</string>
+    <string name="delete_profile" msgid="7107020982626129151">"সরান"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"বাতিল করুন"</string>
-    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
-    <skip />
+    <string name="encrypt_device_text" msgid="6762208577171389053">"সেট আপ অবিরত রাখতে, আপনাকে আপনার ডিভাইস এনক্রিপ্ট করতে হবে। এর জন্য কিছুক্ষণ সময় লাগবে।"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"বাতিল করুন"</string>
-    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"এনক্রিপ্ট করুন"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"এনক্রিপশন সম্পূর্ণ"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"আপনার কর্মস্থলের প্রোফাইল সেট আপ করা অব্যাহত রাখতে স্পর্শ করুন।"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"আপনার কর্মস্থলের প্রোফাইলটি সেটআপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন অথবা পরে আবার চেষ্টা করুন।"</string>
-    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
-    <skip />
-    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
-    <skip />
-    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
-    <skip />
+    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"আপনার ডিভাইস কর্মস্থলের প্রোফাইলগুলি সমর্থন করে না"</string>
+    <string name="user_is_not_owner" msgid="4358772243716976929">"কর্মস্থলের প্রোফাইলটি ডিভাইসের ব্যবহারকারী মালিকের দ্বারা সেট আপ করতে হবে"</string>
+    <string name="default_owned_device_username" msgid="3915120202811807955">"কর্মস্থলের ডিভাইসের ব্যবহারকারী"</string>
     <string name="setup_device" msgid="6725265673245816366">"আপনার ডিভাইস সেট আপ করুন"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"সেটআপ ডেটা প্রক্রিয়াকৃত হচ্ছে..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi এ সংযুক্ত হচ্ছে..."</string>
     <string name="progress_download" msgid="4995057798189799156">"প্রশাসক অ্যাপ্লিকেশান ডাউনলোড হচ্ছে..."</string>
     <string name="progress_install" msgid="9169411715762296097">"প্রশাসক অ্যাপ্লিকেশান ইনস্টল হচ্ছে..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"ডিভাইসের মালিক সেট করা হচ্ছে..."</string>
-    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
-    <skip />
+    <string name="device_owner_cancel_title" msgid="7909285135975063120">"সেট আপ করা বন্ধ করবেন?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"আপনি কি নিশ্চিত আপনি আপনার ডিভাইস সেট আপ করা বন্ধ করতে চান ও এর ডেটা সাফ করে ফেলতে চান?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"বাতিল করুন"</string>
-    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
-    <skip />
+    <string name="device_owner_error_ok" msgid="2556654993515978854">"ঠিক আছে"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"পুনরায় সেট করুন"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"আপনার ডিভাইস সেট আপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
-    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
-    <skip />
-    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"এই ডিভাইসটি ইতিমধ্যে সেট আপ হয়ে আছে"</string>
+    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"এই ডিভাইসটির ইতিমধ্যে একজন মালিক আছেন"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi এর সাথে সংযুক্ত করা যায়নি"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"একটি চেকসাম ত্রুটির কারণে প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
-    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
-    <skip />
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"প্রশাসক অ্যাপ্লিকেশানটি ডাউনলোড করা যায়নি"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যাচ্ছে না। এতে কিছু উপাদান অনুপস্থিত আছে বা এটি ক্ষতিগ্রস্ত হয়েছে। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
-    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
-    <skip />
-    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
-    <skip />
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"প্রশাসক অ্যাপ্লিকেশান ইনস্টল করা যায়নি।"</string>
+    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"আপনার ডিভাইসে প্রশাসক অ্যাপ্লিকেশানটি ইনস্টল করা নেই"</string>
 </resources>

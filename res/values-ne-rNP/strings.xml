@@ -21,25 +21,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"उपकरण प्रदायक"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
-    <!-- no translation found for setup_work_space (6539913744903244870) -->
-    <skip />
+    <string name="setup_work_space" msgid="6539913744903244870">"तपाईँको प्रोफाइल सेट अप गर्नुहोस्"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"तपाईँको कर्पोरेट इमेल र अन्य अनुप्रयोगहरूको लागि एक कार्य प्रोफाइल स्थापना गर्नुहोस्।"</string>
-    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
-    <skip />
-    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="set_up" msgid="7012862095553564169">"मिलाउनुहोस्"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"तपाईँको कार्य प्रोफाइल स्थापना गर्दै..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
-    <skip />
-    <!-- no translation found for learn_more_link (3012495805919550043) -->
-    <skip />
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
-    <!-- no translation found for ok_setup (5148111905838329307) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"तपाईँको प्रशासकले सञ्जाल गतिविधि र तपाईँको उपकरणको स्थान जानकारी सहित अनुगमन गर्न र तपाईँको प्रोफाइल साथ सेटिङहरू प्रबन्ध, कर्पोरेट पहुँच, अनुप्रयोगहरू र डेटा, व्यवस्थापन गर्न सक्ने क्षमता छ।"</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"तपाईँको संगठनको गोपनीयता नीति सहित, थप जानकारीको लागि आफ्नो प्रशासकसँग सम्पर्क गर्नुहोस्।"</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"थप सिक्नुहोस्"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"रद्द गर्नुहोस्"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"ठीक छ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
     <!-- no translation found for managed_profile_already_present (888277922880582498) -->
     <skip />
@@ -53,10 +45,8 @@
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द गर्नुहोस्"</string>
     <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_title (5191449100153186648) -->
-    <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3027317630111909095) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"गुप्तिकरण पूर्ण"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"तपाईँको काम प्रोफाइल स्थापना जारी राख्न छुनुहोस्"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
     <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
     <skip />

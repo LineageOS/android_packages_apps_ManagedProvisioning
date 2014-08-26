@@ -33,53 +33,37 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
-    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
-    <skip />
-    <!-- no translation found for delete_profile (7107020982626129151) -->
-    <skip />
+    <string name="managed_profile_already_present" msgid="888277922880582498">"Já tem um perfil de trabalho no seu dispositivo. Pretende removê-lo?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Tem a certeza de que pretende remover este perfil de trabalho? Todos os seus dados serão eliminados."</string>
+    <string name="delete_profile" msgid="7107020982626129151">"Remover"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
-    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
-    <skip />
+    <string name="encrypt_device_text" msgid="6762208577171389053">"Para continuar a configuração do seu perfil de trabalho, terá de encriptar o dispositivo. Esta ação poderá demorar algum tempo."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Cancelar"</string>
-    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Encriptar"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Encriptação concluída"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Toque para continuar a configurar o seu perfil de trabalho"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Não foi possível configurar o perfil de trabalho. Contacte o departamento de TI ou tente novamente mais tarde."</string>
-    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
-    <skip />
-    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
-    <skip />
-    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
-    <skip />
+    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"O dispositivo não suporta perfis de trabalho"</string>
+    <string name="user_is_not_owner" msgid="4358772243716976929">"Os perfis de trabalho têm de ser configurados pelo proprietário do dispositivo"</string>
+    <string name="default_owned_device_username" msgid="3915120202811807955">"Utilizador de dispositivo de trabalho"</string>
     <string name="setup_device" msgid="6725265673245816366">"Configurar o dispositivo"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"A processar dados de configuração..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"A estabelecer ligação Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"A transferir a aplicação de administração..."</string>
     <string name="progress_install" msgid="9169411715762296097">"A instalar a aplicação de administração..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"A configurar o proprietário do dispositivo..."</string>
-    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
-    <skip />
+    <string name="device_owner_cancel_title" msgid="7909285135975063120">"Parar configuração?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Tem a certeza de que pretende parar a configuração e apagar os dados do dispositivo?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Cancelar"</string>
-    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
-    <skip />
+    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Repor"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Não foi possível configurar o dispositivo. Contacte o departamento de TI."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
-    <skip />
-    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"O dispositivo já está configurado"</string>
+    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Este dispositivo já tem um proprietário"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Não foi possível ligar à rede Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Não foi possível utilizar a aplicação de administração devido a um erro de soma de verificação. Contacte o departamento de TI."</string>
-    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
-    <skip />
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Não foi possível transferir a aplicação de administração"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Não é possível utilizar a aplicação de administração. Faltam componentes ou está danificada. Contacte o departamento de TI."</string>
-    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
-    <skip />
-    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
-    <skip />
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Não foi possível instalar a aplicação de administração"</string>
+    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"A aplicação de administração não está instalada no dispositivo"</string>
 </resources>

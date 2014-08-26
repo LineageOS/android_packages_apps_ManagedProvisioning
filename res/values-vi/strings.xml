@@ -21,73 +21,49 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Nhà cấp phép thiết bị"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Rất tiếc!"</string>
-    <!-- no translation found for setup_work_space (6539913744903244870) -->
-    <skip />
+    <string name="setup_work_space" msgid="6539913744903244870">"Thiết lập hồ sơ của bạn"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"Thiết lập hồ sơ công việc cho email công ty và các ứng dụng khác của bạn."</string>
-    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
-    <skip />
-    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Tổ chức của bạn kiểm soát và giữ bảo mật hồ sơ này. Bạn kiểm soát mọi thứ khác trên thiết bị của mình."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ứng dụng sau cần quyền truy cập vào hồ sơ này:"</string>
     <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Đang thiết lập hồ sơ công việc..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
-    <skip />
-    <!-- no translation found for learn_more_link (3012495805919550043) -->
-    <skip />
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
-    <!-- no translation found for ok_setup (5148111905838329307) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Quản trị viên của bạn có thể giám sát và quản lý các cài đặt, quyền truy cập của công ty, các ứng dụng và dữ liệu được liên kết với hồ sơ này, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Hãy liên hệ với quản trị viên của bạn để biết thêm thông tin, bao gồm các chính sách bảo mật của tổ chức bạn."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Hủy"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Hồ sơ công việc"</string>
-    <!-- no translation found for managed_profile_already_present (888277922880582498) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (3612824117836349973) -->
-    <skip />
-    <!-- no translation found for delete_profile (7107020982626129151) -->
-    <skip />
+    <string name="managed_profile_already_present" msgid="888277922880582498">"Bạn đã có hồ sơ công việc trên thiết bị của mình. Bạn có muốn xóa hồ sơ đó không?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Bạn có chắc chắn muốn xóa hồ sơ công việc này không? Tất cả dữ liệu trong hồ sơ sẽ bị xóa."</string>
+    <string name="delete_profile" msgid="7107020982626129151">"Xóa"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Hủy"</string>
-    <!-- no translation found for encrypt_device_text (6762208577171389053) -->
-    <skip />
+    <string name="encrypt_device_text" msgid="6762208577171389053">"Để tiếp tục thiết lập hồ sơ công việc, bạn cần mã hóa thiết bị của mình. Quá trình này có thể mất vài phút."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Hủy"</string>
-    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Mã hóa"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Hoàn tất mã hóa"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Chạm để tiếp tục thiết lập hồ sơ công việc của bạn"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Không thiết lập được hồ sơ công việc của bạn. Hãy liên hệ với bộ phận CNTT hoặc thử lại sau."</string>
-    <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
-    <skip />
-    <!-- no translation found for user_is_not_owner (4358772243716976929) -->
-    <skip />
-    <!-- no translation found for default_owned_device_username (3915120202811807955) -->
-    <skip />
+    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Thiết bị của bạn không hỗ trợ hồ sơ công việc"</string>
+    <string name="user_is_not_owner" msgid="4358772243716976929">"Hồ sơ công việc phải do chủ sở hữu thiết bị thiết lập"</string>
+    <string name="default_owned_device_username" msgid="3915120202811807955">"Người dùng thiết bị cơ quan"</string>
     <string name="setup_device" msgid="6725265673245816366">"Thiết lập thiết bị của bạn"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Đang xử lý dữ liệu thiết lập..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Đang kết nối Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Đang tải xuống ứng dụng quản trị..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Đang cài đặt ứng dụng quản trị..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Đang đặt chủ sở hữu thiết bị..."</string>
-    <!-- no translation found for device_owner_cancel_title (7909285135975063120) -->
-    <skip />
+    <string name="device_owner_cancel_title" msgid="7909285135975063120">"Dừng thiết lập?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Bạn có chắc chắn muốn dừng thiết lập và xóa dữ liệu trên thiết bị của mình không?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Hủy"</string>
-    <!-- no translation found for device_owner_error_ok (2556654993515978854) -->
-    <skip />
+    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Đặt lại"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Không thiết lập được thiết bị của bạn. Hãy liên hệ với bộ phận CNTT."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (1902305486832057049) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_owned (1943544305535322707) -->
-    <skip />
-    <!-- no translation found for device_owner_error_wifi (4256310285761332378) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Thiết bị này đã được thiết lập"</string>
+    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Thiết bị này đã có chủ sở hữu"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Không thể kết nối với Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Không sử dụng được ứng dụng quản trị do có lỗi kiểm tra tổng. Hãy liên hệ với bộ phận CNTT."</string>
-    <!-- no translation found for device_owner_error_download_failed (4520111971592657116) -->
-    <skip />
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Không thể sử dụng ứng dụng quản trị. Ứng dụng thiếu thành phần hoặc bị lỗi. Hãy liên hệ với bộ phận CNTT."</string>
-    <!-- no translation found for device_owner_error_installation_failed (684566845601079360) -->
-    <skip />
-    <!-- no translation found for device_owner_error_package_not_installed (6095079346537408556) -->
-    <skip />
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Không thể cài đặt ứng dụng quản trị"</string>
+    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ứng dụng quản trị chưa được cài đặt trên thiết bị của bạn"</string>
 </resources>

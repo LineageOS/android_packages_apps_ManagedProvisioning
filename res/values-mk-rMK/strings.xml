@@ -21,25 +21,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Обезбедувач на уред"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Оф леле!"</string>
-    <!-- no translation found for setup_work_space (6539913744903244870) -->
-    <skip />
+    <string name="setup_work_space" msgid="6539913744903244870">"Поставете го вашиот профил"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"Поставете работен профил за компаниската е-пошта и другите апликации."</string>
-    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
-    <skip />
-    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Вашата организација го контролира профилот и го одржува безбеден. Вие контролирате сѐ останато на уредот."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следнава апликација ќе треба да пристапува до профилот:"</string>
     <string name="set_up" msgid="7012862095553564169">"Постави"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Се поставува работниот профил..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
-    <skip />
-    <!-- no translation found for learn_more_link (3012495805919550043) -->
-    <skip />
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
-    <!-- no translation found for ok_setup (5148111905838329307) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Администраторот може да ги набљудува и да управува со поставките, корпоративниот пристап, апликациите и податоците поврзани со профилот, вклучувајќи ја мрежната активност и информациите за локацијата на уредот."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Контактирајте со администраторот за повеќе информации, вклучувајќи ги и правилата за приватност на организацијата."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Дознај повеќе"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Откажи"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"Во ред"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Работен профил"</string>
     <!-- no translation found for managed_profile_already_present (888277922880582498) -->
     <skip />

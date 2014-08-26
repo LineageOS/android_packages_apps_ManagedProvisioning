@@ -21,25 +21,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Cihaz Temel Hazırlık Aracı"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hata!"</string>
-    <!-- no translation found for setup_work_space (6539913744903244870) -->
-    <skip />
+    <string name="setup_work_space" msgid="6539913744903244870">"Profilinizi oluşturun"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"Şirket e-postanız ve diğer uygulamalar için bir iş profili ayarlayın."</string>
-    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
-    <skip />
-    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Kuruluşunuz bu profili kontrol eder ve güvenliğini sağlar. Cihazınızdaki geri kalan her şey sizin kontrolünüzdedir."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aşağıdaki uygulamanın bu profile erişmesi gerekecek:"</string>
     <string name="set_up" msgid="7012862095553564169">"Oluştur"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"İş profiliniz ayarlanıyor..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
-    <skip />
-    <!-- no translation found for learn_more_link (3012495805919550043) -->
-    <skip />
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
-    <!-- no translation found for ok_setup (5148111905838329307) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Yöneticiniz; ayarları, kurumsal erişimi, uygulamaları ve profille ilişkilendirilen ağ etkinliği ile cihazınızın konum bilgileri gibi verileri izleme ve yönetme olanağına sahiptir."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere, daha fazla bilgi için yöneticinize başvurun."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi edinin"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"İptal"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"Tamam"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"İş profili"</string>
     <!-- no translation found for managed_profile_already_present (888277922880582498) -->
     <skip />
