@@ -303,17 +303,41 @@ public class ManagedProvisioningActivity extends Activity {
     private void checkEncryptedAndStartProvisioningService() {
         if (EncryptDeviceActivity.isDeviceEncrypted()
                 || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)) {
-            // Remove any pre-provisioning UI in favour of progress display
-            BootReminder.cancelProvisioningReminder(this);
-            mProgressView.setVisibility(View.VISIBLE);
-            mMainTextView.setVisibility(View.GONE);
 
-            // Check whether the current launcher supports managed profiles.
-            if (!currentLauncherSupportsManagedProfiles()) {
-                showCurrentLauncherInvalid();
-            } else {
-                startManagedProvisioningService();
-            }
+            String message = getString(R.string.admin_has_ability_to_monitor)  + "\n\n"
+                    + getString(R.string.contact_your_admin_for_more_info);
+
+            // Notify the user once more that the admin will have full control over the profile,
+            // then start provisioning.
+            new AlertDialog.Builder(ManagedProvisioningActivity.this)
+                .setMessage(message)
+                .setPositiveButton(R.string.ok_setup,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Remove any pre-provisioning UI in favour of progress display
+                            BootReminder.cancelProvisioningReminder(
+                                    ManagedProvisioningActivity.this);
+                            mProgressView.setVisibility(View.VISIBLE);
+                            mMainTextView.setVisibility(View.GONE);
+
+                            // Check whether the current launcher supports managed profiles.
+                            if (!currentLauncherSupportsManagedProfiles()) {
+                                showCurrentLauncherInvalid();
+                            } else {
+                                startManagedProvisioningService();
+                            }
+                        }
+                    })
+                .setNegativeButton(R.string.cancel_setup,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+                .show();
+
         } else {
             Bundle resumeExtras = getIntent().getExtras();
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
