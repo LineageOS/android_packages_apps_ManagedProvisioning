@@ -21,45 +21,49 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"పరికర కేటాయింపుదారు"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"అయ్యో!"</string>
-    <string name="setup_work_space" msgid="216766502284671082">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"మీ కార్పొరేట్ ఇమెయిల్ మరియు ఇతర అనువర్తనాల కోసం కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి."</string>
-    <string name="company_controls_workspace" msgid="7634429976877738142">"మీ కంపెనీ ఈ పరికరంలో మీ కార్యాలయ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ వ్యక్తిగత ప్రొఫైల్‌ను నియంత్రించండి. మీ కంపెనీ దాన్ని ప్రాప్యత చేయలేదు."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది అనువర్తనం ఈ ప్రొఫైల్‌ను ప్రాప్యత చేయాలి:"</string>
     <string name="set_up" msgid="7012862095553564169">"సెటప్ చేయి"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"మీ నిర్వాహకుడు ప్రొఫైల్ సెట్టింగ్‌లను, కార్పొరేట్ ప్రాప్యతను, అనువర్తనాలను మరియు దానితో అనుబంధించబడిన డేటాను, అలాగే నెట్‌వర్క్ కార్యాచరణను మరియు మీ పరికర స్థాన సమాచారాన్ని పర్యవేక్షించగలరు మరియు నిర్వహించగలరు."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"మీ సంస్థ గోప్యతా విధానాలతో సహా, మరింత సమాచారం కోసం మీ నిర్వాహకుడిని సంప్రదించండి."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"రద్దు చేయి"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"సరే"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
-    <string name="managed_profile_already_present" msgid="6388446722470410655">"మీరు మీ పరికరంలో ఒక కార్య స్థలాన్ని మాత్రమే కలిగి ఉండగలరు. మీరు ఇప్పటికే ఒకదాన్ని కలిగి ఉన్నట్లు కనిపిస్తోంది. మీరు కొనసాగడానికి దీన్ని తీసివేయాలనుకుంటున్నారా?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"మీరు మీ ప్రస్తుత కార్య స్థలాన్ని ఖచ్చితంగా తొలగించాలనుకుంటున్నారా? ఇలా చేయడం వలన దీనితో అనుబంధించబడిన మొత్తం డేటా తొలగించబడుతుంది."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"తొలగించు"</string>
+    <string name="managed_profile_already_present" msgid="888277922880582498">"మీరు ఇప్పటికే మీ పరికరంలో కార్యాలయ ప్రొఫైల్‌ను కలిగి ఉన్నారు. మీరు దాన్ని తీసివేయాలనుకుంటున్నారా?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"మీరు ఖచ్చితంగా ఈ కార్యాలయ ప్రొఫైల్‌ను తీసివేయాలనుకుంటున్నారా? అలా చేస్తే దాని డేటా మొత్తం తొలగించబడుతుంది."</string>
+    <string name="delete_profile" msgid="7107020982626129151">"తీసివేయి"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"రద్దు చేయి"</string>
-    <string name="encrypt_device_text" msgid="1823426228543576774">"సెటప్ చేయడాన్ని కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
+    <string name="encrypt_device_text" msgid="6762208577171389053">"మీరు మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడం కొనసాగించడానికి, మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"రద్దు చేయి"</string>
-    <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"పరికరం గుప్తీకరించు"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
-    <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"గుప్తీకరించు"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"గుప్తీకరణ పూర్తయింది"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి తాకండి"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
-    <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"మీ పరికరం కార్యాలయ ప్రొఫైల్‌లకు మద్దతు ఇవ్వదు."</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"కార్యాలయ ప్రొఫైల్‌లను పరికరం యొక్క యజమాని వినియోగదారు మాత్రమే సెటప్ చేయగలరు."</string>
-    <string name="default_owned_device_username" msgid="7518518266589187045">"నిర్వహించబడే పరికర వినియోగదారు"</string>
+    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"మీ పరికరం కార్యాలయ ప్రొఫైల్‌లకు మద్దతు ఇవ్వదు"</string>
+    <string name="user_is_not_owner" msgid="4358772243716976929">"కార్యాలయ ప్రొఫైల్‌లను పరికరం యజమాని సెటప్ చేయాలి"</string>
+    <string name="default_owned_device_username" msgid="3915120202811807955">"కార్యాలయ పరికర వినియోగదారు"</string>
     <string name="setup_device" msgid="6725265673245816366">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fiకి కనెక్ట్ చేస్తోంది..."</string>
     <string name="progress_download" msgid="4995057798189799156">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేస్తోంది..."</string>
     <string name="progress_install" msgid="9169411715762296097">"నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేస్తోంది..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"పరికర యజమానిని సెట్ చేస్తోంది..."</string>
-    <string name="device_owner_cancel_title" msgid="3161144418010058328">"కేటాయింపుని ఆపివేయాలా?"</string>
+    <string name="device_owner_cancel_title" msgid="7909285135975063120">"సెటప్ చేయడం ఆపివేయాలా?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"మీరు ఖచ్చితంగా మీ పరికరాన్ని సెట్ చేయడం ఆపివేసి, అందులోని డేటాని తీసివేయాలనుకుంటున్నారా?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"రద్దు చేయి"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"సరే"</string>
+    <string name="device_owner_error_ok" msgid="2556654993515978854">"సరే"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"రీసెట్ చేయి"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"మీ పరికరాన్ని సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
-    <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"పరికరం ఇప్పటికే సెటప్ చేయబడింది."</string>
-    <string name="device_owner_error_already_owned" msgid="284435773504860369">"ఈ పరికరానికి ఇప్పటికే యజమాని ఉన్నారు."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"wifiకి కనెక్ట్ చేయడం సాధ్యపడలేదు."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"ఈ పరికరం ఇప్పటికే సెటప్ చేయబడింది"</string>
+    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"ఈ పరికరానికి ఇప్పటికే యజమాని ఉన్నారు"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fiకి కనెక్ట్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"చెక్‌సమ్ లోపం కారణంగా నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
-    <string name="device_owner_error_download_failed" msgid="6098001002861024838">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు."</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడదు. ఇందులో కొన్ని భాగాలు లేవు లేదా పాడైంది. మీ IT విభాగాన్ని సంప్రదించండి."</string>
-    <string name="device_owner_error_installation_failed" msgid="2357889137021529369">"నిర్వాహక అనువర్తనాన్ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు."</string>
-    <string name="device_owner_error_package_not_installed" msgid="4853853793546318775">"మీ పరికరంలో నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేయబడలేదు."</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"నిర్వాహక అనువర్తనాన్ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు"</string>
+    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"మీ పరికరంలో నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేయబడలేదు"</string>
 </resources>

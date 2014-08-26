@@ -21,45 +21,49 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
-    <string name="setup_work_space" msgid="216766502284671082">"Set up your work profile"</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"Set up your profile"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"Set up a work profile for your corporate email and other apps."</string>
-    <string name="company_controls_workspace" msgid="7634429976877738142">"Your company controls your work profile on this device and keeps it secure. You control your personal profile. Your company can\'t access it."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Your organisation controls this profile and keeps it secure. You control everything else on your device."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"The following app will need to access this profile:"</string>
     <string name="set_up" msgid="7012862095553564169">"Set up"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Setting up your work profile..."</string>
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Contact your administrator for more information, including your organisations\'s privacy policies."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Learn more"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Cancel"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Work profile"</string>
-    <string name="managed_profile_already_present" msgid="6388446722470410655">"You can only have one work space on your device. It appears that you already have one. Would you like to remove it to proceed?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3760648900665438655">"Are you sure that you want to delete your existing work space? This will delete all data associated with it."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"Delete"</string>
+    <string name="managed_profile_already_present" msgid="888277922880582498">"You already have a work profile on your device. Do you want to remove it?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Are you sure you want to remove this work profile? All of its data will be deleted."</string>
+    <string name="delete_profile" msgid="7107020982626129151">"Remove"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancel"</string>
-    <string name="encrypt_device_text" msgid="1823426228543576774">"To continue setting up, you\'ll need to encrypt your device. This may take some time."</string>
+    <string name="encrypt_device_text" msgid="6762208577171389053">"To continue setting up your work profile, you\'ll need to encrypt your device. This may take some time."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Cancel"</string>
-    <string name="encrypt_device_launch_settings" msgid="3483935402696018405">"Encrypt device"</string>
-    <!-- no translation found for continue_provisioning_notify_title (1389974667804240101) -->
-    <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3770982225641115906) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Encrypt"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Encryption complete"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Touch to continue setting up your work profile"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Couldn\'t set up your work profile. Contact your IT department or try again later."</string>
-    <string name="managed_provisioning_not_supported" msgid="8610434563811973345">"Your device doesn\'t support work profiles."</string>
-    <string name="user_is_not_owner" msgid="5350898966027521370">"Work profiles can only be set up by the owner user of the device."</string>
-    <string name="default_owned_device_username" msgid="7518518266589187045">"User of managed device"</string>
+    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Your device doesn\'t support work profiles"</string>
+    <string name="user_is_not_owner" msgid="4358772243716976929">"Work profiles need to be set up by the device owner"</string>
+    <string name="default_owned_device_username" msgid="3915120202811807955">"User of work device"</string>
     <string name="setup_device" msgid="6725265673245816366">"Set up your device"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Processing setup data..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Connecting to Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Downloading the admin app..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Installing the admin app..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Setting the device owner..."</string>
-    <string name="device_owner_cancel_title" msgid="3161144418010058328">"Stop provisioning?"</string>
+    <string name="device_owner_cancel_title" msgid="7909285135975063120">"Stop setting up?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Are you sure that you want to stop setting up and erase your device\'s data?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Cancel"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Reset"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Couldn\'t set up your device. Contact your IT department."</string>
-    <string name="device_owner_error_already_provisioned" msgid="3429027298074299155">"The device is already set up."</string>
-    <string name="device_owner_error_already_owned" msgid="284435773504860369">"This device already has an owner."</string>
-    <string name="device_owner_error_wifi" msgid="8060331878518019151">"Couldn\'t connect to Wi-Fi."</string>
+    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"This device is already set up"</string>
+    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"This device already has an owner"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
-    <string name="device_owner_error_download_failed" msgid="6098001002861024838">"Couldn\'t download the admin app."</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department."</string>
-    <string name="device_owner_error_installation_failed" msgid="2357889137021529369">"Couldn\'t install the admin app."</string>
-    <string name="device_owner_error_package_not_installed" msgid="4853853793546318775">"The admin app isn\'t installed on your device."</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Couldn\'t install the admin app"</string>
+    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"The admin app isn\'t installed on your device"</string>
 </resources>
