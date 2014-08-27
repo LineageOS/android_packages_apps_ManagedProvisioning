@@ -44,7 +44,7 @@
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
   <string name="admin_has_ability_to_monitor">Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information.</string>
   <!-- String telling the user how to get more information about their work profile-->
-  <string name="contact_your_admin_for_more_info">Contact your administrator for more information, including your organizations\'s privacy policies.</string>
+  <string name="contact_your_admin_for_more_info">Contact your administrator for more information, including your organization\'s privacy policies.</string>
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
   <string name="learn_more_link">Learn more </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
