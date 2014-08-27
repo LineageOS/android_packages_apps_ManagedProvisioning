@@ -17,9 +17,6 @@ package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static com.android.managedprovisioning.ManagedProvisioningActivity.
-        EXTRA_USER_HAS_CONSENTED_PROVISIONING;
-
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -34,7 +31,7 @@ import android.os.Bundle;
 
 /**
  * Class that handles the resuming process that takes place after a reboot for encryption
- * during the provisioining process.
+ * during the provisioning process.
  */
 public class BootReminder extends BroadcastReceiver {
     private static final int NOTIFY_ID = 1;
@@ -50,11 +47,6 @@ public class BootReminder extends BroadcastReceiver {
         EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME,
         // Key for the device admin package name
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
-    };
-
-    private static final String[] PROFILE_OWNER_BOOLEAN_EXTRAS = {
-        // Key for whether the user already consented to provisioning
-        EXTRA_USER_HAS_CONSENTED_PROVISIONING
     };
 
     private static final ComponentName PROFILE_OWNER_INTENT_TARGET =
@@ -144,7 +136,7 @@ public class BootReminder extends BroadcastReceiver {
                 PROFILE_OWNER_STRING_EXTRAS,
                 new String[0],
                 new String[0],
-                PROFILE_OWNER_BOOLEAN_EXTRAS,
+                new String[0],
                 PROFILE_OWNER_INTENT_TARGET,
                 PROFILE_OWNER_PREFERENCES_NAME);
     }

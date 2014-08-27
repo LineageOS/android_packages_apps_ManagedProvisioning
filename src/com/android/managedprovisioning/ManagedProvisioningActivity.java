@@ -91,7 +91,6 @@ public class ManagedProvisioningActivity extends Activity {
 
     private String mMdmPackageName;
     private BroadcastReceiver mServiceMessageReceiver;
-    private boolean mUserConsented;
 
     private View mContentView;
     private View mMainTextView;
@@ -159,17 +158,6 @@ public class ManagedProvisioningActivity extends Activity {
             }
         }
 
-        // Don't continue if the caller tries to skip user consent without permission.
-        // Only system apps with the MANAGE_USERS permission can claim that the user consented.
-        if (getIntent().hasExtra(EXTRA_USER_HAS_CONSENTED_PROVISIONING)) {
-            if (!hasManageUsersPermission) {
-                showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
-                        + "you need MANAGE_USERS permission to skip user consent.");
-                return;
-            }
-            mUserConsented = true;
-        }
-
         // If there is already a managed profile, allow the user to cancel or delete it.
         int existingManagedProfileUserId = alreadyHasManagedProfile();
         if (existingManagedProfileUserId != -1) {
@@ -180,19 +168,13 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private void showStartProvisioningScreen() {
-        // Skip the user consent if user has previously consented.
-        if (mUserConsented) {
-            checkEncryptedAndStartProvisioningService();
-        } else {
-            Button positiveButton = (Button) mContentView.findViewById(R.id.positive_button);
-            positiveButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mUserConsented = true;
-                    checkEncryptedAndStartProvisioningService();
-                }
-            });
-        }
+        Button positiveButton = (Button) mContentView.findViewById(R.id.positive_button);
+        positiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkEncryptedAndStartProvisioningService();
+            }
+        });
     }
 
     private boolean packageHasManageUsersPermission(String pkg) {
@@ -334,7 +316,6 @@ public class ManagedProvisioningActivity extends Activity {
             }
         } else {
             Bundle resumeExtras = getIntent().getExtras();
-            resumeExtras.putBoolean(EXTRA_USER_HAS_CONSENTED_PROVISIONING, mUserConsented);
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
                     .putExtra(EXTRA_RESUME, resumeExtras);
