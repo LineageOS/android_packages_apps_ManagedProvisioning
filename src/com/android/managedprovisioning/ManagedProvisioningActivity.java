@@ -31,9 +31,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
 import android.os.SystemProperties;
@@ -63,6 +65,9 @@ public class ManagedProvisioningActivity extends Activity {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
+    // Note: must match the constant defined in HomeSettings
+    private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
+
     protected static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
             "com.android.managedprovisioning.EXTRA_USER_HAS_CONSENTED_PROVISIONING";
 
@@ -82,6 +87,7 @@ public class ManagedProvisioningActivity extends Activity {
                     "com.android.managedprovisioning.ManagedProvisioningActivityNoCallerCheck");
 
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
+    protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
     private String mMdmPackageName;
     private BroadcastReceiver mServiceMessageReceiver;
@@ -97,8 +103,14 @@ public class ManagedProvisioningActivity extends Activity {
 
         ProvisionLogger.logd("Managed provisioning activity ONCREATE");
 
-        PackageManager pm = getPackageManager();
-        if (!pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_PROFILES)) {
+        final LayoutInflater inflater = getLayoutInflater();
+        mContentView = inflater.inflate(R.layout.user_consent, null);
+        mMainTextView = mContentView.findViewById(R.id.main_text_container);
+        mProgressView = mContentView.findViewById(R.id.progress_container);
+        setContentView(mContentView);
+
+        // Check whether system has the required managed profile feature.
+        if (!systemHasManagedProfileFeature()) {
             showErrorAndClose(R.string.managed_provisioning_not_supported,
                     "Exiting managed provisioning, managed profiles feature is not available");
             return;
@@ -124,11 +136,6 @@ public class ManagedProvisioningActivity extends Activity {
             return;
         }
 
-        final LayoutInflater inflater = getLayoutInflater();
-        mContentView = inflater.inflate(R.layout.user_consent, null);
-        mMainTextView = mContentView.findViewById(R.id.main_text_container);
-        mProgressView = mContentView.findViewById(R.id.progress_container);
-        setContentView(mContentView);
         setMdmIcon(mMdmPackageName, mContentView);
 
         // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
@@ -196,6 +203,32 @@ public class ManagedProvisioningActivity extends Activity {
         } else {
             return false;
         }
+    }
+
+    private boolean systemHasManagedProfileFeature() {
+        PackageManager pm = getPackageManager();
+        return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_PROFILES);
+    }
+
+    private boolean currentLauncherSupportsManagedProfiles() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+
+        PackageManager pm = getPackageManager();
+        ResolveInfo launcherResolveInfo
+                = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        try {
+            ApplicationInfo launcherAppInfo = getPackageManager().getApplicationInfo(
+                    launcherResolveInfo.activityInfo.packageName, 0 /* default flags */);
+            return versionNumberAtLeastL(launcherAppInfo.targetSdkVersion);
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    private boolean versionNumberAtLeastL(int versionNumber) {
+        // TODO: remove "|| true" once the build code for L is fixed.
+        return versionNumber >= Build.VERSION_CODES.L || true;
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver {
@@ -293,9 +326,12 @@ public class ManagedProvisioningActivity extends Activity {
             mProgressView.setVisibility(View.VISIBLE);
             mMainTextView.setVisibility(View.GONE);
 
-            Intent intent = new Intent(this, ManagedProvisioningService.class);
-            intent.putExtras(getIntent());
-            startService(intent);
+            // Check whether the current launcher supports managed profiles.
+            if (!currentLauncherSupportsManagedProfiles()) {
+                showCurrentLauncherInvalid();
+            } else {
+                startManagedProvisioningService();
+            }
         } else {
             Bundle resumeExtras = getIntent().getExtras();
             resumeExtras.putBoolean(EXTRA_USER_HAS_CONSENTED_PROVISIONING, mUserConsented);
@@ -307,6 +343,19 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
+    private void pickLauncher() {
+        Intent changeLauncherIntent = new Intent("android.settings.HOME_SETTINGS");
+        changeLauncherIntent.putExtra(EXTRA_SUPPORT_MANAGED_PROFILES, true);
+        startActivityForResult(changeLauncherIntent, CHANGE_LAUNCHER_REQUEST_CODE);
+        // Continue in onActivityResult.
+    }
+
+    private void startManagedProvisioningService() {
+        Intent intent = new Intent(this, ManagedProvisioningService.class);
+        intent.putExtras(getIntent());
+        startService(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
@@ -315,7 +364,34 @@ public class ManagedProvisioningActivity extends Activity {
                 setResult(Activity.RESULT_CANCELED);
                 finish();
             }
+        } else if (requestCode == CHANGE_LAUNCHER_REQUEST_CODE) {
+            if (resultCode == RESULT_CANCELED) {
+                showCurrentLauncherInvalid();
+            } else if (resultCode == RESULT_OK) {
+                startManagedProvisioningService();
+            }
         }
+    }
+
+    private void showCurrentLauncherInvalid() {
+        new AlertDialog.Builder(this)
+                .setMessage(R.string.managed_provisioning_not_supported_by_launcher)
+                .setNegativeButton(R.string.cancel_provisioning,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.dismiss();
+                                setResult(Activity.RESULT_CANCELED);
+                                finish();
+                            }
+                        })
+                .setPositiveButton(R.string.pick_launcher,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                pickLauncher();
+                            }
+                        }).show();
     }
 
     public void showErrorAndClose(int resourceId, String logText) {
