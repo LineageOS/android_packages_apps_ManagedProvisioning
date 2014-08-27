@@ -21,25 +21,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ами сега!"</string>
-    <!-- no translation found for setup_work_space (6539913744903244870) -->
-    <skip />
+    <string name="setup_work_space" msgid="6539913744903244870">"Настройте потребителския си профил"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"Настройте служебен потребителски профил за корпоративния си имейл адрес и други приложения."</string>
-    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
-    <skip />
-    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Организацията ви контролира този потребителски профил и се грижи за сигурността му. Вие управлявате всичко останало на устройството си."</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следното приложение ще трябва да има достъп до този потребителски профил:"</string>
     <string name="set_up" msgid="7012862095553564169">"Настройване"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Служебният ви потребителски профил се настройва..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
-    <skip />
-    <!-- no translation found for learn_more_link (3012495805919550043) -->
-    <skip />
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
-    <!-- no translation found for ok_setup (5148111905838329307) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Администраторът ви има възможност да наблюдава и управлява настройките, корпоративния достъп, приложенията и данните, свързани с потребителския профил, включително активността в мрежата и информацията за местоположението на устройството ви."</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Свържете се с администратора си за още информация, включително относно правилата за поверителност на организацията си."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Научете повече"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Отказ"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"ОK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Служебен потребителски профил"</string>
     <!-- no translation found for managed_profile_already_present (888277922880582498) -->
     <skip />
@@ -53,10 +45,8 @@
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Отказ"</string>
     <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_title (5191449100153186648) -->
-    <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3027317630111909095) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шифроването завърши"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Докоснете, за да продължите с настройването на служебния си потребителски профил"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Служебният ви потребителски профил не можа да се настрои. Свържете се с отдела си за информационни технологии или опитайте отново по-късно."</string>
     <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
     <skip />

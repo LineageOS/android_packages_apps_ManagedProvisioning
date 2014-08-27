@@ -21,25 +21,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"设备配置器"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
-    <!-- no translation found for setup_work_space (6539913744903244870) -->
-    <skip />
+    <string name="setup_work_space" msgid="6539913744903244870">"设置您的资料"</string>
     <string name="separate_work_spaces" msgid="3496001079642966876">"为您的企业电子邮件和其他应用设置工作资料。"</string>
-    <!-- no translation found for company_controls_workspace (2808025277267917221) -->
-    <skip />
-    <!-- no translation found for the_following_is_your_mdm (6613658218262376404) -->
-    <skip />
+    <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全性。您可以控制设备上的所有其他内容。"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要对此资料的访问权限："</string>
     <string name="set_up" msgid="7012862095553564169">"创建"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"正在设置您的工作资料…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor (8849299548436318260) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (1100836145412436290) -->
-    <skip />
-    <!-- no translation found for learn_more_link (3012495805919550043) -->
-    <skip />
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
-    <!-- no translation found for ok_setup (5148111905838329307) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
+    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"确定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
     <!-- no translation found for managed_profile_already_present (888277922880582498) -->
     <skip />
@@ -53,10 +45,8 @@
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"取消"</string>
     <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
     <skip />
-    <!-- no translation found for continue_provisioning_notify_title (5191449100153186648) -->
-    <skip />
-    <!-- no translation found for continue_provisioning_notify_text (3027317630111909095) -->
-    <skip />
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密已完成"</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"触摸即可继续设置您的工作资料"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"无法设置您的工作资料，请与您公司的IT部门联系或稍后重试。"</string>
     <!-- no translation found for managed_provisioning_not_supported (6582227325719911795) -->
     <skip />
