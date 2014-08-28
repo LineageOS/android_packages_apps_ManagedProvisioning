@@ -167,6 +167,8 @@ public class BootReminder extends BroadcastReceiver {
                 .setContentText(context.getString(R.string.continue_provisioning_notify_text))
                 .setSmallIcon(com.android.internal.R.drawable.ic_corp_icon)
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
+                .setColor(context.getResources().getColor(
+                        com.android.internal.R.color.system_notification_accent_color))
                 .setAutoCancel(true);
         notificationManager.notify(NOTIFY_ID, notify.build());
     }
