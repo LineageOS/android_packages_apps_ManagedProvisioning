@@ -19,6 +19,7 @@ package com.android.managedprovisioning.task;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ComponentInfo;
 import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
@@ -29,6 +30,7 @@ import android.os.ServiceManager;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -65,18 +67,35 @@ public class DeleteNonRequiredAppsTask {
     }
 
     public void run() {
-        // Disabling sharing via nfc and bluetooth.
-        ComponentName beamShare = new ComponentName("com.android.nfc",
-                "com.android.nfc.BeamShareActivity");
-        ComponentName bluetoothShare = new ComponentName("com.android.bluetooth",
-                "com.android.bluetooth.opp.BluetoothOppLauncherActivity");
+        ProvisionLogger.logd("Disabling non required components.");
+        List<ComponentName> toDisable = new ArrayList<ComponentName>();
+
+        // Adding sharing via nfc and bluetooth to the list
+        toDisable.add(new ComponentName("com.android.nfc", "com.android.nfc.BeamShareActivity"));
+        toDisable.add(new ComponentName("com.android.bluetooth",
+                "com.android.bluetooth.opp.BluetoothOppLauncherActivity"));
+
+        // Adding the components that listen to INSTALL_SHORTCUT to the list
+        Intent installShortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+        List<ResolveInfo> receivers = mPm.queryBroadcastReceivers(installShortcut, 0, mUserId);
+        for (ResolveInfo ri : receivers) {
+            // One of ri.activityInfo, ri.serviceInfo, ri.providerInfo is not null. Let's find which
+            // one.
+            ComponentInfo ci;
+            if (ri.activityInfo != null) {
+                ci = ri.activityInfo;
+            } else if (ri.serviceInfo != null) {
+                ci = ri.serviceInfo;
+            } else {
+                ci = ri.providerInfo;
+            }
+            toDisable.add(new ComponentName(ci.packageName, ci.name));
+        }
         try {
-            mIpm.setComponentEnabledSetting(beamShare,
-                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP,
-                    mUserId);
-            mIpm.setComponentEnabledSetting(bluetoothShare,
-                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP,
-                    mUserId);
+            for (ComponentName cn : toDisable) {
+                mIpm.setComponentEnabledSetting(cn, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                        PackageManager.DONT_KILL_APP, mUserId);
+            }
         } catch (RemoteException neverThrown) {
             ProvisionLogger.loge("This should not happen.", neverThrown);
         }
