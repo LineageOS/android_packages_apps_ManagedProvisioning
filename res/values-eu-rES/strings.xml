@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Laneko profila konfiguratzen…"</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administratzaileak ikuskatu eta kudeatu egin ditzake profilarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak eta datuak (sarean izandako jarduerak eta gailuaren kokapenari buruzko informazioa barne)."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Informazio gehiago lortzeko (baita erakundearen pribatutasun-gidalerroei buruzkoa ere), jarri administratzailearekin harremanetan."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Informazio gehiago lortzeko (baita erakundearen pribatutasun-gidalerroei buruzkoa ere), jarri administratzailearekin harremanetan."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lortu informazio gehiago"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Utzi"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Ados"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ezin izan da konfiguratu laneko profila. Jarri informatika-sailarekin harremanetan edo saiatu berriro geroago."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Gailuak ez du laneko profilik onartzen"</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"Gailuaren jabeak konfiguratu behar ditu laneko profilak"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Aplikazio abiarazle honek ez du zure laneko profila onartzen. Abiarazle bateragarri bat erabili beharko duzu."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Utzi"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Ados"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Laneko gailuaren erabiltzailea"</string>
     <string name="setup_device" msgid="6725265673245816366">"Konfiguratu gailua"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Konfigurazio-datuak prozesatzen…"</string>
