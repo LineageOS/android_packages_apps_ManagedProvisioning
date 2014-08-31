@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"Configurați"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Se configurează profilul de serviciu..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administratorul dvs. are posibilitatea de a monitoriza și a gestiona setări, accesul la nivelul companiei, aplicații și date asociate profilului, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Contactați administratorul pentru mai multe informații, inclusiv politicile de confidențialitate ale organizației."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contactați administratorul pentru mai multe informații, inclusiv politicile de confidențialitate ale organizației."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Aflați mai multe"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Anulați"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
@@ -44,7 +44,10 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Atingeți pentru a continua configurarea profilului de serviciu"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nu s-a putut configura profilul de serviciu. Contactați departamentul IT sau încercați din nou mai târziu."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Dispozitivul dvs. nu acceptă profiluri de serviciu"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"Profilurile de serviciu trebuie să fie configurate de către proprietarul dispozitivului"</string>
+    <string name="user_is_not_owner" msgid="4358772243716976929">"Profilurile de serviciu trebuie configurate de proprietarul dispozitivului"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profilul dvs. de lucru nu este acceptat de aplicația de lansare. Va trebui să comutați la o aplicație de lansare compatibilă."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Anulați"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utilizatorul dispozitivului de serviciu"</string>
     <string name="setup_device" msgid="6725265673245816366">"Configurarea dispozitivului"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Se procesează datele de configurare..."</string>
