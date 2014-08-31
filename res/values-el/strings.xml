@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"Ρύθμιση"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Δημιουργία του προφίλ εργασίας σας…"</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Ο διαχειριστής σας έχει τη δυνατότητα να παρακολουθεί και να διαχειρίζεται ρυθμίσεις, εταιρική πρόσβαση, εφαρμογές και δεδομένα που σχετίζονται με το προφίλ, συμπεριλαμβανομένων της δραστηριότητας του δικτύου και των πληροφοριών τοποθεσίας της συσκευής σας."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Επικοινωνήστε με το διαχειριστή σας για περισσότερες πληροφορίες, συμπεριλαμβανομένων των πολιτικών απορρήτου του οργανισμού σας."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Επικοινωνήστε με το διαχειριστή σας για περισσότερες πληροφορίες, συμπεριλαμβανομένων των πολιτικών απορρήτου του οργανισμού σας."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Μάθετε περισσότερα"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Ακύρωση"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ΟΚ"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Δεν ήταν δυνατή η ρύθμιση του προφίλ εργασίας σας. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης ή δοκιμάστε ξανά αργότερα."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Η συσκευή σας δεν υποστηρίζει τα προφίλ εργασίας"</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"Τα προφίλ εργασίας θα πρέπει να οριστούν από τον κάτοχο της συσκευής"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Το προφίλ εργασίας σας δεν υποστηρίζεται από αυτήν την εφαρμογή εκκίνησης. Θα πρέπει να χρησιμοποιήσετε μια συμβατή εφαρμογή εκκίνησης."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Ακύρωση"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Χρήστης συσκευής εργασίας"</string>
     <string name="setup_device" msgid="6725265673245816366">"Ρύθμιση της συσκευής σας"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Επεξεργασία δεδομένων ρύθμισης…"</string>

@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"Lungisa"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Isetha iphrofayela yakho yomsebenzi..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Umlawuli wakho unekhono lokuqapha aphinde aphathe lezi zilungiselelo, ukufinyelela kwezinkampani, izinhlelo zokusebenza nedatha ehlotshaniswa nephrofayela, efaka umsebenzi wenethiwekhi kanye nolwazi lwendawo yedivayisi yakho."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Xhumana nomlawuli wakho ukuze uthole olunye ulwazi, olufaka izinqubomgomo zobumfihlo zenhlangano yakho."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Xhumana nomqondisi wakho ngolwazi olubanzi, kufaka phakathi izinqubomgomo zokwemfihlo zenhlangano yakho."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Funda kabanzi"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Khansela"</string>
     <string name="ok_setup" msgid="5148111905838329307">"KULUNGILE"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ayikwazanga ukusehta iphrofayela yakho yomsebenzi. Xhumana nomnyango wakho we-IT noma zama futhi emuva kwesikhathi."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Idivayisi yakho ayisekeli amaphrofayela womsebenzi"</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"Amaphrofayela womsebenzi adinga ukusethwa umnikazi wedivayisi"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Iphrofayela yakho yomsebenzi ayisekelwe yilesi siqalisi sohlelo lokusebenza. Kuzomele uguqulele kusiqalisi esihambisanayo."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Khansela"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Kulungile"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Umsebenzisi wedivayisi yomsebenzi"</string>
     <string name="setup_device" msgid="6725265673245816366">"Setha idivayisi yakho"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Icubungula idatha yokusetha..."</string>

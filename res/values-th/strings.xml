@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"ตั้งค่า"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"กำลังตั้งค่าโปรไฟล์งานของคุณ..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"ผูัดูแลระบบของคุณสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป และข้อมูลที่เชื่อมโยงกับโปรไฟล์ ซึ่งรวมถึงกิจกรรมเครือข่ายและข้อมูลตำแหน่งของอุปกรณ์ด้วย"</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายส่วนบุคคลขององค์กร"</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายส่วนบุคคลขององค์กร"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"เรียนรู้เพิ่มเติม"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ยกเลิก"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ตกลง"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ไม่สามารถตั้งค่าโปรไฟล์งานของคุณได้ โปรดติดต่อฝ่ายไอทีหรือลองอีกครั้งในภายหลัง"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"อุปกรณ์ของคุณไม่สนับสนุนโปรไฟล์งาน"</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"โปรไฟล์งานต้องได้รับการตั้งค่าโดยเจ้าของอุปกรณ์"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"แอป Launcher นี้ไม่สนับสนุนโปรไฟล์งานของคุณ คุณจะต้องเปลี่ยนเป็น Launcher ที่เข้ากันได้"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ยกเลิก"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ตกลง"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ผู้ใช้อุปกรณ์ในการทำงาน"</string>
     <string name="setup_device" msgid="6725265673245816366">"ตั้งค่าอุปกรณ์"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"กำลังดำเนินการกับข้อมูลการตั้งค่า..."</string>
