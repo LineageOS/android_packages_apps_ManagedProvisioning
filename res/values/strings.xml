@@ -31,9 +31,7 @@
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
   <string name="setup_work_space">Set up your profile</string>
-  <!-- Part 1 of the text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
-  <string name="separate_work_spaces">Set up a work profile for your corporate email and other apps.</string>
-  <!-- Part 2 of the text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
+  <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <string name="company_controls_workspace">Your organization controls this profile and keeps it secure. You control everything else on your device.</string>
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
   <string name="the_following_is_your_mdm">The following app will need to access this profile:</string>
