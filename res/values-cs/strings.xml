@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"Nastavit"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Nastavování pracovního profilu..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administrátor může sledovat a spravovat nastavení, firemní přístup, aplikace a data přidružená k tomuto profilu, včetně aktivity v síti a informací o poloze vašeho zařízení."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"Další informace, včetně zásad ochrany soukromí vaší organizace, vám poskytne administrátor."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Další informace, včetně zásad ochrany soukromí vaší organizace, vám poskytne administrátor."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Další informace"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Zrušit"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nastavení pracovního profilu se nezdařilo. Obraťte se na oddělení IT nebo to zkuste znovu později."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Vaše zařízení pracovní profily nepodporuje."</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"Pracovní profily musí nastavit vlastník zařízení"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Váš pracovní profil tato aplikace spouštěče nepodporuje. Budete muset přejít na spouštěč, který je kompatibilní."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Zrušit"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Uživatel pracovního zařízení"</string>
     <string name="setup_device" msgid="6725265673245816366">"Nastavení zařízení"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Zpracování dat nastavení..."</string>

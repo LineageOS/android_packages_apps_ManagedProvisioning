@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"அமை"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"பணி சுயவிவரத்தை அமைக்கிறது..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"நெட்வொர்க் செயல்பாடு, சாதன இடத் தகவல் உட்பட சுயவிவரத்துடன் தொடர்புடைய அமைப்புகள், நிறுவன அணுகல், பயன்பாடுகள் மற்றும் தரவு ஆகியவற்றை உங்கள் நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் முடியும்."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"உங்கள் நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட, கூடுதல் தகவலுக்கு நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"உங்கள் நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட, கூடுதல் தகவலுக்கு நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"மேலும் அறிக"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ரத்துசெய்"</string>
     <string name="ok_setup" msgid="5148111905838329307">"சரி"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"பணி சுயவிவரங்களைச் சாதனம் ஆதரிக்காது"</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"பணி சுயவிவரங்களைச் சாதன உரிமையாளர் தான் அமைக்க வேண்டும்"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"இந்தத் துவக்கி பயன்பாடு, பணி சுயவிவரத்தை ஆதரிக்கவில்லை. பொருந்தும் துவக்கிக்கு மாற்ற வேண்டும்."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ரத்துசெய்"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"சரி"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"பணியிடச் சாதனத்தின் பயனர்"</string>
     <string name="setup_device" msgid="6725265673245816366">"சாதனத்தை அமை"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"அமைவு தரவைச் செயல்படுத்துகிறது..."</string>

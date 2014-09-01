@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"সেট আপ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"আপনার কর্মস্থলের প্রোফাইল সেট আপ হচ্ছে..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"আপনার প্রশাসক নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থানের তথ্য সহ প্রোফাইলটির সাথে সম্পর্কিত সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান এবং ডেটা নিরীক্ষণ ও পরিচালনা করতে সক্ষম।"</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"আপনার প্রতিষ্ঠানের গোপনীয়তা নীতি সহ আরো তথ্যের জন্য আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"আপনার প্রতিষ্ঠানের গোপনীয়তা নীতি সহ আরো তথ্যের জন্য আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"আরো জানুন"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"বাতিল করুন"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ঠিক আছে"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"আপনার কর্মস্থলের প্রোফাইলটি সেটআপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন অথবা পরে আবার চেষ্টা করুন।"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"আপনার ডিভাইস কর্মস্থলের প্রোফাইলগুলি সমর্থন করে না"</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"কর্মস্থলের প্রোফাইলটি ডিভাইসের ব্যবহারকারী মালিকের দ্বারা সেট আপ করতে হবে"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"আপনার কর্মস্থলের প্রোফাইল এই লঞ্চার অ্যাপ্লিকেশান দ্বারা সমর্থিত নয়। আপনাকে একটি সামঞ্জস্যপূর্ণ লঞ্চারে যেতে হবে।"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"বাতিল করুন"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ঠিক আছে"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"কর্মস্থলের ডিভাইসের ব্যবহারকারী"</string>
     <string name="setup_device" msgid="6725265673245816366">"আপনার ডিভাইস সেট আপ করুন"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"সেটআপ ডেটা প্রক্রিয়াকৃত হচ্ছে..."</string>
