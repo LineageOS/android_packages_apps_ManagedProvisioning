@@ -70,9 +70,11 @@ public class BootReminder extends BroadcastReceiver {
             IntentStore profileOwnerIntentStore = getProfileOwnerIntentStore(context);
             final Intent resumeProfileOwnerPrvIntent = profileOwnerIntentStore.load();
             if (resumeProfileOwnerPrvIntent != null) {
-                profileOwnerIntentStore.clear();
-                // Show reminder notification and then forget about it for next boot
-                setNotification(context, resumeProfileOwnerPrvIntent);
+                if (EncryptDeviceActivity.isDeviceEncrypted()) {
+                    // Show reminder notification and then forget about it for next boot
+                    profileOwnerIntentStore.clear();
+                    setNotification(context, resumeProfileOwnerPrvIntent);
+                }
             }
 
             // Resume device owner provisioning if applicable.
