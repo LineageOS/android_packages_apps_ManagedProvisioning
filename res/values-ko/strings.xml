@@ -28,7 +28,7 @@
     <string name="set_up" msgid="7012862095553564169">"설정"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"직장 프로필 설정 중..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 프로필과 연결된 데이터, 설정, 기업 액세스, 앱을 감시하고 관리할 수 있습니다."</string>
-    <string name="contact_your_admin_for_more_info" msgid="1100836145412436290">"조직의 개인정보취급방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"조직의 개인정보취급방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"자세히 알아보기"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"취소"</string>
     <string name="ok_setup" msgid="5148111905838329307">"확인"</string>
@@ -45,6 +45,9 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"직장 프로필을 설정할 수 없습니다. IT 부서에 문의하거나 나중에 다시 시도해 주시기 바랍니다."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"직장 프로필을 지원하지 않는 기기입니다."</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"직장 프로필은 기기 소유자만 설정할 수 있습니다."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"이 런처 앱은 직장 프로필을 지원하지 않습니다. 호환되는 런처로 전환해야 합니다."</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"취소"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"확인"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"업무 기기의 사용자"</string>
     <string name="setup_device" msgid="6725265673245816366">"기기 설정"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"설정 데이터 처리 중..."</string>
