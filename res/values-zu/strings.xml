@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Isinikezeli sedivayisi"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hawu!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Setha iphrofayela yakho"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Setha iphrofayela yomsebenzi ye-imeyili yakho yebhizinisi nezinye izinhlelo zokusebenza."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Inhlangano yakho ilawula le phrofayela iphinde iyigcine ivikelekile. Ulawule konke okunye kudivayisi yakho."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Uhlelo lokusebenza olulandelayo kuzomele lufinyelele kule phrofayela:"</string>
     <string name="set_up" msgid="7012862095553564169">"Lungisa"</string>
