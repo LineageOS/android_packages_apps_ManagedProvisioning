@@ -119,7 +119,7 @@
         <item name="android:fadeScrollbars">false</item>
     </style>
 
-    <style name="ProgressBar" parent="@android:Widget.ProgressBar.Small">
+    <style name="ProgressBar" parent="@android:Widget.Material.ProgressBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/main_text_padding_top</item>
