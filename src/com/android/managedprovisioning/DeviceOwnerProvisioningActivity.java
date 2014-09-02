@@ -234,32 +234,33 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     private void showCancelResetDialog() {
         AlertDialog.Builder alertBuilder =
                 new AlertDialog.Builder(DeviceOwnerProvisioningActivity.this)
-                .setTitle(R.string.device_owner_cancel_title)
-                .setMessage(R.string.device_owner_cancel_message)
-                .setNegativeButton(R.string.device_owner_cancel_cancel,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                dialog.dismiss();
-                                synchronized(this) {
-                                    mDialog = null;
-                                    if (mDone) {
-                                        onProvisioningSuccess();
+                        .setCancelable(false)
+                        .setTitle(R.string.device_owner_cancel_title)
+                        .setMessage(R.string.device_owner_cancel_message)
+                        .setNegativeButton(R.string.device_owner_cancel_cancel,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.dismiss();
+                                        synchronized(this) {
+                                            mDialog = null;
+                                            if (mDone) {
+                                                onProvisioningSuccess();
+                                            }
+                                        }
                                     }
-                                }
-                            }
                         })
-                .setPositiveButton(R.string.device_owner_error_reset,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                // Factory reset the device.
-                                sendBroadcast(
-                                        new Intent("android.intent.action.MASTER_CLEAR"));
-                                stopService(new Intent(DeviceOwnerProvisioningActivity.this,
+                        .setPositiveButton(R.string.device_owner_error_reset,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // Factory reset the device.
+                                        sendBroadcast(
+                                                new Intent("android.intent.action.MASTER_CLEAR"));
+                                        stopService(new Intent(DeviceOwnerProvisioningActivity.this,
                                                 DeviceOwnerProvisioningService.class));
-                                finish();
-                            }
+                                        finish();
+                                    }
                         });
 
         if (mDialog != null) {
@@ -299,9 +300,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     private void error(int dialogMessage, boolean resetRequired) {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this)
-            .setTitle(R.string.provisioning_error_title)
-            .setMessage(dialogMessage)
-            .setCancelable(false);
+                .setTitle(R.string.provisioning_error_title)
+                .setMessage(dialogMessage)
+                .setCancelable(false);
         if (resetRequired) {
             alertBuilder.setPositiveButton(R.string.device_owner_error_reset,
                     new DialogInterface.OnClickListener() {
