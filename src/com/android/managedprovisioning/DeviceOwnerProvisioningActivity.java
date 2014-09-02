@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
@@ -92,6 +93,12 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         if (dpm.getDeviceOwner() != null) {
             ProvisionLogger.loge("Device owner already present.");
             error(R.string.device_owner_error_already_owned, false /* no factory reset */);
+            return;
+        }
+
+        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            ProvisionLogger.loge("Device owner can only be set up for USER_OWNER.");
+            error(R.string.device_owner_error_general, false /* no factory reset */);
             return;
         }
 
