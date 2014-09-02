@@ -310,33 +310,34 @@ public class ManagedProvisioningActivity extends Activity {
             // Notify the user once more that the admin will have full control over the profile,
             // then start provisioning.
             new AlertDialog.Builder(ManagedProvisioningActivity.this)
-                .setMessage(message)
-                .setPositiveButton(R.string.ok_setup,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Remove any pre-provisioning UI in favour of progress display
-                            BootReminder.cancelProvisioningReminder(
-                                    ManagedProvisioningActivity.this);
-                            mProgressView.setVisibility(View.VISIBLE);
-                            mMainTextView.setVisibility(View.GONE);
+                    .setCancelable(false)
+                    .setMessage(message)
+                    .setPositiveButton(R.string.ok_setup,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Remove any pre-provisioning UI in favour of progress display
+                                    BootReminder.cancelProvisioningReminder(
+                                            ManagedProvisioningActivity.this);
+                                    mProgressView.setVisibility(View.VISIBLE);
+                                    mMainTextView.setVisibility(View.GONE);
 
-                            // Check whether the current launcher supports managed profiles.
-                            if (!currentLauncherSupportsManagedProfiles()) {
-                                showCurrentLauncherInvalid();
-                            } else {
-                                startManagedProvisioningService();
-                            }
-                        }
+                                    // Check whether the current launcher supports managed profiles.
+                                    if (!currentLauncherSupportsManagedProfiles()) {
+                                        showCurrentLauncherInvalid();
+                                    } else {
+                                        startManagedProvisioningService();
+                                    }
+                                }
                     })
-                .setNegativeButton(R.string.cancel_setup,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
+                    .setNegativeButton(R.string.cancel_setup,
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
                     })
-                .show();
+                    .show();
 
         } else {
             Bundle resumeExtras = getIntent().getExtras();
@@ -380,6 +381,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private void showCurrentLauncherInvalid() {
         new AlertDialog.Builder(this)
+                .setCancelable(false)
                 .setMessage(R.string.managed_provisioning_not_supported_by_launcher)
                 .setNegativeButton(R.string.cancel_provisioning,
                         new DialogInterface.OnClickListener() {
@@ -466,10 +468,9 @@ public class ManagedProvisioningActivity extends Activity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message)
-        .setPositiveButton(getString(R.string.delete_profile),
-                deleteListener)
-                .setNegativeButton(getString(R.string.cancel_delete_profile),
-                        cancelListener);
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.delete_profile), deleteListener)
+                .setNegativeButton(getString(R.string.cancel_delete_profile), cancelListener);
 
         return builder.create();
     }
