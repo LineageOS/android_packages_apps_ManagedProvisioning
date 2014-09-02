@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"சாதன ஃப்ரோவிஷனர்"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"அச்சச்சோ!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"உங்கள் சுயவிவரத்தை அமைக்கவும்"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"நிறுவன மின்னஞ்சல் மற்றும் பிற பயன்பாடுகளுக்கு, பணி சுயவிவரத்தை அமைக்கவும்."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"உங்கள் நிறுவனம், இந்தச் சுயவிவரத்தைக் கட்டுப்படுத்தி, அதைப் பாதுகாப்பாக வைக்கிறது. உங்கள் சாதனத்தில் இருந்து எல்லாவற்றையும் கட்டுப்படுத்தலாம்."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"பின்வரும் பயன்பாடு இந்தச் சுயவிவரத்தை அணுக வேண்டும்:"</string>
     <string name="set_up" msgid="7012862095553564169">"அமை"</string>

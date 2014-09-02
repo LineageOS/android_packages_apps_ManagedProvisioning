@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Approvisionneur de l\'appareil"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oups!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Configurer votre profil"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Configurer un profil professionnel pour votre compte de courriel professionnel et vos autres applications."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Votre organisation gère ce profil et assure sa sécurité. Vous contrôlez tout le reste sur votre appareil."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"L\'application suivante devra accéder à ce profil :"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurer"</string>

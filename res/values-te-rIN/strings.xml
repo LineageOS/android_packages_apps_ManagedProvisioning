@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"పరికర కేటాయింపుదారు"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"అయ్యో!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"మీ కార్పొరేట్ ఇమెయిల్ మరియు ఇతర అనువర్తనాల కోసం కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది అనువర్తనం ఈ ప్రొఫైల్‌ను ప్రాప్యత చేయాలి:"</string>
     <string name="set_up" msgid="7012862095553564169">"సెటప్ చేయి"</string>

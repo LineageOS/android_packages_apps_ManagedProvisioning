@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Provisioner ng Device"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"I-set up ang iyong profile"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Mag-set up ng profile sa trabaho para sa iyong pangkumpanyang email at iba pang mga app."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kinokontrol ng iyong organisasyon ang profile na ito at pinapanatili itong secure. Ikaw ang kumokontrol sa lahat ng iba pa sa iyong device."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Kakailanganin ng sumusunod na app na i-access ang profile na ito:"</string>
     <string name="set_up" msgid="7012862095553564169">"I-set up"</string>

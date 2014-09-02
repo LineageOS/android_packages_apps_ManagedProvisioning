@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"ಸಾಧನ ಪೂರೈಕೆದಾರ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ಓಹ್!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"ನಿಮ್ಮ ಕಾರ್ಪೋರೇಟ್ ಇಮೇಲ್ ಮತ್ತು ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳಿಗಾಗಿ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ಈ ಪ್ರೊಫೈಲ್ ಅನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಮತ್ತು ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಎಲ್ಲವನ್ನೂ ನೀವು ನಿಯಂತ್ರಿಸಬಹುದು."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಈ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪ್ರವೇಶಿಸುವ ಅಗತ್ಯವಿದೆ:"</string>
     <string name="set_up" msgid="7012862095553564169">"ಹೊಂದಿಸು"</string>

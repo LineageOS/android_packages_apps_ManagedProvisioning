@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Gerätebereitstellung"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppla!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Profil einrichten"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Richten Sie ein Arbeitsprofil für Ihre geschäftlichen E-Mails und weitere Apps ein."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ihr Unternehmen verwaltet dieses Profil und sorgt für seine Sicherheit. Sie verwalten alle anderen Aspekte Ihres Geräts."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die folgende App benötigt Zugriff auf dieses Profil:"</string>
     <string name="set_up" msgid="7012862095553564169">"Einrichten"</string>

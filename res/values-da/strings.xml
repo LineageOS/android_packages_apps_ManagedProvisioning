@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Enhedsklargøring"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hovsa!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Opret din profil"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Konfigurer en arbejdsprofil til dine arbejdsrelaterede e-mails og andre apps."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Din organisation styrer denne profil og sørger for, at den er sikker. Du styrer alt andet på din enhed."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Den følgende app skal have adgang til denne profil:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfigurer"</string>

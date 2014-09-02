@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Түзмөктү Камсыздоочу"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Профилиңизди орнотуңуз"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Корпоративдик электрондук почтаңыз жана башка колдонмолор үчүн жумуш профилин негиздөө."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ишканаңыз бул профилди көзөмөлдөп, коопсуздугун камсыз кылып турат. Түзмөгүңүздөгү калган нерсенин бардыгын өзүңүз көзөмөлдөйсүз."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Төмөнкү колдонмо бул профилди колдонушу керек."</string>
     <string name="set_up" msgid="7012862095553564169">"Тууралоо"</string>

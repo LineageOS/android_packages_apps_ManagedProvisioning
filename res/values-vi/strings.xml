@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Nhà cấp phép thiết bị"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Rất tiếc!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Thiết lập hồ sơ của bạn"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Thiết lập hồ sơ công việc cho email công ty và các ứng dụng khác của bạn."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tổ chức của bạn kiểm soát và giữ bảo mật hồ sơ này. Bạn kiểm soát mọi thứ khác trên thiết bị của mình."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ứng dụng sau cần quyền truy cập vào hồ sơ này:"</string>
     <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>

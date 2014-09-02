@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Provisioner dispositivo"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ops!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Configura il tuo profilo"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Imposta un profilo di lavoro per le tue email aziendali e altre app."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"La tua organizzazione controlla questo profilo e lo tiene protetto, mentre tu controlli tutto il resto sul dispositivo."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"La seguente app dovrà accedere a questo profilo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configura"</string>

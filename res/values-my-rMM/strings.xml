@@ -22,6 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"ကိရိယာကို စီမံဆောင်ရွက်ပေးသူ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"အူးပ်စ်!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"သင်၏ ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်ရန်"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"သင်၏ ကုမ္ပဏီဆိုင်ရာ အီးမေးလ် နှင့် အခြား appများ အတွက် အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ်ရန်"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"သင်၏ အဖွဲ့အစည်းက ဒီပရိုဖိုင်ကို ထိန်းချုပ်လျက် လုံခြုံအောင် ထားရှိပါသည်။ သင်သည် သင့် ကိရိယာ ထဲက ကျန်အရာများကို ထိန်းချုပ်ပါသည်။"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ appက ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
     <string name="set_up" msgid="7012862095553564169">"စဖွင့်သတ်မှတ်ရန်"</string>

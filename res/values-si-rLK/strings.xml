@@ -22,12 +22,14 @@
     <string name="app_name" msgid="4699090302771328296">"උපාංග වෙන් කිරීම"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"අපොයි!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"ඔබගේ පැතිකඩ සකසන්න"</string>
+    <string name="separate_work_spaces" msgid="3496001079642966876">"Set up a work profile for your corporate email and other apps."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ඔබගේ සංවිධානය මෙම පැතිකඩ පාලනය කරයි සහ එය ආරක්ෂිතව තබයි. ඔබගේ උපාංගයේ අනෙක් සියලු ඔබ පාලනය කරයි."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"මෙම පැතිකඩ ප්‍රවේශ වීමට ඊළගට එන යෙදුම් වලට අවශ්‍යය:"</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"ඔබගේ වැඩ කරන පැතිකඩ සකසමින්..."</string>
     <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"ජාල ක්‍රියාකාරකම් සහ ඔබගේ උපාංගයේ ස්ථාන තොරතුරු ඇතුළුව මෙම පැතිකඩ සමඟ සම්බන්ධිත සැකසීම්, සංස්ථාපිත ප්‍රවේශය, යෙදුම් සහ දත්ත නිරීෂණය සහ කළමනාකරණය කිරීමේ හැකියාව ඔබගේ පාලකයාට තිබේ."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ඔබගේ සංවිධානයේ පෞද්ගලිකත්ව ප්‍රතිපත්ති ඇතුළුව, තව තොරතුරු සඳහා ඔබගේ පාලකයා සම්බන්ධ කරගන්න."</string>
+    <!-- no translation found for contact_your_admin_for_more_info (6870084889394621288) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"තව දැනගන්න"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"අවලංගු කරන්න"</string>
     <string name="ok_setup" msgid="5148111905838329307">"හරි"</string>
@@ -44,9 +46,12 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ඔබගේ කාර්යාල පැතිකඩ සැකසීමට නොහැකි විය. ඔබගේ IT අංශය සම්බන්ධ කර ගන්න හෝ පසුව නැවත උත්සාහ කරන්න."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ඔබගේ උපාංගය කාර්යාල පැතිකඩ වෙත සහය දක්වන්නේ නැත."</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"Work profiles need to be set up by the device owner"</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"මෙම දියත් කරන යෙදුම මඟින් ඔබගේ කාර්යාල පැතිකඩට සහාය ලබා නොදේ. අනුකූල දියත් කරනයකට ඔබට මාරු වීමට අවශ්‍ය වේ."</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"අවලංගු කරන්න"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"හරි"</string>
+    <!-- no translation found for managed_provisioning_not_supported_by_launcher (8710138269807942163) -->
+    <skip />
+    <!-- no translation found for cancel_provisioning (3408069559452653724) -->
+    <skip />
+    <!-- no translation found for pick_launcher (4257084827403983845) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"කාර්යාල උපාංගයේ පරිශීලකයා"</string>
     <string name="setup_device" msgid="6725265673245816366">"ඔබගේ උපාංගය සකසන්න"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"ස්ථාපන දත්ත සකසමින්..."</string>
