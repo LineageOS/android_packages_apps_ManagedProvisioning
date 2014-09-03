@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Qurilma administratori"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ana, xolos!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Profilni sozlash"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Korporativ e-pochtangiz va boshqa ilovalar uchun ishchi profilni sozlang."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tashkilotingiz ushbu profilni nazorat qiladi va uni xavfsiz saqlaydi. Qurilmangizdagi boshqa narsalarni o‘zingiz nazorat qilasiz."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Quyidagi ilova ushbu profilga kirishi zarur:"</string>
     <string name="set_up" msgid="7012862095553564169">"Sozlash"</string>
