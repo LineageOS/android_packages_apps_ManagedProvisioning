@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Πάροχος συσκευής"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ωχ!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Ρυθμίστε το προφίλ σας"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Ρυθμίστε ένα προφίλ εργασίας για το εταιρικό ηλεκτρονικό ταχυδρομείο σας και τις άλλες εφαρμογές."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ο οργανισμός σας ελέγχει αυτό το προφίλ και το διατηρεί ασφαλές. Εσείς ελέγχετε όλα τα υπόλοιπα στοιχεία στη συσκευή σας."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Η παρακάτω εφαρμογή θα χρειαστεί πρόσβαση σε αυτό το προφίλ:"</string>
     <string name="set_up" msgid="7012862095553564169">"Ρύθμιση"</string>
