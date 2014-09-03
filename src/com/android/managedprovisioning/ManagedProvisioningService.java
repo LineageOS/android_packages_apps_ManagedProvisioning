@@ -37,6 +37,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
@@ -76,6 +77,16 @@ public class ManagedProvisioningService extends Service {
     private UserManager mUserManager;
 
     private int mStartIdProvisioning;
+    private AsyncTask<Intent, Object, Void> runnerTask;
+
+    private class RunnerTask extends AsyncTask<Intent, Object, Void> {
+        @Override
+        protected Void doInBackground(Intent ... intents) {
+            initialize(intents[0]);
+            startManagedProfileProvisioning();
+            return null;
+        }
+    }
 
     @Override
     public void onCreate() {
@@ -85,19 +96,20 @@ public class ManagedProvisioningService extends Service {
 
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
+
+        runnerTask = new RunnerTask();
     }
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
+
         ProvisionLogger.logd("Starting managed provisioning service");
-        mStartIdProvisioning = startId;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                initialize(intent);
-                startManagedProfileProvisioning();
-            }
-        }).start();
+        try {
+            runnerTask.execute(intent);
+        } catch (IllegalStateException ex) {
+            ProvisionLogger.logd("ManagedProvisioningService: Provisioning already in progress, "
+                    + "second provisioning intent not being processed");
+        }
         return START_NOT_STICKY;
 }
 
@@ -315,7 +327,7 @@ public class ManagedProvisioningService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
 
         sendProvisioningCompleteToManagedProfile(this);
-        stopSelf(mStartIdProvisioning);
+        stopSelf();
     }
 
     private void error(String logMessage) {
@@ -324,7 +336,7 @@ public class ManagedProvisioningService extends Service {
         intent.putExtra(EXTRA_LOG_MESSAGE_KEY, logMessage);
         sendBroadcast(intent);
         cleanup();
-        stopSelf(mStartIdProvisioning);
+        stopSelf();
     }
 
     /**
@@ -341,5 +353,10 @@ public class ManagedProvisioningService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        ProvisionLogger.logd("ManagedProvisioningService  ONDESTROY");
     }
 }
