@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
@@ -38,6 +39,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
@@ -71,6 +74,10 @@ public class ManagedProvisioningService extends Service {
     private ComponentName mActiveAdminComponentName;
     private String mDefaultManagedProfileName;
     private String mManagedProfileEmailAddress;
+
+    // PersistableBundle extra received in starting intent.
+    // Should be passed through to device management application when provisioning is complete.
+    private PersistableBundle mAdminExtrasBundle;
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
@@ -117,6 +124,10 @@ public class ManagedProvisioningService extends Service {
         mMdmPackageName = getMdmPackageName(intent);
         mManagedProfileEmailAddress =
                 intent.getStringExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS);
+
+        // Cast is guaranteed by check in Activity.
+        mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
 
         mActiveAdminComponentName = getAdminReceiverComponent(mMdmPackageName);
         mDefaultManagedProfileName = getDefaultManagedProfileName(intent);
@@ -306,6 +317,9 @@ public class ManagedProvisioningService extends Service {
             Intent.FLAG_RECEIVER_FOREGROUND);
         if (mManagedProfileEmailAddress != null) {
             completeIntent.putExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS, mManagedProfileEmailAddress);
+        }
+        if (mAdminExtrasBundle != null) {
+            completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mAdminExtrasBundle);
         }
         context.sendBroadcastAsUser(completeIntent, userHandle);
 

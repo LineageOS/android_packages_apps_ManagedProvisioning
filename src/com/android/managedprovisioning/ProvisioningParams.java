@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.util.Base64;
 import java.util.Locale;
 
@@ -50,6 +51,8 @@ public class ProvisioningParams implements Parcelable {
     public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
 
     public String mManagedDeviceEmailAddress;
+
+    public PersistableBundle mAdminExtrasBundle;
 
     public String getLocaleAsString() {
         if (mLocale != null) {
@@ -87,6 +90,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(mDeviceAdminPackageChecksum.length);
         out.writeByteArray(mDeviceAdminPackageChecksum);
         out.writeString(mManagedDeviceEmailAddress);
+        out.writeParcelable(mAdminExtrasBundle, 0 /* default */);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -111,6 +115,7 @@ public class ProvisioningParams implements Parcelable {
             params.mDeviceAdminPackageChecksum = new byte[checksumLength];
             in.readByteArray(params.mDeviceAdminPackageChecksum);
             params.mManagedDeviceEmailAddress = in.readString();
+            params.mAdminExtrasBundle = in.readParcelable(null /* use default classloader */);
             return params;
         }
 
