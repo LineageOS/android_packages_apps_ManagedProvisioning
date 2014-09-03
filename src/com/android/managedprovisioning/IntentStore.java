@@ -21,6 +21,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.Xml;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Helper class to load/save resume information from Intents into a SharedPreferences.
@@ -29,24 +40,49 @@ public class IntentStore {
     private SharedPreferences mPrefs;
     private String mPrefsName; // Name of the file where mPrefs is stored.
     private Context mContext;
-    private String[] mStringKeys;
-    private String[] mLongKeys;
-    private String[] mIntKeys;
-    private String[] mBooleanKeys;
     private ComponentName mIntentTarget;
+
+    // Key arrays should never be null.
+    private String[] mStringKeys = new String[0];
+    private String[] mLongKeys = new String[0];
+    private String[] mIntKeys = new String[0];
+    private String[] mBooleanKeys = new String[0];
+    private String[] mPersistableBundleKeys = new String[0];
+
+    private static final String TAG_PERSISTABLEBUNDLE = "persistable_bundle";
 
     private static final String IS_SET = "isSet";
 
-    public IntentStore(Context context, String[] stringKeys, String[] longKeys, String[] intKeys,
-            String[] booleanKeys, ComponentName intentTarget, String preferencesName) {
+    public IntentStore(Context context, ComponentName intentTarget, String preferencesName) {
         mContext = context;
         mPrefsName = preferencesName;
         mPrefs = context.getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
-        mStringKeys = stringKeys;
-        mLongKeys = longKeys;
-        mIntKeys = intKeys;
-        mBooleanKeys = booleanKeys;
         mIntentTarget = intentTarget;
+    }
+
+    public IntentStore setStringKeys(String[] keys) {
+        mStringKeys = (keys == null) ? new String[0] : keys;
+        return this;
+    }
+
+    public IntentStore setLongKeys(String[] keys) {
+        mLongKeys = (keys == null) ? new String[0] : keys;
+        return this;
+    }
+
+    public IntentStore setIntKeys(String[] keys) {
+        mIntKeys = (keys == null) ? new String[0] : keys;
+        return this;
+    }
+
+    public IntentStore setBooleanKeys(String[] keys) {
+        mBooleanKeys = (keys == null) ? new String[0] : keys;
+        return this;
+    }
+
+    public IntentStore setPersistableBundleKeys(String[] keys) {
+        mPersistableBundleKeys = (keys == null) ? new String[0] : keys;
+        return this;
     }
 
     public void clear() {
@@ -68,6 +104,12 @@ public class IntentStore {
         }
         for (String key : mBooleanKeys) {
             editor.putBoolean(key, data.getBoolean(key));
+        }
+        for (String key : mPersistableBundleKeys) {
+
+            // Cast should be guaranteed to succeed by check in the provisioning activities.
+            editor.putString(key, persistableBundleToString((PersistableBundle) data
+                            .getParcelable(key)));
         }
         editor.putBoolean(IS_SET, true);
         editor.commit();
@@ -102,7 +144,55 @@ public class IntentStore {
                 result.putExtra(key, mPrefs.getBoolean(key, false));
             }
         }
+        for (String key : mPersistableBundleKeys) {
+            if (mPrefs.contains(key)) {
+                PersistableBundle bundle = stringToPersistableBundle(mPrefs.getString(key, null));
+                if (bundle != null) {
+                    result.putExtra(key, bundle);
+                }
+            }
+        }
 
         return result;
+    }
+
+    private String persistableBundleToString(PersistableBundle bundle) {
+        StringWriter writer = new StringWriter();
+        XmlSerializer serializer = Xml.newSerializer();
+        try {
+            serializer.setOutput(writer);
+            serializer.startDocument(null, true);
+            serializer.startTag(null, TAG_PERSISTABLEBUNDLE);
+            bundle.saveToXml(serializer);
+            serializer.endTag(null, TAG_PERSISTABLEBUNDLE);
+            serializer.endDocument();
+        } catch (IOException|XmlPullParserException e) {
+            ProvisionLogger.loge("Persistable bundle could not be stored as string.", e);
+            return null;
+        }
+
+        return writer.toString();
+    }
+
+    private PersistableBundle stringToPersistableBundle(String string) {
+        XmlPullParserFactory factory;
+        XmlPullParser parser;
+        try {
+            factory = XmlPullParserFactory.newInstance();
+
+            parser = factory.newPullParser();
+            parser.setInput(new StringReader(string));
+
+            if (parser.next() == XmlPullParser.START_TAG) {
+                if (TAG_PERSISTABLEBUNDLE.equals(parser.getName())) {
+                    return PersistableBundle.restoreFromXml(parser);
+                }
+            }
+        } catch (IOException|XmlPullParserException e) {
+            ProvisionLogger.loge(e);
+            // Fall through.
+        }
+        ProvisionLogger.loge("Persistable bundle could not be restored from string " + string);
+        return null;
     }
 }

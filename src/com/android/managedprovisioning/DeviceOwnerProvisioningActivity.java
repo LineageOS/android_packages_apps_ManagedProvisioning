@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 
 import android.app.Activity;
@@ -74,7 +75,10 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     private TextView mProgressTextView;
     private Dialog mDialog; // The cancel or error dialog that is currently shown.
     private boolean mDone; // Indicates whether the service has sent ACTION_PROVISIONING_SUCCESS.
-    private ProvisioningParams mParams;
+
+    private Runnable mOnWifiConnectedRunnable;
+
+    private Intent mProvisioningCompleteIntent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -119,9 +123,10 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
         // Parse the incoming intent.
+        final ProvisioningParams params;
         MessageParser parser = new MessageParser();
         try {
-            mParams = parser.parseIntent(getIntent());
+            params = parser.parseIntent(getIntent());
         } catch (MessageParser.ParseException e) {
             ProvisionLogger.loge("Could not read data from intent", e);
             error(e.getErrorMessageId(), false /* no factory reset */);
@@ -130,26 +135,33 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
         // Ask to encrypt the device before proceeding
         if (!EncryptDeviceActivity.isDeviceEncrypted()) {
-            requestEncryption(parser);
+            requestEncryption(parser, params);
             finish();
             return;
             // System will reboot. Bootreminder will restart this activity.
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.mWifiSsid) &&
-                !TextUtils.isEmpty(mParams.mDeviceAdminPackageDownloadLocation)) {
+        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(params.mWifiSsid) &&
+                !TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+
+            mOnWifiConnectedRunnable = new Runnable() {
+                public void run() {
+                    startDeviceOwnerProvisioningService(params);
+                }
+            };
+
             requestWifiPick();
             return;
             // Wait for onActivityResult.
         }
 
-        startDeviceOwnerProvisioningService();
+        startDeviceOwnerProvisioningService(params);
     }
 
-    private void startDeviceOwnerProvisioningService() {
+    private void startDeviceOwnerProvisioningService(ProvisioningParams params) {
         Intent intent = new Intent(this, DeviceOwnerProvisioningService.class);
-        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, mParams);
+        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, params);
         intent.putExtras(getIntent());
         startService(intent);
     }
@@ -162,6 +174,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             String action = intent.getAction();
             if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
                 ProvisionLogger.logd("Successfully provisioned");
+
+                mProvisioningCompleteIntent = getProvisioningCompleteIntent(intent);
+
                 synchronized(this) {
                     if (mDialog == null) {
                         onProvisioningSuccess();
@@ -192,6 +207,25 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
     }
 
+    private Intent getProvisioningCompleteIntent(Intent serviceIntent) {
+        ProvisioningParams paramsFromService = (ProvisioningParams) serviceIntent.getExtra(
+                DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS);
+
+        Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        result.setPackage(paramsFromService.mDeviceAdminPackageName);
+        result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                Intent.FLAG_RECEIVER_FOREGROUND);
+        if (paramsFromService.mManagedDeviceEmailAddress != null) {
+            result.putExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS,
+                    paramsFromService.mManagedDeviceEmailAddress);
+        }
+        if (paramsFromService.mAdminExtrasBundle != null) {
+            result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                    paramsFromService.mAdminExtrasBundle);
+        }
+        return result;
+    }
+
     private void onProvisioningSuccess() {
         stopService(new Intent(DeviceOwnerProvisioningActivity.this,
                         DeviceOwnerProvisioningService.class));
@@ -200,29 +234,20 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
 
-        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setPackage(mParams.mDeviceAdminPackageName);
-        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mParams.mManagedDeviceEmailAddress != null) {
-            completeIntent.putExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS,
-                    mParams.mManagedDeviceEmailAddress);
-        }
-
-        sendBroadcast(completeIntent);
+        sendBroadcast(mProvisioningCompleteIntent);
 
         setResult(Activity.RESULT_OK);
         finish();
     }
 
-    private void requestEncryption(MessageParser messageParser) {
+    private void requestEncryption(MessageParser messageParser, ProvisioningParams params) {
         Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
                 EncryptDeviceActivity.class);
 
         Bundle resumeExtras = new Bundle();
         resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
                 EncryptDeviceActivity.TARGET_DEVICE_OWNER);
-        messageParser.addProvisioningParamsToBundle(resumeExtras, mParams);
+        messageParser.addProvisioningParamsToBundle(resumeExtras, params);
 
         encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
 
@@ -297,7 +322,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             } else if (resultCode == RESULT_OK) {
                 ProvisionLogger.logd("Wifi request result is OK");
                 if (AddWifiNetworkTask.isConnectedToWifi(this)) {
-                    startDeviceOwnerProvisioningService();
+                    mOnWifiConnectedRunnable.run();
                 } else {
                     requestWifiPick();
                 }

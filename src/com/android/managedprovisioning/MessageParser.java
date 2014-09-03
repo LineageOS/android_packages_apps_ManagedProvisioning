@@ -27,6 +27,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
@@ -41,6 +42,7 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.util.Base64;
 
@@ -74,6 +76,8 @@ import java.util.Properties;
  * together with an optional http cookie header
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER} accompanied by the SHA-1
  * sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}.
+ * Additional information to send through to the device admin may be specified in
+ * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
  * Furthermore a wifi network may be specified in {@link #EXTRA_PROVISIONING_WIFI_SSID}, and if
  * applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
  * {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE}, {@link #EXTRA_PROVISIONING_WIFI_PASSWORD},
@@ -115,6 +119,10 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_HIDDEN
     };
 
+    protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
+        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+    };
+
     public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
         bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.mTimeZone);
         bundle.putString(EXTRA_PROVISIONING_LOCALE, params.getLocaleAsString());
@@ -139,6 +147,8 @@ public class MessageParser {
         bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.mWifiProxyPort);
 
         bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.mWifiHidden);
+
+        bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.mAdminExtrasBundle);
     }
 
     public ProvisioningParams parseIntent(Intent intent) throws ParseException {
@@ -171,6 +181,9 @@ public class MessageParser {
                 R.string.device_owner_error_general);
     }
 
+    // Note: You can't include the EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE in the properties that is
+    // send over Nfc, because there is no publicly documented conversion from PersistableBundle to
+    // String.
     private ProvisioningParams parseProperties(String data)
             throws ParseException {
         ProvisioningParams params = new ProvisioningParams();
@@ -264,6 +277,14 @@ public class MessageParser {
 
         params.mWifiHidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
                 ProvisioningParams.DEFAULT_WIFI_HIDDEN);
+        try {
+            params.mAdminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
+                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        } catch (ClassCastException e) {
+            throw new ParseException("Extra " + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+                    + " must be of type PersistableBundle.",
+                    R.string.device_owner_error_general, e);
+        }
 
         checkValidityOfProvisioningParams(params);
         return params;

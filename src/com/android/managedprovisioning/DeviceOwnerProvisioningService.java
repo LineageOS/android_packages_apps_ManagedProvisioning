@@ -294,6 +294,7 @@ public class DeviceOwnerProvisioningService extends Service {
         ProvisionLogger.logv("Reporting success.");
         mDone = true;
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+        successIntent.putExtra(EXTRA_PROVISIONING_PARAMS, mParams);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
         // Wait for stopService() call from the activity.
