@@ -161,24 +161,24 @@ public class ManagedProvisioningService extends Service {
 
         // Work through the provisioning steps in their corresponding order
         createProfile(mDefaultManagedProfileName);
-        DeleteNonRequiredAppsTask deleteTask =
-                new DeleteNonRequiredAppsTask(this,
-                        mMdmPackageName, mManagedProfileUserInfo.id,
-                        R.array.required_apps_managed_profile,
-                        R.array.vendor_required_apps_managed_profile,
-                        new DeleteNonRequiredAppsTask.Callback() {
+        new DeleteNonRequiredAppsTask(this,
+                mMdmPackageName, mManagedProfileUserInfo.id,
+                R.array.required_apps_managed_profile,
+                R.array.vendor_required_apps_managed_profile,
+                true /* Disable Sharing via Nfc and Blueetoth */,
+                true /* Disable INSTALL_SHORTCUT listeners */,
+                new DeleteNonRequiredAppsTask.Callback() {
 
-                            @Override
-                            public void onSuccess() {
-                                setUpProfileAndFinish();
-                            }
+                    @Override
+                    public void onSuccess() {
+                        setUpProfileAndFinish();
+                    }
 
-                            @Override
-                            public void onError() {
-                                error("Delete non required apps task failed.");
-                            }
-                        });
-        deleteTask.run();
+                    @Override
+                    public void onError() {
+                        error("Delete non required apps task failed.");
+                    }
+                }).run();
     }
 
     /**

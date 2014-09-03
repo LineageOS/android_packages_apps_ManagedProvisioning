@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
@@ -233,9 +234,11 @@ public class DeviceOwnerProvisioningService extends Service {
                     }
                 });
 
-        mDeleteNonRequiredAppsTask =  new DeleteNonRequiredAppsTask(
-                this, params.mDeviceAdminPackageName, 0 /* primary user's UserId */,
+        new DeleteNonRequiredAppsTask(
+                this, params.mDeviceAdminPackageName, UserHandle.USER_OWNER,
                 R.array.required_apps_managed_device, R.array.vendor_required_apps_managed_device,
+                true /* Disable sharing via Nfc and Bluetooth */,
+                false /* Do not disable INSTALL_SHORTCUT listeners */,
                 new DeleteNonRequiredAppsTask.Callback() {
                     public void onSuccess() {
                         // Done with provisioning. Success.
@@ -246,7 +249,7 @@ public class DeviceOwnerProvisioningService extends Service {
                     public void onError() {
                         error(R.string.device_owner_error_general);
                     };
-                });
+                }).run();
 
         // Start first task, which starts next task in its callback, etc.
         if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
