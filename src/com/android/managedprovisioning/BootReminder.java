@@ -15,6 +15,7 @@
  */
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
@@ -47,6 +48,11 @@ public class BootReminder extends BroadcastReceiver {
         EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME,
         // Key for the device admin package name
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
+    };
+
+    private static final String[] PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
+        // Key for the admin extras bundle
+        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
     };
 
     private static final ComponentName PROFILE_OWNER_INTENT_TARGET =
@@ -134,23 +140,18 @@ public class BootReminder extends BroadcastReceiver {
     }
 
     private static IntentStore getProfileOwnerIntentStore(Context context) {
-        return new IntentStore(context,
-                PROFILE_OWNER_STRING_EXTRAS,
-                new String[0],
-                new String[0],
-                new String[0],
-                PROFILE_OWNER_INTENT_TARGET,
-                PROFILE_OWNER_PREFERENCES_NAME);
+        return new IntentStore(context,PROFILE_OWNER_INTENT_TARGET, PROFILE_OWNER_PREFERENCES_NAME)
+                .setStringKeys(PROFILE_OWNER_STRING_EXTRAS)
+                .setPersistableBundleKeys(PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS);
     }
 
     private static IntentStore getDeviceOwnerIntentStore(Context context) {
-        return new IntentStore(context,
-                MessageParser.DEVICE_OWNER_STRING_EXTRAS,
-                MessageParser.DEVICE_OWNER_LONG_EXTRAS,
-                MessageParser.DEVICE_OWNER_INT_EXTRAS,
-                MessageParser.DEVICE_OWNER_BOOLEAN_EXTRAS,
-                DEVICE_OWNER_INTENT_TARGET,
-                DEVICE_OWNER_PREFERENCES_NAME);
+        return new IntentStore(context, DEVICE_OWNER_INTENT_TARGET, DEVICE_OWNER_PREFERENCES_NAME)
+                .setStringKeys(MessageParser.DEVICE_OWNER_STRING_EXTRAS)
+                .setLongKeys(MessageParser.DEVICE_OWNER_LONG_EXTRAS)
+                .setIntKeys(MessageParser.DEVICE_OWNER_INT_EXTRAS)
+                .setBooleanKeys(MessageParser.DEVICE_OWNER_BOOLEAN_EXTRAS)
+                .setPersistableBundleKeys(MessageParser.DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS);
     }
 
     /** Create and show the provisioning reminder notification. */

@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
@@ -37,6 +38,7 @@ import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -257,10 +259,20 @@ public class ManagedProvisioningActivity extends Activity {
     /**
      * Checks if all required provisioning parameters are provided.
      * Does not check for extras that are optional such as the email address.
+     * Also checks whether type of admin extras bundle (if present) is PersistableBundle.
      *
      * @param intent The intent that started provisioning
      */
     private void initialize(Intent intent) throws ManagedProvisioningFailedException {
+        // Check if the admin extras bundle is of the right type.
+        try {
+            PersistableBundle bundle = (PersistableBundle) getIntent().getParcelableExtra(
+                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        } catch (ClassCastException e) {
+            throw new ManagedProvisioningFailedException("Extra "
+                    + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+                    + " must be of type PersistableBundle.", e);
+        }
 
         // Validate package name and check if the package is installed
         mMdmPackageName = getMdmPackageName(intent);
@@ -272,7 +284,7 @@ public class ManagedProvisioningActivity extends Activity {
                 this.getPackageManager().getPackageInfo(mMdmPackageName, 0);
             } catch (NameNotFoundException e) {
                 throw new ManagedProvisioningFailedException("Mdm "+ mMdmPackageName
-                        + " is not installed. " + e);
+                        + " is not installed. ", e);
             }
         }
     }
@@ -481,9 +493,13 @@ public class ManagedProvisioningActivity extends Activity {
      * significant.
      */
     private class ManagedProvisioningFailedException extends Exception {
-      public ManagedProvisioningFailedException(String message) {
-          super(message);
-      }
+        public ManagedProvisioningFailedException(String message) {
+            super(message);
+        }
+
+        public ManagedProvisioningFailedException(String message, Throwable t) {
+            super(message, t);
+        }
     }
 }
 
