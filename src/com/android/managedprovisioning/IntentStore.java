@@ -108,8 +108,11 @@ public class IntentStore {
         for (String key : mPersistableBundleKeys) {
 
             // Cast should be guaranteed to succeed by check in the provisioning activities.
-            editor.putString(key, persistableBundleToString((PersistableBundle) data
-                            .getParcelable(key)));
+            String bundleString = persistableBundleToString((PersistableBundle) data
+                    .getParcelable(key));
+            if (bundleString != null) {
+                editor.putString(key, bundleString);
+            }
         }
         editor.putBoolean(IS_SET, true);
         editor.commit();
@@ -157,6 +160,10 @@ public class IntentStore {
     }
 
     private String persistableBundleToString(PersistableBundle bundle) {
+        if (bundle == null) {
+            return null;
+        }
+
         StringWriter writer = new StringWriter();
         XmlSerializer serializer = Xml.newSerializer();
         try {
@@ -175,6 +182,10 @@ public class IntentStore {
     }
 
     private PersistableBundle stringToPersistableBundle(String string) {
+        if (string == null) {
+            return null;
+        }
+
         XmlPullParserFactory factory;
         XmlPullParser parser;
         try {
