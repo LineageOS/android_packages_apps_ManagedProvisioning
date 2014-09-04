@@ -258,7 +258,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     /**
      * Checks if all required provisioning parameters are provided.
-     * Does not check for extras that are optional such as the email address.
+     * Does not check for extras that are optional such as wifi ssid.
      * Also checks whether type of admin extras bundle (if present) is PersistableBundle.
      *
      * @param intent The intent that started provisioning
