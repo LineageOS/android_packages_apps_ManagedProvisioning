@@ -20,7 +20,6 @@ import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_EMAIL_ADDRESS;
 import static com.android.managedprovisioning.ManagedProvisioningActivity.EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static com.android.managedprovisioning.ManagedProvisioningActivity.EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
@@ -73,7 +72,6 @@ public class ManagedProvisioningService extends Service {
     private String mMdmPackageName;
     private ComponentName mActiveAdminComponentName;
     private String mDefaultManagedProfileName;
-    private String mManagedProfileEmailAddress;
 
     // PersistableBundle extra received in starting intent.
     // Should be passed through to device management application when provisioning is complete.
@@ -122,8 +120,6 @@ public class ManagedProvisioningService extends Service {
 
     private void initialize(Intent intent) {
         mMdmPackageName = getMdmPackageName(intent);
-        mManagedProfileEmailAddress =
-                intent.getStringExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS);
 
         // Cast is guaranteed by check in Activity.
         mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
@@ -315,9 +311,6 @@ public class ManagedProvisioningService extends Service {
         completeIntent.setComponent(mActiveAdminComponentName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
             Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mManagedProfileEmailAddress != null) {
-            completeIntent.putExtra(EXTRA_PROVISIONING_EMAIL_ADDRESS, mManagedProfileEmailAddress);
-        }
         if (mAdminExtrasBundle != null) {
             completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mAdminExtrasBundle);
         }
