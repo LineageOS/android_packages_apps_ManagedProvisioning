@@ -146,8 +146,16 @@ public class DeviceOwnerProvisioningService extends Service {
                 params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
                         @Override
                         public void onSuccess() {
-                            progressUpdate(R.string.progress_download);
-                            mDownloadPackageTask.run();
+                            if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+                                // Download, install, set as device owner, delete apps.
+                                progressUpdate(R.string.progress_download);
+                                mDownloadPackageTask.run();
+                            } else {
+                                // Device Admin will not be downloaded (but is already present):
+                                // Just set as device owner, delete apps.
+                                progressUpdate(R.string.progress_set_owner);
+                                mSetDevicePolicyTask.run();
+                            }
                         }
 
                         @Override
@@ -249,9 +257,8 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         // Start first task, which starts next task in its callback, etc.
-        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
-            // Device Admin has to be downloaded:
-            // Connect to wifi, download, install, set as device owner, delete apps.
+        if (!TextUtils.isEmpty(params.mWifiSsid)) {
+            // Connect to wifi.
             progressUpdate(R.string.progress_connect_to_wifi);
             mAddWifiNetworkTask.run();
         } else {
