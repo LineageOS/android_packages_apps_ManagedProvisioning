@@ -64,7 +64,8 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme">
+            android:theme="@style/SetupWorkSpaceTheme"
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -81,7 +82,8 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme">
+            android:theme="@style/SetupWorkSpaceTheme"
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.app.action.ACTION_PROVISION_MANAGED_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -97,13 +99,15 @@
             android:name="UserConsentActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme" >
+            android:theme="@style/SetupWorkSpaceTheme"
+            android:screenOrientation="locked">
         </activity>
         <activity
             android:name="EncryptDeviceActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme" >
+            android:theme="@style/SetupWorkSpaceTheme"
+            android:screenOrientation="locked">
         </activity>
 
         <service
