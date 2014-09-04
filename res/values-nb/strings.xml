@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Enhetstildeler"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Beklager!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Konfigurer profilen din"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Konfigurer en arbeidsprofil for bedriftse-posten din og andre apper."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisasjonen kontrollerer denne profilen og holder den sikker. Du styrer alt annet på enheten."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Denne appen trenger tilgang til denne profilen:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfigurer"</string>

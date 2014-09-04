@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Gailuaren hornitzailea"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Arazo bat izan da."</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Konfiguratu profila"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Konfiguratu laneko profila, lanerako erabiliko dituzun enpresako posta-kontu eta aplikazioekin."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Erakundeak kontrolatzen du profila eta seguru mantentzen du. Gailuan duzun gainerako guztia zeuk kontrolatzen duzu."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikazio honek profila atzitu beharko du:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>

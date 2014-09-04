@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"डिव्‍हाइस तरतूदकर्ता"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"आपले प्रोफाईल सेट करा"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"आपल्या कॉर्पोरेट ईमेलसाठी आणि इतर अॅप्ससाठी कार्य प्रोफाईल सेट करा."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
     <string name="set_up" msgid="7012862095553564169">"सेट अप"</string>

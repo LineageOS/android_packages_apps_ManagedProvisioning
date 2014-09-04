@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"តម្រូវ​ការ​ឧបករណ៍"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"អូ​!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"រៀបចំ​ប្រវត្តិរូប​របស់​អ្នក"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"រៀបចំ​ប្រវត្តិរូប​ការងារ​​សម្រាប់​អ៊ីមែល​សហការ​របស់​អ្នក និង​កម្មវិធី​ផ្សេងៗ។"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ស្ថាប័ន​របស់​អ្នកពិនិត្យ​ប្រវត្តិរូប​នេះ ហើយ​រក្សាទុក​វា​​ដោយ​សុវត្ថិភាព។ អ្នក​ពិនិត្យ​អ្វីៗ​ផ្សេង​ទៀត​នៅ​លើ​ឧបករណ៍​របស់​អ្នក។"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"កម្មវិធី​ខាង​ក្រោម​​នឹង​ត្រូវ​ចូល​ដំណើរការ​ប្រវត្តិរូប​របស់​អ្នក៖"</string>
     <string name="set_up" msgid="7012862095553564169">"រៀបចំ"</string>

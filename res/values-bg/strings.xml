@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ами сега!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Настройте потребителския си профил"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Настройте служебен потребителски профил за корпоративния си имейл адрес и други приложения."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Организацията ви контролира този потребителски профил и се грижи за сигурността му. Вие управлявате всичко останало на устройството си."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следното приложение ще трябва да има достъп до този потребителски профил:"</string>
     <string name="set_up" msgid="7012862095553564169">"Настройване"</string>
