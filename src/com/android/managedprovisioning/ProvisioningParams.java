@@ -50,8 +50,6 @@ public class ProvisioningParams implements Parcelable {
     public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
     public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
 
-    public String mManagedDeviceEmailAddress;
-
     public PersistableBundle mAdminExtrasBundle;
 
     public String getLocaleAsString() {
@@ -89,7 +87,6 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mDeviceAdminPackageDownloadCookieHeader);
         out.writeInt(mDeviceAdminPackageChecksum.length);
         out.writeByteArray(mDeviceAdminPackageChecksum);
-        out.writeString(mManagedDeviceEmailAddress);
         out.writeParcelable(mAdminExtrasBundle, 0 /* default */);
     }
 
@@ -114,7 +111,6 @@ public class ProvisioningParams implements Parcelable {
             int checksumLength = in.readInt();
             params.mDeviceAdminPackageChecksum = new byte[checksumLength];
             in.readByteArray(params.mDeviceAdminPackageChecksum);
-            params.mManagedDeviceEmailAddress = in.readString();
             params.mAdminExtrasBundle = in.readParcelable(null /* use default classloader */);
             return params;
         }
