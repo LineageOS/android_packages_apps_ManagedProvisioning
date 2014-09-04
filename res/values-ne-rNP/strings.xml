@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"उपकरण प्रदायक"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"तपाईँको प्रोफाइल सेट अप गर्नुहोस्"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"तपाईँको कर्पोरेट इमेल र अन्य अनुप्रयोगहरूको लागि एक कार्य प्रोफाइल स्थापना गर्नुहोस्।"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="set_up" msgid="7012862095553564169">"मिलाउनुहोस्"</string>

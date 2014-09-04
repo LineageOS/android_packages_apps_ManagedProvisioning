@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"Додељивач уређаја"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Упс!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Подесите профил"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"Подесите профил за посао за пословни имејл и друге апликације."</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Организација контролише и штити овај профил. Ви контролишете све остало на уређају."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следећа апликација мора да приступи овом профилу:"</string>
     <string name="set_up" msgid="7012862095553564169">"Подеси"</string>

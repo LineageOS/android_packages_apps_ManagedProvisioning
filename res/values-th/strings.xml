@@ -22,7 +22,6 @@
     <string name="app_name" msgid="4699090302771328296">"ผู้จัดสรรอุปกรณ์"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"อ๊ะ!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"ตั้งค่าโปรไฟล์ของคุณ"</string>
-    <string name="separate_work_spaces" msgid="3496001079642966876">"ตั้งค่าโปรไฟล์งานสำหรับอีเมลบริษัทและแอปอื่นๆ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"องค์กรของคุณควบคุมและรักษาความปลอดภัยให้กับโปรไฟล์นี้ คุณเป็นผู้ควบคุมส่วนที่เหลือในอุปกรณ์"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"แอปต่อไปนี้ต้องการเข้าถึงโปรไฟล์นี้:"</string>
     <string name="set_up" msgid="7012862095553564169">"ตั้งค่า"</string>
