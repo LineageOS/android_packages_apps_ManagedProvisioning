@@ -17,14 +17,10 @@ package com.android.managedprovisioning;
 
 import static android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.content.pm.UserInfo;
-import android.os.UserHandle;
-import android.os.UserManager;
 import android.provider.MediaStore;
 
 import com.android.managedprovisioning.ProvisionLogger;
@@ -35,32 +31,6 @@ import java.util.List;
  * ota.
  */
 public class CrossProfileIntentFiltersHelper {
-
-    public static class FiltersReseter extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if(Intent.ACTION_PRE_BOOT_COMPLETED.equals(intent.getAction())) {
-                int currentUserId = context.getUserId();
-                if (currentUserId == UserHandle.USER_OWNER) {
-                    // Reseting the cross-profile intent filters for the managed profiles who have
-                    // this user as their parent.
-                    UserManager um = (UserManager) context.getSystemService(
-                            Context.USER_SERVICE);
-                    List<UserInfo> profiles = um.getProfiles(currentUserId);
-                    if (profiles.size() > 1) {
-                        PackageManager pm = context.getPackageManager();
-                        pm.clearCrossProfileIntentFilters(currentUserId);
-                        for (UserInfo userInfo : profiles) {
-                            if (userInfo.isManagedProfile() && userInfo.id != currentUserId) {
-                                pm.clearCrossProfileIntentFilters(userInfo.id);
-                                setFilters(pm, currentUserId, userInfo.id);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     public static void setFilters(PackageManager pm, int parentUserId, int managedProfileUserId) {
         ProvisionLogger.logd("Setting cross-profile intent filters");
