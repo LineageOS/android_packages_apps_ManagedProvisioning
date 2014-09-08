@@ -119,8 +119,6 @@
   <string name="device_owner_error_general">Couldn\'t set up your device. Contact your IT department. </string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_already_provisioned">This device is already set up</string>
-  <!-- Message of the error dialog when already owned. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_already_owned">This device already has an owner</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
