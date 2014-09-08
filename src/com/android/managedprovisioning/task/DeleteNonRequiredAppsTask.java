@@ -108,6 +108,7 @@ public class DeleteNonRequiredAppsTask {
 
         File file = new File(mContext.getFilesDir() + File.separator + "system_apps_with_launcher"
                 + File.separator + "user" + mUserId + ".xml");
+        file.getParentFile().mkdirs(); // Creating the folder if it does not exist
 
         Set<String> currentApps = getCurrentSystemApps();
         Set<String> previousApps = readSystemApps(file);
@@ -233,7 +234,6 @@ public class DeleteNonRequiredAppsTask {
         if (!file.exists()) {
             return result;
         }
-        file.getParentFile().mkdirs(); // Creating the folder if it does not exist
         try {
             FileInputStream stream = new FileInputStream(file);
 
