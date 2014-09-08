@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Setha kabusha"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Ayikwazanga ukusetha idivayisi yakho. Xhumana nomnyango wakho we-IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Le divayisi isivele isethiwe"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Le divayisi isivele unomnikazi"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ayikwazanga ukuxhuma kwi-Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ayikwazanga ukusebenzisa uhlelo lokusebenza lomqondisi ngenxa yephutha lokuhlola. Xhumana ngomnyango wakho we-IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ayikwazanga ukulanda uhlelo lokusebenza lomqondisi"</string>

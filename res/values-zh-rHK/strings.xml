@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"重設"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"無法設定您的裝置，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"裝置已完成設定"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"這部裝置已經有一位擁有者"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"無法連線至 Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"管理員應用程式因校驗和錯誤而無法使用，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"無法下載管理員應用程式"</string>

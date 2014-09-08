@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Atiestatīt"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nevarēja iestatīt ierīci. Sazinieties ar IT nodaļu."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Šī ierīce jau ir iestatīta"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Šai ierīcei jau ir īpašnieks"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Neizdevās izveidot savienojumu ar Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nevarēja izmantot administratora lietotni kontrolsummas kļūdas dēļ. Sazinieties ar IT nodaļu."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Neizdevās ielādēt administratora lietotni"</string>

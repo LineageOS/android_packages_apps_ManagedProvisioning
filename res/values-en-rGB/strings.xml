@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Reset"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Couldn\'t set up your device. Contact your IT department."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"This device is already set up"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"This device already has an owner"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>

@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Lähtesta"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Seadet ei õnnestunud seadistada. Võtke ühendust oma IT-osakonnaga."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"See seade on juba seadistatud"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Sellel seadmel on juba omanik"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"WiFi-ga ei saanud ühendust"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Administraatori rakendust ei saa kasutada kontrollsumma vea tõttu. Võtke ühendust oma IT-osakonnaga."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administraatorirakendust ei õnnestunud alla laadida"</string>
