@@ -83,7 +83,7 @@
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">
             <intent-filter>
-                <action android:name="android.app.action.ACTION_PROVISION_MANAGED_PROFILE" />
+                <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
