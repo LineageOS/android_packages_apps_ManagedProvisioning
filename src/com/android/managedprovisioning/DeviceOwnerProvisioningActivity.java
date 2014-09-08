@@ -22,7 +22,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXT
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -89,13 +88,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /* default */) != 0) {
             ProvisionLogger.loge("Device already provisioned.");
             error(R.string.device_owner_error_already_provisioned, false /* no factory reset */);
-            return;
-        }
-        DevicePolicyManager dpm = (DevicePolicyManager)
-                getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (dpm.getDeviceOwner() != null) {
-            ProvisionLogger.loge("Device owner already present.");
-            error(R.string.device_owner_error_already_owned, false /* no factory reset */);
             return;
         }
 
