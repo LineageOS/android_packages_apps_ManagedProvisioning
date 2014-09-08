@@ -316,7 +316,7 @@ public class ManagedProvisioningActivity extends Activity {
         if (EncryptDeviceActivity.isDeviceEncrypted()
                 || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)) {
 
-            String message = getString(R.string.admin_has_ability_to_monitor)  + "\n\n"
+            String message = getString(R.string.admin_has_ability_to_monitor_profile)  + "\n\n"
                     + getString(R.string.contact_your_admin_for_more_info);
 
             // Notify the user once more that the admin will have full control over the profile,
