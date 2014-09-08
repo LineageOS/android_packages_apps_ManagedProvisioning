@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"รีเซ็ต"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ไม่สามารถตั้งค่าอุปกรณ์ของคุณ โปรดติดต่อฝ่ายไอที"</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"อุปกรณ์นี้ตั้งค่าไว้แล้ว"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"อุปกรณ์นี้มีเจ้าของแล้ว"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ไม่สามารถเชื่อมต่อ Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ไม่สามารถใช้แอปผู้ดูแลระบบได้เนื่องจากมีข้อผิดพลาดเกี่ยวกับ checksum โปรดติดต่อฝ่ายไอทีของคุณ"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ไม่สามารถดาวน์โหลดแอปผู้ดูแลระบบได้"</string>

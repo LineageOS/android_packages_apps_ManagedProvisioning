@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ಮರುಹೊಂದಿಸು"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"ಈ ಸಾಧನವನ್ನು ಈಗಾಗಲೇ ಹೊಂದಿಸಲಾಗಿದೆ"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"ಈ ಸಾಧನವು ಈಗಾಗಲೇ ಮಾಲೀಕರನ್ನು ಹೊಂದಿದೆ"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ಚೆಕ್‌ಸಮ್ ದೋಷ ಎದುರಾಗಿರುವ ಕಾರಣ ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>

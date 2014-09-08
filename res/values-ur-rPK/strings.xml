@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"دوبارہ ترتیب دیں"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"‏آپ کے آلہ کو ترتیب نہیں دیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"یہ آلہ پہلے ہی ترتیب دے دیا گیا ہے"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"اس آلہ کا پہلے سے ایک مالک ہے"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏Wi-Fi سے منسلک نہیں کیا جا سکا"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"‏checksum کی خرابی کی وجہ سے منتظم کی ایپ کا استعمال نہیں کیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"منتظم کی ایپ کو ڈاؤن لوڈ نہیں کیا جا سکا"</string>
