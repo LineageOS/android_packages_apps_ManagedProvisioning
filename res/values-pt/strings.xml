@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Redefinir"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Não foi possível configurar o dispositivo. Entre em contato com o departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Este dispositivo já está configurado"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Este dispositivo já tem um proprietário"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Não foi possível se conectar a redes Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Não foi possível usar o app para administrador devido a um erro de soma de verificação. Entre em contato com o departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Não foi possível fazer o download do app para administrador"</string>

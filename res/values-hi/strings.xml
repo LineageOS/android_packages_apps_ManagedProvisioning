@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"रीसेट करें"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"आपका उपकरण सेट नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"यह उपकरण पहले ही सेट किया जा चुका है"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"इस उपकरण का स्वामित्व पहले से किसी के पास है"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फ़ाई से कनेक्‍ट नहीं हो सका"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"चेकसम त्रुटि के कारण व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"व्यवस्थापक ऐप्स डाउनलोड नहीं किया जा सका"</string>

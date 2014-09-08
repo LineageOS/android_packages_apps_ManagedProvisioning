@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Opnieuw instellen"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Kan uw apparaat niet instellen. Neem contact op met uw IT-afdeling."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Dit apparaat is al geconfigureerd"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Dit apparaat heeft al een eigenaar"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kan geen verbinding maken met wifi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Kan de beheer-app niet gebruiken vanwege een controlesomfout. Neem contact op met uw IT-afdeling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Kan de beheer-app niet downloaden"</string>

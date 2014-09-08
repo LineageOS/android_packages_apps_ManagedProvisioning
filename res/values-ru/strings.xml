@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Сброс"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Не удалось настроить устройство. Обратитесь в отдел технической поддержки вашей компании."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Настройка уже выполнена"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"У этого устройства уже есть владелец"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не удалось подключиться к сети Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Нельзя использовать приложение для администрирования из-за ошибки при проверке контрольной суммы. Обратитесь в отдел технической поддержки вашей компании."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не удалось скачать приложение для администрирования"</string>
