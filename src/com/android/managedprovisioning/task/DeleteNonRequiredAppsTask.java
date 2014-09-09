@@ -52,11 +52,11 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 
 /**
- * Removes all apps with a launcher that are not required.
- * There are two decendants of this class:
- * {@link DeleteNonRequiredAppsTask} for profile owner provisioning,
- * and {@link DeleteNonRequiredAppsTask} for device owner provisioning.
- * The decendents specify which apps are required.
+ * Removes all system apps with a launcher that are not required.
+ * Also disables sharing via Bluetooth and Nfc, and components that listen to
+ * ACTION_INSTALL_SHORTCUT.
+ * This class is called a first time when a user is created, but also after a system update.
+ * In this case, it checks if the system apps that have been added need to be disabled.
  */
 public class DeleteNonRequiredAppsTask {
     private final Callback mCallback;
@@ -67,15 +67,15 @@ public class DeleteNonRequiredAppsTask {
     private final int mReqAppsList;
     private final int mVendorReqAppsList;
     private final int mUserId;
-    private final boolean mDisableNfcBluetoothSharing;
+    private final boolean mNewProfile; // If we are provisioning a new profile.
     private final boolean mDisableInstallShortcutListeners;
 
-    private static final String TAG_APPS_WITH_LAUNCHER = "apps-with-launcher";
+    private static final String TAG_SYSTEM_APPS = "system-apps";
     private static final String TAG_PACKAGE_LIST_ITEM = "item";
     private static final String ATTR_VALUE = "value";
 
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName, int userId,
-            int requiredAppsList, int vendorRequiredAppsList, boolean disableNfcBluetoothSharing,
+            int requiredAppsList, int vendorRequiredAppsList, boolean newProfile,
             boolean disableInstallShortcutListeners, Callback callback) {
         mCallback = callback;
         mContext = context;
@@ -85,12 +85,12 @@ public class DeleteNonRequiredAppsTask {
         mPm = context.getPackageManager();
         mReqAppsList = requiredAppsList;
         mVendorReqAppsList = vendorRequiredAppsList;
-        mDisableNfcBluetoothSharing = disableNfcBluetoothSharing;
+        mNewProfile = newProfile;
         mDisableInstallShortcutListeners = disableInstallShortcutListeners;
     }
 
     public void run() {
-        if (mDisableNfcBluetoothSharing) {
+        if (mNewProfile) {
             disableNfcBluetoothSharing();
         }
         deleteNonRequiredApps();
@@ -106,12 +106,27 @@ public class DeleteNonRequiredAppsTask {
     private void deleteNonRequiredApps() {
         ProvisionLogger.logd("Deleting non required apps.");
 
-        File file = new File(mContext.getFilesDir() + File.separator + "system_apps_with_launcher"
+        File file = new File(mContext.getFilesDir() + File.separator + "system_apps"
                 + File.separator + "user" + mUserId + ".xml");
         file.getParentFile().mkdirs(); // Creating the folder if it does not exist
 
         Set<String> currentApps = getCurrentSystemApps();
-        Set<String> previousApps = readSystemApps(file);
+        Set<String> previousApps;
+        if (mNewProfile) {
+            // If this userId was a managed profile before, file may exist. In this case, we ignore
+            // what is in this file.
+            previousApps = new HashSet<String>();
+        } else {
+            if (file.exists()) {
+                previousApps = readSystemApps(file);
+            } else {
+                // If for some reason, the system apps have not been written to file before, we will
+                // not delete any system apps this time.
+                writeSystemApps(currentApps, file);
+                mCallback.onSuccess();
+                return;
+            }
+        }
         writeSystemApps(currentApps, file);
         Set<String> newApps = currentApps;
         newApps.removeAll(previousApps);
@@ -135,18 +150,24 @@ public class DeleteNonRequiredAppsTask {
         packagesToDelete.removeAll(getRequiredApps());
         packagesToDelete.retainAll(getCurrentAppsWithLauncher());
         // com.android.telecomm should not handle CALL intents in the managed profile.
-        packagesToDelete.add("com.android.telecomm");
-
-        PackageDeleteObserver packageDeleteObserver =
-                    new PackageDeleteObserver(packagesToDelete.size());
-        for (String packageName : packagesToDelete) {
-            try {
-                mIpm.deletePackageAsUser(packageName, packageDeleteObserver, mUserId,
-                        PackageManager.DELETE_SYSTEM_APP);
-            } catch (RemoteException neverThrown) {
-                // Never thrown, as we are making local calls.
-                ProvisionLogger.loge("This should not happen.", neverThrown);
+        if (mNewProfile) {
+            packagesToDelete.add("com.android.telecomm");
+        }
+        int size = packagesToDelete.size();
+        if (size > 0) {
+            PackageDeleteObserver packageDeleteObserver =
+                        new PackageDeleteObserver(packagesToDelete.size());
+            for (String packageName : packagesToDelete) {
+                try {
+                    mIpm.deletePackageAsUser(packageName, packageDeleteObserver, mUserId,
+                            PackageManager.DELETE_SYSTEM_APP);
+                } catch (RemoteException neverThrown) {
+                    // Never thrown, as we are making local calls.
+                    ProvisionLogger.loge("This should not happen.", neverThrown);
+                }
             }
+        } else {
+            mCallback.onSuccess();
         }
     }
 
@@ -179,7 +200,7 @@ public class DeleteNonRequiredAppsTask {
 
     /**
      * Returns the set of package names of apps that are in the system image,
-     * whether they have been deleted or not for the managed profile.
+     * whether they have been deleted or not.
      */
     private Set<String> getCurrentSystemApps() {
         Set<String> apps = new HashSet<String>();
@@ -217,17 +238,17 @@ public class DeleteNonRequiredAppsTask {
             XmlSerializer serializer = new FastXmlSerializer();
             serializer.setOutput(stream, "utf-8");
             serializer.startDocument(null, true);
-            serializer.startTag(null, TAG_APPS_WITH_LAUNCHER);
+            serializer.startTag(null, TAG_SYSTEM_APPS);
             for (String packageName : packageNames) {
                 serializer.startTag(null, TAG_PACKAGE_LIST_ITEM);
                 serializer.attribute(null, ATTR_VALUE, packageName);
                 serializer.endTag(null, TAG_PACKAGE_LIST_ITEM);
             }
-            serializer.endTag(null, TAG_APPS_WITH_LAUNCHER);
+            serializer.endTag(null, TAG_SYSTEM_APPS);
             serializer.endDocument();
             stream.close();
         } catch (IOException e) {
-            ProvisionLogger.loge("IOException trying to read the apps with launcher", e);
+            ProvisionLogger.loge("IOException trying to write the system apps", e);
         }
     }
 
@@ -258,9 +279,9 @@ public class DeleteNonRequiredAppsTask {
             }
             stream.close();
         } catch (IOException e) {
-            ProvisionLogger.loge("IOException trying to read the apps with launcher", e);
+            ProvisionLogger.loge("IOException trying to read the system apps", e);
         } catch (XmlPullParserException e) {
-            ProvisionLogger.loge("XmlPullParserException trying to read the apps with launcher", e);
+            ProvisionLogger.loge("XmlPullParserException trying to read the system apps", e);
         }
         return result;
     }
@@ -289,7 +310,7 @@ public class DeleteNonRequiredAppsTask {
         public void packageDeleted(String packageName, int returnCode) {
             if (returnCode != PackageManager.DELETE_SUCCEEDED) {
                 ProvisionLogger.logw(
-                        "Could not finish managed profile provisioning: package deletion failed");
+                        "Could not finish the provisioning: package deletion failed");
                 mCallback.onError();
             }
             int currentPackageCount = mPackageCount.decrementAndGet();
