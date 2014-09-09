@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2014, The Android Open Source Project
  *
@@ -79,7 +78,7 @@ public class PreBootListener extends BroadcastReceiver {
 
         new DeleteNonRequiredAppsTask(context, profileOwner.getPackageName(), userId,
                 R.array.required_apps_managed_profile, R.array.vendor_required_apps_managed_profile,
-                false /* Do not disable sharing via Nfc and Blueetooth, it has already been done */,
+                false /* We are not creating a new profile */,
                 true /* Disable INSTALL_SHORTCUT listeners */,
                 new DeleteNonRequiredAppsTask.Callback() {
 
