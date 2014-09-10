@@ -18,10 +18,7 @@ package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static com.android.managedprovisioning.ManagedProvisioningActivity.EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
-import static com.android.managedprovisioning.ManagedProvisioningActivity.EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
@@ -71,7 +68,6 @@ public class ManagedProvisioningService extends Service {
 
     private String mMdmPackageName;
     private ComponentName mActiveAdminComponentName;
-    private String mDefaultManagedProfileName;
 
     // PersistableBundle extra received in starting intent.
     // Should be passed through to device management application when provisioning is complete.
@@ -119,14 +115,13 @@ public class ManagedProvisioningService extends Service {
 }
 
     private void initialize(Intent intent) {
-        mMdmPackageName = getMdmPackageName(intent);
+        mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
 
         // Cast is guaranteed by check in Activity.
         mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
 
         mActiveAdminComponentName = getAdminReceiverComponent(mMdmPackageName);
-        mDefaultManagedProfileName = getDefaultManagedProfileName(intent);
     }
 
     /**
@@ -152,25 +147,6 @@ public class ManagedProvisioningService extends Service {
         return adminReceiverComponent;
     }
 
-    private String getDefaultManagedProfileName(Intent intent) {
-        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
-        if (TextUtils.isEmpty(name)) {
-            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME);
-        }
-        if (TextUtils.isEmpty(name)) {
-            name = getString(R.string.default_managed_profile_name);
-        }
-        return name;
-    }
-
-    private String getMdmPackageName(Intent intent) {
-        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        if (TextUtils.isEmpty(name)) {
-            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        }
-        return name;
-    }
-
     /**
      * This is the core method of this class. It goes through every provisioning step.
      */
@@ -179,7 +155,7 @@ public class ManagedProvisioningService extends Service {
         ProvisionLogger.logd("Starting managed profile provisioning");
 
         // Work through the provisioning steps in their corresponding order
-        createProfile(mDefaultManagedProfileName);
+        createProfile(getString(R.string.default_managed_profile_name));
         new DeleteNonRequiredAppsTask(this,
                 mMdmPackageName, mManagedProfileUserInfo.id,
                 R.array.required_apps_managed_profile,
@@ -285,8 +261,8 @@ public class ManagedProvisioningService extends Service {
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (!dpm.setProfileOwner(mActiveAdminComponentName,
-                mDefaultManagedProfileName, mManagedProfileUserInfo.id)) {
+        if (!dpm.setProfileOwner(mActiveAdminComponentName, mMdmPackageName,
+                mManagedProfileUserInfo.id)) {
             ProvisionLogger.logw("Could not set profile owner.");
             error("Could not set profile owner.");
         }

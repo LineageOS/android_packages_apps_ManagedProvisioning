@@ -73,12 +73,6 @@ public class ManagedProvisioningActivity extends Activity {
     protected static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
             "com.android.managedprovisioning.EXTRA_USER_HAS_CONSENTED_PROVISIONING";
 
-    // TODO remove these when the new constant values are in use in all relevant places.
-    protected static final String EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME =
-            "deviceAdminPackageName";
-    protected static final String EXTRA_LEGACY_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME =
-            "defaultManagedProfileName";
-
     // Aliases to start managed provisioning with and without MANAGE_USERS permission
     protected static final ComponentName ALIAS_CHECK_CALLER =
             new ComponentName("com.android.managedprovisioning",
@@ -275,7 +269,7 @@ public class ManagedProvisioningActivity extends Activity {
         }
 
         // Validate package name and check if the package is installed
-        mMdmPackageName = getMdmPackageName(intent);
+        mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         if (TextUtils.isEmpty(mMdmPackageName)) {
             throw new ManagedProvisioningFailedException("Missing intent extra: "
                     + EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
@@ -287,14 +281,6 @@ public class ManagedProvisioningActivity extends Activity {
                         + " is not installed. ", e);
             }
         }
-    }
-
-    private String getMdmPackageName(Intent intent) {
-        String name = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        if (TextUtils.isEmpty(name)) {
-            name = intent.getStringExtra(EXTRA_LEGACY_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        }
-        return name;
     }
 
     @Override
