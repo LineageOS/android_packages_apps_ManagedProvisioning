@@ -16,11 +16,17 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+
 import android.app.AlarmManager;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.UserHandle;
@@ -74,6 +80,11 @@ public class DeviceOwnerProvisioningService extends Service {
     protected static final String ACTION_REQUEST_WIFI_PICK =
             "com.android.managedprovisioning.request_wifi_pick";
 
+    // Intent action used by the HomeReceiverActivity to notify this Service that a HOME intent was
+    // received, which indicates that the Setup wizard has closed after provisioning completed.
+    protected static final String ACTION_HOME_INDIRECT =
+            "com.android.managedprovisioning.home_indirect";
+
     // Indicates whether provisioning has started.
     private boolean mProvisioningInFlight = false;
 
@@ -94,6 +105,8 @@ public class DeviceOwnerProvisioningService extends Service {
     private DeleteNonRequiredAppsTask mDeleteNonRequiredAppsTask;
 
     private ProvisioningParams mParams;
+
+    private BroadcastReceiver mIndirectHomeReceiver;
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
@@ -122,6 +135,8 @@ public class DeviceOwnerProvisioningService extends Service {
                 // Load the ProvisioningParams (from message in Intent).
                 mParams = (ProvisioningParams) intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
 
+                registerHomeIntentReceiver();
+
                 // Do the work on a separate thread.
                 new Thread(new Runnable() {
                         public void run() {
@@ -133,6 +148,45 @@ public class DeviceOwnerProvisioningService extends Service {
         }
         return START_NOT_STICKY;
     }
+
+    // Register the receiver for the ACTION_HOME_INDIRECT intent.
+    // The ACTION_HOME_INDIRECT intent is used to notify this service that the home intent was send.
+    // After receiving that intent we send the complete intent to the mdm.
+    // Note: if we would send the complete intent earlier, the home intent can close the mdm.
+    private void registerHomeIntentReceiver() {
+        mIndirectHomeReceiver = new IndirectHomeReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(DeviceOwnerProvisioningService.ACTION_HOME_INDIRECT);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mIndirectHomeReceiver, filter);
+    }
+
+    class IndirectHomeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (!mDone) {
+                return;
+            }
+
+            // Disable the HomeReceiverActivity. It's no longer of use.
+            PackageManager pm = getPackageManager();
+            pm.setComponentEnabledSetting(new ComponentName(DeviceOwnerProvisioningService.this,
+                            HomeReceiverActivity.class), PackageManager
+                    .COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+
+            // Send complete intent to mdm.
+            Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+            result.setPackage(mParams.mDeviceAdminPackageName);
+            result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                    Intent.FLAG_RECEIVER_FOREGROUND);
+            if (mParams.mAdminExtrasBundle != null) {
+                result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                        mParams.mAdminExtrasBundle);
+            }
+            sendBroadcast(result);
+            stopSelf();
+        }
+    }
+
 
     /**
      * This is the core method of this class. It goes through every provisioning step.
@@ -314,8 +368,16 @@ public class DeviceOwnerProvisioningService extends Service {
     private void onProvisioningSuccess(String deviceAdminPackage) {
         ProvisionLogger.logv("Reporting success.");
         mDone = true;
+
+        // Enable the HomeReceiverActivity, since the DeviceOwnerProvisioningActivity will shutdown
+        // the Setup wizard soon, which will result in a home intent that should be caught by the
+        // HomeReceiverActivity.
+        PackageManager pm = getPackageManager();
+        pm.setComponentEnabledSetting(new ComponentName(DeviceOwnerProvisioningService.this,
+                        HomeReceiverActivity.class), PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-        successIntent.putExtra(EXTRA_PROVISIONING_PARAMS, mParams);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
         // Wait for stopService() call from the activity.
@@ -378,6 +440,11 @@ public class DeviceOwnerProvisioningService extends Service {
         if (mDownloadPackageTask != null) {
             mDownloadPackageTask.cleanUp();
         }
+        if (mIndirectHomeReceiver != null) {
+            LocalBroadcastManager.getInstance(this).unregisterReceiver(mIndirectHomeReceiver);
+            mIndirectHomeReceiver = null;
+        }
+
     }
 
     @Override
