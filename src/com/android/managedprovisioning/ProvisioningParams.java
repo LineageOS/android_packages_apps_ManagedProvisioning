@@ -52,6 +52,8 @@ public class ProvisioningParams implements Parcelable {
 
     public PersistableBundle mAdminExtrasBundle;
 
+    public boolean mStartedByNfc; // True iff provisioning flow was started by Nfc bump.
+
     public String getLocaleAsString() {
         if (mLocale != null) {
             return mLocale.getLanguage() + "_" + mLocale.getCountry();
@@ -88,6 +90,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(mDeviceAdminPackageChecksum.length);
         out.writeByteArray(mDeviceAdminPackageChecksum);
         out.writeParcelable(mAdminExtrasBundle, 0 /* default */);
+        out.writeInt(mStartedByNfc ? 1 : 0);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -99,7 +102,7 @@ public class ProvisioningParams implements Parcelable {
             params.mLocalTime = in.readLong();
             params.mLocale = (Locale) in.readSerializable();
             params.mWifiSsid = in.readString();
-            params.mWifiHidden = in.readInt()==1;
+            params.mWifiHidden = in.readInt() == 1;
             params.mWifiSecurityType = in.readString();
             params.mWifiPassword = in.readString();
             params.mWifiProxyHost = in.readString();
@@ -112,6 +115,7 @@ public class ProvisioningParams implements Parcelable {
             params.mDeviceAdminPackageChecksum = new byte[checksumLength];
             in.readByteArray(params.mDeviceAdminPackageChecksum);
             params.mAdminExtrasBundle = in.readParcelable(null /* use default classloader */);
+            params.mStartedByNfc = in.readInt() == 1;
             return params;
         }
 
