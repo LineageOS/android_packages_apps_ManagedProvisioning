@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Endurstilla"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Ekki var hægt að setja upp tækið. Hafðu samband við upplýsingatæknisvið."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Þetta tæki er nú þegar uppsett"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Þetta tæki er nú þegar með eiganda"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ekki var hægt að tengjast Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ekki var hægt að nota stjórnforritið vegna villu í þversummu. Hafðu samband við upplýsingatæknisvið."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ekki tókst að sækja stjórnunarforritið"</string>

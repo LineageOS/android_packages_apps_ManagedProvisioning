@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"రీసెట్ చేయి"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"మీ పరికరాన్ని సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"ఈ పరికరం ఇప్పటికే సెటప్ చేయబడింది"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"ఈ పరికరానికి ఇప్పటికే యజమాని ఉన్నారు"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fiకి కనెక్ట్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"చెక్‌సమ్ లోపం కారణంగా నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు"</string>

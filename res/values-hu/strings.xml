@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Visszaállítás"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nem sikerült az eszköz beállítása. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Az eszközt már beállították"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Az eszköznek már van tulajdonosa"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nem sikerült csatlakozni a Wi-Fi hálózathoz"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ellenőrzési hiba miatt nem sikerült letölteni a rendszergazda-alkalmazást. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nem lehetett letölteni a rendszergazdai alkalmazást"</string>
