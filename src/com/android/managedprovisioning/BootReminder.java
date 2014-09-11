@@ -16,7 +16,6 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
 import android.app.Notification;
@@ -44,8 +43,6 @@ public class BootReminder extends BroadcastReceiver {
             "profile-owner-provisioning-resume";
 
     private static final String[] PROFILE_OWNER_STRING_EXTRAS = {
-        // Key for the default name of the managed profile
-        EXTRA_PROVISIONING_DEFAULT_MANAGED_PROFILE_NAME,
         // Key for the device admin package name
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
     };
