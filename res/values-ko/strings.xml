@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"초기화"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"기기를 설정할 수 없습니다. IT 부서에 문의해 주시기 바랍니다."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"기기가 이미 설정되었습니다."</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"기기의 소유자가 이미 있습니다."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi에 연결할 수 없습니다."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"체크섬 오류로 인해 관리 앱을 사용할 수 없습니다. IT 부서에 문의해 주시기 바랍니다."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"관리 앱을 다운로드할 수 없습니다."</string>

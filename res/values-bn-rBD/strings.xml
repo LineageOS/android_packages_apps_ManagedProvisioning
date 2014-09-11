@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"পুনরায় সেট করুন"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"আপনার ডিভাইস সেট আপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"এই ডিভাইসটি ইতিমধ্যে সেট আপ হয়ে আছে"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"এই ডিভাইসটির ইতিমধ্যে একজন মালিক আছেন"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi এর সাথে সংযুক্ত করা যায়নি"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"একটি চেকসাম ত্রুটির কারণে প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"প্রশাসক অ্যাপ্লিকেশানটি ডাউনলোড করা যায়নি"</string>

@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Resetați"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Configurarea nu s-a putut efectua. Contactați departamentul IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Acest dispozitiv este deja configurat"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Acest dispozitiv are deja un proprietar"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nu se poate conecta la Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nu se poate utiliza aplicația de administrare din cauza unei erori de sumă de control. Contactați departamentul IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Eroare la descărcarea aplicației de administrare"</string>
