@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Återställ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Det gick inte att konfigurera enheten. Kontakta IT-avdelningen."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Enheten har redan konfigurerats"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Enheten har redan en ägare"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Det gick inte att ansluta till Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Det gick inte att använda administrationsappen på grund av en felaktig kontrollsumma. Kontakta IT-avdelningen."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Det gick inte att hämta administrationsappen"</string>

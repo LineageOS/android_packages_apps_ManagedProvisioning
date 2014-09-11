@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Vrati na zadano"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Postavljanje uređaja nije uspjelo. Obratite se IT odjelu."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Ovaj je uređaj već postavljen"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Ovaj uređaj već ima vlasnika"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Spajanje na Wi-Fi nije uspjelo"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Upotreba administratorske aplikacije nije uspjela zbog pogreške kontrolnog zbroja. Obratite se IT odjelu."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Preuzimanje administratorske aplikacije nije uspjelo"</string>

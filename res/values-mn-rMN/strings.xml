@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Дахин шинэчлэх"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Таны төхөөрөмжийг тохируулж чадсангүй. МТ хэлтэстэй холбогдоно уу."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Энэ төхөөрөмжийг аль хэдийн тохируулсан"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Энэ төхөөрөмжид эзэмшигч байна"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-д холбогдож чадсангүй"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum алдаанаас шалтгаалан админ апп-г ашиглаж чадсангүй. МТ хэлтэстэй холбогдоно уу."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Админ апп-г татаж авч чадсангүй"</string>

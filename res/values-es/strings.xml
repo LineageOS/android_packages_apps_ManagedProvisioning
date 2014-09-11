@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Restablecer"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"No se ha podido configurar el dispositivo. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Este dispositivo ya está configurado"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Este dispositivo ya tiene un propietario"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No se ha podido establecer conexión con la red Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No se ha podido utilizar la aplicación de administración debido a un error de la suma de comprobación. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No se ha podido descargar la aplicación de administración"</string>

@@ -61,7 +61,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ჩამოყრა"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"თქვენი მოწყობილობის დაყენება ვერ მოხერხდა. დაუკავშირდით თქვენს IT განყოფილებას."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"ეს მოწყობილობა უკვე დაყენებულია."</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"ამ მოწყობილობას უკვე ჰყავს მფლობელი."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-თან დაკავშირება ვერ მოხერხდა"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ადმინისტრატორის აპის გამოყენება ვერ მოხერხდა checksum-ის შეცდომის გამო. დაუკავშირდით თქვენს IT განყოფილებას."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ადმინისტრატორის აპის ჩამოტვირთვა ვერ მოხერხდა."</string>
