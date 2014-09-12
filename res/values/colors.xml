@@ -26,4 +26,5 @@
     <color name="transparent_dark_turquoise">#204db6ac</color>
     <color name="accent">@color/dark_turquoise</color>
     <color name="accent_transparent">@color/transparent_dark_turquoise</color>
+    <color name="transparent">#00000000</color>
 </resources>
