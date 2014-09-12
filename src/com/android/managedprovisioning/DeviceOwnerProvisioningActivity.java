@@ -16,9 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -79,8 +76,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     // Run when wifi picker activity reports success.
     private Runnable mOnWifiConnectedRunnable;
-
-    private Intent mProvisioningCompleteIntent;
 
     // Indicates whether user consented by clicking on positive button of interstitial.
     private boolean mUserConsented = false;
@@ -198,8 +193,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
                 ProvisionLogger.logd("Successfully provisioned");
 
-                mProvisioningCompleteIntent = getProvisioningCompleteIntent(intent);
-
                 synchronized(this) {
                     if (mDialog == null) {
                         onProvisioningSuccess();
@@ -230,31 +223,14 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
     }
 
-    private Intent getProvisioningCompleteIntent(Intent serviceIntent) {
-        ProvisioningParams paramsFromService = (ProvisioningParams) serviceIntent.getExtra(
-                DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS);
-
-        Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        result.setPackage(paramsFromService.mDeviceAdminPackageName);
-        result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        if (paramsFromService.mAdminExtrasBundle != null) {
-            result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    paramsFromService.mAdminExtrasBundle);
-        }
-        return result;
-    }
-
     private void onProvisioningSuccess() {
-        stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                        DeviceOwnerProvisioningService.class));
-
-        // Skip the setup wizard.
+        // The Setup wizards listens to this flag and finishes itself when it is set.
+        // It then fires a home intent, which we catch in the HomeReceiverActivity before sending
+        // the intent to notify the mdm that provisioning is complete.
         Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
 
-        sendBroadcast(mProvisioningCompleteIntent);
-
+        // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);
         finish();
     }
