@@ -115,20 +115,25 @@ public class InstallPackageTask {
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
         @Override
         public void packageInstalled(String packageName, int returnCode) {
-            if (!packageName.equals(mPackageName)) {
-                return;
-            }
-
             // Set package verification flag to its original value.
             Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
                     mPackageVerifierEnable);
 
-            if (returnCode == PackageManager.INSTALL_SUCCEEDED) {
-                ProvisionLogger.logd("Package " + packageName + " is succesfully installed.");
+            if (returnCode == PackageManager.INSTALL_SUCCEEDED
+                    && mPackageName.equals(packageName)) {
+                ProvisionLogger.logd("Package " + mPackageName + " is succesfully installed.");
 
                 mCallback.onSuccess();
             } else {
-                ProvisionLogger.logd("Installing package " + packageName + " failed.");
+                if (returnCode == PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE) {
+                    ProvisionLogger.logd("Current version of " + mPackageName
+                            + " higher than the version to be installed.");
+                    ProvisionLogger.logd("Package " + mPackageName + " was not reinstalled.");
+                    mCallback.onSuccess();
+                    return;
+                }
+
+                ProvisionLogger.logd("Installing package " + mPackageName + " failed.");
                 ProvisionLogger.logd("Errorcode returned by IPackageInstallObserver = "
                         + returnCode);
                 mCallback.onError(ERROR_INSTALLATION_FAILED);
