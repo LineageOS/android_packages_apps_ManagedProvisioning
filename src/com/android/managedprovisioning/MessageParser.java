@@ -54,8 +54,9 @@ import java.util.Locale;
 import java.util.Properties;
 
 /**
- * This class can initialize a ProvisioningParams object from an intent.
- * There are two kinds of intents that can be parsed.
+ * This class can initialize a {@link ProvisioningParams} object from an intent.
+ * A {@link ProvisioningParams} object stores various parameters for the device owner provisioning.
+ * There are two kinds of intents that can be parsed it into {@link ProvisioningParams}:
  *
  * <p>
  * Intent was received via Nfc.
@@ -86,10 +87,14 @@ import java.util.Properties;
  * and reboot.
  *
  * <p>
- * Furthermore this class can construct the bundle of extras for the second kind of intent, and it
- * keeps track of the types of the extras in the DEVICE_OWNER_x_EXTRAS, with x the appropriate type.
+ * Furthermore this class can construct the bundle of extras for the second kind of intent given a
+ * {@link ProvisioningParams}, and it keeps track of the types of the extras in the
+ * DEVICE_OWNER_x_EXTRAS, with x the appropriate type.
  */
 public class MessageParser {
+    private static final String EXTRA_PROVISIONING_STARTED_BY_NFC  =
+            "com.android.managedprovisioning.extra.started_by_nfc";
+
     protected static final String[] DEVICE_OWNER_STRING_EXTRAS = {
         EXTRA_PROVISIONING_TIME_ZONE,
         EXTRA_PROVISIONING_LOCALE,
@@ -114,7 +119,8 @@ public class MessageParser {
     };
 
     protected static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
-        EXTRA_PROVISIONING_WIFI_HIDDEN
+        EXTRA_PROVISIONING_WIFI_HIDDEN,
+        EXTRA_PROVISIONING_STARTED_BY_NFC
     };
 
     protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
@@ -144,6 +150,7 @@ public class MessageParser {
         bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.mWifiProxyPort);
 
         bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.mWifiHidden);
+        bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.mStartedByNfc);
 
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.mAdminExtrasBundle);
     }
@@ -170,7 +177,10 @@ public class MessageParser {
             String mimeType = new String(firstRecord.getType(), UTF_8);
 
             if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
-                return parseProperties(new String(firstRecord.getPayload(), UTF_8));
+                ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
+                                , UTF_8));
+                params.mStartedByNfc = true;
+                return params;
             }
         }
         throw new ParseException(
@@ -271,6 +281,9 @@ public class MessageParser {
 
         params.mWifiHidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
                 ProvisioningParams.DEFAULT_WIFI_HIDDEN);
+        params.mStartedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
+                false);
+
         try {
             params.mAdminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
