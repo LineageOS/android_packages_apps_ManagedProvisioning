@@ -129,5 +129,17 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name="com.android.managedprovisioning.HomeReceiverActivity"
+                  android:theme="@android:style/Theme.NoDisplay"
+                  android:noHistory="true"
+                  android:excludeFromRecents="true"
+                  android:enabled="false">
+            <intent-filter android:priority="2">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
