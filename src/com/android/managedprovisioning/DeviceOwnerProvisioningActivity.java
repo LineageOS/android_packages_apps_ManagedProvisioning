@@ -164,32 +164,21 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         if (mUserConsented || params.mStartedByNfc) {
             startDeviceOwnerProvisioningService(params);
         } else {
-            String message = getString(R.string.admin_has_ability_to_monitor_device)  + "\n\n"
-                    + getString(R.string.contact_your_admin_for_more_info);
-
             // Notify the user that the admin will have full control over the device,
             // then start provisioning.
-            new AlertDialog.Builder(DeviceOwnerProvisioningActivity.this)
-                    .setCancelable(false)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.ok_setup,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    mUserConsented = true;
-                                    dialog.cancel();
-                                    startDeviceOwnerProvisioningService(params);
-                                }
-                            })
-                    .setNegativeButton(R.string.cancel_setup,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                    finish();
-                                }
-                            })
-                    .show();
+            new UserConsentDialog(this, UserConsentDialog.DEVICE_OWNER, new Runnable() {
+                    @Override
+                    public void run() {
+                        mUserConsented = true;
+                        startDeviceOwnerProvisioningService(params);
+                    }
+                } /* onUserConsented */ , new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                } /* onCancel */).show(getFragmentManager(),
+                        "UserConsentDialogFragment");
         }
     }
 
