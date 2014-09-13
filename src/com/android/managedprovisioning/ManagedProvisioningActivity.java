@@ -185,7 +185,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private boolean systemHasManagedProfileFeature() {
         PackageManager pm = getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_PROFILES);
+        return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
     }
 
     private boolean currentLauncherSupportsManagedProfiles() {
