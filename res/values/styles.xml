@@ -99,6 +99,16 @@
         <item name="android:textSize">@dimen/main_text_size</item>
     </style>
 
+    <style name="TransparentButton" parent="@android:style/Widget.Material.Light.Button">
+        <item name="android:minWidth">@dimen/button_width</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColorPrimary">@color/colored_button</item>
+    </style>
+
     <style name="MainTextContainer">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
@@ -124,6 +134,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/main_text_padding_top</item>
         <item name="android:indeterminate">true</item>
+    </style>
+
+    <style name="ManagedProvisioningDialogTheme" parent="@android:style/Theme.Dialog">
+      <item name="android:windowFullscreen">true</item>
+      <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>
