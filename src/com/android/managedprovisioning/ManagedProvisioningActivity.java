@@ -185,7 +185,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     private boolean systemHasManagedProfileFeature() {
         PackageManager pm = getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_PROFILES);
+        return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
     }
 
     private boolean currentLauncherSupportsManagedProfiles() {
@@ -302,41 +302,15 @@ public class ManagedProvisioningActivity extends Activity {
         if (EncryptDeviceActivity.isDeviceEncrypted()
                 || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)) {
 
-            String message = getString(R.string.admin_has_ability_to_monitor)  + "\n\n"
-                    + getString(R.string.contact_your_admin_for_more_info);
-
             // Notify the user once more that the admin will have full control over the profile,
             // then start provisioning.
-            new AlertDialog.Builder(ManagedProvisioningActivity.this)
-                    .setCancelable(false)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.ok_setup,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Remove any pre-provisioning UI in favour of progress display
-                                    BootReminder.cancelProvisioningReminder(
-                                            ManagedProvisioningActivity.this);
-                                    mProgressView.setVisibility(View.VISIBLE);
-                                    mMainTextView.setVisibility(View.GONE);
-
-                                    // Check whether the current launcher supports managed profiles.
-                                    if (!currentLauncherSupportsManagedProfiles()) {
-                                        showCurrentLauncherInvalid();
-                                    } else {
-                                        startManagedProvisioningService();
-                                    }
-                                }
-                    })
-                    .setNegativeButton(R.string.cancel_setup,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                    })
-                    .show();
-
+            new UserConsentDialog(this, UserConsentDialog.PROFILE_OWNER, new Runnable() {
+                    @Override
+                    public void run() {
+                        setupEnvironmentAndProvision();
+                    }
+                } /* onUserConsented */ , null /* onCancel */).show(getFragmentManager(),
+                        "UserConsentDialogFragment");
         } else {
             Bundle resumeExtras = getIntent().getExtras();
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
@@ -344,6 +318,21 @@ public class ManagedProvisioningActivity extends Activity {
                     .putExtra(EXTRA_RESUME, resumeExtras);
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult or after reboot.
+        }
+    }
+
+    private void setupEnvironmentAndProvision() {
+        // Remove any pre-provisioning UI in favour of progress display
+        BootReminder.cancelProvisioningReminder(
+                ManagedProvisioningActivity.this);
+        mProgressView.setVisibility(View.VISIBLE);
+        mMainTextView.setVisibility(View.GONE);
+
+        // Check whether the current launcher supports managed profiles.
+        if (!currentLauncherSupportsManagedProfiles()) {
+            showCurrentLauncherInvalid();
+        } else {
+            startManagedProvisioningService();
         }
     }
 

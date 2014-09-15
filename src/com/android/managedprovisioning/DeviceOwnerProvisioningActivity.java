@@ -16,9 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -29,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
@@ -66,6 +64,8 @@ import java.util.Locale;
  * </p>
  */
 public class DeviceOwnerProvisioningActivity extends Activity {
+    private static final String KEY_USER_CONSENTED = "user_consented";
+
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     private static final int WIFI_REQUEST_CODE = 2;
 
@@ -74,13 +74,19 @@ public class DeviceOwnerProvisioningActivity extends Activity {
     private Dialog mDialog; // The cancel or error dialog that is currently shown.
     private boolean mDone; // Indicates whether the service has sent ACTION_PROVISIONING_SUCCESS.
 
+    // Run when wifi picker activity reports success.
     private Runnable mOnWifiConnectedRunnable;
 
-    private Intent mProvisioningCompleteIntent;
+    // Indicates whether user consented by clicking on positive button of interstitial.
+    private boolean mUserConsented = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mUserConsented = savedInstanceState.getBoolean(KEY_USER_CONSENTED, false);
+        }
 
         ProvisionLogger.logd("Device owner provisioning activity ONCREATE");
 
@@ -118,6 +124,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         MessageParser parser = new MessageParser();
         try {
             params = parser.parseIntent(getIntent());
+            mOnWifiConnectedRunnable = new Runnable() {
+                public void run() {
+                    showInterstitialAndProvision(params);
+                }
+            };
         } catch (MessageParser.ParseException e) {
             ProvisionLogger.loge("Could not read data from intent", e);
             error(e.getErrorMessageId(), false /* no factory reset */);
@@ -125,7 +136,8 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
 
         // Ask to encrypt the device before proceeding
-        if (!EncryptDeviceActivity.isDeviceEncrypted()) {
+        if (!(EncryptDeviceActivity.isDeviceEncrypted()
+                        || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false))) {
             requestEncryption(parser, params);
             finish();
             return;
@@ -135,19 +147,34 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         // Have the user pick a wifi network if necessary.
         if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(params.mWifiSsid) &&
                 !TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
-
-            mOnWifiConnectedRunnable = new Runnable() {
-                public void run() {
-                    startDeviceOwnerProvisioningService(params);
-                }
-            };
-
             requestWifiPick();
             return;
             // Wait for onActivityResult.
         }
 
-        startDeviceOwnerProvisioningService(params);
+        showInterstitialAndProvision(params);
+    }
+
+    private void showInterstitialAndProvision(final ProvisioningParams params) {
+        if (mUserConsented || params.mStartedByNfc) {
+            startDeviceOwnerProvisioningService(params);
+        } else {
+            // Notify the user that the admin will have full control over the device,
+            // then start provisioning.
+            new UserConsentDialog(this, UserConsentDialog.DEVICE_OWNER, new Runnable() {
+                    @Override
+                    public void run() {
+                        mUserConsented = true;
+                        startDeviceOwnerProvisioningService(params);
+                    }
+                } /* onUserConsented */ , new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                } /* onCancel */).show(getFragmentManager(),
+                        "UserConsentDialogFragment");
+        }
     }
 
     private void startDeviceOwnerProvisioningService(ProvisioningParams params) {
@@ -165,8 +192,6 @@ public class DeviceOwnerProvisioningActivity extends Activity {
             String action = intent.getAction();
             if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
                 ProvisionLogger.logd("Successfully provisioned");
-
-                mProvisioningCompleteIntent = getProvisioningCompleteIntent(intent);
 
                 synchronized(this) {
                     if (mDialog == null) {
@@ -198,31 +223,14 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
     }
 
-    private Intent getProvisioningCompleteIntent(Intent serviceIntent) {
-        ProvisioningParams paramsFromService = (ProvisioningParams) serviceIntent.getExtra(
-                DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS);
-
-        Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        result.setPackage(paramsFromService.mDeviceAdminPackageName);
-        result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        if (paramsFromService.mAdminExtrasBundle != null) {
-            result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    paramsFromService.mAdminExtrasBundle);
-        }
-        return result;
-    }
-
     private void onProvisioningSuccess() {
-        stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                        DeviceOwnerProvisioningService.class));
-
-        // Skip the setup wizard.
+        // The Setup wizards listens to this flag and finishes itself when it is set.
+        // It then fires a home intent, which we catch in the HomeReceiverActivity before sending
+        // the intent to notify the mdm that provisioning is complete.
         Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
 
-        sendBroadcast(mProvisioningCompleteIntent);
-
+        // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);
         finish();
     }
@@ -348,6 +356,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
         mDialog = alertBuilder.create();
         mDialog.show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(KEY_USER_CONSENTED, mUserConsented);
     }
 
     @Override

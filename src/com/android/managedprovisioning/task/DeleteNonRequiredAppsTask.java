@@ -149,9 +149,9 @@ public class DeleteNonRequiredAppsTask {
         Set<String> packagesToDelete = newApps;
         packagesToDelete.removeAll(getRequiredApps());
         packagesToDelete.retainAll(getCurrentAppsWithLauncher());
-        // com.android.telecomm should not handle CALL intents in the managed profile.
+        // com.android.server.telecom should not handle CALL intents in the managed profile.
         if (mNewProfile) {
-            packagesToDelete.add("com.android.telecomm");
+            packagesToDelete.add("com.android.server.telecom");
         }
         int size = packagesToDelete.size();
         if (size > 0) {
