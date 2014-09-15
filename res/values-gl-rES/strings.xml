@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"A seguinte aplicación necesitará acceder a este perfil:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurar"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Configurando o teu perfil do traballo..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"O teu administrador ten a capacidade de controlar e xestionar a configuración, o acceso corporativo, as aplicacións e os datos asociados ao perfil, incluída a actividade da rede e información da localización do teu dispositivo."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"O teu administrador ten a capacidade de controlar e xestionar a configuración, o acceso corporativo, as aplicacións e os datos asociados ao perfil, incluída a actividade da rede e información da localización do teu dispositivo."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"O teu administrador ten a capacidade de controlar e xestionar a configuración, o acceso corporativo, as aplicacións e os datos asociados a este dispositivo, incluída a actividade da rede e a información de localización do teu dispositivo."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contacta co teu administrador para obter máis información, incluídas as políticas de privacidade da túa organización."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Máis información"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>

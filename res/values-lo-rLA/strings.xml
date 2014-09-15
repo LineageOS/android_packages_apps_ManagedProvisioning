@@ -26,7 +26,10 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ແອັບຯ​ຕໍ່​ໄປ​ນີ້​ຈະຕ້ອງ​ການ​ເຂົ້າ​ເຖິງ​ໂປຣ​ໄຟລ໌​ນີ້:"</string>
     <string name="set_up" msgid="7012862095553564169">"ຕັ້ງຄ່າ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​​ຂອງ​ທ່ານ​ແມ່ນ​ມີ​ຄວາມ​ສາ​ມາດ​ໃນ​ການ​ຕິດ​ຕາມ ແລະ​ຈັດ​ການ​ກ​ານ​ຕັ້ງ​ຄ່າ, ​ການ​ເຂົ້າ​ເຖິງ​ໃນ​ອົງ​ກອນ, ​ແອັບຯ ແລະ​ຂໍ້​ມູນ​ທີ່​ກ່ຽວ​ຂ້ອງ​ກັບ​ອຸ​ປະ​ກອນ​ນີ້​ໄດ້, ຮວມ​ເຖິງ​ການ​ເຄື່ອນ​ໄຫວ​ໃນ​ລະ​ບົບ​ເຄືອ​ຂ່າຍ ແລະ​ຂໍ້​ມູນ​ສະ​ຖານ​ທີ່​ຂອງ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ໃຫ້​ຕິດ​ຕໍ່​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ຂອງ​ທ່ານ​ສຳ​ລັບ​ຂໍ້​ມູນ​ເພີ່ມ​ເຕີມ, ຮວມ​ໄປ​ເຖິງ​ນະ​ໂຍ​ບາຍ​ຄວາມ​ເປັນ​ສ່ວນ​ໂຕ​ຂອງ​ອົງ​ກອນ​ຂອງ​ທ່ານ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ສຶກ​ສາ​ເພີ່ມ​ເຕີມ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"​ຍົກ​ເລີກ"</string>

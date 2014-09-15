@@ -26,7 +26,10 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"下列應用程式需要存取這個設定檔："</string>
     <string name="set_up" msgid="7012862095553564169">"設定"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"正在設定您的工作設定檔..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"您的管理員可以監控及管理與這個設定檔相關聯的設定、公司系統權限、應用程式和資料，包括網路活動和裝置的位置資訊。"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"如需詳細資訊 (包括貴機構的隱私權政策)，請洽您的管理員。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"暸解詳情"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>

@@ -26,7 +26,10 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Անհրաժեշտ է, որ հետևյալ հավելվածը մուտք գործի այս պրոֆիլ՝"</string>
     <string name="set_up" msgid="7012862095553564169">"Ստեղծել"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Ձեր աշխատանքային պրոֆիլը կարգավորվում է..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Ձեր ադմինիստրատորը կարող է վերահսկել և կառավարել սարքի կարգավորումները, կորպորատիվ մուտքը, ծրագրերը և պրոֆիլի հետ կապակցված տվյալները, այդ թվում՝ ցանցային գործունեությունը և ձեր սարքի տեղադրության մասին տվյալները:"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Լրացուցիչ տեղեկությունների համար, ինչպես նաև ձեր ընկերության գաղտնիության քաղաքականությանը ծանոթանալու համար դիմեք ձեր ադմինիստրատորին:"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Մանրամասն"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Չեղարկել"</string>

@@ -26,7 +26,10 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"កម្មវិធី​ខាង​ក្រោម​​នឹង​ត្រូវ​ចូល​ដំណើរការ​ប្រវត្តិរូប​របស់​អ្នក៖"</string>
     <string name="set_up" msgid="7012862095553564169">"រៀបចំ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"កំពុង​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"អ្នក​គ្រប់គ្រង​របស់​អ្នកមាន​លទ្ធភាព​តាមដាន និង​គ្រប់គ្រង​ការ​​កំណត់​, ការ​ចូល​ដំណើរការ​​រួមគ្នា​, កម្មវិធី និង​ទិន្នន័យ​បាន​ភ្ជាប់​ជា​មួយ​ប្រវត្តិរូប​រួមមាន សកម្មភាព​បណ្ដាញ និង​ព័ត៌មាន​ទីតាំង​ឧបករណ៍​របស់​អ្នក។"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ទាក់ទង​អ្នក​គ្រប់គ្រង​របស់​អ្នក​សម្រាប់​ព័ត៌មាន​បន្ថែម រួមមាន​គោលនយោបាយ​ភាព​ឯកជន​ស្ថាប័ន​​របស់​អ្នក។"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ស្វែងយល់​បន្ថែម"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"បោះបង់"</string>

@@ -26,7 +26,10 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"මෙම පැතිකඩ ප්‍රවේශ වීමට ඊළගට එන යෙදුම් වලට අවශ්‍යය:"</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"ඔබගේ වැඩ කරන පැතිකඩ සකසමින්..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"ජාල ක්‍රියාකාරකම් සහ ඔබගේ උපාංගයේ ස්ථාන තොරතුරු ඇතුළුව මෙම පැතිකඩ සමඟ සම්බන්ධිත සැකසීම්, සංස්ථාපිත ප්‍රවේශය, යෙදුම් සහ දත්ත නිරීෂණය සහ කළමනාකරණය කිරීමේ හැකියාව ඔබගේ පාලකයාට තිබේ."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ඔබගේ සංවිධානයේ පෞද්ගලිකත්ව ප්‍රතිපත්ති ඇතුළුව, තව තොරතුරු සඳහා ඔබගේ පාලකයා සම්බන්ධ කරගන්න."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"තව දැනගන්න"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"අවලංගු කරන්න"</string>

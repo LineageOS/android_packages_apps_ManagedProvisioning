@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"የሚከተለው መተግበሪያ ይህን መገለጫ መድረስ ያስፈልገዋል።"</string>
     <string name="set_up" msgid="7012862095553564169">"ያዋቅሩ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"የስራ መገለጫዎን በማዋቀር ላይ..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"የእርስዎ አስተዳዳሪ የአውታረ መረብ እንቅስቃሴን እና የመሣሪያዎ የአካባቢ መረጃን ጨምሮ ከዚህ መሣሪያ ጋር የተጎዳኙ ቅንብሮችን፣ የድርጅት መዳረሻ፣ መተግበሪያዎችን እና ውሂብ የመከታተል እና የማቀናበር  ችሎታ አለው።"</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"የእርስዎ አስተዳዳሪ የአውታረ መረብ እንቅስቃሴን እና የመሣሪያዎ የአካባቢ መረጃን ጨምሮ ከዚህ መሣሪያ ጋር የተጎዳኙ ቅንብሮችን፣ የድርጅት መዳረሻ፣ መተግበሪያዎችን እና ውሂብ የመከታተል እና የማቀናበር  ችሎታ አለው።"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"የእርስዎ አስተዳዳሪ የአውታረ መረብ እንቅስቃሴ እና የመሣሪያዎ አካባቢያዊ መረጃን ጨምሮ ከዚህ መሣሪያ ጋር የተጎዳኙ ቅንብሮችን፣ የኮርፖሬት መዳረሻ፣ መተግበሪያዎች፣ እና ውሂብ የመከታተል እና የማቀናበር ችሎታ አለው።"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"የድርጅትዎ ግላዊነት መመሪያዎችን ጨምሮ ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ተጨማሪ ለመረዳት"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ይቅር"</string>

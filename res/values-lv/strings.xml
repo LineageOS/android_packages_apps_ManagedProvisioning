@@ -26,7 +26,10 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Tālāk norādītajai lietotnei būs nepieciešama piekļuve šim profilam:"</string>
     <string name="set_up" msgid="7012862095553564169">"Iestatīt"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Notiek darba profila iestatīšana..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Jūsu administrators var pārraudzīt un pārvaldīt iestatījumus, piekļuvi uzņēmumā, lietotnes un ar šo ierīci saistītos datus, tostarp tīklā veiktās darbības un jūsu ierīces atrašanās vietas informāciju."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Lai iegūtu plašāku informāciju, tostarp informāciju par uzņēmuma konfidencialitātes politikām, sazinieties ar administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Uzzināt vairāk"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Atcelt"</string>
