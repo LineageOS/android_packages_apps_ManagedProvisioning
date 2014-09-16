@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Eftirfarandi forrit mun þurfa að fá aðgang að þessu sniði:"</string>
     <string name="set_up" msgid="7012862095553564169">"Setja upp"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Setur upp vinnusniðið þitt..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum og gögnum sem tengjast þessu sniði, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum og gögnum sem tengjast þessu sniði, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum og gögnum sem tengjast þessu tæki, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hafðu samband við kerfisstjórann til að fá frekari upplýsingar, þar á meðal um persónuverndarstefnu fyrirtækisins."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Frekari upplýsingar"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Hætta við"</string>
