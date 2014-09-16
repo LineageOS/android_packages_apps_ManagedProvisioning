@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"이 프로필에 액세스해야 하는 앱:"</string>
     <string name="set_up" msgid="7012862095553564169">"설정"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"직장 프로필 설정 중..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 프로필과 연결된 데이터, 설정, 기업 액세스, 앱을 감시하고 관리할 수 있습니다."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 프로필과 연결된 데이터, 설정, 기업 액세스, 앱을 모니터링하고 관리할 수 있습니다."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"관리자는 설정, 기업 액세스, 앱, 이 기기와 관련된 데이터(예: 네트워크 활동, 기기의 위치 정보)를 모니터링하고 관리할 수 있습니다."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"조직의 개인정보취급방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"자세히 알아보기"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"취소"</string>
