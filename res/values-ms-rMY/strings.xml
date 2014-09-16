@@ -26,10 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Apl berikut perlu mengakses profil ini:"</string>
     <string name="set_up" msgid="7012862095553564169">"Sediakan"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Menyediakan profil kerja anda..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Pentadbir anda mempunyai keupayaan untuk memantau dan mengurus tetapan, akses korporat, apl dan data yang dikaitkan dengan profil, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Pentadbir organisasi anda mempunyai keupayaan untuk memantau dan mengurus tetapan, akses korporat, apl dan data yang dikaitkan dengan peranti ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hubungi pentadbir anda untuk maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ketahui lebih lanjut"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Batal"</string>
