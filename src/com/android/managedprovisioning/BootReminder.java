@@ -21,12 +21,10 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-
 import android.os.Bundle;
 
 /**
@@ -165,7 +163,7 @@ public class BootReminder extends BroadcastReceiver {
                 .setContentIntent(resumePendingIntent)
                 .setContentTitle(context.getString(R.string.continue_provisioning_notify_title))
                 .setContentText(context.getString(R.string.continue_provisioning_notify_text))
-                .setSmallIcon(com.android.internal.R.drawable.ic_corp_icon)
+                .setSmallIcon(com.android.internal.R.drawable.ic_corp_statusbar_icon)
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
                 .setColor(context.getResources().getColor(
                         com.android.internal.R.color.system_notification_accent_color))
