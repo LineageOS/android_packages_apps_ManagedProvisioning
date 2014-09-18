@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Programu ifuatayo itahitaji kufikia wasifu huu:"</string>
     <string name="set_up" msgid="7012862095553564169">"Sanidi"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Inasanidi wasifu wako wa kazi..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Msimamizi wako ana uwezo wa kufuatilia na kusimamia mipangilio, ufikiaji wa kampuni, programu na data inayohusiana na kifaa, ikiwa ni pamoja na shughuli ya mtandao na maelezo ya mahali kifaa chako kilipo."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Msimamizi wako ana uwezo wa kufuatilia na kusimamia mipangilio, ufikiaji wa kampuni, programu na data inayohusiana na wasifu, ikiwa ni pamoja na shughuli kwenye mtandao na maelezo kuhusu kilipo kifaa chako."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Msimamizi wako ana uwezo wa kufuatilia na kusimamia mipangilio, ufikiaji wa kampuni, programu, na data inayohusiana na kifaa hiki, ikiwa ni pamoja na shughuli kwenye mtandao na maelezo kuhusu kilipo kifaa chako."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Wasiliana na msimamizi wako kwa maelezo zaidi, ikiwa ni pamoja na sera za faragha za shirika lako."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pata maelezo zaidi"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Ghairi"</string>

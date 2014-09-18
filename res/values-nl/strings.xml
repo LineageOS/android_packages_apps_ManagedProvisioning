@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"De volgende app heeft toegang nodig tot dit profiel:"</string>
     <string name="set_up" msgid="7012862095553564169">"Instellen"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Uw werkprofiel instellen..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Uw beheerder kan instellingen, zakelijke toegang, apps en gegevens bijhouden en beheren die aan het profiel zijn gekoppeld, waaronder netwerkactiviteit en de locatiegegevens van uw apparaat."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Uw beheerder kan instellingen, zakelijke toegang, apps en gegevens bijhouden en beheren die aan het profiel zijn gekoppeld, waaronder netwerkactiviteit en de locatiegegevens van uw apparaat."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Uw beheerder kan instellingen, zakelijke toegang, apps en gegevens die aan dit profiel zijn gekoppeld, waaronder netwerkactiviteit en de locatiegegevens van uw apparaat, bijhouden en beheren."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Neem contact op met uw beheerder voor meer informatie, waaronder het privacybeleid van uw organisatie."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Meer informatie"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Annuleren"</string>
