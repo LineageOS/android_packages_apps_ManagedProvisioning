@@ -205,8 +205,7 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private boolean versionNumberAtLeastL(int versionNumber) {
-        // TODO: remove "|| true" once the build code for L is fixed.
-        return versionNumber >= Build.VERSION_CODES.L || true;
+        return versionNumber >= Build.VERSION_CODES.L;
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver {
