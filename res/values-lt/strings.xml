@@ -26,10 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Naudojant toliau nurodytą programą, reikės prieigos prie šio profilio:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nustatyti"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Nustatomas darbo profilis..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administratorius gali stebėti ir tvarkyti nustatymus, įmonės prieigą, programas ir su šiuo profiliu susietus duomenis, įskaitant tinklo veiklą ir įrenginio vietos informaciją."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administratorius gali stebėti ir tvarkyti nustatymus, įmonės prieigą, programas ir su šiuo įrenginiu susietus duomenis, įskaitant tinklo veiklą ir įrenginio vietovės informaciją."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Jei reikia daugiau informacijos, įskaitant organizacijos privatumo politiką, susisiekite su administratoriumi."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Sužinokite daugiau"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Atšaukti"</string>

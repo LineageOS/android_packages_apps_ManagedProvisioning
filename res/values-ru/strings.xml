@@ -26,10 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Доступ к этому профилю потребуется следующему приложению:"</string>
     <string name="set_up" msgid="7012862095553564169">"Настроить"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Настройка рабочего профиля..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8782160676037188061) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (4534011355086694158) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Администратор может контролировать настройки, приложения и параметры доступа к корпоративным ресурсам в этом профиле, а также связанные с ним данные, например сведения о местоположении или действиях в Сети."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Администратор может контролировать настройки, приложения и параметры доступа к корпоративным ресурсам на этом устройстве, а также связанные с ним данные, например сведения о местоположении или действиях в Сети."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Обратитесь к администратору за дополнительной информацией, в том числе политикой конфиденциальности вашей организации."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Подробнее…"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Отмена"</string>
