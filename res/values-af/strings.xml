@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die volgende program sal toegang tot hierdie profiel moet hê:"</string>
     <string name="set_up" msgid="7012862095553564169">"Stel op"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Stel tans jou werkprofiel op …"</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Jou administrateur het die vermoë om instellings, korporatiewe toegang, programme en data wat met die profiel geassosieer word, insluitend netwerkaktiwiteit en jou toestel se ligginginligting, te monitor en te bestuur."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Jou administrateur het die vermoë om instellings, korporatiewe toegang, programme en data wat met die profiel geassosieer word, insluitend netwerkaktiwiteit en jou toestel se ligginginligting, te monitor en te bestuur."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Jou administrateur het die vermoë om instellings, korporatiewe toegang, programme en data wat met hierdie toestel geassosieer word, insluitend netwerkaktiwiteit en jou toestel se ligginginligting, te monitor en te bestuur."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontak jou administrateur vir meer inligting, insluitend jou organisasie se privaatheidbeleide."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Kom meer te wete"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Kanselleer"</string>

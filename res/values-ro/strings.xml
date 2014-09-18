@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Următoarea aplicație va trebui să vă acceseze profilul:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurați"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Se configurează profilul de serviciu..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administratorul dvs. are posibilitatea de a monitoriza și a gestiona setări, accesul la nivelul companiei, aplicații și date asociate profilului, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administratorul poate monitoriza și a gestiona setările, accesul la nivelul companiei, aplicațiile și datele asociate cu profilul, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administratorul poate monitoriza și gestiona setările, accesul la nivelul companiei, aplicațiile și datele asociate cu acest dispozitiv, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contactați administratorul pentru mai multe informații, inclusiv politicile de confidențialitate ale organizației."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Aflați mai multe"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Anulați"</string>
