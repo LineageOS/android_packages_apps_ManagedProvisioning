@@ -139,6 +139,7 @@
     <style name="ManagedProvisioningDialogTheme" parent="@android:style/Theme.Dialog">
       <item name="android:windowFullscreen">true</item>
       <item name="android:windowNoTitle">true</item>
+      <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
 </resources>
