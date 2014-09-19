@@ -112,7 +112,7 @@ public class ManagedProvisioningService extends Service {
                     + "second provisioning intent not being processed");
         }
         return START_NOT_STICKY;
-}
+    }
 
     private void initialize(Intent intent) {
         mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
@@ -156,24 +156,26 @@ public class ManagedProvisioningService extends Service {
 
         // Work through the provisioning steps in their corresponding order
         createProfile(getString(R.string.default_managed_profile_name));
-        new DeleteNonRequiredAppsTask(this,
-                mMdmPackageName, mManagedProfileUserInfo.id,
-                R.array.required_apps_managed_profile,
-                R.array.vendor_required_apps_managed_profile,
-                true /* We are creating a new profile */,
-                true /* Disable INSTALL_SHORTCUT listeners */,
-                new DeleteNonRequiredAppsTask.Callback() {
+        if (mManagedProfileUserInfo != null) {
+            new DeleteNonRequiredAppsTask(this,
+                    mMdmPackageName, mManagedProfileUserInfo.id,
+                    R.array.required_apps_managed_profile,
+                    R.array.vendor_required_apps_managed_profile,
+                    true /* We are creating a new profile */,
+                    true /* Disable INSTALL_SHORTCUT listeners */,
+                    new DeleteNonRequiredAppsTask.Callback() {
 
-                    @Override
-                    public void onSuccess() {
-                        setUpProfileAndFinish();
-                    }
+                        @Override
+                        public void onSuccess() {
+                            setUpProfileAndFinish();
+                        }
 
-                    @Override
-                    public void onError() {
-                        error("Delete non required apps task failed.");
-                    }
-                }).run();
+                        @Override
+                        public void onError() {
+                            error("Delete non required apps task failed.");
+                        }
+                    }).run();
+        }
     }
 
     /**
@@ -315,9 +317,8 @@ public class ManagedProvisioningService extends Service {
 
     private void error(String logMessage) {
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
-        intent.setClass(this, ManagedProvisioningActivity.ServiceMessageReceiver.class);
         intent.putExtra(EXTRA_LOG_MESSAGE_KEY, logMessage);
-        sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         cleanup();
         stopSelf();
     }
