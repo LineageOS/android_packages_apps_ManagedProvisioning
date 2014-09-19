@@ -213,7 +213,8 @@ public class ManagedProvisioningActivity extends Activity {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
-                ProvisionLogger.logd("Successfully provisioned");
+                ProvisionLogger.logd("Successfully provisioned."
+                        + "Finishing ManagedProvisioningActivity");
                 ManagedProvisioningActivity.this.setResult(Activity.RESULT_OK);
                 ManagedProvisioningActivity.this.finish();
                 return;
