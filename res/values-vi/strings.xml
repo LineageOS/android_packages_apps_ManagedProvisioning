@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ứng dụng sau cần quyền truy cập vào hồ sơ này:"</string>
     <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Đang thiết lập hồ sơ công việc..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Quản trị viên của bạn có thể giám sát và quản lý các cài đặt, quyền truy cập của công ty, các ứng dụng và dữ liệu được liên kết với hồ sơ này, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Quản trị viên của bạn có thể giám sát và quản lý các cài đặt, quyền truy cập của công ty, các ứng dụng và dữ liệu được liên kết với hồ sơ này, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, ứng dụng và dữ liệu liên kết với thiết bị này, bao gồm hoạt động mạng và thông tin về vị trí của thiết bị."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hãy liên hệ với quản trị viên của bạn để biết thêm thông tin, bao gồm các chính sách bảo mật của tổ chức bạn."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Hủy"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Đặt lại"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Không thiết lập được thiết bị của bạn. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Thiết bị này đã được thiết lập"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Thiết bị này đã có chủ sở hữu"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Không thể kết nối với Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Không sử dụng được ứng dụng quản trị do có lỗi kiểm tra tổng. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>

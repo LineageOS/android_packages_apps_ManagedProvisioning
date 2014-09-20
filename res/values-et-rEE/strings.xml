@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Järgmine rakendus nõuab juurdepääsu sellele profiilile:"</string>
     <string name="set_up" msgid="7012862095553564169">"Seadistus"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Tööprofiili seadistamine ..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administraator saab jälgida ja hallata seadeid, ettevõttesisest juurdepääsu, profiiliga seotud rakendusi ja andmeid, sh võrgutoiminguid ja teie seadme asukohateavet."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Teie administraator saab jälgida ja hallata selle profiiliga seotud seadeid, ettevõtte juurdepääsu, rakendusi ning andmeid, sh võrgutegevust ja seadme asukohateavet."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Teie administraator saab jälgida ja hallata selle seadmega seotud seadeid, ettevõtte juurdepääsu, rakendusi ning andmeid, sh võrgutegevust ja seadme asukohateavet."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Lisateabe saamiseks (sh organisatsiooni privaatsuseeskirjade kohta) võtke ühendust administraatoriga."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisateave"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Tühista"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Lähtesta"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Seadet ei õnnestunud seadistada. Võtke ühendust oma IT-osakonnaga."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"See seade on juba seadistatud"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Sellel seadmel on juba omanik"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"WiFi-ga ei saanud ühendust"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Administraatori rakendust ei saa kasutada kontrollsumma vea tõttu. Võtke ühendust oma IT-osakonnaga."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administraatorirakendust ei õnnestunud alla laadida"</string>

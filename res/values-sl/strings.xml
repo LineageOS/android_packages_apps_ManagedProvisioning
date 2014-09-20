@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ta aplikacija bo morala dostopati do tega profila:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nastavitev"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Nastavljanje delovnega profila ..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Skrbnik lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije in podatke, povezane s to napravo, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Skrbnik lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije in podatke, povezane s tem profilom, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Skrbnik lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije in podatke, povezane s to napravo, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Več o tem"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Prekliči"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Ponastavi"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Naprave ni bilo mogoče nastaviti. Obrnite se na oddelek za IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Ta naprava je že nastavljena"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Ta naprava že ima lastnika"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Z omrežjem Wi-Fi se ni mogoče povezati"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Skrbniške aplikacije ni bilo mogoče uporabiti zaradi napake kontrolne vsote. Obrnite se na oddelek za IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Skrbniške aplikacije ni bilo mogoče prenesti"</string>

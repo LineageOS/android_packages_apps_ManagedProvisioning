@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следећа апликација мора да приступи овом профилу:"</string>
     <string name="set_up" msgid="7012862095553564169">"Подеси"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Подешавање профила за посао..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Администратор може да надгледа подешавања, корпоративни приступ, апликације и податке повезане са профилом, укључујући мрежну активност и информације о локацији уређаја, као и да управља њима."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Администратор може да надгледа подешавања, корпоративни приступ, апликације и податке повезане са профилом, укључујући мрежну активност и информације о локацији уређаја, као и да управља њима."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Администратор може да надгледа подешавања, корпоративни приступ, апликације и податке повезане са овим уређајем, укључујући мрежну активност и информације о локацији уређаја, као и да управља њима."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Контактирајте администратора за више информација, укључујући политику приватности организације."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Сазнајте више"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Откажи"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Ресетуј"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Није могуће подесити уређај. Контактирајте ИТ сектор."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Овај уређај је већ подешен"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Овај уређај већ има власника"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Повезивање са Wi-Fi мрежом није успело"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Није могуће користити апликацију за администраторе због грешке у контролном збиру. Контактирајте ИТ сектор."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Преузимање апликације за администраторе није успело"</string>

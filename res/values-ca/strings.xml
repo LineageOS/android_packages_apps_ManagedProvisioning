@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aquesta aplicació haurà d\'accedir al perfil:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configura"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"S\'està configurant el perfil professional..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"L\'administrador pot supervisar i gestionar la configuració, l\'accés corporatiu, les aplicacions i les dades associades amb el perfil, inclosa l\'activitat de xarxa i la informació d\'ubicació del dispositiu."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"L\'administrador pot supervisar i gestionar la configuració, l\'accés corporatiu, les aplicacions i les dades associades amb el perfil, inclosa l\'activitat de xarxa i la informació d\'ubicació del dispositiu."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"L\'administrador pot supervisar i gestionar la configuració, l\'accés corporatiu, les aplicacions i les dades associades amb aquest dispositiu, inclosa l\'activitat de xarxa i la informació d\'ubicació del dispositiu."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contacta amb l\'administrador per obtenir més informació, incloses les polítiques de privadesa de la teva organització."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Més informació"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Cancel·la"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Restableix"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"No s\'ha pogut configurar el dispositiu. Contacta amb el departament de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Aquest dispositiu ja està configurat."</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Aquest dispositiu ja té propietari."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No s\'ha pogut connectar a la Wi-Fi."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No s\'ha pogut fer servir l\'aplicació d\'administració a causa d\'un error de la suma de comprovació. Contacta amb el departament de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No s\'ha pogut baixar l\'aplicació d\'administració."</string>
