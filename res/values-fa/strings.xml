@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"برنامه زیر نیاز به دسترسی به این نمایه خواهد داشت:"</string>
     <string name="set_up" msgid="7012862095553564169">"راه‌اندازی"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"در حالت تنظیم نمایه کاریتان..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"سرپرست سیستم شما می‌تواند بر تنظیمات، دسترسی سازمانی، برنامه‌ها و داده‌های مرتبط به نمایه، از جمله فعالیت شبکه و اطلاعات مکان دستگاهتان نظارت و مدیریت کند."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"سرپرست سیستم شما می‌تواند بر تنظیمات، دسترسی سازمانی، برنامه‌ها و داده‌های مرتبط با نمایه، از جمله فعالیت شبکه و اطلاعات مکان دستگاهتان نظارت و مدیریت کند."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"سرپرست سیستمتان می‌تواند بر تنظیمات، دسترسی شرکتی، برنامه‌ها و اطلاعات مرتبط با این دستگاه، از جمله فعالیت شبکه و اطلاعات مکان دستگاه‌ شما نظارت و مدیریت کند."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"برای دریافت اطلاعات بیشتر، از جمله خط‌مشی‌های رازداری سازمانتان، با سرپرست سیستم خودتان تماس بگیرید."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"بیشتر بدانید"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"لغو"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"بازنشانی"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"دستگاه‌تان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"این دستگاه از قبل راه‌اندازی شده است"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"این دستگاه در حال حاضر یک مالک دارد"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏اتصال به Wi-Fi ممکن نیست"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"به دلیل خطای چک‌سام، برنامه سرپرست استفاده نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"برنامه سرپرستی دانلود نشد"</string>

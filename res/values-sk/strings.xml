@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Nasledujúca aplikácia bude potrebovať prístup k tomuto profilu:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nastaviť"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Nastavuje sa pracovný profil..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie a údaje súvisiace s týmto profilom (vrátane aktivity siete a informácií o polohe vášho zariadenia)."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie a údaje súvisiace s týmto profilom (vrátane aktivity siete a informácií o polohe vášho zariadenia)."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie a údaje súvisiace s týmto zariadením (vrátane aktivity siete a informácií o polohe vášho zariadenia)."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Viac informácií (vrátane pravidiel ochrany osobných údajov vašej organizácie) vám poskytne správca."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Viac informácií"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Zrušiť"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Obnoviť"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nastavenie zariadenia sa nepodarilo. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Toto zariadenie je už nastavené"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Toto zariadenie už má vlastníka"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Pre chybu kontrolného súčtu sa aplikácia na správu nedá použiť. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Aplikáciu na správu sa nepodarilo stiahnuť"</string>

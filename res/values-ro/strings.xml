@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Următoarea aplicație va trebui să vă acceseze profilul:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurați"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Se configurează profilul de serviciu..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administratorul dvs. are posibilitatea de a monitoriza și a gestiona setări, accesul la nivelul companiei, aplicații și date asociate profilului, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administratorul poate monitoriza și a gestiona setările, accesul la nivelul companiei, aplicațiile și datele asociate cu profilul, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administratorul poate monitoriza și gestiona setările, accesul la nivelul companiei, aplicațiile și datele asociate cu acest dispozitiv, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contactați administratorul pentru mai multe informații, inclusiv politicile de confidențialitate ale organizației."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Aflați mai multe"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Anulați"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Resetați"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Configurarea nu s-a putut efectua. Contactați departamentul IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Acest dispozitiv este deja configurat"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Acest dispozitiv are deja un proprietar"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nu se poate conecta la Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nu se poate utiliza aplicația de administrare din cauza unei erori de sumă de control. Contactați departamentul IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Eroare la descărcarea aplicației de administrare"</string>

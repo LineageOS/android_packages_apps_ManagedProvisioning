@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"The following app will need to access this profile:"</string>
     <string name="set_up" msgid="7012862095553564169">"Set up"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Setting up your work profile..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with this device, including network activity and your device\'s location information."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contact your administrator for more information, including your organisation\'s privacy policies."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Learn more"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Cancel"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Reset"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Couldn\'t set up your device. Contact your IT department."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"This device is already set up"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"This device already has an owner"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>

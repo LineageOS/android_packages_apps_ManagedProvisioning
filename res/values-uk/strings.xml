@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Доcтуп до цього профілю потрібен буде такому додатку:"</string>
     <string name="set_up" msgid="7012862095553564169">"Налаштувати"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Налаштування робочого профілю…"</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Адміністратор може керувати налаштуваннями, корпоративним доступом, додатками й даними, пов’язаними з профілем, зокрема інформацією про дії в мережі та дані про місцезнаходження пристрою."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Адміністратор може відстежувати та контролювати налаштування, корпоративний доступ, додатки й дані, пов’язані з цим профілем, зокрема інформацію про активність у мережі чи місцезнаходження пристрою."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Адміністратор може відстежувати та контролювати налаштування, корпоративний доступ, додатки й дані, пов’язані з цим пристроєм, зокрема інформацію про активність у мережі чи місцезнаходження пристрою."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Зв’яжіться з адміністратором, щоб дізнатися більше, зокрема про політику конфіденційності вашої організації."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Докладніше"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Скасувати"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Скинути"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Не вдалося налаштувати пристрій. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Цей пристрій уже налаштовано"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"У цього пристрою вже є власник"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не вдалося під’єднатися до мережі Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Не вдалося скористатися додатком адміністратора через помилку перевірки контрольної суми. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не вдалося завантажити додаток адміністратора"</string>

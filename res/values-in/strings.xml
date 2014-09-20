@@ -26,7 +26,8 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikasi berikut perlu mengakses profil ini:"</string>
     <string name="set_up" msgid="7012862095553564169">"Siapkan"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Menyiapkan profil kerja Anda..."</string>
-    <string name="admin_has_ability_to_monitor" msgid="8849299548436318260">"Administrator Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, dan data yang terkait dengan profil ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administrator Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, dan data yang terkait dengan profil ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administrator Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, dan data yang terkait dengan perangkat ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hubungi administrator untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pelajari lebih lanjut"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Batal"</string>
@@ -61,7 +62,6 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Setel ulang"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Tidak dapat menyiapkan perangkat. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Perangkat ini telah disiapkan"</string>
-    <string name="device_owner_error_already_owned" msgid="1943544305535322707">"Perangkat ini sudah mempunyai pemilik"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak dapat tersambung ke Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan aplikasi admin karena kesalahan checksum. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat mengunduh aplikasi admin"</string>
