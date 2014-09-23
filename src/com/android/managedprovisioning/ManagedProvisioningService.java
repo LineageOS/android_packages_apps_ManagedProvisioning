@@ -19,11 +19,14 @@ package com.android.managedprovisioning;
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 
+import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -135,7 +138,7 @@ public class ManagedProvisioningService extends Service {
                     PackageManager.GET_RECEIVERS);
             for (ActivityInfo ai : pi.receivers) {
                 if (!TextUtils.isEmpty(ai.permission) &&
-                        ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
+                        ai.permission.equals(BIND_DEVICE_ADMIN)) {
                     adminReceiverComponent = new ComponentName(packageName, ai.name);
 
                 }
@@ -280,7 +283,16 @@ public class ManagedProvisioningService extends Service {
                 mManagedProfileUserInfo.id);
     }
 
-    private void sendProvisioningCompleteToManagedProfile(Context context) {
+    /**
+     * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
+     * the service and notify the {@link ManagedProvisioningActivity} so that it can finish itself.
+     *
+     * @param deviceAdminComponent The component of the mdm that will be notified.
+     */
+    private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
+        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
+                1 /* true- > setup complete */, mManagedProfileUserInfo.id);
+
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         UserHandle userHandle = userManager.getUserForSerialNumber(
                 mManagedProfileUserInfo.serialNumber);
@@ -292,27 +304,26 @@ public class ManagedProvisioningService extends Service {
         if (mAdminExtrasBundle != null) {
             completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mAdminExtrasBundle);
         }
-        context.sendBroadcastAsUser(completeIntent, userHandle);
+
+        // Use an ordered broadcast, so that we only finish when the mdm has received it.
+        // Avoids a lag in the transition between provisioning and the mdm.
+        BroadcastReceiver mdmReceivedSuccessReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
+                        + " mdm");
+                Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+                LocalBroadcastManager.getInstance(ManagedProvisioningService.this)
+                        .sendBroadcast(successIntent);
+                stopSelf();
+            }
+
+        };
+        sendOrderedBroadcastAsUser(completeIntent, userHandle, null,
+                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
 
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
             + userHandle.getIdentifier());
-      }
-
-
-    /**
-     * Notify the calling activity and the mdm that provisioning has completed.
-     *
-     * @param deviceAdminComponent The component of the mdm that will be notified.
-     */
-    private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
-        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
-                1, mManagedProfileUserInfo.id);
-
-        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
-
-        sendProvisioningCompleteToManagedProfile(this);
-        stopSelf();
     }
 
     private void error(String logMessage) {
