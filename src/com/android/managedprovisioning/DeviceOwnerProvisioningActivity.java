@@ -145,8 +145,7 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(params.mWifiSsid) &&
-                !TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(params.mWifiSsid)) {
             requestWifiPick();
             return;
             // Wait for onActivityResult.
