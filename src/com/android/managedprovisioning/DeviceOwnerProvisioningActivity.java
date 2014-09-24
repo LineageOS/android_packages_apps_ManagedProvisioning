@@ -282,8 +282,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                                     @Override
                                     public void onClick(DialogInterface dialog,int id) {
                                         // Factory reset the device.
-                                        sendBroadcast(
-                                                new Intent("android.intent.action.MASTER_CLEAR"));
+                                        Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
+                                        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                                        intent.putExtra(Intent.EXTRA_REASON,
+                                                "DeviceOwnerProvisioningActivity.showCancelResetDialog()");
+                                        sendBroadcast(intent);
                                         stopService(new Intent(DeviceOwnerProvisioningActivity.this,
                                                 DeviceOwnerProvisioningService.class));
                                         finish();
@@ -336,7 +339,11 @@ public class DeviceOwnerProvisioningActivity extends Activity {
                         @Override
                         public void onClick(DialogInterface dialog,int id) {
                             // Factory reset the device.
-                            sendBroadcast(new Intent("android.intent.action.MASTER_CLEAR"));
+                            Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
+                            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                            intent.putExtra(Intent.EXTRA_REASON,
+                                    "DeviceOwnerProvisioningActivity.error()");
+                            sendBroadcast(intent);
                             stopService(new Intent(DeviceOwnerProvisioningActivity.this,
                                             DeviceOwnerProvisioningService.class));
                             finish();
