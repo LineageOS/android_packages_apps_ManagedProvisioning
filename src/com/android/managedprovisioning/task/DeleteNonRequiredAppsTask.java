@@ -195,6 +195,9 @@ public class DeleteNonRequiredAppsTask {
                     mUserId);
         } catch (RemoteException neverThrown) {
             ProvisionLogger.loge("This should not happen.", neverThrown);
+        } catch (Exception e) {
+            ProvisionLogger.logw("Component not found, not disabling it: "
+                + toDisable.toShortString());
         }
     }
 
