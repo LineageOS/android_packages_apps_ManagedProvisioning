@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -68,6 +69,7 @@ public class UserConsentDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Dialog dialog = new Dialog(mContext, R.style.ManagedProvisioningDialogTheme);
         dialog.setContentView(R.layout.learn_more_dialog);
+        dialog.setCanceledOnTouchOutside(false);
 
         TextView text1 = (TextView) dialog.findViewById(R.id.learn_more_text1);
         text1.setText(mAdminMonitorsStringId);
@@ -108,5 +110,12 @@ public class UserConsentDialog extends DialogFragment {
             });
 
         return dialog;
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        if (mOnCancelRunnable != null) {
+            mOnCancelRunnable.run();
+        }
     }
 }
