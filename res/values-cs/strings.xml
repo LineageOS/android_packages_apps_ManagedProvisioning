@@ -41,7 +41,7 @@
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Zrušit"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Zašifrovat"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Šifrování dokončeno"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Klepnutím budete pokračovat v nastavení pracovního profilu."</string>
+    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Klepnutím pokračujte v nastavení prac. profilu."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nastavení pracovního profilu se nezdařilo. Obraťte se na oddělení IT nebo to zkuste znovu později."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Vaše zařízení pracovní profily nepodporuje."</string>
     <string name="user_is_not_owner" msgid="4358772243716976929">"Pracovní profily musí nastavit vlastník zařízení"</string>
