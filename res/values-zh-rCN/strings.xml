@@ -23,8 +23,8 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"设置您的资料"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全性。您可以控制设备上的所有其他内容。"</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要对此资料的访问权限："</string>
-    <string name="set_up" msgid="7012862095553564169">"创建"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
+    <string name="set_up" msgid="7012862095553564169">"设置"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"正在设置您的工作资料…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>

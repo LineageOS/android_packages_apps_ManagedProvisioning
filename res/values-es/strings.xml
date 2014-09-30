@@ -21,8 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Aprovisionador de dispositivos"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"¡Vaya!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Configurar tu perfil"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"Tu organización controla este perfil y mantiene su seguridad, mientras que tú controlas el resto de contenido del dispositivo."</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"Configura tu perfil"</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Tu organización controla este perfil y mantiene su seguridad. Tú controlas el resto del contenido del dispositivo."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Esta aplicación necesitará acceder a tu perfil:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurar"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Configurando tu perfil de trabajo..."</string>
@@ -37,10 +37,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"¿Seguro que quieres eliminar este perfil de trabajo? Se eliminarán todos sus datos."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Eliminar"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"Para seguir configurando tu perfil de trabajo, tendrás que encriptar el dispositivo. Este proceso puede tardar unos minutos."</string>
+    <string name="encrypt_device_text" msgid="6762208577171389053">"Para seguir configurando tu perfil de trabajo, tendrás que cifrar el dispositivo. Este proceso puede tardar un tiempo."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Cancelar"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Encriptar"</string>
-    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Encriptación completada"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Cifrar"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Cifrado completado"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Toca para continuar la configuración del perfil de trabajo"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No se ha podido configurar el perfil de trabajo. Ponte en contacto con el departamento de TI o vuelve a intentarlo más tarde."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Tu dispositivo no admite perfiles de trabajo"</string>
