@@ -21,12 +21,12 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Provedor do dispositivo"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vaia!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Configurar o teu perfil"</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"Configura o teu perfil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"A túa organización controla este perfil e manteno seguro. Ti controlas o resto do contido do dispositivo."</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"A seguinte aplicación necesitará acceder a este perfil:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"A seguinte aplicación ten que acceder ao teu perfil:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurar"</string>
-    <string name="setting_up_workspace" msgid="6116976629983614927">"Configurando o teu perfil do traballo..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"O teu administrador ten a capacidade de controlar e xestionar a configuración, o acceso corporativo, as aplicacións e os datos asociados ao perfil, incluída a actividade da rede e información da localización do teu dispositivo."</string>
+    <string name="setting_up_workspace" msgid="6116976629983614927">"Configurando o teu perfil de traballo..."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"O teu administrador pode controlar e xestionar a configuración, o acceso corporativo, as aplicacións e os datos asociados ao perfil, incluída a actividade de rede e a información da localización do teu dispositivo."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"O teu administrador ten a capacidade de controlar e xestionar a configuración, o acceso corporativo, as aplicacións e os datos asociados a este dispositivo, incluída a actividade da rede e a información de localización do teu dispositivo."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contacta co teu administrador para obter máis información, incluídas as políticas de privacidade da túa organización."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Máis información"</string>

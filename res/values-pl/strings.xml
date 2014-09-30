@@ -22,7 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Podmiot obsługujący urządzenie administracyjnie"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Wypełnij swój profil"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"Organizacja kontroluje i zabezpiecza ten profil. Cała pozostała zawartość urządzenia jest pod Twoją kontrolą."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Twoja organizacja kontroluje i zabezpiecza ten profil. Cała pozostała zawartość urządzenia jest pod Twoją kontrolą."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikacja, która będzie potrzebować dostępu do tego profilu:"</string>
     <string name="set_up" msgid="7012862095553564169">"Skonfiguruj"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Konfigurowanie profilu do pracy..."</string>
