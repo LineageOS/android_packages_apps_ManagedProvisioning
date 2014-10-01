@@ -110,6 +110,14 @@
             android:screenOrientation="locked">
         </activity>
 
+        <activity
+            android:name="WebActivity"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SetupWorkSpaceTheme"
+            android:screenOrientation="locked">
+        </activity>
+
         <service
             android:name="ManagedProvisioningService" >
         </service>
