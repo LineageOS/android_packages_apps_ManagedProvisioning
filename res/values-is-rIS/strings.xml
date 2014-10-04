@@ -22,7 +22,7 @@
     <string name="app_name" msgid="4699090302771328296">"Tækjaúthlutun"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Úbbs!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"Settu upp snið"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"Póstskipanin þín stjórnar þessu sniði og heldur því öruggu. Þú hefur stjórn yfir öllu öðru í tækinu."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Fyrirtækið þitt stjórnar þessu sniði og heldur því öruggu. Þú hefur stjórn yfir öllu öðru í tækinu."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Eftirfarandi forrit mun þurfa að fá aðgang að þessu sniði:"</string>
     <string name="set_up" msgid="7012862095553564169">"Setja upp"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Setur upp vinnusniðið þitt..."</string>
