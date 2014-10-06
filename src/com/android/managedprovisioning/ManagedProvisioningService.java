@@ -67,6 +67,8 @@ public class ManagedProvisioningService extends Service {
             "com.android.managedprovisioning.provisioning_success";
     public static final String ACTION_PROVISIONING_ERROR =
             "com.android.managedprovisioning.error";
+    public static final String ACTION_PROVISIONING_CANCELLED =
+            "com.android.managedprovisioning.cancelled";
     public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioingErrorLogMessage";
 
     private String mMdmPackageName;
@@ -90,6 +92,12 @@ public class ManagedProvisioningService extends Service {
             startManagedProfileProvisioning();
             return null;
         }
+
+        @Override
+        protected void onCancelled(Void result) {
+            cancelProvisioning();
+            super.onCancelled(result);
+        }
     }
 
     @Override
@@ -106,13 +114,19 @@ public class ManagedProvisioningService extends Service {
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
-
-        ProvisionLogger.logd("Starting managed provisioning service");
-        try {
-            runnerTask.execute(intent);
-        } catch (IllegalStateException ex) {
-            ProvisionLogger.logd("ManagedProvisioningService: Provisioning already in progress, "
-                    + "second provisioning intent not being processed");
+        if (ManagedProvisioningActivity.ACTION_CANCEL_PROVISIONING.equals(intent.getAction())) {
+            ProvisionLogger.logd("Cancelling managed provisioning service");
+            if (!runnerTask.cancel(false)) {
+                cancelProvisioning();
+            }
+        } else {
+            ProvisionLogger.logd("Starting managed provisioning service");
+            try {
+                runnerTask.execute(intent);
+            } catch (IllegalStateException ex) {
+                ProvisionLogger.logd("ManagedProvisioningService: Provisioning already in progress, "
+                        + "second provisioning intent not being processed");
+            }
         }
         return START_NOT_STICKY;
     }
@@ -170,7 +184,9 @@ public class ManagedProvisioningService extends Service {
 
                         @Override
                         public void onSuccess() {
-                            setUpProfileAndFinish();
+                            if (!runnerTask.isCancelled()) {
+                                setUpProfileAndFinish();
+                            }
                         }
 
                         @Override
@@ -343,6 +359,14 @@ public class ManagedProvisioningService extends Service {
             ProvisionLogger.logd("Removing managed profile");
             mUserManager.removeUser(mManagedProfileUserInfo.id);
         }
+    }
+
+    public void cancelProvisioning() {
+        cleanup();
+        Intent cancelIntent = new Intent(ACTION_PROVISIONING_CANCELLED);
+        LocalBroadcastManager.getInstance(ManagedProvisioningService.this)
+                .sendBroadcast(cancelIntent);
+        stopSelf();
     }
 
     @Override
