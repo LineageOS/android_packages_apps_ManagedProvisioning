@@ -37,7 +37,7 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Je, una uhakika unataka kuondoa wasifu huu wa kazini? Data yake yote itafutwa."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Ondoa"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Ghairi"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"Ili uendelee kusanidi wasifu wako wa kazini, utahitaji kusimba kifaa chako kwa njia fiche. Hii inaweza kuchukua muda."</string>
+    <string name="encrypt_device_text" msgid="6762208577171389053">"Ili uendelee kusanidi wasifu wako wa kazini, utahitaji kusimba kifaa chako kwa njia fiche. Hatua hii inaweza kuchukua muda."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Ghairi"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Simba kwa njia fiche"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Usimbaji fiche umekamilika"</string>
