@@ -41,26 +41,27 @@ public class UserConsentDialog extends DialogFragment {
 
     public static final String LEARN_MORE_URL_PROFILE_OWNER =
             "https://support.google.com/android/work/answer/6090512";
+    // TODO: replace by the final device owner learn more link.
+    public static final String LEARN_MORE_URL_DEVICE_OWNER =
+            "https://support.google.com/android/work/answer/6090512";
+
+    // Only urls starting with this base can be visisted in the device owner case.
+    public static final String LEARN_MORE_ALLOWED_BASE_URL =
+            "https://support.google.com/";
 
     private final Context mContext;
-    private final int mAdminMonitorsStringId;
-    private final Uri mLearnMoreUri;
     private final Runnable mOnUserConsentRunnable;
     private final Runnable mOnCancelRunnable;
+    private final int mOwnerType;
 
     public UserConsentDialog(final Context context, int ownerType,
             final Runnable onUserConsentRunnable, final Runnable onCancelRunnable) {
         super();
         mContext = context;
-        if (ownerType == PROFILE_OWNER) {
-            mAdminMonitorsStringId = R.string.admin_has_ability_to_monitor_profile;
-            mLearnMoreUri = Uri.parse(LEARN_MORE_URL_PROFILE_OWNER);
-        } else if (ownerType == DEVICE_OWNER) {
-            mAdminMonitorsStringId = R.string.admin_has_ability_to_monitor_device;
-            mLearnMoreUri = null;
-        } else {
+        if (ownerType != PROFILE_OWNER && ownerType != DEVICE_OWNER) {
             throw new IllegalArgumentException("Illegal value for argument ownerType.");
         }
+        mOwnerType = ownerType;
         mOnUserConsentRunnable = onUserConsentRunnable;
         mOnCancelRunnable = onCancelRunnable;
     }
@@ -72,19 +73,33 @@ public class UserConsentDialog extends DialogFragment {
         dialog.setCanceledOnTouchOutside(false);
 
         TextView text1 = (TextView) dialog.findViewById(R.id.learn_more_text1);
-        text1.setText(mAdminMonitorsStringId);
+        if (mOwnerType == PROFILE_OWNER) {
+            text1.setText(R.string.admin_has_ability_to_monitor_profile);
+        } else if (mOwnerType == DEVICE_OWNER) {
+            text1.setText(R.string.admin_has_ability_to_monitor_device);
+        }
 
         final TextView linkText = (TextView) dialog.findViewById(R.id.learn_more_link);
-        if (mLearnMoreUri != null) {
+        if (mOwnerType == PROFILE_OWNER) {
             linkText.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, mLearnMoreUri);
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse(LEARN_MORE_URL_PROFILE_OWNER));
                         mContext.startActivity(browserIntent);
                     }
                 });
-        } else {
-            linkText.setVisibility(View.GONE);
+        } else if (mOwnerType == DEVICE_OWNER) {
+            linkText.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent webIntent = new Intent(mContext, WebActivity.class);
+                        webIntent.putExtra(WebActivity.EXTRA_URL, LEARN_MORE_URL_DEVICE_OWNER);
+                        webIntent.putExtra(WebActivity.EXTRA_ALLOWED_URL_BASE,
+                                LEARN_MORE_ALLOWED_BASE_URL);
+                        mContext.startActivity(webIntent);
+                    }
+                });
         }
 
         Button positiveButton = (Button) dialog.findViewById(R.id.positive_button);
