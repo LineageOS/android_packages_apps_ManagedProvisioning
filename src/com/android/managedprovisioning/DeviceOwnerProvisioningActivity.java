@@ -19,6 +19,7 @@ package com.android.managedprovisioning;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -63,7 +64,9 @@ import java.util.Locale;
  * repeated. We made sure that all tasks can be done twice without causing any problems.
  * </p>
  */
-public class DeviceOwnerProvisioningActivity extends Activity {
+public class DeviceOwnerProvisioningActivity extends Activity
+        implements UserConsentDialog.ConsentCallback {
+
     private static final String KEY_USER_CONSENTED = "user_consented";
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
@@ -79,6 +82,9 @@ public class DeviceOwnerProvisioningActivity extends Activity {
 
     // Indicates whether user consented by clicking on positive button of interstitial.
     private boolean mUserConsented = false;
+
+    // Params that will be used after user consent.
+    private ProvisioningParams mParamsToConsent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -160,20 +166,21 @@ public class DeviceOwnerProvisioningActivity extends Activity {
         } else {
             // Notify the user that the admin will have full control over the device,
             // then start provisioning.
-            new UserConsentDialog(this, UserConsentDialog.DEVICE_OWNER, new Runnable() {
-                    @Override
-                    public void run() {
-                        mUserConsented = true;
-                        startDeviceOwnerProvisioningService(params);
-                    }
-                } /* onUserConsented */ , new Runnable() {
-                    @Override
-                    public void run() {
-                        finish();
-                    }
-                } /* onCancel */).show(getFragmentManager(),
-                        "UserConsentDialogFragment");
+            mParamsToConsent = params;
+            UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER)
+                    .show(getFragmentManager(), "UserConsentDialogFragment");
         }
+    }
+
+    @Override
+    public void onDialogConsent() {
+        mUserConsented = true;
+        startDeviceOwnerProvisioningService(mParamsToConsent);
+    }
+
+    @Override
+    public void onDialogCancel() {
+        finish();
     }
 
     private void startDeviceOwnerProvisioningService(ProvisioningParams params) {
