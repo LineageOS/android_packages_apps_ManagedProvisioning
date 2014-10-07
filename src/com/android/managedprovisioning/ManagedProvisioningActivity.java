@@ -63,7 +63,8 @@ import java.util.List;
  * async task.
  */
 // TODO: Proper error handling to report back to the user and potentially the mdm.
-public class ManagedProvisioningActivity extends Activity {
+public class ManagedProvisioningActivity extends Activity
+        implements UserConsentDialog.ConsentCallback {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
@@ -304,13 +305,8 @@ public class ManagedProvisioningActivity extends Activity {
 
             // Notify the user once more that the admin will have full control over the profile,
             // then start provisioning.
-            new UserConsentDialog(this, UserConsentDialog.PROFILE_OWNER, new Runnable() {
-                    @Override
-                    public void run() {
-                        setupEnvironmentAndProvision();
-                    }
-                } /* onUserConsented */ , null /* onCancel */).show(getFragmentManager(),
-                        "UserConsentDialogFragment");
+            UserConsentDialog.newInstance(UserConsentDialog.PROFILE_OWNER)
+                    .show(getFragmentManager(), "UserConsentDialogFragment");
         } else {
             Bundle resumeExtras = getIntent().getExtras();
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
@@ -319,6 +315,16 @@ public class ManagedProvisioningActivity extends Activity {
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult or after reboot.
         }
+    }
+
+    @Override
+    public void onDialogConsent() {
+        setupEnvironmentAndProvision();
+    }
+
+    @Override
+    public void onDialogCancel() {
+        // Do nothing.
     }
 
     private void setupEnvironmentAndProvision() {
