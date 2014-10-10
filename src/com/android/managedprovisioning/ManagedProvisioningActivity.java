@@ -206,7 +206,7 @@ public class ManagedProvisioningActivity extends Activity
     }
 
     private boolean versionNumberAtLeastL(int versionNumber) {
-        return versionNumber >= Build.VERSION_CODES.L;
+        return versionNumber >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver {
