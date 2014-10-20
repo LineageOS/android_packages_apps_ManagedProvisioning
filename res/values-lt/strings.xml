@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oi!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Nustatyti profilį"</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"Nustatykite profilį"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jūsų organizacija valdo šį profilį ir užtikrina jo saugumą. Visa kita savo įrenginyje valdote jūs."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Naudojant toliau nurodytą programą, reikės prieigos prie šio profilio:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nustatyti"</string>
