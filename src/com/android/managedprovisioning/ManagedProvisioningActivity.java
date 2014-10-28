@@ -24,6 +24,7 @@ import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFI
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -83,6 +84,9 @@ public class ManagedProvisioningActivity extends Activity
             new ComponentName("com.android.managedprovisioning",
                     "com.android.managedprovisioning.ManagedProvisioningActivityNoCallerCheck");
 
+    protected static final String ACTION_CANCEL_PROVISIONING =
+            "com.android.managedprovisioning.CANCEL_PROVISIONING";
+
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
@@ -92,6 +96,18 @@ public class ManagedProvisioningActivity extends Activity
     private View mContentView;
     private View mMainTextView;
     private View mProgressView;
+
+    // Activity started, but provisioning has not begun
+    private final static int CANCELSTATUS_INITED = 0;
+    // Provisioning service started
+    private final static int CANCELSTATUS_PROVISIONING = 1;
+    // Back button pressed during provisioning, confirm dialog showing.
+    private final static int CANCELSTATUS_CONFIRMING = 2;
+    // Cancel confirmed, waiting for the provisioning service to complete.
+    private final static int CANCELSTATUS_CANCELLING = 3;
+    private int mCancelStatus;
+    private Intent mPendingProvisioningResult = null;
+    private ProgressDialog mCancelProgressDialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +138,7 @@ public class ManagedProvisioningActivity extends Activity
         IntentFilter filter = new IntentFilter();
         filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS);
         filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_ERROR);
+        filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_CANCELLED);
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
         // Initialize member variables from the intent, stop if the intent wasn't valid.
@@ -162,6 +179,7 @@ public class ManagedProvisioningActivity extends Activity
         } else {
             showStartProvisioningScreen();
         }
+        mCancelStatus = CANCELSTATUS_INITED;
     }
 
     private void showStartProvisioningScreen() {
@@ -212,20 +230,41 @@ public class ManagedProvisioningActivity extends Activity
     class ServiceMessageReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
-                ProvisionLogger.logd("Successfully provisioned."
-                        + "Finishing ManagedProvisioningActivity");
-                ManagedProvisioningActivity.this.setResult(Activity.RESULT_OK);
-                ManagedProvisioningActivity.this.finish();
-                return;
-            } else if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_ERROR)) {
-                String errorLogMessage = intent.getStringExtra(
-                        ManagedProvisioningService.EXTRA_LOG_MESSAGE_KEY);
-                ProvisionLogger.logd("Error reported: " + errorLogMessage);
-                showErrorAndClose(R.string.managed_provisioning_error_text, errorLogMessage);
+            if (mCancelStatus == CANCELSTATUS_CONFIRMING) {
+                // Store the incoming intent and only process it after the user has responded to
+                // the cancel dialog
+                mPendingProvisioningResult = intent;
                 return;
             }
+            handleProvisioningResult(intent);
+        }
+    }
+
+    private void handleProvisioningResult(Intent intent) {
+        String action = intent.getAction();
+        if (ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS.equals(action)) {
+            if (mCancelStatus == CANCELSTATUS_CANCELLING) {
+                return;
+            }
+            ProvisionLogger.logd("Successfully provisioned."
+                    + "Finishing ManagedProvisioningActivity");
+            ManagedProvisioningActivity.this.setResult(Activity.RESULT_OK);
+            ManagedProvisioningActivity.this.finish();
+        } else if (ManagedProvisioningService.ACTION_PROVISIONING_ERROR.equals(action)) {
+            if (mCancelStatus == CANCELSTATUS_CANCELLING){
+                return;
+            }
+            String errorLogMessage = intent.getStringExtra(
+                    ManagedProvisioningService.EXTRA_LOG_MESSAGE_KEY);
+            ProvisionLogger.logd("Error reported: " + errorLogMessage);
+            showErrorAndClose(R.string.managed_provisioning_error_text, errorLogMessage);
+        } if (ManagedProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
+            if (mCancelStatus != CANCELSTATUS_CANCELLING) {
+                return;
+            }
+            mCancelProgressDialog.dismiss();
+            ManagedProvisioningActivity.this.setResult(Activity.RESULT_CANCELED);
+            ManagedProvisioningActivity.this.finish();
         }
     }
 
@@ -286,7 +325,52 @@ public class ManagedProvisioningActivity extends Activity
 
     @Override
     public void onBackPressed() {
-        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
+        if (mCancelStatus == CANCELSTATUS_INITED) {
+            // Free to press Back button if provisioning hasn't started.
+            super.onBackPressed();
+        } else if (mCancelStatus == CANCELSTATUS_PROVISIONING) {
+            showCancelProvisioningDialog();
+        }
+    }
+
+    private void showCancelProvisioningDialog() {
+        mCancelStatus = CANCELSTATUS_CONFIRMING;
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                        .setCancelable(false)
+                        .setTitle(R.string.profile_owner_cancel_title)
+                        .setMessage(R.string.profile_owner_cancel_message)
+                        .setNegativeButton(R.string.profile_owner_cancel_cancel,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        mCancelStatus = CANCELSTATUS_PROVISIONING;
+                                        if (mPendingProvisioningResult != null) {
+                                            handleProvisioningResult(mPendingProvisioningResult);
+                                        }
+                                    }
+                        })
+                        .setPositiveButton(R.string.profile_owner_cancel_ok,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        mCancelStatus = CANCELSTATUS_CANCELLING;
+                                        Intent intent = new Intent(ManagedProvisioningActivity.this,
+                                                ManagedProvisioningService.class);
+                                        intent.setAction(ACTION_CANCEL_PROVISIONING);
+                                        startService(intent);
+                                        showCancelProgressDialog();
+                                    }
+                        })
+                        .create();
+        alertDialog.show();
+    }
+
+    protected void showCancelProgressDialog() {
+        mCancelProgressDialog = new ProgressDialog(this);
+        mCancelProgressDialog.setMessage(getText(R.string.profile_owner_cancelling));
+        mCancelProgressDialog.setCancelable(false);
+        mCancelProgressDialog.setCanceledOnTouchOutside(false);
+        mCancelProgressDialog.show();
     }
 
     @Override
@@ -350,6 +434,7 @@ public class ManagedProvisioningActivity extends Activity
     }
 
     private void startManagedProvisioningService() {
+        mCancelStatus = CANCELSTATUS_PROVISIONING;
         Intent intent = new Intent(this, ManagedProvisioningService.class);
         intent.putExtras(getIntent());
         startService(intent);
