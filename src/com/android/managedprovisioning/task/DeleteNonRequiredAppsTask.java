@@ -53,7 +53,7 @@ import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Removes all system apps with a launcher that are not required.
- * Also disables sharing via Bluetooth and Nfc, and components that listen to
+ * Also disables sharing via Bluetooth, and components that listen to
  * ACTION_INSTALL_SHORTCUT.
  * This class is called a first time when a user is created, but also after a system update.
  * In this case, it checks if the system apps that have been added need to be disabled.
@@ -91,14 +91,13 @@ public class DeleteNonRequiredAppsTask {
 
     public void run() {
         if (mNewProfile) {
-            disableNfcBluetoothSharing();
+            disableBluetoothSharing();
         }
         deleteNonRequiredApps();
     }
 
-    private void disableNfcBluetoothSharing() {
-        ProvisionLogger.logd("Disabling Nfc and Bluetooth sharing.");
-        disableComponent(new ComponentName("com.android.nfc", "com.android.nfc.BeamShareActivity"));
+    private void disableBluetoothSharing() {
+        ProvisionLogger.logd("Disabling Bluetooth sharing.");
         disableComponent(new ComponentName("com.android.bluetooth",
                 "com.android.bluetooth.opp.BluetoothOppLauncherActivity"));
     }
