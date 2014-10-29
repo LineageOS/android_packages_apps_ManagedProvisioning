@@ -68,4 +68,14 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Админ апп-г ашиглах боломжгүй. Бүрдэл дутагдсан эсхүл гэмтсэн байна. МТ хэлтэстэй холбогдоно уу."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Админ апп-г суулгаж чадсангүй"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Таны төхөөрөмж дээр админ апп суугаагүй байна"</string>
+    <!-- no translation found for profile_owner_cancel_title (1087667875324931402) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_message (3397782777804924267) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_cancel (4408725524311574891) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_ok (5951679183850766029) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancelling (2007485854183176973) -->
+    <skip />
 </resources>

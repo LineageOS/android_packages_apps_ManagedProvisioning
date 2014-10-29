@@ -68,4 +68,14 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nu se poate utiliza aplicația de administrare. Este deteriorată sau lipsesc componente. Contactați departamentul IT."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Eroare la instalarea aplicației de administrare"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Aplicația de administrare nu este instalată pe dispozitiv"</string>
+    <!-- no translation found for profile_owner_cancel_title (1087667875324931402) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_message (3397782777804924267) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_cancel (4408725524311574891) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_ok (5951679183850766029) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancelling (2007485854183176973) -->
+    <skip />
 </resources>
