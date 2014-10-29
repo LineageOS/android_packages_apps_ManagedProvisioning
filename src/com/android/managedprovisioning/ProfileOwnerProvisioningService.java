@@ -17,10 +17,15 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
@@ -28,7 +33,6 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
@@ -50,6 +54,8 @@ import android.text.TextUtils;
 
 import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
+
+import java.io.IOException;
 
 /**
  * Service that runs the profile owner provisioning.
@@ -81,9 +87,11 @@ public class ProfileOwnerProvisioningService extends Service {
     // PersistableBundle extra received in starting intent.
     // Should be passed through to device management application when provisioning is complete.
     private PersistableBundle mAdminExtrasBundle;
+    private Account mAccountToMigrate;
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
+    private AccountManager mAccountManager;
     private UserManager mUserManager;
 
     private int mStartIdProvisioning;
@@ -109,6 +117,7 @@ public class ProfileOwnerProvisioningService extends Service {
         super.onCreate();
 
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+        mAccountManager = (AccountManager) getSystemService(Context.ACCOUNT_SERVICE);
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         runnerTask = new RunnerTask();
@@ -159,6 +168,11 @@ public class ProfileOwnerProvisioningService extends Service {
 
     private void initialize(Intent intent) {
         mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        mAccountToMigrate = (Account) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+        if (mAccountToMigrate != null) {
+            ProvisionLogger.logi("Migrating: " + mAccountToMigrate);
+        }
 
         // Cast is guaranteed by check in Activity.
         mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
@@ -231,6 +245,7 @@ public class ProfileOwnerProvisioningService extends Service {
         setMdmAsManagedProfileOwner();
         CrossProfileIntentFiltersHelper.setFilters(
                 getPackageManager(), getUserId(), mManagedProfileUserInfo.id);
+            migrateAccount();
         synchronized (this) {
             mDone = true;
             if (mCancelInFuture) {
@@ -260,6 +275,52 @@ public class ProfileOwnerProvisioningService extends Service {
                 mManagedProfileUserInfo.serialNumber);
         LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
                 .sendBroadcast(successIntent);
+    }
+
+    private void migrateAccount() {
+        if (mAccountToMigrate != null) {
+            if (copyAccount(mAccountToMigrate) && removeAccount(mAccountToMigrate)) {
+                ProvisionLogger.logi(mAccountToMigrate + " successfully transferred from the "
+                        + "primary user to user " + mManagedProfileUserInfo.id);
+                return;
+            }
+            // The MDM will be able to check for the existence of the account
+        } else {
+            ProvisionLogger.logi("No account to migrate to the managed profile.");
+        }
+    }
+
+    private boolean copyAccount(Account account) {
+        ProvisionLogger.logd("Attempting to copy " + account + " to user "
+                + mManagedProfileUserInfo.id);
+        try {
+            if (mAccountManager.copyAccountToUser(account, mManagedProfileUserInfo.getUserHandle(),
+                    /* callback= */ null, /* handler= */ null).getResult()) {
+                ProvisionLogger.logi("Copied " + account + " to user "
+                        + mManagedProfileUserInfo.id);
+                return true;
+            }
+            ProvisionLogger.loge("Could not copy " + account + " to user "
+                        + mManagedProfileUserInfo.id);
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.logw("Exception copying account " + account + " to user "
+                    + mManagedProfileUserInfo.id, e);
+        }
+        return false;
+    }
+
+    private boolean removeAccount(Account account) {
+        try {
+            if (mAccountManager.removeAccount(account, null, null).getResult()) {
+                ProvisionLogger.logw("Account " + account + " removed from the primary user.");
+                return true;
+            }
+            ProvisionLogger.logw("Could not remove account " + account + " from the primary user.");
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.logw("Exception removing account " + account
+                    + " from the primary user.", e);
+        }
+        return false;
     }
 
     private void createProfile(String profileName) {
