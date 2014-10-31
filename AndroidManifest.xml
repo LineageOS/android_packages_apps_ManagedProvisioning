@@ -64,8 +64,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme"
-            android:screenOrientation="locked">
+            android:theme="@style/SetupWorkSpaceTheme">
             <intent-filter android:priority="10">
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -106,16 +105,14 @@
             android:name="EncryptDeviceActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme"
-            android:screenOrientation="locked">
+            android:theme="@style/SetupWorkSpaceTheme">
         </activity>
 
         <activity
             android:name="WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme"
-            android:screenOrientation="locked">
+            android:theme="@style/SetupWorkSpaceTheme">
         </activity>
 
         <service
