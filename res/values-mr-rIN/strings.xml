@@ -68,14 +68,9 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अॅप वापरणे शक्य नाही. ते गहाळ घटक किंवा दूषित आहेत. आपल्या IT विभागाशी संपर्क साधा."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"प्रशासक अ‍ॅप स्‍थापित करणे शक्य झाले नाही"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"आपल्‍या डिव्‍हाइसवर प्रशासक अ‍ॅप स्‍थापित केला नाही"</string>
-    <!-- no translation found for profile_owner_cancel_title (1087667875324931402) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_message (3397782777804924267) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_cancel (4408725524311574891) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (5951679183850766029) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancelling (2007485854183176973) -->
-    <skip />
+    <string name="profile_owner_cancel_title" msgid="1087667875324931402">"सेट करणे थांबवायचे?"</string>
+    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"आपल्याला खात्री आहे की आपण सेट करणे थांबवू इच्छिता?"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"नाही"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"होय"</string>
+    <string name="profile_owner_cancelling" msgid="2007485854183176973">"रद्द करत आहे..."</string>
 </resources>

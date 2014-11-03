@@ -68,14 +68,9 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"အက်ဒမင် appကို မတပ်ဆင်နိုင်ပါ။"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"သင့်စက်တွင် အက်ဒမင် app မတပ်ဆင်ရသေးပါ။"</string>
-    <!-- no translation found for profile_owner_cancel_title (1087667875324931402) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_message (3397782777804924267) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_cancel (4408725524311574891) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (5951679183850766029) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancelling (2007485854183176973) -->
-    <skip />
+    <string name="profile_owner_cancel_title" msgid="1087667875324931402">"စဖွင့်သတ်မှတ်ခြင်း ရပ်စဲမလား?"</string>
+    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"သင်သည် စဖွင့်သတ်မှတ်မှုကို ရပ်စဲချင်တာ သေချာသလား?"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"မလို"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ဟုတ်"</string>
+    <string name="profile_owner_cancelling" msgid="2007485854183176973">"ဖျက်နေ..."</string>
 </resources>
