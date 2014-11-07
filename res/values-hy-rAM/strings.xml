@@ -69,8 +69,8 @@
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Չհաջողվեց տեղադրել ադմինիստրատորի հավելվածը"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ադմինիստրատորի հավելվածը տեղադրված չէ ձեր սարքում"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Դադարեցնե՞լ կարգավորումը:"</string>
-    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Համոզվա՞ծ եք, որ ցանկանում եք դադարեցնել կարգավորումը:"</string>
+    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Դադարեցնե՞լ կարգավորումը:"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ոչ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Այո"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Չեղարկվում է..."</string>
+    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Չեղարկում..."</string>
 </resources>
