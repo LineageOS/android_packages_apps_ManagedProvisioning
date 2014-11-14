@@ -88,14 +88,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ManagedProvisioningActivity"
+            android:name="ProfileOwnerProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">
         </activity>
         <activity-alias
-            android:name="ManagedProvisioningActivityNoCallerCheck"
+            android:name="ProfileOwnerProvisioningActivityNoCallerCheck"
             android:targetActivity="ProfileOwnerPreProvisioningActivity"
             android:permission="android.permission.MANAGE_USERS"
             android:exported="true">
@@ -115,7 +115,7 @@
         </activity>
 
         <service
-            android:name="ManagedProvisioningService" >
+            android:name="ProfileOwnerProvisioningService" >
         </service>
         <service
             android:name="DeviceOwnerProvisioningService" >

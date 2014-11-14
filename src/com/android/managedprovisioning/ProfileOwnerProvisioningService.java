@@ -52,12 +52,12 @@ import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 
 /**
- * Service that runs the managed provisioning.
+ * Service that runs the profile owner provisioning.
  *
- * <p>This service is started from and sends updates to the {@link ManagedProvisioningActivity},
+ * <p>This service is started from and sends updates to the {@link ProfileOwnerProvisioningActivity},
  * which contains the provisioning UI.
  */
-public class ManagedProvisioningService extends Service {
+public class ProfileOwnerProvisioningService extends Service {
     // Extra keys for reporting back success to the activity.
     public static final String EXTRA_PROFILE_USER_ID =
             "com.android.managedprovisioning.extra.profile_user_id";
@@ -116,20 +116,20 @@ public class ManagedProvisioningService extends Service {
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
-        if (ManagedProvisioningActivity.ACTION_CANCEL_PROVISIONING.equals(intent.getAction())) {
-            ProvisionLogger.logd("Cancelling managed provisioning service");
+        if (ProfileOwnerProvisioningActivity.ACTION_CANCEL_PROVISIONING.equals(intent.getAction())) {
+            ProvisionLogger.logd("Cancelling profile owner provisioning service");
             cancelProvisioning();
             return START_NOT_STICKY;
         }
 
-        ProvisionLogger.logd("Starting managed provisioning service");
+        ProvisionLogger.logd("Starting profile owner provisioning service");
 
         try {
             runnerTask.execute(intent);
         } catch (IllegalStateException e) {
             // runnerTask is either in progress, or finished.
             ProvisionLogger.logd(
-                    "ManagedProvisioningService: Provisioning already started, "
+                    "ProfileOwnerProvisioningService: Provisioning already started, "
                     + "second provisioning intent not being processed, only reporting status.");
             reportStatus();
         }
@@ -258,7 +258,7 @@ public class ManagedProvisioningService extends Service {
         successIntent.putExtra(EXTRA_PENDING_SUCCESS_INTENT, completeIntent);
         successIntent.putExtra(EXTRA_PROFILE_USER_SERIAL_NUMBER,
                 mManagedProfileUserInfo.serialNumber);
-        LocalBroadcastManager.getInstance(ManagedProvisioningService.this)
+        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
                 .sendBroadcast(successIntent);
     }
 
@@ -349,7 +349,7 @@ public class ManagedProvisioningService extends Service {
             mUserManager.removeUser(mManagedProfileUserInfo.id);
         }
         Intent cancelIntent = new Intent(ACTION_PROVISIONING_CANCELLED);
-        LocalBroadcastManager.getInstance(ManagedProvisioningService.this)
+        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
                 .sendBroadcast(cancelIntent);
     }
 
