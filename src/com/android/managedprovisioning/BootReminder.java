@@ -51,7 +51,7 @@ public class BootReminder extends BroadcastReceiver {
     };
 
     private static final ComponentName PROFILE_OWNER_INTENT_TARGET =
-            ManagedProvisioningActivity.ALIAS_NO_CHECK_CALLER;
+            ProfileOwnerPreProvisioningActivity.ALIAS_NO_CHECK_CALLER;
 
     /*
      * Device owner parameters that are stored in the IntentStore for resuming provisioning.

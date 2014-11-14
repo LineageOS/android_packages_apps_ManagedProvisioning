@@ -77,30 +77,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ManagedProvisioningActivity"
+            android:name="ProfileOwnerPreProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme"
-            android:screenOrientation="locked">
+            android:theme="@style/SetupWorkSpaceTheme">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="ManagedProvisioningActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SetupWorkSpaceTheme">
+        </activity>
         <activity-alias
             android:name="ManagedProvisioningActivityNoCallerCheck"
-            android:targetActivity="ManagedProvisioningActivity"
+            android:targetActivity="ProfileOwnerPreProvisioningActivity"
             android:permission="android.permission.MANAGE_USERS"
             android:exported="true">
         </activity-alias>
-        <activity
-            android:name="UserConsentActivity"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme"
-            android:screenOrientation="locked">
-        </activity>
         <activity
             android:name="EncryptDeviceActivity"
             android:immersive="true"
