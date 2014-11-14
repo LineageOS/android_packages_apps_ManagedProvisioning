@@ -55,7 +55,7 @@ import android.widget.Button;
 import java.util.List;
 
 /**
- * The activity sets up the environment in which the {@link ManagedProvisioningActivity} can be run.
+ * The activity sets up the environment in which the {@link ProfileOwnerProvisioningActivity} can be run.
  * It makes sure the device is encrypted, the current launcher supports managed profiles, the
  * provisioning intent extras are valid, and that the already present managed profile is removed.
  */
@@ -70,11 +70,11 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     // Aliases to start profile owner provisioning with and without MANAGE_USERS permission
     protected static final ComponentName ALIAS_CHECK_CALLER =
             new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.ManagedProvisioningActivity");
+                    "com.android.managedprovisioning.ProfileOwnerProvisioningActivity");
 
     protected static final ComponentName ALIAS_NO_CHECK_CALLER =
             new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.ManagedProvisioningActivityNoCallerCheck");
+                    "com.android.managedprovisioning.ProfileOwnerProvisioningActivityNoCallerCheck");
 
     protected static final int PROVISIONING_REQUEST_CODE = 3;
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
@@ -85,8 +85,6 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ProvisionLogger.logd("Managed provisioning activity ONCREATE");
 
         final LayoutInflater inflater = getLayoutInflater();
         View contentView = inflater.inflate(R.layout.user_consent, null);
@@ -279,7 +277,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         if (!currentLauncherSupportsManagedProfiles()) {
             showCurrentLauncherInvalid();
         } else {
-            startManagedProvisioning();
+            startProfileOwnerProvisioning();
         }
     }
 
@@ -290,8 +288,8 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         // Continue in onActivityResult.
     }
 
-    private void startManagedProvisioning() {
-        Intent intent = new Intent(this, ManagedProvisioningActivity.class);
+    private void startProfileOwnerProvisioning() {
+        Intent intent = new Intent(this, ProfileOwnerProvisioningActivity.class);
         intent.putExtras(getIntent());
         startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
     }
@@ -308,7 +306,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
             if (resultCode == RESULT_CANCELED) {
                 showCurrentLauncherInvalid();
             } else if (resultCode == RESULT_OK) {
-                startManagedProvisioning();
+                startProfileOwnerProvisioning();
             }
         }
         if (requestCode == PROVISIONING_REQUEST_CODE) {

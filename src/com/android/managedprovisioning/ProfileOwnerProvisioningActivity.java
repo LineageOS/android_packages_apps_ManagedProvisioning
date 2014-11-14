@@ -39,15 +39,19 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Managed provisioning sets up a separate profile on a device whose primary user is already set up.
+ * Profile owner provisioning sets up a separate profile on a device whose primary user is already
+ * set up.
+ *
+ * <p>
  * The typical example is setting up a corporate profile that is controlled by their employer on a
  * users personal device to keep personal and work data separate.
  *
+ * <p>
  * The activity handles the UI for managed profile provisioning and starts the
- * {@link ManagedProvisioningService}, which runs through the setup steps in an
+ * {@link ProfileOwnerProvisioningService}, which runs through the setup steps in an
  * async task.
  */
-public class ManagedProvisioningActivity extends Activity {
+public class ProfileOwnerProvisioningActivity extends Activity {
     protected static final String ACTION_CANCEL_PROVISIONING =
             "com.android.managedprovisioning.CANCEL_PROVISIONING";
 
@@ -72,7 +76,7 @@ public class ManagedProvisioningActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ProvisionLogger.logd("Managed provisioning activity ONCREATE");
+        ProvisionLogger.logd("Profile owner provisioning activity ONCREATE");
 
         if (savedInstanceState != null) {
             mCancelStatus = savedInstanceState.getInt(KEY_CANCELSTATUS, CANCELSTATUS_PROVISIONING);
@@ -95,12 +99,12 @@ public class ManagedProvisioningActivity extends Activity {
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS);
-        filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_ERROR);
-        filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_CANCELLED);
+        filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS);
+        filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
+        filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED);
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
-        Intent intent = new Intent(this, ManagedProvisioningService.class);
+        Intent intent = new Intent(this, ProfileOwnerProvisioningService.class);
         intent.putExtras(getIntent());
         startService(intent);
     }
@@ -120,14 +124,14 @@ public class ManagedProvisioningActivity extends Activity {
 
     private void handleProvisioningResult(Intent intent) {
         String action = intent.getAction();
-        if (ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS.equals(action)) {
+        if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS.equals(action)) {
             if (mCancelStatus == CANCELSTATUS_CANCELLING) {
                 return;
             }
 
             ProvisionLogger.logd("Successfully provisioned."
-                    + "Finishing ManagedProvisioningActivity");
-            int userId = intent.getIntExtra(ManagedProvisioningService.EXTRA_PROFILE_USER_ID, -1);
+                    + "Finishing ProfileOwnerProvisioningActivity");
+            int userId = intent.getIntExtra(ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_ID, -1);
 
             if (!startManagedProfile(userId)) {
                 error(R.string.managed_provisioning_error_text,
@@ -136,28 +140,28 @@ public class ManagedProvisioningActivity extends Activity {
             }
 
             Intent pendingIntent = (Intent) intent.getParcelableExtra(
-                    ManagedProvisioningService.EXTRA_PENDING_SUCCESS_INTENT);
+                    ProfileOwnerProvisioningService.EXTRA_PENDING_SUCCESS_INTENT);
             int serialNumber = intent.getIntExtra(
-                    ManagedProvisioningService.EXTRA_PROFILE_USER_SERIAL_NUMBER, -1);
+                    ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_SERIAL_NUMBER, -1);
 
             onProvisioningSuccess(pendingIntent, userId, serialNumber);
-        } else if (ManagedProvisioningService.ACTION_PROVISIONING_ERROR.equals(action)) {
+        } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR.equals(action)) {
             if (mCancelStatus == CANCELSTATUS_CANCELLING){
                 return;
             }
             String errorLogMessage = intent.getStringExtra(
-                    ManagedProvisioningService.EXTRA_LOG_MESSAGE_KEY);
+                    ProfileOwnerProvisioningService.EXTRA_LOG_MESSAGE_KEY);
             ProvisionLogger.logd("Error reported: " + errorLogMessage);
             error(R.string.managed_provisioning_error_text, errorLogMessage);
-        } if (ManagedProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
+        } if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
             if (mCancelStatus != CANCELSTATUS_CANCELLING) {
                 return;
             }
             mCancelProgressDialog.dismiss();
-            ManagedProvisioningActivity.this.setResult(Activity.RESULT_CANCELED);
-            stopService(new Intent(ManagedProvisioningActivity.this,
-                            ManagedProvisioningService.class));
-            ManagedProvisioningActivity.this.finish();
+            ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_CANCELED);
+            stopService(new Intent(ProfileOwnerProvisioningActivity.this,
+                            ProfileOwnerProvisioningService.class));
+            ProfileOwnerProvisioningActivity.this.finish();
         }
     }
 
@@ -219,8 +223,8 @@ public class ManagedProvisioningActivity extends Activity {
 
     private void confirmCancel() {
         mCancelStatus = CANCELSTATUS_CANCELLING;
-        Intent intent = new Intent(ManagedProvisioningActivity.this,
-                ManagedProvisioningService.class);
+        Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
+                ProfileOwnerProvisioningService.class);
         intent.setAction(ACTION_CANCEL_PROVISIONING);
         startService(intent);
         showCancelProgressDialog();
@@ -245,7 +249,7 @@ public class ManagedProvisioningActivity extends Activity {
 
     /**
      * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
-     * the service and notify the {@link ManagedProvisioningActivity} so that it can finish itself.
+     * the service and notify the {@link ProfileOwnerProvisioningActivity} so that it can finish itself.
      */
     private void onProvisioningSuccess(Intent pendingSuccessIntent, int userId, int serialNumber) {
         mCancelStatus = CANCELSTATUS_FINALIZING;
@@ -262,10 +266,10 @@ public class ManagedProvisioningActivity extends Activity {
             public void onReceive(Context context, Intent intent) {
                 ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
                         + " mdm");
-                ManagedProvisioningActivity.this.setResult(Activity.RESULT_OK);
-                ManagedProvisioningActivity.this.finish();
-                stopService(new Intent(ManagedProvisioningActivity.this,
-                                ManagedProvisioningService.class));
+                ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_OK);
+                ProfileOwnerProvisioningActivity.this.finish();
+                stopService(new Intent(ProfileOwnerProvisioningActivity.this,
+                                ProfileOwnerProvisioningService.class));
             }
         };
 
