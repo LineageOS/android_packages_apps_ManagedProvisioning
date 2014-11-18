@@ -279,7 +279,11 @@ public class DeviceOwnerProvisioningService extends Service {
                 new SetDevicePolicyTask.Callback() {
                     @Override
                     public void onSuccess() {
-                        mDeleteNonRequiredAppsTask.run();
+                        if (params.mLeaveAllSystemAppsEnabled) {
+                            onProvisioningSuccess(params.mDeviceAdminPackageName);
+                        } else {
+                            mDeleteNonRequiredAppsTask.run();
+                        }
                     }
 
                     @Override
