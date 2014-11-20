@@ -27,6 +27,8 @@ import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
+import android.app.ActivityManagerNative;
+import android.app.IActivityManager;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -245,7 +247,12 @@ public class ProfileOwnerProvisioningService extends Service {
         setMdmAsManagedProfileOwner();
         CrossProfileIntentFiltersHelper.setFilters(
                 getPackageManager(), getUserId(), mManagedProfileUserInfo.id);
-            migrateAccount();
+
+        if (!startManagedProfile(mManagedProfileUserInfo.id)) {
+            error("Could not start user in background");
+            return;
+        }
+        migrateAccount();
         synchronized (this) {
             mDone = true;
             if (mCancelInFuture) {
@@ -255,6 +262,23 @@ public class ProfileOwnerProvisioningService extends Service {
                 notifyActivityOfSuccess();
             }
         }
+    }
+
+    /**
+     * Initialize the user that underlies the managed profile.
+     * This is required so that the provisioning complete broadcast can be sent across to the
+     * profile and apps can run on it.
+     */
+    private boolean startManagedProfile(int userId)  {
+        ProvisionLogger.logd("Starting user in background");
+        IActivityManager iActivityManager = ActivityManagerNative.getDefault();
+        try {
+            return iActivityManager.startUserInBackground(userId);
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
+        }
+        return false;
     }
 
     private void notifyActivityOfSuccess() {
