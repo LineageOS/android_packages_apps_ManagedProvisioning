@@ -16,6 +16,13 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
@@ -27,6 +34,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.UserHandle;
@@ -37,6 +45,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 /**
  * Profile owner provisioning sets up a separate profile on a device whose primary user is already
@@ -72,11 +82,13 @@ public class ProfileOwnerProvisioningActivity extends Activity {
     private int mCancelStatus = CANCELSTATUS_PROVISIONING;
     private Intent mPendingProvisioningResult = null;
     private ProgressDialog mCancelProgressDialog = null;
+    private AccountManager mAccountManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ProvisionLogger.logd("Profile owner provisioning activity ONCREATE");
+        mAccountManager = (AccountManager) getSystemService(Context.ACCOUNT_SERVICE);
 
         if (savedInstanceState != null) {
             mCancelStatus = savedInstanceState.getInt(KEY_CANCELSTATUS, CANCELSTATUS_PROVISIONING);
@@ -245,6 +257,21 @@ public class ProfileOwnerProvisioningActivity extends Activity {
                 ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
                         + " mdm");
                 ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_OK);
+
+                // Now cleanup the primary profile if necessary
+                if (getIntent().hasExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE)) {
+                    ProvisionLogger.logd("Cleaning up account from the primary user.");
+                    final Account account = (Account) getIntent().getParcelableExtra(
+                            EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+                    new AsyncTask<Void, Void, Void>() {
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            removeAccount(account);
+                            return null;
+                        }
+                    }.execute();
+                }
+
                 ProfileOwnerProvisioningActivity.this.finish();
                 stopService(new Intent(ProfileOwnerProvisioningActivity.this,
                                 ProfileOwnerProvisioningService.class));
@@ -257,6 +284,17 @@ public class ProfileOwnerProvisioningActivity extends Activity {
             + userHandle.getIdentifier());
     }
 
+    private void removeAccount(Account account) {
+        try {
+            if (mAccountManager.removeAccount(account, null, null).getResult()) {
+                ProvisionLogger.logw("Account removed from the primary user.");
+            } else {
+                ProvisionLogger.logw("Could not remove account from the primary user.");
+            }
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.logw("Exception removing account from the primary user.", e);
+        }
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
