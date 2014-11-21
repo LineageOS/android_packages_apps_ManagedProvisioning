@@ -131,19 +131,14 @@ public class ProfileOwnerProvisioningActivity extends Activity {
 
             ProvisionLogger.logd("Successfully provisioned."
                     + "Finishing ProfileOwnerProvisioningActivity");
-            int userId = intent.getIntExtra(ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_ID, -1);
-
-            if (!startManagedProfile(userId)) {
-                error(R.string.managed_provisioning_error_text,
-                        "Could not start user in background");
-                return;
-            }
 
             Intent pendingIntent = (Intent) intent.getParcelableExtra(
                     ProfileOwnerProvisioningService.EXTRA_PENDING_SUCCESS_INTENT);
             int serialNumber = intent.getIntExtra(
                     ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_SERIAL_NUMBER, -1);
 
+            int userId = intent.getIntExtra(ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_ID,
+                    -1);
             onProvisioningSuccess(pendingIntent, userId, serialNumber);
         } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR.equals(action)) {
             if (mCancelStatus == CANCELSTATUS_CANCELLING){
@@ -228,23 +223,6 @@ public class ProfileOwnerProvisioningActivity extends Activity {
         intent.setAction(ACTION_CANCEL_PROVISIONING);
         startService(intent);
         showCancelProgressDialog();
-    }
-
-    /**
-     * Initialize the user that underlies the managed profile.
-     * This is required so that the provisioning complete broadcast can be sent across to the
-     * profile and apps can run on it.
-     */
-    private boolean startManagedProfile(int userId)  {
-        ProvisionLogger.logd("Starting user in background");
-        IActivityManager iActivityManager = ActivityManagerNative.getDefault();
-        try {
-            return iActivityManager.startUserInBackground(userId);
-        } catch (RemoteException neverThrown) {
-            // Never thrown, as we are making local calls.
-            ProvisionLogger.loge("This should not happen.", neverThrown);
-        }
-        return false;
     }
 
     /**
