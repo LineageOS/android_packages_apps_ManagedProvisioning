@@ -67,8 +67,8 @@ public class DeleteNonRequiredAppsTask {
     private final int mReqAppsList;
     private final int mVendorReqAppsList;
     private final int mUserId;
-    private final boolean mNewProfile; // If we are provisioning a new profile.
-    private final boolean mDisableInstallShortcutListeners;
+    private final boolean mNewProfile; // If we are provisioning a new managed profile/device.
+    private final boolean mDisableInstallShortcutListenersAndTelecom;
 
     private static final String TAG_SYSTEM_APPS = "system-apps";
     private static final String TAG_PACKAGE_LIST_ITEM = "item";
@@ -76,7 +76,7 @@ public class DeleteNonRequiredAppsTask {
 
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName, int userId,
             int requiredAppsList, int vendorRequiredAppsList, boolean newProfile,
-            boolean disableInstallShortcutListeners, Callback callback) {
+            boolean disableInstallShortcutListenersAndTelecom, Callback callback) {
         mCallback = callback;
         mContext = context;
         mMdmPackageName = mdmPackageName;
@@ -86,7 +86,7 @@ public class DeleteNonRequiredAppsTask {
         mReqAppsList = requiredAppsList;
         mVendorReqAppsList = vendorRequiredAppsList;
         mNewProfile = newProfile;
-        mDisableInstallShortcutListeners = disableInstallShortcutListeners;
+        mDisableInstallShortcutListenersAndTelecom = disableInstallShortcutListenersAndTelecom;
     }
 
     public void run() {
@@ -131,7 +131,7 @@ public class DeleteNonRequiredAppsTask {
         Set<String> newApps = currentApps;
         newApps.removeAll(previousApps);
 
-        if (mDisableInstallShortcutListeners) {
+        if (mDisableInstallShortcutListenersAndTelecom) {
             Intent actionShortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             if (previousApps.isEmpty()) {
                 // Here, all the apps are in newApps.
@@ -150,7 +150,7 @@ public class DeleteNonRequiredAppsTask {
         packagesToDelete.removeAll(getRequiredApps());
         packagesToDelete.retainAll(getCurrentAppsWithLauncher());
         // com.android.server.telecom should not handle CALL intents in the managed profile.
-        if (mNewProfile) {
+        if (mDisableInstallShortcutListenersAndTelecom && mNewProfile) {
             packagesToDelete.add("com.android.server.telecom");
         }
         int size = packagesToDelete.size();
