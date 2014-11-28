@@ -7,9 +7,13 @@ LOCAL_STATIC_JAVA_LIBRARIES := android-support-v4
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+
 LOCAL_PACKAGE_NAME := ManagedProvisioning
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
+
+include frameworks/opt/setupwizard/navigationbar/common.mk
 
 include $(BUILD_PACKAGE)
 

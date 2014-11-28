@@ -32,19 +32,4 @@
                 style="@style/MainText"/>
         </LinearLayout>
     </ScrollView>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/row_height"
-        android:paddingTop="@dimen/row_padding_top">
-        <Button
-            android:id="@+id/cancel_button"
-            android:layout_alignParentLeft="true"
-            android:text="@string/encrypt_device_cancel"
-            style="@style/LightButton"/>
-        <Button
-            android:id="@+id/accept_button"
-            android:layout_alignParentRight="true"
-            android:text="@string/encrypt_device_launch_settings"
-            style="@style/ColoredButton" />
-    </RelativeLayout>
 </LinearLayout>

@@ -58,15 +58,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/row_height"
-        android:paddingTop="@dimen/row_padding_top">
-        <Button
-            android:id="@+id/positive_button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:text="@string/set_up"
-            style="@style/ColoredButton" />
-    </RelativeLayout>
 </LinearLayout>

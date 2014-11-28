@@ -36,6 +36,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.setupwizard.navigationbar.SetupWizardNavBar;
+import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 import java.util.ArrayList;
 
@@ -64,7 +66,7 @@ import java.util.ArrayList;
  * </p>
  */
 public class DeviceOwnerProvisioningActivity extends Activity
-        implements UserConsentDialog.ConsentCallback {
+        implements UserConsentDialog.ConsentCallback, NavigationBarListener {
     private static final boolean DEBUG = false; // To control logging.
 
     private static final String KEY_USER_CONSENTED = "user_consented";
@@ -73,6 +75,10 @@ public class DeviceOwnerProvisioningActivity extends Activity
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     private static final int WIFI_REQUEST_CODE = 2;
+
+    // Hide default system navigation bar.
+    protected static final int IMMERSIVE_FLAGS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
@@ -322,7 +328,9 @@ public class DeviceOwnerProvisioningActivity extends Activity
                                                 DeviceOwnerProvisioningService.class));
                                 finish();
                             }
-                        }).show();
+                        })
+                .show()
+                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     private void handlePendingIntents() {
@@ -398,7 +406,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
                         }
                     });
         }
-        alertBuilder.show();
+        alertBuilder.show().getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     @Override
@@ -440,6 +448,20 @@ public class DeviceOwnerProvisioningActivity extends Activity
     protected void onStop() {
         if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONSTOP");
         super.onStop();
+    }
+
+    @Override
+    public void onNavigationBarCreated(SetupWizardNavBar bar) {
+        bar.getNextButton().setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onNavigateBack() {
+        onBackPressed();
+    }
+
+    @Override
+    public void onNavigateNext() {
     }
 }
 
