@@ -26,12 +26,10 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
-import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -43,19 +41,18 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
 import android.os.IBinder;
-import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.MediaStore;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
+import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
+import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 
 import java.io.IOException;
 
@@ -216,16 +213,26 @@ public class ProfileOwnerProvisioningService extends Service {
         // Work through the provisioning steps in their corresponding order
         createProfile(getString(R.string.default_managed_profile_name));
         if (mManagedProfileUserInfo != null) {
-            new DeleteNonRequiredAppsTask(this,
-                    mMdmPackageName, mManagedProfileUserInfo.id,
-                    R.array.required_apps_managed_profile,
+
+            final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask;
+            final DisableInstallShortcutListenersTask disableInstallShortcutListenersTask;
+            final DisableBluetoothSharingTask disableBluetoothSharingTask;
+
+            disableInstallShortcutListenersTask = new DisableInstallShortcutListenersTask(this,
+                    mManagedProfileUserInfo.id);
+            disableBluetoothSharingTask = new DisableBluetoothSharingTask(
+                    mManagedProfileUserInfo.id);
+            deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this,
+                    mMdmPackageName, R.array.required_apps_managed_profile,
                     R.array.vendor_required_apps_managed_profile,
-                    true /* We are creating a new profile */,
-                    true /* Disable INSTALL_SHORTCUT listeners */,
+                    R.array.packages_to_delete_new_managed_profile,
+                    true /* creating new profile */, mManagedProfileUserInfo.id,
                     new DeleteNonRequiredAppsTask.Callback() {
 
                         @Override
                         public void onSuccess() {
+                            disableBluetoothSharingTask.run();
+                            disableInstallShortcutListenersTask.run();
                             setUpProfileAndFinish();
                         }
 
@@ -233,7 +240,9 @@ public class ProfileOwnerProvisioningService extends Service {
                         public void onError() {
                             error("Delete non required apps task failed.");
                         }
-                    }).run();
+                    });
+
+            deleteNonRequiredAppsTask.run();
         }
     }
 

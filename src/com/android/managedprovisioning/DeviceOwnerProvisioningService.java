@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
@@ -303,10 +302,9 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
-                this, params.mDeviceAdminPackageName, UserHandle.USER_OWNER,
-                R.array.required_apps_managed_device, R.array.vendor_required_apps_managed_device,
-                true /* We are creating a new profile */,
-                false /* Do not disable INSTALL_SHORTCUT listeners */,
+                this, params.mDeviceAdminPackageName, R.array.required_apps_managed_device,
+                R.array.vendor_required_apps_managed_device, true /* creating new profile */,
+                UserHandle.USER_OWNER,
                 new DeleteNonRequiredAppsTask.Callback() {
                     public void onSuccess() {
                         // Done with provisioning. Success.
