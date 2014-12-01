@@ -18,8 +18,6 @@ package com.android.managedprovisioning;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,6 +28,7 @@ import android.os.UserHandle;
 import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
+import android.service.persistentdata.PersistentDataBlockManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -39,7 +38,6 @@ import android.widget.TextView;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 /**
  * This activity starts device owner provisioning:
@@ -126,6 +124,12 @@ public class DeviceOwnerProvisioningActivity extends Activity
             return;
         }
 
+        if (factoryResetProtected()) {
+            ProvisionLogger.loge("Factory reset protection blocks provisioning.");
+            error(R.string.device_owner_error_already_provisioned, false /* no factory reset */);
+            return;
+        }
+
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
         IntentFilter filter = new IntentFilter();
@@ -161,6 +165,18 @@ public class DeviceOwnerProvisioningActivity extends Activity
         }
 
         showInterstitialAndProvision(mParams);
+    }
+
+    private boolean factoryResetProtected() {
+        // Can't refer to type directly here and API is hidden, so
+        // get it via reflection.
+        PersistentDataBlockManager pdbManager = (PersistentDataBlockManager)
+                getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
+        if (pdbManager == null) {
+            ProvisionLogger.loge("Unable to get persistent data block service");
+            return false;
+        }
+        return pdbManager.getDataBlockSize() > 0;
     }
 
     private void showInterstitialAndProvision(final ProvisioningParams params) {
