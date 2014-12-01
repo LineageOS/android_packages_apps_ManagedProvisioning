@@ -21,12 +21,26 @@
     style="@style/Container" >
     <include layout="@layout/header_and_title"/>
     <LinearLayout
-        style="@style/MainTextContainer">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/main_text_margins_left_right"
+        android:layout_marginRight="@dimen/main_text_margins_left_right">
         <ProgressBar
-            style="@style/ProgressBar"/>
-        <TextView
-            android:id="@+id/prog_text"
-            android:gravity="center_horizontal"
-            style="@style/MainText"/>
+            style="?android:attr/progressBarStyleHorizontal"
+            android:background="@color/white"
+            android:indeterminate="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/progress_bar_margin_top"
+            android:layout_weight="0"
+            android:layout_width="match_parent"/>
+        <LinearLayout
+            android:layout_weight="1"
+            style="@style/MainTextContainerNoHorizontalMargin">
+            <TextView
+                android:id="@+id/prog_text"
+                android:gravity="center_horizontal"
+                style="@style/MainText"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -46,4 +46,7 @@
     <dimen name="row_height">72dp</dimen>
     <dimen name="row_padding_top">8dp</dimen>
     <dimen name="icon_width_height">56dp</dimen>
+
+    <!-- The margin to compensate for the built-in padding of the progress bar -->
+    <dimen name="progress_bar_margin_top">-7dp</dimen>
 </resources>
