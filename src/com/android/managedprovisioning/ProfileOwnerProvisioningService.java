@@ -170,7 +170,7 @@ public class ProfileOwnerProvisioningService extends Service {
         mAccountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
         if (mAccountToMigrate != null) {
-            ProvisionLogger.logi("Migrating: " + mAccountToMigrate);
+            ProvisionLogger.logi("Migrating account to managed profile");
         }
 
         // Cast is guaranteed by check in Activity.
@@ -261,7 +261,7 @@ public class ProfileOwnerProvisioningService extends Service {
             error("Could not start user in background");
             return;
         }
-        migrateAccount();
+        copyAccount(mAccountToMigrate);
         synchronized (this) {
             mDone = true;
             if (mCancelInFuture) {
@@ -310,50 +310,24 @@ public class ProfileOwnerProvisioningService extends Service {
                 .sendBroadcast(successIntent);
     }
 
-    private void migrateAccount() {
-        if (mAccountToMigrate != null) {
-            if (copyAccount(mAccountToMigrate) && removeAccount(mAccountToMigrate)) {
-                ProvisionLogger.logi(mAccountToMigrate + " successfully transferred from the "
-                        + "primary user to user " + mManagedProfileUserInfo.id);
-                return;
-            }
-            // The MDM will be able to check for the existence of the account
-        } else {
-            ProvisionLogger.logi("No account to migrate to the managed profile.");
+    private void copyAccount(Account account) {
+        if (account == null) {
+            ProvisionLogger.logd("No account to migrate to the managed profile.");
+            return;
         }
-    }
-
-    private boolean copyAccount(Account account) {
-        ProvisionLogger.logd("Attempting to copy " + account + " to user "
-                + mManagedProfileUserInfo.id);
+        ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
         try {
             if (mAccountManager.copyAccountToUser(account, mManagedProfileUserInfo.getUserHandle(),
                     /* callback= */ null, /* handler= */ null).getResult()) {
-                ProvisionLogger.logi("Copied " + account + " to user "
+                ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
+            } else {
+                ProvisionLogger.loge("Could not copy account to user "
                         + mManagedProfileUserInfo.id);
-                return true;
             }
-            ProvisionLogger.loge("Could not copy " + account + " to user "
-                        + mManagedProfileUserInfo.id);
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception copying account " + account + " to user "
-                    + mManagedProfileUserInfo.id, e);
+            ProvisionLogger.logw("Exception copying account to user " + mManagedProfileUserInfo.id,
+                    e);
         }
-        return false;
-    }
-
-    private boolean removeAccount(Account account) {
-        try {
-            if (mAccountManager.removeAccount(account, null, null).getResult()) {
-                ProvisionLogger.logw("Account " + account + " removed from the primary user.");
-                return true;
-            }
-            ProvisionLogger.logw("Could not remove account " + account + " from the primary user.");
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception removing account " + account
-                    + " from the primary user.", e);
-        }
-        return false;
     }
 
     private void createProfile(String profileName) {
