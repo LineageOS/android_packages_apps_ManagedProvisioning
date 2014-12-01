@@ -28,6 +28,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -95,6 +96,12 @@ public class ProfileOwnerProvisioningActivity extends Activity {
         } else if (mCancelStatus == CANCELSTATUS_CANCELLING) {
             showCancelProgressDialog();
         }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
@@ -104,9 +111,17 @@ public class ProfileOwnerProvisioningActivity extends Activity {
         filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED);
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
-        Intent intent = new Intent(this, ProfileOwnerProvisioningService.class);
-        intent.putExtras(getIntent());
-        startService(intent);
+        // Start service async to make sure the UI is loaded first.
+        final Handler handler = new Handler(getMainLooper());
+        handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
+                            ProfileOwnerProvisioningService.class);
+                    intent.putExtras(getIntent());
+                    startService(intent);
+                }
+            });
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver {
@@ -265,9 +280,9 @@ public class ProfileOwnerProvisioningActivity extends Activity {
     }
 
     @Override
-    public void onDestroy() {
+    public void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
-        super.onDestroy();
+        super.onPause();
     }
 }
 
