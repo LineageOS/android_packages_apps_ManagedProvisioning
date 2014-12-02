@@ -23,6 +23,7 @@ import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME
 import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
 
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -132,6 +133,15 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                         + "The system MANAGE_USERS permission is required.");
                 return;
             }
+        }
+
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        String deviceOwner = dpm.getDeviceOwner();
+        if (deviceOwner != null && !deviceOwner.equals(mMdmPackageName)) {
+            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
+                    + "profile owner must be in the same package as device owner.");
+            return;
         }
 
         // If there is already a managed profile, allow the user to cancel or delete it.
