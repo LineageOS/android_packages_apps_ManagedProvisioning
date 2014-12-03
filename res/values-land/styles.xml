@@ -26,6 +26,7 @@
       <!-- Match the status bar to the header rather than the image, only for landscape, small -->
       <item name="android:colorPrimaryDark">@color/accent</item>
       <item name="setup_wizard_navbar_theme">@style/setup_wizard_navbar_theme_light</item>
+      <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
     </style>
 
 </resources>

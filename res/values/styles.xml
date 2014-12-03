@@ -25,6 +25,7 @@
       <item name="android:colorAccent">@color/dark_turquoise</item>
       <item name="android:colorPrimaryDark">@color/light_teal</item>
       <item name="setup_wizard_navbar_theme">@style/setup_wizard_navbar_theme_light</item>
+      <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
     </style>
 
     <style name="LightButtonOverlayTheme">
