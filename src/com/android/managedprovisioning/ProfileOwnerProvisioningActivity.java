@@ -301,7 +301,9 @@ public class ProfileOwnerProvisioningActivity extends Activity {
 
     private void removeAccount(Account account) {
         try {
-            if (mAccountManager.removeAccount(account, null, null).getResult()) {
+            AccountManagerFuture<Bundle> bundle = mAccountManager.removeAccount(account,
+                    this, null /* callback */, null /* handler */);
+            if (bundle.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
                 ProvisionLogger.logw("Account removed from the primary user.");
             } else {
                 ProvisionLogger.logw("Could not remove account from the primary user.");
