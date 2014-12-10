@@ -20,16 +20,12 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_T
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
-import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
-import android.app.IActivityManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,7 +33,6 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -48,6 +43,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
+import com.android.setupwizard.navigationbar.SetupWizardNavBar;
+import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 /**
  * Profile owner provisioning sets up a separate profile on a device whose primary user is already
@@ -62,7 +59,7 @@ import java.io.IOException;
  * {@link ProfileOwnerProvisioningService}, which runs through the setup steps in an
  * async task.
  */
-public class ProfileOwnerProvisioningActivity extends Activity {
+public class ProfileOwnerProvisioningActivity extends Activity implements NavigationBarListener {
     protected static final String ACTION_CANCEL_PROVISIONING =
             "com.android.managedprovisioning.CANCEL_PROVISIONING";
 
@@ -74,16 +71,22 @@ public class ProfileOwnerProvisioningActivity extends Activity {
     private static final int CANCELSTATUS_CONFIRMING = 2;
     // Cancel confirmed, waiting for the provisioning service to complete.
     private static final int CANCELSTATUS_CANCELLING = 3;
-    // Cancelling not possible anymore, provisioning already finished succesfully.
+    // Cancelling not possible anymore, provisioning already finished successfully.
     private static final int CANCELSTATUS_FINALIZING = 4;
 
     private static final String KEY_CANCELSTATUS= "cancelstatus";
     private static final String KEY_PENDING_INTENT = "pending_intent";
 
+    // Hide default system navigation bar.
+    protected static final int IMMERSIVE_FLAGS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+
     private int mCancelStatus = CANCELSTATUS_PROVISIONING;
     private Intent mPendingProvisioningResult = null;
     private ProgressDialog mCancelProgressDialog = null;
     private AccountManager mAccountManager;
+
+    private Button mBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,6 +222,7 @@ public class ProfileOwnerProvisioningActivity extends Activity {
                         })
                         .create();
         alertDialog.show();
+        alertDialog.getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     protected void showCancelProgressDialog() {
@@ -227,6 +231,7 @@ public class ProfileOwnerProvisioningActivity extends Activity {
         mCancelProgressDialog.setCancelable(false);
         mCancelProgressDialog.setCanceledOnTouchOutside(false);
         mCancelProgressDialog.show();
+        mCancelProgressDialog.getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     public void error(int resourceId, String logText) {
@@ -240,7 +245,9 @@ public class ProfileOwnerProvisioningActivity extends Activity {
                         public void onClick(DialogInterface dialog,int id) {
                             confirmCancel();
                         }
-                    }).show();
+                    })
+                .show()
+                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     private void confirmCancel() {
@@ -257,6 +264,7 @@ public class ProfileOwnerProvisioningActivity extends Activity {
      * the service and notify the {@link ProfileOwnerProvisioningActivity} so that it can finish itself.
      */
     private void onProvisioningSuccess(Intent pendingSuccessIntent, int userId, int serialNumber) {
+        mBackButton.setVisibility(View.INVISIBLE);
         mCancelStatus = CANCELSTATUS_FINALIZING;
         Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
                 1 /* true- > setup complete */, userId);
@@ -323,6 +331,21 @@ public class ProfileOwnerProvisioningActivity extends Activity {
     public void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
         super.onPause();
+    }
+
+    @Override
+    public void onNavigationBarCreated(SetupWizardNavBar bar) {
+        bar.getNextButton().setVisibility(View.INVISIBLE);
+        mBackButton = bar.getBackButton();
+    }
+
+    @Override
+    public void onNavigateBack() {
+        onBackPressed();
+    }
+
+    @Override
+    public void onNavigateNext() {
     }
 }
 

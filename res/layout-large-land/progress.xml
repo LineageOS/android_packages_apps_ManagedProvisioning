@@ -57,4 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"/>
     </LinearLayout>
+    <fragment android:name="com.android.setupwizard.navigationbar.SetupWizardNavBar"
+        android:id="@+id/navigation_bar"
+        style="@style/setup_wizard_navbar_style" />
 </RelativeLayout>

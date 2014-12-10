@@ -20,5 +20,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Container" >
     <include layout="@layout/header_and_title"/>
-    <include layout="@layout/encrypt_device_main_text"/>
+    <include layout="@layout/encrypt_device_main_text"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/main_text_margins_left_right"
+        android:layout_marginRight="@dimen/main_text_margins_left_right"
+        android:layout_weight="1"/>
+    <fragment android:name="com.android.setupwizard.navigationbar.SetupWizardNavBar"
+        android:id="@+id/navigation_bar"
+        style="@style/setup_wizard_navbar_style" />
 </LinearLayout>

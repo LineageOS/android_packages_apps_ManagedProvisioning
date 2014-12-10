@@ -25,13 +25,10 @@ import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFI
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -45,13 +42,15 @@ import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
+
+import com.android.setupwizard.navigationbar.SetupWizardNavBar;
+import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 import java.util.List;
 
@@ -61,7 +60,7 @@ import java.util.List;
  * provisioning intent extras are valid, and that the already present managed profile is removed.
  */
 public class ProfileOwnerPreProvisioningActivity extends Activity
-        implements UserConsentDialog.ConsentCallback {
+        implements UserConsentDialog.ConsentCallback, NavigationBarListener {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
@@ -81,7 +80,13 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
+    // Hide default system navigation bar.
+    protected static final int IMMERSIVE_FLAGS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+
     private String mMdmPackageName;
+
+    private Button mSetupButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,18 +154,12 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         if (existingManagedProfileUserId != -1) {
             showManagedProfileExistsDialog(existingManagedProfileUserId);
         } else {
-            showStartProvisioningScreen();
+            showStartProvisioningButton();
         }
     }
 
-    private void showStartProvisioningScreen() {
-        Button positiveButton = (Button) findViewById(R.id.positive_button);
-        positiveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkEncryptedAndStartProvisioningService();
-            }
-        });
+    private void showStartProvisioningButton() {
+        mSetupButton.setVisibility(View.VISIBLE);
     }
 
     private boolean packageHasManageUsersPermission(String pkg) {
@@ -344,7 +343,9 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                             public void onClick(DialogInterface dialog,int id) {
                                 pickLauncher();
                             }
-                        }).show();
+                        })
+                .show()
+                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     public void showErrorAndClose(int resourceId, String logText) {
@@ -361,7 +362,9 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                                     .setResult(Activity.RESULT_CANCELED);
                             ProfileOwnerPreProvisioningActivity.this.finish();
                         }
-                    }).show();
+                    })
+                .show()
+                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     /**
@@ -399,21 +402,21 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                         UserManager userManager =
                                 (UserManager) getSystemService(Context.USER_SERVICE);
                         userManager.removeUser(existingManagedProfileUserId);
-                        showStartProvisioningScreen();
+                        showStartProvisioningButton();
                     }
                 };
-                buildDeleteManagedProfileDialog(
+                showDeleteManagedProfileDialog(
                         getString(R.string.sure_you_want_to_delete_profile),
-                        deleteListener).show();
+                        deleteListener);
             }
         };
 
-        buildDeleteManagedProfileDialog(
+        showDeleteManagedProfileDialog(
                 getString(R.string.managed_profile_already_present),
-                warningListener).show();
+                warningListener);
     }
 
-    private AlertDialog buildDeleteManagedProfileDialog(String message,
+    private void showDeleteManagedProfileDialog(String message,
             DialogInterface.OnClickListener deleteListener) {
         DialogInterface.OnClickListener cancelListener =
                 new DialogInterface.OnClickListener() {
@@ -427,9 +430,9 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         builder.setMessage(message)
                 .setCancelable(false)
                 .setPositiveButton(getString(R.string.delete_profile), deleteListener)
-                .setNegativeButton(getString(R.string.cancel_delete_profile), cancelListener);
-
-        return builder.create();
+                .setNegativeButton(getString(R.string.cancel_delete_profile), cancelListener)
+                .show()
+                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
     /**
      * Exception thrown when the provisioning has failed completely.
@@ -445,6 +448,23 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         public ProvisioningFailedException(String message, Throwable t) {
             super(message, t);
         }
+    }
+
+    @Override
+    public void onNavigationBarCreated(SetupWizardNavBar bar) {
+        mSetupButton = bar.getNextButton();
+        mSetupButton.setText(R.string.set_up);
+        mSetupButton.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onNavigateBack() {
+        onBackPressed();
+    }
+
+    @Override
+    public void onNavigateNext() {
+        checkEncryptedAndStartProvisioningService();
     }
 }
 
