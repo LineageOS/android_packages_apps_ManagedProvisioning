@@ -180,6 +180,9 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         PackageManager pm = getPackageManager();
         ResolveInfo launcherResolveInfo
                 = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if (launcherResolveInfo == null) {
+            return false;
+        }
         try {
             ApplicationInfo launcherAppInfo = getPackageManager().getApplicationInfo(
                     launcherResolveInfo.activityInfo.packageName, 0 /* default flags */);
