@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_T
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
