@@ -304,8 +304,6 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         Intent intent = new Intent(this, ProfileOwnerProvisioningActivity.class);
         intent.putExtras(getIntent());
         startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
-        // Set cross-fade transition animation into the interstitial progress activity.
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override
