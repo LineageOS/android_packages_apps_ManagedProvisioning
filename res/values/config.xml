@@ -17,16 +17,6 @@
  */
 -->
 <resources>
-
-    <style name="SetupWorkSpaceTheme" parent="@android:style/Theme.Material" >
-      <item name="android:windowActionBar">false</item>
-      <item name="android:windowNoTitle">true</item>
-      <item name="android:colorPrimary">@color/teal</item>
-      <item name="android:colorAccent">@color/accent</item>
-      <!-- Match the status bar to the header rather than the image, only for landscape, small -->
-      <item name="android:colorPrimaryDark">@color/accent</item>
-      <item name="setup_wizard_navbar_theme">@style/setup_wizard_navbar_theme_light</item>
-      <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
-    </style>
-
+    <!-- The duration (in milliseconds) of activity transitions -->
+    <integer name="activity_transition_duration">300</integer>
 </resources>

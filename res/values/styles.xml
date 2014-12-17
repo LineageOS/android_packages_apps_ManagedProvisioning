@@ -25,6 +25,7 @@
       <item name="android:colorAccent">@color/dark_turquoise</item>
       <item name="android:colorPrimaryDark">@color/light_teal</item>
       <item name="setup_wizard_navbar_theme">@style/setup_wizard_navbar_theme_light</item>
+      <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
     </style>
 
     <style name="LightButtonOverlayTheme">
@@ -152,4 +153,11 @@
       <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <!-- The animation should be consistent with Setup Wizard -->
+    <style name="Animation.SetupWizard" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_next_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_next_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_back_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_back_out</item>
+    </style>
 </resources>
