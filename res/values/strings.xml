@@ -21,8 +21,6 @@
 
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
 
-  <!-- Name of the application [CHAR LIMIT=NONE] -->
-  <string name="app_name">Device Provisioner</string>
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
   <string name="provisioning_error_title">Oops!</string>
 
