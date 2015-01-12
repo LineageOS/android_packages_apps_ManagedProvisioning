@@ -81,7 +81,7 @@
   <!-- Error string displayed if this device doesn't support work profiles. -->
   <string name="managed_provisioning_not_supported">Your device doesn\'t support work profiles</string>
   <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
-  <string name="user_is_not_owner">Work profiles need to be set up by the device owner</string>
+  <string name="user_is_not_owner">Work profiles need to be set up by the primary user of the device</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <string name="managed_provisioning_not_supported_by_launcher">Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible.</string>
   <!-- Button text for the button that cancels provisioning  -->
