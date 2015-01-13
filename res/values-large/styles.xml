@@ -24,7 +24,7 @@
       <item name="android:windowNoTitle">true</item>
       <item name="android:colorPrimary">@color/teal</item>
       <item name="android:colorAccent">@color/dark_turquoise</item>
-      <item name="android:colorPrimaryDark">@color/light_teal</item>
+      <item name="android:colorPrimaryDark">@color/dark_teal</item>
       <item name="setup_wizard_navbar_theme">@style/setup_wizard_navbar_theme_light</item>
       <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
     </style>
@@ -39,8 +39,8 @@
     </style>
 
     <style name="HeaderImageTile">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">left</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:src">@drawable/setup_illustration_right</item>

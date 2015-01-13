@@ -23,7 +23,7 @@
       <item name="android:windowNoTitle">true</item>
       <item name="android:colorPrimary">@color/teal</item>
       <item name="android:colorAccent">@color/dark_turquoise</item>
-      <item name="android:colorPrimaryDark">@color/light_teal</item>
+      <item name="android:colorPrimaryDark">@color/dark_teal</item>
       <item name="setup_wizard_navbar_theme">@style/setup_wizard_navbar_theme_light</item>
       <item name="android:windowAnimationStyle">@style/Animation.SetupWizard</item>
     </style>
@@ -44,21 +44,21 @@
     </style>
 
     <style name="Container">
-      <item name="android:layout_width">fill_parent</item>
-      <item name="android:layout_height">fill_parent</item>
-      <item name="android:orientation">vertical</item>
+      <item name="android:fitsSystemWindows">true</item>
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">match_parent</item>
       <item name="android:background">@color/teal</item>
     </style>
 
     <style name="HeaderAndTitleContainer">
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:background">@color/teal</item>
     </style>
 
     <style name="HeaderImage">
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="android:scaleType">centerCrop</item>
@@ -66,7 +66,7 @@
     </style>
 
     <style name="Title">
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/title_height</item>
         <item name="android:textSize">@dimen/title_text_size</item>
         <item name="android:background">@color/teal</item>
@@ -76,7 +76,7 @@
     </style>
 
     <style name="MainText">
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/text_black</item>
         <item name="android:paddingTop">@dimen/main_text_padding_between_text</item>
@@ -112,8 +112,8 @@
     </style>
 
     <style name="MainTextContainerNoHorizontalMargin">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:background">@color/white</item>
         <item name="android:paddingBottom">@dimen/main_text_padding_bottom</item>
@@ -129,8 +129,8 @@
     </style>
 
     <style name="DialogFragmentTextContainer">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:background">@color/white</item>
         <item name="android:paddingBottom">@dimen/dialog_text_padding_bottom</item>
@@ -143,7 +143,7 @@
 
     <style name="ScrollView" parent="@android:style/Widget.Material.Light.ScrollView">
         <item name="android:theme">@style/ControlOverlayTheme</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:fadeScrollbars">false</item>
     </style>
 

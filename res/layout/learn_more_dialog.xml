@@ -27,7 +27,7 @@
 
         <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -50,7 +50,7 @@
     </ScrollView>
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/row_height"
         android:paddingTop="@dimen/row_padding_top">
 
