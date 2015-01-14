@@ -19,7 +19,6 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="4699090302771328296">"기기 공급자"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"이런!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"프로필 설정"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"기기에서 프로필에 대한 제어와 보안 유지는 조직에서 담당하고, 나머지는 내가 관리합니다."</string>

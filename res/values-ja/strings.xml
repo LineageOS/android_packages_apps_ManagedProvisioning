@@ -19,7 +19,6 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="4699090302771328296">"Device Provisioner"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"エラー"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"プロフィールをセットアップ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"このプロフィールは組織が管理し、保護します。プロフィール以外の端末上のものはすべて個人で管理します。"</string>

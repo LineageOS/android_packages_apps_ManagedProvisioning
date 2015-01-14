@@ -19,7 +19,6 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="4699090302771328296">"ডিভাইস প্রভিশনার"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ওহো!"</string>
     <string name="setup_work_space" msgid="6539913744903244870">"আপনার প্রোফাইল সেট আপ করুন"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"আপনার প্রতিষ্ঠান এই প্রোফাইল নিয়ন্ত্রণ করে এবং একে সুরক্ষিত রাখে। আপনি আপনার ডিভাইসের বাকি সব কিছু নিয়ন্ত্রণ করেন।"</string>
