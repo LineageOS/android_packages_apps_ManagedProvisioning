@@ -114,7 +114,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
         setContentView(contentView);
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
         TextView titleText = (TextView) findViewById(R.id.title);
-        if (titleText != null) titleText.setText(getString(R.string.setup_device));
+        if (titleText != null) titleText.setText(getString(R.string.setup_work_device));
         if (mCancelDialogShown) showCancelResetDialog();
 
         // Check whether we can provision.

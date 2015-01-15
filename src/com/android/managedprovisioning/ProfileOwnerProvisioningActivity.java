@@ -103,6 +103,8 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
         final LayoutInflater inflater = getLayoutInflater();
         View contentView = inflater.inflate(R.layout.progress, null);
         setContentView(contentView);
+        TextView titleView = (TextView) findViewById(R.id.title);
+        if (titleView != null) titleView.setText(getString(R.string.setup_work_profile));
         TextView textView = (TextView) findViewById(R.id.prog_text);
         if (textView != null) textView.setText(getString(R.string.setting_up_workspace));
 

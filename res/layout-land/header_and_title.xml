@@ -22,6 +22,5 @@
     style="@style/HeaderAndTitleContainer">
     <TextView
         android:id="@+id/title"
-        android:text="@string/setup_work_space"
         style="@style/Title"/>
 </LinearLayout>
