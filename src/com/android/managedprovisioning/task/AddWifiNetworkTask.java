@@ -71,7 +71,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mCallback = callback;
         mContext = context;
         if (TextUtils.isEmpty(ssid)) {
-            throw new IllegalArgumentException("The ssid must be non-null.");
+            throw new IllegalArgumentException("The ssid must be non-empty.");
         }
         mSsid = ssid;
         mHidden = hidden;
