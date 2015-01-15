@@ -196,29 +196,33 @@ public class DeviceOwnerProvisioningService extends Service {
         if (DEBUG) ProvisionLogger.logd("Starting device owner provisioning");
 
         // Construct Tasks. Do not start them yet.
-        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
-                params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
-                params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
-                params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
-                        @Override
-                        public void onSuccess() {
-                            if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
-                                // Download, install, set as device owner, delete apps.
-                                progressUpdate(R.string.progress_download);
-                                mDownloadPackageTask.run();
-                            } else {
-                                // Device Admin will not be downloaded (but is already present):
-                                // Just set as device owner, delete apps.
-                                progressUpdate(R.string.progress_set_owner);
-                                mSetDevicePolicyTask.run();
+        if (TextUtils.isEmpty(params.mWifiSsid)) {
+            mAddWifiNetworkTask = null;
+        } else {
+            mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
+                    params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
+                    params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
+                    params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
+                            @Override
+                            public void onSuccess() {
+                                if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+                                    // Download, install, set as device owner, delete apps.
+                                    progressUpdate(R.string.progress_download);
+                                    mDownloadPackageTask.run();
+                                } else {
+                                    // Device Admin will not be downloaded (but is already present):
+                                    // Just set as device owner, delete apps.
+                                    progressUpdate(R.string.progress_set_owner);
+                                    mSetDevicePolicyTask.run();
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onError(){
-                            error(R.string.device_owner_error_wifi);
-                        }
-                });
+                            @Override
+                            public void onError(){
+                                error(R.string.device_owner_error_wifi);
+                            }
+                        });
+        }
 
         mDownloadPackageTask = new DownloadPackageTask(this,
                 params.mDeviceAdminPackageDownloadLocation, params.mDeviceAdminPackageChecksum,
@@ -322,7 +326,7 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void startFirstTask(final ProvisioningParams params) {
-        if (!TextUtils.isEmpty(params.mWifiSsid)) {
+        if (mAddWifiNetworkTask != null) {
 
             // Connect to wifi.
             progressUpdate(R.string.progress_connect_to_wifi);
