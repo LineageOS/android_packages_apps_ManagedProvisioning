@@ -96,6 +96,9 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         View contentView = inflater.inflate(R.layout.user_consent, null);
         setContentView(contentView);
 
+        TextView titleView = (TextView) findViewById(R.id.title);
+        if (titleView != null) titleView.setText(getString(R.string.setup_work_profile));
+
         // Check whether system has the required managed profile feature.
         if (!systemHasManagedProfileFeature()) {
             showErrorAndClose(R.string.managed_provisioning_not_supported,

@@ -25,10 +25,10 @@
         style="@style/ScrollView">
         <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:orientation="vertical">
             <TextView
-                android:text="@string/encrypt_device_text"
+                android:id="@+id/encrypt_main_text"
                 style="@style/MainText"/>
         </LinearLayout>
     </ScrollView>

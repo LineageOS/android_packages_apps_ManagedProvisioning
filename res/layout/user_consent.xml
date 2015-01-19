@@ -18,7 +18,8 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Container" >
+    android:orientation="vertical"
+    style="@style/Container">
     <include layout="@layout/header_and_title"/>
     <include layout="@layout/user_consent_main_text"
         android:layout_height="match_parent"

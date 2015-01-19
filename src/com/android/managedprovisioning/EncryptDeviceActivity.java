@@ -26,6 +26,7 @@ import android.os.ServiceManager;
 import android.os.storage.IMountService;
 import android.os.RemoteException;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Activity to ask for permission to activate full-filesystem encryption.
@@ -40,12 +41,34 @@ public class EncryptDeviceActivity extends Activity implements NavigationBarList
     protected static final String TARGET_PROFILE_OWNER = "profile_owner";
     protected static final String TARGET_DEVICE_OWNER = "device_owner";
 
+    private Bundle mResumeInfo;
+    private String mResumeTarget;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mResumeInfo = getIntent().getBundleExtra(EXTRA_RESUME);
+        mResumeTarget = mResumeInfo.getString(EXTRA_RESUME_TARGET);
+
         final View contentView = getLayoutInflater().inflate(R.layout.encrypt_device, null);
         setContentView(contentView);
+
+        TextView titleView = (TextView) findViewById(R.id.title);
+        TextView maintextView = (TextView) findViewById(R.id.encrypt_main_text);
+        if (TARGET_PROFILE_OWNER.equals(mResumeTarget)) {
+            if (titleView != null) titleView.setText(getString(R.string.setup_work_profile));
+            if (maintextView != null) {
+                maintextView.setText(
+                        getString(R.string.encrypt_device_text_for_profile_owner_setup));
+            }
+        } else if (TARGET_DEVICE_OWNER.equals(mResumeTarget)) {
+            if (titleView != null) titleView.setText(getString(R.string.setup_work_device));
+            if (maintextView != null) {
+                maintextView.setText(
+                        getString(R.string.encrypt_device_text_for_device_owner_setup));
+            }
+        }
     }
 
     public static boolean isDeviceEncrypted() {
@@ -71,8 +94,7 @@ public class EncryptDeviceActivity extends Activity implements NavigationBarList
 
     @Override
     public void onNavigateNext() {
-        final Bundle resumeInfo = getIntent().getBundleExtra(EXTRA_RESUME);
-        BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, resumeInfo);
+        BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, mResumeInfo);
         // Use settings so user confirms password/pattern and its passed
         // to encryption tool.
         Intent intent = new Intent();
