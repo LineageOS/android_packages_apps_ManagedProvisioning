@@ -43,7 +43,8 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి తాకండి"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"మీ పరికరం కార్యాలయ ప్రొఫైల్‌లకు మద్దతు ఇవ్వదు"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"కార్యాలయ ప్రొఫైల్‌లను పరికరం యజమాని సెటప్ చేయాలి"</string>
+    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"మీ కార్యాలయ ప్రొఫైల్‌కు ఈ లాంచర్ అనువర్తనం మద్దతు ఇవ్వదు. మీరు అనుకూల లాంచర్‌కు మారాలి."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"రద్దు చేయి"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"సరే"</string>

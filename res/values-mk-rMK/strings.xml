@@ -43,7 +43,8 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Допрете за да продолжи поставувањето на работниот профил"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Не можевме да го поставиме работниот профил. Контактирајте со одделот за ИТ или обидете се повторно подоцна."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Уредот не поддржува работни профили"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"Работните профили треба да ги поставува сопственикот на уредот"</string>
+    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Работниот профил не е поддржан од оваа апликација на стартерот. Ќе треба да се префрлите на стартер којшто е компатибилен."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Откажи"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Во ред"</string>

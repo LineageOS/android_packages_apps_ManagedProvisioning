@@ -43,7 +43,8 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी स्पर्श करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"आपले डिव्‍हाइस कार्य प्रोफाईलचे समर्थन करीत नाही"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"कार्य प्रोफाईल डिव्‍हाइस मालकाद्वारे सेट केले जाणे आवश्‍यक आहे"</string>
+    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"आपले कार्य प्रोफाईल या लाँचर अॅपद्वारे समर्थित नाही. आपल्याला सुसंगत असलेल्या लाँचरवर स्विच करण्याची आवश्यकता असेल."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द करा"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक आहे"</string>

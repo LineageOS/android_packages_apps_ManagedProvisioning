@@ -43,7 +43,8 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Pieskarieties, lai turpinātu darba profila iestatīšanu"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nevarēja iestatīt darba profilu. Sazinieties ar IT nodaļu vai vēlāk mēģiniet vēlreiz."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Jūsu ierīcē netiek atbalstīti darba profili"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"Darba profili ir jāiestata ierīces īpašniekam"</string>
+    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Šī palaišanas lietotne neatbalsta jūsu darba profilu. Jums jālieto saderīga palaišanas programma."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Atcelt"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Labi"</string>

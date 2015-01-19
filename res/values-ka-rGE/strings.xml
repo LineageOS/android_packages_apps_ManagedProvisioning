@@ -43,7 +43,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"თქვენი სამუშაო პროფილის დაყენების გასაგრძელებლად"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"თქვენი სამუშაო პროფილი ვერ შეიქმნა. დაუკავშირდით თქვენს IT განყოფილებას ან სცადეთ ისევ."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"თქვენს მოწყობილობას არ აქვს სამუშაო პროფილების მხარდაჭერა"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"სამუშაო პროფილები უნდა შექმნას მოწყობილობის მფლობელმა"</string>
+    <string name="user_is_not_owner" msgid="6193230832887977927">"სამუშაო პროფილების უნდა შეიქმნას მოწყობილობის პირველადი მომხმარებლის მიერ"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"თქვენი პროფილი ამ გამშვები აპის მიერ მხარდაჭერილი არ არის. მოგიწევთ გადახვიდეთ თავსებად გამშვებზე."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"გაუქმება"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"კარგი"</string>

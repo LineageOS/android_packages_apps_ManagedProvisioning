@@ -43,7 +43,8 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Palieskite, kad galėtumėte tęsti darbo profilio nustatymą"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nepavyko nustatyti jūsų darbo profilio. Susisiekite su IT skyriumi arba vėliau bandykite dar kartą."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Įrenginys nepalaiko darbo profilių"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"Darbo profilius turi nustatyti įrenginio savininkas"</string>
+    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ši paleidimo priemonės programa nepalaiko darbo profilio. Reikės naudoti suderinamą paleidimo priemonę."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Atšaukti"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Gerai"</string>

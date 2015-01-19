@@ -43,7 +43,8 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"İş profilinizi ayarlamaya devam etmek için dokunun."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"İş profiliniz ayarlanamadı. BT bölümünüze başvurun veya daha sonra tekrar deneyin."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Cihazınız iş profillerini desteklemiyor"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"İş profillerinin cihaz sahibi tarafından ayarlanması gerekir"</string>
+    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"İş profiliniz bu başlatıcı uygulama tarafından desteklenmiyor. Uyumlu bir başlatıcı uygulamaya geçmeniz gerekecek."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"İptal"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Tamam"</string>

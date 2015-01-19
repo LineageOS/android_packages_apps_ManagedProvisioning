@@ -43,7 +43,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Հպեք՝ ձեր աշխատանքային պրոֆիլի կարգավորումը շարունակելու համար"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Չհաջողվեց ստեղծել ձեր աշխատանքը պրոֆիլը: Դիմեք ձեր տեխնիկական սպասարկման բաժին կամ փորձեք մի փոքր ուշ:"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Ձեր սարքը չի աջակցում աշխատանքային պրոֆիլներ"</string>
-    <string name="user_is_not_owner" msgid="4358772243716976929">"Աշխատանքային պրոֆիլները պետք է կարգավորի սարքի սեփականատերը"</string>
+    <string name="user_is_not_owner" msgid="6193230832887977927">"Աշխատանքային պրոֆիլները պետք է կարգավորվեն սարքի հիմնական օգտվողի կողմից"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ձեր պրոֆիլը չի աջակցվում այս գործարկչի կողմից: Դուք պետք է փոխարկեք դեպի որևէ աջակցող գործարկիչ:"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Չեղարկել"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Լավ"</string>
