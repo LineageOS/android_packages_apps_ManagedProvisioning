@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"ക്ഷമിക്കണം!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"നിങ്ങളുടെ പ്രൊഫൈല്‍ സജ്ജമാക്കുക"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ, ഈ പ്രൊഫൈൽ നിയന്ത്രിച്ച് അവ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു. ഉപകരണത്തിലെ മറ്റുള്ളവയെല്ലാം നിങ്ങൾക്ക് നിയന്ത്രിക്കാനാവും."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ഇനിപ്പറയുന്ന അപ്ലിക്കേഷന് ഈ പ്രൊഫൈൽ ആക്‌സസ്സുചെയ്യേണ്ടിവരും:"</string>
     <string name="set_up" msgid="7012862095553564169">"സജ്ജീകരിക്കുക"</string>
@@ -36,20 +37,23 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"ഈ ഔദ്യോഗിക പ്രൊഫൈൽ നീക്കംചെയ്യണമെന്ന് തീർച്ചയാണോ? ഇതിന്റെ എല്ലാ ഡാറ്റയും ഇല്ലാതാക്കും."</string>
     <string name="delete_profile" msgid="7107020982626129151">"നീക്കംചെയ്യുക"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"റദ്ദാക്കുക"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കുന്നത് തുടരാൻ, നിങ്ങളുടെ ഉപകരണം എൻക്രിപ്റ്റ് ചെയ്യേണ്ടതുണ്ട്. ഇതിന് കുറച്ച് സമയമെടുത്തേക്കാം."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"റദ്ദാക്കുക"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"എൻക്രിപ്‌റ്റുചെയ്യുക"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"എൻക്രി‌പ്‌റ്റുചെയ്യൽ പൂർത്തിയാക്കുക"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കുന്നത് തുടരാൻ സ്‌പർശിക്കുക"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കാനായില്ല. നിങ്ങളുടെ ഐടി വിഭാഗവുമായി ബന്ധപ്പെടുക അല്ലെങ്കിൽ പിന്നീട് വീണ്ടും ശ്രമിക്കുക."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"നിങ്ങളുടെ ഉപകരണം ഔദ്യോഗിക പ്രൊഫൈലുകളെ പിന്തുണയ്‌ക്കുന്നില്ല"</string>
-    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="6193230832887977927">"ഉപകരണത്തിന്റെ പ്രാഥമിക ഉപയോക്താവ് ഔദ്യോഗിക പ്രൊഫൈലുകൾ സജ്ജീകരിക്കേണ്ടതുണ്ട്"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ഈ ലോഞ്ചർ അപ്ലിക്കേഷൻ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിനെ പിന്തുണയ്‌ക്കില്ല. അനുയോജ്യമായ ലോഞ്ചറിലേക്ക് മാറേണ്ടതുണ്ട്."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"റദ്ദാക്കുക"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ശരി"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ഔദ്യോഗിക ഉപകരണത്തിന്റെ ഉപയോക്താവ്"</string>
-    <string name="setup_device" msgid="6725265673245816366">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുക"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"സജ്ജീകരണ ഡാറ്റ പ്രോസസ്സുചെയ്യുന്നു..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi-ലേക്ക് കണക്‌റ്റുചെയ്യുന്നു..."</string>
     <string name="progress_download" msgid="4995057798189799156">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഡൗൺലോഡുചെയ്യുന്നു..."</string>

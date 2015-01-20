@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"ອຸຍ!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"​ຕັ້ງ​ຄ່າ​ໂປ​ຣ​ໄຟລ໌​ຂອງ​ທ່ານ"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"ອົງ​ກອນ​ຂອງ​ທ່ານ​ຄວບ​ຄຸມໂປຣ​ໄຟລ໌​ນີ້​ ແລະ​​ເຮັດ​ໃຫ້​ມັນ​ປອດ​ໄພ. ຢ່າງ​ອື່ນໆ​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ແມ່ນ​ທ່ານ​​ເປັນ​ຜູ່ຄວບ​ຄຸມ​."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ແອັບຯ​ຕໍ່​ໄປ​ນີ້​ຈະຕ້ອງ​ການ​ເຂົ້າ​ເຖິງ​ໂປຣ​ໄຟລ໌​ນີ້:"</string>
     <string name="set_up" msgid="7012862095553564169">"ຕັ້ງຄ່າ"</string>
@@ -34,9 +35,12 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="managed_profile_already_present" msgid="888277922880582498">"ທ່ານ​ມີ​ໂ​ປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ຢູ່​ແລ້ວ. ທ່ານ​​ຕ້ອງ​ການ​ລຶບ​ອອກບໍ່?"</string>
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"​ທ່ານ​ແນ່​ໃຈ​ບໍ່​ວ່າ​​ຕ້ອງ​ການ​ລຶບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ນີ້​ອອກ? ຂໍ້​ມູ​ນ​ທັງ​ໝົດ​ຂອງ​ມັນ​ຈະ​ຖືກ​ລຶບ​ອອກ."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"ລຶບ"</string>
+    <string name="delete_profile" msgid="7107020982626129151">"ລຶບ​"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"​ຍົກ​ເລີກ"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"​ເພື່ອ​ສືບ​ຕໍ່​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ, ທ່ານ​ຈະ​ຕ້ອງ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ກ່ອນ. ຂັ້ນ​ຕອນ​ນີ້​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"​ຍົກ​ເລີກ"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"​ເຂົ້າ​ລະ​ຫັດ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ການ​ເຂົ້າ​ລະ​ຫັດ​ສຳ​ເລັດ​ແລ້ວ"</string>
@@ -48,7 +52,8 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"​ຍົກ​ເລີກ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ຕົກລົງ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"​​ຜູ່​ໃຊ້​ອຸ​ປະ​ກອນ​ບ່ອນ​ເຮັດ​ວຽກ"</string>
-    <string name="setup_device" msgid="6725265673245816366">"ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່​ຫາ Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ..."</string>

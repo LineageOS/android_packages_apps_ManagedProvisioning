@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"அச்சச்சோ!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"உங்கள் சுயவிவரத்தை அமைக்கவும்"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"உங்கள் நிறுவனம், இந்தச் சுயவிவரத்தைக் கட்டுப்படுத்தி, அதைப் பாதுகாப்பாக வைக்கிறது. உங்கள் சாதனத்தில் இருந்து எல்லாவற்றையும் கட்டுப்படுத்தலாம்."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"பின்வரும் பயன்பாடு இந்தச் சுயவிவரத்தை அணுக வேண்டும்:"</string>
     <string name="set_up" msgid="7012862095553564169">"அமை"</string>
@@ -36,20 +37,23 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"பணி சுயவிவரத்தை நிச்சயமாக அகற்றவா? இதன் எல்லா தரவும் நீக்கப்படும் என்பதை நினைவில் கொள்ளவும்."</string>
     <string name="delete_profile" msgid="7107020982626129151">"அகற்று"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ரத்துசெய்"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"பணி சுயவிவரம் அமைப்பதைத் தொடர, சாதனத்தை மறையாக்க வேண்டும். அதற்குச் சிறிது நேரம் ஆகலாம்."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ரத்துசெய்"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"மறையாக்கு"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"குறியாக்கம் முடிந்தது"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"உங்கள் பணி சுயவிவரத்தை அமைப்பதைத் தொடரத் தொடவும்"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"பணி சுயவிவரங்களைச் சாதனம் ஆதரிக்காது"</string>
-    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="6193230832887977927">"சாதனத்தின் முதன்மை பயனரால் பணி சுயவிவரங்கள் அமைக்கப்பட வேண்டும்"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"இந்தத் துவக்கி பயன்பாடு, பணி சுயவிவரத்தை ஆதரிக்கவில்லை. பொருந்தும் துவக்கிக்கு மாற்ற வேண்டும்."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ரத்துசெய்"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"சரி"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"பணியிடச் சாதனத்தின் பயனர்"</string>
-    <string name="setup_device" msgid="6725265673245816366">"சாதனத்தை அமை"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"அமைவு தரவைச் செயல்படுத்துகிறது..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"வைஃபை உடன் இணைக்கிறது..."</string>
     <string name="progress_download" msgid="4995057798189799156">"நிர்வாகப் பயன்பாட்டை இறக்குகிறது..."</string>

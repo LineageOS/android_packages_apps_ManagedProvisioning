@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"Упс!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Подесите профил"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"Организација контролише и штити овај профил. Ви контролишете све остало на уређају."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следећа апликација мора да приступи овом профилу:"</string>
     <string name="set_up" msgid="7012862095553564169">"Подеси"</string>
@@ -36,7 +37,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Желите ли стварно да уклоните овај пословни профил? Избрисаћете све његове податке."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Уклони"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Откажи"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"Да бисте наставили са подешавањем пословног профила, морате да шифрујете уређај. То може да потраје."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Откажи"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Шифруј"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шифровање је довршено"</string>
@@ -48,7 +52,8 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"Откажи"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Потврди"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Корисник пословног уређаја"</string>
-    <string name="setup_device" msgid="6725265673245816366">"Подешавање уређаја"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"Обрађују се подаци подешавања..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Повезивање са Wi-Fi-јем..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Преузимање апликације за администраторе..."</string>

@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"وای!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"تنظیم نمایه"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"سازمان شما این نمایه را کنترل می‌کند و آن را ایمن نگه می‌دارد. کنترل همه چیزهای دیگر در دستگاهتان در دست شماست."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"برنامه زیر نیاز به دسترسی به این نمایه خواهد داشت:"</string>
     <string name="set_up" msgid="7012862095553564169">"راه‌اندازی"</string>
@@ -36,7 +37,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"مطمئنید می‌خواهید این نمایه کاری را حذف کنید؟ همه اطلاعات آن حذف خواهند شد."</string>
     <string name="delete_profile" msgid="7107020982626129151">"حذف"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"لغو"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"برای ادامه راه‌اندازی نمایه کاری‌تان، لازم است که دستگاهتان را رمزگذاری کنید. این کار ممکن است مدتی طول بکشد."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"لغو"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"رمزگذاری"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"رمزگذاری کامل شد"</string>
@@ -48,7 +52,8 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"لغو"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"تأیید"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کاربر دستگاه کاری"</string>
-    <string name="setup_device" msgid="6725265673245816366">"تنظیم دستگاه‌تان"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"در حال پردازش اطلاعات تنظیم..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏در حال برقراری اتصال به Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"در حال دانلود برنامه سرپرست..."</string>

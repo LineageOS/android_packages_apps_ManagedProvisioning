@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ops!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Configura il tuo profilo"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"La tua organizzazione controlla questo profilo e lo tiene protetto, mentre tu controlli tutto il resto sul dispositivo."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"La seguente app dovrà accedere a questo profilo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configura"</string>
@@ -36,7 +37,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Vuoi rimuovere questo profilo di lavoro? Tutti i dati associati verranno eliminati."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Rimuovi"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Annulla"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"Per continuare la configurazione del profilo di lavoro, dovrai crittografare il dispositivo. L\'operazione potrebbe richiedere del tempo."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Annulla"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Crittografa"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Crittografia completa"</string>
@@ -48,7 +52,8 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annulla"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utente del dispositivo di lavoro"</string>
-    <string name="setup_device" msgid="6725265673245816366">"Configurazione del dispositivo"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"Elaborazione dati di impostazione..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Connessione a rete Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Download dell\'app dell\'amministratore..."</string>

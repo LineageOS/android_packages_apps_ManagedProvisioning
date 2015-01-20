@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"이런!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"프로필 설정"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"기기에서 프로필에 대한 제어와 보안 유지는 조직에서 담당하고, 나머지는 내가 관리합니다."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"이 프로필에 액세스해야 하는 앱:"</string>
     <string name="set_up" msgid="7012862095553564169">"설정"</string>
@@ -36,20 +37,23 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"직장 프로필을 삭제하시겠습니까? 데이터가 모두 삭제됩니다."</string>
     <string name="delete_profile" msgid="7107020982626129151">"삭제"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"취소"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"직장 프로필 설정을 계속하려면 기기를 암호화해야 합니다. 이 작업은 다소 시간이 걸릴 수 있습니다."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"취소"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"암호화"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"암호화 완료"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"계속해서 직장 프로필을 설정하려면 터치하세요."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"직장 프로필을 설정할 수 없습니다. IT 부서에 문의하거나 나중에 다시 시도해 주시기 바랍니다."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"직장 프로필을 지원하지 않는 기기입니다."</string>
-    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="6193230832887977927">"직장 프로필은 기기의 기본 사용자가 설정해야 합니다."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"이 런처 앱은 직장 프로필을 지원하지 않습니다. 호환되는 런처로 전환해야 합니다."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"취소"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"확인"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"업무 기기의 사용자"</string>
-    <string name="setup_device" msgid="6725265673245816366">"기기 설정"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"설정 데이터 처리 중..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi에 연결 중..."</string>
     <string name="progress_download" msgid="4995057798189799156">"관리 앱 다운로드 중..."</string>

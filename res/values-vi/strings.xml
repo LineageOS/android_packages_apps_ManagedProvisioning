@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"Rất tiếc!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Thiết lập hồ sơ của bạn"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tổ chức của bạn kiểm soát và giữ bảo mật hồ sơ này. Bạn kiểm soát mọi thứ khác trên thiết bị của mình."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ứng dụng sau cần quyền truy cập vào hồ sơ này:"</string>
     <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>
@@ -36,20 +37,23 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Bạn có chắc chắn muốn xóa hồ sơ công việc này không? Tất cả dữ liệu trong hồ sơ sẽ bị xóa."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Xóa"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Hủy"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"Để tiếp tục thiết lập hồ sơ công việc, bạn cần mã hóa thiết bị của mình. Quá trình này có thể mất vài phút."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Hủy"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Mã hóa"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Hoàn tất mã hóa"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Chạm để tiếp tục thiết lập hồ sơ công việc của bạn"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Không thiết lập được hồ sơ công việc của bạn. Hãy liên hệ với bộ phận CNTT hoặc thử lại sau."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Thiết bị của bạn không hỗ trợ hồ sơ công việc"</string>
-    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="6193230832887977927">"Hồ sơ công việc cần phải do người dùng chính của thiết bị thiết lập"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Hồ sơ công việc của bạn không được ứng dụng trình chạy này hỗ trợ. Bạn cần chuyển sang trình chạy tương thích."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Hủy"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Ok"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Người dùng thiết bị cơ quan"</string>
-    <string name="setup_device" msgid="6725265673245816366">"Thiết lập thiết bị của bạn"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"Đang xử lý dữ liệu thiết lập..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Đang kết nối Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Đang tải xuống ứng dụng quản trị..."</string>

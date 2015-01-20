@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"අපොයි!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"ඔබගේ පැතිකඩ සකසන්න"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"ඔබගේ සංවිධානය මෙම පැතිකඩ පාලනය කරයි සහ එය ආරක්ෂිතව තබයි. ඔබගේ උපාංගයේ අනෙක් සියලු ඔබ පාලනය කරයි."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"මෙම පැතිකඩ ප්‍රවේශ වීමට ඊළගට එන යෙදුම් වලට අවශ්‍යය:"</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
@@ -36,19 +37,23 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"මෙම කාර්යාල පැතිකඩ ඉවත් කිරීමට අවශ්‍ය බව ඔබට සහතිකද? එහි සියලුම දත්ත මැකෙවී."</string>
     <string name="delete_profile" msgid="7107020982626129151">"ඉවත් කරන්න"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"අවලංගු කරන්න"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"ඔබගේ කාර්යාල පැතිකඩේ සැකසීම ඉදිරියට කරගෙන යෑමට, ඔබගේ උපාංගය සංකේතනය කිරීමට ඔබට අවශ්‍ය වේ. මෙයට ටික වෙලාවක් ගත වේ."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"අවලංගු කරන්න"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"සංකේතනය"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"සංකේතනය සම්පූර්ණයි"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ඔබගේ වැඩ පැතිකඩ සැකසීම දිගටම කිරීමට ස්පර්ශ කරන්න"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ඔබගේ කාර්යාල පැතිකඩ සැකසීමට නොහැකි විය. ඔබගේ IT අංශය සම්බන්ධ කර ගන්න හෝ පසුව නැවත උත්සාහ කරන්න."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ඔබගේ උපාංගය කාර්යාල පැතිකඩ වෙත සහය දක්වන්නේ නැත."</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"වැඩ පැතිකඩ උපාංගයේ මූලික පරිශීලක විසින් පිහිටුවිය යුතුය"</string>
+    <string name="user_is_not_owner" msgid="6193230832887977927">"උපාංගයේ මූලික පරිශීලකයා විසින් වැඩ පැතිකඩ ස්ථාපනය කළ යුතුය"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"මෙම දියත් කරන යෙදුම මඟින් ඔබගේ කාර්යාල පැතිකඩට සහාය ලබා නොදේ. අනුකූල දියත් කරනයකට ඔබට මාරු වීමට අවශ්‍ය වේ."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"අවලංගු කරන්න"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"හරි"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"කාර්යාල උපාංගයේ පරිශීලකයා"</string>
-    <string name="setup_device" msgid="6725265673245816366">"ඔබගේ උපාංගය සකසන්න"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"ස්ථාපන දත්ත සකසමින්..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi වෙත සම්බන්ධ වෙමින්..."</string>
     <string name="progress_download" msgid="4995057798189799156">"පරිපාලක යෙදුම බාගත කරමින්..."</string>

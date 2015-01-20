@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"आपले प्रोफाईल सेट करा"</string>
+    <!-- no translation found for setup_work_profile (9164519662954159586) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
     <string name="set_up" msgid="7012862095553564169">"सेट अप"</string>
@@ -36,20 +37,23 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"आपल्‍याला खात्री आहे की आपण हे कार्य प्रोफाईल काढू इच्‍छिता? त्याचा सर्व डेटा हटविला जाईल."</string>
     <string name="delete_profile" msgid="7107020982626129151">"काढा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
-    <string name="encrypt_device_text" msgid="6762208577171389053">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्‍यासाठी, आपल्‍याला आपले डिव्हाइस कूटबद्ध करणे आवश्‍यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द करा"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"कूटबद्ध करा"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"कूटबद्धीकरण पूर्ण"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी स्पर्श करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"आपले डिव्‍हाइस कार्य प्रोफाईलचे समर्थन करीत नाही"</string>
-    <!-- no translation found for user_is_not_owner (6193230832887977927) -->
-    <skip />
+    <string name="user_is_not_owner" msgid="6193230832887977927">"कार्य प्रोफाईल डिव्हाइसच्या प्राथमिक वापरकर्त्याद्वारे सेट केले जाण्याची आवश्यकता आहे"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"आपले कार्य प्रोफाईल या लाँचर अॅपद्वारे समर्थित नाही. आपल्याला सुसंगत असलेल्या लाँचरवर स्विच करण्याची आवश्यकता असेल."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द करा"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक आहे"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिव्‍हाइसचा वापरकर्ता"</string>
-    <string name="setup_device" msgid="6725265673245816366">"आपले डिव्हाइस सेट करा"</string>
+    <!-- no translation found for setup_work_device (3028145936574439146) -->
+    <skip />
     <string name="progress_data_process" msgid="7099462614425874283">"सेटअप डेटावर प्रक्रिया करत आहे..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"वाय-फाय शी कनेक्ट करत आहे..."</string>
     <string name="progress_download" msgid="4995057798189799156">"प्रशासन अॅप डाउनलोड करत आहे..."</string>
