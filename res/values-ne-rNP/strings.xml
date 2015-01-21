@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
-    <!-- no translation found for setup_work_profile (9164519662954159586) -->
-    <skip />
+    <string name="setup_work_profile" msgid="9164519662954159586">"आफ्नो प्रोफाइल सेट अप गर्नुहोस्"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="set_up" msgid="7012862095553564169">"मिलाउनुहोस्"</string>
@@ -37,10 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"तपाईं यो कार्य प्रोफाइल हटाउन निश्चित हुनुहुन्छ? यसको सबै डेटा मेटिनेछ।"</string>
     <string name="delete_profile" msgid="7107020982626129151">"हटाउनुहोस्"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द गर्नुहोस्"</string>
-    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
-    <skip />
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
-    <skip />
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आफ्नो कार्य प्रोफाइल सेटिङ गर्ने काम  जारी राख्न, तपाईंले आफ्नो यन्त्रलाई इनक्रिप्ट गर्नु पर्नेछ। यसले केही समय लिन सक्छ।"</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"आफ्नो यन्त्र सेटिङ गर्ने काम जारी राख्न, तपाईंले आफ्नो यन्त्रलाई इनक्रिप्ट गर्नु पर्नेछ। यसले केही समय लिन सक्छ।"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द गर्नुहोस्"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"गुप्तिकरण"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"गुप्तिकरण पूर्ण"</string>
@@ -52,8 +49,7 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द गर्नुहोस्"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक छ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
-    <!-- no translation found for setup_work_device (3028145936574439146) -->
-    <skip />
+    <string name="setup_work_device" msgid="3028145936574439146">"आफ्नो यन्त्र सेट अप गर्नुहोस्"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"स्थापना डेटा प्रशोधन गर्दै..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"वाइफाइ जडान गर्दै..."</string>
     <string name="progress_download" msgid="4995057798189799156">"प्रशासनिक अनुप्रयोग डाउनलोड गर्दै..."</string>

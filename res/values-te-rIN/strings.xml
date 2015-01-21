@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"అయ్యో!"</string>
-    <!-- no translation found for setup_work_profile (9164519662954159586) -->
-    <skip />
+    <string name="setup_work_profile" msgid="9164519662954159586">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది అనువర్తనం ఈ ప్రొఫైల్‌ను ప్రాప్యత చేయాలి:"</string>
     <string name="set_up" msgid="7012862095553564169">"సెటప్ చేయి"</string>
@@ -37,10 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"మీరు ఖచ్చితంగా ఈ కార్యాలయ ప్రొఫైల్‌ను తీసివేయాలనుకుంటున్నారా? అలా చేస్తే దాని డేటా మొత్తం తొలగించబడుతుంది."</string>
     <string name="delete_profile" msgid="7107020982626129151">"తీసివేయి"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"రద్దు చేయి"</string>
-    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
-    <skip />
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
-    <skip />
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడం కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"మీ పరికరాన్ని సెటప్ చేయడం కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"రద్దు చేయి"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"గుప్తీకరించు"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"గుప్తీకరణ పూర్తయింది"</string>
@@ -52,8 +49,7 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"రద్దు చేయి"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"సరే"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"కార్యాలయ పరికర వినియోగదారు"</string>
-    <!-- no translation found for setup_work_device (3028145936574439146) -->
-    <skip />
+    <string name="setup_work_device" msgid="3028145936574439146">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fiకి కనెక్ట్ చేస్తోంది..."</string>
     <string name="progress_download" msgid="4995057798189799156">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేస్తోంది..."</string>

@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
-    <!-- no translation found for setup_work_profile (9164519662954159586) -->
-    <skip />
+    <string name="setup_work_profile" msgid="9164519662954159586">"设置您的资料"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全性。您可以控制设备上的所有其他内容。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
     <string name="set_up" msgid="7012862095553564169">"设置"</string>
@@ -37,10 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"移除此工作资料将会删除此资料中的所有数据。确定要移除吗？"</string>
     <string name="delete_profile" msgid="7107020982626129151">"移除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
-    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
-    <skip />
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
-    <skip />
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"要继续设置您的设备，您需要对其进行加密。此过程可能需要一段时间。"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"取消"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"加密"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密已完成"</string>
@@ -52,8 +49,7 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"确定"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
-    <!-- no translation found for setup_work_device (3028145936574439146) -->
-    <skip />
+    <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"正在处理设置数据…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"正在连接到WLAN网络…"</string>
     <string name="progress_download" msgid="4995057798189799156">"正在下载管理应用…"</string>

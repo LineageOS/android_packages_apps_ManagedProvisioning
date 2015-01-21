@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
-    <!-- no translation found for setup_work_profile (9164519662954159586) -->
-    <skip />
+    <string name="setup_work_profile" msgid="9164519662954159586">"Профильді реттеу"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ұйымыңыз осы профильді басқарады және оны қауіпсіз сақтайды. Сіз құрылғыдағы барлық басқа нәрселерді басқарасыз."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Келесі қолданбаға осы профильге қатынасу қажет болады:"</string>
     <string name="set_up" msgid="7012862095553564169">"Реттеу"</string>
@@ -37,10 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Осы жұмыс профилін жою керек пе? Оның барлық деректері жойылады."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Алып тастау"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Бас тарту"</string>
-    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
-    <skip />
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
-    <skip />
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Жұмыс профиліңізді реттеуді жалғастыру үшін құрылғыңызды шифрлауыңыз керек. Бұл біраз уақыт алуы мүмкін."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Құрылғыны реттеуді жалғастыру үшін құрылғыны шифрлау керек. Бұл біраз уақыт алуы мүмкін."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Бас тарту"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Шифрлау"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шифрлау аяқталды"</string>
@@ -52,8 +49,7 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"Бас тарту"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Жарайды"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Жұмыс құрылғысының пайдаланушысы"</string>
-    <!-- no translation found for setup_work_device (3028145936574439146) -->
-    <skip />
+    <string name="setup_work_device" msgid="3028145936574439146">"Құрылғыны реттеу"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Реттеу деректері өңделуде…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi желісіне қосылу орындалуда…"</string>
     <string name="progress_download" msgid="4995057798189799156">"Әкімші қолданбасы жүктелуде…"</string>

@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"افوہ!"</string>
-    <!-- no translation found for setup_work_profile (9164519662954159586) -->
-    <skip />
+    <string name="setup_work_profile" msgid="9164519662954159586">"اپنے پروفائل کو ترتیب دیں"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"آپ کی تنظیم اس پروفائل کو کنٹرول کرتی ہے اور اسے محفوظ رکھتی ہے۔ آپ اپنے آلہ پر باقی ہر چیز کنٹرول کرتے ہیں۔"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"مندرجہ ذیل ایپ کو اس پروفائل تک رسائی حاصل کرنے کی ضرورت ہوگی:"</string>
     <string name="set_up" msgid="7012862095553564169">"ترتیب دیں"</string>
@@ -37,10 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"کیا آپ واقعی یہ دفتری پروفائل ہٹانا چاہتے ہیں؟ اس کا سبھی ڈیٹا حذف کر دیا جائے گا۔"</string>
     <string name="delete_profile" msgid="7107020982626129151">"ہٹائیں"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"منسوخ کریں"</string>
-    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
-    <skip />
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
-    <skip />
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"اپنے دفتری پروفائل کو ترتیب دینا جاری رکھنے کیلئے، آپ کو اپنے آلہ کو مرموز کرنے کی ضرورت ہوگی۔ اس میں کچھ وقت لگ سکتا ہے۔"</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"اپنے آلہ کو ترتیب دینا جاری رکھنے کیلئے، آپ کو اپنے آلہ کو مرموز کرنے کی ضرورت ہوگی۔ اس میں کچھ وقت لگ سکتا ہے۔"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"منسوخ کریں"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"مرموز کاری کریں"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"مرموز کاری مکمل"</string>
@@ -52,8 +49,7 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"منسوخ کریں"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ٹھیک ہے"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کام کے آلہ کا صارف"</string>
-    <!-- no translation found for setup_work_device (3028145936574439146) -->
-    <skip />
+    <string name="setup_work_device" msgid="3028145936574439146">"اپنے آلہ کو ترتیب دیں"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"سیٹ اپ ڈیٹا پر کارروائی کی جا رہی ہے…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏Wi-Fi سے منسلک ہو رہا ہے…"</string>
     <string name="progress_download" msgid="4995057798189799156">"منتظم کی ایپ ڈاؤن لوڈ ہو رہی ہے…"</string>

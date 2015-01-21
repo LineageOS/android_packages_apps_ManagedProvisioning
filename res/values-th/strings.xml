@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"อ๊ะ!"</string>
-    <!-- no translation found for setup_work_profile (9164519662954159586) -->
-    <skip />
+    <string name="setup_work_profile" msgid="9164519662954159586">"ตั้งค่าโปรไฟล์ของคุณ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"องค์กรของคุณควบคุมและรักษาความปลอดภัยให้กับโปรไฟล์นี้ คุณเป็นผู้ควบคุมส่วนที่เหลือในอุปกรณ์"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"แอปต่อไปนี้ต้องการเข้าถึงโปรไฟล์นี้:"</string>
     <string name="set_up" msgid="7012862095553564169">"ตั้งค่า"</string>
@@ -37,10 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"คุณแน่ใจไหมว่าต้องการนำโปรไฟล์งานนี้ออก ระบบจะลบข้อมูลทั้งหมดของโปรไฟล์นี้"</string>
     <string name="delete_profile" msgid="7107020982626129151">"นำออก"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ยกเลิก"</string>
-    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (4325067657681168120) -->
-    <skip />
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (7279768314707033707) -->
-    <skip />
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"หากต้องการตั้งค่าโปรไฟล์งานต่อ คุณต้องเข้ารหัสอุปกรณ์ ซึ่งอาจใช้เวลาสักครู่หนึ่ง"</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"หากต้องการตั้งค่าอุปกรณ์ต่อ คุณต้องเข้ารหัสอุปกรณ์ ซึ่งอาจใช้เวลาสักครู่หนึ่ง"</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"ยกเลิก"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"เข้ารหัส"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"การเข้ารหัสเสร็จสมบูรณ์แล้ว"</string>
@@ -52,8 +49,7 @@
     <string name="cancel_provisioning" msgid="3408069559452653724">"ยกเลิก"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ตกลง"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ผู้ใช้อุปกรณ์ในการทำงาน"</string>
-    <!-- no translation found for setup_work_device (3028145936574439146) -->
-    <skip />
+    <string name="setup_work_device" msgid="3028145936574439146">"ตั้งค่าอุปกรณ์"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"กำลังดำเนินการกับข้อมูลการตั้งค่า..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"กำลังเชื่อมต่อ Wi-Fi..."</string>
     <string name="progress_download" msgid="4995057798189799156">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ..."</string>
