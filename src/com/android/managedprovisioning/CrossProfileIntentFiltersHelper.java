@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.provider.AlarmClock;
 import android.provider.MediaStore;
 
 import com.android.managedprovisioning.ProvisionLogger;
@@ -192,5 +193,12 @@ public class CrossProfileIntentFiltersHelper {
         capture.addAction(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
         capture.addCategory(Intent.CATEGORY_DEFAULT);
         pm.addCrossProfileIntentFilter(capture, managedProfileUserId, parentUserId, 0);
+
+        IntentFilter setClock = new IntentFilter();
+        setClock.addAction(AlarmClock.ACTION_SET_ALARM);
+        setClock.addAction(AlarmClock.ACTION_SHOW_ALARMS);
+        setClock.addAction(AlarmClock.ACTION_SET_TIMER);
+        setClock.addCategory(Intent.CATEGORY_DEFAULT);
+        pm.addCrossProfileIntentFilter(setClock, managedProfileUserId, parentUserId, 0);
     }
 }
