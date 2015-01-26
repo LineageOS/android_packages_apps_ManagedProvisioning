@@ -36,7 +36,7 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Удалить этот рабочий профиль? Все его данные также будут удалены."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Удалить"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Отмена"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Чтобы продолжить настройку профиля, зашифруйте данные на устройстве. Шифрование займет некоторое время."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Чтобы продолжить настройку  рабочего профиля, зашифруйте данные на устройстве. Шифрование займет некоторое время."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Чтобы продолжить настройку, зашифруйте данные на устройстве. Шифрование займет некоторое время."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Отмена"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Зашифровать"</string>

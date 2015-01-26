@@ -37,7 +37,7 @@
     <string name="delete_profile" msgid="7107020982626129151">"Kendu"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Utzi"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Laneko profila konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Minutu batzuk behar izan ditzakegu horretarako."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Gailua konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Denbora pixka behar izan daiteke horretarako."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Gailua konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Denbora pixka bat behar izan daiteke horretarako."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Utzi"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Enkriptatu"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkriptatu da"</string>

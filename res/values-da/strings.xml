@@ -36,8 +36,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Er du sikker på, at du vil fjerne dette arbejdsprofil? Alle profilens data slettes."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Fjern"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Annuller"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Du skal kryptere din enhed, inden du fortsætter med at konfigurere din arbejdsprofil. Dette kan tage et stykke tid."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Du skal kryptere din enhed, inden du fortsætter med at konfigurere den. Dette kan tage et stykke tid."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Du skal kryptere din enhed, inden du kan fortsætte konfigurationen af din arbejdsprofil. Dette kan tage et stykke tid."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Du skal kryptere din enhed, inden du kan fortsætte konfigurationen. Dette kan tage et stykke tid."</string>
     <string name="encrypt_device_cancel" msgid="5644516574936584926">"Annuller"</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Kryptér"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Krypteringen er fuldført"</string>
