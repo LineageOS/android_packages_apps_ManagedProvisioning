@@ -31,6 +31,7 @@ public class ProvisioningParams implements Parcelable {
     public static final boolean DEFAULT_WIFI_HIDDEN = false;
     public static final boolean DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED = false;
     public static final int DEFAULT_WIFI_PROXY_PORT = 0;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
 
     public String mTimeZone;
     public long mLocalTime = DEFAULT_LOCAL_TIME;
@@ -56,6 +57,7 @@ public class ProvisioningParams implements Parcelable {
     public boolean mStartedByNfc; // True iff provisioning flow was started by Nfc bump.
 
     public boolean mLeaveAllSystemAppsEnabled;
+    public boolean mSkipEncryption;
 
     public String getLocaleAsString() {
         if (mLocale != null) {
@@ -95,6 +97,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeParcelable(mAdminExtrasBundle, 0 /* default */);
         out.writeInt(mStartedByNfc ? 1 : 0);
         out.writeInt(mLeaveAllSystemAppsEnabled ? 1 : 0);
+        out.writeInt(mSkipEncryption ? 1 : 0);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -121,6 +124,7 @@ public class ProvisioningParams implements Parcelable {
             params.mAdminExtrasBundle = in.readParcelable(null /* use default classloader */);
             params.mStartedByNfc = in.readInt() == 1;
             params.mLeaveAllSystemAppsEnabled = in.readInt() == 1;
+            params.mSkipEncryption = in.readInt() == 1;
             return params;
         }
 
