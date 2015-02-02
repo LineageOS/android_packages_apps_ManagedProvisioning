@@ -33,6 +33,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -124,7 +125,8 @@ public class MessageParser {
     protected static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
         EXTRA_PROVISIONING_WIFI_HIDDEN,
         EXTRA_PROVISIONING_STARTED_BY_NFC,
-        EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED
+        EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+        EXTRA_PROVISIONING_SKIP_ENCRYPTION
     };
 
     protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
@@ -159,6 +161,7 @@ public class MessageParser {
                 params.mLeaveAllSystemAppsEnabled);
 
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.mAdminExtrasBundle);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.mSkipEncryption);
     }
 
     public ProvisioningParams parseIntent(Intent intent) throws ParseException {
@@ -241,6 +244,9 @@ public class MessageParser {
             if ((s = props.getProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED)) != null) {
                 params.mLeaveAllSystemAppsEnabled = Boolean.parseBoolean(s);
             }
+            if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
+                params.mSkipEncryption = Boolean.parseBoolean(s);
+            }
 
             checkValidityOfProvisioningParams(params);
             return params;
@@ -296,6 +302,9 @@ public class MessageParser {
         params.mLeaveAllSystemAppsEnabled = intent.getBooleanExtra(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
+        params.mSkipEncryption = intent.getBooleanExtra(
+                EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+                ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION);
 
         try {
             params.mAdminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(

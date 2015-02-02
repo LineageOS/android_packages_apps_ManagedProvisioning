@@ -156,7 +156,8 @@ public class DeviceOwnerProvisioningActivity extends Activity
 
         // Ask to encrypt the device before proceeding
         if (!(EncryptDeviceActivity.isDeviceEncrypted()
-                        || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false))) {
+                        || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
+                        || mParams.mSkipEncryption)) {
             requestEncryption(parser, mParams);
             finish();
             return;
