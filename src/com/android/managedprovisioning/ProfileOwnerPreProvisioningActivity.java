@@ -153,9 +153,13 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         }
 
         // If there is already a managed profile, allow the user to cancel or delete it.
+        // Otherwise, check whether system has reached maximum user limit.
         int existingManagedProfileUserId = alreadyHasManagedProfile();
         if (existingManagedProfileUserId != -1) {
             showManagedProfileExistsDialog(existingManagedProfileUserId);
+        } else if (isMaximumUserLimitReached()) {
+            showErrorAndClose(R.string.maximum_user_limit_reached,
+                    "Exiting managed profile provisioning, cannot add more users.");
         } else {
             showStartProvisioningButton();
         }
@@ -173,6 +177,11 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     private boolean systemHasManagedProfileFeature() {
         PackageManager pm = getPackageManager();
         return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
+    }
+
+    private boolean isMaximumUserLimitReached() {
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        return !userManager.canAddMoreUsers();
     }
 
     private boolean currentLauncherSupportsManagedProfiles() {
