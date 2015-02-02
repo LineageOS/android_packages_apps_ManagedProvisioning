@@ -194,9 +194,9 @@ public class MessageParser {
                 R.string.device_owner_error_general);
     }
 
-    // Note: You can't include the EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE in the properties that is
-    // send over Nfc, because there is no publicly documented conversion from PersistableBundle to
-    // String.
+    // Note: EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE property contains a Properties object
+    // serialized into String. See Properties.store() and Properties.load() for more details.
+    // The property value is optional.
     private ProvisioningParams parseProperties(String data)
             throws ParseException {
         ProvisioningParams params = new ProvisioningParams();
@@ -242,6 +242,8 @@ public class MessageParser {
                 params.mLeaveAllSystemAppsEnabled = Boolean.parseBoolean(s);
             }
 
+            deserializeAdminExtrasBundle(params, props);
+
             checkValidityOfProvisioningParams(params);
             return params;
         } catch (IOException e) {
@@ -253,6 +255,20 @@ public class MessageParser {
         } catch (IllformedLocaleException e) {
             throw new ParseException("Invalid locale.",
                     R.string.device_owner_error_general, e);
+        }
+    }
+
+    private void deserializeAdminExtrasBundle(ProvisioningParams params, Properties props)
+            throws IOException {
+        String serializedExtras = props.getProperty(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        if (serializedExtras != null) {
+            Properties extrasProp = new Properties();
+            extrasProp.load(new StringReader(serializedExtras));
+            PersistableBundle extrasBundle = new PersistableBundle(extrasProp.size());
+            for (String propName : extrasProp.stringPropertyNames()) {
+                extrasBundle.putString(propName, extrasProp.getProperty(propName));
+            }
+            params.mAdminExtrasBundle = extrasBundle;
         }
     }
 
