@@ -195,6 +195,10 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
             return false;
         }
         try {
+            // If the user has not chosen a default launcher, then launcherResolveInfo will be
+            // referring to the resolver activity. It is fine to create a managed profile in
+            // this case since there will always be at least one launcher on the device that
+            // supports managed profile feature.
             ApplicationInfo launcherAppInfo = getPackageManager().getApplicationInfo(
                     launcherResolveInfo.activityInfo.packageName, 0 /* default flags */);
             return versionNumberAtLeastL(launcherAppInfo.targetSdkVersion);
