@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"तपाईंको उपकरणले कार्य प्रोफाइलहरू समर्थन गर्दैन।"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"कार्य प्रोफाइल उपकरणको प्राथमिक प्रयोगकर्ताद्वारा स्थापना गर्न आवश्यक छ"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"तपाईँको कार्य प्रोफाइल यस सुरुवातकर्ता अनुप्रयोग समर्थित छैन। तपाईँले यससँग उपयुक्त एउटा सुरुवातकर्तामा स्विच गर्न आवश्यक छ।"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द गर्नुहोस्"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक छ"</string>

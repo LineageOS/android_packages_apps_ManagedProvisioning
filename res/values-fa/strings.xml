@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاریتان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"دستگاهتان از نمایه‌های کاری پشتیبانی نمی‌کند"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"کاربر اصلی دستگاه باید نمایه‌های کاری را تنظیم کند"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"نمایه کاریتان از سوی این برنامه راه‌انداز پشتیبانی نمی‌شود. باید راه‌انداز خودتان را به راه‌اندازی تغییر دهید که سازگار است."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"لغو"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"تأیید"</string>

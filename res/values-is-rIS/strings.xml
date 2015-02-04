@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ekki var hægt að setja upp vinnusniðið þitt. Hafðu samband við upplýsingatæknisvið eða reyndu aftur síðar."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Tækið þitt styður ekki vinnusnið"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Vinnusnið þurfa að vera sett upp af aðalnotanda tækisins"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ræsiforritið styður ekki vinnusniðið þitt. Þú þarft að skipta yfir í ræsiforrit með stuðningi."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Hætta við"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Í lagi"</string>

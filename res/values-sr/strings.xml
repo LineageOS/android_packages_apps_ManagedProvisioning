@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Није могуће подесити профил за посао. Контактирајте ИТ сектор или покушајте поново касније."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Уређај не подржава пословне профиле"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Пословне профиле треба да подеси примарни корисник уређаја"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ова апликација покретача не подржава пословни профил. Морате да пређете на компатибилан покретач."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Откажи"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Потврди"</string>

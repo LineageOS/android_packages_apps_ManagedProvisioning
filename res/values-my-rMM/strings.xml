@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ် မရခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ သို့မဟုတ် နောက်မှာ ထပ်စမ်းပါ။"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"သင့်စက်က အလုပ်ပရိုဖိုင်များကို မပံ့ပိုးပါ။"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"စက်ပစ္စည်း၏ ပင်မအသုံးပြုသူမှ အလုပ်ပရိုဖိုင်အား သက်မှတ်ရပါမည်။"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"သင့် အလုပ် ပရိုဖိုင်ကို ဒီဖွင့်တင်ရေး appမှ မပံ့ပိုးပါ။ သင်သည် လိုက်ဖက်သည့် ဖွင့်တင်ရေးစက်သို့ ပြောင်းရန် လိုသည်။"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ထားတော့"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"အိုကေ"</string>

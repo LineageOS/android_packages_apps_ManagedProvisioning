@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ezin izan da konfiguratu laneko profila. Jarri informatika-sailarekin harremanetan edo saiatu berriro geroago."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Gailuak ez du laneko profilik onartzen"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Gailuaren erabiltzaile nagusiak konfiguratu behar ditu laneko profilak"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Aplikazio abiarazle honek ez du zure laneko profila onartzen. Abiarazle bateragarri bat erabili beharko duzu."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Utzi"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Ados"</string>

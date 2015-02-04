@@ -45,6 +45,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Жумуш профилиңиз негизделген жок. IT бөлүмүңүзгө кайрылыңыз же бир аздан кийин дагы аракет кылып көрүңүз."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Түзмөгүңүздө жумуш профилдери колдоого алынбайт"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Жумуш профилдери түзмөктүн негизги колдонуучусу тарабынан орнотулушу керек"</string>
+    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Жумуш профилиңизде бул ишке киргизгич колдонмосу колдоого албайт. Дал келе турган жүргүзгүчкө которулушуңуз керек."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Жокко чыгаруу"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Жарайт"</string>
