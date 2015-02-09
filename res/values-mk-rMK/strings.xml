@@ -45,8 +45,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Не можевме да го поставиме работниот профил. Контактирајте со одделот за ИТ или обидете се повторно подоцна."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Уредот не поддржува работни профили"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Работните профили треба да ги постави примарниот корисник на уредот"</string>
-    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Не може да се создаде работен профил бидејќи е достигнат максималниот број корисници на вашиот уред. Отстранете барем еден корисник и обидете се повторно."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Работниот профил не е поддржан од оваа апликација на стартерот. Ќе треба да се префрлите на стартер којшто е компатибилен."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Откажи"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Во ред"</string>

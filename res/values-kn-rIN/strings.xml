@@ -45,8 +45,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ನಿಮ್ಮ ಸಾಧನವು ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಸಾಧನದ ಪ್ರಾಥಮಿಕ ಬಳಕೆದಾರರು ಹೊಂದಿಸುವ ಅಗತ್ಯವಿದೆ"</string>
-    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಬಳಕೆದಾರರ ಗರಿಷ್ಠ ಸಂಖ್ಯೆ ತಲುಪಿರುವ ಕಾರಣ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಬ್ಬ ಬಳಕೆದಾರರನ್ನು ತೆಗೆದುಹಾಕಿ ಹಾಗೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಈ ಲಾಂಚರ್‌‌ ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ. ನೀವು, ಹೊಂದಿಕೆಯಾಗುವಂತಹ ಲಾಂಚರ್‌‌ಗೆ ಬದಲಾಯಿಸುವ ಅಗತ್ಯವಿದೆ."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ರದ್ದುಮಾಡು"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ಸರಿ"</string>

@@ -45,8 +45,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Non se puido configurar o teu perfil de traballo. Ponte en contacto co departamento de TI ou téntao de novo máis tarde."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"O teu dispositivo non admite perfís de traballo"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Os perfís de traballo teñen que ser configurados polo usuario principal do dispositivo"</string>
-    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Non se puido crear o perfil de traballo porque se alcanzou o número máximo de usuarios no teu dispositivo. Elimina polo menos un usuario e téntao de novo."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"O teu perfil de traballo non é compatible con esta aplicación do menú de aplicacións. Terás que cambiar a un menú de aplicacións compatible."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Cancelar"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Aceptar"</string>

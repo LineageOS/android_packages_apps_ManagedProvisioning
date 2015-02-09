@@ -45,8 +45,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No s\'ha pogut configurar el perfil professional. Contacta amb el departament de TI o prova-ho més tard."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"El dispositiu no és compatible amb els perfils professionals."</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Els perfils professionals els ha de configurar l\'usuari principal del dispositiu"</string>
-    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"El perfil de treball no s\'ha pogut crear perquè s\'ha assolit el nombre màxim d\'usuaris al dispositiu. Suprimeix-ne almenys un i torna-ho a provar."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Aquesta aplicació de Launcher no admet el teu perfil professional. Has de fer servir un Launcher que sigui compatible."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Cancel·la"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"D\'acord"</string>

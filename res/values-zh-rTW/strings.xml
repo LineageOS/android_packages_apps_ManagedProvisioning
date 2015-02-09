@@ -45,8 +45,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定您的工作設定檔，請與您的 IT 部門聯絡或稍後再試。"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"您的裝置不支援工作設定檔"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"您必須是裝置的主要使用者，才能設定 Work 設定檔"</string>
-    <!-- no translation found for maximum_user_limit_reached (7267689354022124652) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"您裝置上的使用者數量已達上限，因此無法建立 Work 設定檔。請移除至少一位使用者，然後再試一次。"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"這個啟動器應用程式不支援您的工作設定檔，請切換至相容的啟動器。"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"確定"</string>
