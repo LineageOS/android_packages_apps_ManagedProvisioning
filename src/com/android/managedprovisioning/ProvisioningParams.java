@@ -49,10 +49,28 @@ public class ProvisioningParams implements Parcelable {
     // At least one one of mDeviceAdminPackageName and mDeviceAdminComponentName should be non-null
     public String mDeviceAdminPackageName; // Package name of the device admin package.
     public ComponentName mDeviceAdminComponentName;
+    public ComponentName mDeviceInitializerComponentName;
 
     private ComponentName mInferedDeviceAdminComponentName;
 
-    String inferDeviceAdminPackageName() {
+    public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
+    public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
+    public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
+
+    public String mDeviceInitializerPackageDownloadLocation; // Url of the device initializer .apk.
+    // Cookie header for initializer http request.
+    public String mDeviceInitializerPackageDownloadCookieHeader;
+    // SHA-1 sum of the initializer .apk file.
+    public byte[] mDeviceInitializerPackageChecksum = new byte[0];
+
+    public PersistableBundle mAdminExtrasBundle;
+
+    public boolean mStartedByNfc; // True iff provisioning flow was started by Nfc bump.
+
+    public boolean mLeaveAllSystemAppsEnabled;
+    public boolean mSkipEncryption;
+
+    public String inferDeviceAdminPackageName() {
         if (mDeviceAdminComponentName != null) {
             return mDeviceAdminComponentName.getPackageName();
         }
@@ -69,17 +87,6 @@ public class ProvisioningParams implements Parcelable {
         return mInferedDeviceAdminComponentName;
     }
 
-    public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
-    public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
-    public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
-
-    public PersistableBundle mAdminExtrasBundle;
-
-    public boolean mStartedByNfc; // True iff provisioning flow was started by Nfc bump.
-
-    public boolean mLeaveAllSystemAppsEnabled;
-    public boolean mSkipEncryption;
-
     public String getLocaleAsString() {
         if (mLocale != null) {
             return mLocale.getLanguage() + "_" + mLocale.getCountry();
@@ -90,6 +97,11 @@ public class ProvisioningParams implements Parcelable {
 
     public String getDeviceAdminPackageChecksumAsString() {
         return Base64.encodeToString(mDeviceAdminPackageChecksum,
+                Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+    }
+
+    public String getDeviceInitializerPackageChecksumAsString() {
+        return Base64.encodeToString(mDeviceInitializerPackageChecksum,
                 Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
@@ -116,6 +128,11 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mDeviceAdminPackageDownloadCookieHeader);
         out.writeInt(mDeviceAdminPackageChecksum.length);
         out.writeByteArray(mDeviceAdminPackageChecksum);
+        out.writeParcelable(mDeviceInitializerComponentName, 0 /* default */);
+        out.writeString(mDeviceInitializerPackageDownloadLocation);
+        out.writeString(mDeviceInitializerPackageDownloadCookieHeader);
+        out.writeInt(mDeviceInitializerPackageChecksum.length);
+        out.writeByteArray(mDeviceInitializerPackageChecksum);
         out.writeParcelable(mAdminExtrasBundle, 0 /* default */);
         out.writeInt(mStartedByNfc ? 1 : 0);
         out.writeInt(mLeaveAllSystemAppsEnabled ? 1 : 0);
@@ -145,6 +162,13 @@ public class ProvisioningParams implements Parcelable {
             int checksumLength = in.readInt();
             params.mDeviceAdminPackageChecksum = new byte[checksumLength];
             in.readByteArray(params.mDeviceAdminPackageChecksum);
+            params.mDeviceInitializerComponentName = (ComponentName)
+                    in.readParcelable(null /* use default classloader */);
+            params.mDeviceInitializerPackageDownloadLocation = in.readString();
+            params.mDeviceInitializerPackageDownloadCookieHeader = in.readString();
+            checksumLength = in.readInt();
+            params.mDeviceInitializerPackageChecksum = new byte[checksumLength];
+            in.readByteArray(params.mDeviceInitializerPackageChecksum);
             params.mAdminExtrasBundle = in.readParcelable(null /* use default classloader */);
             params.mStartedByNfc = in.readInt() == 1;
             params.mLeaveAllSystemAppsEnabled = in.readInt() == 1;

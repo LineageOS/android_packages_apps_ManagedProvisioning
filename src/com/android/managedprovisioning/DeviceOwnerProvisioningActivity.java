@@ -16,6 +16,9 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_READY_FOR_USER_INITIALIZATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -23,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.SystemProperties;
@@ -36,11 +40,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
-import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This activity starts device owner provisioning:
@@ -261,15 +265,41 @@ public class DeviceOwnerProvisioningActivity extends Activity
 
 
     private void onProvisioningSuccess() {
-        // The Setup wizards listens to this flag and finishes itself when it is set.
-        // It then fires a home intent, which we catch in the HomeReceiverActivity before sending
-        // the intent to notify the mdm that provisioning is complete.
-        Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
-        Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
-
+        if (mParams.mDeviceInitializerComponentName != null) {
+            Intent result = new Intent(ACTION_READY_FOR_USER_INITIALIZATION);
+            result.setComponent(mParams.mDeviceInitializerComponentName);
+            result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                    Intent.FLAG_RECEIVER_FOREGROUND);
+            if (mParams.mAdminExtrasBundle != null) {
+                result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                        mParams.mAdminExtrasBundle);
+            }
+            List<ResolveInfo> matchingReceivers =
+                    getPackageManager().queryBroadcastReceivers(result, 0);
+            if (matchingReceivers.size() > 0) {
+                // Notify the device initializer that it can now perform pre-user-setup tasks.
+                sendBroadcast(result);
+            } else {
+                ProvisionLogger.logi("Initializer component doesn't have a receiver for "
+                        + "android.app.action.READY_FOR_USER_INITIALIZATION. Skipping broadcast "
+                        + "and finishing user initialization.");
+                provisionDevice();
+            }
+        } else {
+            // No initializer, set the device provisioned ourselves.
+            provisionDevice();
+        }
         // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);
         finish();
+    }
+
+    private void provisionDevice() {
+        // The Setup wizards listens to this flag and finishes itself when it is set.
+        // It then fires a home intent, which we catch in the HomeReceiverActivity before
+        // sending the intent to notify the mdm that provisioning is complete.
+        Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
+        Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
     }
 
     private void requestEncryption(MessageParser messageParser, ProvisioningParams params) {

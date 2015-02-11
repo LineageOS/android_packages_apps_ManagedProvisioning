@@ -19,15 +19,15 @@ package com.android.managedprovisioning.task;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.text.TextUtils;
 
 import com.android.managedprovisioning.ProvisionLogger;
 
+/**
+ * This tasks sets a given component as the owner of the device. If provided it also sets a given
+ * component as the device initializer, which can perform additional setup steps at the end of
+ * provisioning before setting the device as provisioned.
+ */
 public class SetDevicePolicyTask {
     public static final int ERROR_PACKAGE_NOT_INSTALLED = 0;
     public static final int ERROR_NO_RECEIVER = 1;
@@ -37,47 +37,77 @@ public class SetDevicePolicyTask {
     private final Context mContext;
     private String mAdminPackage;
     private ComponentName mAdminComponent;
-    private final String mOwner;
+    private final String mOwnerName;
+    private ComponentName mInitializerComponent;
+    private String mInitializerPackageName;
+    private String mInitializerName;
 
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
-    public SetDevicePolicyTask(Context context, String owner, Callback callback) {
+    public SetDevicePolicyTask(Context context, String ownerName,
+            ComponentName initializerComponent, String initializerName, Callback callback) {
         mCallback = callback;
         mContext = context;
-        mOwner = owner;
+        mOwnerName = ownerName;
+        mInitializerComponent = initializerComponent;
+        if (mInitializerComponent != null) {
+            mInitializerPackageName = initializerComponent.getPackageName();
+            mInitializerName = initializerName;
+        }
+
         mPackageManager = mContext.getPackageManager();
         mDevicePolicyManager = (DevicePolicyManager) mContext.
                 getSystemService(Context.DEVICE_POLICY_SERVICE);
     }
 
     public void run(ComponentName adminComponent) {
-        mAdminComponent = adminComponent;
-        mAdminPackage = mAdminComponent.getPackageName();
-        enableDevicePolicyApp();
-        setActiveAdmin();
-        setDeviceOwner();
+        try {
+            mAdminComponent = adminComponent;
+            mAdminPackage = mAdminComponent.getPackageName();
+
+            enableDevicePolicyApp(mAdminPackage);
+            setActiveAdmin(mAdminComponent);
+            setDeviceOwner(mAdminPackage, mOwnerName);
+
+            if (mInitializerComponent != null) {
+                enableDevicePolicyApp(mInitializerPackageName);
+                setActiveAdmin(mInitializerComponent);
+                setDeviceInitializer(mInitializerComponent, mInitializerName);
+            }
+        } catch (Exception e) {
+            ProvisionLogger.loge("Failure setting device owner or initializer", e);
+            mCallback.onError(ERROR_OTHER);
+            return;
+        }
+
         mCallback.onSuccess();
     }
 
-    private void enableDevicePolicyApp() {
-        int enabledSetting = mPackageManager
-                .getApplicationEnabledSetting(mAdminPackage);
+    private void enableDevicePolicyApp(String packageName) {
+        int enabledSetting = mPackageManager.getApplicationEnabledSetting(packageName);
         if (enabledSetting != PackageManager.COMPONENT_ENABLED_STATE_DEFAULT) {
-            mPackageManager.setApplicationEnabledSetting(mAdminPackage,
+            mPackageManager.setApplicationEnabledSetting(packageName,
                     PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, 0);
         }
     }
 
-    public void setActiveAdmin() {
-        ProvisionLogger.logd("Setting " + mAdminComponent + " as active admin.");
-        mDevicePolicyManager.setActiveAdmin(mAdminComponent, true);
+    public void setActiveAdmin(ComponentName component) {
+        ProvisionLogger.logd("Setting " + component + " as active admin.");
+        mDevicePolicyManager.setActiveAdmin(component, true);
     }
 
-    public void setDeviceOwner() {
-        ProvisionLogger.logd("Setting " + mAdminPackage + " as device owner " + mOwner + ".");
-        if (!mDevicePolicyManager.isDeviceOwner(mAdminPackage)) {
-            mDevicePolicyManager.setDeviceOwner(mAdminPackage, mOwner);
+    public void setDeviceOwner(String packageName, String owner) {
+        ProvisionLogger.logd("Setting " + packageName + " as device owner " + owner + ".");
+        if (!mDevicePolicyManager.isDeviceOwner(packageName)) {
+            mDevicePolicyManager.setDeviceOwner(packageName, owner);
+        }
+    }
+
+    public void setDeviceInitializer(ComponentName component, String owner) {
+        ProvisionLogger.logd("Setting " + component + " as device initializer " + owner + ".");
+        if (!mDevicePolicyManager.isDeviceInitializerApp(component.getPackageName())) {
+            mDevicePolicyManager.setDeviceInitializer(null, component, owner);
         }
     }
 
