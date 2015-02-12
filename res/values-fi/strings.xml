@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="4699090302771328296">"Laitteen käyttäjien hallinta"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hups!"</string>
-    <string name="setup_work_space" msgid="6539913744903244870">"Luo Google-profiili"</string>
+    <string name="setup_work_space" msgid="6539913744903244870">"Luo profiili"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisaatiosi hallinnoi tätä profiilia ja suojaa sen tiedot. Voit itse hallinnoida laitteen muita ominaisuuksia."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Seuraava sovellus tarvitsee käyttöoikeuden profiiliin:"</string>
     <string name="set_up" msgid="7012862095553564169">"Määritä asetukset"</string>
