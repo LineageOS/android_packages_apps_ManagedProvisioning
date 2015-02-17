@@ -46,22 +46,34 @@ public class InstallPackageTask {
     private final String mPackageName;
 
     private String mPackageLocation;
+    private final String mDownloadLocationFrom;
     private PackageManager mPm;
     private int mPackageVerifierEnable;
 
-    public InstallPackageTask (Context context, String packageName,
+    public InstallPackageTask (Context context, String packageName, String downloadLocation,
             Callback callback) {
         mCallback = callback;
         mContext = context;
         mPackageLocation = null; // Initialized in run().
         mPackageName = packageName;
+        mDownloadLocationFrom = downloadLocation;
+    }
+
+    public boolean downloadLocationWasProvided() {
+        return !TextUtils.isEmpty(mDownloadLocationFrom);
     }
 
     public void run(String packageLocation) {
         if (TextUtils.isEmpty(packageLocation)) {
-            ProvisionLogger.loge("Package Location is empty.");
-            mCallback.onError(ERROR_PACKAGE_INVALID);
-            return;
+            if (!downloadLocationWasProvided()) {
+                ProvisionLogger.loge("Package Location is empty, nothing to install.");
+                mCallback.onSuccess();
+                return;
+            } else {
+                ProvisionLogger.loge("Package Location is empty.");
+                mCallback.onError(ERROR_PACKAGE_INVALID);
+                return;
+            }
         }
         mPackageLocation = packageLocation;
 

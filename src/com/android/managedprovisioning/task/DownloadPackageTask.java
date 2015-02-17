@@ -76,6 +76,10 @@ public class DownloadPackageTask {
     }
 
     public void run() {
+        if (!downloadLocationWasProvided()) {
+            mCallback.onSuccess();
+            return;
+        }
         mReceiver = createDownloadReceiver();
         mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));

@@ -227,6 +227,7 @@ public class ProfileOwnerProvisioningService extends Service {
                     R.array.vendor_required_apps_managed_profile,
                     R.array.packages_to_delete_new_managed_profile,
                     true /* creating new profile */, mManagedProfileUserInfo.id,
+                    false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
 
                         @Override

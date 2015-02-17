@@ -70,9 +70,6 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
             String pacUrl, Callback callback) {
         mCallback = callback;
         mContext = context;
-        if (TextUtils.isEmpty(ssid)) {
-            throw new IllegalArgumentException("The ssid must be non-empty.");
-        }
         mSsid = ssid;
         mHidden = hidden;
         mSecurityType = securityType;
@@ -92,6 +89,10 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     }
 
     public void run() {
+        if (TextUtils.isEmpty(mSsid)) {
+            mCallback.onSuccess();
+            return;
+        }
         if (!enableWifi()) {
             ProvisionLogger.loge("Failed to enable wifi");
             mCallback.onError();

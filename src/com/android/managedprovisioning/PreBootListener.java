@@ -55,6 +55,7 @@ public class PreBootListener extends BroadcastReceiver {
                     R.array.vendor_required_apps_managed_device,
                     false /* not creating new profile */,
                     UserHandle.USER_OWNER,
+                    false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
 
                         @Override
@@ -106,6 +107,7 @@ public class PreBootListener extends BroadcastReceiver {
                     R.array.vendor_required_apps_managed_profile,
                     false /* not creating new profile */,
                     userInfo.id,
+                    false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
 
                         @Override

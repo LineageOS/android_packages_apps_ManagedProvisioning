@@ -73,6 +73,7 @@ public class DeleteNonRequiredAppsTask {
     private final Set<String> mAdditionalPackagesToDelete;
     private final int mUserId;
     private final boolean mNewProfile;
+    private final boolean mLeaveAllSystemAppsEnabled;
 
     private static final String TAG_SYSTEM_APPS = "system-apps";
     private static final String TAG_PACKAGE_LIST_ITEM = "item";
@@ -80,23 +81,26 @@ public class DeleteNonRequiredAppsTask {
 
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName,
             int requiredAppsList, int vendorRequiredAppsList, boolean newProfile, int userId,
-            Callback callback) {
-        this(context, getRequiredApps(context, requiredAppsList, vendorRequiredAppsList, mdmPackageName),
-                        Collections.<String>emptySet(), newProfile, userId, callback);
+            boolean leaveAllSystemAppsEnabled, Callback callback) {
+        this(context,
+                getRequiredApps(context, requiredAppsList, vendorRequiredAppsList, mdmPackageName),
+                Collections.<String>emptySet(), newProfile, userId, leaveAllSystemAppsEnabled,
+                callback);
     }
 
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName,
             int requiredAppsList, int vendorRequiredAppsList,
             int additionalPackagesToDelete, boolean newProfile, int userId,
-            Callback callback) {
+            boolean leaveAllSystemAppsEnabled, Callback callback) {
         this(context,
                 getRequiredApps(context, requiredAppsList, vendorRequiredAppsList, mdmPackageName),
-                getAppListAsSet(context, additionalPackagesToDelete), newProfile, userId, callback);
+                getAppListAsSet(context, additionalPackagesToDelete), newProfile, userId,
+                leaveAllSystemAppsEnabled, callback);
     }
 
-    public DeleteNonRequiredAppsTask(Context context, Set<String> requiredPackages,
-            Set<String> additionalPackagesToDelete, boolean newProfile, int userId,
-            Callback callback) {
+    public DeleteNonRequiredAppsTask(Context context,
+            Set<String> requiredPackages, Set<String> additionalPackagesToDelete,
+            boolean newProfile, int userId, boolean leaveAllSystemAppsEnabled, Callback callback) {
         mCallback = callback;
         mContext = context;
         mUserId = userId;
@@ -105,9 +109,15 @@ public class DeleteNonRequiredAppsTask {
         mRequiredPackages = requiredPackages;
         mAdditionalPackagesToDelete = additionalPackagesToDelete;
         mNewProfile = newProfile;
+        mLeaveAllSystemAppsEnabled = leaveAllSystemAppsEnabled;
     }
 
     public void run() {
+        if (mLeaveAllSystemAppsEnabled) {
+            ProvisionLogger.logd("Not deleting non-required apps.");
+            mCallback.onSuccess();
+            return;
+        }
         ProvisionLogger.logd("Deleting non required apps.");
 
         File systemAppsFile = getSystemAppsFile(mContext, mUserId);
