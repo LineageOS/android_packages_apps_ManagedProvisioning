@@ -404,41 +404,22 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     }
 
     /**
-     * Builds a dialog that allows the user to remove an existing managed profile after they were
-     * shown an additional warning.
+     * Builds a dialog that allows the user to remove an existing managed profile.
      */
     private void showManagedProfileExistsDialog(
             final int existingManagedProfileUserId) {
 
-        // Before deleting, show a warning dialog
-        DialogInterface.OnClickListener warningListener =
+        DialogInterface.OnClickListener deleteListener =
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Really delete the profile if the user clicks delete on the warning dialog.
-                final DialogInterface.OnClickListener deleteListener =
-                        new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        UserManager userManager =
-                                (UserManager) getSystemService(Context.USER_SERVICE);
-                        userManager.removeUser(existingManagedProfileUserId);
-                        showStartProvisioningButton();
-                    }
-                };
-                showDeleteManagedProfileDialog(
-                        getString(R.string.sure_you_want_to_delete_profile),
-                        deleteListener);
+                UserManager userManager =
+                        (UserManager) getSystemService(Context.USER_SERVICE);
+                userManager.removeUser(existingManagedProfileUserId);
+                showStartProvisioningButton();
             }
         };
 
-        showDeleteManagedProfileDialog(
-                getString(R.string.managed_profile_already_present),
-                warningListener);
-    }
-
-    private void showDeleteManagedProfileDialog(String message,
-            DialogInterface.OnClickListener deleteListener) {
         DialogInterface.OnClickListener cancelListener =
                 new DialogInterface.OnClickListener() {
             @Override
@@ -448,13 +429,14 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message)
+        builder.setMessage(getString(R.string.sure_you_want_to_delete_profile))
                 .setCancelable(false)
                 .setPositiveButton(getString(R.string.delete_profile), deleteListener)
                 .setNegativeButton(getString(R.string.cancel_delete_profile), cancelListener)
                 .show()
                 .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
+
     /**
      * Exception thrown when the provisioning has failed completely.
      *

@@ -53,10 +53,8 @@
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <string name="default_managed_profile_name">Work profile</string>
 
-  <!-- String shown when there is already a work profile for this user. CHAR LIMIT=NONE] -->
-  <string name="managed_profile_already_present">You already have a work profile on your device. Do you want to remove it?</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
-  <string name="sure_you_want_to_delete_profile">Are you sure you want to remove this work profile? All of its data will be deleted.</string>
+  <string name="sure_you_want_to_delete_profile">You already have a work profile on your device, it must be removed to setup a new profile. All apps and data in this profile will be deleted if you continue.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
   <string name="delete_profile">Remove</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
