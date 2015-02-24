@@ -182,27 +182,32 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
             ProvisionLogger.logd("Error reported: " + errorLogMessage);
             error(R.string.managed_provisioning_error_text, errorLogMessage);
             // Note that this will be reported as a canceled action
+            mCancelStatus = CANCELSTATUS_FINALIZING;
         } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
             if (mCancelStatus != CANCELSTATUS_CANCELLING) {
                 return;
             }
             mCancelProgressDialog.dismiss();
-            ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_CANCELED);
-            stopService(new Intent(ProfileOwnerProvisioningActivity.this,
-                            ProfileOwnerProvisioningService.class));
-            ProfileOwnerProvisioningActivity.this.finish();
+            onProvisioningAborted();
         }
+    }
+
+    private void onProvisioningAborted() {
+        ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_CANCELED);
+        stopService(new Intent(ProfileOwnerProvisioningActivity.this,
+                        ProfileOwnerProvisioningService.class));
+        ProfileOwnerProvisioningActivity.this.finish();
     }
 
     @Override
     public void onBackPressed() {
-        if (mCancelStatus == CANCELSTATUS_PROVISIONING) {
+        if (mCancelStatus != CANCELSTATUS_PROVISIONING) {
+            mCancelStatus = CANCELSTATUS_CONFIRMING;
             showCancelProvisioningDialog();
         }
     }
 
     private void showCancelProvisioningDialog() {
-        mCancelStatus = CANCELSTATUS_CONFIRMING;
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                         .setCancelable(false)
                         .setTitle(R.string.profile_owner_cancel_title)
@@ -247,7 +252,7 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
                 .setPositiveButton(R.string.device_owner_error_ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog,int id) {
-                            confirmCancel();
+                            onProvisioningAborted();
                         }
                     })
                 .show()
@@ -255,6 +260,10 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
     }
 
     private void confirmCancel() {
+        if (mCancelStatus != CANCELSTATUS_CONFIRMING) {
+            // Can only cancel if provisioning hasn't finished at this point.
+            return;
+        }
         mCancelStatus = CANCELSTATUS_CANCELLING;
         Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
                 ProfileOwnerProvisioningService.class);
