@@ -16,30 +16,33 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
-import static  android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.ComponentName;
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.text.TextUtils;
 
-import java.util.List;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
 /**
  * Class containing various auxiliary methods.
  */
 public class Utils {
+    private Utils() {}
+
     public static Set<String> getCurrentSystemApps(int userId) {
         IPackageManager ipm = IPackageManager.Stub.asInterface(ServiceManager
                 .getService("package"));
@@ -173,5 +176,43 @@ public class Utils {
                     + mdmPackageName);
         }
         return mdmComponentName;
+    }
+
+    public static MdmPackageInfo getMdmPackageInfo(PackageManager pm, String packageName) {
+        if (packageName != null) {
+            try {
+                ApplicationInfo ai = pm.getApplicationInfo(packageName, /* default flags */ 0);
+                if (ai != null) {
+                    return new MdmPackageInfo(pm.getApplicationIcon(packageName),
+                            pm.getApplicationLabel(ai).toString());
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                // Package does not exist, ignore. Should never happen.
+                ProvisionLogger.loge("Package does not exist. Should never happen.");
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Information relating to the currently installed MDM package manager.
+     */
+    public static final class MdmPackageInfo {
+        private final Drawable packageIcon;
+        private final String appLabel;
+
+        private MdmPackageInfo(Drawable packageIcon, String appLabel) {
+            this.packageIcon = packageIcon;
+            this.appLabel = appLabel;
+        }
+
+        public String getAppLabel() {
+            return appLabel;
+        }
+
+        public Drawable getPackageIcon() {
+            return packageIcon;
+        }
     }
 }
