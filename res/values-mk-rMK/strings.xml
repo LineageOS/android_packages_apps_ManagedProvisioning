@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Откажи"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Во ред"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Работен профил"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"Веќе имате работен профил на уредот. Дали сакате да го отстраните?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Дали сте сигурни дека сакате да го отстраните работниот профил? Сите негови податоци ќе се избришат."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"Отстрани"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Откажи"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"За да продолжите со поставување на работниот профил, ќе треба да го шифрирате уредот. Тоа може да потрае."</string>

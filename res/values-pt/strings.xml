@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Ok"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"Você já tem um perfil de trabalho no dispositivo. Deseja removê-lo?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Tem certeza de que deseja remover este perfil de trabalho? Todos os seus dados serão excluídos."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"Remover"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Para continuar a configuração do perfil de trabalho, você precisará criptografar o dispositivo. Isso pode demorar algum tempo."</string>

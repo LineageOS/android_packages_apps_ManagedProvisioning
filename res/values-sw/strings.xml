@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Ghairi"</string>
     <string name="ok_setup" msgid="5148111905838329307">"SAWA"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Wasifu wa kazini"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"Tayari una wasifu wa kazini kwenye kifaa hiki. Je, unataka kuondoa wasifu huo?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Je, una uhakika unataka kuondoa wasifu huu wa kazini? Data yake yote itafutwa."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"Ondoa"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Ghairi"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Ili uendelee kusanidi wasifu wako wa kazini, utahitaji kusimba kifaa chako kwa njia fiche. Hatua hii inaweza kuchukua muda."</string>

@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"​ຍົກ​ເລີກ"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ຕົກລົງ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"ທ່ານ​ມີ​ໂ​ປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ຢູ່​ແລ້ວ. ທ່ານ​​ຕ້ອງ​ການ​ລຶບ​ອອກບໍ່?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"​ທ່ານ​ແນ່​ໃຈ​ບໍ່​ວ່າ​​ຕ້ອງ​ການ​ລຶບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ນີ້​ອອກ? ຂໍ້​ມູ​ນ​ທັງ​ໝົດ​ຂອງ​ມັນ​ຈະ​ຖືກ​ລຶບ​ອອກ."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"ລຶບ​"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"​ຍົກ​ເລີກ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"​ເພື່ອ​ສືບ​ຕໍ່​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ, ທ່ານ​ຈະ​ຕ້ອງ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ກ່ອນ. ຂັ້ນ​ຕອນ​ນີ້​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>

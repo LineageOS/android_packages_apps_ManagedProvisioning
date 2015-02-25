@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"确定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"您的设备上已设置了一个工作资料。要移除该资料吗？"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"移除此工作资料将会删除此资料中的所有数据。确定要移除吗？"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"移除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>

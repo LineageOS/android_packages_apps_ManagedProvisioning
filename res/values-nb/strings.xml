@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Avbryt"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbeidsprofil"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"Det er allerede en arbeidsprofil på enheten din. Vil du fjerne den?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"Er du sikker på at du vil fjerne denne arbeidsprofilen? Alle profildataene slettes."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"Fjern"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Avbryt"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Hvis du vil fortsette konfigurasjonen av arbeidsprofilen, må du kryptere enheten din. Dette kan ta en stund."</string>

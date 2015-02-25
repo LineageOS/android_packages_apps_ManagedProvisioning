@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"취소"</string>
     <string name="ok_setup" msgid="5148111905838329307">"확인"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"직장 프로필"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"기기에 이미 직장 프로필이 있습니다. 삭제하시겠습니까?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"직장 프로필을 삭제하시겠습니까? 데이터가 모두 삭제됩니다."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"삭제"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"취소"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"직장 프로필 설정을 계속하려면 기기를 암호화해야 합니다. 이 작업은 다소 시간이 걸릴 수 있습니다."</string>

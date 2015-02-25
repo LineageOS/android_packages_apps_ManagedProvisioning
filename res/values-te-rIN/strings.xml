@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"రద్దు చేయి"</string>
     <string name="ok_setup" msgid="5148111905838329307">"సరే"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"మీరు ఇప్పటికే మీ పరికరంలో కార్యాలయ ప్రొఫైల్‌ను కలిగి ఉన్నారు. మీరు దాన్ని తీసివేయాలనుకుంటున్నారా?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"మీరు ఖచ్చితంగా ఈ కార్యాలయ ప్రొఫైల్‌ను తీసివేయాలనుకుంటున్నారా? అలా చేస్తే దాని డేటా మొత్తం తొలగించబడుతుంది."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"తీసివేయి"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"రద్దు చేయి"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడం కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>

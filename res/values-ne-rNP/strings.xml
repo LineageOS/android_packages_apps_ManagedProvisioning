@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द गर्नुहोस्"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक छ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"तपाईं संग पहिलेनै तपाईँको उपकरणमा कार्य प्रोफाइल छ। तपाईं यसलाई हटाउन चाहनुहुन्छ?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"तपाईं यो कार्य प्रोफाइल हटाउन निश्चित हुनुहुन्छ? यसको सबै डेटा मेटिनेछ।"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"हटाउनुहोस्"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द गर्नुहोस्"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आफ्नो कार्य प्रोफाइल सेटिङ गर्ने काम  जारी राख्न, तपाईंले आफ्नो यन्त्रलाई इनक्रिप्ट गर्नु पर्नेछ। यसले केही समय लिन सक्छ।"</string>

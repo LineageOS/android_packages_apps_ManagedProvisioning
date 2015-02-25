@@ -32,8 +32,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"ரத்துசெய்"</string>
     <string name="ok_setup" msgid="5148111905838329307">"சரி"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"பணி சுயவிவரம்"</string>
-    <string name="managed_profile_already_present" msgid="888277922880582498">"சாதனத்தில் ஏற்கனவே பணி சுயவிவரத்தை வைத்துள்ளீர்கள். அதை அகற்றவா?"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="3612824117836349973">"பணி சுயவிவரத்தை நிச்சயமாக அகற்றவா? இதன் எல்லா தரவும் நீக்கப்படும் என்பதை நினைவில் கொள்ளவும்."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
+    <skip />
     <string name="delete_profile" msgid="7107020982626129151">"அகற்று"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ரத்துசெய்"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, சாதனத்தை மறையாக்க வேண்டும். அதற்குச் சிறிது நேரம் ஆகலாம்."</string>
