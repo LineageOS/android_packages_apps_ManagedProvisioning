@@ -32,8 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"បោះបង់"</string>
     <string name="ok_setup" msgid="5148111905838329307">"យល់ព្រម"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"អ្នកមានប្រវត្តិរូបការងាររួចហើយនៅលើឧបករណ៍របស់អ្នក ត្រូវយកវាចេញដើម្បីដំឡើងប្រវត្តិរូបថ្មី។ កម្មវិធី និងទិន្នន័យទាំងអស់នៅក្នុងប្រវត្តិរូបនេះនឹងត្រូវបានលុប ប្រសិនបើអ្នកបន្ត។"</string>
     <string name="delete_profile" msgid="7107020982626129151">"លុបចេញ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"បោះបង់"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ដើម្បីបន្តរៀបចំទម្រង់ការងាររបស់អ្នក អ្នកត្រូវអ៊ិនគ្រីបឧបករណ៍របស់អ្នក។ វាអាចប្រើពេលមួយរយៈ។"</string>

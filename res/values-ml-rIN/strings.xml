@@ -32,8 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"റദ്ദാക്കുക"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ശരി"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"നിങ്ങളുടെ ഉപകരണത്തിൽ ഇതിനകം തന്നെ ഒരു ഔദ്യോഗിക പ്രൊഫൈലുണ്ട്, ഒരു പുതിയ പ്രൊഫൈൽ സജ്ജമാക്കാൻ ഇത് നീക്കിയിരിക്കണം. മുന്നോട്ടുപോയാൽ, ഈ പ്രൊഫൈലിലുള്ള എല്ലാ അപ്ലിക്കേഷനുകളും വിവരവും ഇല്ലാതാക്കും."</string>
     <string name="delete_profile" msgid="7107020982626129151">"നീക്കംചെയ്യുക"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"റദ്ദാക്കുക"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കുന്നത് തുടരാൻ, നിങ്ങളുടെ ഉപകരണം എൻക്രിപ്റ്റ് ചെയ്യേണ്ടതുണ്ട്. ഇതിന് കുറച്ച് സമയമെടുത്തേക്കാം."</string>

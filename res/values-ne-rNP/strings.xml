@@ -32,8 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द गर्नुहोस्"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक छ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"तपाईंको यन्त्रमा तपाईंसँग पहिले नै कार्य प्रोफाइल छ, नयाँ प्रोफाइल सेटअप गर्नको लागि त्यसलाई हटाउनुपर्छ। यदि तपाईंले जारी राख्नुभयो भने यस प्रोफाइलमा रहेका सबै अनुप्रयोगहरू र डेटा मेटिनेछन्।"</string>
     <string name="delete_profile" msgid="7107020982626129151">"हटाउनुहोस्"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द गर्नुहोस्"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आफ्नो कार्य प्रोफाइल सेटिङ गर्ने काम  जारी राख्न, तपाईंले आफ्नो यन्त्रलाई इनक्रिप्ट गर्नु पर्नेछ। यसले केही समय लिन सक्छ।"</string>

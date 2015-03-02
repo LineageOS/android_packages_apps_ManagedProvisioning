@@ -32,8 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"අවලංගු කරන්න"</string>
     <string name="ok_setup" msgid="5148111905838329307">"හරි"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"කාර්යාල පැතිකඩ"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"ඔබට ඔබගේ උපාංගය මත දැනටමත් කාර්යාල පැතිකඩක් ඇති අතර, නව පැතිකඩක් සෑදීමට එය ඉවත් කළ යුතුය. ඔබ දිගටම කරගෙන ගියහොත්, මෙම පැතිකඩෙහි ඇති සියලුම යෙදුම් සහ දත්ත මකා දැමෙනු ඇත"</string>
     <string name="delete_profile" msgid="7107020982626129151">"ඉවත් කරන්න"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"අවලංගු කරන්න"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ඔබගේ කාර්යාල පැතිකඩේ සැකසීම ඉදිරියට කරගෙන යෑමට, ඔබගේ උපාංගය සංකේතනය කිරීමට ඔබට අවශ්‍ය වේ. මෙයට ටික වෙලාවක් ගත වේ."</string>

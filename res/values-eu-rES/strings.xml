@@ -32,8 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Utzi"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Ados"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Laneko profila"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"Dagoeneko konfiguratuta duzu laneko profila gailuan. Beste bat konfiguratu nahi baduzu, lehendik duzuna kendu beharko duzu lehendabizi. Aurrera egiten baduzu, uneko profilean dituzun aplikazio eta datu guztiak ezabatuko dira."</string>
     <string name="delete_profile" msgid="7107020982626129151">"Kendu"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Utzi"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Laneko profila konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Minutu batzuk behar izan ditzakegu horretarako."</string>

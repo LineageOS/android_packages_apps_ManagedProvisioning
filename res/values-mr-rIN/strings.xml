@@ -32,8 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द करा"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक आहे"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (7224378572575035461) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"आपल्‍या डिव्‍हाइसवर आधीपासून आपल्‍याकडे कार्य प्रोफाईल आहे, नवीन प्रोफाईल सेट करण्‍यासाठी तो काढणे आवश्‍यक आहे. आपण सुरु ठेवल्‍यास सर्व अ‍ॅप्स आणि या प्रोफाईलमधील डेटा हटविला जाईल."</string>
     <string name="delete_profile" msgid="7107020982626129151">"काढा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्‍यासाठी, आपल्‍याला आपले डिव्हाइस कूटबद्ध करणे आवश्‍यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
