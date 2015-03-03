@@ -24,12 +24,15 @@ import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
+import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -40,14 +43,18 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
+import android.view.View;
 
 import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
@@ -63,14 +70,6 @@ import java.io.IOException;
  * which contains the provisioning UI.
  */
 public class ProfileOwnerProvisioningService extends Service {
-    // Extra keys for reporting back success to the activity.
-    public static final String EXTRA_PROFILE_USER_ID =
-            "com.android.managedprovisioning.extra.profile_user_id";
-    public static final String EXTRA_PROFILE_USER_SERIAL_NUMBER =
-            "com.android.managedprovisioning.extra.profile_user_serial_number";
-    public static final String EXTRA_PENDING_SUCCESS_INTENT =
-            "com.android.managedprovisioning.extra.pending_success_intent";
-
     // Intent actions for communication with DeviceOwnerProvisioningService.
     public static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
@@ -150,7 +149,7 @@ public class ProfileOwnerProvisioningService extends Service {
         }
         synchronized (this) {
             if (mDone) {
-                notifyActivityOfSuccess();
+                finishProvisioning();
             }
         }
     }
@@ -269,7 +268,7 @@ public class ProfileOwnerProvisioningService extends Service {
                 cleanup();
             } else {
                 // Notify activity of success.
-                notifyActivityOfSuccess();
+                finishProvisioning();
             }
         }
     }
@@ -292,6 +291,55 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void notifyActivityOfSuccess() {
+        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
+                .sendBroadcast(successIntent);
+    }
+
+    private void finishProvisioning() {
+        notifyMdmAndCleanup();
+        notifyActivityOfSuccess();
+    }
+
+    /**
+     * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
+     * the service and notify the {@link ProfileOwnerProvisioningActivity} so that it can finish
+     * itself.
+     */
+    private void notifyMdmAndCleanup() {
+
+        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
+                1 /* true- > setup complete */, mManagedProfileUserInfo.id);
+
+        UserHandle userHandle = new UserHandle(mManagedProfileUserInfo.id);
+
+        // Use an ordered broadcast, so that we only finish when the mdm has received it.
+        // Avoids a lag in the transition between provisioning and the mdm.
+        BroadcastReceiver mdmReceivedSuccessReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
+                        + " mdm");
+
+                final Intent primaryProfileSuccessIntent = new Intent(
+                        DevicePolicyManager.ACTION_MANAGED_PROFILE_PROVISIONED);
+                primaryProfileSuccessIntent.setPackage(mMdmPackageName);
+                primaryProfileSuccessIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                        Intent.FLAG_RECEIVER_FOREGROUND);
+                // Now cleanup the primary profile if necessary
+                if (mAccountToMigrate != null) {
+                    primaryProfileSuccessIntent.putExtra(
+                            DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE,
+                            mAccountToMigrate);
+                    finishAccountMigration(primaryProfileSuccessIntent);
+                    // Note that we currently do not check if account migration worked
+                } else {
+                    sendBroadcast(primaryProfileSuccessIntent);
+                    stopSelf();
+                }
+            }
+        };
+
         // Compose the intent that will be fired by the activity.
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
         completeIntent.setComponent(mActiveAdminComponentName);
@@ -301,14 +349,44 @@ public class ProfileOwnerProvisioningService extends Service {
             completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
                     mAdminExtrasBundle);
         }
+        sendOrderedBroadcastAsUser(completeIntent, userHandle, null,
+                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
+        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
+                + userHandle.getIdentifier());
+    }
 
-        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-        successIntent.putExtra(EXTRA_PROFILE_USER_ID, mManagedProfileUserInfo.id);
-        successIntent.putExtra(EXTRA_PENDING_SUCCESS_INTENT, completeIntent);
-        successIntent.putExtra(EXTRA_PROFILE_USER_SERIAL_NUMBER,
-                mManagedProfileUserInfo.serialNumber);
-        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
-                .sendBroadcast(successIntent);
+    private void finishAccountMigration(final Intent primaryProfileSuccessIntent) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                removeAccount(mAccountToMigrate);
+                sendBroadcast(primaryProfileSuccessIntent);
+                stopSelf();
+                return null;
+            }
+        }.execute();
+    }
+
+    private void removeAccount(Account account) {
+        try {
+            AccountManagerFuture<Bundle> bundle = mAccountManager.removeAccount(account,
+                   null, null /* callback */, null /* handler */);
+            // Block to get the result of the removeAccount operation
+            if (bundle.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
+                ProvisionLogger.logw("Account removed from the primary user.");
+            } else {
+                Intent removeIntent = (Intent) bundle.getResult().getParcelable(
+                        AccountManager.KEY_INTENT);
+                if (removeIntent != null) {
+                    ProvisionLogger.logi("Starting activity to remove user");
+                    startActivity(removeIntent);
+                } else {
+                    ProvisionLogger.logw("Could not remove account from the primary user.");
+                }
+            }
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.logw("Exception removing account from the primary user.", e);
+        }
     }
 
     private void copyAccount(Account account) {

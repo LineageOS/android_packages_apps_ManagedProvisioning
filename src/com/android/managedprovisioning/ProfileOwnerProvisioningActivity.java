@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -26,6 +27,7 @@ import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,6 +35,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.ConditionVariable;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -44,6 +47,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
@@ -65,6 +70,8 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
             "com.android.managedprovisioning.CANCEL_PROVISIONING";
 
     private BroadcastReceiver mServiceMessageReceiver;
+
+    private static final int BROADCAST_TIMEOUT = 2 * 60 * 1000;
 
     // Provisioning service started
     private static final int CANCELSTATUS_PROVISIONING = 1;
@@ -165,14 +172,7 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
             ProvisionLogger.logd("Successfully provisioned."
                     + "Finishing ProfileOwnerProvisioningActivity");
 
-            Intent pendingIntent = (Intent) intent.getParcelableExtra(
-                    ProfileOwnerProvisioningService.EXTRA_PENDING_SUCCESS_INTENT);
-            int serialNumber = intent.getIntExtra(
-                    ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_SERIAL_NUMBER, -1);
-
-            int userId = intent.getIntExtra(ProfileOwnerProvisioningService.EXTRA_PROFILE_USER_ID,
-                    -1);
-            onProvisioningSuccess(pendingIntent, userId, serialNumber);
+            onProvisioningSuccess();
         } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR.equals(action)) {
             if (mCancelStatus == CANCELSTATUS_CANCELLING){
                 return;
@@ -181,7 +181,8 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
                     ProfileOwnerProvisioningService.EXTRA_LOG_MESSAGE_KEY);
             ProvisionLogger.logd("Error reported: " + errorLogMessage);
             error(R.string.managed_provisioning_error_text, errorLogMessage);
-        } if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
+            // Note that this will be reported as a canceled action
+        } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
             if (mCancelStatus != CANCELSTATUS_CANCELLING) {
                 return;
             }
@@ -263,65 +264,14 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
     }
 
     /**
-     * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
-     * the service and notify the {@link ProfileOwnerProvisioningActivity} so that it can finish itself.
+     * Finish activity and stop service.
      */
-    private void onProvisioningSuccess(Intent pendingSuccessIntent, int userId, int serialNumber) {
+    private void onProvisioningSuccess() {
         mBackButton.setVisibility(View.INVISIBLE);
         mCancelStatus = CANCELSTATUS_FINALIZING;
-        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
-                1 /* true- > setup complete */, userId);
+        setResult(Activity.RESULT_OK);
 
-        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        UserHandle userHandle = userManager.getUserForSerialNumber(serialNumber);
-
-        // Use an ordered broadcast, so that we only finish when the mdm has received it.
-        // Avoids a lag in the transition between provisioning and the mdm.
-        BroadcastReceiver mdmReceivedSuccessReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
-                        + " mdm");
-                ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_OK);
-
-                // Now cleanup the primary profile if necessary
-                if (getIntent().hasExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE)) {
-                    ProvisionLogger.logd("Cleaning up account from the primary user.");
-                    final Account account = (Account) getIntent().getParcelableExtra(
-                            EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
-                    new AsyncTask<Void, Void, Void>() {
-                        @Override
-                        protected Void doInBackground(Void... params) {
-                            removeAccount(account);
-                            return null;
-                        }
-                    }.execute();
-                }
-
-                ProfileOwnerProvisioningActivity.this.finish();
-                stopService(new Intent(ProfileOwnerProvisioningActivity.this,
-                                ProfileOwnerProvisioningService.class));
-            }
-        };
-
-        sendOrderedBroadcastAsUser(pendingSuccessIntent, userHandle, null,
-                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
-        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
-            + userHandle.getIdentifier());
-    }
-
-    private void removeAccount(Account account) {
-        try {
-            AccountManagerFuture<Bundle> bundle = mAccountManager.removeAccount(account,
-                    this, null /* callback */, null /* handler */);
-            if (bundle.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
-                ProvisionLogger.logw("Account removed from the primary user.");
-            } else {
-                ProvisionLogger.logw("Could not remove account from the primary user.");
-            }
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception removing account from the primary user.", e);
-        }
+        finish();
     }
 
     @Override
