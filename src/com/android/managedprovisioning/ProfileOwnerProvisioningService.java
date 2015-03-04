@@ -333,6 +333,7 @@ public class ProfileOwnerProvisioningService extends Service {
         installMdmOnManagedProfile();
         setMdmAsActiveAdmin();
         setMdmAsManagedProfileOwner();
+        setDefaultUserRestrictions();
         CrossProfileIntentFiltersHelper.setFilters(
                 getPackageManager(), getUserId(), mManagedProfileUserInfo.id);
 
@@ -617,6 +618,11 @@ public class ProfileOwnerProvisioningService extends Service {
                         e);
             }
         }
+    }
+
+    private void setDefaultUserRestrictions() {
+        mUserManager.setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,
+                mManagedProfileUserInfo.getUserHandle());
     }
 
     private void notifyActivityError() {

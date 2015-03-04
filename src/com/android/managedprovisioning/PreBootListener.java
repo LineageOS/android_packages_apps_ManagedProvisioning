@@ -95,6 +95,9 @@ public class PreBootListener extends BroadcastReceiver {
                 continue;
             }
 
+            // always set the DISALLOW_WALLPAPER user restriction
+            um.setUserRestriction(UserManager.DISALLOW_WALLPAPER, true, userInfo.getUserHandle());
+
             final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask;
             final DisableInstallShortcutListenersTask disableInstallShortcutListenersTask;
 
