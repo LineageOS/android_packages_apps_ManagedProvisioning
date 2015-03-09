@@ -64,7 +64,7 @@
     <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Enheten har redan konfigurerats"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Det gick inte att ansluta till Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Det gick inte att använda administrationsappen på grund av en felaktig kontrollsumma. Kontakta IT-avdelningen."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Det gick inte att hämta administrationsappen"</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Det gick inte att ladda ned administrationsappen"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrationsappen kan inte användas. Komponenter saknas eller appen har skadats. Kontakta IT-avdelningen."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Det gick inte att installera administrationsappen"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Administrationsappen har inte installerats på enheten"</string>
