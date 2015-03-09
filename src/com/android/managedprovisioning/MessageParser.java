@@ -28,15 +28,18 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -46,6 +49,8 @@ import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.util.Base64;
+
+import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -71,8 +76,9 @@ import java.util.Properties;
  *
  * <p>
  * Intent was received directly.
- * The intent contains the extra {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME},
- * and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
+ * The intent contains the extra {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME} or
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} (which is deprecated but that we still
+ * support), and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
  * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and {@link #EXTRA_PROVISIONING_LOCALE}. A download
  * location may be specified in {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}
  * together with an optional http cookie header
@@ -108,7 +114,7 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_PROXY_HOST,
         EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
         EXTRA_PROVISIONING_WIFI_PAC_URL,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
@@ -133,6 +139,10 @@ public class MessageParser {
         EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
     };
 
+    protected static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
+        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
+    };
+
     public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
         bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.mTimeZone);
         bundle.putString(EXTRA_PROVISIONING_LOCALE, params.getLocaleAsString());
@@ -142,8 +152,8 @@ public class MessageParser {
         bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.mWifiProxyHost);
         bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.mWifiProxyBypassHosts);
         bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.mWifiPacUrl);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                params.mDeviceAdminPackageName);
+        bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                params.mDeviceAdminComponentName);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
                 params.mDeviceAdminPackageDownloadLocation);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
@@ -164,17 +174,18 @@ public class MessageParser {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.mSkipEncryption);
     }
 
-    public ProvisioningParams parseIntent(Intent intent) throws ParseException {
+    public ProvisioningParams parseIntent(Intent intent, Context c)
+            throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing intent.");
         if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-            return parseNfcIntent(intent);
+            return parseNfcIntent(intent, c);
         } else {
-            return parseNonNfcIntent(intent);
+            return parseNonNfcIntent(intent, c);
         }
     }
 
-    public ProvisioningParams parseNfcIntent(Intent nfcIntent)
-        throws ParseException {
+    public ProvisioningParams parseNfcIntent(Intent nfcIntent, Context c)
+            throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing Nfc Payload.");
         // Only one first message with NFC_MIME_TYPE is used.
         for (Parcelable rawMsg : nfcIntent
@@ -187,21 +198,20 @@ public class MessageParser {
 
             if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
                 ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
-                                , UTF_8));
+                                , UTF_8), c);
                 params.mStartedByNfc = true;
                 return params;
             }
         }
-        throw new ParseException(
-                "Intent does not contain NfcRecord with the correct MIME type.",
-                R.string.device_owner_error_general);
+        throw new IllegalProvisioningArgumentException(
+                "Intent does not contain NfcRecord with the correct MIME type.");
     }
 
     // Note: EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE property contains a Properties object
     // serialized into String. See Properties.store() and Properties.load() for more details.
     // The property value is optional.
-    private ProvisioningParams parseProperties(String data)
-            throws ParseException {
+    private ProvisioningParams parseProperties(String data, Context c)
+            throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         try {
             Properties props = new Properties();
@@ -219,8 +229,7 @@ public class MessageParser {
             params.mWifiProxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
             params.mWifiProxyBypassHosts = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
             params.mWifiPacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
-            params.mDeviceAdminPackageName
-                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+            params.mDeviceAdminComponentName = findDeviceAdminFromProperties(props, c);
             params.mDeviceAdminPackageDownloadLocation
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
             params.mDeviceAdminPackageDownloadCookieHeader = props.getProperty(
@@ -253,14 +262,11 @@ public class MessageParser {
             checkValidityOfProvisioningParams(params);
             return params;
         } catch (IOException e) {
-            throw new ParseException("Couldn't load payload",
-                    R.string.device_owner_error_general, e);
+            throw new Utils.IllegalProvisioningArgumentException("Couldn't load payload", e);
         } catch (NumberFormatException e) {
-            throw new ParseException("Incorrect numberformat.",
-                    R.string.device_owner_error_general, e);
+            throw new Utils.IllegalProvisioningArgumentException("Incorrect numberformat.", e);
         } catch (IllformedLocaleException e) {
-            throw new ParseException("Invalid locale.",
-                    R.string.device_owner_error_general, e);
+            throw new Utils.IllegalProvisioningArgumentException("Invalid locale.", e);
         }
     }
 
@@ -278,8 +284,8 @@ public class MessageParser {
         }
     }
 
-    public ProvisioningParams parseNonNfcIntent(Intent intent)
-        throws ParseException {
+    public ProvisioningParams parseNonNfcIntent(Intent intent, Context c)
+            throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing intent.");
         ProvisioningParams params = new ProvisioningParams();
 
@@ -294,8 +300,7 @@ public class MessageParser {
         params.mWifiProxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
         params.mWifiProxyBypassHosts = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
         params.mWifiPacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
-        params.mDeviceAdminPackageName
-                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        params.mDeviceAdminComponentName = Utils.findDeviceAdminFromIntent(intent, c);
         params.mDeviceAdminPackageDownloadLocation
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
         params.mDeviceAdminPackageDownloadCookieHeader = intent.getStringExtra(
@@ -326,55 +331,39 @@ public class MessageParser {
             params.mAdminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
         } catch (ClassCastException e) {
-            throw new ParseException("Extra " + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
-                    + " must be of type PersistableBundle.",
-                    R.string.device_owner_error_general, e);
+            throw new IllegalProvisioningArgumentException("Extra "
+                    + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+                    + " must be of type PersistableBundle.", e);
         }
 
         checkValidityOfProvisioningParams(params);
         return params;
     }
 
+    private ComponentName findDeviceAdminFromProperties(Properties props, Context c)
+            throws IllegalProvisioningArgumentException {
+        String packageName = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        ComponentName component = null;
+        String s;
+        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME)) != null) {
+            component = ComponentName.unflattenFromString(s);
+        }
+        return Utils.findDeviceAdmin(packageName, component, c);
+    }
+
     /**
      * Check whether necessary fields are set.
      */
     private void checkValidityOfProvisioningParams(ProvisioningParams params)
-        throws ParseException  {
-        if (TextUtils.isEmpty(params.mDeviceAdminPackageName)) {
-            throw new ParseException("Must provide the name of the device admin package.",
-                    R.string.device_owner_error_general);
-        }
+            throws IllegalProvisioningArgumentException  {
+        // The presence of the device admin component name was already checked when calling
+        // Utils.findDeviceAdmin()
         if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
             if (params.mDeviceAdminPackageChecksum == null ||
                     params.mDeviceAdminPackageChecksum.length == 0) {
-                throw new ParseException("Checksum of installer file is required for downloading " +
-                        "device admin file, but not provided.",
-                        R.string.device_owner_error_general);
+                throw new IllegalProvisioningArgumentException("Checksum of installer file is"
+                        + " required for downloading device admin file, but not provided.");
             }
-        }
-    }
-
-    /**
-     * Exception thrown when the ProvisioningParams initialization failed completely.
-     *
-     * Note: We're using a custom exception to avoid catching subsequent exceptions that might be
-     * significant.
-     */
-    public static class ParseException extends Exception {
-        private int mErrorMessageId;
-
-        public ParseException(String message, int errorMessageId) {
-            super(message);
-            mErrorMessageId = errorMessageId;
-        }
-
-        public ParseException(String message, int errorMessageId, Throwable t) {
-            super(message, t);
-            mErrorMessageId = errorMessageId;
-        }
-
-        public int getErrorMessageId() {
-            return mErrorMessageId;
         }
     }
 

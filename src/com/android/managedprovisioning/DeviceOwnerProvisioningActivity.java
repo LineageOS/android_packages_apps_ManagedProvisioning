@@ -36,6 +36,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
@@ -147,10 +148,10 @@ public class DeviceOwnerProvisioningActivity extends Activity
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
         try {
-            mParams = parser.parseIntent(getIntent());
-        } catch (MessageParser.ParseException e) {
+            mParams = parser.parseIntent(getIntent(), this);
+        } catch (Utils.IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Could not read data from intent", e);
-            error(e.getErrorMessageId(), false /* no factory reset */);
+            error(R.string.device_owner_error_general, false /* no factory reset */);
             return;
         }
 

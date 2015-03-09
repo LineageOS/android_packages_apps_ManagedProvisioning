@@ -126,7 +126,7 @@ public class DeviceOwnerProvisioningService extends Service {
 
                 // Send success if provisioning was succesful.
                 if (mDone) {
-                    onProvisioningSuccess(mParams.mDeviceAdminPackageName);
+                    onProvisioningSuccess();
                 }
             } else {
                 mProvisioningInFlight = true;
@@ -176,7 +176,7 @@ public class DeviceOwnerProvisioningService extends Service {
 
             // Send complete intent to mdm.
             Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-            result.setPackage(mParams.mDeviceAdminPackageName);
+            result.setPackage(mParams.mDeviceAdminComponentName.getPackageName());
             result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                     Intent.FLAG_RECEIVER_FOREGROUND);
             if (mParams.mAdminExtrasBundle != null) {
@@ -240,7 +240,7 @@ public class DeviceOwnerProvisioningService extends Service {
                     });
 
         mInstallPackageTask = new InstallPackageTask(this,
-                params.mDeviceAdminPackageName, params.mDeviceAdminPackageDownloadLocation,
+                params.getDeviceAdminPackageName(), params.mDeviceAdminPackageDownloadLocation,
                 new InstallPackageTask.Callback() {
                     @Override
                     public void onSuccess() {
@@ -265,7 +265,7 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
-                params.mDeviceAdminPackageName,
+                params.mDeviceAdminComponentName,
                 getResources().getString(R.string.default_owned_device_username),
                 new SetDevicePolicyTask.Callback() {
                     @Override
@@ -290,13 +290,13 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
-                this, params.mDeviceAdminPackageName, R.array.required_apps_managed_device,
+                this, params.getDeviceAdminPackageName(), R.array.required_apps_managed_device,
                 R.array.vendor_required_apps_managed_device, true /* creating new profile */,
                 UserHandle.USER_OWNER, params.mLeaveAllSystemAppsEnabled,
                 new DeleteNonRequiredAppsTask.Callback() {
                     public void onSuccess() {
                         // Done with provisioning. Success.
-                        onProvisioningSuccess(params.mDeviceAdminPackageName);
+                        onProvisioningSuccess();
                     }
 
                     @Override
@@ -343,7 +343,7 @@ public class DeviceOwnerProvisioningService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
-    private void onProvisioningSuccess(String deviceAdminPackage) {
+    private void onProvisioningSuccess() {
         if (DEBUG) ProvisionLogger.logd("Reporting success.");
         mDone = true;
 

@@ -17,7 +17,7 @@ package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -41,9 +41,9 @@ public class BootReminder extends BroadcastReceiver {
     private static final String PROFILE_OWNER_PREFERENCES_NAME =
             "profile-owner-provisioning-resume";
 
-    private static final String[] PROFILE_OWNER_STRING_EXTRAS = {
-        // Key for the device admin package name
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
+    private static final String[] PROFILE_OWNER_COMPONENT_NAME_EXTRAS = {
+        // Key for the device admin component name
+        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
     };
 
     private static final String[] PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
@@ -104,8 +104,8 @@ public class BootReminder extends BroadcastReceiver {
      * and {@link EncryptDeviceActivity.TARGET_DEVICE_OWNER}
      *
      * <p> In case of TARGET_PROFILE_OWNER {@code extras} should further contain a value for at
-     * least the key: {@link EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME}, a {@link String} which
-     * specifies the package to set as profile owner.
+     * least the key: {@link EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME}, a {@link String}
+     * which, when unflattened to a componentName, specifies the component to set as profile owner.
      *
      * <p>
      * See {@link MessageParser} for the TARGET_DEVICE_OWNER case.
@@ -142,13 +142,14 @@ public class BootReminder extends BroadcastReceiver {
 
     private static IntentStore getProfileOwnerIntentStore(Context context) {
         return new IntentStore(context,PROFILE_OWNER_INTENT_TARGET, PROFILE_OWNER_PREFERENCES_NAME)
-                .setStringKeys(PROFILE_OWNER_STRING_EXTRAS)
+                .setComponentNameKeys(PROFILE_OWNER_COMPONENT_NAME_EXTRAS)
                 .setPersistableBundleKeys(PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS)
                 .setAccountKeys(PROFILE_OWNER_ACCOUNT_EXTRAS);
     }
 
     private static IntentStore getDeviceOwnerIntentStore(Context context) {
         return new IntentStore(context, DEVICE_OWNER_INTENT_TARGET, DEVICE_OWNER_PREFERENCES_NAME)
+                .setComponentNameKeys(MessageParser.DEVICE_OWNER_COMPONENT_NAME_EXTRAS)
                 .setStringKeys(MessageParser.DEVICE_OWNER_STRING_EXTRAS)
                 .setLongKeys(MessageParser.DEVICE_OWNER_LONG_EXTRAS)
                 .setIntKeys(MessageParser.DEVICE_OWNER_INT_EXTRAS)

@@ -35,18 +35,19 @@ public class SetDevicePolicyTask {
 
     private final Callback mCallback;
     private final Context mContext;
-    private final String mPackageName;
+    private final String mAdminPackage;
+    private final ComponentName mAdminComponent;
     private final String mOwner;
 
-    private String mAdminReceiver;
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
-    public SetDevicePolicyTask(Context context, String packageName, String owner,
+    public SetDevicePolicyTask(Context context, ComponentName adminComponent, String owner,
             Callback callback) {
         mCallback = callback;
         mContext = context;
-        mPackageName = packageName;
+        mAdminComponent = adminComponent;
+        mAdminPackage = adminComponent.getPackageName();
         mOwner = owner;
         mPackageManager = mContext.getPackageManager();
         mDevicePolicyManager = (DevicePolicyManager) mContext.
@@ -54,53 +55,30 @@ public class SetDevicePolicyTask {
     }
 
     public void run() {
-        // Check whether package is installed and find the admin receiver.
-        if (isPackageInstalled()) {
-            enableDevicePolicyApp();
-            setActiveAdmin();
-            setDeviceOwner();
-            mCallback.onSuccess();
-        }
-    }
-
-    private boolean isPackageInstalled() {
-        try {
-            PackageInfo pi = mPackageManager.getPackageInfo(mPackageName,
-                    PackageManager.GET_RECEIVERS);
-            for (ActivityInfo ai : pi.receivers) {
-                if (!TextUtils.isEmpty(ai.permission) &&
-                        ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
-                    mAdminReceiver = ai.name;
-                    return true;
-                }
-            }
-            mCallback.onError(ERROR_NO_RECEIVER);
-            return false;
-        } catch (NameNotFoundException e) {
-            mCallback.onError(ERROR_PACKAGE_NOT_INSTALLED);
-            return false;
-        }
+        enableDevicePolicyApp();
+        setActiveAdmin();
+        setDeviceOwner();
+        mCallback.onSuccess();
     }
 
     private void enableDevicePolicyApp() {
         int enabledSetting = mPackageManager
-                .getApplicationEnabledSetting(mPackageName);
+                .getApplicationEnabledSetting(mAdminPackage);
         if (enabledSetting != PackageManager.COMPONENT_ENABLED_STATE_DEFAULT) {
-            mPackageManager.setApplicationEnabledSetting(mPackageName,
+            mPackageManager.setApplicationEnabledSetting(mAdminPackage,
                     PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, 0);
         }
     }
 
     public void setActiveAdmin() {
-        ProvisionLogger.logd("Setting " + mPackageName + " as active admin.");
-        ComponentName component = new ComponentName(mPackageName, mAdminReceiver);
-        mDevicePolicyManager.setActiveAdmin(component, true);
+        ProvisionLogger.logd("Setting " + mAdminComponent + " as active admin.");
+        mDevicePolicyManager.setActiveAdmin(mAdminComponent, true);
     }
 
     public void setDeviceOwner() {
-        ProvisionLogger.logd("Setting " + mPackageName + " as device owner " + mOwner + ".");
-        if (!mDevicePolicyManager.isDeviceOwner(mPackageName)) {
-            mDevicePolicyManager.setDeviceOwner(mPackageName, mOwner);
+        ProvisionLogger.logd("Setting " + mAdminPackage + " as device owner " + mOwner + ".");
+        if (!mDevicePolicyManager.isDeviceOwner(mAdminPackage)) {
+            mDevicePolicyManager.setDeviceOwner(mAdminPackage, mOwner);
         }
     }
 
