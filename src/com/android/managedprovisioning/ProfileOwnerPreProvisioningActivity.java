@@ -17,7 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
 import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
@@ -29,7 +29,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -49,6 +51,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 
+import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
@@ -86,6 +89,8 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
 
     private String mMdmPackageName;
 
+    private ComponentName mMdmComponentName;
+
     private Button mSetupButton;
 
     @Override
@@ -115,7 +120,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
         // Initialize member variables from the intent, stop if the intent wasn't valid.
         try {
             initialize(getIntent());
-        } catch (ProvisioningFailedException e) {
+        } catch (IllegalProvisioningArgumentException e) {
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
@@ -239,30 +244,20 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
      *
      * @param intent The intent that started provisioning
      */
-    private void initialize(Intent intent) throws ProvisioningFailedException {
+    private void initialize(Intent intent) throws IllegalProvisioningArgumentException {
         // Check if the admin extras bundle is of the right type.
         try {
             PersistableBundle bundle = (PersistableBundle) getIntent().getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
         } catch (ClassCastException e) {
-            throw new ProvisioningFailedException("Extra "
+            throw new IllegalProvisioningArgumentException("Extra "
                     + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
                     + " must be of type PersistableBundle.", e);
         }
 
-        // Validate package name and check if the package is installed
-        mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        if (TextUtils.isEmpty(mMdmPackageName)) {
-            throw new ProvisioningFailedException("Missing intent extra: "
-                    + EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        } else {
-            try {
-                this.getPackageManager().getPackageInfo(mMdmPackageName, 0);
-            } catch (NameNotFoundException e) {
-                throw new ProvisioningFailedException("Mdm "+ mMdmPackageName
-                        + " is not installed. ", e);
-            }
-        }
+        mMdmComponentName = Utils.findDeviceAdminFromIntent(intent, this);
+        mMdmPackageName = mMdmComponentName.getPackageName();
+
     }
 
     /**
@@ -278,7 +273,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
             UserConsentDialog.newInstance(UserConsentDialog.PROFILE_OWNER)
                     .show(getFragmentManager(), "UserConsentDialogFragment");
         } else {
-            Bundle resumeExtras = getIntent().getExtras();
+            Bundle resumeExtras = getNewExtras();
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
                     .putExtra(EXTRA_RESUME, resumeExtras);
@@ -318,10 +313,19 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
 
     private void startProfileOwnerProvisioning() {
         Intent intent = new Intent(this, ProfileOwnerProvisioningActivity.class);
-        intent.putExtras(getIntent());
+        intent.putExtras(getNewExtras());
         startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
         // Set cross-fade transition animation into the interstitial progress activity.
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    private Bundle getNewExtras() {
+        Bundle bundle = getIntent().getExtras();
+        // The original intent may have contained the package name but not the component name.
+        // But now, we know what the component name is. So let's pass it.
+        bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                mMdmComponentName);
+        return bundle;
     }
 
     @Override
@@ -435,22 +439,6 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                 .setNegativeButton(getString(R.string.cancel_delete_profile), cancelListener)
                 .show()
                 .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
-    }
-
-    /**
-     * Exception thrown when the provisioning has failed completely.
-     *
-     * We're using a custom exception to avoid catching subsequent exceptions that might be
-     * significant.
-     */
-    private class ProvisioningFailedException extends Exception {
-        public ProvisioningFailedException(String message) {
-            super(message);
-        }
-
-        public ProvisioningFailedException(String message, Throwable t) {
-            super(message, t);
-        }
     }
 
     @Override

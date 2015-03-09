@@ -16,12 +16,12 @@
 
 package com.android.managedprovisioning;
 
+import android.content.ComponentName;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.util.Base64;
 import java.util.Locale;
-
 
 /**
  * Provisioning Parameters for DeviceOwner Provisioning
@@ -46,7 +46,7 @@ public class ProvisioningParams implements Parcelable {
     public String mWifiProxyBypassHosts;
     public String mWifiPacUrl;
 
-    public String mDeviceAdminPackageName; // Package name of the device admin package.
+    public ComponentName mDeviceAdminComponentName;
 
     public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
     public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
@@ -58,6 +58,10 @@ public class ProvisioningParams implements Parcelable {
 
     public boolean mLeaveAllSystemAppsEnabled;
     public boolean mSkipEncryption;
+
+    public String getDeviceAdminPackageName() {
+        return mDeviceAdminComponentName.getPackageName();
+    }
 
     public String getLocaleAsString() {
         if (mLocale != null) {
@@ -89,7 +93,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mWifiProxyHost);
         out.writeInt(mWifiProxyPort);
         out.writeString(mWifiProxyBypassHosts);
-        out.writeString(mDeviceAdminPackageName);
+        out.writeParcelable(mDeviceAdminComponentName, 0 /* default */);
         out.writeString(mDeviceAdminPackageDownloadLocation);
         out.writeString(mDeviceAdminPackageDownloadCookieHeader);
         out.writeInt(mDeviceAdminPackageChecksum.length);
@@ -115,7 +119,8 @@ public class ProvisioningParams implements Parcelable {
             params.mWifiProxyHost = in.readString();
             params.mWifiProxyPort = in.readInt();
             params.mWifiProxyBypassHosts = in.readString();
-            params.mDeviceAdminPackageName = in.readString();
+            params.mDeviceAdminComponentName = (ComponentName)
+                    in.readParcelable(null /* use default classloader */);
             params.mDeviceAdminPackageDownloadLocation = in.readString();
             params.mDeviceAdminPackageDownloadCookieHeader = in.readString();
             int checksumLength = in.readInt();

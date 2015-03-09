@@ -19,7 +19,7 @@ package com.android.managedprovisioning;
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 
 import android.accounts.Account;
@@ -231,8 +231,10 @@ public class ProfileOwnerProvisioningService extends Service {
         }
     }
 
-    private void initialize(Intent intent) throws ProvisioningException {
-        mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+    private void initialize(Intent intent) {
+        mActiveAdminComponentName = (ComponentName) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+        mMdmPackageName = mActiveAdminComponentName.getPackageName();
         mAccountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
         if (mAccountToMigrate != null) {
@@ -242,31 +244,6 @@ public class ProfileOwnerProvisioningService extends Service {
         // Cast is guaranteed by check in Activity.
         mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-
-        mActiveAdminComponentName = getAdminReceiverComponent(mMdmPackageName);
-    }
-
-    /**
-     * Find the Device admin receiver component from the manifest.
-     */
-    private ComponentName getAdminReceiverComponent(String packageName)
-            throws ProvisioningException {
-        try {
-            PackageInfo pi = getPackageManager().getPackageInfo(packageName,
-                    PackageManager.GET_RECEIVERS);
-            for (ActivityInfo ai : pi.receivers) {
-                if (!TextUtils.isEmpty(ai.permission) &&
-                        ai.permission.equals(BIND_DEVICE_ADMIN)) {
-                    return new ComponentName(packageName, ai.name);
-                }
-            }
-
-            throw raiseError("Didn't find admin receiver component with BIND_DEVICE_ADMIN "
-                    + "permissions");
-        } catch (NameNotFoundException e) {
-            throw raiseError("Error: The provided mobile device management package does not define "
-                    + "a device admin receiver component in its manifest.");
-        }
     }
 
     /**
