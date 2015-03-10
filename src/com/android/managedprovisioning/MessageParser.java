@@ -114,7 +114,7 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_PROXY_HOST,
         EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
         EXTRA_PROVISIONING_WIFI_PAC_URL,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
@@ -152,6 +152,8 @@ public class MessageParser {
         bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.mWifiProxyHost);
         bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.mWifiProxyBypassHosts);
         bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.mWifiPacUrl);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+                params.mDeviceAdminPackageName);
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
                 params.mDeviceAdminComponentName);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
@@ -174,17 +176,17 @@ public class MessageParser {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.mSkipEncryption);
     }
 
-    public ProvisioningParams parseIntent(Intent intent, Context c)
+    public ProvisioningParams parseIntent(Intent intent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing intent.");
         if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-            return parseNfcIntent(intent, c);
+            return parseNfcIntent(intent);
         } else {
-            return parseNonNfcIntent(intent, c);
+            return parseNonNfcIntent(intent);
         }
     }
 
-    public ProvisioningParams parseNfcIntent(Intent nfcIntent, Context c)
+    public ProvisioningParams parseNfcIntent(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing Nfc Payload.");
         // Only one first message with NFC_MIME_TYPE is used.
@@ -198,7 +200,7 @@ public class MessageParser {
 
             if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
                 ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
-                                , UTF_8), c);
+                                , UTF_8));
                 params.mStartedByNfc = true;
                 return params;
             }
@@ -210,7 +212,7 @@ public class MessageParser {
     // Note: EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE property contains a Properties object
     // serialized into String. See Properties.store() and Properties.load() for more details.
     // The property value is optional.
-    private ProvisioningParams parseProperties(String data, Context c)
+    private ProvisioningParams parseProperties(String data)
             throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         try {
@@ -229,7 +231,14 @@ public class MessageParser {
             params.mWifiProxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
             params.mWifiProxyBypassHosts = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
             params.mWifiPacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
-            params.mDeviceAdminComponentName = findDeviceAdminFromProperties(props, c);
+            params.mDeviceAdminPackageName
+                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+            String componentNameString = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+            if (componentNameString != null) {
+                params.mDeviceAdminComponentName = ComponentName.unflattenFromString(
+                        componentNameString);
+            }
             params.mDeviceAdminPackageDownloadLocation
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
             params.mDeviceAdminPackageDownloadCookieHeader = props.getProperty(
@@ -284,7 +293,7 @@ public class MessageParser {
         }
     }
 
-    public ProvisioningParams parseNonNfcIntent(Intent intent, Context c)
+    public ProvisioningParams parseNonNfcIntent(Intent intent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing intent.");
         ProvisioningParams params = new ProvisioningParams();
@@ -300,7 +309,10 @@ public class MessageParser {
         params.mWifiProxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
         params.mWifiProxyBypassHosts = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
         params.mWifiPacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
-        params.mDeviceAdminComponentName = Utils.findDeviceAdminFromIntent(intent, c);
+        params.mDeviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+        params.mDeviceAdminPackageName
+                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         params.mDeviceAdminPackageDownloadLocation
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
         params.mDeviceAdminPackageDownloadCookieHeader = intent.getStringExtra(
@@ -340,24 +352,16 @@ public class MessageParser {
         return params;
     }
 
-    private ComponentName findDeviceAdminFromProperties(Properties props, Context c)
-            throws IllegalProvisioningArgumentException {
-        String packageName = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        ComponentName component = null;
-        String s;
-        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME)) != null) {
-            component = ComponentName.unflattenFromString(s);
-        }
-        return Utils.findDeviceAdmin(packageName, component, c);
-    }
-
     /**
      * Check whether necessary fields are set.
      */
     private void checkValidityOfProvisioningParams(ProvisioningParams params)
             throws IllegalProvisioningArgumentException  {
-        // The presence of the device admin component name was already checked when calling
-        // Utils.findDeviceAdmin()
+        if (TextUtils.isEmpty(params.mDeviceAdminPackageName)
+                && params.mDeviceAdminComponentName == null) {
+            throw new IllegalProvisioningArgumentException("Must provide the name of the device"
+                    + " admin package or component name");
+        }
         if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
             if (params.mDeviceAdminPackageChecksum == null ||
                     params.mDeviceAdminPackageChecksum.length == 0) {

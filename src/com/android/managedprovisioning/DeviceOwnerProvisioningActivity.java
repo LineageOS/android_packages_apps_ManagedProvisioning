@@ -148,7 +148,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
         try {
-            mParams = parser.parseIntent(getIntent(), this);
+            mParams = parser.parseIntent(getIntent());
         } catch (Utils.IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Could not read data from intent", e);
             error(R.string.device_owner_error_general, false /* no factory reset */);
