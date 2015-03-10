@@ -23,7 +23,9 @@ import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME
 import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
 
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -54,84 +56,63 @@ import android.widget.Button;
 import java.util.List;
 
 /**
- * Managed provisioning sets up a separate profile on a device whose primary user is already set up.
- * The typical example is setting up a corporate profile that is controlled by their employer on a
- * users personal device to keep personal and work data separate.
- *
- * The activity handles the input validation and UI for managed profile provisioning.
- * and starts the {@link ManagedProvisioningService}, which runs through the setup steps in an
- * async task.
+ * The activity sets up the environment in which the {@link ProfileOwnerProvisioningActivity} can be run.
+ * It makes sure the device is encrypted, the current launcher supports managed profiles, the
+ * provisioning intent extras are valid, and that the already present managed profile is removed.
  */
-// TODO: Proper error handling to report back to the user and potentially the mdm.
-public class ManagedProvisioningActivity extends Activity {
+public class ProfileOwnerPreProvisioningActivity extends Activity
+        implements UserConsentDialog.ConsentCallback {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
 
-    protected static final String EXTRA_USER_HAS_CONSENTED_PROVISIONING =
-            "com.android.managedprovisioning.EXTRA_USER_HAS_CONSENTED_PROVISIONING";
-
-    // Aliases to start managed provisioning with and without MANAGE_USERS permission
+    // Aliases to start profile owner provisioning with and without MANAGE_USERS permission
     protected static final ComponentName ALIAS_CHECK_CALLER =
             new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.ManagedProvisioningActivity");
+                    "com.android.managedprovisioning.ProfileOwnerProvisioningActivity");
 
     protected static final ComponentName ALIAS_NO_CHECK_CALLER =
             new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.ManagedProvisioningActivityNoCallerCheck");
+                    "com.android.managedprovisioning.ProfileOwnerProvisioningActivityNoCallerCheck");
 
+    protected static final int PROVISIONING_REQUEST_CODE = 3;
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
     private String mMdmPackageName;
-    private BroadcastReceiver mServiceMessageReceiver;
-
-    private View mContentView;
-    private View mMainTextView;
-    private View mProgressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ProvisionLogger.logd("Managed provisioning activity ONCREATE");
-
         final LayoutInflater inflater = getLayoutInflater();
-        mContentView = inflater.inflate(R.layout.user_consent, null);
-        mMainTextView = mContentView.findViewById(R.id.main_text_container);
-        mProgressView = mContentView.findViewById(R.id.progress_container);
-        setContentView(mContentView);
+        View contentView = inflater.inflate(R.layout.user_consent, null);
+        setContentView(contentView);
 
         // Check whether system has the required managed profile feature.
         if (!systemHasManagedProfileFeature()) {
             showErrorAndClose(R.string.managed_provisioning_not_supported,
-                    "Exiting managed provisioning, managed profiles feature is not available");
+                    "Exiting managed profile provisioning, "
+                    + "managed profiles feature is not available");
             return;
         }
         if (Process.myUserHandle().getIdentifier() != UserHandle.USER_OWNER) {
             showErrorAndClose(R.string.user_is_not_owner,
-                    "Exiting managed provisioning, calling user is not owner.");
+                    "Exiting managed profile provisioning, calling user is not owner.");
             return;
         }
-
-        // Setup broadcast receiver for feedback from service.
-        mServiceMessageReceiver = new ServiceMessageReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS);
-        filter.addAction(ManagedProvisioningService.ACTION_PROVISIONING_ERROR);
-        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
         // Initialize member variables from the intent, stop if the intent wasn't valid.
         try {
             initialize(getIntent());
-        } catch (ManagedProvisioningFailedException e) {
+        } catch (ProvisioningFailedException e) {
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
 
-        setMdmIcon(mMdmPackageName, mContentView);
+        setMdmIcon(mMdmPackageName);
 
         // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
         // MANAGE_USERS since it is a restricted intent. Otherwise, check the calling package.
@@ -154,6 +135,15 @@ public class ManagedProvisioningActivity extends Activity {
             }
         }
 
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        String deviceOwner = dpm.getDeviceOwner();
+        if (deviceOwner != null && !deviceOwner.equals(mMdmPackageName)) {
+            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
+                    + "profile owner must be in the same package as device owner.");
+            return;
+        }
+
         // If there is already a managed profile, allow the user to cancel or delete it.
         int existingManagedProfileUserId = alreadyHasManagedProfile();
         if (existingManagedProfileUserId != -1) {
@@ -164,7 +154,7 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private void showStartProvisioningScreen() {
-        Button positiveButton = (Button) mContentView.findViewById(R.id.positive_button);
+        Button positiveButton = (Button) findViewById(R.id.positive_button);
         positiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,13 +164,8 @@ public class ManagedProvisioningActivity extends Activity {
     }
 
     private boolean packageHasManageUsersPermission(String pkg) {
-        int packagePermission = this.getPackageManager()
+        return PackageManager.PERMISSION_GRANTED == getPackageManager()
                 .checkPermission(MANAGE_USERS_PERMISSION, pkg);
-        if (packagePermission == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     private boolean systemHasManagedProfileFeature() {
@@ -195,6 +180,9 @@ public class ManagedProvisioningActivity extends Activity {
         PackageManager pm = getPackageManager();
         ResolveInfo launcherResolveInfo
                 = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if (launcherResolveInfo == null) {
+            return false;
+        }
         try {
             ApplicationInfo launcherAppInfo = getPackageManager().getApplicationInfo(
                     launcherResolveInfo.activityInfo.packageName, 0 /* default flags */);
@@ -208,39 +196,18 @@ public class ManagedProvisioningActivity extends Activity {
         return versionNumber >= Build.VERSION_CODES.LOLLIPOP;
     }
 
-    class ServiceMessageReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
-                ProvisionLogger.logd("Successfully provisioned."
-                        + "Finishing ManagedProvisioningActivity");
-                ManagedProvisioningActivity.this.setResult(Activity.RESULT_OK);
-                ManagedProvisioningActivity.this.finish();
-                return;
-            } else if (action.equals(ManagedProvisioningService.ACTION_PROVISIONING_ERROR)) {
-                String errorLogMessage = intent.getStringExtra(
-                        ManagedProvisioningService.EXTRA_LOG_MESSAGE_KEY);
-                ProvisionLogger.logd("Error reported: " + errorLogMessage);
-                showErrorAndClose(R.string.managed_provisioning_error_text, errorLogMessage);
-                return;
-            }
-        }
-    }
-
-    private void setMdmIcon(String packageName, View contentView) {
+    private void setMdmIcon(String packageName) {
         if (packageName != null) {
             PackageManager pm = getPackageManager();
             try {
                 ApplicationInfo ai = pm.getApplicationInfo(packageName, /* default flags */ 0);
                 if (ai != null) {
                     Drawable packageIcon = pm.getApplicationIcon(packageName);
-                    ImageView imageView = (ImageView) contentView.findViewById(R.id.mdm_icon_view);
+                    ImageView imageView = (ImageView) findViewById(R.id.mdm_icon_view);
                     imageView.setImageDrawable(packageIcon);
 
                     String appLabel = pm.getApplicationLabel(ai).toString();
-                    TextView deviceManagerName = (TextView) contentView
-                            .findViewById(R.id.device_manager_name);
+                    TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
                     deviceManagerName.setText(appLabel);
                 }
             } catch (PackageManager.NameNotFoundException e) {
@@ -257,13 +224,13 @@ public class ManagedProvisioningActivity extends Activity {
      *
      * @param intent The intent that started provisioning
      */
-    private void initialize(Intent intent) throws ManagedProvisioningFailedException {
+    private void initialize(Intent intent) throws ProvisioningFailedException {
         // Check if the admin extras bundle is of the right type.
         try {
             PersistableBundle bundle = (PersistableBundle) getIntent().getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
         } catch (ClassCastException e) {
-            throw new ManagedProvisioningFailedException("Extra "
+            throw new ProvisioningFailedException("Extra "
                     + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
                     + " must be of type PersistableBundle.", e);
         }
@@ -271,27 +238,16 @@ public class ManagedProvisioningActivity extends Activity {
         // Validate package name and check if the package is installed
         mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         if (TextUtils.isEmpty(mMdmPackageName)) {
-            throw new ManagedProvisioningFailedException("Missing intent extra: "
+            throw new ProvisioningFailedException("Missing intent extra: "
                     + EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         } else {
             try {
                 this.getPackageManager().getPackageInfo(mMdmPackageName, 0);
             } catch (NameNotFoundException e) {
-                throw new ManagedProvisioningFailedException("Mdm "+ mMdmPackageName
+                throw new ProvisioningFailedException("Mdm "+ mMdmPackageName
                         + " is not installed. ", e);
             }
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        // TODO: Handle this graciously by stopping the provisioning flow and cleaning up.
-    }
-
-    @Override
-    public void onDestroy() {
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
-        super.onDestroy();
     }
 
     /**
@@ -304,13 +260,8 @@ public class ManagedProvisioningActivity extends Activity {
 
             // Notify the user once more that the admin will have full control over the profile,
             // then start provisioning.
-            new UserConsentDialog(this, UserConsentDialog.PROFILE_OWNER, new Runnable() {
-                    @Override
-                    public void run() {
-                        setupEnvironmentAndProvision();
-                    }
-                } /* onUserConsented */ , null /* onCancel */).show(getFragmentManager(),
-                        "UserConsentDialogFragment");
+            UserConsentDialog.newInstance(UserConsentDialog.PROFILE_OWNER)
+                    .show(getFragmentManager(), "UserConsentDialogFragment");
         } else {
             Bundle resumeExtras = getIntent().getExtras();
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
@@ -321,18 +272,25 @@ public class ManagedProvisioningActivity extends Activity {
         }
     }
 
+    @Override
+    public void onDialogConsent() {
+        setupEnvironmentAndProvision();
+    }
+
+    @Override
+    public void onDialogCancel() {
+        // Do nothing.
+    }
+
     private void setupEnvironmentAndProvision() {
         // Remove any pre-provisioning UI in favour of progress display
-        BootReminder.cancelProvisioningReminder(
-                ManagedProvisioningActivity.this);
-        mProgressView.setVisibility(View.VISIBLE);
-        mMainTextView.setVisibility(View.GONE);
+        BootReminder.cancelProvisioningReminder(this);
 
         // Check whether the current launcher supports managed profiles.
         if (!currentLauncherSupportsManagedProfiles()) {
             showCurrentLauncherInvalid();
         } else {
-            startManagedProvisioningService();
+            startProfileOwnerProvisioning();
         }
     }
 
@@ -343,10 +301,10 @@ public class ManagedProvisioningActivity extends Activity {
         // Continue in onActivityResult.
     }
 
-    private void startManagedProvisioningService() {
-        Intent intent = new Intent(this, ManagedProvisioningService.class);
+    private void startProfileOwnerProvisioning() {
+        Intent intent = new Intent(this, ProfileOwnerProvisioningActivity.class);
         intent.putExtras(getIntent());
-        startService(intent);
+        startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
     }
 
     @Override
@@ -361,8 +319,12 @@ public class ManagedProvisioningActivity extends Activity {
             if (resultCode == RESULT_CANCELED) {
                 showCurrentLauncherInvalid();
             } else if (resultCode == RESULT_OK) {
-                startManagedProvisioningService();
+                startProfileOwnerProvisioning();
             }
+        }
+        if (requestCode == PROVISIONING_REQUEST_CODE) {
+            setResult(resultCode);
+            finish();
         }
     }
 
@@ -390,8 +352,19 @@ public class ManagedProvisioningActivity extends Activity {
 
     public void showErrorAndClose(int resourceId, String logText) {
         ProvisionLogger.loge(logText);
-        new ManagedProvisioningErrorDialog(getString(resourceId))
-              .show(getFragmentManager(), "ErrorDialogFragment");
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.provisioning_error_title)
+                .setMessage(getString(resourceId))
+                .setCancelable(false)
+                .setPositiveButton(R.string.device_owner_error_ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,int id) {
+                            // Close activity
+                            ProfileOwnerPreProvisioningActivity.this
+                                    .setResult(Activity.RESULT_CANCELED);
+                            ProfileOwnerPreProvisioningActivity.this.finish();
+                        }
+                    }).show();
     }
 
     /**
@@ -449,7 +422,7 @@ public class ManagedProvisioningActivity extends Activity {
                 new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                ManagedProvisioningActivity.this.finish();
+                ProfileOwnerPreProvisioningActivity.this.finish();
             }
         };
 
@@ -462,17 +435,17 @@ public class ManagedProvisioningActivity extends Activity {
         return builder.create();
     }
     /**
-     * Exception thrown when the managed provisioning has failed completely.
+     * Exception thrown when the provisioning has failed completely.
      *
      * We're using a custom exception to avoid catching subsequent exceptions that might be
      * significant.
      */
-    private class ManagedProvisioningFailedException extends Exception {
-        public ManagedProvisioningFailedException(String message) {
+    private class ProvisioningFailedException extends Exception {
+        public ProvisioningFailedException(String message) {
             super(message);
         }
 
-        public ManagedProvisioningFailedException(String message, Throwable t) {
+        public ProvisioningFailedException(String message, Throwable t) {
             super(message, t);
         }
     }

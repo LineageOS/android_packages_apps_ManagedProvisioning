@@ -17,10 +17,15 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
@@ -30,7 +35,6 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
@@ -38,35 +42,45 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
+import android.os.IBinder;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
-import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 
+import java.io.IOException;
+
 /**
- * Service that runs the managed provisioning.
+ * Service that runs the profile owner provisioning.
  *
- * <p>This service is started from and sends updates to the {@link ManagedProvisioningActivity},
+ * <p>This service is started from and sends updates to the {@link ProfileOwnerProvisioningActivity},
  * which contains the provisioning UI.
  */
-public class ManagedProvisioningService extends Service {
+public class ProfileOwnerProvisioningService extends Service {
+    // Extra keys for reporting back success to the activity.
+    public static final String EXTRA_PROFILE_USER_ID =
+            "com.android.managedprovisioning.extra.profile_user_id";
+    public static final String EXTRA_PROFILE_USER_SERIAL_NUMBER =
+            "com.android.managedprovisioning.extra.profile_user_serial_number";
+    public static final String EXTRA_PENDING_SUCCESS_INTENT =
+            "com.android.managedprovisioning.extra.pending_success_intent";
 
     // Intent actions for communication with DeviceOwnerProvisioningService.
     public static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
     public static final String ACTION_PROVISIONING_ERROR =
             "com.android.managedprovisioning.error";
+    public static final String ACTION_PROVISIONING_CANCELLED =
+            "com.android.managedprovisioning.cancelled";
     public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioingErrorLogMessage";
 
     private String mMdmPackageName;
@@ -75,15 +89,23 @@ public class ManagedProvisioningService extends Service {
     // PersistableBundle extra received in starting intent.
     // Should be passed through to device management application when provisioning is complete.
     private PersistableBundle mAdminExtrasBundle;
+    private Account mAccountToMigrate;
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
+    private AccountManager mAccountManager;
     private UserManager mUserManager;
 
     private int mStartIdProvisioning;
-    private AsyncTask<Intent, Object, Void> runnerTask;
+    private AsyncTask<Intent, Void, Void> runnerTask;
 
-    private class RunnerTask extends AsyncTask<Intent, Object, Void> {
+    // MessageId of the last error message.
+    private String mLastErrorMessage = null;
+
+    private boolean mDone = false;
+    private boolean mCancelInFuture = false;
+
+    private class RunnerTask extends AsyncTask<Intent, Void, Void> {
         @Override
         protected Void doInBackground(Intent ... intents) {
             initialize(intents[0]);
@@ -96,9 +118,8 @@ public class ManagedProvisioningService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        ProvisionLogger.logd("Managed provisioning service ONCREATE");
-
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
+        mAccountManager = (AccountManager) getSystemService(Context.ACCOUNT_SERVICE);
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
 
         runnerTask = new RunnerTask();
@@ -106,19 +127,54 @@ public class ManagedProvisioningService extends Service {
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
+        if (ProfileOwnerProvisioningActivity.ACTION_CANCEL_PROVISIONING.equals(intent.getAction())) {
+            ProvisionLogger.logd("Cancelling profile owner provisioning service");
+            cancelProvisioning();
+            return START_NOT_STICKY;
+        }
 
-        ProvisionLogger.logd("Starting managed provisioning service");
+        ProvisionLogger.logd("Starting profile owner provisioning service");
+
         try {
             runnerTask.execute(intent);
-        } catch (IllegalStateException ex) {
-            ProvisionLogger.logd("ManagedProvisioningService: Provisioning already in progress, "
-                    + "second provisioning intent not being processed");
+        } catch (IllegalStateException e) {
+            // runnerTask is either in progress, or finished.
+            ProvisionLogger.logd(
+                    "ProfileOwnerProvisioningService: Provisioning already started, "
+                    + "second provisioning intent not being processed, only reporting status.");
+            reportStatus();
         }
         return START_NOT_STICKY;
     }
 
+    private void reportStatus() {
+        if (mLastErrorMessage != null) {
+            sendError();
+        }
+        synchronized (this) {
+            if (mDone) {
+                notifyActivityOfSuccess();
+            }
+        }
+    }
+
+    private void cancelProvisioning() {
+        synchronized (this) {
+            if (!mDone) {
+                mCancelInFuture = true;
+                return;
+            }
+            cleanup();
+        }
+    }
+
     private void initialize(Intent intent) {
         mMdmPackageName = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        mAccountToMigrate = (Account) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+        if (mAccountToMigrate != null) {
+            ProvisionLogger.logi("Migrating account to managed profile");
+        }
 
         // Cast is guaranteed by check in Activity.
         mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
@@ -186,13 +242,83 @@ public class ManagedProvisioningService extends Service {
      * apps not needed have been deleted).
      */
     private void setUpProfileAndFinish() {
-            installMdmOnManagedProfile();
-            setMdmAsActiveAdmin();
-            setMdmAsManagedProfileOwner();
-            startManagedProfile();
-            CrossProfileIntentFiltersHelper.setFilters(
-                    getPackageManager(), getUserId(), mManagedProfileUserInfo.id);
-            onProvisioningSuccess(mActiveAdminComponentName);
+        installMdmOnManagedProfile();
+        setMdmAsActiveAdmin();
+        setMdmAsManagedProfileOwner();
+        CrossProfileIntentFiltersHelper.setFilters(
+                getPackageManager(), getUserId(), mManagedProfileUserInfo.id);
+
+        if (!startManagedProfile(mManagedProfileUserInfo.id)) {
+            error("Could not start user in background");
+            return;
+        }
+        copyAccount(mAccountToMigrate);
+        synchronized (this) {
+            mDone = true;
+            if (mCancelInFuture) {
+                cleanup();
+            } else {
+                // Notify activity of success.
+                notifyActivityOfSuccess();
+            }
+        }
+    }
+
+    /**
+     * Initialize the user that underlies the managed profile.
+     * This is required so that the provisioning complete broadcast can be sent across to the
+     * profile and apps can run on it.
+     */
+    private boolean startManagedProfile(int userId)  {
+        ProvisionLogger.logd("Starting user in background");
+        IActivityManager iActivityManager = ActivityManagerNative.getDefault();
+        try {
+            return iActivityManager.startUserInBackground(userId);
+        } catch (RemoteException neverThrown) {
+            // Never thrown, as we are making local calls.
+            ProvisionLogger.loge("This should not happen.", neverThrown);
+        }
+        return false;
+    }
+
+    private void notifyActivityOfSuccess() {
+        // Compose the intent that will be fired by the activity.
+        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        completeIntent.setComponent(mActiveAdminComponentName);
+        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                Intent.FLAG_RECEIVER_FOREGROUND);
+        if (mAdminExtrasBundle != null) {
+            completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                    mAdminExtrasBundle);
+        }
+
+        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+        successIntent.putExtra(EXTRA_PROFILE_USER_ID, mManagedProfileUserInfo.id);
+        successIntent.putExtra(EXTRA_PENDING_SUCCESS_INTENT, completeIntent);
+        successIntent.putExtra(EXTRA_PROFILE_USER_SERIAL_NUMBER,
+                mManagedProfileUserInfo.serialNumber);
+        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
+                .sendBroadcast(successIntent);
+    }
+
+    private void copyAccount(Account account) {
+        if (account == null) {
+            ProvisionLogger.logd("No account to migrate to the managed profile.");
+            return;
+        }
+        ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
+        try {
+            if (mAccountManager.copyAccountToUser(account, mManagedProfileUserInfo.getUserHandle(),
+                    /* callback= */ null, /* handler= */ null).getResult()) {
+                ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
+            } else {
+                ProvisionLogger.loge("Could not copy account to user "
+                        + mManagedProfileUserInfo.id);
+            }
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.logw("Exception copying account to user " + mManagedProfileUserInfo.id,
+                    e);
+        }
     }
 
     private void createProfile(String profileName) {
@@ -212,27 +338,7 @@ public class ManagedProvisioningService extends Service {
         }
     }
 
-    /**
-     * Initializes the user that underlies the managed profile.
-     * This is required so that the provisioning complete broadcast can be sent across to the
-     * profile and apps can run on it.
-     */
-    private void startManagedProfile()  {
-        ProvisionLogger.logd("Starting user in background");
-        IActivityManager iActivityManager = ActivityManagerNative.getDefault();
-        try {
-            boolean success = iActivityManager.startUserInBackground(mManagedProfileUserInfo.id);
-            if (!success) {
-               error("Could not start user in background");
-            }
-        } catch (RemoteException neverThrown) {
-            // Never thrown, as we are making local calls.
-            ProvisionLogger.loge("This should not happen.", neverThrown);
-        }
-    }
-
     private void installMdmOnManagedProfile() {
-
         ProvisionLogger.logd("Installing mobile device management app " + mMdmPackageName +
               " on managed profile");
 
@@ -261,7 +367,6 @@ public class ManagedProvisioningService extends Service {
     }
 
     private void setMdmAsManagedProfileOwner() {
-
         ProvisionLogger.logd("Setting package " + mMdmPackageName + " as managed profile owner.");
 
         DevicePolicyManager dpm =
@@ -274,7 +379,6 @@ public class ManagedProvisioningService extends Service {
     }
 
     private void setMdmAsActiveAdmin() {
-
         ProvisionLogger.logd("Setting package " + mMdmPackageName + " as active admin.");
 
         DevicePolicyManager dpm =
@@ -283,55 +387,15 @@ public class ManagedProvisioningService extends Service {
                 mManagedProfileUserInfo.id);
     }
 
-    /**
-     * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
-     * the service and notify the {@link ManagedProvisioningActivity} so that it can finish itself.
-     *
-     * @param deviceAdminComponent The component of the mdm that will be notified.
-     */
-    private void onProvisioningSuccess(ComponentName deviceAdminComponent) {
-        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
-                1 /* true- > setup complete */, mManagedProfileUserInfo.id);
-
-        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        UserHandle userHandle = userManager.getUserForSerialNumber(
-                mManagedProfileUserInfo.serialNumber);
-
-        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setComponent(mActiveAdminComponentName);
-        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-            Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mAdminExtrasBundle != null) {
-            completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mAdminExtrasBundle);
-        }
-
-        // Use an ordered broadcast, so that we only finish when the mdm has received it.
-        // Avoids a lag in the transition between provisioning and the mdm.
-        BroadcastReceiver mdmReceivedSuccessReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
-                        + " mdm");
-                Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-                LocalBroadcastManager.getInstance(ManagedProvisioningService.this)
-                        .sendBroadcast(successIntent);
-                stopSelf();
-            }
-
-        };
-        sendOrderedBroadcastAsUser(completeIntent, userHandle, null,
-                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
-
-        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
-            + userHandle.getIdentifier());
+    private void error(String dialogMessage) {
+        mLastErrorMessage = dialogMessage;
+        sendError();
     }
 
-    private void error(String logMessage) {
+    private void sendError() {
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
-        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, logMessage);
+        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, mLastErrorMessage);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-        cleanup();
-        stopSelf();
     }
 
     /**
@@ -343,15 +407,13 @@ public class ManagedProvisioningService extends Service {
             ProvisionLogger.logd("Removing managed profile");
             mUserManager.removeUser(mManagedProfileUserInfo.id);
         }
+        Intent cancelIntent = new Intent(ACTION_PROVISIONING_CANCELLED);
+        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
+                .sendBroadcast(cancelIntent);
     }
 
     @Override
     public IBinder onBind(Intent intent) {
         return null;
-    }
-
-    @Override
-    public void onDestroy() {
-        ProvisionLogger.logd("ManagedProvisioningService  ONDESTROY");
     }
 }
