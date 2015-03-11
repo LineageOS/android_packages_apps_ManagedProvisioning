@@ -138,7 +138,9 @@ public class IntentStore {
         }
         for (String key : mComponentNameKeys) {
             ComponentName cn = (ComponentName) data.getParcelable(key);
-            editor.putString(key, cn.flattenToString());
+            if (cn != null) {
+                editor.putString(key, cn.flattenToString());
+            }
         }
         editor.putBoolean(IS_SET, true);
         editor.commit();
@@ -191,8 +193,10 @@ public class IntentStore {
         }
         for (String key : mComponentNameKeys) {
             if (mPrefs.contains(key)) {
-                result.putExtra(key, ComponentName.unflattenFromString(
-                        mPrefs.getString(key, null)));
+                String st = mPrefs.getString(key, null);
+                if (st != null) {
+                    result.putExtra(key, ComponentName.unflattenFromString(st));
+                }
             }
         }
 

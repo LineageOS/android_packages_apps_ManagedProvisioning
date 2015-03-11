@@ -35,26 +35,25 @@ public class SetDevicePolicyTask {
 
     private final Callback mCallback;
     private final Context mContext;
-    private final String mAdminPackage;
-    private final ComponentName mAdminComponent;
+    private String mAdminPackage;
+    private ComponentName mAdminComponent;
     private final String mOwner;
 
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
-    public SetDevicePolicyTask(Context context, ComponentName adminComponent, String owner,
-            Callback callback) {
+    public SetDevicePolicyTask(Context context, String owner, Callback callback) {
         mCallback = callback;
         mContext = context;
-        mAdminComponent = adminComponent;
-        mAdminPackage = adminComponent.getPackageName();
         mOwner = owner;
         mPackageManager = mContext.getPackageManager();
         mDevicePolicyManager = (DevicePolicyManager) mContext.
                 getSystemService(Context.DEVICE_POLICY_SERVICE);
     }
 
-    public void run() {
+    public void run(ComponentName adminComponent) {
+        mAdminComponent = adminComponent;
+        mAdminPackage = mAdminComponent.getPackageName();
         enableDevicePolicyApp();
         setActiveAdmin();
         setDeviceOwner();

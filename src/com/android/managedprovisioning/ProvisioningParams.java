@@ -16,13 +16,13 @@
 
 package com.android.managedprovisioning;
 
+import android.content.Context;
 import android.content.ComponentName;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.util.Base64;
 import java.util.Locale;
-
 /**
  * Provisioning Parameters for DeviceOwner Provisioning
  */
@@ -46,7 +46,28 @@ public class ProvisioningParams implements Parcelable {
     public String mWifiProxyBypassHosts;
     public String mWifiPacUrl;
 
+    // At least one one of mDeviceAdminPackageName and mDeviceAdminComponentName should be non-null
+    public String mDeviceAdminPackageName; // Package name of the device admin package.
     public ComponentName mDeviceAdminComponentName;
+
+    private ComponentName mInferedDeviceAdminComponentName;
+
+    String inferDeviceAdminPackageName() {
+        if (mDeviceAdminComponentName != null) {
+            return mDeviceAdminComponentName.getPackageName();
+        }
+        return mDeviceAdminPackageName;
+    }
+
+    // This should not be called if the app has not been installed yet.
+    ComponentName inferDeviceAdminComponentName(Context c)
+            throws Utils.IllegalProvisioningArgumentException {
+        if (mInferedDeviceAdminComponentName == null) {
+            mInferedDeviceAdminComponentName = Utils.findDeviceAdmin(
+                    mDeviceAdminPackageName, mDeviceAdminComponentName, c);
+        }
+        return mInferedDeviceAdminComponentName;
+    }
 
     public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
     public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
@@ -58,10 +79,6 @@ public class ProvisioningParams implements Parcelable {
 
     public boolean mLeaveAllSystemAppsEnabled;
     public boolean mSkipEncryption;
-
-    public String getDeviceAdminPackageName() {
-        return mDeviceAdminComponentName.getPackageName();
-    }
 
     public String getLocaleAsString() {
         if (mLocale != null) {
@@ -93,6 +110,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mWifiProxyHost);
         out.writeInt(mWifiProxyPort);
         out.writeString(mWifiProxyBypassHosts);
+        out.writeString(mDeviceAdminPackageName);
         out.writeParcelable(mDeviceAdminComponentName, 0 /* default */);
         out.writeString(mDeviceAdminPackageDownloadLocation);
         out.writeString(mDeviceAdminPackageDownloadCookieHeader);
@@ -119,6 +137,7 @@ public class ProvisioningParams implements Parcelable {
             params.mWifiProxyHost = in.readString();
             params.mWifiProxyPort = in.readInt();
             params.mWifiProxyBypassHosts = in.readString();
+            params.mDeviceAdminPackageName = in.readString();
             params.mDeviceAdminComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
             params.mDeviceAdminPackageDownloadLocation = in.readString();

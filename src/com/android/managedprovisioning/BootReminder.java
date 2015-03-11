@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -40,6 +41,11 @@ public class BootReminder extends BroadcastReceiver {
      */
     private static final String PROFILE_OWNER_PREFERENCES_NAME =
             "profile-owner-provisioning-resume";
+
+    private static final String[] PROFILE_OWNER_STRING_EXTRAS = {
+        // Key for the device admin package name
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
+    };
 
     private static final String[] PROFILE_OWNER_COMPONENT_NAME_EXTRAS = {
         // Key for the device admin component name
@@ -143,6 +149,7 @@ public class BootReminder extends BroadcastReceiver {
     private static IntentStore getProfileOwnerIntentStore(Context context) {
         return new IntentStore(context,PROFILE_OWNER_INTENT_TARGET, PROFILE_OWNER_PREFERENCES_NAME)
                 .setComponentNameKeys(PROFILE_OWNER_COMPONENT_NAME_EXTRAS)
+                .setStringKeys(PROFILE_OWNER_STRING_EXTRAS)
                 .setPersistableBundleKeys(PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS)
                 .setAccountKeys(PROFILE_OWNER_ACCOUNT_EXTRAS);
     }
