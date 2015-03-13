@@ -16,27 +16,17 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
-import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
-import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
-import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
-
 import android.app.Activity;
-import android.app.admin.DevicePolicyManager;
 import android.app.AlertDialog;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -44,18 +34,26 @@ import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Button;
 
+import com.android.managedprovisioning.DeleteManagedProfileDialog.DeleteManagedProfileCallback;
+import com.android.managedprovisioning.UserConsentDialog.ConsentCallback;
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.Utils.MdmPackageInfo;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar;
 import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 import java.util.List;
+
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
+import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
+import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
 
 /**
  * The activity sets up the environment in which the {@link ProfileOwnerProvisioningActivity} can be run.
@@ -63,7 +61,7 @@ import java.util.List;
  * provisioning intent extras are valid, and that the already present managed profile is removed.
  */
 public class ProfileOwnerPreProvisioningActivity extends Activity
-        implements UserConsentDialog.ConsentCallback, NavigationBarListener {
+        implements ConsentCallback, DeleteManagedProfileCallback, NavigationBarListener {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
@@ -92,6 +90,8 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     private ComponentName mMdmComponentName;
 
     private Button mSetupButton;
+
+    private DeleteManagedProfileDialog mDeleteDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,17 +157,33 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
             return;
         }
 
-        // If there is already a managed profile, allow the user to cancel or delete it.
+        // If there is already a managed profile, setup the profile deletion dialog.
         // Otherwise, check whether system has reached maximum user limit.
         int existingManagedProfileUserId = alreadyHasManagedProfile();
         if (existingManagedProfileUserId != -1) {
-            showManagedProfileExistsDialog(existingManagedProfileUserId);
+            createDeleteManagedProfileDialog(dpm, existingManagedProfileUserId);
         } else if (isMaximumUserLimitReached()) {
             showErrorAndClose(R.string.maximum_user_limit_reached,
                     "Exiting managed profile provisioning, cannot add more users.");
         } else {
             showStartProvisioningButton();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (alreadyHasManagedProfile() != -1) {
+            showDeleteManagedProfileDialog();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        hideDeleteManagedProfileDialog();
     }
 
     private void showStartProvisioningButton() {
@@ -217,23 +233,13 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     }
 
     private void setMdmIcon(String packageName) {
-        if (packageName != null) {
-            PackageManager pm = getPackageManager();
-            try {
-                ApplicationInfo ai = pm.getApplicationInfo(packageName, /* default flags */ 0);
-                if (ai != null) {
-                    Drawable packageIcon = pm.getApplicationIcon(packageName);
-                    ImageView imageView = (ImageView) findViewById(R.id.mdm_icon_view);
-                    imageView.setImageDrawable(packageIcon);
+        MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);
+        if (packageInfo != null) {
+            ImageView imageView = (ImageView) findViewById(R.id.mdm_icon_view);
+            imageView.setImageDrawable(packageInfo.getPackageIcon());
 
-                    String appLabel = pm.getApplicationLabel(ai).toString();
-                    TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
-                    deviceManagerName.setText(appLabel);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                // Package does not exist, ignore. Should never happen.
-                ProvisionLogger.loge("Package does not exist. Should never happen.");
-            }
+            TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
+            deviceManagerName.setText(packageInfo.getAppLabel());
         }
     }
 
@@ -290,6 +296,19 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     @Override
     public void onDialogCancel() {
         // Do nothing.
+    }
+
+    @Override
+    public void onRemoveProfileApproval(int existingManagedProfileUserId) {
+        mDeleteDialog = null;
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        userManager.removeUser(existingManagedProfileUserId);
+        showStartProvisioningButton();
+    }
+
+    @Override
+    public void onRemoveProfileCancel() {
+        finish();
     }
 
     private void setupEnvironmentAndProvision() {
@@ -410,35 +429,36 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     /**
      * Builds a dialog that allows the user to remove an existing managed profile.
      */
-    private void showManagedProfileExistsDialog(
-            final int existingManagedProfileUserId) {
+    private void createDeleteManagedProfileDialog(DevicePolicyManager dpm,
+            int existingManagedProfileUserId) {
+        if (mDeleteDialog != null) {
+            return;
+        }
 
-        DialogInterface.OnClickListener deleteListener =
-                new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                UserManager userManager =
-                        (UserManager) getSystemService(Context.USER_SERVICE);
-                userManager.removeUser(existingManagedProfileUserId);
-                showStartProvisioningButton();
-            }
-        };
+        ComponentName mdmPackageName = dpm.getProfileOwnerAsUser(existingManagedProfileUserId);
+        String domainName = dpm.getProfileOwnerNameAsUser(existingManagedProfileUserId);
 
-        DialogInterface.OnClickListener cancelListener =
-                new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                ProfileOwnerPreProvisioningActivity.this.finish();
-            }
-        };
+        mDeleteDialog = DeleteManagedProfileDialog.newInstance(existingManagedProfileUserId,
+                mdmPackageName, domainName);
+    }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getString(R.string.sure_you_want_to_delete_profile))
-                .setCancelable(false)
-                .setPositiveButton(getString(R.string.delete_profile), deleteListener)
-                .setNegativeButton(getString(R.string.cancel_delete_profile), cancelListener)
-                .show()
-                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
+    private void showDeleteManagedProfileDialog() {
+        if (mDeleteDialog == null) {
+            return;
+        }
+
+        if (!mDeleteDialog.isVisible()) {
+            mDeleteDialog.show(getFragmentManager(), "DeleteManagedProfileDialogFragment");
+        }
+    }
+
+    private void hideDeleteManagedProfileDialog() {
+        if (mDeleteDialog == null) {
+            return;
+        }
+
+        mDeleteDialog.dismiss();
+        mDeleteDialog = null;
     }
 
     @Override
