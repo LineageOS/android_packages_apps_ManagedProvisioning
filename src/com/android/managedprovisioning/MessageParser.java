@@ -33,6 +33,11 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
@@ -77,17 +82,25 @@ import java.util.Properties;
  * <p>
  * Intent was received directly.
  * The intent contains the extra {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME} or
- * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} (which is deprecated but that we still
- * support), and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
- * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and {@link #EXTRA_PROVISIONING_LOCALE}. A download
- * location may be specified in {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}
- * together with an optional http cookie header
- * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER} accompanied by the SHA-1
- * sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}.
- * Additional information to send through to the device admin may be specified in
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} (which is deprecated and supported for
+ * legacy reasons only), and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
+ * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, {@link #EXTRA_PROVISIONING_LOCALE}, and
+ * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME}. A download
+ * location for the device admin may be specified in
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION} together with an optional
+ * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}
+ * accompanied by the SHA-1 sum of the target file
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}. A download location for the device
+ * initializer may be specified in
+ * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION} together with an
+ * optional http cookie header
+ * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER} accompanied by the
+ * SHA-1 sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM}.
+ * Additional information to send through to the device initializer and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
- * The boolean {@link #EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED} indicates wheter system
- * apps should not be disabled.
+ * The optional boolean {@link #EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED} indicates whether
+ * system apps should not be disabled. The optional boolean
+ * {@link #EXTRA_PROVISIONING_SKIP_ENCRYPTION} specifies whether the device should be encrypted.
  * Furthermore a wifi network may be specified in {@link #EXTRA_PROVISIONING_WIFI_SSID}, and if
  * applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
  * {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE}, {@link #EXTRA_PROVISIONING_WIFI_PASSWORD},
@@ -117,7 +130,10 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM
     };
 
     protected static final String[] DEVICE_OWNER_LONG_EXTRAS = {
@@ -140,7 +156,8 @@ public class MessageParser {
     };
 
     protected static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
-        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
+        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME
     };
 
     public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
@@ -162,6 +179,14 @@ public class MessageParser {
                 params.mDeviceAdminPackageDownloadCookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 params.getDeviceAdminPackageChecksumAsString());
+        bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
+                params.mDeviceInitializerComponentName);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
+                params.mDeviceInitializerPackageDownloadLocation);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                params.mDeviceInitializerPackageDownloadCookieHeader);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
+                params.getDeviceInitializerPackageChecksumAsString());
 
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.mLocalTime);
 
@@ -246,6 +271,19 @@ public class MessageParser {
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
                 params.mDeviceAdminPackageChecksum = stringToByteArray(s);
             }
+            String name = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
+            if (name != null) {
+                params.mDeviceInitializerComponentName = ComponentName.unflattenFromString(name);
+            }
+            params.mDeviceInitializerPackageDownloadLocation = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
+            params.mDeviceInitializerPackageDownloadCookieHeader = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
+            if ((s = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM)) != null) {
+                params.mDeviceInitializerPackageChecksum = stringToByteArray(s);
+            }
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
                 params.mLocalTime = Long.parseLong(s);
@@ -320,6 +358,19 @@ public class MessageParser {
         String hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (hashString != null) {
             params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
+        }
+        String name = intent.getStringExtra(
+                EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
+        if (name != null) {
+            params.mDeviceInitializerComponentName = ComponentName.unflattenFromString(name);
+        }
+        params.mDeviceInitializerPackageDownloadLocation = intent.getStringExtra(
+                EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
+        params.mDeviceInitializerPackageDownloadCookieHeader = intent.getStringExtra(
+                EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
+        hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM);
+        if (hashString != null) {
+            params.mDeviceInitializerPackageChecksum = stringToByteArray(hashString);
         }
 
         params.mLocalTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,

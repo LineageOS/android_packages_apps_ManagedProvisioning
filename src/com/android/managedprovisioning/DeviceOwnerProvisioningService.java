@@ -194,7 +194,6 @@ public class DeviceOwnerProvisioningService extends Service {
         }
     }
 
-
     /**
      * This is the core method of this class. It goes through every provisioning step.
      * Each task checks if it is required and executes if it is.
@@ -203,30 +202,33 @@ public class DeviceOwnerProvisioningService extends Service {
         if (DEBUG) ProvisionLogger.logd("Starting device owner provisioning");
 
         // Construct Tasks. Do not start them yet.
-        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
-                params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
-                params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
-                params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
+       mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
+               params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
+               params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
+               params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
+                       @Override
+                       public void onSuccess() {
+                           progressUpdate(R.string.progress_download);
+                           mDownloadPackageTask.run();
+                       }
+
+                       @Override
+                       public void onError(){
+                           error(R.string.device_owner_error_wifi);
+                           }
+                       });
+
+
+        mDownloadPackageTask = new DownloadPackageTask(
+                this, params, new DownloadPackageTask.Callback() {
                         @Override
                         public void onSuccess() {
-                            mDownloadPackageTask.run();
-                        }
-
-                        @Override
-                        public void onError(){
-                            error(R.string.device_owner_error_wifi);
-                        }
-                    });
-
-        mDownloadPackageTask = new DownloadPackageTask(this,
-                params.mDeviceAdminPackageDownloadLocation, params.mDeviceAdminPackageChecksum,
-                params.mDeviceAdminPackageDownloadCookieHeader, new DownloadPackageTask.Callback() {
-                        @Override
-                        public void onSuccess() {
-                            String downloadLocation =
-                                    mDownloadPackageTask.getDownloadedPackageLocation();
                             progressUpdate(R.string.progress_install);
-                            mInstallPackageTask.run(downloadLocation);
+                            mInstallPackageTask.run(
+                                    mDownloadPackageTask.getDownloadedPackageLocation(
+                                            DownloadPackageTask.DEVICE_OWNER),
+                                    mDownloadPackageTask.getDownloadedPackageLocation(
+                                            DownloadPackageTask.INITIALIZER));
                         }
 
                         @Override
@@ -245,9 +247,8 @@ public class DeviceOwnerProvisioningService extends Service {
                         }
                     });
 
-        mInstallPackageTask = new InstallPackageTask(this,
-                params.inferDeviceAdminPackageName(), params.mDeviceAdminPackageDownloadLocation,
-                new InstallPackageTask.Callback() {
+        mInstallPackageTask = new InstallPackageTask(
+                this, params, new InstallPackageTask.Callback() {
                     @Override
                     public void onSuccess() {
                         progressUpdate(R.string.progress_set_owner);
@@ -280,6 +281,8 @@ public class DeviceOwnerProvisioningService extends Service {
                     }
                 });
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
+                getResources().getString(R.string.default_owned_device_username),
+                params.mDeviceInitializerComponentName,
                 getResources().getString(R.string.default_owned_device_username),
                 new SetDevicePolicyTask.Callback() {
                     @Override

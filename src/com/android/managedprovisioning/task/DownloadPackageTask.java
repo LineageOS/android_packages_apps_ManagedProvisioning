@@ -31,6 +31,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.ProvisioningParams;
 
 import java.io.InputStream;
 import java.io.IOException;
@@ -38,45 +39,55 @@ import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Downloads a given file and checks whether its hash matches a given hash to verify that the
- * intended file was downloaded.
+ * Downloads the device admin and the device initializer if download locations were provided for
+ * them in the provisioning parameters. Also checks that each file's hash matches a given hash to
+ * verify that the downloaded files are the ones that are expected.
  */
 public class DownloadPackageTask {
     public static final int ERROR_HASH_MISMATCH = 0;
     public static final int ERROR_DOWNLOAD_FAILED = 1;
     public static final int ERROR_OTHER = 2;
 
+    public static final String DEVICE_OWNER = "deviceOwner";
+    public static final String INITIALIZER = "initializer";
+
     private static final String HASH_TYPE = "SHA-1";
 
     private final Context mContext;
-    private final String mDownloadLocationFrom;
     private final Callback mCallback;
-    private final byte[] mHash;
-    private final String mHttpCookieHeader;
-
-    private boolean mDoneDownloading;
-    private String mDownloadLocationTo;
-    private long mDownloadId;
     private BroadcastReceiver mReceiver;
+    private final DownloadManager mDlm;
 
-    public DownloadPackageTask (Context context, String downloadLocation, byte[] hash,
-            String httpCookieHeader, Callback callback) {
+    private Set<DownloadInfo> mDownloads;
+
+    public DownloadPackageTask (Context context, ProvisioningParams params, Callback callback) {
         mCallback = callback;
         mContext = context;
-        mDownloadLocationFrom = downloadLocation;
-        mHash = hash;
-        mHttpCookieHeader = httpCookieHeader;
-        mDoneDownloading = false;
-    }
+        mDlm = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
 
-    public boolean downloadLocationWasProvided() {
-        return !TextUtils.isEmpty(mDownloadLocationFrom);
+        mDownloads = new HashSet<DownloadInfo>();
+        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+            mDownloads.add(new DownloadInfo(
+                    params.mDeviceAdminPackageDownloadLocation,
+                    params.mDeviceAdminPackageChecksum,
+                    params.mDeviceAdminPackageDownloadCookieHeader,
+                    DEVICE_OWNER));
+        }
+        if (!TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation)) {
+            mDownloads.add(new DownloadInfo(
+                    params.mDeviceInitializerPackageDownloadLocation,
+                    params.mDeviceInitializerPackageChecksum,
+                    params.mDeviceInitializerPackageDownloadCookieHeader,
+                    INITIALIZER));
+        }
     }
 
     public void run() {
-        if (!downloadLocationWasProvided()) {
+        if (mDownloads.size() == 0) {
             mCallback.onSuccess();
             return;
         }
@@ -84,38 +95,49 @@ public class DownloadPackageTask {
         mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
-        ProvisionLogger.logd("Starting download from " + mDownloadLocationFrom);
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
-        Request request = new Request(Uri.parse(mDownloadLocationFrom));
-        if (mHttpCookieHeader != null) {
-            request.addRequestHeader("Cookie", mHttpCookieHeader);
-            ProvisionLogger.logd("Downloading with http cookie header: " + mHttpCookieHeader);
+        for (DownloadInfo downloadInfo : mDownloads) {
+            ProvisionLogger.logd("Starting download from " + downloadInfo.mDownloadLocationFrom);
+
+            Request request = new Request(Uri.parse(downloadInfo.mDownloadLocationFrom));
+            if (downloadInfo.mHttpCookieHeader != null) {
+                request.addRequestHeader("Cookie", downloadInfo.mHttpCookieHeader);
+                ProvisionLogger.logd(
+                        "Downloading with http cookie header: " + downloadInfo.mHttpCookieHeader);
+            }
+            downloadInfo.mDownloadId = dm.enqueue(request);
         }
-        mDownloadId = dm.enqueue(request);
     }
 
     private BroadcastReceiver createDownloadReceiver() {
         return new BroadcastReceiver() {
+            /**
+             * Whenever the download manager finishes a download, record the successful download for
+             * the corresponding DownloadInfo.
+             */
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())) {
                     Query q = new Query();
-                    q.setFilterById(mDownloadId);
-                    DownloadManager dm = (DownloadManager) mContext
-                            .getSystemService(Context.DOWNLOAD_SERVICE);
-                    Cursor c = dm.query(q);
-                    if (c.moveToFirst()) {
-                        int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
-                        if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-                            String location = c.getString(
-                                    c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
-                            c.close();
-                            onDownloadSuccess(location);
-                        } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
-                            int reason = c.getColumnIndex(DownloadManager.COLUMN_REASON);
-                            c.close();
-                            onDownloadFail(reason);
+                    for (DownloadInfo downloadInfo : mDownloads) {
+                        q.setFilterById(downloadInfo.mDownloadId);
+                        Cursor c = mDlm.query(q);
+                        if (c.moveToFirst()) {
+                            long downloadId =
+                                    c.getLong(c.getColumnIndex(DownloadManager.COLUMN_ID));
+                            int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                            if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
+                                String location = c.getString(
+                                        c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+                                c.close();
+                                onDownloadSuccess(downloadId, location);
+                            } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
+                                int reason = c.getInt(
+                                        c.getColumnIndex(DownloadManager.COLUMN_REASON));
+                                c.close();
+                                onDownloadFail(reason);
+                            }
                         }
                     }
                 }
@@ -123,38 +145,59 @@ public class DownloadPackageTask {
         };
     }
 
-    private void onDownloadSuccess(String location) {
-        if (mDoneDownloading) {
+    /**
+     * For a given successful download, check that the downloaded file is the expected file. Check
+     * if this was the last file the task had to download and finish the DownloadPackageTask if that
+     * is the case.
+     * @param downloadId the unique download id for the completed download.
+     * @param location the file location of the downloaded file.
+     */
+    private void onDownloadSuccess(long downloadId, String location) {
+        DownloadInfo downloadInfo = null;
+        for (DownloadInfo info : mDownloads) {
+            if (downloadId == info.mDownloadId) {
+                downloadInfo = info;
+            }
+        }
+        if (downloadInfo == null || downloadInfo.mDoneDownloading) {
             // DownloadManager can send success more than once. Only act first time.
             return;
         } else {
-            mDoneDownloading = true;
+            downloadInfo.mDoneDownloading = true;
         }
-
         ProvisionLogger.logd("Downloaded succesfully to: " + location);
 
         // Check whether hash of downloaded file matches hash given in constructor.
         byte[] hash = computeHash(location);
         if (hash == null) {
-
             // Error should have been reported in computeHash().
             return;
         }
 
-        if (Arrays.equals(mHash, hash)) {
+        if (Arrays.equals(downloadInfo.mHash, hash)) {
             ProvisionLogger.logd(HASH_TYPE + "-hashes matched, both are "
                     + byteArrayToString(hash));
-            mDownloadLocationTo = location;
-            mCallback.onSuccess();
+            downloadInfo.mLocation = location;
+            downloadInfo.mSuccess = true;
+            checkSuccess();
         } else {
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file does not match given hash.");
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file: "
                     + byteArrayToString(hash));
             ProvisionLogger.loge(HASH_TYPE + "-hash provided by programmer: "
-                    + byteArrayToString(mHash));
+                    + byteArrayToString(downloadInfo.mHash));
 
             mCallback.onError(ERROR_HASH_MISMATCH);
         }
+    }
+
+    private void checkSuccess() {
+        for (DownloadInfo info : mDownloads) {
+            if (!info.mSuccess) {
+                return;
+            }
+        }
+        mCallback.onSuccess();
     }
 
     private void onDownloadFail(int errorCode) {
@@ -203,8 +246,13 @@ public class DownloadPackageTask {
         return hash;
     }
 
-    public String getDownloadedPackageLocation() {
-        return mDownloadLocationTo;
+    public String getDownloadedPackageLocation(String packageType) {
+        for (DownloadInfo info : mDownloads) {
+            if (packageType.equals(info.mPackageType)) {
+                return info.mLocation;
+            }
+        }
+        return "";
     }
 
     public void cleanUp() {
@@ -217,12 +265,14 @@ public class DownloadPackageTask {
         //Remove download.
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
-        boolean removeSuccess = dm.remove(mDownloadId) == 1;
-        if (removeSuccess) {
-            ProvisionLogger.logd("Successfully removed the device owner installer file.");
-        } else {
-            ProvisionLogger.loge("Could not remove the device owner installer file.");
-            // Ignore this error. Failing cleanup should not stop provisioning flow.
+        for (DownloadInfo info : mDownloads) {
+            boolean removeSuccess = dm.remove(info.mDownloadId) == 1;
+            if (removeSuccess) {
+                ProvisionLogger.logd("Successfully removed installer file.");
+            } else {
+                ProvisionLogger.loge("Could not remove installer file.");
+                // Ignore this error. Failing cleanup should not stop provisioning flow.
+            }
         }
     }
 
@@ -234,5 +284,25 @@ public class DownloadPackageTask {
     public abstract static class Callback {
         public abstract void onSuccess();
         public abstract void onError(int errorCode);
+    }
+
+    private static class DownloadInfo {
+        public final String mDownloadLocationFrom;
+        public final byte[] mHash;
+        public final String mHttpCookieHeader;
+        public final String mPackageType;
+        public long mDownloadId;
+        public String mLocation;
+        public boolean mDoneDownloading;
+        public boolean mSuccess;
+
+        public DownloadInfo(String downloadLocation, byte[] hash, String httpCookieHeader,
+                String packageType) {
+            mDownloadLocationFrom = downloadLocation;
+            mHash = hash;
+            mHttpCookieHeader = httpCookieHeader;
+            mPackageType = packageType;
+            mDoneDownloading = false;
+        }
     }
 }

@@ -27,14 +27,17 @@ import android.text.TextUtils;
 import android.Manifest.permission;
 
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.ProvisioningParams;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Installs a device owner package from a given path.
+ * Optionally installs device owner and device initializer packages.
  * <p>
- * Before installing it is checked whether the file at the specified path contains the given package
- * and the given admin receiver.
+ * Before installing it is checked whether each file at the specified paths contains the correct
+ * package and admin receiver.
  * </p>
  */
 public class InstallPackageTask {
@@ -43,73 +46,89 @@ public class InstallPackageTask {
 
     private final Context mContext;
     private final Callback mCallback;
-    private final String mPackageName;
+    private final String mDeviceAdminPackageName;
+    private final String mDeviceInitializerPackageName;
+    private final boolean mDownloadedAdmin;
+    private final boolean mDownloadedInitializer;
 
-    private String mPackageLocation;
-    private final String mDownloadLocationFrom;
     private PackageManager mPm;
     private int mPackageVerifierEnable;
+    private Set<InstallInfo> mPackagesToInstall;
 
-    public InstallPackageTask (Context context, String packageName, String downloadLocation,
-            Callback callback) {
+    public InstallPackageTask (Context context, ProvisioningParams params, Callback callback) {
         mCallback = callback;
         mContext = context;
-        mPackageLocation = null; // Initialized in run().
-        mPackageName = packageName;
-        mDownloadLocationFrom = downloadLocation;
+        mDeviceAdminPackageName = params.inferDeviceAdminPackageName();
+        mDeviceInitializerPackageName = params.mDeviceInitializerComponentName.getPackageName();
+        mDownloadedAdmin = !TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation);
+        mDownloadedInitializer =
+                !TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation);
+        mPackagesToInstall = new HashSet<InstallInfo>();
     }
 
-    public boolean downloadLocationWasProvided() {
-        return !TextUtils.isEmpty(mDownloadLocationFrom);
-    }
-
-    public void run(String packageLocation) {
-        if (TextUtils.isEmpty(packageLocation)) {
-            if (!downloadLocationWasProvided()) {
-                ProvisionLogger.loge("Package Location is empty, nothing to install.");
-                mCallback.onSuccess();
-                return;
+    public void run(String deviceAdminPackageLocation, String deviceInitializerPackageLocation) {
+        if (mDownloadedAdmin) {
+            if (!TextUtils.isEmpty(deviceAdminPackageLocation)) {
+                mPackagesToInstall.add(
+                        new InstallInfo(mDeviceAdminPackageName, deviceAdminPackageLocation));
             } else {
                 ProvisionLogger.loge("Package Location is empty.");
                 mCallback.onError(ERROR_PACKAGE_INVALID);
                 return;
             }
         }
-        mPackageLocation = packageLocation;
+        if (mDownloadedInitializer) {
+            if (!TextUtils.isEmpty(deviceInitializerPackageLocation)) {
+                mPackagesToInstall.add(new InstallInfo(
+                        mDeviceInitializerPackageName, deviceInitializerPackageLocation));
+            } else {
+                ProvisionLogger.loge("Package Location is empty.");
+                mCallback.onError(ERROR_PACKAGE_INVALID);
+                return;
+            }
+        }
+
+        if (mPackagesToInstall.size() == 0) {
+            ProvisionLogger.loge("Nothing to install");
+            mCallback.onSuccess();
+            return;
+        }
+        ProvisionLogger.logi("Installing package(s)");
 
         PackageInstallObserver observer = new PackageInstallObserver();
         mPm = mContext.getPackageManager();
 
-        if (packageContentIsCorrect()) {
-            // Temporarily turn off package verification.
-            mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
-                    Global.PACKAGE_VERIFIER_ENABLE, 1);
-            Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0);
+        for (InstallInfo info : mPackagesToInstall) {
+            if (packageContentIsCorrect(info.mPackageName, info.mLocation)) {
+                // Temporarily turn off package verification.
+                mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
+                        Global.PACKAGE_VERIFIER_ENABLE, 1);
+                Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0);
 
-            Uri packageUri = Uri.parse("file://" + mPackageLocation);
-
-            // Allow for replacing an existing package.
-            // Needed in case this task is performed multiple times.
-            mPm.installPackage(packageUri, observer,
-                    /* flags */ PackageManager.INSTALL_REPLACE_EXISTING, mContext.getPackageName());
-        } else {
-            // Error should have been reported in packageContentIsCorrect().
-            return;
+                // Allow for replacing an existing package.
+                // Needed in case this task is performed multiple times.
+                mPm.installPackage(Uri.parse("file://" + info.mLocation),
+                        observer,
+                        /* flags */ PackageManager.INSTALL_REPLACE_EXISTING,
+                        mContext.getPackageName());
+            } else {
+                // Error should have been reported in packageContentIsCorrect().
+                return;
+            }
         }
     }
 
-    private boolean packageContentIsCorrect() {
-        PackageInfo pi = mPm.getPackageArchiveInfo(mPackageLocation,
-                PackageManager.GET_RECEIVERS);
+    private boolean packageContentIsCorrect(String packageName, String packageLocation) {
+        PackageInfo pi = mPm.getPackageArchiveInfo(packageLocation, PackageManager.GET_RECEIVERS);
         if (pi == null) {
             ProvisionLogger.loge("Package could not be parsed successfully.");
             mCallback.onError(ERROR_PACKAGE_INVALID);
             return false;
         }
-        if (!pi.packageName.equals(mPackageName)) {
+        if (!pi.packageName.equals(packageName)) {
             ProvisionLogger.loge("Package name in apk (" + pi.packageName
                     + ") does not match package name specified by programmer ("
-                    + mPackageName + ").");
+                    + packageName + ").");
             mCallback.onError(ERROR_PACKAGE_INVALID);
             return false;
         }
@@ -127,34 +146,68 @@ public class InstallPackageTask {
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
         @Override
         public void packageInstalled(String packageName, int returnCode) {
-            // Set package verification flag to its original value.
-            Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
-                    mPackageVerifierEnable);
-
-            if (returnCode == PackageManager.INSTALL_SUCCEEDED
-                    && mPackageName.equals(packageName)) {
-                ProvisionLogger.logd("Package " + mPackageName + " is succesfully installed.");
-
-                mCallback.onSuccess();
+            InstallInfo installInfo = null;
+            for (InstallInfo info : mPackagesToInstall) {
+                if (packageName.equals(info.mPackageName)) {
+                    installInfo = info;
+                }
+            }
+            if (installInfo == null)  {
+                ProvisionLogger.loge("Package doesn't have expected package name.");
+                mCallback.onError(ERROR_PACKAGE_INVALID);
+                return;
+            }
+            if (returnCode == PackageManager.INSTALL_SUCCEEDED) {
+                installInfo.mDoneInstalling = true;
+                ProvisionLogger.logd(
+                        "Package " + installInfo.mPackageName + " is succesfully installed.");
+                checkSuccess();
             } else {
                 if (returnCode == PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE) {
-                    ProvisionLogger.logd("Current version of " + mPackageName
-                            + " higher than the version to be installed.");
-                    ProvisionLogger.logd("Package " + mPackageName + " was not reinstalled.");
-                    mCallback.onSuccess();
-                    return;
+                    installInfo.mDoneInstalling = true;
+                    ProvisionLogger.logd("Current version of " + installInfo.mPackageName
+                            + " higher than the version to be installed. It was not reinstalled.");
+                    checkSuccess();
+                } else {
+                    ProvisionLogger.logd(
+                            "Installing package " + installInfo.mPackageName + " failed.");
+                    ProvisionLogger.logd(
+                            "Errorcode returned by IPackageInstallObserver = " + returnCode);
+                    mCallback.onError(ERROR_INSTALLATION_FAILED);
                 }
-
-                ProvisionLogger.logd("Installing package " + mPackageName + " failed.");
-                ProvisionLogger.logd("Errorcode returned by IPackageInstallObserver = "
-                        + returnCode);
-                mCallback.onError(ERROR_INSTALLATION_FAILED);
             }
         }
+    }
+
+    /**
+     * Calls the success callback once all of the packages that needed to be installed are
+     * successfully installed.
+     */
+    private void checkSuccess() {
+        for (InstallInfo info : mPackagesToInstall) {
+            if (!info.mDoneInstalling) {
+                return;
+            }
+        }
+        // Set package verification flag to its original value.
+        Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
+                mPackageVerifierEnable);
+        mCallback.onSuccess();
     }
 
     public abstract static class Callback {
         public abstract void onSuccess();
         public abstract void onError(int errorCode);
+    }
+
+    private static class InstallInfo {
+        public String mPackageName;
+        public String mLocation;
+        public boolean mDoneInstalling;
+
+        public InstallInfo(String packageName, String location) {
+            mPackageName = packageName;
+            mLocation = location;
+        }
     }
 }
