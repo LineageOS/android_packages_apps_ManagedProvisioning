@@ -32,8 +32,12 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Kanselleer"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Goed"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Werkprofiel"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"Jy het reeds \'n werkprofiel op jou toestel; dit moet verwyder word om \'n nuwe profiel op te stel. Alle programme en data in hierdie profiel sal uitgevee word as jy voortgaan."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"Verwyder"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"Verwyder werkprofiel?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Hierdie werkprofiel word bestuur deur:"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Hierdie werkprofiel word vir %s bestuur met behulp van:"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Lees dit asseblief"</a>" voordat jy voortgaan."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Alle programme en data in hierdie profiel sal uitgevee word as jy voortgaan."</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Vee uit"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Kanselleer"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Jy moet jou toestel enkripteer om voort te gaan om jou werkprofiel op te stel. Dit kan \'n ruk duur."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Jy moet jou toestel enkripteer om voort te gaan om jou toestel op te stel. Dit kan \'n ruk duur."</string>

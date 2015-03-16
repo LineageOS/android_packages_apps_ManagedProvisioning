@@ -32,8 +32,12 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Cancel"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Work profile"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"You already have a work profile on your device, it must be removed to set up a new profile. All apps and data in this profile will be deleted if you continue."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"Remove"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"Remove work profile?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"This work profile is managed by:"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"This work profile is managed for %s using:"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"Please "<a href="#read_this_link">"read this"</a>" before proceeding."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"All apps and data in this profile will be deleted if you continue."</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Delete"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancel"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"To continue setting up your work profile, you\'ll need to encrypt your device. This may take some time."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"To continue setting up your device, you\'ll need to encrypt your device. This may take some time."</string>

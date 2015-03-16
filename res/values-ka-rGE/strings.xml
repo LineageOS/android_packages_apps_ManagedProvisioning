@@ -32,8 +32,17 @@
     <string name="cancel_setup" msgid="2949928239276274745">"გაუქმება"</string>
     <string name="ok_setup" msgid="5148111905838329307">"კარგი"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"სამუშაო პროფილი"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"თქვენ უკვე გაქვთ სამუშაო პროფილი თქვენს მოწყობილობაზე. ახალი პროფილის დაყენებისათვის, ამოშალეთ ის. გაგრძელების შემთხვევაში წაიშლება ამ პროფილში არსებული ყველა აპლიკაცია და მონაცემი."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"ამოშლა"</string>
+    <!-- no translation found for delete_profile_title (3097803266123463699) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
+    <skip />
+    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
+    <skip />
+    <string name="delete_profile" msgid="2299218578684663459">"წაშლა"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"გაუქმება"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"თქვენი სამუშაო პროფილის შექმნის გასაგრძელებლად, უნდა დაშიფროთ თქვენი მოწყობილობა. ამას შესაძლოა გარკვეული დრო დასჭირდეს."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"თქვენი მოწყობილობის პარამეტრების დაყენების გაგრძელებისათვის, თქვენ უნდა დაშიფროთ თქვენი მოწყობილობა. ამას შესაძლოა დაჭირდეს გარკვეული დრო."</string>

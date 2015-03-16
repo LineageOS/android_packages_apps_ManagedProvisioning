@@ -32,8 +32,17 @@
     <string name="cancel_setup" msgid="2949928239276274745">"취소"</string>
     <string name="ok_setup" msgid="5148111905838329307">"확인"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"직장 프로필"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"기기에 이미 직장 프로필이 있으며 새 프로필을 설정하려면 삭제해야 합니다. 계속하면 프로필의 모든 앱과 데이터가 삭제됩니다."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"삭제"</string>
+    <!-- no translation found for delete_profile_title (3097803266123463699) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
+    <skip />
+    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
+    <skip />
+    <string name="delete_profile" msgid="2299218578684663459">"삭제"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"취소"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"직장 프로필 설정을 계속하려면 기기를 암호화해야 합니다. 이 작업은 다소 시간이 걸릴 수 있습니다."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"설정을 계속하려면 기기를 암호화해야 합니다. 이 작업은 다소 시간이 걸릴 수 있습니다."</string>

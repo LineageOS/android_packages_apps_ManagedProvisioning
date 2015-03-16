@@ -32,8 +32,17 @@
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"確定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"公司檔案"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"您的裝置已有工作設定檔，必須先行移除方可設定新的工作設定檔。若您繼續，這個設定檔上的所有應用程式和資料將被刪除。"</string>
-    <string name="delete_profile" msgid="7107020982626129151">"移除"</string>
+    <!-- no translation found for delete_profile_title (3097803266123463699) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
+    <skip />
+    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
+    <skip />
+    <string name="delete_profile" msgid="2299218578684663459">"刪除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"如要繼續設定公司檔案，您必須為裝置加密。這項操作可能需要一段時間才能完成。"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"如要繼續設定您的裝置，您必須為裝置加密。這項操作可能需要一段時間才能完成。"</string>

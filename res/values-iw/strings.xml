@@ -32,8 +32,12 @@
     <string name="cancel_setup" msgid="2949928239276274745">"בטל"</string>
     <string name="ok_setup" msgid="5148111905838329307">"אישור"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"פרופיל עבודה"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"כבר יש לך פרופיל עבודה במכשיר. יש להסיר אותו כדי להגדיר פרופיל חדש. אם תמשיך, כל האפליקציות והנתונים בפרופיל הזה יימחקו."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"הסר"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"האם להסיר את פרופיל העבודה?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"פרופיל העבודה הזה מנוהל על ידי:"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏פרופיל העבודה הזה מנוהל בשביל %s באמצעות:"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"קרא את המידע הזה"</a>" לפני שתמשיך."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"אם תמשיך, כל האפליקציות והנתונים בפרופיל הזה יימחקו."</string>
+    <string name="delete_profile" msgid="2299218578684663459">"מחק"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"בטל"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"כדי להמשיך בהגדרת פרופיל העבודה, יהיה עליך להצפין את המכשיר. הפעולה הזו עשויה להימשך זמן מה."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"כדי להמשיך בהגדרת המכשיר, עליך להצפין אותו. הפעולה הזו עשויה להימשך זמן מה."</string>

@@ -32,8 +32,17 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Anuluj"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil do pracy"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="7224378572575035461">"Na urządzeniu masz już profil do pracy. Aby skonfigurować nowy profil, ten należy usunąć. Jeśli będziesz kontynuować, wszystkie aplikacje i dane w tym profilu zostaną usunięte."</string>
-    <string name="delete_profile" msgid="7107020982626129151">"Usuń"</string>
+    <!-- no translation found for delete_profile_title (3097803266123463699) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
+    <skip />
+    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
+    <skip />
+    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
+    <skip />
+    <string name="delete_profile" msgid="2299218578684663459">"Usuń"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Anuluj"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Aby kontynuować konfigurowanie profilu do pracy, musisz zaszyfrować swoje urządzenie. Może to trochę potrwać."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Aby kontynuować konfigurowanie urządzenia, musisz je zaszyfrować. Może to trochę potrwać."</string>
