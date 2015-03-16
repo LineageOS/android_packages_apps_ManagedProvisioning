@@ -71,6 +71,7 @@
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/com.android.managedprovisioning" />
+                <data android:mimeType="application/com.android.managedprovisioning.v2"/>
             </intent-filter>
             <!-- Do not change the following action. -->
             <intent-filter android:priority="10">
