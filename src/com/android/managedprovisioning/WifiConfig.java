@@ -64,6 +64,7 @@ public class WifiConfig {
         wifiConf.SSID = ssid;
         wifiConf.status = WifiConfiguration.Status.ENABLED;
         wifiConf.hiddenSSID = hidden;
+        wifiConf.userApproved = WifiConfiguration.USER_APPROVED;
         switch (securityType) {
             case NONE:
                 wifiConf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
