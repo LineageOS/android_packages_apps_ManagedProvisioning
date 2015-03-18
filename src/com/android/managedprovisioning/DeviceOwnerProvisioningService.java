@@ -30,7 +30,6 @@ import android.content.pm.PackageManager;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
@@ -95,8 +94,8 @@ public class DeviceOwnerProvisioningService extends Service {
     // MessageId of the last error message.
     private int mLastErrorMessage = -1;
 
-    // Indicates whether provisioning has finished succesfully (service waiting to stop).
-    private boolean mDone = false;
+    // Indicates whether provisioning has finished successfully (service waiting to stop).
+    private volatile boolean mDone = false;
 
     // Provisioning tasks.
     private AddWifiNetworkTask mAddWifiNetworkTask;
@@ -124,7 +123,7 @@ public class DeviceOwnerProvisioningService extends Service {
                     sendError();
                 }
 
-                // Send success if provisioning was succesful.
+                // Send success if provisioning was successful.
                 if (mDone) {
                     onProvisioningSuccess();
                 }
@@ -311,6 +310,7 @@ public class DeviceOwnerProvisioningService extends Service {
                 R.array.vendor_required_apps_managed_device, true /* creating new profile */,
                 UserHandle.USER_OWNER, params.mLeaveAllSystemAppsEnabled,
                 new DeleteNonRequiredAppsTask.Callback() {
+                    @Override
                     public void onSuccess() {
                         // Done with provisioning. Success.
                         onProvisioningSuccess();
@@ -319,7 +319,7 @@ public class DeviceOwnerProvisioningService extends Service {
                     @Override
                     public void onError() {
                         error(R.string.device_owner_error_general);
-                    };
+                    }
                 });
 
         // Start first task, which starts next task in its callback, etc.
