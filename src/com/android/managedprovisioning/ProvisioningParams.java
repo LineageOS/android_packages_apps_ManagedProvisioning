@@ -122,6 +122,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mWifiProxyHost);
         out.writeInt(mWifiProxyPort);
         out.writeString(mWifiProxyBypassHosts);
+        out.writeString(mWifiPacUrl);
         out.writeString(mDeviceAdminPackageName);
         out.writeParcelable(mDeviceAdminComponentName, 0 /* default */);
         out.writeString(mDeviceAdminPackageDownloadLocation);
@@ -154,6 +155,7 @@ public class ProvisioningParams implements Parcelable {
             params.mWifiProxyHost = in.readString();
             params.mWifiProxyPort = in.readInt();
             params.mWifiProxyBypassHosts = in.readString();
+            params.mWifiPacUrl = in.readString();
             params.mDeviceAdminPackageName = in.readString();
             params.mDeviceAdminComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
