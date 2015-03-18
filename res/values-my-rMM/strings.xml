@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"ထားတော့"</string>
     <string name="ok_setup" msgid="5148111905838329307">"အိုကေ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"အလုပ် ပရိုဖိုင်"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"အလုပ်ပရိုဖိုင် ဖယ်မည်လား?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"ဤအလုပ်ပရိုဖိုင်အား စီမံခန့်ခွဲသည်မှာ-"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ဤအလုပ်ပရိုဖိုင်အား ဖော်ပြပါအား သုံးရန်အတွက် စီမံသည်-"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"ရှေ့ဆက်မသွားမီ ကျေးဇူးပြု၍ "<a href="#read_this_link">"ဤအရာအား ဖတ်ပါ"</a>"။"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"သင် ရှေ့ဆက်သွားပါက ဤပရိုဖိုင်ရှိ appများနှင့် ဒေတာ အားလုံးကို ဖျက်ပစ်မည်။"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ဖျက်ရန်"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ထားတော့"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"သင့် အလုပ်ပရိုဖိုင်ကို ဆက်လက် တပ်ဆင်သတ်မှတ်ရန်၊ သင့်စက်အား လျှို့ဝှက်ကုဒ် သွင်းရမည်။ အချိန်အနည်းငယ် ကြာနိုင်သည်။"</string>

@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Peruuta"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Työprofiili"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"Poistetaanko työprofiili?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Tätä työprofiilia hallinnoi"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Organisaation %s työprofiilia hallinnoi"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Lue tämä"</a>" ennen kuin jatkat."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Kaikki tämän profiilin sovellukset ja tiedot poistetaan, jos jatkat."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Poista"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Peruuta"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Työprofiilin määritysten jatkaminen edellyttää laitteen salaamista. Tämä voi kestää hetken."</string>
