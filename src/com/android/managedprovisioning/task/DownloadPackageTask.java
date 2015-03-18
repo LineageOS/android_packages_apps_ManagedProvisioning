@@ -77,7 +77,8 @@ public class DownloadPackageTask {
                     params.mDeviceAdminPackageDownloadCookieHeader,
                     DEVICE_OWNER));
         }
-        if (!TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation)) {
+        if (params.mDeviceInitializerComponentName != null
+                && !TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation)) {
             mDownloads.add(new DownloadInfo(
                     params.mDeviceInitializerPackageDownloadLocation,
                     params.mDeviceInitializerPackageChecksum,

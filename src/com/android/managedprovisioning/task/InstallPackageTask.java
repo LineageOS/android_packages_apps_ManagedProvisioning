@@ -59,10 +59,17 @@ public class InstallPackageTask {
         mCallback = callback;
         mContext = context;
         mDeviceAdminPackageName = params.inferDeviceAdminPackageName();
-        mDeviceInitializerPackageName = params.mDeviceInitializerComponentName.getPackageName();
         mDownloadedAdmin = !TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation);
-        mDownloadedInitializer =
-                !TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation);
+
+        if (params.mDeviceInitializerComponentName != null) {
+            mDeviceInitializerPackageName = params.mDeviceInitializerComponentName.getPackageName();
+            mDownloadedInitializer =
+                    !TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation);
+        } else {
+            mDeviceInitializerPackageName = null;
+            mDownloadedInitializer = false;
+        }
+
         mPackagesToInstall = new HashSet<InstallInfo>();
     }
 
