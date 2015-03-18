@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"确定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"要移除工作资料吗？"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"此工作资料由以下应用管理："</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"请先"<a href="#read_this_link">"阅读此文"</a>"，然后再继续。"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"如果继续，则此工作资料中的所有应用和数据都会被删除。"</string>
     <string name="delete_profile" msgid="2299218578684663459">"删除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>

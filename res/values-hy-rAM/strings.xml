@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Չեղարկել"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Լավ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Աշխատանքային պրոֆիլ"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"Հեռացնե՞լ աշխատանքային պրոֆիլը:"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Այս աշխատանքային պրոֆիլը կառավարվում է այս հավելվածի օգնությամբ՝"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Այս աշխատանքային պրոֆիլը %s-ի համար կառավարվում է այս հավելվածի օգնությամբ՝"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"Շարունակելուց առաջ "<a href="#read_this_link">"կարդացեք սա"</a>":"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Շարունակելու դեպքում այս պրոֆիլի բոլոր հավելվածներն ու տվյալները կջնջվեն:"</string>
     <string name="delete_profile" msgid="2299218578684663459">"Ջնջել"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Չեղարկել"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Աշխատանքային պրոֆիլի կարգավորումը շարունակելու համար դուք պետք է կոդավորեք ձեր սարքը: Կոդավորումը կարող է որոշ ժամանակ պահանջել:"</string>

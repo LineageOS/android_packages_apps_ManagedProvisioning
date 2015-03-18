@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"منسوخ کریں"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ٹھیک ہے"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"دفتر کا پروفائل"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"دفتری پروفائل ہٹائیں؟"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"یہ دفتری پروفائل اس کے زیر انتظام ہے:"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏اس دفتری پروفائل کا نظم %s کیلئے یہ استعمال کرتے ہوئے کیا جاتا ہے:"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"آگے بڑھنے سے پہلے براہ کرم "<a href="#read_this_link">"اسے پڑھیں"</a>"۔"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"اگر آپ جاری رکھتے ہیں تو اس پروفائل میں موجود سبھی ایپس اور ڈیٹا حذف ہو جائے گا۔"</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف کریں"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"منسوخ کریں"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"اپنے دفتری پروفائل کو ترتیب دینا جاری رکھنے کیلئے، آپ کو اپنے آلہ کو مرموز کرنے کی ضرورت ہوگی۔ اس میں کچھ وقت لگ سکتا ہے۔"</string>

@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Annuler"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil professionnel"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"Supprimer le profil professionnel?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Le profil professionnel est géré par :"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ce profil professionnel est géré pour %s avec l\'application suivante :"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"Veuillez "<a href="#read_this_link">"lire ceci"</a>" avant de continuer."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Toutes les applications et les données de ce profil seront supprimées si vous continuez."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Supprimer"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Annuler"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Pour continuer la configuration de votre profil professionnel, vous devrez chiffrer votre appareil. Cela peut prendre un certain temps."</string>

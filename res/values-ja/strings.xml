@@ -32,16 +32,11 @@
     <string name="cancel_setup" msgid="2949928239276274745">"キャンセル"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ワークプロフィール"</string>
-    <!-- no translation found for delete_profile_title (3097803266123463699) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (1132833578783368037) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile_known_company (3126629826260821264) -->
-    <skip />
-    <!-- no translation found for read_more_delete_profile (8108077458455321659) -->
-    <skip />
-    <!-- no translation found for sure_you_want_to_delete_profile (1336653819166266605) -->
-    <skip />
+    <string name="delete_profile_title" msgid="3097803266123463699">"ワークプロフィールの削除"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"このワークプロフィールは次のアプリによって管理されています:"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"この「%s」のワークプロフィールは次のアプリによって管理されています:"</string>
+    <string name="read_more_delete_profile" msgid="8108077458455321659">"続行する前に、"<a href="#read_this_link">"こちらをお読みください"</a>"。"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"続行すると、このプロフィール内のアプリとデータはすべて削除されます。"</string>
     <string name="delete_profile" msgid="2299218578684663459">"削除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"キャンセル"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ワークプロフィールのセットアップを続行するには、端末を暗号化する必要があります。これにはしばらく時間がかかる場合があります。"</string>
