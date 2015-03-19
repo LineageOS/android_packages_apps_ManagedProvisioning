@@ -156,4 +156,11 @@
   <string name="profile_owner_cancel_ok">Yes</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancelling">Cancelling...</string>
+
+  <!-- CertService -->
+  <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="provisioning">Provisioning</string>
+  <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="copying_certs">Setting up CA certificates</string>
+
 </resources>

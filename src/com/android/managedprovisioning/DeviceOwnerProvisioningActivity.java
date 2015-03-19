@@ -28,7 +28,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
@@ -129,7 +128,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
             return;
         }
 
-        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+        if (!Utils.isCurrentUserOwner()) {
             ProvisionLogger.loge("Device owner can only be set up for USER_OWNER.");
             error(R.string.device_owner_error_general, false /* no factory reset */);
             return;

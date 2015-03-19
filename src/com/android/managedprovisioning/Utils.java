@@ -28,6 +28,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.text.TextUtils;
 
 import java.util.HashSet;
@@ -214,5 +215,9 @@ public class Utils {
         public Drawable getPackageIcon() {
             return packageIcon;
         }
+    }
+
+    public static boolean isCurrentUserOwner() {
+        return UserHandle.myUserId() == UserHandle.USER_OWNER;
     }
 }
