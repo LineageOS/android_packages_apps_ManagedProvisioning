@@ -32,9 +32,9 @@
     <string name="cancel_setup" msgid="2949928239276274745">"අවලංගු කරන්න"</string>
     <string name="ok_setup" msgid="5148111905838329307">"හරි"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"කාර්යාල පැතිකඩ"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"කාර්ය පැතිකඩ ඉවත් කරන්නද?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"මෙම කාර්ය පැතිකඩ කළමනාකරණය කරන්නේ:"</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s සඳහා මෙම කාර්ය පැතිකඩ මෙය භාවිතයෙන් කළමනාකරණය කෙරේ:"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"කාර්යාල පැතිකඩ ඉවත් කරන්නද?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"මෙම කාර්යාල පැතිකඩ කළමනාකරණය කරන්නේ:"</string>
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s සඳහා මෙම කාර්යාල පැතිකඩ මෙය භාවිතයෙන් කළමනාකරණය කෙරේ:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"ඉදිරියට යාමට පෙර කරුණාකර "<a href="#read_this_link">"මෙය කියවන්න"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ඔබ දිගටම කරගෙන ගියහොත් මෙම පැතිකඩෙහි ඇති සියලු යෙදුම් සහ දත්ත මකනු ඇත."</string>
     <string name="delete_profile" msgid="2299218578684663459">"මකන්න"</string>

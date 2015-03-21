@@ -32,7 +32,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द गर्नुहोस्"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक छ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफाइल हटाउने?"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफाइल हटाउने हो?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"द्वारा यो काम प्रोफाइल व्यवस्थित गरिएको छ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s प्रयोगको लागि यो कार्य प्रोफाइल व्यवस्थित गरिएको छ:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"कृपया अगाडि बढ्नुभन्दा पहिले"<a href="#read_this_link">" यो पढ्नुहोस् "</a>"।"</string>
