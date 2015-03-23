@@ -20,6 +20,7 @@ import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -46,10 +47,7 @@ public class HomeReceiverActivity extends Activity {
         } finally {
             // Disable the HomeReceiverActivity. Make sure this is always called to prevent an
             // infinite loop of HomeReceiverActivity capturing HOME intent in case something fails.
-            PackageManager pm = getPackageManager();
-            pm.setComponentEnabledSetting(new ComponentName(this,
-                            HomeReceiverActivity.class), PackageManager
-                    .COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            disableComponent(new ComponentName(this, HomeReceiverActivity.class));
         }
         finish();
     }
@@ -71,6 +69,14 @@ public class HomeReceiverActivity extends Activity {
             return;
         }
 
+        // Disable the Device Initializer component, if it exists, in case it did not do so itself.
+        if(mParams.mDeviceInitializerComponentName != null) {
+            DevicePolicyManager devicePolicyManager =
+                    (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
+            devicePolicyManager.removeActiveAdmin(mParams.mDeviceInitializerComponentName);
+            disableComponent(mParams.mDeviceInitializerComponentName);
+        }
+
         // Finalizing provisioning: send complete intent to mdm.
         Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
         try {
@@ -86,5 +92,12 @@ public class HomeReceiverActivity extends Activity {
                     mParams.mAdminExtrasBundle);
         }
         sendBroadcast(result);
+    }
+
+    private void disableComponent(ComponentName component) {
+        PackageManager pm = getPackageManager();
+        pm.setComponentEnabledSetting(component,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
     }
 }
