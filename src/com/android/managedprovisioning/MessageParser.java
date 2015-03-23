@@ -359,11 +359,8 @@ public class MessageParser {
         if (hashString != null) {
             params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
         }
-        String name = intent.getStringExtra(
+        params.mDeviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
-        if (name != null) {
-            params.mDeviceInitializerComponentName = ComponentName.unflattenFromString(name);
-        }
         params.mDeviceInitializerPackageDownloadLocation = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
         params.mDeviceInitializerPackageDownloadCookieHeader = intent.getStringExtra(
