@@ -16,10 +16,16 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
+
+import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 
 /*
  * This class is used to make sure that we start the mdm after we shut the Setup wizard down.
@@ -34,8 +40,51 @@ public class HomeReceiverActivity extends Activity {
     @Override
    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent indirectIntent = new Intent(DeviceOwnerProvisioningService.ACTION_HOME_INDIRECT);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(indirectIntent);
+        try {
+            finalizeProvisioning();
+            stopService(new Intent(this, DeviceOwnerProvisioningService.class));
+        } finally {
+            // Disable the HomeReceiverActivity. Make sure this is always called to prevent an
+            // infinite loop of HomeReceiverActivity capturing HOME intent in case something fails.
+            PackageManager pm = getPackageManager();
+            pm.setComponentEnabledSetting(new ComponentName(this,
+                            HomeReceiverActivity.class), PackageManager
+                    .COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+        }
         finish();
+    }
+
+    private void finalizeProvisioning() {
+        IntentStore store = BootReminder.getDeviceOwnerFinalizingIntentStore(this);
+        Intent intent = store.load();
+        if (intent == null) {
+            ProvisionLogger.loge("Fail to retrieve ProvisioningParams from intent store.");
+            return;
+        }
+        store.clear();
+        ProvisioningParams mParams;
+        try {
+            MessageParser parser = new MessageParser();
+            mParams = parser.parseIntent(intent);
+        } catch (IllegalProvisioningArgumentException e) {
+            ProvisionLogger.loge("Failed to parse provisioning intent", e);
+            return;
+        }
+
+        // Finalizing provisioning: send complete intent to mdm.
+        Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        try {
+            result.setComponent(mParams.inferDeviceAdminComponentName(this));
+        } catch (Utils.IllegalProvisioningArgumentException e) {
+            ProvisionLogger.loge("Failed to infer the device admin component name", e);
+            return;
+        }
+        result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                Intent.FLAG_RECEIVER_FOREGROUND);
+        if (mParams.mAdminExtrasBundle != null) {
+            result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                    mParams.mAdminExtrasBundle);
+        }
+        sendBroadcast(result);
     }
 }
