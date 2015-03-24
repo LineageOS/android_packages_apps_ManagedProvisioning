@@ -42,6 +42,10 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_IN
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_MAC_ADDRESS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_UUID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_DEVICE_ID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_USE_PROXY;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -107,7 +111,11 @@ import java.util.Properties;
  * applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
  * {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE}, {@link #EXTRA_PROVISIONING_WIFI_PASSWORD},
  * {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT},
- * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}.
+ * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}. The optional fields
+ * {@link #EXTRA_PROVISIONING_BT_MAC_ADDRESS}, {@link #EXTRA_PROVISIONING_BT_UUID}, and
+ * {@link #EXTRA_PROVISIONING_BT_DEVICE_ID} define how to connect to a remote device over Bluetooth.
+ * The boolean {@link #EXTRA_PROVISIONING_BT_USE_PROXY}, if true, will allow this device to proxy
+ * network activity over the defined Bluetooth connection during initial setup.
  * A typical use case would be the {@link BootReminder} sending the intent after device encryption
  * and reboot.
  *
@@ -135,7 +143,10 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
+        EXTRA_PROVISIONING_BT_MAC_ADDRESS,
+        EXTRA_PROVISIONING_BT_UUID,
+        EXTRA_PROVISIONING_BT_DEVICE_ID
     };
 
     protected static final String[] DEVICE_OWNER_LONG_EXTRAS = {
@@ -152,7 +163,8 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_HIDDEN,
         EXTRA_PROVISIONING_STARTED_BY_NFC,
         EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-        EXTRA_PROVISIONING_SKIP_ENCRYPTION
+        EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+        EXTRA_PROVISIONING_BT_USE_PROXY
     };
 
     protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
@@ -207,6 +219,12 @@ public class MessageParser {
 
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.mAdminExtrasBundle);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.mSkipEncryption);
+
+        // Bluetooth parameters
+        bundle.putString(EXTRA_PROVISIONING_BT_MAC_ADDRESS, params.mBluetoothMac);
+        bundle.putString(EXTRA_PROVISIONING_BT_UUID, params.mBluetoothUuid);
+        bundle.putString(EXTRA_PROVISIONING_BT_DEVICE_ID, params.mBluetoothDeviceIdentifier);
+        bundle.putBoolean(EXTRA_PROVISIONING_BT_USE_PROXY, params.mUseBluetoothProxy);
     }
 
     public ProvisioningParams parseIntent(Intent intent)
@@ -324,6 +342,13 @@ public class MessageParser {
                 params.mSkipEncryption = Boolean.parseBoolean(s);
             }
 
+            params.mBluetoothMac = props.getProperty(EXTRA_PROVISIONING_BT_MAC_ADDRESS);
+            params.mBluetoothUuid = props.getProperty(EXTRA_PROVISIONING_BT_UUID);
+            params.mBluetoothDeviceIdentifier = props.getProperty(EXTRA_PROVISIONING_BT_DEVICE_ID);
+            if ((s = props.getProperty(EXTRA_PROVISIONING_BT_USE_PROXY)) != null) {
+                params.mUseBluetoothProxy = Boolean.parseBoolean(s);
+            }
+
             deserializeAdminExtrasBundle(params, props);
 
             checkValidityOfProvisioningParams(params);
@@ -412,6 +437,11 @@ public class MessageParser {
         params.mSkipEncryption = intent.getBooleanExtra(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION,
                 ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION);
+
+        params.mBluetoothMac = intent.getStringExtra(EXTRA_PROVISIONING_BT_MAC_ADDRESS);
+        params.mBluetoothUuid = intent.getStringExtra(EXTRA_PROVISIONING_BT_UUID);
+        params.mBluetoothDeviceIdentifier = intent.getStringExtra(EXTRA_PROVISIONING_BT_DEVICE_ID);
+        params.mUseBluetoothProxy = intent.getBooleanExtra(EXTRA_PROVISIONING_BT_USE_PROXY, false);
 
         try {
             params.mAdminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
