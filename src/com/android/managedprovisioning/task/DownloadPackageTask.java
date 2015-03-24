@@ -25,6 +25,7 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -61,6 +62,7 @@ public class DownloadPackageTask {
     private final Callback mCallback;
     private BroadcastReceiver mReceiver;
     private final DownloadManager mDlm;
+    private final PackageManager mPm;
 
     private Set<DownloadInfo> mDownloads;
 
@@ -68,23 +70,48 @@ public class DownloadPackageTask {
         mCallback = callback;
         mContext = context;
         mDlm = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+        mPm = context.getPackageManager();
 
         mDownloads = new HashSet<DownloadInfo>();
-        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
+        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)
+                && packageRequiresUpdate(params.inferDeviceAdminPackageName(),
+                        params.mDeviceAdminMinVersion)) {
             mDownloads.add(new DownloadInfo(
                     params.mDeviceAdminPackageDownloadLocation,
                     params.mDeviceAdminPackageChecksum,
                     params.mDeviceAdminPackageDownloadCookieHeader,
                     DEVICE_OWNER));
         }
-        if (params.mDeviceInitializerComponentName != null
-                && !TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation)) {
-            mDownloads.add(new DownloadInfo(
-                    params.mDeviceInitializerPackageDownloadLocation,
-                    params.mDeviceInitializerPackageChecksum,
-                    params.mDeviceInitializerPackageDownloadCookieHeader,
-                    INITIALIZER));
+        if (params.mDeviceInitializerComponentName != null) {
+            String deviceInitializerPackageName =
+                    params.mDeviceInitializerComponentName.getPackageName();
+            if (!TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation)
+                    && packageRequiresUpdate(deviceInitializerPackageName,
+                            params.mDeviceInitializerMinVersion)) {
+                mDownloads.add(new DownloadInfo(
+                        params.mDeviceInitializerPackageDownloadLocation,
+                        params.mDeviceInitializerPackageChecksum,
+                        params.mDeviceInitializerPackageDownloadCookieHeader,
+                        INITIALIZER));
+            }
         }
+    }
+
+    /**
+     * Returns true if the given package does not exist on the device or if its version code is less
+     * than the given version, and false otherwise.
+     */
+    private boolean packageRequiresUpdate(String packageName, int minSupportedVersion) {
+        try {
+            PackageInfo packageInfo = mPm.getPackageInfo(packageName, 0);
+            if (packageInfo.versionCode >= minSupportedVersion) {
+                return false;
+            }
+        } catch (NameNotFoundException e) {
+            // Package not on device.
+        }
+
+        return true;
     }
 
     public void run() {

@@ -48,8 +48,6 @@ public class InstallPackageTask {
     private final Callback mCallback;
     private final String mDeviceAdminPackageName;
     private final String mDeviceInitializerPackageName;
-    private final boolean mDownloadedAdmin;
-    private final boolean mDownloadedInitializer;
 
     private PackageManager mPm;
     private int mPackageVerifierEnable;
@@ -59,40 +57,24 @@ public class InstallPackageTask {
         mCallback = callback;
         mContext = context;
         mDeviceAdminPackageName = params.inferDeviceAdminPackageName();
-        mDownloadedAdmin = !TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation);
 
         if (params.mDeviceInitializerComponentName != null) {
             mDeviceInitializerPackageName = params.mDeviceInitializerComponentName.getPackageName();
-            mDownloadedInitializer =
-                    !TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation);
         } else {
             mDeviceInitializerPackageName = null;
-            mDownloadedInitializer = false;
         }
 
         mPackagesToInstall = new HashSet<InstallInfo>();
     }
 
     public void run(String deviceAdminPackageLocation, String deviceInitializerPackageLocation) {
-        if (mDownloadedAdmin) {
-            if (!TextUtils.isEmpty(deviceAdminPackageLocation)) {
-                mPackagesToInstall.add(
-                        new InstallInfo(mDeviceAdminPackageName, deviceAdminPackageLocation));
-            } else {
-                ProvisionLogger.loge("Package Location is empty.");
-                mCallback.onError(ERROR_PACKAGE_INVALID);
-                return;
-            }
+        if (!TextUtils.isEmpty(deviceAdminPackageLocation)) {
+            mPackagesToInstall.add(
+                    new InstallInfo(mDeviceAdminPackageName, deviceAdminPackageLocation));
         }
-        if (mDownloadedInitializer) {
-            if (!TextUtils.isEmpty(deviceInitializerPackageLocation)) {
-                mPackagesToInstall.add(new InstallInfo(
-                        mDeviceInitializerPackageName, deviceInitializerPackageLocation));
-            } else {
-                ProvisionLogger.loge("Package Location is empty.");
-                mCallback.onError(ERROR_PACKAGE_INVALID);
-                return;
-            }
+        if (!TextUtils.isEmpty(deviceInitializerPackageLocation)) {
+            mPackagesToInstall.add(new InstallInfo(
+                    mDeviceInitializerPackageName, deviceInitializerPackageLocation));
         }
 
         if (mPackagesToInstall.size() == 0) {

@@ -32,6 +32,8 @@ public class ProvisioningParams implements Parcelable {
     public static final boolean DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED = false;
     public static final int DEFAULT_WIFI_PROXY_PORT = 0;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
+    // Always download packages if no minimum version given.
+    public static final int DEFAULT_MINIMUM_VERSION = Integer.MAX_VALUE;
 
     public String mTimeZone;
     public long mLocalTime = DEFAULT_LOCAL_TIME;
@@ -56,12 +58,14 @@ public class ProvisioningParams implements Parcelable {
     public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
     public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
     public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
+    public int mDeviceAdminMinVersion;
 
     public String mDeviceInitializerPackageDownloadLocation; // Url of the device initializer .apk.
     // Cookie header for initializer http request.
     public String mDeviceInitializerPackageDownloadCookieHeader;
     // SHA-1 sum of the initializer .apk file.
     public byte[] mDeviceInitializerPackageChecksum = new byte[0];
+    public int mDeviceInitializerMinVersion;
 
     public PersistableBundle mAdminExtrasBundle;
 
@@ -125,11 +129,13 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mWifiPacUrl);
         out.writeString(mDeviceAdminPackageName);
         out.writeParcelable(mDeviceAdminComponentName, 0 /* default */);
+        out.writeInt(mDeviceAdminMinVersion);
         out.writeString(mDeviceAdminPackageDownloadLocation);
         out.writeString(mDeviceAdminPackageDownloadCookieHeader);
         out.writeInt(mDeviceAdminPackageChecksum.length);
         out.writeByteArray(mDeviceAdminPackageChecksum);
         out.writeParcelable(mDeviceInitializerComponentName, 0 /* default */);
+        out.writeInt(mDeviceInitializerMinVersion);
         out.writeString(mDeviceInitializerPackageDownloadLocation);
         out.writeString(mDeviceInitializerPackageDownloadCookieHeader);
         out.writeInt(mDeviceInitializerPackageChecksum.length);
@@ -159,6 +165,7 @@ public class ProvisioningParams implements Parcelable {
             params.mDeviceAdminPackageName = in.readString();
             params.mDeviceAdminComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
+            params.mDeviceAdminMinVersion = in.readInt();
             params.mDeviceAdminPackageDownloadLocation = in.readString();
             params.mDeviceAdminPackageDownloadCookieHeader = in.readString();
             int checksumLength = in.readInt();
@@ -166,6 +173,7 @@ public class ProvisioningParams implements Parcelable {
             in.readByteArray(params.mDeviceAdminPackageChecksum);
             params.mDeviceInitializerComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
+            params.mDeviceInitializerMinVersion = in.readInt();
             params.mDeviceInitializerPackageDownloadLocation = in.readString();
             params.mDeviceInitializerPackageDownloadCookieHeader = in.readString();
             checksumLength = in.readInt();

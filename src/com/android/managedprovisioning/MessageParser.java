@@ -29,12 +29,14 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
@@ -87,15 +89,15 @@ import java.util.Properties;
  * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, {@link #EXTRA_PROVISIONING_LOCALE}, and
  * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME}. A download
  * location for the device admin may be specified in
- * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION} together with an optional
- * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}
- * accompanied by the SHA-1 sum of the target file
- * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}. A download location for the device
- * initializer may be specified in
- * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION} together with an
- * optional http cookie header
- * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER} accompanied by the
- * SHA-1 sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM}.
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}, together with an optional
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE}, an optional
+ * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}, and
+ * the SHA-1 sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}. A
+ * download location for the device initializer may be specified in
+ * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION}, together with an
+ * optional (@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE}, an optional http
+ * cookie header {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER} , and
+ * the SHA-1 sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM}.
  * Additional information to send through to the device initializer and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
  * The optional boolean {@link #EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED} indicates whether
@@ -141,7 +143,9 @@ public class MessageParser {
     };
 
     protected static final String[] DEVICE_OWNER_INT_EXTRAS = {
-        EXTRA_PROVISIONING_WIFI_PROXY_PORT
+        EXTRA_PROVISIONING_WIFI_PROXY_PORT,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE
     };
 
     protected static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
@@ -173,6 +177,8 @@ public class MessageParser {
                 params.mDeviceAdminPackageName);
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
                 params.mDeviceAdminComponentName);
+        bundle.putInt(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+                params.mDeviceAdminMinVersion);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
                 params.mDeviceAdminPackageDownloadLocation);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
@@ -181,6 +187,8 @@ public class MessageParser {
                 params.getDeviceAdminPackageChecksumAsString());
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
                 params.mDeviceInitializerComponentName);
+        bundle.putInt(EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
+                params.mDeviceInitializerMinVersion);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
                 params.mDeviceInitializerPackageDownloadLocation);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
@@ -264,6 +272,12 @@ public class MessageParser {
                 params.mDeviceAdminComponentName = ComponentName.unflattenFromString(
                         componentNameString);
             }
+            if ((s = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE)) != null) {
+                params.mDeviceAdminMinVersion = Integer.parseInt(s);
+            } else {
+                params.mDeviceAdminMinVersion = ProvisioningParams.DEFAULT_MINIMUM_VERSION;
+            }
             params.mDeviceAdminPackageDownloadLocation
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
             params.mDeviceAdminPackageDownloadCookieHeader = props.getProperty(
@@ -275,6 +289,12 @@ public class MessageParser {
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
             if (name != null) {
                 params.mDeviceInitializerComponentName = ComponentName.unflattenFromString(name);
+            }
+            if ((s = props.getProperty(
+                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE)) != null) {
+                params.mDeviceInitializerMinVersion = Integer.parseInt(s);
+            } else {
+                params.mDeviceInitializerMinVersion = ProvisioningParams.DEFAULT_MINIMUM_VERSION;
             }
             params.mDeviceInitializerPackageDownloadLocation = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
@@ -351,6 +371,9 @@ public class MessageParser {
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
         params.mDeviceAdminPackageName
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+        params.mDeviceAdminMinVersion = intent.getIntExtra(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+                ProvisioningParams.DEFAULT_MINIMUM_VERSION);
         params.mDeviceAdminPackageDownloadLocation
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
         params.mDeviceAdminPackageDownloadCookieHeader = intent.getStringExtra(
@@ -361,6 +384,9 @@ public class MessageParser {
         }
         params.mDeviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
+        params.mDeviceInitializerMinVersion = intent.getIntExtra(
+                EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
+                ProvisioningParams.DEFAULT_MINIMUM_VERSION);
         params.mDeviceInitializerPackageDownloadLocation = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
         params.mDeviceInitializerPackageDownloadCookieHeader = intent.getStringExtra(
