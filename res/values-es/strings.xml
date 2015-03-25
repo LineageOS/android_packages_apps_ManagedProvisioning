@@ -77,4 +77,6 @@
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"No"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Sí"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"Cancelando..."</string>
+    <string name="provisioning" msgid="4512493827019163451">"Administrando"</string>
+    <string name="copying_certs" msgid="5697938664953550881">"Configurando certificados de CA"</string>
 </resources>
