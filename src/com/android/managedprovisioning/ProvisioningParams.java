@@ -74,6 +74,11 @@ public class ProvisioningParams implements Parcelable {
     public boolean mLeaveAllSystemAppsEnabled;
     public boolean mSkipEncryption;
 
+    public String mBluetoothMac;
+    public String mBluetoothUuid;
+    public String mBluetoothDeviceIdentifier;
+    public boolean mUseBluetoothProxy;
+
     public String inferDeviceAdminPackageName() {
         if (mDeviceAdminComponentName != null) {
             return mDeviceAdminComponentName.getPackageName();
@@ -144,6 +149,10 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(mStartedByNfc ? 1 : 0);
         out.writeInt(mLeaveAllSystemAppsEnabled ? 1 : 0);
         out.writeInt(mSkipEncryption ? 1 : 0);
+        out.writeString(mBluetoothMac);
+        out.writeString(mBluetoothUuid);
+        out.writeString(mBluetoothDeviceIdentifier);
+        out.writeInt(mUseBluetoothProxy ? 1 : 0);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -183,6 +192,10 @@ public class ProvisioningParams implements Parcelable {
             params.mStartedByNfc = in.readInt() == 1;
             params.mLeaveAllSystemAppsEnabled = in.readInt() == 1;
             params.mSkipEncryption = in.readInt() == 1;
+            params.mBluetoothMac = in.readString();
+            params.mBluetoothUuid = in.readString();
+            params.mBluetoothDeviceIdentifier = in.readString();
+            params.mUseBluetoothProxy = in.readInt() == 1;
             return params;
         }
 
