@@ -47,6 +47,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_UUID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_DEVICE_ID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_USE_PROXY;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC_V2;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.content.ComponentName;
@@ -249,7 +250,8 @@ public class MessageParser {
             NdefRecord firstRecord = msg.getRecords()[0];
             String mimeType = new String(firstRecord.getType(), UTF_8);
 
-            if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
+            if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType) ||
+                    MIME_TYPE_PROVISIONING_NFC_V2.equals(mimeType)) {
                 ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
                                 , UTF_8));
                 params.mStartedByNfc = true;
