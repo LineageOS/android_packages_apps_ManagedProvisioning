@@ -222,6 +222,9 @@ public class DeviceOwnerProvisioningService extends Service {
                             case InstallPackageTask.ERROR_INSTALLATION_FAILED:
                                 error(R.string.device_owner_error_installation_failed);
                                 break;
+                            case InstallPackageTask.ERROR_PACKAGE_NAME_INVALID:
+                                error(R.string.device_owner_error_package_name_invalid);
+                                break;
                             default:
                                 error(R.string.device_owner_error_general);
                                 break;

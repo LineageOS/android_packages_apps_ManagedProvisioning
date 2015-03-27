@@ -16,6 +16,7 @@
 package com.android.managedprovisioning.task;
 
 import android.app.DownloadManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.IPackageInstallObserver;
 import android.content.pm.ActivityInfo;
@@ -34,15 +35,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Optionally installs device owner and device initializer packages.
+ * Optionally installs device owner and device initializer packages. Can install a downloaded apk,
+ * or install an existing package which is already installed for a different user.
  * <p>
- * Before installing it is checked whether each file at the specified paths contains the correct
+ * Before installing from a downloaded file, each file is checked to ensure it contains the correct
  * package and admin receiver.
  * </p>
  */
 public class InstallPackageTask {
     public static final int ERROR_PACKAGE_INVALID = 0;
     public static final int ERROR_INSTALLATION_FAILED = 1;
+    public static final int ERROR_PACKAGE_NAME_INVALID = 2;
 
     private final Context mContext;
     private final Callback mCallback;
@@ -53,6 +56,12 @@ public class InstallPackageTask {
     private int mPackageVerifierEnable;
     private Set<InstallInfo> mPackagesToInstall;
 
+    /**
+     * Create an InstallPackageTask. When run, this will attempt to install the device initializer
+     * and device admin packages if they are specified in {@code params}.
+     *
+     * {@see #run(String, String)} for more detail on package installation.
+     */
     public InstallPackageTask (Context context, ProvisioningParams params, Callback callback) {
         mCallback = callback;
         mContext = context;
@@ -65,30 +74,49 @@ public class InstallPackageTask {
         }
 
         mPackagesToInstall = new HashSet<InstallInfo>();
+        mPm = mContext.getPackageManager();
     }
 
+    /**
+     * Install the device admin and device initializer packages. Each package will be installed from
+     * the given location if one is provided. If a null or empty location is provided, and the
+     * package is installed for a different user, it will be enabled for the calling user. If the
+     * package location is not provided and the package is not installed for any other users, this
+     * task will produce an error.
+     *
+     * Errors will be indicated if a downloaded package is invalid, or installation fails.
+     *
+     * @param deviceAdminPackageLocation The file system location of a downloaded device admin
+     *                                   package. If null, the package will be installed from
+     *                                   another user if possible.
+     * @param deviceInitializerPackageLocation The file system location of a downloaded device
+     *                                         initializer package. If null, the package will be
+     *                                         installed from another user if possible.
+     */
     public void run(String deviceAdminPackageLocation, String deviceInitializerPackageLocation) {
-        if (!TextUtils.isEmpty(deviceAdminPackageLocation)) {
-            mPackagesToInstall.add(
-                    new InstallInfo(mDeviceAdminPackageName, deviceAdminPackageLocation));
+        if (!TextUtils.isEmpty(mDeviceAdminPackageName)) {
+            mPackagesToInstall.add(new InstallInfo(
+                    mDeviceAdminPackageName, deviceAdminPackageLocation));
         }
-        if (!TextUtils.isEmpty(deviceInitializerPackageLocation)) {
+        if (!TextUtils.isEmpty(mDeviceInitializerPackageName)) {
             mPackagesToInstall.add(new InstallInfo(
                     mDeviceInitializerPackageName, deviceInitializerPackageLocation));
         }
 
         if (mPackagesToInstall.size() == 0) {
-            ProvisionLogger.loge("Nothing to install");
+            ProvisionLogger.loge("No downloaded packages to install");
             mCallback.onSuccess();
             return;
         }
         ProvisionLogger.logi("Installing package(s)");
 
         PackageInstallObserver observer = new PackageInstallObserver();
-        mPm = mContext.getPackageManager();
 
         for (InstallInfo info : mPackagesToInstall) {
-            if (packageContentIsCorrect(info.mPackageName, info.mLocation)) {
+            if (TextUtils.isEmpty(info.mLocation)) {
+                installExistingPackage(info);
+
+            } else if (packageContentIsCorrect(info.mPackageName, info.mLocation)) {
                 // Temporarily turn off package verification.
                 mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
                         Global.PACKAGE_VERIFIER_ENABLE, 1);
@@ -182,6 +210,24 @@ public class InstallPackageTask {
         Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
                 mPackageVerifierEnable);
         mCallback.onSuccess();
+    }
+
+    /**
+     * Attempt to install this package from an existing package installed under a different user.
+     * If this package is already installed for this user, this is a no-op. If it is not installed
+     * for another user, this will produce an error.
+     * @param info The package to install
+     */
+    private void installExistingPackage(InstallInfo info) {
+        try {
+            ProvisionLogger.logi("Installing existing package " + info.mPackageName);
+            mPm.installExistingPackage(info.mPackageName);
+            info.mDoneInstalling = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            mCallback.onError(ERROR_PACKAGE_INVALID);
+            return;
+        }
+        checkSuccess();
     }
 
     public abstract static class Callback {

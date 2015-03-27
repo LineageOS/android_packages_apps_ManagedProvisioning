@@ -33,10 +33,8 @@ public class InstallCertRequestReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         ProvisionLogger.logi("Got ca cert request.");
-        DevicePolicyManager dpm =
-                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
 
-        if (Utils.isCurrentUserOwner() && !TextUtils.isEmpty(dpm.getDeviceOwner()) &&
+        if (Utils.isCurrentUserOwner() && Utils.hasDeviceOwner(context) &&
                 REQUEST_CERT_ACTION.equals(intent.getAction())) {
             CertService.startService(context, intent);
         }
