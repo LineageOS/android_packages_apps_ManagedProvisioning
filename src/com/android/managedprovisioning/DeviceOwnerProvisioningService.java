@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 
 import android.app.AlarmManager;
 import android.app.Service;
+import android.app.admin.DeviceInitializerStatus;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -29,7 +30,9 @@ import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.internal.app.LocalePicker;
+import com.android.managedprovisioning.proxy.BluetoothConnectionService;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.managedprovisioning.task.BluetoothConnectTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
@@ -96,6 +99,7 @@ public class DeviceOwnerProvisioningService extends Service {
     private volatile boolean mDone = false;
 
     // Provisioning tasks.
+    private BluetoothConnectTask mBluetoothConnectTask;
     private AddWifiNetworkTask mAddWifiNetworkTask;
     private WipeResetProtectionTask mWipeResetProtectionTask;
     private DownloadPackageTask mDownloadPackageTask;
@@ -152,7 +156,20 @@ public class DeviceOwnerProvisioningService extends Service {
         if (DEBUG) ProvisionLogger.logd("Starting device owner provisioning");
 
         // Construct Tasks. Do not start them yet.
-       mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
+        mBluetoothConnectTask = new BluetoothConnectTask(this, params,
+                new BluetoothConnectTask.Callback() {
+                        @Override
+                        public void onSuccess() {
+                            progressUpdate(R.string.progress_connect_to_wifi);
+                            mAddWifiNetworkTask.run();
+                        }
+                        @Override
+                        public void onError() {
+                            error(R.string.device_owner_error_bluetooth);
+                        }
+                });
+
+        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
                params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
                params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
                params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
@@ -165,6 +182,7 @@ public class DeviceOwnerProvisioningService extends Service {
                        @Override
                        public void onError(){
                            error(R.string.device_owner_error_wifi);
+                           statusUpdate(DeviceInitializerStatus.STATUS_ERROR_CONNECT_WIFI);
                            }
                        });
 
@@ -178,6 +196,8 @@ public class DeviceOwnerProvisioningService extends Service {
                     @Override
                     public void onError() {
                         error(R.string.device_owner_error_frp);
+                        statusUpdate(DeviceInitializerStatus.
+                                STATUS_ERROR_RESET_PROTECTION_BLOCKING_PROVISIONING);
                     }
                 });
 
@@ -207,6 +227,7 @@ public class DeviceOwnerProvisioningService extends Service {
                                     error(R.string.device_owner_error_general);
                                     break;
                             }
+                            statusUpdate(DeviceInitializerStatus.STATUS_ERROR_DOWNLOAD_PACKAGE);
                         }
                     });
 
@@ -244,6 +265,7 @@ public class DeviceOwnerProvisioningService extends Service {
                                 error(R.string.device_owner_error_general);
                                 break;
                         }
+                        statusUpdate(DeviceInitializerStatus.STATUS_ERROR_INSTALL_PACKAGE);
                     }
                 });
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
@@ -269,6 +291,7 @@ public class DeviceOwnerProvisioningService extends Service {
                                 error(R.string.device_owner_error_general);
                                 break;
                         }
+                        statusUpdate(DeviceInitializerStatus.STATUS_ERROR_SET_DEVICE_POLICY);
                     }
                 });
 
@@ -286,18 +309,23 @@ public class DeviceOwnerProvisioningService extends Service {
                     @Override
                     public void onError() {
                         error(R.string.device_owner_error_general);
+                        statusUpdate(DeviceInitializerStatus.STATUS_ERROR_DELETE_APPS);
                     }
                 });
 
         // Start first task, which starts next task in its callback, etc.
-        progressUpdate(R.string.progress_connect_to_wifi);
-        mAddWifiNetworkTask.run();
+        progressUpdate(R.string.progress_start_bluetooth);
+        mBluetoothConnectTask.run();
     }
 
     private void error(int dialogMessage) {
         mLastErrorMessage = dialogMessage;
         sendError();
         // Wait for stopService() call from the activity.
+    }
+
+    private void statusUpdate(int statusCode) {
+        BluetoothConnectionService.sendStatusUpdate(this, statusCode);
     }
 
     private void sendError() {

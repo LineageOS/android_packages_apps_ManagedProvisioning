@@ -170,7 +170,8 @@ public class DeviceOwnerProvisioningActivity extends Activity
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.mWifiSsid)) {
+        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.mWifiSsid) &&
+                !mParams.mUseBluetoothProxy) {
             requestWifiPick();
             return;
             // Wait for onActivityResult.

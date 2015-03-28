@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.proxy;
 
+import android.app.admin.DeviceInitializerStatus;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 
@@ -48,6 +49,11 @@ public class BluetoothTetherClient implements ClientTetherConnection {
     public boolean sendStatusUpdate(int statusCode, String data) {
         try {
             mChannel.write(mPacketUtil.createStatusUpdate(statusCode, data));
+            // Errors and high priority statuses should be sent immediately.
+            if (DeviceInitializerStatus.isErrorStatus(statusCode) ||
+                    DeviceInitializerStatus.isHighPriority(statusCode)) {
+                mChannel.flush();
+            }
         } catch (IOException e) {
             ProvisionLogger.loge("Failed to write status.", e);
             return false;

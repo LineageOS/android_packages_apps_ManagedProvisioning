@@ -111,6 +111,8 @@
   <string name="setup_work_device">Set up your device</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
   <string name="progress_data_process">Processing setup data...</string>
+  <!-- Progress text indicating that a Bluetooth connection is being set up. [CHAR LIMIT=45] -->
+  <string name="progress_start_bluetooth">Starting Bluetooth...</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
   <string name="progress_connect_to_wifi">Connecting to Wi-Fi...</string>
   <!-- Progress text indicating that factory reset protection is being checked. [CHAR LIMIT=45] -->
@@ -138,6 +140,8 @@
   <string name="device_owner_error_already_provisioned">This device is already set up.</string>
   <!-- Message of the error dialog when a secondary user has already been provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_already_provisioned_user">This device is already set up for this user.</string>
+  <!-- Message of the error dialog when setting up Bluetooth is required and fails. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_bluetooth">Couldn\'t start Bluetooth</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
