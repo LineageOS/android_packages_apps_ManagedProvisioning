@@ -77,8 +77,6 @@
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"కాదు"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"అవును"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"రద్దు చేస్తోంది..."</string>
-    <!-- no translation found for provisioning (4512493827019163451) -->
-    <skip />
-    <!-- no translation found for copying_certs (5697938664953550881) -->
-    <skip />
+    <string name="provisioning" msgid="4512493827019163451">"కేటాయిస్తోంది"</string>
+    <string name="copying_certs" msgid="5697938664953550881">"CA ప్రమాణపత్రాలను సెటప్ చేస్తోంది"</string>
 </resources>

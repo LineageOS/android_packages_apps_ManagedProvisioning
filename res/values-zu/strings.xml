@@ -77,8 +77,6 @@
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Cha"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Yebo"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"Kuyakhanselwa..."</string>
-    <!-- no translation found for provisioning (4512493827019163451) -->
-    <skip />
-    <!-- no translation found for copying_certs (5697938664953550881) -->
-    <skip />
+    <string name="provisioning" msgid="4512493827019163451">"Iyanikeza"</string>
+    <string name="copying_certs" msgid="5697938664953550881">"Isetha izitifiketi ze-CA"</string>
 </resources>
