@@ -68,6 +68,7 @@ public class ProvisioningParams implements Parcelable {
     public int mDeviceInitializerMinVersion;
 
     public PersistableBundle mAdminExtrasBundle;
+    public PersistableBundle mFrpChallengeBundle;
 
     public boolean mStartedByNfc; // True iff provisioning flow was started by Nfc bump.
 
@@ -153,6 +154,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(mBluetoothUuid);
         out.writeString(mBluetoothDeviceIdentifier);
         out.writeInt(mUseBluetoothProxy ? 1 : 0);
+        out.writeParcelable(mFrpChallengeBundle, 0 /* default */);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -196,6 +198,7 @@ public class ProvisioningParams implements Parcelable {
             params.mBluetoothUuid = in.readString();
             params.mBluetoothDeviceIdentifier = in.readString();
             params.mUseBluetoothProxy = in.readInt() == 1;
+            params.mFrpChallengeBundle = in.readParcelable(null /* use default classloader */);
             return params;
         }
 

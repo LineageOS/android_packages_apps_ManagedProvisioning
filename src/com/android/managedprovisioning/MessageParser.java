@@ -40,6 +40,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_IN
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_BT_MAC_ADDRESS;
@@ -121,6 +122,11 @@ import java.util.Properties;
  * and reboot.
  *
  * <p>
+ * If factory reset protection is enabled, the extra {@link
+ * #EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS} may hold data necessary to clear factory reset
+ * protection challenges.
+ *
+ * <p>
  * Furthermore this class can construct the bundle of extras for the second kind of intent given a
  * {@link ProvisioningParams}, and it keeps track of the types of the extras in the
  * DEVICE_OWNER_x_EXTRAS, with x the appropriate type.
@@ -169,7 +175,8 @@ public class MessageParser {
     };
 
     protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
-        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+        EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS
     };
 
     protected static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
@@ -226,6 +233,9 @@ public class MessageParser {
         bundle.putString(EXTRA_PROVISIONING_BT_UUID, params.mBluetoothUuid);
         bundle.putString(EXTRA_PROVISIONING_BT_DEVICE_ID, params.mBluetoothDeviceIdentifier);
         bundle.putBoolean(EXTRA_PROVISIONING_BT_USE_PROXY, params.mUseBluetoothProxy);
+
+        bundle.putParcelable(EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS,
+                params.mFrpChallengeBundle);
     }
 
     public ProvisioningParams parseIntent(Intent intent)
@@ -351,7 +361,11 @@ public class MessageParser {
                 params.mUseBluetoothProxy = Boolean.parseBoolean(s);
             }
 
-            deserializeAdminExtrasBundle(params, props);
+            params.mAdminExtrasBundle = deserializeExtrasBundle(props,
+                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+
+            params.mFrpChallengeBundle = deserializeExtrasBundle(props,
+                    EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS);
 
             checkValidityOfProvisioningParams(params);
             return params;
@@ -364,18 +378,26 @@ public class MessageParser {
         }
     }
 
-    private void deserializeAdminExtrasBundle(ProvisioningParams params, Properties props)
+    /**
+     * Get a {@link PersistableBundle} from a String property in a Properties object.
+     * @param props the source of the extra
+     * @param extraName key into the Properties object
+     * @return the bundle or {@code null} if there was no property with the given name
+     * @throws IOException if there was an error parsing the propery
+     */
+    private PersistableBundle deserializeExtrasBundle(Properties props, String extraName)
             throws IOException {
-        String serializedExtras = props.getProperty(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        PersistableBundle extrasBundle = null;
+        String serializedExtras = props.getProperty(extraName);
         if (serializedExtras != null) {
             Properties extrasProp = new Properties();
             extrasProp.load(new StringReader(serializedExtras));
-            PersistableBundle extrasBundle = new PersistableBundle(extrasProp.size());
+            extrasBundle = new PersistableBundle(extrasProp.size());
             for (String propName : extrasProp.stringPropertyNames()) {
                 extrasBundle.putString(propName, extrasProp.getProperty(propName));
             }
-            params.mAdminExtrasBundle = extrasBundle;
         }
+        return extrasBundle;
     }
 
     public ProvisioningParams parseNonNfcIntent(Intent intent)
@@ -451,6 +473,15 @@ public class MessageParser {
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra "
                     + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+                    + " must be of type PersistableBundle.", e);
+        }
+
+        try {
+            params.mFrpChallengeBundle = intent.getParcelableExtra(
+                    EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS);
+        } catch (ClassCastException e) {
+            throw new IllegalProvisioningArgumentException("Extra "
+                    + EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS
                     + " must be of type PersistableBundle.", e);
         }
 

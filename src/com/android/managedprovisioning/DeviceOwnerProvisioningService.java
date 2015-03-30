@@ -34,6 +34,7 @@ import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.WipeResetProtectionTask;
 
 import java.lang.Runnable;
 import java.util.Locale;
@@ -96,6 +97,7 @@ public class DeviceOwnerProvisioningService extends Service {
 
     // Provisioning tasks.
     private AddWifiNetworkTask mAddWifiNetworkTask;
+    private WipeResetProtectionTask mWipeResetProtectionTask;
     private DownloadPackageTask mDownloadPackageTask;
     private InstallPackageTask mInstallPackageTask;
     private SetDevicePolicyTask mSetDevicePolicyTask;
@@ -156,8 +158,8 @@ public class DeviceOwnerProvisioningService extends Service {
                params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
                        @Override
                        public void onSuccess() {
-                           progressUpdate(R.string.progress_download);
-                           mDownloadPackageTask.run();
+                           progressUpdate(R.string.progress_wipe_frp);
+                           mWipeResetProtectionTask.run();
                        }
 
                        @Override
@@ -165,6 +167,19 @@ public class DeviceOwnerProvisioningService extends Service {
                            error(R.string.device_owner_error_wifi);
                            }
                        });
+
+        mWipeResetProtectionTask = new WipeResetProtectionTask(this, params,
+                new WipeResetProtectionTask.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        progressUpdate(R.string.progress_download);
+                        mDownloadPackageTask.run();
+                    }
+                    @Override
+                    public void onError() {
+                        error(R.string.device_owner_error_frp);
+                    }
+                });
 
 
         mDownloadPackageTask = new DownloadPackageTask(

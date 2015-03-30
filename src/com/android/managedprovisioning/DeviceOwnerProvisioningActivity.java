@@ -31,7 +31,6 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
-import android.service.persistentdata.PersistentDataBlockManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -142,12 +141,6 @@ public class DeviceOwnerProvisioningActivity extends Activity
             }
         }
 
-        if (Utils.isCurrentUserOwner() && factoryResetProtected()) {
-            ProvisionLogger.loge("Factory reset protection blocks provisioning.");
-            error(R.string.device_owner_error_already_provisioned, false /* no factory reset */);
-            return;
-        }
-
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
         IntentFilter filter = new IntentFilter();
@@ -184,18 +177,6 @@ public class DeviceOwnerProvisioningActivity extends Activity
         }
 
         showInterstitialAndProvision(mParams);
-    }
-
-    private boolean factoryResetProtected() {
-        // Can't refer to type directly here and API is hidden, so
-        // get it via reflection.
-        PersistentDataBlockManager pdbManager = (PersistentDataBlockManager)
-                getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
-        if (pdbManager == null) {
-            ProvisionLogger.loge("Unable to get persistent data block service");
-            return false;
-        }
-        return pdbManager.getDataBlockSize() > 0;
     }
 
     private void showInterstitialAndProvision(final ProvisioningParams params) {
