@@ -55,7 +55,8 @@
 
     <application
         android:allowClearUserData="false"
-        android:hardwareAccelerated="true">
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="false">
 
         <!--
              Note: Setup activities are android:immersive to prevent full-screen notifications (USB
