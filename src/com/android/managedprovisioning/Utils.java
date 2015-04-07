@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +26,13 @@ import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
+import android.os.Binder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.text.TextUtils;
 
 import java.util.HashSet;
@@ -220,4 +224,17 @@ public class Utils {
     public static boolean isCurrentUserOwner() {
         return UserHandle.myUserId() == UserHandle.USER_OWNER;
     }
+
+    public static boolean hasDeviceOwner(Context context) {
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        return !TextUtils.isEmpty(dpm.getDeviceOwner());
+    }
+
+    public static boolean isManagedProfile(Context context) {
+        UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        UserInfo user = um.getUserInfo(UserHandle.myUserId());
+        return user != null ? user.isManagedProfile() : false;
+    }
+
 }

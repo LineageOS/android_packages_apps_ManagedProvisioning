@@ -121,20 +121,28 @@ public class DeviceOwnerProvisioningActivity extends Activity
         if (titleText != null) titleText.setText(getString(R.string.setup_work_device));
         if (mCancelDialogShown) showCancelResetDialog();
 
-        // Check whether we can provision.
-        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /* default */) != 0) {
-            ProvisionLogger.loge("Device already provisioned.");
-            error(R.string.device_owner_error_already_provisioned, false /* no factory reset */);
-            return;
+        // Check whether we have already provisioned this user.
+        if (Utils.isCurrentUserOwner()) {
+            int provisioned =
+                    Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /*default*/);
+            if (provisioned != 0) {
+                ProvisionLogger.loge("Device already provisioned.");
+                error(R.string.device_owner_error_already_provisioned,
+                        false /* no factory reset */);
+                return;
+            }
+        } else {
+            int provisioned =
+                    Secure.getInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 0 /*default*/);
+            if (provisioned != 0) {
+                ProvisionLogger.loge("User already provisioned.");
+                error(R.string.device_owner_error_already_provisioned_user,
+                        false /* no factory reset */);
+                return;
+            }
         }
 
-        if (!Utils.isCurrentUserOwner()) {
-            ProvisionLogger.loge("Device owner can only be set up for USER_OWNER.");
-            error(R.string.device_owner_error_general, false /* no factory reset */);
-            return;
-        }
-
-        if (factoryResetProtected()) {
+        if (Utils.isCurrentUserOwner() && factoryResetProtected()) {
             ProvisionLogger.loge("Factory reset protection blocks provisioning.");
             error(R.string.device_owner_error_already_provisioned, false /* no factory reset */);
             return;
@@ -191,7 +199,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
     }
 
     private void showInterstitialAndProvision(final ProvisioningParams params) {
-        if (mUserConsented || params.mStartedByNfc) {
+        if (mUserConsented || params.mStartedByNfc || !Utils.isCurrentUserOwner()) {
             startDeviceOwnerProvisioningService(params);
         } else {
             // Notify the user that the admin will have full control over the device,
@@ -294,10 +302,19 @@ public class DeviceOwnerProvisioningActivity extends Activity
     }
 
     private void provisionDevice() {
-        // The Setup wizards listens to this flag and finishes itself when it is set.
-        // It then fires a home intent, which we catch in the HomeReceiverActivity before
-        // sending the intent to notify the mdm that provisioning is complete.
-        Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
+        if (Utils.isCurrentUserOwner()) {
+            // This only needs to be set once per device
+            Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
+        }
+
+        // Setting this flag will either cause Setup Wizard to finish immediately when it starts (if
+        // it is not already running), or when its next activity starts (if it is already running,
+        // e.g. the non-NFC flow).
+        // When either of these things happen, a home intent is fired. We catch that in
+        // HomeReceiverActivity before sending the intent to notify the mdm that provisioning is
+        // complete.
+        // Note that, in the NFC flow or for secondary users, setting this flag will prevent the
+        // user from seeing SUW, even if no other device initialization app was specified.
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
     }
 

@@ -16,10 +16,14 @@
 
 package com.android.managedprovisioning.task;
 
+import android.app.AppGlobals;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
+import android.os.RemoteException;
+import android.os.UserHandle;
 
 import com.android.managedprovisioning.ProvisionLogger;
 
@@ -73,7 +77,10 @@ public class SetDevicePolicyTask {
             if (mInitializerComponent != null) {
                 enableDevicePolicyApp(mInitializerPackageName);
                 setActiveAdmin(mInitializerComponent);
-                setDeviceInitializer(mInitializerComponent, mInitializerName);
+                if (!setDeviceInitializer(mInitializerComponent, mInitializerName)) {
+                    // error reported in setDeviceInitializer
+                    return;
+                }
             }
         } catch (Exception e) {
             ProvisionLogger.loge("Failure setting device owner or initializer", e);
@@ -104,11 +111,21 @@ public class SetDevicePolicyTask {
         }
     }
 
-    public void setDeviceInitializer(ComponentName component, String owner) {
+    public boolean setDeviceInitializer(ComponentName component, String owner) {
         ProvisionLogger.logd("Setting " + component + " as device initializer " + owner + ".");
         if (!mDevicePolicyManager.isDeviceInitializerApp(component.getPackageName())) {
             mDevicePolicyManager.setDeviceInitializer(null, component, owner);
         }
+        IPackageManager pm = AppGlobals.getPackageManager();
+        try {
+            pm.setBlockUninstallForUser(component.getPackageName(), true,
+                    UserHandle.getCallingUserId());
+        } catch (RemoteException e) {
+            ProvisionLogger.loge("Failed to block uninstall of device initializer app", e);
+            mCallback.onError(ERROR_OTHER);
+            return false;
+        }
+        return true;
     }
 
     public abstract static class Callback {
