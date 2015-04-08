@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"Í lagi"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Endurstilla"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Ekki var hægt að setja upp tækið. Hafðu samband við upplýsingatæknisvið."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Þetta tæki er nú þegar uppsett"</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ekki var hægt að tengjast Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ekki var hægt að nota stjórnforritið vegna villu í þversummu. Hafðu samband við upplýsingatæknisvið."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ekki tókst að sækja stjórnunarforritið"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ekki er hægt að nota stjórnforritið. Það skortir íhluti eða er skemmt. Hafðu samband við upplýsingatæknisvið."</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Ekki tókst að setja stjórnunarforritið upp"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Stjórnunarforritið er ekki uppsett á tækinu þínu"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Hætta uppsetningu?"</string>

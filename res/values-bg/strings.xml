@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ОK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Нулиране"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Устройството ви не можа да се настрои. Свържете се с отдела си за информационни технологии."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Това устройство вече е настроено"</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не можа да се установи връзка с Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Приложението за администриране не можа да се използва поради грешка в контролната сума. Свържете се с отдела си за информационни технологии."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Приложението за администриране не можа да се изтегли"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Приложението за администриране не може да се използва. В него липсват компоненти или то е повредено. Свържете се с отдела си за информационни технологии."</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Приложението за администриране не можа да се инсталира"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Приложението за администриране не е инсталирано на устройството ви"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Да се спре ли настройването?"</string>

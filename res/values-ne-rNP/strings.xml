@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ठीक छ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"पुनःसेट गर्नुहोस्"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"तपाईँको उपकरण स्थापना गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"यो उपकरण पहिले देखि नै स्थापित छ"</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फाई संग जडान हुन सकेन"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"प्रशासन अनुप्रयोग चेकसम त्रुटिको कारणले प्रयोग गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अनुप्रयोग डाउनलोड गर्न सकिएन"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अनुप्रयोग प्रयोग गर्न सकिएन। यो अवयवहरू हराइरहेका वा भ्रष्ट हुन्। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"प्रशासक अनुप्रयोग स्थापना गर्न सकिएन"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"प्रशासन अनुप्रयोग तपाईँको उपकरणमा स्थापना गरिएको छैन"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"सेट अप गर्न रोक्नुहुन्छ?"</string>

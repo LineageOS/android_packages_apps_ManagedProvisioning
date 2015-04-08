@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Resetovat"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nastavení zařízení se nezdařilo. Obraťte se na oddělení IT."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Toto zařízení je již nastaveno."</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Připojení k síti Wi-Fi se nezdařilo"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Kvůli chybě kontrolního součtu nelze aplikaci pro správu použít. Obraťte se na oddělení IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Stažení aplikace pro správu se nezdařilo."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikaci pro správu nelze použít. Buď v ní chybí některé komponenty, nebo je poškozená. Obraťte se na oddělení IT."</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Instalace aplikace pro správu se nezdařila."</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ve vašem zařízení není nainstalována aplikace pro správu."</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Zastavit nastavování?"</string>

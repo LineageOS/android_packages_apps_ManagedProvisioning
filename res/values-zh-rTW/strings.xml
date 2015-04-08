@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"確定"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"重設"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"無法設定您的裝置，請與您的 IT 部門聯絡。"</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"這個裝置已完成設定"</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"無法連線至 Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"因發生總和檢查碼錯誤而無法使用管理應用程式，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"無法下載管理應用程式"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理應用程式因缺少部分元件或已毀損而無法使用，請與您的 IT 部門聯絡。"</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"無法安裝管理應用程式"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"您的裝置尚未安裝管理應用程式"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"停止設定？"</string>

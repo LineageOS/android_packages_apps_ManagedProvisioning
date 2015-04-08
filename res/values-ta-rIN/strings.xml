@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"சரி"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"மீட்டமை"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"சாதனத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது"</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"வைஃபை உடன் இணைக்க முடியவில்லை"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"செக்-சம் பிழைக் காரணமாக நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"நிர்வாகிப் பயன்பாட்டை இறக்க முடியவில்லை"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. இதில் கூறுகள் இல்லாமல் இருக்கலாம் அல்லது இது சேதமடைந்து இருக்கலாம். IT துறையைத் தொடர்புகொள்ளவும்."</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"நிர்வாகிப் பயன்பாட்டை நிறுவ முடியவில்லை"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"சாதனத்தில் நிர்வாகிப் பயன்பாடு நிறுவப்படவில்லை"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"அமைப்பதை நிறுத்தவா?"</string>

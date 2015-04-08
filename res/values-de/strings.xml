@@ -65,11 +65,16 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Zurücksetzen"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Das Gerät konnte nicht eingerichtet werden. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
-    <string name="device_owner_error_already_provisioned" msgid="1902305486832057049">"Das Gerät ist bereits eingerichtet."</string>
+    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
+    <skip />
+    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Es konnte keine WLAN-Verbindung hergestellt werden."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Fehler bei der Prüfsumme. Die Admin-App kann nicht genutzt werden. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Die Admin-App konnte nicht heruntergeladen werden."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Die Admin-App kann nicht genutzt werden. Sie wurde beschädigt oder es fehlen Komponenten. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
+    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Die Admin-App konnte nicht installiert werden."</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Die Admin-App ist nicht auf Ihrem Gerät installiert."</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Einrichtung abbrechen?"</string>
