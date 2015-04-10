@@ -33,9 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The connection between a channel and a socket to a web server.
- * It does a basic check on the first line and then passes through
- * all data like a dummy proxy.
+ * The connection between a channel and a socket to a web server. It does a basic check on the
+ * first line and then passes through all data like a dummy proxy.
  */
 public class ProxyConnection extends Thread {
 
@@ -50,10 +49,14 @@ public class ProxyConnection extends Thread {
     private Socket mNetSocket;
     private final PipedInputStream mHttpInput;
     private final OutputStream mHttpOutput;
-    final private int mConnId;
-    final private Channel mChannel;
+    private final int mConnId;
+    private final Channel mChannel;
 
-    private PacketUtil mPacketUtil;
+    /**
+     * Used to create network data response packets. The device Id can be empty because this is
+     * called from the programmer device.
+     */
+    private final PacketUtil mPacketUtil = new PacketUtil("");
 
     public ProxyConnection(Channel channel, int connId) {
         mChannel = channel;
