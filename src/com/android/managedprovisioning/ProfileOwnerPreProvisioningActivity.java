@@ -116,6 +116,10 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                     "Exiting managed profile provisioning, calling user is not owner.");
             return;
         }
+        if (Utils.hasDeviceOwner(this)) {
+            showErrorAndClose(R.string.device_owner_exists,
+                    "Exiting managed profile provisioning, a device owner exists");
+        }
 
         // Initialize member variables from the intent, stop if the intent wasn't valid.
         try {
@@ -148,19 +152,12 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
             }
         }
 
-        DevicePolicyManager dpm =
-                (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        String deviceOwner = dpm.getDeviceOwner();
-        if (deviceOwner != null && !deviceOwner.equals(mMdmPackageName)) {
-            showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
-                    + "profile owner must be in the same package as device owner.");
-            return;
-        }
-
         // If there is already a managed profile, setup the profile deletion dialog.
         // Otherwise, check whether system has reached maximum user limit.
         int existingManagedProfileUserId = alreadyHasManagedProfile();
         if (existingManagedProfileUserId != -1) {
+            DevicePolicyManager dpm =
+                    (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
             createDeleteManagedProfileDialog(dpm, existingManagedProfileUserId);
         } else if (isMaximumUserLimitReached()) {
             showErrorAndClose(R.string.maximum_user_limit_reached,
