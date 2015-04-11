@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ТИЙМ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Дахин шинэчлэх"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Таны төхөөрөмжийг тохируулж чадсангүй. МТ хэлтэстэй холбогдоно уу."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Төхөөрөмж аль хэдийн тохируулагдсан"</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Төхөөрөмжийг энэ хэрэглэгчид зориулан тохируулсан."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-д холбогдож чадсангүй"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum алдаанаас шалтгаалан админ апп-г ашиглаж чадсангүй. МТ хэлтэстэй холбогдоно уу."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Админ апп-г татаж авч чадсангүй"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Админ апп-г ашиглах боломжгүй. Бүрдэл дутагдсан эсхүл гэмтсэн байна. МТ хэлтэстэй холбогдоно уу."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Админы апп-ыг суулгаж чадахгүй байна. Багцийн нэр хүчин төгөлдөр бус байна. Мэдээллийн технологийн хэлтэстээ хандана уу."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Админ апп-г суулгаж чадсангүй"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Таны төхөөрөмж дээр админ апп суугаагүй байна"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Тохируулгыг зогсоох уу?"</string>

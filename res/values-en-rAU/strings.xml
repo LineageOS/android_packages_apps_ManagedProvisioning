@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Reset"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Couldn\'t set up your device. Contact your IT department."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"This device has already been set up."</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"This device has already been set up for this user."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Can\'t install the admin app. The package name is invalid. Contact your IT department."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Couldn\'t install the admin app"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"The admin app isn\'t installed on your device"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Stop setting up?"</string>

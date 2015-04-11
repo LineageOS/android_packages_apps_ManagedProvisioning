@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"U redu"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Vrati na zadano"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Postavljanje uređaja nije uspjelo. Obratite se IT odjelu."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj je uređaj već postavljen."</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ovaj je uređaj već postavljen za tog korisnika."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Spajanje na Wi-Fi nije uspjelo"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Upotreba administratorske aplikacije nije uspjela zbog pogreške kontrolnog zbroja. Obratite se IT odjelu."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Preuzimanje administratorske aplikacije nije uspjelo"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administratorska aplikacija ne može se upotrebljavati. Nedostaju joj neke komponente ili je oštećena. Obratite se IT odjelu."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Nije moguće instalirati administratorsku aplikaciju. Naziv paketa je nevažeći. Kontaktirajte svoj IT odjel."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Instaliranje administratorske aplikacije nije uspjelo"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Na uređaju nije instalirana administratorska aplikacija"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Želite li prekinuti postavljanje?"</string>

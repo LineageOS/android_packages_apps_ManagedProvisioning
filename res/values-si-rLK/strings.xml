@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"හරි"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"යළි පිහිටුවන්න"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ඔබගේ උපාංගය කළ නොහැක. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"මෙම උපාංගය දැනටමත් පිහිටුවා තිබේ."</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"මෙම උපාංගය දැනටමත් මෙම පරිශීලකයා සඳහා පිහිටුවා ඇත."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi වෙත සම්බන්ධ විය නොහැක"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Checksum දෝෂය හේතුවෙන් පරිපාලක යෙදුම භාවිතා කළ නොහැක. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"පරිපාලක යෙදුම බාගැනීම කළ නොහැක."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"පරිපාලක යෙදුම භාවිතා කළ නොහැක. එහි අංශ නැත හෝ විකෘති වී ඇත. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"පරිපාලක යෙදුම ස්ථාපනය කළ නොහැකිය. පැකේජ නම වලංගු නොවේ. ඔබගේ IT දෙපාර්තමේන්තුව අමතන්න."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"පරිපාලක යෙදුම ස්ථාපනය කළ නොහැක."</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"ඔබගේ උපාංගය මත පරිපාලක යෙදුම ස්ථාපනය කර නොමැත."</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"සැකසීම නැවත් වන්නද?"</string>

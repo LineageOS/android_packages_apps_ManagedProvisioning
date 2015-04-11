@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ຕົກລົງ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ຣີເຊັດ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"​ບໍ່​ສາ​ມາດ​ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ໄດ້. ໃຫ້​ຕິດ​ຕໍ່​​ພະ​ແນກ​ໄອ​ທີ​ຂອງ​ທ່ານ."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"​ອຸ​ປະ​ກອນ​ນີ້​ຖືກ​ຕັ້ງ​ຄ່າ​ໄວ້​ແລ້ວ."</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"​ອຸ​ປະ​ກອນ​ນີ້​ຖືກ​ຕັ້ງ​ຄ່າ​ໄວ້ສຳ​ລັບ​ຜູ້​ໃຊ້​ນີ້​ແລ້ວ."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ບໍ່​ສາ​ມາດ​ເຊື່ອມ​ຕໍ່ Wi-Fi ໄດ້"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ບໍ່​ສາ​ມາດ​​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້​ເນື່ອງ​ຈາກ checksum ຜິດ​ພາດ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ໄອ​ທີ​ຂອງ​ທ່ານ."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ບໍ່​ສາ​ມາດ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ບໍ່​ສາ​ມາດ​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້. ມັນ​ຂາດ​ອົງ​ປະ​ກອບທີ່​ຕ້ອງ​ໃຊ້ ຫຼື​​ໄຟລ໌​ມີ​ບັນ​ຫາ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ຂອງ​ທ່ານ."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ແອັບ​ບໍ​ລິ​ຫານ​ໄດ້. ຊື່​ແພັກ​ເກດ​ໃຊ້​ບໍ່​ໄດ້. ຕິດ​ຕໍ່​ຫາ​ພະ​ແນກ IT ຂອງ​ທ່ານ."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"​​ບໍ່​ມີ​ແອັບຯ​ຜູ່​ເບ​ິ່ງ​ແຍງ​ລະ​ບົບ​ຕິດ​ຕັ້ງ​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"ຢຸດ​ການ​ຕິດ​ຕັ້ງ​ຫຼື​ບໍ່?"</string>

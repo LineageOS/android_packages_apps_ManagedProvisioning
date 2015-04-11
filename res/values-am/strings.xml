@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"እሺ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ዳግም አስጀምር"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"መሣሪያዎን ማዋቀር አልተቻለም። የአይቲ መምሪያዎን ያነጋግሩ።"</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ይህ መሣሪያ አስቀድሞ ተዋቅሯል።"</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ይህ መሣሪያ ለዚህ ተጠቃሚ አስቀድሞ ተዋቅሯል።"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ከWi-Fi ጋር መገናኘት አልተቻለም"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"በማረጋገጫ ድምር ስህተት ምክንያት የአስተዳዳሪ መተግበሪያውን መጠቀም አልተቻለም። የአይቲ መምሪያዎን ያነጋግሩ።"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"የአስተዳዳሪ መተግበሪያውን ማውረድ አልተችላእም"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"የአስተዳዳሪ መተግበሪያውን መጠቀም አይቻልም። ክፍሎች ይጎድሉታል ወይም ተበላሽቷል። የአይቲ መምሪያዎን ያነጋግሩ።"</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"የአስተዳዳሪ መተግበሪያውን መጫን አይቻልም። የጥቅሉ ስም የማይሰራ ነው። የእርስዎን የአይቲ መምሪያ ያነጋግሩ።"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"የአስተዳዳሪ መተግበሪያውን መጫን አልተቻለም"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"የአስተዳዳር መተግበሪያው በመሣሪያዎ ላይ አልተጫነም"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"ማዋቀር ይቁም?"</string>

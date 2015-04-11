@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"సరే"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"రీసెట్ చేయి"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"మీ పరికరాన్ని సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ఈ పరికరం ఇప్పటికే సెటప్ చేయబడింది."</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ఈ వినియోగదారుకు ఈ పరికరం ఇప్పటికే సెటప్ చేయబడింది."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fiకి కనెక్ట్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"చెక్‌సమ్ లోపం కారణంగా నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడదు. ఇందులో కొన్ని భాగాలు లేవు లేదా పాడైంది. మీ IT విభాగాన్ని సంప్రదించండి."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"నిర్వాహక అనువర్తనాన్ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు. ప్యాకేజీ పేరు చెల్లదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"నిర్వాహక అనువర్తనాన్ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"మీ పరికరంలో నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేయబడలేదు"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"సెటప్ చేయడం ఆపివేయాలా?"</string>

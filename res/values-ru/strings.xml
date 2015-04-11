@@ -65,16 +65,13 @@
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ОК"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Сброс"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Не удалось настроить устройство. Обратитесь в отдел технической поддержки вашей компании."</string>
-    <!-- no translation found for device_owner_error_already_provisioned (49944866843771627) -->
-    <skip />
-    <!-- no translation found for device_owner_error_already_provisioned_user (5861348691161504683) -->
-    <skip />
+    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Настройка уже выполнена."</string>
+    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Настройка для этого пользователя уже выполнена."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не удалось подключиться к сети Wi-Fi"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Нельзя использовать приложение для администрирования из-за ошибки при проверке контрольной суммы. Обратитесь в отдел технической поддержки вашей компании."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не удалось скачать приложение для администрирования"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Нельзя использовать приложение для администрирования, так как в нем не хватает компонентов или они повреждены. Обратитесь в отдел технической поддержки вашей компании."</string>
-    <!-- no translation found for device_owner_error_package_name_invalid (5161432357348636936) -->
-    <skip />
+    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Не удалось установить приложение для администрирования. Имя пакета недействительно. Свяжитесь с ИТ-отделом."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Не удалось установить приложение для администрирования"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"На вашем устройстве не установлено приложение для администрирования"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Подтвердите действие"</string>
