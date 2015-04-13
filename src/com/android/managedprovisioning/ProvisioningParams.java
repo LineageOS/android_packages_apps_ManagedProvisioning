@@ -21,8 +21,11 @@ import android.content.ComponentName;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
+import android.text.TextUtils;
 import android.util.Base64;
+
 import java.util.Locale;
+
 /**
  * Provisioning Parameters for DeviceOwner Provisioning
  */
@@ -35,84 +38,129 @@ public class ProvisioningParams implements Parcelable {
     // Always download packages if no minimum version given.
     public static final int DEFAULT_MINIMUM_VERSION = Integer.MAX_VALUE;
 
-    public String mTimeZone;
-    public long mLocalTime = DEFAULT_LOCAL_TIME;
-    public Locale mLocale;
+    public String timeZone;
+    public long localTime = DEFAULT_LOCAL_TIME;
+    public Locale locale;
 
-    public String mWifiSsid;
-    public boolean mWifiHidden = DEFAULT_WIFI_HIDDEN;
-    public String mWifiSecurityType;
-    public String mWifiPassword;
-    public String mWifiProxyHost;
-    public int mWifiProxyPort = DEFAULT_WIFI_PROXY_PORT;
-    public String mWifiProxyBypassHosts;
-    public String mWifiPacUrl;
+    public static class WifiInfo {
+        public String ssid;
+        public boolean hidden = DEFAULT_WIFI_HIDDEN;
+        public String securityType;
+        public String password;
+        public String proxyHost;
+        public int proxyPort = DEFAULT_WIFI_PROXY_PORT;
+        public String proxyBypassHosts;
+        public String pacUrl;
 
-    // At least one one of mDeviceAdminPackageName and mDeviceAdminComponentName should be non-null
-    public String mDeviceAdminPackageName; // Package name of the device admin package.
-    public ComponentName mDeviceAdminComponentName;
-    public ComponentName mDeviceInitializerComponentName;
+        public void writeToParcel(Parcel out) {
+            out.writeString(ssid);
+            out.writeInt(hidden ? 1 : 0);
+            out.writeString(securityType);
+            out.writeString(password);
+            out.writeString(proxyHost);
+            out.writeInt(proxyPort);
+            out.writeString(proxyBypassHosts);
+            out.writeString(pacUrl);
+        }
 
-    private ComponentName mInferedDeviceAdminComponentName;
+        public void readFromParcel(Parcel in) {
+            ssid = in.readString();
+            hidden = in.readInt() == 1;
+            securityType = in.readString();
+            password = in.readString();
+            proxyHost = in.readString();
+            proxyPort = in.readInt();
+            proxyBypassHosts = in.readString();
+            pacUrl = in.readString();
+        }
+    };
+    public WifiInfo wifiInfo = new WifiInfo();
 
-    public String mDeviceAdminPackageDownloadLocation; // Url of the device admin .apk
-    public String mDeviceAdminPackageDownloadCookieHeader; // Cookie header for http request
-    public byte[] mDeviceAdminPackageChecksum = new byte[0]; // SHA-1 sum of the .apk file.
-    public int mDeviceAdminMinVersion;
+    // At least one one of deviceAdminPackageName and deviceAdminComponentName should be non-null
+    public String deviceAdminPackageName; // Package name of the device admin package.
+    public ComponentName deviceAdminComponentName;
+    public ComponentName deviceInitializerComponentName;
 
-    public String mDeviceInitializerPackageDownloadLocation; // Url of the device initializer .apk.
-    // Cookie header for initializer http request.
-    public String mDeviceInitializerPackageDownloadCookieHeader;
-    // SHA-1 sum of the initializer .apk file.
-    public byte[] mDeviceInitializerPackageChecksum = new byte[0];
-    public int mDeviceInitializerMinVersion;
+    private ComponentName inferedDeviceAdminComponentName;
 
-    public PersistableBundle mAdminExtrasBundle;
-    public PersistableBundle mFrpChallengeBundle;
+    public static class PackageDownloadInfo {
+        // Url where the package (.apk) can be downloaded from
+        public String location;
+        // Cookie header for http request
+        public String cookieHeader;
+        // SHA-1 sum of the .apk file
+        public byte[] packageChecksum = new byte[0];
+        public int minVersion;
 
-    public boolean mStartedByNfc; // True iff provisioning flow was started by Nfc bump.
+        public void writeToParcel(Parcel out) {
+            out.writeInt(minVersion);
+            out.writeString(location);
+            out.writeString(cookieHeader);
+            out.writeByteArray(packageChecksum);
+        }
 
-    public boolean mLeaveAllSystemAppsEnabled;
-    public boolean mSkipEncryption;
+        public void readFromParcel(Parcel in) {
+            minVersion = in.readInt();
+            location = in.readString();
+            cookieHeader = in.readString();
+            packageChecksum = in.createByteArray();
+        }
+    }
+    public PackageDownloadInfo deviceAdminDownloadInfo = new PackageDownloadInfo();
+    public PackageDownloadInfo deviceInitializerDownloadInfo  = new PackageDownloadInfo();
 
-    public String mBluetoothMac;
-    public String mBluetoothUuid;
-    public String mBluetoothDeviceIdentifier;
-    public boolean mUseBluetoothProxy;
+    public PersistableBundle adminExtrasBundle;
+    public PersistableBundle frpChallengeBundle;
+
+    public boolean startedByNfc; // True iff provisioning flow was started by Nfc bump.
+
+    public boolean leaveAllSystemAppsEnabled;
+    public boolean skipEncryption;
+
+    public static class BluetoothInfo {
+        public String mac;
+        public String uuid;
+        public String deviceIdentifier;
+        public boolean useProxy;
+
+        public void writeToParcel(Parcel out) {
+            out.writeString(mac);
+            out.writeString(uuid);
+            out.writeString(deviceIdentifier);
+            out.writeInt(useProxy ? 1 : 0);
+        }
+
+        public void readFromParcel(Parcel in) {
+            mac = in.readString();
+            uuid = in.readString();
+            deviceIdentifier = in.readString();
+            useProxy = in.readInt() == 1;
+        }
+    };
+    public BluetoothInfo bluetoothInfo = new BluetoothInfo();
 
     public String inferDeviceAdminPackageName() {
-        if (mDeviceAdminComponentName != null) {
-            return mDeviceAdminComponentName.getPackageName();
+        if (deviceAdminComponentName != null) {
+            return deviceAdminComponentName.getPackageName();
         }
-        return mDeviceAdminPackageName;
+        return deviceAdminPackageName;
+    }
+
+    public String getDeviceInitializerPackageName() {
+        if (deviceInitializerComponentName != null) {
+            return deviceInitializerComponentName.getPackageName();
+        }
+        return null;
     }
 
     // This should not be called if the app has not been installed yet.
     ComponentName inferDeviceAdminComponentName(Context c)
             throws Utils.IllegalProvisioningArgumentException {
-        if (mInferedDeviceAdminComponentName == null) {
-            mInferedDeviceAdminComponentName = Utils.findDeviceAdmin(
-                    mDeviceAdminPackageName, mDeviceAdminComponentName, c);
+        if (inferedDeviceAdminComponentName == null) {
+            inferedDeviceAdminComponentName = Utils.findDeviceAdmin(
+                    deviceAdminPackageName, deviceAdminComponentName, c);
         }
-        return mInferedDeviceAdminComponentName;
-    }
-
-    public String getLocaleAsString() {
-        if (mLocale != null) {
-            return mLocale.getLanguage() + "_" + mLocale.getCountry();
-        } else {
-            return null;
-        }
-    }
-
-    public String getDeviceAdminPackageChecksumAsString() {
-        return Base64.encodeToString(mDeviceAdminPackageChecksum,
-                Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
-    }
-
-    public String getDeviceInitializerPackageChecksumAsString() {
-        return Base64.encodeToString(mDeviceInitializerPackageChecksum,
-                Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+        return inferedDeviceAdminComponentName;
     }
 
     @Override
@@ -122,39 +170,21 @@ public class ProvisioningParams implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel out, int flags) {
-        out.writeString(mTimeZone);
-        out.writeLong(mLocalTime);
-        out.writeSerializable(mLocale);
-        out.writeString(mWifiSsid);
-        out.writeInt(mWifiHidden ? 1 : 0);
-        out.writeString(mWifiSecurityType);
-        out.writeString(mWifiPassword);
-        out.writeString(mWifiProxyHost);
-        out.writeInt(mWifiProxyPort);
-        out.writeString(mWifiProxyBypassHosts);
-        out.writeString(mWifiPacUrl);
-        out.writeString(mDeviceAdminPackageName);
-        out.writeParcelable(mDeviceAdminComponentName, 0 /* default */);
-        out.writeInt(mDeviceAdminMinVersion);
-        out.writeString(mDeviceAdminPackageDownloadLocation);
-        out.writeString(mDeviceAdminPackageDownloadCookieHeader);
-        out.writeInt(mDeviceAdminPackageChecksum.length);
-        out.writeByteArray(mDeviceAdminPackageChecksum);
-        out.writeParcelable(mDeviceInitializerComponentName, 0 /* default */);
-        out.writeInt(mDeviceInitializerMinVersion);
-        out.writeString(mDeviceInitializerPackageDownloadLocation);
-        out.writeString(mDeviceInitializerPackageDownloadCookieHeader);
-        out.writeInt(mDeviceInitializerPackageChecksum.length);
-        out.writeByteArray(mDeviceInitializerPackageChecksum);
-        out.writeParcelable(mAdminExtrasBundle, 0 /* default */);
-        out.writeInt(mStartedByNfc ? 1 : 0);
-        out.writeInt(mLeaveAllSystemAppsEnabled ? 1 : 0);
-        out.writeInt(mSkipEncryption ? 1 : 0);
-        out.writeString(mBluetoothMac);
-        out.writeString(mBluetoothUuid);
-        out.writeString(mBluetoothDeviceIdentifier);
-        out.writeInt(mUseBluetoothProxy ? 1 : 0);
-        out.writeParcelable(mFrpChallengeBundle, 0 /* default */);
+        out.writeString(timeZone);
+        out.writeLong(localTime);
+        out.writeSerializable(locale);
+        wifiInfo.writeToParcel(out);
+        out.writeString(deviceAdminPackageName);
+        out.writeParcelable(deviceAdminComponentName, 0 /* default */);
+        deviceAdminDownloadInfo.writeToParcel(out);
+        out.writeParcelable(deviceInitializerComponentName, 0 /* default */);
+        deviceInitializerDownloadInfo.writeToParcel(out);
+        out.writeParcelable(adminExtrasBundle, 0 /* default */);
+        out.writeInt(startedByNfc ? 1 : 0);
+        out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
+        out.writeInt(skipEncryption ? 1 : 0);
+        bluetoothInfo.writeToParcel(out);
+        out.writeParcelable(frpChallengeBundle, 0 /* default */);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -162,43 +192,23 @@ public class ProvisioningParams implements Parcelable {
         @Override
         public ProvisioningParams createFromParcel(Parcel in) {
             ProvisioningParams params = new ProvisioningParams();
-            params.mTimeZone = in.readString();
-            params.mLocalTime = in.readLong();
-            params.mLocale = (Locale) in.readSerializable();
-            params.mWifiSsid = in.readString();
-            params.mWifiHidden = in.readInt() == 1;
-            params.mWifiSecurityType = in.readString();
-            params.mWifiPassword = in.readString();
-            params.mWifiProxyHost = in.readString();
-            params.mWifiProxyPort = in.readInt();
-            params.mWifiProxyBypassHosts = in.readString();
-            params.mWifiPacUrl = in.readString();
-            params.mDeviceAdminPackageName = in.readString();
-            params.mDeviceAdminComponentName = (ComponentName)
+            params.timeZone = in.readString();
+            params.localTime = in.readLong();
+            params.locale = (Locale) in.readSerializable();
+            params.wifiInfo.readFromParcel(in);
+            params.deviceAdminPackageName = in.readString();
+            params.deviceAdminComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
-            params.mDeviceAdminMinVersion = in.readInt();
-            params.mDeviceAdminPackageDownloadLocation = in.readString();
-            params.mDeviceAdminPackageDownloadCookieHeader = in.readString();
-            int checksumLength = in.readInt();
-            params.mDeviceAdminPackageChecksum = new byte[checksumLength];
-            in.readByteArray(params.mDeviceAdminPackageChecksum);
-            params.mDeviceInitializerComponentName = (ComponentName)
+            params.deviceAdminDownloadInfo.readFromParcel(in);
+            params.deviceInitializerComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
-            params.mDeviceInitializerMinVersion = in.readInt();
-            params.mDeviceInitializerPackageDownloadLocation = in.readString();
-            params.mDeviceInitializerPackageDownloadCookieHeader = in.readString();
-            checksumLength = in.readInt();
-            params.mDeviceInitializerPackageChecksum = new byte[checksumLength];
-            in.readByteArray(params.mDeviceInitializerPackageChecksum);
-            params.mAdminExtrasBundle = in.readParcelable(null /* use default classloader */);
-            params.mStartedByNfc = in.readInt() == 1;
-            params.mLeaveAllSystemAppsEnabled = in.readInt() == 1;
-            params.mSkipEncryption = in.readInt() == 1;
-            params.mBluetoothMac = in.readString();
-            params.mBluetoothUuid = in.readString();
-            params.mBluetoothDeviceIdentifier = in.readString();
-            params.mUseBluetoothProxy = in.readInt() == 1;
-            params.mFrpChallengeBundle = in.readParcelable(null /* use default classloader */);
+            params.deviceInitializerDownloadInfo.readFromParcel(in);
+            params.adminExtrasBundle = in.readParcelable(null /* use default classloader */);
+            params.startedByNfc = in.readInt() == 1;
+            params.leaveAllSystemAppsEnabled = in.readInt() == 1;
+            params.skipEncryption = in.readInt() == 1;
+            params.bluetoothInfo.readFromParcel(in);
+            params.frpChallengeBundle = in.readParcelable(null /* use default classloader */);
             return params;
         }
 

@@ -32,7 +32,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams;
+import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
+import com.android.managedprovisioning.Utils;
 
 import java.io.InputStream;
 import java.io.IOException;
@@ -44,17 +45,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Downloads the device admin and the device initializer if download locations were provided for
- * them in the provisioning parameters. Also checks that each file's hash matches a given hash to
+ * Downloads all packages that were added. Also checks that each file's hash matches a given hash to
  * verify that the downloaded files are the ones that are expected.
  */
 public class DownloadPackageTask {
     public static final int ERROR_HASH_MISMATCH = 0;
     public static final int ERROR_DOWNLOAD_FAILED = 1;
     public static final int ERROR_OTHER = 2;
-
-    public static final String DEVICE_OWNER = "deviceOwner";
-    public static final String INITIALIZER = "initializer";
 
     private static final String HASH_TYPE = "SHA-1";
 
@@ -64,36 +61,22 @@ public class DownloadPackageTask {
     private final DownloadManager mDlm;
     private final PackageManager mPm;
 
-    private Set<DownloadInfo> mDownloads;
+    private Set<DownloadStatusInfo> mDownloads;
 
-    public DownloadPackageTask (Context context, ProvisioningParams params, Callback callback) {
+    public DownloadPackageTask (Context context, Callback callback) {
         mCallback = callback;
         mContext = context;
         mDlm = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
         mPm = context.getPackageManager();
 
-        mDownloads = new HashSet<DownloadInfo>();
-        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)
-                && packageRequiresUpdate(params.inferDeviceAdminPackageName(),
-                        params.mDeviceAdminMinVersion)) {
-            mDownloads.add(new DownloadInfo(
-                    params.mDeviceAdminPackageDownloadLocation,
-                    params.mDeviceAdminPackageChecksum,
-                    params.mDeviceAdminPackageDownloadCookieHeader,
-                    DEVICE_OWNER));
-        }
-        if (params.mDeviceInitializerComponentName != null) {
-            String deviceInitializerPackageName =
-                    params.mDeviceInitializerComponentName.getPackageName();
-            if (!TextUtils.isEmpty(params.mDeviceInitializerPackageDownloadLocation)
-                    && packageRequiresUpdate(deviceInitializerPackageName,
-                            params.mDeviceInitializerMinVersion)) {
-                mDownloads.add(new DownloadInfo(
-                        params.mDeviceInitializerPackageDownloadLocation,
-                        params.mDeviceInitializerPackageChecksum,
-                        params.mDeviceInitializerPackageDownloadCookieHeader,
-                        INITIALIZER));
-            }
+        mDownloads = new HashSet<DownloadStatusInfo>();
+    }
+
+    public void addDownloadIfNecessary(String packageName, PackageDownloadInfo downloadInfo,
+            String label) {
+        if (!TextUtils.isEmpty(downloadInfo.location) && Utils.packageRequiresUpdate(packageName,
+               downloadInfo.minVersion, mContext)) {
+            mDownloads.add(new DownloadStatusInfo(downloadInfo, label));
         }
     }
 
@@ -125,16 +108,17 @@ public class DownloadPackageTask {
 
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
-        for (DownloadInfo downloadInfo : mDownloads) {
-            ProvisionLogger.logd("Starting download from " + downloadInfo.mDownloadLocationFrom);
+        for (DownloadStatusInfo info : mDownloads) {
+            ProvisionLogger.logd("Starting download from " + info.mPackageDownloadInfo.location);
 
-            Request request = new Request(Uri.parse(downloadInfo.mDownloadLocationFrom));
-            if (downloadInfo.mHttpCookieHeader != null) {
-                request.addRequestHeader("Cookie", downloadInfo.mHttpCookieHeader);
+            Request request = new Request(Uri.parse(info.mPackageDownloadInfo.location));
+            if (info.mPackageDownloadInfo.cookieHeader != null) {
+                request.addRequestHeader("Cookie", info.mPackageDownloadInfo.cookieHeader);
                 ProvisionLogger.logd(
-                        "Downloading with http cookie header: " + downloadInfo.mHttpCookieHeader);
+                        "Downloading with http cookie header: "
+                        + info.mPackageDownloadInfo.cookieHeader);
             }
-            downloadInfo.mDownloadId = dm.enqueue(request);
+            info.mDownloadId = dm.enqueue(request);
         }
     }
 
@@ -142,14 +126,14 @@ public class DownloadPackageTask {
         return new BroadcastReceiver() {
             /**
              * Whenever the download manager finishes a download, record the successful download for
-             * the corresponding DownloadInfo.
+             * the corresponding DownloadStatusInfo.
              */
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())) {
                     Query q = new Query();
-                    for (DownloadInfo downloadInfo : mDownloads) {
-                        q.setFilterById(downloadInfo.mDownloadId);
+                    for (DownloadStatusInfo info : mDownloads) {
+                        q.setFilterById(info.mDownloadId);
                         Cursor c = mDlm.query(q);
                         if (c.moveToFirst()) {
                             long downloadId =
@@ -181,17 +165,17 @@ public class DownloadPackageTask {
      * @param location the file location of the downloaded file.
      */
     private void onDownloadSuccess(long downloadId, String location) {
-        DownloadInfo downloadInfo = null;
-        for (DownloadInfo info : mDownloads) {
-            if (downloadId == info.mDownloadId) {
-                downloadInfo = info;
+        DownloadStatusInfo info = null;
+        for (DownloadStatusInfo infoToMatch : mDownloads) {
+            if (downloadId == infoToMatch.mDownloadId) {
+                info = infoToMatch;
             }
         }
-        if (downloadInfo == null || downloadInfo.mDoneDownloading) {
+        if (info == null || info.mDoneDownloading) {
             // DownloadManager can send success more than once. Only act first time.
             return;
         } else {
-            downloadInfo.mDoneDownloading = true;
+            info.mDoneDownloading = true;
         }
         ProvisionLogger.logd("Downloaded succesfully to: " + location);
 
@@ -202,25 +186,25 @@ public class DownloadPackageTask {
             return;
         }
 
-        if (Arrays.equals(downloadInfo.mHash, hash)) {
+        if (Arrays.equals(info.mPackageDownloadInfo.packageChecksum, hash)) {
             ProvisionLogger.logd(HASH_TYPE + "-hashes matched, both are "
                     + byteArrayToString(hash));
-            downloadInfo.mLocation = location;
-            downloadInfo.mSuccess = true;
+            info.mLocation = location;
+            info.mSuccess = true;
             checkSuccess();
         } else {
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file does not match given hash.");
             ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file: "
                     + byteArrayToString(hash));
             ProvisionLogger.loge(HASH_TYPE + "-hash provided by programmer: "
-                    + byteArrayToString(downloadInfo.mHash));
+                    + byteArrayToString(info.mPackageDownloadInfo.packageChecksum));
 
             mCallback.onError(ERROR_HASH_MISMATCH);
         }
     }
 
     private void checkSuccess() {
-        for (DownloadInfo info : mDownloads) {
+        for (DownloadStatusInfo info : mDownloads) {
             if (!info.mSuccess) {
                 return;
             }
@@ -274,9 +258,9 @@ public class DownloadPackageTask {
         return hash;
     }
 
-    public String getDownloadedPackageLocation(String packageType) {
-        for (DownloadInfo info : mDownloads) {
-            if (packageType.equals(info.mPackageType)) {
+    public String getDownloadedPackageLocation(String label) {
+        for (DownloadStatusInfo info : mDownloads) {
+            if (info.mLabel.equals(label)) {
                 return info.mLocation;
             }
         }
@@ -293,7 +277,7 @@ public class DownloadPackageTask {
         //Remove download.
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
-        for (DownloadInfo info : mDownloads) {
+        for (DownloadStatusInfo info : mDownloads) {
             boolean removeSuccess = dm.remove(info.mDownloadId) == 1;
             if (removeSuccess) {
                 ProvisionLogger.logd("Successfully removed installer file.");
@@ -314,22 +298,17 @@ public class DownloadPackageTask {
         public abstract void onError(int errorCode);
     }
 
-    private static class DownloadInfo {
-        public final String mDownloadLocationFrom;
-        public final byte[] mHash;
-        public final String mHttpCookieHeader;
-        public final String mPackageType;
+    private static class DownloadStatusInfo {
+        public final PackageDownloadInfo mPackageDownloadInfo;
+        public final String mLabel;
         public long mDownloadId;
-        public String mLocation;
+        public String mLocation; // Location where the package is downloaded to.
         public boolean mDoneDownloading;
         public boolean mSuccess;
 
-        public DownloadInfo(String downloadLocation, byte[] hash, String httpCookieHeader,
-                String packageType) {
-            mDownloadLocationFrom = downloadLocation;
-            mHash = hash;
-            mHttpCookieHeader = httpCookieHeader;
-            mPackageType = packageType;
+        public DownloadStatusInfo(PackageDownloadInfo packageDownloadInfo,String label) {
+            mPackageDownloadInfo = packageDownloadInfo;
+            mLabel = label;
             mDoneDownloading = false;
         }
     }
