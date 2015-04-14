@@ -35,11 +35,13 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
@@ -61,7 +63,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
-import android.util.Base64;
 
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 
@@ -98,12 +99,16 @@ import java.util.Properties;
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}, together with an optional
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE}, an optional
  * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}, and
- * the SHA-1 sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM}. A
- * download location for the device initializer may be specified in
+ * the SHA-1 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM} or
+ * the SHA-1 hash of any certificate of the android package in the target file
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM}. A download location for the device
+ *  initializer may be specified in
  * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION}, together with an
  * optional (@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE}, an optional http
  * cookie header {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER} , and
- * the SHA-1 sum of the target file {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM}.
+ * the SHA-1 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM}
+ * or the SHA-1 hash of any certificate of the android package in the target file
+ * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM}.
  * Additional information to send through to the device initializer and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
  * The optional boolean {@link #EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED} indicates whether
@@ -148,9 +153,11 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM,
         EXTRA_PROVISIONING_BT_MAC_ADDRESS,
         EXTRA_PROVISIONING_BT_UUID,
         EXTRA_PROVISIONING_BT_DEVICE_ID
@@ -206,7 +213,9 @@ public class MessageParser {
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                 params.deviceAdminDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
+                Utils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM,
+                Utils.byteArrayToString(params.deviceAdminDownloadInfo.certificateChecksum));
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
                 params.deviceInitializerComponentName);
         bundle.putInt(EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
@@ -216,12 +225,14 @@ public class MessageParser {
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                 params.deviceInitializerDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
-                byteArrayToString(params.deviceInitializerDownloadInfo.packageChecksum));
+                Utils.byteArrayToString(params.deviceInitializerDownloadInfo.packageChecksum));
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM,
+                Utils.byteArrayToString(params.deviceInitializerDownloadInfo.certificateChecksum));
+
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
         bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
         bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 params.leaveAllSystemAppsEnabled);
-
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
 
@@ -319,7 +330,11 @@ public class MessageParser {
             params.deviceAdminDownloadInfo.cookieHeader = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
-                params.deviceAdminDownloadInfo.packageChecksum = stringToByteArray(s);
+                params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
+            }
+            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM))
+                    != null) {
+                params.deviceAdminDownloadInfo.certificateChecksum = Utils.stringToByteArray(s);
             }
             String name = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
@@ -339,7 +354,12 @@ public class MessageParser {
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM)) != null) {
-                params.deviceInitializerDownloadInfo.packageChecksum = stringToByteArray(s);
+                params.deviceInitializerDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
+            }
+            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM))
+                    != null) {
+                params.deviceInitializerDownloadInfo.certificateChecksum =
+                        Utils.stringToByteArray(s);
             }
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
@@ -433,9 +453,15 @@ public class MessageParser {
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
         params.deviceAdminDownloadInfo.cookieHeader = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
-        String hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
-        if (hashString != null) {
-            params.deviceAdminDownloadInfo.packageChecksum = stringToByteArray(hashString);
+        String packageHash =
+                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
+        if (packageHash != null) {
+            params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(packageHash);
+        }
+        String certHash =
+                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM);
+        if (certHash != null) {
+            params.deviceAdminDownloadInfo.certificateChecksum = Utils.stringToByteArray(certHash);
         }
         params.deviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
@@ -446,9 +472,16 @@ public class MessageParser {
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
         params.deviceInitializerDownloadInfo.cookieHeader = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
-        hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM);
-        if (hashString != null) {
-            params.deviceInitializerDownloadInfo.packageChecksum = stringToByteArray(hashString);
+        packageHash = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM);
+        if (packageHash != null) {
+            params.deviceInitializerDownloadInfo.packageChecksum =
+                    Utils.stringToByteArray(packageHash);
+        }
+        certHash =
+                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM);
+        if (certHash != null) {
+            params.deviceInitializerDownloadInfo.certificateChecksum =
+                    Utils.stringToByteArray(certHash);
         }
 
         params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
@@ -501,26 +534,20 @@ public class MessageParser {
             throw new IllegalProvisioningArgumentException("Must provide the name of the device"
                     + " admin package or component name");
         }
-        if (!TextUtils.isEmpty(params.deviceAdminDownloadInfo.location)) {
-            if (params.deviceAdminDownloadInfo.packageChecksum == null ||
-                    params.deviceAdminDownloadInfo.packageChecksum.length == 0) {
-                throw new IllegalProvisioningArgumentException("Checksum of installer file is"
-                        + " required for downloading device admin file, but not provided.");
+        checkDownloadInfoHasChecksum(params.deviceAdminDownloadInfo, "device admin");
+        checkDownloadInfoHasChecksum(params.deviceInitializerDownloadInfo, "device initializer");
+    }
+
+    private void checkDownloadInfoHasChecksum(ProvisioningParams.PackageDownloadInfo info,
+            String downloadName) throws IllegalProvisioningArgumentException {
+        if (!TextUtils.isEmpty(info.location)) {
+            if ((info.packageChecksum == null || info.packageChecksum.length == 0)
+                    && (info.certificateChecksum == null || info.certificateChecksum.length == 0)) {
+                throw new IllegalProvisioningArgumentException("Checksum of installer file"
+                        + " or its certificate is required for downloading " + downloadName
+                        + ", but neither is provided.");
             }
         }
-    }
-
-    public static byte[] stringToByteArray(String s)
-        throws NumberFormatException {
-        try {
-            return Base64.decode(s, Base64.URL_SAFE);
-        } catch (IllegalArgumentException e) {
-            throw new NumberFormatException("Incorrect checksum format.");
-        }
-    }
-
-    public static String byteArrayToString(byte[] bytes) {
-        return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
     public static Locale stringToLocale(String string)
