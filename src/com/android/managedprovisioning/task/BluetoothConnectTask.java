@@ -88,7 +88,7 @@ public class BluetoothConnectTask {
             onBluetoothEnabled();
         } else {
             ProvisionLogger.logd("Attempt to enable Bluetooth.");
-            BroadcastReceiver mBtStateChangeReceiver = createStateChangeReceiver();
+            mBtStateChangeReceiver = createStateChangeReceiver();
             mContext.registerReceiver(mBtStateChangeReceiver,
                     new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
             if (!mBtAdapter.enable()) {
@@ -105,6 +105,7 @@ public class BluetoothConnectTask {
                         return;
                     }
                     ProvisionLogger.loge("Timed out waiting for Bluetooth.");
+                    cleanUp();
                     mCallback.onError();
                 }
             },
@@ -171,6 +172,7 @@ public class BluetoothConnectTask {
         intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_DEVICE_ID, mBluetoothDeviceId);
         intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_USE_PROXY, useProxy);
         mContext.startService(intent);
+        cleanUp();
         mCallback.onSuccess();
     }
 
