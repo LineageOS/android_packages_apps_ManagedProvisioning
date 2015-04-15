@@ -88,7 +88,7 @@ public class BluetoothConnectTask {
             onBluetoothEnabled();
         } else {
             ProvisionLogger.logd("Attempt to enable Bluetooth.");
-            BroadcastReceiver mBtStateChangeReceiver = createStateChangeReceiver();
+            mBtStateChangeReceiver = createStateChangeReceiver();
             mContext.registerReceiver(mBtStateChangeReceiver,
                     new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
             if (!mBtAdapter.enable()) {
