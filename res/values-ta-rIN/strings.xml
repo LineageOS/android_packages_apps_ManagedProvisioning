@@ -55,7 +55,11 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"பணியிடச் சாதனத்தின் பயனர்"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"சாதனத்தை அமைக்கவும்"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"அமைவு தரவைச் செயல்படுத்துகிறது..."</string>
+    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
+    <skip />
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"வைஃபை உடன் இணைக்கிறது..."</string>
+    <!-- no translation found for progress_wipe_frp (545404730605450346) -->
+    <skip />
     <string name="progress_download" msgid="4995057798189799156">"நிர்வாகப் பயன்பாட்டை இறக்குகிறது..."</string>
     <string name="progress_install" msgid="9169411715762296097">"நிர்வாகப் பயன்பாட்டை நிறுவுகிறது..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"சாதன உரிமையாளரை அமைக்கிறது..."</string>
@@ -67,7 +71,11 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"சாதனத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"இவருக்கு, சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது."</string>
+    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"வைஃபை உடன் இணைக்க முடியவில்லை"</string>
+    <!-- no translation found for device_owner_error_frp (3998112234006304859) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"செக்-சம் பிழைக் காரணமாக நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"நிர்வாகிப் பயன்பாட்டை இறக்க முடியவில்லை"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. இதில் கூறுகள் இல்லாமல் இருக்கலாம் அல்லது இது சேதமடைந்து இருக்கலாம். IT துறையைத் தொடர்புகொள்ளவும்."</string>

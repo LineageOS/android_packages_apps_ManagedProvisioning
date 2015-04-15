@@ -55,7 +55,11 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"正在处理设置数据…"</string>
+    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
+    <skip />
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"正在连接到WLAN网络…"</string>
+    <!-- no translation found for progress_wipe_frp (545404730605450346) -->
+    <skip />
     <string name="progress_download" msgid="4995057798189799156">"正在下载管理应用…"</string>
     <string name="progress_install" msgid="9169411715762296097">"正在安装管理应用…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"正在设置设备所有者…"</string>
@@ -67,7 +71,11 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"无法设置您的设备，请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"之前已对此设备进行了设置。"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
+    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
+    <!-- no translation found for device_owner_error_frp (3998112234006304859) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"由于校验和错误，无法使用此管理应用。请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"无法下载管理应用"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"由于缺少组件或软件包已损坏，无法使用此管理应用。请与您公司的IT部门联系。"</string>

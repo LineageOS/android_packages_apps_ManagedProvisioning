@@ -55,7 +55,11 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिवाइस का उपयोगकर्ता"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"अपना डिवाइस सेट करें"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"सेटअप डेटा संसाधित हो रहा है..."</string>
+    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
+    <skip />
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"वाई-फ़ाई  से कनेक्ट हो रहा है..."</string>
+    <!-- no translation found for progress_wipe_frp (545404730605450346) -->
+    <skip />
     <string name="progress_download" msgid="4995057798189799156">"व्यवस्थापक ऐप्स डाउनलोड हो रहा है..."</string>
     <string name="progress_install" msgid="9169411715762296097">"व्यवस्थापक ऐप्स इंस्टॉल हो रहा है..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"डिवाइस स्वामी सेट किया जा रहा है..."</string>
@@ -67,7 +71,11 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"आपका डिवाइस सेट नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यह डिवाइस पहले से सेट किया गया है."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यह डिवाइस इस उपयोगकर्ता के लिए पहले से सेट किया गया है."</string>
+    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फ़ाई से कनेक्‍ट नहीं हो सका"</string>
+    <!-- no translation found for device_owner_error_frp (3998112234006304859) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"चेकसम त्रुटि के कारण व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"व्यवस्थापक ऐप्स डाउनलोड नहीं किया जा सका"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सकता. उसमें घटक अनुपलब्ध हैं या वे दूषित हैं. अपने IT विभाग से संपर्क करें."</string>

@@ -55,7 +55,11 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Користувач робочого пристрою"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Налаштування пристрою"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Обробка даних для налаштування…"</string>
+    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
+    <skip />
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"З’єднання з Wi-Fi…"</string>
+    <!-- no translation found for progress_wipe_frp (545404730605450346) -->
+    <skip />
     <string name="progress_download" msgid="4995057798189799156">"Завантаження додатка адміністратора…"</string>
     <string name="progress_install" msgid="9169411715762296097">"Встановлення додатка адміністратора…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Налаштування власника пристрою…"</string>
@@ -67,7 +71,11 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"Не вдалося налаштувати пристрій. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Пристрій уже налаштовано."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Пристрій уже налаштовано для цього користувача."</string>
+    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не вдалося під’єднатися до мережі Wi-Fi"</string>
+    <!-- no translation found for device_owner_error_frp (3998112234006304859) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Не вдалося скористатися додатком адміністратора через помилку перевірки контрольної суми. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не вдалося завантажити додаток адміністратора"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Неможливо скористатися додатком адміністратора. У ньому немає певних компонентів або його пошкоджено. Зв’яжіться з ІТ-відділом."</string>

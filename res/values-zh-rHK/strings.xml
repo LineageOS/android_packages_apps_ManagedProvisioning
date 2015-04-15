@@ -55,7 +55,10 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作裝置的使用者"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"設定您的裝置"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"正在處理設定資料…"</string>
+    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
+    <skip />
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"正在連線至 Wi-Fi…"</string>
+    <string name="progress_wipe_frp" msgid="545404730605450346">"正在檢查裝置的恢復原廠設定防護機制..."</string>
     <string name="progress_download" msgid="4995057798189799156">"正在下載管理員應用程式…"</string>
     <string name="progress_install" msgid="9169411715762296097">"正在安裝管理員應用程式…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"正在設定裝置擁有者…"</string>
@@ -67,7 +70,10 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"無法設定您的裝置，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"已完成裝置設定。"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"已為此使用者完成裝置設定。"</string>
+    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"無法連線至 Wi-Fi"</string>
+    <string name="device_owner_error_frp" msgid="3998112234006304859">"無法通過裝置的恢復原廠設定防護機制"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"管理員應用程式因校驗和錯誤而無法使用，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"無法下載管理員應用程式"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理員應用程式因缺少部分元件或已損毀而無法使用，請與您的 IT 部門聯絡。"</string>
