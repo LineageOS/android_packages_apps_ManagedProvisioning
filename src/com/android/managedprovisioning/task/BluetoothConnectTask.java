@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams;
 import com.android.managedprovisioning.proxy.BluetoothConnectionService;
+import com.android.managedprovisioning.Utils;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -72,6 +73,11 @@ public class BluetoothConnectTask {
     }
 
     public void run() {
+        // This task should only run on the primary user.
+        if (!Utils.isCurrentUserOwner()) {
+            mCallback.onSuccess();
+            return;
+        }
         // The adapter will be null if Bluetooth is not supported
         if (mBtAdapter == null) {
             mCallback.onSuccess();
