@@ -24,10 +24,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.wifi.WifiManager;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
 
 
@@ -37,7 +37,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * Service that establishes and manages a Bluetooth connection during device setup.
  */
-public class BluetoothConnectionService extends Service {
+public class BluetoothConnectionService extends Service implements NetworkMonitor.Callback {
 
     /**
      * Local broadcast sent when a status update should be sent. Broadcasts with this action will
@@ -78,7 +78,7 @@ public class BluetoothConnectionService extends Service {
     /**
      * Listen for changes in the Wi-Fi state.
      */
-    private BroadcastReceiver mWifiStateReceiver;
+    private NetworkMonitor mNetworkMonitor;
     private ClientTetherConnection mBluetoothClient;
 
     /**
@@ -117,8 +117,9 @@ public class BluetoothConnectionService extends Service {
                     mBluetoothDeviceId, mBluetoothMac, mBluetoothUuid);
             // Receives local broadcasts
             mLocalStatusReceiver = createLocalStatusReceiver();
-            LocalBroadcastManager.getInstance(this).registerReceiver(mLocalStatusReceiver,
-                    new IntentFilter(ACTION_LOCAL_PROVISIONING_STATUS));
+            IntentFilter filter = new IntentFilter(ACTION_LOCAL_PROVISIONING_STATUS);
+            filter.addAction(ACTION_LOCAL_SHUTDOWN_BLUETOOTH);
+            LocalBroadcastManager.getInstance(this).registerReceiver(mLocalStatusReceiver, filter);
             // Receives status updates from the device initializer
             mStatusReceiver = createStatusReceiver();
             registerReceiver(mStatusReceiver, new IntentFilter(
@@ -169,23 +170,6 @@ public class BluetoothConnectionService extends Service {
     }
 
     /**
-     * Create a receiver which shuts down the Bluetooth Proxy when a Wi-Fi network is connected.
-     * @return a Broadcast receiver that listens for Wi-Fi state changes
-     */
-    private BroadcastReceiver createWifiStateChangeReceiver() {
-        return new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (intent.getAction().equals(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION)) {
-                    if (intent.getBooleanExtra(WifiManager.EXTRA_SUPPLICANT_CONNECTED, false)) {
-                        clearProxy();
-                    }
-                }
-            }
-        };
-    }
-
-    /**
      * Create a {@code BroadcastReceiver} that handles local broadcasts that affect the Bluetooth
      * connection. Accepted broadcasts by action:
      * <ul>
@@ -201,6 +185,7 @@ public class BluetoothConnectionService extends Service {
         return new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+                ProvisionLogger.logd("Got local Bluetooth action: " + intent.getAction());
                 switch (intent.getAction()) {
                     case ACTION_LOCAL_PROVISIONING_STATUS:
                         // Get a status update from managedprovisioning
@@ -230,10 +215,23 @@ public class BluetoothConnectionService extends Service {
         }
         mBluetoothClient.sendStatusUpdate(
                 DeviceInitializerStatus.STATUS_STATE_CONNECT_BLUETOOTH_PROXY, "Started proxy.");
-        mWifiStateReceiver = createWifiStateChangeReceiver();
-        registerReceiver(mWifiStateReceiver, new IntentFilter(
-                WifiManager.SUPPLICANT_STATE_CHANGED_ACTION));
+        mNetworkMonitor = new NetworkMonitor(this, this);
     }
+
+    @Override
+    public void onNetworkConnected() {
+        ProvisionLogger.logw("Received Wi-Fi broadcast. Connected: " + NetworkMonitor.isConnectedToWifi(this));
+        if (NetworkMonitor.isConnectedToWifi(this)) {
+            ProvisionLogger.logd("Connected to a Wi-Fi network");
+            clearProxy();
+        }
+    }
+
+    @Override
+    public void onNetworkDisconnected() {
+        // Do nothing. Only care about network connect.
+    }
+
 
     /**
      * Stop Bluetooth network proxy. The network proxy should be removed once a Wi-Fi connection
@@ -241,9 +239,9 @@ public class BluetoothConnectionService extends Service {
      */
     private void clearProxy() {
         ProvisionLogger.logd("Clear proxy.");
-        if (mWifiStateReceiver != null) {
-            unregisterReceiver(mWifiStateReceiver);
-            mWifiStateReceiver = null;
+        if (mNetworkMonitor != null) {
+            mNetworkMonitor.close();
+            mNetworkMonitor = null;
         }
         mBluetoothClient.sendStatusUpdate(
                 DeviceInitializerStatus.STATUS_STATE_DISCONNECT_BLUETOOTH_PROXY, "Removing proxy.");
@@ -254,7 +252,7 @@ public class BluetoothConnectionService extends Service {
     public void onDestroy() {
         clearProxy();
         if (mLocalStatusReceiver != null) {
-            unregisterReceiver(mLocalStatusReceiver);
+            LocalBroadcastManager.getInstance(this).unregisterReceiver(mLocalStatusReceiver);
             mLocalStatusReceiver = null;
         }
         if (mStatusReceiver != null) {

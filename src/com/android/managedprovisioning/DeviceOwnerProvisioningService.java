@@ -438,6 +438,9 @@ public class DeviceOwnerProvisioningService extends Service {
         if (mDownloadPackageTask != null) {
             mDownloadPackageTask.cleanUp();
         }
+        if (mBluetoothConnectTask != null) {
+            mBluetoothConnectTask.cleanUp();
+        }
     }
 
     @Override
