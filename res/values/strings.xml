@@ -115,7 +115,7 @@
   <string name="progress_start_bluetooth">Starting Bluetooth...</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
   <string name="progress_connect_to_wifi">Connecting to Wi-Fi...</string>
-  <!-- Progress text indicating that factory reset protection is being checked. [CHAR LIMIT=45] -->
+  <!-- Progress text indicating that factory reset protection is being checked. [CHAR LIMIT=65] -->
   <string name="progress_wipe_frp">Checking Factory Reset Protection...</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
   <string name="progress_download">Downloading the admin app...</string>
