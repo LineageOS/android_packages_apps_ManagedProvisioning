@@ -55,11 +55,9 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Pengguna peranti kerja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Sediakan peranti anda"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Memproses data persediaan..."</string>
-    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
-    <skip />
+    <string name="progress_start_bluetooth" msgid="3798479957601150661">"Memulakan Bluetooth..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Menyambung ke Wi-Fi..."</string>
-    <!-- no translation found for progress_wipe_frp (545404730605450346) -->
-    <skip />
+    <string name="progress_wipe_frp" msgid="545404730605450346">"Menyemak Perlindungan Tetapan Semula Kilang..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Memuat turun apl pentadbir..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Memasang apl pentadbir..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Menetapkan pemilik peranti..."</string>
@@ -71,11 +69,9 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"Tidak dapat menyediakan peranti anda. Hubungi jabatan IT anda."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Peranti ini sudah disediakan."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Peranti ini sudah disediakan untuk pengguna ini."</string>
-    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
-    <skip />
+    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Tidak dapat memulakan Bluetooth"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak boleh menyambung kepada Wi-Fi"</string>
-    <!-- no translation found for device_owner_error_frp (3998112234006304859) -->
-    <skip />
+    <string name="device_owner_error_frp" msgid="3998112234006304859">"Tidak dapat melepasi perlindungan tetapan semula kilang peranti"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan apl pentadbir kerana ralat semak jumlah. Hubungi jabatan IT anda."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat memuat turun apl pentadbir"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan apl pentadbir. Apl ketiadaan komponen atau rosak. Hubungi jabatan IT anda."</string>

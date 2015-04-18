@@ -55,11 +55,9 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"आफ्नो यन्त्र सेट अप गर्नुहोस्"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"स्थापना डेटा प्रशोधन गर्दै..."</string>
-    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
-    <skip />
+    <string name="progress_start_bluetooth" msgid="3798479957601150661">"ब्लुटुथ सुरूगर्दै..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"वाइफाइ जडान गर्दै..."</string>
-    <!-- no translation found for progress_wipe_frp (545404730605450346) -->
-    <skip />
+    <string name="progress_wipe_frp" msgid="545404730605450346">"कारखाना संरक्षण रिसेट जाँचगर्दै..."</string>
     <string name="progress_download" msgid="4995057798189799156">"प्रशासनिक अनुप्रयोग डाउनलोड गर्दै..."</string>
     <string name="progress_install" msgid="9169411715762296097">"प्रशासनिक अनुप्रयोग स्थापना गर्दै..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"उपकरण मालिक स्थापना गर्दै..."</string>
@@ -71,11 +69,9 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"तपाईँको उपकरण स्थापना गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यो यन्त्र पहिले नै स्थापना भएको छ"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यो यन्त्र पहिले नै यो प्रयोगकर्ताको लागि स्थापना गरिएको छ।"</string>
-    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
-    <skip />
+    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"ब्लुटुथ चलाउन सकिएन"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फाई संग जडान हुन सकेन"</string>
-    <!-- no translation found for device_owner_error_frp (3998112234006304859) -->
-    <skip />
+    <string name="device_owner_error_frp" msgid="3998112234006304859">"यन्त्र कारखाना रिसेट संरक्षण पारित गर्न सकिएन"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"प्रशासन अनुप्रयोग चेकसम त्रुटिको कारणले प्रयोग गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अनुप्रयोग डाउनलोड गर्न सकिएन"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अनुप्रयोग प्रयोग गर्न सकिएन। यो अवयवहरू हराइरहेका वा भ्रष्ट हुन्। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>

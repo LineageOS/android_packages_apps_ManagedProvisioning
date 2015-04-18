@@ -55,8 +55,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"업무 기기의 사용자"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"기기 설정"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"설정 데이터 처리 중..."</string>
-    <!-- no translation found for progress_start_bluetooth (3798479957601150661) -->
-    <skip />
+    <string name="progress_start_bluetooth" msgid="3798479957601150661">"블루투스 시작하는 중..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi에 연결 중..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"기기 초기화 보호 기능 확인 중..."</string>
     <string name="progress_download" msgid="4995057798189799156">"관리 앱 다운로드 중..."</string>
@@ -70,8 +69,7 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"기기를 설정할 수 없습니다. IT 부서에 문의해 주시기 바랍니다."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"기기가 이미 설정되었습니다."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"기기가 이미 이 사용자에 대해 설정되었습니다."</string>
-    <!-- no translation found for device_owner_error_bluetooth (5191084800734703585) -->
-    <skip />
+    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"블루투스를 시작할 수 없습니다."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi에 연결할 수 없습니다."</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"기기 초기화 보호 기능을 통과하지 못했습니다."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"체크섬 오류로 인해 관리 앱을 사용할 수 없습니다. IT 부서에 문의해 주시기 바랍니다."</string>
