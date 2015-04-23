@@ -24,7 +24,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.IBinder;
+import android.os.Looper;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.NetworkMonitor;
@@ -57,6 +60,13 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
     private static final String ACTION_LOCAL_SHUTDOWN_BLUETOOTH =
             "com.android.managedprovisioning.action.LOCAL_SHUTDOWN_BLUETOOTH";
 
+    /**
+     * Local broadcast sent when the Bluetooth connection has been set up.
+     * @see #setUpBluetoothProxyIfNeeded()
+     */
+    public static final String ACTION_LOCAL_BLUETOOTH_SETUP =
+            "com.android.managedprovisioning.action.LOCAL_BLUETOOTH_SETUP";
+
     public static final String EXTRA_BLUETOOTH_MAC = "BluetoothMac";
     public static final String EXTRA_BLUETOOTH_UUID = "BluetoothUuid";
     public static final String EXTRA_BLUETOOTH_DEVICE_ID = "BluetoothDeviceId";
@@ -64,9 +74,6 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
 
     private static final AtomicBoolean sBluetoothConnectionStarted = new AtomicBoolean(false);
 
-    private String mBluetoothMac;
-    private String mBluetoothUuid;
-    private String mBluetoothDeviceId;
     private boolean mBluetoothUseProxy;
 
     /** Receives status updates sent by ManagedProvisioning. */
@@ -80,6 +87,9 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
      */
     private NetworkMonitor mNetworkMonitor;
     private ClientTetherConnection mBluetoothClient;
+
+    /** Used to run potentially long setup tasks. */
+    private Handler mHandler;
 
     /**
      * Send a status update broadcast to the local receiver.
@@ -104,17 +114,26 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
     }
 
     @Override
+    public void onCreate() {
+        HandlerThread thread = new HandlerThread(this.getClass().getSimpleName(),
+                android.os.Process.THREAD_PRIORITY_BACKGROUND);
+        thread.start();
+        Looper looper = thread.getLooper();
+        mHandler = new Handler(looper);
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         ProvisionLogger.logd("BluetoothConnectionService.onStartCommand");
         if (sBluetoothConnectionStarted.compareAndSet(false, true)) {
-            mBluetoothMac = intent.getStringExtra(EXTRA_BLUETOOTH_MAC);
-            mBluetoothUuid = intent.getStringExtra(EXTRA_BLUETOOTH_UUID);
-            mBluetoothDeviceId = intent.getStringExtra(EXTRA_BLUETOOTH_DEVICE_ID);
+            String bluetoothMac = intent.getStringExtra(EXTRA_BLUETOOTH_MAC);
+            String bluetoothUuid = intent.getStringExtra(EXTRA_BLUETOOTH_UUID);
+            String bluetoothDeviceId = intent.getStringExtra(EXTRA_BLUETOOTH_DEVICE_ID);
             mBluetoothUseProxy = intent.getBooleanExtra(EXTRA_BLUETOOTH_USE_PROXY, false);
             // Setup Bluetooth connection
             mBluetoothClient = new BluetoothTetherClient(this,
                     BluetoothAdapter.getDefaultAdapter(),
-                    mBluetoothDeviceId, mBluetoothMac, mBluetoothUuid);
+                    bluetoothDeviceId, bluetoothMac, bluetoothUuid);
             // Receives local broadcasts
             mLocalStatusReceiver = createLocalStatusReceiver();
             IntentFilter filter = new IntentFilter(ACTION_LOCAL_PROVISIONING_STATUS);
@@ -124,16 +143,38 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
             mStatusReceiver = createStatusReceiver();
             registerReceiver(mStatusReceiver, new IntentFilter(
                     DevicePolicyManager.ACTION_SEND_DEVICE_INITIALIZER_STATUS));
-            if (mBluetoothUseProxy) {
-                startProxy();
-            } else {
-                ProvisionLogger.logd("BluetoothConnectionService: No proxy.");
-            }
+            setUpBluetoothProxyIfNeeded();
         } else {
             ProvisionLogger.logd("BluetoothConnectionService: Bluetooth aleady started");
             return Service.START_NOT_STICKY;
         }
         return Service.START_REDELIVER_INTENT;
+    }
+
+    /**
+     * If the Bluetooth network proxy is needed, start the proxy in a background thread. A
+     * {@linkplain #ACTION_LOCAL_BLUETOOTH_SETUP} broadcast will be sent when the proxy has been
+     * set up. This method may be called from the main thread.
+     */
+    private void setUpBluetoothProxyIfNeeded() {
+        if (mBluetoothUseProxy) {
+            ProvisionLogger.logv("BluetoothConnectionService.setUpBluetooth");
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (startProxy()) {
+                        sendProxySetupBroadcast();
+                    }
+                }
+            });
+        } else {
+            ProvisionLogger.logd("BluetoothConnectionService: No proxy.");
+        }
+    }
+
+    private void sendProxySetupBroadcast() {
+        Intent intent = new Intent(ACTION_LOCAL_BLUETOOTH_SETUP);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     /**
@@ -204,18 +245,23 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
     /**
      * Start Bluetooth network proxy. Network requests will be proxied over Bluetooth to the
      * remote device.
+     *
+     * <p>This method must be called from a background thread.
+     * @return {@code true} if the proxy started
      */
-    private void startProxy() {
+    private boolean startProxy() {
         ProvisionLogger.logd("BluetoothConnectionService: Start proxy.");
         // Start listening
         try {
             mBluetoothClient.startGlobalProxy();
         } catch (IOException e) {
             ProvisionLogger.loge("Failure to set proxy.", e);
+            return false;
         }
         mBluetoothClient.sendStatusUpdate(
                 DeviceInitializerStatus.STATUS_STATE_CONNECT_BLUETOOTH_PROXY, "Started proxy.");
         mNetworkMonitor = new NetworkMonitor(this, this);
+        return true;
     }
 
     @Override
@@ -259,6 +305,8 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
             unregisterReceiver(mStatusReceiver);
             mStatusReceiver = null;
         }
+        mHandler.removeCallbacksAndMessages(null);
+        sBluetoothConnectionStarted.set(false);
     }
 
     @Override
