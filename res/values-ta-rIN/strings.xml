@@ -48,6 +48,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"பணி சுயவிவரங்களைச் சாதனம் ஆதரிக்காது"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"சாதனத்தின் முதன்மை பயனரால் பணி சுயவிவரங்கள் அமைக்கப்பட வேண்டும்"</string>
+    <!-- no translation found for device_owner_exists (8020080296133337023) -->
+    <skip />
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"உங்கள் சாதனத்தில் அனுமதிக்கப்படும் அதிகபட்ச பயனர்களின் எண்ணிக்கையை அடைந்துவிட்டதால், பணியிடச் சுயவிவரத்தை உருவாக்க முடியவில்லை. குறைந்தது ஒரு பயனரை அகற்றிவிட்டு, மீண்டும் முயற்சிக்கவும்."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"இந்தத் துவக்கி பயன்பாடு, பணி சுயவிவரத்தை ஆதரிக்கவில்லை. பொருந்தும் துவக்கிக்கு மாற்ற வேண்டும்."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ரத்துசெய்"</string>

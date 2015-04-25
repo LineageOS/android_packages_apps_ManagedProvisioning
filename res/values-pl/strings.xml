@@ -48,6 +48,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nie można skonfigurować profilu do pracy. Skontaktuj się z działem IT lub spróbuj później jeszcze raz."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Urządzenie nie obsługuje profili do pracy"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Profile do pracy musi skonfigurować główny użytkownik urządzenia"</string>
+    <!-- no translation found for device_owner_exists (8020080296133337023) -->
+    <skip />
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Nie można utworzyć profilu do pracy, bo na urządzeniu jest już maksymalna liczba użytkowników. Usuń co najmniej jednego użytkownika i spróbuj ponownie."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ta aplikacja uruchamiająca nie obsługuje Twojego profilu do pracy. Przełącz się na zgodną."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Anuluj"</string>

@@ -48,6 +48,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"የስራ መገለጫዎን ማዋቀር አልተቻለም። የአይቲ መምሪያዎን ያነጋግሩ ወይም ቆይተው እንደገና ይሞክሩ።"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"መሣሪያዎ የስራ መገለጫዎችን አይደግፍም"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"የስራ መገለጫዎች በተቀዳሚው የመሣሪያው ተጠቃሚ መዘጋጀት ያስፈልጋቸዋል"</string>
+    <!-- no translation found for device_owner_exists (8020080296133337023) -->
+    <skip />
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"በመሣሪያዎ ላይ የሚፈቀደው ከፍተኛ የተጠቃሚዎች ቁጥር ላይ ስለተደረሰ የሥራ መገለጫ ሊፈጠር አልተቻለም። እባክዎ ቢያንስ አንድ ተጠቃሚ ያስወግዱ እና እንደገና ይሞክሩ።"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"የስራ መገለጫዎ በዚህ የማስጀመሪያ መተግበሪያ ውስጥ የሚደገፍ አይደለም። ተኳኋኝ ወደሆነ ማስጀመሪያ መቀየር ይኖርብዎታል።"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ይቅር"</string>

@@ -48,6 +48,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਕੰਮ ਪ੍ਰੋਫਾਈਲਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ਕੰਮ ਪ੍ਰੋਫਾਈਲਾਂ ਨੂੰ ਡਿਵਾਈਸ ਦੇ ਮੁੱਖ ਉਪਭੋਗਤਾ ਵੱਲੋਂ ਸੈਟ ਅਪ ਕੀਤੇ ਜਾਣ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ"</string>
+    <!-- no translation found for device_owner_exists (8020080296133337023) -->
+    <skip />
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕੀ ਕਿਉਂਕਿ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਤੇ ਅਧਿਕਤਮ ਉਪਭੋਗਤਾਵਾਂ ਦੀ ਸੀਮਾ ਪੂਰੀ ਹੋ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਉਪਭੋਗਤਾ ਨੂੰ ਹਟਾਓ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਇਸ ਲੌਂਚਰ ਐਪ ਵੱਲੋਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ। ਤੁਹਾਨੂੰ ਇੱਕ ਅਜਿਹੇ ਲੌਂਚਰ ਨਾਲ ਸਵਿਚ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ ਜੋ ਅਨੁਕੂਲ ਹੋਵੇ।"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ਰੱਦ ਕਰੋ"</string>

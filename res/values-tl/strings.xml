@@ -48,6 +48,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Hindi ma-set up ang iyong profile sa trabaho. Makipag-ugnayan sa iyong IT department o subukang muli sa ibang pagkakataon."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Hindi sinusuportahan ng iyong device ang mga profile sa trabaho"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Kailangang i-set up ng pangunahing user ng device ang mga profile sa trabaho"</string>
+    <!-- no translation found for device_owner_exists (8020080296133337023) -->
+    <skip />
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Hindi magawa ang profile sa trabaho dahil naabot na ang maximum na bilang ng mga user sa iyong device. Mangyaring mag-alis ng kahit isang user lang at subukang muli."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ang iyong profile sa trabaho ay hindi sinusuportahan ng launcher app na ito. Kakailanganin mong lumipat sa isang launcher na tugma dito."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Kanselahin"</string>
