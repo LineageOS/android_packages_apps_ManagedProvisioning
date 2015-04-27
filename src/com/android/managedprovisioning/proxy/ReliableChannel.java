@@ -55,7 +55,6 @@ public class ReliableChannel extends Channel {
 
     private boolean mReconnectNeeded = false;
     private final AtomicBoolean mIsShutdown;
-    private final CommPacket mAnnouncePacket;
     private final CommPacket mEndPacket;
 
     /** Used to synchronize reconnecting the socket. */
@@ -70,11 +69,12 @@ public class ReliableChannel extends Channel {
     public ReliableChannel(SocketWrapper socket, CommPacket announcePacket,
             CommPacket endPacket) {
         super(socket);
-        mAnnouncePacket = announcePacket;
         mEndPacket = endPacket;
         // Start off in "Shutdown" state until createConnection() is called.
         mIsShutdown = new AtomicBoolean(true);
         mBuffer = new LinkedBlockingQueue<>();
+        // Make the check in packet the first packet sent
+        mBuffer.add(announcePacket);
     }
 
     public void createConnection() throws IOException {
@@ -83,7 +83,6 @@ public class ReliableChannel extends Channel {
         mIsShutdown.set(false);
         try {
             mSocket.recreate();
-            onConnected();
         } catch (IOException e) {
             ProvisionLogger.logd(e);
             retrySetupConnection(e);
@@ -95,17 +94,6 @@ public class ReliableChannel extends Channel {
         synchronized (mReconnectLock) {
             retrySetupConnectionLocked(retryCause);
         }
-        onConnected();
-    }
-
-    private void onConnected() throws IOException {
-        // This is intentionally putting the announce packet at the end of the buffer.
-        // This will cause all of our queued packets to be flushed before the programmer
-        // denies us a persistent connection due to our device id.
-        if (mAnnouncePacket != null) {
-            write(mAnnouncePacket);
-        }
-        ProvisionLogger.logd("Sending device info...");
     }
 
     /**
