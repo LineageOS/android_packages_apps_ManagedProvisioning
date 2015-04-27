@@ -11,9 +11,10 @@ import android.os.Looper;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
+import com.android.managedprovisioning.comm.ProvisionCommLogger;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams;
-import com.android.managedprovisioning.comm.ProvisionCommLogger;
+import com.android.managedprovisioning.ProvisioningParams.BluetoothInfo;
 import com.android.managedprovisioning.proxy.BluetoothConnectionService;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -38,11 +39,7 @@ public class BluetoothConnectTask {
      */
     private final Handler mHandler;
     private final AtomicBoolean mTaskDone;
-
-    private final boolean mUseBluetoothProxy;
-    private final String mBluetoothMac;
-    private final String mBluetoothUuid;
-    private final String mBluetoothDeviceId;
+    private final BluetoothInfo mBluetoothInfo;
     private final boolean mHasWifiSsid;
     private final BluetoothAdapter mBtAdapter;
 
@@ -60,17 +57,15 @@ public class BluetoothConnectTask {
      */
     private BroadcastReceiver mBtNetworkProxyReceiver;
 
-    public BluetoothConnectTask(Context context, ProvisioningParams params, Callback callback) {
+    public BluetoothConnectTask(Context context, BluetoothInfo bluetoothInfo, boolean hasWifiSsid,
+            Callback callback) {
         mCallback = callback;
         mContext = context;
         // Use the default Bluetooth adapter
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
         // Read provisioning parameters
-        mBluetoothMac = params.mBluetoothMac;
-        mBluetoothUuid = params.mBluetoothUuid;
-        mBluetoothDeviceId = params.mBluetoothDeviceIdentifier;
-        mUseBluetoothProxy = params.mUseBluetoothProxy;
-        mHasWifiSsid = !TextUtils.isEmpty(params.mWifiSsid);
+        mBluetoothInfo = bluetoothInfo;
+        mHasWifiSsid = hasWifiSsid;
         // Handler used to execute onBluetoothEnabled
         HandlerThread thread = new HandlerThread("Timeout thread",
                 android.os.Process.THREAD_PRIORITY_BACKGROUND);
@@ -87,8 +82,8 @@ public class BluetoothConnectTask {
             return;
         }
         // If any of the required fields are invalid, do not connect over Bluetooth.
-        if (TextUtils.isEmpty(mBluetoothMac) || TextUtils.isEmpty(mBluetoothUuid) ||
-                TextUtils.isEmpty(mBluetoothDeviceId)) {
+        if (TextUtils.isEmpty(mBluetoothInfo.mac) || TextUtils.isEmpty(mBluetoothInfo.uuid) ||
+                TextUtils.isEmpty(mBluetoothInfo.deviceIdentifier)) {
             mCallback.onSuccess();
             return;
         }
@@ -165,10 +160,10 @@ public class BluetoothConnectTask {
         // Don't start the Bluetooth proxy if a Wi-Fi network is available. If an SSID is available,
         // assume that a Wi-Fi network will be added and do not start the network proxy. If a
         // Wi-Fi connection is already available, do not use the proxy.
-        ProvisionLogger.logd("useProxy: mUseBluetoothProxy=" + mUseBluetoothProxy +
+        ProvisionLogger.logd("useProxy: mBluetoothInfo.useProxy=" + mBluetoothInfo.useProxy +
                 ", mHasWifiSsid=" + mHasWifiSsid +
                 ", isConnectedToWifi=" + AddWifiNetworkTask.isConnectedToWifi(mContext));
-        boolean useProxy = mUseBluetoothProxy && !mHasWifiSsid &&
+        boolean useProxy = mBluetoothInfo.useProxy && !mHasWifiSsid &&
                 !AddWifiNetworkTask.isConnectedToWifi(mContext);
         // Start Bluetooth Service
         if (useProxy) {
@@ -187,9 +182,10 @@ public class BluetoothConnectTask {
                     new IntentFilter(BluetoothConnectionService.ACTION_LOCAL_BLUETOOTH_SETUP));
         }
         Intent intent = new Intent(mContext, BluetoothConnectionService.class);
-        intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_MAC, mBluetoothMac);
-        intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_UUID, mBluetoothUuid);
-        intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_DEVICE_ID, mBluetoothDeviceId);
+        intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_MAC, mBluetoothInfo.mac);
+        intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_UUID, mBluetoothInfo.uuid);
+        intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_DEVICE_ID,
+                mBluetoothInfo.deviceIdentifier);
         intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_USE_PROXY, useProxy);
         mContext.startService(intent);
         if (!useProxy) {

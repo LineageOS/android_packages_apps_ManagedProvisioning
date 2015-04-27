@@ -28,8 +28,10 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
+import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
 import com.android.managedprovisioning.proxy.BluetoothConnectionService;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.BluetoothConnectTask;
@@ -54,6 +56,9 @@ import java.util.Locale;
  */
 public class DeviceOwnerProvisioningService extends Service {
     private static final boolean DEBUG = false; // To control logging.
+
+    private static final String DEVICE_OWNER = "deviceOwner";
+    private static final String DEVICE_INITIALIZER = "deviceInitializer";
 
     /**
      * Intent action to activate the CDMA phone connection by OTASP.
@@ -156,7 +161,8 @@ public class DeviceOwnerProvisioningService extends Service {
         if (DEBUG) ProvisionLogger.logd("Starting device owner provisioning");
 
         // Construct Tasks. Do not start them yet.
-        mBluetoothConnectTask = new BluetoothConnectTask(this, params,
+        mBluetoothConnectTask = new BluetoothConnectTask(this, params.bluetoothInfo,
+                !TextUtils.isEmpty(params.wifiInfo.ssid),
                 new BluetoothConnectTask.Callback() {
                         @Override
                         public void onSuccess() {
@@ -169,10 +175,8 @@ public class DeviceOwnerProvisioningService extends Service {
                         }
                 });
 
-        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.mWifiSsid,
-               params.mWifiHidden, params.mWifiSecurityType, params.mWifiPassword,
-               params.mWifiProxyHost, params.mWifiProxyPort, params.mWifiProxyBypassHosts,
-               params.mWifiPacUrl, new AddWifiNetworkTask.Callback() {
+        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.wifiInfo,
+                new AddWifiNetworkTask.Callback() {
                        @Override
                        public void onSuccess() {
                            progressUpdate(R.string.progress_wipe_frp);
@@ -186,7 +190,7 @@ public class DeviceOwnerProvisioningService extends Service {
                            }
                        });
 
-        mWipeResetProtectionTask = new WipeResetProtectionTask(this, params,
+        mWipeResetProtectionTask = new WipeResetProtectionTask(this, params.frpChallengeBundle,
                 new WipeResetProtectionTask.Callback() {
                     @Override
                     public void onSuccess() {
@@ -201,17 +205,20 @@ public class DeviceOwnerProvisioningService extends Service {
                     }
                 });
 
-
-        mDownloadPackageTask = new DownloadPackageTask(
-                this, params, new DownloadPackageTask.Callback() {
+        mDownloadPackageTask = new DownloadPackageTask(this,
+                new DownloadPackageTask.Callback() {
                         @Override
                         public void onSuccess() {
                             progressUpdate(R.string.progress_install);
-                            mInstallPackageTask.run(
+                            mInstallPackageTask.addInstallIfNecessary(
+                                    params.inferDeviceAdminPackageName(),
                                     mDownloadPackageTask.getDownloadedPackageLocation(
-                                            DownloadPackageTask.DEVICE_OWNER),
+                                            DEVICE_OWNER));
+                            mInstallPackageTask.addInstallIfNecessary(
+                                    params.getDeviceInitializerPackageName(),
                                     mDownloadPackageTask.getDownloadedPackageLocation(
-                                            DownloadPackageTask.INITIALIZER));
+                                            DEVICE_INITIALIZER));
+                            mInstallPackageTask.run();
                         }
 
                         @Override
@@ -231,8 +238,14 @@ public class DeviceOwnerProvisioningService extends Service {
                         }
                     });
 
-        mInstallPackageTask = new InstallPackageTask(
-                this, params, new InstallPackageTask.Callback() {
+        // Add packages to download to the DownloadPackageTask.
+        mDownloadPackageTask.addDownloadIfNecessary(params.inferDeviceAdminPackageName(),
+                params.deviceAdminDownloadInfo, DEVICE_OWNER);
+        mDownloadPackageTask.addDownloadIfNecessary(params.getDeviceInitializerPackageName(),
+                params.deviceInitializerDownloadInfo, DEVICE_INITIALIZER);
+
+        mInstallPackageTask = new InstallPackageTask(this,
+                new InstallPackageTask.Callback() {
                     @Override
                     public void onSuccess() {
                         progressUpdate(R.string.progress_set_owner);
@@ -268,9 +281,10 @@ public class DeviceOwnerProvisioningService extends Service {
                         statusUpdate(DeviceInitializerStatus.STATUS_ERROR_INSTALL_PACKAGE);
                     }
                 });
+
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
                 getResources().getString(R.string.default_owned_device_username),
-                params.mDeviceInitializerComponentName,
+                params.deviceInitializerComponentName,
                 getResources().getString(R.string.default_owned_device_username),
                 new SetDevicePolicyTask.Callback() {
                     @Override
@@ -298,7 +312,7 @@ public class DeviceOwnerProvisioningService extends Service {
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
                 this, params.inferDeviceAdminPackageName(), R.array.required_apps_managed_device,
                 R.array.vendor_required_apps_managed_device, true /* creating new profile */,
-                UserHandle.USER_OWNER, params.mLeaveAllSystemAppsEnabled,
+                UserHandle.USER_OWNER, params.leaveAllSystemAppsEnabled,
                 new DeleteNonRequiredAppsTask.Callback() {
                     @Override
                     public void onSuccess() {
@@ -382,8 +396,8 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void initializeProvisioningEnvironment(ProvisioningParams params) {
-        setTimeAndTimezone(params.mTimeZone, params.mLocalTime);
-        setLocale(params.mLocale);
+        setTimeAndTimezone(params.timeZone, params.localTime);
+        setLocale(params.locale);
 
         // Start CDMA activation to enable phone calls.
         final Intent intent = new Intent(ACTION_PERFORM_CDMA_PROVISIONING);

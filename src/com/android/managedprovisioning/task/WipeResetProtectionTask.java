@@ -64,15 +64,16 @@ public class WipeResetProtectionTask {
 
     /**
      * @param context used to register receivers and get system services
-     * @param params holds FRP unlock data
+     * @param frpChallengeBundle holds FRP unlock data
      * @param callback called when this task finishes
      */
-    public WipeResetProtectionTask(Context context, ProvisioningParams params, Callback callback) {
+    public WipeResetProtectionTask(Context context, PersistableBundle frpChallengeBundle,
+            Callback callback) {
         mContext = context;
-        if (params.mFrpChallengeBundle == null) {
+        if (frpChallengeBundle == null) {
             mChallengeData = new Bundle();
         } else {
-            mChallengeData = new Bundle(params.mFrpChallengeBundle);
+            mChallengeData = new Bundle(frpChallengeBundle);
         }
         mDataBlockManager = (PersistentDataBlockManager) mContext.getSystemService(
                 Context.PERSISTENT_DATA_BLOCK_SERVICE);
