@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"თქვენი სამუშაო პროფილი ვერ შეიქმნა. დაუკავშირდით თქვენს IT განყოფილებას ან სცადეთ ისევ."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"თქვენს მოწყობილობას არ აქვს სამუშაო პროფილების მხარდაჭერა"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"სამუშაო პროფილების უნდა შეიქმნას მოწყობილობის პირველადი მომხმარებლის მიერ"</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"სამუშაო პროფილების დაყენება არ შეიძლება მართულ მოწყობილობაზე."</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"სამუშაო პროფილი ვერ შეიქმნება, რადგან მიღწეულია თქვენი მოწყობილობის მომხმარებლების მაქსიმალური რაოდენობა. გთხოვთ ამოშალოთ მინიმუმ ერთი მომხმარებელი და ხელახლა სცადოთ."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"თქვენი პროფილი ამ გამშვები აპის მიერ მხარდაჭერილი არ არის. მოგიწევთ გადახვიდეთ თავსებად გამშვებზე."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"გაუქმება"</string>
