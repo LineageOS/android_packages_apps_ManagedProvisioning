@@ -185,57 +185,54 @@ public class MessageParser {
     };
 
     public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
-        bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.mTimeZone);
-        bundle.putString(EXTRA_PROVISIONING_LOCALE, params.getLocaleAsString());
-        bundle.putString(EXTRA_PROVISIONING_WIFI_SSID, params.mWifiSsid);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.mWifiSecurityType);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, params.mWifiPassword);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.mWifiProxyHost);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.mWifiProxyBypassHosts);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.mWifiPacUrl);
+        bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone);
+        bundle.putString(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale));
+        bundle.putString(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.wifiInfo.securityType);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, params.wifiInfo.password);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.wifiInfo.proxyHost);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.wifiInfo.proxyBypassHosts);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.wifiInfo.pacUrl);
+        bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.wifiInfo.proxyPort);
+        bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.wifiInfo.hidden);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                params.mDeviceAdminPackageName);
+                params.deviceAdminPackageName);
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                params.mDeviceAdminComponentName);
+                params.deviceAdminComponentName);
         bundle.putInt(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
-                params.mDeviceAdminMinVersion);
+                params.deviceAdminDownloadInfo.minVersion);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-                params.mDeviceAdminPackageDownloadLocation);
+                params.deviceAdminDownloadInfo.location);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-                params.mDeviceAdminPackageDownloadCookieHeader);
+                params.deviceAdminDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                params.getDeviceAdminPackageChecksumAsString());
+                byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
-                params.mDeviceInitializerComponentName);
+                params.deviceInitializerComponentName);
         bundle.putInt(EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
-                params.mDeviceInitializerMinVersion);
+                params.deviceInitializerDownloadInfo.minVersion);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
-                params.mDeviceInitializerPackageDownloadLocation);
+                params.deviceInitializerDownloadInfo.location);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-                params.mDeviceInitializerPackageDownloadCookieHeader);
+                params.deviceInitializerDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
-                params.getDeviceInitializerPackageChecksumAsString());
-
-        bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.mLocalTime);
-
-        bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.mWifiProxyPort);
-
-        bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.mWifiHidden);
-        bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.mStartedByNfc);
+                byteArrayToString(params.deviceInitializerDownloadInfo.packageChecksum));
+        bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
+        bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
         bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                params.mLeaveAllSystemAppsEnabled);
+                params.leaveAllSystemAppsEnabled);
 
-        bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.mAdminExtrasBundle);
-        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.mSkipEncryption);
+        bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
 
         // Bluetooth parameters
-        bundle.putString(EXTRA_PROVISIONING_BT_MAC_ADDRESS, params.mBluetoothMac);
-        bundle.putString(EXTRA_PROVISIONING_BT_UUID, params.mBluetoothUuid);
-        bundle.putString(EXTRA_PROVISIONING_BT_DEVICE_ID, params.mBluetoothDeviceIdentifier);
-        bundle.putBoolean(EXTRA_PROVISIONING_BT_USE_PROXY, params.mUseBluetoothProxy);
+        bundle.putString(EXTRA_PROVISIONING_BT_MAC_ADDRESS, params.bluetoothInfo.mac);
+        bundle.putString(EXTRA_PROVISIONING_BT_UUID, params.bluetoothInfo.uuid);
+        bundle.putString(EXTRA_PROVISIONING_BT_DEVICE_ID, params.bluetoothInfo.deviceIdentifier);
+        bundle.putBoolean(EXTRA_PROVISIONING_BT_USE_PROXY, params.bluetoothInfo.useProxy);
 
         bundle.putParcelable(EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS,
-                params.mFrpChallengeBundle);
+                params.frpChallengeBundle);
     }
 
     public ProvisioningParams parseIntent(Intent intent)
@@ -264,7 +261,7 @@ public class MessageParser {
                     MIME_TYPE_PROVISIONING_NFC_V2.equals(mimeType)) {
                 ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
                                 , UTF_8));
-                params.mStartedByNfc = true;
+                params.startedByNfc = true;
                 return params;
             }
         }
@@ -283,88 +280,91 @@ public class MessageParser {
             props.load(new StringReader(data));
 
             String s; // Used for parsing non-Strings.
-            params.mTimeZone
+            params.timeZone
                     = props.getProperty(EXTRA_PROVISIONING_TIME_ZONE);
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCALE)) != null) {
-                params.mLocale = stringToLocale(s);
+                params.locale = stringToLocale(s);
             }
-            params.mWifiSsid = props.getProperty(EXTRA_PROVISIONING_WIFI_SSID);
-            params.mWifiSecurityType = props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
-            params.mWifiPassword = props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD);
-            params.mWifiProxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
-            params.mWifiProxyBypassHosts = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
-            params.mWifiPacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
-            params.mDeviceAdminPackageName
+            params.wifiInfo.ssid = props.getProperty(EXTRA_PROVISIONING_WIFI_SSID);
+            params.wifiInfo.securityType = props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
+            params.wifiInfo.password = props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD);
+            params.wifiInfo.proxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
+            params.wifiInfo.proxyBypassHosts =
+                    props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
+            params.wifiInfo.pacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
+            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
+                params.wifiInfo.proxyPort = Integer.parseInt(s);
+            }
+            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
+                params.wifiInfo.hidden = Boolean.parseBoolean(s);
+            }
+
+            params.deviceAdminPackageName
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
             String componentNameString = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
             if (componentNameString != null) {
-                params.mDeviceAdminComponentName = ComponentName.unflattenFromString(
+                params.deviceAdminComponentName = ComponentName.unflattenFromString(
                         componentNameString);
             }
             if ((s = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE)) != null) {
-                params.mDeviceAdminMinVersion = Integer.parseInt(s);
+                params.deviceAdminDownloadInfo.minVersion = Integer.parseInt(s);
             } else {
-                params.mDeviceAdminMinVersion = ProvisioningParams.DEFAULT_MINIMUM_VERSION;
+                params.deviceAdminDownloadInfo.minVersion =
+                        ProvisioningParams.DEFAULT_MINIMUM_VERSION;
             }
-            params.mDeviceAdminPackageDownloadLocation
+            params.deviceAdminDownloadInfo.location
                     = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
-            params.mDeviceAdminPackageDownloadCookieHeader = props.getProperty(
+            params.deviceAdminDownloadInfo.cookieHeader = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
-                params.mDeviceAdminPackageChecksum = stringToByteArray(s);
+                params.deviceAdminDownloadInfo.packageChecksum = stringToByteArray(s);
             }
             String name = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
             if (name != null) {
-                params.mDeviceInitializerComponentName = ComponentName.unflattenFromString(name);
+                params.deviceInitializerComponentName = ComponentName.unflattenFromString(name);
             }
             if ((s = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE)) != null) {
-                params.mDeviceInitializerMinVersion = Integer.parseInt(s);
+                params.deviceInitializerDownloadInfo.minVersion = Integer.parseInt(s);
             } else {
-                params.mDeviceInitializerMinVersion = ProvisioningParams.DEFAULT_MINIMUM_VERSION;
+                params.deviceInitializerDownloadInfo.minVersion =
+                        ProvisioningParams.DEFAULT_MINIMUM_VERSION;
             }
-            params.mDeviceInitializerPackageDownloadLocation = props.getProperty(
+            params.deviceInitializerDownloadInfo.location = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
-            params.mDeviceInitializerPackageDownloadCookieHeader = props.getProperty(
+            params.deviceInitializerDownloadInfo.cookieHeader = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM)) != null) {
-                params.mDeviceInitializerPackageChecksum = stringToByteArray(s);
+                params.deviceInitializerDownloadInfo.packageChecksum = stringToByteArray(s);
             }
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
-                params.mLocalTime = Long.parseLong(s);
-            }
-
-            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
-                params.mWifiProxyPort = Integer.parseInt(s);
-            }
-
-            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
-                params.mWifiHidden = Boolean.parseBoolean(s);
+                params.localTime = Long.parseLong(s);
             }
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED)) != null) {
-                params.mLeaveAllSystemAppsEnabled = Boolean.parseBoolean(s);
+                params.leaveAllSystemAppsEnabled = Boolean.parseBoolean(s);
             }
             if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
-                params.mSkipEncryption = Boolean.parseBoolean(s);
+                params.skipEncryption = Boolean.parseBoolean(s);
             }
 
-            params.mBluetoothMac = props.getProperty(EXTRA_PROVISIONING_BT_MAC_ADDRESS);
-            params.mBluetoothUuid = props.getProperty(EXTRA_PROVISIONING_BT_UUID);
-            params.mBluetoothDeviceIdentifier = props.getProperty(EXTRA_PROVISIONING_BT_DEVICE_ID);
+            params.bluetoothInfo.mac = props.getProperty(EXTRA_PROVISIONING_BT_MAC_ADDRESS);
+            params.bluetoothInfo.uuid = props.getProperty(EXTRA_PROVISIONING_BT_UUID);
+            params.bluetoothInfo.deviceIdentifier =
+                    props.getProperty(EXTRA_PROVISIONING_BT_DEVICE_ID);
             if ((s = props.getProperty(EXTRA_PROVISIONING_BT_USE_PROXY)) != null) {
-                params.mUseBluetoothProxy = Boolean.parseBoolean(s);
+                params.bluetoothInfo.useProxy = Boolean.parseBoolean(s);
             }
 
-            params.mAdminExtrasBundle = deserializeExtrasBundle(props,
+            params.adminExtrasBundle = deserializeExtrasBundle(props,
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
 
-            params.mFrpChallengeBundle = deserializeExtrasBundle(props,
+            params.frpChallengeBundle = deserializeExtrasBundle(props,
                     EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS);
 
             checkValidityOfProvisioningParams(params);
@@ -405,70 +405,72 @@ public class MessageParser {
         ProvisionLogger.logi("Processing intent.");
         ProvisioningParams params = new ProvisioningParams();
 
-        params.mTimeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
+        params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
         if (localeString != null) {
-            params.mLocale = stringToLocale(localeString);
+            params.locale = stringToLocale(localeString);
         }
-        params.mWifiSsid = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID);
-        params.mWifiSecurityType = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
-        params.mWifiPassword = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PASSWORD);
-        params.mWifiProxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
-        params.mWifiProxyBypassHosts = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
-        params.mWifiPacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
-        params.mDeviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
+        params.wifiInfo.ssid = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID);
+        params.wifiInfo.securityType = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
+        params.wifiInfo.password = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PASSWORD);
+        params.wifiInfo.proxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
+        params.wifiInfo.proxyBypassHosts =
+                intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
+        params.wifiInfo.pacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
+        params.wifiInfo.proxyPort = intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
+                ProvisioningParams.DEFAULT_WIFI_PROXY_PORT);
+        params.wifiInfo.hidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
+                ProvisioningParams.DEFAULT_WIFI_HIDDEN);
+
+        params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-        params.mDeviceAdminPackageName
+        params.deviceAdminPackageName
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        params.mDeviceAdminMinVersion = intent.getIntExtra(
+        params.deviceAdminDownloadInfo.minVersion = intent.getIntExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
                 ProvisioningParams.DEFAULT_MINIMUM_VERSION);
-        params.mDeviceAdminPackageDownloadLocation
+        params.deviceAdminDownloadInfo.location
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
-        params.mDeviceAdminPackageDownloadCookieHeader = intent.getStringExtra(
+        params.deviceAdminDownloadInfo.cookieHeader = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
         String hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (hashString != null) {
-            params.mDeviceAdminPackageChecksum = stringToByteArray(hashString);
+            params.deviceAdminDownloadInfo.packageChecksum = stringToByteArray(hashString);
         }
-        params.mDeviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
+        params.deviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
-        params.mDeviceInitializerMinVersion = intent.getIntExtra(
+        params.deviceInitializerDownloadInfo.minVersion = intent.getIntExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
                 ProvisioningParams.DEFAULT_MINIMUM_VERSION);
-        params.mDeviceInitializerPackageDownloadLocation = intent.getStringExtra(
+        params.deviceInitializerDownloadInfo.location = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
-        params.mDeviceInitializerPackageDownloadCookieHeader = intent.getStringExtra(
+        params.deviceInitializerDownloadInfo.cookieHeader = intent.getStringExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
         hashString = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM);
         if (hashString != null) {
-            params.mDeviceInitializerPackageChecksum = stringToByteArray(hashString);
+            params.deviceInitializerDownloadInfo.packageChecksum = stringToByteArray(hashString);
         }
 
-        params.mLocalTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
+        params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
                 ProvisioningParams.DEFAULT_LOCAL_TIME);
-
-        params.mWifiProxyPort = intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-                ProvisioningParams.DEFAULT_WIFI_PROXY_PORT);
-
-        params.mWifiHidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
-                ProvisioningParams.DEFAULT_WIFI_HIDDEN);
-        params.mStartedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
+        params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
                 false);
-        params.mLeaveAllSystemAppsEnabled = intent.getBooleanExtra(
+        params.leaveAllSystemAppsEnabled = intent.getBooleanExtra(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
-        params.mSkipEncryption = intent.getBooleanExtra(
+        params.skipEncryption = intent.getBooleanExtra(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION,
                 ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION);
 
-        params.mBluetoothMac = intent.getStringExtra(EXTRA_PROVISIONING_BT_MAC_ADDRESS);
-        params.mBluetoothUuid = intent.getStringExtra(EXTRA_PROVISIONING_BT_UUID);
-        params.mBluetoothDeviceIdentifier = intent.getStringExtra(EXTRA_PROVISIONING_BT_DEVICE_ID);
-        params.mUseBluetoothProxy = intent.getBooleanExtra(EXTRA_PROVISIONING_BT_USE_PROXY, false);
+        params.bluetoothInfo.mac = intent.getStringExtra(EXTRA_PROVISIONING_BT_MAC_ADDRESS);
+        params.bluetoothInfo.uuid = intent.getStringExtra(EXTRA_PROVISIONING_BT_UUID);
+        params.bluetoothInfo.deviceIdentifier =
+                intent.getStringExtra(EXTRA_PROVISIONING_BT_DEVICE_ID);
+        params.bluetoothInfo.useProxy =
+                intent.getBooleanExtra(EXTRA_PROVISIONING_BT_USE_PROXY, false);
 
         try {
-            params.mAdminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
+            params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra "
@@ -477,7 +479,7 @@ public class MessageParser {
         }
 
         try {
-            params.mFrpChallengeBundle = intent.getParcelableExtra(
+            params.frpChallengeBundle = intent.getParcelableExtra(
                     EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS);
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra "
@@ -494,14 +496,14 @@ public class MessageParser {
      */
     private void checkValidityOfProvisioningParams(ProvisioningParams params)
             throws IllegalProvisioningArgumentException  {
-        if (TextUtils.isEmpty(params.mDeviceAdminPackageName)
-                && params.mDeviceAdminComponentName == null) {
+        if (TextUtils.isEmpty(params.deviceAdminPackageName)
+                && params.deviceAdminComponentName == null) {
             throw new IllegalProvisioningArgumentException("Must provide the name of the device"
                     + " admin package or component name");
         }
-        if (!TextUtils.isEmpty(params.mDeviceAdminPackageDownloadLocation)) {
-            if (params.mDeviceAdminPackageChecksum == null ||
-                    params.mDeviceAdminPackageChecksum.length == 0) {
+        if (!TextUtils.isEmpty(params.deviceAdminDownloadInfo.location)) {
+            if (params.deviceAdminDownloadInfo.packageChecksum == null ||
+                    params.deviceAdminDownloadInfo.packageChecksum.length == 0) {
                 throw new IllegalProvisioningArgumentException("Checksum of installer file is"
                         + " required for downloading device admin file, but not provided.");
             }
@@ -517,8 +519,20 @@ public class MessageParser {
         }
     }
 
-    public static Locale stringToLocale(String s)
+    public static String byteArrayToString(byte[] bytes) {
+        return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+    }
+
+    public static Locale stringToLocale(String string)
         throws IllformedLocaleException {
-        return new Locale.Builder().setLanguageTag(s.replace("_", "-")).build();
+        return new Locale.Builder().setLanguageTag(string.replace("_", "-")).build();
+    }
+
+    public static String localeToString(Locale locale) {
+        if (locale != null) {
+            return locale.getLanguage() + "_" + locale.getCountry();
+        } else {
+            return null;
+        }
     }
 }
