@@ -17,7 +17,7 @@ LOCAL_PACKAGE_NAME := ManagedProvisioning
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 
-include frameworks/opt/setupwizard/navigationbar/common.mk
+include frameworks/opt/setupwizard/library/common.mk
 
 include $(BUILD_PACKAGE)
 

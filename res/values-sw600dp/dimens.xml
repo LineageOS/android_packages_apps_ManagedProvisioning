@@ -16,20 +16,11 @@
  * limitations under the License.
  */
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MainTextContainer" >
-    <ScrollView
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        style="@style/ScrollView">
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/encrypt_main_text"
-                style="@style/MainText"/>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+<resources>
+
+    <!-- Main text -->
+    <dimen name="main_text_padding_top">40dp</dimen>
+
+    <!-- Dialog Fragment text -->
+    <dimen name="dialog_fragment_width">548dp</dimen>
+</resources>

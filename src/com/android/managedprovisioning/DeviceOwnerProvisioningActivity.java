@@ -33,13 +33,10 @@ import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
-import com.android.setupwizard.navigationbar.SetupWizardNavBar;
-import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,8 +65,8 @@ import java.util.List;
  * repeated. We made sure that all tasks can be done twice without causing any problems.
  * </p>
  */
-public class DeviceOwnerProvisioningActivity extends Activity
-        implements UserConsentDialog.ConsentCallback, NavigationBarListener {
+public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
+        implements UserConsentDialog.ConsentCallback{
     private static final boolean DEBUG = false; // To control logging.
 
     private static final String KEY_USER_CONSENTED = "user_consented";
@@ -78,10 +75,6 @@ public class DeviceOwnerProvisioningActivity extends Activity
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     private static final int WIFI_REQUEST_CODE = 2;
-
-    // Hide default system navigation bar.
-    protected static final int IMMERSIVE_FLAGS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
@@ -112,12 +105,10 @@ public class DeviceOwnerProvisioningActivity extends Activity
         }
 
         // Setup the UI.
-        final LayoutInflater inflater = getLayoutInflater();
-        final View contentView = inflater.inflate(R.layout.progress, null);
-        setContentView(contentView);
+        initializeLayoutParams(R.layout.progress, R.string.setup_work_device, true);
+        configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
+
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
-        TextView titleText = (TextView) findViewById(R.id.title);
-        if (titleText != null) titleText.setText(getString(R.string.setup_work_device));
         if (mCancelDialogShown) showCancelResetDialog();
 
         // Check whether we have already provisioned this user.
@@ -359,8 +350,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
                                 finish();
                             }
                         })
-                .show()
-                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
+                .show();
     }
 
     private void handlePendingIntents() {
@@ -436,7 +426,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
                         }
                     });
         }
-        alertBuilder.show().getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
+        alertBuilder.show();
     }
 
     @Override
@@ -479,19 +469,4 @@ public class DeviceOwnerProvisioningActivity extends Activity
         if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONSTOP");
         super.onStop();
     }
-
-    @Override
-    public void onNavigationBarCreated(SetupWizardNavBar bar) {
-        bar.getNextButton().setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    public void onNavigateBack() {
-        onBackPressed();
-    }
-
-    @Override
-    public void onNavigateNext() {
-    }
 }
-
