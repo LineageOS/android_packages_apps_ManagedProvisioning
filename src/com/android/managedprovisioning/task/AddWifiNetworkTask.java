@@ -29,8 +29,10 @@ import android.text.TextUtils;
 import java.lang.Thread;
 
 import com.android.managedprovisioning.NetworkMonitor;
+import com.android.managedprovisioning.ProvisioningParams.WifiInfo;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.WifiConfig;
+
 
 /**
  * Adds a wifi network to system.
@@ -42,14 +44,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     private static final int RECONNECT_TIMEOUT_MS = 30000;
 
     private final Context mContext;
-    private final String mSsid;
-    private final boolean mHidden;
-    private final String mSecurityType;
-    private final String mPassword;
-    private final String mProxyHost;
-    private final int mProxyPort;
-    private final String mProxyBypassHosts;
-    private final String mPacUrl;
+    private final WifiInfo mWifiInfo;
     private final Callback mCallback;
 
     private WifiManager mWifiManager;
@@ -65,19 +60,10 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     /**
      * @throws IllegalArgumentException if the {@code ssid} parameter is empty.
      */
-    public AddWifiNetworkTask(Context context, String ssid, boolean hidden, String securityType,
-            String password, String proxyHost, int proxyPort, String proxyBypassHosts,
-            String pacUrl, Callback callback) {
+    public AddWifiNetworkTask(Context context, WifiInfo wifiInfo, Callback callback) {
         mCallback = callback;
         mContext = context;
-        mSsid = ssid;
-        mHidden = hidden;
-        mSecurityType = securityType;
-        mPassword = password;
-        mProxyHost = proxyHost;
-        mProxyPort = proxyPort;
-        mProxyBypassHosts = proxyBypassHosts;
-        mPacUrl = pacUrl;
+        mWifiInfo = wifiInfo;
         mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         mWifiConfig = new WifiConfig(mWifiManager);
 
@@ -89,7 +75,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     }
 
     public void run() {
-        if (TextUtils.isEmpty(mSsid)) {
+        if (TextUtils.isEmpty(mWifiInfo.ssid)) {
             mCallback.onSuccess();
             return;
         }
@@ -109,8 +95,9 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     }
 
     private void connectToProvidedNetwork() {
-        int netId = mWifiConfig.addNetwork(mSsid, mHidden, mSecurityType, mPassword, mProxyHost,
-                mProxyPort, mProxyBypassHosts, mPacUrl);
+        int netId = mWifiConfig.addNetwork(mWifiInfo.ssid, mWifiInfo.hidden, mWifiInfo.securityType,
+                mWifiInfo.password, mWifiInfo.proxyHost, mWifiInfo.proxyPort,
+                mWifiInfo.proxyBypassHosts, mWifiInfo.pacUrl);
 
         if (netId == -1) {
             ProvisionLogger.loge("Failed to save network.");
@@ -194,7 +181,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     private boolean isConnectedToSpecifiedWifi() {
         return NetworkMonitor.isConnectedToWifi(mContext)
                 && mWifiManager.getConnectionInfo() != null
-                && mSsid.equals(mWifiManager.getConnectionInfo().getSSID());
+                && mWifiInfo.ssid.equals(mWifiManager.getConnectionInfo().getSSID());
     }
 
     public static boolean isConnectedToWifi(Context context) {

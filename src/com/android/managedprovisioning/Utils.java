@@ -237,4 +237,22 @@ public class Utils {
         return user != null ? user.isManagedProfile() : false;
     }
 
+    /**
+     * Returns true if the given package does not exist on the device or if its version code is less
+     * than the given version, and false otherwise.
+     */
+    public static boolean packageRequiresUpdate(String packageName, int minSupportedVersion,
+            Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
+            if (packageInfo.versionCode >= minSupportedVersion) {
+                return false;
+            }
+        } catch (NameNotFoundException e) {
+            // Package not on device.
+        }
+
+        return true;
+    }
+
 }

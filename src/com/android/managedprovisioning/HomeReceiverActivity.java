@@ -72,11 +72,11 @@ public class HomeReceiverActivity extends Activity {
         }
 
         // Disable the Device Initializer component, if it exists, in case it did not do so itself.
-        if(mParams.mDeviceInitializerComponentName != null) {
+        if(mParams.deviceInitializerComponentName != null) {
             DevicePolicyManager devicePolicyManager =
                     (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
-            devicePolicyManager.removeActiveAdmin(mParams.mDeviceInitializerComponentName);
-            disableComponent(mParams.mDeviceInitializerComponentName);
+            devicePolicyManager.removeActiveAdmin(mParams.deviceInitializerComponentName);
+            disableComponent(mParams.deviceInitializerComponentName);
         }
 
         // Finalizing provisioning: send complete intent to mdm.
@@ -89,9 +89,9 @@ public class HomeReceiverActivity extends Activity {
         }
         result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                 Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mParams.mAdminExtrasBundle != null) {
+        if (mParams.adminExtrasBundle != null) {
             result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mParams.mAdminExtrasBundle);
+                    mParams.adminExtrasBundle);
         }
         sendBroadcast(result);
 

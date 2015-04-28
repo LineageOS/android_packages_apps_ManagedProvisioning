@@ -162,7 +162,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
         // Ask to encrypt the device before proceeding
         if (!(EncryptDeviceActivity.isDeviceEncrypted()
                         || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
-                        || mParams.mSkipEncryption)) {
+                        || mParams.skipEncryption)) {
             requestEncryption(parser, mParams);
             finish();
             return;
@@ -170,8 +170,8 @@ public class DeviceOwnerProvisioningActivity extends Activity
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.mWifiSsid) &&
-                !mParams.mUseBluetoothProxy) {
+        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.wifiInfo.ssid)
+                && !mParams.bluetoothInfo.useProxy) {
             requestWifiPick();
             return;
             // Wait for onActivityResult.
@@ -181,7 +181,7 @@ public class DeviceOwnerProvisioningActivity extends Activity
     }
 
     private void showInterstitialAndProvision(final ProvisioningParams params) {
-        if (mUserConsented || params.mStartedByNfc || !Utils.isCurrentUserOwner()) {
+        if (mUserConsented || params.startedByNfc || !Utils.isCurrentUserOwner()) {
             startDeviceOwnerProvisioningService(params);
         } else {
             // Notify the user that the admin will have full control over the device,
@@ -254,14 +254,14 @@ public class DeviceOwnerProvisioningActivity extends Activity
 
 
     private void onProvisioningSuccess() {
-        if (mParams.mDeviceInitializerComponentName != null) {
+        if (mParams.deviceInitializerComponentName != null) {
             Intent result = new Intent(ACTION_READY_FOR_USER_INITIALIZATION);
-            result.setComponent(mParams.mDeviceInitializerComponentName);
+            result.setComponent(mParams.deviceInitializerComponentName);
             result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                     Intent.FLAG_RECEIVER_FOREGROUND);
-            if (mParams.mAdminExtrasBundle != null) {
+            if (mParams.adminExtrasBundle != null) {
                 result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                        mParams.mAdminExtrasBundle);
+                        mParams.adminExtrasBundle);
             }
             List<ResolveInfo> matchingReceivers =
                     getPackageManager().queryBroadcastReceivers(result, 0);

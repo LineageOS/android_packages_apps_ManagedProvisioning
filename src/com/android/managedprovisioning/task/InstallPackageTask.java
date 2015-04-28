@@ -35,8 +35,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Optionally installs device owner and device initializer packages. Can install a downloaded apk,
- * or install an existing package which is already installed for a different user.
+ * Installs all packages that were added. Can install a downloaded apk, or install an existing
+ * package which is already installed for a different user.
  * <p>
  * Before installing from a downloaded file, each file is checked to ensure it contains the correct
  * package and admin receiver.
@@ -49,8 +49,6 @@ public class InstallPackageTask {
 
     private final Context mContext;
     private final Callback mCallback;
-    private final String mDeviceAdminPackageName;
-    private final String mDeviceInitializerPackageName;
 
     private PackageManager mPm;
     private int mPackageVerifierEnable;
@@ -58,51 +56,36 @@ public class InstallPackageTask {
 
     /**
      * Create an InstallPackageTask. When run, this will attempt to install the device initializer
-     * and device admin packages if they are specified in {@code params}.
+     * and device admin packages if they are non-null.
      *
      * {@see #run(String, String)} for more detail on package installation.
      */
-    public InstallPackageTask (Context context, ProvisioningParams params, Callback callback) {
+    public InstallPackageTask (Context context, Callback callback) {
         mCallback = callback;
         mContext = context;
-        mDeviceAdminPackageName = params.inferDeviceAdminPackageName();
-
-        if (params.mDeviceInitializerComponentName != null) {
-            mDeviceInitializerPackageName = params.mDeviceInitializerComponentName.getPackageName();
-        } else {
-            mDeviceInitializerPackageName = null;
-        }
-
         mPackagesToInstall = new HashSet<InstallInfo>();
         mPm = mContext.getPackageManager();
     }
 
     /**
-     * Install the device admin and device initializer packages. Each package will be installed from
-     * the given location if one is provided. If a null or empty location is provided, and the
+     * Should be called before {@link #run}.
+     */
+    public void addInstallIfNecessary(String packageName, String packageLocation) {
+        if (!TextUtils.isEmpty(packageName)) {
+            mPackagesToInstall.add(new InstallInfo(packageName, packageLocation));
+        }
+    }
+
+    /**
+     * Install all packages given by {@link #addPackageToInstall}. Each package will be installed
+     * from the given location if one is provided. If a null or empty location is provided, and the
      * package is installed for a different user, it will be enabled for the calling user. If the
      * package location is not provided and the package is not installed for any other users, this
      * task will produce an error.
      *
      * Errors will be indicated if a downloaded package is invalid, or installation fails.
-     *
-     * @param deviceAdminPackageLocation The file system location of a downloaded device admin
-     *                                   package. If null, the package will be installed from
-     *                                   another user if possible.
-     * @param deviceInitializerPackageLocation The file system location of a downloaded device
-     *                                         initializer package. If null, the package will be
-     *                                         installed from another user if possible.
      */
-    public void run(String deviceAdminPackageLocation, String deviceInitializerPackageLocation) {
-        if (!TextUtils.isEmpty(mDeviceAdminPackageName)) {
-            mPackagesToInstall.add(new InstallInfo(
-                    mDeviceAdminPackageName, deviceAdminPackageLocation));
-        }
-        if (!TextUtils.isEmpty(mDeviceInitializerPackageName)) {
-            mPackagesToInstall.add(new InstallInfo(
-                    mDeviceInitializerPackageName, deviceInitializerPackageLocation));
-        }
-
+    public void run() {
         if (mPackagesToInstall.size() == 0) {
             ProvisionLogger.loge("No downloaded packages to install");
             mCallback.onSuccess();
