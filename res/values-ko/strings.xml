@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"직장 프로필을 설정할 수 없습니다. IT 부서에 문의하거나 나중에 다시 시도해 주시기 바랍니다."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"직장 프로필을 지원하지 않는 기기입니다."</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"직장 프로필은 기기의 기본 사용자가 설정해야 합니다."</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"직장 프로필은 관리 대상 기기에서 설정할 수 없습니다."</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"기기에 허용되는 최대 사용자 수에 도달하여 직장 프로필을 만들 수 없습니다. 하나 이상의 사용자 프로필을 삭제하고 다시 시도해 주세요."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"이 런처 앱은 직장 프로필을 지원하지 않습니다. 호환되는 런처로 전환해야 합니다."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"취소"</string>

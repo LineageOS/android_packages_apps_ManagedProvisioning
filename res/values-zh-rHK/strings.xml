@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定您的公司檔案，請與您的 IT 部門聯絡或稍後再試。"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"您的裝置不支援公司檔案"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"工作設定檔必須由裝置的主要使用者設定"</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"公司檔案不能於受他人管理的裝置上設定"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"裝置使用者人數已滿，無法建立工作設定檔。請刪除至少一位使用者，然後重試。"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"這個應用程式啟動器不支援您的公司檔案，請切換至相容的應用程式啟動器。"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>

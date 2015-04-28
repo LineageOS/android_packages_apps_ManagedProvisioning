@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"មិន​អាច​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក ឬ​ព្យាយាម​ម្ដងទៀត​ពេល​ក្រោយ។"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ឧបករណ៍​របស់​អ្នក​មិន​គាំទ្រ​ប្រវត្តិរូប​ការងារ។"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ប្រវត្តិការងារត្រូវកំណត់ដោយអ្នកប្រើបឋមនៃឧបករណ៍នេះ"</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"ប្រវត្តិរូបការងារមិនអាចកំណត់ឡើងវិញបានទេនៅលើឧបករណ៍ដែលបានគ្រប់គ្រង"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"ទម្រង់ការងារមិនអាចបង្កើតបានទេ ពីព្រោះចំនួនអ្នកប្រើនៅលើឧបករណ៍របស់អ្នកបានឈានដល់កម្រិតអតិបរមាហើយ។ សូមយកអ្នកប្រើយ៉ាងហោចណាស់មួយចេញ។"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ប្រវត្តិរូប​ការងារ​របស់​អ្នក​មិន​ត្រូវ​បាន​គាំទ្រ​ដោយ​កម្មវិធី​ launcher នេះ​នៅ​ឡើយ​ទេ។ អ្នក​នឹង​ត្រូវ​ប្ដូរ​ទៅ launcher ដែល​ត្រូវ​គ្នា។"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"បោះបង់"</string>
