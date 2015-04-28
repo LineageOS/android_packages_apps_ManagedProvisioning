@@ -34,6 +34,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import java.util.HashSet;
 import java.util.List;
@@ -255,4 +256,16 @@ public class Utils {
         return true;
     }
 
+    public static byte[] stringToByteArray(String s)
+        throws NumberFormatException {
+        try {
+            return Base64.decode(s, Base64.URL_SAFE);
+        } catch (IllegalArgumentException e) {
+            throw new NumberFormatException("Incorrect format. Should be Url-safe Base64 encoded.");
+        }
+    }
+
+    public static String byteArrayToString(byte[] bytes) {
+        return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+    }
 }

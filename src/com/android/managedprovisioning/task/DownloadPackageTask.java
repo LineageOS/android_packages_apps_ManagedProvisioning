@@ -26,6 +26,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -42,13 +43,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 /**
- * Downloads all packages that were added. Also checks that each file's hash matches a given hash to
- * verify that the downloaded files are the ones that are expected.
+ * Downloads all packages that were added. Also verifies that the downloaded files are the ones that
+ * are expected.
  */
 public class DownloadPackageTask {
+    private static final boolean DEBUG = false; // To control logging.
+
     public static final int ERROR_HASH_MISMATCH = 0;
     public static final int ERROR_DOWNLOAD_FAILED = 1;
     public static final int ERROR_OTHER = 2;
@@ -158,9 +163,10 @@ public class DownloadPackageTask {
     }
 
     /**
-     * For a given successful download, check that the downloaded file is the expected file. Check
-     * if this was the last file the task had to download and finish the DownloadPackageTask if that
-     * is the case.
+     * For a given successful download, check that the downloaded file is the expected file.
+     * If the package hash is provided then that is used, otherwise a certificate hash is used.
+     * Then check if this was the last file the task had to download and finish the
+     * DownloadPackageTask if that is the case.
      * @param downloadId the unique download id for the completed download.
      * @param location the file location of the downloaded file.
      */
@@ -178,29 +184,72 @@ public class DownloadPackageTask {
             info.mDoneDownloading = true;
         }
         ProvisionLogger.logd("Downloaded succesfully to: " + location);
+        info.mLocation = location;
 
-        // Check whether hash of downloaded file matches hash given in constructor.
-        byte[] hash = computeHash(location);
-        if (hash == null) {
-            // Error should have been reported in computeHash().
-            return;
+        boolean downloadedContentsCorrect = false;
+        if (info.mPackageDownloadInfo.packageChecksum.length > 0) {
+            downloadedContentsCorrect = doesPackageHashMatch(info);
+        } else if (info.mPackageDownloadInfo.certificateChecksum.length > 0) {
+            downloadedContentsCorrect = doesACertificateHashMatch(info);
         }
 
-        if (Arrays.equals(info.mPackageDownloadInfo.packageChecksum, hash)) {
-            ProvisionLogger.logd(HASH_TYPE + "-hashes matched, both are "
-                    + byteArrayToString(hash));
-            info.mLocation = location;
+        if (downloadedContentsCorrect) {
             info.mSuccess = true;
             checkSuccess();
         } else {
-            ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file does not match given hash.");
-            ProvisionLogger.loge(HASH_TYPE + "-hash of downloaded file: "
-                    + byteArrayToString(hash));
-            ProvisionLogger.loge(HASH_TYPE + "-hash provided by programmer: "
-                    + byteArrayToString(info.mPackageDownloadInfo.packageChecksum));
-
             mCallback.onError(ERROR_HASH_MISMATCH);
         }
+    }
+
+    private boolean doesPackageHashMatch(DownloadStatusInfo info) {
+        // Check whether package hash of downloaded file matches the hash given in constructor.
+        ProvisionLogger.logd("Checking " + HASH_TYPE
+                + "-hash of entire apk file.");
+        byte[] packageHash = computeHashOfFile(info.mLocation);
+        if (packageHash == null) {
+            // Error should have been reported in computeHashOfFile().
+            return false;
+        }
+
+        if (Arrays.equals(info.mPackageDownloadInfo.packageChecksum, packageHash)) {
+            return true;
+        }
+
+        ProvisionLogger.loge("Provided hash does not match file hash.");
+        ProvisionLogger.loge("Hash provided by programmer: "
+                + Utils.byteArrayToString(info.mPackageDownloadInfo.packageChecksum));
+        ProvisionLogger.loge("Hash computed from file: " + Utils.byteArrayToString(packageHash));
+        return false;
+    }
+
+    private boolean doesACertificateHashMatch(DownloadStatusInfo info) {
+        // Check whether a certificate hash of downloaded apk matches the hash given in constructor.
+        ProvisionLogger.logd("Checking " + HASH_TYPE
+                + "-hashes of all certificates of downloaded package.");
+        List<byte[]> certHashes = computeHashesOfAllCertificates(info.mLocation);
+        if (certHashes == null) {
+            // Error should have been reported in computeHashesOfAllCertificates().
+            return false;
+        }
+        if (certHashes.isEmpty()) {
+            ProvisionLogger.loge("Downloaded package does not have any certificates.");
+            return false;
+        }
+        for (byte[] certHash : certHashes) {
+            if (Arrays.equals(certHash, info.mPackageDownloadInfo.certificateChecksum)) {
+                return true;
+            }
+        }
+
+        ProvisionLogger.loge("Provided hash does not match any certificate hash.");
+        ProvisionLogger.loge("Hash provided by programmer: "
+                + Utils.byteArrayToString(info.mPackageDownloadInfo.certificateChecksum));
+        ProvisionLogger.loge("Hashes computed from package certificates: ");
+        for (byte[] certHash : certHashes) {
+            ProvisionLogger.loge(Utils.byteArrayToString(certHash));
+        }
+
+        return false;
     }
 
     private void checkSuccess() {
@@ -219,7 +268,7 @@ public class DownloadPackageTask {
         mCallback.onError(ERROR_DOWNLOAD_FAILED);
     }
 
-    private byte[] computeHash(String fileLocation) {
+    private byte[] computeHashOfFile(String fileLocation) {
         InputStream fis = null;
         MessageDigest md;
         byte hash[] = null;
@@ -267,6 +316,31 @@ public class DownloadPackageTask {
         return "";
     }
 
+    private List<byte[]> computeHashesOfAllCertificates(String packageArchiveLocation) {
+        PackageInfo info = mPm.getPackageArchiveInfo(packageArchiveLocation,
+                PackageManager.GET_SIGNATURES);
+
+        List<byte[]> hashes = new LinkedList<byte[]>();
+        Signature signatures[] = info.signatures;
+        try {
+            for (Signature signature : signatures) {
+               byte[] hash = computeHashOfByteArray(signature.toByteArray());
+               hashes.add(hash);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            ProvisionLogger.loge("Hashing algorithm " + HASH_TYPE + " not supported.", e);
+            mCallback.onError(ERROR_OTHER);
+            return null;
+        }
+        return hashes;
+    }
+
+    private byte[] computeHashOfByteArray(byte[] bytes) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance(HASH_TYPE);
+        md.update(bytes, 0, bytes.length);
+        return md.digest();
+    }
+
     public void cleanUp() {
         if (mReceiver != null) {
             //Unregister receiver.
@@ -286,11 +360,6 @@ public class DownloadPackageTask {
                 // Ignore this error. Failing cleanup should not stop provisioning flow.
             }
         }
-    }
-
-    // For logging purposes only.
-    String byteArrayToString(byte[] ba) {
-        return Base64.encodeToString(ba, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
     public abstract static class Callback {
