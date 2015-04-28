@@ -88,8 +88,11 @@ public class ProvisioningParams implements Parcelable {
         public String location;
         // Cookie header for http request
         public String cookieHeader;
-        // SHA-1 sum of the .apk file
+        // One of the following two checksums should be non empty.
+        // SHA-1 hash of the .apk file, or empty array if not used.
         public byte[] packageChecksum = new byte[0];
+        // SHA-1 hash of the certificate in the .apk file, or empty array if not used.
+        public byte[] certificateChecksum = new byte[0];
         public int minVersion;
 
         public void writeToParcel(Parcel out) {
@@ -97,6 +100,7 @@ public class ProvisioningParams implements Parcelable {
             out.writeString(location);
             out.writeString(cookieHeader);
             out.writeByteArray(packageChecksum);
+            out.writeByteArray(certificateChecksum);
         }
 
         public void readFromParcel(Parcel in) {
@@ -104,6 +108,7 @@ public class ProvisioningParams implements Parcelable {
             location = in.readString();
             cookieHeader = in.readString();
             packageChecksum = in.createByteArray();
+            certificateChecksum = in.createByteArray();
         }
     }
     public PackageDownloadInfo deviceAdminDownloadInfo = new PackageDownloadInfo();
