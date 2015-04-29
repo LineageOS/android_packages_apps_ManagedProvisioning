@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nuk mundi ta konfiguronte profilin tënd të punës. Kontakto departamentin e informatikës ose provo sërish më vonë."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Pajisja nuk mbështet profile pune"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Profilet e punës duhen konfiguruar nga përdoruesi parësor i pajisjes"</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"Profilet e punës nuk mund të konfigurohen në një pajisje të menaxhuar"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Profili i punës nuk mundi të krijohej sepse është arritur numri maksimal i përdoruesve në pajisje. Hiq të paktën një përdorues dhe provo sërish."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profili i punës nuk mbështetet nga ky aplikacion nisës. Nevojitet të kalosh në një nisës të pajtueshëm."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Anulo"</string>

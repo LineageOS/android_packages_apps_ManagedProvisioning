@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपकी कार्य प्रोफ़ाइल सेट नहीं की जा सकी. अपने IT विभाग से संपर्क करें या बाद में पुन: प्रयास करें."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"आपका डिवाइस कार्य प्रोफ़ाइल का समर्थन नहीं करता"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"कार्य प्रोफ़ाइलें डिवाइस के प्राथमिक उपयोगकर्ता के द्वारा सेट की जानी चाहिए"</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"कार्य प्रोफ़ाइल किसी प्रबंधित डिवाइस पर सेटअप नहीं की जा सकतीं"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"कार्य प्रोफ़ाइल नहीं बनाई जा सकती क्‍योंकि आपका डिवाइस उपयोगकर्ताओं की अधिकतम संख्‍या तक पहुंच गया है. कृपया कम से कम एक उपयोगकर्ता को निकालें और पुन: प्रयास करें."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"आपकी कार्य प्रोफ़ाइल इस लॉन्चर ऐप्स द्वारा समर्थित नहीं है. आपको किसी संगत लॉन्चर पर स्विच करना होगा."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"अभी नहीं"</string>

@@ -48,8 +48,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ishchi profilingizni sozlab bo‘lmadi. IT bo‘limiga murojaat qiling yoki keyinroq qayta urinib ko‘ring."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Qurilmangiz ishchi profillarni qo‘llab-quvvatlamaydi"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Ishchi profillar qurilmaning asosiy egasi tomonidan sozlanishi lozim"</string>
-    <!-- no translation found for device_owner_exists (8020080296133337023) -->
-    <skip />
+    <string name="device_owner_exists" msgid="8020080296133337023">"Ishchi profillar boshqariladigan qurilmalarda qo‘llab-quvvatlanmaydi"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Qurilmangizdagi foydalanuvchilar soni maksimal miqdorga yetgani tufayli ishchi profil yaratib bo‘lmadi. Kamida bitta foydalanuvchini o‘chirib tashlang va qaytadan urining."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ishchi profilingiz ushbu launcher ilovasi tomonidan qo‘llab-quvvatlanmaydi. Mos launcher rejimiga o‘tishingiz lozim."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Bekor qilish"</string>
