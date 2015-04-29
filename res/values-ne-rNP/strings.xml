@@ -56,7 +56,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"आफ्नो यन्त्र सेट अप गर्नुहोस्"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"स्थापना डेटा प्रशोधन गर्दै..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"ब्लुटुथ सुरूगर्दै..."</string>
+    <string name="progress_start_bluetooth" msgid="3798479957601150661">"ब्लुटुथ सुरू गर्दै..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"वाइफाइ जडान गर्दै..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"कारखाना संरक्षण रिसेट जाँचगर्दै..."</string>
     <string name="progress_download" msgid="4995057798189799156">"प्रशासनिक अनुप्रयोग डाउनलोड गर्दै..."</string>
