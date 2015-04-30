@@ -31,8 +31,12 @@
   <string name="setup_work_profile">Set up your profile</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <string name="company_controls_workspace">Your organization controls this profile and keeps it secure. You control everything else on your device.</string>
+  <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
+  <string name="company_controls_device">With Android for Work, your organization can manage your corporate email and other apps on your phone or tablet.\nYour organization controls your device and keeps it secure.</string>
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
   <string name="the_following_is_your_mdm">The following app will need to access this profile:</string>
+  <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
+  <string name="the_following_is_your_mdm_for_device">The following app will manage your device:</string>
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
   <string name="set_up">Set up</string>
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
