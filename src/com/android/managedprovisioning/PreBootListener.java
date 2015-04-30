@@ -53,6 +53,8 @@ public class PreBootListener extends BroadcastReceiver {
                 deleteNonRequiredApps(context, dpm.getDeviceOwner(), UserHandle.USER_OWNER,
                         R.array.required_apps_managed_device,
                         R.array.vendor_required_apps_managed_device,
+                        R.array.disallowed_apps_managed_device,
+                        R.array.vendor_disallowed_apps_managed_device,
                         false /* Do not disable INSTALL_SHORTCUT listeners */);
         }
 
@@ -84,15 +86,18 @@ public class PreBootListener extends BroadcastReceiver {
             deleteNonRequiredApps(context, profileOwner.getPackageName(), userInfo.id,
                     R.array.required_apps_managed_profile,
                     R.array.vendor_required_apps_managed_profile,
+                    R.array.disallowed_apps_managed_profile,
+                    R.array.vendor_disallowed_apps_managed_profile,
                     true /* Disable INSTALL_SHORTCUT listeners */);
         }
     }
 
     private void deleteNonRequiredApps(Context context, String mdmPackageName, int userId,
-            int requiredAppsList, int vendorRequiredAppsList,
-            boolean disableInstallShortcutListeners) {
+            int requiredAppsList, int vendorRequiredAppsList, int disallowedAppsList,
+            int vendorDisallowedAppsList, boolean disableInstallShortcutListeners) {
         new DeleteNonRequiredAppsTask(context, mdmPackageName, userId,
                 requiredAppsList, vendorRequiredAppsList,
+                disallowedAppsList, vendorDisallowedAppsList,
                 false /*we are not creating a new profile*/,
                 disableInstallShortcutListeners,
                 new DeleteNonRequiredAppsTask.Callback() {

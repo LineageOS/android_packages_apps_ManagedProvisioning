@@ -220,6 +220,8 @@ public class ProfileOwnerProvisioningService extends Service {
                     mMdmPackageName, mManagedProfileUserInfo.id,
                     R.array.required_apps_managed_profile,
                     R.array.vendor_required_apps_managed_profile,
+                    R.array.disallowed_apps_managed_profile,
+                    R.array.vendor_disallowed_apps_managed_profile,
                     true /* We are creating a new profile */,
                     true /* Disable INSTALL_SHORTCUT listeners */,
                     new DeleteNonRequiredAppsTask.Callback() {

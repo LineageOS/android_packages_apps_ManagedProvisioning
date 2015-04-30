@@ -24,9 +24,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.ComponentInfo;
 import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Xml;
@@ -52,7 +54,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 
 /**
- * Removes all system apps with a launcher that are not required.
+ * Removes all preinstalled apps that are not required and have a launcher icon or are disallowed.
  * Also disables sharing via Bluetooth, and components that listen to
  * ACTION_INSTALL_SHORTCUT.
  * This class is called a first time when a user is created, but also after a system update.
@@ -64,29 +66,37 @@ public class DeleteNonRequiredAppsTask {
     private final IPackageManager mIpm;
     private final String mMdmPackageName;
     private final PackageManager mPm;
-    private final int mReqAppsList;
-    private final int mVendorReqAppsList;
+    private final List<String> mRequiredAppsList;
+    private final List<String> mDisallowedAppsList;
+    private final List<String> mVendorRequiredAppsList;
+    private final List<String> mVendorDisallowedAppsList;
     private final int mUserId;
     private final boolean mNewProfile; // If we are provisioning a new managed profile/device.
-    private final boolean mDisableInstallShortcutListenersAndTelecom;
+    private final boolean mDisableInstallShortcutListeners;
 
     private static final String TAG_SYSTEM_APPS = "system-apps";
     private static final String TAG_PACKAGE_LIST_ITEM = "item";
     private static final String ATTR_VALUE = "value";
 
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName, int userId,
-            int requiredAppsList, int vendorRequiredAppsList, boolean newProfile,
-            boolean disableInstallShortcutListenersAndTelecom, Callback callback) {
+            int requiredAppsList, int vendorRequiredAppsList, int disallowedAppsList,
+            int vendorDisallowedAppList, boolean newProfile,
+            boolean disableInstallShortcutListeners, Callback callback) {
         mCallback = callback;
         mContext = context;
         mMdmPackageName = mdmPackageName;
         mUserId = userId;
         mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
         mPm = context.getPackageManager();
-        mReqAppsList = requiredAppsList;
-        mVendorReqAppsList = vendorRequiredAppsList;
+
+        Resources resources = mContext.getResources();
+        mRequiredAppsList = Arrays.asList(resources.getStringArray(requiredAppsList));
+        mDisallowedAppsList = Arrays.asList(resources.getStringArray(disallowedAppsList));
+        mVendorRequiredAppsList = Arrays.asList(resources.getStringArray(vendorRequiredAppsList));
+        mVendorDisallowedAppsList =
+                Arrays.asList(resources.getStringArray(vendorDisallowedAppList));
         mNewProfile = newProfile;
-        mDisableInstallShortcutListenersAndTelecom = disableInstallShortcutListenersAndTelecom;
+        mDisableInstallShortcutListeners = disableInstallShortcutListeners;
     }
 
     public void run() {
@@ -140,7 +150,7 @@ public class DeleteNonRequiredAppsTask {
         Set<String> newApps = currentApps;
         newApps.removeAll(previousApps);
 
-        if (mDisableInstallShortcutListenersAndTelecom) {
+        if (mDisableInstallShortcutListeners) {
             Intent actionShortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             if (previousApps.isEmpty()) {
                 // Here, all the apps are in newApps.
@@ -155,17 +165,21 @@ public class DeleteNonRequiredAppsTask {
                 }
             }
         }
+
+        // Newly installed system apps are uninstalled when they are not required and are either
+        // disallowed or have a launcher icon.
         Set<String> packagesToDelete = newApps;
         packagesToDelete.removeAll(getRequiredApps());
-        packagesToDelete.retainAll(getCurrentAppsWithLauncher());
-        // com.android.server.telecom should not handle CALL intents in the managed profile.
-        if (mDisableInstallShortcutListenersAndTelecom && mNewProfile) {
-            packagesToDelete.add("com.android.server.telecom");
-        }
+        Set<String> packagesToRetain = getCurrentAppsWithLauncher();
+        packagesToRetain.addAll(getDisallowedApps());
+        packagesToDelete.retainAll(packagesToRetain);
+
         if (packagesToDelete.isEmpty()) {
             mCallback.onSuccess();
             return;
         }
+        removeNonInstalledPackages(packagesToDelete);
+
         PackageDeleteObserver packageDeleteObserver =
                 new PackageDeleteObserver(packagesToDelete.size());
         for (String packageName : packagesToDelete) {
@@ -173,7 +187,7 @@ public class DeleteNonRequiredAppsTask {
                 mIpm.deletePackageAsUser(packageName, packageDeleteObserver, mUserId,
                         PackageManager.DELETE_SYSTEM_APP);
             } catch (RemoteException neverThrown) {
-                    // Never thrown, as we are making local calls.
+                // Never thrown, as we are making local calls.
                 ProvisionLogger.loge("This should not happen.", neverThrown);
             }
         }
@@ -182,6 +196,25 @@ public class DeleteNonRequiredAppsTask {
     static File getSystemAppsFile(Context context, int userId) {
         return new File(context.getFilesDir() + File.separator + "system_apps"
                 + File.separator + "user" + userId + ".xml");
+    }
+
+    /**
+     * Remove all packages from the set that are not installed.
+     */
+    private void removeNonInstalledPackages(Set<String> packages) {
+        Set<String> toBeRemoved = new HashSet<String>();
+        for (String packageName : packages) {
+            try {
+                PackageInfo info = mIpm.getPackageInfo(packageName, 0 /* default flags */, mUserId);
+                if (info == null) {
+                    toBeRemoved.add(packageName);
+                }
+            } catch (RemoteException neverThrown) {
+                // Never thrown, as we are making local calls.
+                ProvisionLogger.loge("This should not happen.", neverThrown);
+            }
+        }
+        packages.removeAll(toBeRemoved);
     }
 
     /**
@@ -306,12 +339,18 @@ public class DeleteNonRequiredAppsTask {
     }
 
     protected Set<String> getRequiredApps() {
-        HashSet<String> requiredApps = new HashSet<String> (Arrays.asList(
-                        mContext.getResources().getStringArray(mReqAppsList)));
-        requiredApps.addAll(Arrays.asList(
-                        mContext.getResources().getStringArray(mVendorReqAppsList)));
+        HashSet<String> requiredApps = new HashSet<String>();
+        requiredApps.addAll(mRequiredAppsList);
+        requiredApps.addAll(mVendorRequiredAppsList);
         requiredApps.add(mMdmPackageName);
         return requiredApps;
+    }
+
+    private Set<String> getDisallowedApps() {
+        HashSet<String> disallowedApps = new HashSet<String>();
+        disallowedApps.addAll(mDisallowedAppsList);
+        disallowedApps.addAll(mVendorDisallowedAppsList);
+        return disallowedApps;
     }
 
     /**
@@ -334,7 +373,8 @@ public class DeleteNonRequiredAppsTask {
             }
             int currentPackageCount = mPackageCount.decrementAndGet();
             if (currentPackageCount == 0) {
-                ProvisionLogger.logi("All non-required system apps have been uninstalled.");
+                ProvisionLogger.logi("All non-required system apps with launcher icon, "
+                        + "and all disallowed apps have been uninstalled.");
                 mCallback.onSuccess();
             }
         }

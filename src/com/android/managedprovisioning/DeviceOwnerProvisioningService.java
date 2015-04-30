@@ -308,7 +308,10 @@ public class DeviceOwnerProvisioningService extends Service {
 
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
                 this, params.mDeviceAdminPackageName, UserHandle.USER_OWNER,
-                R.array.required_apps_managed_device, R.array.vendor_required_apps_managed_device,
+                R.array.required_apps_managed_device,
+                R.array.vendor_required_apps_managed_device,
+                R.array.disallowed_apps_managed_device,
+                R.array.vendor_disallowed_apps_managed_device,
                 true /* We are creating a new profile */,
                 false /* Do not disable INSTALL_SHORTCUT listeners */,
                 new DeleteNonRequiredAppsTask.Callback() {
