@@ -22,14 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hawu!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Setha iphrofayela yakho"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Inhlangano yakho ilawula le phrofayela iphinde iyigcine ivikelekile. Ulawule konke okunye kudivayisi yakho."</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"Nge-Android for Work, inhlangano yakho ingaphatha i-imeyili yakho yezinkampani kanye nezinye izinhlelo zokusebenza kufoni yakho noma ithebulethi.\nInhlangano yakho ilawula idivayisi yakho iphinde iyigcine iphephile."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Uhlelo lokusebenza olulandelayo kuzomele lufinyelele kule phrofayela:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Uhlelo lokusebenza olulandelayo luzophatha idivayisi yakho:"</string>
     <string name="set_up" msgid="7012862095553564169">"Lungisa"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Isetha iphrofayela yakho yomsebenzi..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Umlawuli wakho unekhono lokuqapha aphinde aphathe lezi zilungiselelo, ukufinyelela kwezinkampani, izinhlelo zokusebenza nedatha ehlotshaniswa nephrofayela, efaka umsebenzi wenethiwekhi kanye nolwazi lwendawo yedivayisi yakho."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Umqondisi wakho unamandla wokwengamela nokuphatha izilungiselelo, ukufinyelela kwenkampani, izinhlelo zokusebenza, nedatha ephathelene nale divayisi, kufaka phakathi umsebenzi wenethiwekhi nolwazi lwendawo ledivayisi yakho."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Xhumana nomqondisi wakho ngolwazi olubanzi, kufaka phakathi izinqubomgomo zokwemfihlo zenhlangano yakho."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Funda kabanzi"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"Khansela"</string>
+    <string name="cancel_setup" msgid="3295266841772028057">"KHANSELA"</string>
     <string name="ok_setup" msgid="5148111905838329307">"KULUNGILE"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Iphrofayela yomsebenzi"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Susa iphrofayela yomsebenzi?"</string>
@@ -37,12 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Le phrofayela yomsebenzi iphathelwe i-%s esebenzisa:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"Sicela "<a href="#read_this_link">"ufunde lokhu"</a>" ngaphambi kokuqhubeka."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Zonke izinhlelo zokusebenza nedatha kule phrofayela kuzosulwa unaphakade uma uqhubeka."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"Susa"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"Khansela"</string>
+    <string name="delete_profile" msgid="8384444459432563649">"SUSA"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"KHANSELA"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Ukuze uqhubeke ngokusetha iphrofayela yakho yomsebenzi, uzodinga ukubethela idivayisi yakho. Lokhu kungatha isikhashana."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Ukuze uqhubeke nokusehta idivayisi yakho, uzodinga ukubethela idivayisi yakho. Lokhu kungathatha isikhathi."</string>
-    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Khansela"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Bethela"</string>
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"KHANSELA"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"BETHELA"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Ukubethela kuqedile"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Thinta ukuze uqhubeke ngokusetha iphrofayela yakho yomsebenzi"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ayikwazanga ukusehta iphrofayela yakho yomsebenzi. Xhumana nomnyango wakho we-IT noma zama futhi emuva kwesikhathi."</string>
@@ -51,8 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Amaphrofayela wokusebenza awakwazi ukusethwa kudivayisi ephethwe"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Iphrofayela yomsebenzi ayikwazanga ukudalwa njengoba inombolo enkulu yabasebenzisi kudivayisi yakho ifinyelelwe. Sicela ukhiphe okungenani umsebenzisi oyedwa bese uyazama futhi."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Iphrofayela yakho yomsebenzi ayisekelwe yilesi siqalisi sohlelo lokusebenza. Kuzomele uguqulele kusiqalisi esihambisanayo."</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"Khansela"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"Kulungile"</string>
+    <string name="cancel_provisioning" msgid="3753408161948407036">"KHANSELA"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"KULUNGILE"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Umsebenzisi wedivayisi yomsebenzi"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Setha idivayisi yakho"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Icubungula idatha yokusetha..."</string>
@@ -64,9 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"Isetha umnikazi wedivayisi..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"Misa ukusetha?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Ingabe uqinisekile ukuthi ufuna ukuyeka ukusetha bese usule idatha yedivayisi yakho?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Khansela"</string>
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"KHANSELA"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"KULUNGILE"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"Setha kabusha"</string>
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"SETHA KABUSHA"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Ayikwazanga ukusetha idivayisi yakho. Xhumana nomnyango wakho we-IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Le divayisi isivele isethiwe."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Le divayisi isivele isethelwe lo msebenzisi."</string>
@@ -81,8 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Uhlelo lokusebenza alufakiwe kudivayisi yakho"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Misa ukusetha?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Ingabe uqinisekile ukuthi ufuna ukumisa ukusetha?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Cha"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Yebo"</string>
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"CHA"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"YEBO"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"Kuyakhanselwa..."</string>
     <string name="provisioning" msgid="4512493827019163451">"Iyanikeza"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Isetha izitifiketi ze-CA"</string>
