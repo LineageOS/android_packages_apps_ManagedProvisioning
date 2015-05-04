@@ -22,14 +22,19 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"អូ​!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"រៀបចំទម្រង់របស់អ្នក"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ស្ថាប័ន​របស់​អ្នកពិនិត្យ​ប្រវត្តិរូប​នេះ ហើយ​រក្សាទុក​វា​​ដោយ​សុវត្ថិភាព។ អ្នក​ពិនិត្យ​អ្វីៗ​ផ្សេង​ទៀត​នៅ​លើ​ឧបករណ៍​របស់​អ្នក។"</string>
+    <!-- no translation found for company_controls_device (3063783662183428327) -->
+    <skip />
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"កម្មវិធី​ខាង​ក្រោម​​នឹង​ត្រូវ​ចូល​ដំណើរការ​ប្រវត្តិរូប​របស់​អ្នក៖"</string>
+    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"រៀបចំ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"កំពុង​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"អ្នក​គ្រប់គ្រង​របស់​អ្នកមាន​លទ្ធភាព​តាមដាន និង​គ្រប់គ្រង​ការ​​កំណត់​, ការ​ចូល​ដំណើរការ​​រួមគ្នា​, កម្មវិធី និង​ទិន្នន័យ​បាន​ភ្ជាប់​ជា​មួយ​ប្រវត្តិរូប​រួមមាន សកម្មភាព​បណ្ដាញ និង​ព័ត៌មាន​ទីតាំង​ឧបករណ៍​របស់​អ្នក។"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"អ្នក​គ្រប់គ្រង​របស់​អ្នក​អាច​ពិនិត្យ និង​គ្រប់គ្រង​ការ​កំណត់ កា​រ​ចូល​ដំណើរការ​រួមគ្នា កម្មវិធី និង​ទិន្នន័យ​ពាក់ព័ន្ធ​ជាមួយ​ឧបករណ៍​នេះ រួមមាន​សកម្មភាព​បណ្ដាញ និង​ព័ត៌មាន​ទីតាំង​ឧបករណ៍​របស់​អ្នក។"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ទាក់ទង​អ្នក​គ្រប់គ្រង​របស់​អ្នក​សម្រាប់​ព័ត៌មាន​បន្ថែម រួមមាន​គោលនយោបាយ​ភាព​ឯកជន​ស្ថាប័ន​​របស់​អ្នក។"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ស្វែងយល់​បន្ថែម"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"បោះបង់"</string>
+    <!-- no translation found for cancel_setup (3295266841772028057) -->
+    <skip />
     <string name="ok_setup" msgid="5148111905838329307">"យល់ព្រម"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"លុបប្រវត្តិរូបការងារ?"</string>
@@ -37,12 +42,16 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ប្រវត្តិរូបការងារនេះត្រូវបានគ្រប់គ្រងសម្រាប់ការប្រើប្រាស់ %s"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"សូម"<a href="#read_this_link">"អានចំណុចនេះ"</a>"មុនពេលបន្ត។"</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"កម្មវិធី និងទិន្នន័យទាំងអស់នៅក្នុងប្រវត្តិរូបនេះនឹងត្រូវលុប ប្រសិនបើអ្នកបន្ត។"</string>
-    <string name="delete_profile" msgid="2299218578684663459">"លុប"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"បោះបង់"</string>
+    <!-- no translation found for delete_profile (8384444459432563649) -->
+    <skip />
+    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
+    <skip />
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ដើម្បីបន្តរៀបចំទម្រង់ការងាររបស់អ្នក អ្នកត្រូវអ៊ិនគ្រីបឧបករណ៍របស់អ្នក។ វាអាចប្រើពេលមួយរយៈ។"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"ដើម្បីបន្តការរៀបចំឧបករណ៍របស់អ្នក អ្នកត្រូវអ៊ិនគ្រីបឧបករណ៍របស់អ្នក។ វាអាចចំណាយពេលបន្តិច។"</string>
-    <string name="encrypt_device_cancel" msgid="5644516574936584926">"បោះបង់"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"ដាក់​លេខ​កូដ"</string>
+    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
+    <skip />
+    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ការ​ដាក់​លេខ​កូដ​បាន​បញ្ចប់"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ប៉ះ​ដើម្បី​បន្ត​ការ​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"មិន​អាច​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក ឬ​ព្យាយាម​ម្ដងទៀត​ពេល​ក្រោយ។"</string>
@@ -51,8 +60,10 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"ប្រវត្តិរូបការងារមិនអាចកំណត់ឡើងវិញបានទេនៅលើឧបករណ៍ដែលបានគ្រប់គ្រង"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"ទម្រង់ការងារមិនអាចបង្កើតបានទេ ពីព្រោះចំនួនអ្នកប្រើនៅលើឧបករណ៍របស់អ្នកបានឈានដល់កម្រិតអតិបរមាហើយ។ សូមយកអ្នកប្រើយ៉ាងហោចណាស់មួយចេញ។"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ប្រវត្តិរូប​ការងារ​របស់​អ្នក​មិន​ត្រូវ​បាន​គាំទ្រ​ដោយ​កម្មវិធី​ launcher នេះ​នៅ​ឡើយ​ទេ។ អ្នក​នឹង​ត្រូវ​ប្ដូរ​ទៅ launcher ដែល​ត្រូវ​គ្នា។"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"បោះបង់"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"យល់ព្រម"</string>
+    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
+    <skip />
+    <!-- no translation found for pick_launcher (4811489057826175648) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"អ្នកប្រើ​ឧបករណ៍​ការងារ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"រៀបចំឧបករណ៍របស់អ្នក"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"កំពុង​ដំណើរការ​រៀបចំ​ទិន្នន័យ..."</string>
@@ -64,9 +75,11 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"កំពុង​រៀបចំ​ម្ចាស់​ឧបករណ៍..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"បញ្ឈប់​ការ​រៀបចំ?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"តើ​អ្នក​ប្រាកដ​ជា​ចង់​បញ្ឈប់​ការ​រៀបចំ ហើយ​លុប​ទិន្នន័យ​ក្នុង​ឧបករណ៍​របស់​អ្នក?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"បោះបង់"</string>
+    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
+    <skip />
     <string name="device_owner_error_ok" msgid="2556654993515978854">"យល់ព្រម"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"កំណត់​ឡើងវិញ"</string>
+    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
+    <skip />
     <string name="device_owner_error_general" msgid="5962462955470123776">"មិន​អាច​រៀបចំ​ឧបករណ៍​របស់​អ្នក។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក។"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ឧបករណ៍នេះបានដំឡើងរួចហើយ។"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ឧបករណ៍នេះបានដំឡើងសម្រាប់អ្នកប្រើនេះហើយ។"</string>
@@ -81,8 +94,10 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"កម្មវិធី​គ្រប់គ្រង​មិន​ត្រូវ​បាន​ដំឡើង​នៅ​លើ​ឧបករណ៍​របស់​អ្នក"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"បញ្ឈប់​ការ​រៀបចំ?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"តើ​អ្នក​ប្រាកដ​ជា​ចង់​បញ្ឈប់​ការ​រៀបចំ​?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ទេ"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"បាទ/ចាស"</string>
+    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
+    <skip />
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"កំពុង​​បោះបង់..."</string>
     <string name="provisioning" msgid="4512493827019163451">"ការផ្តល់"</string>
     <string name="copying_certs" msgid="5697938664953550881">"ការដំឡើងវិញ្ញាបនបត្រ CA"</string>

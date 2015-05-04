@@ -22,14 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"အူးပ်စ်!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"သင်၏ ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်ရန်"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"သင်၏ အဖွဲ့အစည်းက ဒီပရိုဖိုင်ကို ထိန်းချုပ်လျက် လုံခြုံအောင် ထားရှိပါသည်။ သင်သည် သင့် ကိရိယာ ထဲက ကျန်အရာများကို ထိန်းချုပ်ပါသည်။"</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"အလုပ်အတွက် Android ဖြင့်၊ သင့်အဖွဲအစည်းသည် သင့်ဖုန်း သို့မဟုတ် တက်ဘလက်ပေါ်ရှိ သင့်ကုမ္ပဏီဆိုင်ရာအီးမေးလ်နှင့် အခြားအပ်ဖ်များကို စီမံခန့်ခွဲနိုင်သည်။ \n သင့်အဖွဲအစည်းမှ သင့်ကိရိယာအား ထိန်းချုပ်ပြီး ၎င်းအားလုံခြုံအောင်ထားရှိမည်။"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ appက ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"အောက်ပါအပ်ဖ်မှ သင့်ကိရိယာကို စီမံခန့်ခွဲလိမ့်မည်။"</string>
     <string name="set_up" msgid="7012862095553564169">"စဖွင့်သတ်မှတ်ရန်"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ်နေ..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"သင်၏ စီမံအုပ်ချုပ်သူသည် ပရိုဖိုင်နှင့် ဆက်နွှယ်နေသည့် ဆက်တင်များ၊ လုပ်ငန်းဆိုင်ရာ ရယူသုံးမှုများ၊ appများ နှင့် ဒေတာများကို၊ ကွန်ရက် လှုပ်ရှားမှုများ နှင့် သင့် ကိရိယာ တည်နေရာ အချက်အလက်များ အပါအဝင်ကို၊ စောင့်ကြပ် စီမံကွပ်ကဲနိုင်စွမ်း ရှိပါသည်။"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"ဆက်တင်များ၊ လုပ်ငန်းဆိုင်ရာ အသုံးပြုမှုများ၊ appများ၊ ဒီကိရိယာနှင့် ဆက်စပ်နေသည့် ဒေတာကို၊ ကွန်ရက် လှုပ်ရှားမှု နှင့် သင့်ကိရိယာ၏ တည်နေရာ အချက်အလက်များအပါအဝင်ကို၊ သင်၏ စီမံအုပ်ချုပ်သူက စောင့်ကြည့်ပြီး စီမံကွပ်ကဲနိုင်သည်။"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"သင့်အဖွဲ့အစည်း၏ ကိုယ်ရေးမူဝါဒများ အပါအဝင်၊ တစ်ခြား အချက်အလက်များ အတွက် သင့်စီမံအုပ်ချုပ်သူကို ဆက်သွယ်ပါ။"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ပိုမိုသိလိုလျှင်"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"ထားတော့"</string>
+    <string name="cancel_setup" msgid="3295266841772028057">"ပယ်ဖျက်"</string>
     <string name="ok_setup" msgid="5148111905838329307">"အိုကေ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"အလုပ် ပရိုဖိုင်"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"အလုပ်ပရိုဖိုင် ဖယ်မည်လား?"</string>
@@ -37,12 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ဤအလုပ်ပရိုဖိုင်အား ဖော်ပြပါအား သုံးရန်အတွက် စီမံသည်-"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"ရှေ့ဆက်မသွားမီ ကျေးဇူးပြု၍ "<a href="#read_this_link">"ဤအရာအား ဖတ်ပါ"</a>"။"</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"သင် ရှေ့ဆက်သွားပါက ဤပရိုဖိုင်ရှိ appများနှင့် ဒေတာ အားလုံးကို ဖျက်ပစ်မည်။"</string>
-    <string name="delete_profile" msgid="2299218578684663459">"ဖျက်ရန်"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"ထားတော့"</string>
+    <string name="delete_profile" msgid="8384444459432563649">"ဖျက်ရန်"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"ပယ်ဖျက်"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"သင့် အလုပ်ပရိုဖိုင်ကို ဆက်လက် တပ်ဆင်သတ်မှတ်ရန်၊ သင့်စက်အား လျှို့ဝှက်ကုဒ် သွင်းရမည်။ အချိန်အနည်းငယ် ကြာနိုင်သည်။"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"သင့်စက်ပစ္စည်းအား ဆက်လက် တပ်ဆင်ရန်၊ သင့်စက်ပစ္စည်းအား လုံခြုံအောင်ပြုလုပ်ရန် လိုအပ်သည်။ ၎င်းသည် အချိန်အနည်းငယ် ယူရပါမည်။"</string>
-    <string name="encrypt_device_cancel" msgid="5644516574936584926">"ထားတော့"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"လျှို့ဝှက်ကုဒ်သွင်း"</string>
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"ပယ်ဖျက်"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"လျှို့ဝှက်ကုဒ်သွင်း"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"လျှို့ဝှက်ကုဒ် သွင်းမှု ပြီးဆုံးသွားပြီ"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်မှု ဆက်လုပ်ကိုင်ရန် ထိပါ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ် မရခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ သို့မဟုတ် နောက်မှာ ထပ်စမ်းပါ။"</string>
@@ -51,8 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"စီမံထားသော စက်ကိရိယာတစ်ခုတွင် အလုပ်ပရိုဖိုင်များ ပြင်ဆင်သတ်မှတ်နိုင်ခြင်း မရှိပါ"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"သင့်စပစ္စည်းတွင် အသုံးပြုသူအရေအတွက် အများဆုံးသို့ရောက်နေပြီဖြစ်သောကြောင့် အလုပ်ပရိုဖိုင် ဖန်တီး၍မရနိုင်ပါ။ ကျေးဇူးပြု၍ အနည်းဆုံး အသုံးပြုသူ တစ်ယောက်ကို ဖယ်ရှားကာ ထပ်မံကြိုးစားပါ။"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"သင့် အလုပ် ပရိုဖိုင်ကို ဒီဖွင့်တင်ရေး appမှ မပံ့ပိုးပါ။ သင်သည် လိုက်ဖက်သည့် ဖွင့်တင်ရေးစက်သို့ ပြောင်းရန် လိုသည်။"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"ထားတော့"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"အိုကေ"</string>
+    <string name="cancel_provisioning" msgid="3753408161948407036">"ပယ်ဖျက်"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"အိုကေ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"သင်၏ ကိရိယာကို စဖွင့်သတ်မှတ်ရန်"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"စဖွင့်စီစဉ်ရေး ဒေတာကို စီမံဆောင်ရွက်နေ..."</string>
@@ -64,9 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"ကိရိယာ ပိုင်ရှင်ကို စဖွင့်သတ်မှတ်နေ..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"စဖွင့်သတ်မှတ်ခြင်း မလုပ်တော့ဘူးလား?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"သင်သည် စဖွင့်စီစဉ်မှုကို ရပ်စဲလိုက်ကာ သင့် ကိရိယာ၏ ဒေတာကို ဖျက်ပစ်လိုတာ သေချာသလား?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ထားတော့"</string>
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ပယ်ဖျက်"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"အိုကေ"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"ပြန်ညှိရန်"</string>
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"ပြန်လည်သတ်မှတ်ရန်"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"သင်၏ ကိရိယာကို စဖွင့်စီစဉ် မပေးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ဤစက်အား ပြင်ဆင်သတ်မှတ်ပြီး၏။"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ဤစက်အား ဤ အသုံးပြုမည့်သူအတွက် ပြင်ဆင်သတ်မှတ်ပြီးဖြစ်၏။"</string>
@@ -81,8 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"သင့်စက်တွင် အက်ဒမင် app မတပ်ဆင်ရသေးပါ။"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"စဖွင့်သတ်မှတ်ခြင်း ရပ်စဲမလား?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"သင်သည် စဖွင့်သတ်မှတ်မှုကို ရပ်စဲချင်တာ သေချာသလား?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"မလို"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ဟုတ်"</string>
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"မဟုတ်ပါ"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ဟုတ်သည်"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"ဖျက်နေ..."</string>
     <string name="provisioning" msgid="4512493827019163451">"စီမံဆောင်ရွက်ပေးနေသည်။"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA လက်မှတ်များကို တည်ဆောက်ခြင်း"</string>

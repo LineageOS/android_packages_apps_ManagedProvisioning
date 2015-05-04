@@ -22,14 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"عفوًا!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"إعداد الملف الشخصي"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"تتحكم منظمتك في هذا الملف الشخصي وتحافظ على أمانه. بينما تتحكم أنت في كل شيء آخر على جهازك."</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"‏باستخدام Android for Work، يمكن لمؤسستك إدارة بريدك الإلكتروني في الشركة والتطبيقات الأخرى على هاتفك أو جهازك اللوحي.\nتتحكم مؤسستك في جهازك وتجعله آمنًا."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"سيحتاج التطبيق التالي إلى الدخول إلى هذا الملف الشخصي:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"سيدير التطبيق التالي جهازك:"</string>
     <string name="set_up" msgid="7012862095553564169">"إعداد"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"جارٍ إعداد الملف الشخصي للعمل…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"يمتلك المشرف إمكانية مراقبة وإدارة كل من الإعدادات والدخول إلى المؤسسة والتطبيقات والبيانات المقترنة بالملف الشخصي، بما في ذلك أنشطة الشبكة ومعلومات موقع الجهاز."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"لدى المشرف إمكانية مراقبة وإدارة الإعدادات والدخول إلى المؤسسة والتطبيقات والبيانات المقترنة بهذا الجهاز، بما في ذلك أنشطة الشبكة ومعلومات موقع الجهاز."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"اتصل بالمشرف للحصول على مزيد من المعلومات، بما في ذلك سياسات الخصوصية الخاصة بمنظمتك."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"مزيد من المعلومات"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"إلغاء"</string>
+    <string name="cancel_setup" msgid="3295266841772028057">"إلغاء"</string>
     <string name="ok_setup" msgid="5148111905838329307">"موافق"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"الملف الشخصي للعمل"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"هل تريد إزالة الملف الشخصي للعمل؟"</string>
@@ -37,12 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏تتم إدارة الملف الشخصي للعمل هذا لصالح %s باستخدام:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"الرجاء "<a href="#read_this_link">"قراءة هذا"</a>" قبل المتابعة."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"سيتم حذف جميع التطبيقات والبيانات في هذا الملف الشخصي عند المتابعة."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"إلغاء"</string>
+    <string name="delete_profile" msgid="8384444459432563649">"حذف"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"إلغاء"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"لمتابعة إعداد الملف الشخصي للعمل، يجب عليك تشفير الجهاز. قد يستغرق هذا بعض الوقت."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"لمتابعة إعداد جهازك، يجب عليك تشفير الجهاز. قد يستغرق هذا بعض الوقت."</string>
-    <string name="encrypt_device_cancel" msgid="5644516574936584926">"إلغاء"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"تشفير"</string>
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"إلغاء"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"تشفير"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"اكتمل التشفير"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"المس لمتابعة إعداد الملف الشخصي للعمل"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"تعذر إعداد ملف العمل. يمكنك الاتصال بقسم تكنولوجيا المعلومات أو إعادة المحاولة لاحقًا."</string>
@@ -51,8 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"يتعذر إعداد الملفات الشخصية للعمل على جهاز مُدار."</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"تعذر إنشاء الملف الشخصي للعمل نظرًا لبلوغ الحد الأقصى لعدد المستخدمين على جهازك. يُرجى إزالة حساب مستخدم واحد على الأقل وإعادة المحاولة."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"لا يتوافق الملف الشخصي للعمل مع تطبيق المشغّل هذا. يجب عليك التبديل إلى تطبيق مشغّل متوافق."</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"إلغاء"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"موافق"</string>
+    <string name="cancel_provisioning" msgid="3753408161948407036">"إلغاء"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"موافق"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"مستخدم جهاز العمل"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"إعداد الجهاز"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"جارٍ معالجة بيانات الإعداد…"</string>
@@ -64,9 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"جارٍ تعيين مالك الجهاز..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"هل تريد إيقاف الإعداد؟"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"هل تريد بالتأكيد إيقاف الإعداد ومحو بيانات الجهاز؟"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"إلغاء"</string>
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"إلغاء"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"حسنًا"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"إعادة التعيين"</string>
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"إعادة التعيين"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"تعذر إعداد الجهاز. يمكنك الاتصال بقسم تكنولوجيا المعلومات."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"سبق إعداد هذا الجهاز."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"سبق إعداد هذا الجهاز لهذا المستخدم."</string>
@@ -81,8 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"لم يتم تثبيت التطبيق الإداري على جهازك"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"هل تريد إيقاف الإعداد؟"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"هل تريد بالتأكيد إيقاف الإعداد؟"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"لا"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"نعم"</string>
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"لا"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"نعم"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"جارٍ الإلغاء..."</string>
     <string name="provisioning" msgid="4512493827019163451">"جارٍ توفير الشهادات"</string>
     <string name="copying_certs" msgid="5697938664953550881">"‏جارٍ إعداد شهادات CA"</string>

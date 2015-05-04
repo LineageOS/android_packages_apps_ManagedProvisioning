@@ -22,14 +22,19 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Konfigurowanie profilu"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Twoja organizacja kontroluje i zabezpiecza ten profil. Cała pozostała zawartość urządzenia jest pod Twoją kontrolą."</string>
+    <!-- no translation found for company_controls_device (3063783662183428327) -->
+    <skip />
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikacja, która będzie potrzebować dostępu do tego profilu:"</string>
+    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"Skonfiguruj"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Konfigurowanie profilu do pracy..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje i dane powiązane z profilem (w tym aktywność w sieci i informacje o lokalizacji Twojego urządzenia) oraz nimi zarządzać."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje i dane powiązane z tym urządzeniem (w tym aktywność w sieci i informacje o lokalizacji) oraz nimi zarządzać."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Aby dowiedzieć się więcej i poznać politykę prywatności swojej organizacji, skontaktuj się z administratorem."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Więcej informacji"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"Anuluj"</string>
+    <!-- no translation found for cancel_setup (3295266841772028057) -->
+    <skip />
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil do pracy"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Usunąć profil do pracy?"</string>
@@ -37,12 +42,16 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Tym profilem do pracy w %s zarządza:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"Zanim przejdziesz dalej, "<a href="#read_this_link">"przeczytaj to"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Jeśli będziesz kontynuować, wszystkie aplikacje i dane w tym profilu zostaną usunięte."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"Usuń"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"Anuluj"</string>
+    <!-- no translation found for delete_profile (8384444459432563649) -->
+    <skip />
+    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
+    <skip />
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Aby kontynuować konfigurowanie profilu do pracy, musisz zaszyfrować swoje urządzenie. Może to trochę potrwać."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Aby kontynuować konfigurowanie urządzenia, musisz je zaszyfrować. Może to trochę potrwać."</string>
-    <string name="encrypt_device_cancel" msgid="5644516574936584926">"Anuluj"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Zaszyfruj"</string>
+    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
+    <skip />
+    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Szyfrowanie zostało zakończone"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Kliknij, by kontynuować konfigurowanie profilu do pracy"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nie można skonfigurować profilu do pracy. Skontaktuj się z działem IT lub spróbuj później jeszcze raz."</string>
@@ -51,8 +60,10 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Profili do pracy nie można skonfigurować na urządzeniu zarządzanym"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Nie można utworzyć profilu do pracy, bo na urządzeniu jest już maksymalna liczba użytkowników. Usuń co najmniej jednego użytkownika i spróbuj ponownie."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ta aplikacja uruchamiająca nie obsługuje Twojego profilu do pracy. Przełącz się na zgodną."</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"Anuluj"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
+    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
+    <skip />
+    <!-- no translation found for pick_launcher (4811489057826175648) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"Użytkownik urządzenia służbowego"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Konfigurowanie urządzenia"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Przetwarzanie danych konfiguracyjnych..."</string>
@@ -64,9 +75,11 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"Ustawianie właściciela urządzenia..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"Przerwać konfigurację?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Czy na pewno chcesz zatrzymać konfigurowanie i usunąć dane z urządzenia?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Anuluj"</string>
+    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
+    <skip />
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"Zresetuj"</string>
+    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
+    <skip />
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nie można skonfigurować urządzenia. Skontaktuj się z działem IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"To urządzenie jest już skonfigurowane."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"To urządzenie jest już skonfigurowane dla tego użytkownika."</string>
@@ -81,8 +94,10 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Aplikacja administratora nie jest zainstalowana na urządzeniu"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Przerwać konfigurację?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Czy na pewno chcesz przerwać konfigurację?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nie"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Tak"</string>
+    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
+    <skip />
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"Anuluję..."</string>
     <string name="provisioning" msgid="4512493827019163451">"Włączam obsługę administracyjną"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Konfiguruję certyfikaty CA"</string>

@@ -22,14 +22,19 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"आफ्नो प्रोफाइल सेट अप गर्नुहोस्"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
+    <!-- no translation found for company_controls_device (3063783662183428327) -->
+    <skip />
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
+    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
+    <skip />
     <string name="set_up" msgid="7012862095553564169">"मिलाउनुहोस्"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"तपाईँको कार्य प्रोफाइल स्थापना गर्दै..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"तपाईँको प्रशासकले सञ्जाल गतिविधि र तपाईँको उपकरणको स्थान जानकारी सहित अनुगमन गर्न र तपाईँको प्रोफाइल साथ सेटिङहरू प्रबन्ध, कर्पोरेट पहुँच, अनुप्रयोगहरू र डेटा, व्यवस्थापन गर्न सक्ने क्षमता छ।"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"तपाईँको प्रशासकले सञ्जाल गतिविधि र तपाईँको उपकरणको स्थान जानकारी सहित अनुगमन गर्न र तपाईँको उपकरण साथ सेटिङहरू प्रबन्ध, कर्पोरेट पहुँच, अनुप्रयोगहरू, डेटा, व्यवस्थापन गर्न सक्ने क्षमता छ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"तपाईँको संगठनको गोपनीयता नीति सहित अधिक जानकारीको लागि तपाईँको प्रशासकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"थप सिक्नुहोस्"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"रद्द गर्नुहोस्"</string>
+    <!-- no translation found for cancel_setup (3295266841772028057) -->
+    <skip />
     <string name="ok_setup" msgid="5148111905838329307">"ठीक छ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफाइल हटाउने हो?"</string>
@@ -37,12 +42,16 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s प्रयोगको लागि यो कार्य प्रोफाइल व्यवस्थित गरिएको छ:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"कृपया अगाडि बढ्नुभन्दा पहिले"<a href="#read_this_link">" यो पढ्नुहोस् "</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"यदि तपाईँले जारी राख्नुभयो भने यो प्रोफाइलका सबै अनुप्रयोगहरू र डेटा मेटाइने छन्।"</string>
-    <string name="delete_profile" msgid="2299218578684663459">"मेटाउनुहोस्"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द गर्नुहोस्"</string>
+    <!-- no translation found for delete_profile (8384444459432563649) -->
+    <skip />
+    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
+    <skip />
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आफ्नो कार्य प्रोफाइल सेटिङ गर्ने काम  जारी राख्न, तपाईंले आफ्नो यन्त्रलाई इनक्रिप्ट गर्नु पर्नेछ। यसले केही समय लिन सक्छ।"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"आफ्नो यन्त्र सेटिङ गर्ने काम जारी राख्न, तपाईंले आफ्नो यन्त्रलाई इनक्रिप्ट गर्नु पर्नेछ। यसले केही समय लिन सक्छ।"</string>
-    <string name="encrypt_device_cancel" msgid="5644516574936584926">"रद्द गर्नुहोस्"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"गुप्तिकरण"</string>
+    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
+    <skip />
+    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"गुप्तिकरण पूर्ण"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"तपाईँको काम प्रोफाइल स्थापना जारी राख्न छुनुहोस्"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
@@ -51,8 +60,10 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"कार्य प्रोफाइल व्यवस्थित यन्त्रमा सेटअप हुन सक्दैन"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"कार्य प्रोफाइल प्रयोगकर्ताहरूको अधिकतम संख्यामा सिर्जना गर्न नसकिनेको रुपमा पुगेको छ। कृपया कम्तिमा एउटा प्रयोगकर्ता हटाउनुहोस् र पुन: प्रयास गर्नुहोस्।"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"तपाईँको कार्य प्रोफाइल यस सुरुवातकर्ता अनुप्रयोग समर्थित छैन। तपाईँले यससँग उपयुक्त एउटा सुरुवातकर्तामा स्विच गर्न आवश्यक छ।"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द गर्नुहोस्"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"ठीक छ"</string>
+    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
+    <skip />
+    <!-- no translation found for pick_launcher (4811489057826175648) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"आफ्नो यन्त्र सेट अप गर्नुहोस्"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"स्थापना डेटा प्रशोधन गर्दै..."</string>
@@ -64,9 +75,11 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"उपकरण मालिक स्थापना गर्दै..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"सेट अप गर्न रोक्नुहुन्छ?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"के तपाईं स्थापना रोक्न र तपाईँको उपकरणको डेटा मेट्न चाहनुहुन्छ?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द गर्नुहोस्"</string>
+    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
+    <skip />
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ठीक छ"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"पुनःसेट गर्नुहोस्"</string>
+    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
+    <skip />
     <string name="device_owner_error_general" msgid="5962462955470123776">"तपाईँको उपकरण स्थापना गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यो यन्त्र पहिले नै स्थापना भएको छ"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यो यन्त्र पहिले नै यो प्रयोगकर्ताको लागि स्थापना गरिएको छ।"</string>
@@ -81,8 +94,10 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"प्रशासन अनुप्रयोग तपाईँको उपकरणमा स्थापना गरिएको छैन"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"सेट अप गर्न रोक्नुहुन्छ?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"तपाईँ सेटअप गर्न रोक्न निश्चित हुनुहुन्छ?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"होइन"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"हो"</string>
+    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
+    <skip />
+    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
+    <skip />
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"रद्द गरिँदै..."</string>
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान गरिँदै"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रहरू सेट अप गरिँदै"</string>
