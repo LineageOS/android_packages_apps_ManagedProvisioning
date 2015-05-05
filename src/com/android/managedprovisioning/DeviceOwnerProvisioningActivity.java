@@ -233,12 +233,15 @@ public class DeviceOwnerProvisioningActivity extends Activity
             int errorMessageId = intent.getIntExtra(
                     DeviceOwnerProvisioningService.EXTRA_USER_VISIBLE_ERROR_ID_KEY,
                     R.string.device_owner_error_general);
+            boolean factoryResetRequired = intent.getBooleanExtra(
+                    DeviceOwnerProvisioningService.EXTRA_FACTORY_RESET_REQUIRED,
+                    true);
 
             if (DEBUG) {
                 ProvisionLogger.logd("Error reported with code "
                         + getResources().getString(errorMessageId));
             }
-            error(errorMessageId, true /* always factory reset */);
+            error(errorMessageId, factoryResetRequired);
         } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE)) {
             int progressMessage = intent.getIntExtra(
                     DeviceOwnerProvisioningService.EXTRA_PROGRESS_MESSAGE_ID_KEY, -1);
