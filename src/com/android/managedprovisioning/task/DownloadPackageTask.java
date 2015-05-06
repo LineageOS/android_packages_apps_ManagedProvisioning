@@ -22,7 +22,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -30,7 +29,6 @@ import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Base64;
 
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
@@ -114,14 +112,18 @@ public class DownloadPackageTask {
         DownloadManager dm = (DownloadManager) mContext
                 .getSystemService(Context.DOWNLOAD_SERVICE);
         for (DownloadStatusInfo info : mDownloads) {
-            ProvisionLogger.logd("Starting download from " + info.mPackageDownloadInfo.location);
+            if (DEBUG) {
+                ProvisionLogger.logd("Starting download from " +
+                        info.mPackageDownloadInfo.location);
+            }
 
             Request request = new Request(Uri.parse(info.mPackageDownloadInfo.location));
             if (info.mPackageDownloadInfo.cookieHeader != null) {
                 request.addRequestHeader("Cookie", info.mPackageDownloadInfo.cookieHeader);
-                ProvisionLogger.logd(
-                        "Downloading with http cookie header: "
-                        + info.mPackageDownloadInfo.cookieHeader);
+                if (DEBUG) {
+                    ProvisionLogger.logd("Downloading with http cookie header: "
+                            + info.mPackageDownloadInfo.cookieHeader);
+                }
             }
             info.mDownloadId = dm.enqueue(request);
         }
