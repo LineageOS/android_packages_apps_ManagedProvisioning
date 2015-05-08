@@ -62,8 +62,11 @@ public class ProxyConnectionHandler extends ChannelHandler {
     private void endConnection() throws IOException {
         ProvisionCommLogger.logd("Ending bluetooth connection.");
         // Acknowledge EOC received by returning message. This writes a packet without a device Id
-        mChannel.write(new PacketUtil("").createEndPacket());
-        mChannel.close();
+        try {
+            mChannel.write(new PacketUtil("").createEndPacket());
+        } finally {
+            mChannel.close();
+        }
     }
 
     @Override
@@ -132,16 +135,15 @@ public class ProxyConnectionHandler extends ChannelHandler {
         }
         ProxyConnection connection = mConnectionTable.get(networkData.connectionId);
         if (connection == null) {
-            ProvisionCommLogger.logd("Adding a stream for connection #" + networkData.connectionId);
+            ProvisionCommLogger.logv("Adding a stream for connection #" + networkData.connectionId);
             connection = new ProxyConnection(mChannel, networkData.connectionId);
             mConnectionTable.put(networkData.connectionId, connection);
             connection.start();
         }
         if (networkData.status == NetworkData.EOF) {
-            ProvisionCommLogger.logd("Read EOF for conn #" + networkData.connectionId);
+            ProvisionCommLogger.logv("Read EOF for conn #" + networkData.connectionId);
             connection.shutdown();
         } else {
-            ProvisionCommLogger.logd("Queueing " + networkData.data.length + " bytes");
             connection.getOutput().write(networkData.data);
             connection.getOutput().flush();
         }

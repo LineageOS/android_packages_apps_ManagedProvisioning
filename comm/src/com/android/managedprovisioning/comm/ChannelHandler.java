@@ -57,9 +57,9 @@ public abstract class ChannelHandler extends Thread {
             ProvisionCommLogger.loge(e);
         } finally {
             stopConnection();
-        }
-        if (mChannel != null) {
-            mChannel.close();
+            if (mChannel != null) {
+                mChannel.close();
+            }
         }
     }
 
