@@ -203,7 +203,7 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
                 DevicePolicyManager.EXTRA_DEVICE_INITIALIZER_STATUS_CODE, 0);
         String data = intent.getStringExtra(
                 DevicePolicyManager.EXTRA_DEVICE_INITIALIZER_STATUS_DESCRIPTION);
-        if (customStatus && !DeviceInitializerStatus.isCustomStatus(statusCode)) {
+        if (customStatus && ((statusCode & DeviceInitializerStatus.FLAG_STATUS_CUSTOM) == 0)) {
             ProvisionLogger.logw("Expected custom status update.");
         } else {
             mBluetoothClient.sendStatusUpdate(statusCode, data);
@@ -259,7 +259,7 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
             return false;
         }
         mBluetoothClient.sendStatusUpdate(
-                DeviceInitializerStatus.STATUS_STATE_CONNECT_BLUETOOTH_PROXY, "Started proxy.");
+                DeviceInitializerStatus.STATUS_STATE_CONNECTING_BLUETOOTH_PROXY, "Started proxy.");
         mNetworkMonitor = new NetworkMonitor(this, this);
         return true;
     }
@@ -290,7 +290,8 @@ public class BluetoothConnectionService extends Service implements NetworkMonito
             mNetworkMonitor = null;
         }
         mBluetoothClient.sendStatusUpdate(
-                DeviceInitializerStatus.STATUS_STATE_DISCONNECT_BLUETOOTH_PROXY, "Removing proxy.");
+                DeviceInitializerStatus.STATUS_STATE_DISCONNECTING_BLUETOOTH_PROXY,
+                "Removing proxy.");
         mBluetoothClient.removeGlobalProxy();
     }
 

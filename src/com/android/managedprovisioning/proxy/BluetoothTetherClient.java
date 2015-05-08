@@ -50,8 +50,8 @@ public class BluetoothTetherClient implements ClientTetherConnection {
         try {
             mChannel.write(mPacketUtil.createStatusUpdate(statusCode, data));
             // Errors and high priority statuses should be sent immediately.
-            if (DeviceInitializerStatus.isErrorStatus(statusCode) ||
-                    DeviceInitializerStatus.isHighPriority(statusCode)) {
+            if ((statusCode & DeviceInitializerStatus.FLAG_STATUS_ERROR) != 0 ||
+                    (statusCode & DeviceInitializerStatus.FLAG_STATUS_HIGH_PRIORITY) != 0) {
                 mChannel.flush();
             }
         } catch (IOException e) {
