@@ -22,19 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Postavljanje profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija kontrolira i štiti ovaj profil. Vi kontrolirate sve ostalo na svojem uređaju."</string>
-    <!-- no translation found for company_controls_device (3063783662183428327) -->
-    <skip />
+    <string name="company_controls_device" msgid="3063783662183428327">"Uz Android for Work vaša organizacija može upravljati poslovnim aplikacijama za e-poštu i drugim aplikacijama na vašem telefonu ili tabletu.\nVaša organizacija upravlja vašim uređajem i brine za njegovu zaštitu."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Sljedeća aplikacija morat će pristupiti ovom profilu:"</string>
-    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
-    <skip />
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vašim će uređajem upravljati sljedeća aplikacija:"</string>
     <string name="set_up" msgid="7012862095553564169">"Postavi"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Postavljanje radnog profila..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Vaš administrator može nadzirati postavke, korporacijski pristup, aplikacije i podatke povezane s profilom te upravljati njima, uključujući aktivnosti na mreži i podatke o lokaciji uređaja."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Vaš administrator može nadzirati postavke, korporacijski pristup, aplikacije i podatke povezane s ovim uređajem te njima upravljati, uključujući aktivnosti na mreži i podatke o lokaciji uređaja."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Za više informacija, uključujući pravila o privatnosti organizacije, obratite se administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
-    <!-- no translation found for cancel_setup (3295266841772028057) -->
-    <skip />
+    <string name="cancel_setup" msgid="3295266841772028057">"ODUSTANI"</string>
     <string name="ok_setup" msgid="5148111905838329307">"U redu"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Radni profil"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Ukloniti radni profil?"</string>
@@ -42,16 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ovaj je radni profil pod upravljanjem domene %s putem:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Pročitajte ovo"</a>" prije nego što nastavite."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ako nastavite, izbrisat će se sve aplikacije i podaci u profilu."</string>
-    <!-- no translation found for delete_profile (8384444459432563649) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
-    <skip />
+    <string name="delete_profile" msgid="8384444459432563649">"IZBRIŠI"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"ODUSTANI"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili s postavljanjem svog radnog profila, morat ćete kriptirati uređaj. To može potrajati."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Da biste nastavili s postavljanjem uređaja, morat ćete ga kriptirati. To može potrajati."</string>
-    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
-    <skip />
-    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
-    <skip />
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"ODUSTANI"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"KRIPTIRAJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripcija je dovršena"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Dodirnite da biste nastavili postavljati radni profil"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Postavljanje vašeg radnog profila nije uspjelo. Obratite se IT odjelu ili pokušajte ponovno kasnije."</string>
@@ -60,10 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Radne profile nije moguće postavljati na upravljanim uređajima"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Nije uspjela izrada poslovnog profila jer je dosegnut maksimalan broj korisnika na uređaju. Uklonite barem jednog korisnika i pokušajte ponovo."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ta aplikacija pokretača ne podržava vaš radni profil. Morat ćete prijeći na kompatibilni pokretač."</string>
-    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4811489057826175648) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3753408161948407036">"ODUSTANI"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"U REDU"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik radnog uređaja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Postavljanje uređaja"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Obrada podataka o postavljanju..."</string>
@@ -75,11 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"Postavljanje vlasnika uređaja..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"Prekinuti postavljanje?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Jeste li sigurni da želite zaustaviti postavljanje i izbrisati podatke uređaja?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ODUSTANI"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"U redu"</string>
-    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
-    <skip />
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"PONIŠTI"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Postavljanje uređaja nije uspjelo. Obratite se IT odjelu."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj je uređaj već postavljen."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ovaj je uređaj već postavljen za tog korisnika."</string>
@@ -94,10 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Na uređaju nije instalirana administratorska aplikacija"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Želite li prekinuti postavljanje?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Jeste li sigurni da želite prekinuti postavljanje?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NE"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"DA"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"Otkazivanje..."</string>
     <string name="provisioning" msgid="4512493827019163451">"Omogućivanje"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Postavljanje CA certifikata"</string>

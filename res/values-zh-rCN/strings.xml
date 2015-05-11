@@ -22,19 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"设置您的资料"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全性。您可以控制设备上的所有其他内容。"</string>
-    <!-- no translation found for company_controls_device (3063783662183428327) -->
-    <skip />
+    <string name="company_controls_device" msgid="3063783662183428327">"借助 Android for Work，您的单位可以在手机或平板电脑上管理企业电子邮件和其他应用。\n您的单位可控制您的设备，并确保其安全性。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
-    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
-    <skip />
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
     <string name="set_up" msgid="7012862095553564169">"设置"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"正在设置您的工作资料…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
-    <!-- no translation found for cancel_setup (3295266841772028057) -->
-    <skip />
+    <string name="cancel_setup" msgid="3295266841772028057">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"确定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"要移除工作资料吗？"</string>
@@ -42,16 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"请先"<a href="#read_this_link">"阅读此文"</a>"，然后再继续。"</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"如果继续，则此工作资料中的所有应用和数据都会被删除。"</string>
-    <!-- no translation found for delete_profile (8384444459432563649) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
-    <skip />
+    <string name="delete_profile" msgid="8384444459432563649">"删除"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"要继续设置您的设备，您需要对其进行加密。此过程可能需要一段时间。"</string>
-    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
-    <skip />
-    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
-    <skip />
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"取消"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"加密"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密已完成"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"触摸即可继续设置您的工作资料"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"无法设置您的工作资料，请与您公司的IT部门联系或稍后重试。"</string>
@@ -60,10 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"无法在受管理的设备上设置工作资料"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"您设备上的用户数量已达到上限，因此无法创建工作资料。请至少移除一个用户，然后重试。"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"此启动器应用不支持工作资料。您需要改用兼容的启动器。"</string>
-    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4811489057826175648) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3753408161948407036">"取消"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"确定"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"正在处理设置数据…"</string>
@@ -75,11 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"正在设置设备所有者…"</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"要停止设置吗？"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"确定要停止设置并清除您设备的数据吗？"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"取消"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"确定"</string>
-    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
-    <skip />
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"重置"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"无法设置您的设备，请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"之前已对此设备进行了设置。"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
@@ -94,10 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"在您的设备上安装管理应用失败"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"要停止设置吗？"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"确定要停止设置吗？"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"否"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"是"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"正在取消…"</string>
     <string name="provisioning" msgid="4512493827019163451">"正在配置"</string>
     <string name="copying_certs" msgid="5697938664953550881">"正在设置 CA 证书"</string>

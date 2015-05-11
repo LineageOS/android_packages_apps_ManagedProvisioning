@@ -22,19 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"ಓಹ್!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ಈ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಕಾಪಾಡುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದನ್ನೂ ನೀವು ನಿಯಂತ್ರಿಸಬಹುದು."</string>
-    <!-- no translation found for company_controls_device (3063783662183428327) -->
-    <skip />
+    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work ಜೊತೆಗೆ, ನಿಮ್ಮ ಫೋನ್ ಅಥವಾ ಟ್ಯಾಬ್ಲೆಟ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಕಾರ್ಪೋರೇಟ್ ಇಮೇಲ್ ಮತ್ತು ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ನಿಮ್ಮ ಸಂಘಟನೆಯು ನಿರ್ವಹಿಸಬಹುದು.\nನಿಮ್ಮ ಸಂಘಟನೆಯು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಮತ್ತು ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಈ ಪ್ರೊಫೈಲ್ ಪ್ರವೇಶಿಸುವ ಅಗತ್ಯವಿದೆ:"</string>
-    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
-    <skip />
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ:"</string>
     <string name="set_up" msgid="7012862095553564169">"ಹೊಂದಿಸು"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿಯೂ ಒಳಗೊಂಡಂತೆ, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಹಾಗೂ ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಡೇಟಾ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಂತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಹಾಗೂ ಈ ಸಾಧನದೊಂದಿಗೆ ಸಂಬಂಧಿಸಿದ ಡೇಟಾವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿದ್ದಾರೆ."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
-    <!-- no translation found for cancel_setup (3295266841772028057) -->
-    <skip />
+    <string name="cancel_setup" msgid="3295266841772028057">"ರದ್ದುಮಾಡು"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ಸರಿ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ತೆಗೆದುಹಾಕುವುದೇ?"</string>
@@ -42,16 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ಈ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು %s ಬಳಸಲು ನಿರ್ವಹಿಸಲಾಗಿದೆ:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"ಮುಂದುವರಿಯುವುದಕ್ಕಿಂತ ಮೊದಲು "<a href="#read_this_link">"ಇದನ್ನು ಓದಿ"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ನೀವು ಮುಂದುವರಿಸಿದರೆ ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುವುದು."</string>
-    <!-- no translation found for delete_profile (8384444459432563649) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
-    <skip />
+    <string name="delete_profile" msgid="8384444459432563649">"ಅಳಿಸು"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"ರದ್ದುಮಾಡು"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು, ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಬೇಕಾದ ಅಗತ್ಯವಿದೆ. ಇದು ಸ್ವಲ್ಪ ಸಮಯವನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು, ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಬೇಕಾದ ಅಗತ್ಯವಿದೆ. ಇದಕ್ಕೆ ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
-    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
-    <skip />
-    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
-    <skip />
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"ರದ್ದುಮಾಡು"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ಎನ್‌ಕ್ರಿಪ್ಟ್‌‌ ಮಾಡು"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಪೂರ್ಣಗೊಂಡಿದೆ"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು ಸ್ಪರ್ಶಿಸಿ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."</string>
@@ -60,10 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"ನಿರ್ವಹಿಸಿದ ಸಾಧನದಲ್ಲಿ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಬಳಕೆದಾರರ ಗರಿಷ್ಠ ಸಂಖ್ಯೆ ತಲುಪಿರುವ ಕಾರಣ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಬ್ಬ ಬಳಕೆದಾರರನ್ನು ತೆಗೆದುಹಾಕಿ ಹಾಗೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಈ ಲಾಂಚರ್‌‌ ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ. ನೀವು, ಹೊಂದಿಕೆಯಾಗುವಂತಹ ಲಾಂಚರ್‌‌ಗೆ ಬದಲಾಯಿಸುವ ಅಗತ್ಯವಿದೆ."</string>
-    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4811489057826175648) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3753408161948407036">"ರದ್ದುಮಾಡು"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"ಸರಿ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ಕೆಲಸದ ಸಾಧನದ ಬಳಕೆದಾರರು"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಿ"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"ಸೆಟಪ್ ಡೇಟಾ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ..."</string>
@@ -75,11 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"ಸಾಧನ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"ಹೊಂದಿಸುವುದನ್ನು ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"ನೀವು ಹೊಂದಾಣಿಕೆಯನ್ನು ನಿಲ್ಲಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಡೇಟಾವನ್ನು ಅಳಿಸಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ರದ್ದುಮಾಡು"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ಸರಿ"</string>
-    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
-    <skip />
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"ಮರುಹೊಂದಿಸು"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ಈ ಸಾಧನವನ್ನು ಈಗಾಗಲೇ ಹೊಂದಿಸಲಾಗಿದೆ."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ಈ ಸಾಧನವನ್ನು ಈಗಾಗಲೇ ಈ ಬಳಕೆದಾರರಿಗೆ ಹೊಂದಿಸಲಾಗಿದೆ."</string>
@@ -94,10 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"ಹೊಂದಿಸುವುದನ್ನು ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"ಹೊಂದಿಸುವುದನ್ನು ನೀವು ನಿಲ್ಲಿಸಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"ಇಲ್ಲ"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ಹೌದು"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="provisioning" msgid="4512493827019163451">"ಒದಗಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>

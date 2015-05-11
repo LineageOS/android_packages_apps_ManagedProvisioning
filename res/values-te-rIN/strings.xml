@@ -22,19 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"అయ్యో!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
-    <!-- no translation found for company_controls_device (3063783662183428327) -->
-    <skip />
+    <string name="company_controls_device" msgid="3063783662183428327">"కార్యాలయం కోసం Android సహాయంతో, మీ సంస్థ మీ కార్పొరేట్ ఇమెయిల్‌ను మరియు మీ ఫోన్ లేదా టాబ్లెట్‌లోని ఇతర అనువర్తనాలను నిర్వహించగలదు.\nమీ సంస్థ మీ పరికరాన్ని నియంత్రిస్తుంది మరియు సురక్షితంగా ఉంచుతుంది."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది అనువర్తనం ఈ ప్రొఫైల్‌ను ప్రాప్యత చేయాలి:"</string>
-    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
-    <skip />
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది అనువర్తనం మీ పరికరాన్ని నిర్వహిస్తుంది:"</string>
     <string name="set_up" msgid="7012862095553564169">"సెటప్ చేయి"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"మీ నిర్వాహకుడు నెట్‌వర్క్ కార్యాచరణ మరియు మీ పరికర స్థాన సమాచారంతో సహా సెట్టింగ్‌లు, కార్పొరేట్ ప్రాప్యత, అనువర్తనాలు మరియు ప్రొఫైల్‌తో అనుబంధించబడిన డేటాని పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యాన్ని కలిగి ఉన్నారు."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"మీ నిర్వాహకుడు నెట్‌వర్క్ కార్యాచరణ మరియు మీ పరికర స్థాన సమాచారంతో సహా సెట్టింగ్‌లు, కార్పొరేట్ ప్రాప్యత, అనువర్తనాలు మరియు ఈ పరికరంతో అనుబంధించబడిన డేటాని పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యాన్ని కలిగి ఉన్నారు."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"మీ సంస్థ గోప్యతా విధానాలతో సహా, మరింత సమాచారం కోసం మీ నిర్వాహకుడిని సంప్రదించండి."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
-    <!-- no translation found for cancel_setup (3295266841772028057) -->
-    <skip />
+    <string name="cancel_setup" msgid="3295266841772028057">"రద్దు చేయి"</string>
     <string name="ok_setup" msgid="5148111905838329307">"సరే"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"కార్యాలయ ప్రొఫైల్‌ను తీసివేయాలా?"</string>
@@ -42,16 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ఈ కార్యాలయ ప్రొఫైల్ వీరు ఉపయోగిస్తున్న %s కోసం నిర్వహించబడుతోంది:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"దయచేసి కొనసాగడానికి ముందు "<a href="#read_this_link">"దీన్ని చదవండి"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"మీరు కొనసాగితే ఈ ప్రొఫైల్‌లోని అన్ని అనువర్తనాలు మరియు మొత్తం డేటా తొలగించబడుతుంది."</string>
-    <!-- no translation found for delete_profile (8384444459432563649) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
-    <skip />
+    <string name="delete_profile" msgid="8384444459432563649">"తొలగించు"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"రద్దు చేయి"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడం కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"మీ పరికరాన్ని సెటప్ చేయడం కొనసాగించడానికి, మీరు మీ పరికరాన్ని గుప్తీకరించాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
-    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
-    <skip />
-    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
-    <skip />
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"రద్దు చేయి"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"గుప్తీకరించు"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"గుప్తీకరణ పూర్తయింది"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి తాకండి"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
@@ -60,10 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"కార్యాలయ ప్రొఫైల్‌లను నిర్వహిత పరికరంలో సెటప్ చేయలేరు"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"మీ పరికరంలో గరిష్ట వినియోగదారుల సంఖ్యను చేరుకున్నందున కార్యాలయ ప్రొఫైల్‌ని సృష్టించడం సాధ్యపడలేదు. దయచేసి కనీసం ఒక వినియోగదారుని తీసివేసి, మళ్లీ ప్రయత్నించండి."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"మీ కార్యాలయ ప్రొఫైల్‌కు ఈ లాంచర్ అనువర్తనం మద్దతు ఇవ్వదు. మీరు అనుకూల లాంచర్‌కు మారాలి."</string>
-    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4811489057826175648) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3753408161948407036">"రద్దు చేయి"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"సరే"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"కార్యాలయ పరికర వినియోగదారు"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది..."</string>
@@ -75,11 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"పరికర యజమానిని సెట్ చేస్తోంది..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"సెటప్ చేయడం ఆపివేయాలా?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"మీరు ఖచ్చితంగా మీ పరికరాన్ని సెట్ చేయడం ఆపివేసి, అందులోని డేటాని తీసివేయాలనుకుంటున్నారా?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"రద్దు చేయి"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"సరే"</string>
-    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
-    <skip />
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"రీసెట్ చేయి"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"మీ పరికరాన్ని సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ఈ పరికరం ఇప్పటికే సెటప్ చేయబడింది."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ఈ వినియోగదారుకు ఈ పరికరం ఇప్పటికే సెటప్ చేయబడింది."</string>
@@ -94,10 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"మీ పరికరంలో నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేయబడలేదు"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"సెటప్ చేయడం ఆపివేయాలా?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"మీరు ఖచ్చితంగా సెటప్ చేయడాన్ని ఆపివేయాలనుకుంటున్నారా?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"వద్దు"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"సరే"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"రద్దు చేస్తోంది..."</string>
     <string name="provisioning" msgid="4512493827019163451">"కేటాయిస్తోంది"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ప్రమాణపత్రాలను సెటప్ చేస్తోంది"</string>
