@@ -34,9 +34,8 @@ import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.view.LayoutInflater;
+import android.provider.Settings;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,8 +43,6 @@ import com.android.managedprovisioning.DeleteManagedProfileDialog.DeleteManagedP
 import com.android.managedprovisioning.UserConsentDialog.ConsentCallback;
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.Utils.MdmPackageInfo;
-import com.android.setupwizard.navigationbar.SetupWizardNavBar;
-import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 import java.util.List;
 
@@ -60,8 +57,8 @@ import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFI
  * It makes sure the device is encrypted, the current launcher supports managed profiles, the
  * provisioning intent extras are valid, and that the already present managed profile is removed.
  */
-public class ProfileOwnerPreProvisioningActivity extends Activity
-        implements ConsentCallback, DeleteManagedProfileCallback, NavigationBarListener {
+public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
+        implements ConsentCallback, DeleteManagedProfileCallback {
 
     private static final String MANAGE_USERS_PERMISSION = "android.permission.MANAGE_USERS";
 
@@ -81,15 +78,9 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
-    // Hide default system navigation bar.
-    protected static final int IMMERSIVE_FLAGS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-
     private String mMdmPackageName;
 
     private ComponentName mMdmComponentName;
-
-    private Button mSetupButton;
 
     private DeleteManagedProfileDialog mDeleteDialog;
 
@@ -97,12 +88,8 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final LayoutInflater inflater = getLayoutInflater();
-        View contentView = inflater.inflate(R.layout.user_consent, null);
-        setContentView(contentView);
-
-        TextView titleView = (TextView) findViewById(R.id.title);
-        if (titleView != null) titleView.setText(getString(R.string.setup_work_profile));
+        initializeLayoutParams(R.layout.user_consent, R.string.setup_work_profile, false);
+        configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
         // Check whether system has the required managed profile feature.
         if (!systemHasManagedProfileFeature()) {
@@ -184,7 +171,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     }
 
     private void showStartProvisioningButton() {
-        mSetupButton.setVisibility(View.VISIBLE);
+        mNextButton.setVisibility(View.VISIBLE);
     }
 
     private boolean packageHasManageUsersPermission(String pkg) {
@@ -385,15 +372,14 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                                 pickLauncher();
                             }
                         })
-                .show()
-                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
+                .show();
     }
 
     public void showErrorAndClose(int resourceId, String logText) {
         ProvisionLogger.loge(logText);
         new AlertDialog.Builder(this)
                 .setTitle(R.string.provisioning_error_title)
-                .setMessage(getString(resourceId))
+                .setMessage(resourceId)
                 .setCancelable(false)
                 .setPositiveButton(R.string.device_owner_error_ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -404,8 +390,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
                             ProfileOwnerPreProvisioningActivity.this.finish();
                         }
                     })
-                .show()
-                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
+                .show();
     }
 
     /**
@@ -459,20 +444,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
     }
 
     @Override
-    public void onNavigationBarCreated(SetupWizardNavBar bar) {
-        mSetupButton = bar.getNextButton();
-        mSetupButton.setText(R.string.set_up);
-        mSetupButton.setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    public void onNavigateBack() {
-        onBackPressed();
-    }
-
-    @Override
     public void onNavigateNext() {
         checkEncryptedAndStartProvisioningService();
     }
 }
-
