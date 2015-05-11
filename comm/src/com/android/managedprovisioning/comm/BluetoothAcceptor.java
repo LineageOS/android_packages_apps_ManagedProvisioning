@@ -40,6 +40,8 @@ public class BluetoothAcceptor extends Thread implements ProvisioningAcceptor {
 
     private final ServerSocketWrapper mServerSocket;
 
+    private final ChannelFactory mChannelFactory;
+
     private volatile boolean mIsRunning;
     private int mConsecutiveFails;
     private boolean mDoRecreate;
@@ -59,7 +61,8 @@ public class BluetoothAcceptor extends Thread implements ProvisioningAcceptor {
 
     /**
      * Create a new instance that communicates over Bluetooth. The {@link #startConnection()}
-     * method must be called before communication can begin.
+     * method must be called before communication can begin. Defaults to using a
+     * {@link CommPacketChannelFactory}.
      * @param adapter Bluetooth adapter used to establish a connection
      * @param serviceName name of the created Bluetooth service, used for discovery
      * @param uuid unique identifier of the created Bluetooth service, used for discovery
@@ -67,12 +70,27 @@ public class BluetoothAcceptor extends Thread implements ProvisioningAcceptor {
      */
     public BluetoothAcceptor(BluetoothAdapter adapter, String serviceName, UUID uuid,
             StatusCallback callback) {
+        this(adapter, serviceName, uuid, callback, new CommPacketChannelFactory());
+    }
+
+    /**
+     * Create a new instance that communicates over Bluetooth. The {@link #startConnection()}
+     * method must be called before communication can begin.
+     * @param adapter Bluetooth adapter used to establish a connection
+     * @param serviceName name of the created Bluetooth service, used for discovery
+     * @param uuid unique identifier of the created Bluetooth service, used for discovery
+     * @param callback callback that receives information about connected devices
+     * @param channelFactory factory to create Channels for each new connection
+     */
+    public BluetoothAcceptor(BluetoothAdapter adapter, String serviceName, UUID uuid,
+            StatusCallback callback, ChannelFactory channelFactory) {
         mExpectedDevices = Collections.synchronizedSet(new HashSet<String>());
         // Setup callback
         mCallback = callback;
         mHandler = new Handler(Looper.getMainLooper());
         // Create socket
         mServerSocket = new BluetoothServerSocketWrapper(serviceName, uuid, adapter);
+        mChannelFactory = channelFactory;
     }
 
     @Override
@@ -148,7 +166,7 @@ public class BluetoothAcceptor extends Thread implements ProvisioningAcceptor {
      * @param socket the Bluetooth connection
      */
     private void handleConnection(SocketWrapper socket) {
-        new ProxyConnectionHandler(new Channel(socket), mHandler, mCallback,
+        new ProxyConnectionHandler(mChannelFactory.newInstance(socket), mHandler, mCallback,
                 Collections.unmodifiableSet(mExpectedDevices)).start();
     }
 }
