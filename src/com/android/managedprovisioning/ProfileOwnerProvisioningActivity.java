@@ -41,16 +41,11 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
-
-import com.android.setupwizard.navigationbar.SetupWizardNavBar;
-import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
 
 /**
  * Profile owner provisioning sets up a separate profile on a device whose primary user is already
@@ -65,7 +60,7 @@ import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarList
  * {@link ProfileOwnerProvisioningService}, which runs through the setup steps in an
  * async task.
  */
-public class ProfileOwnerProvisioningActivity extends Activity implements NavigationBarListener {
+public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
     protected static final String ACTION_CANCEL_PROVISIONING =
             "com.android.managedprovisioning.CANCEL_PROVISIONING";
 
@@ -85,16 +80,10 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
     private static final String KEY_CANCELSTATUS= "cancelstatus";
     private static final String KEY_PENDING_INTENT = "pending_intent";
 
-    // Hide default system navigation bar.
-    protected static final int IMMERSIVE_FLAGS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-
     private int mCancelStatus = CANCELSTATUS_PROVISIONING;
     private Intent mPendingProvisioningResult = null;
     private ProgressDialog mCancelProgressDialog = null;
     private AccountManager mAccountManager;
-
-    private Button mBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,14 +96,11 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
             mPendingProvisioningResult = savedInstanceState.getParcelable(KEY_PENDING_INTENT);
         }
 
-        final LayoutInflater inflater = getLayoutInflater();
-        View contentView = inflater.inflate(R.layout.progress, null);
-        setContentView(contentView);
-        TextView titleView = (TextView) findViewById(R.id.title);
-        if (titleView != null) titleView.setText(getString(R.string.setup_work_profile));
-        TextView textView = (TextView) findViewById(R.id.prog_text);
-        if (textView != null) textView.setText(getString(R.string.setting_up_workspace));
+        initializeLayoutParams(R.layout.progress, R.string.setup_work_profile, true);
+        configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
 
+        TextView textView = (TextView) findViewById(R.id.prog_text);
+        if (textView != null) textView.setText(R.string.setting_up_workspace);
 
         if (mCancelStatus == CANCELSTATUS_CONFIRMING) {
             showCancelProvisioningDialog();
@@ -122,7 +108,6 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
             showCancelProgressDialog();
         }
     }
-
 
     @Override
     protected void onResume() {
@@ -231,7 +216,6 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
                         })
                         .create();
         alertDialog.show();
-        alertDialog.getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     protected void showCancelProgressDialog() {
@@ -240,14 +224,13 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
         mCancelProgressDialog.setCancelable(false);
         mCancelProgressDialog.setCanceledOnTouchOutside(false);
         mCancelProgressDialog.show();
-        mCancelProgressDialog.getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
     }
 
     public void error(int resourceId, String logText) {
         ProvisionLogger.loge(logText);
         new AlertDialog.Builder(this)
                 .setTitle(R.string.provisioning_error_title)
-                .setMessage(getString(resourceId))
+                .setMessage(resourceId)
                 .setCancelable(false)
                 .setPositiveButton(R.string.device_owner_error_ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -255,8 +238,7 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
                             onProvisioningAborted();
                         }
                     })
-                .show()
-                .getWindow().getDecorView().setSystemUiVisibility(IMMERSIVE_FLAGS);
+                .show();
     }
 
     private void confirmCancel() {
@@ -294,20 +276,4 @@ public class ProfileOwnerProvisioningActivity extends Activity implements Naviga
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
         super.onPause();
     }
-
-    @Override
-    public void onNavigationBarCreated(SetupWizardNavBar bar) {
-        bar.getNextButton().setVisibility(View.INVISIBLE);
-        mBackButton = bar.getBackButton();
-    }
-
-    @Override
-    public void onNavigateBack() {
-        onBackPressed();
-    }
-
-    @Override
-    public void onNavigateNext() {
-    }
 }
-
