@@ -42,7 +42,7 @@ import com.android.managedprovisioning.comm.SocketWrapper;
  *
  * <p>When a connection fails, it may be restarted and requests will be made again.
  */
-public class ReliableChannel extends Channel {
+public class ReliableChannel implements Channel {
 
     /** Number of consecutive times to retry Bluetooth connection. */
     private static final int MAX_RETRIES = 8;
@@ -53,6 +53,8 @@ public class ReliableChannel extends Channel {
      */
     private static final long CLOSING_DELAY = 5000;
 
+    private final Channel mWrappedChannel;
+    protected final Object mWriteLock = new Object();
     private boolean mReconnectNeeded = false;
     private final AtomicBoolean mIsShutdown;
     private final CommPacket mEndPacket;
@@ -66,9 +68,9 @@ public class ReliableChannel extends Channel {
     /** Handles all tasks which send packets. */
     private final ExecutorService mWriteExecutor = Executors.newSingleThreadExecutor();
 
-    public ReliableChannel(SocketWrapper socket, CommPacket announcePacket,
+    public ReliableChannel(Channel wrapped, CommPacket announcePacket,
             CommPacket endPacket) {
-        super(socket);
+        mWrappedChannel = wrapped;
         mEndPacket = endPacket;
         // Start off in "Shutdown" state until createConnection() is called.
         mIsShutdown = new AtomicBoolean(true);
@@ -82,7 +84,7 @@ public class ReliableChannel extends Channel {
         // in retrySetupConnection().
         mIsShutdown.set(false);
         try {
-            mSocket.recreate();
+            reset();
         } catch (IOException e) {
             ProvisionLogger.logd(e);
             retrySetupConnection(e);
@@ -107,13 +109,13 @@ public class ReliableChannel extends Channel {
         if (!mReconnectNeeded) return;
         boolean c = false;
         for (int retries=0; !c && retries < MAX_RETRIES; ++retries) {
-            super.close();
+            mWrappedChannel.close();
             try {
                 Thread.sleep(computeRetryTime(retries));
             } catch (InterruptedException e) {
             }
             try {
-                mSocket.recreate();
+                reset();
                 c = true;
             } catch (IOException e) {
                 ProvisionLogger.logd(e);
@@ -167,7 +169,7 @@ public class ReliableChannel extends Channel {
     private void unbufferedWrite(CommPacket packet) throws IOException {
         synchronized (mWriteLock) {
             try {
-                super.write(packet);
+                mWrappedChannel.write(packet);
             } catch (Exception e) {
                 ProvisionLogger.logd(e);
                 retrySetupConnection(e);
@@ -179,7 +181,7 @@ public class ReliableChannel extends Channel {
     @Override
     public synchronized CommPacket read() throws IOException {
         try {
-            return super.read();
+            return mWrappedChannel.read();
         } catch (IOException e) {
             ProvisionLogger.logd(e);
             retrySetupConnection(e);
@@ -195,7 +197,7 @@ public class ReliableChannel extends Channel {
         ProvisionLogger.logd("Closing reliable channel");
         mIsShutdown.set(true);
         if (mBuffer.isEmpty()) {
-            super.close();
+            mWrappedChannel.close();
         }
     }
 
@@ -252,6 +254,11 @@ public class ReliableChannel extends Channel {
      * @return {@code true} if this socket is connected.
      */
     protected boolean isSocketConnected() {
-        return super.isConnected();
+        return mWrappedChannel.isConnected();
+    }
+
+    @Override
+    public void reset() throws IOException {
+        mWrappedChannel.reset();
     }
 }

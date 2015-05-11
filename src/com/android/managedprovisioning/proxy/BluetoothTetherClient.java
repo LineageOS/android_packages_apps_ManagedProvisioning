@@ -22,6 +22,7 @@ import android.content.Context;
 
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.comm.BluetoothSocketWrapper;
+import com.android.managedprovisioning.comm.CommPacketChannel;
 import com.android.managedprovisioning.comm.PacketUtil;
 
 import java.io.IOException;
@@ -40,8 +41,8 @@ public class BluetoothTetherClient implements ClientTetherConnection {
         mPacketUtil = new PacketUtil(deviceIdentifier);
         BluetoothSocketWrapper socket = new BluetoothSocketWrapper(bluetoothAdapter, bluetoothMac,
                 bluetoothUuid);
-        mChannel = new ReliableChannel(socket, mPacketUtil.createDeviceInfo(context),
-                mPacketUtil.createEndPacket());
+        mChannel = new ReliableChannel(new CommPacketChannel(socket),
+                mPacketUtil.createDeviceInfo(context), mPacketUtil.createEndPacket());
         mTetherProxy = new TetherProxy(context, mChannel, mPacketUtil);
     }
 
