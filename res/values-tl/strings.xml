@@ -22,19 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"I-set up ang iyong profile"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kinokontrol ng iyong organisasyon ang profile na ito at pinapanatili itong secure. Ikaw ang kumokontrol sa lahat ng iba pa sa iyong device."</string>
-    <!-- no translation found for company_controls_device (3063783662183428327) -->
-    <skip />
+    <string name="company_controls_device" msgid="3063783662183428327">"Sa Android for Work, magagawa ng iyong organisasyon na pamahalaan ang iyong corporate email at iba pang mga app sa iyong telepono o tablet.\nKinokontrol at pinapanatiling secure ng iyong organisasyon ang iyong device."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Kakailanganin ng sumusunod na app na i-access ang profile na ito:"</string>
-    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
-    <skip />
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Papamahalaan ng sumusunod na app ang iyong device:"</string>
     <string name="set_up" msgid="7012862095553564169">"I-set up"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Sine-set up ang iyong profile sa trabaho..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, pangkumpanyang access, mga app at data na nauugnay sa profile, kabilang na ang aktibidad ng network at impormasyon ng lokasyon ng iyong device."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Mayroong kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, corporate na access, app at data na nauugnay sa device na ito, kasama na ang gawain sa network at impormasyon ng lokasyon ng iyong device."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Makipag-ugnayan sa iyong administrator para sa higit pang impormasyon, kasama na ang mga patakaran sa privacy ng iyong organisasyon."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Matuto nang higit pa"</string>
-    <!-- no translation found for cancel_setup (3295266841772028057) -->
-    <skip />
+    <string name="cancel_setup" msgid="3295266841772028057">"KANSELAHIN"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profile sa trabaho"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Alisin ang profile sa trabaho?"</string>
@@ -42,16 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Pinamamahalaan ang profile sa trabahong ito para sa %s gamit ang:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Pakibasa ito"</a>" bago magpatuloy."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ide-delete ang lahat ng app at data sa profile na ito kung magpapatuloy ka."</string>
-    <!-- no translation found for delete_profile (8384444459432563649) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
-    <skip />
+    <string name="delete_profile" msgid="8384444459432563649">"I-DELETE"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"KANSELAHIN"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Upang magpatuloy sa pagse-set up ng iyong profile sa trabaho, kakailanganin mong i-encrypt ang iyong device. Maaaring medyo matagalan ang paggawa nito."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Upang magpatuloy sa pagse-set up ng iyong device, kakailanganin mong i-encrypt ang iyong device. Maaaring medyo matagalan ang paggawa nito."</string>
-    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
-    <skip />
-    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
-    <skip />
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"KANSELAHIN"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"I-ENCRYPT"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Tapos na ang pag-encrypt"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Pindutin upang ipagpatuloy ang pagse-set up sa iyong profile sa trabaho"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Hindi ma-set up ang iyong profile sa trabaho. Makipag-ugnayan sa iyong IT department o subukang muli sa ibang pagkakataon."</string>
@@ -60,10 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Hindi maaaring mag-set up ng mga profile sa trabaho sa pinamamahalaang device"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Hindi magawa ang profile sa trabaho dahil naabot na ang maximum na bilang ng mga user sa iyong device. Mangyaring mag-alis ng kahit isang user lang at subukang muli."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ang iyong profile sa trabaho ay hindi sinusuportahan ng launcher app na ito. Kakailanganin mong lumipat sa isang launcher na tugma dito."</string>
-    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4811489057826175648) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3753408161948407036">"KANSELAHIN"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"User ng device sa trabaho"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"I-set up ang iyong device"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Pinoproseso ang data ng pag-setup..."</string>
@@ -75,11 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"Itinatakda ang may-ari ng device..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"Ihinto ang pagse-set up?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"Sigurado ka bang gusto mong ihinto ang pagse-set up at burahin ang data ng iyong device?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"KANSELAHIN"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
-    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
-    <skip />
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"I-RESET"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Hindi ma-set up ang iyong device. Makipag-ugnayan sa iyong IT department."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Naka-set up na ang device na ito."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Naka-set up na ang device na ito para sa user na ito."</string>
@@ -94,10 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Hindi naka-install ang admin app sa iyong device"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Ihinto ang pagse-set up?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Sigurado ka bang gusto mong ihinto ang pagse-set up?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"HINDI"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"OO"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"Kinakansela..."</string>
     <string name="provisioning" msgid="4512493827019163451">"Nagpo-provision"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Sine-set up ang mga CA certificate"</string>

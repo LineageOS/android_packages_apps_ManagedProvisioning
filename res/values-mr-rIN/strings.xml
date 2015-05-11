@@ -22,19 +22,16 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"आपले प्रोफाईल सेट करा"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
-    <!-- no translation found for company_controls_device (3063783662183428327) -->
-    <skip />
+    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work सह, आपली संस्‍था आपला फोन किंवा टॅब्लेटवरील आपले कॉर्पोरेट ईमेल आणि इतर अ‍ॅप्स व्‍यवस्थापित करू शकते.\nआपली संस्‍था आपले डिव्हाइस नियंत्रित करते आणि ते सुरक्षित ठेवते."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
-    <!-- no translation found for the_following_is_your_mdm_for_device (6717973404364414816) -->
-    <skip />
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप आपले डिव्‍हाइस व्यवस्‍थापित करेल:"</string>
     <string name="set_up" msgid="7012862095553564169">"सेट अप"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"आपले कार्य प्रोफाईल सेट करत आहे..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"आपल्या प्रशासकाकडे सेटिंग्ज, कॉर्पोरेट प्रवेश, अॅप्स आणि नेटवर्क क्रियाकलाप आणि आपल्या डिव्हाइसच्या स्थान माहितीसह प्रोफाईलशी संबंधित डेटाचे परीक्षण करण्याची आणि ते व्यवस्थापित करण्याची क्षमता आहे."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"आपल्या प्रशासकाकडे सेटिंग्ज, कॉर्पोरेट प्रवेश, अॅप्स आणि नेटवर्क क्रियाकलाप आणि आपल्या डिव्हाइसच्या स्थान माहितीसह या डिव्हाइसशी संबंधित डेटाचे परीक्षण करण्याची आणि ते व्यवस्थापित करण्याची क्षमता आहे."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"आपल्‍या संस्‍थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी आपल्‍या प्रशासकाशी संपर्क साधा."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"अधिक जाणून घ्या"</string>
-    <!-- no translation found for cancel_setup (3295266841772028057) -->
-    <skip />
+    <string name="cancel_setup" msgid="3295266841772028057">"रद्द करा"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक आहे"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफाईल काढायचे?"</string>
@@ -42,16 +39,12 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"हे कार्य प्रोफाईल %s वापरासाठी व्यवस्थापित केले आहे:"</string>
     <string name="read_more_delete_profile" msgid="8108077458455321659">"कृपया पुढे जाण्यापूर्वी "<a href="#read_this_link">"हे वाचा"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"आपण सुरु ठेवल्यास या प्रोफाईलमधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
-    <!-- no translation found for delete_profile (8384444459432563649) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5500786140389799348) -->
-    <skip />
+    <string name="delete_profile" msgid="8384444459432563649">"हटवा"</string>
+    <string name="cancel_delete_profile" msgid="5500786140389799348">"रद्द करा"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्‍यासाठी, आपल्‍याला आपले डिव्हाइस कूटबद्ध करणे आवश्‍यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"आपले डिव्हाइस सेट करणे सुरु ठेवण्यासाठी, आपल्याला आपले डिव्हाइस कूटबद्ध करणे आवश्यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
-    <!-- no translation found for encrypt_device_cancel (5989855177432338238) -->
-    <skip />
-    <!-- no translation found for encrypt_device_launch_settings (5421412897999811117) -->
-    <skip />
+    <string name="encrypt_device_cancel" msgid="5989855177432338238">"रद्द करा"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"कूटबद्ध करा"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"कूटबद्धीकरण पूर्ण"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी स्पर्श करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
@@ -60,10 +53,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"व्यवस्थापित केलेल्‍या डिव्‍हाइसवर कार्य प्रोफाईल सेट केले जाऊ शकत नाही"</string>
     <string name="maximum_user_limit_reached" msgid="7267689354022124652">"कार्य प्रोफाईल आपल्या डिव्हाइसवर पोहोचलेल्या वापरकर्त्यांची कमाल संख्या तयार करू शकले नाही. कृपया कमीत कमी एक वापरकर्ता काढा आणि पुन्हा प्रयत्न करा."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"आपले कार्य प्रोफाईल या लाँचर अॅपद्वारे समर्थित नाही. आपल्याला सुसंगत असलेल्या लाँचरवर स्विच करण्याची आवश्यकता असेल."</string>
-    <!-- no translation found for cancel_provisioning (3753408161948407036) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4811489057826175648) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3753408161948407036">"रद्द करा"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"ठीक आहे"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिव्‍हाइसचा वापरकर्ता"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"आपले डिव्हाइस सेट करा"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"सेटअप डेटावर प्रक्रिया करत आहे..."</string>
@@ -75,11 +66,9 @@
     <string name="progress_set_owner" msgid="1292946927202510987">"डिव्हाइस मालक सेट करत आहे..."</string>
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"सेट करणे थांबवायचे?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"आपल्याला खात्री आहे की आपण सेट करणे थांबवू इच्छिता आणि आपल्या डिव्हाइसचा डेटा मिटवू इच्छिता?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1398290143405142587) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"रद्द करा"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ठीक आहे"</string>
-    <!-- no translation found for device_owner_error_reset (5278392395769857412) -->
-    <skip />
+    <string name="device_owner_error_reset" msgid="5278392395769857412">"रीसेट करा"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"आपले डिव्हाइस सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"हे डिव्‍हाइस आधीपासून सेट केले आहे."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"हे डिव्‍हाइस या वापरकर्त्यासाठी आधीपासून सेट केले आहे."</string>
@@ -94,10 +83,8 @@
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"आपल्‍या डिव्‍हाइसवर प्रशासक अ‍ॅप स्‍थापित केला नाही"</string>
     <string name="profile_owner_cancel_title" msgid="1087667875324931402">"सेट करणे थांबवायचे?"</string>
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"आपल्याला खात्री आहे की आपण सेट करणे थांबवू इच्छिता?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (1035206963979858009) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (4915817426681209592) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"नाही"</string>
+    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"होय"</string>
     <string name="profile_owner_cancelling" msgid="2007485854183176973">"रद्द करत आहे..."</string>
     <string name="provisioning" msgid="4512493827019163451">"तरतूद"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करीत आहे"</string>

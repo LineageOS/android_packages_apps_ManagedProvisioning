@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"අපොයි!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ඔබගේ පැතිකඩ සකසන්න"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ඔබගේ සංවිධානය මෙම පැතිකඩ පාලනය කරයි සහ එය ආරක්ෂිතව තබයි. ඔබගේ උපාංගයේ අනෙක් සියලු ඔබ පාලනය කරයි."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"වැඩ සඳහා Android සමගින්, ඔබට ඔබේ දුරකථනයේ හෝ ටැබ්ලට් පරිගණකයේ ඔබේ ආයතනික ඊ-තැපැල් සහ වෙනත් යෙදුම් කළමනාකරණය කිරීමට ඔබේ සංවිධානයට හැකිය.\nඔබේ සංවිධානය ඔබේ උපාංගය පාලනය කරන අතර එය ආරක්ෂිතව තබයි."</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"වැඩ සඳහා Android සමගින්, ඔබට ඔබේ දුරකථනයේ හෝ ටැබ්ලටයේ ඔබේ ආයතනික ඊ-තැපැල් සහ වෙනත් යෙදුම් කළමනාකරණය කිරීමට ඔබේ සංවිධානයට හැකිය.\nඔබේ සංවිධානය ඔබේ උපාංගය පාලනය කරන අතර එය ආරක්ෂිතව තබයි."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"මෙම පැතිකඩ ප්‍රවේශ වීමට ඊළගට එන යෙදුම් වලට අවශ්‍යය:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"පහත යෙදුම් ඔබේ උපාංගය කළමනාකරණය කරනු ඇත:"</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
