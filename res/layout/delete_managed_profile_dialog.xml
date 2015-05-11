@@ -23,7 +23,7 @@
     <ScrollView
         android:layout_weight="1"
         android:layout_height="0dp"
-        style="@style/ScrollView">
+        style="@style/DialogFragmentScrollView">
 
         <LinearLayout
             android:layout_height="wrap_content"
@@ -33,12 +33,13 @@
             <TextView
                 android:id="@+id/delete_managed_profile_opening_paragraph"
                 android:text="@string/opening_paragraph_delete_profile_unknown_company"
-                style="@style/MainText"/>
+                style="@style/MainText"
+                android:paddingTop="@dimen/row_padding_top"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/row_height"
-                android:paddingTop="@dimen/row_padding_top"
+                android:paddingTop="@dimen/main_text_padding_between_text"
                 android:layout_alignParentLeft="true"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_vertical">
@@ -46,12 +47,13 @@
                     android:id="@+id/delete_managed_profile_mdm_icon_view"
                     android:layout_width="@dimen/icon_width_height"
                     android:layout_height="@dimen/icon_width_height"
-                    android:scaleType="center"/>
+                    android:scaleType="centerInside"
+                    android:gravity="center_vertical"/>
                 <TextView
                     android:id="@+id/delete_managed_profile_device_manager_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:paddingLeft="@dimen/main_text_padding_left_right"
+                    android:paddingLeft="@dimen/mdm_app_name_padding_left"
                     android:gravity="center_vertical"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/main_text_size"/>
@@ -74,15 +76,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/row_height"
-        android:paddingTop="@dimen/row_padding_top">
+        android:layout_height="@dimen/row_height">
 
         <Button
             android:id="@+id/delete_managed_profile_positive_button"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:text="@string/delete_profile"
-            android:textColor="@color/colored_button"
             style="@style/TransparentButton" />
 
         <Button

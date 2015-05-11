@@ -16,36 +16,13 @@
  * limitations under the License.
  */
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    style="@style/Container">
-    <include layout="@layout/header_and_title"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/main_text_margins_left_right"
-        android:layout_marginRight="@dimen/main_text_margins_left_right"
-        android:layout_weight="1">
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:background="@color/white"
-            android:indeterminate="true"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/progress_bar_margin_top"
-            android:layout_weight="0"
-            android:layout_width="match_parent"/>
-        <LinearLayout
-            android:layout_weight="1"
-            style="@style/MainTextContainerNoHorizontalMargin">
-            <TextView
-                android:id="@+id/prog_text"
-                android:gravity="center_horizontal"
-                style="@style/MainText"/>
-        </LinearLayout>
-    </LinearLayout>
-    <fragment android:name="com.android.setupwizard.navigationbar.SetupWizardNavBar"
-        android:id="@+id/navigation_bar"
-        style="@style/setup_wizard_navbar_style" />
-</LinearLayout>
+<com.android.setupwizardlib.SetupWizardLayout
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/setup_wizard_layout"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <TextView
+            style="@style/MainTextContainer"
+            android:id="@+id/prog_text" />
+</com.android.setupwizardlib.SetupWizardLayout>
