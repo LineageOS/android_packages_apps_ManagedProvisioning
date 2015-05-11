@@ -15,10 +15,6 @@
  */
 package com.android.managedprovisioning;
 
-import com.android.setupwizard.navigationbar.SetupWizardNavBar;
-import com.android.setupwizard.navigationbar.SetupWizardNavBar.NavigationBarListener;
-
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +30,7 @@ import android.widget.TextView;
  * Pressing 'settings' will launch settings to prompt the user to encrypt
  * the device.
  */
-public class EncryptDeviceActivity extends Activity implements NavigationBarListener {
+public class EncryptDeviceActivity extends SetupLayoutActivity {
     protected static final String EXTRA_RESUME = "com.android.managedprovisioning.RESUME";
     protected static final String EXTRA_RESUME_TARGET =
             "com.android.managedprovisioning.RESUME_TARGET";
@@ -51,24 +47,17 @@ public class EncryptDeviceActivity extends Activity implements NavigationBarList
         mResumeInfo = getIntent().getBundleExtra(EXTRA_RESUME);
         mResumeTarget = mResumeInfo.getString(EXTRA_RESUME_TARGET);
 
-        final View contentView = getLayoutInflater().inflate(R.layout.encrypt_device, null);
-        setContentView(contentView);
-
-        TextView titleView = (TextView) findViewById(R.id.title);
-        TextView maintextView = (TextView) findViewById(R.id.encrypt_main_text);
         if (TARGET_PROFILE_OWNER.equals(mResumeTarget)) {
-            if (titleView != null) titleView.setText(getString(R.string.setup_work_profile));
-            if (maintextView != null) {
-                maintextView.setText(
-                        getString(R.string.encrypt_device_text_for_profile_owner_setup));
-            }
+            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile, false);
+            ((TextView) findViewById(R.id.encrypt_main_text)).setText(
+                    R.string.encrypt_device_text_for_profile_owner_setup);
         } else if (TARGET_DEVICE_OWNER.equals(mResumeTarget)) {
-            if (titleView != null) titleView.setText(getString(R.string.setup_work_device));
-            if (maintextView != null) {
-                maintextView.setText(
-                        getString(R.string.encrypt_device_text_for_device_owner_setup));
-            }
+            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device, false);
+            ((TextView) findViewById(R.id.encrypt_main_text)).setText(
+                    R.string.encrypt_device_text_for_device_owner_setup);
         }
+        configureNavigationButtons(R.string.encrypt_device_launch_settings,
+            View.VISIBLE, View.VISIBLE);
     }
 
     public static boolean isDeviceEncrypted() {
@@ -80,16 +69,6 @@ public class EncryptDeviceActivity extends Activity implements NavigationBarList
         } catch (RemoteException e) {
             return false;
         }
-    }
-
-    @Override
-    public void onNavigationBarCreated(SetupWizardNavBar bar) {
-        bar.getNextButton().setText(R.string.encrypt_device_launch_settings);
-    }
-
-    @Override
-    public void onNavigateBack() {
-        onBackPressed();
     }
 
     @Override
