@@ -18,28 +18,39 @@ package com.android.managedprovisioning.comm;
 
 import com.android.managedprovisioning.comm.Bluetooth.NetworkData;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The connection between a channel and a socket to a web server. It does a basic check on the
- * first line and then passes through all data like a dummy proxy.
- */
+ * The connection between a channel and a socket to a web server. This connection handles most
+ * compliant proxy clients. It expects an initial CONNECT request
+ * {@see http://tools.ietf.org/html/rfc2817#section-5.2}. Additionally, it can handle clients which
+ * omit the CONNECT request, as long as they specify an absoluteURI in their request line.
+ * {@see http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html}.
+ *
+ * If a client does not send a CONNECT request, and attempts to make a request using an
+ * abs_path {@see http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html} in the request line, the
+ * connection will be rejected.
+  */
 public class ProxyConnection extends Thread {
 
     private static final String CONNECT = "CONNECT";
-
+    private static final String HTTPS = "https";
     private static final String RESPONSE_OK = "HTTP/1.1 200 OK\n\n";
 
     private NetToBtThread mNetToBt;
@@ -196,96 +207,154 @@ public class ProxyConnection extends Thread {
         return buffer.toString();
     }
 
+    @VisibleForTesting
+    protected static class RequestLineInfo {
+        String method;
+        URI uri;
+
+        public RequestLineInfo(String method, URI uri) {
+            this.method = method;
+            this.uri = uri;
+        }
+    }
+
+    /**
+     * Parse a request line. Supports CONNECT requests, as well as other requests using absoluteURI
+     * {@see http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html}
+     * {@see http://tools.ietf.org/html/rfc2817#section-5.2}
+     * {@see https://www.ietf.org/rfc/rfc2396.txt}
+     * @param requestLine The requestLine from the HTTP request
+     * @return A struct containing the parsed request if parsing was successful, otherwise null.
+     */
+    @VisibleForTesting
+    protected static RequestLineInfo parseRequestLine(String requestLine) {
+        String[] split = requestLine.split(" ");
+
+        if (split.length < 2) {
+            ProvisionCommLogger.loge("Could not parse request line: " + requestLine);
+            return null;
+        }
+
+        String method = split[0];
+        String uriString = split[1];
+
+        if (CONNECT.equals(method)) {
+            // CONNECT request lines come through as an 'authority' element (see RFC 2396), which do
+            // not contain a scheme. We don't need the scheme to open the socket, but we do need it
+            // for the ProxySelector - so force it to HTTPS.
+            if (!uriString.contains("://")) {
+                uriString = HTTPS + "://" + uriString;
+            }
+        }
+
+        URI uri;
+        try {
+            // parse with URL first - this is more restrictive, and catches the case where a GET
+            // request comes through with an abs_path, but no host, in the request line. This
+            // situation is unsupported by this proxy (but should never happen with a compliant
+            // client - we should always see a CONNECT request first).
+            URL url = new URL(uriString);
+            uri = url.toURI();
+        } catch (MalformedURLException|URISyntaxException e) {
+            ProvisionCommLogger.loge(
+                    "Invalid or unsupported URI in request line: " + requestLine, e);
+            return null;
+        }
+
+        if (uri.getPort() < 0) {
+            // If no port was specified, choose a default
+            int newPort = 80;
+            if (CONNECT.equals(method) || HTTPS.equals(uri.getScheme().toLowerCase())) {
+                newPort = 443;
+            }
+
+            try {
+                // sadly this is the only way to "mutate" a URI
+                uri = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), newPort,
+                        uri.getPath(), uri.getQuery(), uri.getFragment());
+            } catch (URISyntaxException e) {
+                ProvisionCommLogger.loge(
+                        "Invalid URI when trying to enforce https: " + requestLine, e);
+                return null;
+            }
+        }
+
+        return new RequestLineInfo(method, uri);
+    }
+
+    /**
+     * Create a socket to the requested host. Check for an applicable proxy, and use it if found.
+     * @param uri URI containing the host to connect to.
+     * @return
+     * @throws IOException
+     */
+    private boolean createSocket(URI uri) throws IOException {
+        boolean usingProxy = false;
+
+        String host = uri.getHost();
+        int port = uri.getPort();
+
+        List<Proxy> list = ProxySelector.getDefault().select(uri);
+        for (Proxy proxy : list) {
+            if (proxy.equals(Proxy.NO_PROXY)) {
+                break; // break out and create a normal socket
+            } else {
+                if (proxy.address() instanceof InetSocketAddress) {
+                    // Only Inets created by PacProxySelector and ProxySelectorImpl.
+                    InetSocketAddress inetSocketAddress =
+                            (InetSocketAddress)proxy.address();
+                    // A proxy specified with an IP addr should only ever use that IP. This
+                    // will ensure that the proxy only ever connects to its specified
+                    // address. If the proxy is resolved, use the associated IP address. If
+                    // unresolved, use the specified host name.
+                    host = inetSocketAddress.isUnresolved() ?
+                            inetSocketAddress.getHostName() :
+                            inetSocketAddress.getAddress().getHostAddress();
+                    port = inetSocketAddress.getPort();
+                    usingProxy = true;
+                    break;
+                } else {
+                    ProvisionCommLogger.logw("Unsupported Inet type from ProxySelector, skipping:" +
+                            proxy.address().getClass().getSimpleName());
+                }
+            }
+        }
+
+        mNetSocket = new Socket(host, port);
+        return usingProxy;
+    }
+
     private void processConnect() {
         try {
             String requestLine = getLine()  + '\r' + '\n';
-            String[] split = requestLine.split(" ");
+            RequestLineInfo info = parseRequestLine(requestLine);
 
-            String method = split[0];
-            String uri = split[1];
-
-            ProvisionCommLogger.logi("Method: " + method);
-            String host = "";
-            int port = 80;
-            String toSend = "";
-
-            if (CONNECT.equals(method)) {
-                String[] hostPortSplit = uri.split(":");
-                host = hostPortSplit[0];
-                try {
-                    port = Integer.parseInt(hostPortSplit[1]);
-                } catch (NumberFormatException nfe) {
-                    port = 443;
-                }
-                uri = "Https://" + host + ":" + port;
-            } else {
-                try {
-                    URI url = new URI(uri);
-                    host = url.getHost();
-                    port = url.getPort();
-                    if (port < 0) {
-                        port = 80;
-                    }
-                } catch (URISyntaxException e) {
-                    ProvisionCommLogger.logw("Trying to proxy invalid URL", e);
-                    mNetRunning = false;
-                    return;
-                }
-                toSend = requestLine;
+            if (info == null) {
+                mNetRunning = false;
+                return;
             }
 
-            List<Proxy> list = new ArrayList<Proxy>();
+            boolean usingProxy;
             try {
-                list = ProxySelector.getDefault().select(new URI(uri));
-            } catch (URISyntaxException e) {
-                ProvisionCommLogger.loge("Unable to parse URI from request", e);
+                usingProxy = createSocket(info.uri);
+            } catch (IOException e) {
+                ProvisionCommLogger.loge("Failed to create socket: " +
+                        info.uri.getHost() + ":" + info.uri.getPort(), e);
+                mNetRunning = false;
+                mNetSocket = null;
+                return;
             }
-            for (Proxy proxy : list) {
-                try {
-                    if (proxy.equals(Proxy.NO_PROXY)) {
-                        mNetSocket = new Socket(host, port);
-                        if (CONNECT.equals(method)) {
-                            handleConnect();
-                        } else {
-                            toSend = requestLine;
-                        }
-                    } else {
-                        if (proxy.address() instanceof InetSocketAddress) {
-                            // Only Inets created by PacProxySelector and ProxySelectorImpl.
-                            InetSocketAddress inetSocketAddress =
-                                    (InetSocketAddress)proxy.address();
-                            // A proxy specified with an IP addr should only ever use that IP. This
-                            // will ensure that the proxy only ever connects to its specified
-                            // address. If the proxy is resolved, use the associated IP address. If
-                            // unresolved, use the specified host name.
-                            String hostName = inetSocketAddress.isUnresolved() ?
-                                    inetSocketAddress.getHostName() :
-                                    inetSocketAddress.getAddress().getHostAddress();
-                            mNetSocket = new Socket(hostName, inetSocketAddress.getPort());
-                            toSend = requestLine;
-                        } else {
-                            ProvisionCommLogger.logw("Unsupported Inet Type from ProxySelector");
-                            continue;
-                        }
-                    }
-                } catch (IOException ioe) {
 
-                }
-                if (mNetSocket != null) {
-                    break;
-                }
-            }
+            String toSend = "";
             if (mNetSocket == null) {
-                mNetSocket = new Socket(host, port);
-                if (CONNECT.equals(method)) {
+                if (CONNECT.equals(info.method) && !usingProxy) {
+                    // If we're not talking to a proxy, and we're handling a CONNECT, we need to
+                    // send a response
                     handleConnect();
                 } else {
-                    toSend = requestLine;
+                    mNetSocket.getOutputStream().write(toSend.getBytes());
                 }
             }
-
-            // For HTTP or PROXY, send the request back out.
-            mNetSocket.getOutputStream().write(toSend.getBytes());
 
             mNetToBt = new NetToBtThread();
             mNetToBt.start();
