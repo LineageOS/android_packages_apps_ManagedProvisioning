@@ -62,7 +62,7 @@
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
        their existing work profile. The administration app icon and name appear after the final
        colon. [CHAR LIMIT=NONE] -->
-  <string name="opening_paragraph_delete_profile_unknown_company">This work profile is managed by:</string>
+  <string name="opening_paragraph_delete_profile_unknown_company">A work profile already exists and is managed by:</string>
     <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
          their existing work profile. The administration app icon and name appear after the final
          colon, the %s is replaced by the domain name of the organization that owns the work
