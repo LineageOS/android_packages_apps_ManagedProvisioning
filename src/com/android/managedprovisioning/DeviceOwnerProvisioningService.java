@@ -285,7 +285,6 @@ public class DeviceOwnerProvisioningService extends Service {
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
                 getResources().getString(R.string.default_owned_device_username),
                 params.deviceInitializerComponentName,
-                getResources().getString(R.string.default_owned_device_username),
                 new SetDevicePolicyTask.Callback() {
                     @Override
                     public void onSuccess() {
