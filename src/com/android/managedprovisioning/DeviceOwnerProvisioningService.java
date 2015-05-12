@@ -79,6 +79,8 @@ public class DeviceOwnerProvisioningService extends Service {
             "com.android.managedprovisioning.error";
     protected static final String EXTRA_USER_VISIBLE_ERROR_ID_KEY =
             "UserVisibleErrorMessage-Id";
+    protected static final String EXTRA_FACTORY_RESET_REQUIRED =
+            "FactoryResetRequired";
     protected static final String ACTION_PROGRESS_UPDATE =
             "com.android.managedprovisioning.progress_update";
     protected static final String EXTRA_PROGRESS_MESSAGE_ID_KEY =
@@ -99,6 +101,10 @@ public class DeviceOwnerProvisioningService extends Service {
 
     // MessageId of the last error message.
     private int mLastErrorMessage = -1;
+
+    // Indicates whether reverting the provisioning process up till now requires a factory reset.
+    // Is false at the start and flips to true after the first irrevertible action.
+    private boolean mFactoryResetRequired = false;
 
     // Indicates whether provisioning has finished successfully (service waiting to stop).
     private volatile boolean mDone = false;
@@ -171,7 +177,8 @@ public class DeviceOwnerProvisioningService extends Service {
                         }
                         @Override
                         public void onError() {
-                            error(R.string.device_owner_error_bluetooth);
+                            error(R.string.device_owner_error_bluetooth,
+                                    false /* do not require factory reset */);
                         }
                 });
 
@@ -185,7 +192,8 @@ public class DeviceOwnerProvisioningService extends Service {
 
                        @Override
                        public void onError(){
-                           error(R.string.device_owner_error_wifi);
+                           error(R.string.device_owner_error_wifi,
+                                   false /* do not require factory reset */);
                            statusUpdate(DeviceInitializerStatus.STATUS_ERROR_CONNECT_WIFI);
                            }
                        });
@@ -199,7 +207,8 @@ public class DeviceOwnerProvisioningService extends Service {
                     }
                     @Override
                     public void onError() {
-                        error(R.string.device_owner_error_frp);
+                        error(R.string.device_owner_error_frp,
+                                false /* do not require factory reset */);
                         statusUpdate(DeviceInitializerStatus.
                                 STATUS_ERROR_RESET_PROTECTION_BLOCKING_PROVISIONING);
                     }
@@ -333,7 +342,18 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void error(int dialogMessage) {
+        error(dialogMessage, true /* require factory reset */);
+    }
+
+    private void error(int dialogMessage, boolean factoryResetRequired) {
         mLastErrorMessage = dialogMessage;
+        if (factoryResetRequired) {
+            if (!mFactoryResetRequired) {
+                // Turn off bluetooth now that we encounter first unrecoverable error.
+                BluetoothConnectionService.sendBluetoothShutdownRequest(this);
+            }
+            mFactoryResetRequired = true;
+        }
         sendError();
         // Wait for stopService() call from the activity.
     }
@@ -350,6 +370,7 @@ public class DeviceOwnerProvisioningService extends Service {
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
         intent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         intent.putExtra(EXTRA_USER_VISIBLE_ERROR_ID_KEY, mLastErrorMessage);
+        intent.putExtra(EXTRA_FACTORY_RESET_REQUIRED, mFactoryResetRequired);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
