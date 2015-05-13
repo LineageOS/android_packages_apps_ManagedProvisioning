@@ -146,7 +146,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             DevicePolicyManager dpm =
                     (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
             createDeleteManagedProfileDialog(dpm, existingManagedProfileUserId);
-        } else if (isMaximumUserLimitReached()) {
+        } else if (isMaximumManagedProfilesLimitReached()) {
             showErrorAndClose(R.string.maximum_user_limit_reached,
                     "Exiting managed profile provisioning, cannot add more users.");
         } else {
@@ -184,9 +184,9 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
     }
 
-    private boolean isMaximumUserLimitReached() {
+    private boolean isMaximumManagedProfilesLimitReached() {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        return !userManager.canAddMoreUsers();
+        return !userManager.canAddMoreManagedProfiles();
     }
 
     private boolean currentLauncherSupportsManagedProfiles() {
