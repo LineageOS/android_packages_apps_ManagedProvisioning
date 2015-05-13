@@ -1,0 +1,3 @@
+-keep class com.android.managedprovisioning.comm.ProxyConnection
+-keep class com.android.managedprovisioning.comm.ProxyConnection$RequestLineInfo
+
