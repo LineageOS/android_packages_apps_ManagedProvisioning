@@ -332,11 +332,7 @@ public class ProfileOwnerProvisioningService extends Service {
                 Process.myUserHandle().getIdentifier());
 
         if (mManagedProfileUserInfo == null) {
-            if (UserManager.getMaxSupportedUsers() == mUserManager.getUserCount()) {
-                error("Profile creation failed, maximum number of users reached.");
-            } else {
-                error("Couldn't create profile. Reason unknown.");
-            }
+            error("Couldn't create profile.");
         }
     }
 
