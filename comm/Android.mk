@@ -18,6 +18,8 @@ include $(CLEAR_VARS)
 
 LOCAL_SDK_VERSION := current
 
+LOCAL_STATIC_JAVA_LIBRARIES := guava
+
 LOCAL_PROTOC_FLAGS := --proto_path=$(LOCAL_PATH)/protos/
 LOCAL_PROTOC_OPTIMIZE_TYPE := nano
 
@@ -29,3 +31,4 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
+include $(call all-makefiles-under,$(LOCAL_PATH))
