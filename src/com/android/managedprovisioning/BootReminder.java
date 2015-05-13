@@ -79,7 +79,7 @@ public class BootReminder extends BroadcastReceiver {
 
     private static final ComponentName DEVICE_OWNER_INTENT_TARGET =
             new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.DeviceOwnerProvisioningActivity");
+                    "com.android.managedprovisioning.DeviceOwnerPreProvisioningActivity");
 
     private static final ComponentName HOME_RECEIVER_INTENT_TARGET =
             new ComponentName("com.android.managedprovisioning",

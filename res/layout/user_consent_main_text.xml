@@ -20,11 +20,11 @@
     style="@style/MainTextContainer"
     android:orientation="vertical">
     <TextView
-        android:text="@string/company_controls_workspace"
+        android:id="@+id/user_consent_message"
         style="@style/MainText"
         android:paddingTop="@dimen/row_padding_top" />
     <TextView
-        android:text="@string/the_following_is_your_mdm"
+        android:id="@+id/mdm_info_message"
         style="@style/MainText"/>
     <LinearLayout
         android:layout_width="wrap_content"
