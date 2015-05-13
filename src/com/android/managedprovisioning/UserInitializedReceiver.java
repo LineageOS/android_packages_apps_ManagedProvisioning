@@ -46,7 +46,7 @@ public class UserInitializedReceiver extends BroadcastReceiver {
 
     private static final String MP_PACKAGE_NAME = "com.android.managedprovisioning";
     private static final String MP_ACTIVITY_NAME =
-            "com.android.managedprovisioning.DeviceOwnerProvisioningActivity";
+            "com.android.managedprovisioning.DeviceOwnerPreProvisioningActivity";
 
     @Override
     public void onReceive(Context context, Intent receivedIntent) {
@@ -76,7 +76,7 @@ public class UserInitializedReceiver extends BroadcastReceiver {
         DevicePolicyManager dpm = (DevicePolicyManager)
                 context.getSystemService(Context.DEVICE_POLICY_SERVICE);
 
-        Intent startMpIntent = new Intent(context, DeviceOwnerProvisioningActivity.class);
+        Intent startMpIntent = new Intent(context, DeviceOwnerPreProvisioningActivity.class);
         startMpIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startMpIntent.putExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, dpm.getDeviceOwner());

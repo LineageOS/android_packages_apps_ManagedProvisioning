@@ -91,6 +91,11 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         initializeLayoutParams(R.layout.user_consent, R.string.setup_work_profile, false);
         configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
+        TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
+        consentMessageTextView.setText(R.string.company_controls_workspace);
+        TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
+        mdmInfoTextView.setText(R.string.the_following_is_your_mdm);
+
         // Check whether system has the required managed profile feature.
         if (!systemHasManagedProfileFeature()) {
             showErrorAndClose(R.string.managed_provisioning_not_supported,

@@ -28,11 +28,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -65,25 +63,15 @@ import java.util.List;
  * repeated. We made sure that all tasks can be done twice without causing any problems.
  * </p>
  */
-public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
-        implements UserConsentDialog.ConsentCallback{
+public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     private static final boolean DEBUG = false; // To control logging.
 
-    private static final String KEY_USER_CONSENTED = "user_consented";
     private static final String KEY_CANCEL_DIALOG_SHOWN = "cancel_dialog_shown";
     private static final String KEY_PENDING_INTENTS = "pending_intents";
-
-    private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
-    private static final int WIFI_REQUEST_CODE = 2;
 
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
 
-    // Indicates whether user consented by clicking on positive button of interstitial.
-    private boolean mUserConsented = false;
-
-    // Params that will be used after user consent.
-    // Extracted from the starting intent.
     private ProvisioningParams mParams;
 
     // Indicates that the cancel dialog is shown.
@@ -98,7 +86,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
         if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONCREATE");
 
         if (savedInstanceState != null) {
-            mUserConsented = savedInstanceState.getBoolean(KEY_USER_CONSENTED, false);
             mCancelDialogShown = savedInstanceState.getBoolean(KEY_CANCEL_DIALOG_SHOWN, false);
             mPendingProvisioningIntents = savedInstanceState
                     .getParcelableArrayList(KEY_PENDING_INTENTS);
@@ -111,27 +98,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
         if (mCancelDialogShown) showCancelResetDialog();
 
-        // Check whether we have already provisioned this user.
-        if (Utils.isCurrentUserOwner()) {
-            int provisioned =
-                    Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /*default*/);
-            if (provisioned != 0) {
-                ProvisionLogger.loge("Device already provisioned.");
-                error(R.string.device_owner_error_already_provisioned,
-                        false /* no factory reset */);
-                return;
-            }
-        } else {
-            int provisioned =
-                    Secure.getInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 0 /*default*/);
-            if (provisioned != 0) {
-                ProvisionLogger.loge("User already provisioned.");
-                error(R.string.device_owner_error_already_provisioned_user,
-                        false /* no factory reset */);
-                return;
-            }
-        }
-
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
         IntentFilter filter = new IntentFilter();
@@ -140,62 +106,14 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
         filter.addAction(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
-        // Parse the incoming intent.
-        MessageParser parser = new MessageParser();
-        try {
-            mParams = parser.parseIntent(getIntent());
-        } catch (Utils.IllegalProvisioningArgumentException e) {
-            ProvisionLogger.loge("Could not read data from intent", e);
-            error(R.string.device_owner_error_general, false /* no factory reset */);
-            return;
-        }
-
-        // Ask to encrypt the device before proceeding
-        if (!(EncryptDeviceActivity.isDeviceEncrypted()
-                        || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
-                        || mParams.skipEncryption)) {
-            requestEncryption(parser, mParams);
-            finish();
-            return;
-            // System will reboot. Bootreminder will restart this activity.
-        }
-
-        // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.wifiInfo.ssid)
-                && !mParams.bluetoothInfo.useProxy) {
-            requestWifiPick();
-            return;
-            // Wait for onActivityResult.
-        }
-
-        showInterstitialAndProvision(mParams);
+        // Load the ProvisioningParams (from message in Intent).
+        mParams = (ProvisioningParams) getIntent().getParcelableExtra(
+                DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS);
+        startDeviceOwnerProvisioningService();
     }
 
-    private void showInterstitialAndProvision(final ProvisioningParams params) {
-        if (mUserConsented || params.startedByNfc || !Utils.isCurrentUserOwner()) {
-            startDeviceOwnerProvisioningService(params);
-        } else {
-            // Notify the user that the admin will have full control over the device,
-            // then start provisioning.
-            UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER)
-                    .show(getFragmentManager(), "UserConsentDialogFragment");
-        }
-    }
-
-    @Override
-    public void onDialogConsent() {
-        mUserConsented = true;
-        startDeviceOwnerProvisioningService(mParams);
-    }
-
-    @Override
-    public void onDialogCancel() {
-        finish();
-    }
-
-    private void startDeviceOwnerProvisioningService(ProvisioningParams params) {
+    private void startDeviceOwnerProvisioningService() {
         Intent intent = new Intent(this, DeviceOwnerProvisioningService.class);
-        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, params);
         intent.putExtras(getIntent());
         startService(intent);
     }
@@ -294,24 +212,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
         Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
     }
 
-    private void requestEncryption(MessageParser messageParser, ProvisioningParams params) {
-        Intent encryptIntent = new Intent(DeviceOwnerProvisioningActivity.this,
-                EncryptDeviceActivity.class);
-
-        Bundle resumeExtras = new Bundle();
-        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
-                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
-        messageParser.addProvisioningParamsToBundle(resumeExtras, params);
-
-        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
-
-        startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
-    }
-
-    private void requestWifiPick() {
-        startActivityForResult(AddWifiNetworkTask.getWifiPickIntent(), WIFI_REQUEST_CODE);
-    }
-
     @Override
     public void onBackPressed() {
         if (mCancelDialogShown) {
@@ -368,30 +268,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
         mProgressTextView.setText(progressMessage);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
-            if (resultCode == RESULT_CANCELED) {
-                ProvisionLogger.loge("User canceled device encryption.");
-                finish();
-            }
-        } else if (requestCode == WIFI_REQUEST_CODE) {
-            if (resultCode == RESULT_CANCELED) {
-                ProvisionLogger.loge("User canceled wifi picking.");
-                stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                                DeviceOwnerProvisioningService.class));
-                finish();
-            } else if (resultCode == RESULT_OK) {
-                if (DEBUG) ProvisionLogger.logd("Wifi request result is OK");
-                if (AddWifiNetworkTask.isConnectedToWifi(this)) {
-                    showInterstitialAndProvision(mParams);
-                } else {
-                    requestWifiPick();
-                }
-            }
-        }
-    }
-
     private void error(int dialogMessage, boolean resetRequired) {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this)
                 .setTitle(R.string.provisioning_error_title)
@@ -434,7 +310,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean(KEY_USER_CONSENTED, mUserConsented);
         outState.putBoolean(KEY_CANCEL_DIALOG_SHOWN, mCancelDialogShown);
         outState.putParcelableArrayList(KEY_PENDING_INTENTS, mPendingProvisioningIntents);
     }
