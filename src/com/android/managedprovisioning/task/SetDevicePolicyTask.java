@@ -44,20 +44,18 @@ public class SetDevicePolicyTask {
     private final String mOwnerName;
     private ComponentName mInitializerComponent;
     private String mInitializerPackageName;
-    private String mInitializerName;
 
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
     public SetDevicePolicyTask(Context context, String ownerName,
-            ComponentName initializerComponent, String initializerName, Callback callback) {
+            ComponentName initializerComponent, Callback callback) {
         mCallback = callback;
         mContext = context;
         mOwnerName = ownerName;
         mInitializerComponent = initializerComponent;
         if (mInitializerComponent != null) {
             mInitializerPackageName = initializerComponent.getPackageName();
-            mInitializerName = initializerName;
         }
 
         mPackageManager = mContext.getPackageManager();
@@ -77,7 +75,7 @@ public class SetDevicePolicyTask {
             if (mInitializerComponent != null) {
                 enableDevicePolicyApp(mInitializerPackageName);
                 setActiveAdmin(mInitializerComponent);
-                if (!setDeviceInitializer(mInitializerComponent, mInitializerName)) {
+                if (!setDeviceInitializer(mInitializerComponent)) {
                     // error reported in setDeviceInitializer
                     return;
                 }
@@ -114,10 +112,10 @@ public class SetDevicePolicyTask {
         }
     }
 
-    public boolean setDeviceInitializer(ComponentName component, String owner) {
-        ProvisionLogger.logd("Setting " + component + " as device initializer " + owner + ".");
+    public boolean setDeviceInitializer(ComponentName component) {
+        ProvisionLogger.logd("Setting " + component + " as device initializer.");
         if (!mDevicePolicyManager.isDeviceInitializerApp(component.getPackageName())) {
-            mDevicePolicyManager.setDeviceInitializer(null, component, owner);
+            mDevicePolicyManager.setDeviceInitializer(null, component);
         }
         IPackageManager pm = AppGlobals.getPackageManager();
         try {
