@@ -51,8 +51,7 @@ public class PreBootListener extends BroadcastReceiver {
 
             // Delete new apps.
             new DeleteNonRequiredAppsTask(context, dpm.getDeviceOwner(),
-                    R.array.required_apps_managed_device,
-                    R.array.vendor_required_apps_managed_device,
+                    DeleteNonRequiredAppsTask.DEVICE_OWNER,
                     false /* not creating new profile */,
                     UserHandle.USER_OWNER,
                     false /* delete non-required system apps */,
@@ -106,8 +105,7 @@ public class PreBootListener extends BroadcastReceiver {
 
             deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(context,
                     profileOwner.getPackageName(),
-                    R.array.required_apps_managed_profile,
-                    R.array.vendor_required_apps_managed_profile,
+                    DeleteNonRequiredAppsTask.PROFILE_OWNER,
                     false /* not creating new profile */,
                     userInfo.id,
                     false /* delete non-required system apps */,

@@ -265,12 +265,9 @@ public class ProfileOwnerProvisioningService extends Service {
                     mManagedProfileUserInfo.id);
             disableBluetoothSharingTask = new DisableBluetoothSharingTask(
                     mManagedProfileUserInfo.id);
-            deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this,
-                    mMdmPackageName, R.array.required_apps_managed_profile,
-                    R.array.vendor_required_apps_managed_profile,
-                    R.array.packages_to_delete_new_managed_profile,
-                    true /* creating new profile */, mManagedProfileUserInfo.id,
-                    false /* delete non-required system apps */,
+            deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this, mMdmPackageName,
+                    DeleteNonRequiredAppsTask.PROFILE_OWNER, true /* creating new profile */,
+                    mManagedProfileUserInfo.id, false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
 
                         @Override
