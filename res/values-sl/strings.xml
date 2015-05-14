@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Nastavitev profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija nadzira ta profil in skrbi za njegovo varnost. Vi nadzirate vse drugo v napravi."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work organizaciji omogoča upravljanje e-pošte podjetja in drugih delovnih aplikacij v telefonu ali tabličnem računalniku.\nOrganizacija nadzira napravo in skrbi za njeno varnost."</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work organizaciji omogoča upravljanje e-pošte podjetja in drugih aplikacij v telefonu ali tabličnem računalniku.\nOrganizacija nadzira napravo in skrbi za njeno varnost."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ta aplikacija bo morala dostopati do tega profila:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ta aplikacija bo upravljala napravo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nastavitev"</string>
@@ -44,7 +44,7 @@
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Če želite nadaljevati nastavitev delovnega profila, morate šifrirati napravo. To bo morda trajalo nekaj časa."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Če želite nadaljevati nastavitev naprave, jo morate šifrirati. To bo morda trajalo nekaj časa."</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"PREKLIČI"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŠIFRIRANJE"</string>
+    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŠIFRIRAJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Šifriranje je dokončano"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Če želite nadaljevati z nastavljanjem delovnega profila, se dotaknite."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Delovnega profila ni bilo mogoče nastaviti. Obrnite se na oddelek za IT ali poskusite znova pozneje."</string>
