@@ -318,8 +318,8 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
-                this, params.inferDeviceAdminPackageName(), R.array.required_apps_managed_device,
-                R.array.vendor_required_apps_managed_device, true /* creating new profile */,
+                this, params.inferDeviceAdminPackageName(), DeleteNonRequiredAppsTask.DEVICE_OWNER,
+                true /* creating new profile */,
                 UserHandle.USER_OWNER, params.leaveAllSystemAppsEnabled,
                 new DeleteNonRequiredAppsTask.Callback() {
                     @Override
