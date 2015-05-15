@@ -289,10 +289,6 @@ public class DeleteNonRequiredAppsTask {
         return result;
     }
 
-    private static Set<String> getAppListAsSet(Context context, int listId) {
-        return new HashSet<String>(Arrays.asList(context.getResources().getStringArray(listId)));
-    }
-
     protected Set<String> getRequiredApps() {
         HashSet<String> requiredApps = new HashSet<String>();
         requiredApps.addAll(mRequiredAppsList);
