@@ -188,6 +188,7 @@ public class CrossProfileIntentFiltersHelper {
         capture.addAction(MediaStore.ACTION_IMAGE_CAPTURE);
         capture.addAction(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
         capture.addAction(MediaStore.ACTION_VIDEO_CAPTURE);
+        capture.addAction(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
         capture.addAction(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
         capture.addAction(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
         capture.addAction(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
