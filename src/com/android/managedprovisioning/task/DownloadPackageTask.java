@@ -56,7 +56,8 @@ public class DownloadPackageTask {
     public static final int ERROR_DOWNLOAD_FAILED = 1;
     public static final int ERROR_OTHER = 2;
 
-    private static final String HASH_TYPE = "SHA-1";
+    private static final String SHA1_TYPE = "SHA-1";
+    private static final String SHA256_TYPE = "SHA-256";
 
     private final Context mContext;
     private final Callback mCallback;
@@ -81,23 +82,6 @@ public class DownloadPackageTask {
                downloadInfo.minVersion, mContext)) {
             mDownloads.add(new DownloadStatusInfo(downloadInfo, label));
         }
-    }
-
-    /**
-     * Returns true if the given package does not exist on the device or if its version code is less
-     * than the given version, and false otherwise.
-     */
-    private boolean packageRequiresUpdate(String packageName, int minSupportedVersion) {
-        try {
-            PackageInfo packageInfo = mPm.getPackageInfo(packageName, 0);
-            if (packageInfo.versionCode >= minSupportedVersion) {
-                return false;
-            }
-        } catch (NameNotFoundException e) {
-            // Package not on device.
-        }
-
-        return true;
     }
 
     public void run() {
@@ -203,30 +187,49 @@ public class DownloadPackageTask {
         }
     }
 
+    /**
+     * Check whether package hash of downloaded file matches the hash given in DownloadStatusInfo.
+     * By default, SHA-256 is used to verify the file hash.
+     * If mPackageDownloadInfo.packageChecksumSupportsSha1 == true, SHA-1 hash is also supported for
+     * backwards compatibility.
+     */
     private boolean doesPackageHashMatch(DownloadStatusInfo info) {
-        // Check whether package hash of downloaded file matches the hash given in constructor.
-        ProvisionLogger.logd("Checking " + HASH_TYPE
-                + "-hash of entire apk file.");
-        byte[] packageHash = computeHashOfFile(info.mLocation);
-        if (packageHash == null) {
+        byte[] packageSha256Hash, packageSha1Hash = null;
+
+        ProvisionLogger.logd("Checking file hash of entire apk file.");
+        packageSha256Hash = computeHashOfFile(info.mLocation, SHA256_TYPE);
+        if (packageSha256Hash == null) {
             // Error should have been reported in computeHashOfFile().
             return false;
         }
 
-        if (Arrays.equals(info.mPackageDownloadInfo.packageChecksum, packageHash)) {
+        if (Arrays.equals(info.mPackageDownloadInfo.packageChecksum, packageSha256Hash)) {
             return true;
+        }
+
+        // Fall back to SHA-1
+        if (info.mPackageDownloadInfo.packageChecksumSupportsSha1) {
+            packageSha1Hash = computeHashOfFile(info.mLocation, SHA1_TYPE);
+            if (Arrays.equals(info.mPackageDownloadInfo.packageChecksum, packageSha1Hash)) {
+                return true;
+            }
         }
 
         ProvisionLogger.loge("Provided hash does not match file hash.");
         ProvisionLogger.loge("Hash provided by programmer: "
                 + Utils.byteArrayToString(info.mPackageDownloadInfo.packageChecksum));
-        ProvisionLogger.loge("Hash computed from file: " + Utils.byteArrayToString(packageHash));
+        ProvisionLogger.loge("SHA-256 Hash computed from file: " + Utils.byteArrayToString(
+                packageSha256Hash));
+        if (packageSha1Hash != null) {
+            ProvisionLogger.loge("SHA-1 Hash computed from file: " + Utils.byteArrayToString(
+                    packageSha1Hash));
+        }
         return false;
     }
 
     private boolean doesASignatureHashMatch(DownloadStatusInfo info) {
         // Check whether a signature hash of downloaded apk matches the hash given in constructor.
-        ProvisionLogger.logd("Checking " + HASH_TYPE
+        ProvisionLogger.logd("Checking " + SHA256_TYPE
                 + "-hashes of all signatures of downloaded package.");
         List<byte[]> sigHashes = computeHashesOfAllSignatures(info.mLocation);
         if (sigHashes == null) {
@@ -270,14 +273,14 @@ public class DownloadPackageTask {
         mCallback.onError(ERROR_DOWNLOAD_FAILED);
     }
 
-    private byte[] computeHashOfFile(String fileLocation) {
+    private byte[] computeHashOfFile(String fileLocation, String hashType) {
         InputStream fis = null;
         MessageDigest md;
         byte hash[] = null;
         try {
-            md = MessageDigest.getInstance(HASH_TYPE);
+            md = MessageDigest.getInstance(hashType);
         } catch (NoSuchAlgorithmException e) {
-            ProvisionLogger.loge("Hashing algorithm " + HASH_TYPE + " not supported.", e);
+            ProvisionLogger.loge("Hashing algorithm " + hashType + " not supported.", e);
             mCallback.onError(ERROR_OTHER);
             return null;
         }
@@ -330,7 +333,7 @@ public class DownloadPackageTask {
                hashes.add(hash);
             }
         } catch (NoSuchAlgorithmException e) {
-            ProvisionLogger.loge("Hashing algorithm " + HASH_TYPE + " not supported.", e);
+            ProvisionLogger.loge("Hashing algorithm " + SHA256_TYPE + " not supported.", e);
             mCallback.onError(ERROR_OTHER);
             return null;
         }
@@ -338,7 +341,7 @@ public class DownloadPackageTask {
     }
 
     private byte[] computeHashOfByteArray(byte[] bytes) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance(HASH_TYPE);
+        MessageDigest md = MessageDigest.getInstance(SHA256_TYPE);
         md.update(bytes, 0, bytes.length);
         return md.digest();
     }
