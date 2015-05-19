@@ -72,7 +72,6 @@ public class CommPacketChannel implements Channel {
      */
     protected byte[] serializePacket(MessageNano packet) throws IOException {
         int size = packet.getSerializedSize();
-        ProvisionCommLogger.logd("Sending message size: " + size);
         int delimitSize = CodedOutputByteBufferNano.computeRawVarint32Size(size);
         byte[] array = new byte[size + delimitSize];
         CodedOutputByteBufferNano outputBuffer = CodedOutputByteBufferNano.newInstance(array);
@@ -134,7 +133,7 @@ public class CommPacketChannel implements Channel {
         try {
             mSocket.close();
         } catch (IOException ioe) {
-            ProvisionCommLogger.logi(ioe);
+            ProvisionCommLogger.logw(ioe);
         }
     }
 
