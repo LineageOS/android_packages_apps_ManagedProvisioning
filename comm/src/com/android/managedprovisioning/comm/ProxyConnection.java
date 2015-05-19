@@ -345,15 +345,15 @@ public class ProxyConnection extends Thread {
                 return;
             }
 
-            String toSend = "";
-            if (mNetSocket == null) {
-                if (CONNECT.equals(info.method) && !usingProxy) {
-                    // If we're not talking to a proxy, and we're handling a CONNECT, we need to
-                    // send a response
-                    handleConnect();
-                } else {
-                    mNetSocket.getOutputStream().write(toSend.getBytes());
-                }
+            if (CONNECT.equals(info.method) && !usingProxy) {
+                // If we're not talking to a proxy, and we're handling a CONNECT, we need to
+                // send a response
+                handleConnect();
+            } else {
+                // Otherwise, pass through the request line, since we already read it from the
+                // stream. The BtToNetThread will shuffle the rest of the request along when it
+                // starts up.
+                mNetSocket.getOutputStream().write(requestLine.getBytes());
             }
 
             mNetToBt = new NetToBtThread();
