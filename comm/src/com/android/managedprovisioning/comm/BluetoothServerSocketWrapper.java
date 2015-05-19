@@ -70,7 +70,7 @@ public class BluetoothServerSocketWrapper implements ServerSocketWrapper {
         try {
             close();
         } catch (Exception e) {
-            ProvisionCommLogger.loge(e);
+            ProvisionCommLogger.logw(e);
         }
         mServerSocket = mBtAdapter.listenUsingInsecureRfcommWithServiceRecord(mServerName, mUuid);
     }

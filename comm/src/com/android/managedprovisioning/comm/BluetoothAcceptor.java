@@ -103,7 +103,9 @@ public class BluetoothAcceptor extends Thread implements ProvisioningAcceptor {
                     handleConnection(socket);
                     mConsecutiveFails = 0;
                 } catch (IOException e) {
-                    ProvisionCommLogger.logd(e);
+                    if (mIsRunning) {
+                        ProvisionCommLogger.logd(e);
+                    }
                     ++mConsecutiveFails;
                     if (mIsRunning && (mConsecutiveFails > IO_EXCEPTION_RECREATE || mDoRecreate)) {
                         mDoRecreate = false;

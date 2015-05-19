@@ -166,8 +166,8 @@ public class TetherProxy extends Thread {
     public void run() {
         try {
             mRunning = true;
+            ProvisionLogger.logd("Server waiting to accept incoming connection...");
             while (mRunning) {
-                ProvisionLogger.logd("Server waiting to accept incoming connection...");
                 final Socket socket = mServerSocket.accept();
 
                 mDispatcher.addStream(mConnectionIndex, socket.getOutputStream());
@@ -225,8 +225,10 @@ public class TetherProxy extends Thread {
                         + " reached end of socket input stream and is closing.");
                 mChannel.write(mPacketUtil.createDataPacket(mConnectionId,
                         NetworkData.EOF, null, 0));
-            } catch (IOException io) {
-                ProvisionLogger.logd("BluetoothWriter #" + mConnectionId + " hit IOException, ending");
+            } catch (IOException ioe) {
+                if (mRunning) {
+                    ProvisionLogger.logd("BluetoothWriter #" + mConnectionId + " ending", ioe);
+                }
             }
         }
     }

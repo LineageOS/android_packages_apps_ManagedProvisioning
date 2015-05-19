@@ -88,7 +88,6 @@ public class ProxyConnection extends Thread {
     }
 
     public void shutdown() {
-        ProvisionCommLogger.logd("Shutting down ConnectionProcessor");
         try {
             mHttpOutput.close();
         } catch (IOException io) {
@@ -99,18 +98,12 @@ public class ProxyConnection extends Thread {
 
     @Override
     public void run() {
-        ProvisionCommLogger.logd("Creating a new socket.");
         processConnect();
     }
 
     private void endConnection() {
         try {
-            if (mChannel != null) {
-                mChannel.write(mPacketUtil.createEndPacket(mConnId));
-            } else {
-                ProvisionCommLogger.logd(
-                        "Attempted to write end of connection with null connection");
-            }
+            mChannel.write(mPacketUtil.createEndPacket(mConnId));
         } catch (IOException io) {
             ProvisionCommLogger.logd("Could not write closing packet.", io);
         }
@@ -121,8 +114,6 @@ public class ProxyConnection extends Thread {
         } catch (IOException io) {
             ProvisionCommLogger.logd("Attempted to close socket when already closed.", io);
         }
-
-        ProvisionCommLogger.logd("Ended connection");
     }
 
     private class NetToBtThread extends Thread {
@@ -136,11 +127,9 @@ public class ProxyConnection extends Thread {
                 while (mNetSocket.isConnected()) {
                     int readBytes = input.read(buffer);
                     if (readBytes < 0) {
-                        ProvisionCommLogger.logd("Passing " + readBytes + " bytes");
                         mChannel.write(mPacketUtil.createEndPacket(mConnId));
                         break;
                     }
-                    ProvisionCommLogger.logd("Passing " + readBytes + " bytes");
                     mChannel.write(mPacketUtil.createDataPacket(mConnId, NetworkData.OK, buffer,
                             readBytes));
                 }
@@ -156,7 +145,6 @@ public class ProxyConnection extends Thread {
                     }
                 }
             }
-            ProvisionCommLogger.logd("SocketReader is ending.");
             mNetRunning = false;
         }
     }
@@ -187,12 +175,10 @@ public class ProxyConnection extends Thread {
                     ProvisionCommLogger.logw("Failed to close connection", ex);
                 }
             }
-            ProvisionCommLogger.logd("SocketWriter is ending.");
         }
     }
 
     private String getLine() throws IOException {
-        ProvisionCommLogger.logi("getLine");
         StringBuilder buffer = new StringBuilder();
         int ch;
         while ((ch = mHttpInput.read()) != -1) {
@@ -202,8 +188,6 @@ public class ProxyConnection extends Thread {
                 break;
             buffer.append((char) ch);
         }
-        ProvisionCommLogger.logi("Proxy reading: " + buffer);
-
         return buffer.toString();
     }
 
@@ -361,7 +345,7 @@ public class ProxyConnection extends Thread {
             mBtToNet = new BtToNetThread();
             mBtToNet.start();
         } catch (Exception e) {
-            ProvisionCommLogger.logd(e);
+            ProvisionCommLogger.logd("Error processing request", e);
             mNetRunning = false;
         }
     }
