@@ -100,7 +100,7 @@
   <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
   <string name="device_owner_exists">Work profiles can not be setup on a managed device</string>
   <!-- Error string displayed if maximum user limit is reached -->
-  <string name="maximum_user_limit_reached">Work profile could not be created as the maximum number of users on your device has been reached. Please remove at least one user and try again.</string>
+  <string name="maximum_user_limit_reached">Work profile could not be created as the maximum number of managed profiles on your device has been reached. Removing one user and trying again may fix it.</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <string name="managed_provisioning_not_supported_by_launcher">Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible.</string>
   <!-- Button text for the button that cancels provisioning  -->
