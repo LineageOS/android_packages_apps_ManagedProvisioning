@@ -13,7 +13,6 @@ import android.text.TextUtils;
 
 import com.android.managedprovisioning.comm.ProvisionCommLogger;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams;
 import com.android.managedprovisioning.ProvisioningParams.BluetoothInfo;
 import com.android.managedprovisioning.proxy.BluetoothConnectionService;
 import com.android.managedprovisioning.Utils;
@@ -39,10 +38,26 @@ public class BluetoothConnectTask {
      * #mBtStateChangeReceiver broadcast receiver}.
      */
     private final Handler mHandler;
+
+    /**
+     * Set to {@code true} when the Bluetooth adapter has been enabled or when the task times out
+     * waiting for the adapter.
+     *
+     * <p>This value should only be referenced from the handler thread of {@code mHandler}.
+     */
     private final AtomicBoolean mTaskDone;
+
     private final BluetoothInfo mBluetoothInfo;
     private final boolean mHasWifiSsid;
     private final BluetoothAdapter mBtAdapter;
+
+    /**
+     * Set to {@code true} when Bluetooth has been set up or when the task times out waiting
+     * Bluetooth to be set up times out.
+     *
+     * <p>This value should only be referenced from the handler thread of {@code mHandler}.
+     */
+    private boolean mBluetoothSetUp;
 
     /**
      * Listens for changes in the state of the BluetoothAdapter. Used to wait for Bluetooth to
@@ -100,14 +115,14 @@ public class BluetoothConnectTask {
             ProvisionLogger.logd("Attempt to enable Bluetooth.");
             mBtStateChangeReceiver = createStateChangeReceiver();
             mContext.registerReceiver(mBtStateChangeReceiver,
-                    new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
+                    new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED), null, mHandler);
             if (!mBtAdapter.enable()) {
                 cleanUp();
                 mCallback.onError();
                 return;
             }
             // Set a timeout for receiving the Bluetooth enabled broadcast
-            mHandler.postDelayed(new Runnable(){
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if (mTaskDone.getAndSet(true)) {
@@ -140,6 +155,10 @@ public class BluetoothConnectTask {
                     int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
                             BluetoothAdapter.STATE_OFF);
                     if (state == BluetoothAdapter.STATE_ON && !mHasBeenEnabled) {
+                        if (mTaskDone.getAndSet(true)) {
+                            ProvisionLogger.logd("Bluetooth enabled but already timed out.");
+                            return;
+                        }
                         mHasBeenEnabled = true;
                         ProvisionLogger.logd("Received bluetooth enabled status.");
                         mHandler.post(new Runnable() {
@@ -171,22 +190,29 @@ public class BluetoothConnectTask {
                 ", isConnectedToWifi=" + AddWifiNetworkTask.isConnectedToWifi(mContext));
         boolean useProxy = mBluetoothInfo.useProxy && !mHasWifiSsid &&
                 !AddWifiNetworkTask.isConnectedToWifi(mContext);
-        // Start Bluetooth Service
-        if (useProxy) {
-            // This task won't succeed until the network proxy is enabled. Other tasks may require
-            // the network connection provided by this proxy. This receiver will be notified
-            // by the BluetoothConnectionService.
-            mBtNetworkProxyReceiver = new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    ProvisionCommLogger.logd("Bluetooth proxy; Setup complete");
-                    onBluetoothSetUp();
-                }
-            };
-            LocalBroadcastManager.getInstance(mContext).registerReceiver(
-                    mBtNetworkProxyReceiver,
-                    new IntentFilter(BluetoothConnectionService.ACTION_LOCAL_BLUETOOTH_SETUP));
-        }
+        // Registers a receiver that will be notified by the BluetoothConnectionService once
+        // the Bluetooth connection has been enabled. Because other tasks may require this
+        // connection, this task won't succeed until the connection is active.
+        mBtNetworkProxyReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ProvisionCommLogger.logd("Bluetooth proxy; Setup complete");
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mBluetoothSetUp) {
+                            return;
+                        }
+                        mBluetoothSetUp = true;
+                        onBluetoothSetUp();
+                    }
+                });
+            }
+        };
+        LocalBroadcastManager.getInstance(mContext).registerReceiver(
+                mBtNetworkProxyReceiver,
+                new IntentFilter(BluetoothConnectionService.ACTION_LOCAL_BLUETOOTH_SETUP));
+        // Start Bluetooth Service.
         Intent intent = new Intent(mContext, BluetoothConnectionService.class);
         intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_MAC, mBluetoothInfo.mac);
         intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_UUID, mBluetoothInfo.uuid);
@@ -194,10 +220,20 @@ public class BluetoothConnectTask {
                 mBluetoothInfo.deviceIdentifier);
         intent.putExtra(BluetoothConnectionService.EXTRA_BLUETOOTH_USE_PROXY, useProxy);
         mContext.startService(intent);
-        if (!useProxy) {
-            // A network connection will be established some other way.
-            onBluetoothSetUp();
-        }
+        // Set a timeout that will cause the task to fail if Bluetooth isn't set up.
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mBluetoothSetUp) {
+                    return;
+                }
+                mBluetoothSetUp = true;
+                ProvisionLogger.loge("Timed out waiting for Bluetooth proxy");
+                cleanUp();
+                mCallback.onError();
+            }
+        },
+        BT_ENABLE_TIMEOUT_MS);
     }
 
     /**
@@ -205,10 +241,6 @@ public class BluetoothConnectTask {
      */
     private void onBluetoothSetUp() {
         // Clean up receivers and call on success.
-        if (mTaskDone.getAndSet(true)) {
-            ProvisionLogger.logd("Bluetooth enabled but already timed out.");
-            return;
-        }
         cleanUp();
         mCallback.onSuccess();
     }
