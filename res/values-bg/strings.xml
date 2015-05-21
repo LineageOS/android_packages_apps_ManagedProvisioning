@@ -51,7 +51,8 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Устройството ви не поддържа служебни потребителски профили"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Служебните потребителски профили трябва да бъдат настроени от основния потребител на устройството"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Служебните потребителски профили не могат да се настройват на управлявано устройство"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Служебният потребителски профил не можа да бъде създаден, тъй като е достигнат максималният брой потребители на устройството ви. Моля, премахнете поне един от тях и опитайте отново."</string>
+    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Служебният ви потребителски профил не се поддържа от това приложение за стартов панел. Трябва да превключите към съвместим панел."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ОТКАЗ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ОK"</string>
