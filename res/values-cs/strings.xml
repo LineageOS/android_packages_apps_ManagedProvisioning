@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Vaše zařízení pracovní profily nepodporuje."</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Pracovní profily musí nastavit primární uživatel zařízení."</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Na spravovaném zařízení nelze nastavit pracovní profily"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Vytvoření pracovního profilu se nezdařilo, protože v zařízení bylo dosaženo maximálního počtu uživatelů. Odeberte alespoň jednoho uživatele a zkuste to znovu."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Vytvoření pracovního profilu se nezdařilo, protože v zařízení bylo dosaženo maximálního počtu spravovaných profilů. Když ale odstraníte jednoho uživatele a zkusíte to znovu, možná se to povede."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Váš pracovní profil tato aplikace spouštěče nepodporuje. Budete muset přejít na spouštěč, který je kompatibilní."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ZRUŠIT"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>

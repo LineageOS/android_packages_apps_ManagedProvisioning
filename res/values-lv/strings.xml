@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Jūsu ierīcē netiek atbalstīti darba profili"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Ierīces galvenajam lietotājam ir jāiestata darba profili."</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Darba profilus nevar iestatīt pārvaldītā ierīcē."</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Nevarēja izveidot darba profilu, jo ierīcē ir sasniegts maksimālais lietotāju skaits. Lūdzu, noņemiet vismaz vienu lietotāju un mēģiniet vēlreiz."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Nevarēja izveidot darba profilu, jo ierīcē ir sasniegts maksimālais pārvaldītu profilu skaits. Lūdzu, noņemiet vismaz vienu lietotāju un mēģiniet vēlreiz."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Šī palaišanas lietotne neatbalsta jūsu darba profilu. Jums jālieto saderīga palaišanas programma."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ATCELT"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"LABI"</string>

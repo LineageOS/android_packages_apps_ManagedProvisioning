@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"O dispositivo não aceita perfis de trabalho"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Os perfis de trabalho devem ser configurados pelo usuário principal do dispositivo"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Os perfis de trabalho não podem ser configurados em um dispositivo gerenciado"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Não foi possível criar o perfil de trabalho, pois o número máximo de usuários no seu dispositivo foi atingido. Remova pelo menos um usuário e tente novamente."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Não foi possível criar o perfil de trabalho, pois o número máximo de perfis gerenciados no seu dispositivo foi atingido. A remoção de um usuário e uma nova tentativa podem consertar isso."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"O app da tela de início não aceita seu perfil de trabalho. É necessário mudar para uma tela de início compatível."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"CANCELAR"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Ok"</string>

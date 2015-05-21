@@ -51,7 +51,8 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"お使いの端末はワークプロフィールをサポートしていません。"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ワークプロフィールは端末のメインユーザーがセットアップする必要があります"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"仕事用プロファイルは、管理対象端末にはセットアップできません"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"端末のユーザー数が上限に達しているため仕事用プロファイルを作成できません。ユーザーをいくつか削除してもう一度お試しください。"</string>
+    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"このランチャーアプリは仕事用プロファイルに対応していません。互換性のあるランチャーに切り替える必要があります。"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"キャンセル"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
