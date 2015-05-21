@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Your device doesn\'t support work profiles"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Work profiles need to be set up by the primary user of the device"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Work profiles can not be set up on a managed device"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Work profile could not be created as the maximum number of users on your device has been reached. Please remove at least one user and try again."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Work profile could not be created as the maximum number of managed profiles on your device has been reached. Removing one user and trying again may fix it."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"CANCEL"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>

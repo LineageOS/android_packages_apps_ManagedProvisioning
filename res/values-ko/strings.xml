@@ -51,7 +51,8 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"직장 프로필을 지원하지 않는 기기입니다."</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"직장 프로필은 기기의 기본 사용자가 설정해야 합니다."</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"직장 프로필은 관리 대상 기기에서 설정할 수 없습니다."</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"기기에 허용되는 최대 사용자 수에 도달하여 직장 프로필을 만들 수 없습니다. 하나 이상의 사용자 프로필을 삭제하고 다시 시도해 주세요."</string>
+    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"이 런처 앱은 직장 프로필을 지원하지 않습니다. 호환되는 런처로 전환해야 합니다."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"취소"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"확인"</string>

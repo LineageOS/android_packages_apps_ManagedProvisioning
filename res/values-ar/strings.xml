@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"جهازك ليس متوافقًا مع الملفات الشخصية للعمل"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"يجب إعداد الملفات الشخصية للعمل بواسطة المستخدم الأساسي للجهاز"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"يتعذر إعداد الملفات الشخصية للعمل على جهاز مُدار."</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"تعذر إنشاء الملف الشخصي للعمل نظرًا لبلوغ الحد الأقصى لعدد المستخدمين على جهازك. يُرجى إزالة حساب مستخدم واحد على الأقل وإعادة المحاولة."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"تعذر إنشاء الملف الشخصي للعمل نظرًا لبلوغ الحد الأقصى للملفات الشخصية المُدارة على جهازك. قد تؤدي إزالة حساب مستخدم واحد وإعادة المحاولة إلى حل المشكلة."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"لا يتوافق الملف الشخصي للعمل مع تطبيق المشغّل هذا. يجب عليك التبديل إلى تطبيق مشغّل متوافق."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"إلغاء"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"موافق"</string>

@@ -51,7 +51,8 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Vaš uređaj ne podržava radne profile."</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Primarni korisnik uređaja mora postaviti radne profile"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Radne profile nije moguće postavljati na upravljanim uređajima"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Nije uspjela izrada poslovnog profila jer je dosegnut maksimalan broj korisnika na uređaju. Uklonite barem jednog korisnika i pokušajte ponovo."</string>
+    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ta aplikacija pokretača ne podržava vaš radni profil. Morat ćete prijeći na kompatibilni pokretač."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ODUSTANI"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"U REDU"</string>

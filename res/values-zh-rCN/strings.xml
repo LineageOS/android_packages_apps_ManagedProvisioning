@@ -51,7 +51,8 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"您的设备不支持工作资料"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"只有设备的主用户才能设置工作资料"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"无法在受管理的设备上设置工作资料"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"您设备上的用户数量已达到上限，因此无法创建工作资料。请至少移除一个用户，然后重试。"</string>
+    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"此启动器应用不支持工作资料。您需要改用兼容的启动器。"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"取消"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"确定"</string>

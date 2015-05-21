@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Din enhed understøtter ikke arbejdsprofiler"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Arbejdsprofiler skal oprettes af enhedens primære bruger"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Work-profiler kan ikke konfigureres på en administreret enhed"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"Arbejdsprofilen kunne ikke oprettes, da du har nået det maksimale antal brugere på din enhed. Fjern mindst én bruger, og prøv igen."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Arbejdsprofilen kunne ikke oprettes, da du har nået det maksimale antal administrerede profiler på din enhed. Fjern én bruger, og prøv igen."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Din arbejdsprofil understøttes ikke af denne starter. Skift til en starter, der er kompatibel."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANNULLER"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>

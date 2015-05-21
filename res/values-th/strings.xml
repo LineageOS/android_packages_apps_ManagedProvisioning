@@ -51,7 +51,8 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"อุปกรณ์ของคุณไม่สนับสนุนโปรไฟล์งาน"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ต้องมีการตั้งค่าโปรไฟล์งานโดยผู้ใช้หลักของอุปกรณ์"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"ไม่สามารถติดตั้งโปรไฟล์งานบนอุปกรณ์ที่มีการจัดการ"</string>
-    <string name="maximum_user_limit_reached" msgid="7267689354022124652">"ไม่สามารถสร้างโปรไฟล์งานได้เนื่องจากมีผู้ใช้ในอุปกรณ์เต็มจำนวนที่กำหนดแล้ว โปรดนำผู้ใช้ออกอย่างน้อย 1 คนและลองอีกครั้ง"</string>
+    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"แอป Launcher นี้ไม่สนับสนุนโปรไฟล์งานของคุณ คุณจะต้องเปลี่ยนเป็น Launcher ที่เข้ากันได้"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ยกเลิก"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ตกลง"</string>
