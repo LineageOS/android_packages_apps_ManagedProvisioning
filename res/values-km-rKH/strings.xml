@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ឧបករណ៍​របស់​អ្នក​មិន​គាំទ្រ​ប្រវត្តិរូប​ការងារ។"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ប្រវត្តិការងារត្រូវកំណត់ដោយអ្នកប្រើបឋមនៃឧបករណ៍នេះ"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"ប្រវត្តិរូបការងារមិនអាចកំណត់ឡើងវិញបានទេនៅលើឧបករណ៍ដែលបានគ្រប់គ្រង"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"ប្រវត្តិការងារមិនអាចត្រូវបានបង្កើតខណៈពេលដែលចំនួននៃប្រវត្តិរូបដែលត្រូវបានគ្រប់គ្រងនៅលើឧបករណ៍របស់អ្នកកើនដល់កម្រិតអតិបរមា។ ដើម្បីដោះស្រាយបញ្ហានេះ សូមដកអ្នកប្រើមួយចេញ និងការព្យាយាមម្តងទៀត។"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ប្រវត្តិរូប​ការងារ​របស់​អ្នក​មិន​ត្រូវ​បាន​គាំទ្រ​ដោយ​កម្មវិធី​ launcher នេះ​នៅ​ឡើយ​ទេ។ អ្នក​នឹង​ត្រូវ​ប្ដូរ​ទៅ launcher ដែល​ត្រូវ​គ្នា។"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"បោះបង់"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"យល់ព្រម"</string>

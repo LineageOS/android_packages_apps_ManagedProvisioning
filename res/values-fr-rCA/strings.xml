@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Votre appareil ne prend pas en charge les profils professionnels"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Les profils de travail doivent être configurés par l\'utilisateur principal de l\'appareil"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Impossible de configurer des profils professionnels sur un appareil géré"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Impossible de créer le profil professionnel, car vous avez atteint le nombre maximal de profils gérés sur votre appareil. Veuillez supprimer au moins un profil utilisateur, puis réessayer."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Votre profil professionnel n\'est pas pris en charge par cette application de lancement. Vous devrez utiliser un lanceur d\'applications compatible."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANNULER"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Ok"</string>

@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Dispozitivul dvs. nu acceptă profiluri de serviciu"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Profilurile de serviciu trebuie să fie configurate de utilizatorul principal al dispozitivului"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Profilurile de serviciu nu pot fi configurate pe un dispozitiv gestionat de un administrator"</string>
-    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Profilul de seriviciu nu a putut fi creat, deoarece a fost atins numărul maxim de profiluri gestionate de pe dispozitiv. Este posibil ca problema să se remedieze dacă eliminați unul dintre utilizatori și încercați din nou."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Profilul de serviciu nu a putut fi creat, deoarece a fost atins numărul maxim de profiluri gestionate de pe dispozitiv. Este posibil ca problema să se remedieze dacă eliminați unul dintre utilizatori și încercați din nou."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profilul dvs. de lucru nu este acceptat de aplicația de lansare. Va trebui să comutați la o aplicație de lansare compatibilă."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANULAȚI"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>

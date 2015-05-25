@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານບໍ່​ຮອງ​ຮັບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"ໂປ​ຣ​ໄຟ​ລ໌​ຕ້ອງ​ໄດ້​ຕັ້ງ​ຂຶ້ນ​ໂດຍ​ຜູ້​ໃຊ້​ອຸ​ປະ​ກອນ​ຕົ້ນ​ຕໍ"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"ບໍ່​ສາ​ມາດ​ຕັ້ງ​ໂປ​ຣ​ໄຟ​ລ໌​ວຽກ​ຢູ່​ໃນ​ອຸ​ປະ​ກອນ​ທີ່​ຄຸ້ມ​ຄອງ​ແລ້ວ​ໄດ້"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"ບໍ່​ສາ​ມາດ​ສ້າງ​ໂປ​ຣ​ໄຟ​ລ໌​ວຽກ​ໄດ້ ເນື່ອງ​ຈາກ​ຮອດ​ຈຳ​ນວນ​ໂປ​ຣ​ໄຟ​ລ໌ສູງ​ສຸດ​ຢູ່​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ແລ້ວ. ການ​ເອົາ​ຜູ້​ໃຊ້​ຄົນ​ໜຶ່ງ​ອອກ​ໄປ ແລະ​ລອງ​ໃໝ່​ອີກອາດ​ຈະ​ແກ້​ໄຂ​ມັນ​ໄດ້."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານບໍ່​ຮອງ​ຮັບ​ແອັບຯ Launcher ນີ້. ທ່ານ​ຈະ​ຕ້ອງ​ສະ​ລັບ​ໄປ​ໃຊ້ Launcher ທີ່​ໃຊ້​ຮ່ວມ​ກັນ​ໄດ້."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ຍົກເລີກ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ຕົກລົງ"</string>

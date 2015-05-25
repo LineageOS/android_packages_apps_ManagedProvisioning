@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"آپ کا آلہ دفتری پروفائلز کا تعاون نہیں کرتا ہے"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"دفتری پروفائلز کو آلہ کے بنیادی صارف کی طرف سے ترتیب دیے جانے کی ضرورت ہے"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"دفتری پروفائلز کو نظم کردہ آلہ پر ترتیب نہیں دیا جا سکتا ہے"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"دفتری پروفائل کو بنایا نہیں جا سکا کیونکہ آپ کے آلہ پر نظم کردہ پروفائلز کی زیادہ سے زیادہ تعداد تک پہنچا جا چکا ہے۔ ایک صارف کو ہٹانے اور دوبارہ کوشش کرنے سے یہ مسئلہ حل ہو سکتا ہے۔"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"آپ کا دفتری پروفائل اس لانچر ایپ کے ذریعے تعاون یافتہ نہیں ہے۔ آپ کو ایک مطابقت پذیر لانچر پر سوئچ کرنے کی ضرورت ہوگی۔"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"منسوخ کریں"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ٹھیک ہے"</string>
