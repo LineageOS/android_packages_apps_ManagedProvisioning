@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Ձեր սարքը չի աջակցում աշխատանքային պրոֆիլներ"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Աշխատանքային պրոֆիլները պետք է կարգավորվեն սարքի հիմնական օգտվողի կողմից"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Հնարավոր չէ կարգավորել աշխատանքային պրոֆիլները կառավարվող սարքի վրա"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Հնարավոր չէ ստեղծել աշխատանքային պրոֆիլը, քանի որ սարքում կառավարվող պրոֆիլների առավելագույն քանակն արդեն լրացել է: Հեռացրեք մեկ օգտվող և նորից փորձեք:"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ձեր պրոֆիլը չի աջակցվում այս գործարկչի կողմից: Դուք պետք է փոխարկեք դեպի որևէ աջակցող գործարկիչ:"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ՉԵՂԱՐԿԵԼ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Լավ"</string>

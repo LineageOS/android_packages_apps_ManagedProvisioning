@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Уређај не подржава пословне профиле"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Пословне профиле треба да подеси примарни корисник уређаја"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Не можете да подешавате профиле за посао на управљаном уређају"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Није успело прављење пословног профила јер је достигнут максимални број профила којима може да се управља на уређају. Можда ћете решити проблем ако уклоните једног корисника и покушате поново."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ова апликација покретача не подржава пословни профил. Морате да пређете на компатибилан покретач."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ОТКАЖИ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ПОТВРДИ"</string>

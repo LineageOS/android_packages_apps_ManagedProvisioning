@@ -51,8 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Perangkat Anda tidak mendukung profil kerja"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Profil kerja harus disiapkan oleh pengguna utama perangkat"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Profil kerja tidak dapat disiapkan di perangkat yang dikelola"</string>
-    <!-- no translation found for maximum_user_limit_reached (2222654781151295513) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Profil kerja tidak dapat dibuat karena jumlah maksimum profil yang dikelola di perangkat telah tercapai. Hapus satu pengguna dan coba lagi agar dapat memperbaikinya."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profil kerja Anda tidak didukung oleh peluncur aplikasi ini. Anda perlu beralih ke peluncur yang kompatibel."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"BATAL"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Oke"</string>
