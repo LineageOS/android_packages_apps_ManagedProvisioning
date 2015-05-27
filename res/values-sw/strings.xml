@@ -51,7 +51,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Kifaa chako hakitumii wasifu wa kazini"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Wasifu wa kazini unafaa uwekwe na mtumiaji msingi wa kifaa"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Wasifu wa kazini hauwezi kusanidiwa kwenye kifaa kinachosimamiwa"</string>
-    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Wasifu wa kazini haukuweza kuundwa kwa sababu idadi ya juu ya wasifu unaosimamiwa kwenye kifaa chako imefikiwa. Inaondoa mtumiaji mmoja na inajaribu tena kuirekebisha."</string>
+    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Wasifu wa kazini haukuweza kuundwa kwa sababu idadi ya juu ya wasifu unaosimamiwa kwenye kifaa chako imefikiwa. Inaondoa mtumiaji mmoja na ijaribu tena kuirekebisha."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Wasifu wako wa kazini hauwezi kutumiwa na kifungua programu hiki. Itabidi ubadili hadi kifungua programu kinachooana."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"GHAIRI"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"SAWA"</string>
