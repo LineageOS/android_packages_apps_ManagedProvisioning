@@ -61,7 +61,8 @@
     <application
         android:allowClearUserData="false"
         android:hardwareAccelerated="true"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true">
 
         <!--
              Note: Setup activities are android:immersive to prevent full-screen notifications (USB
