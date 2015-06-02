@@ -36,13 +36,13 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
@@ -95,7 +95,7 @@ import java.util.Properties;
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE}, an optional
  * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}, and
  * the SHA-1 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM} or
- * the SHA-1 hash of any certificate of the android package in the target file
+ * the SHA-1 hash of any signature of the android package in the target file
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM}.
  * Additional information to send through to the device initializer and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
@@ -132,11 +132,11 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM
+        EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM
     };
 
     protected static final String[] DEVICE_OWNER_LONG_EXTRAS = {
@@ -188,8 +188,8 @@ public class MessageParser {
                 params.deviceAdminDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM,
-                Utils.byteArrayToString(params.deviceAdminDownloadInfo.certificateChecksum));
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
+                Utils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
                 params.deviceInitializerComponentName);
         bundle.putInt(EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
@@ -200,8 +200,8 @@ public class MessageParser {
                 params.deviceInitializerDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceInitializerDownloadInfo.packageChecksum));
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM,
-                Utils.byteArrayToString(params.deviceInitializerDownloadInfo.certificateChecksum));
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM,
+                Utils.byteArrayToString(params.deviceInitializerDownloadInfo.signatureChecksum));
 
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
         bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
@@ -288,9 +288,9 @@ public class MessageParser {
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
                 params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
             }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM))
+            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
                     != null) {
-                params.deviceAdminDownloadInfo.certificateChecksum = Utils.stringToByteArray(s);
+                params.deviceAdminDownloadInfo.signatureChecksum = Utils.stringToByteArray(s);
             }
             String name = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
@@ -312,9 +312,9 @@ public class MessageParser {
                     EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM)) != null) {
                 params.deviceInitializerDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
             }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM))
+            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM))
                     != null) {
-                params.deviceInitializerDownloadInfo.certificateChecksum =
+                params.deviceInitializerDownloadInfo.signatureChecksum =
                         Utils.stringToByteArray(s);
             }
 
@@ -425,10 +425,10 @@ public class MessageParser {
         if (packageHash != null) {
             params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(packageHash);
         }
-        String certHash =
-                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM);
-        if (certHash != null) {
-            params.deviceAdminDownloadInfo.certificateChecksum = Utils.stringToByteArray(certHash);
+        String sigHash =
+                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM);
+        if (sigHash != null) {
+            params.deviceAdminDownloadInfo.signatureChecksum = Utils.stringToByteArray(sigHash);
         }
         params.deviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
@@ -444,11 +444,11 @@ public class MessageParser {
             params.deviceInitializerDownloadInfo.packageChecksum =
                     Utils.stringToByteArray(packageHash);
         }
-        certHash =
-                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM);
-        if (certHash != null) {
-            params.deviceInitializerDownloadInfo.certificateChecksum =
-                    Utils.stringToByteArray(certHash);
+        sigHash =
+                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM);
+        if (sigHash != null) {
+            params.deviceInitializerDownloadInfo.signatureChecksum =
+                    Utils.stringToByteArray(sigHash);
         }
 
         params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
@@ -486,9 +486,9 @@ public class MessageParser {
             String downloadName) throws IllegalProvisioningArgumentException {
         if (!TextUtils.isEmpty(info.location)) {
             if ((info.packageChecksum == null || info.packageChecksum.length == 0)
-                    && (info.certificateChecksum == null || info.certificateChecksum.length == 0)) {
+                    && (info.signatureChecksum == null || info.signatureChecksum.length == 0)) {
                 throw new IllegalProvisioningArgumentException("Checksum of installer file"
-                        + " or its certificate is required for downloading " + downloadName
+                        + " or its signature is required for downloading " + downloadName
                         + ", but neither is provided.");
             }
         }
