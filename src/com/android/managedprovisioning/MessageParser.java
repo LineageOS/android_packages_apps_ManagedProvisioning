@@ -43,7 +43,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_IN
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
@@ -120,11 +119,6 @@ import java.util.Properties;
  * and reboot.
  *
  * <p>
- * If factory reset protection is enabled, the extra {@link
- * #EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS} may hold data necessary to clear factory reset
- * protection challenges.
- *
- * <p>
  * Furthermore this class can construct the bundle of extras for the second kind of intent given a
  * {@link ProvisioningParams}, and it keeps track of the types of the extras in the
  * DEVICE_OWNER_x_EXTRAS, with x the appropriate type.
@@ -171,8 +165,7 @@ public class MessageParser {
     };
 
     protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
-        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-        EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS
+        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
     };
 
     protected static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
@@ -224,9 +217,6 @@ public class MessageParser {
                 params.leaveAllSystemAppsEnabled);
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
-
-        bundle.putParcelable(EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS,
-                params.frpChallengeBundle);
     }
 
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
@@ -349,9 +339,6 @@ public class MessageParser {
 
             params.adminExtrasBundle = deserializeExtrasBundle(props,
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-
-            params.frpChallengeBundle = deserializeExtrasBundle(props,
-                    EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS);
 
             checkValidityOfProvisioningParams(params);
             return params;
@@ -485,16 +472,6 @@ public class MessageParser {
                     + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
                     + " must be of type PersistableBundle.", e);
         }
-
-        try {
-            params.frpChallengeBundle = intent.getParcelableExtra(
-                    EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS);
-        } catch (ClassCastException e) {
-            throw new IllegalProvisioningArgumentException("Extra "
-                    + EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS
-                    + " must be of type PersistableBundle.", e);
-        }
-
         checkValidityOfProvisioningParams(params);
         return params;
     }
