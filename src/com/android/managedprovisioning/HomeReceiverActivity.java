@@ -20,7 +20,6 @@ import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
 import android.app.Activity;
-import android.app.admin.DeviceInitializerStatus;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -28,7 +27,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
-import com.android.managedprovisioning.proxy.BluetoothConnectionService;
 
 /*
  * This class is used to make sure that we start the mdm after we shut the Setup wizard down.
@@ -94,11 +92,6 @@ public class HomeReceiverActivity extends Activity {
                     mParams.adminExtrasBundle);
         }
         sendBroadcast(result);
-
-        // Shutdown Bluetooth connection if still active.
-        BluetoothConnectionService.sendStatusUpdate(this,
-                DeviceInitializerStatus.STATUS_STATE_DEVICE_PROVISIONED);
-        BluetoothConnectionService.sendBluetoothShutdownRequest(this);
     }
 
     private void disableComponent(ComponentName component) {

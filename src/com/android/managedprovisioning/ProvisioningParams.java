@@ -122,28 +122,6 @@ public class ProvisioningParams implements Parcelable {
     public boolean leaveAllSystemAppsEnabled;
     public boolean skipEncryption;
 
-    public static class BluetoothInfo {
-        public String mac;
-        public String uuid;
-        public String deviceIdentifier;
-        public boolean useProxy;
-
-        public void writeToParcel(Parcel out) {
-            out.writeString(mac);
-            out.writeString(uuid);
-            out.writeString(deviceIdentifier);
-            out.writeInt(useProxy ? 1 : 0);
-        }
-
-        public void readFromParcel(Parcel in) {
-            mac = in.readString();
-            uuid = in.readString();
-            deviceIdentifier = in.readString();
-            useProxy = in.readInt() == 1;
-        }
-    };
-    public BluetoothInfo bluetoothInfo = new BluetoothInfo();
-
     public String inferDeviceAdminPackageName() {
         if (deviceAdminComponentName != null) {
             return deviceAdminComponentName.getPackageName();
@@ -188,7 +166,6 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(startedByNfc ? 1 : 0);
         out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
         out.writeInt(skipEncryption ? 1 : 0);
-        bluetoothInfo.writeToParcel(out);
         out.writeParcelable(frpChallengeBundle, 0 /* default */);
     }
 
@@ -212,7 +189,6 @@ public class ProvisioningParams implements Parcelable {
             params.startedByNfc = in.readInt() == 1;
             params.leaveAllSystemAppsEnabled = in.readInt() == 1;
             params.skipEncryption = in.readInt() == 1;
-            params.bluetoothInfo.readFromParcel(in);
             params.frpChallengeBundle = in.readParcelable(null /* use default classloader */);
             return params;
         }
