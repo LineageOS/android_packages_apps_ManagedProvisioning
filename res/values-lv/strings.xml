@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Darba ierīces lietotājs"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Ierīces iestatīšana"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Notiek iestatīšanas datu apstrāde..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"Notiek Bluetooth palaišana…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Notiek savienojuma izveide ar Wi-Fi..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"Notiek aizsardzības pārbaude..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Notiek administratora lietotnes lejupielāde…"</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nevarēja iestatīt ierīci. Sazinieties ar IT nodaļu."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Šī ierīce jau ir iestatīta."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Šī ierīce jau ir iestatīta šim lietotājam."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Nevarēja palaist Bluetooth"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Neizdevās izveidot savienojumu ar Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"Nevarēja apiet ierīces rūpnīcas datu atiestatīšanas aizsardzību."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nevarēja izmantot administratora lietotni kontrolsummas kļūdas dēļ. Sazinieties ar IT nodaļu."</string>

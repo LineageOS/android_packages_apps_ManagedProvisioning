@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Uporabnik delovne naprave"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Nastavitev naprave"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Obdelava podatkov za nastavitev ..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"Zaganjanje Bluetootha ..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Vzpostavljanje povezave z omrežjem Wi-Fi ..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"Preverjanje zaščite ponastavitve naprave  ..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Prenašanje skrbniške aplikacije ..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"Naprave ni bilo mogoče nastaviti. Obrnite se na oddelek za IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ta naprava je že nastavljena."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ta naprava je že nastavljena za tega uporabnika."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Bluetootha ni bilo mogoče zagnati"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Z omrežjem Wi-Fi se ni mogoče povezati"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"Ni prestalo preverjanja zaščite ponastavitve naprave na tovarniške nastavitve"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Skrbniške aplikacije ni bilo mogoče uporabiti zaradi napake kontrolne vsote. Obrnite se na oddelek za IT."</string>

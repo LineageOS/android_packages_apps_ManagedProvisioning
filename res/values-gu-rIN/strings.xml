@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"કાર્ય ઉપકરણના વપરાશકર્તા"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"તમારા ઉપકરણને સેટ કરો"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"સેટઅપ ડેટા પર પ્રક્રિયા કરી રહ્યું છે..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"Bluetooth પ્રારંભ કરી રહ્યું છે..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi સાથે કનેક્ટ કરી રહ્યું છે..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"ફેક્ટરી રીસેટ સુરક્ષા તપાસી રહ્યું છે..."</string>
     <string name="progress_download" msgid="4995057798189799156">"વ્યવસ્થાપક એપ્લિકેશન ડાઉનલોડ કરી રહ્યું છે..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"તમારું ઉપકરણ સેટ કરી શકાયું નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"આ ઉપકરણ પહેલાંથી જ સેટ કરેલું છે."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"આ ઉપકરણ પહેલાંથી જ આ વપરાશકર્તા માટે સેટ કરેલું છે."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Bluetooth પ્રારંભ કરી શકાતું નથી"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi સાથે કનેક્ટ કરી શકાયું નથી"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"ઉપકરણ ફેક્ટરી રીસેટ સુરક્ષા પસાર કરી શક્યું નથી"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"એક ચેકસમ ભૂલને કારણે વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકાયો નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>

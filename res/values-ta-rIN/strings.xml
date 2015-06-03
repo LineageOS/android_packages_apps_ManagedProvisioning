@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"பணியிடச் சாதனத்தின் பயனர்"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"சாதனத்தை அமைக்கவும்"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"அமைவு தரவைச் செயல்படுத்துகிறது..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"புளூடூத் தொடங்குகிறது..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"வைஃபை உடன் இணைக்கிறது..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"ஆரம்பநிலை மீட்டமைவு பாதுகாப்பைச் சரிபார்க்கிறது..."</string>
     <string name="progress_download" msgid="4995057798189799156">"நிர்வாகப் பயன்பாட்டை இறக்குகிறது..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"சாதனத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"இவருக்கு, சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"புளூடூத்தைத் தொடங்க முடியவில்லை"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"வைஃபை உடன் இணைக்க முடியவில்லை"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"சாதன ஆரம்பநிலை மீட்டமைவு பாதுகாப்பை மீற முடியவில்லை"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"செக்-சம் பிழைக் காரணமாக நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>

@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"משתמש של מכשיר עבודה"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"הגדרת המכשיר"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"מעבד נתונים להגדרה..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"‏מפעיל Bluetooth..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏מתחבר ל-Wi-Fi..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"בודק את התכונה \'הגנה מפני איפוס להגדרות היצרן\'..."</string>
     <string name="progress_download" msgid="4995057798189799156">"מוריד את אפליקציית הניהול..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"‏לא ניתן להגדיר את המכשיר. צור קשר עם מחלקת ה-IT שלך."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"המכשיר הזה כבר מוגדר."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"המכשיר הזה כבר מוגדר בשביל המשתמש הזה."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"‏לא ניתן היה להפעיל את Bluetooth"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏אין אפשרות להתחבר ל-Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"לא ניתן לאשר את התכונה \'הגנה מפני איפוס להגדרות היצרן\' של המכשיר"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"‏לא ניתן להשתמש באפליקציית הניהול עקב שגיאה בסיכום הביקורת. צור קשר עם מחלקת ה-IT שלך."</string>
