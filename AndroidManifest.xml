@@ -138,10 +138,6 @@
             android:name="DeviceOwnerProvisioningService" >
         </service>
 
-        <service
-            android:name=".proxy.BluetoothConnectionService" >
-        </service>
-
         <receiver android:name="com.android.managedprovisioning.BootReminder">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
