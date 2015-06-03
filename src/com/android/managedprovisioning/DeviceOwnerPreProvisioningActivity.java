@@ -109,8 +109,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this) && TextUtils.isEmpty(mParams.wifiInfo.ssid)
-                && !mParams.bluetoothInfo.useProxy) {
+        if (!AddWifiNetworkTask.isConnectedToWifi(this)
+                && TextUtils.isEmpty(mParams.wifiInfo.ssid)) {
             requestWifiPick();
             return;
             // Wait for onActivityResult.
