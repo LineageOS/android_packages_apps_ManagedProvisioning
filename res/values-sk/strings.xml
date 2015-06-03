@@ -74,7 +74,7 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Toto zariadenie je už nastavené pre tohto používateľa"</string>
     <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Nepodarilo sa spustiť rozhranie Bluetooth"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Nepodarilo sa prekonať ochranu proti obnoveniu továrenských nastavení zariadenia"</string>
+    <string name="device_owner_error_frp" msgid="3998112234006304859">"Nepodarilo sa prekonať ochranu proti obnoveniu výrobných nastavení zariadenia"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Pre chybu kontrolného súčtu sa aplikácia na správu nedá použiť. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Aplikáciu na správu sa nepodarilo stiahnuť"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikácia na správu sa nedá použiť. Buď v nej chýbajú niektoré komponenty, alebo je poškodená. Kontaktujte oddelenie IT."</string>

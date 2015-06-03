@@ -32,7 +32,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontakto administratorin tënd për më shumë informacion, përfshi politikat e privatësisë së organizatës tënde."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Mëso më shumë"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ANULO"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"Në rregull!"</string>
+    <string name="ok_setup" msgid="5148111905838329307">"Në rregull"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profili i punës"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Të hiqet profili i punës?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Ky profil pune menaxhohet nga:"</string>
@@ -54,7 +54,7 @@
     <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Profili i punës nuk mund të krijohej pasi është arritur numri maksimal i profileve të menaxhuara në pajisjen tënde. Mund të rregullohet duke hequr një përdorues dhe duke e provuar përsëri."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profili i punës nuk mbështetet nga ky aplikacion nisës. Nevojitet të kalosh në një nisës të pajtueshëm."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANULO"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"Në rregull!"</string>
+    <string name="pick_launcher" msgid="4811489057826175648">"Në rregull"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Përdorues i pajisjes së punës"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Konfiguro pajisjen"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Po përpunon të dhënat e konfigurimit..."</string>
@@ -67,7 +67,7 @@
     <string name="device_owner_cancel_title" msgid="7909285135975063120">"Të ndalohet konfigurimi?"</string>
     <string name="device_owner_cancel_message" msgid="7928007377743469904">"I sigurt që dëshiron ta ndalosh konfigurimin dhe t\'i fshish të dhënat e pajisjes tënde?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ANULO"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"Në rregull!"</string>
+    <string name="device_owner_error_ok" msgid="2556654993515978854">"Në rregull"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"RIVENDOS"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Pajisja jote nuk mund të konfigurohej. Kontakto me departamentin e informatikës."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Kjo pajisje është e konfiguruar tashmë."</string>

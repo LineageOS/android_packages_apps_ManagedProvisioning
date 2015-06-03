@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"Beklager!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"Konfigurer profilen din"</string>
+    <string name="setup_work_profile" msgid="9164519662954159586">"Definer profilen din"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisasjonen kontrollerer denne profilen og holder den sikker. Du styrer alt annet på enheten."</string>
     <string name="company_controls_device" msgid="3063783662183428327">"Med Android for Work kan organisasjonen din administrere e-posten for bedriften din og andre apper på telefonen eller nettbrettet.\nOrganisasjonen kontrollerer enheten din og sørger for at den er sikret."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Denne appen trenger tilgang til denne profilen:"</string>
