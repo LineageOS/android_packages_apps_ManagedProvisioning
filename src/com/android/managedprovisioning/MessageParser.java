@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
@@ -228,16 +229,6 @@ public class MessageParser {
                 params.frpChallengeBundle);
     }
 
-    public ProvisioningParams parseIntent(Intent intent)
-            throws IllegalProvisioningArgumentException {
-        ProvisionLogger.logi("Processing intent.");
-        if (intent.hasExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-            return parseNfcIntent(intent);
-        } else {
-            return parseNonNfcIntent(intent);
-        }
-    }
-
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing Nfc Payload.");
@@ -255,6 +246,7 @@ public class MessageParser {
                 ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
                                 , UTF_8));
                 params.startedByNfc = true;
+                ProvisionLogger.logi("End processing Nfc Payload.");
                 return params;
             }
         }
@@ -394,10 +386,34 @@ public class MessageParser {
         return extrasBundle;
     }
 
+    public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent)
+            throws IllegalProvisioningArgumentException {
+        ProvisionLogger.logi("Processing mininalist non-nfc intent.");
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent);
+        if (params.deviceAdminComponentName == null) {
+            throw new IllegalProvisioningArgumentException("Must provide the component name of the"
+                    + " device admin");
+        }
+        return params;
+    }
+
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent) {
+        ProvisioningParams params = new ProvisioningParams();
+        params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+        params.skipEncryption = intent.getBooleanExtra(
+                EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+                ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION);
+        params.leaveAllSystemAppsEnabled = intent.getBooleanExtra(
+                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
+        return params;
+    }
+
     public ProvisioningParams parseNonNfcIntent(Intent intent)
             throws IllegalProvisioningArgumentException {
-        ProvisionLogger.logi("Processing intent.");
-        ProvisioningParams params = new ProvisioningParams();
+        ProvisionLogger.logi("Processing non-nfc intent.");
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent);
 
         params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
@@ -416,8 +432,6 @@ public class MessageParser {
         params.wifiInfo.hidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
                 ProvisioningParams.DEFAULT_WIFI_HIDDEN);
 
-        params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
         params.deviceAdminPackageName
                 = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
         params.deviceAdminDownloadInfo.minVersion = intent.getIntExtra(
@@ -462,12 +476,6 @@ public class MessageParser {
                 ProvisioningParams.DEFAULT_LOCAL_TIME);
         params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
                 false);
-        params.leaveAllSystemAppsEnabled = intent.getBooleanExtra(
-                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
-        params.skipEncryption = intent.getBooleanExtra(
-                EXTRA_PROVISIONING_SKIP_ENCRYPTION,
-                ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION);
 
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
