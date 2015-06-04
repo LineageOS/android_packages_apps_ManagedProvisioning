@@ -80,8 +80,8 @@
                 <data android:mimeType="application/com.android.managedprovisioning" />
                 <data android:mimeType="application/com.android.managedprovisioning.v2"/>
             </intent-filter>
-            <!-- Do not change the following action. -->
             <intent-filter android:priority="10">
+                <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
                 <action android:name="com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
