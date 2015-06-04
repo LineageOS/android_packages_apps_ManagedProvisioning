@@ -16,7 +16,9 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -32,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.Utils.MdmPackageInfo;
 
 /**
@@ -55,6 +58,10 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     // Params that will be used after user consent.
     // Extracted from the starting intent.
     private ProvisioningParams mParams;
+
+    // Legacy action, internal only, but that we still want to support.
+    private static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
+            = "com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,10 +98,10 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
         try {
-            mParams = parser.parseIntent(getIntent());
+            mParams = parseIntentAndMaybeVerifyCaller(getIntent(), parser);
         } catch (Utils.IllegalProvisioningArgumentException e) {
             showErrorAndClose(R.string.device_owner_error_general,
-                    "Could not read data from intent");
+                    e.getMessage());
             return;
         }
 
@@ -126,6 +133,29 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             mdmInfoTextView.setText(R.string.the_following_is_your_mdm_for_device);
             setMdmInfo();
         }
+    }
+
+    private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, MessageParser parser)
+            throws IllegalProvisioningArgumentException {
+        if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
+            return parser.parseNfcIntent(intent);
+        } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
+            return parser.parseNonNfcIntent(intent);
+        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE)) {
+            ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent);
+            String callingPackage = getCallingPackage();
+            if (callingPackage == null) {
+                throw new IllegalProvisioningArgumentException("Calling package is null. " +
+                    "Was startActivityForResult used to start this activity?");
+            }
+            if (!callingPackage.equals(params.inferDeviceAdminPackageName())) {
+                throw new IllegalProvisioningArgumentException("Permission denied, "
+                        + "calling package tried to set a different package as device owner. ");
+            }
+            return params;
+        }
+        throw new IllegalProvisioningArgumentException("Unknown intent action "
+                + intent.getAction());
     }
 
     private void startDeviceOwnerProvisioning() {
