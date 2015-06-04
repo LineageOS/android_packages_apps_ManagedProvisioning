@@ -93,13 +93,11 @@ public class InstallPackageTask {
         }
         ProvisionLogger.logi("Installing package(s)");
 
-        PackageInstallObserver observer = new PackageInstallObserver();
-
         for (InstallInfo info : mPackagesToInstall) {
-            if (TextUtils.isEmpty(info.mLocation)) {
+            if (TextUtils.isEmpty(info.location)) {
                 installExistingPackage(info);
 
-            } else if (packageContentIsCorrect(info.mPackageName, info.mLocation)) {
+            } else if (packageContentIsCorrect(info.packageName, info.location)) {
                 // Temporarily turn off package verification.
                 mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
                         Global.PACKAGE_VERIFIER_ENABLE, 1);
@@ -107,8 +105,8 @@ public class InstallPackageTask {
 
                 // Allow for replacing an existing package.
                 // Needed in case this task is performed multiple times.
-                mPm.installPackage(Uri.parse("file://" + info.mLocation),
-                        observer,
+                mPm.installPackage(Uri.parse("file://" + info.location),
+                        new PackageInstallObserver(info),
                         /* flags */ PackageManager.INSTALL_REPLACE_EXISTING,
                         mContext.getPackageName());
             } else {
@@ -144,37 +142,35 @@ public class InstallPackageTask {
     }
 
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
+        private final InstallInfo mInstallInfo;
+
+        public PackageInstallObserver(InstallInfo installInfo) {
+            mInstallInfo = installInfo;
+        }
+
         @Override
         public void packageInstalled(String packageName, int returnCode) {
-            InstallInfo installInfo = null;
-            for (InstallInfo info : mPackagesToInstall) {
-                if (packageName.equals(info.mPackageName)) {
-                    installInfo = info;
-                }
-            }
-            if (installInfo == null)  {
+            if (packageName != null && !packageName.equals(mInstallInfo.packageName))  {
                 ProvisionLogger.loge("Package doesn't have expected package name.");
                 mCallback.onError(ERROR_PACKAGE_INVALID);
                 return;
             }
             if (returnCode == PackageManager.INSTALL_SUCCEEDED) {
-                installInfo.mDoneInstalling = true;
+                mInstallInfo.doneInstalling = true;
                 ProvisionLogger.logd(
-                        "Package " + installInfo.mPackageName + " is succesfully installed.");
+                        "Package " + mInstallInfo.packageName + " is succesfully installed.");
+                checkSuccess();
+            } else if (returnCode == PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE) {
+                mInstallInfo.doneInstalling = true;
+                ProvisionLogger.logd("Current version of " + mInstallInfo.packageName
+                        + " higher than the version to be installed. It was not reinstalled.");
                 checkSuccess();
             } else {
-                if (returnCode == PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE) {
-                    installInfo.mDoneInstalling = true;
-                    ProvisionLogger.logd("Current version of " + installInfo.mPackageName
-                            + " higher than the version to be installed. It was not reinstalled.");
-                    checkSuccess();
-                } else {
-                    ProvisionLogger.logd(
-                            "Installing package " + installInfo.mPackageName + " failed.");
-                    ProvisionLogger.logd(
-                            "Errorcode returned by IPackageInstallObserver = " + returnCode);
-                    mCallback.onError(ERROR_INSTALLATION_FAILED);
-                }
+                ProvisionLogger.logd(
+                        "Installing package " + mInstallInfo.packageName + " failed.");
+                ProvisionLogger.logd(
+                        "Errorcode returned by IPackageInstallObserver = " + returnCode);
+                mCallback.onError(ERROR_INSTALLATION_FAILED);
             }
         }
     }
@@ -185,7 +181,7 @@ public class InstallPackageTask {
      */
     private void checkSuccess() {
         for (InstallInfo info : mPackagesToInstall) {
-            if (!info.mDoneInstalling) {
+            if (!info.doneInstalling) {
                 return;
             }
         }
@@ -203,9 +199,9 @@ public class InstallPackageTask {
      */
     private void installExistingPackage(InstallInfo info) {
         try {
-            ProvisionLogger.logi("Installing existing package " + info.mPackageName);
-            mPm.installExistingPackage(info.mPackageName);
-            info.mDoneInstalling = true;
+            ProvisionLogger.logi("Installing existing package " + info.packageName);
+            mPm.installExistingPackage(info.packageName);
+            info.doneInstalling = true;
         } catch (PackageManager.NameNotFoundException e) {
             mCallback.onError(ERROR_PACKAGE_INVALID);
             return;
@@ -219,13 +215,13 @@ public class InstallPackageTask {
     }
 
     private static class InstallInfo {
-        public String mPackageName;
-        public String mLocation;
-        public boolean mDoneInstalling;
+        public String packageName;
+        public String location;
+        public boolean doneInstalling;
 
         public InstallInfo(String packageName, String location) {
-            mPackageName = packageName;
-            mLocation = location;
+            this.packageName = packageName;
+            this.location = location;
         }
     }
 }
