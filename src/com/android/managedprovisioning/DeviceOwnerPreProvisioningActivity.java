@@ -130,17 +130,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             return;
             // Wait for onActivityResult.
         }
-
-        if (mUserConsented || mParams.startedByNfc || !Utils.isCurrentUserOwner()) {
-            startDeviceOwnerProvisioning();
-        } else {
-            showStartProvisioningButton();
-            TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
-            consentMessageTextView.setText(R.string.company_controls_device);
-            TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
-            mdmInfoTextView.setText(R.string.the_following_is_your_mdm_for_device);
-            setMdmInfo();
-        }
+        askForConsentOrStartProvisioning();
     }
 
     private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, MessageParser parser)
@@ -180,6 +170,19 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         int size = pdbManager.getDataBlockSize();
         ProvisionLogger.logd("Data block size: " + size);
         return size > 0;
+    }
+
+    private void askForConsentOrStartProvisioning() {
+        if (mUserConsented || mParams.startedByNfc || !Utils.isCurrentUserOwner()) {
+            startDeviceOwnerProvisioning();
+        } else {
+            showStartProvisioningButton();
+            TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
+            consentMessageTextView.setText(R.string.company_controls_device);
+            TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
+            mdmInfoTextView.setText(R.string.the_following_is_your_mdm_for_device);
+            setMdmInfo();
+        }
     }
 
     private void startDeviceOwnerProvisioning() {
@@ -239,7 +242,9 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 finish();
             } else if (resultCode == RESULT_OK) {
                 if (DEBUG) ProvisionLogger.logd("Wifi request result is OK");
-                if (!NetworkMonitor.isConnectedToWifi(this)) {
+                if (NetworkMonitor.isConnectedToWifi(this)) {
+                    askForConsentOrStartProvisioning();
+                } else {
                     requestWifiPick();
                 }
             }
