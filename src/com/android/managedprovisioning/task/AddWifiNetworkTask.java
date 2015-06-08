@@ -180,15 +180,9 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
 
     private boolean isConnectedToSpecifiedWifi() {
         return NetworkMonitor.isConnectedToWifi(mContext)
+                && mWifiManager != null
                 && mWifiManager.getConnectionInfo() != null
                 && mWifiInfo.ssid.equals(mWifiManager.getConnectionInfo().getSSID());
-    }
-
-    public static boolean isConnectedToWifi(Context context) {
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        return info.isConnected();
     }
 
     public static Intent getWifiPickIntent() {
