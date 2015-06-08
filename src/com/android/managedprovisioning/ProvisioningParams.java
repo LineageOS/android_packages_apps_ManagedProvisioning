@@ -115,7 +115,6 @@ public class ProvisioningParams implements Parcelable {
     public PackageDownloadInfo deviceInitializerDownloadInfo  = new PackageDownloadInfo();
 
     public PersistableBundle adminExtrasBundle;
-    public PersistableBundle frpChallengeBundle;
 
     public boolean startedByNfc; // True iff provisioning flow was started by Nfc bump.
 
@@ -166,7 +165,6 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(startedByNfc ? 1 : 0);
         out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
         out.writeInt(skipEncryption ? 1 : 0);
-        out.writeParcelable(frpChallengeBundle, 0 /* default */);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -189,7 +187,6 @@ public class ProvisioningParams implements Parcelable {
             params.startedByNfc = in.readInt() == 1;
             params.leaveAllSystemAppsEnabled = in.readInt() == 1;
             params.skipEncryption = in.readInt() == 1;
-            params.frpChallengeBundle = in.readParcelable(null /* use default classloader */);
             return params;
         }
 
