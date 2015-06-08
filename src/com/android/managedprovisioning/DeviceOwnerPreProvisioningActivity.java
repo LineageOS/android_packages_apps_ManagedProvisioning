@@ -116,7 +116,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!AddWifiNetworkTask.isConnectedToWifi(this)
+        if (!NetworkMonitor.isConnectedToNetwork(this)
                 && TextUtils.isEmpty(mParams.wifiInfo.ssid)) {
             requestWifiPick();
             return;
@@ -215,7 +215,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 finish();
             } else if (resultCode == RESULT_OK) {
                 if (DEBUG) ProvisionLogger.logd("Wifi request result is OK");
-                if (!AddWifiNetworkTask.isConnectedToWifi(this)) {
+                if (!NetworkMonitor.isConnectedToWifi(this)) {
                     requestWifiPick();
                 }
             }
