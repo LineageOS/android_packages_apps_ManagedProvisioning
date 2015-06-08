@@ -56,7 +56,7 @@
     <string name="cancel_provisioning" msgid="3753408161948407036">"CANCEL·LA"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"D\'ACORD"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuari del dispositiu de la feina"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"Configuració del dispositiu"</string>
+    <string name="setup_work_device" msgid="3028145936574439146">"Configura el teu dispositiu"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"S\'estan processant dades de configuració..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"S\'està connectant a la Wi-Fi..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"Comprovant protecció restabliment fàbrica..."</string>
