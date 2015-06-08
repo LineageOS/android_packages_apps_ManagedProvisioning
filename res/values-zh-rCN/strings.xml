@@ -21,8 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"设置您的资料"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全性。您可以控制设备上的所有其他内容。"</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"借助 Android for Work，您的单位可以在手机或平板电脑上管理企业电子邮件和其他应用。\n您的单位可控制您的设备，并确保其安全性。"</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全。您可以控制设备上的所有其他内容。"</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"借助 Android for Work，您的单位可以在手机或平板电脑上管理企业电子邮件和其他应用。\n您的单位可控制您的设备，并确保其安全。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
     <string name="set_up" msgid="7012862095553564169">"设置"</string>
@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"正在处理设置数据…"</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"正在开启蓝牙…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"正在连接到WLAN网络…"</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"正在检查恢复出厂设置保护…"</string>
     <string name="progress_download" msgid="4995057798189799156">"正在下载管理应用…"</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"无法设置您的设备，请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"之前已对此设备进行了设置。"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"无法开启蓝牙"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"无法通过设备的恢复出厂设置保护机制"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"由于校验和错误，无法使用此管理应用。请与您公司的IT部门联系。"</string>

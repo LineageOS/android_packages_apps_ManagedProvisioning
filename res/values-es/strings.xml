@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuario del dispositivo de trabajo"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Configurar el dispositivo"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Procesando datos de configuración..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"Iniciando Bluetooth..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Conectando a red Wi-Fi..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"Comprobando protección para restablecimiento"</string>
     <string name="progress_download" msgid="4995057798189799156">"Descargando aplicación de administración..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"No se ha podido configurar el dispositivo. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Este dispositivo ya está configurado."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Este dispositivo ya está configurado para este usuario."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Error al iniciar Bluetooth"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No se ha podido establecer conexión con la red Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"No se ha podido desbloquear la protección para restablecer los ajustes de fábrica del dispositivo"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No se ha podido utilizar la aplicación de administración debido a un error de la suma de comprobación. Ponte en contacto con el departamento de TI."</string>

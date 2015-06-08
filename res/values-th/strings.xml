@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"ผู้ใช้อุปกรณ์ในการทำงาน"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"ตั้งค่าอุปกรณ์"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"กำลังดำเนินการกับข้อมูลการตั้งค่า..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"กำลังเริ่มบลูทูธ..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"กำลังเชื่อมต่อ Wi-Fi..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"ตรวจสอบการป้องกันการรีเซ็ตเป็นค่าเริ่มต้น..."</string>
     <string name="progress_download" msgid="4995057798189799156">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"ไม่สามารถตั้งค่าอุปกรณ์ของคุณ โปรดติดต่อฝ่ายไอที"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"อุปกรณ์นี้ตั้งค่าไว้แล้ว"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"อุปกรณ์นี้ตั้งค่าไว้สำหรับผู้ใช้คนนี้แล้ว"</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"ไม่สามารถเริ่มบลูทูธ"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ไม่สามารถเชื่อมต่อ Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"ไม่สามารถผ่านการป้องกันการรีเซ็ตอุปกรณ์เป็นค่าเริ่มต้น"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ไม่สามารถใช้แอปผู้ดูแลระบบได้เนื่องจากมีข้อผิดพลาดเกี่ยวกับ checksum โปรดติดต่อฝ่ายไอทีของคุณ"</string>

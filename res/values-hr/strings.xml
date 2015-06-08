@@ -58,7 +58,6 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik radnog uređaja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Postavljanje uređaja"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Obrada podataka o postavljanju..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"Pokretanje Bluetootha..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Povezivanje s Wi-Fi mrežom..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"Provjera zaštite od vraćanja na zadano..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Preuzimanje administratorske aplikacije..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"Postavljanje uređaja nije uspjelo. Obratite se IT odjelu."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj je uređaj već postavljen."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ovaj je uređaj već postavljen za tog korisnika."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"Pokretanje Bluetootha nije uspjelo"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Spajanje na Wi-Fi nije uspjelo"</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"Zaštita uređaja od vraćanja na tvorničke postavke nije prošla"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Upotreba administratorske aplikacije nije uspjela zbog pogreške kontrolnog zbroja. Obratite se IT odjelu."</string>

@@ -56,9 +56,8 @@
     <string name="cancel_provisioning" msgid="3753408161948407036">"CANCEL·LA"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"D\'ACORD"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuari del dispositiu de la feina"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"Configuració del dispositiu"</string>
+    <string name="setup_work_device" msgid="3028145936574439146">"Configura el teu dispositiu"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"S\'estan processant dades de configuració..."</string>
-    <string name="progress_start_bluetooth" msgid="3798479957601150661">"S\'està iniciant el Bluetooth..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"S\'està connectant a la Wi-Fi..."</string>
     <string name="progress_wipe_frp" msgid="545404730605450346">"Comprovant protecció restabliment fàbrica..."</string>
     <string name="progress_download" msgid="4995057798189799156">"S\'està baixant l\'aplicació d\'administració..."</string>
@@ -72,7 +71,6 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"No s\'ha pogut configurar el dispositiu. Contacta amb el departament de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Aquest dispositiu ja està configurat."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Aquest dispositiu ja està configurat per a aquest usuari."</string>
-    <string name="device_owner_error_bluetooth" msgid="5191084800734703585">"No s\'ha pogut iniciar el Bluetooth"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No s\'ha pogut connectar a la Wi-Fi."</string>
     <string name="device_owner_error_frp" msgid="3998112234006304859">"No s\'ha pogut superar la protecció de restabliment de fàbrica del dispositiu"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No s\'ha pogut fer servir l\'aplicació d\'administració a causa d\'un error de la suma de comprovació. Contacta amb el departament de TI."</string>
