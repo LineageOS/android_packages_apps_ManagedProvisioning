@@ -119,8 +119,6 @@
   <string name="progress_data_process">Processing setup data...</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
   <string name="progress_connect_to_wifi">Connecting to Wi-Fi...</string>
-  <!-- Progress text indicating that factory reset protection is being checked. [CHAR LIMIT=65] -->
-  <string name="progress_wipe_frp">Checking Factory Reset Protection...</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
   <string name="progress_download">Downloading the admin app...</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
@@ -147,7 +145,7 @@
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_frp">Could not pass device factory reset protection</string>
+  <string name="device_owner_error_frp">This device is locked by factory reset protection. Contact your IT department.</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_hash_mismatch">Couldn\'t use the admin app due to a checksum error. Contact your IT department.</string>
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
