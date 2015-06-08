@@ -22,12 +22,14 @@ import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
+import android.service.persistentdata.PersistentDataBlockManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -95,6 +97,12 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             }
         }
 
+        if (factoryResetProtected()) {
+            showErrorAndClose(R.string.device_owner_error_frp,
+                    "Factory reset protection blocks provisioning.");
+            return;
+        }
+
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
         try {
@@ -156,6 +164,22 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
         throw new IllegalProvisioningArgumentException("Unknown intent action "
                 + intent.getAction());
+    }
+
+    private boolean factoryResetProtected() {
+        if (!Utils.isCurrentUserOwner()) {
+            ProvisionLogger.logd("Reset protection check skipped on secondary users.");
+            return false;
+        }
+        PersistentDataBlockManager pdbManager = (PersistentDataBlockManager)
+                getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
+        if (pdbManager == null) {
+            ProvisionLogger.logd("Reset protection not supported.");
+            return false;
+        }
+        int size = pdbManager.getDataBlockSize();
+        ProvisionLogger.logd("Data block size: " + size);
+        return size > 0;
     }
 
     private void startDeviceOwnerProvisioning() {
