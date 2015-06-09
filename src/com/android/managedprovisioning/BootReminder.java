@@ -106,6 +106,8 @@ public class BootReminder extends BroadcastReceiver {
             if (resumeDeviceOwnerPrvIntent != null) {
                 deviceOwnerIntentStore.clear();
                 resumeDeviceOwnerPrvIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                resumeDeviceOwnerPrvIntent.setAction(
+                        DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE);
                 context.startActivity(resumeDeviceOwnerPrvIntent);
             }
         }

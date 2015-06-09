@@ -62,7 +62,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     private ProvisioningParams mParams;
 
     // Legacy action, internal only, but that we still want to support.
-    private static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
+    static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
             = "com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE";
 
     /**
