@@ -42,7 +42,7 @@
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <string name="setting_up_workspace">Setting up your work profile...</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_profile">Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information.</string>
+  <string name="admin_has_ability_to_monitor_profile">Your administrator has the ability to monitor and manage settings, corporate access, apps, and data associated with the profile, including network activity and your device\'s location information.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
   <string name="admin_has_ability_to_monitor_device">Your administrator has the ability to monitor and manage settings, corporate access, apps, and data associated with this device, including network activity and your device\'s location information.</string>
   <!-- String telling the user how to get more information about their work profile-->
@@ -69,7 +69,7 @@
          profile. [CHAR LIMIT=NONE] -->
   <string name="opening_paragraph_delete_profile_known_company">This work profile is managed for %s using:</string>
   <!-- String on the dialog that links through to more information about the profile management application. -->
-  <string name="read_more_delete_profile">Please <a href="#read_this_link">read this</a> before proceeding.</string>
+  <string name="read_more_delete_profile">Before proceeding, <a href="#read_this_link">read this</a>.</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <string name="sure_you_want_to_delete_profile">All apps and data in this profile will be deleted if you continue.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
@@ -80,7 +80,7 @@
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <string name="encrypt_device_text_for_profile_owner_setup">To continue setting up your work profile, you\'ll need to encrypt your device. This may take some time.</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
-  <string name="encrypt_device_text_for_device_owner_setup">To continue setting up your device, you\'ll need to encrypt your device. This may take some time.</string>
+  <string name="encrypt_device_text_for_device_owner_setup">To continue setting up your device, you\'ll need to encrypt it. This may take some time.</string>
   <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
   <string name="encrypt_device_cancel">CANCEL</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
@@ -167,7 +167,7 @@
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancel_ok">YES</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancelling">Cancelling...</string>
+  <string name="profile_owner_cancelling">Canceling...</string>
 
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
