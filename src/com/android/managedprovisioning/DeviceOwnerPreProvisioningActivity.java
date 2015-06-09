@@ -65,6 +65,12 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     private static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
             = "com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE";
 
+    /**
+     * Action used to start DeviceOwnerPreProvisioningActivity on a secondary user.
+     */
+    protected static final String ACTION_PROVISION_SECONDARY_USER
+            = "com.android.managedprovisioning.ACTION_PROVISION_SECONDARY_USER";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,9 +151,17 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, MessageParser parser)
             throws IllegalProvisioningArgumentException {
-        if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
+        if (intent.getAction() == null) {
+            throw new IllegalProvisioningArgumentException("Null intent action.");
+        } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
             return parser.parseNfcIntent(intent);
         } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
+            return parser.parseNonNfcIntent(intent);
+        } else if (intent.getAction().equals(ACTION_PROVISION_SECONDARY_USER)) {
+            if (Utils.isCurrentUserOwner()) {
+                throw new IllegalProvisioningArgumentException("Permission denied. " +
+                    "Was this activity started for a secondary user?");
+            }
             return parser.parseNonNfcIntent(intent);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE)) {
             ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent);
