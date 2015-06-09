@@ -77,6 +77,7 @@ public class UserInitializedReceiver extends BroadcastReceiver {
                 context.getSystemService(Context.DEVICE_POLICY_SERVICE);
 
         Intent startMpIntent = new Intent(context, DeviceOwnerPreProvisioningActivity.class);
+        startMpIntent.setAction(DeviceOwnerPreProvisioningActivity.ACTION_PROVISION_SECONDARY_USER);
         startMpIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startMpIntent.putExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, dpm.getDeviceOwner());
