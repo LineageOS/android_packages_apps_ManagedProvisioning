@@ -89,22 +89,14 @@ import java.util.Properties;
  * The intent contains the extra {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME} or
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} (which is deprecated and supported for
  * legacy reasons only), and may contain {@link #EXTRA_PROVISIONING_TIME_ZONE},
- * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, {@link #EXTRA_PROVISIONING_LOCALE}, and
- * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME}. A download
+ * {@link #EXTRA_PROVISIONING_LOCAL_TIME}, and {@link #EXTRA_PROVISIONING_LOCALE}. A download
  * location for the device admin may be specified in
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}, together with an optional
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE}, an optional
  * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}, and
  * the SHA-1 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM} or
  * the SHA-1 hash of any certificate of the android package in the target file
- * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM}. A download location for the device
- *  initializer may be specified in
- * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION}, together with an
- * optional (@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE}, an optional http
- * cookie header {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER} , and
- * the SHA-1 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM}
- * or the SHA-1 hash of any certificate of the android package in the target file
- * {@link #EXTRA_PROVISIONING_DEVICE_INITIALIZER_CERTIFICATE_CHECKSUM}.
+ * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM}.
  * Additional information to send through to the device initializer and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
  * The optional boolean {@link #EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED} indicates whether
