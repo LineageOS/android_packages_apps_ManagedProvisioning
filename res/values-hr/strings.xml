@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vašim će uređajem upravljati sljedeća aplikacija:"</string>
     <string name="set_up" msgid="7012862095553564169">"Postavi"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Postavljanje radnog profila..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Vaš administrator može nadzirati postavke, korporacijski pristup, aplikacije i podatke povezane s profilom te upravljati njima, uključujući aktivnosti na mreži i podatke o lokaciji uređaja."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Vaš administrator može nadzirati postavke, korporacijski pristup, aplikacije i podatke povezane s ovim uređajem te njima upravljati, uključujući aktivnosti na mreži i podatke o lokaciji uređaja."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Za više informacija, uključujući pravila o privatnosti organizacije, obratite se administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Ukloniti radni profil?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Ovim radnim profilom upravlja:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ovaj je radni profil pod upravljanjem domene %s putem:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Pročitajte ovo"</a>" prije nego što nastavite."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ako nastavite, izbrisat će se sve aplikacije i podaci u profilu."</string>
     <string name="delete_profile" msgid="8384444459432563649">"IZBRIŠI"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ODUSTANI"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili s postavljanjem svog radnog profila, morat ćete kriptirati uređaj. To može potrajati."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Da biste nastavili s postavljanjem uređaja, morat ćete ga kriptirati. To može potrajati."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ODUSTANI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"KRIPTIRAJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripcija je dovršena"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Postavljanje uređaja"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Obrada podataka o postavljanju..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Povezivanje s Wi-Fi mrežom..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Provjera zaštite od vraćanja na zadano..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Preuzimanje administratorske aplikacije..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Instaliranje administratorske aplikacije..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Postavljanje vlasnika uređaja..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj je uređaj već postavljen."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ovaj je uređaj već postavljen za tog korisnika."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Spajanje na Wi-Fi nije uspjelo"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Zaštita uređaja od vraćanja na tvorničke postavke nije prošla"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Uređaj je zaštićen od vraćanja na tvorničke postavke. Obratite se IT odjelu."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Upotreba administratorske aplikacije nije uspjela zbog pogreške kontrolnog zbroja. Obratite se IT odjelu."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Preuzimanje administratorske aplikacije nije uspjelo"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administratorska aplikacija ne može se upotrebljavati. Nedostaju joj neke komponente ili je oštećena. Obratite se IT odjelu."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Jeste li sigurni da želite prekinuti postavljanje?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NE"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"DA"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Otkazivanje..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Omogućivanje"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Postavljanje CA certifikata"</string>
 </resources>

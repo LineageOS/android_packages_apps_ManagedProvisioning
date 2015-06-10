@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Laitettasi hallinnoi seuraava sovellus:"</string>
     <string name="set_up" msgid="7012862095553564169">"Määritä asetukset"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Määritetään työprofiilia…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Järjestelmänvalvoja voi valvoa ja hallinnoida asetuksia, yrityskäyttöä, profiiliin liitettyjä sovelluksia ja tietoja, kuten verkon käyttöä ja laitteen sijaintitietoja."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Järjestelmänvalvoja voi valvoa ja hallinnoida asetuksia, yrityskäyttöä, sovelluksia ja tähän laitteeseen liittyviä tietoja, kuten verkon käyttöä ja laitteen sijaintitietoja."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Pyydä järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisätietoja"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Poistetaanko työprofiili?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Tätä työprofiilia hallinnoi"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Organisaation %s työprofiilia hallinnoi"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Lue tämä"</a>" ennen kuin jatkat."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Kaikki tämän profiilin sovellukset ja tiedot poistetaan, jos jatkat."</string>
     <string name="delete_profile" msgid="8384444459432563649">"POISTA"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"PERUUTA"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Työprofiilin määritysten jatkaminen edellyttää laitteen salaamista. Tämä voi kestää hetken."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Jos haluat jatkaa laitteen asennusta, sinun on salattava se. Tämä voi kestää hetken."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"PERUUTA"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"SALAA"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Salaus on valmis"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Määritä laitteen asetukset"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Käsitellään asennustietoja…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Muodostetaan Wi-Fi-yhteyttä…"</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Tarkistetaan tehdasasetusten palautussuojaus…"</string>
     <string name="progress_download" msgid="4995057798189799156">"Ladataan hallintasovellusta…"</string>
     <string name="progress_install" msgid="9169411715762296097">"Asennetaan hallintasovellusta…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Määritetään laitteen omistajaa…"</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Laitteen asetukset on jo määritetty."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Laite on jo määritetty tälle käyttäjälle."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-yhteyden muodostaminen epäonnistui"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Laitteen tehdasasetusten palautussuojauksen ohittaminen epäonnistui."</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Laite on lukittu tehdasasetusten palautussuojauksella. Ota yhteyttä yrityksesi IT-osastoon."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Hallintasovelluksen käyttäminen epäonnistui tarkistussummavirheen vuoksi. Ota yhteyttä yrityksesi IT-osastoon."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Hallintasovelluksen lataaminen epäonnistui"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Hallintasovellusta ei voi käyttää. Sovellus on vioittunut tai siitä puuttuu komponentteja. Ota yhteyttä yrityksesi IT-osastoon."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Haluatko varmasti keskeyttää määrittämisen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"EI"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"KYLLÄ"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Peruutetaan..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Käyttäjien hallintaa suoritetaan"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Määritetään CA-varmenteita"</string>
 </resources>

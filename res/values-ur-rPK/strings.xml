@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"مندرجہ ذیل ایپ آپ کے آلہ کا نظم کرے گی:"</string>
     <string name="set_up" msgid="7012862095553564169">"ترتیب دیں"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"آپ کا دفتر کا پروفائل ترتیب دیا جا رہا ہے…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"آپ کے منتظم کے پاس نیٹ ورک کی سرگرمی اور آپ کے آلہ کے مقام کی معلومات کے بشمول ترتیبات، کارپوریٹ رسائی، ایپس اور پروفائل کے ساتھ وابستہ ڈیٹا کو مانیٹر کرنے اور ان کا نظم کرنے کی اہلیت ہے۔"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"آپ کے منتظم کے پاس نیٹ ورک کی سرگرمی اور آپ کے آلہ کے مقام کی معلومات کے بشمول ترتیبات، کارپوریٹ رسائی، ایپس اور اس آلہ کے ساتھ وابستہ ڈیٹا کو مانیٹر کرنے اور ان کا نظم کرنے کی اہلیت ہے۔"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"اپنی تنظیم کی رازداری کی پالیسیوں سمیت مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"مزید جانیں"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"دفتری پروفائل ہٹائیں؟"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"یہ دفتری پروفائل اس کے زیر انتظام ہے:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏اس دفتری پروفائل کا نظم %s کیلئے یہ استعمال کرتے ہوئے کیا جاتا ہے:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"آگے بڑھنے سے پہلے براہ کرم "<a href="#read_this_link">"اسے پڑھیں"</a>"۔"</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"اگر آپ جاری رکھتے ہیں تو اس پروفائل میں موجود سبھی ایپس اور ڈیٹا حذف ہو جائے گا۔"</string>
     <string name="delete_profile" msgid="8384444459432563649">"حذف کریں"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"منسوخ کریں"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"اپنے دفتری پروفائل کو ترتیب دینا جاری رکھنے کیلئے، آپ کو اپنے آلہ کو مرموز کرنے کی ضرورت ہوگی۔ اس میں کچھ وقت لگ سکتا ہے۔"</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"اپنے آلہ کو ترتیب دینا جاری رکھنے کیلئے، آپ کو اپنے آلہ کو مرموز کرنے کی ضرورت ہوگی۔ اس میں کچھ وقت لگ سکتا ہے۔"</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"منسوخ کریں"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"مرموز کریں"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"مرموز کاری مکمل"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"اپنے آلہ کو ترتیب دیں"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"سیٹ اپ ڈیٹا پر کارروائی کی جا رہی ہے…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏Wi-Fi سے منسلک ہو رہا ہے…"</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"‏فیکٹری ری سیٹ کا تحفظ چیک کیا جا رہا ہے‎…"</string>
     <string name="progress_download" msgid="4995057798189799156">"منتظم کی ایپ ڈاؤن لوڈ ہو رہی ہے…"</string>
     <string name="progress_install" msgid="9169411715762296097">"منتظم کی ایپ انسٹال ہو رہی ہے…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"آلہ کے مالک کو ترتیب دی جا رہی ہے…"</string>
@@ -72,7 +74,8 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"یہ آلہ پہلے ہی ترتیب دیا جا چکا ہے۔"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"یہ آلہ پہلے ہی اس صارف کیلئے ترتیب دیا جا چکا ہے۔"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏Wi-Fi سے منسلک نہیں کیا جا سکا"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"آلہ کے فیکٹری ری سیٹ کا تحفظ پاس نہیں کیا جا سکا"</string>
+    <!-- no translation found for device_owner_error_frp (7053630342416280252) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"‏checksum کی خرابی کی وجہ سے منتظم کی ایپ کا استعمال نہیں کیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"منتظم کی ایپ کو ڈاؤن لوڈ نہیں کیا جا سکا"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"‏منتظم کی ایپ کا استعمال نہیں کر سکتے۔ اس میں چھوٹے ہوئے اجزاء ہیں یا یہ خراب ہوگئی ہے۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>
@@ -83,7 +86,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"کیا آپ واقعی ترتیب دینا بند کرنا چاہتے ہیں؟"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"نہیں"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ہاں"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"منسوخ کیا جا رہا ہے…"</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"فراہمی"</string>
     <string name="copying_certs" msgid="5697938664953550881">"‏CA سرٹیفکیٹس ترتیب دیے جا رہے ہیں"</string>
 </resources>

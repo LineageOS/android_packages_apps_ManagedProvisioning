@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikazio honek kudeatuko du zure gailua:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Laneko profila konfiguratzen…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administratzaileak ikuskatu eta kudeatu egin ditzake profilarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak eta datuak (sarean izandako jarduerak eta gailuaren kokapenari buruzko informazioa barne)."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administratzaileak ikuskatu eta kudeatu egin ditzake gailuarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak eta datuak (sarean izandako jarduerak eta gailuaren kokapenari buruzko informazioa barne)."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Informazio gehiago lortzeko (baita erakundearen pribatutasun-gidalerroei buruzkoa ere), jarri administratzailearekin harremanetan."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lortu informazio gehiago"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Laneko profila kendu nahi duzu?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Laneko profil hau honen bidez kudeatzen da:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s domeinuko laneko profil hau honen bidez kudeatzen da:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"Aurrera egin aurretik, "<a href="#read_this_link">"irakurri hau"</a>"."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Aurrera eginez gero, profileko aplikazio eta datu guztiak ezabatuko dira."</string>
     <string name="delete_profile" msgid="8384444459432563649">"EZABATU"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"UTZI"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Laneko profila konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Minutu batzuk behar izan ditzakegu horretarako."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Gailua konfiguratzen jarraitzeko, gailua enkriptatu beharko duzu. Denbora pixka bat behar izan daiteke horretarako."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"UTZI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ENKRIPTATU"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkriptatu da"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Konfiguratu gailua"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Konfigurazio-datuak prozesatzen…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi sarera konektatzen…"</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Ezarpenak berrezartzeko babesa egiaztatzen…"</string>
     <string name="progress_download" msgid="4995057798189799156">"Administrazio-aplikazioa deskargatzen…"</string>
     <string name="progress_install" msgid="9169411715762296097">"Administrazio-aplikazioa instalatzen…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Gailuaren jabea ezartzen…"</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Gailua konfiguratuta dago dagoeneko."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Gailua erabiltzaile horrentzat konfiguratuta dago dagoeneko."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ezin izan da Wi-Fi sarera konektatu"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Ezin izan da gainditu gailuan fabrikako ezarpenak berrezartzeko babesa"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Blokeatuta dago gailua jatorrizko datuen berrezartzearen babesaren bidez. Jarri IKT sailarekin harremanetan."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ezin izan da erabili administrazio-aplikazioa, batuketa egitean errore bat gertatu delako. Jarri informatika-sailarekin harremanetan."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da administrazio-aplikazioa deskargatu"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ezin da erabili administrazio-aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Jarri informatika-sailarekin harremanetan."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Ziur konfiguratzeari utzi nahi diozula?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"EZ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"BAI"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Bertan behera uzten…"</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Hornitzen"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ziurtagiriak konfiguratzen"</string>
 </resources>

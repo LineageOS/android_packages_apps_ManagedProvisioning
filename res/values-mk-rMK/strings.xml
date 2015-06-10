@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Следнава апликација ќе управува со уредот:"</string>
     <string name="set_up" msgid="7012862095553564169">"Постави"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Се поставува работниот профил..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Администраторот може да ги набљудува и да управува со поставките, корпоративниот пристап, апликациите и податоците поврзани со профилот, вклучувајќи ја мрежната активност и информациите за локацијата на уредот."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Администраторот може да ги следи и да управува со поставките, корпоративниот пристап, апликациите и податоците поврзани со овој уред, како и со мрежната активност и информациите за локацијата на уредот."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Контактирајте со администраторот за повеќе информации, како и за политиките за приватност на организацијата."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Дознај повеќе"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Да се отстрани работниот профил?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Овој работен профил е управуван од:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Овој работен профил е управуван за %s со користење на:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Прочитајте го ова"</a>" пред да продолжите."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Сите апликации и податоци на профилот ќе се избришат ако продолжите."</string>
     <string name="delete_profile" msgid="8384444459432563649">"ИЗБРИШИ"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ОТКАЖИ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"За да продолжите со поставување на работниот профил, ќе треба да го шифрирате уредот. Тоа може да потрае."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"За да продолжите со поставување на уредот, ќе треба да го шифрирате уредот. Тоа може да потрае."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ОТКАЖИ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ШИФРИРАЈ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шифрирањето е завршено"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Поставете го уредот"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Се обработуваат податоците за поставување..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Се поврзува на Wi-Fi..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Се проверува заштитата на ресетирање на фабрички вредности..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Се презема администраторската апликација..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Се инсталира администраторската апликација..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Се поставува сопственикот на уредот..."</string>
@@ -72,7 +74,8 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Уредот е веќе поставен."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Уредот е веќе поставен за корисникот."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не можеше да се поврзе со Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Не може да помине заштита од ресетирање на уредот на фабрички вредности"</string>
+    <!-- no translation found for device_owner_error_frp (7053630342416280252) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Не можевме да ја користиме администраторската апликација поради грешка во контролната сума. Контактирајте со одделот за ИТ."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не можеше да се преземе апликацијата за администратор"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Не може да се користи администраторската апликација. Ѝ недостасуваат компоненти или е оштетена. Контактирајте со одделот за ИТ."</string>
@@ -83,7 +86,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Дали сигурно сакате да го прекинете поставувањето?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"НЕ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ДА"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Се откажува..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Се обезбедува"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Се поставуваат сертификатите ЦА"</string>
 </resources>

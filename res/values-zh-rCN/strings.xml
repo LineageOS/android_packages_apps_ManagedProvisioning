@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
     <string name="set_up" msgid="7012862095553564169">"设置"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"正在设置您的工作资料…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"要移除工作资料吗？"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"此工作资料由以下应用管理："</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"请先"<a href="#read_this_link">"阅读此文"</a>"，然后再继续。"</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"如果继续，则此工作资料中的所有应用和数据都会被删除。"</string>
     <string name="delete_profile" msgid="8384444459432563649">"删除"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"要继续设置您的设备，您需要对其进行加密。此过程可能需要一段时间。"</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"取消"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"加密"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密已完成"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"正在处理设置数据…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"正在连接到WLAN网络…"</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"正在检查恢复出厂设置保护…"</string>
     <string name="progress_download" msgid="4995057798189799156">"正在下载管理应用…"</string>
     <string name="progress_install" msgid="9169411715762296097">"正在安装管理应用…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"正在设置设备所有者…"</string>
@@ -72,7 +74,8 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"之前已对此设备进行了设置。"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"无法通过设备的恢复出厂设置保护机制"</string>
+    <!-- no translation found for device_owner_error_frp (7053630342416280252) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"由于校验和错误，无法使用此管理应用。请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"无法下载管理应用"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"由于缺少组件或软件包已损坏，无法使用此管理应用。请与您公司的IT部门联系。"</string>
@@ -83,7 +86,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"确定要停止设置吗？"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"否"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"是"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"正在取消…"</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"正在配置"</string>
     <string name="copying_certs" msgid="5697938664953550881">"正在设置 CA 证书"</string>
 </resources>
