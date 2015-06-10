@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ứng dụng sau sẽ quản lý thiết bị của bạn:"</string>
     <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Đang thiết lập hồ sơ công việc..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Quản trị viên của bạn có thể giám sát và quản lý các cài đặt, quyền truy cập của công ty, các ứng dụng và dữ liệu được liên kết với hồ sơ này, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, ứng dụng và dữ liệu liên kết với thiết bị này, bao gồm hoạt động mạng và thông tin về vị trí của thiết bị."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hãy liên hệ với quản trị viên của bạn để biết thêm thông tin, bao gồm các chính sách bảo mật của tổ chức bạn."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Xóa hồ sơ công việc?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Hồ sơ công việc này được quản lý bằng:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Hồ sơ công việc này được quản lý cho %s bằng:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"Vui lòng "<a href="#read_this_link">"đọc nội dung này"</a>" trước khi tiếp tục."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Tất cả ứng dụng và dữ liệu trong hồ sơ này sẽ bị xóa nếu bạn tiếp tục."</string>
     <string name="delete_profile" msgid="8384444459432563649">"XÓA"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"HỦY"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Để tiếp tục thiết lập hồ sơ công việc, bạn cần mã hóa thiết bị của mình. Quá trình này có thể mất vài phút."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Để tiếp tục thiết lập thiết bị, bạn cần mã hóa thiết bị của mình. Quá trình này có thể mất vài phút."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"HỦY"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"MÃ HÓA"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Hoàn tất mã hóa"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Thiết lập thiết bị của bạn"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Đang xử lý dữ liệu thiết lập..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Đang kết nối Wi-Fi..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Đang kiểm tra bảo vệ thiết lập cài đặt gốc.."</string>
     <string name="progress_download" msgid="4995057798189799156">"Đang tải xuống ứng dụng quản trị..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Đang cài đặt ứng dụng quản trị..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Đang đặt chủ sở hữu thiết bị..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Thiết bị này đã được thiết lập."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Thiết bị này đã được thiết lập cho người dùng này."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Không thể kết nối với Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Không thể vượt qua chế độ bảo vệ thiết lập cài đặt gốc của thiết bị"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Thiết bị này bị khóa bởi tính năng bảo vệ chống khôi phục cài đặt gốc. Hãy liên hệ với bộ phận CNTT của bạn."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Không sử dụng được ứng dụng quản trị do có lỗi kiểm tra tổng. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Không thể sử dụng ứng dụng quản trị. Ứng dụng thiếu thành phần hoặc bị lỗi. Hãy liên hệ với bộ phận CNTT."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Bạn có chắc chắn muốn dừng thiết lập không?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"KHÔNG"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"CÓ"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Đang hủy..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Đang cấp phép"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Đang thiết lập chứng chỉ CA"</string>
 </resources>

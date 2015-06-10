@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"برنامه زیر، دستگاهتان را مدیریت می‌کند:"</string>
     <string name="set_up" msgid="7012862095553564169">"راه‌اندازی"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"در حالت تنظیم نمایه کاریتان..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"سرپرست سیستم شما می‌تواند بر تنظیمات، دسترسی سازمانی، برنامه‌ها و داده‌های مرتبط با نمایه، از جمله فعالیت شبکه و اطلاعات مکان دستگاهتان نظارت و مدیریت کند."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"سرپرست سیستمتان می‌تواند بر تنظیمات، دسترسی شرکتی، برنامه‌ها و اطلاعات مرتبط با این دستگاه، از جمله فعالیت شبکه و اطلاعات مکان دستگاه‌ شما نظارت و مدیریت کند."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"برای دریافت اطلاعات بیشتر، از جمله خط‌مشی‌های رازداری سازمانتان، با سرپرست سیستم خودتان تماس بگیرید."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"بیشتر بدانید"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"نمایه کاری حذف شود؟"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"سرپرست زیر این نمایه کاری را مدیریت می‌کند:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏سرپرست زیر این نمایه کاری را برای %s مدیریت می‌کند:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"لطفاً قبل از ادامه دادن، "<a href="#read_this_link">"این مطلب را بخوانید"</a>"."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"اگر ادامه دهید، همه برنامه‌ها و اطلاعات در این نمایه حذف می‌شوند."</string>
     <string name="delete_profile" msgid="8384444459432563649">"حذف"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"لغو"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"برای ادامه تنظیم نمایه کاری‌تان، باید دستگاهتان را رمزگذاری کنید. شاید این کار مدتی طول بکشد."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"برای ادامه تنظیم دستگاهتان، باید دستگاهتان را رمزگذاری کنید. شاید این کار مدتی طول بکشد."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"لغو"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"رمزگذاری"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"رمزگذاری کامل شد"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"تنظیم دستگاه"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"در حال پردازش اطلاعات تنظیم..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"‏در حال برقراری اتصال به Wi-Fi..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"درحال بررسی محافظت دربرابر بازنشانی به داده کارخانه…"</string>
     <string name="progress_download" msgid="4995057798189799156">"در حال دانلود برنامه سرپرست..."</string>
     <string name="progress_install" msgid="9169411715762296097">"در حال نصب برنامه سرپرست..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"در حال تنظیم مالک دستگاه..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"این دستگاه از قبل راه‌اندازی شده است."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"این دستگاه از قبل برای این کاربر راه‌اندازی شده است."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏اتصال به Wi-Fi ممکن نیست"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"عبور از محافظت در مقابل بازنشانی امکان‌پذیر نیست"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"این دستگاه توسط محافظت بازنشانی کارخانه، قفل شده است. با بخش فناوری اطلاعات تماس بگیرید."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"به دلیل خطای چک‌سام، برنامه سرپرست استفاده نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"برنامه سرپرستی دانلود نشد"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"برنامه سرپرست استفاده نمی‌شود. مؤلفه‌های آن وجود ندارند یا خراب هستند. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"آیا مطمئنید که می‌خواهید راه‌اندازی را متوقف کنید؟"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"خیر"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"بله"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"در حال لغو..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"در حال ارائه دسترسی"</string>
     <string name="copying_certs" msgid="5697938664953550881">"‏تنظیم گواهی‌های CA"</string>
 </resources>

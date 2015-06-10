@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"အောက်ပါအပ်ဖ်မှ သင့်ကိရိယာကို စီမံခန့်ခွဲလိမ့်မည်။"</string>
     <string name="set_up" msgid="7012862095553564169">"စဖွင့်သတ်မှတ်ရန်"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ်နေ..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"သင်၏ စီမံအုပ်ချုပ်သူသည် ပရိုဖိုင်နှင့် ဆက်နွှယ်နေသည့် ဆက်တင်များ၊ လုပ်ငန်းဆိုင်ရာ ရယူသုံးမှုများ၊ appများ နှင့် ဒေတာများကို၊ ကွန်ရက် လှုပ်ရှားမှုများ နှင့် သင့် ကိရိယာ တည်နေရာ အချက်အလက်များ အပါအဝင်ကို၊ စောင့်ကြပ် စီမံကွပ်ကဲနိုင်စွမ်း ရှိပါသည်။"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"ဆက်တင်များ၊ လုပ်ငန်းဆိုင်ရာ အသုံးပြုမှုများ၊ appများ၊ ဒီကိရိယာနှင့် ဆက်စပ်နေသည့် ဒေတာကို၊ ကွန်ရက် လှုပ်ရှားမှု နှင့် သင့်ကိရိယာ၏ တည်နေရာ အချက်အလက်များအပါအဝင်ကို၊ သင်၏ စီမံအုပ်ချုပ်သူက စောင့်ကြည့်ပြီး စီမံကွပ်ကဲနိုင်သည်။"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"သင့်အဖွဲ့အစည်း၏ ကိုယ်ရေးမူဝါဒများ အပါအဝင်၊ တစ်ခြား အချက်အလက်များ အတွက် သင့်စီမံအုပ်ချုပ်သူကို ဆက်သွယ်ပါ။"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ပိုမိုသိလိုလျှင်"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"အလုပ်ပရိုဖိုင် ဖယ်မည်လား?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"ဤအလုပ်ပရိုဖိုင်အား စီမံခန့်ခွဲသည်မှာ-"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ဤအလုပ်ပရိုဖိုင်အား ဖော်ပြပါအား သုံးရန်အတွက် စီမံသည်-"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"ရှေ့ဆက်မသွားမီ ကျေးဇူးပြု၍ "<a href="#read_this_link">"ဤအရာအား ဖတ်ပါ"</a>"။"</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"သင် ရှေ့ဆက်သွားပါက ဤပရိုဖိုင်ရှိ appများနှင့် ဒေတာ အားလုံးကို ဖျက်ပစ်မည်။"</string>
     <string name="delete_profile" msgid="8384444459432563649">"ဖျက်ရန်"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ပယ်ဖျက်"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"သင့် အလုပ်ပရိုဖိုင်ကို ဆက်လက် တပ်ဆင်သတ်မှတ်ရန်၊ သင့်စက်အား လျှို့ဝှက်ကုဒ် သွင်းရမည်။ အချိန်အနည်းငယ် ကြာနိုင်သည်။"</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"သင့်စက်ပစ္စည်းအား ဆက်လက် တပ်ဆင်ရန်၊ သင့်စက်ပစ္စည်းအား လုံခြုံအောင်ပြုလုပ်ရန် လိုအပ်သည်။ ၎င်းသည် အချိန်အနည်းငယ် ယူရပါမည်။"</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ပယ်ဖျက်"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"လျှို့ဝှက်ကုဒ်သွင်း"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"လျှို့ဝှက်ကုဒ် သွင်းမှု ပြီးဆုံးသွားပြီ"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"သင်၏ ကိရိယာကို စဖွင့်သတ်မှတ်ရန်"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"စဖွင့်စီစဉ်ရေး ဒေတာကို စီမံဆောင်ရွက်နေ..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"ကြိုးမဲ့သို့ ချိတ်ဆက်နေ..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"စက်ရုံအခြေအနေသို့ ပြန်လည်သတ်မှတ်ခြင်း ကာကွယ်မှုကို စစ်ဆေးနေသည်..."</string>
     <string name="progress_download" msgid="4995057798189799156">"စီမံအုပ်ချုပ်သူ appကို ဒေါင်းလုဒ် လုပ်နေ..."</string>
     <string name="progress_install" msgid="9169411715762296097">"စီမံအုပ်ချုပ်သူ appကို တပ်ဆင်နေ..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"ကိရိယာ ပိုင်ရှင်ကို စဖွင့်သတ်မှတ်နေ..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ဤစက်အား ပြင်ဆင်သတ်မှတ်ပြီး၏။"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ဤစက်အား ဤ အသုံးပြုမည့်သူအတွက် ပြင်ဆင်သတ်မှတ်ပြီးဖြစ်၏။"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ဝိုင်−ဖိုင်ကို ချိတ်ဆက်မရပါ"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"စက်ပစ္စည်းစက်ရုံအခြေနေသို့ ပြန်လည်သတ်မှတ်ခြင်း ကာကွယ်မှုကို မကျော်လွန်နိုင်ပါ"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"ဤစက်ပစ္စည်းကို စက်ရုံ ပြန်လည်သတ်မှတ်မှု ကာကွယ်ခြင်းဖြင့် သော့ခတ်ထားသည်။ သင့်အိုင်တီဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum အမှားကြောင့် စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"အက်ဒမင် appကို ဒေါင်းလုဒ် မလုပ်နိုင်ခဲ့ပါ။"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"သင်သည် စဖွင့်သတ်မှတ်မှုကို ရပ်စဲချင်တာ သေချာသလား?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"မဟုတ်ပါ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ဟုတ်သည်"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"ဖျက်နေ..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"စီမံဆောင်ရွက်ပေးနေသည်။"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA လက်မှတ်များကို တည်ဆောက်ခြင်း"</string>
 </resources>

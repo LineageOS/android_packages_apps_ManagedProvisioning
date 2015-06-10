@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"The following app will manage your device:"</string>
     <string name="set_up" msgid="7012862095553564169">"Set up"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Setting up your work profile..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with the profile, including network activity and your device\'s location information."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Your administrator has the ability to monitor and manage settings, corporate access, apps and data associated with this device, including network activity and your device\'s location information."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contact your administrator for more information, including your organisation\'s privacy policies."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Learn more"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Remove work profile?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"This work profile is managed by:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"This work profile is managed for %s using:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"Please "<a href="#read_this_link">"read this"</a>" before proceeding."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"All apps and data in this profile will be deleted if you continue."</string>
     <string name="delete_profile" msgid="8384444459432563649">"DELETE"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"CANCEL"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"To continue setting up your work profile, you\'ll need to encrypt your device. This may take some time."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"To continue setting up your device, you\'ll need to encrypt your device. This may take some time."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"CANCEL"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ENCRYPT"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Encryption complete"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Set up your device"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Processing setup data..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Connecting to Wi-Fi..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Checking Factory Reset Protection..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Downloading the admin app..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Installing the admin app..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Setting the device owner..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"This device has already been set up."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"This device has already been set up for this user."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Could not pass device factory reset protection"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"This device is locked by factory reset protection. Contact your IT department."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Are you sure that you want to stop setting up?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NO"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"YES"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Cancelling ..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Provisioning"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Setting up CA certificates"</string>
 </resources>
