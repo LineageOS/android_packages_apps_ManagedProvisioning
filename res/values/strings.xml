@@ -100,7 +100,7 @@
   <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
   <string name="device_owner_exists">Work profiles can not be setup on a managed device</string>
   <!-- Error string displayed if maximum user limit is reached -->
-  <string name="maximum_user_limit_reached">Work profile could not be created as the maximum number of managed profiles on your device has been reached. Removing one user and trying again may fix it.</string>
+  <string name="maximum_user_limit_reached">Work profile can\'t be created because you\'ve reached the maximum number of users on your device. Remove at least one user and try again.</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <string name="managed_provisioning_not_supported_by_launcher">Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible.</string>
   <!-- Button text for the button that cancels provisioning  -->
@@ -126,10 +126,8 @@
   <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
   <string name="progress_set_owner">Setting the device owner...</string>
 
-  <!-- Title of the cancel provisioning dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_cancel_title">Stop setting up?</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_cancel_message">Are you sure you want to stop setting up and erase your device\'s data?</string>
+  <string name="device_owner_cancel_message">Stop setting up and erase your device\'s data?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_cancel">CANCEL</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
@@ -158,10 +156,8 @@
   <string name="device_owner_error_installation_failed">Couldn\'t install the admin app</string>
   <!-- Message of the error dialog when device admin package is not installed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_package_not_installed">The admin app isn\'t installed on your device</string>
-  <!-- Title of the cancel profile owner provisioning dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancel_title">Stop setting up?</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
-  <string name="profile_owner_cancel_message">Are you sure you want to stop setting up?</string>
+  <string name="profile_owner_cancel_message">Stop setting up?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancel_cancel">NO</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
