@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्‍न ऐप आपके डिवाइस को प्रबंधित करेगा:"</string>
     <string name="set_up" msgid="7012862095553564169">"सेट करें"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"आपकी कार्य प्रोफ़ाइल सेट की जा रही है..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"आपके व्यवस्थापक के पास नेटवर्क गतिविधि और आपके डिवाइस के स्थान की जानकारी सहित प्रोफ़ाइल से संबद्ध सेटिंग, कॉर्पोरेट एक्सेस, ऐप्स और डेटा की निगरानी करने और उसे प्रबंधित करने की क्षमता होती है."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"आपके व्यवस्थापक के पास नेटवर्क गतिविधि और आपके डिवाइस के स्थान की जानकारी सहित इस डिवाइस से संबद्ध सेटिंग, कॉर्पोरेट एक्सेस, ऐप्स और डेटा की निगरानी करने और उसे प्रबंधित करने की क्षमता होती है."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"अपने संगठन की गोपनीयता नीतियों सहित अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"और जानें"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफ़ाइल निकालें?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"यह कार्य प्रोफ़ाइल इनके द्वारा प्रबंधित की जाती है:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"यह कार्य प्रोफ़ाइल %s के लिए इसके उपयोग से प्रबंधित की जाती है:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"कृपया आगे बढ़ने से पहले "<a href="#read_this_link">"यह पढ़ें"</a>"."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"यदि आप जारी रखते हैं तो इस प्रोफ़ाइल के सभी ऐप्‍स और डेटा को हटा दिया जाएगा."</string>
     <string name="delete_profile" msgid="8384444459432563649">"हटाएं"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"अभी नहीं"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"अपनी कार्य प्रोफ़ाइल सेट करना जारी रखने के लिए, आपको अपने डिवाइस को एन्क्रिप्ट करना होगा. इसमें कुछ समय लग सकता है."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"अपना डिवाइस सेट करना जारी रखने के लिए, आपको अपने डिवाइस को एन्‍क्रिप्‍ट करना होगा. इसमें कुछ समय लग सकता है."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"अभी नहीं"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"एन्‍क्रिप्‍ट करें"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"एन्‍क्रिप्‍शन पूर्ण"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"अपना डिवाइस सेट करें"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"सेटअप डेटा संसाधित हो रहा है..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"वाई-फ़ाई  से कनेक्ट हो रहा है..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"फ़ैक्‍टरी रीसेट सुरक्षा जांची जा रही है..."</string>
     <string name="progress_download" msgid="4995057798189799156">"व्यवस्थापक ऐप्स डाउनलोड हो रहा है..."</string>
     <string name="progress_install" msgid="9169411715762296097">"व्यवस्थापक ऐप्स इंस्टॉल हो रहा है..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"डिवाइस स्वामी सेट किया जा रहा है..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यह डिवाइस पहले से सेट किया गया है."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यह डिवाइस इस उपयोगकर्ता के लिए पहले से सेट किया गया है."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फ़ाई से कनेक्‍ट नहीं हो सका"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"डिवाइस फ़ैक्‍टरी रीसेट सुरक्षा पास नहीं की जा सकी"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"इस डिवाइस को फ़ैक्‍टरी रीसेट सुरक्षा के द्वारा लॉक किया गया है. अपने आईटी विभाग से संपर्क करें."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"चेकसम त्रुटि के कारण व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"व्यवस्थापक ऐप्स डाउनलोड नहीं किया जा सका"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सकता. उसमें घटक अनुपलब्ध हैं या वे दूषित हैं. अपने IT विभाग से संपर्क करें."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"क्या आप वाकई सेट किए जाने को रोकना चाहते हैं?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"नहीं"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"हां"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"रोका जा रहा है..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान किया जा रहा है"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्र सेट किए जा रहे हैं"</string>
 </resources>

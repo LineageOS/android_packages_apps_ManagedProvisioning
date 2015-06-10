@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ແອັບຯ​ຕໍ່​ໄປ​ນີ້​ຈະຄຸ້ມ​ຄອງ​ອຸ​ປະ​ກອນ:"</string>
     <string name="set_up" msgid="7012862095553564169">"ຕັ້ງຄ່າ"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​​ຂອງ​ທ່ານ​ແມ່ນ​ມີ​ຄວາມ​ສາ​ມາດ​ໃນ​ການ​ຕິດ​ຕາມ ແລະ​ຈັດ​ການ​ກ​ານ​ຕັ້ງ​ຄ່າ, ​ການ​ເຂົ້າ​ເຖິງ​ໃນ​ອົງ​ກອນ, ​ແອັບຯ ແລະ​ຂໍ້​ມູນ​ທີ່​ເຊື່ອມ​ໂຍງ​ກັບ​ໂປຣ​ໄຟລ໌​ນີ້​ໄດ້, ຮວມ​ເຖິງ​ການ​ເຄື່ອນ​ໄຫວ​ໃນ​ລະ​ບົບ​ເຄືອ​ຂ່າຍ ແລະ​ຂໍ້​ມູນ​ສະ​ຖານ​ທີ່​ຂອງ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ຂອງ​ທ່ານ​ແມ່ນ​ມີ​ຄວາມ​ສາ​ມາດ​ໃນ​ການ​ຕິດ​ຕາມ ແລະຈັດ​ການ​ການ​ຕັ້ງ​ຄ່າ, ​ການ​ເຂົ້າ​ເຖິງ​ໃນ​ອົງ​ກອນ, ​ແອັບຯ ​ແລະຂໍ້​ມູນ​ທີ່​ກ່ຽວ​ຂ້ອງ​ກັບ​ອຸ​ປະ​ກອນ​ນີ້​ໄດ້, ຮວມ​ເຖິງ​ການ​ເຄື່ອນ​ໄຫວ​ໃນ​ລະ​ບົບ​ເຄືອ​ຂ່າຍ ແລະຂໍ້​ມູນ​ສະ​ຖານ​ທີ່​ຂອງ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ໃຫ້​ຕິດ​ຕໍ່​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ຂອງ​ທ່ານ​ສຳ​ລັບ​ຂໍ້​ມູນ​ເພີ່ມ​ເຕີມ, ຮວມ​ໄປ​ເຖິງ​ນະ​ໂຍ​ບາຍ​ຄວາມ​ເປັນ​ສ່ວນ​ໂຕ​ຂອງ​ອົງ​ກອນ​ຂອງ​ທ່ານ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ສຶກ​ສາ​ເພີ່ມ​ເຕີມ"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"ລຶບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກບໍ?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"ໂປຣໄຟລບ່ອນເຮັດວຽກນີ້ຖືກຈັດການໂດຍ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ມີການຈັດການໂປຣໄຟລບ່ອນເຮັດວຽກສໍາລັບ %s ການໃຊ້:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"ກະລຸນາ "<a href="#read_this_link">"ອ່ານ"</a>" ນີ້ກ່ອນດຳເນີນການຕໍ່."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ແອັບ ແລະຂໍ້ມູນທັງໝົດໃນໂປຣໄຟລນີ້ຈະຖືກລຶບຖ້າທ່ານສືບຕໍ່."</string>
     <string name="delete_profile" msgid="8384444459432563649">"ລຶບ"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ຍົກເລີກ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"​ເພື່ອ​ສືບ​ຕໍ່​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ, ທ່ານ​ຈະ​ຕ້ອງ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ກ່ອນ. ຂັ້ນ​ຕອນ​ນີ້​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"ເພື່ອ​ສືບ​ຕໍ່​ການ​ຕັ້ງ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ, ທ່ານ​ຈະ​ຕ້ອງ​ໃສ່​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ. ອັນ​ນີ້​ອາດ​ຈະ​ໃຊ້​ເວ​ລາ​ຈັກ​ໜ້ອຍ."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ຍົກເລີກ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"​ເຂົ້າ​ລະ​ຫັດ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ການ​ເຂົ້າ​ລະ​ຫັດ​ສຳ​ເລັດ​ແລ້ວ"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່​ຫາ Wi-Fi..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"ກຳ​ລັງ​ກວດ​ເບິ່ງການ​ປ້ອງ​ກັນ​ການ​ຕັ້ງ​ຄ່າ​ເປັນ​ຄ່າ​ໂຮງ​ງານ​ຄືນ​ໃໝ່​..."</string>
     <string name="progress_download" msgid="4995057798189799156">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ..."</string>
     <string name="progress_install" msgid="9169411715762296097">"ກຳ​ລັງ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"​ອຸ​ປະ​ກອນ​ນີ້​ຖືກ​ຕັ້ງ​ຄ່າ​ໄວ້​ແລ້ວ."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"​ອຸ​ປະ​ກອນ​ນີ້​ຖືກ​ຕັ້ງ​ຄ່າ​ໄວ້ສຳ​ລັບ​ຜູ້​ໃຊ້​ນີ້​ແລ້ວ."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ບໍ່​ສາ​ມາດ​ເຊື່ອມ​ຕໍ່ Wi-Fi ໄດ້"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"ບໍ່​ຜ່ານ​ການ​ປ້ອງ​ກັນ​ການ​ຕັ້ງ​ຄ່າ​ເປັນ​ຄ່າ​ໂຮງ​ງານ​ຄືນ​ໃໝ່​ຂອງ​ອຸ​ປະ​ກອນ​ໄດ້"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"ອຸປະກອນ​ນີ້​ຖືກ​ລັອກ​ໂດຍ​ການ​ປ້ອງ​ກັນ​ການ​ຕັ້ງ​ຄ່າ​ໃໝ່​ຈາກ​ໂຮງງານ. ​ໃຫ້​ຕິດ​ຕໍ່​ຫາ​ພະ​ແນ​ກ​ໄອ​ທີ​ຂອງ​ທ່ານ."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ບໍ່​ສາ​ມາດ​​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້​ເນື່ອງ​ຈາກ checksum ຜິດ​ພາດ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ໄອ​ທີ​ຂອງ​ທ່ານ."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ບໍ່​ສາ​ມາດ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ບໍ່​ສາ​ມາດ​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້. ມັນ​ຂາດ​ອົງ​ປະ​ກອບທີ່​ຕ້ອງ​ໃຊ້ ຫຼື​​ໄຟລ໌​ມີ​ບັນ​ຫາ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ຂອງ​ທ່ານ."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"​ທ່ານ​ແນ່​ໃຈ​ບໍ່​ວ່າ​ທ່ານ​ຕ້ອງ​ການ​ຢຸດ​ການ​ຕິດ​ຕັ້ງ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"ບໍ່ແມ່ນ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ແມ່ນ​ແລ້ວ"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"​ກຳ​ລັງ​ຍົກ​ເລີກ..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"ກຳ​ລັງ​ຈັດ​ການ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"ການ​ຕັ້ງ​ໃບ​ຢັ້ງ​ຢືນ CA"</string>
 </resources>

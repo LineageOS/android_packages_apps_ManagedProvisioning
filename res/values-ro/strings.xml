@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Dispozitivul va fi gestionat de următoarea aplicație:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurați"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Se configurează profilul de serviciu..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administratorul poate monitoriza și a gestiona setările, accesul la nivelul companiei, aplicațiile și datele asociate cu profilul, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administratorul poate monitoriza și gestiona setările, accesul la nivelul companiei, aplicațiile și datele asociate cu acest dispozitiv, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contactați administratorul pentru mai multe informații, inclusiv politicile de confidențialitate ale organizației."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Aflați mai multe"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Eliminați profilul de serviciu?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Acest profil de serviciu este gestionat de:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Acest profil de serviciu este gestionat pentru %s folosind:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Citiți aceste informații"</a>" înainte de a continua."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"În cazul în care continuați, toate aplicațiile și datele din acest profil vor fi șterse."</string>
     <string name="delete_profile" msgid="8384444459432563649">"ȘTERGEȚI"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ANULAȚI"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Pentru a continua configurarea profilului de serviciu, va trebui să criptați dispozitivul. Acest proces poate dura un timp."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Pentru a continua configurarea dispozitivului, va trebui să criptați dispozitivul. Acest proces poate dura un timp."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ANULAȚI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"CRIPTAȚI"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Criptare completă"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Configurați dispozitivul"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Se procesează datele de configurare..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Se conectează la Wi-Fi..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Se verifică protecție revenire la setări fabrică..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Se descarcă aplicația de administrare..."</string>
     <string name="progress_install" msgid="9169411715762296097">"Se instalează aplicația de administrare..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Se setează proprietarul dispozitivului..."</string>
@@ -72,7 +74,8 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Dispozitivul este deja configurat."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Dispozitivul este deja configurat pentru acest utilizator."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nu se poate conecta la Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Nu s-a putut trece de protecția împotriva revenirii la setările din fabrică"</string>
+    <!-- no translation found for device_owner_error_frp (7053630342416280252) -->
+    <skip />
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nu se poate utiliza aplicația de administrare din cauza unei erori de sumă de control. Contactați departamentul IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Eroare la descărcarea aplicației de administrare"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nu se poate utiliza aplicația de administrare. Este deteriorată sau lipsesc componente. Contactați departamentul IT."</string>
@@ -83,7 +86,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Sigur doriți să opriți configurarea?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NU"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"DA"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Se anulează..."</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Se asigură accesul"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Se configurează certificatele CA"</string>
 </resources>

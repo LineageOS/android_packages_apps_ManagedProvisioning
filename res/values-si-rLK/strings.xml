@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"පහත යෙදුම් ඔබේ උපාංගය කළමනාකරණය කරනු ඇත:"</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"ඔබගේ වැඩ කරන පැතිකඩ සකසමින්..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"ජාල ක්‍රියාකාරකම් සහ ඔබගේ උපාංගයේ ස්ථාන තොරතුරු ඇතුළුව මෙම පැතිකඩ සමඟ සම්බන්ධිත සැකසීම්, සංස්ථාපිත ප්‍රවේශය, යෙදුම් සහ දත්ත නිරීෂණය සහ කළමනාකරණය කිරීමේ හැකියාව ඔබගේ පාලකයාට තිබේ."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"ජාල ක්‍රියාකාරකම් සහ ඔබගේ උපාංගයේ ස්ථාන තොරතුරු ඇතුළුව මෙම උපාංගය සමඟ සම්බන්ධිත සැකසීම්, සංස්ථාපිත ප්‍රවේශය, යෙදුම් සහ දත්ත නිරීෂණය සහ කළමනාකරණය කිරීමේ හැකියාව ඔබගේ පාලකයාට තිබේ."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ඔබගේ සංවිධානයේ පෞද්ගලිකත්ව ප්‍රතිපත්ති ඇතුළුව, තව තොරතුරු සඳහා ඔබගේ පාලකයා සම්බන්ධ කරගන්න."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"තව දැනගන්න"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"කාර්යාල පැතිකඩ ඉවත් කරන්නද?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"මෙම කාර්යාල පැතිකඩ කළමනාකරණය කරන්නේ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s සඳහා මෙම කාර්යාල පැතිකඩ මෙය භාවිතයෙන් කළමනාකරණය කෙරේ:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"ඉදිරියට යාමට පෙර කරුණාකර "<a href="#read_this_link">"මෙය කියවන්න"</a>"."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ඔබ දිගටම කරගෙන ගියහොත් මෙම පැතිකඩෙහි ඇති සියලු යෙදුම් සහ දත්ත මකනු ඇත."</string>
     <string name="delete_profile" msgid="8384444459432563649">"මකන්න"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"අවලංගු කරන්න"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ඔබගේ කාර්යාල පැතිකඩේ සැකසීම ඉදිරියට කරගෙන යෑමට, ඔබගේ උපාංගය සංකේතනය කිරීමට ඔබට අවශ්‍ය වේ. මෙයට ටික වෙලාවක් ගත වේ."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"ඔබගේ උපාංගය සකස් කිරීම ඉදිරියට යෑමට, ඔබගේ උපාංගය සංකේතනය කිරීමට ඔබට අවශ්‍ය වේ. මෙයට ටික වේලාවක් ගනී."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"අවලංගු කරන්න"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"සංකේතනය"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"සංකේතනය සම්පූර්ණයි"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"ඔබගේ උපාංගය සකසන්න"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"ස්ථාපන දත්ත සකසමින්..."</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Wi-Fi වෙත සම්බන්ධ වෙමින්..."</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"උපාංගය කර්මාන්ත ශාලා යළි සැකසුම් ආරක්ෂාව පරික්ෂා කරමින්..."</string>
     <string name="progress_download" msgid="4995057798189799156">"පරිපාලක යෙදුම බාගත කරමින්..."</string>
     <string name="progress_install" msgid="9169411715762296097">"පරිපාලක යෙදුම ස්ථාපනය කරමින්..."</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"උපාංග හිමිකරු සකසමින්..."</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"මෙම උපාංගය දැනටමත් පිහිටුවා තිබේ."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"මෙම උපාංගය දැනටමත් මෙම පරිශීලකයා සඳහා පිහිටුවා ඇත."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi වෙත සම්බන්ධ විය නොහැක"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"උපාංගය කර්මාන්ත ශාලා යළි සැකසුම් ආරක්ෂාව පසු කිරීමට නොහැකි විය"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"මෙම උපාංගය කර්මාන්ත ශාලා යළි සැකසීම් ආරක්ෂාව මගින් අගුලු දමා ඇත. ඔබේ IT දෙපාර්තමේන්තුව අමතන්න."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Checksum දෝෂය හේතුවෙන් පරිපාලක යෙදුම භාවිතා කළ නොහැක. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"පරිපාලක යෙදුම බාගැනීම කළ නොහැක."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"පරිපාලක යෙදුම භාවිතා කළ නොහැක. එහි අංශ නැත හෝ විකෘති වී ඇත. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"සකස් කිරීම නැවත් වීමට ඔබට අවශ්‍ය බව ඔබට සහතිකද?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"නැත"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ඔව්"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"අවලංගු කරමින්…"</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"ප්‍රතිපාදනය කරමින්"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA සහතික සකස් කිරීම"</string>
 </resources>

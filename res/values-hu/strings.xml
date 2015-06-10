@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A következő alkalmazás kezelni fogja az eszközt:"</string>
     <string name="set_up" msgid="7012862095553564169">"Beállítás"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Munkaprofil beállítása…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve a profillal társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve az ezzel az eszközzel társított adatokat, beleértve a hálózati tevékenységeket és az eszköz helyadatait."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne kapni, például szervezetének adatvédelmi irányelveiről."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"További információ"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Eltávolítja a munkahelyi profilt?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"A munkahelyi profil kezelője:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s számára a következővel kezelik ezt a munkahelyi profilt:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659">"Kérjük, a folytatás előtt "<a href="#read_this_link">"olvassa el ezt"</a>"."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ha folytatja, a profilban lévő minden alkalmazás és adat törlődik."</string>
     <string name="delete_profile" msgid="8384444459432563649">"TÖRLÉS"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"MÉGSE"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"A munkaprofil beállításának folytatásához titkosítania kell eszközét. Ez időigényes lehet."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"A beállítás folytatásához titkosítania kell eszközét. Ez időigényes lehet."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"MÉGSE"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"TITKOSÍTÁS"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"A titkosítás kész"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Az eszköz beállítása"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Beállítási adatok feldolgozása…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Kapcsolódás Wi-Fi-hez…"</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Gyárialapérték-visszaállítási védelem ellenőrzése..."</string>
     <string name="progress_download" msgid="4995057798189799156">"Rendszergazda-alkalmazás letöltése…"</string>
     <string name="progress_install" msgid="9169411715762296097">"Rendszergazda-alkalmazás telepítése…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Az eszköz tulajdonosának beállítása…"</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Az eszközt már beállították."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Az eszközt már beállították ennek a felhasználónak."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nem sikerült csatlakozni a Wi-Fi hálózathoz"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Nem sikerült átjutni az eszköz gyárialapérték-visszaállítási védelmén"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"A gyárialapérték-visszaállítási védelem zárolta az eszközt. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ellenőrzési hiba miatt nem sikerült letölteni a rendszergazda-alkalmazást. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nem lehetett letölteni a rendszergazdai alkalmazást"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"A rendszergazda-alkalmazás nem használható, mivel egyes elemei hiányoznak vagy sérültek. Forduljon az informatikai részleghez."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Biztosan megszakítja a beállítást?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NEM"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"IGEN"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Megszakítás…"</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Hozzáférés-kezelés"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA-tanúsítvány beállítása"</string>
 </resources>

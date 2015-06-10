@@ -27,7 +27,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Η παρακάτω εφαρμογή θα διαχειρίζεται τη συσκευή σας:"</string>
     <string name="set_up" msgid="7012862095553564169">"Ρύθμιση"</string>
     <string name="setting_up_workspace" msgid="6116976629983614927">"Δημιουργία του προφίλ εργασίας σας…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Ο διαχειριστής σας έχει τη δυνατότητα να παρακολουθεί και να διαχειρίζεται ρυθμίσεις, εταιρική πρόσβαση, εφαρμογές και δεδομένα που σχετίζονται με το προφίλ, συμπεριλαμβανομένων της δραστηριότητας του δικτύου και των πληροφοριών τοποθεσίας της συσκευής σας."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Ο διαχειριστής σας έχει τη δυνατότητα να παρακολουθεί και να διαχειρίζεται τις ρυθμίσεις, την εταιρική πρόσβαση, τις εφαρμογές και τα δεδομένα που σχετίζονται με αυτήν τη συσκευή, συμπεριλαμβανομένης της δραστηριότητας δικτύου και των πληροφοριών τοποθεσίας της συσκευής σας."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Επικοινωνήστε με το διαχειριστή σας για περισσότερες πληροφορίες, συμπεριλαμβανομένων των πολιτικών απορρήτου του οργανισμού σας."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Μάθετε περισσότερα"</string>
@@ -37,12 +38,14 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Κατάργηση προφίλ εργασίας;"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Η διαχείριση αυτού του προφίλ γίνεται από:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Η διαχείριση αυτού του προφίλ γίνεται για %s χρησιμοποιώντας:"</string>
-    <string name="read_more_delete_profile" msgid="8108077458455321659"><a href="#read_this_link">"Διαβάστε αυτό"</a>" πριν συνεχίσετε."</string>
+    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <skip />
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Όλες οι εφαρμογές και τα δεδομένα σε αυτό το προφίλ θα διαγραφούν εάν συνεχίσετε."</string>
     <string name="delete_profile" msgid="8384444459432563649">"ΔΙΑΓΡΑΦΗ"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ΑΚΥΡΩΣΗ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Για να συνεχίσετε με τη ρύθμιση του προφίλ εργασίας σας, θα πρέπει να κρυπτογραφήσετε τη συσκευή σας. Αυτό μπορεί να διαρκέσει λίγη ώρα."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="7279768314707033707">"Για να συνεχίσετε με τη ρύθμιση της συσκευής σας, θα πρέπει να την κρυπτογραφήσετε. Αυτό μπορεί να διαρκέσει λίγη ώρα."</string>
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
+    <skip />
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ΑΚΥΡΩΣΗ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ΚΡΥΠΤΟΓΡΑΦΗΣΗ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Η κρυπτογράφηση ολοκληρώθηκε"</string>
@@ -59,7 +62,6 @@
     <string name="setup_work_device" msgid="3028145936574439146">"Ρύθμιση της συσκευής"</string>
     <string name="progress_data_process" msgid="7099462614425874283">"Επεξεργασία δεδομένων ρύθμισης…"</string>
     <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Σύνδεση με Wi-Fi…"</string>
-    <string name="progress_wipe_frp" msgid="545404730605450346">"Έλεγχος προστασίας εργοστασιακής επαναφοράς…"</string>
     <string name="progress_download" msgid="4995057798189799156">"Λήψη εφαρμογής διαχείρισης…"</string>
     <string name="progress_install" msgid="9169411715762296097">"Εγκατάσταση εφαρμογής διαχείρισης…"</string>
     <string name="progress_set_owner" msgid="1292946927202510987">"Ρύθμιση του κατόχου της συσκευής…"</string>
@@ -72,7 +74,7 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Αυτή η συσκευή έχει ρυθμιστεί ήδη."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Αυτή η συσκευή έχει ρυθμιστεί ήδη από αυτόν το χρήστη."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Δεν είναι δυνατή η σύνδεση στο Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="3998112234006304859">"Μη επιτυχής έλεγχος προστασίας εργοστασιακής επαναφοράς"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Αυτή η συσκευή είναι κλειδωμένη από την προστασία επαναφοράς των εργοστασιακών ρυθμίσεων. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Δεν ήταν δυνατή η χρήση της εφαρμογής διαχείρισης λόγω σφάλματος του αθροίσματος ελέγχου. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Δεν ήταν δυνατή η λήψη της εφαρμογής διαχείρισης"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Δεν ήταν δυνατή η χρήση της εφαρμογής διαχείρισης. Λείπουν στοιχεία ή είναι κατεστραμμένα. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
@@ -83,7 +85,8 @@
     <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Είστε βέβαιοι ότι θέλετε να διακόψετε τη ρύθμιση;"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"ΟΧΙ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ΝΑΙ"</string>
-    <string name="profile_owner_cancelling" msgid="2007485854183176973">"Γίνεται ακύρωση…"</string>
+    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Παροχή"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Ρύθμιση πιστοποιητικών CA"</string>
 </resources>
