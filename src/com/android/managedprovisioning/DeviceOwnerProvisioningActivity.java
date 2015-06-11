@@ -225,7 +225,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     private void showCancelResetDialog() {
         new AlertDialog.Builder(DeviceOwnerProvisioningActivity.this)
                 .setCancelable(false)
-                .setTitle(R.string.device_owner_cancel_title)
                 .setMessage(R.string.device_owner_cancel_message)
                 .setNegativeButton(R.string.device_owner_cancel_cancel,
                         new DialogInterface.OnClickListener() {
