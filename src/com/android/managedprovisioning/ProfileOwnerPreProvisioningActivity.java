@@ -163,6 +163,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     protected void onResume() {
         super.onResume();
 
+        setTitle(R.string.setup_profile_start_setup);
         if (alreadyHasManagedProfile() != -1) {
             showDeleteManagedProfileDialog();
         }
@@ -224,11 +225,14 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     private void setMdmIcon(String packageName) {
         MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);
         if (packageInfo != null) {
+            String appLabel = packageInfo.getAppLabel();
             ImageView imageView = (ImageView) findViewById(R.id.mdm_icon_view);
             imageView.setImageDrawable(packageInfo.getPackageIcon());
+            imageView.setContentDescription(
+                    getResources().getString(R.string.mdm_icon_label, appLabel));
 
             TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
-            deviceManagerName.setText(packageInfo.getAppLabel());
+            deviceManagerName.setText(appLabel);
         }
     }
 
@@ -279,6 +283,9 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void onDialogConsent() {
+        // For accessibility purposes: we need to talk back only the title of the
+        // next screen after user clicks ok.
+        setTitle("");
         setupEnvironmentAndProvision();
     }
 

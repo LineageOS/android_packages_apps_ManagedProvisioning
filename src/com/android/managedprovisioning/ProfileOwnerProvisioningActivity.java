@@ -98,6 +98,7 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
 
         initializeLayoutParams(R.layout.progress, R.string.setup_work_profile, true);
         configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
+        setTitle(R.string.setup_profile_progress);
 
         TextView textView = (TextView) findViewById(R.id.prog_text);
         if (textView != null) textView.setText(R.string.setting_up_workspace);
