@@ -195,7 +195,6 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
     private void showCancelProvisioningDialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                         .setCancelable(false)
-                        .setTitle(R.string.profile_owner_cancel_title)
                         .setMessage(R.string.profile_owner_cancel_message)
                         .setNegativeButton(R.string.profile_owner_cancel_cancel,
                                 new DialogInterface.OnClickListener() {
