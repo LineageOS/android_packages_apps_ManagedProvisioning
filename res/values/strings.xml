@@ -40,7 +40,7 @@
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
   <string name="set_up">Set up</string>
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
-  <string name="setting_up_workspace">Setting up your work profile...</string>
+  <string name="setting_up_workspace">Setting up your work profile\u2026</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
   <string name="admin_has_ability_to_monitor_profile">Your administrator has the ability to monitor and manage settings, corporate access, apps, and data associated with the profile, including network activity and your device\'s location information.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
@@ -116,15 +116,15 @@
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
   <string name="setup_work_device">Set up your device</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
-  <string name="progress_data_process">Processing setup data...</string>
+  <string name="progress_data_process">Processing setup data\u2026</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
-  <string name="progress_connect_to_wifi">Connecting to Wi-Fi...</string>
+  <string name="progress_connect_to_wifi">Connecting to Wi-Fi\u2026</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
-  <string name="progress_download">Downloading the admin app...</string>
+  <string name="progress_download">Downloading the admin app\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
-  <string name="progress_install">Installing the admin app...</string>
+  <string name="progress_install">Installing the admin app\u2026</string>
   <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
-  <string name="progress_set_owner">Setting the device owner...</string>
+  <string name="progress_set_owner">Setting the device owner\u2026</string>
 
   <!-- Title of the cancel provisioning dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_title">Stop setting up?</string>
@@ -167,7 +167,7 @@
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancel_ok">YES</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancelling">Canceling...</string>
+  <string name="profile_owner_cancelling">Canceling\u2026</string>
 
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
@@ -175,4 +175,21 @@
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <string name="copying_certs">Setting up CA certificates</string>
 
+  <!-- Accessibility Descriptions --> <skip/>
+  <!-- Accessibility description for the profile setup screen showing organization info. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_start_setup">Set up your profile. Start setup</string>
+  <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_encryption">Set up your profile. Encryption</string>
+  <!-- Accessibility description for the profile setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_progress">Set up your profile. Showing progress</string>
+  <!-- Accessibility description for the device setup screen showing company info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_start_setup">Set up your device. Start setup</string>
+  <!-- Accessibility description for the device setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_encryption">Set up your device. Encryption</string>
+  <!-- Accessibility description for the device setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_progress">Set up your device. Showing progress</string>
+  <!-- Accessibility description for the learn more link in user consent dialog. [CHAR LIMIT=NONE] -->
+  <string name="learn_more_label">Learn more button</string>
+  <!-- Accessibility description for the company icon. [CHAR LIMIT=NONE] -->
+  <string name="mdm_icon_label"><xliff:g id="icon_label" example="Test App">%1$s</xliff:g> icon</string>
 </resources>
