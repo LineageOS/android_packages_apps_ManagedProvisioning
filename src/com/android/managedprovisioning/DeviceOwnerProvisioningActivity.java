@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
+import android.view.accessibility.AccessibilityEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -94,6 +95,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         // Setup the UI.
         initializeLayoutParams(R.layout.progress, R.string.setup_work_device, true);
         configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
+        setTitle(R.string.setup_device_progress);
 
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
         if (mCancelDialogShown) showCancelResetDialog();
@@ -265,6 +267,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
 
     private void progressUpdate(int progressMessage) {
         mProgressTextView.setText(progressMessage);
+        mProgressTextView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
     }
 
     private void error(int dialogMessage, boolean resetRequired) {
