@@ -139,6 +139,12 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         askForConsentOrStartProvisioning();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setTitle(R.string.setup_device_start_setup);
+    }
+
     private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, MessageParser parser)
             throws IllegalProvisioningArgumentException {
         if (intent.getAction() == null) {
@@ -274,8 +280,11 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         String packageName = mParams.inferDeviceAdminPackageName();
         MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);
         if (packageInfo != null) {
+            String appLabel = packageInfo.getAppLabel();
             imageView.setImageDrawable(packageInfo.getPackageIcon());
-            deviceManagerName.setText(packageInfo.getAppLabel());
+            imageView.setContentDescription(
+                    getResources().getString(R.string.mdm_icon_label, appLabel));
+            deviceManagerName.setText(appLabel);
         } else {
             // Should never happen. Package will be on the device by now.
             deviceManagerName.setText(packageName);
@@ -293,6 +302,9 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void onDialogConsent() {
+        // For accessibility purposes: we need to talk back only the title of the
+        // next screen after user clicks ok.
+        setTitle("");
         mUserConsented = true;
         startDeviceOwnerProvisioning();
     }

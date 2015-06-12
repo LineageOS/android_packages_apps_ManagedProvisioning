@@ -49,10 +49,12 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
 
         if (TARGET_PROFILE_OWNER.equals(mResumeTarget)) {
             initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile, false);
+            setTitle(R.string.setup_profile_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
                     R.string.encrypt_device_text_for_profile_owner_setup);
         } else if (TARGET_DEVICE_OWNER.equals(mResumeTarget)) {
             initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device, false);
+            setTitle(R.string.setup_device_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
                     R.string.encrypt_device_text_for_device_owner_setup);
         }
