@@ -376,7 +376,8 @@ public class MessageParser {
         return params;
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent) {
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent)
+            throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
@@ -386,6 +387,14 @@ public class MessageParser {
         params.leaveAllSystemAppsEnabled = intent.getBooleanExtra(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
+        try {
+            params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
+                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        } catch (ClassCastException e) {
+            throw new IllegalProvisioningArgumentException("Extra "
+                    + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+                    + " must be of type PersistableBundle.", e);
+        }
         return params;
     }
 
@@ -456,14 +465,6 @@ public class MessageParser {
         params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
                 false);
 
-        try {
-            params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
-                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-        } catch (ClassCastException e) {
-            throw new IllegalProvisioningArgumentException("Extra "
-                    + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
-                    + " must be of type PersistableBundle.", e);
-        }
         checkValidityOfProvisioningParams(params);
         return params;
     }
