@@ -44,6 +44,7 @@
                 android:id="@+id/learn_more_link"
                 android:textColor="@color/colored_button"
                 android:text="@string/learn_more_link"
+                android:contentDescription="@string/learn_more_label"
                 style="@style/MainText" />
 
         </LinearLayout>
