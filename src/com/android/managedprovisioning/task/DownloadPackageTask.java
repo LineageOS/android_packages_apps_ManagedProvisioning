@@ -166,7 +166,7 @@ public class DownloadPackageTask {
 
     /**
      * For a given successful download, check that the downloaded file is the expected file.
-     * If the package hash is provided then that is used, otherwise a certificate hash is used.
+     * If the package hash is provided then that is used, otherwise a signature hash is used.
      * Then check if this was the last file the task had to download and finish the
      * DownloadPackageTask if that is the case.
      * @param downloadId the unique download id for the completed download.
@@ -191,8 +191,8 @@ public class DownloadPackageTask {
         boolean downloadedContentsCorrect = false;
         if (info.mPackageDownloadInfo.packageChecksum.length > 0) {
             downloadedContentsCorrect = doesPackageHashMatch(info);
-        } else if (info.mPackageDownloadInfo.certificateChecksum.length > 0) {
-            downloadedContentsCorrect = doesACertificateHashMatch(info);
+        } else if (info.mPackageDownloadInfo.signatureChecksum.length > 0) {
+            downloadedContentsCorrect = doesASignatureHashMatch(info);
         }
 
         if (downloadedContentsCorrect) {
@@ -224,31 +224,31 @@ public class DownloadPackageTask {
         return false;
     }
 
-    private boolean doesACertificateHashMatch(DownloadStatusInfo info) {
-        // Check whether a certificate hash of downloaded apk matches the hash given in constructor.
+    private boolean doesASignatureHashMatch(DownloadStatusInfo info) {
+        // Check whether a signature hash of downloaded apk matches the hash given in constructor.
         ProvisionLogger.logd("Checking " + HASH_TYPE
-                + "-hashes of all certificates of downloaded package.");
-        List<byte[]> certHashes = computeHashesOfAllCertificates(info.mLocation);
-        if (certHashes == null) {
-            // Error should have been reported in computeHashesOfAllCertificates().
+                + "-hashes of all signatures of downloaded package.");
+        List<byte[]> sigHashes = computeHashesOfAllSignatures(info.mLocation);
+        if (sigHashes == null) {
+            // Error should have been reported in computeHashesOfAllSignatures().
             return false;
         }
-        if (certHashes.isEmpty()) {
-            ProvisionLogger.loge("Downloaded package does not have any certificates.");
+        if (sigHashes.isEmpty()) {
+            ProvisionLogger.loge("Downloaded package does not have any signatures.");
             return false;
         }
-        for (byte[] certHash : certHashes) {
-            if (Arrays.equals(certHash, info.mPackageDownloadInfo.certificateChecksum)) {
+        for (byte[] sigHash : sigHashes) {
+            if (Arrays.equals(sigHash, info.mPackageDownloadInfo.signatureChecksum)) {
                 return true;
             }
         }
 
-        ProvisionLogger.loge("Provided hash does not match any certificate hash.");
+        ProvisionLogger.loge("Provided hash does not match any signature hash.");
         ProvisionLogger.loge("Hash provided by programmer: "
-                + Utils.byteArrayToString(info.mPackageDownloadInfo.certificateChecksum));
-        ProvisionLogger.loge("Hashes computed from package certificates: ");
-        for (byte[] certHash : certHashes) {
-            ProvisionLogger.loge(Utils.byteArrayToString(certHash));
+                + Utils.byteArrayToString(info.mPackageDownloadInfo.signatureChecksum));
+        ProvisionLogger.loge("Hashes computed from package signatures: ");
+        for (byte[] sigHash : sigHashes) {
+            ProvisionLogger.loge(Utils.byteArrayToString(sigHash));
         }
 
         return false;
@@ -318,7 +318,7 @@ public class DownloadPackageTask {
         return "";
     }
 
-    private List<byte[]> computeHashesOfAllCertificates(String packageArchiveLocation) {
+    private List<byte[]> computeHashesOfAllSignatures(String packageArchiveLocation) {
         PackageInfo info = mPm.getPackageArchiveInfo(packageArchiveLocation,
                 PackageManager.GET_SIGNATURES);
 
