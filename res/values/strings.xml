@@ -164,6 +164,14 @@
   <string name="profile_owner_cancel_ok">YES</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancelling">Canceling\u2026</string>
+  <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_later_title">Stop profile setup?</string>
+  <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="work_profile_setup_later_message">You can set up your work profile later from the device management app used by your organization.</string>
+  <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_continue">CONTINUE</string>
+  <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_stop">STOP</string>
 
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->

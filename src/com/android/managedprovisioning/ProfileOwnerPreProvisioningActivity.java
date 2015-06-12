@@ -456,6 +456,31 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.work_profile_setup_later_title)
+                .setMessage(R.string.work_profile_setup_later_message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.work_profile_setup_stop,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                ProfileOwnerPreProvisioningActivity.this.setResult(
+                                        Activity.RESULT_CANCELED);
+                                ProfileOwnerPreProvisioningActivity.this.finish();
+                            }
+                        })
+                .setNegativeButton(R.string.work_profile_setup_continue,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                              // user chose to continue. Do nothing
+                            }
+                        })
+                .show();
+    }
+
+    @Override
     public void onNavigateNext() {
         checkEncryptedAndStartProvisioningService();
     }
