@@ -181,6 +181,20 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             ProvisionLogger.logd("Reset protection check skipped on secondary users.");
             return false;
         }
+
+        // If we are started by setup wizard, do not check for factory reset protection since setup
+        // wizard must have already validated it. This avoids provisioning being blocked by FRP
+        // if an account was added in the setup wizard on devices that enforce FRP as soon as the
+        // account is added.
+        if (getIntent() != null) {
+            String action = getIntent().getAction();
+            if (ACTION_PROVISION_MANAGED_DEVICE.equals(action) ||
+                    LEGACY_ACTION_PROVISION_MANAGED_DEVICE.equals(action)) {
+                ProvisionLogger.logd("FRP not required if started by SUW");
+                return false;
+            }
+        }
+
         PersistentDataBlockManager pdbManager = (PersistentDataBlockManager)
                 getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
         if (pdbManager == null) {
