@@ -26,26 +26,24 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die volgende program sal toegang tot hierdie profiel moet hê:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Die volgende program sal jou toestel bestuur:"</string>
     <string name="set_up" msgid="7012862095553564169">"Stel op"</string>
-    <string name="setting_up_workspace" msgid="6116976629983614927">"Stel tans jou werkprofiel op …"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <!-- no translation found for setting_up_workspace (4517537806569988620) -->
     <skip />
-    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Jou administrateur het die vermoë om instellings, korporatiewe toegang, programme en data wat met hierdie toestel geassosieer word, insluitend netwerkaktiwiteit en jou toestel se ligginginligting, te monitor en te bestuur."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Jou administrateur het die vermoë om instellings, korporatiewe toegang, programme, toestemmings en data wat met die profiel geassosieer word, insluitend netwerkaktiwiteit en jou toestel se ligginginligting, te monitor en te bestuur."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Jou administrateur het die vermoë om instellings, korporatiewe toegang, programme, toestemmings en data wat met hierdie toestel geassosieer word, insluitend netwerkaktiwiteit en jou toestel se ligginginligting, te monitor en te bestuur."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontak jou administrateur vir meer inligting, insluitend jou organisasie se privaatheidbeleide."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Kom meer te wete"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"KANSELLEER"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Goed"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Werkprofiel"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Verwyder werkprofiel?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Hierdie werkprofiel word bestuur deur:"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"\'n Werkprofiel bestaan reeds en word bestuur deur:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Hierdie werkprofiel word vir %s bestuur met behulp van:"</string>
-    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
-    <skip />
+    <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees hier"</a>" voordat jy voortgaan."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Alle programme en data in hierdie profiel sal uitgevee word as jy voortgaan."</string>
     <string name="delete_profile" msgid="8384444459432563649">"VEE UIT"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"KANSELLEER"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Jy moet jou toestel enkripteer om voort te gaan om jou werkprofiel op te stel. Dit kan \'n ruk duur."</string>
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
-    <skip />
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Jy moet jou toestel enkripteer om voort te gaan om dit op te stel. Dit kan \'n ruk duur."</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"KANSELLEER"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ENKRIPTEER"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripsie voltooi"</string>
@@ -54,19 +52,23 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Jou toestel steun nie werkprofiele nie"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Werkprofiele moet deur die primêre gebruiker van die toestel opgestel word"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Werkprofiele kan nie op \'n bestuurde toestel opgestel word nie"</string>
-    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Werkprofiel kon nie geskep word nie, want die maksimum aantal bestuurde profiele op jou toestel is bereik. Dit kan dalk reggestel word deur een gebruiker te verwyder en weer te probeer."</string>
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Werkprofiel kan nie geskep word nie omdat jy die maksimum aantal gebruikers op jou toestel bereik het. Verwyder minstens een gebruiker en probeer weer."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Hierdie lanseerderprogram steun nie jou werkprofiel nie. Jy moet oorskakel na \'n lanseerder wat versoenbaar is."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"KANSELLEER"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van werktoestel"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Stel jou toestel op"</string>
-    <string name="progress_data_process" msgid="7099462614425874283">"Verwerk tans opstellingdata …"</string>
-    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Koppel tans aan Wi-Fi …"</string>
-    <string name="progress_download" msgid="4995057798189799156">"Laai tans die administrasieprogram af …"</string>
-    <string name="progress_install" msgid="9169411715762296097">"Installeer tans die administrasieprogram …"</string>
-    <string name="progress_set_owner" msgid="1292946927202510987">"Stel tans die toesteleienaar …"</string>
-    <string name="device_owner_cancel_title" msgid="7909285135975063120">"Hou op om op te stel?"</string>
-    <string name="device_owner_cancel_message" msgid="7928007377743469904">"Is jy seker jy wil stop om jou toestel se data op te stel en uit te vee?"</string>
+    <!-- no translation found for progress_data_process (1707745321954672971) -->
+    <skip />
+    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
+    <skip />
+    <!-- no translation found for progress_download (3522436271691064624) -->
+    <skip />
+    <!-- no translation found for progress_install (2258045670385866183) -->
+    <skip />
+    <!-- no translation found for progress_set_owner (8214062820093757961) -->
+    <skip />
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Hou op om jou toestel se data op te stel en uit te vee?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"KANSELLEER"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"Goed"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"STEL TERUG"</string>
@@ -81,12 +83,35 @@
     <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Kan nie die administrasieprogram installeer nie. Die pakketnaam is ongeldig. Kontak jou IT-departement."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Kon nie die administrasieprogram installeer nie"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Die administrasieprogram is nie op jou toestel geïnstalleer nie"</string>
-    <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Hou op om op te stel?"</string>
-    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Is jy seker jy wil ophou om op te stel?"</string>
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Hou op om op te stel?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NEE"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"JA"</string>
-    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_later_message (2446733709871989895) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_continue (44459981285359765) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (5739020120488653974) -->
     <skip />
     <string name="provisioning" msgid="4512493827019163451">"Stel tans op"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Stel tans CA-sertifikate op"</string>
+    <!-- no translation found for setup_profile_start_setup (6793984532953528297) -->
+    <skip />
+    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
+    <skip />
+    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
+    <skip />
+    <!-- no translation found for setup_device_start_setup (4351340224000741826) -->
+    <skip />
+    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
+    <skip />
+    <!-- no translation found for setup_device_progress (7035335208571175393) -->
+    <skip />
+    <!-- no translation found for learn_more_label (2723716758654655009) -->
+    <skip />
+    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
+    <skip />
 </resources>

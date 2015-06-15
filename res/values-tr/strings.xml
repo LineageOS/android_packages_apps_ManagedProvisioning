@@ -26,26 +26,27 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aşağıdaki uygulamanın bu profile erişmesi gerekecek:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Şu uygulama, cihazınızı yönetecek:"</string>
     <string name="set_up" msgid="7012862095553564169">"Oluştur"</string>
-    <string name="setting_up_workspace" msgid="6116976629983614927">"İş profiliniz ayarlanıyor..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <!-- no translation found for setting_up_workspace (4517537806569988620) -->
     <skip />
-    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Yöneticiniz; ayarları, kurumsal erişimi, uygulamaları ve bu cihazla ilişkilendirilen ağ etkinliği ve cihazınızın konum bilgileri gibi verileri izleme ve yönetme olanağına sahiptir."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4568398182707822770) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (246829528286153147) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere, daha fazla bilgi için yöneticinize başvurun."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi edinin"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"İPTAL"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Tamam"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"İş profili"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"İş profili kaldırılsın mı?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"Bu iş profili şunun tarafından yönetiliyor:"</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Bu iş profili %s için şununla yönetiliyor:"</string>
-    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (2139238673477554356) -->
     <skip />
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Bu iş profili %s için şununla yönetiliyor:"</string>
+    <string name="read_more_delete_profile" msgid="7789171620401666343">"Devam etmeden önce "<a href="#read_this_link">"bunu okuyun"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Devam ederseniz bu profildeki tüm uygulamalar ve veriler silinecek."</string>
     <string name="delete_profile" msgid="8384444459432563649">"SİL"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"İPTAL"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"İş profilinizin kurulum işlemlerine devam etmek için cihazınızı şifrelemelisiniz. Bu işlem biraz zaman alabilir."</string>
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
-    <skip />
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Cihazınızın kurulumuna devam etmek için cihazınızı şifrelemelisiniz. Bu işlem biraz zaman alabilir."</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"İPTAL"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŞİFRELE"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Şifreleme tamamlandı"</string>
@@ -54,19 +55,25 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Cihazınız iş profillerini desteklemiyor"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"İş profilleri, cihazın birincil kullanıcısı tarafından oluşturulmalıdır"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"İş profilleri yönetilen bir cihazda oluşturulamaz"</string>
-    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"Cihazınızda maksimum sayıda yönetilen profile ulaşıldığından iş profili oluşturulamadı. Bir kullanıcının kaldırılması ve işlemin tekrar denenmesi sorunu düzeltebilir."</string>
+    <!-- no translation found for maximum_user_limit_reached (4821228722266114449) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"İş profiliniz bu başlatıcı uygulama tarafından desteklenmiyor. Uyumlu bir başlatıcı uygulamaya geçmeniz gerekecek."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"İPTAL"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"TAMAM"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"İş cihazının kullanıcısı"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Cihazınızı kurma"</string>
-    <string name="progress_data_process" msgid="7099462614425874283">"Kurulum verileri işleniyor..."</string>
-    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"Kablosuz ağa bağlanıyor..."</string>
-    <string name="progress_download" msgid="4995057798189799156">"Yönetim uygulaması indiriliyor..."</string>
-    <string name="progress_install" msgid="9169411715762296097">"Yönetim uygulaması yükleniyor..."</string>
-    <string name="progress_set_owner" msgid="1292946927202510987">"Cihaz sahibi ayarlanıyor..."</string>
-    <string name="device_owner_cancel_title" msgid="7909285135975063120">"Kurulum durdurulsun mu?"</string>
-    <string name="device_owner_cancel_message" msgid="7928007377743469904">"Kurulumu durdurmak ve cihazınızın verilerini silmek istediğinizden emin misiniz?"</string>
+    <!-- no translation found for progress_data_process (1707745321954672971) -->
+    <skip />
+    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
+    <skip />
+    <!-- no translation found for progress_download (3522436271691064624) -->
+    <skip />
+    <!-- no translation found for progress_install (2258045670385866183) -->
+    <skip />
+    <!-- no translation found for progress_set_owner (8214062820093757961) -->
+    <skip />
+    <!-- no translation found for device_owner_cancel_message (2529288571742712065) -->
+    <skip />
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"İPTAL"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"Tamam"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"SIFIRLA"</string>
@@ -74,20 +81,43 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Bu cihaz zaten kurulmuş."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Bu cihaz, bu kullanıcı için zaten kurulmuş."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kablosuz bağlantısı kurulamadı"</string>
-    <!-- no translation found for device_owner_error_frp (7053630342416280252) -->
-    <skip />
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu cihaz fabrika sıfırlama koruması tarafından kilitlendi. BT bölümünüzle iletişim kurun."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Bir sağlama toplamı hatası nedeniyle yönetim uygulaması kullanılamadı. BT bölümünüze başvurun."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Yönetici uygulaması indirilemedi"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Yönetim uygulaması kullanılamıyor. Bileşenleri eksik veya bozuk. BT bölümünüze başvurun."</string>
     <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Yönetici uygulaması yüklenemiyor. Paket adı geçersiz. BT bölümünüzle iletişim kurun."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Yönetici uygulaması yüklenemedi"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Yönetici uygulaması cihazınızda yüklü değil"</string>
-    <string name="profile_owner_cancel_title" msgid="1087667875324931402">"Kurulum durdurulsun mu?"</string>
-    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"Kurulumu durdurmak istediğinizden emin misiniz?"</string>
+    <!-- no translation found for profile_owner_cancel_message (6868736915633023477) -->
+    <skip />
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"HAYIR"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"EVET"</string>
-    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_later_message (2446733709871989895) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_continue (44459981285359765) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (5739020120488653974) -->
     <skip />
     <string name="provisioning" msgid="4512493827019163451">"Temel hazırlık yapılıyor"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA sertifikaları kuruluyor"</string>
+    <!-- no translation found for setup_profile_start_setup (6793984532953528297) -->
+    <skip />
+    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
+    <skip />
+    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
+    <skip />
+    <!-- no translation found for setup_device_start_setup (4351340224000741826) -->
+    <skip />
+    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
+    <skip />
+    <!-- no translation found for setup_device_progress (7035335208571175393) -->
+    <skip />
+    <!-- no translation found for learn_more_label (2723716758654655009) -->
+    <skip />
+    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
+    <skip />
 </resources>
