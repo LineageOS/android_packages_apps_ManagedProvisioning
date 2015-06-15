@@ -26,26 +26,27 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
     <string name="set_up" msgid="7012862095553564169">"设置"</string>
-    <string name="setting_up_workspace" msgid="6116976629983614927">"正在设置您的工作资料…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (7135386015921905455) -->
+    <!-- no translation found for setting_up_workspace (4517537806569988620) -->
     <skip />
-    <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4568398182707822770) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (246829528286153147) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"确定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"要移除工作资料吗？"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="1132833578783368037">"此工作资料由以下应用管理："</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
-    <!-- no translation found for read_more_delete_profile (7789171620401666343) -->
+    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (2139238673477554356) -->
     <skip />
+    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
+    <string name="read_more_delete_profile" msgid="7789171620401666343">"请先"<a href="#read_this_link">"阅读此文"</a>"，然后再继续。"</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"如果继续，则此工作资料中的所有应用和数据都会被删除。"</string>
     <string name="delete_profile" msgid="8384444459432563649">"删除"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>
-    <!-- no translation found for encrypt_device_text_for_device_owner_setup (9206667711446040692) -->
-    <skip />
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"要继续设置您的设备，您需要对其进行加密。此过程可能需要一段时间。"</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"取消"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"加密"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密已完成"</string>
@@ -54,19 +55,25 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"您的设备不支持工作资料"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"只有设备的主用户才能设置工作资料"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"无法在受管理的设备上设置工作资料"</string>
-    <string name="maximum_user_limit_reached" msgid="2222654781151295513">"您设备上的托管资料数量已达到上限，因此无法创建工作资料。请移除一个用户再重试，或许可以解决该问题。"</string>
+    <!-- no translation found for maximum_user_limit_reached (4821228722266114449) -->
+    <skip />
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"此启动器应用不支持工作资料。您需要改用兼容的启动器。"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"取消"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"确定"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
-    <string name="progress_data_process" msgid="7099462614425874283">"正在处理设置数据…"</string>
-    <string name="progress_connect_to_wifi" msgid="9214694010080838763">"正在连接到WLAN网络…"</string>
-    <string name="progress_download" msgid="4995057798189799156">"正在下载管理应用…"</string>
-    <string name="progress_install" msgid="9169411715762296097">"正在安装管理应用…"</string>
-    <string name="progress_set_owner" msgid="1292946927202510987">"正在设置设备所有者…"</string>
-    <string name="device_owner_cancel_title" msgid="7909285135975063120">"要停止设置吗？"</string>
-    <string name="device_owner_cancel_message" msgid="7928007377743469904">"确定要停止设置并清除您设备的数据吗？"</string>
+    <!-- no translation found for progress_data_process (1707745321954672971) -->
+    <skip />
+    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
+    <skip />
+    <!-- no translation found for progress_download (3522436271691064624) -->
+    <skip />
+    <!-- no translation found for progress_install (2258045670385866183) -->
+    <skip />
+    <!-- no translation found for progress_set_owner (8214062820093757961) -->
+    <skip />
+    <!-- no translation found for device_owner_cancel_message (2529288571742712065) -->
+    <skip />
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"取消"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"确定"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"重置"</string>
@@ -74,20 +81,43 @@
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"之前已对此设备进行了设置。"</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
-    <!-- no translation found for device_owner_error_frp (7053630342416280252) -->
-    <skip />
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"此设备已被恢复出厂设置保护功能锁定。请与您公司的 IT 部门联系。"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"由于校验和错误，无法使用此管理应用。请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"无法下载管理应用"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"由于缺少组件或软件包已损坏，无法使用此管理应用。请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"由于管理应用的软件包名称无效，因此无法安装。请与您公司的 IT 部门联系。"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"无法安装管理应用"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"在您的设备上安装管理应用失败"</string>
-    <string name="profile_owner_cancel_title" msgid="1087667875324931402">"要停止设置吗？"</string>
-    <string name="profile_owner_cancel_message" msgid="3397782777804924267">"确定要停止设置吗？"</string>
+    <!-- no translation found for profile_owner_cancel_message (6868736915633023477) -->
+    <skip />
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"否"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"是"</string>
-    <!-- no translation found for profile_owner_cancelling (1659118261191549752) -->
+    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_later_message (2446733709871989895) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_continue (44459981285359765) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (5739020120488653974) -->
     <skip />
     <string name="provisioning" msgid="4512493827019163451">"正在配置"</string>
     <string name="copying_certs" msgid="5697938664953550881">"正在设置 CA 证书"</string>
+    <!-- no translation found for setup_profile_start_setup (6793984532953528297) -->
+    <skip />
+    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
+    <skip />
+    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
+    <skip />
+    <!-- no translation found for setup_device_start_setup (4351340224000741826) -->
+    <skip />
+    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
+    <skip />
+    <!-- no translation found for setup_device_progress (7035335208571175393) -->
+    <skip />
+    <!-- no translation found for learn_more_label (2723716758654655009) -->
+    <skip />
+    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
+    <skip />
 </resources>
