@@ -49,7 +49,7 @@ import java.util.concurrent.ExecutionException;
 
 /**
  * Profile owner provisioning sets up a separate profile on a device whose primary user is already
- * set up.
+ * set up or being set up.
  *
  * <p>
  * The typical example is setting up a corporate profile that is controlled by their employer on a
@@ -125,14 +125,14 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         // Start service async to make sure the UI is loaded first.
         final Handler handler = new Handler(getMainLooper());
         handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
-                            ProfileOwnerProvisioningService.class);
-                    intent.putExtras(getIntent());
-                    startService(intent);
-                }
-            });
+            @Override
+            public void run() {
+                Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
+                        ProfileOwnerProvisioningService.class);
+                intent.putExtras(getIntent());
+                startService(intent);
+            }
+        });
     }
 
     class ServiceMessageReceiver extends BroadcastReceiver {
@@ -195,26 +195,26 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
 
     private void showCancelProvisioningDialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                        .setCancelable(false)
-                        .setMessage(R.string.profile_owner_cancel_message)
-                        .setNegativeButton(R.string.profile_owner_cancel_cancel,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog,int id) {
-                                        mCancelStatus = CANCELSTATUS_PROVISIONING;
-                                        if (mPendingProvisioningResult != null) {
-                                            handleProvisioningResult(mPendingProvisioningResult);
-                                        }
-                                    }
+                .setCancelable(false)
+                .setMessage(R.string.profile_owner_cancel_message)
+                .setNegativeButton(R.string.profile_owner_cancel_cancel,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                mCancelStatus = CANCELSTATUS_PROVISIONING;
+                                if (mPendingProvisioningResult != null) {
+                                    handleProvisioningResult(mPendingProvisioningResult);
+                                }
+                            }
                         })
-                        .setPositiveButton(R.string.profile_owner_cancel_ok,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog,int id) {
-                                        confirmCancel();
-                                    }
+                .setPositiveButton(R.string.profile_owner_cancel_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                confirmCancel();
+                            }
                         })
-                        .create();
+                .create();
         alertDialog.show();
     }
 
@@ -232,12 +232,13 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
                 .setTitle(R.string.provisioning_error_title)
                 .setMessage(resourceId)
                 .setCancelable(false)
-                .setPositiveButton(R.string.device_owner_error_ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog,int id) {
-                            onProvisioningAborted();
-                        }
-                    })
+                .setPositiveButton(R.string.device_owner_error_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                onProvisioningAborted();
+                            }
+                        })
                 .show();
     }
 
@@ -259,9 +260,16 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
      */
     private void onProvisioningSuccess() {
         mBackButton.setVisibility(View.INVISIBLE);
-        mCancelStatus = CANCELSTATUS_FINALIZING;
-        setResult(Activity.RESULT_OK);
 
+        if (!Utils.isUserSetupCompleted(this)) {
+            // Since provisioning could have started from Setup wizard, we should set
+            // USER_SETUP_COMPLETE to true in order to shut down the Setup wizard.
+            Utils.markDeviceProvisioned(ProfileOwnerProvisioningActivity.this);
+        }
+
+        mCancelStatus = CANCELSTATUS_FINALIZING;
+        stopService(new Intent(this, ProfileOwnerProvisioningService.class));
+        setResult(Activity.RESULT_OK);
         finish();
     }
 

@@ -78,11 +78,10 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
-    private String mMdmPackageName;
-
-    private ComponentName mMdmComponentName;
-
     private DeleteManagedProfileDialog mDeleteDialog;
+
+    private ProvisioningParams mParams;
+    private final MessageParser mParser = new MessageParser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +120,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             return;
         }
 
-        setMdmIcon(mMdmPackageName);
+        setMdmIcon(mParams.deviceAdminPackageName);
 
         // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
         // MANAGE_USERS since it is a restricted intent. Otherwise, check the calling package.
@@ -135,7 +134,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                         "Was startActivityForResult used to start this activity?");
                 return;
             }
-            if (!callingPackage.equals(mMdmPackageName)
+            if (!callingPackage.equals(mParams.deviceAdminPackageName)
                     && !packageHasManageUsersPermission(callingPackage)) {
                 showErrorAndClose(R.string.managed_provisioning_error_text, "Permission denied, "
                         + "calling package tried to set a different package as profile owner. "
@@ -146,7 +145,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         // If there is already a managed profile, setup the profile deletion dialog.
         // Otherwise, check whether system has reached maximum user limit.
-        int existingManagedProfileUserId = alreadyHasManagedProfile();
+        int existingManagedProfileUserId = Utils.alreadyHasManagedProfile(this);
         if (existingManagedProfileUserId != -1) {
             DevicePolicyManager dpm =
                     (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -164,7 +163,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         super.onResume();
 
         setTitle(R.string.setup_profile_start_setup);
-        if (alreadyHasManagedProfile() != -1) {
+        if (Utils.alreadyHasManagedProfile(this) != -1) {
             showDeleteManagedProfileDialog();
         }
     }
@@ -244,18 +243,11 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
      * @param intent The intent that started provisioning
      */
     private void initialize(Intent intent) throws IllegalProvisioningArgumentException {
-        // Check if the admin extras bundle is of the right type.
-        try {
-            PersistableBundle bundle = (PersistableBundle) getIntent().getParcelableExtra(
-                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-        } catch (ClassCastException e) {
-            throw new IllegalProvisioningArgumentException("Extra "
-                    + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
-                    + " must be of type PersistableBundle.", e);
-        }
+        mParams = mParser.parseNonNfcIntent(intent);
 
-        mMdmComponentName = Utils.findDeviceAdminFromIntent(intent, this);
-        mMdmPackageName = mMdmComponentName.getPackageName();
+        mParams.deviceAdminComponentName = Utils.findDeviceAdmin(
+                mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, this);
+        mParams.deviceAdminPackageName = mParams.deviceAdminComponentName.getPackageName();
 
     }
 
@@ -272,8 +264,9 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             UserConsentDialog.newInstance(UserConsentDialog.PROFILE_OWNER)
                     .show(getFragmentManager(), "UserConsentDialogFragment");
         } else {
-            Bundle resumeExtras = getNewExtras();
+            Bundle resumeExtras = new Bundle();
             resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
+            mParser.addProvisioningParamsToBundle(resumeExtras, mParams);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
                     .putExtra(EXTRA_RESUME, resumeExtras);
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
@@ -328,19 +321,10 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     private void startProfileOwnerProvisioning() {
         Intent intent = new Intent(this, ProfileOwnerProvisioningActivity.class);
-        intent.putExtras(getNewExtras());
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
         startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
         // Set cross-fade transition animation into the interstitial progress activity.
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-    }
-
-    private Bundle getNewExtras() {
-        Bundle bundle = getIntent().getExtras();
-        // The original intent may have contained the package name but not the component name.
-        // But now, we know what the component name is. So let's pass it.
-        bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                mMdmComponentName);
-        return bundle;
     }
 
     @Override
@@ -393,31 +377,17 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                 .setTitle(R.string.provisioning_error_title)
                 .setMessage(resourceId)
                 .setCancelable(false)
-                .setPositiveButton(R.string.device_owner_error_ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog,int id) {
-                            // Close activity
-                            ProfileOwnerPreProvisioningActivity.this
-                                    .setResult(Activity.RESULT_CANCELED);
-                            ProfileOwnerPreProvisioningActivity.this.finish();
-                        }
-                    })
+                .setPositiveButton(R.string.device_owner_error_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                // Close activity
+                                ProfileOwnerPreProvisioningActivity.this.setResult(
+                                        Activity.RESULT_CANCELED);
+                                ProfileOwnerPreProvisioningActivity.this.finish();
+                            }
+                        })
                 .show();
-    }
-
-    /**
-     * @return The User id of an already existing managed profile or -1 if none
-     * exists
-     */
-    int alreadyHasManagedProfile() {
-        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        List<UserInfo> profiles = userManager.getProfiles(getUserId());
-        for (UserInfo userInfo : profiles) {
-            if (userInfo.isManagedProfile()) {
-                return userInfo.getUserHandle().getIdentifier();
-            }
-        }
-        return -1;
     }
 
     /**

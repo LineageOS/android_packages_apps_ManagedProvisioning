@@ -207,7 +207,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     private void startDeviceOwnerProvisioning() {
         Intent intent = new Intent(this, DeviceOwnerProvisioningActivity.class);
-        intent.putExtra(DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS, mParams);
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
         startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
         // Set cross-fade transition animation into the interstitial progress activity.
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -221,13 +221,13 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 .setCancelable(false)
                 .setPositiveButton(R.string.device_owner_error_ok,
                         new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog,int id) {
-                                    // Close activity
-                                    DeviceOwnerPreProvisioningActivity.this
-                                            .setResult(Activity.RESULT_CANCELED);
-                                    DeviceOwnerPreProvisioningActivity.this.finish();
-                                }
+                            @Override
+                            public void onClick(DialogInterface dialog,int id) {
+                                // Close activity
+                                DeviceOwnerPreProvisioningActivity.this.setResult(
+                                        Activity.RESULT_CANCELED);
+                                DeviceOwnerPreProvisioningActivity.this.finish();
+                            }
                         })
                 .show();
     }
