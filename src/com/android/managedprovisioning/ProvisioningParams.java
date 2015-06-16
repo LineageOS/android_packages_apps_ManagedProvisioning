@@ -71,7 +71,7 @@ public class ProvisioningParams implements Parcelable {
             proxyBypassHosts = in.readString();
             pacUrl = in.readString();
         }
-    };
+    }
     public WifiInfo wifiInfo = new WifiInfo();
 
     // At least one one of deviceAdminPackageName and deviceAdminComponentName should be non-null
@@ -87,11 +87,14 @@ public class ProvisioningParams implements Parcelable {
         // Cookie header for http request
         public String cookieHeader;
         // One of the following two checksums should be non empty.
-        // SHA-1 hash of the .apk file, or empty array if not used.
+        // SHA-256 or SHA-1 hash of the .apk file, or empty array if not used.
         public byte[] packageChecksum = new byte[0];
-        // SHA-1 hash of the signature in the .apk file, or empty array if not used.
+        // SHA-256 hash of the signature in the .apk file, or empty array if not used.
         public byte[] signatureChecksum = new byte[0];
         public int minVersion;
+        // If this is false, packageChecksum can only be SHA-256 hash, otherwise SHA-1 is also
+        // supported.
+        public boolean packageChecksumSupportsSha1;
 
         public void writeToParcel(Parcel out) {
             out.writeInt(minVersion);
@@ -99,6 +102,7 @@ public class ProvisioningParams implements Parcelable {
             out.writeString(cookieHeader);
             out.writeByteArray(packageChecksum);
             out.writeByteArray(signatureChecksum);
+            out.writeInt(packageChecksumSupportsSha1 ? 1 : 0);
         }
 
         public void readFromParcel(Parcel in) {
@@ -107,6 +111,7 @@ public class ProvisioningParams implements Parcelable {
             cookieHeader = in.readString();
             packageChecksum = in.createByteArray();
             signatureChecksum = in.createByteArray();
+            packageChecksumSupportsSha1 = in.readInt() == 1;
         }
     }
     public PackageDownloadInfo deviceAdminDownloadInfo = new PackageDownloadInfo();
