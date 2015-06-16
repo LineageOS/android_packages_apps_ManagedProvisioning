@@ -94,8 +94,8 @@ import java.util.Properties;
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION}, together with an optional
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE}, an optional
  * http cookie header {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER}, and
- * the SHA-1 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM} or
- * the SHA-1 hash of any signature of the android package in the target file
+ * the SHA-256 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM} or
+ * the SHA-256 hash of any signature of the android package in the target file
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM}.
  * Additional information to send through to the device initializer and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
@@ -118,6 +118,8 @@ import java.util.Properties;
 public class MessageParser {
     private static final String EXTRA_PROVISIONING_STARTED_BY_NFC  =
             "com.android.managedprovisioning.extra.started_by_nfc";
+    private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
+            "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
 
     protected static final String[] DEVICE_OWNER_STRING_EXTRAS = {
         EXTRA_PROVISIONING_TIME_ZONE,
@@ -153,7 +155,8 @@ public class MessageParser {
         EXTRA_PROVISIONING_WIFI_HIDDEN,
         EXTRA_PROVISIONING_STARTED_BY_NFC,
         EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-        EXTRA_PROVISIONING_SKIP_ENCRYPTION
+        EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+        EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM
     };
 
     protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
@@ -188,6 +191,8 @@ public class MessageParser {
                 params.deviceAdminDownloadInfo.cookieHeader);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
+        bundle.putBoolean(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
+                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
         bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
@@ -287,6 +292,10 @@ public class MessageParser {
                     EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
                 params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
+                // Still support SHA-1 for device admin package hash if we are provisioned by a Nfc
+                // programmer.
+                // TODO: remove once SHA-1 is fully deprecated.
+                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = true;
             }
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
                     != null) {
@@ -433,6 +442,17 @@ public class MessageParser {
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (packageHash != null) {
             params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(packageHash);
+            // If we are restarted after an encryption reboot, use stored value for this flag.
+            if (intent.hasExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM)) {
+                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = intent.getBooleanExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM, false);
+            } else {
+                // legacy action (activation code flow) still uses SHA-1.
+                // TODO: remove once that flow is deprecated.
+                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 =
+                        DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE
+                                .equals(intent.getAction());
+            }
         }
         String sigHash =
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM);
