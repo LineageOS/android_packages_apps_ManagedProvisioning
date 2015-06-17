@@ -26,20 +26,16 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Tālāk norādītajai lietotnei būs nepieciešama piekļuve šim profilam:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Šī lietotne pārvaldīs jūsu ierīci:"</string>
     <string name="set_up" msgid="7012862095553564169">"Iestatīt"</string>
-    <!-- no translation found for setting_up_workspace (4517537806569988620) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_profile (4568398182707822770) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (246829528286153147) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="4517537806569988620">"Notiek darba profila iestatīšana..."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Jūsu administrators var pārraudzīt un pārvaldīt iestatījumus, piekļuvi uzņēmumā, lietotnes, atļaujas un ar profilu saistītos datus, tostarp tīklā veiktās darbības un jūsu ierīces atrašanās vietas informāciju."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administrators var pārraudzīt un pārvaldīt iestatījumus, piekļuvi uzņēmumā, lietotnes, atļaujas un datus, kas ir saistīti ar šo ierīci, tostarp tīkla darbības un informāciju par jūsu ierīces atrašanās vietu."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Lai iegūtu plašāku informāciju, tostarp informāciju par uzņēmuma konfidencialitātes politikām, sazinieties ar administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Uzzināt vairāk"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ATCELT"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Labi"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Darba profils"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Vai noņemt darba profilu?"</string>
-    <!-- no translation found for opening_paragraph_delete_profile_unknown_company (2139238673477554356) -->
-    <skip />
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Darba profils jau pastāv, un to pārvalda:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Šis darba profils tiek pārvaldīts domēnā %s, izmantojot:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Pirms turpināt, "<a href="#read_this_link">"izlasiet šo informāciju"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ja turpināsiet, visas lietotnes un dati šajā profilā tiks dzēsti."</string>
@@ -55,25 +51,18 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Jūsu ierīcē netiek atbalstīti darba profili"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Ierīces galvenajam lietotājam ir jāiestata darba profili."</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Darba profilus nevar iestatīt pārvaldītā ierīcē."</string>
-    <!-- no translation found for maximum_user_limit_reached (4821228722266114449) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Darba profilu nevar izveidot, jo esat sasniedzis ierīces lietotāju maksimālo skaitu. Noņemiet vismaz vienu lietotāju un mēģiniet vēlreiz."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Šī palaišanas lietotne neatbalsta jūsu darba profilu. Jums jālieto saderīga palaišanas programma."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ATCELT"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"LABI"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Darba ierīces lietotājs"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Ierīces iestatīšana"</string>
-    <!-- no translation found for progress_data_process (1707745321954672971) -->
-    <skip />
-    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
-    <skip />
-    <!-- no translation found for progress_download (3522436271691064624) -->
-    <skip />
-    <!-- no translation found for progress_install (2258045670385866183) -->
-    <skip />
-    <!-- no translation found for progress_set_owner (8214062820093757961) -->
-    <skip />
-    <!-- no translation found for device_owner_cancel_message (2529288571742712065) -->
-    <skip />
+    <string name="progress_data_process" msgid="1707745321954672971">"Notiek iestatīšanas datu apstrāde..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Notiek savienojuma izveide ar Wi-Fi…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"Notiek administratora lietotnes lejupielāde…"</string>
+    <string name="progress_install" msgid="2258045670385866183">"Notiek administratora lietotnes instalēšana…"</string>
+    <string name="progress_set_owner" msgid="8214062820093757961">"Notiek ierīces īpašnieka iestatīšana..."</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Vai pārtraukt iestatīšanu un izdzēst ierīces datus?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ATCELT"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"Labi"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"ATIESTATĪT"</string>
@@ -88,36 +77,22 @@
     <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Nevar instalēt administratora lietotni. Pakotnes nosaukums nav derīgs. Sazinieties ar IT nodaļu."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Neizdevās instalēt administratora lietotni"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Administratora lietotne nav instalēta ierīcē"</string>
-    <!-- no translation found for profile_owner_cancel_message (6868736915633023477) -->
-    <skip />
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Vai apturēt iestatīšanu?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NĒ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"JĀ"</string>
-    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_message (2446733709871989895) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_continue (44459981285359765) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (5739020120488653974) -->
-    <skip />
+    <string name="profile_owner_cancelling" msgid="5679573829145112822">"Notiek atcelšana…"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Vai pārtraukt profila iestatīšanu?"</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Varat iestatīt darba profilu vēlāk no ierīces pārvaldības lietotnes, kas tiek izmantota jūsu organizācijā."</string>
+    <string name="work_profile_setup_continue" msgid="44459981285359765">"TURPINĀT"</string>
+    <string name="work_profile_setup_stop" msgid="5739020120488653974">"PĀRTRAUKT"</string>
     <string name="provisioning" msgid="4512493827019163451">"Notiek nodrošināšana"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Notiek CA sertifikātu iestatīšana"</string>
-    <!-- no translation found for setup_profile_start_setup (6793984532953528297) -->
-    <skip />
-    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
-    <skip />
-    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
-    <skip />
-    <!-- no translation found for setup_device_start_setup (4351340224000741826) -->
-    <skip />
-    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
-    <skip />
-    <!-- no translation found for setup_device_progress (7035335208571175393) -->
-    <skip />
-    <!-- no translation found for learn_more_label (2723716758654655009) -->
-    <skip />
-    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
-    <skip />
+    <string name="setup_profile_start_setup" msgid="6793984532953528297">"Profila iestatīšana. Iestatīšanas sākšana"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"Profila iestatīšana. Šifrēšana"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"Profila iestatīšana. Norises rādīšana"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"Ierīces iestatīšana. Iestatīšanas sākšana"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"Ierīces iestatīšana. Šifrēšana"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"Ierīces iestatīšana. Norises rādīšana"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"Poga “Uzzināt vairāk”"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
 </resources>
