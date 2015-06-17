@@ -26,8 +26,7 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ appက ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"အောက်ပါအပ်ဖ်မှ သင့်ကိရိယာကို စီမံခန့်ခွဲလိမ့်မည်။"</string>
     <string name="set_up" msgid="7012862095553564169">"စဖွင့်သတ်မှတ်ရန်"</string>
-    <!-- no translation found for setting_up_workspace (4517537806569988620) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="4517537806569988620">"သင်၏အလုပ် ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နေသည်..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"ကွန်ရက်လှုပ်ရှားမှုများနှင့် သင့်ကိရိယာ တည်နေရာအချက်အလက်များ အပါအဝင်၊ ပရိုဖိုင်းနှင့် ဆက်နွှယ်နေသည့် ဆက်တင်များ၊ လုပ်ငန်းဆိုင်ရာ ရယူသုံးမှုများ၊ App များ၊ ခွင့်ပြုချက်များ နှင့် ဒေတာများအား သင်၏စီမံအုပ်ချုပ်သူမှ စောင့်ကြပ် စီမံကွပ်ကဲနိုင်စွမ်း ရှိ၏။"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"ကွန်ရက်လှုပ်ရှားမှုများနှင့် သင့်ကိရိယာ တည်နေရာအချက်အလက်များ အပါအဝင်၊ ဤကိရိယာနှင့် ဆက်နွှယ်နေသည့် ဆက်တင်များ၊ လုပ်ငန်းဆိုင်ရာ ရယူသုံးမှုများ၊ App များ၊ ခွင့်ပြုချက်များ နှင့် ဒေတာများအား သင်၏စီမံအုပ်ချုပ်သူမှ စောင့်ကြပ် စီမံကွပ်ကဲနိုင်စွမ်း ရှိ၏။"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"သင့်အဖွဲ့အစည်း၏ ကိုယ်ရေးမူဝါဒများ အပါအဝင်၊ တစ်ခြား အချက်အလက်များ အတွက် သင့်စီမံအုပ်ချုပ်သူကို ဆက်သွယ်ပါ။"</string>
@@ -58,16 +57,11 @@
     <string name="pick_launcher" msgid="4811489057826175648">"အိုကေ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"သင်၏ ကိရိယာကို စဖွင့်သတ်မှတ်ရန်"</string>
-    <!-- no translation found for progress_data_process (1707745321954672971) -->
-    <skip />
-    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
-    <skip />
-    <!-- no translation found for progress_download (3522436271691064624) -->
-    <skip />
-    <!-- no translation found for progress_install (2258045670385866183) -->
-    <skip />
-    <!-- no translation found for progress_set_owner (8214062820093757961) -->
-    <skip />
+    <string name="progress_data_process" msgid="1707745321954672971">"ဖွဲ့စည်းပုံအချက်အလက်ကို စီမံဆောင်ရွက်နေသည်..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ကြိုးမဲ့အင်တာနက်သို့ ချိတ်ဆက်နေသည်..."</string>
+    <string name="progress_download" msgid="3522436271691064624">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ဒေါင်းလုဒ်လုပ်နေသည်..."</string>
+    <string name="progress_install" msgid="2258045670385866183">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ထည့်သွင်းနေသည်..."</string>
+    <string name="progress_set_owner" msgid="8214062820093757961">"စက်ပစ္စည်းပိုင်ရှင်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နေသည်..."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"စဖွင့်စီစဉ်မှုအား ရပ်စဲကာ သင့် ကိရိယာ၏ဒေတာကို ဖျက်ပစ်မည်လား?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ပယ်ဖျက်"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"အိုကေ"</string>
@@ -86,32 +80,19 @@
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"စဖွင့်သတ်မှတ်ခြင်း ရပ်စဲမလား?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"မဟုတ်ပါ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ဟုတ်သည်"</string>
-    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_message (2446733709871989895) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_continue (44459981285359765) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (5739020120488653974) -->
-    <skip />
+    <string name="profile_owner_cancelling" msgid="5679573829145112822">"ပယ်ဖျက်နေသည်..."</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ကိုယ်ရေးအချက်အလက် အသင့်သုံးနိုင်ရန်စီစဉ်ခြင်းကိုရပ်တန့်လိုပါသလား။"</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"သင့်အဖွဲ့အစည်းမှအသုံးပြုတဲ့ စက်ပစ္စည်းစီမံခန့်ခွဲမှုအပ်ဖ်ကနေ နောက်ပိုင်းတွင်သင်၏အလုပ်ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နိုင်သည်။"</string>
+    <string name="work_profile_setup_continue" msgid="44459981285359765">"ဆက်လုပ်ရန်"</string>
+    <string name="work_profile_setup_stop" msgid="5739020120488653974">"ရပ်"</string>
     <string name="provisioning" msgid="4512493827019163451">"စီမံဆောင်ရွက်ပေးနေသည်။"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA လက်မှတ်များကို တည်ဆောက်ခြင်း"</string>
-    <!-- no translation found for setup_profile_start_setup (6793984532953528297) -->
-    <skip />
-    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
-    <skip />
-    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
-    <skip />
-    <!-- no translation found for setup_device_start_setup (4351340224000741826) -->
-    <skip />
-    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
-    <skip />
-    <!-- no translation found for setup_device_progress (7035335208571175393) -->
-    <skip />
-    <!-- no translation found for learn_more_label (2723716758654655009) -->
-    <skip />
-    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
-    <skip />
+    <string name="setup_profile_start_setup" msgid="6793984532953528297">"သင့်ရဲ့ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ အသင့်သုံးနိုင်ရန်စတင်လုပ်ဆောင်ပါ"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"သင့်ရဲ့ကိုယ်ရေးအချက်အလက်ကိုအသင့်အသုံးပြုရန်စီစဉ်ပါ။ လျှို့ဝှက်ကုဒ်သွင်းခြင်း"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"သင့်ရဲ့ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ တိုးတက်မှုကိုဖော်ပြပါ"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"သင့်ရဲ့စက်ပစ္စည်းကိုအသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ အသင့်သုံးနိုင်ရန်စတင်‌လုပ်ဆောင်ပါ"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"သင့်ရဲ့စက်ပစ္စည်းကိုအသုံးပြုနိုင်ရန်စီစဉ်ပါ။ လျှို့ဝှက်ကုဒ်သွင်းခြင်း"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"သင့်ရဲ့စက်ပစ္စည်းကိုအသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ တိုးတက်မှုကိုဖော်ပြပါ"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"ခလုတ်များအကြောင်းထပ်လေ့လာပါ"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ကိုယ်စားပြုရုပ်ပုံ"</string>
 </resources>

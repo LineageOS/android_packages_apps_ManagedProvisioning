@@ -26,8 +26,7 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Denne appen trenger tilgang til denne profilen:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Denne appen kommer til å administrere enheten din:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfigurer"</string>
-    <!-- no translation found for setting_up_workspace (4517537806569988620) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="4517537806569988620">"Konfigurerer arbeidsprofilen din …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data som er tilknyttet denne profilen, inkludert nettverksaktivitet og enhetens posisjonsinformasjon."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper og data som er tilknyttet denne enheten, inkludert nettverksaktivitet og enhetens posisjonsinformasjon."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hvis du vil ha mer informasjon, inkludert organisasjonens retningslinjer for personvern, kan du kontakte administratoren din."</string>
@@ -52,25 +51,18 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Enheten din støtter ikke arbeidsprofiler"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Arbeidsprofiler må konfigureres av hovedbrukeren av enheten"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Arbeidsprofiler kan ikke konfigureres på administrerte enheter"</string>
-    <!-- no translation found for maximum_user_limit_reached (4821228722266114449) -->
-    <skip />
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Arbeidsprofilen kan ikke opprettes fordi du har nådd maks. antall brukere på enheten din. Fjern minst én bruker og prøv på nytt."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Arbeidsprofilen din støttes ikke av denne appoversikt-appen. Du må bytte til en kompatibel appoversikt."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"AVBRYT"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Bruker av arbeidsenhet"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Konfigurer enheten din"</string>
-    <!-- no translation found for progress_data_process (1707745321954672971) -->
-    <skip />
-    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
-    <skip />
-    <!-- no translation found for progress_download (3522436271691064624) -->
-    <skip />
-    <!-- no translation found for progress_install (2258045670385866183) -->
-    <skip />
-    <!-- no translation found for progress_set_owner (8214062820093757961) -->
-    <skip />
-    <!-- no translation found for device_owner_cancel_message (2529288571742712065) -->
-    <skip />
+    <string name="progress_data_process" msgid="1707745321954672971">"Behandler konfigureringsdata …"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Kobler til Wi-Fi …"</string>
+    <string name="progress_download" msgid="3522436271691064624">"Laster ned admin-appen …"</string>
+    <string name="progress_install" msgid="2258045670385866183">"Installerer admin-appen …"</string>
+    <string name="progress_set_owner" msgid="8214062820093757961">"Angir enhetseieren …"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Vil du stoppe konfigureringen og slette dataene på enheten?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"AVBRYT"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"TILBAKESTILL"</string>
@@ -85,36 +77,22 @@
     <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Kunne ikke installere admin-appen. Pakkenavnet er ugyldig. Ta kontakt med IT-avdelingen."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Kan ikke installere administratorappen"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Administratorappen er ikke installert på enheten din"</string>
-    <!-- no translation found for profile_owner_cancel_message (6868736915633023477) -->
-    <skip />
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Vil du stoppe konfigureringen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NEI"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"JA"</string>
-    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_message (2446733709871989895) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_continue (44459981285359765) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (5739020120488653974) -->
-    <skip />
+    <string name="profile_owner_cancelling" msgid="5679573829145112822">"Avbryter …"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Vil du stoppe konfigureringen av profilen?"</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Du kan konfigurere arbeidsprofilen din senere fra appen for enhetsadministrering som brukes av organisasjonen din."</string>
+    <string name="work_profile_setup_continue" msgid="44459981285359765">"FORTSETT"</string>
+    <string name="work_profile_setup_stop" msgid="5739020120488653974">"STOPP"</string>
     <string name="provisioning" msgid="4512493827019163451">"Tildeler"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Konfigurerer CA-sertifikater"</string>
-    <!-- no translation found for setup_profile_start_setup (6793984532953528297) -->
-    <skip />
-    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
-    <skip />
-    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
-    <skip />
-    <!-- no translation found for setup_device_start_setup (4351340224000741826) -->
-    <skip />
-    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
-    <skip />
-    <!-- no translation found for setup_device_progress (7035335208571175393) -->
-    <skip />
-    <!-- no translation found for learn_more_label (2723716758654655009) -->
-    <skip />
-    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
-    <skip />
+    <string name="setup_profile_start_setup" msgid="6793984532953528297">"Konfigurer profilen din. Start konfigurering"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"Konfigurer profilen din. Kryptering"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"Konfigurer profilen din. Viser fremgang"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"Konfigurer enheten din. Start konfigurering"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"Konfigurer enheten din. Kryptering"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"Konfigurer enheten din. Viser fremgang"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"Finn ut mer-knappen"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"Ikonet for <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
 </resources>
