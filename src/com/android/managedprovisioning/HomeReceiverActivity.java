@@ -134,7 +134,7 @@ public class HomeReceiverActivity extends Activity {
         store.clear();
         ProvisioningParams params = null;
         try {
-            params = (new MessageParser()).parseNonNfcIntent(intent);
+            params = (new MessageParser()).parseNonNfcIntent(intent, true /* trusted */);
         } catch (IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Failed to parse provisioning intent", e);
         }

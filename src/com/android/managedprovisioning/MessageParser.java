@@ -436,7 +436,17 @@ public class MessageParser {
         return params;
     }
 
-    public ProvisioningParams parseNonNfcIntent(Intent intent)
+    /**
+     * Parse an intent and return a corresponding {@link ProvisioningParams} object.
+     *
+     * @param intent intent to be parsed.
+     * @param trusted whether the intent is trusted or not. A trusted intent can contain internal
+     * extras which are not part of the public API. These extras often control sensitive aspects of
+     * ManagedProvisioning such as whether deprecated SHA-1 is supported, or whether MP was started
+     * from NFC (hence no user consent dialog). Intents used by other apps to start MP should always
+     * be untrusted.
+     */
+    public ProvisioningParams parseNonNfcIntent(Intent intent, boolean trusted)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing non-nfc intent.");
         ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent);
@@ -471,8 +481,8 @@ public class MessageParser {
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (packageHash != null) {
             params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(packageHash);
-            // If we are restarted after an encryption reboot, use stored value for this flag.
-            if (intent.hasExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM)) {
+            // If we are restarted after an encryption reboot, use stored (trusted) value for this.
+            if (trusted) {
                 params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = intent.getBooleanExtra(
                         EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM, false);
             } else {
@@ -511,8 +521,12 @@ public class MessageParser {
 
         params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
                 ProvisioningParams.DEFAULT_LOCAL_TIME);
-        params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
-                false);
+        if (trusted) {
+            // The only case where startedByNfc can be true in this code path is we are reloading
+            // a stored Nfc bump intent after encryption reboot, which is a trusted intent.
+            params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
+                    false);
+        }
 
         params.accountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
