@@ -71,17 +71,28 @@
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">
             <intent-filter android:priority="10">
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/com.android.managedprovisioning" />
-                <data android:mimeType="application/com.android.managedprovisioning.v2"/>
-            </intent-filter>
-            <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
                 <action android:name="com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <!--
+            Nfc bump entry for device owner provisioning, protected by a permission so only the Nfc
+            stack can trigger this.
+        -->
+        <activity-alias
+            android:name="DeviceOwnerPreProvisioningActivityViaNfc"
+            android:targetActivity="DeviceOwnerPreProvisioningActivity"
+            android:permission="android.permission.DISPATCH_NFC_MESSAGE"
+            android:exported="true">
+            <intent-filter android:priority="10">
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/com.android.managedprovisioning" />
+                <data android:mimeType="application/com.android.managedprovisioning.v2"/>
+            </intent-filter>
+        </activity-alias>
+
         <activity
              android:name="DeviceOwnerProvisioningActivity"
              android:excludeFromRecents="true"
