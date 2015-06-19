@@ -180,12 +180,13 @@ public class DeviceOwnerProvisioningActivity extends Activity
     }
 
     private void showInterstitialAndProvision(final ProvisioningParams params) {
-        if (mUserConsented || params.mStartedByNfc) {
+        boolean supportFrp = isFrpSupported();
+        if (mUserConsented || (!supportFrp && params.mStartedByNfc)) {
             startDeviceOwnerProvisioningService(params);
         } else {
             // Notify the user that the admin will have full control over the device,
             // then start provisioning.
-            UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER)
+            UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER, supportFrp)
                     .show(getFragmentManager(), "UserConsentDialogFragment");
         }
     }
@@ -440,6 +441,11 @@ public class DeviceOwnerProvisioningActivity extends Activity
     protected void onStop() {
         if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONSTOP");
         super.onStop();
+    }
+
+    private boolean isFrpSupported() {
+        Object pdbManager = getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
+        return pdbManager != null;
     }
 }
 

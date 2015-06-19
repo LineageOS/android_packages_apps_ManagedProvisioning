@@ -49,11 +49,13 @@ public class UserConsentDialog extends DialogFragment {
             "https://support.google.com/";
 
     private static final String KEY_OWNER_TYPE = "owner_type";
+    private static final String KEY_SHOW_FRP_WARNING = "frp_warning";
 
-    public static UserConsentDialog newInstance(int ownerType) {
+    public static UserConsentDialog newInstance(int ownerType, boolean showFrpWarning) {
         UserConsentDialog dialog = new UserConsentDialog();
         Bundle args = new Bundle();
         args.putInt(KEY_OWNER_TYPE, ownerType);
+        args.putBoolean(KEY_SHOW_FRP_WARNING, showFrpWarning);
         dialog.setArguments(args);
         return dialog;
     }
@@ -61,6 +63,7 @@ public class UserConsentDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         int ownerType = getArguments().getInt(KEY_OWNER_TYPE);
+        boolean showFrpWarning = getArguments().getBoolean(KEY_SHOW_FRP_WARNING);
         if (ownerType != PROFILE_OWNER && ownerType != DEVICE_OWNER) {
             throw new IllegalArgumentException("Illegal value for argument ownerType.");
         }
@@ -73,7 +76,11 @@ public class UserConsentDialog extends DialogFragment {
         if (ownerType == PROFILE_OWNER) {
             text1.setText(R.string.admin_has_ability_to_monitor_profile);
         } else if (ownerType == DEVICE_OWNER) {
-            text1.setText(R.string.admin_has_ability_to_monitor_device);
+            if (showFrpWarning) {
+                text1.setText(R.string.admin_has_ability_to_monitor_device_with_frp_disabled);
+            } else {
+                text1.setText(R.string.admin_has_ability_to_monitor_device);
+            }
         }
 
         TextView linkText = (TextView) dialog.findViewById(R.id.learn_more_link);

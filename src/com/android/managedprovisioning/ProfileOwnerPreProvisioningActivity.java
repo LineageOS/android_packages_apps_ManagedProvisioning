@@ -260,7 +260,7 @@ public class ProfileOwnerPreProvisioningActivity extends Activity
 
             // Notify the user once more that the admin will have full control over the profile,
             // then start provisioning.
-            UserConsentDialog.newInstance(UserConsentDialog.PROFILE_OWNER)
+            UserConsentDialog.newInstance(UserConsentDialog.PROFILE_OWNER, false /*showFrpWarning*/)
                     .show(getFragmentManager(), "UserConsentDialogFragment");
         } else {
             Bundle resumeExtras = getIntent().getExtras();
