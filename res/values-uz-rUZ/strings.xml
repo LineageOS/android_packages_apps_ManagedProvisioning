@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Ishchi profilingiz sozlanmoqda…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administrator profil bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilovalar va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangiz joylashuvi haqidagi ma’lumotlarni kuzatishi va boshqarishi mumkin."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratoringiz ushbu qurilma bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilova va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangizning joylashuvi haqidagi ma’lumotlarni kuzatishi va boshqarishi mumkin."</string>
+    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Qo‘shimcha ma’lumot olish, jumladan, tashkilotingizning maxfiylik siyosati haqida bilish uchun administratoringizga murojaat qiling."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Batafsil ma’lumot"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"BEKOR QILISH"</string>

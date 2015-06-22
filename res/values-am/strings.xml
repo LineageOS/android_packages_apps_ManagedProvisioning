@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"የስራ መገለጫዎን በማዘጋጀት ላይ…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"አሰተዳዳሪዎ ቅንብሮችን ፣ የኮርፖሬት መዳረሻ፣ መተግበሪያዎች፣ ፈቃዶች፣ እና ከዚህ መሣሪያ ጋር መዛመድ፣ አውታረ መረብ እንቅስቃሴና የመሣሪያዎ አካባቢ መረጃን ጨምሮ የመከታተልና የማስተዳደር ብቃት አለው።"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"አስተዳዳሪዎ ቅንብሮችን ፣ የኮርፖሬት መዳረሻ፣ መተግበሪያዎች፣ ፈቃዶች፣ እና ከዚህ መሣሪያ ጋር መዛመድ፣ አውታረ መረብ እንቅስቃሴና የመሣሪያዎ አካባቢ መረጃን ጨምሮ የመከታተልና የማስተዳደር ብቃት አለው።"</string>
+    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"የድርጅትዎ ግላዊነት መመሪያዎችን ጨምሮ ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ተጨማሪ ለመረዳት"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ይቅር"</string>
@@ -62,7 +64,7 @@
     <string name="progress_download" msgid="3522436271691064624">"የአስተዳዳሪ መተግበሪያውን በማውረድ ላይ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"የአስተዳዳሪ መተግበሪያውን በመጫን ላይ…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"የመሣሪያውን ባለቤት በማዘጋጀት ላይ…"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"ማዋቀር አቁመው የመሣሪያዎ ውሂብ መደምሰስ ይፈልጋሉ?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"ማዋቀር ይቁምና የመሣሪያዎ ውሂብ ይደምሰስ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ይቅር"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"እሺ"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"ዳግም አስጀምር"</string>

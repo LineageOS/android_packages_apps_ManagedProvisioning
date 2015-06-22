@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configuration de votre profil professionnel en cours…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Votre administrateur peut contrôler et gérer les paramètres, l\'accès aux contenus de l\'entreprise, les applications, les autorisations et les données associées à ce profil, y compris l\'activité réseau et les données de localisation de votre appareil."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Votre administrateur peut contrôler et gérer les paramètres, l\'accès aux contenus de l\'entreprise, les applications, les autorisations et les données associées à cet appareil, y compris l\'activité réseau et les informations de localisation de votre appareil."</string>
+    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contactez votre administrateur pour obtenir plus d\'informations, y compris les règles de confidentialité de votre organisation."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"En savoir plus"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ANNULER"</string>

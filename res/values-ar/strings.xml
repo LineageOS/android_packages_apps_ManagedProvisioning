@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"جارٍ إعداد الملف الشخصي للعمل…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"لدى المشرف إمكانية مراقبة كل من الإعدادات والدخول إلى المؤسسة والتطبيقات والأذونات والبيانات المرتبطة بهذا الملف الشخصي وإدارتها، بما في ذلك أنشطة الشبكة ومعلومات موقع جهازك."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"لدى المشرف إمكانية مراقبة كل من الإعدادات والدخول إلى المؤسسة والتطبيقات والأذونات والبيانات المرتبطة بهذا الجهاز وإدارتها، بما في ذلك أنشطة الشبكة ومعلومات موقع جهازك."</string>
+    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"اتصل بالمشرف للحصول على مزيد من المعلومات، بما في ذلك سياسات الخصوصية الخاصة بمنظمتك."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"مزيد من المعلومات"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"إلغاء"</string>
