@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Work profila konfiguratzen…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratzaileak ikuskatu eta kudeatu egin ditzake profilarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak, baimenak eta datuak (sarean izandako jarduera eta gailuaren kokapenari buruzko informazioa barne)."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratzaileak ikuskatu eta kudeatu egin ditzake gailuarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak, baimenak eta datuak (sarean izandako jarduera eta gailuaren kokapenari buruzko informazioa barne)."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Informazio gehiago lortzeko (baita erakundearen pribatutasun-gidalerroei buruzkoa ere), jarri administratzailearekin harremanetan."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lortu informazio gehiago"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"UTZI"</string>
@@ -51,7 +53,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Gailuak ez du laneko profilik onartzen"</string>
     <string name="user_is_not_owner" msgid="6193230832887977927">"Gailuaren erabiltzaile nagusiak konfiguratu behar ditu laneko profilak"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Ezin da konfiguratu laneko profilik kudeatutako gailuetan"</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Ezin da sortu Work profila gailuan izan dezakezun erabiltzaile kopururik handienera iritsi zarelako. Kendu erabiltzaile bat gutxienez eta saiatu berriro."</string>
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Ezin da sortu Work profila gailuan izan dezakezun erabiltzaile mugara iritsi zarelako. Kendu erabiltzaile bat gutxienez eta saiatu berriro."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Aplikazio abiarazle honek ez du zure laneko profila onartzen. Abiarazle bateragarri bat erabili beharko duzu."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"UTZI"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Ados"</string>
@@ -89,10 +91,10 @@
     <string name="copying_certs" msgid="5697938664953550881">"CA ziurtagiriak konfiguratzen"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Konfiguratu profila. Hasi konfigurazioa"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Konfiguratu profila. Enkriptatzea"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"Konfiguratu profila. Aurrerapena ikusgai dago"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"Konfiguratu profila. Garapena ikusgai dago"</string>
     <string name="setup_device_start_setup" msgid="4351340224000741826">"Konfiguratu gailua. Hasi konfigurazioa"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"Konfiguratu gailua. Enkriptatzea"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"Konfiguratu gailua. Aurrerapena ikusgai dago"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"Konfiguratu gailua. Garapena ikusgai dago"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Informazio gehiago lortzeko botoia"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ikonoa"</string>
 </resources>

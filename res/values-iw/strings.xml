@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"מגדיר את פרופיל העבודה שלך…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"מנהל המערכת יכול לבצע מעקב ולנהל הגדרות, גישה ארגונית, אפליקציות ונתונים המשויכים לפרופיל, כולל פעילות ברשת ומידע על מיקום המכשיר."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"מנהל המערכת יכול לבצע מעקב ולנהל הגדרות, גישה ארגונית, אפליקציות ונתונים המשויכים למכשיר הזה, כולל פעילות ברשת ומידע על מיקום המכשיר."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"פנה למנהל המערכת לקבלת מידע נוסף, כולל מדיניות הפרטיות של הארגון."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"למידע נוסף"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ביטול"</string>

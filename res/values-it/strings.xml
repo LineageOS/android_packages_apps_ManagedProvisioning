@@ -26,9 +26,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"La seguente app dovrà accedere a questo profilo:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"La seguente app gestirà il tuo dispositivo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configura"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"Impostazione di un profilo di lavoro..."</string>
+    <string name="setting_up_workspace" msgid="4517537806569988620">"Impostazione di un profilo di lavoro…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"L\'amministratore può monitorare e gestire impostazioni, accesso aziendale, app, autorizzazioni e dati associati al profilo, incluse l\'attività di rete e le informazioni sulla posizione del dispositivo."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"L\'amministratore può monitorare e gestire impostazioni, accesso aziendale, app, autorizzazioni e dati associati al dispositivo, incluse l\'attività di rete e le informazioni sulla posizione del dispositivo."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Per ulteriori informazioni, contatta il tuo amministratore e consulta le norme sulla privacy della tua organizzazione."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ulteriori informazioni"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ANNULLA"</string>
@@ -57,11 +59,11 @@
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utente del dispositivo di lavoro"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Configurazione del dispositivo"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Elaborazione dati di impostazione..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Connessione a rete Wi-Fi..."</string>
-    <string name="progress_download" msgid="3522436271691064624">"Download dell\'app dell\'amministratore..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installazione dell\'app dell\'amministratore..."</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Impostazione del proprietario dispositivo..."</string>
+    <string name="progress_data_process" msgid="1707745321954672971">"Elaborazione dati di impostazione…"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Connessione a rete Wi-Fi…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"Download dell\'app dell\'amministratore…"</string>
+    <string name="progress_install" msgid="2258045670385866183">"Installazione dell\'app dell\'amministratore…"</string>
+    <string name="progress_set_owner" msgid="8214062820093757961">"Impostazione del proprietario dispositivo…"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Interrompere la configurazione e cancellare i dati del dispositivo?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ANNULLA"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
@@ -80,7 +82,7 @@
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Interrompere la configurazione?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NO"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"SÌ"</string>
-    <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annullamento..."</string>
+    <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annullamento…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Interrompere la configurazione del profilo?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Puoi configurare il tuo profilo di lavoro in un secondo momento dall\'app per la gestione dei dispositivi utilizzata dalla tua organizzazione."</string>
     <string name="work_profile_setup_continue" msgid="44459981285359765">"CONTINUA"</string>

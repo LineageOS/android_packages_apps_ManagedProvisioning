@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"आपकी कार्य प्रोफ़ाइल सेट की जा रही है…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"आपके नियंत्रक के पास नेटवर्क गतिविधि और आपके डिवाइस के स्थान की जानकारी सहित प्रोफ़ाइल से संबद्ध सेटिंग, कॉर्पोरेट ऐक्सेस, ऐप्स, अनुमतियों और डेटा की निगरानी करने तथा उसे प्रबंधित करने की क्षमता होती है."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"आपके व्यवस्थापक के पास नेटवर्क गतिविधि और आपके डिवाइस के स्थान की जानकारी सहित, इस डिवाइस से संबद्ध सेटिंग, कॉर्पोरेट एेक्सेस, ऐप्स, अनुमतियों और डेटा की निगरानी करने और उसे प्रबंधित करने की क्षमता होती है."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"अपने संगठन की गोपनीयता नीतियों सहित अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"और जानें"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"अभी नहीं"</string>

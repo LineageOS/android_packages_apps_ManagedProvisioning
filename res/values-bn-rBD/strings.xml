@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"আপনার কর্মস্থলের প্রোফাইল সেট আপ হচ্ছে..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"আপনার প্রশাসকের নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থান তথ্য সহ প্রোফাইলটির সাথে সম্পর্কিত সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান, অনুমতি এবং ডেটা নিরীক্ষণ ও পরিচালনা করার ক্ষমতা আছে।"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"আপনার প্রশাসকের নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থান তথ্য সহ প্রোফাইলটির সাথে সম্পর্কিত সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান, অনুমতি এবং ডেটা নিরীক্ষণ ও পরিচালনা করার ক্ষমতা আছে।"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"আপনার প্রতিষ্ঠানের গোপনীয়তা নীতি সহ আরো তথ্যের জন্য আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"আরো জানুন"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"বাতিল করুন"</string>

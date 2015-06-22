@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"ਤੁਹਾਡੇ ਪ੍ਰਬੰਧਕ ਕੋਲ ਸੈਟਿੰਗਾਂ ਦਾ ਨਿਰੀਖਣ ਕਰਨ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ, ਐਪਸ ਅਤੇ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਜੁੜੇ ਡਾਟਾ ਤੱਕ ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਨੈਟਵਰਕ ਗਤੀਵਿਧੀ ਅਤੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਸਮੇਤ।"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"ਤੁਹਾਡੇ ਪ੍ਰਬੰਧਕ ਕੋਲ ਸੈਟਿੰਗਾਂ ਦਾ ਨਿਰੀਖਣ ਕਰਨ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ, ਐਪਸ ਅਤੇ ਇਸ ਡਿਵਾਈਸ ਨਾਲ ਜੁੜੇ ਡਾਟਾ ਤੱਕ ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਨੈਟਵਰਕ ਗਤੀਵਿਧੀ ਅਤੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਸਮੇਤ।"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ, ਤੁਹਾਡੀ ਕੰਪਨੀ ਦੀਆਂ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀਆਂ ਸਮੇਤ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ਰੱਦ ਕਰੋ"</string>

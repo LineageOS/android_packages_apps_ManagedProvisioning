@@ -29,6 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Munkaprofil beállítása…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve a profillal társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve az ezzel az eszközzel társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne kapni, például szervezetének adatvédelmi irányelveiről."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"További információ"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"MÉGSE"</string>

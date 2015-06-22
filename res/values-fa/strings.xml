@@ -26,9 +26,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"برنامه زیر نیاز به دسترسی به این نمایه خواهد داشت:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"برنامه زیر، دستگاهتان را مدیریت می‌کند:"</string>
     <string name="set_up" msgid="7012862095553564169">"راه‌اندازی"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"در حال تنظیم نمایه کاری‌تان…"</string>
+    <string name="setting_up_workspace" msgid="4517537806569988620">"در حال راه اندازی نمایه کاری‌تان…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"سرپرست سیستمتان می‌تواند بر تنظیمات، دسترسی شرکتی، برنامه‌ها، مجوزها و داده‌های مرتبط با این نمایه، از جمله فعالیت شبکه و اطلاعات موقعیت مکانی دستگاه‌ شما نظارت کرده و آن‌ها را مدیریت کند."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"سرپرست سیستمتان می‌تواند بر تنظیمات، دسترسی شرکتی، برنامه‌ها، مجوزها و داده‌های مرتبط با این دستگاه، از جمله فعالیت شبکه و اطلاعات موقعیت مکانی دستگاه‌ شما نظارت کرده و آن‌ها را مدیریت کند."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
+    <skip />
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"برای دریافت اطلاعات بیشتر، از جمله خط‌مشی‌های رازداری سازمانتان، با سرپرست سیستم خودتان تماس بگیرید."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"بیشتر بدانید"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"لغو"</string>
@@ -81,18 +83,18 @@
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"خیر"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"بله"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"در حال لغو…"</string>
-    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"تنظیم نمایه متوقف شود؟"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"در فرصت دیگری می‌توانید از برنامه مدیریت دستگاه مورداستفاده سازمانتان، نمایه کاری‌تان را تنظیم کنید."</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"راه‌اندازی متوقف شود؟"</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"در فرصت دیگری می‌توانید از برنامه مدیریت دستگاه مورداستفاده سازمانتان، نمایه کاری‌تان را راه‌اندازی کنید."</string>
     <string name="work_profile_setup_continue" msgid="44459981285359765">"ادامه"</string>
     <string name="work_profile_setup_stop" msgid="5739020120488653974">"توقف"</string>
     <string name="provisioning" msgid="4512493827019163451">"در حال ارائه دسترسی"</string>
     <string name="copying_certs" msgid="5697938664953550881">"‏تنظیم گواهی‌های CA"</string>
-    <string name="setup_profile_start_setup" msgid="6793984532953528297">"نمایه‌تان را تنظیم کنید. شروع تنظیم"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"نمایه‌تان را تنظیم کنید. رمزگذاری"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"نمایه‌تان را تنظیم کنید. نمایش پیشرفت"</string>
-    <string name="setup_device_start_setup" msgid="4351340224000741826">"دستگاهتان را تنظیم کنید. شروع تنظیم"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"دستگاهتان را تنظیم کنید. رمزگذاری"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"دستگاهتان را تنظیم کنید. نمایش پیشرفت"</string>
+    <string name="setup_profile_start_setup" msgid="6793984532953528297">"نمایه‌تان را راه‌اندازی کنید. شروع تنظیم"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"نمایه‌تان را راه‌اندازی کنید. رمزگذاری"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"نمایه‌تان را راه‌اندازی کنید. نمایش پیشرفت"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"دستگاهتان را راه‌اندازی کنید. شروع راه‌اندازی"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"دستگاهتان را راه‌اندازی کنید. رمزگذاری"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"دستگاهتان را راه‌اندازی کنید. نمایش پیشرفت"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"دکمه بیشتر بدانید"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"نماد <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
 </resources>
