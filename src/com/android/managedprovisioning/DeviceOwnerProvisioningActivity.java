@@ -28,8 +28,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.provider.Settings.Global;
-import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.View;
@@ -110,7 +108,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
 
         // Load the ProvisioningParams (from message in Intent).
         mParams = (ProvisioningParams) getIntent().getParcelableExtra(
-                DeviceOwnerProvisioningService.EXTRA_PROVISIONING_PARAMS);
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         startDeviceOwnerProvisioningService();
     }
 
@@ -186,32 +184,16 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                 ProvisionLogger.logi("Initializer component doesn't have a receiver for "
                         + "android.app.action.READY_FOR_USER_INITIALIZATION. Skipping broadcast "
                         + "and finishing user initialization.");
-                provisionDevice();
+                Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
             }
         } else {
             // No initializer, set the device provisioned ourselves.
-            provisionDevice();
+            Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
         }
+        stopService(new Intent(this, DeviceOwnerProvisioningService.class));
         // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);
         finish();
-    }
-
-    private void provisionDevice() {
-        if (Utils.isCurrentUserOwner()) {
-            // This only needs to be set once per device
-            Global.putInt(getContentResolver(), Global.DEVICE_PROVISIONED, 1);
-        }
-
-        // Setting this flag will either cause Setup Wizard to finish immediately when it starts (if
-        // it is not already running), or when its next activity starts (if it is already running,
-        // e.g. the non-NFC flow).
-        // When either of these things happen, a home intent is fired. We catch that in
-        // HomeReceiverActivity before sending the intent to notify the mdm that provisioning is
-        // complete.
-        // Note that, in the NFC flow or for secondary users, setting this flag will prevent the
-        // user from seeing SUW, even if no other device initialization app was specified.
-        Secure.putInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
     }
 
     @Override

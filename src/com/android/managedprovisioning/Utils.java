@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import android.app.admin.DevicePolicyManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -28,20 +29,31 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings.Global;
+import android.provider.Settings.Secure;
 import android.text.TextUtils;
 import android.util.Base64;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 
 /**
  * Class containing various auxiliary methods.
@@ -82,15 +94,6 @@ public class Utils {
             ProvisionLogger.logw("Component not found, not disabling it: "
                 + toDisable.toShortString());
         }
-    }
-
-    public static ComponentName findDeviceAdminFromIntent(Intent intent, Context c)
-            throws IllegalProvisioningArgumentException {
-        ComponentName mdmComponentName = intent.getParcelableExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-        String mdmPackageName = intent.getStringExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        return findDeviceAdmin(mdmPackageName, mdmComponentName, c);
     }
 
     /**
@@ -267,5 +270,76 @@ public class Utils {
 
     public static String byteArrayToString(byte[] bytes) {
         return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+    }
+
+    public static void markDeviceProvisioned(Context context) {
+        if (isCurrentUserOwner()) {
+            // This only needs to be set once per device
+            Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
+        }
+
+        // Setting this flag will either cause Setup Wizard to finish immediately when it starts (if
+        // it is not already running), or when its next activity starts (if it is already running,
+        // e.g. the non-NFC flow).
+        // When either of these things happen, a home intent is fired. We catch that in
+        // HomeReceiverActivity before sending the intent to notify the mdm that provisioning is
+        // complete.
+        // Note that, in the NFC flow or for secondary users, setting this flag will prevent the
+        // user from seeing SUW, even if no other device initialization app was specified.
+        Secure.putInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
+    }
+
+    public static boolean isUserSetupCompleted(Context context) {
+        return Secure.getInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 0) != 0;
+    }
+
+    public static UserHandle getManagedProfile(Context context) {
+        UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        int currentUserId = userManager.getUserHandle();
+        List<UserInfo> userProfiles = userManager.getProfiles(currentUserId);
+        for (UserInfo profile : userProfiles) {
+            if (profile.isManagedProfile()) {
+                return new UserHandle(profile.id);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @return The User id of an already existing managed profile or -1 if none
+     * exists
+     */
+    public static int alreadyHasManagedProfile(Context context) {
+        UserHandle managedUser = getManagedProfile(context);
+        if (managedUser != null) {
+            return managedUser.getIdentifier();
+        } else {
+            return -1;
+        }
+    }
+
+    public static void removeAccount(Context context, Account account) {
+        try {
+            AccountManager accountManager =
+                    (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+            AccountManagerFuture<Bundle> bundle = accountManager.removeAccount(account,
+                    null, null /* callback */, null /* handler */);
+            // Block to get the result of the removeAccount operation
+            if (bundle.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
+                ProvisionLogger.logw("Account removed from the primary user.");
+            } else {
+                Intent removeIntent = (Intent) bundle.getResult().getParcelable(
+                        AccountManager.KEY_INTENT);
+                if (removeIntent != null) {
+                    ProvisionLogger.logi("Starting activity to remove account");
+                    removeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(removeIntent);
+                } else {
+                    ProvisionLogger.logw("Could not remove account from the primary user.");
+                }
+            }
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.logw("Exception removing account from the primary user.", e);
+        }
     }
 }

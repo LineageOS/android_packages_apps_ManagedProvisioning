@@ -94,14 +94,6 @@ public class ProfileOwnerProvisioningService extends Service {
     /** Provisioning cancelled and cleanup complete. */
     private static final int STATUS_CANCELLED = 5;
 
-    private String mMdmPackageName;
-    private ComponentName mActiveAdminComponentName;
-
-    // PersistableBundle extra received in starting intent.
-    // Should be passed through to device management application when provisioning is complete.
-    private PersistableBundle mAdminExtrasBundle;
-    private Account mAccountToMigrate;
-
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
     private AccountManager mAccountManager;
@@ -114,6 +106,8 @@ public class ProfileOwnerProvisioningService extends Service {
 
     // Current status of the provisioning process.
     private int mProvisioningStatus = STATUS_UNKNOWN;
+
+    private ProvisioningParams mParams;
 
     private class RunnerTask extends AsyncTask<Intent, Void, Void> {
         @Override
@@ -232,18 +226,12 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void initialize(Intent intent) {
-        mActiveAdminComponentName = (ComponentName) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-        mMdmPackageName = mActiveAdminComponentName.getPackageName();
-        mAccountToMigrate = (Account) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
-        if (mAccountToMigrate != null) {
+        // Load the ProvisioningParams (from message in Intent).
+        mParams = (ProvisioningParams) intent.getParcelableExtra(
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        if (mParams.accountToMigrate != null) {
             ProvisionLogger.logi("Migrating account to managed profile");
         }
-
-        // Cast is guaranteed by check in Activity.
-        mAdminExtrasBundle  = (PersistableBundle) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
     }
 
     /**
@@ -265,7 +253,8 @@ public class ProfileOwnerProvisioningService extends Service {
                     mManagedProfileUserInfo.id);
             disableBluetoothSharingTask = new DisableBluetoothSharingTask(
                     mManagedProfileUserInfo.id);
-            deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this, mMdmPackageName,
+            deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this,
+                    mParams.deviceAdminPackageName,
                     DeleteNonRequiredAppsTask.PROFILE_OWNER, true /* creating new profile */,
                     mManagedProfileUserInfo.id, false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
@@ -314,7 +303,7 @@ public class ProfileOwnerProvisioningService extends Service {
         if (!startManagedProfile(mManagedProfileUserInfo.id)) {
             throw raiseError("Could not start user in background");
         }
-        copyAccount(mAccountToMigrate);
+        copyAccount();
     }
 
     /**
@@ -399,93 +388,57 @@ public class ProfileOwnerProvisioningService extends Service {
         Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
                 1 /* true- > setup complete */, mManagedProfileUserInfo.id);
 
-        UserHandle userHandle = new UserHandle(mManagedProfileUserInfo.id);
+        UserHandle managedUserHandle = new UserHandle(mManagedProfileUserInfo.id);
 
         // Use an ordered broadcast, so that we only finish when the mdm has received it.
         // Avoids a lag in the transition between provisioning and the mdm.
-        BroadcastReceiver mdmReceivedSuccessReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by"
-                        + " mdm");
+        BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
+                mParams.accountToMigrate, mParams.deviceAdminPackageName);
 
-                final Intent primaryProfileSuccessIntent = new Intent(
-                        DevicePolicyManager.ACTION_MANAGED_PROFILE_PROVISIONED);
-                primaryProfileSuccessIntent.setPackage(mMdmPackageName);
-                primaryProfileSuccessIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                        Intent.FLAG_RECEIVER_FOREGROUND);
-                // Now cleanup the primary profile if necessary
-                if (mAccountToMigrate != null) {
-                    primaryProfileSuccessIntent.putExtra(
-                            DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE,
-                            mAccountToMigrate);
-                    finishAccountMigration(primaryProfileSuccessIntent);
-                    // Note that we currently do not check if account migration worked
-                } else {
-                    sendBroadcast(primaryProfileSuccessIntent);
-                    stopSelf();
-                }
-            }
-        };
-
-        // Compose the intent that will be fired by the activity.
         Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setComponent(mActiveAdminComponentName);
+        completeIntent.setComponent(mParams.deviceAdminComponentName);
         completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                 Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mAdminExtrasBundle != null) {
+        if (mParams.adminExtrasBundle != null) {
             completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mAdminExtrasBundle);
+                    mParams.adminExtrasBundle);
         }
-        sendOrderedBroadcastAsUser(completeIntent, userHandle, null,
-                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
-        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
-                + userHandle.getIdentifier());
-    }
 
-    private void finishAccountMigration(final Intent primaryProfileSuccessIntent) {
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                removeAccount(mAccountToMigrate);
-                sendBroadcast(primaryProfileSuccessIntent);
-                stopSelf();
-                return null;
-            }
-        }.execute();
-    }
+        // If profile owner provisioning was started after user setup is completed, then we
+        // can directly send the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to the MDM.
+        // But if the provisioning was started as part of setup wizard flow, we shutdown the
+        // Setup wizard at the end of provisioning which will result in a home intent. So, to
+        // avoid the race condition, HomeReceiverActivity is enabled which will in turn send
+        // the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast.
+        if (Utils.isUserSetupCompleted(this)) {
+            sendOrderedBroadcastAsUser(completeIntent, managedUserHandle, null,
+                    mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
+            ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
+                    + managedUserHandle.getIdentifier());
+        } else {
+            IntentStore store = BootReminder.getProfileOwnerFinalizingIntentStore(this);
+            Bundle resumeBundle = new Bundle();
+            (new MessageParser()).addProvisioningParamsToBundle(resumeBundle, mParams);
+            store.save(resumeBundle);
 
-    private void removeAccount(Account account) {
-        try {
-            AccountManagerFuture<Bundle> bundle = mAccountManager.removeAccount(account,
-                   null, null /* callback */, null /* handler */);
-            // Block to get the result of the removeAccount operation
-            if (bundle.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
-                ProvisionLogger.logw("Account removed from the primary user.");
-            } else {
-                Intent removeIntent = (Intent) bundle.getResult().getParcelable(
-                        AccountManager.KEY_INTENT);
-                if (removeIntent != null) {
-                    ProvisionLogger.logi("Starting activity to remove account");
-                    removeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(removeIntent);
-                } else {
-                    ProvisionLogger.logw("Could not remove account from the primary user.");
-                }
-            }
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception removing account from the primary user.", e);
+            // Enable the HomeReceiverActivity, since the ProfileOwnerProvisioningActivity will
+            // shutdown the Setup wizard soon, which will result in a home intent that should be
+            // caught by the HomeReceiverActivity.
+            PackageManager pm = getPackageManager();
+            pm.setComponentEnabledSetting(new ComponentName(this, HomeReceiverActivity.class),
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
         }
     }
 
-    private void copyAccount(Account account) {
-        if (account == null) {
+    private void copyAccount() {
+        if (mParams.accountToMigrate == null) {
             ProvisionLogger.logd("No account to migrate to the managed profile.");
             return;
         }
         ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
         try {
-            if (mAccountManager.copyAccountToUser(account, mManagedProfileUserInfo.getUserHandle(),
+            if (mAccountManager.copyAccountToUser(mParams.accountToMigrate,
+                    mManagedProfileUserInfo.getUserHandle(),
                     /* callback= */ null, /* handler= */ null).getResult()) {
                 ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
             } else {
@@ -512,12 +465,12 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void installMdmOnManagedProfile() throws ProvisioningException {
-        ProvisionLogger.logd("Installing mobile device management app " + mMdmPackageName +
-              " on managed profile");
+        ProvisionLogger.logd("Installing mobile device management app "
+                + mParams.deviceAdminPackageName + " on managed profile");
 
         try {
             int status = mIpm.installExistingPackageAsUser(
-                mMdmPackageName, mManagedProfileUserInfo.id);
+                mParams.deviceAdminPackageName, mManagedProfileUserInfo.id);
             switch (status) {
               case PackageManager.INSTALL_SUCCEEDED:
                   return;
@@ -540,11 +493,12 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void setMdmAsManagedProfileOwner() throws ProvisioningException {
-        ProvisionLogger.logd("Setting package " + mMdmPackageName + " as managed profile owner.");
+        ProvisionLogger.logd("Setting package " + mParams.deviceAdminPackageName
+                + " as managed profile owner.");
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (!dpm.setProfileOwner(mActiveAdminComponentName, mMdmPackageName,
+        if (!dpm.setProfileOwner(mParams.deviceAdminComponentName, mParams.deviceAdminPackageName,
                 mManagedProfileUserInfo.id)) {
             ProvisionLogger.logw("Could not set profile owner.");
             throw raiseError("Could not set profile owner.");
@@ -552,11 +506,12 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void setMdmAsActiveAdmin() {
-        ProvisionLogger.logd("Setting package " + mMdmPackageName + " as active admin.");
+        ProvisionLogger.logd("Setting package " + mParams.deviceAdminPackageName
+                + " as active admin.");
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        dpm.setActiveAdmin(mActiveAdminComponentName, true /* refreshing*/,
+        dpm.setActiveAdmin(mParams.deviceAdminComponentName, true /* refreshing*/,
                 mManagedProfileUserInfo.id);
     }
 
