@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import android.content.Context;
+import android.accounts.Account;
 import android.content.ComponentName;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -25,7 +26,7 @@ import android.os.PersistableBundle;
 import java.util.Locale;
 
 /**
- * Provisioning Parameters for DeviceOwner Provisioning
+ * Provisioning Parameters for Device owner and Profile owner Provisioning.
  */
 public class ProvisioningParams implements Parcelable {
     public static final long DEFAULT_LOCAL_TIME = -1;
@@ -39,6 +40,9 @@ public class ProvisioningParams implements Parcelable {
     public String timeZone;
     public long localTime = DEFAULT_LOCAL_TIME;
     public Locale locale;
+
+    // Intent extra used internally for passing data between activities and service.
+    /* package */ static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
     public static class WifiInfo {
         public String ssid;
@@ -78,6 +82,7 @@ public class ProvisioningParams implements Parcelable {
     public String deviceAdminPackageName; // Package name of the device admin package.
     public ComponentName deviceAdminComponentName;
     public ComponentName deviceInitializerComponentName;
+    public Account accountToMigrate;
 
     private ComponentName inferedDeviceAdminComponentName;
 
@@ -168,6 +173,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(startedByNfc ? 1 : 0);
         out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
         out.writeInt(skipEncryption ? 1 : 0);
+        out.writeParcelable(accountToMigrate, 0 /* default */);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -190,6 +196,8 @@ public class ProvisioningParams implements Parcelable {
             params.startedByNfc = in.readInt() == 1;
             params.leaveAllSystemAppsEnabled = in.readInt() == 1;
             params.skipEncryption = in.readInt() == 1;
+            params.accountToMigrate =
+                    (Account) in.readParcelable(null /* use default classloader */);
             return params;
         }
 

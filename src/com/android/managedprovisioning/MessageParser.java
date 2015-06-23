@@ -28,6 +28,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE;
@@ -49,6 +50,7 @@ import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC_V2;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import android.accounts.Account;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -72,7 +74,8 @@ import java.util.Properties;
 
 /**
  * This class can initialize a {@link ProvisioningParams} object from an intent.
- * A {@link ProvisioningParams} object stores various parameters for the device owner provisioning.
+ * A {@link ProvisioningParams} object stores various parameters both for the device owner
+ * provisioning and profile owner provisioning.
  * There are two kinds of intents that can be parsed it into {@link ProvisioningParams}:
  *
  * <p>
@@ -106,14 +109,17 @@ import java.util.Properties;
  * applicable {@link #EXTRA_PROVISIONING_WIFI_HIDDEN},
  * {@link #EXTRA_PROVISIONING_WIFI_SECURITY_TYPE}, {@link #EXTRA_PROVISIONING_WIFI_PASSWORD},
  * {@link #EXTRA_PROVISIONING_WIFI_PROXY_HOST}, {@link #EXTRA_PROVISIONING_WIFI_PROXY_PORT},
- * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS}.
+ * {@link #EXTRA_PROVISIONING_WIFI_PROXY_BYPASS},
+ * The optional parcelable account {@link #EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE} specifies the
+ * account that has to be migrated from primary user to managed user in case of
+ * profile owner provisioning.
  * A typical use case would be the {@link BootReminder} sending the intent after device encryption
  * and reboot.
  *
  * <p>
  * Furthermore this class can construct the bundle of extras for the second kind of intent given a
  * {@link ProvisioningParams}, and it keeps track of the types of the extras in the
- * DEVICE_OWNER_x_EXTRAS, with x the appropriate type.
+ * DEVICE_OWNER_x_EXTRAS and PROFILE_OWNER_x_EXTRAS, with x the appropriate type.
  */
 public class MessageParser {
     private static final String EXTRA_PROVISIONING_STARTED_BY_NFC  =
@@ -121,7 +127,27 @@ public class MessageParser {
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
 
-    protected static final String[] DEVICE_OWNER_STRING_EXTRAS = {
+    /* package */ static final String[] PROFILE_OWNER_STRING_EXTRAS = {
+        // Key for the device admin package name
+        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
+    };
+
+    /* package */ static final String[] PROFILE_OWNER_ACCOUNT_EXTRAS = {
+        // Key for the account extras
+        EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE
+    };
+
+    /* package */ static final String[] PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
+        // Key for the admin extras bundle
+        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
+    };
+
+    /* package */ static final String[] PROFILE_OWNER_COMPONENT_NAME_EXTRAS = {
+        // Key for the device admin component name
+        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
+    };
+
+    /* package */ static final String[] DEVICE_OWNER_STRING_EXTRAS = {
         EXTRA_PROVISIONING_TIME_ZONE,
         EXTRA_PROVISIONING_LOCALE,
         EXTRA_PROVISIONING_WIFI_SSID,
@@ -141,17 +167,17 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM
     };
 
-    protected static final String[] DEVICE_OWNER_LONG_EXTRAS = {
+    /* package */ static final String[] DEVICE_OWNER_LONG_EXTRAS = {
         EXTRA_PROVISIONING_LOCAL_TIME
     };
 
-    protected static final String[] DEVICE_OWNER_INT_EXTRAS = {
+    /* package */ static final String[] DEVICE_OWNER_INT_EXTRAS = {
         EXTRA_PROVISIONING_WIFI_PROXY_PORT,
         EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE
     };
 
-    protected static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
+    /* package */ static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
         EXTRA_PROVISIONING_WIFI_HIDDEN,
         EXTRA_PROVISIONING_STARTED_BY_NFC,
         EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
@@ -159,11 +185,11 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM
     };
 
-    protected static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
+    /* package */ static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
         EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
     };
 
-    protected static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
+    /* package */ static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
         EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
         EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME
     };
@@ -214,6 +240,7 @@ public class MessageParser {
                 params.leaveAllSystemAppsEnabled);
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
+        bundle.putParcelable(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
     }
 
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
@@ -396,6 +423,8 @@ public class MessageParser {
         params.leaveAllSystemAppsEnabled = intent.getBooleanExtra(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
+        params.accountToMigrate = (Account) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
@@ -484,6 +513,11 @@ public class MessageParser {
                 ProvisioningParams.DEFAULT_LOCAL_TIME);
         params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
                 false);
+
+        params.accountToMigrate = (Account) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+        params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
 
         checkValidityOfProvisioningParams(params);
         return params;

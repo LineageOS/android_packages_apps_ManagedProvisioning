@@ -65,10 +65,6 @@ public class DeviceOwnerProvisioningService extends Service {
             "com.android.phone.PERFORM_CDMA_PROVISIONING";
 
     // Intent actions and extras for communication from DeviceOwnerProvisioningService to Activity.
-    protected static final String EXTRA_PROVISIONING_PARAMS =
-            "ProvisioningParams";
-
-    // Intent actions and extras for communication from DeviceOwnerProvisioningActivity to Service.
     protected static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
     protected static final String ACTION_PROVISIONING_ERROR =
@@ -139,15 +135,16 @@ public class DeviceOwnerProvisioningService extends Service {
                 progressUpdate(R.string.progress_data_process);
 
                 // Load the ProvisioningParams (from message in Intent).
-                mParams = (ProvisioningParams) intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
+                mParams = (ProvisioningParams) intent.getParcelableExtra(
+                        ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
 
                 // Do the work on a separate thread.
                 new Thread(new Runnable() {
-                        public void run() {
-                            initializeProvisioningEnvironment(mParams);
-                            startDeviceOwnerProvisioning(mParams);
-                        }
-                    }).start();
+                    public void run() {
+                        initializeProvisioningEnvironment(mParams);
+                        startDeviceOwnerProvisioning(mParams);
+                    }
+                }).start();
             }
         }
         return START_NOT_STICKY;
@@ -163,50 +160,49 @@ public class DeviceOwnerProvisioningService extends Service {
         // Construct Tasks. Do not start them yet.
         mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.wifiInfo,
                 new AddWifiNetworkTask.Callback() {
-                       @Override
-                       public void onSuccess() {
-                           progressUpdate(R.string.progress_download);
-                           mDownloadPackageTask.run();
-                       }
+                    @Override
+                    public void onSuccess() {
+                        progressUpdate(R.string.progress_download);
+                        mDownloadPackageTask.run();
+                    }
 
-                       @Override
-                       public void onError(){
-                           error(R.string.device_owner_error_wifi,
-                                   false /* do not require factory reset */);
-                           }
-                       });
+                    @Override
+                    public void onError(){
+                        error(R.string.device_owner_error_wifi,
+                                false /* do not require factory reset */);
+                    }
+                });
 
         mDownloadPackageTask = new DownloadPackageTask(this,
                 new DownloadPackageTask.Callback() {
-                        @Override
-                        public void onSuccess() {
-                            progressUpdate(R.string.progress_install);
-                            mInstallPackageTask.addInstallIfNecessary(
-                                    params.inferDeviceAdminPackageName(),
-                                    mDownloadPackageTask.getDownloadedPackageLocation(
-                                            DEVICE_OWNER));
-                            mInstallPackageTask.addInstallIfNecessary(
-                                    params.getDeviceInitializerPackageName(),
-                                    mDownloadPackageTask.getDownloadedPackageLocation(
-                                            DEVICE_INITIALIZER));
-                            mInstallPackageTask.run();
-                        }
+                    @Override
+                    public void onSuccess() {
+                        progressUpdate(R.string.progress_install);
+                        mInstallPackageTask.addInstallIfNecessary(
+                                params.inferDeviceAdminPackageName(),
+                                mDownloadPackageTask.getDownloadedPackageLocation(DEVICE_OWNER));
+                        mInstallPackageTask.addInstallIfNecessary(
+                                params.getDeviceInitializerPackageName(),
+                                mDownloadPackageTask.getDownloadedPackageLocation(
+                                        DEVICE_INITIALIZER));
+                        mInstallPackageTask.run();
+                    }
 
-                        @Override
-                        public void onError(int errorCode) {
-                            switch(errorCode) {
-                                case DownloadPackageTask.ERROR_HASH_MISMATCH:
-                                    error(R.string.device_owner_error_hash_mismatch);
-                                    break;
-                                case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
-                                    error(R.string.device_owner_error_download_failed);
-                                    break;
-                                default:
-                                    error(R.string.device_owner_error_general);
-                                    break;
-                            }
+                    @Override
+                    public void onError(int errorCode) {
+                        switch(errorCode) {
+                            case DownloadPackageTask.ERROR_HASH_MISMATCH:
+                                error(R.string.device_owner_error_hash_mismatch);
+                                break;
+                            case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
+                                error(R.string.device_owner_error_download_failed);
+                                break;
+                            default:
+                                error(R.string.device_owner_error_general);
+                                break;
                         }
-                    });
+                    }
+                });
 
         // Add packages to download to the DownloadPackageTask.
         mDownloadPackageTask.addDownloadIfNecessary(params.inferDeviceAdminPackageName(),
@@ -355,9 +351,8 @@ public class DeviceOwnerProvisioningService extends Service {
         // the Setup wizard soon, which will result in a home intent that should be caught by the
         // HomeReceiverActivity.
         PackageManager pm = getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(DeviceOwnerProvisioningService.this,
-                        HomeReceiverActivity.class), PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);
+        pm.setComponentEnabledSetting(new ComponentName(this, HomeReceiverActivity.class),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
@@ -429,4 +424,3 @@ public class DeviceOwnerProvisioningService extends Service {
         return null;
     }
 }
-

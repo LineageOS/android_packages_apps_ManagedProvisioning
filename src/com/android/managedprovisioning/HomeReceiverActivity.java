@@ -17,33 +17,41 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
+import android.accounts.Account;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.UserHandle;
 
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 
 /*
  * This class is used to make sure that we start the mdm after we shut the Setup wizard down.
- * The shut down of the Setup wizard is initiated in the DeviceOwnerProvisioningActivity by setting
- * Global.DEVICE_PROVISIONED. This will cause the Setup wizard to shut down and send a HOME intent.
- * Instead of opening the home screen we want to open the mdm, so the HOME intent is caught by this
- * activity instead, which notifies the DeviceOwnerProvisioningService to send the
+ * The shut down of the Setup wizard is initiated in the DeviceOwnerProvisioningActivity or
+ * ProfileOwnerProvisioningActivity by setting Global.DEVICE_PROVISIONED. This will cause the
+ * Setup wizard to shut down and send a HOME intent. Instead of opening the home screen we want
+ * to open the mdm, so the HOME intent is caught by this activity instead which will send the
  * ACTION_PROFILE_PROVISIONING_COMPLETE to the mdm, which will then open up.
  */
 
 public class HomeReceiverActivity extends Activity {
+
+    private ProvisioningParams mParams;
+
     @Override
-   public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
             finalizeProvisioning();
-            stopService(new Intent(this, DeviceOwnerProvisioningService.class));
         } finally {
             // Disable the HomeReceiverActivity. Make sure this is always called to prevent an
             // infinite loop of HomeReceiverActivity capturing HOME intent in case something fails.
@@ -53,19 +61,41 @@ public class HomeReceiverActivity extends Activity {
     }
 
     private void finalizeProvisioning() {
-        IntentStore store = BootReminder.getDeviceOwnerFinalizingIntentStore(this);
-        Intent intent = store.load();
-        if (intent == null) {
-            ProvisionLogger.loge("Fail to retrieve ProvisioningParams from intent store.");
+        mParams = loadProvisioningParamsFromStore(
+                BootReminder.getProfileOwnerFinalizingIntentStore(this));
+        if (mParams != null) {
+            // Finalizing provisioning: send complete intent to mdm.
+            finalizeProfileOwnerProvisioning();
             return;
         }
-        store.clear();
-        ProvisioningParams mParams;
-        try {
-            MessageParser parser = new MessageParser();
-            mParams = parser.parseNonNfcIntent(intent);
-        } catch (IllegalProvisioningArgumentException e) {
-            ProvisionLogger.loge("Failed to parse provisioning intent", e);
+        mParams = loadProvisioningParamsFromStore(
+                BootReminder.getDeviceOwnerFinalizingIntentStore(this));
+        if (mParams != null) {
+            finalizeDeviceOwnerProvisioning();
+        }
+    }
+
+    private void finalizeProfileOwnerProvisioning() {
+        Intent provisioningCompleteIntent = getProvisioningCompleteIntent();
+        if (provisioningCompleteIntent == null) {
+            return;
+        }
+
+        final UserHandle managedUserHandle = Utils.getManagedProfile(this);
+        if (managedUserHandle == null) {
+            ProvisionLogger.loge("Failed to retrieve the userHandle of the managed profile.");
+            return;
+        }
+        BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
+                mParams.accountToMigrate, mParams.deviceAdminPackageName);
+
+        sendOrderedBroadcastAsUser(provisioningCompleteIntent, managedUserHandle, null,
+                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
+    }
+
+    private void finalizeDeviceOwnerProvisioning() {
+        Intent provisioningCompleteIntent = getProvisioningCompleteIntent();
+        if (provisioningCompleteIntent == null) {
             return;
         }
 
@@ -77,21 +107,38 @@ public class HomeReceiverActivity extends Activity {
             disableComponent(mParams.deviceInitializerComponentName);
         }
 
-        // Finalizing provisioning: send complete intent to mdm.
-        Intent result = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        sendBroadcast(provisioningCompleteIntent);
+    }
+
+    private Intent getProvisioningCompleteIntent() {
+        Intent intent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
         try {
-            result.setComponent(mParams.inferDeviceAdminComponentName(this));
+            intent.setComponent(mParams.inferDeviceAdminComponentName(this));
         } catch (Utils.IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Failed to infer the device admin component name", e);
-            return;
+            return null;
         }
-        result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES | Intent.FLAG_RECEIVER_FOREGROUND);
         if (mParams.adminExtrasBundle != null) {
-            result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mParams.adminExtrasBundle);
+            intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mParams.adminExtrasBundle);
         }
-        sendBroadcast(result);
+        return intent;
+    }
+
+    private ProvisioningParams loadProvisioningParamsFromStore(IntentStore store) {
+        Intent intent = store.load();
+        if (intent == null) {
+            ProvisionLogger.loge("Fail to retrieve ProvisioningParams from intent store.");
+            return null;
+        }
+        store.clear();
+        ProvisioningParams params = null;
+        try {
+            params = (new MessageParser()).parseNonNfcIntent(intent);
+        } catch (IllegalProvisioningArgumentException e) {
+            ProvisionLogger.loge("Failed to parse provisioning intent", e);
+        }
+        return params;
     }
 
     private void disableComponent(ComponentName component) {
