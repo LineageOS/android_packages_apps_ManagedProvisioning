@@ -114,7 +114,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         // Initialize member variables from the intent, stop if the intent wasn't valid.
         try {
-            initialize(getIntent());
+            initialize(getIntent(), getPackageName().equals(getCallingPackage()));
         } catch (IllegalProvisioningArgumentException e) {
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
@@ -241,9 +241,11 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
      * Also checks whether type of admin extras bundle (if present) is PersistableBundle.
      *
      * @param intent The intent that started provisioning
+     * @param trusted Whether the intent is trusted or not.
      */
-    private void initialize(Intent intent) throws IllegalProvisioningArgumentException {
-        mParams = mParser.parseNonNfcIntent(intent);
+    private void initialize(Intent intent, boolean trusted)
+            throws IllegalProvisioningArgumentException {
+        mParams = mParser.parseNonNfcIntent(intent, trusted);
 
         mParams.deviceAdminComponentName = Utils.findDeviceAdmin(
                 mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, this);
