@@ -29,8 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Sine-set up ang iyong profile sa trabaho…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, access ng kumpanya, app at data na nauugnay sa profile, kasama na ang aktibidad sa network at ang impormasyon ng lokasyon ng iyong device."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, corporate na access, app at data na nauugnay sa device na ito, kasama ang aktibidad sa network at impormasyon ng lokasyon ng iyong device."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"May kakayahan ang iyong administrator na magsubaybay at mamahala ng mga setting, corporate na access, mga app, mga pahintulot at data na nauugnay sa device na ito, kabilang ang aktibidad ng network at ang impormasyon sa lokasyon ng iyong device.\n\nKung magpapatuloy ka, hindi mae-enable ang mga feature ng proteksyon sa pagnanakaw. Upang i-on ang proteksyon sa pagnanakaw, magkansela ngayon at i-set up ito bilang personal na device."</string>
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Kung magpapatuloy ka, hindi mae-enable ang mga feature ng proteksyon sa pagnanakaw. Upang i-on ang proteksyon sa pagnanakaw, magkansela ngayon at i-set up ito bilang personal na device."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Makipag-ugnayan sa iyong administrator para sa higit pang impormasyon, kasama na ang mga patakaran sa privacy ng iyong organisasyon."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Matuto nang higit pa"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"KANSELAHIN"</string>

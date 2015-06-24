@@ -29,8 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Setting up your work profile…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions and data associated with the profile, including network activity and your device\'s location information."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions and data associated with this device, including network activity and your device\'s location information."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions and data associated with this device, including network activity and your device\'s location information.\n\nIf you continue, theft protection features will not be enabled. To turn on theft protection, cancel now and set this up as a personal device."</string>
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"If you continue, theft protection features will not be enabled. To turn on theft protection, cancel now and set this up as a personal device."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contact your administrator for more information, including your organisation\'s privacy policies."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Learn more"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"CANCEL"</string>

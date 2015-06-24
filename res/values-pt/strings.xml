@@ -29,8 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando seu perfil de trabalho…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados com o perfil, incluindo a atividade na rede e informações de local do dispositivo."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados a este dispositivo, incluindo a atividade na rede e informações de local do dispositivo."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Seu administrador tem a capacidade de monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados a este dispositivo, incluindo atividade de rede e informações de localização do seu dispositivo.\n\nSe você continuar, os recursos da proteção contra roubo não serão ativados. Para ativá-la, cancele agora e configure este dispositivo como pessoal."</string>
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Se você continuar, os recursos da proteção contra roubo não serão ativados. Para ativá-la, cancele agora e configure este dispositivo como pessoal."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Entre em contato com o administrador para receber mais informações, incluindo as políticas de privacidade da organização."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saiba mais"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"CANCELAR"</string>

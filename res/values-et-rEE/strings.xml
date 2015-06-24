@@ -29,8 +29,8 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Tööprofiili seadistamine ..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Teie administraator saab jälgida ja hallata selle profiiliga seotud seadeid, ettevõtte juurdepääsu, rakendusi, lube ning andmeid, sh võrgutegevust ja seadme asukohateavet."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Teie administraator saab jälgida ja hallata selle seadmega seotud seadeid, ettevõtte juurdepääsu, rakendusi, lube ning andmeid, sh võrgutegevust ja seadme asukohateavet."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device_with_frp_disabled (3883091414453971876) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Teie administraator saab jälgida ja hallata seadmega seotud seadeid, ettevõtte juurdepääsu, rakendusi, lube ja andmeid, seahulgas võrgu kasutamist ja seadme asukohateavet.\n\nKui jätkate, ei lubata vargusvastase kaitse funktsioone. Vargusvastase kaitse sisselülitamiseks valige praegu käsk Tühista ja seadistage see isikliku seadmena."</string>
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Kui jätkate, ei lubata vargusvastase kaitse funktsioone. Vargusvastase kaitse sisselülitamiseks valige praegu käsk Tühista ja seadistage see isikliku seadmena."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Lisateabe saamiseks (sh organisatsiooni privaatsuseeskirjade kohta) võtke ühendust administraatoriga."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisateave"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"TÜHISTA"</string>
