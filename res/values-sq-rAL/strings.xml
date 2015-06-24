@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Po konfiguron profilin tënd të punës..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratori yt ka aftësinë e monitorimit dhe menaxhimit të cilësimeve, të qasjes së korporatës, të aplikacioneve, të lejeve dhe të të dhënave që lidhen me profilin, përfshi aktivitetin e rrjetit dhe informacionin e vendndodhjes së pajisjes tënde."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratori yt ka aftësinë e monitorimit dhe menaxhimit të cilësimeve, të qasjes së korporatës, të aplikacioneve, të lejeve dhe të të dhënave që lidhen me këtë pajisje, përfshi aktivitetin e rrjetit dhe informacionin e vendndodhjes së pajisjes tënde."</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Nëse vazhdon, funksionet e mbrojtjes nga vjedhja nuk do të aktivizohen. Për të aktivizuar mbrojtjen nga vjedhja, anuloje tani dhe konfiguroje këtë si një pajisje personale."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontakto administratorin tënd për më shumë informacion, përfshi politikat e privatësisë së organizatës tënde."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Mëso më shumë"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ANULO"</string>

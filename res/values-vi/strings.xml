@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Đang thiết lập hồ sơ công việc..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, các ứng dụng, quyền và dữ liệu được liên kết với hồ sơ, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, ứng dụng, quyền và dữ liệu được liên kết với thiết bị này, bao gồm hoạt động mạng và thông tin về vị trí của thiết bị."</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Nếu bạn tiếp tục, tính năng chống trộm sẽ không được bật. Để bật tính năng chống trộm, hãy hủy ngay bây giờ và thiết lập thiết bị này là thiết bị cá nhân."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hãy liên hệ với quản trị viên của bạn để biết thêm thông tin, bao gồm các chính sách bảo mật của tổ chức bạn."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"HỦY"</string>

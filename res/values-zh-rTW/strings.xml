@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在設定您的 Work 設定檔…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"您的管理員可以監控及管理與這個設定檔相關聯的設定、公司系統權限、應用程式、權限和資料，包括網路活動和裝置的位置資訊。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"您的管理員可以監控及管理與這台裝置相關聯的設定、公司系統權限、應用程式、權限和資料，包括網路活動和裝置的位置資訊。"</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"如果您繼續設定，裝置將不會啟用防盜功能。如要啟用防盜功能，請立即取消設定，並將這部裝置設為個人裝置。"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"如需詳細資訊 (包括貴機構的隱私權政策)，請洽您的管理員。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"暸解詳情"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"取消"</string>
