@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Inaweka mipangilio ya wasifu wako wa kazi..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, ufikiaji wa kampuni, programu na data inayohusiana na wasifu huu, ikiwa ni pamoja na shughuli kwenye mtandao na maelezo kuhusu mahali kilipo kifaa chako."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia ya kampuni, programu, ruhusa, na data zinazohusiana na kifaa hiki, ikiwa ni pamoja na shughuli za mtandao na maelezo ya mahali kilipo kifaa chako."</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ukiendelea, vipengele vya ulinzi dhidi ya wizi havitawashwa. Ili kuwasha vipengee vya ulinzi dhidi ya wizi, ghairi sasa na ukipange kama kifaa cha binafsi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Wasiliana na msimamizi wako kwa maelezo zaidi, ikiwa ni pamoja na sera za faragha za shirika lako."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pata maelezo zaidi"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"GHAIRI"</string>

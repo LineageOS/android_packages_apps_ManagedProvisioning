@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Konfigurerer arbeidsprofilen din …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data som er tilknyttet denne profilen, inkludert nettverksaktivitet og enhetens posisjonsinformasjon."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper og data som er tilknyttet denne enheten, inkludert nettverksaktivitet og enhetens posisjonsinformasjon."</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Hvis du fortsetter, blir ikke funksjonene for tyveribeskyttelse slått på. For å slå på tyveribeskyttelse, avbryt nå og konfigurer denne enheten som en personlig enhet."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hvis du vil ha mer informasjon, inkludert organisasjonens retningslinjer for personvern, kan du kontakte administratoren din."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Finn ut mer"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"AVBRYT"</string>

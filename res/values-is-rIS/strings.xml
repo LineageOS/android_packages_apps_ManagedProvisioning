@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Setur upp vinnusniðið…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum, heimildum og gögnum sem tengjast þessu sniði, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum, heimildum og gögnum sem tengjast þessu tæki, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ef þú heldur áfram verða þjófavarnareiginleikar ekki gerðir virkir. Ef þú vilt gera þjófavörn virka skaltu hætta við núna og setja þetta upp sem persónulegt tæki."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hafðu samband við kerfisstjórann til að fá frekari upplýsingar, þar á meðal um persónuverndarstefnu fyrirtækisins."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Frekari upplýsingar"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"HÆTTA VIÐ"</string>

@@ -29,8 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Arbeitsprofil wird eingerichtet…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Ihr Administrator kann die mit diesem Profil verknüpften Einstellungen, Unternehmenszugriffsrechte, Apps, Berechtigungen und Daten überwachen und verwalten, einschließlich der Netzwerkaktivitäten und der Standortinformationen Ihres Geräts."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Ihr Administrator kann die mit diesem Gerät verbundenen Einstellungen, Unternehmenszugriffsrechte, Apps, Berechtigungen und Daten überwachen und verwalten, einschließlich der Netzwerkaktivitäten und der Standortinformationen Ihres Geräts."</string>
-    <!-- no translation found for theft_protection_disabled_warning (8132394739905501698) -->
-    <skip />
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Wenn Sie fortfahren, werden die Funktionen zum Schutz vor Diebstahl nicht aktiviert. Um den Diebstahlschutz zu aktivieren, brechen Sie den Vorgang jetzt ab und richten Sie das Gerät als persönliches Gerät ein."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Weitere Informationen, auch zur Datenschutzerklärung Ihrer Organisation, erhalten Sie bei Ihrem Administrator."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"Abbrechen"</string>
