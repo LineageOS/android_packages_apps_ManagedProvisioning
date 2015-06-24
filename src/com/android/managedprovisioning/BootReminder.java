@@ -88,9 +88,8 @@ public class BootReminder extends BroadcastReceiver {
                     // Show reminder notification and then forget about it for next boot
                     setNotification(context, resumeProfileOwnerPrvIntent);
                 } else {
-                    resumeProfileOwnerPrvIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     resumeProfileOwnerPrvIntent.setAction(ACTION_PROVISION_MANAGED_PROFILE);
-                    context.startActivity(resumeProfileOwnerPrvIntent);
+                    TrampolineActivity.startActivity(context, resumeProfileOwnerPrvIntent);
                 }
             }
 
@@ -100,10 +99,9 @@ public class BootReminder extends BroadcastReceiver {
             Intent resumeDeviceOwnerPrvIntent = deviceOwnerIntentStore.load();
             if (resumeDeviceOwnerPrvIntent != null) {
                 deviceOwnerIntentStore.clear();
-                resumeDeviceOwnerPrvIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 resumeDeviceOwnerPrvIntent.setAction(
                         DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE);
-                context.startActivity(resumeDeviceOwnerPrvIntent);
+                TrampolineActivity.startActivity(context, resumeDeviceOwnerPrvIntent);
             }
         }
     }

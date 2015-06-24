@@ -112,7 +112,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
         try {
-            mParams = parseIntentAndMaybeVerifyCaller(getIntent(), parser);
+            mParams = parseIntentAndMaybeVerifyCaller(getIntent(),
+                    getPackageName().equals(getCallingPackage()), parser);
         } catch (Utils.IllegalProvisioningArgumentException e) {
             showErrorAndClose(R.string.device_owner_error_general,
                     e.getMessage());
@@ -145,20 +146,20 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         setTitle(R.string.setup_device_start_setup);
     }
 
-    private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, MessageParser parser)
-            throws IllegalProvisioningArgumentException {
+    private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, boolean trusted,
+            MessageParser parser) throws IllegalProvisioningArgumentException {
         if (intent.getAction() == null) {
             throw new IllegalProvisioningArgumentException("Null intent action.");
         } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
             return parser.parseNfcIntent(intent);
         } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
-            return parser.parseNonNfcIntent(intent);
+            return parser.parseNonNfcIntent(intent, trusted);
         } else if (intent.getAction().equals(ACTION_PROVISION_SECONDARY_USER)) {
             if (Utils.isCurrentUserOwner()) {
                 throw new IllegalProvisioningArgumentException("Permission denied. " +
                     "Was this activity started for a secondary user?");
             }
-            return parser.parseNonNfcIntent(intent);
+            return parser.parseNonNfcIntent(intent, trusted);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE)) {
             ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent);
             String callingPackage = getCallingPackage();
