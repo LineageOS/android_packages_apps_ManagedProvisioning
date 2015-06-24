@@ -137,6 +137,12 @@
             android:theme="@style/SetupWorkSpaceTheme">
         </activity>
 
+        <activity
+            android:name=".TrampolineActivity"
+            android:theme="@*android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true">
+        </activity>
+
         <service
             android:name="ProfileOwnerProvisioningService" >
         </service>
