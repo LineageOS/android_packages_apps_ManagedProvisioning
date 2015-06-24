@@ -332,8 +332,7 @@ public class Utils {
                         AccountManager.KEY_INTENT);
                 if (removeIntent != null) {
                     ProvisionLogger.logi("Starting activity to remove account");
-                    removeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(removeIntent);
+                    TrampolineActivity.startActivity(context, removeIntent);
                 } else {
                     ProvisionLogger.logw("Could not remove account from the primary user.");
                 }
