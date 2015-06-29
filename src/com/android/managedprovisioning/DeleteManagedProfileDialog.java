@@ -15,10 +15,12 @@ package com.android.managedprovisioning;
  * limitations under the License.
  */
 
+import android.annotation.Nullable;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,16 +45,23 @@ public class DeleteManagedProfileDialog extends DialogFragment {
      * @param managedProfileUserId user-id for the managed profile which will be passed back to the
      *     parent component in the {@link DeleteManagedProfileCallback#onRemoveProfileApproval(int)}
      *     call
-     * @param mdmPackagename package name of the MDM application for the current managed profile
+     * @param mdmPackagename package name of the MDM application for the current managed profile, or
+     *     null if the managed profile has no profile owner associated.
      * @param profileOwnerDomain domain name of the organization which owns the managed profile, or
      *     null if not known
      * @return initialized dialog
      */
     public static DeleteManagedProfileDialog newInstance(
-            int managedProfileUserId, ComponentName mdmPackagename, String profileOwnerDomain) {
+            int managedProfileUserId, @Nullable ComponentName mdmPackagename,
+            @Nullable String profileOwnerDomain) {
         Bundle args = new Bundle();
         args.putInt(KEY_USER_PROFILE_CALLBACK_ID, managedProfileUserId);
-        args.putString(KEY_MDM_PACKAGE_NAME, mdmPackagename.getPackageName());
+        // The device could be in a inconsistent state where it has a managed profile but no
+        // associated profile owner package, for example after an unexpected reboot in the middle
+        // of provisioning.
+        if (mdmPackagename != null) {
+            args.putString(KEY_MDM_PACKAGE_NAME, mdmPackagename.getPackageName());
+        }
         args.putString(KEY_PROFILE_OWNER_DOMAIN, profileOwnerDomain);
 
         DeleteManagedProfileDialog dialog = new DeleteManagedProfileDialog();
@@ -71,18 +80,26 @@ public class DeleteManagedProfileDialog extends DialogFragment {
         final int callbackUserProfileId = arguments.getInt(KEY_USER_PROFILE_CALLBACK_ID);
         String mdmPackageName = arguments.getString(KEY_MDM_PACKAGE_NAME);
 
-        MdmPackageInfo mdmPackageInfo = Utils.getMdmPackageInfo(
-                getActivity().getPackageManager(), mdmPackageName);
+        String appLabel;
+        Drawable appIcon;
+        if (mdmPackageName != null) {
+            MdmPackageInfo mdmPackageInfo = Utils.getMdmPackageInfo(
+                    getActivity().getPackageManager(), mdmPackageName);
+            appLabel = mdmPackageInfo.getAppLabel();
+            appIcon = mdmPackageInfo.getPackageIcon();
+        } else {
+            appLabel= getResources().getString(android.R.string.unknownName);
+            appIcon = getActivity().getPackageManager().getDefaultActivityIcon();
+        }
 
         final Dialog dialog = new Dialog(getActivity(), R.style.ManagedProvisioningDialogTheme);
         dialog.setTitle(R.string.delete_profile_title);
         dialog.setContentView(R.layout.delete_managed_profile_dialog);
         dialog.setCanceledOnTouchOutside(false);
 
-        String appLabel = mdmPackageInfo.getAppLabel();
         ImageView imageView = (ImageView) dialog.findViewById(
                 R.id.delete_managed_profile_mdm_icon_view);
-        imageView.setImageDrawable(mdmPackageInfo.getPackageIcon());
+        imageView.setImageDrawable(appIcon);
         imageView.setContentDescription(
                     getResources().getString(R.string.mdm_icon_label, appLabel));
 
