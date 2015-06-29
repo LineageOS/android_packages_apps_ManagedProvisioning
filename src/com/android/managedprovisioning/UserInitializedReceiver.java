@@ -51,14 +51,14 @@ public class UserInitializedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent receivedIntent) {
         ProvisionLogger.logi("User is initialized");
-        if (!Utils.isCurrentUserOwner() && !Utils.isManagedProfile(context)) {
+        DevicePolicyManager dpm = (DevicePolicyManager)
+                context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        if (!Utils.isCurrentUserOwner() && !Utils.isManagedProfile(context) &&
+                dpm != null && dpm.getDeviceInitializerApp() != null) {
+            ProvisionLogger.logi("Initializing secondary user with a device initializer. " +
+                    "Starting managed provisioning.");
             requestCACerts(context);
-
-            if (Utils.hasDeviceOwner(context)) {
-                ProvisionLogger.logi("Initializing secondary user with a device owner. " +
-                        "Starting managed provisioning.");
-                launchManagedProvisioning(context);
-            }
+            launchManagedProvisioning(context);
         }
     }
 
