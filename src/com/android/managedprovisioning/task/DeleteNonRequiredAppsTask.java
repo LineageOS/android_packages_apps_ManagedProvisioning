@@ -32,6 +32,8 @@ import android.content.res.Resources;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Xml;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
 
 import com.android.internal.util.FastXmlSerializer;
 import com.android.managedprovisioning.ProvisionLogger;
@@ -80,6 +82,7 @@ public class DeleteNonRequiredAppsTask {
     private final List<String> mVendorRequiredAppsList;
     private final List<String> mVendorDisallowedAppsList;
     private final int mUserId;
+    private final int mProvisioningType;
     private final boolean mNewProfile; // If we are provisioning a new managed profile/device.
     private final boolean mLeaveAllSystemAppsEnabled;
 
@@ -99,6 +102,7 @@ public class DeleteNonRequiredAppsTask {
         mCallback = callback;
         mContext = context;
         mMdmPackageName = mdmPackageName;
+        mProvisioningType = provisioningType;
         mUserId = userId;
         mNewProfile = newProfile;
         mLeaveAllSystemAppsEnabled = leaveAllSystemAppsEnabled;
@@ -109,18 +113,18 @@ public class DeleteNonRequiredAppsTask {
         int vendorRequiredAppsListArray;
         int disallowedAppsListArray;
         int vendorDisallowedAppsListArray;
-        if (provisioningType == DEVICE_OWNER) {
+        if (mProvisioningType == DEVICE_OWNER) {
             requiredAppsListArray = R.array.required_apps_managed_device;
             disallowedAppsListArray = R.array.disallowed_apps_managed_device;
             vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_device;
             vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_device;
-        } else if (provisioningType == PROFILE_OWNER) {
+        } else if (mProvisioningType == PROFILE_OWNER) {
             requiredAppsListArray = R.array.required_apps_managed_profile;
             disallowedAppsListArray = R.array.disallowed_apps_managed_profile;
             vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_profile;
             vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_profile;
         } else {
-            throw new IllegalArgumentException("Provisioning type " + provisioningType +
+            throw new IllegalArgumentException("Provisioning type " + mProvisioningType +
                     " not supported.");
         }
 
@@ -169,6 +173,10 @@ public class DeleteNonRequiredAppsTask {
         Set<String> packagesToDelete = newApps;
         packagesToDelete.removeAll(getRequiredApps());
         Set<String> packagesToRetain = getCurrentAppsWithLauncher();
+        // Don't delete the system input method packages in case of Device owner provisioning.
+        if (mProvisioningType == DEVICE_OWNER) {
+            packagesToRetain.removeAll(getSystemInputMethods());
+        }
         packagesToRetain.addAll(getDisallowedApps());
         packagesToDelete.retainAll(packagesToRetain);
 
@@ -233,6 +241,20 @@ public class DeleteNonRequiredAppsTask {
             apps.add(resolveInfo.activityInfo.packageName);
         }
         return apps;
+    }
+
+    private Set<String> getSystemInputMethods() {
+        final InputMethodManager inputMethodManager =
+                (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+        List<InputMethodInfo> inputMethods = inputMethodManager.getInputMethodList();
+        Set<String> systemInputMethods = new HashSet<String>();
+        for (InputMethodInfo inputMethodInfo : inputMethods) {
+            ApplicationInfo applicationInfo = inputMethodInfo.getServiceInfo().applicationInfo;
+            if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                systemInputMethods.add(inputMethodInfo.getPackageName());
+            }
+        }
+        return systemInputMethods;
     }
 
     private void writeSystemApps(Set<String> packageNames, File systemAppsFile) {
