@@ -303,6 +303,9 @@ public class ProfileOwnerProvisioningService extends Service {
         if (!startManagedProfile(mManagedProfileUserInfo.id)) {
             throw raiseError("Could not start user in background");
         }
+        // Note: account migration must happen after setting the profile owner.
+        // Otherwise, there will be a time interval where some apps may think that the account does
+        // not have a profile owner.
         copyAccount();
     }
 
