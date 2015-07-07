@@ -28,6 +28,7 @@
     <string name="setting_up_workspace" msgid="6116976629983614927">"Menyiapkan profil kerja Anda..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administrator Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, dan data yang terkait dengan profil ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administrator Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, dan data yang terkait dengan perangkat ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Administrator dapat memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data terkait perangkat ini, termasuk aktivitas jaringan dan informasi lokasi perangkat.\n\nJika Anda melanjutkan, fitur perlindungan dari pencurian tidak akan diaktifkan. Untuk mengaktifkan perlindungan dari pencurian, batalkan sekarang dan siapkan sebagai perangkat pribadi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hubungi administrator untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pelajari lebih lanjut"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Batal"</string>

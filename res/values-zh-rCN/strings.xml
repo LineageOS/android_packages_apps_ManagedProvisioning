@@ -28,6 +28,7 @@
     <string name="setting_up_workspace" msgid="6116976629983614927">"正在设置您的工作资料…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用以及数据（其中包括网络活动和您设备的位置信息）。"</string>
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"您的管理员能够监控和管理与此设备相关的设置、企业权限、应用、权限和数据，包括网络活动和设备的位置信息。\n\n如果您继续，设备将不会启用防盗保护功能。要启用防盗保护功能，请立即取消相关操作并将此设备设置为个人设备。"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>

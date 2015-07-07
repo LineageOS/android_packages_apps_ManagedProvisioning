@@ -28,6 +28,7 @@
     <string name="setting_up_workspace" msgid="6116976629983614927">"Määritetään työprofiilia…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Järjestelmänvalvoja voi valvoa ja hallinnoida asetuksia, yrityskäyttöä, profiiliin liitettyjä sovelluksia ja tietoja, kuten verkon käyttöä ja laitteen sijaintitietoja."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Järjestelmänvalvoja voi valvoa ja hallinnoida asetuksia, yrityskäyttöä, sovelluksia ja tähän laitteeseen liittyviä tietoja, kuten verkon käyttöä ja laitteen sijaintitietoja."</string>
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Järjestelmänvalvojasi voi valvoa ja hallinnoida asetuksia, yrityksen käyttöoikeuksia, sovelluksia, käyttöoikeuksia ja tähän laitteeseen yhdistettyjä tietoja, mukaan lukien verkkotoimintaa ja laitteesi sijaintitietoja.\n\nJos jatkat, varkaudenesto-ominaisuuksia ei oteta käyttöön. Jos haluat ottaa varkaudeneston käyttöön, peruuta tämä toiminto ja määritä tämä henkilökohtaiseksi laitteeksesi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Pyydä järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisätietoja"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Peruuta"</string>

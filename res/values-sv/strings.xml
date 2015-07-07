@@ -28,6 +28,7 @@
     <string name="setting_up_workspace" msgid="6116976629983614927">"Konfigurerar arbetsprofilen …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administratören har möjlighet att kontrollera och hantera inställningar, företagsåtkomst, appar och data som är kopplade till profilen, inklusive nätverksaktivitet och enhetens platsuppgifter."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administratören kan övervaka och hantera inställningar, företagsåtkomst, appar och data på den här enheten, inklusive nätverksaktivitet och enhetens platsuppgifter."</string>
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Administratören kan övervaka och hantera inställningar, företagsåtkomst, appar, behörigheter och uppgifter som är kopplade till den här enheten, inklusive nätverksaktivitet och enhetens platsinformation.\n\nOm du fortsätter aktiveras inte stöldskyddsfunktioner. Om du vill aktivera stöldskydd avbryter du nu och konfigurerar enheten som en privat enhet."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontakta administratören om du vill veta mer, inklusive om du vill veta mer om organisationens sekretesspolicy."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Läs mer"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Avbryt"</string>

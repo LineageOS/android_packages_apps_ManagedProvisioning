@@ -28,6 +28,7 @@
     <string name="setting_up_workspace" msgid="6116976629983614927">"Konfigurowanie profilu do pracy..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8782160676037188061">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje i dane powiązane z profilem (w tym aktywność w sieci i informacje o lokalizacji Twojego urządzenia) oraz nimi zarządzać."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="4534011355086694158">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje i dane powiązane z tym urządzeniem (w tym aktywność w sieci i informacje o lokalizacji) oraz nimi zarządzać."</string>
+    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Twój administrator może monitorować ustawienia, dostęp do zasobów firmowych, aplikacje, uprawnienia oraz dane powiązane z tym urządzeniem (w tym aktywność w sieci i informacje o lokalizacji), a także nimi zarządzać.\n\nJeśli przejdziesz dalej, funkcje ochrony przed kradzieżą nie zostaną włączone. Aby je włączyć, anuluj teraz i skonfiguruj to urządzenie jako prywatne."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Aby dowiedzieć się więcej i poznać politykę prywatności swojej organizacji, skontaktuj się z administratorem."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Więcej informacji"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Anuluj"</string>
