@@ -57,7 +57,7 @@
     <string name="cancel_provisioning" msgid="3753408161948407036">"لغو"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"تأیید"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کاربر دستگاه کاری"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"تنظیم دستگاه"</string>
+    <string name="setup_work_device" msgid="3028145936574439146">"تنظیم کردن دستگاه"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"در حال پردازش داده‌های تنظیم…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏در حال برقراری اتصال به Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"در حال دانلود برنامه سرپرست…"</string>
@@ -67,7 +67,7 @@
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"لغو"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"تأیید"</string>
     <string name="device_owner_error_reset" msgid="5278392395769857412">"بازنشانی"</string>
-    <string name="device_owner_error_general" msgid="5962462955470123776">"دستگاه‌تان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
+    <string name="device_owner_error_general" msgid="5962462955470123776">"دستگاهتان تنظیم نشد. با بخش فناوری اطلاعاتتان تماس بگیرید."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"این دستگاه از قبل راه‌اندازی شده است."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"این دستگاه از قبل برای این کاربر راه‌اندازی شده است."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏اتصال به Wi-Fi ممکن نیست"</string>
@@ -91,9 +91,9 @@
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"نمایه‌تان را راه‌اندازی کنید. شروع تنظیم"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"نمایه‌تان را راه‌اندازی کنید. رمزگذاری"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"نمایه‌تان را راه‌اندازی کنید. نمایش پیشرفت"</string>
-    <string name="setup_device_start_setup" msgid="4351340224000741826">"دستگاهتان را راه‌اندازی کنید. شروع راه‌اندازی"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"دستگاهتان را راه‌اندازی کنید. رمزگذاری"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"دستگاهتان را راه‌اندازی کنید. نمایش پیشرفت"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"دستگاهتان را تنظیم کنید. شروع تنظیم"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"دستگاهتان را تنظیم کنید. رمزگذاری"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"دستگاهتان را تنظیم کنید. نمایش پیشرفت"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"دکمه بیشتر بدانید"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"نماد <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
 </resources>
