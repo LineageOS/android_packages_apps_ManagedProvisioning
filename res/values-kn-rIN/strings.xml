@@ -58,7 +58,7 @@
     <string name="cancel_provisioning" msgid="3753408161948407036">"ರದ್ದುಮಾಡು"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ಸರಿ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ಕೆಲಸದ ಸಾಧನದ ಬಳಕೆದಾರರು"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಿ"</string>
+    <string name="setup_work_device" msgid="3028145936574439146">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ಸೆಟಪ್‌ ಡೇಟಾ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ವೈ-ಫೈಗೆ ಸಂಪರ್ಕಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
@@ -92,9 +92,9 @@
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಿ. ಸೆಟಪ್‌ ಪ್ರಾರಂಭಿಸಿ"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ. ಎನ್‌ಕ್ರಿಪ್ಶನ್"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಿ. ಪ್ರಗತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"</string>
-    <string name="setup_device_start_setup" msgid="4351340224000741826">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಿ. ಸೆಟಪ್‌ ಪ್ರಾರಂಭಿಸಿ"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಿ. ಎನ್‌ಕ್ರಿಪ್ಶನ್"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಿ. ಪ್ರಗತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ. ಸೆಟಪ್‌ ಪ್ರಾರಂಭಿಸಿ"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ. ಎನ್‌ಕ್ರಿಪ್ಶನ್"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ. ಪ್ರಗತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ ಬಟನ್‌"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ಐಕಾನ್‌"</string>
 </resources>
