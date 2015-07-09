@@ -54,7 +54,7 @@ public class UserInitializedReceiver extends BroadcastReceiver {
         DevicePolicyManager dpm = (DevicePolicyManager)
                 context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         if (!Utils.isCurrentUserOwner() && !Utils.isManagedProfile(context) &&
-                dpm != null && dpm.getDeviceInitializerApp() != null) {
+                Utils.hasDeviceInitializer(context)) {
             ProvisionLogger.logi("Initializing secondary user with a device initializer. " +
                     "Starting managed provisioning.");
             requestCACerts(context);
