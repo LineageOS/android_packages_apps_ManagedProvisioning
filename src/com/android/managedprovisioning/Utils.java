@@ -235,6 +235,12 @@ public class Utils {
         return !TextUtils.isEmpty(dpm.getDeviceOwner());
     }
 
+    public static boolean hasDeviceInitializer(Context context) {
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        return dpm != null && dpm.getDeviceInitializerApp() != null;
+    }
+
     public static boolean isManagedProfile(Context context) {
         UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
         UserInfo user = um.getUserInfo(UserHandle.myUserId());
