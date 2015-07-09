@@ -132,7 +132,9 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         // Have the user pick a wifi network if necessary.
         if (!NetworkMonitor.isConnectedToNetwork(this)
-                && TextUtils.isEmpty(mParams.wifiInfo.ssid)) {
+                && TextUtils.isEmpty(mParams.wifiInfo.ssid)
+                // If a device initializer is installed, this shouldn't run on secondary users.
+                && (!Utils.hasDeviceInitializer(this) || Utils.isCurrentUserOwner())) {
             requestWifiPick();
             return;
             // Wait for onActivityResult.

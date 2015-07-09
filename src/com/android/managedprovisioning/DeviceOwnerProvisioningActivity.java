@@ -33,8 +33,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.managedprovisioning.task.AddWifiNetworkTask;
-
 import java.util.ArrayList;
 import java.util.List;
 
