@@ -208,7 +208,11 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void askForConsentOrStartProvisioning() {
-        if (mUserConsented || mParams.startedByNfc || !Utils.isCurrentUserOwner()) {
+        // If we are started by Nfc and the device supports FRP, we need to ask for user consent
+        // since FRP will not be activated at the end of the flow.
+        if (mParams.startedByNfc && Utils.isFrpSupported(this)) {
+            showUserConsentDialog();
+        } else if (mUserConsented || mParams.startedByNfc || !Utils.isCurrentUserOwner()) {
             startDeviceOwnerProvisioning();
         } else {
             showStartProvisioningButton();
@@ -326,13 +330,26 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void onDialogCancel() {
-        // Do nothing.
+        // For Nfc provisioning, we automatically show the user consent dialog if applicable.
+        // If the user then decides to cancel, we should finish the entire activity and exit.
+        // For other cases, dismissing the consent dialog will lead back to
+        // DeviceOwnerPreProvisioningActivity, and we do nothing here.
+        if (mParams.startedByNfc) {
+            setResult(RESULT_CANCELED);
+            finish();
+        }
     }
 
     @Override
     public void onNavigateNext() {
-        // Notify the user that the admin will have full control over the device,
-        // then start provisioning.
+        showUserConsentDialog();
+    }
+
+    /**
+     * Notify the user that the admin will have full control over the device,
+     * then start provisioning.
+     */
+    private void showUserConsentDialog() {
         UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER)
                 .show(getFragmentManager(), "UserConsentDialogFragment");
     }

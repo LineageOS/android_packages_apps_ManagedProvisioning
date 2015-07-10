@@ -342,4 +342,10 @@ public class Utils {
             ProvisionLogger.logw("Exception removing account from the primary user.", e);
         }
     }
+
+    public static boolean isFrpSupported(Context context) {
+        Object pdbManager = context.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
+        return pdbManager != null;
+    }
+
 }
