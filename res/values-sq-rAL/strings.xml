@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Gabim!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Konfiguro profilin"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kontrolli dhe siguria e këtij profili menaxhohet nga organizata jote. Çdo gjë tjetër në pajisje kontrollohet nga ti."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Me \"Android për punë\", organizata mund të menaxhojë mail-in tënd të korporatës dhe aplikacione të tjera në telefonin ose tabletin tënd.\nOrganizata jote kontrollon pajisjen dhe e mban atë të sigurt."</string>
+    <string name="company_controls_device" msgid="3063783662183428327">"Me \"Android për punë\", organizata mund të menaxhojë mail-in tënd të korporatës dhe aplikacione të tjera në telefonin ose tabletin tënd.\nOrganizata jote e kontrollon dhe e mban të sigurt pajisjen tënde."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikacionit të mëposhtëm do i nevojitet qasje në këtë profil:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikacioni i mëposhtëm do të menaxhojë pajisjen tënde:"</string>
     <string name="set_up" msgid="7012862095553564169">"Organizo"</string>

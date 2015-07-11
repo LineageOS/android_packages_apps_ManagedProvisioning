@@ -70,7 +70,7 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കാനായില്ല. നിങ്ങളുടെ ഐടി വിഭാഗവുമായി ബന്ധപ്പെടുക."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ഈ ഉപകരണം ഇതിനകം തന്നെ സജ്ജീകരിച്ചിരിക്കുന്നു."</string>
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ഈ ഉപകരണം ഇതിനകം തന്നെ ഈ ഉപയോക്താവിനായി സജ്ജീകരിച്ചിരിക്കുന്നു."</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ലേക്ക് കണക്‌റ്റുചെയ്യാനായില്ല"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"വൈഫൈ ലേക്ക് കണക്‌റ്റുചെയ്യാനായില്ല"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ഫാക്‌ടറി പുനഃസജ്ജീകരണ പരിരക്ഷ ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണം ലോക്കുചെയ്തിരിക്കുന്നു. നിങ്ങളുടെ ഐടി വിഭാഗവുമായി ബന്ധപ്പെടുക."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ഒരു ചെക്ക്‌സം പിശക് കാരണം അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഉപയോഗിക്കാനായില്ല. നിങ്ങളുടെ ഐടി വിഭാഗവുമായി ബന്ധപ്പെടുക."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഡൗൺലോഡുചെയ്യാനായില്ല"</string>

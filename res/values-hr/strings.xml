@@ -42,8 +42,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ako nastavite, izbrisat će se sve aplikacije i podaci u profilu."</string>
     <string name="delete_profile" msgid="8384444459432563649">"IZBRIŠI"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ODUSTANI"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili s postavljanjem svog radnog profila, morat ćete kriptirati uređaj. To može potrajati."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Da biste nastavili s postavljanjem uređaja, morat ćete ga kriptirati. To može potrajati."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili s postavljanjem svog radnog profila, morat ćete šifrirati uređaj. To može potrajati."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Da biste nastavili s postavljanjem uređaja, morat ćete ga šifrirati. To može potrajati."</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ODUSTANI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"KRIPTIRAJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripcija je dovršena"</string>
