@@ -36,6 +36,12 @@
                 android:paddingTop="@dimen/row_padding_top"/>
 
             <TextView
+                android:id="@+id/learn_more_frp_warning"
+                style="@style/MainText"
+                android:text="@string/theft_protection_disabled_warning"
+                android:visibility="gone"/>
+
+            <TextView
                 android:id="@+id/learn_more_text2"
                 android:text="@string/contact_your_admin_for_more_info"
                 style="@style/MainText"/>
