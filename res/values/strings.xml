@@ -46,7 +46,6 @@
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
   <string name="admin_has_ability_to_monitor_device">Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this device, including network activity and your device\'s location information.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device, identical to "admin_has_ability_to_monitor_device" but with extra warning about theft protection being disabled. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_device_with_frp_disabled">Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this device, including network activity and your device\'s location information.\n\nIf you continue, theft protection features will not be enabled. To turn on theft protection, cancel now and set this up as a personal device.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will be disabled. [CHAR LIMIT=NONE]-->
   <string name="theft_protection_disabled_warning">If you continue, theft protection features will not be enabled. To turn on theft protection, cancel now and set this up as a personal device.</string>
   <!-- String telling the user how to get more information about their work profile-->
