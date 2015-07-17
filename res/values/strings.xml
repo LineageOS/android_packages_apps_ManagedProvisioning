@@ -17,8 +17,6 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- TODO: Review all strings before launch -->
-
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
 
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
@@ -146,6 +144,10 @@
   <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_frp">This device is locked by factory reset protection. Contact your IT department.</string>
+  <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
+  <string name="frp_clear_progress_title" >Erasing</string>
+  <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
+  <string name="frp_clear_progress_text">Please wait...</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_hash_mismatch">Couldn\'t use the admin app due to a checksum error. Contact your IT department.</string>
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
