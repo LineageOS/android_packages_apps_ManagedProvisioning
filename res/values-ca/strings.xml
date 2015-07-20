@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Aquest dispositiu ja està configurat per a aquest usuari."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No s\'ha pogut connectar a la Wi-Fi."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Aquest dispositiu està bloquejat per la protecció de restabliment de fàbrica. Contacta amb el departament de TI."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"S\'està esborrant"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No s\'ha pogut fer servir l\'aplicació d\'administració a causa d\'un error de la suma de comprovació. Contacta amb el departament de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No s\'ha pogut baixar l\'aplicació d\'administració."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"No es pot fer servir l\'aplicació d\'administració perquè està malmesa o hi falten components. Contacta amb el departament de TI."</string>

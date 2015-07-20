@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"یہ آلہ پہلے ہی اس صارف کیلئے ترتیب دیا جا چکا ہے۔"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏Wi-Fi سے منسلک نہیں کیا جا سکا"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"‏یہ آلہ فیکٹری ری سیٹ حفاظت کے ذریعے مقفل ہے۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"صاف کیا جا رہا ہے"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"براہ کرم انتظار کریں…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"‏checksum کی خرابی کی وجہ سے منتظم کی ایپ کا استعمال نہیں کیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"منتظم کی ایپ کو ڈاؤن لوڈ نہیں کیا جا سکا"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"‏منتظم کی ایپ کا استعمال نہیں کر سکتے۔ اس میں چھوٹے ہوئے اجزاء ہیں یا یہ خراب ہوگئی ہے۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں۔"</string>

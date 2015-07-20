@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Denne enhed er allerede konfigureret for denne bruger."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Der kunne ikke oprettes forbindelse til Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Denne enhed er låst, da den er beskyttet mod gendannelse af fabriksindstillingerne. Kontakt din it-afdeling."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter…"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent et øjeblik…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Administrationsappen kunne ikke bruges på grund af en fejl i kontrolsummen. Kontakt din it-afdeling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administrationsappen kunne ikke hentes"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrationsappen kan ikke bruges. Den mangler komponenter eller er beskadiget. Kontakt din it-afdeling."</string>

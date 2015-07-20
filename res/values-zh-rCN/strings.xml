@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"此设备已被恢复出厂设置保护功能锁定。请与您公司的 IT 部门联系。"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"正在清除"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"请稍候…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"由于校验和错误，无法使用此管理应用。请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"无法下载管理应用"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"由于缺少组件或软件包已损坏，无法使用此管理应用。请与您公司的IT部门联系。"</string>

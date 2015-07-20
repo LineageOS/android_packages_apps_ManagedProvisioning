@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Enheten har redan konfigurerats för den här användaren."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Det gick inte att ansluta till Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Enheten har låsts med ett skydd mot återställning av standardåterställningarna. Kontakta IT-avdelningen."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Rensar"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vänta ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Det gick inte att använda administrationsappen på grund av en felaktig kontrollsumma. Kontakta IT-avdelningen."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Det gick inte att ladda ned administrationsappen"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrationsappen kan inte användas. Komponenter saknas eller appen har skadats. Kontakta IT-avdelningen."</string>

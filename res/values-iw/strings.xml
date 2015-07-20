@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"המכשיר הזה כבר מוגדר בשביל המשתמש הזה."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏אין אפשרות להתחבר ל-Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"‏המכשיר הזה נעול באמצעות הגנה מפני איפוס לנתוני היצרן. פנה אל מחלקת ה-IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"מוחק"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"אנא המתן..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"‏לא ניתן להשתמש באפליקציית הניהול עקב שגיאה בסיכום הביקורת. צור קשר עם מחלקת ה-IT שלך."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"לא ניתן להוריד את אפליקציית הניהול"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"‏לא ניתן להשתמש באפליקציית הניהול. חסרים בה מרכיבים או שהיא פגומה. צור קשר עם מחלקת ה-IT שלך."</string>

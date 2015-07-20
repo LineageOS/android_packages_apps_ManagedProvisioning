@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Thiết bị này đã được thiết lập cho người dùng này."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Không thể kết nối với Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Thiết bị này bị khóa bởi tính năng bảo vệ chống khôi phục cài đặt gốc. Hãy liên hệ với bộ phận CNTT của bạn."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Đang xóa"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vui lòng chờ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Không sử dụng được ứng dụng quản trị do có lỗi kiểm tra tổng. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Không thể sử dụng ứng dụng quản trị. Ứng dụng thiếu thành phần hoặc bị lỗi. Hãy liên hệ với bộ phận CNTT."</string>

@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Questo dispositivo è già configurato per l\'utente."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Impossibile connettersi alla rete Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Questo dispositivo è bloccato dalla funzione di protezione dal ripristino dei dati di fabbrica. Contatta il reparto IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Cancellazione in corso"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Attendere prego…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Impossibile utilizzare l\'app dell\'amministratore per un errore di checksum. Contatta il tuo reparto IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Impossibile scaricare l\'app di amministrazione"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Impossibile utilizzare l\'app dell\'amministratore per componenti mancanti o danneggiati. Contatta il tuo reparto IT."</string>

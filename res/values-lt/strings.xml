@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Šis įrenginys jau nustatytas šiam naudotojui."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepavyko prisijungti prie „Wi-Fi“"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Šis įrenginys užrakintas taikant gamyklinių nustatymų apsaugą. Susisiekite su IT skyriumi."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ištrinama"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Palaukite..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nepavyko naudoti administratoriaus programos dėl kontrolinės sumos klaidos. Susisiekite su IT skyriumi."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nepavyko atsisiųsti administratoriaus programos"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Negalima naudoti administratoriaus programos. Trūksta jos komponentų arba ji sugadinta. Susisiekite su IT skyriumi."</string>

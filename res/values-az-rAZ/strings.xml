@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Bu cihaz artıq bu istifadəçi üçün quraşdırılıb."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi\'a qoşulmaq alınmadı"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu cihaz fabrik sıfırlaması qorunması ilə kilidlənib. IT departamentinizlə əlaqə saxlayın."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Silinir"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Lütfən, gözləyin..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ümumi yoxlanış xətasına görə admin tətbiqini istifadə etmək alınmadı. İnformasiya Texnologiyaları departamentinə müraciət edin."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Admin tətbiqini endirmək alınmadı"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Admin tətbiqini istifadə etmək olmur. Tətbiqin komponentləri çatışmır və ya tətbiq xarabdır. İnformasiya Texnologiyaları departamentinə müraciət edin."</string>

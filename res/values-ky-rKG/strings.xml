@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Бул түзмөк мурунтан эле ушул колдонуучу үчүн орнотулган."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi\'га туташкан жок"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Жөндөөлөр баштапкы абалга келтирилип жатканда түзмөк кулпуланып калды. IT бөлүмүңүзгө кайрылыңыз."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Өчүрүүдө"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Күтө туруңуз…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Жыйынтыктоочу сумма катасынан улам, администратордун колдонмосу иштеген жок. IT бөлүмүңүзгө кайрылыңыз."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Администратор колдонмосу жүктөлүп алынган жок"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Администратор колдонмосу иштебей жатат. Анын айрым курамдык бөлүктөрү жок же бузук. IT бөлүмүңүзгө кайрылыңыз."</string>

@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"This device has already been set up for this user."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"This device is locked by factory reset protection. Contact your IT department."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Erasing"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Please wait..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department."</string>

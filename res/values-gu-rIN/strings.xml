@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"આ ઉપકરણ પહેલાંથી જ આ વપરાશકર્તા માટે સેટ કરેલું છે."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi સાથે કનેક્ટ કરી શકાયું નથી"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"આ ઉપકરણ ફેક્ટરી ફરીથી સેટ કરો સુરક્ષા દ્વારા લૉક કરેલ છે. તમારા IT વિભાગનો સંપર્ક કરો."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"કાઢી નાંખી રહ્યું છે"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"કૃપા કરીને રાહ જુઓ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"એક ચેકસમ ભૂલને કારણે વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકાયો નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"વ્યવસ્થાપક એપ્લિકેશન ડાઉનલોડ કરી શકાઈ નથી"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકતાં નથી. તેમાં ઘટકો ખૂટે છે અથવા દૂષિત છે. તમારા IT વિભાગનો સંપર્ક કરો."</string>

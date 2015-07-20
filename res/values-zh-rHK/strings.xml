@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"已為此使用者完成裝置設定。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"無法連線至 Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"這個裝置已由原廠設定保護鎖定。請與您的 IT 部門聯絡。"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"正在清除"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"請稍候…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"管理員應用程式因校驗和錯誤而無法使用，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"無法下載管理員應用程式"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理員應用程式因缺少部分元件或已損毀而無法使用，請與您的 IT 部門聯絡。"</string>

@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Пристрій уже налаштовано для цього користувача."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не вдалося під’єднатися до мережі Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"На цьому пристрої заблоковано відновлення заводських налаштувань. Зв’яжіться з ІТ-відділом."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Стирання"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Зачекайте…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Не вдалося скористатися додатком адміністратора через помилку перевірки контрольної суми. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не вдалося завантажити додаток адміністратора"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Неможливо скористатися додатком адміністратора. У ньому немає певних компонентів або його пошкоджено. Зв’яжіться з ІТ-відділом."</string>
