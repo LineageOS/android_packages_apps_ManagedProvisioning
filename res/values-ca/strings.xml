@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"S\'està configurant el perfil professional..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"L\'administrador pot supervisar i gestionar la configuració, l\'accés corporatiu, les aplicacions i les dades associades amb el perfil, inclosa l\'activitat de xarxa i la informació d\'ubicació del dispositiu."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"L\'administrador pot supervisar i gestionar la configuració, l\'accés corporatiu, les aplicacions i les dades associades amb el dispositiu, inclosa l\'activitat de xarxa i la informació d\'ubicació del dispositiu."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"El teu administrador pot supervisar i gestionar la configuració, l\'accés corporatiu, les aplicacions, els permisos i les dades associades amb el dispositiu, inclosa l\'activitat de xarxa i la informació d\'ubicació del dispositiu.\n\nSi continues, les funcions de protecció contra robatoris no s\'activaran. Per activar-les, cancel·la l\'acció i configura aquest dispositiu com a personal."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Si continues, les funcions de protecció contra robatoris no s\'activaran. Per activar-les, cancel·la l\'acció i configura aquest dispositiu com a personal."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Contacta amb l\'administrador per obtenir més informació, incloses les polítiques de privadesa de la teva organització."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Més informació"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Aquest dispositiu ja està configurat per a aquest usuari."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No s\'ha pogut connectar a la Wi-Fi."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Aquest dispositiu està bloquejat per la protecció de restabliment de fàbrica. Contacta amb el departament de TI."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"S\'està esborrant"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No s\'ha pogut fer servir l\'aplicació d\'administració a causa d\'un error de la suma de comprovació. Contacta amb el departament de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No s\'ha pogut baixar l\'aplicació d\'administració."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"No es pot fer servir l\'aplicació d\'administració perquè està malmesa o hi falten components. Contacta amb el departament de TI."</string>

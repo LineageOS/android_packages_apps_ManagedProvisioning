@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavljanje delovnega profila …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Skrbnik lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s tem profilom, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Skrbnik lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s to napravo, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Skrbnik lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s to napravo, vključno z omrežno dejavnostjo in podatki o lokaciji naprave.\n\nČe nadaljujete, funkcije zaščite pred krajo ne bodo omogočene. Če želite vklopiti zaščito pred krajo, prekličite in napravo nastavite kot osebno."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Če nadaljujete, funkcije zaščite pred krajo ne bodo omogočene. Če želite vklopiti zaščito pred krajo, prekličite in napravo nastavite kot osebno."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Več o tem"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ta naprava je že nastavljena za tega uporabnika."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Z omrežjem Wi-Fi se ni mogoče povezati"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Naprava je zaklenjena z zaščito po ponastavitvi na tovarniške nastavitve. Obrnite na za oddelek za IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Brisanje"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Počakajte ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Skrbniške aplikacije ni bilo mogoče uporabiti zaradi napake kontrolne vsote. Obrnite se na oddelek za IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Skrbniške aplikacije ni bilo mogoče prenesti"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Skrbniške aplikacije ni mogoče uporabljati. Manjkajo ji komponente ali pa je poškodovana. Obrnite se na oddelek za IT."</string>

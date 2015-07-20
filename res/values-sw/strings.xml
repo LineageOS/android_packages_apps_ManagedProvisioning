@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Inaweka mipangilio ya wasifu wako wa kazi..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, ufikiaji wa kampuni, programu na data inayohusiana na wasifu huu, ikiwa ni pamoja na shughuli kwenye mtandao na maelezo kuhusu mahali kilipo kifaa chako."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia ya kampuni, programu, ruhusa, na data zinazohusiana na kifaa hiki, ikiwa ni pamoja na shughuli za mtandao na maelezo ya mahali kilipo kifaa chako."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, ufikiaji wa mashirika, programu, ruhusa, na data zinazohusiana na kifaa hiki, ikiwa ni pamoja na shughuli za mtandao na maelezo ya mahali kilipo kifaa chako. \n\n Ukiendelea, vipengee vya ulinzi dhidi ya wizi havitawashwa. Ili kuwasha vipengee vya ulinzi dhidi ya wizi, ghairi sasa na ukipange kama kifaa cha binafsi."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ukiendelea, vipengele vya ulinzi dhidi ya wizi havitawashwa. Ili kuwasha vipengee vya ulinzi dhidi ya wizi, ghairi sasa na ukipange kama kifaa cha binafsi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Wasiliana na msimamizi wako kwa maelezo zaidi, ikiwa ni pamoja na sera za faragha za shirika lako."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pata maelezo zaidi"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Kifaa hiki tayari kimesanidiwa mtumiaji huyu."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Haikuweza kuunganisha kwenye Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Kifaa hiki kimefungwa kwa ulinzi dhidi ya kurejesha katika hali kilichotoka nayo kiwandani. Wasiliana na idara yako ya Teknolojia ya Habari."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Inafuta"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Tafadhali subiri..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Haikuweza kutumia programu ya msimazi kutokana na hitilafu ya checksum. Wasiliana na idara yako ya Teknolojia ya Habari."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Haikuweza kupakua programu ya msimamizi"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Haiwezi kutumia programu ya msimamizi. Inakosa vipengele au ina hitilafu. Wasiliana na idara yako ya Teknolojia ya Habari."</string>

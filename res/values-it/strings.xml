@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Impostazione di un profilo di lavoro…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"L\'amministratore può monitorare e gestire impostazioni, accesso aziendale, app, autorizzazioni e dati associati al profilo, incluse l\'attività di rete e le informazioni sulla posizione del dispositivo."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"L\'amministratore può monitorare e gestire impostazioni, accesso aziendale, app, autorizzazioni e dati associati al dispositivo, incluse l\'attività di rete e le informazioni sulla posizione del dispositivo."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Il tuo amministratore ha la possibilità di monitorare e gestire impostazioni, accesso aziendale, app, autorizzazioni e dati associati a questo dispositivo, incluse l\'attività di rete e le informazioni sulla posizione del dispositivo.\n\nSe continui, le funzioni di protezione dal furto non verranno attivate. Per attivare la protezione dal furto, annulla e configura questo dispositivo come dispositivo personale."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Se continui, le funzioni di protezione dal furto non verranno attivate. Per attivare la protezione dal furto, annulla e configura questo dispositivo come dispositivo personale."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Per ulteriori informazioni, contatta il tuo amministratore e consulta le norme sulla privacy della tua organizzazione."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ulteriori informazioni"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Questo dispositivo è già configurato per l\'utente."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Impossibile connettersi alla rete Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Questo dispositivo è bloccato dalla funzione di protezione dal ripristino dei dati di fabbrica. Contatta il reparto IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Cancellazione in corso"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Attendere prego…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Impossibile utilizzare l\'app dell\'amministratore per un errore di checksum. Contatta il tuo reparto IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Impossibile scaricare l\'app di amministrazione"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Impossibile utilizzare l\'app dell\'amministratore per componenti mancanti o danneggiati. Contatta il tuo reparto IT."</string>

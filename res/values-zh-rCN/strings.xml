@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在设置您的工作资料…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"您的管理员能够监控和管理与此设备相关的设置、企业权限、应用、权限和数据，包括网络活动和设备的位置信息。\n\n如果您继续，设备将不会启用防盗保护功能。要启用防盗保护功能，请立即取消相关操作并将此设备设置为个人设备。"</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"如果您继续，设备将不会启用防盗保护功能。要启用防盗保护功能，请立即取消相关操作并将此设备设置为个人设备。"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"之前已针对此用户设置了此设备。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"此设备已被恢复出厂设置保护功能锁定。请与您公司的 IT 部门联系。"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"正在清除"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"请稍候…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"由于校验和错误，无法使用此管理应用。请与您公司的IT部门联系。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"无法下载管理应用"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"由于缺少组件或软件包已损坏，无法使用此管理应用。请与您公司的IT部门联系。"</string>

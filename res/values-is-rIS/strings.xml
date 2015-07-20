@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Setur upp vinnusniðið…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum, heimildum og gögnum sem tengjast þessu sniði, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum, heimildum og gögnum sem tengjast þessu tæki, þar á meðal netnotkun og staðsetningarupplýsingum tækisins."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Stjórnandinn getur fylgst með og stjórnað stillingum, fyrirtækjaaðgangi, forritum, heimildum og gögnum sem tengjast þessu tæki, þ.m.t. virkni á netkerfi og staðsetningarupplýsingum tækisins.\n\nEf þú heldur áfram verða þjófavarnareiginleikar ekki gerðir virkir. Ef þú vilt gera þjófavörn virka skaltu hætta við núna og setja þetta upp sem persónulegt tæki."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ef þú heldur áfram verða þjófavarnareiginleikar ekki gerðir virkir. Ef þú vilt gera þjófavörn virka skaltu hætta við núna og setja þetta upp sem persónulegt tæki."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hafðu samband við kerfisstjórann til að fá frekari upplýsingar, þar á meðal um persónuverndarstefnu fyrirtækisins."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Frekari upplýsingar"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Þetta tæki er nú þegar sett upp fyrir þennan notanda."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ekki var hægt að tengjast Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Þessu tæki er læst með vörn gegn núllstillingu tækis. Hafðu samband við upplýsingatæknisvið."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Þurrkað út"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Augnablik..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ekki var hægt að nota stjórnforritið vegna villu í þversummu. Hafðu samband við upplýsingatæknisvið."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ekki tókst að sækja stjórnunarforritið"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ekki er hægt að nota stjórnforritið. Það skortir íhluti eða er skemmt. Hafðu samband við upplýsingatæknisvið."</string>

@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavuje sa pracovný profil…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie a údaje priradené k tomuto profilu vrátane aktivity v sieti a informácií o polohe zariadenia."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie a údaje priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe zariadenia."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Váš správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a údaje priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe vášho zariadenia.\n\nAk budete pokračovať, funkcie ochrany proti krádeži nebudú aktivované. Ak chcete aktivovať ochranu proti krádeži, vráťte sa späť a nastavte toto zariadenie ako osobné."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ak budete pokračovať, funkcie ochrany proti krádeži nebudú aktivované. Ak chcete aktivovať ochranu proti krádeži, vráťte sa späť a nastavte toto zariadenie ako osobné."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Viac informácií (vrátane pravidiel ochrany osobných údajov vašej organizácie) vám poskytne správca."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Viac informácií"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Toto zariadenie je už nastavené pre tohto používateľa"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Toto zariadenie je uzamknuté ochranou proti obnoveniu továrenských nastavení. Kontaktujte oddelenie IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Prebieha vymazávanie"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Čakajte..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Pre chybu kontrolného súčtu sa aplikácia na správu nedá použiť. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Aplikáciu na správu sa nepodarilo stiahnuť"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikácia na správu sa nedá použiť. Buď v nej chýbajú niektoré komponenty, alebo je poškodená. Kontaktujte oddelenie IT."</string>

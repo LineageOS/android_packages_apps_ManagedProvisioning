@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Munkaprofil beállítása…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve a profillal társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve az ezzel az eszközzel társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, az engedélyeket, illetve az ezzel az eszközzel társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait.\n\nHa folytatja, a lopásvédelmi funkciók nem lesznek bekapcsolva. A lopásvédelem aktiváláshoz szakítsa meg a folyamatot, és személyesként állítsa be az eszközt."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ha folytatja, a lopásvédelmi funkciók nem lesznek bekapcsolva. A lopásvédelem aktiváláshoz szakítsa meg a folyamatot, és személyesként állítsa be az eszközt."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne kapni, például szervezetének adatvédelmi irányelveiről."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"További információ"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Az eszközt már beállították ennek a felhasználónak."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nem sikerült csatlakozni a Wi-Fi hálózathoz"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"A gyárialapérték-visszaállítási védelem zárolta az eszközt. Forduljon az informatikai részleghez."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Törlés"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Kérjük, várjon…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ellenőrzési hiba miatt nem sikerült letölteni a rendszergazda-alkalmazást. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nem lehetett letölteni a rendszergazdai alkalmazást"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"A rendszergazda-alkalmazás nem használható, mivel egyes elemei hiányoznak vagy sérültek. Forduljon az informatikai részleghez."</string>

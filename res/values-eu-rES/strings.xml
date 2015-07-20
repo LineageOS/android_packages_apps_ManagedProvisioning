@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Work profila konfiguratzen…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratzaileak ikuskatu eta kudeatu egin ditzake profilarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak, baimenak eta datuak (sarean izandako jarduera eta gailuaren kokapenari buruzko informazioa barne)."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratzaileak ikuskatu eta kudeatu egin ditzake gailuarekin erlazionatutako ezarpenak, enpresaren sarbide-baimenak, aplikazioak, baimenak eta datuak (sarean izandako jarduera eta gailuaren kokapenari buruzko informazioa barne)."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Administratzaileak kontrolatu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta gailuarekin erlazionatutako datuak (sareko jarduerak eta gailuaren kokapenari buruzko informazioa barne).\n\nAurrera egiten baduzu, ez dira gaituko lapurreten aurkako eginbideak. Haiek aktibatzeko, sakatu Utzi eta konfiguratu gailua gailu pertsonal gisa."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Aurrera egiten baduzu, ez dira gaituko lapurreten aurkako eginbideak. Haiek aktibatzeko, sakatu Utzi eta konfiguratu gailua gailu pertsonal gisa."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Informazio gehiago lortzeko (baita erakundearen pribatutasun-gidalerroei buruzkoa ere), jarri administratzailearekin harremanetan."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lortu informazio gehiago"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Gailua erabiltzaile horrentzat konfiguratuta dago dagoeneko."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ezin izan da Wi-Fi sarera konektatu"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Jatorrizko datuen berrezartze-babesaren bidez dago blokeatuta gailua. Jarri IKT sailarekin harremanetan."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ezabatzen"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Itxaron, mesedez…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ezin izan da erabili administrazio-aplikazioa, batuketa egitean errore bat gertatu delako. Jarri informatika-sailarekin harremanetan."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da administrazio-aplikazioa deskargatu"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ezin da erabili administrazio-aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Jarri informatika-sailarekin harremanetan."</string>

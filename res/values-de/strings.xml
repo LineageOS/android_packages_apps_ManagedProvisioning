@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Arbeitsprofil wird eingerichtet…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Ihr Administrator kann die mit diesem Profil verknüpften Einstellungen, Unternehmenszugriffsrechte, Apps, Berechtigungen und Daten überwachen und verwalten, einschließlich der Netzwerkaktivitäten und der Standortinformationen Ihres Geräts."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Ihr Administrator kann die mit diesem Gerät verbundenen Einstellungen, Unternehmenszugriffsrechte, Apps, Berechtigungen und Daten überwachen und verwalten, einschließlich der Netzwerkaktivitäten und der Standortinformationen Ihres Geräts."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Ihr Administrator kann die mit diesem Gerät verbundenen Einstellungen, Unternehmenszugriffsrechte, Apps, Berechtigungen und Daten überwachen und verwalten, einschließlich der Netzwerkaktivitäten und der Standortinformationen Ihres Geräts.\n\nWenn Sie fortfahren, werden die Funktionen zum Schutz vor Diebstahl nicht aktiviert. Um den Diebstahlschutz zu aktivieren, brechen Sie den Vorgang jetzt ab und richten Sie das Gerät als persönliches Gerät ein."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Wenn Sie fortfahren, werden die Funktionen zum Schutz vor Diebstahl nicht aktiviert. Um den Diebstahlschutz zu aktivieren, brechen Sie den Vorgang jetzt ab und richten Sie das Gerät als persönliches Gerät ein."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Weitere Informationen, auch zur Datenschutzerklärung Ihrer Organisation, erhalten Sie bei Ihrem Administrator."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Dieses Gerät ist bereits für diesen Nutzer eingerichtet."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Es konnte keine WLAN-Verbindung hergestellt werden."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Dieses Gerät ist durch den Schutz vor Zurücksetzen auf die Werkseinstellungen gesperrt. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Löschen"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Bitte warten..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Fehler bei der Prüfsumme. Die Admin-App kann nicht genutzt werden. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Die Admin-App konnte nicht heruntergeladen werden."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Die Admin-App kann nicht genutzt werden. Sie wurde beschädigt oder es fehlen Komponenten. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>

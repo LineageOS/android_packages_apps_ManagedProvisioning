@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Đang thiết lập hồ sơ công việc..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, các ứng dụng, quyền và dữ liệu được liên kết với hồ sơ, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, ứng dụng, quyền và dữ liệu được liên kết với thiết bị này, bao gồm hoạt động mạng và thông tin về vị trí của thiết bị."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu được liên kết với thiết bị này, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị.\n\nNếu bạn tiếp tục, tính năng chống trộm sẽ không được bật. Để bật tính năng chống trộm, hãy hủy ngay bây giờ và thiết lập thiết bị này là thiết bị cá nhân."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Nếu bạn tiếp tục, tính năng chống trộm sẽ không được bật. Để bật tính năng chống trộm, hãy hủy ngay bây giờ và thiết lập thiết bị này là thiết bị cá nhân."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hãy liên hệ với quản trị viên của bạn để biết thêm thông tin, bao gồm các chính sách bảo mật của tổ chức bạn."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Thiết bị này đã được thiết lập cho người dùng này."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Không thể kết nối với Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Thiết bị này bị khóa bởi tính năng bảo vệ chống khôi phục cài đặt gốc. Hãy liên hệ với bộ phận CNTT của bạn."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Đang xóa"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vui lòng chờ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Không sử dụng được ứng dụng quản trị do có lỗi kiểm tra tổng. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Không thể sử dụng ứng dụng quản trị. Ứng dụng thiếu thành phần hoặc bị lỗi. Hãy liên hệ với bộ phận CNTT."</string>

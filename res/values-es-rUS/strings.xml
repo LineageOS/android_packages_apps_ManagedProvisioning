@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando tu perfil de trabajo…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"El administrador puede supervisar y administrar la configuración, el acceso corporativo, las aplicaciones, los permisos y los datos asociados con el perfil, incluidas la actividad de red y la información de ubicación del dispositivo."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"El administrador puede supervisar y administrar la configuración, el acceso corporativo, las aplicaciones, los permisos y los datos asociados a este dispositivo, incluidas la actividad de red y la información de ubicación del dispositivo."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"El administrador tiene el poder para controlar y administrar la configuración, el acceso corporativo, las aplicaciones, los permisos y los datos asociados con este dispositivo, como la información de la ubicación del dispositivo y la actividad de la red.\n\nSi continúas, no se habilitarán las funciones de protección contra robo. Para activar la protección, cancela esta acción ahora y configura el dispositivo como personal."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Si continúas, no se habilitarán las funciones de protección contra robo. Para activar la protección, cancela esta acción ahora y configura el dispositivo como personal."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Para obtener más información, como las políticas de privacidad de la organización, comunícate con el administrador."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Más información"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Este dispositivo ya está configurado para este usuario."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No se pudo conectar a la red Wi-Fi."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"El dispositivo está bloqueado a causa de la protección contra restablecimiento de configuración de fábrica. Comunícate con el departamento de TI."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera un momento…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No se pudo usar la aplicación de administración debido a un error de suma de comprobación. Comunícate con el Departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No se pudo descargar la aplicación de administración."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"No se puede usar la aplicación de administración. Hay componentes que faltan o que están dañados. Comunícate con el Departamento de TI."</string>

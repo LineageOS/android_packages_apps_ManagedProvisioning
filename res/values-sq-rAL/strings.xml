@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Po konfiguron profilin tënd të punës..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratori yt ka aftësinë e monitorimit dhe menaxhimit të cilësimeve, të qasjes së korporatës, të aplikacioneve, të lejeve dhe të të dhënave që lidhen me profilin, përfshi aktivitetin e rrjetit dhe informacionin e vendndodhjes së pajisjes tënde."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratori yt ka aftësinë e monitorimit dhe menaxhimit të cilësimeve, të qasjes së korporatës, të aplikacioneve, të lejeve dhe të të dhënave që lidhen me këtë pajisje, përfshi aktivitetin e rrjetit dhe informacionin e vendndodhjes së pajisjes tënde."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Administratori yt ka aftësinë e monitorimit dhe menaxhimit të cilësimeve, të qasjes së korporatës, të aplikacioneve, të lejeve dhe të të dhënave që lidhen me këtë pajisje, përfshi aktivitetin e rrjetit dhe informacionin e vendndodhjes së pajisjes tënde.\n\nNëse vazhdon, funksionet e mbrojtjes nga vjedhja nuk do të aktivizohen. Për të aktivizuar mbrojtjen nga vjedhja, anuloje tani dhe konfiguroje këtë si një pajisje personale."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Nëse vazhdon, funksionet e mbrojtjes nga vjedhja nuk do të aktivizohen. Për të aktivizuar mbrojtjen nga vjedhja, anuloje tani dhe konfiguroje këtë si një pajisje personale."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontakto administratorin tënd për më shumë informacion, përfshi politikat e privatësisë së organizatës tënde."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Mëso më shumë"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Kjo pajisje është e konfiguruar tashmë për këtë përdorues."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nuk mundi të lidhej me Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Kjo pajisje është e kyçur nga mbrojtja nga rivendosja në gjendje fabrike. Kontakto me departamentin e informatikës."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Po spastron"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Qëndro në pritje..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Aplikacioni i administratorit nuk mund të përdorej për shkak të gabimit të shumës së kontrollit. Kontakto me departamentin e informatikës."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Aplikacioni i administratorit nuk mund të shkarkohej"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikacioni i administratorit nuk mund të përdoret pasi i mungojnë përbërësit ose është i dëmtuar. Kontakto departamentin e informatikës."</string>

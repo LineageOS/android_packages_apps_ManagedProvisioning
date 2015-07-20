@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Konfigurerer din arbejdsprofil…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til profilen, herunder netværksaktivitet og enhedens placeringsoplysninger."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, herunder netværksaktivitet og enhedens placeringsoplysninger."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Din administrator kan overvåge og administrere indstillinger, adgang for virksomheder, apps, tilladelser og data, der er knyttet til denne enhed, herunder netværksaktivitet og din enheds placeringsoplysninger.\n\nHvis du fortsætter, bliver funktioner til tyverisikring ikke aktiveret. Hvis du vil slå tyverisikring til, skal du annullere nu og konfigurere enheden som en personlig enhed."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Hvis du fortsætter, bliver funktioner til tyverisikring ikke aktiveret. Hvis du vil slå tyverisikring til, skal du annullere nu og konfigurere enheden som en personlig enhed."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontakt din administrator for at få flere oplysninger, herunder om din organisations privatlivspolitik."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Få flere oplysninger"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Denne enhed er allerede konfigureret for denne bruger."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Der kunne ikke oprettes forbindelse til Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Denne enhed er låst, da den er beskyttet mod gendannelse af fabriksindstillingerne. Kontakt din it-afdeling."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter…"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent et øjeblik…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Administrationsappen kunne ikke bruges på grund af en fejl i kontrolsummen. Kontakt din it-afdeling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administrationsappen kunne ikke hentes"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrationsappen kan ikke bruges. Den mangler komponenter eller er beskadiget. Kontakt din it-afdeling."</string>

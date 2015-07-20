@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Konfigurerer arbeidsprofilen din …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data som er tilknyttet denne profilen, inkludert nettverksaktivitet og enhetens posisjonsinformasjon."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper og data som er tilknyttet denne enheten, inkludert nettverksaktivitet og enhetens posisjonsinformasjon."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Administratoren din kan overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data som er tilknyttet denne enheten, inkludert nettverksaktivitet og enhetens posisjonsinformasjon.\n\nHvis du fortsetter, blir ikke funksjoner for tyveribeskyttelse slått på. For å slå på tyveribeskyttelse, avbryt nå og konfigurer denne enheten som en personlig enhet."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Hvis du fortsetter, blir ikke funksjonene for tyveribeskyttelse slått på. For å slå på tyveribeskyttelse, avbryt nå og konfigurer denne enheten som en personlig enhet."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hvis du vil ha mer informasjon, inkludert organisasjonens retningslinjer for personvern, kan du kontakte administratoren din."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Finn ut mer"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Denne enheten er allerede konfigurert for denne brukeren."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kan ikke koble til Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Denne enheten er låst av beskyttelse mot tilbakestilling til fabrikkinnstillingene. Ta kontakt med IT-avdelingen."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent litt …"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Kunne ikke bruke admin-appen på grunn av en sjekksumfeil. Ta kontakt med IT-avdelingen."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Kan ikke laste ned administratorappen"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Kan ikke bruke admin-appen. Den mangler komponenter eller er korrupt. Ta kontakt med IT-avdelingen."</string>

@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Menyediakan profil kerja anda…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Pentadbir anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang dikaitkan dengan profil ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Pentadbir anda berkeupayaan untuk memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang dikaitkan dengan peranti ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Pentadbir anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang dikaitkan dengan peranti ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda.\n\nJika anda meneruskan, ciri perlindungan kecurian tidak akan didayakan. Untuk menghidupkan perlindungan kecurian, batalkan sekarang dan sediakan peranti ini sebagai peranti peribadi."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Jika anda meneruskan, ciri perlindungan kecurian tidak akan didayakan. Untuk menghidupkan perlindungan kecurian, batalkan sekarang dan sediakan peranti ini sebagai peranti peribadi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hubungi pentadbir anda untuk maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ketahui lebih lanjut"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Peranti ini sudah disediakan untuk pengguna ini."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak boleh menyambung kepada Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Peranti ini dikunci oleh perlindungan tetapan semula kilang. Hubungi bahagian IT anda."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Memadam"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Sila tunggu..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan apl pentadbir kerana ralat semak jumlah. Hubungi jabatan IT anda."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat memuat turun apl pentadbir"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan apl pentadbir. Apl ketiadaan komponen atau rosak. Hubungi jabatan IT anda."</string>

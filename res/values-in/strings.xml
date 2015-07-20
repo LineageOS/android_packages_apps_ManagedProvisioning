@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Menyiapkan profil kerja..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administrator memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data yang terkait dengan profil ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administrator memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data yang terkait dengan perangkat ini, termasuk aktivitas jaringan dan informasi lokasi perangkat Anda."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Administrator dapat memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data terkait perangkat ini, termasuk aktivitas jaringan dan informasi lokasi perangkat.\n\nJika Anda melanjutkan, fitur perlindungan dari pencurian tidak akan diaktifkan. Untuk mengaktifkan perlindungan dari pencurian, batalkan sekarang dan siapkan sebagai perangkat pribadi."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Jika Anda melanjutkan, fitur perlindungan dari pencurian tidak akan diaktifkan. Untuk mengaktifkan perlindungan dari pencurian, batalkan sekarang dan siapkan sebagai perangkat pribadi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hubungi administrator untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pelajari lebih lanjut"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Perangkat ini sudah disiapkan untuk pengguna ini."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak dapat tersambung ke Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Perangkat ini dikunci oleh perlindungan pengembalian ke setelan pabrik. Hubungi departemen TI Anda."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Menghapus"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Harap tunggu..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan aplikasi admin karena kesalahan checksum. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat mengunduh aplikasi admin"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan aplikasi admin. Komponen hilang atau rusak. Hubungi departemen TI Anda."</string>

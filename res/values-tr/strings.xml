@@ -29,7 +29,6 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"İş profiliniz oluşturuluyor…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu profille ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri ve verileri izleyip yönetebilir."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu cihazla ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri ve verileri izleyip yönetebilir."</string>
-    <string name="admin_has_ability_to_monitor_device_with_frp_disabled" msgid="3883091414453971876">"Yöneticiniz; ayarları, kurumsal erişimi, uygulamaları, izinleri ve bu cihazla ilişkilendirilen verileri (ağ etkinliği ve cihazınızın konum bilgileri dahil) izleme ve yönetme olanağına sahiptir.\n\nDevam ederseniz çalınmaya karşı koruma özellikleri etkinleştirilmeyecektir. Çalınmaya karşı korumayı açmak için kurulumu şimdi iptal edin ve bunu kişisel bir cihaz olarak kurun."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Devam ederseniz çalınmaya karşı koruma özellikleri etkinleştirilmeyecektir. Çalınmaya karşı korumayı açmak için kurulumu şimdi iptal edin ve bunu kişisel bir cihaz olarak kurun."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere, daha fazla bilgi için yöneticinize başvurun."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi edinin"</string>
@@ -73,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Bu cihaz, bu kullanıcı için zaten kurulmuş."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kablosuz bağlantısı kurulamadı"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu cihaz fabrika sıfırlama koruması tarafından kilitlendi. BT bölümünüzle iletişim kurun."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Siliniyor"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Lütfen bekleyin..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Bir sağlama toplamı hatası nedeniyle yönetim uygulaması kullanılamadı. BT bölümünüze başvurun."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Yönetici uygulaması indirilemedi"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Yönetim uygulaması kullanılamıyor. Bileşenleri eksik veya bozuk. BT bölümünüze başvurun."</string>
