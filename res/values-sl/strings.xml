@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ta naprava je že nastavljena za tega uporabnika."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Z omrežjem Wi-Fi se ni mogoče povezati"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Naprava je zaklenjena z zaščito po ponastavitvi na tovarniške nastavitve. Obrnite na za oddelek za IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Brisanje"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Počakajte ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Skrbniške aplikacije ni bilo mogoče uporabiti zaradi napake kontrolne vsote. Obrnite se na oddelek za IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Skrbniške aplikacije ni bilo mogoče prenesti"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Skrbniške aplikacije ni mogoče uporabljati. Manjkajo ji komponente ali pa je poškodovana. Obrnite se na oddelek za IT."</string>

@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"এই ডিভাইসটি ইতিমধ্যেই এই ব্যবহারকারীর জন্য সেট আপ হয়ে আছে৷"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi এর সাথে সংযুক্ত করা যায়নি"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"এই ডিভাইসটি ফ্যাক্টরি রিসেট সুরক্ষার দ্বারা লক হয়েছে। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"মোছা হচ্ছে"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"দয়া করে অপেক্ষা করুন..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"একটি চেকসাম ত্রুটির কারণে প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"প্রশাসক অ্যাপ্লিকেশানটি ডাউনলোড করা যায়নি"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যাচ্ছে না। এতে কিছু উপাদান অনুপস্থিত আছে বা এটি ক্ষতিগ্রস্ত হয়েছে। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>

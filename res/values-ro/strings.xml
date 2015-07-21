@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Dispozitivul este deja configurat pentru acest utilizator."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nu se poate conecta la Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Acest dispozitiv este blocat prin protecția împotriva revenirii la setările din fabrică. Contactați departamentul IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Se șterge"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Așteptați..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nu se poate utiliza aplicația de administrare din cauza unei erori de sumă de control. Contactați departamentul IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Eroare la descărcarea aplicației de administrare"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nu se poate utiliza aplicația de administrare. Este deteriorată sau lipsesc componente. Contactați departamentul IT."</string>

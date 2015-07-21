@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Төхөөрөмжийг энэ хэрэглэгчид зориулан тохируулсан."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-д холбогдож чадсангүй"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Энэ төхөөрөмж нь үйлдвэрийн хамгаалалтын тохируулгын улмаас түгжигдсэн байна. МТ хэлтэстэй холбогдоно уу."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Арилгаж байна"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Түр хүлээнэ үү..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum алдаанаас шалтгаалан админ апп-г ашиглаж чадсангүй. МТ хэлтэстэй холбогдоно уу."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Админ апп-г татаж авч чадсангүй"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Админ апп-г ашиглах боломжгүй. Бүрдэл дутагдсан эсхүл гэмтсэн байна. МТ хэлтэстэй холбогдоно уу."</string>

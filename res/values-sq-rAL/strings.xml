@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Kjo pajisje është e konfiguruar tashmë për këtë përdorues."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nuk mundi të lidhej me Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Kjo pajisje është e kyçur nga mbrojtja nga rivendosja në gjendje fabrike. Kontakto me departamentin e informatikës."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Po spastron"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Qëndro në pritje..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Aplikacioni i administratorit nuk mund të përdorej për shkak të gabimit të shumës së kontrollit. Kontakto me departamentin e informatikës."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Aplikacioni i administratorit nuk mund të shkarkohej"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikacioni i administratorit nuk mund të përdoret pasi i mungojnë përbërësit ose është i dëmtuar. Kontakto departamentin e informatikës."</string>

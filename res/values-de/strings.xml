@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Dieses Gerät ist bereits für diesen Nutzer eingerichtet."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Es konnte keine WLAN-Verbindung hergestellt werden."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Dieses Gerät ist durch den Schutz vor Zurücksetzen auf die Werkseinstellungen gesperrt. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Löschen"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Bitte warten..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Fehler bei der Prüfsumme. Die Admin-App kann nicht genutzt werden. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Die Admin-App konnte nicht heruntergeladen werden."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Die Admin-App kann nicht genutzt werden. Sie wurde beschädigt oder es fehlen Komponenten. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>

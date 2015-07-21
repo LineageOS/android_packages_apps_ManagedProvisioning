@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"この端末はこのユーザーによって既にセットアップ済みです。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fiに接続できませんでした"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"この端末は出荷時設定へのリセット保護によりロックされています。IT部門にお問い合わせください。"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"消去中"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"お待ちください..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"チェックサムエラーのため管理アプリを使用できませんでした。IT部門にお問い合わせください。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"管理アプリをダウンロードできませんでした"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理アプリを使用できません。このアプリはコンポーネントがないか、破損しています。IT部門にお問い合わせください。"</string>

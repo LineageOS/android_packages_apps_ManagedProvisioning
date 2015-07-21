@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"​ອຸ​ປະ​ກອນ​ນີ້​ຖືກ​ຕັ້ງ​ຄ່າ​ໄວ້ສຳ​ລັບ​ຜູ້​ໃຊ້​ນີ້​ແລ້ວ."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ບໍ່​ສາ​ມາດ​ເຊື່ອມ​ຕໍ່ Wi-Fi ໄດ້"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ອຸປະກອນ​ນີ້​ຖືກ​ລັອກ​ໂດຍ​ການ​ປ້ອງ​ກັນ​ການ​ຕັ້ງ​ຄ່າ​ໃໝ່​ຈາກ​ໂຮງງານ. ​ໃຫ້​ຕິດ​ຕໍ່​ຫາ​ພະ​ແນ​ກ​ໄອ​ທີ​ຂອງ​ທ່ານ."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"ກຳລັງລຶບ"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"ກະລຸນາລໍຖ້າ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ບໍ່​ສາ​ມາດ​​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້​ເນື່ອງ​ຈາກ checksum ຜິດ​ພາດ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ໄອ​ທີ​ຂອງ​ທ່ານ."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ບໍ່​ສາ​ມາດ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ບໍ່​ສາ​ມາດ​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້. ມັນ​ຂາດ​ອົງ​ປະ​ກອບທີ່​ຕ້ອງ​ໃຊ້ ຫຼື​​ໄຟລ໌​ມີ​ບັນ​ຫາ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ຂອງ​ທ່ານ."</string>

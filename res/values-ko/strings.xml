@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"기기가 이미 이 사용자에 대해 설정되었습니다."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi에 연결할 수 없습니다."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"기기가 초기화 보호 기능으로 잠겨 있습니다. IT 부서에 문의하세요."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"지우는 중"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"잠시 기다려 주세요..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"체크섬 오류로 인해 관리 앱을 사용할 수 없습니다. IT 부서에 문의해 주시기 바랍니다."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"관리 앱을 다운로드할 수 없습니다."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"관리 앱을 사용할 수 없습니다. 구성요소가 없거나 손상되었습니다. IT 부서에 문의해 주시기 바랍니다."</string>

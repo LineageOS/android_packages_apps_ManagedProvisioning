@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Бұл құрылғы осы пайдаланушы үшін орнатылып қойған."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi желісіне қосылу мүмкін болмады"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Бұл құрылғы зауыттық қалпына келтіру қорғанысы арқылы құлыптанған. АТ бөліміне хабарласыңыз."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Өшірілуде"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Күте тұрыңыз…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Бақылау сомасының қатесіне байланысты әкімші қолданбасын пайдалану мүмкін болмады. АТ бөліміне хабарласыңыз."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Әкімші қолданбасын жүктеу мүмкін болмады"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Әкімші қолданбасын пайдалану мүмкін емес. Оның құрамдастары жетіспейді немесе ол бүлінген. АТ бөліміне хабарласыңыз."</string>

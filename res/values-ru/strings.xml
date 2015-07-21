@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Настройка для этого пользователя уже выполнена."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не удалось подключиться к сети Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"При сбросе настроек устройство было заблокировано. Свяжитесь с отделом ИТ."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Удаление…"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Подождите..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Нельзя использовать приложение для администрирования из-за ошибки при проверке контрольной суммы. Обратитесь в отдел технической поддержки вашей компании."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не удалось скачать приложение для администрирования"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Нельзя использовать приложение для администрирования, так как в нем не хватает компонентов или они повреждены. Обратитесь в отдел технической поддержки вашей компании."</string>

@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"To urządzenie jest już skonfigurowane dla tego użytkownika."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nie udało się połączyć z siecią Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"To urządzenie jest chronione przed przywróceniem ustawień fabrycznych. Skontaktuj się z działem IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Wymazuję"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Zaczekaj..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nie można użyć aplikacji administratora z powodu błędu sumy kontrolnej. Skontaktuj się z działem IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nie udało się pobrać aplikacji administratora"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nie można użyć aplikacji administratora. Brak elementów lub są one uszkodzone. Skontaktuj się z działem IT."</string>

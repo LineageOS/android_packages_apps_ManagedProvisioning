@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Bu cihaz, bu kullanıcı için zaten kurulmuş."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kablosuz bağlantısı kurulamadı"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu cihaz fabrika sıfırlama koruması tarafından kilitlendi. BT bölümünüzle iletişim kurun."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Siliniyor"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Lütfen bekleyin..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Bir sağlama toplamı hatası nedeniyle yönetim uygulaması kullanılamadı. BT bölümünüze başvurun."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Yönetici uygulaması indirilemedi"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Yönetim uygulaması kullanılamıyor. Bileşenleri eksik veya bozuk. BT bölümünüze başvurun."</string>

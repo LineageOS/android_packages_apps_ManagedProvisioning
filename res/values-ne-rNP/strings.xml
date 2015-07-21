@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यो यन्त्र पहिले नै यो प्रयोगकर्ताको लागि स्थापना गरिएको छ।"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फाई संग जडान हुन सकेन"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"यो यन्त्र कारखाना रिसेट सुरक्षाद्वारा लक गरिएको छ। तपाईँको सूचना प्रविधि विभागमा सम्पर्क गर्नुहोस्।"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"मेटाउँदै"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा गर्नुहोला..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"प्रशासन अनुप्रयोग चेकसम त्रुटिको कारणले प्रयोग गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अनुप्रयोग डाउनलोड गर्न सकिएन"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अनुप्रयोग प्रयोग गर्न सकिएन। यो अवयवहरू हराइरहेका वा भ्रष्ट हुन्। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>

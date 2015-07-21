@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Овај уређај је већ подешен за овог корисника."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Повезивање са Wi-Fi мрежом није успело"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Овај уређај је закључан заштитом ресетовања на фабричке вредности. Контактирајте ИТ сектор."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Брисање"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Сачекајте..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Није могуће користити апликацију за администраторе због грешке у контролном збиру. Контактирајте ИТ сектор."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Преузимање апликације за администраторе није успело"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Није могуће користити апликацију за администраторе. Недостају јој компоненте или је оштећена. Контактирајте ИТ сектор."</string>

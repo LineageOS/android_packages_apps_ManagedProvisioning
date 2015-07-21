@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ಈ ಸಾಧನವನ್ನು ಈಗಾಗಲೇ ಈ ಬಳಕೆದಾರರಿಗೆ ಹೊಂದಿಸಲಾಗಿದೆ."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ಈ ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸುವಿಕೆ ರಕ್ಷಣೆಯಿಂದ ಲಾಕ್ ಮಾಡಲಾಗಿದೆ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"ಅಳಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ಚೆಕ್‌ಸಮ್ ದೋಷ ಎದುರಾಗಿರುವ ಕಾರಣ ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಇದರಲ್ಲಿ ಕಾಂಪೊನೆಂಟ್‌ಗಳು ಕಾಣೆಯಾಗಿವೆ ಅಥವಾ ದೋಷಪೂರಿತವಾಗಿವೆ, ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>

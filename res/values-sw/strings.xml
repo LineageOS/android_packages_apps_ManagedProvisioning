@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Kifaa hiki tayari kimesanidiwa mtumiaji huyu."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Haikuweza kuunganisha kwenye Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Kifaa hiki kimefungwa kwa ulinzi dhidi ya kurejesha katika hali kilichotoka nayo kiwandani. Wasiliana na idara yako ya Teknolojia ya Habari."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Inafuta"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Tafadhali subiri..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Haikuweza kutumia programu ya msimazi kutokana na hitilafu ya checksum. Wasiliana na idara yako ya Teknolojia ya Habari."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Haikuweza kupakua programu ya msimamizi"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Haiwezi kutumia programu ya msimamizi. Inakosa vipengele au ina hitilafu. Wasiliana na idara yako ya Teknolojia ya Habari."</string>
