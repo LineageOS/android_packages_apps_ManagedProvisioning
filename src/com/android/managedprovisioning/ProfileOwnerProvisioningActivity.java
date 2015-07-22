@@ -179,10 +179,9 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
     }
 
     private void onProvisioningAborted() {
-        ProfileOwnerProvisioningActivity.this.setResult(Activity.RESULT_CANCELED);
-        stopService(new Intent(ProfileOwnerProvisioningActivity.this,
-                        ProfileOwnerProvisioningService.class));
-        ProfileOwnerProvisioningActivity.this.finish();
+        stopService(new Intent(this, ProfileOwnerProvisioningService.class));
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 
     @Override
