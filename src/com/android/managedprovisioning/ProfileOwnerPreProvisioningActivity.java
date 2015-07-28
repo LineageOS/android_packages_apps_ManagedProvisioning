@@ -299,6 +299,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void onRemoveProfileCancel() {
+        setResult(Activity.RESULT_CANCELED);
         finish();
     }
 
