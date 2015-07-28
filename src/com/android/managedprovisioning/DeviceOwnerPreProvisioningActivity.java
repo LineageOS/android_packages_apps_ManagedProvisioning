@@ -125,7 +125,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                         || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
                         || mParams.skipEncryption)) {
             requestEncryption(parser, mParams);
-            finish();
             return;
             // System will reboot. Bootreminder will restart this activity.
         }
@@ -275,11 +274,13 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         if (requestCode == ENCRYPT_DEVICE_REQUEST_CODE) {
             if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.loge("User canceled device encryption.");
+                setResult(RESULT_CANCELED);
                 finish();
             }
         } else if (requestCode == WIFI_REQUEST_CODE) {
             if (resultCode == RESULT_CANCELED) {
                 ProvisionLogger.loge("User canceled wifi picking.");
+                setResult(RESULT_CANCELED);
                 finish();
             } else if (resultCode == RESULT_OK) {
                 if (DEBUG) ProvisionLogger.logd("Wifi request result is OK");
