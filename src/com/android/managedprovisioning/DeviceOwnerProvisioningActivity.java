@@ -230,7 +230,8 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                                         "DeviceOwnerProvisioningActivity.showCancelResetDialog()");
                                 sendBroadcast(intent);
                                 stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                                                DeviceOwnerProvisioningService.class));
+                                        DeviceOwnerProvisioningService.class));
+                                setResult(RESULT_CANCELED);
                                 finish();
                             }
                         })
@@ -270,6 +271,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                             sendBroadcast(intent);
                             stopService(new Intent(DeviceOwnerProvisioningActivity.this,
                                             DeviceOwnerProvisioningService.class));
+                            setResult(RESULT_CANCELED);
                             finish();
                         }
                     });
@@ -283,6 +285,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                             // Close activity.
                             stopService(new Intent(DeviceOwnerProvisioningActivity.this,
                                             DeviceOwnerProvisioningService.class));
+                            setResult(RESULT_CANCELED);
                             finish();
                         }
                     });
