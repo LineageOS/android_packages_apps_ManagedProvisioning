@@ -29,12 +29,10 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,10 +42,6 @@ import com.android.managedprovisioning.UserConsentDialog.ConsentCallback;
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.Utils.MdmPackageInfo;
 
-import java.util.List;
-
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
 import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
@@ -78,6 +72,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 2;
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 1;
 
+    // If dialog is null, it means it's already been shown and acted on.
     private DeleteManagedProfileDialog mDeleteDialog;
 
     private ProvisioningParams mParams;
@@ -164,7 +159,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         setTitle(R.string.setup_profile_start_setup);
         if (Utils.alreadyHasManagedProfile(this) != -1) {
-            showDeleteManagedProfileDialog();
+            maybeShowDeleteManagedProfileDialog();
         }
     }
 
@@ -173,6 +168,12 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         super.onPause();
 
         hideDeleteManagedProfileDialog();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDeleteDialog = null;
+        super.onDestroy();
     }
 
     private void showStartProvisioningButton() {
@@ -409,23 +410,17 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                 mdmPackageName, domainName);
     }
 
-    private void showDeleteManagedProfileDialog() {
-        if (mDeleteDialog == null) {
-            return;
-        }
-
-        if (!mDeleteDialog.isVisible()) {
+    /** Dialog gets shown unless it's already visible or has already been acted on. */
+    private void maybeShowDeleteManagedProfileDialog() {
+        if (mDeleteDialog != null && !mDeleteDialog.isVisible()) {
             mDeleteDialog.show(getFragmentManager(), "DeleteManagedProfileDialogFragment");
         }
     }
 
     private void hideDeleteManagedProfileDialog() {
-        if (mDeleteDialog == null) {
-            return;
+        if (mDeleteDialog != null) {
+            mDeleteDialog.dismiss();
         }
-
-        mDeleteDialog.dismiss();
-        mDeleteDialog = null;
     }
 
     @Override
