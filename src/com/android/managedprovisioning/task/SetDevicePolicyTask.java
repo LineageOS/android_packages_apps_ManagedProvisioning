@@ -26,6 +26,7 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.Utils;
 
 /**
  * This tasks sets a given component as the owner of the device. If provided it also sets a given
@@ -73,12 +74,24 @@ public class SetDevicePolicyTask {
             setDeviceOwner(mAdminPackage, mOwnerName);
 
             if (mInitializerComponent != null) {
+                // For secondary users, set device owner package as profile owner as well, in order
+                // to give it DO/PO privileges. This only applies if device initializer is present.
+                if (!Utils.isCurrentUserOwner() && !Utils.isManagedProfile(mContext)) {
+                    int userId = UserHandle.myUserId();
+                    if (!mDevicePolicyManager.setProfileOwner(mAdminComponent, mAdminPackage,
+                            userId)) {
+                        ProvisionLogger.loge("Fail to set profile owner for user " + userId);
+                        mCallback.onError(ERROR_OTHER);
+                        return;
+                    }
+                }
                 enableDevicePolicyApp(mInitializerPackageName);
                 setActiveAdmin(mInitializerComponent);
                 if (!setDeviceInitializer(mInitializerComponent)) {
                     // error reported in setDeviceInitializer
                     return;
                 }
+
             }
         } catch (Exception e) {
             ProvisionLogger.loge("Failure setting device owner or initializer", e);
