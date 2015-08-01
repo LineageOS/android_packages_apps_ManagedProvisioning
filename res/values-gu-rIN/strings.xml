@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"ઊફ્ફ્ફ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"તમારી પ્રોફાઇલ સેટ કરો"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"તમારી સંસ્થા આ પ્રોફાઇલને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે. તમે તમારા ઉપકરણ પર બાકીનું બધું નિયંત્રિત કરો છો."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for work વડે, તમારી સંસ્થા, તમારા ફોન અથવા ટેબ્લેટ પર તમારી કોર્પોરેટ ઇમેઇલ અને અન્ય એપ્લિકેશન્સને સંચાલિત કરી શકે છે.\nતમારી સંસ્થા તમારા ઉપકરણને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"તમારી સંસ્થા આ ઉપકરણનું નિયંત્રણ કરશે અને તેને સુરક્ષિત રાખશે."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"નીચેની એપ્લિકેશનને આ પ્રોફાઇલ ઍક્સેસ કરવાની જરૂર પડશે:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની એપ્લિકેશન તમારા ઉપકરણને સંચાલિત કરશે:"</string>
     <string name="set_up" msgid="7012862095553564169">"સેટ અપ"</string>

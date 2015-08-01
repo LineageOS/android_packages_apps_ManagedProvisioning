@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"אופס!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"הגדרת הפרופיל"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"לארגון שלך יש שליטה על הפרופיל ועל אבטחתו. אתה שולט בשאר האפשרויות במכשיר."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"‏Android for Work מאפשר לארגון שלך לנהל את האימייל של החברה ואפליקציות אחרות, בטלפון או בטאבלט שלך.\nהארגון שולט במכשיר שלך ושומר על אבטחתו."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"הארגון שלך ישלוט במכשיר הזה וידאג לאבטחה שלו."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"האפליקציה הבאה תצטרך לגשת לפרופיל זה:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"האפליקציה הבאה תנהל את המכשיר שלך:"</string>
     <string name="set_up" msgid="7012862095553564169">"הגדר"</string>

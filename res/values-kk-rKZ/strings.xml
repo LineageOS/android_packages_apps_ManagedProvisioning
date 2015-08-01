@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Профильді реттеу"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ұйымыңыз осы профильді басқарады және оны қауіпсіз сақтайды. Сіз құрылғыдағы барлық басқа нәрселерді басқарасыз."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Жұмысқа арналған Android көмегімен ұйымыңыз телефон немесе планшетіңіздегі корпораттивтік электрондық поштаңызды және басқа қолданбаларды басқара алады.\nҰйымыңыз құрылғыңызды басқарады және оны қорғайды."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Ұйымыңыз осы құрылғыны басқарады және оны қорғайды."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Келесі қолданбаға осы профильге қатынасу қажет болады:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Келесі қолданба құрылғыңызды басқарады:"</string>
     <string name="set_up" msgid="7012862095553564169">"Реттеу"</string>

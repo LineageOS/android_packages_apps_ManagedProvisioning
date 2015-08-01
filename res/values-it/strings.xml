@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ops!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configura il tuo profilo"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"La tua organizzazione controlla questo profilo e lo tiene protetto, mentre tu controlli tutto il resto sul dispositivo."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Con Android for Work, la tua organizzazione può gestire la posta elettronica aziendale e altre app tramite telefono o tablet.\nLa tua organizzazione controlla il dispositivo e lo tiene protetto."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"La tua organizzazione controllerà il dispositivo e lo manterrà protetto."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"La seguente app dovrà accedere a questo profilo:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"La seguente app gestirà il tuo dispositivo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configura"</string>
