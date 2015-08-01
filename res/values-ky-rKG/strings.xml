@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Профилиңизди орнотуңуз"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ишканаңыз бул профилди көзөмөлдөп, коопсуздугун камсыз кылып турат. Түзмөгүңүздөгү калган нерсенин бардыгын өзүңүз көзөмөлдөйсүз."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Корпоративдик электрондук почтаңызды жана телефонуңуздагы же планшетиңиздеги башка колдонмолоруңузду ишканаңыз Android Work аркылуу башкара алат.\nКомпанияңыз жумуш колдонмолоруңузду көзөмөлдөп, коопсуздугун камсыз кылып турат."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Ишканаңыз бул түзмөктү көзөмөлдөп жана коопсуз сактайт."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Төмөнкү колдонмо бул профилди колдонушу керек."</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Төмөнкү колдонмо түзмөгүңүздү башкармакчы:"</string>
     <string name="set_up" msgid="7012862095553564169">"Тууралоо"</string>

@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Arazo bat izan da."</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Konfiguratu profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Erakundeak kontrolatzen du profila eta seguru mantentzen du. Gailuan duzun gainerako guztia zeuk kontrolatzen duzu."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work aplikazioari esker, zure erakundeak enpresako posta elektronikoa eta laneko beste aplikazio batzuk kudeatu ahalko ditu zure telefonoan edo tabletan.\nZure erakundea arduratzen da gailua kontrolatzeaz eta seguru mantentzeaz."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Erakundeak kontrolatuko du gailua, eta seguru mantenduko du."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikazio honek profila atzitu beharko du:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikazio honek kudeatuko du zure gailua:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>

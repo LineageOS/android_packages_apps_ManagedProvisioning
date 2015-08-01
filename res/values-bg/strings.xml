@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ами сега!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Настройване на потребителския ви профил"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Организацията ви контролира този потребителски профил и се грижи за сигурността му. Вие управлявате всичко останало на устройството си."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"С Android for Work организацията ви може да управлява корпоративния ви имейл адрес и други приложения на телефона или таблета ви.\nТя контролира устройството ви и се грижи за сигурността му."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Организацията ви ще управлява това устройство и ще се грижи за сигурността му."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следното приложение ще трябва да има достъп до този потребителски профил:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Следното приложение ще управлява устройството ви:"</string>
     <string name="set_up" msgid="7012862095553564169">"Настройване"</string>

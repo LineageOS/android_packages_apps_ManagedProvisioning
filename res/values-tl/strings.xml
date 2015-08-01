@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"I-set up ang iyong profile"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kinokontrol ng iyong organisasyon ang profile na ito at pinapanatili itong secure. Ikaw ang kumokontrol sa lahat ng iba pa sa iyong device."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Sa Android for Work, magagawa ng iyong organisasyon na pamahalaan ang iyong corporate email at iba pang mga app sa iyong telepono o tablet.\nKinokontrol at pinapanatiling secure ng iyong organisasyon ang iyong device."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Kokontrolin ng iyong organisasyon ang device na ito at papanatilihin itong secure."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Kakailanganin ng sumusunod na app na i-access ang profile na ito:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Papamahalaan ng sumusunod na app ang iyong device:"</string>
     <string name="set_up" msgid="7012862095553564169">"I-set up"</string>

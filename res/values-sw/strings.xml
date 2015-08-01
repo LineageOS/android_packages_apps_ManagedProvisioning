@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Lo!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Weka wasifu wako"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Shirika lako linadhibiti kifaa chako na kukiweka salama. Unadhibiti vitu vingine vyote kwenye kifaa chako."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Kwa kutumia Android for Work, shirika lako linaweza kudhibti barua pepe yako ya kampuni na programu nyingine kwenye simu yako au kompyuta kibao. \nShirika lako linadhibiti kifaa chako na kukiweka salama."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Shirika lako litadhibiti kifaa hiki na kukiweka salama."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Programu ifuatayo itahitaji kufikia wasifu huu:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Programu zifuatazo zitadhibiti kifaa chako:"</string>
     <string name="set_up" msgid="7012862095553564169">"Sanidi"</string>

@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Siapkan profil Anda"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisasi Anda mengontrol profil ini dan membuatnya tetap aman. Anda mengontrol hal-hal lain di perangkat."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Dengan Android for Work, organisasi dapat mengelola email perusahaan dan aplikasi lain di ponsel atau tablet.\nOrganisasi mengontrol perangkat dan membuatnya tetap aman."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Organisasi akan mengontrol perangkat ini dan menjaga keamanannya."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikasi berikut perlu mengakses profil ini:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikasi berikut akan mengelola perangkat Anda:"</string>
     <string name="set_up" msgid="7012862095553564169">"Siapkan"</string>

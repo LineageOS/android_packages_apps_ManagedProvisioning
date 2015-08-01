@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Luo profiili"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisaatiosi hallinnoi tätä profiilia ja suojaa sen tiedot. Voit itse hallinnoida laitteen muita ominaisuuksia."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Workin avulla organisaatiosi voi hallinnoida työsähköpostiasi ja muita puhelimellesi tai tabletillesi asennettuja sovelluksia.\nOrganisaatiosi hallinnoi laitettasi ja huolehtii sen tietoturvasta."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Organisaatiosi hallinnoi tätä laitetta ja pitää sen suojattuna."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Seuraava sovellus tarvitsee käyttöoikeuden profiiliin:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Laitettasi hallinnoi seuraava sovellus:"</string>
     <string name="set_up" msgid="7012862095553564169">"Määritä asetukset"</string>

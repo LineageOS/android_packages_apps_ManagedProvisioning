@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oeps!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Stel jou profiel op"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jou organisasie beheer hierdie profiel en hou dit veilig. Jy beheer alle ander goed op jou toestel."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Met Android for Work kan jou organisasie jou korporatiewe e-pos en ander programme op jou foon en tablet bestuur.\nJou organisasie beheer jou toestel en hou dit veilig."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Jou organisasie sal hierdie toestel beheer en dit veilig hou."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die volgende program sal toegang tot hierdie profiel moet hê:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Die volgende program sal jou toestel bestuur:"</string>
     <string name="set_up" msgid="7012862095553564169">"Stel op"</string>
