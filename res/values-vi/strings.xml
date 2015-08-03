@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Rất tiếc!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Thiết lập hồ sơ của bạn"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tổ chức của bạn kiểm soát và giữ bảo mật hồ sơ này. Bạn kiểm soát mọi thứ khác trên thiết bị của mình."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Với Android for Work, tổ chức có thể quản lý email công ty và các ứng dụng khác trên điện thoại hoặc máy tính bảng của bạn.\nTổ chức kiểm soát và bảo mật cho thiết bị của bạn."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Tổ chức của bạn sẽ kiểm soát và giữ an toàn cho thiết bị này."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ứng dụng sau cần quyền truy cập vào hồ sơ này:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ứng dụng sau sẽ quản lý thiết bị của bạn:"</string>
     <string name="set_up" msgid="7012862095553564169">"Thiết lập"</string>

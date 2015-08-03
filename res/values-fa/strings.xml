@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"وای!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"تنظیم نمایه"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"سازمان شما این نمایه را کنترل می‌کند و آن را ایمن نگه می‌دارد. کنترل همه چیزهای دیگر در دستگاهتان در دست شماست."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"‏با Android for Work، سازمان شما می‌تواند ایمیل شرکتی‌ شما و سایر برنامه‌ها را در تلفن یا رایانه لوحی شما مدیریت کند.\nسازمان شما دستگاهتان را کنترل می‌کند و از امنیت آن محافظت می‌کند."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"سازمان شما این دستگاه را کنترل کرده و آن را ایمن نگه می‌دارد."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"برنامه زیر نیاز به دسترسی به این نمایه خواهد داشت:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"برنامه زیر، دستگاهتان را مدیریت می‌کند:"</string>
     <string name="set_up" msgid="7012862095553564169">"راه‌اندازی"</string>

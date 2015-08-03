@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oi!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profilio sąranka"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jūsų organizacija valdo šį profilį ir užtikrina jo saugumą. Visa kita savo įrenginyje valdote jūs."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Naudodama „Android for Work“ organizacija gali tvarkyti įmonės el. pašto ir kitas programas jūsų telefone ar planšetiniame kompiuteryje.\nOrganizacija valdo įrenginį ir užtikrina jo saugą."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Jūsų organizacija valdys šį įrenginį ir jį apsaugos."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Naudojant toliau nurodytą programą, reikės prieigos prie šio profilio:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ši programa tvarkys jūsų įrenginį:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nustatyti"</string>

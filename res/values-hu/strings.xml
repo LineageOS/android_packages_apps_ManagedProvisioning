@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppá!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profil beállítása"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ezt a profilt szervezete kezeli, és gondoskodik annak biztonságáról. Az eszközön minden mást Ön kezel."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Az Android for Work használatával szervezete elérheti vállalati e-mailjeit és egyéb munkahelyi alkalmazásait telefonján vagy táblagépén.\nSzervezete kezeli eszközét, illetve gondoskodik annak biztonságos mivoltáról."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Szervezete fogja felügyelni és biztonságban tartani ezt az eszközt."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"A következő alkalmazásnak kell hozzáférnie a profilhoz:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A következő alkalmazás kezelni fogja az eszközt:"</string>
     <string name="set_up" msgid="7012862095553564169">"Beállítás"</string>

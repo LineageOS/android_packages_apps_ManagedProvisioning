@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Алдаа!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Өөрийн профайлыг тохируулна уу"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Таны компани энэ профайлыг хянаж, аюулгүй байлгадаг. Та төхөөрөмж дээрх бусад зүйлсийг хянана."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Ажилд зориулсан Android-г ашигласнаар танай компани байгууллагын имэйл болон бусад ажлын апп-уудыг утас, таблет дээрээ ашиглах боломжтой.\nТанай компани төхөөрөмжийг хянаж, аюулгүй байлгана."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Танай байгууллага таны төхөөрөмжийг удирдаж, аюулгүй байлгана."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Дараах апп энэ профайлд хандах шаардлагатай:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Дараах апп таны төхөөрөмжийг удирдах болно:"</string>
     <string name="set_up" msgid="7012862095553564169">"Тохируулах"</string>

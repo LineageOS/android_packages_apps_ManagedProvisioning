@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Nastavenie profilu"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tento profil riadi a zabezpečuje vaša spoločnosť. Všetko ostatné na tomto zariadení máte pod kontrolou vy."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Vďaka službe Android for Work môžete na svojom telefóne či tablete spravovať svoju podnikovú poštu a ďalšie pracovné aplikácie.\nVaše zariadenie riadi a zabezpečuje vaša spoločnosť."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Vaša organizácia bude ovládať toto zariadenie a zaistí jeho bezpečnosť."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Nasledujúca aplikácia bude potrebovať prístup k tomuto profilu:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nastaviť"</string>

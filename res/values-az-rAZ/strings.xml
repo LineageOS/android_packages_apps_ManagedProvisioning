@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vay!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profilinizi quraşdırın"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Təşkilatınız profilə nəzarət edir və onu güvənli saxlayır. Qalan hər şeyə Siz nəzarət edirsiniz."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"İş Android ilə, sizin təşkilat korporativ e-poçt və sizin telefon və ya tablet digər apps idarə edə bilərsiniz. \n Sizin təşkilat sizin cihaz nəzarət və təhlükəsiz saxlayır."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Təşkilatınız bu cihaza nəzarət edəcək və onu təhlükəsiz saxlayacaq."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aşağıdakı tətbiqlər bu profilə daxil olmaq istəyir:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aşağıdakı app sizin cihaz idarə edəcək:"</string>
     <string name="set_up" msgid="7012862095553564169">"Quraşdırın"</string>
