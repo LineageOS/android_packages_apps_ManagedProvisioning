@@ -41,7 +41,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     private static final int RETRY_SLEEP_DURATION_BASE_MS = 500;
     private static final int RETRY_SLEEP_MULTIPLIER = 2;
     private static final int MAX_RETRIES = 6;
-    private static final int RECONNECT_TIMEOUT_MS = 30000;
+    private static final int RECONNECT_TIMEOUT_MS = 60000;
 
     private final Context mContext;
     private final WifiInfo mWifiInfo;
