@@ -441,6 +441,7 @@ public class ProfileOwnerProvisioningService extends Service {
         ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
         try {
             if (mAccountManager.copyAccountToUser(mParams.accountToMigrate,
+                    Process.myUserHandle(),
                     mManagedProfileUserInfo.getUserHandle(),
                     /* callback= */ null, /* handler= */ null).getResult()) {
                 ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
