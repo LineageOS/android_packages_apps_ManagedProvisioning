@@ -82,9 +82,12 @@ public class DeleteManagedProfileDialog extends DialogFragment {
 
         String appLabel;
         Drawable appIcon;
+        MdmPackageInfo mdmPackageInfo = null;
         if (mdmPackageName != null) {
-            MdmPackageInfo mdmPackageInfo = Utils.getMdmPackageInfo(
+            mdmPackageInfo = Utils.getMdmPackageInfo(
                     getActivity().getPackageManager(), mdmPackageName);
+        }
+        if (mdmPackageInfo != null) {
             appLabel = mdmPackageInfo.getAppLabel();
             appIcon = mdmPackageInfo.getPackageIcon();
         } else {
