@@ -97,9 +97,12 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                     + "managed profiles feature is not available");
             return;
         }
-        if (Process.myUserHandle().getIdentifier() != UserHandle.USER_OWNER) {
-            showErrorAndClose(R.string.user_is_not_owner,
-                    "Exiting managed profile provisioning, calling user is not owner.");
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        UserInfo uInfo = userManager.getUserInfo(UserHandle.myUserId());
+        if (!uInfo.canHaveProfile()) {
+            showErrorAndClose(R.string.user_cannot_have_work_profile,
+                    "Exiting managed profile provisioning, calling user cannot have managed"
+                    + "profiles.");
             return;
         }
         if (Utils.hasDeviceOwner(this)) {
@@ -192,7 +195,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     private boolean isMaximumManagedProfilesLimitReached() {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        return !userManager.canAddMoreManagedProfiles();
+        return !userManager.canAddMoreManagedProfiles(UserHandle.myUserId());
     }
 
     private boolean currentLauncherSupportsManagedProfiles() {
