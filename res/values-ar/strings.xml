@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"المس لمتابعة إعداد الملف الشخصي للعمل"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"تعذر إعداد ملف العمل. يمكنك الاتصال بقسم تكنولوجيا المعلومات أو إعادة المحاولة لاحقًا."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"جهازك ليس متوافقًا مع الملفات الشخصية للعمل"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"يجب إعداد الملفات الشخصية للعمل بواسطة المستخدم الأساسي للجهاز"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"يتعذر وضع ملف شخصي للعمل لهذا المستخدم"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"يتعذر إعداد الملفات الشخصية للعمل على جهاز مُدار."</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"يتعذر إنشاء الملف الشخصي للعمل لأنك بلغت الحد الأقصى لعدد المستخدمين على جهازك. عليك إزالة حساب مستخدم واحد على الأقل وإعادة المحاولة."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"لا يتوافق الملف الشخصي للعمل مع تطبيق المشغّل هذا. يجب عليك التبديل إلى تطبيق مشغّل متوافق."</string>

@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"แตะเพื่อตั้งค่าโปรไฟล์งานต่อ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ไม่สามารถตั้งค่าโปรไฟล์งานของคุณได้ โปรดติดต่อฝ่ายไอทีหรือลองอีกครั้งในภายหลัง"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"อุปกรณ์ของคุณไม่สนับสนุนโปรไฟล์งาน"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"ต้องมีการตั้งค่าโปรไฟล์งานโดยผู้ใช้หลักของอุปกรณ์"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ผู้ใช้นี้ไม่สามารถมีโปรไฟล์งานได้"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"ไม่สามารถติดตั้งโปรไฟล์งานบนอุปกรณ์ที่มีการจัดการ"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"ไม่สามารถสร้างโปรไฟล์งานได้เนื่องจากมีผู้ใช้ในอุปกรณ์ถึงขีดจำกัดแล้ว โปรดนำผู้ใช้ออกอย่างน้อย 1 คนและลองอีกครั้ง"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"แอป Launcher นี้ไม่สนับสนุนโปรไฟล์งานของคุณ คุณจะต้องเปลี่ยนเป็น Launcher ที่เข้ากันได้"</string>

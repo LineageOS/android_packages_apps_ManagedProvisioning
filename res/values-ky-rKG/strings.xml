@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Жумуш профилиңизди орнотууну улантуу үчүн тийип коюңуз"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Жумуш профилиңиз негизделген жок. IT бөлүмүңүзгө кайрылыңыз же бир аздан кийин дагы аракет кылып көрүңүз."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Түзмөгүңүздө жумуш профилдери колдоого алынбайт"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Жумуш профилдери түзмөктүн негизги колдонуучусу тарабынан орнотулушу керек"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Бул колдонуучу жумуш профилине ээ боло албайт"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Башкарылган түзмөктөн жумуш профилдерин орнотуу мүмкүн эмес"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Түзмөгүңүздөгү колдонуучулардын саны белгиленген эң жогорку чекке жеткендиктен жумуш профили түзүлбөйт. Кеминде бир колдонуучуну алып салып, кайра аракет кылыңыз."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Жумуш профилиңизде бул ишке киргизгич колдонмосу колдоого албайт. Дал келе турган жүргүзгүчкө которулушуңуз керек."</string>

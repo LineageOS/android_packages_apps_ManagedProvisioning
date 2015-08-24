@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Thinta ukuze uqhubeke ngokusetha iphrofayela yakho yomsebenzi"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ayikwazanga ukusehta iphrofayela yakho yomsebenzi. Xhumana nomnyango wakho we-IT noma zama futhi emuva kwesikhathi."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Idivayisi yakho ayisekeli amaphrofayela womsebenzi"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Amaphrofayela womsebenzi adinga ukusethwa umsebenzisi oyinhloko wedivayisi"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Lo msebenzisi akakwazi ukuba nephrofayela yomsebenzi"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Amaphrofayela wokusebenza awakwazi ukusethwa kudivayisi ephethwe"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Iphrofayela yomsebenzi ayikwazi ukudalwa ngoba ufinyelele kunombolo enkulu yabasebenzisi kudivayisi yakho. Susa okungenani umsebenzisi oyedwa uphinde uzame futhi."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Iphrofayela yakho yomsebenzi ayisekelwe yilesi siqalisi sohlelo lokusebenza. Kuzomele uguqulele kusiqalisi esihambisanayo."</string>

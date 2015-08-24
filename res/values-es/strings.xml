@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Toca para continuar la configuración del perfil de trabajo"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No se ha podido configurar el perfil de trabajo. Ponte en contacto con el departamento de TI o vuelve a intentarlo más tarde."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Tu dispositivo no admite perfiles de trabajo"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"El usuario principal del dispositivo debe configurar los perfiles de trabajo"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Este usuario no puede tener un perfil de trabajo"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Los perfiles de trabajo no se pueden configurar en un dispositivo administrado"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"No se puede crear el perfil de trabajo porque se ha alcanzado el número máximo de usuarios del dispositivo. Elimina uno o varios usuarios y vuelve a intentarlo."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Esta aplicación de launcher no admite tu perfil de trabajo. Debes utilizar un launcher que sea compatible."</string>

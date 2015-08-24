@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Atingeți pentru a continua configurarea profilului de serviciu"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nu s-a putut configura profilul de serviciu. Contactați departamentul IT sau încercați din nou mai târziu."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Dispozitivul dvs. nu acceptă profiluri de serviciu"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Profilurile de serviciu trebuie să fie configurate de utilizatorul principal al dispozitivului"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Acest utilizator nu poate avea un profil de serviciu"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Profilurile de serviciu nu pot fi configurate pe un dispozitiv gestionat de un administrator"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Profilul de serviciu nu a putut fi creat, deoarece ați atins numărul maxim de utilizatori pe dispozitiv. Eliminați cel puțin un utilizator și încercați din nou."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profilul dvs. de lucru nu este acceptat de aplicația de lansare. Va trebui să comutați la o aplicație de lansare compatibilă."</string>

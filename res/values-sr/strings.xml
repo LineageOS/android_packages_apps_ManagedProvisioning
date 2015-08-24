@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Додирните да бисте наставили са подешавањем пословног профила"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Није могуће подесити профил за посао. Контактирајте ИТ сектор или покушајте поново касније."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Уређај не подржава пословне профиле"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Пословне профиле треба да подеси примарни корисник уређаја"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Овај корисник не може да има профил за Work"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Не можете да подешавате профиле за посао на управљаном уређају"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Прављење профила за Work није успело јер је достигнут максималан број корисника на уређају. Уклоните најмање једног корисника и покушајте поново."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ова апликација покретача не подржава пословни профил. Морате да пређете на компатибилан покретач."</string>

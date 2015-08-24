@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Klepnutím pokračujte v nastavení prac. profilu."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nastavení pracovního profilu se nezdařilo. Obraťte se na oddělení IT nebo to zkuste znovu později."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Vaše zařízení pracovní profily nepodporuje."</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Pracovní profily musí nastavit primární uživatel zařízení."</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Tento uživatel nemůže mít pracovní profil"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Na spravovaném zařízení nelze nastavit pracovní profily"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Pracovní profil nelze vytvořit, protože jste v zařízení dosáhli maximálního počtu uživatelů. Alespoň jednoho uživatele odeberte a zkuste to znovu."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Váš pracovní profil tato aplikace spouštěče nepodporuje. Budete muset přejít na spouštěč, který je kompatibilní."</string>

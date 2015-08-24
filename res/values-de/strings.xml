@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Tippen, um das Einrichten des Arbeitsprofils fortzusetzen"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ihr Arbeitsprofil konnte nicht eingerichtet werden. Bitte wenden Sie sich an Ihre IT-Abteilung oder versuchen Sie es später erneut."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Ihr Gerät unterstützt keine Arbeitsprofile."</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Arbeitsprofile müssen vom primären Nutzer des Geräts eingerichtet werden."</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Dieser Nutzer kann kein Arbeitsprofil haben."</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Auf verwalteten Geräten können keine Arbeitsprofile eingerichtet werden."</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Das Arbeitsprofil kann nicht erstellt werden, da die maximale Nutzeranzahl auf diesem Gerät bereits erreicht wurde. Bitte entfernen Sie mindestens einen Nutzer und versuchen Sie es erneut."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ihr Arbeitsprofil wird von dieser Launcher-App nicht unterstützt. Wechseln Sie zu einem kompatiblen Launcher."</string>

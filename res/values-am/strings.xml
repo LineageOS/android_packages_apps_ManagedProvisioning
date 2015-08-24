@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"የስራ መገለጫዎን ማዋቀሩን ለመቀጠል ይንኩ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"የስራ መገለጫዎን ማዋቀር አልተቻለም። የአይቲ መምሪያዎን ያነጋግሩ ወይም ቆይተው እንደገና ይሞክሩ።"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"መሣሪያዎ የስራ መገለጫዎችን አይደግፍም"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"የስራ መገለጫዎች በተቀዳሚው የመሣሪያው ተጠቃሚ መዘጋጀት ያስፈልጋቸዋል"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ይህ ተጠቃሚ የስራ መገለጫ ሊኖረው አይችልም"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"የስራ መገለጫዎች በሚቀናበር መሣሪያ ላይ ሊዋቀሩ አይችሉም"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"በመሣሪያዎ ላይ የሚፈቀደው ከፍተኛ የተጠቃሚዎች ብዛት ላይ ስለደረሱ የሥራ መገለጫ ሊፈጠር አልቻለም። ቢያንስ አንድ ተጠቃሚ ያስወግዱ እና እንደገና ይሞክሩ።"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"የስራ መገለጫዎ በዚህ የማስጀመሪያ መተግበሪያ ውስጥ የሚደገፍ አይደለም። ተኳኋኝ ወደሆነ ማስጀመሪያ መቀየር ይኖርብዎታል።"</string>

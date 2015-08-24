@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Dodirnite da biste nastavili postavljati radni profil"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Postavljanje vašeg radnog profila nije uspjelo. Obratite se IT odjelu ili pokušajte ponovno kasnije."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Vaš uređaj ne podržava radne profile."</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Primarni korisnik uređaja mora postaviti radne profile"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Taj korisnik ne može imati radni profil"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Radne profile nije moguće postavljati na upravljanim uređajima"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Nije uspjela izrada radnog profila jer ste dosegnuli maksimalni broj korisnika na uređaju. Uklonite barem jednog korisnika i pokušajte ponovo."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ta aplikacija pokretača ne podržava vaš radni profil. Morat ćete prijeći na kompatibilni pokretač."</string>

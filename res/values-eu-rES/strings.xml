@@ -36,7 +36,7 @@
     <string name="ok_setup" msgid="5148111905838329307">"Ados"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Laneko profila"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Laneko profila kendu nahi duzu?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Work profil hau badago lehendik, eta honek kudeatzen du:"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Laneko profil hau badago lehendik, eta honek kudeatzen du:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s domeinuko laneko profil hau honen bidez kudeatzen da:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Jarraitu aurretik, "<a href="#read_this_link">"irakurri hau"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Aurrera eginez gero, profileko aplikazio eta datu guztiak ezabatuko dira."</string>
@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Ukitu hau laneko profila konfiguratzen jarraitzeko"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ezin izan da konfiguratu laneko profila. Jarri informatika-sailarekin harremanetan edo saiatu berriro geroago."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Gailuak ez du laneko profilik onartzen"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Gailuaren erabiltzaile nagusiak konfiguratu behar ditu laneko profilak"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Erabiltzaileak ezin du laneko profila izan"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Ezin da konfiguratu laneko profilik kudeatutako gailuetan"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Ezin da sortu Work profila gailuan izan dezakezun erabiltzaile mugara iritsi zarelako. Kendu erabiltzaile bat gutxienez eta saiatu berriro."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Aplikazio abiarazle honek ez du zure laneko profila onartzen. Abiarazle bateragarri bat erabili beharko duzu."</string>

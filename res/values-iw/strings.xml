@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"גע כדי להמשיך בהגדרת פרופיל העבודה שלך"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏לא ניתן להגדיר את פרופיל העבודה שלך. צור קשר עם מחלקת ה-IT או נסה שוב מאוחר יותר."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"המכשיר שלך אינו תומך בפרופילי עבודה"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"על המשתמש הראשי במכשיר להגדיר את פרופילי העבודה"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"למשתמש זה לא יכול להיות פרופיל עבודה"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"לא ניתן להגדיר פרופילים של עבודה במכשיר מנוהל"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"לא ניתן ליצור פרופיל עבודה מפני שהגעת למספר המשתמשים המקסימלי במכשיר. הסר משתמש אחד לפחות ונסה שוב."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"פרופיל העבודה שלך אינו נתמך על ידי אפליקציית ההפעלה הזו. יהיה עליך לעבור למפעיל אפליקציות תואם."</string>

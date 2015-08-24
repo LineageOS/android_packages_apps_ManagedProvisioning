@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Tik hierop om door te gaan met het instellen van uw werkprofiel"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Kan uw werkprofiel niet instellen. Neem contact op met uw IT-afdeling of probeer het later opnieuw."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Uw apparaat ondersteunt geen werkprofielen"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Werkprofielen moeten worden ingesteld door de primaire gebruiker van het apparaat"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Deze gebruiker kan geen werkprofiel hebben"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Werkprofielen kunnen niet worden ingesteld op een beheerd apparaat"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Werkprofiel kan niet worden gemaakt omdat u het maximumaantal gebruikers op uw apparaat heeft bereikt. Verwijder ten minste één gebruiker en probeer het opnieuw."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Uw werkprofiel wordt niet ondersteund door deze Launcher-app. U moet overschakelen naar een Launcher die compatibel is."</string>

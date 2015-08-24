@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Tryck här om du vill fortsätta konfigurera din jobbprofil"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Det gick inte att konfigurera arbetsprofilen. Kontakta IT-avdelningen eller försök igen senare."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Enheten stöder inte arbetsprofiler"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Jobbprofler kan bara skapas av enhetens primära användare"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Den här användaren kan inte ha en arbetsprofil"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Det går inte att konfigurera arbetsprofiler på en hanterad enhet"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Det går inte att skapa jobbprofilen eftersom du har nått maxgränsen för antalet användare på enheten. Ta bort minst en användare och försök igen."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Din jobbprofil stöds inte av det här startprogrammet. Du måste byta till ett kompatibelt startprogram."</string>

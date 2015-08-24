@@ -50,7 +50,7 @@
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Touch to continue setting up your work profile"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Couldn\'t set up your work profile. Contact your IT department or try again later."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Your device doesn\'t support work profiles"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"Work profiles need to be set up by the primary user of the device"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"This user cannot have a work profile"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Work profiles can not be set up on a managed device"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Work profile can\'t be created because you\'ve reached the maximum number of users on your device. Remove at least one user and try again."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible."</string>
