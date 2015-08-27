@@ -25,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.os.RemoteException;
 import android.os.UserHandle;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.Utils;
 
@@ -38,14 +39,22 @@ public class SetDevicePolicyTask {
     private String mAdminPackage;
     private ComponentName mAdminComponent;
     private final String mOwnerName;
+    private final int mUserId;
 
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
 
     public SetDevicePolicyTask(Context context, String ownerName, Callback callback) {
+        this(context, ownerName, callback, UserHandle.myUserId());
+    }
+
+    @VisibleForTesting
+    /* package */ SetDevicePolicyTask(Context context, String ownerName, Callback callback,
+            int userId) {
         mCallback = callback;
         mContext = context;
         mOwnerName = ownerName;
+        mUserId = userId;
 
         mPackageManager = mContext.getPackageManager();
         mDevicePolicyManager = (DevicePolicyManager) mContext.
@@ -53,21 +62,26 @@ public class SetDevicePolicyTask {
     }
 
     public void run(ComponentName adminComponent) {
+        boolean success = true;
         try {
             mAdminComponent = adminComponent;
             mAdminPackage = mAdminComponent.getPackageName();
 
             enableDevicePolicyApp(mAdminPackage);
             setActiveAdmin(mAdminComponent);
-            setDeviceOwner(mAdminComponent, mOwnerName);
-            setProfileOwner(mAdminComponent);
+            success = setDeviceOwner(mAdminComponent, mOwnerName)
+                    && setProfileOwner(mAdminComponent);
         } catch (Exception e) {
-            ProvisionLogger.loge("Failure setting device owner", e);
+            ProvisionLogger.loge("Failure setting device or profile owner", e);
             mCallback.onError();
             return;
         }
-
-        mCallback.onSuccess();
+        if (success) {
+            mCallback.onSuccess();
+        } else {
+            ProvisionLogger.loge("Error when setting device or profile owner.");
+            mCallback.onError();
+        }
     }
 
     private void enableDevicePolicyApp(String packageName) {
@@ -81,24 +95,23 @@ public class SetDevicePolicyTask {
         }
     }
 
-    public void setActiveAdmin(ComponentName component) {
+    private void setActiveAdmin(ComponentName component) {
         ProvisionLogger.logd("Setting " + component + " as active admin.");
-        mDevicePolicyManager.setActiveAdmin(component, true, UserHandle.myUserId());
+        mDevicePolicyManager.setActiveAdmin(component, true, mUserId);
     }
 
-    public boolean setDeviceOwner(ComponentName component, String owner) {
+    private boolean setDeviceOwner(ComponentName component, String owner) {
         ProvisionLogger.logd("Setting " + component + " as device owner " + owner + ".");
         if (!mDevicePolicyManager.isDeviceOwner(component)) {
-            return mDevicePolicyManager.setDeviceOwner(component, owner, UserHandle.myUserId());
+            return mDevicePolicyManager.setDeviceOwner(component, owner, mUserId);
         }
         return true;
     }
 
-    public boolean setProfileOwner(ComponentName admin) {
+    private boolean setProfileOwner(ComponentName admin) {
         ProvisionLogger.logd("Setting " + admin + " as profile owner ");
         if (!mDevicePolicyManager.isProfileOwnerApp(admin.getPackageName())) {
-            return mDevicePolicyManager.setProfileOwner(admin, admin.getPackageName(),
-                    UserHandle.myUserId());
+            return mDevicePolicyManager.setProfileOwner(admin, admin.getPackageName(), mUserId);
         }
         return true;
     }
