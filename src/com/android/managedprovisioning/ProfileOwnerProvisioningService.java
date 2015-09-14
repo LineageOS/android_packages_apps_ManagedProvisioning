@@ -62,6 +62,7 @@ import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Service that runs the profile owner provisioning.
@@ -77,7 +78,7 @@ public class ProfileOwnerProvisioningService extends Service {
             "com.android.managedprovisioning.error";
     public static final String ACTION_PROVISIONING_CANCELLED =
             "com.android.managedprovisioning.cancelled";
-    public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioingErrorLogMessage";
+    public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioningErrorLogMessage";
 
     // Status flags for the provisioning process.
     /** Provisioning not started. */
@@ -93,6 +94,8 @@ public class ProfileOwnerProvisioningService extends Service {
     private static final int STATUS_ERROR = 4;
     /** Provisioning cancelled and cleanup complete. */
     private static final int STATUS_CANCELLED = 5;
+
+    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 2;  // 2 minutes
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
@@ -314,7 +317,7 @@ public class ProfileOwnerProvisioningService extends Service {
      * the process didn't succeed.
      */
     private void finish() {
-        ProvisionLogger.logi("Finishing provisioing process, status: "
+        ProvisionLogger.logi("Finishing provisioning process, status: "
                              + mProvisioningStatus);
         // Reached the end of the provisioning process, take appropriate action
         // based on current mProvisioningStatus.
@@ -351,7 +354,7 @@ public class ProfileOwnerProvisioningService extends Service {
             }
         }
 
-        ProvisionLogger.logi("Finished provisioing process, final status: "
+        ProvisionLogger.logi("Finished provisioning process, final status: "
                 + mProvisioningStatus);
 
         // Notify UI activity of final status reached.
@@ -440,17 +443,20 @@ public class ProfileOwnerProvisioningService extends Service {
         }
         ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
         try {
-            if (mAccountManager.copyAccountToUser(mParams.accountToMigrate,
+            boolean copySucceeded = mAccountManager.copyAccountToUser(
+                    mParams.accountToMigrate,
                     Process.myUserHandle(),
                     mManagedProfileUserInfo.getUserHandle(),
-                    /* callback= */ null, /* handler= */ null).getResult()) {
+                    /* callback= */ null, /* handler= */ null)
+                    .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            if (copySucceeded) {
                 ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
             } else {
                 ProvisionLogger.loge("Could not copy account to user "
                         + mManagedProfileUserInfo.id);
             }
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception copying account to user " + mManagedProfileUserInfo.id,
+            ProvisionLogger.loge("Exception copying account to user " + mManagedProfileUserInfo.id,
                     e);
         }
     }
