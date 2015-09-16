@@ -61,9 +61,7 @@ import android.accounts.OperationCanceledException;
 public class Utils {
     private Utils() {}
 
-    public static Set<String> getCurrentSystemApps(int userId) {
-        IPackageManager ipm = IPackageManager.Stub.asInterface(ServiceManager
-                .getService("package"));
+    public static Set<String> getCurrentSystemApps(IPackageManager ipm, int userId) {
         Set<String> apps = new HashSet<String>();
         List<ApplicationInfo> aInfos = null;
         try {
