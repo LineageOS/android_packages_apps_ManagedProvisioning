@@ -55,8 +55,8 @@ public class InstallPackageTask {
     private Set<InstallInfo> mPackagesToInstall;
 
     /**
-     * Create an InstallPackageTask. When run, this will attempt to install the device initializer
-     * and device admin packages if they are non-null.
+     * Create an InstallPackageTask. When run, this will attempt to install the device admin
+     * packages if it is non-null.
      *
      * {@see #run(String, String)} for more detail on package installation.
      */

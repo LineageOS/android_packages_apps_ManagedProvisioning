@@ -235,12 +235,6 @@ public class Utils {
         return !TextUtils.isEmpty(dpm.getDeviceOwner());
     }
 
-    public static boolean hasDeviceInitializer(Context context) {
-        DevicePolicyManager dpm =
-                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        return dpm != null && dpm.getDeviceInitializerApp() != null;
-    }
-
     public static boolean isManagedProfile(Context context) {
         UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
         UserInfo user = um.getUserInfo(UserHandle.myUserId());
@@ -279,10 +273,7 @@ public class Utils {
     }
 
     public static void markDeviceProvisioned(Context context) {
-        if (isCurrentUserOwner()) {
-            // This only needs to be set once per device
-            Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
-        }
+        Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
 
         // Setting this flag will either cause Setup Wizard to finish immediately when it starts (if
         // it is not already running), or when its next activity starts (if it is already running,
@@ -290,8 +281,6 @@ public class Utils {
         // When either of these things happen, a home intent is fired. We catch that in
         // HomeReceiverActivity before sending the intent to notify the mdm that provisioning is
         // complete.
-        // Note that, in the NFC flow or for secondary users, setting this flag will prevent the
-        // user from seeing SUW, even if no other device initialization app was specified.
         Secure.putInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
     }
 

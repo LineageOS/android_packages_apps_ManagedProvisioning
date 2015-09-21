@@ -16,9 +16,6 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DeviceAdminReceiver.ACTION_READY_FOR_USER_INITIALIZATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -26,7 +23,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.accessibility.AccessibilityEvent;
@@ -34,7 +30,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This activity starts device owner provisioning:
@@ -164,30 +159,8 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
 
 
     private void onProvisioningSuccess() {
-        if (mParams.deviceInitializerComponentName != null) {
-            Intent result = new Intent(ACTION_READY_FOR_USER_INITIALIZATION);
-            result.setComponent(mParams.deviceInitializerComponentName);
-            result.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                    Intent.FLAG_RECEIVER_FOREGROUND);
-            if (mParams.adminExtrasBundle != null) {
-                result.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                        mParams.adminExtrasBundle);
-            }
-            List<ResolveInfo> matchingReceivers =
-                    getPackageManager().queryBroadcastReceivers(result, 0);
-            if (matchingReceivers.size() > 0) {
-                // Notify the device initializer that it can now perform pre-user-setup tasks.
-                sendBroadcast(result);
-            } else {
-                ProvisionLogger.logi("Initializer component doesn't have a receiver for "
-                        + "android.app.action.READY_FOR_USER_INITIALIZATION. Skipping broadcast "
-                        + "and finishing user initialization.");
-                Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
-            }
-        } else {
-            // No initializer, set the device provisioned ourselves.
-            Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
-        }
+        // Set the device to provisioned.
+        Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
         stopService(new Intent(this, DeviceOwnerProvisioningService.class));
         // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);

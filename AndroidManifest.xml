@@ -30,7 +30,6 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
-    <uses-permission android:name="android.permission.MANAGE_CA_CERTIFICATES" />
 
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
@@ -89,7 +88,6 @@
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/com.android.managedprovisioning" />
-                <data android:mimeType="application/com.android.managedprovisioning.v2"/>
             </intent-filter>
         </activity-alias>
 
@@ -174,33 +172,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".UserInitializedReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.USER_INITIALIZE" />
-            </intent-filter>
-        </receiver>
-
-        <!-- These 2 receivers, along with the CertService, handle installing CA certs for
-             secondary users. On initialization of secondary users, a broadcast
-             (InstallCertRequestReceiver) is sent to the primary user to request the CA certs. The
-             primary user responds, via CertService, with a broadcast (InstallCertReceiver)
-             containing the CA certs, which are then installed for the secondary user. -->
-        <receiver android:name=".InstallCertRequestReceiver"
-                  android:exported="false">
-            <intent-filter>
-                <action android:name="com.android.managedprovisioning.REQUEST_CERT_ACTION" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".InstallCertReceiver"
-                  android:exported="false">
-            <intent-filter>
-                <action android:name="com.android.managedprovisioning.INSTALL_CERT_ACTION" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name=".CertService"
-                 android:exported = "false"/>
 
     </application>
 </manifest>

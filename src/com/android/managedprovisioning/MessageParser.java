@@ -38,16 +38,9 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC_V2;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.accounts.Account;
@@ -100,7 +93,7 @@ import java.util.Properties;
  * the SHA-256 hash of the target file {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM} or
  * the SHA-256 hash of any signature of the android package in the target file
  * {@link #EXTRA_PROVISIONING_DEVICE_ADMIN_CERTIFICATE_CHECKSUM}.
- * Additional information to send through to the device initializer and admin may be specified in
+ * Additional information to send through to the device manager and admin may be specified in
  * {@link #EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}.
  * The optional boolean {@link #EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED} indicates whether
  * system apps should not be disabled. The optional boolean
@@ -160,11 +153,7 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM
+        EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM
     };
 
     /* package */ static final String[] DEVICE_OWNER_LONG_EXTRAS = {
@@ -173,8 +162,7 @@ public class MessageParser {
 
     /* package */ static final String[] DEVICE_OWNER_INT_EXTRAS = {
         EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE
+        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE
     };
 
     /* package */ static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
@@ -190,8 +178,7 @@ public class MessageParser {
     };
 
     /* package */ static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
-        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-        EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME
+        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
     };
 
     public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
@@ -221,19 +208,6 @@ public class MessageParser {
                 params.deviceAdminDownloadInfo.packageChecksumSupportsSha1);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
-        bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME,
-                params.deviceInitializerComponentName);
-        bundle.putInt(EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
-                params.deviceInitializerDownloadInfo.minVersion);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION,
-                params.deviceInitializerDownloadInfo.location);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-                params.deviceInitializerDownloadInfo.cookieHeader);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM,
-                Utils.byteArrayToString(params.deviceInitializerDownloadInfo.packageChecksum));
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM,
-                Utils.byteArrayToString(params.deviceInitializerDownloadInfo.signatureChecksum));
-
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
         bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
         bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
@@ -255,8 +229,7 @@ public class MessageParser {
             NdefRecord firstRecord = msg.getRecords()[0];
             String mimeType = new String(firstRecord.getType(), UTF_8);
 
-            if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType) ||
-                    MIME_TYPE_PROVISIONING_NFC_V2.equals(mimeType)) {
+            if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
                 ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
                                 , UTF_8));
                 params.startedByNfc = true;
@@ -327,31 +300,6 @@ public class MessageParser {
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
                     != null) {
                 params.deviceAdminDownloadInfo.signatureChecksum = Utils.stringToByteArray(s);
-            }
-            String name = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
-            if (name != null) {
-                params.deviceInitializerComponentName = ComponentName.unflattenFromString(name);
-            }
-            if ((s = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE)) != null) {
-                params.deviceInitializerDownloadInfo.minVersion = Integer.parseInt(s);
-            } else {
-                params.deviceInitializerDownloadInfo.minVersion =
-                        ProvisioningParams.DEFAULT_MINIMUM_VERSION;
-            }
-            params.deviceInitializerDownloadInfo.location = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
-            params.deviceInitializerDownloadInfo.cookieHeader = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
-            if ((s = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM)) != null) {
-                params.deviceInitializerDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
-            }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM))
-                    != null) {
-                params.deviceInitializerDownloadInfo.signatureChecksum =
-                        Utils.stringToByteArray(s);
             }
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
@@ -498,26 +446,6 @@ public class MessageParser {
         if (sigHash != null) {
             params.deviceAdminDownloadInfo.signatureChecksum = Utils.stringToByteArray(sigHash);
         }
-        params.deviceInitializerComponentName = (ComponentName) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_DEVICE_INITIALIZER_COMPONENT_NAME);
-        params.deviceInitializerDownloadInfo.minVersion = intent.getIntExtra(
-                EXTRA_PROVISIONING_DEVICE_INITIALIZER_MINIMUM_VERSION_CODE,
-                ProvisioningParams.DEFAULT_MINIMUM_VERSION);
-        params.deviceInitializerDownloadInfo.location = intent.getStringExtra(
-                EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_LOCATION);
-        params.deviceInitializerDownloadInfo.cookieHeader = intent.getStringExtra(
-                EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_DOWNLOAD_COOKIE_HEADER);
-        packageHash = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_PACKAGE_CHECKSUM);
-        if (packageHash != null) {
-            params.deviceInitializerDownloadInfo.packageChecksum =
-                    Utils.stringToByteArray(packageHash);
-        }
-        sigHash =
-                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_INITIALIZER_SIGNATURE_CHECKSUM);
-        if (sigHash != null) {
-            params.deviceInitializerDownloadInfo.signatureChecksum =
-                    Utils.stringToByteArray(sigHash);
-        }
 
         params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
                 ProvisioningParams.DEFAULT_LOCAL_TIME);
@@ -548,7 +476,6 @@ public class MessageParser {
                     + " admin package or component name");
         }
         checkDownloadInfoHasChecksum(params.deviceAdminDownloadInfo, "device admin");
-        checkDownloadInfoHasChecksum(params.deviceInitializerDownloadInfo, "device initializer");
     }
 
     private void checkDownloadInfoHasChecksum(ProvisioningParams.PackageDownloadInfo info,

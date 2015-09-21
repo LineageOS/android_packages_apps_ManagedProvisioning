@@ -54,7 +54,6 @@ public class DeviceOwnerProvisioningService extends Service {
     private static final boolean DEBUG = false; // To control logging.
 
     private static final String DEVICE_OWNER = "deviceOwner";
-    private static final String DEVICE_INITIALIZER = "deviceInitializer";
 
     /**
      * Intent action to activate the CDMA phone connection by OTASP.
@@ -181,10 +180,6 @@ public class DeviceOwnerProvisioningService extends Service {
                         mInstallPackageTask.addInstallIfNecessary(
                                 params.inferDeviceAdminPackageName(),
                                 mDownloadPackageTask.getDownloadedPackageLocation(DEVICE_OWNER));
-                        mInstallPackageTask.addInstallIfNecessary(
-                                params.getDeviceInitializerPackageName(),
-                                mDownloadPackageTask.getDownloadedPackageLocation(
-                                        DEVICE_INITIALIZER));
                         mInstallPackageTask.run();
                     }
 
@@ -207,8 +202,6 @@ public class DeviceOwnerProvisioningService extends Service {
         // Add packages to download to the DownloadPackageTask.
         mDownloadPackageTask.addDownloadIfNecessary(params.inferDeviceAdminPackageName(),
                 params.deviceAdminDownloadInfo, DEVICE_OWNER);
-        mDownloadPackageTask.addDownloadIfNecessary(params.getDeviceInitializerPackageName(),
-                params.deviceInitializerDownloadInfo, DEVICE_INITIALIZER);
 
         mInstallPackageTask = new InstallPackageTask(this,
                 new InstallPackageTask.Callback() {
@@ -237,9 +230,6 @@ public class DeviceOwnerProvisioningService extends Service {
                             case InstallPackageTask.ERROR_INSTALLATION_FAILED:
                                 error(R.string.device_owner_error_installation_failed);
                                 break;
-                            case InstallPackageTask.ERROR_PACKAGE_NAME_INVALID:
-                                error(R.string.device_owner_error_package_name_invalid);
-                                break;
                             default:
                                 error(R.string.device_owner_error_general);
                                 break;
@@ -249,7 +239,6 @@ public class DeviceOwnerProvisioningService extends Service {
 
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
                 getResources().getString(R.string.default_owned_device_username),
-                params.deviceInitializerComponentName,
                 new SetDevicePolicyTask.Callback() {
                     @Override
                     public void onSuccess() {
