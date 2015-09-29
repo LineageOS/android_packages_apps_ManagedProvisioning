@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
+import android.app.AppGlobals;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -45,7 +46,8 @@ public class DisableInstallShortcutListenersTask {
     public void run() {
         ProvisionLogger.logd("Disabling install shortcut listeners.");
         Intent actionShortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
-        Set<String> systemApps = Utils.getCurrentSystemApps(mUserId);
+        Set<String> systemApps = Utils.getCurrentSystemApps(AppGlobals.getPackageManager(),
+                mUserId);
         for (String systemApp : systemApps) {
             actionShortcut.setPackage(systemApp);
             disableReceivers(actionShortcut);
