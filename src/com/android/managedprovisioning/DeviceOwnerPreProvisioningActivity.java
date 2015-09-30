@@ -21,17 +21,24 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXT
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.KeyguardManager;
+import android.content.pm.UserInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.os.SystemProperties;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +46,7 @@ import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.Utils.MdmPackageInfo;
 
+import java.util.List;
 /**
  * This activity makes necessary checks before starting {@link DeviceOwnerProvisioningActivity}.
  * It checks if the device or user is already setup. It makes sure the device is encrypted, the
@@ -69,6 +77,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (DEBUG) ProvisionLogger.logd("DeviceOwnerPreProvisioningActivity ONCREATE");
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
         if (savedInstanceState != null) {
             mUserConsented = savedInstanceState.getBoolean(KEY_USER_CONSENTED, false);
@@ -119,7 +128,14 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
 
         // Have the user pick a wifi network if necessary.
-        if (!NetworkMonitor.isConnectedToNetwork(this)
+        KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        // It is not possible to ask the user to pick a wifi network if
+        // the screen is locked.
+        // TODO: remove this check once we know the screen will not be locked.
+        if (km.inKeyguardRestrictedInputMode()) {
+            ProvisionLogger.logi("Cannot pick wifi because the screen is locked.");
+            // Have the user pick a wifi network if necessary.
+        } else if (!NetworkMonitor.isConnectedToNetwork(this)
                 && TextUtils.isEmpty(mParams.wifiInfo.ssid)) {
             requestWifiPick();
             return;
@@ -190,7 +206,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         if (mParams.startedByNfc && Utils.isFrpSupported(this)) {
             showUserConsentDialog();
         } else if (mUserConsented || mParams.startedByNfc) {
-            startDeviceOwnerProvisioning();
+            maybeCreateUserAndStartProvisioning();
         } else {
             showStartProvisioningButton();
             TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
@@ -201,10 +217,21 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
     }
 
-    private void startDeviceOwnerProvisioning() {
+    private void maybeCreateUserAndStartProvisioning() {
+        // TODO: there should be a parameter indicating that the user wants to set the device owner
+        // in the system user.
+        if (UserManager.isSplitSystemUser()) {
+            // Create the primary user, and continue the provisioning in this user.
+            new CreatePrimaryUserTask().execute();
+            return;
+        }
+        startDeviceOwnerProvisioning(UserHandle.myUserId());
+    }
+
+    private void startDeviceOwnerProvisioning(int userId) {
         Intent intent = new Intent(this, DeviceOwnerProvisioningActivity.class);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
-        startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
+        startActivityForResultAsUser(intent, PROVISIONING_REQUEST_CODE, new UserHandle(userId));
         // Set cross-fade transition animation into the interstitial progress activity.
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
@@ -304,7 +331,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // next screen after user clicks ok.
         setTitle("");
         mUserConsented = true;
-        startDeviceOwnerProvisioning();
+        maybeCreateUserAndStartProvisioning();
     }
 
     @Override
@@ -331,5 +358,41 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     private void showUserConsentDialog() {
         UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER)
                 .show(getFragmentManager(), "UserConsentDialogFragment");
+    }
+
+    private class CreatePrimaryUserTask extends AsyncTask<Void, Void, Integer> {
+        @Override
+        protected Integer doInBackground(Void... args) {
+            UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
+            List<UserInfo> users = um.getUsers();
+            if (users.size() > 1) {
+                showErrorAndClose(R.string.device_owner_error_general,
+                        "Cannot start Device Owner Provisioning because there are already "
+                        + users.size() + " users");
+                return UserHandle.USER_NULL;
+            }
+            // Create the user where we're going to install the device owner.
+            UserInfo info = um.createUser(getString(R.string.default_first_meat_user_name),
+                    UserInfo.FLAG_PRIMARY | UserInfo.FLAG_ADMIN);
+
+            if (info == null) {
+                showErrorAndClose(R.string.device_owner_error_general, "Could not create user");
+                return UserHandle.USER_NULL;
+            }
+            ProvisionLogger.logi("Created user " + info.id + " to hold the device owner");
+            return info.id;
+        }
+
+        @Override
+        protected void onPostExecute(Integer userId) {
+            if (userId != UserHandle.USER_NULL) {
+                ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+                am.switchUser(userId);
+                startDeviceOwnerProvisioning(userId);
+            } else {
+                showErrorAndClose(R.string.device_owner_error_general,
+                        "Could not create a user to hold the device owner.");
+            }
+        }
     }
 }

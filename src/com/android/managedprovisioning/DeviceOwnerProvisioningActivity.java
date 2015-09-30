@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.View;
@@ -161,6 +162,12 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     private void onProvisioningSuccess() {
         // Set the device to provisioned.
         Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
+        if (UserHandle.myUserId() != UserHandle.USER_SYSTEM) {
+            // Utils.markDeviceProvisioned() only marks the current user with user_setup_complete
+            // If the current user is not the system user, then the system user has not been marked
+            // with user_setup_complete. Mark it now.
+            Utils.markUserSetupComplete(this, UserHandle.USER_SYSTEM);
+        }
         stopService(new Intent(this, DeviceOwnerProvisioningService.class));
         // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);
