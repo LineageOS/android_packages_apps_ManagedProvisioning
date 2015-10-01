@@ -138,8 +138,6 @@
   <string name="device_owner_error_general">Couldn\'t set up your device. Contact your IT department. </string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_already_provisioned">This device is already set up.</string>
-  <!-- Message of the error dialog when a secondary user has already been provisioned. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_already_provisioned_user">This device is already set up for this user.</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
@@ -154,8 +152,6 @@
   <string name="device_owner_error_download_failed">Couldn\'t download the admin app</string>
   <!-- Message of the error dialog when package to install is invalid. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_package_invalid">Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department.</string>
-  <!-- Message of the error dialog when the name of the admin package to be installed is invalid. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_package_name_invalid">Can\'t install the admin app. The package name is invalid. Contact your IT department.</string>
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_installation_failed">Couldn\'t install the admin app</string>
   <!-- Message of the error dialog when device admin package is not installed. [CHAR LIMIT=NONE] -->

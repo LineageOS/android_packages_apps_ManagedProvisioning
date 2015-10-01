@@ -65,12 +65,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
             = "com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE";
 
-    /**
-     * Action used to start DeviceOwnerPreProvisioningActivity on a secondary user.
-     */
-    protected static final String ACTION_PROVISION_SECONDARY_USER
-            = "com.android.managedprovisioning.ACTION_PROVISION_SECONDARY_USER";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,23 +78,18 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         initializeLayoutParams(R.layout.user_consent, R.string.setup_work_device, false);
         configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
-        // Check whether we have already provisioned this user.
-        if (Utils.isCurrentUserOwner()) {
-            int provisioned =
-                    Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /*defaults*/);
-            if (provisioned != 0) {
-                showErrorAndClose(R.string.device_owner_error_already_provisioned,
-                        "Device already provisioned.");
-                return;
-            }
-        } else {
-             int provisioned =
-                    Secure.getInt(getContentResolver(), Secure.USER_SETUP_COMPLETE, 0 /*default*/);
-            if (provisioned != 0) {
-                showErrorAndClose(R.string.device_owner_error_already_provisioned_user,
-                        "User already provisioned.");
-                return;
-            }
+
+        // Check whether we can provision.
+        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /*defaults*/) != 0) {
+            showErrorAndClose(R.string.device_owner_error_already_provisioned,
+                    "Device already provisioned.");
+            return;
+        }
+
+        if (!Utils.isCurrentUserOwner()) {
+            showErrorAndClose(R.string.device_owner_error_general,
+                    "Device owner can only be set up for USER_OWNER.");
+            return;
         }
 
         if (factoryResetProtected()) {
@@ -131,9 +120,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         // Have the user pick a wifi network if necessary.
         if (!NetworkMonitor.isConnectedToNetwork(this)
-                && TextUtils.isEmpty(mParams.wifiInfo.ssid)
-                // If a device initializer is installed, this shouldn't run on secondary users.
-                && (!Utils.hasDeviceInitializer(this) || Utils.isCurrentUserOwner())) {
+                && TextUtils.isEmpty(mParams.wifiInfo.ssid)) {
             requestWifiPick();
             return;
             // Wait for onActivityResult.
@@ -155,12 +142,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             return parser.parseNfcIntent(intent);
         } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
             return parser.parseNonNfcIntent(intent, trusted);
-        } else if (intent.getAction().equals(ACTION_PROVISION_SECONDARY_USER)) {
-            if (Utils.isCurrentUserOwner()) {
-                throw new IllegalProvisioningArgumentException("Permission denied. " +
-                    "Was this activity started for a secondary user?");
-            }
-            return parser.parseNonNfcIntent(intent, trusted);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE)) {
             ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent);
             String callingPackage = getCallingPackage();
@@ -179,11 +160,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private boolean factoryResetProtected() {
-        if (!Utils.isCurrentUserOwner()) {
-            ProvisionLogger.logd("Reset protection check skipped on secondary users.");
-            return false;
-        }
-
         // If we are started by setup wizard, do not check for factory reset protection since setup
         // wizard must have already validated it. This avoids provisioning being blocked by FRP
         // if an account was added in the setup wizard on devices that enforce FRP as soon as the
@@ -213,7 +189,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // since FRP will not be activated at the end of the flow.
         if (mParams.startedByNfc && Utils.isFrpSupported(this)) {
             showUserConsentDialog();
-        } else if (mUserConsented || mParams.startedByNfc || !Utils.isCurrentUserOwner()) {
+        } else if (mUserConsented || mParams.startedByNfc) {
             startDeviceOwnerProvisioning();
         } else {
             showStartProvisioningButton();

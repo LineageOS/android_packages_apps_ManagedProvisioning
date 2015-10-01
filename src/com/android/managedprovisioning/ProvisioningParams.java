@@ -81,7 +81,6 @@ public class ProvisioningParams implements Parcelable {
     // At least one one of deviceAdminPackageName and deviceAdminComponentName should be non-null
     public String deviceAdminPackageName; // Package name of the device admin package.
     public ComponentName deviceAdminComponentName;
-    public ComponentName deviceInitializerComponentName;
     public Account accountToMigrate;
 
     private ComponentName inferedDeviceAdminComponentName;
@@ -120,7 +119,6 @@ public class ProvisioningParams implements Parcelable {
         }
     }
     public PackageDownloadInfo deviceAdminDownloadInfo = new PackageDownloadInfo();
-    public PackageDownloadInfo deviceInitializerDownloadInfo  = new PackageDownloadInfo();
 
     public PersistableBundle adminExtrasBundle;
 
@@ -134,13 +132,6 @@ public class ProvisioningParams implements Parcelable {
             return deviceAdminComponentName.getPackageName();
         }
         return deviceAdminPackageName;
-    }
-
-    public String getDeviceInitializerPackageName() {
-        if (deviceInitializerComponentName != null) {
-            return deviceInitializerComponentName.getPackageName();
-        }
-        return null;
     }
 
     // This should not be called if the app has not been installed yet.
@@ -167,8 +158,6 @@ public class ProvisioningParams implements Parcelable {
         out.writeString(deviceAdminPackageName);
         out.writeParcelable(deviceAdminComponentName, 0 /* default */);
         deviceAdminDownloadInfo.writeToParcel(out);
-        out.writeParcelable(deviceInitializerComponentName, 0 /* default */);
-        deviceInitializerDownloadInfo.writeToParcel(out);
         out.writeParcelable(adminExtrasBundle, 0 /* default */);
         out.writeInt(startedByNfc ? 1 : 0);
         out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
@@ -189,9 +178,6 @@ public class ProvisioningParams implements Parcelable {
             params.deviceAdminComponentName = (ComponentName)
                     in.readParcelable(null /* use default classloader */);
             params.deviceAdminDownloadInfo.readFromParcel(in);
-            params.deviceInitializerComponentName = (ComponentName)
-                    in.readParcelable(null /* use default classloader */);
-            params.deviceInitializerDownloadInfo.readFromParcel(in);
             params.adminExtrasBundle = in.readParcelable(null /* use default classloader */);
             params.startedByNfc = in.readInt() == 1;
             params.leaveAllSystemAppsEnabled = in.readInt() == 1;

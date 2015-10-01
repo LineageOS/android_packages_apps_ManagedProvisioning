@@ -98,15 +98,6 @@ public class HomeReceiverActivity extends Activity {
         if (provisioningCompleteIntent == null) {
             return;
         }
-
-        // Disable the Device Initializer component, if it exists, in case it did not do so itself.
-        if(mParams.deviceInitializerComponentName != null) {
-            DevicePolicyManager devicePolicyManager =
-                    (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
-            devicePolicyManager.removeActiveAdmin(mParams.deviceInitializerComponentName);
-            disableComponent(mParams.deviceInitializerComponentName);
-        }
-
         sendBroadcast(provisioningCompleteIntent);
     }
 
