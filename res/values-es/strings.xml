@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"RESTABLECER"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"No se ha podido configurar el dispositivo. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Este dispositivo ya está configurado."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Este dispositivo ya está configurado para este usuario."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No se ha podido establecer conexión con la red Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Este dispositivo está bloqueado con la protección para restablecer datos de fábrica. Ponte en contacto con el departamento de TI."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No se ha podido utilizar la aplicación de administración debido a un error de la suma de comprobación. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No se ha podido descargar la aplicación de administración"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"No se puede utilizar la aplicación de administración porque faltan componentes o está dañada. Ponte en contacto con el administrador de TI."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"No se puede instalar la aplicación de administración porque el nombre del paquete no es válido. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"No se ha podido instalar la aplicación de administración"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"La aplicación de administración no está instalada en tu dispositivo"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"¿Detener configuración?"</string>

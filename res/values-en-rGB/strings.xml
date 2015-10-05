@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"RESET"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Couldn\'t set up your device. Contact your IT department."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"This device has already been set up."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"This device has already been set up for this user."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Couldn\'t connect to Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"This device is locked by factory reset protection. Contact your IT department."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Erasing"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Couldn\'t use the admin app due to a checksum error. Contact your IT department."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Couldn\'t download the admin app"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Can\'t use the admin app. It\'s missing components or corrupted. Contact your IT department."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Can\'t install the admin app. The package name is invalid. Contact your IT department."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Couldn\'t install the admin app"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"The admin app isn\'t installed on your device"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Stop setting up?"</string>

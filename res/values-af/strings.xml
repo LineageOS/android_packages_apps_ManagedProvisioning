@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"STEL TERUG"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Kon nie jou toestel opstel nie. Kontak jou IT-afdeling."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Hierdie toestel is reeds opgestel."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Hierdie toestel is reeds vir hierdie gebruiker opgestel."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kon nie aan Wi-Fi koppel nie"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Hierdie toestel is deur fabriekterugstellingbeskerming gesluit. Kontak jou IT-departement."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Vee tans uit"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Kon nie die administrasieprogram gebruik nie weens \'n checksum-fout. Kontak jou IT-afdeling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Kon nie die administrasieprogram aflaai nie"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Kan nie die administrasieprogram gebruik nie. Komponente ontbreek of dit is korrup. Kontak jou IT-afdeling."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Kan nie die administrasieprogram installeer nie. Die pakketnaam is ongeldig. Kontak jou IT-departement."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Kon nie die administrasieprogram installeer nie"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Die administrasieprogram is nie op jou toestel geïnstalleer nie"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Staak opstelling?"</string>

@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"रीसेट करें"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"आपका डिवाइस सेट नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यह डिवाइस पहले से सेट किया गया है."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यह डिवाइस इस उपयोगकर्ता के लिए पहले से सेट किया गया है."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फ़ाई से कनेक्‍ट नहीं हो सका"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"इस डिवाइस को फ़ैक्‍टरी रीसेट सुरक्षा के द्वारा लॉक किया गया है. अपने आईटी विभाग से संपर्क करें."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"मिटाया जा रहा है"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"चेकसम त्रुटि के कारण व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"व्यवस्थापक ऐप्स डाउनलोड नहीं किया जा सका"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"व्यवस्थापक ऐप्स का उपयोग नहीं किया जा सकता. उसमें घटक अनुपलब्ध हैं या वे दूषित हैं. अपने IT विभाग से संपर्क करें."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"व्‍यवस्‍थापक ऐप इंस्‍टॉल नहीं किया जा सकता. पैकेज नाम अमान्‍य है. अपने आईटी विभाग से संपर्क करें."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"व्यवस्थापक ऐप्स इंस्टॉल नहीं किया जा सका"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"व्यवस्थापक ऐप्स आपके डिवाइस पर इंस्टॉल नहीं है"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"सेट करना रोकें?"</string>

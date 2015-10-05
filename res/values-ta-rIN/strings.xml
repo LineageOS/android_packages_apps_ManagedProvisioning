@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"மீட்டமை"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"சாதனத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"இவருக்கு, சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"வைஃபை உடன் இணைக்க முடியவில்லை"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ஆரம்பநிலை மீட்டமைவு பாதுகாப்பானது சாதனத்தைப் பூட்டியுள்ளது. ஐடி துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"அழிக்கிறது"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"செக்-சம் பிழைக் காரணமாக நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"நிர்வாகிப் பயன்பாட்டை இறக்க முடியவில்லை"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. இதில் கூறுகள் இல்லாமல் இருக்கலாம் அல்லது இது சேதமடைந்து இருக்கலாம். IT துறையைத் தொடர்புகொள்ளவும்."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"தொகுப்பின் பெயர் தவறானதால், நிர்வாகி பயன்பாட்டை நிறுவ முடியவில்லை. உதவிக்கு ஐடி துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"நிர்வாகிப் பயன்பாட்டை நிறுவ முடியவில்லை"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"சாதனத்தில் நிர்வாகிப் பயன்பாடு நிறுவப்படவில்லை"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"அமைப்பதை நிறுத்தவா?"</string>

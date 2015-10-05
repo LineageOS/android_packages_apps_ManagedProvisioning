@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"RESSETTEN"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Kan je apparaat niet instellen. Neem contact op met je IT-afdeling."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Dit apparaat is al geconfigureerd."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Dit apparaat is al geconfigureerd voor deze gebruiker."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kan geen verbinding maken met wifi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Dit apparaat is vergrendeld via bescherming tegen terugzetten op de fabrieksinstellingen. Neem contact op met je IT-afdeling."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Wissen"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Kan de beheer-app niet gebruiken vanwege een controlesomfout. Neem contact op met je IT-afdeling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Kan de beheer-app niet downloaden"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Kan de beheer-app niet gebruiken. Er ontbreken onderdelen of de app is beschadigd. Neem contact op met je IT-afdeling."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Kan de beheer-app niet installeren. De pakketnaam is ongeldig. Neem contact op met je IT-afdeling."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Kan de beheer-app niet installeren"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"De beheer-app is niet geïnstalleerd op je apparaat"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Configureren stoppen?"</string>

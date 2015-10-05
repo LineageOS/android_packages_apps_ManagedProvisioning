@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"NUSTATYTI IŠ NAUJO"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nepavyko nustatyti įrenginio. Susisiekite su IT skyriumi."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Šis įrenginys jau nustatytas."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Šis įrenginys jau nustatytas šiam naudotojui."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepavyko prisijungti prie „Wi-Fi“"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Šis įrenginys užrakintas taikant gamyklinių nustatymų apsaugą. Susisiekite su IT skyriumi."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ištrinama"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nepavyko naudoti administratoriaus programos dėl kontrolinės sumos klaidos. Susisiekite su IT skyriumi."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nepavyko atsisiųsti administratoriaus programos"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Negalima naudoti administratoriaus programos. Trūksta jos komponentų arba ji sugadinta. Susisiekite su IT skyriumi."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Nepavyko įdiegti administratoriaus programos. Netinkamas paketo pavadinimas. Susisiekite su IT skyriumi."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nepavyko įdiegti administratoriaus programos"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Administratoriaus programa neįdiegta įrenginyje"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Stabdyti sąranką?"</string>

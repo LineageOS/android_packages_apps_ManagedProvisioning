@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"VISSZAÁLLÍTÁS"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nem sikerült az eszköz beállítása. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Az eszközt már beállították."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Az eszközt már beállították ennek a felhasználónak."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nem sikerült csatlakozni a Wi-Fi hálózathoz"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"A gyárialapérték-visszaállítási védelem zárolta az eszközt. Forduljon az informatikai részleghez."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Törlés"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ellenőrzési hiba miatt nem sikerült letölteni a rendszergazda-alkalmazást. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nem lehetett letölteni a rendszergazdai alkalmazást"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"A rendszergazda-alkalmazás nem használható, mivel egyes elemei hiányoznak vagy sérültek. Forduljon az informatikai részleghez."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Nem lehet telepíteni a rendszergazdai alkalmazást. A csomag neve érvénytelen. Vegye fel a kapcsolatot a számítástechnikai részleggel."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nem lehetett telepíteni a rendszergazdai alkalmazást"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"A rendszergazdai alkalmazás nincs telepítve eszközén"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Megszakítja a beállítást?"</string>

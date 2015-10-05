@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"RESETOVAT"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nastavení zařízení se nezdařilo. Obraťte se na oddělení IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Toto zařízení je již nastaveno."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Toto zařízení je již pro tohoto uživatele nastaveno."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Připojení k síti Wi-Fi se nezdařilo"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Toto zařízení je uzamčeno ochranou před resetováním továrního nastavení. Kontaktujte své IT oddělení."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Mazání"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Kvůli chybě kontrolního součtu nelze aplikaci pro správu použít. Obraťte se na oddělení IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Stažení aplikace pro správu se nezdařilo."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikaci pro správu nelze použít. Buď v ní chybí některé komponenty, nebo je poškozená. Obraťte se na oddělení IT."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Instalace aplikace pro správu se nezdařila. Název balíčku je neplatný. Obraťte se na oddělení IT."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Instalace aplikace pro správu se nezdařila."</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ve vašem zařízení není nainstalována aplikace pro správu."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Zastavit nastavování?"</string>

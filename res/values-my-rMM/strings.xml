@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"ပြန်လည်သတ်မှတ်ရန်"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"သင်၏ ကိရိယာကို စဖွင့်စီစဉ် မပေးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ဤစက်အား ပြင်ဆင်သတ်မှတ်ပြီး၏။"</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ဤစက်အား ဤ အသုံးပြုမည့်သူအတွက် ပြင်ဆင်သတ်မှတ်ပြီးဖြစ်၏။"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ဝိုင်−ဖိုင်ကို ချိတ်ဆက်မရပါ"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ဤစက်ပစ္စည်းကို စက်ရုံ ပြန်လည်သတ်မှတ်မှု ကာကွယ်ခြင်းဖြင့် သော့ခတ်ထားသည်။ သင့်အိုင်တီဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ဖျက်နေသည်"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum အမှားကြောင့် စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"အက်ဒမင် appကို ဒေါင်းလုဒ် မလုပ်နိုင်ခဲ့ပါ။"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"အက်ဒမင် အပ်ပ်အား သွင်းယူ၍ မရပါ။ ပက်ကေ့ဂျ်အမည် မမှန်ကန်ပါ။ သင်၏ IT ဌာနသို့ ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"အက်ဒမင် appကို မတပ်ဆင်နိုင်ပါ။"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"သင့်စက်တွင် အက်ဒမင် app မတပ်ဆင်ရသေးပါ။"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"စဖွင့်သတ်မှတ်ခြင်း ရပ်စဲမလား?"</string>

@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"ĐẶT LẠI"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Không thiết lập được thiết bị của bạn. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Thiết bị này đã được thiết lập."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Thiết bị này đã được thiết lập cho người dùng này."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Không thể kết nối với Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Thiết bị này bị khóa bởi tính năng bảo vệ chống khôi phục cài đặt gốc. Hãy liên hệ với bộ phận CNTT của bạn."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Đang xóa"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Không sử dụng được ứng dụng quản trị do có lỗi kiểm tra tổng. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Không thể sử dụng ứng dụng quản trị. Ứng dụng thiếu thành phần hoặc bị lỗi. Hãy liên hệ với bộ phận CNTT."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Không thể cài đặt ứng dụng quản trị. Tên gói không hợp lệ. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Không thể cài đặt ứng dụng quản trị"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ứng dụng quản trị chưa được cài đặt trên thiết bị của bạn"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Dừng thiết lập?"</string>

@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"ЫСЫРУ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Құрылғыңызды реттеу мүмкін болмады. АТ бөліміне хабарласыңыз."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Бұл құрылғы орнатылып қойған."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Бұл құрылғы осы пайдаланушы үшін орнатылып қойған."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi желісіне қосылу мүмкін болмады"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Бұл құрылғы зауыттық қалпына келтіру қорғанысы арқылы құлыптанған. АТ бөліміне хабарласыңыз."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Өшірілуде"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Бақылау сомасының қатесіне байланысты әкімші қолданбасын пайдалану мүмкін болмады. АТ бөліміне хабарласыңыз."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Әкімші қолданбасын жүктеу мүмкін болмады"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Әкімші қолданбасын пайдалану мүмкін емес. Оның құрамдастары жетіспейді немесе ол бүлінген. АТ бөліміне хабарласыңыз."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Әкімші қолданбасын орнату мүмкін емес. Жиынтық аты жарамсыз. АТ бөліміне хабарласыңыз."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Әкімші қолданбасын орнату мүмкін болмады"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Құрылғыңызда әкімші қолданбасы орнатылмаған"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Орнатуды тоқтату керек пе?"</string>

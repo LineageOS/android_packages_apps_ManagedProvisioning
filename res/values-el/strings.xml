@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"ΕΠΑΝΑΦΟΡΑ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Δεν ήταν δυνατή η ρύθμιση της συσκευής σας. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Αυτή η συσκευή έχει ρυθμιστεί ήδη."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Αυτή η συσκευή έχει ρυθμιστεί ήδη από αυτόν το χρήστη."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Δεν είναι δυνατή η σύνδεση στο Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Αυτή η συσκευή είναι κλειδωμένη από την προστασία επαναφοράς των εργοστασιακών ρυθμίσεων. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Διαγραφή"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Δεν ήταν δυνατή η χρήση της εφαρμογής διαχείρισης λόγω σφάλματος του αθροίσματος ελέγχου. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Δεν ήταν δυνατή η λήψη της εφαρμογής διαχείρισης"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Δεν ήταν δυνατή η χρήση της εφαρμογής διαχείρισης. Λείπουν στοιχεία ή είναι κατεστραμμένα. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Δεν είναι δυνατή η εγκατάσταση της εφαρμογής διαχειριστή. Το όνομα του πακέτου δεν είναι έγκυρο. Επικοινωνήστε με το τμήμα πληροφορικών συστημάτων σας."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής διαχείρισης"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Η εφαρμογή διαχείρισης δεν είναι εγκατεστημένη στη συσκευή σας"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Διακοπή ρύθμισης;"</string>

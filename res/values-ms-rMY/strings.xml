@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"TETAPKAN SEMULA"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Tidak dapat menyediakan peranti anda. Hubungi jabatan IT anda."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Peranti ini sudah disediakan."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Peranti ini sudah disediakan untuk pengguna ini."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak boleh menyambung kepada Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Peranti ini dikunci oleh perlindungan tetapan semula kilang. Hubungi bahagian IT anda."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Memadam"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan apl pentadbir kerana ralat semak jumlah. Hubungi jabatan IT anda."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat memuat turun apl pentadbir"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan apl pentadbir. Apl ketiadaan komponen atau rosak. Hubungi jabatan IT anda."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"Tidak dapat memasang apl pentadbir. Nama pakej tidak sah. Hubungi jabatan IT anda."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Tidak dapat memasang apl pentadbir"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Apl pentadbir tidak dipasang pada peranti anda"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Berhenti membuat persediaan?"</string>

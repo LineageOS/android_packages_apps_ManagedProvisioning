@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"بازنشانی"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"دستگاهتان تنظیم نشد. با بخش فناوری اطلاعاتتان تماس بگیرید."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"این دستگاه از قبل راه‌اندازی شده است."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"این دستگاه از قبل برای این کاربر راه‌اندازی شده است."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏اتصال به Wi-Fi ممکن نیست"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"این دستگاه توسط محافظت بازنشانی کارخانه، قفل شده است. با بخش فناوری اطلاعات تماس بگیرید."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"در حال پاک کردن"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"به دلیل خطای چک‌سام، برنامه سرپرست استفاده نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"برنامه سرپرستی دانلود نشد"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"برنامه سرپرست استفاده نمی‌شود. مؤلفه‌های آن وجود ندارند یا خراب هستند. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"نمی‌توان برنامه را نصب کرد. نام بسته نامعتبر است. با بخش فناوری اطلاعات تماس بگیرید."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"برنامه سرپرستی نصب نشد"</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"برنامه سرپرستی روی دستگاهتان نصب نشده است"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"راه‌اندازی متوقف شود؟"</string>

@@ -69,7 +69,6 @@
     <string name="device_owner_error_reset" msgid="5278392395769857412">"යළි පිහිටුවන්න"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ඔබගේ උපාංගය කළ නොහැක. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"මෙම උපාංගය දැනටමත් පිහිටුවා තිබේ."</string>
-    <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"මෙම උපාංගය දැනටමත් මෙම පරිශීලකයා සඳහා පිහිටුවා ඇත."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi වෙත සම්බන්ධ විය නොහැක"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"මෙම උපාංගය කර්මාන්ත ශාලා යළි සැකසීම් ආරක්ෂාව මගින් අගුලු දමා ඇත. ඔබේ IT දෙපාර්තමේන්තුව අමතන්න."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"මකමින්"</string>
@@ -77,7 +76,6 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Checksum දෝෂය හේතුවෙන් පරිපාලක යෙදුම භාවිතා කළ නොහැක. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"පරිපාලක යෙදුම බාගැනීම කළ නොහැක."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"පරිපාලක යෙදුම භාවිතා කළ නොහැක. එහි අංශ නැත හෝ විකෘති වී ඇත. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
-    <string name="device_owner_error_package_name_invalid" msgid="5161432357348636936">"පරිපාලක යෙදුම ස්ථාපනය කළ නොහැකිය. පැකේජ නම වලංගු නොවේ. ඔබගේ IT දෙපාර්තමේන්තුව අමතන්න."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"පරිපාලක යෙදුම ස්ථාපනය කළ නොහැක."</string>
     <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"ඔබගේ උපාංගය මත පරිපාලක යෙදුම ස්ථාපනය කර නොමැත."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"පිහිටුවීම නවත්වන්නද?"</string>
