@@ -62,7 +62,7 @@ public class SetDevicePolicyTask {
 
             enableDevicePolicyApp(mAdminPackage);
             setActiveAdmin(mAdminComponent);
-            setDeviceOwner(mAdminPackage, mOwnerName);
+            setDeviceOwner(mAdminComponent, mOwnerName);
         } catch (Exception e) {
             ProvisionLogger.loge("Failure setting device owner", e);
             mCallback.onError(ERROR_OTHER);
@@ -88,10 +88,10 @@ public class SetDevicePolicyTask {
         mDevicePolicyManager.setActiveAdmin(component, true);
     }
 
-    public void setDeviceOwner(String packageName, String owner) {
-        ProvisionLogger.logd("Setting " + packageName + " as device owner " + owner + ".");
-        if (!mDevicePolicyManager.isDeviceOwner(packageName)) {
-            mDevicePolicyManager.setDeviceOwner(packageName, owner);
+    public void setDeviceOwner(ComponentName component, String owner) {
+        ProvisionLogger.logd("Setting " + component + " as device owner " + owner + ".");
+        if (!mDevicePolicyManager.isDeviceOwner(component)) {
+            mDevicePolicyManager.setDeviceOwner(component, owner);
         }
     }
 
