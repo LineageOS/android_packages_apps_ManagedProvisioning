@@ -25,6 +25,7 @@ import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorDescription;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
@@ -62,6 +63,7 @@ import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Service that runs the profile owner provisioning.
@@ -93,6 +95,10 @@ public class ProfileOwnerProvisioningService extends Service {
     private static final int STATUS_ERROR = 4;
     /** Provisioning cancelled and cleanup complete. */
     private static final int STATUS_CANCELLED = 5;
+
+    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 2;  // 2 minutes
+    private static final int ACCOUNT_TYPE_RETRIES = 30;
+    private static final int ACCOUNT_TYPE_POLLING_TIMEOUT_MILLIS = 1000; // 1 second
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileUserInfo;
@@ -434,24 +440,59 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void copyAccount() {
-        if (mParams.accountToMigrate == null) {
+        if (mParams.accountToMigrate == null || mParams.accountToMigrate.type == null) {
             ProvisionLogger.logd("No account to migrate to the managed profile.");
             return;
         }
         ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
+        if (!waitForAuthenticatorReadyForAccountType(mParams.accountToMigrate.type,
+                mManagedProfileUserInfo.id)) {
+            ProvisionLogger.loge("Could not copy account to user " + mManagedProfileUserInfo.id
+                    + ". Authenticator missing for account type " + mParams.accountToMigrate.type);
+            return;
+        }
         try {
-            if (mAccountManager.copyAccountToUser(mParams.accountToMigrate,
+            boolean copySucceeded = mAccountManager.copyAccountToUser(
+                    mParams.accountToMigrate,
                     mManagedProfileUserInfo.getUserHandle(),
-                    /* callback= */ null, /* handler= */ null).getResult()) {
+                    /* callback= */ null, /* handler= */ null)
+                    .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            if (copySucceeded) {
                 ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
             } else {
                 ProvisionLogger.loge("Could not copy account to user "
                         + mManagedProfileUserInfo.id);
             }
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception copying account to user " + mManagedProfileUserInfo.id,
+            ProvisionLogger.loge("Exception copying account to user " + mManagedProfileUserInfo.id,
                     e);
         }
+    }
+
+    private boolean waitForAuthenticatorReadyForAccountType(String accountType, int userId) {
+        for (int i = 0; i < ACCOUNT_TYPE_RETRIES; i++) {
+            if (!isAuthenticatorPresent(accountType, userId)) {
+                try {
+                    Thread.sleep(ACCOUNT_TYPE_POLLING_TIMEOUT_MILLIS);
+                } catch (InterruptedException e) {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isAuthenticatorPresent(String accountType, int userId) {
+        AuthenticatorDescription[] authenticators = AccountManager.get(this)
+                .getAuthenticatorTypesAsUser(userId);
+        for (AuthenticatorDescription authenticator : authenticators) {
+            if (authenticator.type.equals(accountType)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void createProfile(String profileName) throws ProvisioningException {
