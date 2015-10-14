@@ -94,6 +94,6 @@
     <string name="setup_device_start_setup" msgid="4351340224000741826">"設定您的裝置：開始設定"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"設定您的裝置：加密"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"設定您的裝置：正在顯示進度"</string>
-    <string name="learn_more_label" msgid="2723716758654655009">"暸解詳情按鈕"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">" 瞭解詳情按鈕"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>圖示"</string>
 </resources>
