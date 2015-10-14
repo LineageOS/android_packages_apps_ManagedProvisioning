@@ -223,8 +223,8 @@ public class Utils {
         }
     }
 
-    public static boolean isCurrentUserOwner() {
-        return UserHandle.myUserId() == UserHandle.USER_OWNER;
+    public static boolean isCurrentUserSystem() {
+        return UserHandle.myUserId() == UserHandle.USER_SYSTEM;
     }
 
     public static boolean hasDeviceOwner(Context context) {

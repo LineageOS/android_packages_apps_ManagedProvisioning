@@ -17,7 +17,6 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import android.app.Activity;
@@ -34,7 +33,6 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.SystemProperties;
 import android.provider.Settings.Global;
-import android.provider.Settings.Secure;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.text.TextUtils;
 import android.view.View;
@@ -95,9 +93,9 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             return;
         }
 
-        if (!Utils.isCurrentUserOwner()) {
+        if (!Utils.isCurrentUserSystem()) {
             showErrorAndClose(R.string.device_owner_error_general,
-                    "Device owner can only be set up for USER_OWNER.");
+                    "Device owner can only be set up for USER_SYSTEM.");
             return;
         }
 

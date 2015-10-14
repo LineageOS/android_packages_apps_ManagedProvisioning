@@ -42,7 +42,7 @@ public class PreBootListener extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (context.getUserId() != UserHandle.USER_OWNER) {
+        if (context.getUserId() != UserHandle.USER_SYSTEM) {
             return;
         }
         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
@@ -53,13 +53,13 @@ public class PreBootListener extends BroadcastReceiver {
 
         // Check for device owner.
         if (mDevicePolicyManager.getDeviceOwner() != null && DeleteNonRequiredAppsTask
-                    .shouldDeleteNonRequiredApps(context, UserHandle.USER_OWNER)) {
+                    .shouldDeleteNonRequiredApps(context, UserHandle.USER_SYSTEM)) {
 
             // Delete new apps.
             new DeleteNonRequiredAppsTask(context, mDevicePolicyManager.getDeviceOwner(),
                     DeleteNonRequiredAppsTask.DEVICE_OWNER,
                     false /* not creating new profile */,
-                    UserHandle.USER_OWNER,
+                    UserHandle.USER_SYSTEM,
                     false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
 
