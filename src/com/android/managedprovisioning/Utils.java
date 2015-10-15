@@ -279,7 +279,11 @@ public class Utils {
         // When either of these things happen, a home intent is fired. We catch that in
         // HomeReceiverActivity before sending the intent to notify the mdm that provisioning is
         // complete.
-        Secure.putInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1);
+        markUserSetupComplete(context, UserHandle.myUserId());
+    }
+
+    public static void markUserSetupComplete(Context context, int userId) {
+        Secure.putIntForUser(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1, userId);
     }
 
     public static boolean isUserSetupCompleted(Context context) {

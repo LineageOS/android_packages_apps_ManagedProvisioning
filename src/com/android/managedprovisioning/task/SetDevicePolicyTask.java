@@ -32,9 +32,6 @@ import com.android.managedprovisioning.Utils;
  * This tasks sets a given component as the owner of the device.
  */
 public class SetDevicePolicyTask {
-    public static final int ERROR_PACKAGE_NOT_INSTALLED = 0;
-    public static final int ERROR_NO_RECEIVER = 1;
-    public static final int ERROR_OTHER = 2;
 
     private final Callback mCallback;
     private final Context mContext;
@@ -63,9 +60,10 @@ public class SetDevicePolicyTask {
             enableDevicePolicyApp(mAdminPackage);
             setActiveAdmin(mAdminComponent);
             setDeviceOwner(mAdminComponent, mOwnerName);
+            setProfileOwner(mAdminComponent);
         } catch (Exception e) {
             ProvisionLogger.loge("Failure setting device owner", e);
-            mCallback.onError(ERROR_OTHER);
+            mCallback.onError();
             return;
         }
 
@@ -85,18 +83,28 @@ public class SetDevicePolicyTask {
 
     public void setActiveAdmin(ComponentName component) {
         ProvisionLogger.logd("Setting " + component + " as active admin.");
-        mDevicePolicyManager.setActiveAdmin(component, true);
+        mDevicePolicyManager.setActiveAdmin(component, true, UserHandle.myUserId());
     }
 
-    public void setDeviceOwner(ComponentName component, String owner) {
+    public boolean setDeviceOwner(ComponentName component, String owner) {
         ProvisionLogger.logd("Setting " + component + " as device owner " + owner + ".");
         if (!mDevicePolicyManager.isDeviceOwner(component)) {
-            mDevicePolicyManager.setDeviceOwner(component, owner);
+            return mDevicePolicyManager.setDeviceOwner(component, owner, UserHandle.myUserId());
         }
+        return true;
+    }
+
+    public boolean setProfileOwner(ComponentName admin) {
+        ProvisionLogger.logd("Setting " + admin + " as profile owner ");
+        if (!mDevicePolicyManager.isProfileOwnerApp(admin.getPackageName())) {
+            return mDevicePolicyManager.setProfileOwner(admin, admin.getPackageName(),
+                    UserHandle.myUserId());
+        }
+        return true;
     }
 
     public abstract static class Callback {
         public abstract void onSuccess();
-        public abstract void onError(int errorCode);
+        public abstract void onError();
     }
 }

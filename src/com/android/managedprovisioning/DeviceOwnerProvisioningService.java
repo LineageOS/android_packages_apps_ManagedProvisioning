@@ -246,25 +246,15 @@ public class DeviceOwnerProvisioningService extends Service {
                     }
 
                     @Override
-                    public void onError(int errorCode) {
-                        switch(errorCode) {
-                            case SetDevicePolicyTask.ERROR_PACKAGE_NOT_INSTALLED:
-                                error(R.string.device_owner_error_package_not_installed);
-                                break;
-                            case SetDevicePolicyTask.ERROR_NO_RECEIVER:
-                                error(R.string.device_owner_error_package_invalid);
-                                break;
-                            default:
-                                error(R.string.device_owner_error_general);
-                                break;
-                        }
+                    public void onError() {
+                        error(R.string.device_owner_error_general);
                     }
                 });
 
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
                 this, params.inferDeviceAdminPackageName(), DeleteNonRequiredAppsTask.DEVICE_OWNER,
                 true /* creating new profile */,
-                UserHandle.USER_OWNER, params.leaveAllSystemAppsEnabled,
+                UserHandle.myUserId(), params.leaveAllSystemAppsEnabled,
                 new DeleteNonRequiredAppsTask.Callback() {
                     @Override
                     public void onSuccess() {
