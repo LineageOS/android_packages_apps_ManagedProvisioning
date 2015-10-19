@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"გაუქმება"</string>
     <string name="ok_setup" msgid="5148111905838329307">"კარგი"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"სამუშაო პროფილი"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ძირითადი მომხმარებელი"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"წავშალოთ სამუშაო პროფილი?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"სამუშაო პროფილი უკვე არსებობს და მას მართავს:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ამ სამუშაო პროფილის მართვა ხორციელდება %s-სთვის, რა დროსაც გამოიყენება:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ადმინისტრატორის აპის ჩამოტვირთვა ვერ მოხერხდა."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ადმინისტრატორის აპის გამოყენება ვერ მოხერხდა. მას აკლია კომპონენტები, ან დაზიანებულია. დაუკავშირდით თქვენს IT განყოფილებას."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ადმინისტრატორის აპი ვერ დაინსტალირდა."</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"ადმინისტრატორის აპი არ არის დაინსტალირებული თქვენს მოწყობილობაზე."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"გსურთ დაყენების შეჩერება?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"არა"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"დიახ"</string>

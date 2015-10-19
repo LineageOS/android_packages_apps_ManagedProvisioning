@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"ZRUŠIT"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Pracovní profil"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primární uživatel"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Odstranit pracovní profil?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Pracovní profil již existuje a je spravován následující aplikací:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Tento pracovní profil je spravován pro doménu %s pomocí aplikace:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Stažení aplikace pro správu se nezdařilo."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikaci pro správu nelze použít. Buď v ní chybí některé komponenty, nebo je poškozená. Obraťte se na oddělení IT."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Instalace aplikace pro správu se nezdařila."</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ve vašem zařízení není nainstalována aplikace pro správu."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Zastavit nastavování?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NE"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ANO"</string>

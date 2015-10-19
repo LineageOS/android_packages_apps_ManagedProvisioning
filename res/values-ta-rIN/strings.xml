@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"ரத்துசெய்"</string>
     <string name="ok_setup" msgid="5148111905838329307">"சரி"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"பணி சுயவிவரம்"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"முதன்மை பயனர்"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"பணி சுயவிவரத்தை அகற்றவா?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"பணி சுயவிவரம் ஏற்கனவே உள்ளது மற்றும் அதை நிர்வகிப்பது:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"பின்வருவதைப் பயன்படுத்தி பணி சுயவிவரம் %sக்காக நிர்வகிக்கப்படுகிறது:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"நிர்வாகிப் பயன்பாட்டை இறக்க முடியவில்லை"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"நிர்வாகப் பயன்பாட்டைப் பயன்படுத்த முடியவில்லை. இதில் கூறுகள் இல்லாமல் இருக்கலாம் அல்லது இது சேதமடைந்து இருக்கலாம். IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"நிர்வாகிப் பயன்பாட்டை நிறுவ முடியவில்லை"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"சாதனத்தில் நிர்வாகிப் பயன்பாடு நிறுவப்படவில்லை"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"அமைப்பதை நிறுத்தவா?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"இல்லை"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ஆம்"</string>

@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"रद्द करा"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक आहे"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक वापरकर्ता"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफाईल काढायचे?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"कार्य प्रोफाईल आधीपासून विद्यमान आहे आणि याद्वारे व्यवस्थापित केले आहे:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"हे कार्य प्रोफाईल %s वापरासाठी व्यवस्थापित केले आहे:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अ‍ॅप डाउनलोड करणे शक्य झाले नाही"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अॅप वापरणे शक्य नाही. ते गहाळ घटक किंवा दूषित आहेत. आपल्या IT विभागाशी संपर्क साधा."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"प्रशासक अ‍ॅप स्‍थापित करणे शक्य झाले नाही"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"आपल्‍या डिव्‍हाइसवर प्रशासक अ‍ॅप स्‍थापित केला नाही"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"सेट करणे थांबवायचे?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"नाही"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"होय"</string>

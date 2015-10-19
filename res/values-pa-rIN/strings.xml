@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"ਰੱਦ ਕਰੋ"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ਠੀਕ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"ਕੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਹਟਾਉਣੀ ਹੈ?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ਇੱਕ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ ਅਤੇ ਇਸ ਵੱਲੋਂ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ਇਹ ਕੰਮ ਪ੍ਰੋਫਾਈਲ %s ਲਈ ਇਹ ਵਰਤਦੇ ਹੋਏ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ਐਡਮਿਨ ਐਪ ਨੂੰ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਇਸਦੇ ਕੰਪੋਨੈਂਟ ਲੁਪਤ ਹਨ ਜਾਂ ਕਰਪਟ ਹਨ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"ਐਡਮਿਨ ਐਪ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਤੇ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਹੋਇਆ ਹੈ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ਕੀ ਸੈਟ ਅਪ ਕਰਨਾ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"ਨਹੀਂ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ਹਾਂ"</string>

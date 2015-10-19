@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"確定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作設定檔"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"主要使用者"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"移除 Work 設定檔？"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Work 設定檔已存在，由下列應用程式管理："</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"這個 Work 設定檔 %s 是使用下列應用程式管理："</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"無法下載管理應用程式"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理應用程式因缺少部分元件或已毀損而無法使用，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"無法安裝管理應用程式"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"您的裝置尚未安裝管理應用程式"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"要停止設定嗎？"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"否"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"是"</string>

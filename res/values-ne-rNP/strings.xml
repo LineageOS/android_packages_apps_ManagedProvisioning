@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"रद्द गर्नुहोस्"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ठीक छ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक प्रयोगकर्ता"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"कार्य प्रोफाइल हटाउने हो?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"कार्य प्रोफाइल पहिले नै विद्यमान छ र निम्नद्वारा व्यवस्थापन गरिन्छ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s प्रयोगको लागि यो कार्य प्रोफाइल व्यवस्थित गरिएको छ:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अनुप्रयोग डाउनलोड गर्न सकिएन"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अनुप्रयोग प्रयोग गर्न सकिएन। यो अवयवहरू हराइरहेका वा भ्रष्ट हुन्। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"प्रशासक अनुप्रयोग स्थापना गर्न सकिएन"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"प्रशासन अनुप्रयोग तपाईँको उपकरणमा स्थापना गरिएको छैन"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"सेटअप रोक्ने हो?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"होइन"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"हो"</string>

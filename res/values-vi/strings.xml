@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"HỦY"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Hồ sơ công việc"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Người dùng chính"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Xóa hồ sơ công việc?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Hồ sơ làm việc đã tồn tại và được quản lý bởi:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Hồ sơ công việc này được quản lý cho %s bằng:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Không thể tải xuống ứng dụng quản trị"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Không thể sử dụng ứng dụng quản trị. Ứng dụng thiếu thành phần hoặc bị lỗi. Hãy liên hệ với bộ phận CNTT."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Không thể cài đặt ứng dụng quản trị"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"Ứng dụng quản trị chưa được cài đặt trên thiết bị của bạn"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Dừng thiết lập?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"KHÔNG"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"CÓ"</string>

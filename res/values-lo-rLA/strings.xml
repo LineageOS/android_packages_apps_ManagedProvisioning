@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"ຍົກເລີກ"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ຕົກລົງ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ຜູ້​ໃຊ້​ຕົ້ນ​ຕໍ"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"ລຶບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກບໍ?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ໂປຣໄຟລ໌ບ່ອນເຮັດວຽກມີຢູ່ແລ້ວ ແລະຖືກຄວບຄຸມໂດຍ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ມີການຈັດການໂປຣໄຟລບ່ອນເຮັດວຽກສໍາລັບ %s ການໃຊ້:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ບໍ່​ສາ​ມາດ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ບໍ່​ສາ​ມາດ​ໃຊ້​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້. ມັນ​ຂາດ​ອົງ​ປະ​ກອບທີ່​ຕ້ອງ​ໃຊ້ ຫຼື​​ໄຟລ໌​ມີ​ບັນ​ຫາ. ໃຫ້​ຕິດ​ຕໍ່​ພະ​ແນກ​ຂອງ​ທ່ານ."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"​​ບໍ່​ມີ​ແອັບຯ​ຜູ່​ເບ​ິ່ງ​ແຍງ​ລະ​ບົບ​ຕິດ​ຕັ້ງ​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ຢຸດ​ການ​ຕິດ​ຕັ້ງ​ຫຼື​ບໍ່?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"ບໍ່ແມ່ນ"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ແມ່ນ​ແລ້ວ"</string>

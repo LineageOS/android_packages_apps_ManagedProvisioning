@@ -35,6 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"రద్దు చేయి"</string>
     <string name="ok_setup" msgid="5148111905838329307">"సరే"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ప్రాథమిక వినియోగదారు"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"కార్యాలయ ప్రొఫైల్‌ను తీసివేయాలా?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"కార్యాలయ ప్రొఫైల్ ఇప్పటికే ఉంది మరియు వీరి ద్వారా నిర్వహించబడుతోంది:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ఈ కార్యాలయ ప్రొఫైల్ వీరు ఉపయోగిస్తున్న %s కోసం నిర్వహించబడుతోంది:"</string>
@@ -77,7 +78,6 @@
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడదు. ఇందులో కొన్ని భాగాలు లేవు లేదా పాడైంది. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"నిర్వాహక అనువర్తనాన్ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు"</string>
-    <string name="device_owner_error_package_not_installed" msgid="6095079346537408556">"మీ పరికరంలో నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేయబడలేదు"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"సెటప్ చేయడం ఆపివేయాలా?"</string>
     <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"వద్దు"</string>
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"సరే"</string>
