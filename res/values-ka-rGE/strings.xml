@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"უკაცრავად!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"თქვენი პროფილის დაყენება"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"თქვენი ორგანიზაცია აკონტროლებს ამ პროფილს და მის უსაფრთხოებას. ყველაფერ დანარჩენს კი თქვენ აკონტროლებთ თქვენს მოწყობილობაზე."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work-ის საშუალებით თქვენს ორგანიზაციას შეუძლია მართოს თქვენი კორპორატიული ელფოსტა და თქვენი ტელეფონის ან ტაბლეტის სხვა აპები.\nთქვენი ორგანიზაცია აკონტროლებს თქვენს მოწყობილობას და მის უსაფრთხოებას."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"თქვენი ორგანიზაცია კონტროლს გაუწევს ამ მოწყობილობას და მის უსაფრთხოებას უზრუნველყოფს."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"შემდეგ აპს ამ პროფილზე წვდომა დაჭირდება:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"შემდეგი აპი მართავს თქვენს მოწყობილობას:"</string>
     <string name="set_up" msgid="7012862095553564169">"დაყენება"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ეს მოწყობილობა უკვე რეგისტრირებულია ამ მომხმარებლისათვის."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-თან დაკავშირება ვერ მოხერხდა"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ეს მოწყობილობა ჩაკეტილია ქარხნული პარამეტრბის დაცვით. დაუკავშირდით თქვენს IT განყოფილებას."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"ამოშლა"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"გთხოვთ, დაელოდოთ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ადმინისტრატორის აპის გამოყენება ვერ მოხერხდა checksum-ის შეცდომის გამო. დაუკავშირდით თქვენს IT განყოფილებას."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ადმინისტრატორის აპის ჩამოტვირთვა ვერ მოხერხდა."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ადმინისტრატორის აპის გამოყენება ვერ მოხერხდა. მას აკლია კომპონენტები, ან დაზიანებულია. დაუკავშირდით თქვენს IT განყოფილებას."</string>

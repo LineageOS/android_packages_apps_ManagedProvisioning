@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ами сега!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Настройване на потребителския ви профил"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Организацията ви контролира този потребителски профил и се грижи за сигурността му. Вие управлявате всичко останало на устройството си."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"С Android for Work организацията ви може да управлява корпоративния ви имейл адрес и други приложения на телефона или таблета ви.\nТя контролира устройството ви и се грижи за сигурността му."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Организацията ви ще управлява това устройство и ще се грижи за сигурността му."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следното приложение ще трябва да има достъп до този потребителски профил:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Следното приложение ще управлява устройството ви:"</string>
     <string name="set_up" msgid="7012862095553564169">"Настройване"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Устройството вече е настроено за този потребител."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не можа да се установи връзка с Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Това устройство е заключено чрез защитата срещу възстановяване на фабричните настройки. Свържете се с отдела си за информационни технологии."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Изтрива се"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Моля, изчакайте..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Приложението за администриране не можа да се използва поради грешка в контролната сума. Свържете се с отдела си за информационни технологии."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Приложението за администриране не можа да се изтегли"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Приложението за администриране не може да се използва. В него липсват компоненти или то е повредено. Свържете се с отдела си за информационни технологии."</string>

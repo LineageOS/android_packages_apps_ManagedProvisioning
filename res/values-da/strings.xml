@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hovsa!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Opret din profil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Din organisation styrer denne profil og sørger for, at den er sikker. Du styrer alt andet på din enhed."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Med Android for Work kan du få adgang til din arbejds-e-mail og andre apps på din telefon eller tablet.\nDin organisation styrer din enhed og sørger for, at den er sikker."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Din organisation kontrollerer denne enhed og sørger for at beskytte den."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Den følgende app skal have adgang til denne profil:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Den følgende app vil styre din enhed:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfigurer"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Denne enhed er allerede konfigureret for denne bruger."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Der kunne ikke oprettes forbindelse til Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Denne enhed er låst, da den er beskyttet mod gendannelse af fabriksindstillingerne. Kontakt din it-afdeling."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter…"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent et øjeblik…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Administrationsappen kunne ikke bruges på grund af en fejl i kontrolsummen. Kontakt din it-afdeling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administrationsappen kunne ikke hentes"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrationsappen kan ikke bruges. Den mangler komponenter eller er beskadiget. Kontakt din it-afdeling."</string>

@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"අපොයි!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ඔබගේ පැතිකඩ සකසන්න"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ඔබගේ සංවිධානය මෙම පැතිකඩ පාලනය කරයි සහ එය ආරක්ෂිතව තබයි. ඔබගේ උපාංගයේ අනෙක් සියලු ඔබ පාලනය කරයි."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"වැඩ සඳහා Android සමගින්, ඔබට ඔබේ දුරකථනයේ හෝ ටැබ්ලටයේ ඔබේ ආයතනික ඊ-තැපැල් සහ වෙනත් යෙදුම් කළමනාකරණය කිරීමට ඔබේ සංවිධානයට හැකිය.\nඔබේ සංවිධානය ඔබේ උපාංගය පාලනය කරන අතර එය ආරක්ෂිතව තබයි."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"ඔබගේ සංවිධානය මෙම උපාංගය පාලනය කිරීම සහ එය ආරක්ෂිතව තැබීම කරනු ඇත."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"මෙම පැතිකඩ ප්‍රවේශ වීමට ඊළගට එන යෙදුම් වලට අවශ්‍යය:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"පහත යෙදුම් ඔබේ උපාංගය කළමනාකරණය කරනු ඇත:"</string>
     <string name="set_up" msgid="7012862095553564169">"සකසන්න"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"මෙම උපාංගය දැනටමත් මෙම පරිශීලකයා සඳහා පිහිටුවා ඇත."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi වෙත සම්බන්ධ විය නොහැක"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"මෙම උපාංගය කර්මාන්ත ශාලා යළි සැකසීම් ආරක්ෂාව මගින් අගුලු දමා ඇත. ඔබේ IT දෙපාර්තමේන්තුව අමතන්න."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"මකමින්"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"කරුණාකර රැඳී සිටින්න..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Checksum දෝෂය හේතුවෙන් පරිපාලක යෙදුම භාවිතා කළ නොහැක. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"පරිපාලක යෙදුම බාගැනීම කළ නොහැක."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"පරිපාලක යෙදුම භාවිතා කළ නොහැක. එහි අංශ නැත හෝ විකෘති වී ඇත. ඔබගේ IT අංශය සම්බන්ධ කරගන්න."</string>

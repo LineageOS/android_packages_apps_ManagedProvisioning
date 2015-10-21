@@ -22,13 +22,13 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"ઊફ્ફ્ફ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"તમારી પ્રોફાઇલ સેટ કરો"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"તમારી સંસ્થા આ પ્રોફાઇલને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે. તમે તમારા ઉપકરણ પર બાકીનું બધું નિયંત્રિત કરો છો."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for work વડે, તમારી સંસ્થા, તમારા ફોન અથવા ટેબ્લેટ પર તમારી કોર્પોરેટ ઇમેઇલ અને અન્ય એપ્લિકેશન્સને સંચાલિત કરી શકે છે.\nતમારી સંસ્થા તમારા ઉપકરણને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"તમારી સંસ્થા આ ઉપકરણનું નિયંત્રણ કરશે અને તેને સુરક્ષિત રાખશે."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"નીચેની એપ્લિકેશનને આ પ્રોફાઇલ ઍક્સેસ કરવાની જરૂર પડશે:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની એપ્લિકેશન તમારા ઉપકરણને સંચાલિત કરશે:"</string>
     <string name="set_up" msgid="7012862095553564169">"સેટ અપ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"તમારી કાર્ય પ્રોફાઇલ સેટ કરી રહ્યું છે..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"તમારા વ્યવસ્થાપક પાસે નેટવર્ક પ્રવૃત્તિ અને તમારા ઉપકરણની સ્થાન માહિતી સહિત સેટિંગ્સ, કૉર્પોરેટ ઍક્સેસ, એપ્લિકેશન્સ, પરવાનગીઓ અને આ ઉપકરણ સાથે સંકળાયેલ ડેટાને મૉનિટર અને સંચાલિત કરવાની ક્ષમતા છે."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"તમારા વ્યવસ્થાપક પાસે નેટવર્ક પ્રવૃત્તિ અને તમારા ઉપકરણની સ્થાન માહિતી સહિત સેટિંગ્સ, કૉર્પોરેટ ઍક્સેસ, એપ્લિકેશન્સ, પરવાનગીઓ અને આ ઉપકરણ સાથે સંકળાયેલ ડેટાને મૉનિટર અને સંચાલિત કરવાની ક્ષમતા છે."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"તમારા વ્યવસ્થાપક પાસે નેટવર્ક પ્રવૃત્તિ અને તમારા ઉપકરણની સ્થાન માહિતી સહિત સેટિંગ્સ, કૉર્પોરેટ ઍક્સેસ, એપ્લિકેશનો, પરવાનગીઓ અને આ ઉપકરણ સાથે સંકળાયેલ ડેટાને મૉનિટર અને સંચાલિત કરવાની ક્ષમતા છે."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"તમારા વ્યવસ્થાપક પાસે નેટવર્ક પ્રવૃત્તિ અને તમારા ઉપકરણની સ્થાન માહિતી સહિત સેટિંગ્સ, કૉર્પોરેટ ઍક્સેસ, એપ્લિકેશનો, પરવાનગીઓ અને આ ઉપકરણ સાથે સંકળાયેલ ડેટાને મૉનિટર અને સંચાલિત કરવાની ક્ષમતા છે."</string>
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"જો તમે ચાલુ રાખો, તો ચોરીથી રક્ષણ સુવિધા સક્ષમ કરવામાં આવશે નહિ. ચોરીથી રક્ષણ ચાલુ કરવા માટે, હમણાં રદ કરો અને આને વ્યક્તિગત ઉપકરણ તરીકે સેટ કરો."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"તમારી સંસ્થાનું ગોપનીયતા નીતિઓ સહિત વધુ માહિતી માટે તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"વધુ જાણો"</string>
@@ -39,7 +39,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"કાર્ય પ્રોફાઇલ પહેલેથી અસ્તિત્વમાં છે અને આમના દ્વારા સંચાલિત થાય છે:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"આ કાર્ય પ્રોફાઇલને આની મદદથી %s માટે સંચાલિત કરી છે:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"આગળ વધતા પહેલાં, "<a href="#read_this_link">"આ વાંચો"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"જો તમે ચાલુ રાખો છો તો આ પ્રોફાઇલમાંની તમામ એપ્લિકેશન્સ અને ડેટા કાઢી નાખવામાં આવશે."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"જો તમે ચાલુ રાખો છો તો આ પ્રોફાઇલમાંની તમામ એપ્લિકેશનો અને ડેટા કાઢી નાખવામાં આવશે."</string>
     <string name="delete_profile" msgid="8384444459432563649">"કાઢી નાખો"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"રદ કરો"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"તમારી કાર્ય પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે, તમારે તમારા ઉપકરણને એન્ક્રિપ્ટ કરવાની જરૂર પડશે. આમાં થોડો સમય લાગી શકે છે."</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"આ ઉપકરણ પહેલાંથી જ આ વપરાશકર્તા માટે સેટ કરેલું છે."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi સાથે કનેક્ટ કરી શકાયું નથી"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"આ ઉપકરણ ફેક્ટરી ફરીથી સેટ કરો સુરક્ષા દ્વારા લૉક કરેલ છે. તમારા IT વિભાગનો સંપર્ક કરો."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"કાઢી નાંખી રહ્યું છે"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"કૃપા કરીને રાહ જુઓ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"એક ચેકસમ ભૂલને કારણે વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકાયો નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"વ્યવસ્થાપક એપ્લિકેશન ડાઉનલોડ કરી શકાઈ નથી"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકતાં નથી. તેમાં ઘટકો ખૂટે છે અથવા દૂષિત છે. તમારા IT વિભાગનો સંપર્ક કરો."</string>

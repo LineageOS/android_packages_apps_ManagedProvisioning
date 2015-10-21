@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Postavljanje profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija kontrolira i štiti ovaj profil. Vi kontrolirate sve ostalo na svojem uređaju."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Uz Android for Work vaša organizacija može upravljati poslovnim aplikacijama za e-poštu i drugim aplikacijama na vašem telefonu ili tabletu.\nVaša organizacija upravlja vašim uređajem i brine za njegovu zaštitu."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Vaša će organizacija kontrolirati i štititi ovaj uređaj."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Sljedeća aplikacija morat će pristupiti ovom profilu:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vašim će uređajem upravljati sljedeća aplikacija:"</string>
     <string name="set_up" msgid="7012862095553564169">"Postavi"</string>
@@ -42,8 +42,8 @@
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ako nastavite, izbrisat će se sve aplikacije i podaci u profilu."</string>
     <string name="delete_profile" msgid="8384444459432563649">"IZBRIŠI"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ODUSTANI"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili s postavljanjem svog radnog profila, morat ćete kriptirati uređaj. To može potrajati."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Da biste nastavili s postavljanjem uređaja, morat ćete ga kriptirati. To može potrajati."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili s postavljanjem svog radnog profila, morat ćete šifrirati uređaj. To može potrajati."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Da biste nastavili s postavljanjem uređaja, morat ćete ga šifrirati. To može potrajati."</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ODUSTANI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"KRIPTIRAJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripcija je dovršena"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Ovaj je uređaj već postavljen za tog korisnika."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Spajanje na Wi-Fi nije uspjelo"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Uređaj je zaštićen od vraćanja na tvorničke postavke. Obratite se IT odjelu."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Brisanje"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Pričekajte..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Upotreba administratorske aplikacije nije uspjela zbog pogreške kontrolnog zbroja. Obratite se IT odjelu."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Preuzimanje administratorske aplikacije nije uspjelo"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administratorska aplikacija ne može se upotrebljavati. Nedostaju joj neke komponente ili je oštećena. Obratite se IT odjelu."</string>

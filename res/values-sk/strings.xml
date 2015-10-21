@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Nastavenie profilu"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tento profil riadi a zabezpečuje vaša spoločnosť. Všetko ostatné na tomto zariadení máte pod kontrolou vy."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Vďaka službe Android for Work môžete na svojom telefóne či tablete spravovať svoju podnikovú poštu a ďalšie pracovné aplikácie.\nVaše zariadenie riadi a zabezpečuje vaša spoločnosť."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Vaša organizácia bude ovládať toto zariadenie a zaistí jeho bezpečnosť."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Nasledujúca aplikácia bude potrebovať prístup k tomuto profilu:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="set_up" msgid="7012862095553564169">"Nastaviť"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Toto zariadenie je už nastavené pre tohto používateľa"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Toto zariadenie je uzamknuté ochranou proti obnoveniu továrenských nastavení. Kontaktujte oddelenie IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Prebieha vymazávanie"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Čakajte..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Pre chybu kontrolného súčtu sa aplikácia na správu nedá použiť. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Aplikáciu na správu sa nepodarilo stiahnuť"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Aplikácia na správu sa nedá použiť. Buď v nej chýbajú niektoré komponenty, alebo je poškodená. Kontaktujte oddelenie IT."</string>

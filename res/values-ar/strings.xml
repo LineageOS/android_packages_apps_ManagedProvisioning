@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"عفوًا!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"إعداد الملف الشخصي"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"تتحكم منظمتك في هذا الملف الشخصي وتحافظ على أمانه. بينما تتحكم أنت في كل شيء آخر على جهازك."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"‏باستخدام Android for Work، يمكن لمؤسستك إدارة بريدك الإلكتروني في الشركة والتطبيقات الأخرى على هاتفك أو جهازك اللوحي.\nتتحكم مؤسستك في جهازك وتجعله آمنًا."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"ستتحكم مؤسستك في هذا الجهاز وستجعله آمنًا."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"سيحتاج التطبيق التالي إلى الدخول إلى هذا الملف الشخصي:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"سيدير التطبيق التالي جهازك:"</string>
     <string name="set_up" msgid="7012862095553564169">"إعداد"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"سبق إعداد هذا الجهاز لهذا المستخدم."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏تعذر الاتصال بـ Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"تم قفل هذا الجهاز عن طريق حماية إعادة الضبط بحسب بيانات المصنع، فاتصل بقسم تكنولوجيا المعلومات."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"جارٍ محو البيانات"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"يرجى الانتظار..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"تعذر استخدام تطبيق المشرف بسبب خطأ في تدقيق المجموع. يمكنك الاتصال بقسم تكنولوجيا المعلومات."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"يتعذر تنزيل التطبيق الإداري"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"يتعذر استخدام تطبيق المشرف. بعض المكونات مفقودة أو تالفة. يمكنك الاتصال بقسم تكنولوجيا المعلومات."</string>

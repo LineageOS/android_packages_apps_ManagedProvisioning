@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ana, xolos!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profilingizni sozlang"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tashkilotingiz ushbu profilni nazorat qiladi va uni xavfsiz saqlaydi. Qurilmangizdagi boshqa narsalarni o‘zingiz nazorat qilasiz."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work yordamida tashkilotingiz telefon yoki planshetingizdagi korporativ e-pochta va boshqa ilovalarni boshqarishi mumkin.\nTashkilotingiz qurilmangizni nazorat qiladi va uni xavfsiz saqlaydi."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Tashkilotingiz ushbu qurilmani nazorat qiladi va uning xavfsizligini ta’minlaydi."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Quyidagi ilova ushbu profilga kirishi zarur:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Quyidagi ilova qurilmangizni boshqaradi:"</string>
     <string name="set_up" msgid="7012862095553564169">"Sozlash"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Bu qurilma allaqachon ushbu foydalanuvchi uchun moslangan."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi tarmog‘iga ulanib bo‘lmadi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu qurilma zavod sozlamalarini tiklashga qarshi himoyalangan. IT bo‘limingizga murojaat qiling."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"O‘chirilmoqda"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Iltimos, kuting…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nazorat qiymati bilan bog‘liq muammo tufayli administrator ilovasidan foydalanib bo‘lmadi. IT bo‘limiga murojaat qiling."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administrator ilovasini yuklab olib bo‘lmadi"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrator ilovasidan foydalanib bo‘lmaydi. Unda ba’zi tarkibiy qismlar mavjud emas yoki buzilgan. IT bo‘limiga murojaat qiling."</string>

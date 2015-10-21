@@ -22,14 +22,14 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Алдаа!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Өөрийн профайлыг тохируулна уу"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Таны компани энэ профайлыг хянаж, аюулгүй байлгадаг. Та төхөөрөмж дээрх бусад зүйлсийг хянана."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Ажилд зориулсан Android-г ашигласнаар танай компани байгууллагын имэйл болон бусад ажлын апп-уудыг утас, таблет дээрээ ашиглах боломжтой.\nТанай компани төхөөрөмжийг хянаж, аюулгүй байлгана."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Танай байгууллага таны төхөөрөмжийг удирдаж, аюулгүй байлгана."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Дараах апп энэ профайлд хандах шаардлагатай:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Дараах апп таны төхөөрөмжийг удирдах болно:"</string>
     <string name="set_up" msgid="7012862095553564169">"Тохируулах"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Таны ажлын профайлыг үүсгэж байна…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Таны админ тохиргоо, байгууллагын хандалт, апп болон профайлтай холбоотой өгөгдөл, сүлжээний идэвхжилт болон таны төхөөрөмжийн байршлын мэдээлэл зэргийг хянах, удирдах боломжтой."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Таны админ тохиргоо, байгууллагын хандалт, апп, энэ төхөөрөмжтэй холбоотой өгөгдөл, сүлжээний идэвхжилт, төхөөрөмжийн байршлын мэдээлэл зэргийг хянах, удирдах эрхтэй."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Хэрвээ та үргэлжлүүлбэл хулгайлах үйлдлээс хамгаалах хэрэгсэл идэвхжихгүй. Хулгайлах үйлдлээс хамгаалах хэрэгслийг идэвхжүүлэхийн тулд цуцлаад, хувийн төхөөрөмж хэлбэрээр тохируулна уу."</string>
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Хэрвээ та үргэлжлүүлбэл хулгайлах үйлдлээс хамгаалах тохиргоо идэвхжихгүй. Хулгайлах үйлдлээс хамгаалах тохиргоог идэвхжүүлэхийн тулд үйлдлээ цуцлаад, хувийн төхөөрөмж хэлбэрээр тохируулна уу."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Танай байгууллагын нууцлалын бодлого зэрэг дэлгэрэнгүй мэдээллийг өөрийн администраторт хандаж авна уу."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Дэлгэрэнгүй үзэх"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ЦУЦЛАХ"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Төхөөрөмжийг энэ хэрэглэгчид зориулан тохируулсан."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi-д холбогдож чадсангүй"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Энэ төхөөрөмж нь үйлдвэрийн хамгаалалтын тохируулгын улмаас түгжигдсэн байна. МТ хэлтэстэй холбогдоно уу."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Арилгаж байна"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Түр хүлээнэ үү..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum алдаанаас шалтгаалан админ апп-г ашиглаж чадсангүй. МТ хэлтэстэй холбогдоно уу."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Админ апп-г татаж авч чадсангүй"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Админ апп-г ашиглах боломжгүй. Бүрдэл дутагдсан эсхүл гэмтсэн байна. МТ хэлтэстэй холбогдоно уу."</string>

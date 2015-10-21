@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"आपले प्रोफाईल सेट करा"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work सह, आपली संस्‍था आपला फोन किंवा टॅब्लेटवरील आपले कॉर्पोरेट ईमेल आणि इतर अ‍ॅप्स व्‍यवस्थापित करू शकते.\nआपली संस्‍था आपले डिव्हाइस नियंत्रित करते आणि ते सुरक्षित ठेवते."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"आपली संस्‍था या डिव्‍हाइसचे नियंत्रण करेल आणि त्यास सुरक्षित ठेवेल."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप आपले डिव्‍हाइस व्यवस्‍थापित करेल:"</string>
     <string name="set_up" msgid="7012862095553564169">"सेट अप"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"हे डिव्‍हाइस या वापरकर्त्यासाठी आधीपासून सेट केले आहे."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाय-फाय ला कनेक्ट करू शकलो नाही"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"हे डिव्हाइस फॅक्टरी रीसेट संरक्षणाद्वारे संरक्षित आहे. आपल्या IT विभागाशी संपर्क साधा."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"मिटवत आहे"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा करा..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"एका checksum त्रुटीमुळे प्रशासन अॅप वापरणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अ‍ॅप डाउनलोड करणे शक्य झाले नाही"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अॅप वापरणे शक्य नाही. ते गहाळ घटक किंवा दूषित आहेत. आपल्या IT विभागाशी संपर्क साधा."</string>

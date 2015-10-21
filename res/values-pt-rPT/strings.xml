@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configurar o seu perfil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"A sua entidade controla este perfil e mantém-no seguro. O utilizador controla tudo o resto no dispositivo."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Com o Android for Work, a sua entidade pode gerir o seu email empresarial e outras aplicações no seu telemóvel ou tablet.\nA sua entidade controla o seu dispositivo e mantém-no seguro."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"A sua entidade irá controlar este dispositivo e mantê-lo seguro."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"A aplicação seguinte terá de aceder a este perfil:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A aplicação seguinte vai gerir o seu dispositivo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurar"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Este dispositivo já está configurado para este utilizador."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Não foi possível ligar à rede Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Este dispositivo está bloqueado pela proteção de reposição de fábrica. Contacte o seu departamento de TI."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"A apagar"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Aguarde..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Não foi possível utilizar a aplicação de administração devido a um erro de soma de verificação. Contacte o departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Não foi possível transferir a aplicação de administração"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Não é possível utilizar a aplicação de administração. Faltam componentes ou está danificada. Contacte o departamento de TI."</string>

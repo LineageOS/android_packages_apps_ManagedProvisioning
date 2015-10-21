@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Úbbs!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Uppsetning sniðs"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Fyrirtækið þitt stjórnar þessu sniði og heldur því öruggu. Þú hefur stjórn yfir öllu öðru í tækinu."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Með Android for Work hefurðu aðgang að fyrirtækjapóstinum þínum og öðrum vinnuforritum í símanum eða spjaldtölvunni.\nFyrirtækið þitt stjórnar tækinu þínu og heldur því öruggu."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Fyrirtækið þitt mun stjórna þessu tæki og tryggja öryggi þess."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Eftirfarandi forrit mun þurfa að fá aðgang að þessu sniði:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Eftirfarandi forrit mun stjórna tækinu:"</string>
     <string name="set_up" msgid="7012862095553564169">"Setja upp"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Þetta tæki er nú þegar sett upp fyrir þennan notanda."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ekki var hægt að tengjast Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Þessu tæki er læst með vörn gegn núllstillingu tækis. Hafðu samband við upplýsingatæknisvið."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Þurrkað út"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Augnablik..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ekki var hægt að nota stjórnforritið vegna villu í þversummu. Hafðu samband við upplýsingatæknisvið."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ekki tókst að sækja stjórnunarforritið"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ekki er hægt að nota stjórnforritið. Það skortir íhluti eða er skemmt. Hafðu samband við upplýsingatæknisvið."</string>

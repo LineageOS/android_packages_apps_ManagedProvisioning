@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Профилиңизди орнотуңуз"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ишканаңыз бул профилди көзөмөлдөп, коопсуздугун камсыз кылып турат. Түзмөгүңүздөгү калган нерсенин бардыгын өзүңүз көзөмөлдөйсүз."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Корпоративдик электрондук почтаңызды жана телефонуңуздагы же планшетиңиздеги башка колдонмолоруңузду ишканаңыз Android Work аркылуу башкара алат.\nКомпанияңыз жумуш колдонмолоруңузду көзөмөлдөп, коопсуздугун камсыз кылып турат."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Ишканаңыз бул түзмөктү көзөмөлдөп, коопсуздугун камсыз кылат."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Төмөнкү колдонмо бул профилди колдонушу керек."</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Төмөнкү колдонмо түзмөгүңүздү башкармакчы:"</string>
     <string name="set_up" msgid="7012862095553564169">"Тууралоо"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Бул түзмөк мурунтан эле ушул колдонуучу үчүн орнотулган."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi\'га туташкан жок"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Жөндөөлөр баштапкы абалга келтирилип жатканда түзмөк кулпуланып калды. IT бөлүмүңүзгө кайрылыңыз."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Өчүрүүдө"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Күтө туруңуз…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Жыйынтыктоочу сумма катасынан улам, администратордун колдонмосу иштеген жок. IT бөлүмүңүзгө кайрылыңыз."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Администратор колдонмосу жүктөлүп алынган жок"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Администратор колдонмосу иштебей жатат. Анын айрым курамдык бөлүктөрү жок же бузук. IT бөлүмүңүзгө кайрылыңыз."</string>

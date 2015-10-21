@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Помилка"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Налаштування профілю"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ваша організація контролює й захищає цей профіль. Ви контролюєте все інше на пристрої."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"За допомогою Android for Work ваша організація може керувати корпоративною електронною поштою й іншими додатками на вашому телефоні чи планшеті.\nВаша організація контролює пристрій і захищає дані на ньому."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Ваша організація контролюватиме цей пристрій та захищатиме дані на ньому."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Доcтуп до цього профілю потрібен буде такому додатку:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Вашим пристроєм керуватиме цей додаток:"</string>
     <string name="set_up" msgid="7012862095553564169">"Налаштувати"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Пристрій уже налаштовано для цього користувача."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Не вдалося під’єднатися до мережі Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"На цьому пристрої заблоковано відновлення заводських налаштувань. Зв’яжіться з ІТ-відділом."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Стирання"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Зачекайте…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Не вдалося скористатися додатком адміністратора через помилку перевірки контрольної суми. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Не вдалося завантажити додаток адміністратора"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Неможливо скористатися додатком адміністратора. У ньому немає певних компонентів або його пошкоджено. Зв’яжіться з ІТ-відділом."</string>

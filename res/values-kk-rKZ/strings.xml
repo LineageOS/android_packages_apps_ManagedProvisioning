@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Профильді реттеу"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ұйымыңыз осы профильді басқарады және оны қауіпсіз сақтайды. Сіз құрылғыдағы барлық басқа нәрселерді басқарасыз."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Жұмысқа арналған Android көмегімен ұйымыңыз телефон немесе планшетіңіздегі корпораттивтік электрондық поштаңызды және басқа қолданбаларды басқара алады.\nҰйымыңыз құрылғыңызды басқарады және оны қорғайды."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Ұйымыңыз осы құрылғыны басқарады және оны қорғайды."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Келесі қолданбаға осы профильге қатынасу қажет болады:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Келесі қолданба құрылғыңызды басқарады:"</string>
     <string name="set_up" msgid="7012862095553564169">"Реттеу"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Бұл құрылғы осы пайдаланушы үшін орнатылып қойған."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi желісіне қосылу мүмкін болмады"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Бұл құрылғы зауыттық қалпына келтіру қорғанысы арқылы құлыптанған. АТ бөліміне хабарласыңыз."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Өшірілуде"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Күте тұрыңыз…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Бақылау сомасының қатесіне байланысты әкімші қолданбасын пайдалану мүмкін болмады. АТ бөліміне хабарласыңыз."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Әкімші қолданбасын жүктеу мүмкін болмады"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Әкімші қолданбасын пайдалану мүмкін емес. Оның құрамдастары жетіспейді немесе ол бүлінген. АТ бөліміне хабарласыңыз."</string>

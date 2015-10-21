@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"¡Vaya!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configurar el perfil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tu organización controla este perfil y mantiene su seguridad. Tú controlas el resto del contenido del dispositivo."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Con Android for Work, tu organización puede administrar tu correo electrónico de empresa y otras aplicaciones en tu teléfono o tablet.\nTu organización controla tu dispositivo y lo mantiene seguro."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Tu organización controlará este dispositivo y mantendrá su seguridad."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Esta aplicación necesitará acceder a tu perfil:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Esta aplicación administrará tu dispositivo:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurar"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Este dispositivo ya está configurado para este usuario."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No se ha podido establecer conexión con la red Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Este dispositivo está bloqueado con la protección para restablecer datos de fábrica. Ponte en contacto con el departamento de TI."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No se ha podido utilizar la aplicación de administración debido a un error de la suma de comprobación. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No se ha podido descargar la aplicación de administración"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"No se puede utilizar la aplicación de administración porque faltan componentes o está dañada. Ponte en contacto con el administrador de TI."</string>

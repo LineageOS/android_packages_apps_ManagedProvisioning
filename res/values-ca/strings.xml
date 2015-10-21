@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Error"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configuració del perfil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"La teva organització controla aquest perfil i el manté protegit. L\'usuari controla la resta d\'elements del dispositiu."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work permet que l\'organització gestioni el teu correu electrònic corporatiu i altres aplicacions que tinguis al telèfon o a la tauleta.\nL\'organització controla els teus dispositius i els manté protegits."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"La teva organització controlarà aquest dispositiu i el mantindrà protegit."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aquesta aplicació haurà d\'accedir al perfil:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"L\'aplicació que es mostra a continuació gestionarà el dispositiu:"</string>
     <string name="set_up" msgid="7012862095553564169">"Configura"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Aquest dispositiu ja està configurat per a aquest usuari."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No s\'ha pogut connectar a la Wi-Fi."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Aquest dispositiu està bloquejat per la protecció de restabliment de fàbrica. Contacta amb el departament de TI."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"S\'està esborrant"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No s\'ha pogut fer servir l\'aplicació d\'administració a causa d\'un error de la suma de comprovació. Contacta amb el departament de TI."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"No s\'ha pogut baixar l\'aplicació d\'administració."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"No es pot fer servir l\'aplicació d\'administració perquè està malmesa o hi falten components. Contacta amb el departament de TI."</string>

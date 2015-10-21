@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Упс!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Подесите профил"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Организација контролише и штити овај профил. Ви контролишете све остало на уређају."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Помоћу услуге Android for Work организација може да управља пословним имејлом и другим апликацијама на телефону или таблету.\nОрганизација контролише и штити уређај."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Организација ће контролисати и штитити овај уређај."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Следећа апликација мора да приступи овом профилу:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Следећа апликација ће управљати уређајем:"</string>
     <string name="set_up" msgid="7012862095553564169">"Подеси"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Овај уређај је већ подешен за овог корисника."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Повезивање са Wi-Fi мрежом није успело"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Овај уређај је закључан заштитом ресетовања на фабричке вредности. Контактирајте ИТ сектор."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Брисање"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Сачекајте..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Није могуће користити апликацију за администраторе због грешке у контролном збиру. Контактирајте ИТ сектор."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Преузимање апликације за администраторе није успело"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Није могуће користити апликацију за администраторе. Недостају јој компоненте или је оштећена. Контактирајте ИТ сектор."</string>

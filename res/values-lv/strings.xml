@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hmm..."</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profila iestatīšana"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jūsu organizācija kontrolē šo profilu un uztur tā drošību. Jūs kontrolējat pārējo ierīces saturu."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Izmantojot pakalpojumu Android for Work, jūsu organizācija var pārvaldīt jūsu darba e-pasta kontu un citas lietotnes jūsu tālrunī vai planšetdatorā.\nJūsu organizācija kontrolē ierīci un gādā par tās drošību."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Jūsu organizācija kontrolēs šo ierīci un uzturēs tās drošību."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Tālāk norādītajai lietotnei būs nepieciešama piekļuve šim profilam:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Šī lietotne pārvaldīs jūsu ierīci:"</string>
     <string name="set_up" msgid="7012862095553564169">"Iestatīt"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Šī ierīce jau ir iestatīta šim lietotājam."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Neizdevās izveidot savienojumu ar Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Šī ierīce ir bloķēta, izmantojot rūpnīcas datu atiestatīšanas aizsardzību. Sazinieties ar IT nodaļu."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Notiek dzēšana"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Lūdzu, uzgaidiet…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nevarēja izmantot administratora lietotni kontrolsummas kļūdas dēļ. Sazinieties ar IT nodaļu."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Neizdevās ielādēt administratora lietotni"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nevar izmantot administratora lietotni. Tajā trūkst komponentu, vai tā ir bojāta. Sazinieties ar IT nodaļu."</string>

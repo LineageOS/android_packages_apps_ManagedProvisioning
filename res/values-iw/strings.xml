@@ -21,8 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"אופס!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"הגדרת הפרופיל"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"הארגון שלך שולט בפרופיל זה ושומר על אבטחתו. אתה שולט בשאר האפשרויות במכשיר."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"‏Android for Work מאפשר לארגון שלך לנהל את האימייל של החברה ואפליקציות אחרות, בטלפון או בטאבלט שלך.\nהארגון שולט במכשיר שלך ושומר על אבטחתו."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"לארגון שלך יש שליטה על הפרופיל ועל אבטחתו. אתה שולט בשאר האפשרויות במכשיר."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"הארגון שלך ישלוט במכשיר הזה וידאג לאבטחה שלו."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"האפליקציה הבאה תצטרך לגשת לפרופיל זה:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"האפליקציה הבאה תנהל את המכשיר שלך:"</string>
     <string name="set_up" msgid="7012862095553564169">"הגדר"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"המכשיר הזה כבר מוגדר בשביל המשתמש הזה."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏אין אפשרות להתחבר ל-Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"‏המכשיר הזה נעול באמצעות הגנה מפני איפוס לנתוני היצרן. פנה אל מחלקת ה-IT."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"מוחק"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"אנא המתן..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"‏לא ניתן להשתמש באפליקציית הניהול עקב שגיאה בסיכום הביקורת. צור קשר עם מחלקת ה-IT שלך."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"לא ניתן להוריד את אפליקציית הניהול"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"‏לא ניתן להשתמש באפליקציית הניהול. חסרים בה מרכיבים או שהיא פגומה. צור קשר עם מחלקת ה-IT שלך."</string>

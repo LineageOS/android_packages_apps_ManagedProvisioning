@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vay!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profilinizi quraşdırın"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Təşkilatınız profilə nəzarət edir və onu güvənli saxlayır. Qalan hər şeyə Siz nəzarət edirsiniz."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"İş Android ilə, sizin təşkilat korporativ e-poçt və sizin telefon və ya tablet digər apps idarə edə bilərsiniz. \n Sizin təşkilat sizin cihaz nəzarət və təhlükəsiz saxlayır."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Təşkilatınız bu cihaza nəzarət edəcək və onu təhlükəsiz saxlayacaq."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aşağıdakı tətbiqlər bu profilə daxil olmaq istəyir:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aşağıdakı app sizin cihaz idarə edəcək:"</string>
     <string name="set_up" msgid="7012862095553564169">"Quraşdırın"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Bu cihaz artıq bu istifadəçi üçün quraşdırılıb."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi\'a qoşulmaq alınmadı"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu cihaz fabrik sıfırlaması qorunması ilə kilidlənib. IT departamentinizlə əlaqə saxlayın."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Silinir"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Lütfən, gözləyin..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ümumi yoxlanış xətasına görə admin tətbiqini istifadə etmək alınmadı. İnformasiya Texnologiyaları departamentinə müraciət edin."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Admin tətbiqini endirmək alınmadı"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Admin tətbiqini istifadə etmək olmur. Tətbiqin komponentləri çatışmır və ya tətbiq xarabdır. İnformasiya Texnologiyaları departamentinə müraciət edin."</string>

@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕！"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"設定您的設定檔"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"貴機構可控制這個設定檔並確保其安全；裝置上的其他所有內容則由您自行管理。"</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work 可讓您在手機或平板電腦上存取公司電郵和其他工作應用程式。\n貴機構可控制您的裝置並確保其安全。"</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"您的機構將會控制此裝置，並保障裝置安全。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"下列應用程式需要存取這個設定檔："</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"下列應用程式將管理您的裝置："</string>
     <string name="set_up" msgid="7012862095553564169">"設定"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"已為此使用者完成裝置設定。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"無法連線至 Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"這個裝置已由原廠設定保護鎖定。請與您的 IT 部門聯絡。"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"正在清除"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"請稍候…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"管理員應用程式因校驗和錯誤而無法使用，請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"無法下載管理員應用程式"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理員應用程式因缺少部分元件或已損毀而無法使用，請與您的 IT 部門聯絡。"</string>
@@ -94,6 +96,6 @@
     <string name="setup_device_start_setup" msgid="4351340224000741826">"設定您的裝置：開始設定"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"設定您的裝置：加密"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"設定您的裝置：正在顯示進度"</string>
-    <string name="learn_more_label" msgid="2723716758654655009">"暸解詳情按鈕"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">" 瞭解詳情按鈕"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>圖示"</string>
 </resources>

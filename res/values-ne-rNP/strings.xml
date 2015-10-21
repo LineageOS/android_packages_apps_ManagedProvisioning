@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"आफ्नो प्रोफाइल सेट अप गर्नुहोस्"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"कार्यको लागि Android मार्फत, तपाईँको संगठनले आफ्नो फोन वा ट्याबलेटमा आफ्नो कर्पोरेट इमेल र अन्य अनुप्रयोगहरू व्यवस्थापन गर्न सक्छ। \n तपाईँको संगठनले आफ्नो यन्त्र नियन्त्रण गर्छ र यो सुरक्षित राख्छ।"</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"तपाईँको संगठनले यस यन्त्रलाई नियन्त्रण गर्ने छ र सुरक्षित राख्ने छ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्न अनुप्रयोगले तपाईँको यन्त्र व्यवस्थापन गर्नेछ:"</string>
     <string name="set_up" msgid="7012862095553564169">"मिलाउनुहोस्"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"यो यन्त्र पहिले नै यो प्रयोगकर्ताको लागि स्थापना गरिएको छ।"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाई-फाई संग जडान हुन सकेन"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"यो यन्त्र कारखाना रिसेट सुरक्षाद्वारा लक गरिएको छ। तपाईँको सूचना प्रविधि विभागमा सम्पर्क गर्नुहोस्।"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"मेटाउँदै"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा गर्नुहोला..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"प्रशासन अनुप्रयोग चेकसम त्रुटिको कारणले प्रयोग गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अनुप्रयोग डाउनलोड गर्न सकिएन"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अनुप्रयोग प्रयोग गर्न सकिएन। यो अवयवहरू हराइरहेका वा भ्रष्ट हुन्। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>

@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Petit problème…"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configurer votre profil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ce profil est contrôlé et sécurisé par votre entreprise. Vous contrôlez tout le reste sur votre appareil."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Avec Android for Work, votre organisation peut gérer votre messagerie professionnelle et vos autres applications de travail sur votre téléphone ou votre tablette.\nVotre organisation contrôle l\'appareil et assure sa sécurité."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Cet appareil sera contrôlé et sécurisé par votre organisation."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"L\'application suivante devra pouvoir accéder à ce profil :"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"L\'application suivante gérera votre appareil :"</string>
     <string name="set_up" msgid="7012862095553564169">"Configurer"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Cet appareil est déjà configuré pour cet utilisateur."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Impossible de se connecter au réseau Wi-Fi."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Cet appareil est verrouillé par la protection contre le rétablissement de la configuration d\'usine. Veuillez contacter votre service informatique."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Suppression en cours"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Veuillez patienter..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Impossible d\'utiliser l\'application d\'administration en raison d\'une erreur de somme de contrôle. Contactez votre service informatique."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Impossible de télécharger l\'application d\'administration."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Impossible d\'utiliser l\'application d\'administration. Des composants sont manquants ou corrompus. Contactez votre service informatique."</string>

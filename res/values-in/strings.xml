@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Siapkan profil Anda"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisasi Anda mengontrol profil ini dan membuatnya tetap aman. Anda mengontrol hal-hal lain di perangkat."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Dengan Android for Work, organisasi dapat mengelola email perusahaan dan aplikasi lain di ponsel atau tablet.\nOrganisasi mengontrol perangkat dan membuatnya tetap aman."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Organisasi akan mengontrol perangkat ini dan menjaga keamanannya."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikasi berikut perlu mengakses profil ini:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikasi berikut akan mengelola perangkat Anda:"</string>
     <string name="set_up" msgid="7012862095553564169">"Siapkan"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Perangkat ini sudah disiapkan untuk pengguna ini."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak dapat tersambung ke Wi-Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Perangkat ini dikunci oleh perlindungan pengembalian ke setelan pabrik. Hubungi departemen TI Anda."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Menghapus"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Harap tunggu..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan aplikasi admin karena kesalahan checksum. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat mengunduh aplikasi admin"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan aplikasi admin. Komponen hilang atau rusak. Hubungi departemen TI Anda."</string>

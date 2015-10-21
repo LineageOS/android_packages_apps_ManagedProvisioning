@@ -20,10 +20,10 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"エラー"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"プロフィールのセットアップ"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"このプロフィールは組織が管理し、保護します。プロフィール以外の端末上のものはすべて個人で管理します。"</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Workを使用すると、お使いのスマートフォンやタブレットにインストールされている会社のメールなどのアプリを組織が管理できます。\nお使いの端末は組織が管理し、保護します。"</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"次のアプリはこのプロフィールにアクセスする必要があります。"</string>
+    <string name="setup_work_profile" msgid="9164519662954159586">"プロファイルのセットアップ"</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"このプロファイルは組織が管理し、保護します。プロファイル以外の端末上のものはすべて個人で管理します。"</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"この端末は組織によって管理され、安全が維持されます。"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"次のアプリはこのプロファイルにアクセスする必要があります。"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"お使いの端末は次のアプリによって管理されます。"</string>
     <string name="set_up" msgid="7012862095553564169">"セットアップ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"仕事用プロファイルをセットアップしています…"</string>
@@ -39,7 +39,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"仕事用プロファイルは既に存在します。管理するアプリ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"この「%s」の仕事用プロファイルは次のアプリによって管理されています:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"次に進む前に"<a href="#read_this_link">"こちらをご覧ください"</a>"。"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"続行すると、このプロフィール内のアプリとデータはすべて削除されます。"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"続行すると、このプロファイル内のアプリとデータはすべて削除されます。"</string>
     <string name="delete_profile" msgid="8384444459432563649">"削除"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"キャンセル"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"仕事用プロファイルのセットアップを続行するには、端末を暗号化する必要があります。これにはしばらく時間がかかる場合があります。"</string>
@@ -49,8 +49,8 @@
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"暗号化が完了"</string>
     <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"引き続き仕事用プロファイルをセットアップするにはタップしてください"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"仕事用プロファイルをセットアップできませんでした。IT部門にお問い合わせいただくか、しばらくしてからもう一度お試しください。"</string>
-    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"お使いの端末はワークプロフィールをサポートしていません。"</string>
-    <string name="user_is_not_owner" msgid="6193230832887977927">"ワークプロフィールは端末のメインユーザーがセットアップする必要があります"</string>
+    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"お使いの端末は仕事用プロファイルをサポートしていません。"</string>
+    <string name="user_is_not_owner" msgid="6193230832887977927">"仕事用プロファイルは端末のメインユーザーがセットアップする必要があります"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"仕事用プロファイルは、管理対象端末にはセットアップできません"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"端末のユーザー数の上限に達しているため仕事用プロファイルを作成できません。ユーザーを少なくとも1人削除してもう一度お試しください。"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"このランチャーアプリは仕事用プロファイルに対応していません。互換性のあるランチャーに切り替える必要があります。"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"この端末はこのユーザーによって既にセットアップ済みです。"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fiに接続できませんでした"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"この端末は出荷時設定へのリセット保護によりロックされています。IT部門にお問い合わせください。"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"消去中"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"お待ちください..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"チェックサムエラーのため管理アプリを使用できませんでした。IT部門にお問い合わせください。"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"管理アプリをダウンロードできませんでした"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"管理アプリを使用できません。このアプリはコンポーネントがないか、破損しています。IT部門にお問い合わせください。"</string>

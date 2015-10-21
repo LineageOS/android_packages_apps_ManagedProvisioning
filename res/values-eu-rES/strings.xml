@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Arazo bat izan da."</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Konfiguratu profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Erakundeak kontrolatzen du profila eta seguru mantentzen du. Gailuan duzun gainerako guztia zeuk kontrolatzen duzu."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android for Work aplikazioari esker, zure erakundeak enpresako posta elektronikoa eta laneko beste aplikazio batzuk kudeatu ahalko ditu zure telefonoan edo tabletan.\nZure erakundea arduratzen da gailua kontrolatzeaz eta seguru mantentzeaz."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Erakundeak kontrolatuko du gailua, eta seguru mantenduko du."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikazio honek profila atzitu beharko du:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikazio honek kudeatuko du zure gailua:"</string>
     <string name="set_up" msgid="7012862095553564169">"Konfiguratu"</string>
@@ -36,7 +36,7 @@
     <string name="ok_setup" msgid="5148111905838329307">"Ados"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Laneko profila"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Laneko profila kendu nahi duzu?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Work profil hau badago lehendik, eta honek kudeatzen du:"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Laneko profil hau badago lehendik, eta honek kudeatzen du:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s domeinuko laneko profil hau honen bidez kudeatzen da:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Jarraitu aurretik, "<a href="#read_this_link">"irakurri hau"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Aurrera eginez gero, profileko aplikazio eta datu guztiak ezabatuko dira."</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Gailua erabiltzaile horrentzat konfiguratuta dago dagoeneko."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Ezin izan da Wi-Fi sarera konektatu"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Jatorrizko datuen berrezartze-babesaren bidez dago blokeatuta gailua. Jarri IKT sailarekin harremanetan."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ezabatzen"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Itxaron, mesedez…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ezin izan da erabili administrazio-aplikazioa, batuketa egitean errore bat gertatu delako. Jarri informatika-sailarekin harremanetan."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da administrazio-aplikazioa deskargatu"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ezin da erabili administrazio-aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Jarri informatika-sailarekin harremanetan."</string>

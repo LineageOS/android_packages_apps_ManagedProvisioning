@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"ওহো!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"আপনার প্রোফাইল সেট আপ করুন"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"আপনার প্রতিষ্ঠান এই প্রোফাইল নিয়ন্ত্রণ করে এবং একে সুরক্ষিত রাখে। আপনি আপনার ডিভাইসের বাকি সব কিছু নিয়ন্ত্রণ করেন।"</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Android অফিসের মাধ্যমে আপনার সংগঠন আপনার ফোন বা ট্যাবলেটে আপনার কর্পোরেট ইমেল ও অন্যান্য অ্যাপ্লিকেশান অ্যাক্সেস করতে পারবে।\nআপনার সংগঠন আপনার ডিভাইস নিয়ন্ত্রণ করে ও সেটিকে সুরক্ষিত রাখে।"</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"আপনার সংগঠন এই ডিভাইসটিকে নিয়ন্ত্রণ করবে এবং এটিকে সুরক্ষিত রাখবে৷"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"নিম্নোল্লিখিত অ্যাপ্লিকেশানটিকে এই প্রোফাইলটি অ্যাক্সেস করতে হবে:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"নিম্নলিখিত অ্যাপ্লিকেশানটি আপনার ডিভাইস পরিচালনা করবে:"</string>
     <string name="set_up" msgid="7012862095553564169">"সেট আপ"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"এই ডিভাইসটি ইতিমধ্যেই এই ব্যবহারকারীর জন্য সেট আপ হয়ে আছে৷"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi এর সাথে সংযুক্ত করা যায়নি"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"এই ডিভাইসটি ফ্যাক্টরি রিসেট সুরক্ষার দ্বারা লক হয়েছে। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"মোছা হচ্ছে"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"দয়া করে অপেক্ষা করুন..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"একটি চেকসাম ত্রুটির কারণে প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"প্রশাসক অ্যাপ্লিকেশানটি ডাউনলোড করা যায়নি"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"প্রশাসক অ্যাপ্লিকেশান ব্যবহার করা যাচ্ছে না। এতে কিছু উপাদান অনুপস্থিত আছে বা এটি ক্ষতিগ্রস্ত হয়েছে। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>

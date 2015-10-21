@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppla!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profil einrichten"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ihr Unternehmen verwaltet dieses Profil und sorgt für seine Sicherheit. Sie verwalten alle anderen Aspekte Ihres Geräts."</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"Mit Android for Work kann Ihre Organisation geschäftliche E-Mails und andere Apps auf Ihrem Smartphone oder Tablet verwalten.\nIhr Gerät wird von Ihrer Organisation verwaltet und gesichert."</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"Ihre Organisation hat die Kontrolle über das Gerät und sorgt für den entsprechenden Schutz."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die folgende App benötigt Zugriff auf dieses Profil:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ihr Gerät wird von der folgenden App verwaltet:"</string>
     <string name="set_up" msgid="7012862095553564169">"Einrichten"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"Dieses Gerät ist bereits für diesen Nutzer eingerichtet."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Es konnte keine WLAN-Verbindung hergestellt werden."</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Dieses Gerät ist durch den Schutz vor Zurücksetzen auf die Werkseinstellungen gesperrt. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Löschen"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Bitte warten..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Fehler bei der Prüfsumme. Die Admin-App kann nicht genutzt werden. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Die Admin-App konnte nicht heruntergeladen werden."</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Die Admin-App kann nicht genutzt werden. Sie wurde beschädigt oder es fehlen Komponenten. Bitte wenden Sie sich an Ihre IT-Abteilung."</string>

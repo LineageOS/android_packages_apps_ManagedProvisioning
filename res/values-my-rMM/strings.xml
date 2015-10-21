@@ -22,7 +22,7 @@
     <string name="provisioning_error_title" msgid="6320515739861578118">"အူးပ်စ်!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"သင်၏ ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်ရန်"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"သင်၏ အဖွဲ့အစည်းက ဒီပရိုဖိုင်ကို ထိန်းချုပ်လျက် လုံခြုံအောင် ထားရှိပါသည်။ သင်သည် သင့် ကိရိယာ ထဲက ကျန်အရာများကို ထိန်းချုပ်ပါသည်။"</string>
-    <string name="company_controls_device" msgid="3063783662183428327">"အလုပ်အတွက် Android ဖြင့်၊ သင့်အဖွဲအစည်းသည် သင့်ဖုန်း သို့မဟုတ် တက်ဘလက်ပေါ်ရှိ သင့်ကုမ္ပဏီဆိုင်ရာအီးမေးလ်နှင့် အခြားအပ်ဖ်များကို စီမံခန့်ခွဲနိုင်သည်။ \n သင့်အဖွဲအစည်းမှ သင့်ကိရိယာအား ထိန်းချုပ်ပြီး ၎င်းအားလုံခြုံအောင်ထားရှိမည်။"</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"သင့်အဖွဲ့အစည်းက ဒီကိရိယာကို ထိန်းချုပ်လျက် လုံခြုံအောင် စောင့်ရှောက်ပေးမည်။"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ appက ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"အောက်ပါအပ်ဖ်မှ သင့်ကိရိယာကို စီမံခန့်ခွဲလိမ့်မည်။"</string>
     <string name="set_up" msgid="7012862095553564169">"စဖွင့်သတ်မှတ်ရန်"</string>
@@ -72,6 +72,8 @@
     <string name="device_owner_error_already_provisioned_user" msgid="5861348691161504683">"ဤစက်အား ဤ အသုံးပြုမည့်သူအတွက် ပြင်ဆင်သတ်မှတ်ပြီးဖြစ်၏။"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ဝိုင်−ဖိုင်ကို ချိတ်ဆက်မရပါ"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ဤစက်ပစ္စည်းကို စက်ရုံ ပြန်လည်သတ်မှတ်မှု ကာကွယ်ခြင်းဖြင့် သော့ခတ်ထားသည်။ သင့်အိုင်တီဌာနကို ဆက်သွယ်ပါ။"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"ဖျက်နေသည်"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"ခဏစောင့်ပါ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum အမှားကြောင့် စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"အက်ဒမင် appကို ဒေါင်းလုဒ် မလုပ်နိုင်ခဲ့ပါ။"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
