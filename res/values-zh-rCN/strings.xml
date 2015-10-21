@@ -35,8 +35,7 @@
     <string name="cancel_setup" msgid="3295266841772028057">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"确定"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
-    <!-- no translation found for default_first_meat_user_name (7540515892748490540) -->
-    <skip />
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"主用户"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"要移除工作资料吗？"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"工作资料已存在，且由以下应用管理："</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
