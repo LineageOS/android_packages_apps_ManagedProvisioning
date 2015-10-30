@@ -354,7 +354,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
      * then start provisioning.
      */
     private void showUserConsentDialog() {
-        UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER)
+        // Don't show the user consent checkbox if we were started by nfc.
+        UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER, !mParams.startedByNfc)
                 .show(getFragmentManager(), "UserConsentDialogFragment");
     }
 
