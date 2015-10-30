@@ -19,6 +19,7 @@ package com.android.managedprovisioning;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
+import android.app.admin.DevicePolicyManager;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -86,25 +87,31 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
 
-        // Check whether we can provision.
-        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0 /*defaults*/) != 0) {
+        DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
+
+        if (dpm.isProvisioningAllowed(DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE)) {
+            if (factoryResetProtected()) {
+                showErrorAndClose(R.string.device_owner_error_frp,
+                        "Factory reset protection blocks provisioning.");
+            } else {
+                initiateDeviceOwnerProvisioning();
+            }
+        }
+        // try to show an error message explaining why the provisioning is not allowed.
+        else if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED,
+                0 /*defaults*/) != 0) {
             showErrorAndClose(R.string.device_owner_error_already_provisioned,
                     "Device already provisioned.");
-            return;
-        }
-
-        if (!Utils.isCurrentUserSystem()) {
+        } else if (!Utils.isCurrentUserSystem()) {
             showErrorAndClose(R.string.device_owner_error_general,
                     "Device owner can only be set up for USER_SYSTEM.");
-            return;
+        } else {
+            showErrorAndClose(R.string.device_owner_error_general,
+                    "Device Owner provisioning not allowed for an unknown reason.");
         }
+    }
 
-        if (factoryResetProtected()) {
-            showErrorAndClose(R.string.device_owner_error_frp,
-                    "Factory reset protection blocks provisioning.");
-            return;
-        }
-
+    private void initiateDeviceOwnerProvisioning() {
         // Parse the incoming intent.
         MessageParser parser = new MessageParser();
         try {
