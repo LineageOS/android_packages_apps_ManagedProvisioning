@@ -98,7 +98,7 @@ public class ProfileOwnerProvisioningService extends Service {
     private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 2;  // 2 minutes
 
     private IPackageManager mIpm;
-    private UserInfo mManagedProfileUserInfo;
+    private UserInfo mManagedProfileOrUserInfo;
     private AccountManager mAccountManager;
     private UserManager mUserManager;
 
@@ -127,7 +127,7 @@ public class ProfileOwnerProvisioningService extends Service {
 
             try {
                 initialize(intents[0]);
-                startManagedProfileProvisioning();
+                startManagedProfileOrUserProvisioning();
             } catch (ProvisioningException e) {
                 // Handle internal errors.
                 error(e.getMessage(), e);
@@ -238,28 +238,39 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     /**
-     * This is the core method of this class. It goes through every provisioning step.
+     * This is the core method to create a managed profile or user. It goes through every
+     * provisioning step.
      */
-    private void startManagedProfileProvisioning() throws ProvisioningException {
+    private void startManagedProfileOrUserProvisioning() throws ProvisioningException {
 
-        ProvisionLogger.logd("Starting managed profile provisioning");
+        ProvisionLogger.logd("Starting managed profile or user provisioning");
 
-        // Work through the provisioning steps in their corresponding order
-        createProfile(getString(R.string.default_managed_profile_name));
-        if (mManagedProfileUserInfo != null) {
+        if(isProvisioningManagedUser()) {
+            mManagedProfileOrUserInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
+            if(mManagedProfileOrUserInfo == null) {
+                throw raiseError("Couldn't get current user information");
+            }
+        } else {
+            // Work through the provisioning steps in their corresponding order
+            createProfile(getString(R.string.default_managed_profile_name));
+        }
+        if (mManagedProfileOrUserInfo != null) {
 
             final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask;
             final DisableInstallShortcutListenersTask disableInstallShortcutListenersTask;
             final DisableBluetoothSharingTask disableBluetoothSharingTask;
 
             disableInstallShortcutListenersTask = new DisableInstallShortcutListenersTask(this,
-                    mManagedProfileUserInfo.id);
+                    mManagedProfileOrUserInfo.id);
             disableBluetoothSharingTask = new DisableBluetoothSharingTask(
-                    mManagedProfileUserInfo.id);
+                    mManagedProfileOrUserInfo.id);
+            // TODO Add separate set of apps for MANAGED_USER, currently same as of DEVICE_OWNER.
             deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this,
                     mParams.deviceAdminPackageName,
-                    DeleteNonRequiredAppsTask.PROFILE_OWNER, true /* creating new profile */,
-                    mManagedProfileUserInfo.id, false /* delete non-required system apps */,
+                    (isProvisioningManagedUser() ? DeleteNonRequiredAppsTask.MANAGED_USER
+                            : DeleteNonRequiredAppsTask.PROFILE_OWNER),
+                    true /* creating new profile */,
+                    mManagedProfileOrUserInfo.id, false /* delete non-required system apps */,
                     new DeleteNonRequiredAppsTask.Callback() {
 
                         @Override
@@ -269,8 +280,10 @@ public class ProfileOwnerProvisioningService extends Service {
                             // onSuccess().
                             try {
                                 disableBluetoothSharingTask.run();
-                                disableInstallShortcutListenersTask.run();
-                                setUpProfile();
+                                if (!isProvisioningManagedUser()) {
+                                    disableInstallShortcutListenersTask.run();
+                                }
+                                setUpUserOrProfile();
                             } catch (ProvisioningException e) {
                                 error(e.getMessage(), e);
                             } catch (Exception e) {
@@ -292,24 +305,26 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     /**
-     * Called when the new profile is ready for provisioning (the profile is created and all the
-     * apps not needed have been deleted).
+     * Called when the new profile or managed user is ready for provisioning (the profile is created
+     * and all the apps not needed have been deleted).
      */
-    private void setUpProfile() throws ProvisioningException {
+    private void setUpUserOrProfile() throws ProvisioningException {
         installMdmOnManagedProfile();
         setMdmAsActiveAdmin();
         setMdmAsManagedProfileOwner();
-        setDefaultUserRestrictions();
-        CrossProfileIntentFiltersHelper.setFilters(
-                getPackageManager(), getUserId(), mManagedProfileUserInfo.id);
 
-        if (!startManagedProfile(mManagedProfileUserInfo.id)) {
-            throw raiseError("Could not start user in background");
+        if (!isProvisioningManagedUser()) {
+            setDefaultUserRestrictions();
+            CrossProfileIntentFiltersHelper.setFilters(
+                    getPackageManager(), getUserId(), mManagedProfileOrUserInfo.id);
+            if (!startManagedProfile(mManagedProfileOrUserInfo.id)) {
+                throw raiseError("Could not start user in background");
+            }
+            // Note: account migration must happen after setting the profile owner.
+            // Otherwise, there will be a time interval where some apps may think that the account
+            // does not have a profile owner.
+            copyAccount();
         }
-        // Note: account migration must happen after setting the profile owner.
-        // Otherwise, there will be a time interval where some apps may think that the account does
-        // not have a profile owner.
-        copyAccount();
     }
 
     /**
@@ -392,9 +407,9 @@ public class ProfileOwnerProvisioningService extends Service {
     private void notifyMdmAndCleanup() {
 
         Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
-                1 /* true- > setup complete */, mManagedProfileUserInfo.id);
+                1 /* value for settings, 1 -> setup complete */, mManagedProfileOrUserInfo.id);
 
-        UserHandle managedUserHandle = new UserHandle(mManagedProfileUserInfo.id);
+        UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
 
         // Use an ordered broadcast, so that we only finish when the mdm has received it.
         // Avoids a lag in the transition between provisioning and the mdm.
@@ -441,22 +456,22 @@ public class ProfileOwnerProvisioningService extends Service {
             ProvisionLogger.logd("No account to migrate to the managed profile.");
             return;
         }
-        ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileUserInfo.id);
+        ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileOrUserInfo.id);
         try {
             boolean copySucceeded = mAccountManager.copyAccountToUser(
                     mParams.accountToMigrate,
                     Process.myUserHandle(),
-                    mManagedProfileUserInfo.getUserHandle(),
+                    mManagedProfileOrUserInfo.getUserHandle(),
                     /* callback= */ null, /* handler= */ null)
                     .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
             if (copySucceeded) {
-                ProvisionLogger.logi("Copied account to user " + mManagedProfileUserInfo.id);
+                ProvisionLogger.logi("Copied account to user " + mManagedProfileOrUserInfo.id);
             } else {
                 ProvisionLogger.loge("Could not copy account to user "
-                        + mManagedProfileUserInfo.id);
+                        + mManagedProfileOrUserInfo.id);
             }
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.loge("Exception copying account to user " + mManagedProfileUserInfo.id,
+            ProvisionLogger.loge("Exception copying account to user " + mManagedProfileOrUserInfo.id,
                     e);
         }
     }
@@ -465,11 +480,11 @@ public class ProfileOwnerProvisioningService extends Service {
 
         ProvisionLogger.logd("Creating managed profile with name " + profileName);
 
-        mManagedProfileUserInfo = mUserManager.createProfileForUser(profileName,
+        mManagedProfileOrUserInfo = mUserManager.createProfileForUser(profileName,
                 UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
                 Process.myUserHandle().getIdentifier());
 
-        if (mManagedProfileUserInfo == null) {
+        if (mManagedProfileOrUserInfo == null) {
             throw raiseError("Couldn't create profile.");
         }
     }
@@ -480,7 +495,7 @@ public class ProfileOwnerProvisioningService extends Service {
 
         try {
             int status = mIpm.installExistingPackageAsUser(
-                mParams.deviceAdminPackageName, mManagedProfileUserInfo.id);
+                mParams.deviceAdminPackageName, mManagedProfileOrUserInfo.id);
             switch (status) {
               case PackageManager.INSTALL_SUCCEEDED:
                   return;
@@ -509,7 +524,7 @@ public class ProfileOwnerProvisioningService extends Service {
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         if (!dpm.setProfileOwner(mParams.deviceAdminComponentName, mParams.deviceAdminPackageName,
-                mManagedProfileUserInfo.id)) {
+                mManagedProfileOrUserInfo.id)) {
             ProvisionLogger.logw("Could not set profile owner.");
             throw raiseError("Could not set profile owner.");
         }
@@ -522,7 +537,7 @@ public class ProfileOwnerProvisioningService extends Service {
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         dpm.setActiveAdmin(mParams.deviceAdminComponentName, true /* refreshing*/,
-                mManagedProfileUserInfo.id);
+                mManagedProfileOrUserInfo.id);
     }
 
     private ProvisioningException raiseError(String message) throws ProvisioningException {
@@ -558,7 +573,7 @@ public class ProfileOwnerProvisioningService extends Service {
 
     private void setDefaultUserRestrictions() {
         mUserManager.setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,
-                mManagedProfileUserInfo.getUserHandle());
+                mManagedProfileOrUserInfo.getUserHandle());
     }
 
     private void notifyActivityError() {
@@ -576,9 +591,9 @@ public class ProfileOwnerProvisioningService extends Service {
      * Performs cleanup of any created user-profile on failure/cancellation.
      */
     private void cleanupUserProfile() {
-        if (mManagedProfileUserInfo != null) {
+        if (mManagedProfileOrUserInfo != null && !isProvisioningManagedUser()) {
             ProvisionLogger.logd("Removing managed profile");
-            mUserManager.removeUser(mManagedProfileUserInfo.id);
+            mUserManager.removeUser(mManagedProfileOrUserInfo.id);
         }
     }
 
@@ -597,4 +612,8 @@ public class ProfileOwnerProvisioningService extends Service {
             super(detailMessage);
         }
     }
-}
+
+    public boolean isProvisioningManagedUser() {
+        return mParams.provisioningAction.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_USER);
+    }
+ }

@@ -83,6 +83,8 @@ public class ProvisioningParams implements Parcelable {
     public ComponentName deviceAdminComponentName;
     public Account accountToMigrate;
 
+    public String provisioningAction;
+
     private ComponentName inferedDeviceAdminComponentName;
 
     public static class PackageDownloadInfo {
@@ -163,6 +165,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
         out.writeInt(skipEncryption ? 1 : 0);
         out.writeParcelable(accountToMigrate, 0 /* default */);
+        out.writeString(provisioningAction);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -184,6 +187,7 @@ public class ProvisioningParams implements Parcelable {
             params.skipEncryption = in.readInt() == 1;
             params.accountToMigrate =
                     (Account) in.readParcelable(null /* use default classloader */);
+            params.provisioningAction = in.readString();
             return params;
         }
 

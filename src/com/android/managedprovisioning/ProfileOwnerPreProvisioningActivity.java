@@ -78,6 +78,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     private ProvisioningParams mParams;
     private final MessageParser mParser = new MessageParser();
     private DevicePolicyManager mDevicePolicyManager;
+    private final String action = getIntent().getAction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         initializeLayoutParams(R.layout.user_consent, R.string.setup_work_profile, false);
         configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
+        // TODO Change the strings for managed user
         TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
         consentMessageTextView.setText(R.string.company_controls_workspace);
         TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
@@ -96,29 +98,42 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         UserInfo uInfo = userManager.getUserInfo(UserHandle.myUserId());
 
-        if (mDevicePolicyManager.isProvisioningAllowed(
-                DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)) {
-            initiateProfileOwnerProvisioning();
-        }
-        // Try to show an error message explaining why provisioning is not allowed.
-        else if (!systemHasManagedProfileFeature()) {
-            showErrorAndClose(R.string.managed_provisioning_not_supported,
-                    "Exiting managed profile provisioning, "
-                    + "managed profiles feature is not available");
-        } else if (!uInfo.canHaveProfile()) {
-            showErrorAndClose(R.string.user_cannot_have_work_profile,
-                    "Exiting managed profile provisioning, calling user cannot have managed"
-                    + "profiles.");
-        } else if (Utils.hasDeviceOwner(this)) {
-            showErrorAndClose(R.string.device_owner_exists,
-                    "Exiting managed profile provisioning, a device owner exists");
-        } else if (!userManager.canAddMoreManagedProfiles(UserHandle.myUserId(),
-                true /* after removing one eventual existing managed profile */)) {
-            showErrorAndClose(R.string.maximum_user_limit_reached,
-                    "Exiting managed profile provisioning, cannot add more users.");
+        if (action.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_USER)) {
+            if (mDevicePolicyManager.isProvisioningAllowed(
+                    DevicePolicyManager.ACTION_PROVISION_MANAGED_USER)) {
+                initiateProfileOwnerProvisioning();
+            } else {
+                showErrorAndClose(R.string.user_setup_incomplete,
+                        "Exiting managed user provisioning, setup incomplete");
+                return;
+            }
+        } else if (action.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)) {
+            if (mDevicePolicyManager.isProvisioningAllowed(
+                    DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)) {
+                initiateProfileOwnerProvisioning();
+            }
+            // Try to show an error message explaining why provisioning is not allowed.
+            else if (!systemHasManagedProfileFeature()) {
+                showErrorAndClose(R.string.managed_provisioning_not_supported,
+                        "Exiting managed profile provisioning, "
+                        + "managed profiles feature is not available");
+            } else if (!uInfo.canHaveProfile()) {
+                showErrorAndClose(R.string.user_cannot_have_work_profile,
+                        "Exiting managed profile provisioning, calling user cannot have managed"
+                        + "profiles.");
+            } else if (Utils.hasDeviceOwner(this)) {
+                showErrorAndClose(R.string.device_owner_exists,
+                        "Exiting managed profile provisioning, a device owner exists");
+            } else if (!userManager.canAddMoreManagedProfiles(UserHandle.myUserId(),
+                    true /* after removing one eventual existing managed profile */)) {
+                showErrorAndClose(R.string.maximum_user_limit_reached,
+                        "Exiting managed profile provisioning, cannot add more managed profiles.");
+            } else {
+                showErrorAndClose(R.string.managed_provisioning_error_text, "Managed profile"
+                        + " provisioning not allowed for an unknown reason.");
+            }
         } else {
-            showErrorAndClose(R.string.managed_provisioning_error_text, "Managed profile"
-                    + " provisioning not allowed for an unknown reason.");
+            ProvisionLogger.loge("Provisioning for action: "+ action +" not supported");        
         }
     }
 
@@ -130,6 +145,8 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
+
+        mParams.provisioningAction = action;
 
         setMdmIcon(mParams.deviceAdminPackageName);
 

@@ -97,9 +97,11 @@ public class DeleteNonRequiredAppsTask {
 
     public static final int DEVICE_OWNER = 0;
     public static final int PROFILE_OWNER = 1;
+    public static final int MANAGED_USER = 2;
 
     /**
-     * Provisioning type should be either {@link #DEVICE_OWNER} or {@link #PROFILE_OWNER}.
+     * Provisioning type should be either {@link #DEVICE_OWNER}, {@link #PROFILE_OWNER} or
+     * {@link #MANAGED_USER}.
      **/
     public DeleteNonRequiredAppsTask(Context context, String mdmPackageName, int provisioningType,
             boolean newProfile, int userId, boolean leaveAllSystemAppsEnabled, Callback callback) {
@@ -137,6 +139,11 @@ public class DeleteNonRequiredAppsTask {
             disallowedAppsListArray = R.array.disallowed_apps_managed_profile;
             vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_profile;
             vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_profile;
+        } else if (mProvisioningType == MANAGED_USER) {
+            requiredAppsListArray = R.array.required_apps_managed_user;
+            disallowedAppsListArray = R.array.disallowed_apps_managed_user;
+            vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_user;
+            vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_user;
         } else {
             throw new IllegalArgumentException("Provisioning type " + mProvisioningType +
                     " not supported.");
