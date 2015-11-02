@@ -58,9 +58,6 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
                 .thenReturn(mDevicePolicyManager);
         when(mPackageManager.getApplicationEnabledSetting(ADMIN_PACKAGE_NAME))
                 .thenReturn(PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
-        when(mDevicePolicyManager.isProfileOwnerApp(ADMIN_PACKAGE_NAME)).thenReturn(false);
-        when(mDevicePolicyManager.setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID)).thenReturn(true);
         when(mDevicePolicyManager.isDeviceOwner(ADMIN_PACKAGE_NAME)).thenReturn(false);
         when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID))
                 .thenReturn(true);
@@ -116,35 +113,6 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
                 .thenReturn(false);
         mTask.run(ADMIN_COMPONENT_NAME);
         verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID);
-        verify(mCallback, times(1)).onError();
-    }
-
-    @SmallTest
-    public void testSetProfileOwner() {
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mDevicePolicyManager).setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID);
-        verify(mCallback, times(1)).onSuccess();
-    }
-
-    @SmallTest
-    public void testSetProfileOwner_PreconditionsNotMet() {
-        when(mDevicePolicyManager.setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID)).thenThrow(new IllegalStateException());
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mDevicePolicyManager).setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID);
-        verify(mCallback, times(1)).onError();
-    }
-
-
-    @SmallTest
-    public void testSetProfileOwner_ReturnFalse() {
-        when(mDevicePolicyManager.setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID)).thenReturn(false);
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mDevicePolicyManager).setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID);
         verify(mCallback, times(1)).onError();
     }
 }
