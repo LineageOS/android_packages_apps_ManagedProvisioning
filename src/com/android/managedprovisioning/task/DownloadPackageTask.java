@@ -36,6 +36,7 @@ import com.android.managedprovisioning.Utils;
 
 import java.io.InputStream;
 import java.io.IOException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -64,6 +65,7 @@ public class DownloadPackageTask {
     private BroadcastReceiver mReceiver;
     private final DownloadManager mDlm;
     private final PackageManager mPm;
+    private int mFileNumber = 0;
 
     private Set<DownloadStatusInfo> mDownloads;
 
@@ -102,6 +104,14 @@ public class DownloadPackageTask {
             }
 
             Request request = new Request(Uri.parse(info.mPackageDownloadInfo.location));
+            // All we want is to have a different file for each apk
+            String path = mContext.getExternalFilesDir(null)
+                    + "/download_cache/managed_provisioning_downloaded_app_" + mFileNumber + ".apk";
+            mFileNumber++;
+            File downloadedFile = new File(path);
+            downloadedFile.getParentFile().mkdirs(); // If the folder doesn't exists it is created
+            request.setDestinationUri(Uri.fromFile(downloadedFile));
+            info.mLocation = path;
             if (info.mPackageDownloadInfo.cookieHeader != null) {
                 request.addRequestHeader("Cookie", info.mPackageDownloadInfo.cookieHeader);
                 if (DEBUG) {
@@ -131,10 +141,8 @@ public class DownloadPackageTask {
                                     c.getLong(c.getColumnIndex(DownloadManager.COLUMN_ID));
                             int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
                             if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-                                String location = c.getString(
-                                        c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
                                 c.close();
-                                onDownloadSuccess(downloadId, location);
+                                onDownloadSuccess(downloadId);
                             } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
                                 int reason = c.getInt(
                                         c.getColumnIndex(DownloadManager.COLUMN_REASON));
@@ -156,7 +164,7 @@ public class DownloadPackageTask {
      * @param downloadId the unique download id for the completed download.
      * @param location the file location of the downloaded file.
      */
-    private void onDownloadSuccess(long downloadId, String location) {
+    private void onDownloadSuccess(long downloadId) {
         DownloadStatusInfo info = null;
         for (DownloadStatusInfo infoToMatch : mDownloads) {
             if (downloadId == infoToMatch.mDownloadId) {
@@ -169,8 +177,7 @@ public class DownloadPackageTask {
         } else {
             info.mDoneDownloading = true;
         }
-        ProvisionLogger.logd("Downloaded succesfully to: " + location);
-        info.mLocation = location;
+        ProvisionLogger.logd("Downloaded succesfully to: " + info.mLocation);
 
         boolean downloadedContentsCorrect = false;
         if (info.mPackageDownloadInfo.packageChecksum.length > 0) {

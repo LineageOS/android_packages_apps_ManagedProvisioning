@@ -172,6 +172,8 @@ public class InstallPackageTask {
                         "Errorcode returned by IPackageInstallObserver = " + returnCode);
                 mCallback.onError(ERROR_INSTALLATION_FAILED);
             }
+            // remove the file containing the apk in order not to use too much space.
+            new File(mInstallInfo.location).delete();
         }
     }
 
