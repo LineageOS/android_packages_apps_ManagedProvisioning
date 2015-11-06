@@ -380,10 +380,25 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // For Nfc provisioning, we automatically show the user consent dialog if applicable.
         // If the user then decides to cancel, we should finish the entire activity and exit.
         // For other cases, dismissing the consent dialog will lead back to
-        // DeviceOwnerPreProvisioningActivity, and we do nothing here.
+        // DeviceOwnerPreProvisioningActivity, where we show another dialog asking for user
+        // confirmation to cancel the setup and factory reset the device.
         if (mParams.startedByNfc) {
             setResult(RESULT_CANCELED);
             finish();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setMessage(R.string.cancel_setup_and_factory_reset_dialog_msg)
+                    .setNegativeButton(R.string.cancel_setup_and_factory_reset_dialog_cancel, null)
+                    .setPositiveButton(R.string.cancel_setup_and_factory_reset_dialog_ok,
+                            new AlertDialog.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Utils.sendFactoryResetBroadcast(
+                                            DeviceOwnerPreProvisioningActivity.this,
+                                            "Device owner setup cancelled");
+                                }
+                            })
+                    .show();
         }
     }
 
