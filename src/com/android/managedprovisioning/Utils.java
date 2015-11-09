@@ -16,8 +16,21 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+import static com.android.managedprovisioning.DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.admin.DevicePolicyManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,9 +42,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
-import android.os.Binder;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -42,18 +57,11 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 import java.io.IOException;
+import java.lang.String;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 
 /**
  * Class containing various auxiliary methods.
@@ -344,4 +352,73 @@ public class Utils {
         return pdbManager != null;
     }
 
+    /**
+     * @return the appropriate DevicePolicyManager declared action for the given incoming intent
+     * @throws IllegalProvisioningArgumentException if intent is malformed
+     */
+    public static String mapIntentToDpmAction(Intent intent)
+            throws IllegalProvisioningArgumentException {
+        if (intent == null || intent.getAction() == null) {
+            throw new IllegalProvisioningArgumentException("Null intent action.");
+        }
+
+        // Map the incoming intent to a DevicePolicyManager.ACTION_*, as there is a N:1 mapping in
+        // some cases.
+        String dpmProvisioningAction;
+        switch (intent.getAction()) {
+            // Trivial cases.
+            case ACTION_PROVISION_MANAGED_DEVICE:
+            case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
+            case ACTION_PROVISION_MANAGED_USER:
+            case ACTION_PROVISION_MANAGED_PROFILE:
+                dpmProvisioningAction = intent.getAction();
+                break;
+
+            // NFC cases which need to take mime-type into account.
+            case ACTION_NDEF_DISCOVERED:
+                String mimeType = intent.getType();
+                switch (mimeType) {
+                    case MIME_TYPE_PROVISIONING_NFC:
+                        dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
+                        break;
+
+                    default:
+                        throw new IllegalProvisioningArgumentException(
+                                "Unknown NFC bump mime-type: " + mimeType);
+                }
+                break;
+
+            // Non-public cases.
+            case LEGACY_ACTION_PROVISION_MANAGED_DEVICE:
+                dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
+                break;
+
+            default:
+                throw new IllegalProvisioningArgumentException("Unknown intent action "
+                        + intent.getAction());
+        }
+        return dpmProvisioningAction;
+    }
+
+    /**
+     * @return the first {@link NdefRecord} found with a recognized MIME-type
+     */
+    public static NdefRecord firstNdefRecord(Intent nfcIntent) {
+        // Only one first message with NFC_MIME_TYPE is used.
+        for (Parcelable rawMsg : nfcIntent.getParcelableArrayExtra(
+                NfcAdapter.EXTRA_NDEF_MESSAGES)) {
+            NdefMessage msg = (NdefMessage) rawMsg;
+            for (NdefRecord record : msg.getRecords()) {
+                String mimeType = new String(record.getType(), UTF_8);
+
+                if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
+                    return record;
+                }
+
+                // Assume only first record of message is used.
+                break;
+            }
+        }
+        return null;
+    }
 }

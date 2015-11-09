@@ -16,9 +16,10 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+
 import android.app.AlarmManager;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -27,17 +28,14 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
 
 import com.android.internal.app.LocalePicker;
-import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
 
-import java.lang.Runnable;
 import java.util.Locale;
 
 /**
@@ -251,10 +249,16 @@ public class DeviceOwnerProvisioningService extends Service {
                     }
                 });
 
+        // For split system user devices that will have a system device owner, don't adjust the set
+        // of enabled packages in the system user as we expect the right set of packages to be
+        // enabled for the system user out of the box. For other devices, the set of available
+        // packages can vary depending on management state.
+        boolean leaveAllSystemAppsEnabled = params.leaveAllSystemAppsEnabled ||
+                params.provisioningAction.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
         mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
-                this, params.inferDeviceAdminPackageName(), DeleteNonRequiredAppsTask.DEVICE_OWNER,
-                true /* creating new profile */,
-                UserHandle.myUserId(), params.leaveAllSystemAppsEnabled,
+                this, params.inferDeviceAdminPackageName(),
+                DeleteNonRequiredAppsTask.DEVICE_OWNER, true /* creating new profile */,
+                UserHandle.myUserId(), leaveAllSystemAppsEnabled,
                 new DeleteNonRequiredAppsTask.Callback() {
                     @Override
                     public void onSuccess() {

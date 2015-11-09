@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import android.app.admin.DevicePolicyManager;
@@ -46,6 +47,7 @@ import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentExceptio
 import com.android.managedprovisioning.Utils.MdmPackageInfo;
 
 import java.util.List;
+
 /**
  * This activity makes necessary checks before starting {@link DeviceOwnerProvisioningActivity}.
  * It checks if the device or user is already setup. It makes sure the device is encrypted, the
@@ -78,7 +80,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (DEBUG) ProvisionLogger.logd("DeviceOwnerPreProvisioningActivity ONCREATE");
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
         if (savedInstanceState != null) {
             mUserConsented = savedInstanceState.getBoolean(KEY_USER_CONSENTED, false);
@@ -88,10 +89,18 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         initializeLayoutParams(R.layout.user_consent, R.string.setup_work_device, false);
         configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
-
         DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
 
-        if (dpm.isProvisioningAllowed(DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE)) {
+        String dpmProvisioningAction = null;
+        try {
+            dpmProvisioningAction = Utils.mapIntentToDpmAction(getIntent());
+            ProvisionLogger.logi(
+                    "Starting DO provisioning for target action: " + dpmProvisioningAction);
+        } catch (IllegalProvisioningArgumentException e) {
+            showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
+            return;
+        }
+        if (dpm.isProvisioningAllowed(dpmProvisioningAction)) {
             if (factoryResetProtected()) {
                 showErrorAndClose(R.string.device_owner_error_frp,
                         "Factory reset protection blocks provisioning.");
@@ -107,6 +116,10 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         } else if (!Utils.isCurrentUserSystem()) {
             showErrorAndClose(R.string.device_owner_error_general,
                     "Device owner can only be set up for USER_SYSTEM.");
+        } else if (dpmProvisioningAction.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE) &&
+                !UserManager.isSplitSystemUser()) {
+            showErrorAndClose(R.string.device_owner_error_general,
+                    "System User Device owner can only be set on a split-user system.");
         } else {
             showErrorAndClose(R.string.device_owner_error_general,
                     "Device Owner provisioning not allowed for an unknown reason.");
@@ -171,7 +184,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             return parser.parseNfcIntent(intent);
         } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
             return parser.parseNonNfcIntent(intent, trusted);
-        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE)) {
+        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
+                intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
             ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent);
             String callingPackage = getCallingPackage();
             if (callingPackage == null) {
@@ -196,6 +210,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         if (getIntent() != null) {
             String action = getIntent().getAction();
             if (ACTION_PROVISION_MANAGED_DEVICE.equals(action) ||
+                    ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE.equals(action) ||
                     LEGACY_ACTION_PROVISION_MANAGED_DEVICE.equals(action)) {
                 ProvisionLogger.logd("FRP not required if started by SUW");
                 return false;
@@ -231,9 +246,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void maybeCreateUserAndStartProvisioning() {
-        // TODO: there should be a parameter indicating that the user wants to set the device owner
-        // in the system user.
-        if (UserManager.isSplitSystemUser()) {
+        if (UserManager.isSplitSystemUser() &&
+                ACTION_PROVISION_MANAGED_DEVICE.equals(mParams.provisioningAction)) {
             // Create the primary user, and continue the provisioning in this user.
             List<UserInfo> users = mUserManager.getUsers();
             if (users.size() > 1) {
@@ -257,7 +271,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void showErrorAndClose(int resourceId, String logText) {
-                ProvisionLogger.loge(logText);
+        ProvisionLogger.loge(logText);
         new AlertDialog.Builder(this)
                 .setTitle(R.string.provisioning_error_title)
                 .setMessage(resourceId)

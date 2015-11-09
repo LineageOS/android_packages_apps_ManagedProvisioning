@@ -273,7 +273,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         mParams.deviceAdminComponentName = Utils.findDeviceAdmin(
                 mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, this);
         mParams.deviceAdminPackageName = mParams.deviceAdminComponentName.getPackageName();
-        mParams.provisioningAction = intent.getAction();
     }
 
     /**

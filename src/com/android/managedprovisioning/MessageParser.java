@@ -16,42 +16,37 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.accounts.Account;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 
@@ -59,8 +54,6 @@ import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentExceptio
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.IllformedLocaleException;
 import java.util.Locale;
 import java.util.Properties;
@@ -220,22 +213,14 @@ public class MessageParser {
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing Nfc Payload.");
-        // Only one first message with NFC_MIME_TYPE is used.
-        for (Parcelable rawMsg : nfcIntent
-                     .getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-            NdefMessage msg = (NdefMessage) rawMsg;
-
-            // Assume only first record of message is used.
-            NdefRecord firstRecord = msg.getRecords()[0];
-            String mimeType = new String(firstRecord.getType(), UTF_8);
-
-            if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
-                ProvisioningParams params = parseProperties(new String(firstRecord.getPayload()
-                                , UTF_8));
-                params.startedByNfc = true;
-                ProvisionLogger.logi("End processing Nfc Payload.");
-                return params;
-            }
+        NdefRecord firstRecord = Utils.firstNdefRecord(nfcIntent);
+        if (firstRecord != null) {
+            ProvisioningParams params = parseProperties(
+                    new String(firstRecord.getPayload(), UTF_8));
+            params.startedByNfc = true;
+            params.provisioningAction = Utils.mapIntentToDpmAction(nfcIntent);
+            ProvisionLogger.logi("End processing Nfc Payload.");
+            return params;
         }
         throw new IllegalProvisioningArgumentException(
                 "Intent does not contain NfcRecord with the correct MIME type.");
@@ -373,6 +358,7 @@ public class MessageParser {
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
         params.accountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+        params.provisioningAction = Utils.mapIntentToDpmAction(intent);
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
@@ -460,6 +446,7 @@ public class MessageParser {
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+        params.provisioningAction = Utils.mapIntentToDpmAction(intent);
 
         checkValidityOfProvisioningParams(params);
         return params;
