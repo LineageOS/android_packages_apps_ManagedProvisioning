@@ -77,11 +77,14 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     private ProvisioningParams mParams;
     private final MessageParser mParser = new MessageParser();
+    private DevicePolicyManager mDevicePolicyManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mDevicePolicyManager =
+                    (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         initializeLayoutParams(R.layout.user_consent, R.string.setup_work_profile, false);
         configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
@@ -90,26 +93,36 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
         mdmInfoTextView.setText(R.string.the_following_is_your_mdm);
 
-        // Check whether system has the required managed profile feature.
-        if (!systemHasManagedProfileFeature()) {
+        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        UserInfo uInfo = userManager.getUserInfo(UserHandle.myUserId());
+
+        if (mDevicePolicyManager.isProvisioningAllowed(
+                DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)) {
+            initiateProfileOwnerProvisioning();
+        }
+        // Try to show an error message explaining why provisioning is not allowed.
+        else if (!systemHasManagedProfileFeature()) {
             showErrorAndClose(R.string.managed_provisioning_not_supported,
                     "Exiting managed profile provisioning, "
                     + "managed profiles feature is not available");
-            return;
-        }
-        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        UserInfo uInfo = userManager.getUserInfo(UserHandle.myUserId());
-        if (!uInfo.canHaveProfile()) {
+        } else if (!uInfo.canHaveProfile()) {
             showErrorAndClose(R.string.user_cannot_have_work_profile,
                     "Exiting managed profile provisioning, calling user cannot have managed"
                     + "profiles.");
-            return;
-        }
-        if (Utils.hasDeviceOwner(this)) {
+        } else if (Utils.hasDeviceOwner(this)) {
             showErrorAndClose(R.string.device_owner_exists,
                     "Exiting managed profile provisioning, a device owner exists");
+        } else if (!userManager.canAddMoreManagedProfiles(UserHandle.myUserId(),
+                true /* after removing one eventual existing managed profile */)) {
+            showErrorAndClose(R.string.maximum_user_limit_reached,
+                    "Exiting managed profile provisioning, cannot add more users.");
+        } else {
+            showErrorAndClose(R.string.managed_provisioning_error_text, "Managed profile"
+                    + " provisioning not allowed for an unknown reason.");
         }
+    }
 
+    private void initiateProfileOwnerProvisioning() {
         // Initialize member variables from the intent, stop if the intent wasn't valid.
         try {
             initialize(getIntent(), getPackageName().equals(getCallingPackage()));
@@ -145,12 +158,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         // Otherwise, check whether system has reached maximum user limit.
         int existingManagedProfileUserId = Utils.alreadyHasManagedProfile(this);
         if (existingManagedProfileUserId != -1) {
-            DevicePolicyManager dpm =
-                    (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-            createDeleteManagedProfileDialog(dpm, existingManagedProfileUserId);
-        } else if (isMaximumManagedProfilesLimitReached()) {
-            showErrorAndClose(R.string.maximum_user_limit_reached,
-                    "Exiting managed profile provisioning, cannot add more users.");
+            createDeleteManagedProfileDialog(mDevicePolicyManager, existingManagedProfileUserId);
         } else {
             showStartProvisioningButton();
         }
@@ -191,11 +199,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     private boolean systemHasManagedProfileFeature() {
         PackageManager pm = getPackageManager();
         return pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
-    }
-
-    private boolean isMaximumManagedProfilesLimitReached() {
-        UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-        return !userManager.canAddMoreManagedProfiles(UserHandle.myUserId());
     }
 
     private boolean currentLauncherSupportsManagedProfiles() {
