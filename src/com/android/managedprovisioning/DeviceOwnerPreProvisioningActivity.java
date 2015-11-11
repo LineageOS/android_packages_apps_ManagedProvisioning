@@ -142,9 +142,14 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             // Have the user pick a wifi network if necessary.
         } else if (!NetworkMonitor.isConnectedToNetwork(this)
                 && TextUtils.isEmpty(mParams.wifiInfo.ssid)) {
-            requestWifiPick();
-            return;
-            // Wait for onActivityResult.
+            if (canRequestWifiPick()) {
+                requestWifiPick();
+                // Wait for onActivityResult.
+                return;
+            } else {
+                ProvisionLogger.logi(
+                        "Cannot pick wifi because there is no handler to the intent");
+            }
         }
         askForConsentOrStartProvisioning();
     }
@@ -271,6 +276,10 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
 
         startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
+    }
+
+    private boolean canRequestWifiPick() {
+        return AddWifiNetworkTask.getWifiPickIntent().resolveActivity(getPackageManager()) != null;
     }
 
     private void requestWifiPick() {

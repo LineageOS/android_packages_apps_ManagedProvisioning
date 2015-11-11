@@ -30,6 +30,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
 import com.android.managedprovisioning.Utils;
@@ -90,6 +91,11 @@ public class DownloadPackageTask {
         if (mDownloads.size() == 0) {
             mCallback.onSuccess();
             return;
+        }
+        if (!NetworkMonitor.isConnectedToNetwork(mContext)) {
+            ProvisionLogger.loge("DownloadPackageTask: not connected to the network, can't download"
+                    + " the package");
+            mCallback.onError(ERROR_OTHER);
         }
         mReceiver = createDownloadReceiver();
         mContext.registerReceiver(mReceiver,
