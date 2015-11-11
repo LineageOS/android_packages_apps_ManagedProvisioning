@@ -57,6 +57,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profili i punës nuk mbështetet nga ky aplikacion nisës. Nevojitet të kalosh në një nisës të pajtueshëm."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANULO"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Në rregull"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Konfigurimi i përdoruesit është i paplotë"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Përdorues i pajisjes së punës"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Konfiguro pajisjen"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Po përpunon të dhënat e konfigurimit..."</string>

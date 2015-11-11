@@ -57,6 +57,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Το προφίλ εργασίας σας δεν υποστηρίζεται από αυτήν την εφαρμογή εκκίνησης. Θα πρέπει να χρησιμοποιήσετε μια συμβατή εφαρμογή εκκίνησης."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ΑΚΥΡΩΣΗ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ΟΚ"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Μη ολοκληρωμένη ρύθμιση χρήστη"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Χρήστης συσκευής εργασίας"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Ρύθμιση της συσκευής"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Επεξεργασία δεδομένων ρύθμισης…"</string>

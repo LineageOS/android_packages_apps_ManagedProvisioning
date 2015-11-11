@@ -57,6 +57,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"O teu perfil de traballo non é compatible con esta aplicación do menú de aplicacións. Terás que cambiar a un menú de aplicacións compatible."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"CANCELAR"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Aceptar"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuración do usuario incompleta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuario do dispositivo de traballo"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Configura o teu dispositivo"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Procesando datos de configuración..."</string>

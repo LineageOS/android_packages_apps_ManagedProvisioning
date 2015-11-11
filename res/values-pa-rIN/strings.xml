@@ -57,6 +57,8 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਇਸ ਲੌਂਚਰ ਐਪ ਵੱਲੋਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ। ਤੁਹਾਨੂੰ ਇੱਕ ਅਜਿਹੇ ਲੌਂਚਰ ਨਾਲ ਸਵਿਚ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ ਜੋ ਅਨੁਕੂਲ ਹੋਵੇ।"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ਰੱਦ ਕਰੋ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ਠੀਕ"</string>
+    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕੰਮ ਡਿਵਾਈਸ ਦਾ ਉਪਭੋਗਤਾ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"ਆਪਣੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ ਡਾਟਾ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>

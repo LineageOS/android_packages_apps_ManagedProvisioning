@@ -57,6 +57,8 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"İş profiliniz bu başlatıcı uygulama tarafından desteklenmiyor. Uyumlu bir başlatıcı uygulamaya geçmeniz gerekecek."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"İPTAL"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"TAMAM"</string>
+    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"İş cihazının kullanıcısı"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Cihazınızı kurma"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Kurulum verileri işleniyor…"</string>

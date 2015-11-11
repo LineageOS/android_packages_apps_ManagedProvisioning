@@ -57,6 +57,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"이 런처 앱은 직장 프로필을 지원하지 않습니다. 호환되는 런처로 전환해야 합니다."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"취소"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"확인"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"사용자 설정 완료되지 않음"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"업무 기기의 사용자"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"기기 설정"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"설정 데이터 처리 중..."</string>

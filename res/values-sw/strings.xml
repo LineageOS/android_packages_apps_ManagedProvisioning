@@ -57,6 +57,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Wasifu wako wa kazini hauwezi kutumiwa na kifungua programu hiki. Itabidi ubadili hadi kifungua programu kinachooana."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"GHAIRI"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"SAWA"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Usanidi wa Mtumiaji Hujakamilika"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Mtumiaji wa kifaa cha kazini"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Sanidi kifaa chako"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Inachakata data ya kuweka mipangilio..."</string>

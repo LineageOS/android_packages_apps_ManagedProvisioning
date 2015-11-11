@@ -57,6 +57,8 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Жумуш профилиңизде бул ишке киргизгич колдонмосу колдоого албайт. Дал келе турган жүргүзгүчкө которулушуңуз керек."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ЖОККО ЧЫГАРУУ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Жарайт"</string>
+    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"Жумуш түзмөгүн колдонуучу"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Түзмөгүңүздү орнотуңуз"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Орнотуу дайындары иштетилүүдө…"</string>

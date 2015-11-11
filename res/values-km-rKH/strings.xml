@@ -57,6 +57,8 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ប្រវត្តិរូប​ការងារ​របស់​អ្នក​មិន​ត្រូវ​បាន​គាំទ្រ​ដោយ​កម្មវិធី​ launcher នេះ​នៅ​ឡើយ​ទេ។ អ្នក​នឹង​ត្រូវ​ប្ដូរ​ទៅ launcher ដែល​ត្រូវ​គ្នា។"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"បោះបង់"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"យល់ព្រម"</string>
+    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"អ្នកប្រើ​ឧបករណ៍​ការងារ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"រៀបចំឧបករណ៍របស់អ្នក"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"កំពុងដំណើរការទិន្នន័យដំឡើង…"</string>

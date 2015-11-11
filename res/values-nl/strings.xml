@@ -57,6 +57,8 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Je werkprofiel wordt niet ondersteund door deze Launcher-app. U moet overschakelen naar een Launcher die compatibel is."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANNULEREN"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
+    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
+    <skip />
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van zakelijk apparaat"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Je apparaat instellen"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Configuratiegegevens verwerken…"</string>
