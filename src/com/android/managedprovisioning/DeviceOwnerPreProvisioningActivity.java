@@ -72,6 +72,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
             = "com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE";
 
+    private UserManager mUserManager;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +111,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             showErrorAndClose(R.string.device_owner_error_general,
                     "Device Owner provisioning not allowed for an unknown reason.");
         }
+        mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
     }
 
     private void initiateDeviceOwnerProvisioning() {
@@ -232,7 +235,14 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // in the system user.
         if (UserManager.isSplitSystemUser()) {
             // Create the primary user, and continue the provisioning in this user.
-            new CreatePrimaryUserTask().execute();
+            List<UserInfo> users = mUserManager.getUsers();
+            if (users.size() > 1) {
+                showErrorAndClose(R.string.device_owner_error_general,
+                        "Cannot start Device Owner Provisioning because there are already "
+                        + users.size() + " users");
+            } else {
+                new CreatePrimaryUserTask().execute();
+            }
             return;
         }
         startDeviceOwnerProvisioning(UserHandle.myUserId());
@@ -374,38 +384,29 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 .show(getFragmentManager(), "UserConsentDialogFragment");
     }
 
-    private class CreatePrimaryUserTask extends AsyncTask<Void, Void, Integer> {
+    private class CreatePrimaryUserTask extends AsyncTask<Void, Void, UserInfo> {
         @Override
-        protected Integer doInBackground(Void... args) {
-            UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
-            List<UserInfo> users = um.getUsers();
-            if (users.size() > 1) {
-                showErrorAndClose(R.string.device_owner_error_general,
-                        "Cannot start Device Owner Provisioning because there are already "
-                        + users.size() + " users");
-                return UserHandle.USER_NULL;
-            }
+        protected UserInfo doInBackground(Void... args) {
             // Create the user where we're going to install the device owner.
-            UserInfo info = um.createUser(getString(R.string.default_first_meat_user_name),
+            UserInfo userInfo = mUserManager.createUser(
+                    getString(R.string.default_first_meat_user_name),
                     UserInfo.FLAG_PRIMARY | UserInfo.FLAG_ADMIN);
 
-            if (info == null) {
-                showErrorAndClose(R.string.device_owner_error_general, "Could not create user");
-                return UserHandle.USER_NULL;
+            if (userInfo != null) {
+                ProvisionLogger.logi("Created user " + userInfo.id + " to hold the device owner");
             }
-            ProvisionLogger.logi("Created user " + info.id + " to hold the device owner");
-            return info.id;
+            return userInfo;
         }
 
         @Override
-        protected void onPostExecute(Integer userId) {
-            if (userId != UserHandle.USER_NULL) {
-                ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-                am.switchUser(userId);
-                startDeviceOwnerProvisioning(userId);
+        protected void onPostExecute(UserInfo userInfo) {
+            if (userInfo == null) {
+                showErrorAndClose(R.string.device_owner_error_general, "Could not create user to"
+                        + " hold the device owner");
             } else {
-                showErrorAndClose(R.string.device_owner_error_general,
-                        "Could not create a user to hold the device owner.");
+                ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+                am.switchUser(userInfo.id);
+                startDeviceOwnerProvisioning(userInfo.id);
             }
         }
     }
