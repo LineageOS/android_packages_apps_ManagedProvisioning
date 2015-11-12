@@ -26,6 +26,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 /**
  * Dialog used to notify the user that the admin will have full control over the profile/device.
@@ -46,11 +49,13 @@ public class UserConsentDialog extends DialogFragment {
             "https://support.google.com/";
 
     private static final String KEY_OWNER_TYPE = "owner_type";
+    private static final String KEY_SHOW_CONSENT_CHECKBOX = "consent_checkbox";
 
-    public static UserConsentDialog newInstance(int ownerType) {
+    public static UserConsentDialog newInstance(int ownerType, boolean showConsentCheckbox) {
         UserConsentDialog dialog = new UserConsentDialog();
         Bundle args = new Bundle();
         args.putInt(KEY_OWNER_TYPE, ownerType);
+        args.putBoolean(KEY_SHOW_CONSENT_CHECKBOX, showConsentCheckbox);
         dialog.setArguments(args);
         return dialog;
     }
@@ -103,7 +108,7 @@ public class UserConsentDialog extends DialogFragment {
                 });
         }
 
-        Button positiveButton = (Button) dialog.findViewById(R.id.positive_button);
+        final Button positiveButton = (Button) dialog.findViewById(R.id.positive_button);
         positiveButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -112,7 +117,21 @@ public class UserConsentDialog extends DialogFragment {
                 }
             });
 
-        Button negativeButton = (Button) dialog.findViewById(R.id.negative_button);
+        final CheckBox consentCheckbox =
+                (CheckBox) dialog.findViewById(R.id.user_consent_checkbox);
+        if (getArguments().getBoolean(KEY_SHOW_CONSENT_CHECKBOX)) {
+            consentCheckbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton cb, boolean isChecked) {
+                        positiveButton.setEnabled(isChecked);
+                    }
+                });
+            consentCheckbox.setVisibility(View.VISIBLE);
+            consentCheckbox.setChecked(false);
+            positiveButton.setEnabled(false);
+        }
+
+        final Button negativeButton = (Button) dialog.findViewById(R.id.negative_button);
         negativeButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {

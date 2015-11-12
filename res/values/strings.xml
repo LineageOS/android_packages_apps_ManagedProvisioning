@@ -53,6 +53,8 @@
   <string name="cancel_setup">CANCEL</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
   <string name="ok_setup">OK</string>
+  <!-- Text of the checkbox to consent to the mobile device management app taking control of the device. [CHAR LIMIT=NONE] -->
+  <string name="user_consent_msg">I consent</string>
 
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <string name="default_managed_profile_name">Work profile</string>
