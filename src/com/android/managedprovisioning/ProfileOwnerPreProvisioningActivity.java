@@ -78,7 +78,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     private ProvisioningParams mParams;
     private final MessageParser mParser = new MessageParser();
     private DevicePolicyManager mDevicePolicyManager;
-    private final String action = getIntent().getAction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +96,10 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         UserInfo uInfo = userManager.getUserInfo(UserHandle.myUserId());
+        Intent intent = getIntent();
+        String action = intent != null ? intent.getAction() : null;
 
-        if (action.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_USER)) {
+        if (DevicePolicyManager.ACTION_PROVISION_MANAGED_USER.equals(action)) {
             if (mDevicePolicyManager.isProvisioningAllowed(
                     DevicePolicyManager.ACTION_PROVISION_MANAGED_USER)) {
                 initiateProfileOwnerProvisioning();
@@ -107,7 +108,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                         "Exiting managed user provisioning, setup incomplete");
                 return;
             }
-        } else if (action.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)) {
+        } else if (DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE.equals(action)) {
             if (mDevicePolicyManager.isProvisioningAllowed(
                     DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)) {
                 initiateProfileOwnerProvisioning();
@@ -133,7 +134,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                         + " provisioning not allowed for an unknown reason.");
             }
         } else {
-            ProvisionLogger.loge("Provisioning for action: "+ action +" not supported");        
+            ProvisionLogger.loge("Provisioning for action: "+ action +" not supported");
         }
     }
 
@@ -145,8 +146,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
-
-        mParams.provisioningAction = action;
 
         setMdmIcon(mParams.deviceAdminPackageName);
 
@@ -274,7 +273,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         mParams.deviceAdminComponentName = Utils.findDeviceAdmin(
                 mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, this);
         mParams.deviceAdminPackageName = mParams.deviceAdminComponentName.getPackageName();
-
+        mParams.provisioningAction = intent.getAction();
     }
 
     /**
