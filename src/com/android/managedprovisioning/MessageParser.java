@@ -38,12 +38,16 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.accounts.Account;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
@@ -340,10 +344,10 @@ public class MessageParser {
         return extrasBundle;
     }
 
-    public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent)
+    public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent, Context context)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing mininalist non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, false);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, false);
         if (params.deviceAdminComponentName == null) {
             throw new IllegalProvisioningArgumentException("Must provide the component name of the"
                     + " device admin");
@@ -351,8 +355,8 @@ public class MessageParser {
         return params;
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, boolean trusted)
-            throws IllegalProvisioningArgumentException {
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, Context context,
+            boolean trusted) throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
@@ -378,6 +382,12 @@ public class MessageParser {
                     + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
                     + " must be of type PersistableBundle.", e);
         }
+        Uri logoUri = intent.getParcelableExtra(EXTRA_PROVISIONING_LOGO_URI);
+        if (logoUri != null) {
+            // If we go through encryption, and if the uri is a content uri:
+            // We'll lose the grant to this uri. So we need to save it to a local file.
+            LogoUtils.saveOrganisationLogo(context, logoUri);
+        }
         return params;
     }
 
@@ -391,10 +401,10 @@ public class MessageParser {
      * from NFC (hence no user consent dialog). Intents used by other apps to start MP should always
      * be untrusted.
      */
-    public ProvisioningParams parseNonNfcIntent(Intent intent, boolean trusted)
+    public ProvisioningParams parseNonNfcIntent(Intent intent, Context context, boolean trusted)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, trusted);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, trusted);
 
         params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);

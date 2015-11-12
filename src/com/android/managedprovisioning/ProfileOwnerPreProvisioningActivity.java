@@ -27,12 +27,15 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,6 +44,9 @@ import com.android.managedprovisioning.DeleteManagedProfileDialog.DeleteManagedP
 import com.android.managedprovisioning.UserConsentDialog.ConsentCallback;
 import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.Utils.MdmPackageInfo;
+
+import java.io.IOException;
+import java.io.File;
 
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
@@ -146,7 +152,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
-
+        LogoUtils.setOrganisationLogo(R.id.organisation_logo_view, this);
         setMdmIcon(mParams.deviceAdminPackageName);
 
         // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
@@ -268,7 +274,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
      */
     private void initialize(Intent intent, boolean trusted)
             throws IllegalProvisioningArgumentException {
-        mParams = mParser.parseNonNfcIntent(intent, trusted);
+        mParams = mParser.parseNonNfcIntent(intent, this, trusted);
 
         mParams.deviceAdminComponentName = Utils.findDeviceAdmin(
                 mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, this);
@@ -369,6 +375,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             }
         }
         if (requestCode == PROVISIONING_REQUEST_CODE) {
+            LogoUtils.cleanUp(this);
             setResult(resultCode);
             finish();
         }

@@ -29,6 +29,7 @@ import android.content.pm.UserInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -183,10 +184,10 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
             return parser.parseNfcIntent(intent);
         } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
-            return parser.parseNonNfcIntent(intent, trusted);
+            return parser.parseNonNfcIntent(intent, this, trusted);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
                 intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
-            ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent);
+            ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent, this);
             String callingPackage = getCallingPackage();
             if (callingPackage == null) {
                 throw new IllegalProvisioningArgumentException("Calling package is null. " +
@@ -242,6 +243,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
             mdmInfoTextView.setText(R.string.the_following_is_your_mdm_for_device);
             setMdmInfo();
+            LogoUtils.setOrganisationLogo(R.id.organisation_logo_view, this);
         }
     }
 
@@ -333,6 +335,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             }
         } else if (requestCode == PROVISIONING_REQUEST_CODE) {
             setResult(resultCode);
+            LogoUtils.cleanUp(this);
             finish();
         }
     }
