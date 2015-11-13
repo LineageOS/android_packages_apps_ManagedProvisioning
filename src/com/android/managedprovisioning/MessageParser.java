@@ -112,8 +112,12 @@ public class MessageParser {
             "com.android.managedprovisioning.extra.started_by_nfc";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
+    private static final String EXTRA_PROVISIONING_ACTION =
+            "com.android.managedprovisioning.extra.provisioning_action";
+
 
     /* package */ static final String[] PROFILE_OWNER_STRING_EXTRAS = {
+        EXTRA_PROVISIONING_ACTION,
         // Key for the device admin package name
         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
     };
@@ -134,6 +138,7 @@ public class MessageParser {
     };
 
     /* package */ static final String[] DEVICE_OWNER_STRING_EXTRAS = {
+        EXTRA_PROVISIONING_ACTION,
         EXTRA_PROVISIONING_TIME_ZONE,
         EXTRA_PROVISIONING_LOCALE,
         EXTRA_PROVISIONING_WIFI_SSID,
@@ -175,6 +180,7 @@ public class MessageParser {
     };
 
     public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
+        bundle.putString(EXTRA_PROVISIONING_ACTION, params.provisioningAction);
         bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone);
         bundle.putString(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale));
         bundle.putString(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid);
@@ -337,7 +343,7 @@ public class MessageParser {
     public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing mininalist non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, false);
         if (params.deviceAdminComponentName == null) {
             throw new IllegalProvisioningArgumentException("Must provide the component name of the"
                     + " device admin");
@@ -345,7 +351,7 @@ public class MessageParser {
         return params;
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent)
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, boolean trusted)
             throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
@@ -358,7 +364,12 @@ public class MessageParser {
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
         params.accountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
-        params.provisioningAction = Utils.mapIntentToDpmAction(intent);
+        if (trusted) {
+            params.provisioningAction = intent.getStringExtra(EXTRA_PROVISIONING_ACTION);
+        }
+        if (params.provisioningAction == null) {
+            params.provisioningAction = Utils.mapIntentToDpmAction(intent);
+        }
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
@@ -383,7 +394,7 @@ public class MessageParser {
     public ProvisioningParams parseNonNfcIntent(Intent intent, boolean trusted)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, trusted);
 
         params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
@@ -446,7 +457,6 @@ public class MessageParser {
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-        params.provisioningAction = Utils.mapIntentToDpmAction(intent);
 
         checkValidityOfProvisioningParams(params);
         return params;
