@@ -46,18 +46,18 @@
                 android:text="@string/contact_your_admin_for_more_info"
                 style="@style/MainText"/>
 
+            <TextView
+                android:id="@+id/learn_more_link"
+                android:textColor="@color/accent"
+                android:text="@string/learn_more_link"
+                android:contentDescription="@string/learn_more_label"
+                style="@style/MainText" />
+
             <CheckBox
                 android:id="@+id/user_consent_checkbox"
                 android:text="@string/user_consent_msg"
                 style="@style/CheckBox"
                 android:visibility="gone"/>
-
-            <TextView
-                android:id="@+id/learn_more_link"
-                android:textColor="@color/colored_button"
-                android:text="@string/learn_more_link"
-                android:contentDescription="@string/learn_more_label"
-                style="@style/MainText" />
 
         </LinearLayout>
 
