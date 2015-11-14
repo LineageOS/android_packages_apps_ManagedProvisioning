@@ -34,6 +34,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"Finn ut mer"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"AVBRYT"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"Godta"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbeidsprofil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hovedbruker"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Vil du fjerne arbeidsprofilen?"</string>

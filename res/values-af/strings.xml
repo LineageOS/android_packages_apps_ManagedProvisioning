@@ -34,6 +34,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"Kom meer te wete"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"KANSELLEER"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Goed"</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"Ek stem in"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Werkprofiel"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primêre gebruiker"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Verwyder werkprofiel?"</string>
@@ -57,8 +58,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Hierdie lanseerderprogram steun nie jou werkprofiel nie. Jy moet oorskakel na \'n lanseerder wat versoenbaar is."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"KANSELLEER"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Gebruiker se opstelling is onvoltooid"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van werktoestel"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Stel jou toestel op"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Verwerk tans opstellingdata …"</string>

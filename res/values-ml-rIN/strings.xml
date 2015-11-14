@@ -34,6 +34,8 @@
     <string name="learn_more_link" msgid="3012495805919550043">"കൂടുതലറിയുക"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"റദ്ദാക്കുക"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ശരി"</string>
+    <!-- no translation found for user_consent_msg (8820951802130353584) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"പ്രാഥമിക ഉപയോക്താവ്"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"ഔദ്യോഗിക പ്രൊഫൈൽ നീക്കംചെയ്യണോ?"</string>
@@ -57,8 +59,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ഈ ലോഞ്ചർ അപ്ലിക്കേഷൻ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിനെ പിന്തുണയ്‌ക്കില്ല. അനുയോജ്യമായ ലോഞ്ചറിലേക്ക് മാറേണ്ടതുണ്ട്."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"റദ്ദാക്കുക"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ശരി"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"ഉപയോക്തൃ സജ്ജമാക്കൽ അപൂർണ്ണമാണ്"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ഔദ്യോഗിക ഉപകരണത്തിന്റെ ഉപയോക്താവ്"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുക"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"സജ്ജീകരണ ഡാറ്റ പ്രോസസ്സുചെയ്യുന്നു…"</string>

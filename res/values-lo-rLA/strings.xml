@@ -34,6 +34,8 @@
     <string name="learn_more_link" msgid="3012495805919550043">"ສຶກ​ສາ​ເພີ່ມ​ເຕີມ"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ຍົກເລີກ"</string>
     <string name="ok_setup" msgid="5148111905838329307">"ຕົກລົງ"</string>
+    <!-- no translation found for user_consent_msg (8820951802130353584) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ຜູ້​ໃຊ້​ຕົ້ນ​ຕໍ"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"ລຶບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກບໍ?"</string>
@@ -57,8 +59,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານບໍ່​ຮອງ​ຮັບ​ແອັບຯ Launcher ນີ້. ທ່ານ​ຈະ​ຕ້ອງ​ສະ​ລັບ​ໄປ​ໃຊ້ Launcher ທີ່​ໃຊ້​ຮ່ວມ​ກັນ​ໄດ້."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ຍົກເລີກ"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"ຕົກລົງ"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"ການ​ຕັ້ງ​ຜູ້​ໃຊ້​ບໍ່​ສຳ​ເລັດ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"​​ຜູ່​ໃຊ້​ອຸ​ປະ​ກອນ​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>

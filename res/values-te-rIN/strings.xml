@@ -34,6 +34,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"రద్దు చేయి"</string>
     <string name="ok_setup" msgid="5148111905838329307">"సరే"</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"నేను సమ్మతిస్తున్నాను"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ప్రాథమిక వినియోగదారు"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"కార్యాలయ ప్రొఫైల్‌ను తీసివేయాలా?"</string>
@@ -57,8 +58,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"మీ కార్యాలయ ప్రొఫైల్‌కు ఈ లాంచర్ అనువర్తనం మద్దతు ఇవ్వదు. మీరు అనుకూల లాంచర్‌కు మారాలి."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"రద్దు చేయి"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"సరే"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"వినియోగదారు సెటప్ పూర్తికాలేదు"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"కార్యాలయ పరికర వినియోగదారు"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది..."</string>

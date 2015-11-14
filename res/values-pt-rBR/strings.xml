@@ -34,6 +34,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"Saiba mais"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"CANCELAR"</string>
     <string name="ok_setup" msgid="5148111905838329307">"Ok"</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"Eu concordo"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuário principal"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Remover perfil de trabalho?"</string>
@@ -57,8 +58,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"O app da tela de início não aceita seu perfil de trabalho. É necessário mudar para uma tela de início compatível."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"CANCELAR"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Ok"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuração de usuário incompleta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuário de dispositivo de trabalho"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Configurar o dispositivo"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Processando dados de configuração…"</string>

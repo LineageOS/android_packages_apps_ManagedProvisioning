@@ -34,6 +34,8 @@
     <string name="learn_more_link" msgid="3012495805919550043">"ស្វែងយល់​បន្ថែម"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"បោះបង់"</string>
     <string name="ok_setup" msgid="5148111905838329307">"យល់ព្រម"</string>
+    <!-- no translation found for user_consent_msg (8820951802130353584) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"អ្នកប្រើសំខាន់"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"លុបប្រវត្តិរូបការងារ?"</string>
@@ -57,8 +59,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ប្រវត្តិរូប​ការងារ​របស់​អ្នក​មិន​ត្រូវ​បាន​គាំទ្រ​ដោយ​កម្មវិធី​ launcher នេះ​នៅ​ឡើយ​ទេ។ អ្នក​នឹង​ត្រូវ​ប្ដូរ​ទៅ launcher ដែល​ត្រូវ​គ្នា។"</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"បោះបង់"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"យល់ព្រម"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"ការដំឡើងអ្នកប្រើមិនពេញលេញ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"អ្នកប្រើ​ឧបករណ៍​ការងារ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"រៀបចំឧបករណ៍របស់អ្នក"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"កំពុងដំណើរការទិន្នន័យដំឡើង…"</string>
