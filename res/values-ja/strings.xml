@@ -34,8 +34,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"詳細"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"キャンセル"</string>
     <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
-    <!-- no translation found for user_consent_msg (8820951802130353584) -->
-    <skip />
+    <string name="user_consent_msg" msgid="8820951802130353584">"同意します"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"仕事用プロファイル"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"メインユーザー"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"仕事用プロファイルの削除"</string>

@@ -34,8 +34,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"瞭解詳情"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"取消"</string>
     <string name="ok_setup" msgid="5148111905838329307">"確定"</string>
-    <!-- no translation found for user_consent_msg (8820951802130353584) -->
-    <skip />
+    <string name="user_consent_msg" msgid="8820951802130353584">"我同意"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作設定檔"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"主要使用者"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"移除 Work 設定檔？"</string>

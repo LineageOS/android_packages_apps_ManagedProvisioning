@@ -58,7 +58,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profil kerja Anda tidak didukung oleh peluncur aplikasi ini. Anda perlu beralih ke peluncur yang kompatibel."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"BATAL"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"Oke"</string>
-    <string name="user_setup_incomplete" msgid="6494920045526591079">"Penyiapan Pelanggan Tidak Selesai"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Penyiapan Pelanggan Belum Selesai"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Pengguna perangkat kerja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Siapkan perangkat Anda"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Memproses data penyiapan..."</string>
