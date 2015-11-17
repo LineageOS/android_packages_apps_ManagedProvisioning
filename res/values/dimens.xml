@@ -38,6 +38,9 @@
     <dimen name="row_height">72dp</dimen>
     <dimen name="row_padding_top">0dp</dimen>
 
+    <dimen name="checkbox_padding_left">24dp</dimen>
+    <dimen name="checkbox_margin_top">24dp</dimen>
+
     <!-- MDM app info -->
     <dimen name="mdm_app_name_padding_start">16dp</dimen>
     <dimen name="icon_width_height">56dp</dimen>

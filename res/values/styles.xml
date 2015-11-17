@@ -35,10 +35,6 @@
         <item name="suwIllustrationHorizontalTile">@color/orange</item>
     </style>
 
-    <style name="ControlOverlayTheme">
-      <item name="android:colorControlNormal">@color/orange</item>
-    </style>
-
     <style name="TextOrCheckBox">
         <item name="android:textColor">@color/text_black</item>
         <item name="android:textSize">@dimen/main_text_size</item>
@@ -52,19 +48,18 @@
     </style>
 
     <style name="CheckBox" parent="TextOrCheckBox">
-        <item name="android:layout_marginTop">@dimen/main_text_padding_between_text</item>
-        <item name="android:buttonTint">@color/orange</item>
+        <item name="android:layout_marginTop">@dimen/checkbox_margin_top</item>
+        <!-- Space between the checkbox itself and the text -->
+        <item name="android:paddingLeft">@dimen/checkbox_padding_left</item>
     </style>
 
-    <style name="TransparentButton" parent="@android:style/Widget.Material.Light.Button">
+    <style name="TransparentButton" parent="@android:style/Widget.Material.Button.Borderless.Colored">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:background">@color/transparent</item>
-        <item name="android:textColorPrimary">@color/colored_button</item>
-        <item name="android:textColor">@color/colored_button</item>
     </style>
 
     <style name="MainTextContainer">
@@ -92,7 +87,6 @@
     </style>
 
     <style name="DialogFragmentScrollView" parent="@android:style/Widget.Material.Light.ScrollView">
-        <item name="android:theme">@style/ControlOverlayTheme</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:paddingLeft">@dimen/dialog_text_padding_left_right</item>
         <item name="android:paddingRight">@dimen/dialog_text_padding_left_right</item>
@@ -104,5 +98,9 @@
       <item name="android:windowFullscreen">true</item>
       <item name="android:windowNoTitle">true</item>
       <item name="android:windowBackground">@color/transparent</item>
+      <!-- Color for checked checkbox -->
+      <item name="android:colorControlActivated">@color/accent</item>
+      <!-- Color for enabled button -->
+      <item name="android:colorAccent">@color/accent</item>
     </style>
 </resources>
