@@ -58,7 +58,7 @@
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ishchi profilingiz ushbu launcher ilovasi tomonidan qo‘llab-quvvatlanmaydi. Mos launcher rejimiga o‘tishingiz lozim."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"BEKOR QILISH"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
-    <string name="user_setup_incomplete" msgid="6494920045526591079">"Foydalanuvchini sozlash tugallamadi"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Foydalanuvchi hisobini sozlab bo‘lmadi"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Ishchi qurilma foydalanuvchisi"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Qurilmangizni sozlang"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Ma’lumotlarga ishlov berilmoqda…"</string>
