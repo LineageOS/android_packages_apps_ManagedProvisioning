@@ -87,6 +87,8 @@ public class ProvisioningParams implements Parcelable {
 
     private ComponentName inferedDeviceAdminComponentName;
 
+    public int mainColor;
+
     public static class PackageDownloadInfo {
         // Url where the package (.apk) can be downloaded from
         public String location;
@@ -166,6 +168,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(skipEncryption ? 1 : 0);
         out.writeParcelable(accountToMigrate, 0 /* default */);
         out.writeString(provisioningAction);
+        out.writeInt(mainColor);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -188,6 +191,7 @@ public class ProvisioningParams implements Parcelable {
             params.accountToMigrate =
                     (Account) in.readParcelable(null /* use default classloader */);
             params.provisioningAction = in.readString();
+            params.mainColor = in.readInt();
             return params;
         }
 

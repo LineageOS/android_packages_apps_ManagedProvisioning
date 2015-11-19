@@ -174,6 +174,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onResume() {
         super.onResume();
+        setStatusBarColor(mParams.mainColor);
         setTitle(R.string.setup_device_start_setup);
     }
 

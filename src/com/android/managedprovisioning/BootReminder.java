@@ -157,7 +157,8 @@ public class BootReminder extends BroadcastReceiver {
                 .setComponentNameKeys(MessageParser.PROFILE_OWNER_COMPONENT_NAME_EXTRAS)
                 .setStringKeys(MessageParser.PROFILE_OWNER_STRING_EXTRAS)
                 .setPersistableBundleKeys(MessageParser.PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS)
-                .setAccountKeys(MessageParser.PROFILE_OWNER_ACCOUNT_EXTRAS);
+                .setAccountKeys(MessageParser.PROFILE_OWNER_ACCOUNT_EXTRAS)
+                .setIntKeys(MessageParser.PROFILE_OWNER_INT_EXTRAS);
     }
 
     private static IntentStore getDeviceOwnerIntentStore(Context context,

@@ -28,6 +28,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
@@ -46,8 +47,10 @@ import android.accounts.Account;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.nfc.NdefMessage;
+import android.graphics.Color;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
@@ -141,6 +144,10 @@ public class MessageParser {
         EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
     };
 
+    /* package */ static final String[] PROFILE_OWNER_INT_EXTRAS = {
+        EXTRA_PROVISIONING_MAIN_COLOR
+    };
+
     /* package */ static final String[] DEVICE_OWNER_STRING_EXTRAS = {
         EXTRA_PROVISIONING_ACTION,
         EXTRA_PROVISIONING_TIME_ZONE,
@@ -164,7 +171,8 @@ public class MessageParser {
 
     /* package */ static final String[] DEVICE_OWNER_INT_EXTRAS = {
         EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE
+        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+        EXTRA_PROVISIONING_MAIN_COLOR
     };
 
     /* package */ static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
@@ -218,6 +226,7 @@ public class MessageParser {
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
         bundle.putParcelable(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
+        bundle.putInt(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
     }
 
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
@@ -368,6 +377,13 @@ public class MessageParser {
                 ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
         params.accountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+        if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
+            params.mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
+        } else {
+            final TypedArray typedArray = context.obtainStyledAttributes(new int[]{
+                    android.R.attr.statusBarColor});
+            params.mainColor = typedArray.getColor(0, 0);
+        }
         if (trusted) {
             params.provisioningAction = intent.getStringExtra(EXTRA_PROVISIONING_ACTION);
         }

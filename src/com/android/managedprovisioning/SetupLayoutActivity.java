@@ -17,6 +17,8 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.android.setupwizardlib.SetupWizardLayout;
@@ -32,6 +34,15 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
     protected Button mBackButton;
 
     public static final int NEXT_BUTTON_EMPTY_LABEL = 0;
+
+    protected void setStatusBarColor(int color) {
+        // This code to colorize the status bar is just temporary.
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        window.setStatusBarColor(color);
+    }
 
     public void initializeLayoutParams(int layoutResourceId, int headerResourceId,
             boolean showProgressBar) {

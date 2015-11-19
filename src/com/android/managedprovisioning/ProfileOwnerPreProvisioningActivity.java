@@ -189,7 +189,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onResume() {
         super.onResume();
-
+        setStatusBarColor(mParams.mainColor);
         setTitle(R.string.setup_profile_start_setup);
         if (Utils.alreadyHasManagedProfile(this) != -1) {
             maybeShowDeleteManagedProfileDialog();
