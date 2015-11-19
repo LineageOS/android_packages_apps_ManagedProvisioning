@@ -101,7 +101,7 @@ public class SetDevicePolicyTask {
 
     private boolean setDeviceOwner(ComponentName component, String owner) {
         ProvisionLogger.logd("Setting " + component + " as device owner " + owner + ".");
-        if (!mDevicePolicyManager.isDeviceOwner(component)) {
+        if (!component.equals(mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser())) {
             return mDevicePolicyManager.setDeviceOwner(component, owner, mUserId);
         }
         return true;

@@ -55,11 +55,14 @@ public class PreBootListener extends BroadcastReceiver {
         mPackageManager = context.getPackageManager();
 
         // Check for device owner.
-        if (mDevicePolicyManager.getDeviceOwner() != null && DeleteNonRequiredAppsTask
+        final ComponentName deviceOwnerComponent =
+                mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser();
+        // TODO See b/25795708
+        if (deviceOwnerComponent != null && DeleteNonRequiredAppsTask
                     .shouldDeleteNonRequiredApps(context, UserHandle.USER_SYSTEM)) {
 
             // Delete new apps.
-            new DeleteNonRequiredAppsTask(context, mDevicePolicyManager.getDeviceOwner(),
+            new DeleteNonRequiredAppsTask(context, deviceOwnerComponent.getPackageName(),
                     DeleteNonRequiredAppsTask.DEVICE_OWNER,
                     false /* not creating new profile */,
                     UserHandle.USER_SYSTEM,

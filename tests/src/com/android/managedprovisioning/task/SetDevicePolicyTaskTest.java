@@ -58,7 +58,7 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
                 .thenReturn(mDevicePolicyManager);
         when(mPackageManager.getApplicationEnabledSetting(ADMIN_PACKAGE_NAME))
                 .thenReturn(PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
-        when(mDevicePolicyManager.isDeviceOwner(ADMIN_PACKAGE_NAME)).thenReturn(false);
+        when(mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser()).thenReturn(null);
         when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID))
                 .thenReturn(true);
 

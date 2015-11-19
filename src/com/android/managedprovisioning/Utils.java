@@ -235,10 +235,10 @@ public class Utils {
         return UserHandle.myUserId() == UserHandle.USER_SYSTEM;
     }
 
-    public static boolean hasDeviceOwner(Context context) {
+    public static boolean isDeviceManaged(Context context) {
         DevicePolicyManager dpm =
                 (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        return !TextUtils.isEmpty(dpm.getDeviceOwner());
+        return dpm.isDeviceManaged();
     }
 
     public static boolean isManagedProfile(Context context) {

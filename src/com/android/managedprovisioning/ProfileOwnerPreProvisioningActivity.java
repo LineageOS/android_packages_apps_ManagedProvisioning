@@ -31,7 +31,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -128,7 +127,9 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                 showErrorAndClose(R.string.user_cannot_have_work_profile,
                         "Exiting managed profile provisioning, calling user cannot have managed"
                         + "profiles.");
-            } else if (Utils.hasDeviceOwner(this)) {
+            } else if (Utils.isDeviceManaged(this)) {
+                // The actual check in isProvisioningAllowed() is more than just "is there DO?",
+                // but for error message showing purpose, isDeviceManaged() will do.
                 showErrorAndClose(R.string.device_owner_exists,
                         "Exiting managed profile provisioning, a device owner exists");
             } else if (!userManager.canAddMoreManagedProfiles(UserHandle.myUserId(),
