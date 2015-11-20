@@ -17,6 +17,7 @@ package com.android.managedprovisioning;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -39,6 +40,8 @@ public class PreBootListener extends BroadcastReceiver {
     private UserManager mUserManager;
     private PackageManager mPackageManager;
     private DevicePolicyManager mDevicePolicyManager;
+
+    private static final String TELECOM_PACKAGE = "com.android.server.telecom";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -78,12 +81,28 @@ public class PreBootListener extends BroadcastReceiver {
             if (userInfo.isManagedProfile()) {
                 mUserManager.setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,
                         userInfo.getUserHandle());
+                // Enabling telecom package as it supports managed profiles from N.
+                installTelecomAsUser(userInfo.id);
                 runManagedProfileDisablingTasks(userInfo.id, context);
             } else {
                 // if this user has managed profiles, reset the cross-profile intent filters between
                 // this user and its managed profiles.
                 resetCrossProfileIntentFilters(userInfo.id);
             }
+        }
+    }
+
+    /**
+     * Enable telecom package in a particular user.
+     *
+     * @param userId user id of user that going to have telecom installed.
+     */
+    private void installTelecomAsUser(int userId) {
+        try {
+            mPackageManager.installExistingPackageAsUser(TELECOM_PACKAGE, userId);
+        } catch (NameNotFoundException ex) {
+            // should not happen
+            ProvisionLogger.loge(ex);
         }
     }
 
