@@ -84,6 +84,9 @@ public class BootReminder extends BroadcastReceiver {
             final Intent resumeProfileOwnerPrvIntent = profileOwnerIntentStore.load();
             if (resumeProfileOwnerPrvIntent != null && EncryptDeviceActivity.isDeviceEncrypted()) {
                 profileOwnerIntentStore.clear();
+                // We need this to disambiguate between the managed profile owner and user owner
+                // cases.
+                inferIntentAction(resumeProfileOwnerPrvIntent);
                 if (Utils.isUserSetupCompleted(context)) {
                     // Show reminder notification and then forget about it for next boot
                     setNotification(context, resumeProfileOwnerPrvIntent);
@@ -99,11 +102,17 @@ public class BootReminder extends BroadcastReceiver {
             Intent resumeDeviceOwnerPrvIntent = deviceOwnerIntentStore.load();
             if (resumeDeviceOwnerPrvIntent != null) {
                 deviceOwnerIntentStore.clear();
-                resumeDeviceOwnerPrvIntent.setAction(
-                        DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE);
+                // We need this to disambiguate between the regular device owner and shareable
+                // device owner cases.
+                inferIntentAction(resumeDeviceOwnerPrvIntent);
                 TrampolineActivity.startActivity(context, resumeDeviceOwnerPrvIntent);
             }
         }
+    }
+
+    private void inferIntentAction(Intent intent) {
+        intent.setAction(intent.getStringExtra(
+                MessageParser.EXTRA_PROVISIONING_ACTION));
     }
 
     /**

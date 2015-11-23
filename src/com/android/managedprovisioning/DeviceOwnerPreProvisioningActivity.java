@@ -188,13 +188,21 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             return parser.parseNonNfcIntent(intent, this, trusted);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
                 intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
-            ProvisioningParams params = parser.parseMinimalistNonNfcIntent(intent, this);
+            ProvisioningParams params;
+            if (trusted) {
+                // If we're trusted, we support all the extras.
+                params = parser.parseNonNfcIntent(intent, this, true);
+            } else {
+                // If we were started by another app, we don't support many extras, so use the
+                // minimalist version.
+                params = parser.parseMinimalistNonNfcIntent(intent, this);
+            }
             String callingPackage = getCallingPackage();
             if (callingPackage == null) {
                 throw new IllegalProvisioningArgumentException("Calling package is null. " +
                     "Was startActivityForResult used to start this activity?");
             }
-            if (!callingPackage.equals(params.inferDeviceAdminPackageName())) {
+            if (!trusted && !callingPackage.equals(params.inferDeviceAdminPackageName())) {
                 throw new IllegalProvisioningArgumentException("Permission denied, "
                         + "calling package tried to set a different package as device owner. ");
             }
