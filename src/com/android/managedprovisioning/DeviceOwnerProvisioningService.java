@@ -27,11 +27,13 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
+import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
@@ -104,6 +106,7 @@ public class DeviceOwnerProvisioningService extends Service {
     private InstallPackageTask mInstallPackageTask;
     private SetDevicePolicyTask mSetDevicePolicyTask;
     private DeleteNonRequiredAppsTask mDeleteNonRequiredAppsTask;
+    private DisallowAddUserTask mDisallowAddUserTask;
 
     private ProvisioningParams mParams;
 
@@ -262,6 +265,8 @@ public class DeviceOwnerProvisioningService extends Service {
                 new DeleteNonRequiredAppsTask.Callback() {
                     @Override
                     public void onSuccess() {
+                        mDisallowAddUserTask.maybeDisallowAddUsers();
+
                         // Done with provisioning. Success.
                         onProvisioningSuccess();
                     }
@@ -271,6 +276,9 @@ public class DeviceOwnerProvisioningService extends Service {
                         error(R.string.device_owner_error_general);
                     }
                 });
+
+        mDisallowAddUserTask = new DisallowAddUserTask((UserManager) getSystemService(USER_SERVICE),
+                UserHandle.myUserId(), UserManager.isSplitSystemUser());
 
         // Start first task, which starts next task in its callback, etc.
         progressUpdate(R.string.progress_connect_to_wifi);

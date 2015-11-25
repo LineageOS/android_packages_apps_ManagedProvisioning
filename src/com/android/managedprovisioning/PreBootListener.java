@@ -28,6 +28,7 @@ import android.os.UserManager;
 
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
+import com.android.managedprovisioning.task.DisallowAddUserTask;
 
 import java.util.List;
 
@@ -56,28 +57,37 @@ public class PreBootListener extends BroadcastReceiver {
 
         // Check for device owner.
         final ComponentName deviceOwnerComponent =
-                mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser();
-        // TODO See b/25795708
-        if (deviceOwnerComponent != null && DeleteNonRequiredAppsTask
-                    .shouldDeleteNonRequiredApps(context, UserHandle.USER_SYSTEM)) {
+                mDevicePolicyManager.getDeviceOwnerComponentOnAnyUser();
+        if (deviceOwnerComponent != null) {
+            int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();
 
-            // Delete new apps.
-            new DeleteNonRequiredAppsTask(context, deviceOwnerComponent.getPackageName(),
-                    DeleteNonRequiredAppsTask.DEVICE_OWNER,
-                    false /* not creating new profile */,
-                    UserHandle.USER_SYSTEM,
-                    false /* delete non-required system apps */,
-                    new DeleteNonRequiredAppsTask.Callback() {
+            if(DeleteNonRequiredAppsTask.shouldDeleteNonRequiredApps(context, deviceOwnerUserId)) {
 
-                        @Override
-                        public void onSuccess() {}
+                // Delete new apps.
+                new DeleteNonRequiredAppsTask(context, deviceOwnerComponent.getPackageName(),
+                        DeleteNonRequiredAppsTask.DEVICE_OWNER,
+                        false /* not creating new profile */,
+                        deviceOwnerUserId,
+                        false /* delete non-required system apps */,
+                        new DeleteNonRequiredAppsTask.Callback() {
 
-                        @Override
-                        public void onError() {
-                            ProvisionLogger.loge("Error while checking if there are new system "
-                                    + "apps that need to be deleted");
-                        }
-                    }).run();
+                            @Override
+                            public void onSuccess() {
+                            }
+
+                            @Override
+                            public void onError() {
+                                ProvisionLogger.loge("Error while checking if there are new system "
+                                        + "apps that need to be deleted");
+                            }
+                        }).run();
+            }
+
+            // Ensure additional users cannot be created if we're in the state necessary to require
+            // that.
+            boolean splitSystemUser = UserManager.isSplitSystemUser();
+            new DisallowAddUserTask(mUserManager, deviceOwnerUserId, splitSystemUser)
+                    .maybeDisallowAddUsers();
         }
 
         for (UserInfo userInfo : mUserManager.getUsers()) {
