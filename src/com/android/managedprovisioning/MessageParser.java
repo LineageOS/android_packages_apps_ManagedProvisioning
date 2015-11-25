@@ -119,7 +119,7 @@ public class MessageParser {
             "com.android.managedprovisioning.extra.started_by_nfc";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
-    private static final String EXTRA_PROVISIONING_ACTION =
+    static final String EXTRA_PROVISIONING_ACTION =
             "com.android.managedprovisioning.extra.provisioning_action";
 
 
