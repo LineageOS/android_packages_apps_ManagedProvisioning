@@ -162,7 +162,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     private void onProvisioningSuccess() {
         // Set the device to provisioned.
         Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
-        if (UserHandle.myUserId() != UserHandle.USER_SYSTEM) {
+        if (!Utils.isCurrentUserSystem()) {
             // Utils.markDeviceProvisioned() only marks the current user with user_setup_complete
             // If the current user is not the system user, then the system user has not been marked
             // with user_setup_complete. Mark it now.
@@ -191,7 +191,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                 .setNegativeButton(R.string.device_owner_cancel_cancel,
                         new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog,int id) {
+                            public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                                 handlePendingIntents();
                                 mCancelDialogShown = false;
@@ -200,19 +200,13 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                 .setPositiveButton(R.string.device_owner_error_reset,
                         new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog,int id) {
+                            public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
 
                                 // Factory reset the device.
-                                Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
-                                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-                                intent.putExtra(Intent.EXTRA_REASON,
+                                Utils.sendFactoryResetBroadcast(
+                                        DeviceOwnerProvisioningActivity.this,
                                         "DeviceOwnerProvisioningActivity.showCancelResetDialog()");
-                                sendBroadcast(intent);
-                                stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                                        DeviceOwnerProvisioningService.class));
-                                setResult(RESULT_CANCELED);
-                                finish();
                             }
                         })
                 .show();

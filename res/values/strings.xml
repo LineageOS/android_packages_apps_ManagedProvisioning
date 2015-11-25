@@ -202,4 +202,13 @@
   <string name="learn_more_label">Learn more button</string>
   <!-- Accessibility description for the company icon. [CHAR LIMIT=NONE] -->
   <string name="mdm_icon_label"><xliff:g id="icon_label" example="Test App">%1$s</xliff:g> icon</string>
+
+  <!-- TODO: Following strings have to be updated. -->
+  <!-- Strings used in the dialog asking for user confirmation to cancel the setup process and factory reset the device. -->
+  <!-- Message shown in the dialog. [CHAR LIMIT=NONE] -->
+  <string name="cancel_setup_and_factory_reset_dialog_msg">Cancel this setup? Cancelling will factory reset your device and take you to the start of set up.</string>
+  <!-- Cancel button text of the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_cancel">CANCEL</string>
+  <!-- OK button text of the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_ok">RESET</string>
 </resources>

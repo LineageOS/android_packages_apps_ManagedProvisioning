@@ -421,4 +421,11 @@ public class Utils {
         }
         return null;
     }
+
+    public static void sendFactoryResetBroadcast(Context context, String reason) {
+        Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
+        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+        intent.putExtra(Intent.EXTRA_REASON, reason);
+        context.sendBroadcast(intent);
+    }
 }

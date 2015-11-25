@@ -71,22 +71,13 @@ public class UserConsentDialog extends DialogFragment {
         dialog.setContentView(R.layout.learn_more_dialog);
         dialog.setCanceledOnTouchOutside(false);
 
-        TextView text1 = (TextView) dialog.findViewById(R.id.learn_more_text1);
-        if (ownerType == PROFILE_OWNER) {
-            text1.setText(R.string.admin_has_ability_to_monitor_profile);
-        } else if (ownerType == DEVICE_OWNER) {
-            text1.setText(R.string.admin_has_ability_to_monitor_device);
-        }
+        final TextView learnMoreMsg = (TextView) dialog.findViewById(R.id.learn_more_text1);
+        final TextView linkText = (TextView) dialog.findViewById(R.id.learn_more_link);
+        final TextView textFrpWarning = (TextView) dialog.findViewById(
+                R.id.learn_more_frp_warning);
 
-        TextView textFrpWarning = (TextView) dialog.findViewById(R.id.learn_more_frp_warning);
-        if (ownerType == DEVICE_OWNER && Utils.isFrpSupported(getActivity())) {
-            textFrpWarning.setVisibility(View.VISIBLE);
-        } else {
-            textFrpWarning.setVisibility(View.GONE);
-        }
-
-        TextView linkText = (TextView) dialog.findViewById(R.id.learn_more_link);
         if (ownerType == PROFILE_OWNER) {
+            learnMoreMsg.setText(R.string.admin_has_ability_to_monitor_profile);
             linkText.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -96,6 +87,7 @@ public class UserConsentDialog extends DialogFragment {
                     }
                 });
         } else if (ownerType == DEVICE_OWNER) {
+            learnMoreMsg.setText(R.string.admin_has_ability_to_monitor_device);
             linkText.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -106,6 +98,9 @@ public class UserConsentDialog extends DialogFragment {
                         getActivity().startActivity(webIntent);
                     }
                 });
+            if (Utils.isFrpSupported(getActivity())) {
+                textFrpWarning.setVisibility(View.VISIBLE);
+            }
         }
 
         final Button positiveButton = (Button) dialog.findViewById(R.id.positive_button);
