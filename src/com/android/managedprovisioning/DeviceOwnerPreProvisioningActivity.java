@@ -71,10 +71,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     // Extracted from the starting intent.
     private ProvisioningParams mParams;
 
-    // Legacy action, internal only, but that we still want to support.
-    static final String LEGACY_ACTION_PROVISION_MANAGED_DEVICE
-            = "com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE";
-
     private UserManager mUserManager;
 
     @Override
@@ -184,8 +180,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             throw new IllegalProvisioningArgumentException("Null intent action.");
         } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
             return parser.parseNfcIntent(intent);
-        } else if (intent.getAction().equals(LEGACY_ACTION_PROVISION_MANAGED_DEVICE)) {
-            return parser.parseNonNfcIntent(intent, this, trusted);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
                 intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
             ProvisioningParams params;
@@ -220,8 +214,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         if (getIntent() != null) {
             String action = getIntent().getAction();
             if (ACTION_PROVISION_MANAGED_DEVICE.equals(action) ||
-                    ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE.equals(action) ||
-                    LEGACY_ACTION_PROVISION_MANAGED_DEVICE.equals(action)) {
+                    ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE.equals(action)) {
                 ProvisionLogger.logd("FRP not required if started by SUW");
                 return false;
             }

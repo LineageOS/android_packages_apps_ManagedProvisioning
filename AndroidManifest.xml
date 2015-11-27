@@ -71,7 +71,6 @@
             android:theme="@style/SetupWorkSpaceTheme">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
-                <action android:name="com.android.managedprovisioning.ACTION_PROVISION_MANAGED_DEVICE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_SHAREABLE_DEVICE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
