@@ -298,12 +298,9 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     private void requestEncryption(MessageParser messageParser, ProvisioningParams params) {
         Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class);
 
-        Bundle resumeExtras = new Bundle();
-        resumeExtras.putString(EncryptDeviceActivity.EXTRA_RESUME_TARGET,
-                EncryptDeviceActivity.TARGET_DEVICE_OWNER);
-        messageParser.addProvisioningParamsToBundle(resumeExtras, params);
-
-        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, resumeExtras);
+        Intent toResume = new MessageParser().getIntentFromProvisioningParams(mParams);
+        toResume.setComponent(BootReminder.DEVICE_OWNER_INTENT_TARGET);
+        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, toResume);
 
         startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }

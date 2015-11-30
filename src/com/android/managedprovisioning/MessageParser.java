@@ -119,114 +119,48 @@ public class MessageParser {
             "com.android.managedprovisioning.extra.started_by_nfc";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
-    static final String EXTRA_PROVISIONING_ACTION =
-            "com.android.managedprovisioning.extra.provisioning_action";
-
-
-    /* package */ static final String[] PROFILE_OWNER_STRING_EXTRAS = {
-        EXTRA_PROVISIONING_ACTION,
-        // Key for the device admin package name
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME
-    };
-
-    /* package */ static final String[] PROFILE_OWNER_ACCOUNT_EXTRAS = {
-        // Key for the account extras
-        EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE
-    };
-
-    /* package */ static final String[] PROFILE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
-        // Key for the admin extras bundle
-        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
-    };
-
-    /* package */ static final String[] PROFILE_OWNER_COMPONENT_NAME_EXTRAS = {
-        // Key for the device admin component name
-        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
-    };
-
-    /* package */ static final String[] PROFILE_OWNER_INT_EXTRAS = {
-        EXTRA_PROVISIONING_MAIN_COLOR
-    };
-
-    /* package */ static final String[] DEVICE_OWNER_STRING_EXTRAS = {
-        EXTRA_PROVISIONING_ACTION,
-        EXTRA_PROVISIONING_TIME_ZONE,
-        EXTRA_PROVISIONING_LOCALE,
-        EXTRA_PROVISIONING_WIFI_SSID,
-        EXTRA_PROVISIONING_WIFI_SECURITY_TYPE,
-        EXTRA_PROVISIONING_WIFI_PASSWORD,
-        EXTRA_PROVISIONING_WIFI_PROXY_HOST,
-        EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
-        EXTRA_PROVISIONING_WIFI_PAC_URL,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM
-    };
-
-    /* package */ static final String[] DEVICE_OWNER_LONG_EXTRAS = {
-        EXTRA_PROVISIONING_LOCAL_TIME
-    };
-
-    /* package */ static final String[] DEVICE_OWNER_INT_EXTRAS = {
-        EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
-        EXTRA_PROVISIONING_MAIN_COLOR
-    };
-
-    /* package */ static final String[] DEVICE_OWNER_BOOLEAN_EXTRAS = {
-        EXTRA_PROVISIONING_WIFI_HIDDEN,
-        EXTRA_PROVISIONING_STARTED_BY_NFC,
-        EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-        EXTRA_PROVISIONING_SKIP_ENCRYPTION,
-        EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM
-    };
-
-    /* package */ static final String[] DEVICE_OWNER_PERSISTABLE_BUNDLE_EXTRAS = {
-        EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
-    };
-
-    /* package */ static final String[] DEVICE_OWNER_COMPONENT_NAME_EXTRAS = {
-        EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME
-    };
-
-    public void addProvisioningParamsToBundle(Bundle bundle, ProvisioningParams params) {
-        bundle.putString(EXTRA_PROVISIONING_ACTION, params.provisioningAction);
-        bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone);
-        bundle.putString(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale));
-        bundle.putString(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.wifiInfo.securityType);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, params.wifiInfo.password);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.wifiInfo.proxyHost);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.wifiInfo.proxyBypassHosts);
-        bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, params.wifiInfo.pacUrl);
-        bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.wifiInfo.proxyPort);
-        bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, params.wifiInfo.hidden);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+    /**
+     * An intent can be converted to ProvisioningParams with parseNfcIntent, and then we can get
+     * an intent back with this method.
+     */
+    public Intent getIntentFromProvisioningParams(ProvisioningParams params) {
+        Intent intent = new Intent();
+        intent.setAction(params.provisioningAction);
+        intent.putExtra(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone);
+        intent.putExtra(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale));
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.wifiInfo.securityType);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_PASSWORD, params.wifiInfo.password);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.wifiInfo.proxyHost);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.wifiInfo.proxyBypassHosts);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_PAC_URL, params.wifiInfo.pacUrl);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.wifiInfo.proxyPort);
+        intent.putExtra(EXTRA_PROVISIONING_WIFI_HIDDEN, params.wifiInfo.hidden);
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
                 params.deviceAdminPackageName);
-        bundle.putParcelable(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
                 params.deviceAdminComponentName);
-        bundle.putInt(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
                 params.deviceAdminDownloadInfo.minVersion);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
                 params.deviceAdminDownloadInfo.location);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                 params.deviceAdminDownloadInfo.cookieHeader);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
-        bundle.putBoolean(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
                 params.deviceAdminDownloadInfo.packageChecksumSupportsSha1);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
+        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
-        bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
-        bundle.putBoolean(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
-        bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+        intent.putExtra(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
+        intent.putExtra(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
+        intent.putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 params.leaveAllSystemAppsEnabled);
-        bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
-        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
-        bundle.putParcelable(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
-        bundle.putInt(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
+        intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
+        intent.putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
+        intent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
+        intent.putExtra(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
+        return intent;
     }
 
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
@@ -356,7 +290,7 @@ public class MessageParser {
     public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent, Context context)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing mininalist non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, false);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context);
         if (params.deviceAdminComponentName == null) {
             throw new IllegalProvisioningArgumentException("Must provide the component name of the"
                     + " device admin");
@@ -364,8 +298,8 @@ public class MessageParser {
         return params;
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, Context context,
-            boolean trusted) throws IllegalProvisioningArgumentException {
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, Context context)
+                throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
@@ -384,12 +318,7 @@ public class MessageParser {
                     android.R.attr.statusBarColor});
             params.mainColor = typedArray.getColor(0, 0);
         }
-        if (trusted) {
-            params.provisioningAction = intent.getStringExtra(EXTRA_PROVISIONING_ACTION);
-        }
-        if (params.provisioningAction == null) {
-            params.provisioningAction = Utils.mapIntentToDpmAction(intent);
-        }
+        params.provisioningAction = Utils.mapIntentToDpmAction(intent);
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
@@ -420,7 +349,7 @@ public class MessageParser {
     public ProvisioningParams parseNonNfcIntent(Intent intent, Context context, boolean trusted)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, trusted);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context);
 
         params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);

@@ -422,4 +422,15 @@ public class Utils {
         intent.putExtra(Intent.EXTRA_REASON, reason);
         context.sendBroadcast(intent);
     }
+
+    public static boolean isProfileOwnerAction(String action) {
+        return action.equals(ACTION_PROVISION_MANAGED_PROFILE)
+                || action.equals(ACTION_PROVISION_MANAGED_USER);
+    }
+
+    public static boolean isDeviceOwnerAction(String action) {
+        return action.equals(ACTION_PROVISION_MANAGED_DEVICE)
+                || action.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
+    }
+
 }

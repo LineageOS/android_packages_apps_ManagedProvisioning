@@ -437,17 +437,7 @@ public class ProfileOwnerProvisioningService extends Service {
             ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
                     + managedUserHandle.getIdentifier());
         } else {
-            IntentStore store = BootReminder.getProfileOwnerFinalizingIntentStore(this);
-            Bundle resumeBundle = new Bundle();
-            (new MessageParser()).addProvisioningParamsToBundle(resumeBundle, mParams);
-            store.save(resumeBundle);
-
-            // Enable the HomeReceiverActivity, since the ProfileOwnerProvisioningActivity will
-            // shutdown the Setup wizard soon, which will result in a home intent that should be
-            // caught by the HomeReceiverActivity.
-            PackageManager pm = getPackageManager();
-            pm.setComponentEnabledSetting(new ComponentName(this, HomeReceiverActivity.class),
-                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+            HomeReceiverActivity.setReminder(mParams, this);
         }
     }
 

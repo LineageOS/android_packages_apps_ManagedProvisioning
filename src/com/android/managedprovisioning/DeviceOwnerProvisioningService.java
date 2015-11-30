@@ -333,17 +333,7 @@ public class DeviceOwnerProvisioningService extends Service {
         // Persist mParams so HomeReceiverActivity can later retrieve them to finalize provisioning.
         // This is necessary to deal with accidental reboots during DIA setup, which happens between
         // the end of this method and HomeReceiverActivity captures the home intent.
-        IntentStore store = BootReminder.getDeviceOwnerFinalizingIntentStore(this);
-        Bundle resumeBundle = new Bundle();
-        (new MessageParser()).addProvisioningParamsToBundle(resumeBundle, mParams);
-        store.save(resumeBundle);
-
-        // Enable the HomeReceiverActivity, since the DeviceOwnerProvisioningActivity will shutdown
-        // the Setup wizard soon, which will result in a home intent that should be caught by the
-        // HomeReceiverActivity.
-        PackageManager pm = getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(this, HomeReceiverActivity.class),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        HomeReceiverActivity.setReminder(mParams, this);
 
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);

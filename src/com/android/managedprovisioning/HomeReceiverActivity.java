@@ -17,6 +17,8 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
@@ -47,6 +49,8 @@ public class HomeReceiverActivity extends Activity {
 
     private ProvisioningParams mParams;
 
+    private static final String HOME_RECEIVER_INTENT_STORE_NAME = "home-receiver";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,33 +59,53 @@ public class HomeReceiverActivity extends Activity {
         } finally {
             // Disable the HomeReceiverActivity. Make sure this is always called to prevent an
             // infinite loop of HomeReceiverActivity capturing HOME intent in case something fails.
-            disableComponent(new ComponentName(this, HomeReceiverActivity.class));
+            disableComponent(getMyComponent(this));
         }
         finish();
     }
 
+    public static void setReminder(ProvisioningParams params, Context context) {
+        Intent intent = new MessageParser().getIntentFromProvisioningParams(params);
+        getIntentStore(context).save(intent);
+
+        // Enable the HomeReceiverActivity, since the ProfileOwnerProvisioningActivity will
+        // shutdown the Setup wizard soon, which will result in a home intent that should be
+        // caught by the HomeReceiverActivity.
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(getMyComponent(context),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+    }
+
     private void finalizeProvisioning() {
-        mParams = loadProvisioningParamsFromStore(
-                BootReminder.getProfileOwnerFinalizingIntentStore(this));
-        if (mParams != null) {
-            // Finalizing provisioning: send complete intent to mdm.
-            finalizeProfileOwnerProvisioning();
+        IntentStore intentStore = getIntentStore(this);
+        Intent intent = intentStore.load();
+        if (intent == null) {
+            ProvisionLogger.loge("Fail to retrieve ProvisioningParams from intent store.");
             return;
         }
-        mParams = loadProvisioningParamsFromStore(
-                BootReminder.getDeviceOwnerFinalizingIntentStore(this));
+        intentStore.clear();
+        mParams = loadProvisioningParamsFromIntent(intent);
         if (mParams != null) {
-            finalizeDeviceOwnerProvisioning();
+            String action = intent.getAction();
+            Intent provisioningCompleteIntent = getProvisioningCompleteIntent();
+            if (provisioningCompleteIntent == null) {
+                return;
+            }
+            if (action.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+                // For the managed profile owner case, we need to send the provisioning complete
+                // intent to the mdm. Once it has been received, we'll send
+                // ACTION_MANAGED_PROFILE_PROVISIONED in the parent.
+                finalizeManagedProfileOwnerProvisioning(provisioningCompleteIntent);
+            } else {
+                // For managed user and device owner, we just need to send the provisioning complete
+                // intent to the mdm.
+                sendBroadcast(provisioningCompleteIntent);
+            }
         }
     }
 
-    private void finalizeProfileOwnerProvisioning() {
-        Intent provisioningCompleteIntent = getProvisioningCompleteIntent();
-        if (provisioningCompleteIntent == null) {
-            return;
-        }
-
-        final UserHandle managedUserHandle = Utils.getManagedProfile(this);
+    private void finalizeManagedProfileOwnerProvisioning(Intent provisioningCompleteIntent) {
+        UserHandle managedUserHandle = Utils.getManagedProfile(this);
         if (managedUserHandle == null) {
             ProvisionLogger.loge("Failed to retrieve the userHandle of the managed profile.");
             return;
@@ -91,14 +115,6 @@ public class HomeReceiverActivity extends Activity {
 
         sendOrderedBroadcastAsUser(provisioningCompleteIntent, managedUserHandle, null,
                 mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
-    }
-
-    private void finalizeDeviceOwnerProvisioning() {
-        Intent provisioningCompleteIntent = getProvisioningCompleteIntent();
-        if (provisioningCompleteIntent == null) {
-            return;
-        }
-        sendBroadcast(provisioningCompleteIntent);
     }
 
     private Intent getProvisioningCompleteIntent() {
@@ -116,13 +132,7 @@ public class HomeReceiverActivity extends Activity {
         return intent;
     }
 
-    private ProvisioningParams loadProvisioningParamsFromStore(IntentStore store) {
-        Intent intent = store.load();
-        if (intent == null) {
-            ProvisionLogger.loge("Fail to retrieve ProvisioningParams from intent store.");
-            return null;
-        }
-        store.clear();
+    private ProvisioningParams loadProvisioningParamsFromIntent(Intent intent) {
         ProvisioningParams params = null;
         try {
             params = (new MessageParser()).parseNonNfcIntent(intent, this, true /* trusted */);
@@ -137,5 +147,13 @@ public class HomeReceiverActivity extends Activity {
         pm.setComponentEnabledSetting(component,
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
+    }
+
+    private static ComponentName getMyComponent(Context context) {
+        return new ComponentName(context, HomeReceiverActivity.class);
+    }
+
+    private static IntentStore getIntentStore(Context context) {
+        return new IntentStore(context, HOME_RECEIVER_INTENT_STORE_NAME);
     }
 }

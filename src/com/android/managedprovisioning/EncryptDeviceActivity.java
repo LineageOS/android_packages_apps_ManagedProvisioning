@@ -32,27 +32,21 @@ import android.widget.TextView;
  */
 public class EncryptDeviceActivity extends SetupLayoutActivity {
     protected static final String EXTRA_RESUME = "com.android.managedprovisioning.RESUME";
-    protected static final String EXTRA_RESUME_TARGET =
-            "com.android.managedprovisioning.RESUME_TARGET";
-    protected static final String TARGET_PROFILE_OWNER = "profile_owner";
-    protected static final String TARGET_DEVICE_OWNER = "device_owner";
 
-    private Bundle mResumeInfo;
-    private String mResumeTarget;
+    private Intent mResumeIntent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mResumeInfo = getIntent().getBundleExtra(EXTRA_RESUME);
-        mResumeTarget = mResumeInfo.getString(EXTRA_RESUME_TARGET);
-
-        if (TARGET_PROFILE_OWNER.equals(mResumeTarget)) {
+        mResumeIntent = (Intent) getIntent().getParcelableExtra(EXTRA_RESUME);
+        final String action = mResumeIntent.getAction();
+        if (Utils.isProfileOwnerAction(action)) {
             initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile, false);
             setTitle(R.string.setup_profile_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
                     R.string.encrypt_device_text_for_profile_owner_setup);
-        } else if (TARGET_DEVICE_OWNER.equals(mResumeTarget)) {
+        } else if (Utils.isDeviceOwnerAction(action)) {
             initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device, false);
             setTitle(R.string.setup_device_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
@@ -75,7 +69,7 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
 
     @Override
     public void onNavigateNext() {
-        BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, mResumeInfo);
+        BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, mResumeIntent);
         // Use settings so user confirms password/pattern and its passed
         // to encryption tool.
         Intent intent = new Intent();

@@ -48,8 +48,6 @@ import java.io.IOException;
 import java.io.File;
 
 import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME;
-import static com.android.managedprovisioning.EncryptDeviceActivity.EXTRA_RESUME_TARGET;
-import static com.android.managedprovisioning.EncryptDeviceActivity.TARGET_PROFILE_OWNER;
 
 /**
  * The activity sets up the environment in which the {@link ProfileOwnerProvisioningActivity} can be run.
@@ -296,11 +294,10 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                     false /* don't show user consent checkbox */)
                     .show(getFragmentManager(), "UserConsentDialogFragment");
         } else {
-            Bundle resumeExtras = new Bundle();
-            resumeExtras.putString(EXTRA_RESUME_TARGET, TARGET_PROFILE_OWNER);
-            mParser.addProvisioningParamsToBundle(resumeExtras, mParams);
+            Intent toResume = new MessageParser().getIntentFromProvisioningParams(mParams);
+            toResume.setComponent(BootReminder.PROFILE_OWNER_INTENT_TARGET);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
-                    .putExtra(EXTRA_RESUME, resumeExtras);
+                    .putExtra(EXTRA_RESUME, toResume);
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult or after reboot.
         }
