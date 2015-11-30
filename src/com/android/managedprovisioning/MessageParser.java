@@ -456,12 +456,6 @@ public class MessageParser {
             if (trusted) {
                 params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = intent.getBooleanExtra(
                         EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM, false);
-            } else {
-                // legacy action (activation code flow) still uses SHA-1.
-                // TODO: remove once that flow is deprecated.
-                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 =
-                        DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE
-                                .equals(intent.getAction());
             }
         }
         String sigHash =

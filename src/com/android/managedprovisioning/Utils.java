@@ -22,7 +22,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHA
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-import static com.android.managedprovisioning.DeviceOwnerPreProvisioningActivity.LEGACY_ACTION_PROVISION_MANAGED_DEVICE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.accounts.Account;
@@ -386,11 +385,6 @@ public class Utils {
                         throw new IllegalProvisioningArgumentException(
                                 "Unknown NFC bump mime-type: " + mimeType);
                 }
-                break;
-
-            // Non-public cases.
-            case LEGACY_ACTION_PROVISION_MANAGED_DEVICE:
-                dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
                 break;
 
             default:
