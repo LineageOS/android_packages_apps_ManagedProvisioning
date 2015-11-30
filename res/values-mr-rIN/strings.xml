@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"आपले डिव्‍हाइस सेट करा. प्रगती दर्शवित आहे"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"अधिक जाणून घ्‍या बटण"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> चिन्ह"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"हे सेटअप रद्द करायचे? रद्द करण्‍यामुळे आपले डिव्हाइस फॅक्‍टरी रीसेट होईल आणि आपल्‍याला सेटअपच्या प्रारंभावर नेईल."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"रद्द करा"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"रीसेट करा"</string>
 </resources>

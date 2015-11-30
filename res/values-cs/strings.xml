@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Nastavení zařízení – zobrazuje se průběh"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Tlačítko k zobrazení dalších informací"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona společnosti <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Chcete tento proces nastavení zrušit? Pokud jej zrušíte, bude v zařízení obnoveno tovární nastavení a proces nastavení začne znovu."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ZRUŠIT"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"RESETOVAT"</string>
 </resources>

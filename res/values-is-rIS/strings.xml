@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Setja upp tækið. Sýnir framvindu"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Hnappurinn Frekari upplýsingar"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Tákn <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Viltu hætta við þessa uppsetningu? Ef hætt er við verður tækið stillt á verksmiðjustillingar og farið á upphafsskjá uppsetningar."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"HÆTTA VIÐ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ENDURSTILLA"</string>
 </resources>

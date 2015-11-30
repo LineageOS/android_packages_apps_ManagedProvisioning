@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"设置您的设备。当前显示的是进程"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"“了解详情”按钮"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"“<xliff:g id="ICON_LABEL">%1$s</xliff:g>”图标"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"要取消此设置过程吗？取消后，您的设备将恢复出厂设置，而且您必须重新进行设置。"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"取消"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"重置"</string>
 </resources>

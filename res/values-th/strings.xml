@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ตั้งค่าอุปกรณ์ กำลังแสดงความคืบหน้า"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มเรียนรู้เพิ่มเติม"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"ไอคอน <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ต้องการยกเลิกการตั้งค่านี้ใช่ไหม การยกเลิกจะรีเซ็ตอุปกรณ์เป็นค่าเริ่มต้นและนำคุณไปยังจุดเริ่มต้นของการตั้งค่า"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ยกเลิก"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"รีเซ็ต"</string>
 </resources>

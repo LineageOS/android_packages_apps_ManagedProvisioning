@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ඔබගේ උපාංගය පිහිටුවීම. ප්‍රගතිය පෙන්වමින්"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"තව දැන ගැනීමේ බොත්තම"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> නිරූපකය"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"මෙම පිහිටුවීම අවලංගු කරන්නද? අවලංගු කිරීම ඔබේ උපාංගය කර්මාන්ත ශාලා යළි සැකසීමට පත් කර ඔබව ආරම්භයට ගෙන යනු ඇත."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"අවලංගු කරන්න"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"යළි සකසන්න"</string>
 </resources>

@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Konfiguro pajisjen tënde. Po shfaq progresin"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Butoni \"Mëso më shumë\""</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Të anulohet ky konfigurim? Anulimi do ta rivendosë në gjendje fabrike pajisjen dhe do të të çojë në fillim të konfigurimit."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ANULO"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"RIVENDOS"</string>
 </resources>

@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Setha idivayisi yakho. Ibonisa ukuqhubeka"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Inkinobho yokufunda kabanzi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> isithonjana"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Khansela lokhu kusetha? Ukukhansela kuzosetha njengasekuqaleni idivayisi yakho kuphinde kukumikise ekuqaleni kokusetha."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"KHANSELA"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"SETHA KABUSHA"</string>
 </resources>

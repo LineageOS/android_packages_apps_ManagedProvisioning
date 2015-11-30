@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"तपाईँको यन्त्र सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"थप जान्नुहोस् बटन"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आइकन"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"यस सेटअपलाई रद्द गर्ने? रद्द गर्नाले तपाईंको यन्त्रलाई फ्याक्ट्री रिसेट गर्नेछ र तपाईंलाई सेटअपको सुरुवातमा लानेछ।"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"रद्द गर्नुहोस्"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"रिसेट गर्नुहोस्"</string>
 </resources>

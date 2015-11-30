@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"சாதனத்தை அமைக்கவும். செயல்நிலையைக் காட்டுகிறது"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"மேலும் அறிக பொத்தான்"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ஐகான்"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"இந்த அமைவை ரத்துசெய்யவா? ரத்துசெய்வதால் உங்கள் சாதனம் ஆரம்பநிலைக்கு மீட்டமைக்கப்பட்டு, அமைவின் தொடக்கநிலைக்கு கொண்டுச் செல்லும்."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ரத்துசெய்"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"மீட்டமை"</string>
 </resources>

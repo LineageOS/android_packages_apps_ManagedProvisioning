@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Ierīces iestatīšana. Norises rādīšana"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Poga “Uzzināt vairāk”"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Vai atcelt iestatīšanu? Atceļot iestatīšanu, jūsu ierīcē tiks atiestatīti rūpnīcas dati un jūs tiksiet novirzīts uz iestatīšanas procesa sākumu."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ATCELT"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ATIESTATĪT"</string>
 </resources>

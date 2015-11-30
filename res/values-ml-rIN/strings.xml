@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"\'കൂടുതലറിയുക\' ബട്ടൺ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ഐക്കൺ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ഈ സജ്ജമാക്കൽ റദ്ദാക്കണോ? റദ്ദാക്കുന്നത് നിങ്ങളുടെ ഉപകരണത്തെ ഫാക്ടറി പുനഃക്രമീകരണത്തിലേക്ക് നയിക്കുകയും സജ്ജമാക്കലിന്റെ തുടക്കത്തിലേക്ക് നിങ്ങളെ കൊണ്ടുപോവുകയും ചെയ്യും."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"റദ്ദാക്കുക"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"പുനഃക്രമീകരിക്കുക"</string>
 </resources>

@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"သင့်ရဲ့စက်ပစ္စည်းကိုအသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ တိုးတက်မှုကိုဖော်ပြပါ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ခလုတ်များအကြောင်းထပ်လေ့လာပါ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ကိုယ်စားပြုရုပ်ပုံ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ဤစဖွင့်သတ်မှတ်မှုကို ဖျက်သိမ်းမလား။ ဖျက်သိမ်းမှုက သင့်ကိရိယာကို စက်ရုံ ဆက်တင်သို့ ပြန်ညှိလျက် သင့်အား စဖွင့်သတ်မှတ်မှုသို့ ခေါ်ဆောင်သွားပါမည်။"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ဖျက်သိမ်းပါ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ပြန်ညှိပါ"</string>
 </resources>

@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ਹੋਰ ਜਾਣੋ ਬਟਨ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ਕੀ ਇਸ ਸੈੱਟਅਪ ਨੂੰ ਰੱਦ ਕਰਨਾ ਹੈ? ਰੱਦ ਕਰਨਾ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਸੈੱਟ ਕਰਨ ਦੀ ਸ਼ੁਰੂਆਤ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ਰੱਦ ਕਰੋ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ਰੀਸੈੱਟ ਕਰੋ"</string>
 </resources>

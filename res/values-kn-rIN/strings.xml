@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ. ಪ್ರಗತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ ಬಟನ್‌"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ಐಕಾನ್‌"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ಈ ಸೆಟಪ್ ರದ್ದುಮಾಡುವುದೇ? ರದ್ದುಮಾಡುವುದರಿಂದ ನಿಮ್ಮ ಸಾಧನದ ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಹೊಂದಿಸುವಿಕೆಯ ಪ್ರಾರಂಭಕ್ಕೆ ಕರೆದೊಯ್ಯಲಾಗುತ್ತದೆ."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ರದ್ದುಮಾಡು"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ಮರುಹೊಂದಿಸು"</string>
 </resources>

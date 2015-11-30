@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"તમારું ઉપકરણ સેટ કરો. પ્રગતિ દર્શાવી રહ્યાં છે"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"વધુ જાણો બટન"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> આયકન"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"આ સેટઅપ રદ કરીએ? રદ કરવાથી તમારા ઉપકરણને ફેક્ટરી રીસેટ કરવામાં આવશે અને તમને સેટઅપના પ્રારંભ પર લઇ જવામાં આવશે."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"રદ કરો"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ફરીથી સેટ કરો"</string>
 </resources>

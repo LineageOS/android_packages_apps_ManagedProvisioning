@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Seadme seadistamine. Edenemise kuvamine"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Nupp Lisateave"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikoon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Kas tühistada see seadistus? Tühistamisel lähtestatakse seade tehaseandmetele ja teid viiakse seadistusprotsessi algusesse."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"TÜHISTA"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"LÄHTESTA"</string>
 </resources>

@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Төхөөрөмжөө суурилуулна уу. Aхицыг харуулж байна"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Дэлгэрэнгүй үзэх товчлуур"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> дүрс тэмдэг"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Энэ тохиргоог цуцлах уу? Цуцалснаар таны төхөөрөмжийг үйлдвэрийн төлөвт шилжүүлэх бөгөөд та дахин тохируулах шаардлагатай болно."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ЦУЦЛАХ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ШИНЭЧЛЭХ"</string>
 </resources>

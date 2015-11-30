@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"మీ పరికరాన్ని సెటప్ చేయండి. ప్రోగ్రెస్‌ను చూపుతోంది"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"మరింత తెలుసుకోండి బటన్"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> చిహ్నం"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ఈ సెటప్‌ను రద్దు చేయాలా? రద్దు చేయడం వలన మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు సెటప్ ప్రారంభ దశకు తీసుకెళ్లబడతారు."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"రద్దు చేయి"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"రీసెట్ చేయి"</string>
 </resources>

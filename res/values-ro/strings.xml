@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configurați dispozitivul. Se afișează progresul"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Butonul Aflați mai multe"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Pictograma <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Anulați această configurare? Dacă anulați, dispozitivul va reveni la setările din fabrică, iar dvs. veți reveni la începutul configurării."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ANULAȚI"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"RESETAȚI"</string>
 </resources>

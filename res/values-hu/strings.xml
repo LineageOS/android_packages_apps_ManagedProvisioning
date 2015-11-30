@@ -98,4 +98,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Állítsa be eszközét. Előrehaladás megjelenítése"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"„További információ” gomb"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ikon"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Visszavonja ezt a beállítást? A visszavonás az eszközt visszaállítja a gyári beállításokra, és a telepítés kezdetéhez irányítja Önt."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"MÉGSE"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"VISSZAÁLLÍTÁS"</string>
 </resources>
