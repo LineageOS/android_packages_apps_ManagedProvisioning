@@ -363,6 +363,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putBoolean(KEY_USER_CONSENTED, mUserConsented);
     }
 
