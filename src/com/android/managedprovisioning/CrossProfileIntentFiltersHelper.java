@@ -76,7 +76,8 @@ public class CrossProfileIntentFiltersHelper {
             //will not happen
             ProvisionLogger.loge(e);
         }
-        pm.addCrossProfileIntentFilter(mimeTypeDial, managedProfileUserId, parentUserId, 0);
+        pm.addCrossProfileIntentFilter(mimeTypeDial, managedProfileUserId, parentUserId,
+                PackageManager.ONLY_IF_NO_MATCH_FOUND);
 
         // Dial intent with tel, sip and voicemail scheme can be handled by either managed profile
         // or its parent user.
@@ -88,20 +89,23 @@ public class CrossProfileIntentFiltersHelper {
         dialWithData.addDataScheme("tel");
         dialWithData.addDataScheme("sip");
         dialWithData.addDataScheme("voicemail");
-        pm.addCrossProfileIntentFilter(dialWithData, managedProfileUserId, parentUserId, 0);
+        pm.addCrossProfileIntentFilter(dialWithData, managedProfileUserId, parentUserId,
+                PackageManager.ONLY_IF_NO_MATCH_FOUND);
 
         // Dial intent with no data can be handled by either managed profile or its parent user.
         IntentFilter dialNoData = new IntentFilter();
         dialNoData.addAction(Intent.ACTION_DIAL);
         dialNoData.addCategory(Intent.CATEGORY_DEFAULT);
         dialNoData.addCategory(Intent.CATEGORY_BROWSABLE);
-        pm.addCrossProfileIntentFilter(dialNoData, managedProfileUserId, parentUserId, 0);
+        pm.addCrossProfileIntentFilter(dialNoData, managedProfileUserId, parentUserId,
+                PackageManager.ONLY_IF_NO_MATCH_FOUND);
 
         // Call button intent can be handled by either managed profile or its parent user.
         IntentFilter callButton = new IntentFilter();
         callButton.addAction(Intent.ACTION_CALL_BUTTON);
         callButton.addCategory(Intent.CATEGORY_DEFAULT);
-        pm.addCrossProfileIntentFilter(callButton, managedProfileUserId, parentUserId, 0);
+        pm.addCrossProfileIntentFilter(callButton, managedProfileUserId, parentUserId,
+                PackageManager.ONLY_IF_NO_MATCH_FOUND);
 
         IntentFilter smsMms = new IntentFilter();
         smsMms.addAction(Intent.ACTION_VIEW);
