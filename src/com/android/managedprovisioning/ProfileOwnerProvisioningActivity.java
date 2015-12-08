@@ -44,6 +44,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.managedprovisioning.ProvisioningParams;
+
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
@@ -96,8 +98,8 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
             mPendingProvisioningResult = savedInstanceState.getParcelable(KEY_PENDING_INTENT);
         }
 
-        initializeLayoutParams(R.layout.progress, R.string.setup_work_profile, true);
-        configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
+        // TODO: show a progress bar once the SetupWizard library has been updated.
+        initializeLayoutParams(R.layout.progress, R.string.setup_work_profile);
         setTitle(R.string.setup_profile_progress);
 
         TextView textView = (TextView) findViewById(R.id.prog_text);
@@ -108,6 +110,9 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         } else if (mCancelStatus == CANCELSTATUS_CANCELLING) {
             showCancelProgressDialog();
         }
+        ProvisioningParams params = (ProvisioningParams) getIntent().getParcelableExtra(
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        maybeSetLogoAndStatusBarColor(params);
     }
 
     @Override
@@ -258,7 +263,6 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
      * Finish activity and stop service.
      */
     private void onProvisioningSuccess() {
-        mBackButton.setVisibility(View.INVISIBLE);
 
         if (!Utils.isUserSetupCompleted(this)) {
             // Since provisioning could have started from Setup wizard, we should set

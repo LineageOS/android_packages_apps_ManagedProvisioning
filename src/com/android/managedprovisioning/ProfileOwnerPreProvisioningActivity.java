@@ -36,6 +36,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -82,14 +83,24 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     private final MessageParser mParser = new MessageParser();
     private DevicePolicyManager mDevicePolicyManager;
 
+    private Button mSetupButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mDevicePolicyManager =
                     (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        initializeLayoutParams(R.layout.user_consent, R.string.setup_work_profile, false);
-        configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
+
+        initializeLayoutParams(R.layout.user_consent, R.string.setup_work_profile);
+        mSetupButton = (Button) findViewById(R.id.setup_button);
+        mSetupButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkEncryptedAndStartProvisioningService();
+                }
+            });
+        mSetupButton.setText(R.string.setup_work_profile);
 
         // TODO Change the strings for managed user
         TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
@@ -151,7 +162,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
-        LogoUtils.setOrganisationLogo(R.id.organisation_logo_view, this);
+        maybeSetLogoAndStatusBarColor(mParams);
         setMdmIcon(mParams.deviceAdminPackageName);
 
         // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
@@ -188,9 +199,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onResume() {
         super.onResume();
-        if (mParams != null) {
-            setStatusBarColor(mParams.mainColor);
-        }
         setTitle(R.string.setup_profile_start_setup);
         if (Utils.alreadyHasManagedProfile(this) != -1) {
             maybeShowDeleteManagedProfileDialog();
@@ -211,7 +219,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void showStartProvisioningButton() {
-        mNextButton.setVisibility(View.VISIBLE);
+        mSetupButton.setVisibility(View.VISIBLE);
     }
 
     private boolean packageHasManageUsersPermission(String pkg) {
@@ -299,7 +307,9 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             Intent toResume = new MessageParser().getIntentFromProvisioningParams(mParams);
             toResume.setComponent(BootReminder.PROFILE_OWNER_INTENT_TARGET);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
-                    .putExtra(EXTRA_RESUME, toResume);
+                    .putExtra(EXTRA_RESUME, toResume)
+                    .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
+
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult or after reboot.
         }
@@ -475,10 +485,5 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                             }
                         })
                 .show();
-    }
-
-    @Override
-    public void onNavigateNext() {
-        checkEncryptedAndStartProvisioningService();
     }
 }

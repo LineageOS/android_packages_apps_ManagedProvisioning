@@ -17,65 +17,40 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.android.setupwizardlib.SetupWizardLayout;
+import com.android.setupwizardlib.GlifLayout;
 import com.android.setupwizardlib.view.NavigationBar;
 import com.android.setupwizardlib.view.NavigationBar.NavigationBarListener;
 
 /**
  * Base class for setting up the layout.
  */
-public abstract class SetupLayoutActivity extends Activity implements NavigationBarListener {
+public abstract class SetupLayoutActivity extends Activity {
 
-    protected Button mNextButton;
-    protected Button mBackButton;
-
-    public static final int NEXT_BUTTON_EMPTY_LABEL = 0;
-
-    protected void setStatusBarColor(int color) {
-        // This code to colorize the status bar is just temporary.
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-        window.setStatusBarColor(color);
-    }
-
-    public void initializeLayoutParams(int layoutResourceId, int headerResourceId,
-            boolean showProgressBar) {
+    public void initializeLayoutParams(int layoutResourceId, int headerResourceId) {
         setContentView(layoutResourceId);
-        SetupWizardLayout layout = (SetupWizardLayout) findViewById(R.id.setup_wizard_layout);
+        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
         layout.setHeaderText(headerResourceId);
-        if (showProgressBar) {
-            layout.showProgressBar();
+
+    }
+
+    public void maybeSetLogoAndStatusBarColor(ProvisioningParams params) {
+        if (params != null) {
+            // This code to colorize the status bar is just temporary.
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(params.mainColor);
         }
-        setupNavigationBar(layout.getNavigationBar());
-    }
-
-    private void setupNavigationBar(NavigationBar bar) {
-        bar.setNavigationBarListener(this);
-        mNextButton = bar.getNextButton();
-        mBackButton = bar.getBackButton();
-    }
-
-    public void configureNavigationButtons(int nextButtonResourceId, int nextButtonVisibility,
-            int backButtonVisibility) {
-        if (nextButtonResourceId != NEXT_BUTTON_EMPTY_LABEL) {
-            mNextButton.setText(nextButtonResourceId);
+        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
+        Drawable logo = LogoUtils.getOrganisationLogo(this);
+        // TODO: if the dpc hasn't specified a logo: use a default one.
+        if (logo != null) {
+            layout.setIcon(logo);
         }
-        mNextButton.setVisibility(nextButtonVisibility);
-        mBackButton.setVisibility(backButtonVisibility);
-    }
-
-    @Override
-    public void onNavigateBack() {
-        onBackPressed();
-    }
-
-    @Override
-    public void onNavigateNext() {
     }
 }
