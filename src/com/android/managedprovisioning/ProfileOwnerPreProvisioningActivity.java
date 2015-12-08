@@ -285,7 +285,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
      * user consent to encrypt the device.
      */
     private void checkEncryptedAndStartProvisioningService() {
-        if (EncryptDeviceActivity.isDeviceEncrypted()
+        if (EncryptDeviceActivity.isPhysicalDeviceEncrypted()
                 || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)) {
 
             // Notify the user once more that the admin will have full control over the profile,

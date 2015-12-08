@@ -57,7 +57,7 @@ public class BootReminder extends BroadcastReceiver {
                 String action = loadedIntent.getAction();
 
                 if (Utils.isProfileOwnerAction(action)) {
-                    if (!EncryptDeviceActivity.isDeviceEncrypted()) {
+                    if (!EncryptDeviceActivity.isPhysicalDeviceEncrypted()) {
                         ProvisionLogger.loge("Device is not encrypted after provisioning with"
                                 + " action " + action + " but it should");
                         return;

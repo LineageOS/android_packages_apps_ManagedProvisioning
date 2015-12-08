@@ -56,7 +56,7 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
             View.VISIBLE, View.VISIBLE);
     }
 
-    public static boolean isDeviceEncrypted() {
+    public static boolean isPhysicalDeviceEncrypted() {
         IMountService mountService = IMountService.Stub.asInterface(
                 ServiceManager.getService("mount"));
 

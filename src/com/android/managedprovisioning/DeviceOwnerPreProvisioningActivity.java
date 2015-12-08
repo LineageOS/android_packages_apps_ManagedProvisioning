@@ -137,7 +137,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
 
         // Ask to encrypt the device before proceeding
-        if (!(EncryptDeviceActivity.isDeviceEncrypted()
+        if (!(EncryptDeviceActivity.isPhysicalDeviceEncrypted()
                         || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
                         || mParams.skipEncryption)) {
             requestEncryption(parser, mParams);
