@@ -101,8 +101,9 @@ public class BootReminder extends BroadcastReceiver {
             notificationManager.cancel(NOTIFY_ID);
             return;
         }
+        final Intent trampolineIntent = TrampolineActivity.createIntent(context, intent);
         final PendingIntent resumePendingIntent = PendingIntent.getActivity(
-                context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, 0, trampolineIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         final Notification.Builder notify = new Notification.Builder(context)
                 .setContentIntent(resumePendingIntent)
                 .setContentTitle(context.getString(R.string.continue_provisioning_notify_title))

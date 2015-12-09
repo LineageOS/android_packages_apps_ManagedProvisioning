@@ -287,10 +287,10 @@ public class MessageParser {
         return extrasBundle;
     }
 
-    public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent, Context context)
-            throws IllegalProvisioningArgumentException {
+    public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent, Context context,
+            boolean trusted) throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing mininalist non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, trusted);
         if (params.deviceAdminComponentName == null) {
             throw new IllegalProvisioningArgumentException("Must provide the component name of the"
                     + " device admin");
@@ -298,8 +298,8 @@ public class MessageParser {
         return params;
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, Context context)
-                throws IllegalProvisioningArgumentException {
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, Context context,
+            boolean trusted) throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
@@ -332,6 +332,10 @@ public class MessageParser {
             // If we go through encryption, and if the uri is a content uri:
             // We'll lose the grant to this uri. So we need to save it to a local file.
             LogoUtils.saveOrganisationLogo(context, logoUri);
+        } else if (!trusted) {
+            // If the intent is not trusted: there is a slight possibility that the logo is still
+            // kept on the file system from a previous provisioning. In this case, remove it.
+            LogoUtils.cleanUp(context);
         }
         return params;
     }
@@ -349,7 +353,7 @@ public class MessageParser {
     public ProvisioningParams parseNonNfcIntent(Intent intent, Context context, boolean trusted)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, trusted);
 
         params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);

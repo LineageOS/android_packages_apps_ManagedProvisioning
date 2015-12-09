@@ -373,7 +373,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             }
         }
         if (requestCode == PROVISIONING_REQUEST_CODE) {
-            LogoUtils.cleanUp(this);
             setResult(resultCode);
             finish();
         }
@@ -478,5 +477,11 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     @Override
     public void onNavigateNext() {
         checkEncryptedAndStartProvisioningService();
+    }
+
+    @Override
+    public void finish() {
+        LogoUtils.cleanUp(this);
+        super.finish();
     }
 }

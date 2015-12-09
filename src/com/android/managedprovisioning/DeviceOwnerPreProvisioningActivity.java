@@ -191,7 +191,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             } else {
                 // If we were started by another app, we don't support many extras, so use the
                 // minimalist version.
-                params = parser.parseMinimalistNonNfcIntent(intent, this);
+                params = parser.parseMinimalistNonNfcIntent(intent, this, false);
             }
             String callingPackage = getCallingPackage();
             if (callingPackage == null) {
@@ -336,7 +336,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             }
         } else if (requestCode == PROVISIONING_REQUEST_CODE) {
             setResult(resultCode);
-            LogoUtils.cleanUp(this);
             finish();
         }
     }
@@ -444,5 +443,11 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 startDeviceOwnerProvisioning(userInfo.id);
             }
         }
+    }
+
+    @Override
+    public void finish() {
+        LogoUtils.cleanUp(this);
+        super.finish();
     }
 }
