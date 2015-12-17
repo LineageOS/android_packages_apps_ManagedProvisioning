@@ -17,35 +17,22 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
-import static android.Manifest.permission.BIND_DEVICE_ADMIN;
 
-import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageManager;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -53,16 +40,11 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
-import android.view.View;
 
 import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
-
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Service that runs the profile owner provisioning.
@@ -94,8 +76,6 @@ public class ProfileOwnerProvisioningService extends Service {
     private static final int STATUS_ERROR = 4;
     /** Provisioning cancelled and cleanup complete. */
     private static final int STATUS_CANCELLED = 5;
-
-    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 2;  // 2 minutes
 
     private IPackageManager mIpm;
     private UserInfo mManagedProfileOrUserInfo;
@@ -323,7 +303,8 @@ public class ProfileOwnerProvisioningService extends Service {
             // Note: account migration must happen after setting the profile owner.
             // Otherwise, there will be a time interval where some apps may think that the account
             // does not have a profile owner.
-            copyAccount();
+            Utils.maybeCopyAccount(this, mParams.accountToMigrate, Process.myUserHandle(),
+                    mManagedProfileOrUserInfo.getUserHandle());
         }
     }
 
@@ -438,31 +419,6 @@ public class ProfileOwnerProvisioningService extends Service {
                     + managedUserHandle.getIdentifier());
         } else {
             HomeReceiverActivity.setReminder(mParams, this);
-        }
-    }
-
-    private void copyAccount() {
-        if (mParams.accountToMigrate == null) {
-            ProvisionLogger.logd("No account to migrate to the managed profile.");
-            return;
-        }
-        ProvisionLogger.logd("Attempting to copy account to user " + mManagedProfileOrUserInfo.id);
-        try {
-            boolean copySucceeded = mAccountManager.copyAccountToUser(
-                    mParams.accountToMigrate,
-                    Process.myUserHandle(),
-                    mManagedProfileOrUserInfo.getUserHandle(),
-                    /* callback= */ null, /* handler= */ null)
-                    .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-            if (copySucceeded) {
-                ProvisionLogger.logi("Copied account to user " + mManagedProfileOrUserInfo.id);
-            } else {
-                ProvisionLogger.loge("Could not copy account to user "
-                        + mManagedProfileOrUserInfo.id);
-            }
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.loge("Exception copying account to user " + mManagedProfileOrUserInfo.id,
-                    e);
         }
     }
 

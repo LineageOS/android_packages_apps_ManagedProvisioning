@@ -46,6 +46,7 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -61,11 +62,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Class containing various auxiliary methods.
  */
 public class Utils {
+    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 2;  // 2 minutes
+
     private Utils() {}
 
     public static Set<String> getCurrentSystemApps(IPackageManager ipm, int userId) {
@@ -343,6 +347,36 @@ public class Utils {
             }
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
             ProvisionLogger.logw("Exception removing account from the primary user.", e);
+        }
+    }
+
+    public static void maybeCopyAccount(Context context, Account accountToMigrate,
+            UserHandle sourceUser, UserHandle targetUser) {
+        if (accountToMigrate == null) {
+            ProvisionLogger.logd("No account to migrate.");
+            return;
+        }
+        if (sourceUser.equals(targetUser)) {
+            ProvisionLogger.logw("sourceUser and targetUser are the same, won't migrate account.");
+            return;
+        }
+        ProvisionLogger.logd("Attempting to copy account from " + sourceUser + " to " + targetUser);
+        try {
+            AccountManager accountManager =
+                    (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+            boolean copySucceeded = accountManager.copyAccountToUser(
+                    accountToMigrate,
+                    sourceUser,
+                    targetUser,
+                    /* callback= */ null, /* handler= */ null)
+                    .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            if (copySucceeded) {
+                ProvisionLogger.logi("Copied account to " + targetUser);
+            } else {
+                ProvisionLogger.loge("Could not copy account to " + targetUser);
+            }
+        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+            ProvisionLogger.loge("Exception copying account to " + targetUser, e);
         }
     }
 

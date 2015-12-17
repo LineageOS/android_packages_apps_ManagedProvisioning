@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -327,6 +328,10 @@ public class DeviceOwnerProvisioningService extends Service {
     }
 
     private void onProvisioningSuccess() {
+        // Copying an account needs to happen late in the provisioning process to allow the current
+        // user to be started, but before we tell the MDM that provisioning succeeded.
+        maybeCopyAccount();
+
         if (DEBUG) ProvisionLogger.logd("Reporting success.");
         mDone = true;
 
@@ -339,6 +344,17 @@ public class DeviceOwnerProvisioningService extends Service {
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
         // Wait for stopService() call from the activity.
+    }
+
+    private void maybeCopyAccount() {
+        if (!UserManager.isSplitSystemUser()) {
+            // Only one user involved in this case.
+            return;
+        }
+
+        Utils.maybeCopyAccount(DeviceOwnerProvisioningService.this,
+                mParams.accountToMigrate, UserHandle.SYSTEM,
+                Process.myUserHandle());
     }
 
     private void initializeProvisioningEnvironment(ProvisioningParams params) {
