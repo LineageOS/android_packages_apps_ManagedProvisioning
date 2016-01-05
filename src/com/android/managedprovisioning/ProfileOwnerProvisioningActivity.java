@@ -113,6 +113,7 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         ProvisioningParams params = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         maybeSetLogoAndStatusBarColor(params);
+        showProgressBar();
     }
 
     @Override

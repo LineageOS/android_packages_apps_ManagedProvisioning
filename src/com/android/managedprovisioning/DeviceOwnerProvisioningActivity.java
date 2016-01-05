@@ -105,6 +105,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         maybeSetLogoAndStatusBarColor(mParams);
         startDeviceOwnerProvisioningService();
+        showProgressBar();
     }
 
     private void startDeviceOwnerProvisioningService() {
