@@ -85,8 +85,8 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         }
 
         // Setup the UI.
-        initializeLayoutParams(R.layout.progress, R.string.setup_work_device, true);
-        configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
+        // TODO: show a progress bar once the SetupWizard library has been updated.
+        initializeLayoutParams(R.layout.progress, R.string.setup_work_device);
         setTitle(R.string.setup_device_progress);
 
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
@@ -103,6 +103,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         // Load the ProvisioningParams (from message in Intent).
         mParams = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        maybeSetLogoAndStatusBarColor(mParams);
         startDeviceOwnerProvisioningService();
     }
 
