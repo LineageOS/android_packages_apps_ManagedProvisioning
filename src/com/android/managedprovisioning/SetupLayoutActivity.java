@@ -31,14 +31,19 @@ import com.android.setupwizardlib.view.NavigationBar.NavigationBarListener;
  */
 public abstract class SetupLayoutActivity extends Activity {
 
-    public void initializeLayoutParams(int layoutResourceId, int headerResourceId) {
+    protected void initializeLayoutParams(int layoutResourceId, int headerResourceId) {
         setContentView(layoutResourceId);
         GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
         layout.setHeaderText(headerResourceId);
 
     }
 
-    public void maybeSetLogoAndStatusBarColor(ProvisioningParams params) {
+    protected void showProgressBar() {
+        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
+        layout.setProgressBarShown(true);
+    }
+
+    protected void maybeSetLogoAndStatusBarColor(ProvisioningParams params) {
         if (params != null) {
             // This code to colorize the status bar is just temporary.
             Window window = getWindow();
