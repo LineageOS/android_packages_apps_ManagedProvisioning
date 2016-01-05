@@ -53,7 +53,6 @@ public abstract class SetupLayoutActivity extends Activity {
         }
         GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
         Drawable logo = LogoUtils.getOrganisationLogo(this);
-        // TODO: if the dpc hasn't specified a logo: use a default one.
         if (logo != null) {
             layout.setIcon(logo);
         }
