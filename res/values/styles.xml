@@ -26,15 +26,7 @@
       <item name="android:colorPrimaryDark">@color/orange</item>
       <item name="android:windowBackground">@color/light_gray</item>
       <item name="android:indeterminateTint">@color/teal</item>
-      <item name="suwLayoutTheme">@style/SetupIllustrationTheme</item>
     </style>
-
-    <style name="SetupIllustrationTheme">
-        <item name="suwBackground">@color/orange</item>
-        <item name="suwIllustrationImage">@drawable/setup_illustration</item>
-        <item name="suwIllustrationHorizontalTile">@color/orange</item>
-    </style>
-
     <style name="TextOrCheckBox">
         <item name="android:textColor">@color/text_black</item>
         <item name="android:textSize">@dimen/main_text_size</item>
