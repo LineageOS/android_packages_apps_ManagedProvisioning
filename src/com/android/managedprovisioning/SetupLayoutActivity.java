@@ -18,9 +18,11 @@ package com.android.managedprovisioning;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.util.TypedValue;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.android.setupwizardlib.GlifLayout;
 import com.android.setupwizardlib.view.NavigationBar;
@@ -51,10 +53,18 @@ public abstract class SetupLayoutActivity extends Activity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(params.mainColor);
         }
+
         GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
+        ImageView imageView = (ImageView) findViewById(R.id.suw_layout_icon);
+        imageView.setAdjustViewBounds(true);
+        imageView.setMaxHeight(dpToPixels(32));
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         Drawable logo = LogoUtils.getOrganisationLogo(this);
-        if (logo != null) {
-            layout.setIcon(logo);
-        }
+        layout.setIcon(logo);
+    }
+
+    private int dpToPixels(int dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+                getResources().getDisplayMetrics());
     }
 }
