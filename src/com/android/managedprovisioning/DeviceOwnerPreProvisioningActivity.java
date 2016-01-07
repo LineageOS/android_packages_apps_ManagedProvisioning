@@ -349,7 +349,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void setMdmInfo() {
-        ImageView imageView = (ImageView) findViewById(R.id.mdm_icon_view);
+        ImageView imageView = (ImageView) findViewById(R.id.device_manager_icon_view);
         TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
         String packageName = mParams.inferDeviceAdminPackageName();
         MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);

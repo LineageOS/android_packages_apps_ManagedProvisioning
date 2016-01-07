@@ -263,7 +263,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
         MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);
         if (packageInfo != null) {
             String appLabel = packageInfo.getAppLabel();
-            ImageView imageView = (ImageView) findViewById(R.id.mdm_icon_view);
+            ImageView imageView = (ImageView) findViewById(R.id.device_manager_icon_view);
             imageView.setImageDrawable(packageInfo.getPackageIcon());
             imageView.setContentDescription(
                     getResources().getString(R.string.mdm_icon_label, appLabel));

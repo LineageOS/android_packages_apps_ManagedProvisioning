@@ -101,13 +101,13 @@ public class DeleteManagedProfileDialog extends DialogFragment {
         dialog.setCanceledOnTouchOutside(false);
 
         ImageView imageView = (ImageView) dialog.findViewById(
-                R.id.delete_managed_profile_mdm_icon_view);
+                R.id.device_manager_icon_view);
         imageView.setImageDrawable(appIcon);
         imageView.setContentDescription(
                     getResources().getString(R.string.mdm_icon_label, appLabel));
 
         TextView deviceManagerName = (TextView) dialog.findViewById(
-                R.id.delete_managed_profile_device_manager_name);
+                R.id.device_manager_name);
         deviceManagerName.setText(appLabel);
 
         Button positiveButton = (Button) dialog.findViewById(
