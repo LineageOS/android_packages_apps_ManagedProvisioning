@@ -17,7 +17,9 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 
@@ -36,6 +38,14 @@ public class HomeReceiverActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent indirectIntent = new Intent(DeviceOwnerProvisioningService.ACTION_HOME_INDIRECT);
         LocalBroadcastManager.getInstance(this).sendBroadcast(indirectIntent);
+        disableComponent(new ComponentName(this, HomeReceiverActivity.class));
         finish();
+    }
+
+    private void disableComponent(ComponentName component) {
+        PackageManager pm = getPackageManager();
+        pm.setComponentEnabledSetting(component,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
     }
 }
