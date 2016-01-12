@@ -130,10 +130,12 @@ public class InstallPackageTask {
             mCallback.onError(ERROR_PACKAGE_INVALID);
             return false;
         }
-        for (ActivityInfo ai : pi.receivers) {
-            if (!TextUtils.isEmpty(ai.permission) &&
-                    ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
-                return true;
+        if (pi.receivers != null) {
+            for (ActivityInfo ai : pi.receivers) {
+                if (!TextUtils.isEmpty(ai.permission) &&
+                        ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
+                    return true;
+                }
             }
         }
         ProvisionLogger.loge("Installed package has no admin receiver.");
