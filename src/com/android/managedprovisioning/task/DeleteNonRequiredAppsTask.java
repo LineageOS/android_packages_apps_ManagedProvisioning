@@ -177,6 +177,7 @@ public class DeleteNonRequiredAppsTask {
         PackageDeleteObserver packageDeleteObserver =
                 new PackageDeleteObserver(packagesToDelete.size());
         for (String packageName : packagesToDelete) {
+            ProvisionLogger.logd("Deleting package [" + packageName + "] as user " + mUserId);
             mPm.deletePackageAsUser(packageName, packageDeleteObserver,
                     PackageManager.DELETE_SYSTEM_APP, mUserId);
         }
@@ -188,7 +189,7 @@ public class DeleteNonRequiredAppsTask {
         // disallowed or have a launcher icon.
         packagesToDelete.removeAll(getRequiredApps());
         // Don't delete the system input method packages in case of Device owner provisioning.
-        if (mProvisioningType == DEVICE_OWNER) {
+        if (mProvisioningType == DEVICE_OWNER || mProvisioningType == MANAGED_USER) {
             packagesToDelete.removeAll(getSystemInputMethods());
         }
         packagesToDelete.addAll(getDisallowedApps());

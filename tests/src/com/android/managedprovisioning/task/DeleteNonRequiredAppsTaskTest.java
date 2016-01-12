@@ -100,6 +100,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setVendorRequiredAppsManagedProfile();
         setDisallowedAppsManagedProfile();
         setVendorDisallowedAppsManagedProfile();
+        setRequiredAppsManagedUser();
+        setVendorRequiredAppsManagedUser();
+        setDisallowedAppsManagedUser();
+        setVendorDisallowedAppsManagedUser();
     }
 
     // We run most methods for device owner only, and we'll assume they also work for profile owner.
@@ -135,6 +139,19 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setVendorRequiredAppsManagedProfile("app.b");
 
         runTask(DeleteNonRequiredAppsTask.PROFILE_OWNER, true, false);
+
+        assertDeletedApps("app.c");
+        verify(mCallback, times(1)).onSuccess();
+    }
+
+    @SmallTest
+    public void testManagedUserRequiredAppsNotDeleted() {
+        setSystemAppsWithLauncher("app.a", "app.b", "app.c");
+        setInstalledSystemApps("app.a", "app.b", "app.c");
+        setRequiredAppsManagedUser("app.a");
+        setVendorRequiredAppsManagedUser("app.b");
+
+        runTask(DeleteNonRequiredAppsTask.MANAGED_USER, true, false);
 
         assertDeletedApps("app.c");
         verify(mCallback, times(1)).onSuccess();
@@ -185,6 +202,18 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         runTask(DeleteNonRequiredAppsTask.PROFILE_OWNER, true, false);
 
         assertDeletedApps("app.a", "app.b");
+        verify(mCallback, times(1)).onSuccess();
+    }
+
+    @SmallTest
+    public void testManagedUserImesNotDeleted() {
+        setSystemAppsWithLauncher("app.a", "app.b");
+        setInstalledSystemApps("app.a", "app.b");
+        setSystemInputMethods("app.a");
+
+        runTask(DeleteNonRequiredAppsTask.MANAGED_USER, true, false);
+
+        assertDeletedApps("app.b");
         verify(mCallback, times(1)).onSuccess();
     }
 
@@ -307,6 +336,27 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
     private void setVendorDisallowedAppsManagedProfile(String... apps) {
         setStringArray(
                 com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_profile,
+                apps);
+    }
+
+    private void setRequiredAppsManagedUser(String... apps) {
+        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_user,
+                apps);
+    }
+
+    private void setVendorRequiredAppsManagedUser(String... apps) {
+        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_user,
+                apps);
+    }
+
+    private void setDisallowedAppsManagedUser(String... apps) {
+        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_user,
+                apps);
+    }
+
+    private void setVendorDisallowedAppsManagedUser(String... apps) {
+        setStringArray(
+                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_user,
                 apps);
     }
 
