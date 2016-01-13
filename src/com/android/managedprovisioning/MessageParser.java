@@ -30,6 +30,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
@@ -160,6 +161,7 @@ public class MessageParser {
         intent.putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
         intent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
         intent.putExtra(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
+        intent.putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP, params.skipUserSetup);
         return intent;
     }
 
@@ -250,6 +252,11 @@ public class MessageParser {
             if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
                 params.skipEncryption = Boolean.parseBoolean(s);
             }
+            if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_USER_SETUP)) != null) {
+                params.skipUserSetup = Boolean.parseBoolean(s);
+            } else {
+                params.skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
+            }
 
             params.adminExtrasBundle = deserializeExtrasBundle(props,
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
@@ -335,6 +342,9 @@ public class MessageParser {
             // kept on the file system from a previous provisioning. In this case, remove it.
             LogoUtils.cleanUp(context);
         }
+        params.skipUserSetup = intent.getBooleanExtra(
+                EXTRA_PROVISIONING_SKIP_USER_SETUP,
+                ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
         return params;
     }
 

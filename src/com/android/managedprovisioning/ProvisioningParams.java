@@ -36,6 +36,7 @@ public class ProvisioningParams implements Parcelable {
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
     // Always download packages if no minimum version given.
     public static final int DEFAULT_MINIMUM_VERSION = Integer.MAX_VALUE;
+    public static final boolean DEFAULT_SKIP_USER_SETUP = true;
 
     public String timeZone;
     public long localTime = DEFAULT_LOCAL_TIME;
@@ -130,6 +131,7 @@ public class ProvisioningParams implements Parcelable {
 
     public boolean leaveAllSystemAppsEnabled;
     public boolean skipEncryption;
+    public boolean skipUserSetup;
 
     public String inferDeviceAdminPackageName() {
         if (deviceAdminComponentName != null) {
@@ -169,6 +171,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeParcelable(accountToMigrate, 0 /* default */);
         out.writeString(provisioningAction);
         out.writeInt(mainColor);
+        out.writeInt(skipUserSetup ? 1 : 0);
     }
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -192,6 +195,7 @@ public class ProvisioningParams implements Parcelable {
                     (Account) in.readParcelable(null /* use default classloader */);
             params.provisioningAction = in.readString();
             params.mainColor = in.readInt();
+            params.skipUserSetup = in.readInt() == 1;
             return params;
         }
 
