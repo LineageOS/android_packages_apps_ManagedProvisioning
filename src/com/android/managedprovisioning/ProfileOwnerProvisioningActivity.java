@@ -87,6 +87,8 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
     private ProgressDialog mCancelProgressDialog = null;
     private AccountManager mAccountManager;
 
+    private ProvisioningParams mParams;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,9 +112,10 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         } else if (mCancelStatus == STATUS_CANCELLING) {
             showCancelProgressDialog();
         }
-        ProvisioningParams params = (ProvisioningParams) getIntent().getParcelableExtra(
+
+        mParams = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        maybeSetLogoAndStatusBarColor(params);
+        maybeSetLogoAndStatusBarColor(mParams);
         showProgressBar();
     }
 
@@ -267,7 +270,10 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
      */
     private void onProvisioningSuccess() {
 
-        if (!Utils.isUserSetupCompleted(this)) {
+        // If skipUserSetup is true, then we want the setup-wizard for the user (if running) to exit
+        // immediately. Setting USER_SETUP_COMPLETE to 1 achieves this in cases where provisioning
+        // is started during first device or user setup.
+        if (mParams.skipUserSetup && !Utils.isUserSetupCompleted(this)) {
             // Since provisioning could have started from Setup wizard, we should set
             // USER_SETUP_COMPLETE to true in order to shut down the Setup wizard.
             Utils.markDeviceProvisioned(ProfileOwnerProvisioningActivity.this);

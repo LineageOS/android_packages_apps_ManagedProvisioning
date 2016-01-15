@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
@@ -342,9 +344,14 @@ public class MessageParser {
             // kept on the file system from a previous provisioning. In this case, remove it.
             LogoUtils.cleanUp(context);
         }
-        params.skipUserSetup = intent.getBooleanExtra(
-                EXTRA_PROVISIONING_SKIP_USER_SETUP,
-                ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
+        if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_USER) ||
+                params.provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE)) {
+            params.skipUserSetup = intent.getBooleanExtra(
+                    EXTRA_PROVISIONING_SKIP_USER_SETUP,
+                    ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
+        } else {
+            params.skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
+        }
         return params;
     }
 

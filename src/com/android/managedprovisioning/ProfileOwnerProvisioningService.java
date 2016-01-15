@@ -387,8 +387,12 @@ public class ProfileOwnerProvisioningService extends Service {
      */
     private void notifyMdmAndCleanup() {
 
-        Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE,
-                1 /* value for settings, 1 -> setup complete */, mManagedProfileOrUserInfo.id);
+        // skipUserSetup is true by default, and can only be false for managed-user cases, never
+        // managed-profile. We always expect user_setup_complete to be set for managed-profile
+        // cases.
+        if (mParams.skipUserSetup) {
+            Utils.markUserSetupComplete(this, mManagedProfileOrUserInfo.id);
+        }
 
         UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
 

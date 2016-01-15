@@ -282,6 +282,7 @@ public class Utils {
     }
 
     public static void markDeviceProvisioned(Context context) {
+        ProvisionLogger.logd("Setting DEVICE_PROVISIONED to 1");
         Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
 
         // Setting this flag will either cause Setup Wizard to finish immediately when it starts (if
@@ -294,6 +295,7 @@ public class Utils {
     }
 
     public static void markUserSetupComplete(Context context, int userId) {
+        ProvisionLogger.logd("Setting USER_SETUP_COMPLETE to 1 for user " + userId);
         Secure.putIntForUser(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1, userId);
     }
 
