@@ -19,18 +19,14 @@ package com.android.managedprovisioning;
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
-import android.accounts.Account;
 import android.app.Activity;
-import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.UserHandle;
 
@@ -43,6 +39,10 @@ import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentExceptio
  * Setup wizard to shut down and send a HOME intent. Instead of opening the home screen we want
  * to open the mdm, so the HOME intent is caught by this activity instead which will send the
  * ACTION_PROFILE_PROVISIONING_COMPLETE to the mdm, which will then open up.
+ *
+ * @deprecated {@link DevicePolicyManager#getUserProvisioningState()} and
+ * {@link DevicePolicyManager#setUserProvisioningState(int state, int userHandle)} replace this
+ * mechanism of hand-off between setup-wizard and ManagedProvisioning.
  */
 
 public class HomeReceiverActivity extends Activity {
@@ -59,7 +59,7 @@ public class HomeReceiverActivity extends Activity {
         } finally {
             // Disable the HomeReceiverActivity. Make sure this is always called to prevent an
             // infinite loop of HomeReceiverActivity capturing HOME intent in case something fails.
-            disableComponent(getMyComponent(this));
+            disableComponent(this);
         }
         finish();
     }
@@ -102,6 +102,8 @@ public class HomeReceiverActivity extends Activity {
                 sendBroadcast(provisioningCompleteIntent);
             }
         }
+
+        Utils.markUserProvisioningStateFinalized(this, mParams);
     }
 
     private void finalizeManagedProfileOwnerProvisioning(Intent provisioningCompleteIntent) {
@@ -142,9 +144,9 @@ public class HomeReceiverActivity extends Activity {
         return params;
     }
 
-    private void disableComponent(ComponentName component) {
-        PackageManager pm = getPackageManager();
-        pm.setComponentEnabledSetting(component,
+    static void disableComponent(Context context) {
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(getMyComponent(context),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }

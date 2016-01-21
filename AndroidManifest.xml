@@ -162,7 +162,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.android.managedprovisioning.HomeReceiverActivity"
+        <!-- TODO: Remove once setup-wizard support for PROVISION_FINALIZATION is implemented. -->
+        <activity android:name=".HomeReceiverActivity"
                   android:theme="@android:style/Theme.NoDisplay"
                   android:noHistory="true"
                   android:excludeFromRecents="true"
@@ -174,5 +175,16 @@
             </intent-filter>
         </activity>
 
+        <!-- TODO: Add permission for setup-wizard to guard access? -->
+        <activity android:name=".FinalizationActivity"
+                android:theme="@android:style/Theme.NoDisplay"
+                android:noHistory="true"
+                android:excludeFromRecents="true"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.PROVISION_FINALIZATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

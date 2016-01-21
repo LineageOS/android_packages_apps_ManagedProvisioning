@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHA
 
 import android.app.AlarmManager;
 import android.app.Service;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -335,9 +336,13 @@ public class DeviceOwnerProvisioningService extends Service {
         if (DEBUG) ProvisionLogger.logd("Reporting success.");
         mDone = true;
 
+        // Set DPM userProvisioningState appropriately.
+        Utils.markUserProvisioningStateInitiallyDone(this, mParams);
+
         // Persist mParams so HomeReceiverActivity can later retrieve them to finalize provisioning.
         // This is necessary to deal with accidental reboots during DIA setup, which happens between
         // the end of this method and HomeReceiverActivity captures the home intent.
+        // TODO: Remove in favor of FinalizationReceiver.
         HomeReceiverActivity.setReminder(mParams, this);
 
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);

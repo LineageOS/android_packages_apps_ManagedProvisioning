@@ -386,28 +386,18 @@ public class ProfileOwnerProvisioningService extends Service {
      * itself.
      */
     private void notifyMdmAndCleanup() {
+        // Set DPM userProvisioningState appropriately.
+        Utils.markUserProvisioningStateInitiallyDone(this, mParams);
+
+        // TODO: Clean-up/remove the following Utils.mark*() calls once SUW has been updated to use
+        //       DevicePolicyManager.getUserProvisioningState(). In the mean-time, support both
+        //       mechanisms to avoid breaking integration.
 
         // skipUserSetup is true by default, and can only be false for managed-user cases, never
         // managed-profile. We always expect user_setup_complete to be set for managed-profile
         // cases.
         if (mParams.skipUserSetup) {
             Utils.markUserSetupComplete(this, mManagedProfileOrUserInfo.id);
-        }
-
-        UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
-
-        // Use an ordered broadcast, so that we only finish when the mdm has received it.
-        // Avoids a lag in the transition between provisioning and the mdm.
-        BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
-                mParams.accountToMigrate, mParams.deviceAdminPackageName);
-
-        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setComponent(mParams.deviceAdminComponentName);
-        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mParams.adminExtrasBundle != null) {
-            completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mParams.adminExtrasBundle);
         }
 
         // If profile owner provisioning was started after user setup is completed, then we
@@ -417,6 +407,22 @@ public class ProfileOwnerProvisioningService extends Service {
         // avoid the race condition, HomeReceiverActivity is enabled which will in turn send
         // the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast.
         if (Utils.isUserSetupCompleted(this)) {
+            UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
+
+            // Use an ordered broadcast, so that we only finish when the mdm has received it.
+            // Avoids a lag in the transition between provisioning and the mdm.
+            BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
+                    mParams.accountToMigrate, mParams.deviceAdminPackageName);
+
+            Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+            completeIntent.setComponent(mParams.deviceAdminComponentName);
+            completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                    Intent.FLAG_RECEIVER_FOREGROUND);
+            if (mParams.adminExtrasBundle != null) {
+                completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                        mParams.adminExtrasBundle);
+            }
+
             sendOrderedBroadcastAsUser(completeIntent, managedUserHandle, null,
                     mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
             ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "

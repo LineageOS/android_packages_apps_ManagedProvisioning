@@ -162,14 +162,20 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
 
 
     private void onProvisioningSuccess() {
+        // TODO: Clean-up/remove the following Utils.mark*() calls once SUW has been updated to use
+        //       DevicePolicyManager.getUserProvisioningState(). In the mean-time, support both
+        //       mechanisms to avoid breaking integration.
+
         // Set the device to provisioned.
-        Utils.markDeviceProvisioned(DeviceOwnerProvisioningActivity.this);
+        Utils.markDeviceProvisioned(this);
+
         if (!Utils.isCurrentUserSystem()) {
             // Utils.markDeviceProvisioned() only marks the current user with user_setup_complete
             // If the current user is not the system user, then the system user has not been marked
             // with user_setup_complete. Mark it now.
             Utils.markUserSetupComplete(this, UserHandle.USER_SYSTEM);
         }
+
         stopService(new Intent(this, DeviceOwnerProvisioningService.class));
         // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);

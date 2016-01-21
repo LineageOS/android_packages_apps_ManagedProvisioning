@@ -57,6 +57,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 import java.io.IOException;
+import java.lang.Integer;
 import java.lang.String;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
@@ -301,6 +302,106 @@ public class Utils {
 
     public static boolean isUserSetupCompleted(Context context) {
         return Secure.getInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 0) != 0;
+    }
+
+    /**
+     * Set the current users userProvisioningState depending on the following factors:
+     * <ul>
+     *     <li>We're setting up a managed-profile - need to set state on two users.</li>
+     *     <li>User-setup is complete or not - skip states relating to communicating with
+     *     setup-wizard</li>
+     *     <li>DPC requested we skip the rest of setup-wizard.</li>
+     * </ul>
+     *
+     * @param context
+     * @param params configuration for current provisioning attempt
+     */
+    public static void markUserProvisioningStateInitiallyDone(Context context,
+            ProvisioningParams params) {
+        int currentUserId = UserHandle.myUserId();
+        int managedProfileUserId = -1;
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        Integer newState = null;
+        Integer newProfileState = null;
+
+        boolean userSetupCompleted = isUserSetupCompleted(context);
+        if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+            // Managed profiles are a special case as two users are involved.
+            managedProfileUserId = getManagedProfile(context).getIdentifier();
+            if (userSetupCompleted) {
+                // SUW on current user is complete, so nothing much to do beyond indicating we're
+                // all done.
+                newProfileState = DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
+            } else {
+                // We're still in SUW, so indicate that a managed-profile was setup on current user,
+                // and that we're awaiting finalization on both.
+                newState = DevicePolicyManager.STATE_USER_PROFILE_COMPLETE;
+                newProfileState = DevicePolicyManager.STATE_USER_SETUP_COMPLETE;
+            }
+        } else if (userSetupCompleted) {
+            // User setup was previously completed this is an unexpected case.
+            ProvisionLogger.logw("user_setup_complete set, but provisioning was started");
+        } else if (params.skipUserSetup) {
+            // DPC requested setup-wizard is skipped, indicate this to SUW.
+            newState = DevicePolicyManager.STATE_USER_SETUP_COMPLETE;
+        } else {
+            // DPC requested setup-wizard is not skipped, indicate this to SUW.
+            newState = DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
+        }
+
+        if (newState != null) {
+            setUserProvisioningState(dpm, newState, currentUserId);
+        }
+        if (newProfileState != null) {
+            setUserProvisioningState(dpm, newProfileState, managedProfileUserId);
+        }
+        if (!userSetupCompleted) {
+            // We expect a PROVISIONING_FINALIZATION intent to finish setup if we're still in
+            // user-setup.
+            FinalizationActivity.storeProvisioningParams(context, params);
+        }
+    }
+
+    /**
+     * Finalize the current users userProvisioningState depending on the following factors:
+     * <ul>
+     *     <li>We're setting up a managed-profile - need to set state on two users.</li>
+     * </ul>
+     *
+     * @param context
+     * @param params configuration for current provisioning attempt - if null (because
+     *               ManagedProvisioning wasn't used for first phase of provisioning) aassumes we
+     *               can just mark current user as being in finalized provisioning state
+     */
+    public static void markUserProvisioningStateFinalized(Context context,
+            ProvisioningParams params) {
+        int currentUserId = UserHandle.myUserId();
+        int managedProfileUserId = -1;
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        Integer newState = null;
+        Integer newProfileState = null;
+
+        if (params != null && params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+            // Managed profiles are a special case as two users are involved.
+            managedProfileUserId = getManagedProfile(context).getIdentifier();
+
+            newState = DevicePolicyManager.STATE_USER_UNMANAGED;
+            newProfileState = DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
+        } else {
+            newState = DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
+        }
+
+        if (newState != null) {
+            setUserProvisioningState(dpm, newState, currentUserId);
+        }
+        if (newProfileState != null) {
+            setUserProvisioningState(dpm, newProfileState, managedProfileUserId);
+        }
+    }
+
+    private static void setUserProvisioningState(DevicePolicyManager dpm, int state, int userId) {
+        ProvisionLogger.logi("Setting userProvisioningState for user " + userId + " to: " + state);
+        dpm.setUserProvisioningState(state, userId);
     }
 
     public static UserHandle getManagedProfile(Context context) {
