@@ -23,8 +23,8 @@ import android.os.storage.IMountService;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
 /**
  * Activity to ask for permission to activate full-filesystem encryption.
  *
@@ -43,32 +43,18 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
         mResumeIntent = (Intent) getIntent().getParcelableExtra(EXTRA_RESUME);
         final String action = mResumeIntent.getAction();
         if (Utils.isProfileOwnerAction(action)) {
-            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile);
+            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile, false);
             setTitle(R.string.setup_profile_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
                     R.string.encrypt_device_text_for_profile_owner_setup);
         } else if (Utils.isDeviceOwnerAction(action)) {
-            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device);
+            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device, false);
             setTitle(R.string.setup_device_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
                     R.string.encrypt_device_text_for_device_owner_setup);
         }
-
-        Button encryptButton = (Button) findViewById(R.id.encrypt_button);
-        encryptButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, mResumeIntent);
-                    // Use settings so user confirms password/pattern and its passed
-                    // to encryption tool.
-                    Intent intent = new Intent();
-                    intent.setAction(DevicePolicyManager.ACTION_START_ENCRYPTION);
-                    startActivity(intent);
-                }
-            });
-        ProvisioningParams params = (ProvisioningParams) getIntent().getParcelableExtra(
-                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        maybeSetLogoAndStatusBarColor(params);
+        configureNavigationButtons(R.string.encrypt_device_launch_settings,
+            View.VISIBLE, View.VISIBLE);
     }
 
     public static boolean isPhysicalDeviceEncrypted() {
@@ -83,5 +69,15 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
         } catch (RemoteException e) {
             return false;
         }
+    }
+
+    @Override
+    public void onNavigateNext() {
+        BootReminder.setProvisioningReminder(EncryptDeviceActivity.this, mResumeIntent);
+        // Use settings so user confirms password/pattern and its passed
+        // to encryption tool.
+        Intent intent = new Intent();
+        intent.setAction(DevicePolicyManager.ACTION_START_ENCRYPTION);
+        startActivity(intent);
     }
 }

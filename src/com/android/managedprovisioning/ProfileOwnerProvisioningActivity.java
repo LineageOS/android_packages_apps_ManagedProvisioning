@@ -44,8 +44,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.managedprovisioning.ProvisioningParams;
-
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
@@ -100,8 +98,8 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
             mPendingProvisioningResult = savedInstanceState.getParcelable(KEY_PENDING_INTENT);
         }
 
-        // TODO: show a progress bar once the SetupWizard library has been updated.
-        initializeLayoutParams(R.layout.progress, R.string.setup_work_profile);
+        initializeLayoutParams(R.layout.progress, R.string.setup_work_profile, true);
+        configureNavigationButtons(NEXT_BUTTON_EMPTY_LABEL, View.INVISIBLE, View.VISIBLE);
         setTitle(R.string.setup_profile_progress);
 
         TextView textView = (TextView) findViewById(R.id.prog_text);
@@ -112,11 +110,8 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         } else if (mCancelStatus == STATUS_CANCELLING) {
             showCancelProgressDialog();
         }
-
         mParams = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        maybeSetLogoAndStatusBarColor(mParams);
-        showProgressBar();
     }
 
     @Override
@@ -269,6 +264,7 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
      * Finish activity and stop service.
      */
     private void onProvisioningSuccess() {
+        mBackButton.setVisibility(View.INVISIBLE);
 
         // If skipUserSetup is true, then we want the setup-wizard for the user (if running) to exit
         // immediately. Setting USER_SETUP_COMPLETE to 1 achieves this in cases where provisioning

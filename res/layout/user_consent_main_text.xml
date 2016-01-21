@@ -19,6 +19,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/MainTextContainer"
     android:orientation="vertical">
+    <!-- This ImageView is a mock -->
+    <ImageView
+        android:id="@+id/organisation_logo_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="60dp"
+        android:maxHeight="60dp"
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/user_consent_message"
         style="@style/MainText"
@@ -27,16 +37,4 @@
         android:id="@+id/mdm_info_message"
         style="@style/MainText"/>
     <include layout="@layout/device_manager_icon_label"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:orientation="horizontal" >
-        <Button
-            android:id="@+id/setup_button"
-            android:visibility="gone"
-            style="@style/TransparentButton"
-            android:paddingTop="@dimen/button_padding_top"/>
-    </LinearLayout>
-
 </LinearLayout>

@@ -323,7 +323,9 @@ public class MessageParser {
         if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
             params.mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
         } else {
-            params.mainColor = context.getResources().getColor(R.color.orange);
+            final TypedArray typedArray = context.obtainStyledAttributes(new int[]{
+                    android.R.attr.statusBarColor});
+            params.mainColor = typedArray.getColor(0, 0);
         }
         params.provisioningAction = Utils.mapIntentToDpmAction(intent);
         try {

@@ -40,7 +40,6 @@ import android.service.persistentdata.PersistentDataBlockManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -74,8 +73,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
     private UserManager mUserManager;
 
-    private Button mSetupButton;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,15 +83,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         }
 
         // Setup the UI.
-        initializeLayoutParams(R.layout.user_consent, R.string.setup_work_device);
-        mSetupButton = (Button) findViewById(R.id.setup_button);
-        mSetupButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showUserConsentDialog();
-                }
-            });
-        mSetupButton.setText(R.string.setup_work_device);
+        initializeLayoutParams(R.layout.user_consent, R.string.setup_work_device, false);
+        configureNavigationButtons(R.string.set_up, View.INVISIBLE, View.VISIBLE);
 
         DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
 
@@ -145,7 +135,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                     e.getMessage());
             return;
         }
-        maybeSetLogoAndStatusBarColor(mParams);
 
         // Ask to encrypt the device before proceeding
         if (!(EncryptDeviceActivity.isPhysicalDeviceEncrypted()
@@ -181,6 +170,9 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onResume() {
         super.onResume();
+        if (mParams != null) {
+            setStatusBarColor(mParams.mainColor);
+        }
         setTitle(R.string.setup_device_start_setup);
     }
 
@@ -255,6 +247,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
             TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
             mdmInfoTextView.setText(R.string.the_following_is_your_mdm_for_device);
             setMdmInfo();
+            LogoUtils.setOrganisationLogo(R.id.organisation_logo_view, this);
         }
     }
 
@@ -308,7 +301,6 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         Intent toResume = new MessageParser().getIntentFromProvisioningParams(mParams);
         toResume.setComponent(BootReminder.DEVICE_OWNER_INTENT_TARGET);
         encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, toResume);
-        encryptIntent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
 
         startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }
@@ -372,7 +364,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void showStartProvisioningButton() {
-        mSetupButton.setVisibility(View.VISIBLE);
+        mNextButton.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -409,6 +401,11 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                             })
                     .show();
         }
+    }
+
+    @Override
+    public void onNavigateNext() {
+        showUserConsentDialog();
     }
 
     /**

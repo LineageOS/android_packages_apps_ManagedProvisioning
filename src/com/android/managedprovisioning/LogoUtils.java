@@ -18,8 +18,6 @@ package com.android.managedprovisioning;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -55,14 +53,17 @@ public class LogoUtils {
         }
     }
 
-    public static Drawable getOrganisationLogo(Context context) {
-        final File logoFile = getOrganisationLogoFile(context);
+    public static void setOrganisationLogo(int resourceId, Activity activity) {
+        ImageView imageView = (ImageView) activity.findViewById(resourceId);
+        File logoFile = getOrganisationLogoFile(activity);
         try {
             if (logoFile.exists()) {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(),
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(activity.getContentResolver(),
                         Uri.fromFile(logoFile));
                 if (bitmap != null) {
-                    return new BitmapDrawable(context.getResources(), bitmap);
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setVisibility(View.VISIBLE);
+                    ProvisionLogger.logi("Displayed organisation logo from " + logoFile);
                 } else {
                     ProvisionLogger.loge("Could not display organisation logo from " + logoFile);
                 }
@@ -70,7 +71,6 @@ public class LogoUtils {
         } catch (IOException e) {
             ProvisionLogger.loge("Could not display organisation logo from " + logoFile, e);
         }
-        return context.getDrawable(R.drawable.ic_corp_icon);
     }
 
     public static void cleanUp(Context context) {

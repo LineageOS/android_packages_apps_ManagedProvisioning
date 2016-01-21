@@ -24,47 +24,61 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.android.setupwizardlib.GlifLayout;
+import com.android.setupwizardlib.SetupWizardLayout;
 import com.android.setupwizardlib.view.NavigationBar;
 import com.android.setupwizardlib.view.NavigationBar.NavigationBarListener;
 
 /**
  * Base class for setting up the layout.
  */
-public abstract class SetupLayoutActivity extends Activity {
+public abstract class SetupLayoutActivity extends Activity implements NavigationBarListener {
 
-    protected void initializeLayoutParams(int layoutResourceId, int headerResourceId) {
+    protected Button mNextButton;
+    protected Button mBackButton;
+
+    public static final int NEXT_BUTTON_EMPTY_LABEL = 0;
+
+    protected void setStatusBarColor(int color) {
+        // This code to colorize the status bar is just temporary.
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        window.setStatusBarColor(color);
+    }
+
+    public void initializeLayoutParams(int layoutResourceId, int headerResourceId,
+            boolean showProgressBar) {
         setContentView(layoutResourceId);
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
+        SetupWizardLayout layout = (SetupWizardLayout) findViewById(R.id.setup_wizard_layout);
         layout.setHeaderText(headerResourceId);
-
-    }
-
-    protected void showProgressBar() {
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
-        layout.setProgressBarShown(true);
-    }
-
-    protected void maybeSetLogoAndStatusBarColor(ProvisioningParams params) {
-        if (params != null) {
-            // This code to colorize the status bar is just temporary.
-            Window window = getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(params.mainColor);
+        if (showProgressBar) {
+            layout.showProgressBar();
         }
-
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
-        ImageView imageView = (ImageView) findViewById(R.id.suw_layout_icon);
-        imageView.setAdjustViewBounds(true);
-        imageView.setMaxHeight(dpToPixels(32));
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        Drawable logo = LogoUtils.getOrganisationLogo(this);
-        layout.setIcon(logo);
+        setupNavigationBar(layout.getNavigationBar());
     }
 
-    private int dpToPixels(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getResources().getDisplayMetrics());
+    private void setupNavigationBar(NavigationBar bar) {
+        bar.setNavigationBarListener(this);
+        mNextButton = bar.getNextButton();
+        mBackButton = bar.getBackButton();
+    }
+
+    public void configureNavigationButtons(int nextButtonResourceId, int nextButtonVisibility,
+            int backButtonVisibility) {
+        if (nextButtonResourceId != NEXT_BUTTON_EMPTY_LABEL) {
+            mNextButton.setText(nextButtonResourceId);
+        }
+        mNextButton.setVisibility(nextButtonVisibility);
+        mBackButton.setVisibility(backButtonVisibility);
+    }
+
+    @Override
+    public void onNavigateBack() {
+        onBackPressed();
+    }
+
+    @Override
+    public void onNavigateNext() {
     }
 }
