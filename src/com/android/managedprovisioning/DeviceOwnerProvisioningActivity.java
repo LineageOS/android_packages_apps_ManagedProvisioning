@@ -103,6 +103,9 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         // Load the ProvisioningParams (from message in Intent).
         mParams = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        if (mParams != null) {
+            maybeSetLogoAndMainColor(mParams.mainColor);
+        }
         startDeviceOwnerProvisioningService();
     }
 

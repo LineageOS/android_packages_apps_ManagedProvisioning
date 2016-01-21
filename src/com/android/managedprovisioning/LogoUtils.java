@@ -19,6 +19,8 @@ package com.android.managedprovisioning;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.View;
@@ -53,24 +55,23 @@ public class LogoUtils {
         }
     }
 
-    public static void setOrganisationLogo(int resourceId, Activity activity) {
-        ImageView imageView = (ImageView) activity.findViewById(resourceId);
-        File logoFile = getOrganisationLogoFile(activity);
+    public static Drawable getOrganisationLogo(Context context) {
+        final File logoFile = getOrganisationLogoFile(context);
         try {
             if (logoFile.exists()) {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(activity.getContentResolver(),
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(),
                         Uri.fromFile(logoFile));
                 if (bitmap != null) {
-                    imageView.setImageBitmap(bitmap);
-                    imageView.setVisibility(View.VISIBLE);
-                    ProvisionLogger.logi("Displayed organisation logo from " + logoFile);
+                    ProvisionLogger.logi("Obtained organisation logo from " + logoFile);
+                    return new BitmapDrawable(context.getResources(), bitmap);
                 } else {
-                    ProvisionLogger.loge("Could not display organisation logo from " + logoFile);
+                    ProvisionLogger.loge("Could not get organisation logo from " + logoFile);
                 }
             }
         } catch (IOException e) {
-            ProvisionLogger.loge("Could not display organisation logo from " + logoFile, e);
+            ProvisionLogger.loge("Could not get organisation logo from " + logoFile, e);
         }
+        return context.getDrawable(R.drawable.ic_corp_icon);
     }
 
     public static void cleanUp(Context context) {

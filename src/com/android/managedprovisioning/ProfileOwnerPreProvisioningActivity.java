@@ -151,7 +151,9 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             showErrorAndClose(R.string.managed_provisioning_error_text, e.getMessage());
             return;
         }
-        LogoUtils.setOrganisationLogo(R.id.organisation_logo_view, this);
+        if (mParams != null) {
+            maybeSetLogoAndMainColor(mParams.mainColor);
+        }
         setMdmIcon(mParams.deviceAdminPackageName);
 
         // If the caller started us via ALIAS_NO_CHECK_CALLER then they must have permission to
@@ -188,9 +190,6 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onResume() {
         super.onResume();
-        if (mParams != null) {
-            setStatusBarColor(mParams.mainColor);
-        }
         setTitle(R.string.setup_profile_start_setup);
         if (Utils.alreadyHasManagedProfile(this) != -1) {
             maybeShowDeleteManagedProfileDialog();

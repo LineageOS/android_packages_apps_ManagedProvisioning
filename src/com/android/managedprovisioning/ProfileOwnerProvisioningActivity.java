@@ -112,6 +112,9 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         }
         mParams = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        if (mParams != null) {
+            maybeSetLogoAndMainColor(mParams.mainColor);
+        }
     }
 
     @Override
