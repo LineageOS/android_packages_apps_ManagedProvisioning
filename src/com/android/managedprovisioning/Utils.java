@@ -69,7 +69,7 @@ import java.util.concurrent.TimeUnit;
  * Class containing various auxiliary methods.
  */
 public class Utils {
-    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 2;  // 2 minutes
+    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 3;  // 3 minutes
 
     private Utils() {}
 
