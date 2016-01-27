@@ -28,6 +28,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
@@ -46,6 +47,9 @@ import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Service that runs the profile owner provisioning.
  *
@@ -61,6 +65,10 @@ public class ProfileOwnerProvisioningService extends Service {
     public static final String ACTION_PROVISIONING_CANCELLED =
             "com.android.managedprovisioning.cancelled";
     public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioningErrorLogMessage";
+
+    // Maximum time we will wait for ACTION_USER_UNLOCK until we give up and continue without
+    // account migration.
+    private static final int USER_UNLOCKED_TIMEOUT_SECONDS = 120; // 2 minutes
 
     // Status flags for the provisioning process.
     /** Provisioning not started. */
@@ -81,6 +89,7 @@ public class ProfileOwnerProvisioningService extends Service {
     private UserInfo mManagedProfileOrUserInfo;
     private AccountManager mAccountManager;
     private UserManager mUserManager;
+    private UserUnlockedReceiver mUnlockedReceiver;
 
     private AsyncTask<Intent, Void, Void> runnerTask;
 
@@ -300,6 +309,13 @@ public class ProfileOwnerProvisioningService extends Service {
             if (!startManagedProfile(mManagedProfileOrUserInfo.id)) {
                 throw raiseError("Could not start user in background");
             }
+            // Wait for ACTION_USER_UNLOCKED to be sent before trying to migrate the account.
+            // Even if no account is present, we should not send the provisioning complete broadcast
+            // before the managed profile user is properly started.
+            if ((mUnlockedReceiver != null) && !mUnlockedReceiver.waitForUserUnlocked()) {
+                return;
+            }
+
             // Note: account migration must happen after setting the profile owner.
             // Otherwise, there will be a time interval where some apps may think that the account
             // does not have a profile owner.
@@ -365,6 +381,9 @@ public class ProfileOwnerProvisioningService extends Service {
     private boolean startManagedProfile(int userId)  {
         ProvisionLogger.logd("Starting user in background");
         IActivityManager iActivityManager = ActivityManagerNative.getDefault();
+        // Register a receiver for the Intent.ACTION_USER_UNLOCKED to know when the managed profile
+        // has been started and unlocked.
+        mUnlockedReceiver = new UserUnlockedReceiver(this, userId);
         try {
             return iActivityManager.startUserInBackground(userId);
         } catch (RemoteException neverThrown) {
@@ -571,5 +590,46 @@ public class ProfileOwnerProvisioningService extends Service {
 
     public boolean isProvisioningManagedUser() {
         return mParams.provisioningAction.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_USER);
+    }
+
+    /**
+     * BroadcastReceiver that listens to {@link Intent#ACTION_USER_UNLOCKED} in order to provide
+     * a blocking wait until the managed profile has been started and unlocked.
+     */
+    private static class UserUnlockedReceiver extends BroadcastReceiver {
+        private static final IntentFilter FILTER = new IntentFilter(Intent.ACTION_USER_UNLOCKED);
+
+        private final Semaphore semaphore = new Semaphore(0);
+        private final Context mContext;
+        private final int mUserId;
+
+        UserUnlockedReceiver(Context context, int userId) {
+            mContext = context;
+            mUserId = userId;
+            mContext.registerReceiverAsUser(this, new UserHandle(userId), FILTER, null, null);
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent ) {
+            if (!Intent.ACTION_USER_UNLOCKED.equals(intent.getAction())) {
+                ProvisionLogger.logw("Unexpected intent: " + intent);
+                return;
+            }
+            if (intent.getIntExtra(Intent.EXTRA_USER_HANDLE, UserHandle.USER_NULL) == mUserId) {
+                ProvisionLogger.logd("Received ACTION_USER_UNLOCKED for user " + mUserId);
+                semaphore.release();
+                mContext.unregisterReceiver(this);
+            }
+        }
+
+        public boolean waitForUserUnlocked() {
+            ProvisionLogger.logd("Waiting for ACTION_USER_UNLOCKED");
+            try {
+                return semaphore.tryAcquire(USER_UNLOCKED_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            } catch (InterruptedException ie) {
+                mContext.unregisterReceiver(this);
+                return false;
+            }
+        }
     }
  }
