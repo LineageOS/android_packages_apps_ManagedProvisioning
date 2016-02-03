@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.os.ServiceManager;
 import android.os.storage.IMountService;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -71,9 +72,12 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
     }
 
     public static boolean isPhysicalDeviceEncrypted() {
+        // TODO remove when we have a fix for b/26950904
+        if ("file".equals(SystemProperties.get("ro.crypto.type"))) {
+            return true;
+        }
         IMountService mountService = IMountService.Stub.asInterface(
                 ServiceManager.getService("mount"));
-
         try {
             return (mountService.getEncryptionState() == IMountService.ENCRYPTION_STATE_OK);
         } catch (RemoteException e) {
