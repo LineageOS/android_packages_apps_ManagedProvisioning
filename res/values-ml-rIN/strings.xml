@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"ക്ഷമിക്കണം!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"നിങ്ങളുടെ പ്രൊഫൈല്‍ സജ്ജമാക്കുക"</string>
+    <string name="setup_work_profile" msgid="9164519662954159586">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ, ഈ പ്രൊഫൈൽ നിയന്ത്രിച്ച് അവ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു. ഉപകരണത്തിലെ മറ്റുള്ളവയെല്ലാം നിങ്ങൾക്ക് നിയന്ത്രിക്കാനാവും."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"നിങ്ങളുടെ സ്ഥാപനം, ഈ ഉപകരണം നിയന്ത്രിക്കുകയും സുരക്ഷിതമായി സൂക്ഷിക്കുകയും ചെയ്യും."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ഇനിപ്പറയുന്ന അപ്ലിക്കേഷന് ഈ പ്രൊഫൈൽ ആക്‌സസ്സുചെയ്യേണ്ടിവരും:"</string>
