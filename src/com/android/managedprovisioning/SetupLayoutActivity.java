@@ -106,20 +106,10 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
         @Override
         public void draw(Canvas canvas) {
             Drawable logo = LogoUtils.getOrganisationLogo(mActivity);
+            // At this point, the logo has already been resized.
             int logoWidth = logo.getIntrinsicWidth();
             int logoHeight = logo.getIntrinsicHeight();
             Resources resources = mActivity.getResources();
-
-            // Resize the logo if too big.
-            float maxWidth =
-                    resources.getDimension(R.dimen.max_logo_width);
-            float maxHeight =
-                    resources.getDimension(R.dimen.max_logo_height);
-            double ratio = Math.max(logoWidth / maxWidth, logoHeight / maxHeight);
-            if (ratio > 1) {
-                logoWidth /= ratio;
-                logoHeight /= ratio;
-            }
 
             int mainTextPaddingLeftRight = (int) resources
                     .getDimension(R.dimen.main_text_padding_left_right);
