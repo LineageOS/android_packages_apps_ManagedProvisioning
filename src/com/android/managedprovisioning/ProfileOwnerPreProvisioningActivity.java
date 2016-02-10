@@ -298,7 +298,8 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             Intent toResume = new MessageParser().getIntentFromProvisioningParams(mParams);
             toResume.setComponent(BootReminder.PROFILE_OWNER_INTENT_TARGET);
             Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class)
-                    .putExtra(EXTRA_RESUME, toResume);
+                    .putExtra(EXTRA_RESUME, toResume)
+                    .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
             startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
             // Continue in onActivityResult or after reboot.
         }
