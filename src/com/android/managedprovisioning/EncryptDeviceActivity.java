@@ -55,6 +55,11 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
         }
         configureNavigationButtons(R.string.encrypt_device_launch_settings,
             View.VISIBLE, View.VISIBLE);
+        ProvisioningParams params = (ProvisioningParams) getIntent().getParcelableExtra(
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        if (params != null) {
+            maybeSetLogoAndMainColor(params.mainColor);
+        }
     }
 
     public static boolean isPhysicalDeviceEncrypted() {

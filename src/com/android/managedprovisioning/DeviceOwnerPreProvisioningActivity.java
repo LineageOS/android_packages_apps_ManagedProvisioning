@@ -300,6 +300,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         Intent toResume = new MessageParser().getIntentFromProvisioningParams(mParams);
         toResume.setComponent(BootReminder.DEVICE_OWNER_INTENT_TARGET);
         encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, toResume);
+        encryptIntent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
 
         startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }
