@@ -162,7 +162,9 @@ public class MessageParser {
         intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
         intent.putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
         intent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
-        intent.putExtra(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
+        if (params.mainColor != null) {
+            intent.putExtra(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
+        }
         intent.putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP, params.skipUserSetup);
         return intent;
     }
@@ -323,7 +325,7 @@ public class MessageParser {
         if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
             params.mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
         } else {
-            params.mainColor = context.getResources().getColor(R.color.accent);
+            params.mainColor = null;
         }
         params.provisioningAction = Utils.mapIntentToDpmAction(intent);
         try {

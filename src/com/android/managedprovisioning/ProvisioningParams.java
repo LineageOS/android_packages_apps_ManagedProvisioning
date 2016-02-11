@@ -88,7 +88,8 @@ public class ProvisioningParams implements Parcelable {
 
     private ComponentName inferedDeviceAdminComponentName;
 
-    public int mainColor;
+    // a value of null means the default value
+    public Integer mainColor;
 
     public static class PackageDownloadInfo {
         // Url where the package (.apk) can be downloaded from
@@ -170,7 +171,12 @@ public class ProvisioningParams implements Parcelable {
         out.writeInt(skipEncryption ? 1 : 0);
         out.writeParcelable(accountToMigrate, 0 /* default */);
         out.writeString(provisioningAction);
-        out.writeInt(mainColor);
+        if (mainColor != null) {
+            out.writeInt(1);
+            out.writeInt(mainColor);
+        } else {
+            out.writeInt(0);
+        }
         out.writeInt(skipUserSetup ? 1 : 0);
     }
 
@@ -194,7 +200,9 @@ public class ProvisioningParams implements Parcelable {
             params.accountToMigrate =
                     (Account) in.readParcelable(null /* use default classloader */);
             params.provisioningAction = in.readString();
-            params.mainColor = in.readInt();
+            if (in.readInt() != 0) {
+                params.mainColor = in.readInt();
+            }
             params.skipUserSetup = in.readInt() == 1;
             return params;
         }
