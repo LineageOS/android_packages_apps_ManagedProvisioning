@@ -23,4 +23,5 @@
 
     <!-- Dialog Fragment text -->
     <dimen name="dialog_fragment_width">548dp</dimen>
+    <dimen name="logo_padding_left_right">56dp</dimen>
 </resources>
