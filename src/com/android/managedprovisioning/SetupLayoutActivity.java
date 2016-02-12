@@ -121,8 +121,8 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
                 logoHeight /= ratio;
             }
 
-            int mainTextPaddingLeftRight = (int) resources
-                    .getDimension(R.dimen.main_text_padding_left_right);
+            int logoPaddingLeftRight = (int) resources
+                    .getDimension(R.dimen.logo_padding_left_right);
             int logoPaddingBottom = (int) resources
                     .getDimension(R.dimen.logo_padding_bottom);
             int totalWidth = getIntrinsicWidth();
@@ -136,14 +136,14 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
 
             // Draw the logo.
             if (shouldDrawLogoOnLeftSide()) {
-                logo.setBounds(mainTextPaddingLeftRight,
+                logo.setBounds(logoPaddingLeftRight,
                         totalHeight - logoPaddingBottom - logoHeight,
-                        mainTextPaddingLeftRight + logoWidth,
+                        logoPaddingLeftRight + logoWidth,
                         totalHeight - logoPaddingBottom);
             } else {
-                logo.setBounds(totalWidth - mainTextPaddingLeftRight - logoWidth,
+                logo.setBounds(totalWidth - logoPaddingLeftRight - logoWidth,
                         totalHeight - logoPaddingBottom - logoHeight,
-                        totalWidth - mainTextPaddingLeftRight,
+                        totalWidth - logoPaddingLeftRight,
                         totalHeight - logoPaddingBottom);
             }
             logo.draw(canvas);
@@ -187,13 +187,17 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
 
         private boolean shouldDrawLogoOnLeftSide() {
             // for a tablet layout, the logo should be in the bottom left
-            boolean result = mActivity.getResources().getBoolean(R.bool.suwUseTabletLayout);
+            boolean result = useTabletLayout();
             // for a right-to-left language, reverse it.
             if (mActivity.getResources().getConfiguration().getLayoutDirection()
                     == View.LAYOUT_DIRECTION_RTL) {
                 result = !result;
             }
             return result;
+        }
+
+        private boolean useTabletLayout() {
+            return mActivity.getResources().getBoolean(R.bool.suwUseTabletLayout);
         }
     }
 }
