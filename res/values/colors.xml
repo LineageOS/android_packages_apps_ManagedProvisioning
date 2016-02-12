@@ -20,7 +20,8 @@
     <color name="text_black">#333333</color>
     <color name="black">#000000</color>
     <color name="gray">#ebebeb</color>
-    <color name="light_gray">#fafafa</color>
+    <color name="gray_100">#f5f5f5</color>
+    <color name="gray_50">#fafafa</color>
     <color name="white">#ffffff</color>
     <color name="teal">#00796B</color>
     <color name="dark_teal">#00695C</color>
