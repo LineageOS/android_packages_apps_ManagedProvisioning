@@ -260,7 +260,9 @@ public class DeleteNonRequiredAppsTask {
         Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
         launcherIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> resolveInfos = mPm.queryIntentActivitiesAsUser(launcherIntent,
-                PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_DISABLED_COMPONENTS,
+                PackageManager.MATCH_UNINSTALLED_PACKAGES
+                | PackageManager.MATCH_DISABLED_COMPONENTS
+                | PackageManager.MATCH_ENCRYPTION_AWARE_AND_UNAWARE,
                 mUserId);
         Set<String> apps = new HashSet<String>();
         for (ResolveInfo resolveInfo : resolveInfos) {
