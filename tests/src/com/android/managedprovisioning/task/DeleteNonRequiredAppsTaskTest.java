@@ -457,10 +457,12 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
             assertTrue("Expected an intent with action ACTION_MAIN and category CATEGORY_LAUNCHER",
                     intent.filterEquals(
                     new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)));
-            assertTrue("Expected the flag GET_UNINSTALLED_PACKAGES",
-                    (flags & PackageManager.GET_UNINSTALLED_PACKAGES) != 0);
-            assertTrue("Expected the flag GET_DISABLED_COMPONENTS",
-                    (flags & PackageManager.GET_DISABLED_COMPONENTS) != 0);
+            assertTrue("Expected the flag MATCH_UNINSTALLED_PACKAGES",
+                    (flags & PackageManager.MATCH_UNINSTALLED_PACKAGES) != 0);
+            assertTrue("Expected the flag MATCH_DISABLED_COMPONENTS",
+                    (flags & PackageManager.MATCH_DISABLED_COMPONENTS) != 0);
+            assertTrue("Expected the flag MATCH_ENCRYPTION_AWARE_AND_UNAWARE",
+                    (flags & PackageManager.MATCH_ENCRYPTION_AWARE_AND_UNAWARE) != 0);
             assertEquals(userId, TEST_USER_ID);
             List<ResolveInfo> result = new ArrayList<ResolveInfo>();
             for (String packageName : mSystemAppsWithLauncher) {
