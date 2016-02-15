@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.uiflows;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.android.managedprovisioning.ProvisionLogger;
 
 /**
  * This activity shows a web view, which loads the {@link #EXTRA_URL} indicated in the starting
@@ -28,8 +30,8 @@ import android.webkit.WebViewClient;
  * allowed url base will be loaded.
  *
  * <p>
- * This activity is currently used by the {@link UserConsentDialog} to display the google support
- * web page about the Device Owner concept.
+ * This activity is currently used by the {@link com.android.managedprovisioning.UserConsentDialog}
+ * to display the google support web page about the Device Owner concept.
  * </p>
  */
 public class WebActivity extends Activity {

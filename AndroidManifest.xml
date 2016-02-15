@@ -131,7 +131,7 @@
         </activity>
 
         <activity
-            android:name="WebActivity"
+            android:name=".uiflows.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">

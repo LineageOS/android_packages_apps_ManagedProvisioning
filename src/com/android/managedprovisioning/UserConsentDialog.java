@@ -30,6 +30,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
+import com.android.managedprovisioning.uiflows.WebActivity;
+
 /**
  * Dialog used to notify the user that the admin will have full control over the profile/device.
  * Custom runnables can be passed that are run on consent or cancel.
