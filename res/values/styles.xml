@@ -24,10 +24,10 @@
         <item name="android:colorPrimary">@color/orange</item>
         <item name="android:colorAccent">@color/accent</item>
         <item name="android:colorPrimaryDark">@color/orange</item>
-        <item name="android:windowBackground">@color/light_gray</item>
+        <item name="android:windowBackground">@color/gray_50</item>
         <item name="android:indeterminateTint">@color/teal</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/gray_100</item>
     </style>
     <style name="TextOrCheckBox">
         <item name="android:textColor">@color/text_black</item>
