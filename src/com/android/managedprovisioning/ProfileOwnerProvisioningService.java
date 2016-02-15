@@ -303,6 +303,7 @@ public class ProfileOwnerProvisioningService extends Service {
         setMdmAsManagedProfileOwner();
 
         if (!isProvisioningManagedUser()) {
+            setOrganizationColor();
             setDefaultUserRestrictions();
             CrossProfileIntentFiltersHelper.setFilters(
                     getPackageManager(), getUserId(), mManagedProfileOrUserInfo.id);
@@ -513,6 +514,14 @@ public class ProfileOwnerProvisioningService extends Service {
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         dpm.setActiveAdmin(mParams.deviceAdminComponentName, true /* refreshing*/,
                 mManagedProfileOrUserInfo.id);
+    }
+
+    private void setOrganizationColor() {
+        if (mParams.mainColor != null) {
+            DevicePolicyManager dpm =
+                    (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+            dpm.setOrganizationColorForUser(mParams.mainColor, mManagedProfileOrUserInfo.id);
+        }
     }
 
     private ProvisioningException raiseError(String message) throws ProvisioningException {
