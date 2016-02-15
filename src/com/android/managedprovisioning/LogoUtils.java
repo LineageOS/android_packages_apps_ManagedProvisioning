@@ -19,6 +19,7 @@ package com.android.managedprovisioning;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -26,12 +27,14 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
 
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.Math;
 
 public class LogoUtils {
     public static void saveOrganisationLogo(Context context, Uri uri) {
@@ -57,21 +60,69 @@ public class LogoUtils {
 
     public static Drawable getOrganisationLogo(Context context) {
         final File logoFile = getOrganisationLogoFile(context);
-        try {
-            if (logoFile.exists()) {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(),
-                        Uri.fromFile(logoFile));
-                if (bitmap != null) {
-                    ProvisionLogger.logi("Obtained organisation logo from " + logoFile);
-                    return new BitmapDrawable(context.getResources(), bitmap);
-                } else {
-                    ProvisionLogger.loge("Could not get organisation logo from " + logoFile);
-                }
+        Bitmap bitmap = null;
+        int maxWidth = (int) context.getResources().getDimension(R.dimen.max_logo_width);
+        int maxHeight = (int) context.getResources().getDimension(R.dimen.max_logo_height);
+        if (logoFile.exists()) {
+            bitmap = getBitmapPartiallyResized(logoFile.getPath(), maxWidth, maxHeight);
+            if (bitmap == null) {
+                ProvisionLogger.loge("Could not get organisation logo from " + logoFile);
             }
-        } catch (IOException e) {
-            ProvisionLogger.loge("Could not get organisation logo from " + logoFile, e);
         }
-        return context.getDrawable(R.drawable.ic_corp_icon);
+        // If the app that started ManagedProvisioning didn't specify a logo or we couldn't get a
+        // logo from the uri they specified, use the default logo.
+        if (bitmap == null) {
+            bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_corp_icon);
+        }
+        return new BitmapDrawable(context.getResources(),
+                resizeBitmap(bitmap, maxWidth, maxHeight));
+    }
+
+    /**
+     * Decodes a bitmap from an input stream.
+     * If the actual dimensions of the bitmap are larger than the desired ones, will try to return a
+     * subsample.
+     * The point of using this method is that the entire image may be too big to fit entirely in
+     * memmory. Since we may not need the entire image anyway, it's better to only decode a
+     * subsample when possible.
+     */
+    @VisibleForTesting
+    static Bitmap getBitmapPartiallyResized(String filePath, int maxDesiredWidth,
+            int maxDesiredHeight) {
+        BitmapFactory.Options bounds = new BitmapFactory.Options();
+        // Firstly, let's just get the dimensions of the image.
+        bounds.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filePath, bounds);
+        int streamWidth = bounds.outWidth;
+        int streamHeight = bounds.outHeight;
+        int ratio = Math.max(streamWidth / maxDesiredWidth, streamHeight / maxDesiredHeight);
+        if (ratio > 1) {
+            // Decodes a smaller bitmap. Note that this ratio will be rounded down to the nearest
+            // power of 2. The decoded bitmap will not have the expected size, but we'll do another
+            // round of scaling.
+            bounds.inSampleSize = ratio;
+        }
+        bounds.inJustDecodeBounds = false;
+        // Now, decode the actual bitmap
+        return BitmapFactory.decodeFile(filePath, bounds);
+    }
+
+    /*
+     * Returns a new Bitmap with the specified maximum width and height. Does scaling if
+     * necessary. Keeps the ratio of the original image.
+     */
+    @VisibleForTesting
+    static Bitmap resizeBitmap(Bitmap bitmap, int maxWidth, int maxHeight) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        double ratio = Math.max((double) width / maxWidth, (double) height / maxHeight);
+        // We don't scale up.
+        if (ratio > 1) {
+            width /= ratio;
+            height /= ratio;
+            bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false);
+        }
+        return bitmap;
     }
 
     public static void cleanUp(Context context) {
