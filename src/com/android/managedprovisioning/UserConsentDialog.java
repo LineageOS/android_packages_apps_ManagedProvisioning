@@ -38,17 +38,17 @@ import com.android.managedprovisioning.uiflows.WebActivity;
  * Custom runnables can be passed that are run on consent or cancel.
  */
 public class UserConsentDialog extends DialogFragment {
-    public static final int PROFILE_OWNER = 1;
-    public static final int DEVICE_OWNER = 2;
+    private static final int PROFILE_OWNER = 1;
+    private static final int DEVICE_OWNER = 2;
 
-    public static final String LEARN_MORE_URL_PROFILE_OWNER =
+    private static final String LEARN_MORE_URL_PROFILE_OWNER =
             "https://support.google.com/android/work/answer/6090512";
     // TODO: replace by the final device owner learn more link.
-    public static final String LEARN_MORE_URL_DEVICE_OWNER =
+    private static final String LEARN_MORE_URL_DEVICE_OWNER =
             "https://support.google.com/android/work/answer/6090512";
 
     // Only urls starting with this base can be visisted in the device owner case.
-    public static final String LEARN_MORE_ALLOWED_BASE_URL =
+    private static final String LEARN_MORE_ALLOWED_BASE_URL =
             "https://support.google.com/";
 
     private static final String KEY_OWNER_TYPE = "owner_type";
@@ -56,7 +56,15 @@ public class UserConsentDialog extends DialogFragment {
 
     private final Utils mUtils = new Utils();
 
-    public static UserConsentDialog newInstance(int ownerType, boolean showConsentCheckbox) {
+    public static UserConsentDialog newProfileOwnerInstance() {
+        return newInstance(PROFILE_OWNER, false);
+    }
+
+    public static UserConsentDialog newDeviceOwnerInstance(boolean showConsentCheckbox) {
+        return newInstance(DEVICE_OWNER, showConsentCheckbox);
+    }
+
+    private static UserConsentDialog newInstance(int ownerType, boolean showConsentCheckbox) {
         UserConsentDialog dialog = new UserConsentDialog();
         Bundle args = new Bundle();
         args.putInt(KEY_OWNER_TYPE, ownerType);

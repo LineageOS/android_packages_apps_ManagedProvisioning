@@ -63,12 +63,28 @@
             (phone calls) will still pop up a small window that can be activated.
         -->
         <activity
-            android:name="DeviceOwnerPreProvisioningActivity"
+             android:name="DeviceOwnerProvisioningActivity"
+             android:excludeFromRecents="true"
+             android:immersive="true"
+             android:launchMode="singleTop"
+             android:theme="@style/SetupWorkSpaceTheme">
+        </activity>
+        <activity
+            android:name="ProfileOwnerProvisioningActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SetupWorkSpaceTheme">
+        </activity>
+        <activity
+            android:name=".uiflows.PreProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">
             <intent-filter android:priority="10">
+                <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
+                <action android:name="android.app.action.PROVISION_MANAGED_USER" />
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_SHAREABLE_DEVICE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -79,8 +95,8 @@
             stack can trigger this.
         -->
         <activity-alias
-            android:name="DeviceOwnerPreProvisioningActivityViaNfc"
-            android:targetActivity="DeviceOwnerPreProvisioningActivity"
+            android:name="PreProvisioningActivityViaNfc"
+            android:targetActivity=".uiflows.PreProvisioningActivity"
             android:permission="android.permission.DISPATCH_NFC_MESSAGE"
             android:exported="true">
             <intent-filter android:priority="10">
@@ -89,14 +105,13 @@
                 <data android:mimeType="application/com.android.managedprovisioning" />
             </intent-filter>
         </activity-alias>
-
         <!--
             Trusted app entry for device owner provisioning, protected by a permission so only
             privileged app can trigger this.
         -->
         <activity-alias
-            android:name="DeviceOwnerPreProvisioningActivityViaTrustedApp"
-            android:targetActivity="DeviceOwnerPreProvisioningActivity"
+            android:name="PreProvisioningActivityViaTrustedApp"
+            android:targetActivity=".uiflows.PreProvisioningActivity"
             android:permission="android.permission.DISPATCH_PROVISIONING_MESSAGE"
             android:exported="true">
             <intent-filter android:priority="10">
@@ -105,39 +120,6 @@
                 />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity-alias>
-
-        <activity
-             android:name="DeviceOwnerProvisioningActivity"
-             android:excludeFromRecents="true"
-             android:immersive="true"
-             android:launchMode="singleTop"
-             android:theme="@style/SetupWorkSpaceTheme">
-        </activity>
-        <activity
-            android:name="ProfileOwnerPreProvisioningActivity"
-            android:excludeFromRecents="true"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme">
-            <intent-filter android:priority="10">
-                <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
-                <action android:name="android.app.action.PROVISION_MANAGED_USER" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="ProfileOwnerProvisioningActivity"
-            android:excludeFromRecents="true"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme">
-        </activity>
-        <activity-alias
-            android:name="ProfileOwnerProvisioningActivityNoCallerCheck"
-            android:targetActivity="ProfileOwnerPreProvisioningActivity"
-            android:permission="android.permission.MANAGE_USERS"
-            android:exported="true">
         </activity-alias>
         <activity
             android:name="EncryptDeviceActivity"

@@ -39,13 +39,6 @@ import com.android.managedprovisioning.common.Utils;
 public class BootReminder extends BroadcastReceiver {
     private static final int NOTIFY_ID = 1;
 
-    static final ComponentName PROFILE_OWNER_INTENT_TARGET =
-            ProfileOwnerPreProvisioningActivity.ALIAS_NO_CHECK_CALLER;
-
-    static final ComponentName DEVICE_OWNER_INTENT_TARGET =
-            new ComponentName("com.android.managedprovisioning",
-                    "com.android.managedprovisioning.DeviceOwnerPreProvisioningActivity");
-
     private static final String BOOT_REMINDER_INTENT_STORE_NAME = "boot-reminder";
 
     private final Utils mUtils = new Utils();
@@ -61,7 +54,7 @@ public class BootReminder extends BroadcastReceiver {
                 String action = loadedIntent.getAction();
 
                 if (mUtils.isProfileOwnerAction(action)) {
-                    if (!EncryptDeviceActivity.isPhysicalDeviceEncrypted()) {
+                    if (!mUtils.isPhysicalDeviceEncrypted()) {
                         ProvisionLogger.loge("Device is not encrypted after provisioning with"
                                 + " action " + action + " but it should");
                         return;
