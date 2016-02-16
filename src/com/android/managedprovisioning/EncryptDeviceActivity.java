@@ -42,12 +42,12 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
 
         mResumeIntent = (Intent) getIntent().getParcelableExtra(EXTRA_RESUME);
         final String action = mResumeIntent.getAction();
-        if (Utils.isProfileOwnerAction(action)) {
+        if (mUtils.isProfileOwnerAction(action)) {
             initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile, false);
             setTitle(R.string.setup_profile_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(
                     R.string.encrypt_device_text_for_profile_owner_setup);
-        } else if (Utils.isDeviceOwnerAction(action)) {
+        } else if (mUtils.isDeviceOwnerAction(action)) {
             initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device, false);
             setTitle(R.string.setup_device_encryption);
             ((TextView) findViewById(R.id.encrypt_main_text)).setText(

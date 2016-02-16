@@ -30,6 +30,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.android.managedprovisioning.common.Utils;
+
 /**
  * Class that handles the resuming process that takes place after a reboot during the provisioning
  * process. The reboot could be an unexpected reboot or a reboot during the encryption process.
@@ -46,6 +48,8 @@ public class BootReminder extends BroadcastReceiver {
 
     private static final String BOOT_REMINDER_INTENT_STORE_NAME = "boot-reminder";
 
+    private final Utils mUtils = new Utils();
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (android.content.Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
@@ -56,18 +60,18 @@ public class BootReminder extends BroadcastReceiver {
             if (loadedIntent != null) {
                 String action = loadedIntent.getAction();
 
-                if (Utils.isProfileOwnerAction(action)) {
+                if (mUtils.isProfileOwnerAction(action)) {
                     if (!EncryptDeviceActivity.isPhysicalDeviceEncrypted()) {
                         ProvisionLogger.loge("Device is not encrypted after provisioning with"
                                 + " action " + action + " but it should");
                         return;
                     }
-                    if (Utils.isUserSetupCompleted(context)) {
+                    if (mUtils.isUserSetupCompleted(context)) {
                         setNotification(context, loadedIntent);
                     } else {
                         TrampolineActivity.startActivity(context, loadedIntent);
                     }
-                } else if (Utils.isDeviceOwnerAction(action)) {
+                } else if (mUtils.isDeviceOwnerAction(action)) {
                     TrampolineActivity.startActivity(context, loadedIntent);
                 } else {
                     ProvisionLogger.loge("Unknown intent action loaded from the intent store: "

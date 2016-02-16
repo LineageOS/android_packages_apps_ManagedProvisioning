@@ -33,6 +33,8 @@ import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.internal.app.LocalePicker;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
@@ -111,6 +113,8 @@ public class DeviceOwnerProvisioningService extends Service {
     private DisallowAddUserTask mDisallowAddUserTask;
 
     private ProvisioningParams mParams;
+
+    private final Utils mUtils = new Utils();
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
@@ -216,7 +220,7 @@ public class DeviceOwnerProvisioningService extends Service {
                             // component in it.
                             mSetDevicePolicyTask.run(mParams.inferDeviceAdminComponentName(
                                     DeviceOwnerProvisioningService.this));
-                        } catch (Utils.IllegalProvisioningArgumentException e) {
+                        } catch (IllegalProvisioningArgumentException e) {
                             error(R.string.device_owner_error_general);
                             ProvisionLogger.loge("Failed to infer the device admin component name",
                                     e);
@@ -337,7 +341,7 @@ public class DeviceOwnerProvisioningService extends Service {
         mDone = true;
 
         // Set DPM userProvisioningState appropriately.
-        Utils.markUserProvisioningStateInitiallyDone(this, mParams);
+        mUtils.markUserProvisioningStateInitiallyDone(this, mParams);
 
         // Persist mParams so HomeReceiverActivity can later retrieve them to finalize provisioning.
         // This is necessary to deal with accidental reboots during DIA setup, which happens between
@@ -357,7 +361,7 @@ public class DeviceOwnerProvisioningService extends Service {
             return;
         }
 
-        Utils.maybeCopyAccount(DeviceOwnerProvisioningService.this,
+        mUtils.maybeCopyAccount(DeviceOwnerProvisioningService.this,
                 mParams.accountToMigrate, UserHandle.SYSTEM,
                 Process.myUserHandle());
     }

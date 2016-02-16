@@ -25,6 +25,9 @@ import android.os.PersistableBundle;
 
 import java.util.Locale;
 
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.Utils;
+
 /**
  * Provisioning Parameters for Device owner and Profile owner Provisioning.
  */
@@ -41,6 +44,8 @@ public class ProvisioningParams implements Parcelable {
     public String timeZone;
     public long localTime = DEFAULT_LOCAL_TIME;
     public Locale locale;
+
+    private final Utils mUtils = new Utils();
 
     // Intent extra used internally for passing data between activities and service.
     /* package */ static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
@@ -146,9 +151,9 @@ public class ProvisioningParams implements Parcelable {
 
     // This should not be called if the app has not been installed yet.
     ComponentName inferDeviceAdminComponentName(Context c)
-            throws Utils.IllegalProvisioningArgumentException {
+            throws IllegalProvisioningArgumentException {
         if (inferedDeviceAdminComponentName == null) {
-            inferedDeviceAdminComponentName = Utils.findDeviceAdmin(
+            inferedDeviceAdminComponentName = mUtils.findDeviceAdmin(
                     deviceAdminPackageName, deviceAdminComponentName, c);
         }
         return inferedDeviceAdminComponentName;
