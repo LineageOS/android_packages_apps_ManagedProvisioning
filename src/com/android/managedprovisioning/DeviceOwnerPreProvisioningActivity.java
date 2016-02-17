@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
@@ -141,8 +142,8 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         // Ask to encrypt the device before proceeding
         if (!(EncryptDeviceActivity.isPhysicalDeviceEncrypted()
-                        || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
-                        || mParams.skipEncryption)) {
+                || SystemProperties.getBoolean("persist.sys.no_req_encrypt", false)
+                || mParams.skipEncryption)) {
             requestEncryption(parser, mParams);
             return;
             // System will reboot. Bootreminder will restart this activity.
@@ -176,17 +177,38 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         setTitle(R.string.setup_device_start_setup);
     }
 
-    private ProvisioningParams parseIntentAndMaybeVerifyCaller(Intent intent, boolean trusted,
-            MessageParser parser) throws IllegalProvisioningArgumentException {
+    /**
+     * Verifies the provisioning intent and parses extra data based on the sender identity.
+     *
+     * <p/> There are 3 types of senders:
+     * <ol>
+     *     <li>Self oriented intent: the sender is this app.</li>
+     *     <li>Trusted intent: the sender is a privileged source, such as NFC bump, QR code </li>
+     *     <li>Untrusted intent: the sender is a 3rd party app.</li>
+     * </ol>
+     *
+     * @param intent which contains provisioning data.
+     * @param isSelfOriginated true if the source of intent is this app. Otherwise, false.
+     * @param parser which is used for parsing provision data from intent.
+     * @return Provisioning data
+     * @throws IllegalProvisioningArgumentException
+     */
+    private ProvisioningParams parseIntentAndMaybeVerifyCaller(
+            Intent intent, boolean isSelfOriginated, MessageParser parser)
+                    throws IllegalProvisioningArgumentException {
         if (intent.getAction() == null) {
             throw new IllegalProvisioningArgumentException("Null intent action.");
         } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
             return parser.parseNfcIntent(intent);
-        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
-                intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
+        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
+            // We trusted most of the extras from this intent because the caller is a privileged
+            // app. But we don't support internal only APIs for this intent.
+            return parser.parseNonNfcIntent(intent, this, false);
+        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE)
+                || intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
             ProvisioningParams params;
-            if (trusted) {
-                // If we're trusted, we support all the extras.
+            if (isSelfOriginated) {
+                // If the intent is sent by this app, we support all the extras.
                 params = parser.parseNonNfcIntent(intent, this, true);
             } else {
                 // If we were started by another app, we don't support many extras, so use the
@@ -198,7 +220,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 throw new IllegalProvisioningArgumentException("Calling package is null. " +
                     "Was startActivityForResult used to start this activity?");
             }
-            if (!trusted && !callingPackage.equals(params.inferDeviceAdminPackageName())) {
+            if (!isSelfOriginated && !callingPackage.equals(params.inferDeviceAdminPackageName())) {
                 throw new IllegalProvisioningArgumentException("Permission denied, "
                         + "calling package tried to set a different package as device owner. ");
             }
@@ -234,11 +256,12 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void askForConsentOrStartProvisioning() {
-        // If we are started by Nfc and the device supports FRP, we need to ask for user consent
-        // since FRP will not be activated at the end of the flow.
-        if (mParams.startedByNfc && Utils.isFrpSupported(this)) {
+        // If we are started by (Nfc or a trusted app (e.g. SUW)) and the device supports FRP, we
+        // need to ask for user consent since FRP will not be activated at the end of the flow.
+        if ((mParams.startedByTrustedSource)
+                && Utils.isFrpSupported(this)) {
             showUserConsentDialog();
-        } else if (mUserConsented || mParams.startedByNfc) {
+        } else if (mUserConsented || mParams.startedByTrustedSource) {
             maybeCreateUserAndStartProvisioning();
         } else {
             showStartProvisioningButton();
@@ -383,7 +406,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         // For other cases, dismissing the consent dialog will lead back to
         // DeviceOwnerPreProvisioningActivity, where we show another dialog asking for user
         // confirmation to cancel the setup and factory reset the device.
-        if (mParams.startedByNfc) {
+        if (mParams.startedByTrustedSource) {
             setResult(RESULT_CANCELED);
             finish();
         } else {
@@ -413,9 +436,11 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
      * then start provisioning.
      */
     private void showUserConsentDialog() {
-        // Don't show the user consent checkbox if we were started by nfc.
-        UserConsentDialog.newInstance(UserConsentDialog.DEVICE_OWNER, !mParams.startedByNfc)
-                .show(getFragmentManager(), "UserConsentDialogFragment");
+        // Don't show the user consent checkbox if we were started by nfc or by a privileged app.
+        UserConsentDialog.newInstance(
+                UserConsentDialog.DEVICE_OWNER,
+                !mParams.startedByTrustedSource)
+                        .show(getFragmentManager(), "UserConsentDialogFragment");
     }
 
     private class CreatePrimaryUserTask extends AsyncTask<Void, Void, UserInfo> {
