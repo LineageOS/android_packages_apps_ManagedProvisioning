@@ -128,7 +128,10 @@ public class ProvisioningParams implements Parcelable {
 
     public PersistableBundle adminExtrasBundle;
 
-    public boolean startedByNfc; // True iff provisioning flow was started by Nfc bump.
+    /**
+     * True iff provisioning flow was started by a trusted app. This includes Nfc bump and QR code.
+     */
+    public boolean startedByTrustedSource;
 
     public boolean leaveAllSystemAppsEnabled;
     public boolean skipEncryption;
@@ -166,7 +169,7 @@ public class ProvisioningParams implements Parcelable {
         out.writeParcelable(deviceAdminComponentName, 0 /* default */);
         deviceAdminDownloadInfo.writeToParcel(out);
         out.writeParcelable(adminExtrasBundle, 0 /* default */);
-        out.writeInt(startedByNfc ? 1 : 0);
+        out.writeInt(startedByTrustedSource ? 1 : 0);
         out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
         out.writeInt(skipEncryption ? 1 : 0);
         out.writeParcelable(accountToMigrate, 0 /* default */);
@@ -194,7 +197,7 @@ public class ProvisioningParams implements Parcelable {
                     in.readParcelable(null /* use default classloader */);
             params.deviceAdminDownloadInfo.readFromParcel(in);
             params.adminExtrasBundle = in.readParcelable(null /* use default classloader */);
-            params.startedByNfc = in.readInt() == 1;
+            params.startedByTrustedSource = in.readInt() == 1;
             params.leaveAllSystemAppsEnabled = in.readInt() == 1;
             params.skipEncryption = in.readInt() == 1;
             params.accountToMigrate =

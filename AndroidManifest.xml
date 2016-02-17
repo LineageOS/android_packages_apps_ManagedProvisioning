@@ -91,6 +91,23 @@
             </intent-filter>
         </activity-alias>
 
+        <!--
+            Trusted app entry for device owner provisioning, protected by a permission so only
+            privileged app can trigger this.
+        -->
+        <activity-alias
+            android:name="DeviceOwnerPreProvisioningActivityViaTrustedApp"
+            android:targetActivity="DeviceOwnerPreProvisioningActivity"
+            android:permission="android.permission.DISPATCH_PROVISIONING_MESSAGE"
+            android:exported="true">
+            <intent-filter android:priority="10">
+                <action
+                    android:name="android.app.action.PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE"
+                />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
         <activity
              android:name="DeviceOwnerProvisioningActivity"
              android:excludeFromRecents="true"
