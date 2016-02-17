@@ -94,7 +94,7 @@
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <string name="continue_provisioning_notify_title">Encryption complete</string>
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
-  <string name="continue_provisioning_notify_text">Touch to continue setting up your work profile</string>
+  <string name="continue_provisioning_notify_text">Tap to continue setting up your work profile</string>
 
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
   <string name="managed_provisioning_error_text">Couldn\'t set up your work profile. Contact your IT department or try again later.</string>
