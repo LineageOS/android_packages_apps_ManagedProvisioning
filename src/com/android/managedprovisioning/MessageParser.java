@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
@@ -118,13 +119,16 @@ import java.util.Properties;
  * DEVICE_OWNER_x_EXTRAS and PROFILE_OWNER_x_EXTRAS, with x the appropriate type.
  */
 public class MessageParser {
-    private static final String EXTRA_PROVISIONING_STARTED_BY_NFC  =
-            "com.android.managedprovisioning.extra.started_by_nfc";
+    private static final String EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE  =
+            "com.android.managedprovisioning.extra.started_by_trusted_source";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
     /**
-     * An intent can be converted to ProvisioningParams with parseNfcIntent, and then we can get
-     * an intent back with this method.
+     * Converts {@link ProvisioningParams} to {@link Intent}.
+     *
+     * <p/>One of the use cases is to store {@link ProvisioningParams} before device-encryption
+     * takes place. After device encryption is completed, the managed provisioning is resumed by
+     * sending this intent.
      */
     public Intent getIntentFromProvisioningParams(ProvisioningParams params) {
         Intent intent = new Intent();
@@ -156,7 +160,8 @@ public class MessageParser {
         intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
                 Utils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
         intent.putExtra(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
-        intent.putExtra(EXTRA_PROVISIONING_STARTED_BY_NFC, params.startedByNfc);
+        intent.putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
+                params.startedByTrustedSource);
         intent.putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 params.leaveAllSystemAppsEnabled);
         intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
@@ -176,7 +181,7 @@ public class MessageParser {
         if (firstRecord != null) {
             ProvisioningParams params = parseProperties(
                     new String(firstRecord.getPayload(), UTF_8));
-            params.startedByNfc = true;
+            params.startedByTrustedSource = true;
             params.provisioningAction = Utils.mapIntentToDpmAction(nfcIntent);
             ProvisionLogger.logi("End processing Nfc Payload.");
             return params;
@@ -298,10 +303,12 @@ public class MessageParser {
         return extrasBundle;
     }
 
-    public ProvisioningParams parseMinimalistNonNfcIntent(Intent intent, Context context,
-            boolean trusted) throws IllegalProvisioningArgumentException {
+    public ProvisioningParams parseMinimalistNonNfcIntent(
+            Intent intent, Context context, boolean isSelfOriginated)
+            throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing mininalist non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, trusted);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(
+                intent, context, isSelfOriginated);
         if (params.deviceAdminComponentName == null) {
             throw new IllegalProvisioningArgumentException("Must provide the component name of the"
                     + " device admin");
@@ -309,8 +316,9 @@ public class MessageParser {
         return params;
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(Intent intent, Context context,
-            boolean trusted) throws IllegalProvisioningArgumentException {
+    private ProvisioningParams parseMinimalistNonNfcIntentInternal(
+            Intent intent, Context context, boolean isSelfOriginated)
+            throws IllegalProvisioningArgumentException {
         ProvisioningParams params = new ProvisioningParams();
         params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
@@ -341,9 +349,10 @@ public class MessageParser {
             // If we go through encryption, and if the uri is a content uri:
             // We'll lose the grant to this uri. So we need to save it to a local file.
             LogoUtils.saveOrganisationLogo(context, logoUri);
-        } else if (!trusted) {
-            // If the intent is not trusted: there is a slight possibility that the logo is still
-            // kept on the file system from a previous provisioning. In this case, remove it.
+        } else if (!isSelfOriginated) {
+            // If the intent is not from managed provisioning app, there is a slight possibility
+            // that the logo is still kept on the file system from a previous provisioning. In this
+            // case, remove it.
             LogoUtils.cleanUp(context);
         }
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_USER) ||
@@ -358,19 +367,22 @@ public class MessageParser {
     }
 
     /**
-     * Parse an intent and return a corresponding {@link ProvisioningParams} object.
+     * Parses an intent and return a corresponding {@link ProvisioningParams} object.
      *
      * @param intent intent to be parsed.
-     * @param trusted whether the intent is trusted or not. A trusted intent can contain internal
-     * extras which are not part of the public API. These extras often control sensitive aspects of
-     * ManagedProvisioning such as whether deprecated SHA-1 is supported, or whether MP was started
-     * from NFC (hence no user consent dialog). Intents used by other apps to start MP should always
-     * be untrusted.
+     * @param isSelfOriginated whether the intent is sent by this app. A self-originated intent can
+     *                         contain internal extras which are not part of the public API. These
+     *                         extras often control sensitive aspects of Managed Provisioning such
+     *                         as whether deprecated SHA-1 is supported, or whether Managed
+     *                         Provisioning was started from NFC / QR code (hence no user consent
+     *                         dialog).
      */
-    public ProvisioningParams parseNonNfcIntent(Intent intent, Context context, boolean trusted)
+    public ProvisioningParams parseNonNfcIntent(
+            Intent intent, Context context, boolean isSelfOriginated)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(intent, context, trusted);
+        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(
+                intent, context, isSelfOriginated);
 
         params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
         String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
@@ -402,8 +414,9 @@ public class MessageParser {
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (packageHash != null) {
             params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(packageHash);
-            // If we are restarted after an encryption reboot, use stored (trusted) value for this.
-            if (trusted) {
+            // If we are restarted after an encryption reboot, use stored (isSelfOriginated) value
+            // for this.
+            if (isSelfOriginated) {
                 params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = intent.getBooleanExtra(
                         EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM, false);
             }
@@ -416,12 +429,15 @@ public class MessageParser {
 
         params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
                 ProvisioningParams.DEFAULT_LOCAL_TIME);
-        if (trusted) {
-            // The only case where startedByNfc can be true in this code path is we are reloading
-            // a stored Nfc bump intent after encryption reboot, which is a trusted intent.
-            params.startedByNfc = intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_NFC,
-                    false);
-        }
+
+        // Cases where startedByTrustedSource can be true are
+        // 1. We are reloading a stored provisioning intent, either Nfc bump or
+        //    PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE, after encryption reboot, which is a
+        //    self-originated intent.
+        // 2. the intent is from a trusted source, for example QR provisioning.
+        params.startedByTrustedSource = isSelfOriginated
+                ? intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE, false)
+                : ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction());
 
         params.accountToMigrate = (Account) intent.getParcelableExtra(
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);

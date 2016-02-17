@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
@@ -489,7 +490,16 @@ public class Utils {
     }
 
     /**
-     * @return the appropriate DevicePolicyManager declared action for the given incoming intent
+     * Translates a given managed provisioning intent to its corresponding provisioning flow, using
+     * the action from the intent.
+     *
+     * <p/>This is necessary because, unlike other provisioning actions which has 1:1 mapping, there
+     * are multiple actions that can trigger the device owner provisioning flow. This includes
+     * {@link ACTION_PROVISION_MANAGED_DEVICE}, {@link ACTION_NDEF_DISCOVERED} and
+     * {@link ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}. These 3 actions are equivalent
+     * excepts they are sent from a different source.
+     *
+     * @return the appropriate DevicePolicyManager declared action for the given incoming intent.
      * @throws IllegalProvisioningArgumentException if intent is malformed
      */
     public static String mapIntentToDpmAction(Intent intent)
@@ -522,6 +532,12 @@ public class Utils {
                         throw new IllegalProvisioningArgumentException(
                                 "Unknown NFC bump mime-type: " + mimeType);
                 }
+                break;
+
+            // Device owner provisioning from a trusted app.
+            // TODO (b/27217042): review for new management modes in split system-user model
+            case ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE:
+                dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
                 break;
 
             default:
