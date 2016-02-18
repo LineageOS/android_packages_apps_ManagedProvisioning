@@ -27,7 +27,6 @@ import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.Utils;
 
 /**
  * This tasks sets a given component as the owner of the device.

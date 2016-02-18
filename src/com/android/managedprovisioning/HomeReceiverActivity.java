@@ -30,7 +30,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 
-import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.Utils;
 
 /*
  * This class is used to make sure that we start the mdm after we shut the Setup wizard down.
@@ -50,6 +51,8 @@ public class HomeReceiverActivity extends Activity {
     private ProvisioningParams mParams;
 
     private static final String HOME_RECEIVER_INTENT_STORE_NAME = "home-receiver";
+
+    private final Utils mUtils = new Utils();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,11 +106,11 @@ public class HomeReceiverActivity extends Activity {
             }
         }
 
-        Utils.markUserProvisioningStateFinalized(this, mParams);
+        mUtils.markUserProvisioningStateFinalized(this, mParams);
     }
 
     private void finalizeManagedProfileOwnerProvisioning(Intent provisioningCompleteIntent) {
-        UserHandle managedUserHandle = Utils.getManagedProfile(this);
+        UserHandle managedUserHandle = mUtils.getManagedProfile(this);
         if (managedUserHandle == null) {
             ProvisionLogger.loge("Failed to retrieve the userHandle of the managed profile.");
             return;
@@ -123,7 +126,7 @@ public class HomeReceiverActivity extends Activity {
         Intent intent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
         try {
             intent.setComponent(mParams.inferDeviceAdminComponentName(this));
-        } catch (Utils.IllegalProvisioningArgumentException e) {
+        } catch (IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Failed to infer the device admin component name", e);
             return null;
         }

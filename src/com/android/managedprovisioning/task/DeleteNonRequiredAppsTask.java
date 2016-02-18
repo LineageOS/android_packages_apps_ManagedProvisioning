@@ -42,7 +42,7 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.view.IInputMethodManager;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.Utils;
+import com.android.managedprovisioning.common.Utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -98,6 +98,8 @@ public class DeleteNonRequiredAppsTask {
     public static final int DEVICE_OWNER = 0;
     public static final int PROFILE_OWNER = 1;
     public static final int MANAGED_USER = 2;
+
+    private final Utils mUtils = new Utils();
 
     /**
      * Provisioning type should be either {@link #DEVICE_OWNER}, {@link #PROFILE_OWNER} or
@@ -203,7 +205,7 @@ public class DeleteNonRequiredAppsTask {
         File systemAppsFile = getSystemAppsFile(mContext, mUserId);
         systemAppsFile.getParentFile().mkdirs(); // Creating the folder if it does not exist
 
-        Set<String> currentSystemApps = Utils.getCurrentSystemApps(mIPackageManager, mUserId);
+        Set<String> currentSystemApps = mUtils.getCurrentSystemApps(mIPackageManager, mUserId);
         final Set<String> previousSystemApps;
         if (mNewProfile) {
             // Provisioning case.

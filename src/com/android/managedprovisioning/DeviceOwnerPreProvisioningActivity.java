@@ -45,8 +45,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
-import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
-import com.android.managedprovisioning.Utils.MdmPackageInfo;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.MdmPackageInfo;
 
 import java.util.List;
 
@@ -91,7 +91,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         String dpmProvisioningAction = null;
         try {
-            dpmProvisioningAction = Utils.mapIntentToDpmAction(getIntent());
+            dpmProvisioningAction = mUtils.mapIntentToDpmAction(getIntent());
             ProvisionLogger.logi(
                     "Starting DO provisioning for target action: " + dpmProvisioningAction);
         } catch (IllegalProvisioningArgumentException e) {
@@ -111,7 +111,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                 0 /*defaults*/) != 0) {
             showErrorAndClose(R.string.device_owner_error_already_provisioned,
                     "Device already provisioned.");
-        } else if (!Utils.isCurrentUserSystem()) {
+        } else if (!mUtils.isCurrentUserSystem()) {
             showErrorAndClose(R.string.device_owner_error_general,
                     "Device owner can only be set up for USER_SYSTEM.");
         } else if (dpmProvisioningAction.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE) &&
@@ -131,7 +131,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         try {
             mParams = parseIntentAndMaybeVerifyCaller(getIntent(),
                     getPackageName().equals(getCallingPackage()), parser);
-        } catch (Utils.IllegalProvisioningArgumentException e) {
+        } catch (IllegalProvisioningArgumentException e) {
             showErrorAndClose(R.string.device_owner_error_general,
                     e.getMessage());
             return;
@@ -258,8 +258,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
     private void askForConsentOrStartProvisioning() {
         // If we are started by (Nfc or a trusted app (e.g. SUW)) and the device supports FRP, we
         // need to ask for user consent since FRP will not be activated at the end of the flow.
-        if ((mParams.startedByTrustedSource)
-                && Utils.isFrpSupported(this)) {
+        if ((mParams.startedByTrustedSource) && mUtils.isFrpSupported(this)) {
             showUserConsentDialog();
         } else if (mUserConsented || mParams.startedByTrustedSource) {
             maybeCreateUserAndStartProvisioning();
@@ -367,10 +366,10 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
         ImageView imageView = (ImageView) findViewById(R.id.device_manager_icon_view);
         TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
         String packageName = mParams.inferDeviceAdminPackageName();
-        MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);
+        MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(this, packageName);
         if (packageInfo != null) {
-            String appLabel = packageInfo.getAppLabel();
-            imageView.setImageDrawable(packageInfo.getPackageIcon());
+            String appLabel = packageInfo.appLabel;
+            imageView.setImageDrawable(packageInfo.packageIcon);
             imageView.setContentDescription(
                     getResources().getString(R.string.mdm_icon_label, appLabel));
             deviceManagerName.setText(appLabel);
@@ -417,7 +416,7 @@ public class DeviceOwnerPreProvisioningActivity extends SetupLayoutActivity
                             new AlertDialog.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-                                    Utils.sendFactoryResetBroadcast(
+                                    mUtils.sendFactoryResetBroadcast(
                                             DeviceOwnerPreProvisioningActivity.this,
                                             "Device owner setup cancelled");
                                 }
