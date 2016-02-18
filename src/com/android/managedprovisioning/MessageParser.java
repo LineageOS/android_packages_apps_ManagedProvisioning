@@ -61,7 +61,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.Utils;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -123,6 +124,9 @@ public class MessageParser {
             "com.android.managedprovisioning.extra.started_by_trusted_source";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
+
+    private final Utils mUtils = new Utils();
+
     /**
      * Converts {@link ProvisioningParams} to {@link Intent}.
      *
@@ -154,11 +158,11 @@ public class MessageParser {
         intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                 params.deviceAdminDownloadInfo.cookieHeader);
         intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                Utils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
+                mUtils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
         intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
                 params.deviceAdminDownloadInfo.packageChecksumSupportsSha1);
         intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
-                Utils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
+                mUtils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
         intent.putExtra(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
         intent.putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
                 params.startedByTrustedSource);
@@ -177,12 +181,12 @@ public class MessageParser {
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing Nfc Payload.");
-        NdefRecord firstRecord = Utils.firstNdefRecord(nfcIntent);
+        NdefRecord firstRecord = mUtils.firstNdefRecord(nfcIntent);
         if (firstRecord != null) {
             ProvisioningParams params = parseProperties(
                     new String(firstRecord.getPayload(), UTF_8));
             params.startedByTrustedSource = true;
-            params.provisioningAction = Utils.mapIntentToDpmAction(nfcIntent);
+            params.provisioningAction = mUtils.mapIntentToDpmAction(nfcIntent);
             ProvisionLogger.logi("End processing Nfc Payload.");
             return params;
         }
@@ -240,7 +244,7 @@ public class MessageParser {
             params.deviceAdminDownloadInfo.cookieHeader = props.getProperty(
                     EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
-                params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(s);
+                params.deviceAdminDownloadInfo.packageChecksum = mUtils.stringToByteArray(s);
                 // Still support SHA-1 for device admin package hash if we are provisioned by a Nfc
                 // programmer.
                 // TODO: remove once SHA-1 is fully deprecated.
@@ -248,7 +252,7 @@ public class MessageParser {
             }
             if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
                     != null) {
-                params.deviceAdminDownloadInfo.signatureChecksum = Utils.stringToByteArray(s);
+                params.deviceAdminDownloadInfo.signatureChecksum = mUtils.stringToByteArray(s);
             }
 
             if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
@@ -273,11 +277,11 @@ public class MessageParser {
             checkValidityOfProvisioningParams(params);
             return params;
         } catch (IOException e) {
-            throw new Utils.IllegalProvisioningArgumentException("Couldn't load payload", e);
+            throw new IllegalProvisioningArgumentException("Couldn't load payload", e);
         } catch (NumberFormatException e) {
-            throw new Utils.IllegalProvisioningArgumentException("Incorrect numberformat.", e);
+            throw new IllegalProvisioningArgumentException("Incorrect numberformat.", e);
         } catch (IllformedLocaleException e) {
-            throw new Utils.IllegalProvisioningArgumentException("Invalid locale.", e);
+            throw new IllegalProvisioningArgumentException("Invalid locale.", e);
         }
     }
 
@@ -335,7 +339,7 @@ public class MessageParser {
         } else {
             params.mainColor = null;
         }
-        params.provisioningAction = Utils.mapIntentToDpmAction(intent);
+        params.provisioningAction = mUtils.mapIntentToDpmAction(intent);
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
@@ -413,7 +417,7 @@ public class MessageParser {
         String packageHash =
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (packageHash != null) {
-            params.deviceAdminDownloadInfo.packageChecksum = Utils.stringToByteArray(packageHash);
+            params.deviceAdminDownloadInfo.packageChecksum = mUtils.stringToByteArray(packageHash);
             // If we are restarted after an encryption reboot, use stored (isSelfOriginated) value
             // for this.
             if (isSelfOriginated) {
@@ -424,7 +428,7 @@ public class MessageParser {
         String sigHash =
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM);
         if (sigHash != null) {
-            params.deviceAdminDownloadInfo.signatureChecksum = Utils.stringToByteArray(sigHash);
+            params.deviceAdminDownloadInfo.signatureChecksum = mUtils.stringToByteArray(sigHash);
         }
 
         params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,

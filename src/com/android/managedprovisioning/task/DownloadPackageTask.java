@@ -33,7 +33,7 @@ import android.text.TextUtils;
 import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
-import com.android.managedprovisioning.Utils;
+import com.android.managedprovisioning.common.Utils;
 
 import java.io.InputStream;
 import java.io.IOException;
@@ -68,6 +68,8 @@ public class DownloadPackageTask {
     private final PackageManager mPm;
     private int mFileNumber = 0;
 
+    private final Utils mUtils = new Utils();
+
     private Set<DownloadStatusInfo> mDownloads;
 
     public DownloadPackageTask (Context context, Callback callback) {
@@ -81,7 +83,7 @@ public class DownloadPackageTask {
 
     public void addDownloadIfNecessary(String packageName, PackageDownloadInfo downloadInfo,
             String label) {
-        if (!TextUtils.isEmpty(downloadInfo.location) && Utils.packageRequiresUpdate(packageName,
+        if (!TextUtils.isEmpty(downloadInfo.location) && mUtils.packageRequiresUpdate(packageName,
                downloadInfo.minVersion, mContext)) {
             mDownloads.add(new DownloadStatusInfo(downloadInfo, label));
         }
@@ -230,11 +232,11 @@ public class DownloadPackageTask {
 
         ProvisionLogger.loge("Provided hash does not match file hash.");
         ProvisionLogger.loge("Hash provided by programmer: "
-                + Utils.byteArrayToString(info.mPackageDownloadInfo.packageChecksum));
-        ProvisionLogger.loge("SHA-256 Hash computed from file: " + Utils.byteArrayToString(
+                + mUtils.byteArrayToString(info.mPackageDownloadInfo.packageChecksum));
+        ProvisionLogger.loge("SHA-256 Hash computed from file: " + mUtils.byteArrayToString(
                 packageSha256Hash));
         if (packageSha1Hash != null) {
-            ProvisionLogger.loge("SHA-1 Hash computed from file: " + Utils.byteArrayToString(
+            ProvisionLogger.loge("SHA-1 Hash computed from file: " + mUtils.byteArrayToString(
                     packageSha1Hash));
         }
         return false;
@@ -261,10 +263,10 @@ public class DownloadPackageTask {
 
         ProvisionLogger.loge("Provided hash does not match any signature hash.");
         ProvisionLogger.loge("Hash provided by programmer: "
-                + Utils.byteArrayToString(info.mPackageDownloadInfo.signatureChecksum));
+                + mUtils.byteArrayToString(info.mPackageDownloadInfo.signatureChecksum));
         ProvisionLogger.loge("Hashes computed from package signatures: ");
         for (byte[] sigHash : sigHashes) {
-            ProvisionLogger.loge(Utils.byteArrayToString(sigHash));
+            ProvisionLogger.loge(mUtils.byteArrayToString(sigHash));
         }
 
         return false;

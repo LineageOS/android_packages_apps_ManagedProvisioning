@@ -41,8 +41,8 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.DeleteManagedProfileDialog.DeleteManagedProfileCallback;
 import com.android.managedprovisioning.UserConsentDialog.ConsentCallback;
-import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
-import com.android.managedprovisioning.Utils.MdmPackageInfo;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.MdmPackageInfo;
 
 import java.io.IOException;
 import java.io.File;
@@ -125,7 +125,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
                 showErrorAndClose(R.string.user_cannot_have_work_profile,
                         "Exiting managed profile provisioning, calling user cannot have managed"
                         + "profiles.");
-            } else if (Utils.isDeviceManaged(this)) {
+            } else if (mUtils.isDeviceManaged(this)) {
                 // The actual check in isProvisioningAllowed() is more than just "is there DO?",
                 // but for error message showing purpose, isDeviceManaged() will do.
                 showErrorAndClose(R.string.device_owner_exists,
@@ -179,7 +179,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
 
         // If there is already a managed profile, setup the profile deletion dialog.
         // Otherwise, check whether system has reached maximum user limit.
-        int existingManagedProfileUserId = Utils.alreadyHasManagedProfile(this);
+        int existingManagedProfileUserId = mUtils.alreadyHasManagedProfile(this);
         if (existingManagedProfileUserId != -1) {
             createDeleteManagedProfileDialog(mDevicePolicyManager, existingManagedProfileUserId);
         } else {
@@ -191,7 +191,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     protected void onResume() {
         super.onResume();
         setTitle(R.string.setup_profile_start_setup);
-        if (Utils.alreadyHasManagedProfile(this) != -1) {
+        if (mUtils.alreadyHasManagedProfile(this) != -1) {
             maybeShowDeleteManagedProfileDialog();
         }
     }
@@ -251,11 +251,11 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
     }
 
     private void setMdmIcon(String packageName) {
-        MdmPackageInfo packageInfo = Utils.getMdmPackageInfo(getPackageManager(), packageName);
+        MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(this, packageName);
         if (packageInfo != null) {
-            String appLabel = packageInfo.getAppLabel();
+            String appLabel = packageInfo.appLabel;
             ImageView imageView = (ImageView) findViewById(R.id.device_manager_icon_view);
-            imageView.setImageDrawable(packageInfo.getPackageIcon());
+            imageView.setImageDrawable(packageInfo.packageIcon);
             imageView.setContentDescription(
                     getResources().getString(R.string.mdm_icon_label, appLabel));
 
@@ -276,7 +276,7 @@ public class ProfileOwnerPreProvisioningActivity extends SetupLayoutActivity
             throws IllegalProvisioningArgumentException {
         mParams = mParser.parseNonNfcIntent(intent, this, trusted);
 
-        mParams.deviceAdminComponentName = Utils.findDeviceAdmin(
+        mParams.deviceAdminComponentName = mUtils.findDeviceAdmin(
                 mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, this);
         mParams.deviceAdminPackageName = mParams.deviceAdminComponentName.getPackageName();
     }

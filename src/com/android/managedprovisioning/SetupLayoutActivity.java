@@ -34,6 +34,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.setupwizardlib.SetupWizardLayout;
 import com.android.setupwizardlib.view.NavigationBar;
 import com.android.setupwizardlib.view.NavigationBar.NavigationBarListener;
@@ -42,6 +43,7 @@ import com.android.setupwizardlib.view.NavigationBar.NavigationBarListener;
  * Base class for setting up the layout.
  */
 public abstract class SetupLayoutActivity extends Activity implements NavigationBarListener {
+    protected final Utils mUtils = new Utils();
 
     protected Button mNextButton;
     protected Button mBackButton;

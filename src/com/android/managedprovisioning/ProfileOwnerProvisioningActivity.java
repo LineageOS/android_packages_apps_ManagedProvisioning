@@ -272,10 +272,10 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         // If skipUserSetup is true, then we want the setup-wizard for the user (if running) to exit
         // immediately. Setting USER_SETUP_COMPLETE to 1 achieves this in cases where provisioning
         // is started during first device or user setup.
-        if (mParams.skipUserSetup && !Utils.isUserSetupCompleted(this)) {
+        if (mParams.skipUserSetup && !mUtils.isUserSetupCompleted(this)) {
             // Since provisioning could have started from Setup wizard, we should set
             // USER_SETUP_COMPLETE to true in order to shut down the Setup wizard.
-            Utils.markDeviceProvisioned(ProfileOwnerProvisioningActivity.this);
+            mUtils.markDeviceProvisioned(ProfileOwnerProvisioningActivity.this);
         }
 
         mCancelStatus = STATUS_FINALIZING;
