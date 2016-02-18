@@ -42,6 +42,7 @@ import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
@@ -100,6 +101,8 @@ public class ProfileOwnerProvisioningService extends Service {
     private int mProvisioningStatus = STATUS_UNKNOWN;
 
     private ProvisioningParams mParams;
+
+    private final Utils mUtils = new Utils();
 
     private class RunnerTask extends AsyncTask<Intent, Void, Void> {
         @Override
@@ -320,7 +323,7 @@ public class ProfileOwnerProvisioningService extends Service {
             // Note: account migration must happen after setting the profile owner.
             // Otherwise, there will be a time interval where some apps may think that the account
             // does not have a profile owner.
-            Utils.maybeCopyAccount(this, mParams.accountToMigrate, Process.myUserHandle(),
+            mUtils.maybeCopyAccount(this, mParams.accountToMigrate, Process.myUserHandle(),
                     mManagedProfileOrUserInfo.getUserHandle());
         }
     }
@@ -407,9 +410,9 @@ public class ProfileOwnerProvisioningService extends Service {
      */
     private void notifyMdmAndCleanup() {
         // Set DPM userProvisioningState appropriately.
-        Utils.markUserProvisioningStateInitiallyDone(this, mParams);
+        mUtils.markUserProvisioningStateInitiallyDone(this, mParams);
 
-        // TODO: Clean-up/remove the following Utils.mark*() calls once SUW has been updated to use
+        // TODO: Clean-up/remove the following mUtils.mark*() calls once SUW has been updated to use
         //       DevicePolicyManager.getUserProvisioningState(). In the mean-time, support both
         //       mechanisms to avoid breaking integration.
 
@@ -417,7 +420,7 @@ public class ProfileOwnerProvisioningService extends Service {
         // managed-profile. We always expect user_setup_complete to be set for managed-profile
         // cases.
         if (mParams.skipUserSetup) {
-            Utils.markUserSetupComplete(this, mManagedProfileOrUserInfo.id);
+            mUtils.markUserSetupComplete(this, mManagedProfileOrUserInfo.id);
         }
 
         // If profile owner provisioning was started after user setup is completed, then we
@@ -426,7 +429,7 @@ public class ProfileOwnerProvisioningService extends Service {
         // Setup wizard at the end of provisioning which will result in a home intent. So, to
         // avoid the race condition, HomeReceiverActivity is enabled which will in turn send
         // the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast.
-        if (Utils.isUserSetupCompleted(this)) {
+        if (mUtils.isUserSetupCompleted(this)) {
             UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
 
             // Use an ordered broadcast, so that we only finish when the mdm has received it.

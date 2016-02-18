@@ -30,6 +30,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.uiflows.WebActivity;
 
 /**
@@ -52,6 +53,8 @@ public class UserConsentDialog extends DialogFragment {
 
     private static final String KEY_OWNER_TYPE = "owner_type";
     private static final String KEY_SHOW_CONSENT_CHECKBOX = "consent_checkbox";
+
+    private final Utils mUtils = new Utils();
 
     public static UserConsentDialog newInstance(int ownerType, boolean showConsentCheckbox) {
         UserConsentDialog dialog = new UserConsentDialog();
@@ -100,7 +103,7 @@ public class UserConsentDialog extends DialogFragment {
                         getActivity().startActivity(webIntent);
                     }
                 });
-            if (Utils.isFrpSupported(getActivity())) {
+            if (mUtils.isFrpSupported(getActivity())) {
                 textFrpWarning.setVisibility(View.VISIBLE);
             }
         }

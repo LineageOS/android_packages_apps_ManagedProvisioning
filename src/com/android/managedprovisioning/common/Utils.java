@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
@@ -41,7 +41,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
-import android.graphics.drawable.Drawable;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -66,15 +65,29 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import com.android.managedprovisioning.FinalizationActivity;
+import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.ProvisioningParams;
+import com.android.managedprovisioning.TrampolineActivity;
+
 /**
  * Class containing various auxiliary methods.
  */
 public class Utils {
     private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 3;  // 3 minutes
 
-    private Utils() {}
+    public Utils() {}
 
-    public static Set<String> getCurrentSystemApps(IPackageManager ipm, int userId) {
+    /**
+     * Returns the currently installed system apps on a given user.
+     *
+     * <p>Calls into the {@link IPackageManager} to retrieve all installed packages on the given
+     * user and returns the package names of all system apps.
+     *
+     * @param ipm an {@link IPackageManager} object
+     * @param userId the id of the user we are interested in
+     */
+    public Set<String> getCurrentSystemApps(IPackageManager ipm, int userId) {
         Set<String> apps = new HashSet<String>();
         List<ApplicationInfo> aInfos = null;
         try {
@@ -91,11 +104,26 @@ public class Utils {
         return apps;
     }
 
-    public static void disableComponent(ComponentName toDisable, int userId) {
-        try {
-            IPackageManager ipm = IPackageManager.Stub.asInterface(ServiceManager
-                .getService("package"));
+    /**
+     * Disables a given component in a given user.
+     *
+     * @param toDisable the component that should be disabled
+     * @param userId the id of the user where the component should be disabled.
+     */
+    public void disableComponent(ComponentName toDisable, int userId) {
+        disableComponent(IPackageManager.Stub.asInterface(ServiceManager.getService("package")),
+                toDisable, userId);
+    }
 
+    /**
+     * Disables a given component in a given user.
+     *
+     * @param ipm an {@link IPackageManager} object
+     * @param toDisable the component that should be disabled
+     * @param userId the id of the user where the component should be disabled.
+     */
+    public void disableComponent(IPackageManager ipm, ComponentName toDisable, int userId) {
+        try {
             ipm.setComponentEnabledSetting(toDisable,
                     PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP,
                     userId);
@@ -104,22 +132,6 @@ public class Utils {
         } catch (Exception e) {
             ProvisionLogger.logw("Component not found, not disabling it: "
                 + toDisable.toShortString());
-        }
-    }
-
-    /**
-     * Exception thrown when the provisioning has failed completely.
-     *
-     * We're using a custom exception to avoid catching subsequent exceptions that might be
-     * significant.
-     */
-    public static class IllegalProvisioningArgumentException extends Exception {
-        public IllegalProvisioningArgumentException(String message) {
-            super(message);
-        }
-
-        public IllegalProvisioningArgumentException(String message, Throwable t) {
-            super(message, t);
         }
     }
 
@@ -139,7 +151,8 @@ public class Utils {
      * Check that this package is installed, try to infer a potential device admin in this package,
      * and return it.
      */
-    public static ComponentName findDeviceAdmin(String mdmPackageName,
+    // ToDo: Add unit tests
+    public ComponentName findDeviceAdmin(String mdmPackageName,
             ComponentName mdmComponentName, Context c) throws IllegalProvisioningArgumentException {
         if (mdmComponentName != null) {
             mdmPackageName = mdmComponentName.getPackageName();
@@ -166,7 +179,16 @@ public class Utils {
         }
     }
 
-    private static void checkAdminComponent(ComponentName mdmComponentName, PackageInfo pi)
+    /**
+     * Verifies that an admin component is part of a given package.
+     *
+     * @param mdmComponentName the admin component to be checked
+     * @param pi the {@link PackageInfo} of the package to be checked.
+     *
+     * @throws IllegalProvisioningArgumentException if the given component is not part of the
+     *         package
+     */
+    private void checkAdminComponent(ComponentName mdmComponentName, PackageInfo pi)
             throws IllegalProvisioningArgumentException{
         for (ActivityInfo ai : pi.receivers) {
             if (mdmComponentName.getClassName().equals(ai.name)) {
@@ -177,7 +199,7 @@ public class Utils {
                 + " cannot be found");
     }
 
-    private static ComponentName findDeviceAdminInPackage(String mdmPackageName, PackageInfo pi)
+    private ComponentName findDeviceAdminInPackage(String mdmPackageName, PackageInfo pi)
             throws IllegalProvisioningArgumentException {
         ComponentName mdmComponentName = null;
         for (ActivityInfo ai : pi.receivers) {
@@ -198,65 +220,43 @@ public class Utils {
         return mdmComponentName;
     }
 
-    public static MdmPackageInfo getMdmPackageInfo(PackageManager pm, String packageName) {
-        if (packageName != null) {
-            try {
-                ApplicationInfo ai = pm.getApplicationInfo(packageName, /* default flags */ 0);
-                if (ai != null) {
-                    return new MdmPackageInfo(pm.getApplicationIcon(packageName),
-                            pm.getApplicationLabel(ai).toString());
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                // Package does not exist, ignore. Should never happen.
-                ProvisionLogger.loge("Package does not exist. Should never happen.");
-            }
-        }
-
-        return null;
-    }
-
     /**
-     * Information relating to the currently installed MDM package manager.
+     * Returns whether the current user is the system user.
      */
-    public static final class MdmPackageInfo {
-        private final Drawable packageIcon;
-        private final String appLabel;
-
-        private MdmPackageInfo(Drawable packageIcon, String appLabel) {
-            this.packageIcon = packageIcon;
-            this.appLabel = appLabel;
-        }
-
-        public String getAppLabel() {
-            return appLabel;
-        }
-
-        public Drawable getPackageIcon() {
-            return packageIcon;
-        }
-    }
-
-    public static boolean isCurrentUserSystem() {
+    public boolean isCurrentUserSystem() {
         return UserHandle.myUserId() == UserHandle.USER_SYSTEM;
     }
 
-    public static boolean isDeviceManaged(Context context) {
+    /**
+     * Returns whether the device is currently managed.
+     */
+    public boolean isDeviceManaged(Context context) {
         DevicePolicyManager dpm =
                 (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         return dpm.isDeviceManaged();
     }
 
-    public static boolean isManagedProfile(Context context) {
+    /**
+     * Returns whether the calling user is a managed profile.
+     */
+    public boolean isManagedProfile(Context context) {
         UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
         UserInfo user = um.getUserInfo(UserHandle.myUserId());
         return user != null ? user.isManagedProfile() : false;
     }
 
     /**
-     * Returns true if the given package does not exist on the device or if its version code is less
-     * than the given version, and false otherwise.
+     * Returns true if the given package requires an update.
+     *
+     * <p>There are two cases where an update is required:
+     * 1. The package is not currently present on the device.
+     * 2. The package is present, but the version is below the minimum supported version.
+     *
+     * @param packageName the package to be checked for updates
+     * @param minSupportedVersion the minimum supported version
+     * @param context a {@link Context} object
      */
-    public static boolean packageRequiresUpdate(String packageName, int minSupportedVersion,
+    public boolean packageRequiresUpdate(String packageName, int minSupportedVersion,
             Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
@@ -270,7 +270,12 @@ public class Utils {
         return true;
     }
 
-    public static byte[] stringToByteArray(String s)
+    /**
+     * Transforms a string into a byte array.
+     *
+     * @param s the string to be transformed
+     */
+    public byte[] stringToByteArray(String s)
         throws NumberFormatException {
         try {
             return Base64.decode(s, Base64.URL_SAFE);
@@ -279,11 +284,22 @@ public class Utils {
         }
     }
 
-    public static String byteArrayToString(byte[] bytes) {
+    /**
+     * Transforms a byte array into a string.
+     *
+     * @param bytes the byte array to be transformed
+     */
+    public String byteArrayToString(byte[] bytes) {
         return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
-    public static void markDeviceProvisioned(Context context) {
+    /**
+     * Marks the device as provisioning.
+     *
+     * <p>This will set the DEVICE_PROVISIONED to 1 as well as marking user setup complete
+     * on the calling user.
+     */
+    public void markDeviceProvisioned(Context context) {
         ProvisionLogger.logd("Setting DEVICE_PROVISIONED to 1");
         Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
 
@@ -296,12 +312,20 @@ public class Utils {
         markUserSetupComplete(context, UserHandle.myUserId());
     }
 
-    public static void markUserSetupComplete(Context context, int userId) {
+    /**
+     * Sets user setup complete on a given user.
+     *
+     * <p>This will set USER_SETUP_COMPLETE to 1 on the given user.
+     */
+    public void markUserSetupComplete(Context context, int userId) {
         ProvisionLogger.logd("Setting USER_SETUP_COMPLETE to 1 for user " + userId);
         Secure.putIntForUser(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1, userId);
     }
 
-    public static boolean isUserSetupCompleted(Context context) {
+    /**
+     * Returns whether USER_SETUP_COMPLETE is set on the calling user.
+     */
+    public boolean isUserSetupCompleted(Context context) {
         return Secure.getInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 0) != 0;
     }
 
@@ -314,10 +338,11 @@ public class Utils {
      *     <li>DPC requested we skip the rest of setup-wizard.</li>
      * </ul>
      *
-     * @param context
+     * @param context a {@link Context} object
      * @param params configuration for current provisioning attempt
      */
-    public static void markUserProvisioningStateInitiallyDone(Context context,
+    // ToDo: Add unit tests
+    public void markUserProvisioningStateInitiallyDone(Context context,
             ProvisioningParams params) {
         int currentUserId = UserHandle.myUserId();
         int managedProfileUserId = -1;
@@ -369,12 +394,13 @@ public class Utils {
      *     <li>We're setting up a managed-profile - need to set state on two users.</li>
      * </ul>
      *
-     * @param context
+     * @param context a {@link Context} object
      * @param params configuration for current provisioning attempt - if null (because
      *               ManagedProvisioning wasn't used for first phase of provisioning) aassumes we
      *               can just mark current user as being in finalized provisioning state
      */
-    public static void markUserProvisioningStateFinalized(Context context,
+    // ToDo: Add unit tests
+    public void markUserProvisioningStateFinalized(Context context,
             ProvisioningParams params) {
         int currentUserId = UserHandle.myUserId();
         int managedProfileUserId = -1;
@@ -400,12 +426,18 @@ public class Utils {
         }
     }
 
-    private static void setUserProvisioningState(DevicePolicyManager dpm, int state, int userId) {
+    private void setUserProvisioningState(DevicePolicyManager dpm, int state, int userId) {
         ProvisionLogger.logi("Setting userProvisioningState for user " + userId + " to: " + state);
         dpm.setUserProvisioningState(state, userId);
     }
 
-    public static UserHandle getManagedProfile(Context context) {
+    /**
+     * Returns the first existing managed profile if any present, null otherwise.
+     *
+     * <p>Note that we currently only support one managed profile per device.
+     */
+    // ToDo: Add unit tests
+    public UserHandle getManagedProfile(Context context) {
         UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
         int currentUserId = userManager.getUserHandle();
         List<UserInfo> userProfiles = userManager.getProfiles(currentUserId);
@@ -418,10 +450,10 @@ public class Utils {
     }
 
     /**
-     * @return The User id of an already existing managed profile or -1 if none
-     * exists
+     * Returns the user id of an already existing managed profile or -1 if none exists.
      */
-    public static int alreadyHasManagedProfile(Context context) {
+    // ToDo: Add unit tests
+    public int alreadyHasManagedProfile(Context context) {
         UserHandle managedUser = getManagedProfile(context);
         if (managedUser != null) {
             return managedUser.getIdentifier();
@@ -430,7 +462,16 @@ public class Utils {
         }
     }
 
-    public static void removeAccount(Context context, Account account) {
+    /**
+     * Removes an account.
+     *
+     * <p>This removes the given account from the calling user's list of accounts.
+     *
+     * @param context a {@link Context} object
+     * @param account the account to be removed
+     */
+    // ToDo: Add unit tests
+    public void removeAccount(Context context, Account account) {
         try {
             AccountManager accountManager =
                     (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
@@ -454,15 +495,28 @@ public class Utils {
         }
     }
 
-    public static void maybeCopyAccount(Context context, Account accountToMigrate,
+    /**
+     * Copies an account to a given user.
+     *
+     * <p>Copies a given account form {@code sourceUser} to {@code targetUser}. This call is
+     * blocking until the operation has succeeded. If within a timeout the account hasn't been
+     * successfully copied to the new user, we give up.
+     *
+     * @param context a {@link Context} object
+     * @param accountToMigrate the account to be migrated
+     * @param sourceUser the {@link UserHandle} of the user to copy from
+     * @param targetUser the {@link UserHandle} of the user to copy to
+     * @return whether account migration successfully completed
+     */
+    public boolean maybeCopyAccount(Context context, Account accountToMigrate,
             UserHandle sourceUser, UserHandle targetUser) {
         if (accountToMigrate == null) {
             ProvisionLogger.logd("No account to migrate.");
-            return;
+            return false;
         }
         if (sourceUser.equals(targetUser)) {
             ProvisionLogger.logw("sourceUser and targetUser are the same, won't migrate account.");
-            return;
+            return false;
         }
         ProvisionLogger.logd("Attempting to copy account from " + sourceUser + " to " + targetUser);
         try {
@@ -476,15 +530,20 @@ public class Utils {
                     .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
             if (copySucceeded) {
                 ProvisionLogger.logi("Copied account to " + targetUser);
+                return true;
             } else {
                 ProvisionLogger.loge("Could not copy account to " + targetUser);
             }
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
             ProvisionLogger.loge("Exception copying account to " + targetUser, e);
         }
+        return false;
     }
 
-    public static boolean isFrpSupported(Context context) {
+    /**
+     * Returns whether FRP is supported on the device.
+     */
+    public boolean isFrpSupported(Context context) {
         Object pdbManager = context.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
         return pdbManager != null;
     }
@@ -502,7 +561,8 @@ public class Utils {
      * @return the appropriate DevicePolicyManager declared action for the given incoming intent.
      * @throws IllegalProvisioningArgumentException if intent is malformed
      */
-    public static String mapIntentToDpmAction(Intent intent)
+    // ToDo: Add unit tests
+    public String mapIntentToDpmAction(Intent intent)
             throws IllegalProvisioningArgumentException {
         if (intent == null || intent.getAction() == null) {
             throw new IllegalProvisioningArgumentException("Null intent action.");
@@ -550,7 +610,8 @@ public class Utils {
     /**
      * @return the first {@link NdefRecord} found with a recognized MIME-type
      */
-    public static NdefRecord firstNdefRecord(Intent nfcIntent) {
+    // ToDo: Add unit tests
+    public NdefRecord firstNdefRecord(Intent nfcIntent) {
         // Only one first message with NFC_MIME_TYPE is used.
         for (Parcelable rawMsg : nfcIntent.getParcelableArrayExtra(
                 NfcAdapter.EXTRA_NDEF_MESSAGES)) {
@@ -569,19 +630,31 @@ public class Utils {
         return null;
     }
 
-    public static void sendFactoryResetBroadcast(Context context, String reason) {
+    /**
+     * Sends an intent to trigger a factory reset.
+     */
+    // ToDo: Move the FR intent into a Globals class.
+    public void sendFactoryResetBroadcast(Context context, String reason) {
         Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
         intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
         intent.putExtra(Intent.EXTRA_REASON, reason);
         context.sendBroadcast(intent);
     }
 
-    public static boolean isProfileOwnerAction(String action) {
+    /**
+     * Returns whether the given provisioning action is a profile owner action.
+     */
+    // ToDo: Move the list of device owner actions into a Globals class.
+    public boolean isProfileOwnerAction(String action) {
         return action.equals(ACTION_PROVISION_MANAGED_PROFILE)
                 || action.equals(ACTION_PROVISION_MANAGED_USER);
     }
 
-    public static boolean isDeviceOwnerAction(String action) {
+    /**
+     * Returns whether the given provisioning action is a device owner action.
+     */
+    // ToDo: Move the list of device owner actions into a Globals class.
+    public boolean isDeviceOwnerAction(String action) {
         return action.equals(ACTION_PROVISION_MANAGED_DEVICE)
                 || action.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
     }

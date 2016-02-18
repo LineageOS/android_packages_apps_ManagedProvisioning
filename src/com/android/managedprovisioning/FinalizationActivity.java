@@ -24,7 +24,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
 
-import com.android.managedprovisioning.Utils.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.Utils;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
@@ -45,6 +46,8 @@ public class FinalizationActivity extends Activity {
     private ProvisioningParams mParams;
 
     private static final String INTENT_STORE_NAME = "finalization-receiver";
+
+    private final Utils mUtils = new Utils();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,11 +109,11 @@ public class FinalizationActivity extends Activity {
             sendBroadcast(provisioningCompleteIntent);
         }
 
-        Utils.markUserProvisioningStateFinalized(this, mParams);
+        mUtils.markUserProvisioningStateFinalized(this, mParams);
     }
 
     private void finalizeManagedProfileOwnerProvisioning(Intent provisioningCompleteIntent) {
-        UserHandle managedUserHandle = Utils.getManagedProfile(this);
+        UserHandle managedUserHandle = mUtils.getManagedProfile(this);
         if (managedUserHandle == null) {
             ProvisionLogger.loge("Failed to retrieve the userHandle of the managed profile.");
             return;
@@ -132,15 +135,15 @@ public class FinalizationActivity extends Activity {
             if (mParams != null) {
                 intent.setComponent(mParams.inferDeviceAdminComponentName(this));
             } else if (dpm.getDeviceOwner() != null) {
-                intent.setComponent(Utils.findDeviceAdmin(dpm.getDeviceOwner(),
+                intent.setComponent(mUtils.findDeviceAdmin(dpm.getDeviceOwner(),
                         null /* mdmComponentName */, this));
             } else if (dpm.getProfileOwner() != null) {
-                intent.setComponent(Utils.findDeviceAdmin(dpm.getProfileOwner().getPackageName(),
+                intent.setComponent(mUtils.findDeviceAdmin(dpm.getProfileOwner().getPackageName(),
                         null /* mdmComponentName */, this));
             } else {
                 return null;
             }
-        } catch (Utils.IllegalProvisioningArgumentException e) {
+        } catch (IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Failed to infer the device admin component name", e);
             return null;
         }
