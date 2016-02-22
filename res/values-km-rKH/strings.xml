@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"បោះបង់"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ដាក់លេខកូដ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ការ​ដាក់​លេខ​កូដ​បាន​បញ្ចប់"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ប៉ះ​ដើម្បី​បន្ត​ការ​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ប៉ះដើម្បីបន្តការដំឡើងប្រវត្តិរូបការងាររបស់អ្នក"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"មិន​អាច​រៀបចំ​ប្រវត្តិរូប​ការងារ​របស់​អ្នក។ ទាក់ទង​ផ្នែក​បច្ចេកវិទ្យា​ព័ត៌មាន​របស់​អ្នក ឬ​ព្យាយាម​ម្ដងទៀត​ពេល​ក្រោយ។"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ឧបករណ៍​របស់​អ្នក​មិន​គាំទ្រ​ប្រវត្តិរូប​ការងារ។"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"អ្នកប្រើនេះមិនអាចមានប្រវត្តិរូបការងារទេ"</string>

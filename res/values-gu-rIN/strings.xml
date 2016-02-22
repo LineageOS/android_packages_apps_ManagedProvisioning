@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"રદ કરો"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"એન્ક્રિપ્ટ કરો"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"એન્ક્રિપ્શન પૂર્ણ"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"તમારી કાર્ય પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે ટચ કરો"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"તમારી કાર્ય પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે ટૅપ કરો"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"તમારી કાર્ય પ્રોફાઇલ સેટ કરી શકાઈ નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો અથવા પછી ફરીથી પ્રયાસ કરો."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"તમારું ઉપકરણ કાર્ય પ્રોફાઇલ્સનું સમર્થન કરતું નથી"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"આ વપરાશકર્તા કાર્ય પ્રોફાઇલ ધરાવી શકતો નથી"</string>

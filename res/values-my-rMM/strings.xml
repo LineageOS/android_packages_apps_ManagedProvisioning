@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ပယ်ဖျက်"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"လျှို့ဝှက်ကုဒ်သွင်း"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"လျှို့ဝှက်ကုဒ် သွင်းမှု ပြီးဆုံးသွားပြီ"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်မှု ဆက်လုပ်ကိုင်ရန် ထိပါ"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"သင့်အလုပ်ပရိုဖိုင်ကို ရှေ့ဆက်စနစ်ထည့်သွင်းမှု ပြုလုပ်ရန် တို့ပါ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ် မရခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ သို့မဟုတ် နောက်မှာ ထပ်စမ်းပါ။"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"သင့်စက်က အလုပ်ပရိုဖိုင်များကို မပံ့ပိုးပါ။"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ဒီအသုံးပြုသူထံတွင် အလုပ် ပရိုဖိုင် မရှိနိုင်ပါ"</string>

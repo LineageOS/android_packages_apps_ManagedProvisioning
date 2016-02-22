@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"لغو"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"رمزگذاری"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"رمزگذاری کامل شد"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"برای ادامه راه‌اندازی نمایه کاری‌تان، لمس کنید"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"برای ادامه راه‌اندازی نمایه کاری‌تان، ضربه بزنید"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاریتان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"دستگاهتان از نمایه‌های کاری پشتیبانی نمی‌کند"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"این کاربر نمی‌تواند نمایه کاری داشته باشد"</string>

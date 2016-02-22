@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ANULUJ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ZASZYFRUJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Szyfrowanie zostało zakończone"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Kliknij, by kontynuować konfigurowanie profilu do pracy"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Kliknij, by kontynuować konfigurowanie profilu do pracy"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nie można skonfigurować profilu do pracy. Skontaktuj się z działem IT lub spróbuj później jeszcze raz."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Urządzenie nie obsługuje profili do pracy"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Ten użytkownik nie może mieć profilu do pracy."</string>

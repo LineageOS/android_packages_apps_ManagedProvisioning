@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"రద్దు చేయి"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"గుప్తీకరించు"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"గుప్తీకరణ పూర్తయింది"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి తాకండి"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి నొక్కండి"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"మీ పరికరం కార్యాలయ ప్రొఫైల్‌లకు మద్దతు ఇవ్వదు"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ఈ వినియోగదారుకు కార్యాలయ ప్రొఫైల్ లేదు"</string>

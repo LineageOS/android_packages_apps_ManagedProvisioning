@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"UTZI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ENKRIPTATU"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkriptatu da"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Ukitu hau laneko profila konfiguratzen jarraitzeko"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Laneko profila konfiguratzen jarraitzeko, sakatu hau"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ezin izan da konfiguratu laneko profila. Jarri informatika-sailarekin harremanetan edo saiatu berriro geroago."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Gailuak ez du laneko profilik onartzen"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Erabiltzaileak ezin du laneko profila izan"</string>

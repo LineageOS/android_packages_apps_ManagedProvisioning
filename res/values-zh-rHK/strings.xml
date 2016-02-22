@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"取消"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"加密"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密完成"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"輕觸即可繼續設定您的公司檔案"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"輕按即可繼續設定工作設定檔"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定您的公司檔案，請與您的 IT 部門聯絡或稍後再試。"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"您的裝置不支援公司檔案"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"此使用者無法建立工作設定檔"</string>

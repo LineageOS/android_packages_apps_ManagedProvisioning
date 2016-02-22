@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ರದ್ದುಮಾಡು"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ಎನ್‌ಕ್ರಿಪ್ಟ್‌‌ ಮಾಡು"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಪೂರ್ಣಗೊಂಡಿದೆ"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು ಸ್ಪರ್ಶಿಸಿ"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ನಿಮ್ಮ ಸಾಧನವು ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ಈ ಬಳಕೆದಾರರಿಗೆ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
