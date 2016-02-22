@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"GHAIRI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"SIMBA KWA NJIA FICHE"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Usimbaji fiche umekamilika"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Gusa ili uendelee kusanidi wasifu wako wa kazini"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Gonga ili uendelee kuweka mipangilio ya wasifu wako wa kazini"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Haikuweza kusanidi wasifu wako wa kazi. Wasiliana na idara yako ya Teknolojia ya Habari au ujaribu tena baadaye."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Kifaa chako hakitumii wasifu wa kazini"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Mtumiaji huyu hapaswi kuwa na wasifu wa kazini."</string>

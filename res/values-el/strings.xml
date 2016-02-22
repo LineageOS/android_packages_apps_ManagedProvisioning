@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ΑΚΥΡΩΣΗ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ΚΡΥΠΤΟΓΡΑΦΗΣΗ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Η κρυπτογράφηση ολοκληρώθηκε"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Αγγίξτε για να συνεχίσετε τη ρύθμιση του προφίλ εργασίας σας"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Πατήστε για να συνεχίσετε τη ρύθμιση του προφίλ εργασίας σας"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Δεν ήταν δυνατή η ρύθμιση του προφίλ εργασίας σας. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης ή δοκιμάστε ξανά αργότερα."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Η συσκευή σας δεν υποστηρίζει τα προφίλ εργασίας"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Αυτός ο χρήστης δεν μπορεί να έχει προφίλ εργασίας"</string>

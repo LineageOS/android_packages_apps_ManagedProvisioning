@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ਰੱਦ ਕਰੋ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ਐਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ਐਨਕ੍ਰਿਪਸ਼ਨ ਪੂਰਾ"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ ਛੋਹਵੋ"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਦੀ ਸਥਾਪਨਾ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਟੈਪ ਕਰੋ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਕੰਮ ਪ੍ਰੋਫਾਈਲਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ਇਸ ਉਪਭੋਗਤਾ ਦੀ ਇੱਕ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਹੋ ਸਕਦੀ"</string>

@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"අවලංගු කරන්න"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"සංකේතනය"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"සංකේතනය සම්පූර්ණයි"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ඔබගේ වැඩ පැතිකඩ සැකසීම දිගටම කිරීමට ස්පර්ශ කරන්න"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ඔබගේ කාර්යාල පැතිකඩ පිහිටුවීම දිගටම කරගෙන යාමට තට්ටු කරන්න"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ඔබගේ කාර්යාල පැතිකඩ සැකසීමට නොහැකි විය. ඔබගේ IT අංශය සම්බන්ධ කර ගන්න හෝ පසුව නැවත උත්සාහ කරන්න."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ඔබගේ උපාංගය කාර්යාල පැතිකඩ වෙත සහය දක්වන්නේ නැත."</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"මෙම පරිශීලකයාට කාර්යාල පැතිකඩක් තිබිය නොහැකිය"</string>

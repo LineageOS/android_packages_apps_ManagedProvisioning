@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ОТКАЗ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ШИФРОВАНЕ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шифроването завърши"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Докоснете, за да продължите с настройването на служебния си потребителски профил"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Докоснете, за да продължите с настройването на служебния си потребителски профил"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Служебният ви потребителски профил не можа да се настрои. Свържете се с отдела си за информационни технологии или опитайте отново по-късно."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Устройството ви не поддържа служебни потребителски профили"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Този потребител не може да има служебен потребителски профил"</string>

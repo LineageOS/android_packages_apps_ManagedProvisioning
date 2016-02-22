@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"İPTAL"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŞİFRELE"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Şifreleme tamamlandı"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"İş profilinizi ayarlamaya devam etmek için dokunun."</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"İş profilinizi kurmaya devam etmek için hafifçe dokunun"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"İş profiliniz ayarlanamadı. BT bölümünüze başvurun veya daha sonra tekrar deneyin."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Cihazınız iş profillerini desteklemiyor"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Bu kullanıcının bir iş profili olamaz"</string>

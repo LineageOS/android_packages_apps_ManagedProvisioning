@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"CANCEL·LA"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ENCRIPTA"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Encriptació completa"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Toca per continuar amb la configuració del perfil"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Toca per continuar configurant el perfil professional"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No s\'ha pogut configurar el perfil professional. Contacta amb el departament de TI o prova-ho més tard."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"El dispositiu no és compatible amb els perfils professionals."</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Aquest usuari no pot tenir un perfil professional"</string>

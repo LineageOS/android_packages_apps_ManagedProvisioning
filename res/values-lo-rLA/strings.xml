@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ຍົກເລີກ"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"​ເຂົ້າ​ລະ​ຫັດ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ການ​ເຂົ້າ​ລະ​ຫັດ​ສຳ​ເລັດ​ແລ້ວ"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"ແຕະ​ເພື່ອ​ສືບ​ຕໍ່​ການ​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ."</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ແຕະເພື່ອສືບຕໍ່ການຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ບໍ່​ສາ​ມາດ​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ໄດ້. ກະ​ລຸ​ນາ​ຕິດ​ຕໍ່​ພະ​ແນກ​ໄອ​ທີ​ຂອງ​ທ່ານ ຫຼື​ລອງ​ໃໝ່​ໃນ​ພາຍຫຼັງ."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານບໍ່​ຮອງ​ຮັບ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ຜູ້​ໃຊ້​ນີ້​ບໍ່​ສາ​ມາດ​ມີ​ໂປ​ຣ​ໄຟ​ລ໌​ວຽກ​ໄດ້"</string>

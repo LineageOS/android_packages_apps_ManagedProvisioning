@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"रद्द गर्नुहोस्"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"इन्क्रिप्ट गर्नुहोस्"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"गुप्तिकरण पूर्ण"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"तपाईँको काम प्रोफाइल स्थापना जारी राख्न छुनुहोस्"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तपाईंको कार्य प्रोफाइल स्थापना जारी राख्न  ट्याप गर्नुहोस्"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"तपाईंको उपकरणले कार्य प्रोफाइलहरू समर्थन गर्दैन।"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"यस प्रयोगकर्ताले कार्य प्रोफाइल प्रयोग गर्न सक्दैन"</string>

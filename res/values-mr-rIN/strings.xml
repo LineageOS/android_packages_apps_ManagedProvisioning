@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"रद्द करा"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"कूटबद्ध करा"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"कूटबद्धीकरण पूर्ण"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी स्पर्श करा"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी टॅप करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"आपले डिव्‍हाइस कार्य प्रोफाईलचे समर्थन करीत नाही"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"या वापरकर्त्याकडे कार्य प्रोफाईल असू शकत नाही"</string>

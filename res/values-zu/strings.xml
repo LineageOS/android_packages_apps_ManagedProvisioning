@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"KHANSELA"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"BETHELA"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Ukubethela kuqedile"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Thinta ukuze uqhubeke ngokusetha iphrofayela yakho yomsebenzi"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Thepha ukuze uqhubeke usethe iphrofayela yakho yomsebenzi"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ayikwazanga ukusehta iphrofayela yakho yomsebenzi. Xhumana nomnyango wakho we-IT noma zama futhi emuva kwesikhathi."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Idivayisi yakho ayisekeli amaphrofayela womsebenzi"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Lo msebenzisi akakwazi ukuba nephrofayela yomsebenzi"</string>

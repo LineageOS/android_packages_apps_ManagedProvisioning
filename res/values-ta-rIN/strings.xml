@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ரத்துசெய்"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"முறைமையாக்கு"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"குறியாக்கம் முடிந்தது"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"உங்கள் பணி சுயவிவரத்தை அமைப்பதைத் தொடரத் தொடவும்"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, தட்டவும்"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"பணி சுயவிவரங்களைச் சாதனம் ஆதரிக்காது"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"இவருக்குப் பணிச் சுயவிவரத்தை உருவாக்க முடியாது"</string>

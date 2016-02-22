@@ -49,7 +49,7 @@
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"PREKLIČI"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŠIFRIRAJ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Šifriranje je dokončano"</string>
-    <string name="continue_provisioning_notify_text" msgid="3027317630111909095">"Če želite nadaljevati z nastavljanjem delovnega profila, se dotaknite."</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Če želite nadaljevati z nastavljanjem delovnega profila, se dotaknite"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Delovnega profila ni bilo mogoče nastaviti. Obrnite se na oddelek za IT ali poskusite znova pozneje."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Naprava ne podpira delovnih profilov"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Ta uporabnik ne more imeti delovnega profila"</string>
