@@ -28,6 +28,7 @@ import android.text.TextUtils;
 
 import java.lang.Thread;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisioningParams.WifiInfo;
 import com.android.managedprovisioning.ProvisionLogger;
@@ -56,6 +57,8 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
 
     private int mDurationNextSleep = RETRY_SLEEP_DURATION_BASE_MS;
     private int mRetriesLeft = MAX_RETRIES;
+
+    private final Utils mUtils = new Utils();
 
     /**
      * @throws IllegalArgumentException if the {@code ssid} parameter is empty.
@@ -179,18 +182,10 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     }
 
     private boolean isConnectedToSpecifiedWifi() {
-        return NetworkMonitor.isConnectedToWifi(mContext)
+        return mUtils.isConnectedToWifi(mContext)
                 && mWifiManager != null
                 && mWifiManager.getConnectionInfo() != null
                 && mWifiInfo.ssid.equals(mWifiManager.getConnectionInfo().getSSID());
-    }
-
-    public static Intent getWifiPickIntent() {
-        Intent wifiIntent = new Intent(WifiManager.ACTION_PICK_WIFI_NETWORK);
-        wifiIntent.putExtra("only_access_points", true);
-        wifiIntent.putExtra("extra_prefs_show_button_bar", true);
-        wifiIntent.putExtra("wifi_enable_next_on_connect", true);
-        return wifiIntent;
     }
 
     public abstract static class Callback {

@@ -19,7 +19,6 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.ServiceManager;
-import android.os.storage.IMountService;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.view.View;
@@ -32,7 +31,7 @@ import android.widget.TextView;
  * the device.
  */
 public class EncryptDeviceActivity extends SetupLayoutActivity {
-    protected static final String EXTRA_RESUME = "com.android.managedprovisioning.RESUME";
+    public static final String EXTRA_RESUME = "com.android.managedprovisioning.RESUME";
 
     private Intent mResumeIntent;
 
@@ -59,20 +58,6 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         if (params != null) {
             maybeSetLogoAndMainColor(params.mainColor);
-        }
-    }
-
-    public static boolean isPhysicalDeviceEncrypted() {
-        // TODO remove when we have a fix for b/26950904
-        if ("file".equals(SystemProperties.get("ro.crypto.type"))) {
-            return true;
-        }
-        IMountService mountService = IMountService.Stub.asInterface(
-                ServiceManager.getService("mount"));
-        try {
-            return (mountService.getEncryptionState() == IMountService.ENCRYPTION_STATE_OK);
-        } catch (RemoteException e) {
-            return false;
         }
     }
 

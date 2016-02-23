@@ -48,7 +48,7 @@ public class ProvisioningParams implements Parcelable {
     private final Utils mUtils = new Utils();
 
     // Intent extra used internally for passing data between activities and service.
-    /* package */ static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
+    public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
     public static class WifiInfo {
         public String ssid;
