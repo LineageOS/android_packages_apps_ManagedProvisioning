@@ -61,6 +61,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 
+import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 
@@ -124,6 +125,8 @@ public class MessageParser {
             "com.android.managedprovisioning.extra.started_by_trusted_source";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
+    public static final String EXTRA_PROVISIONING_ACTION =
+            "com.android.managedprovisioning.extra.provisioning_action";
 
     private final Utils mUtils = new Utils();
 
@@ -135,8 +138,8 @@ public class MessageParser {
      * sending this intent.
      */
     public Intent getIntentFromProvisioningParams(ProvisioningParams params) {
-        Intent intent = new Intent();
-        intent.setAction(params.provisioningAction);
+        Intent intent = new Intent(Globals.ACTION_RESUME_PROVISIONING);
+        intent.putExtra(EXTRA_PROVISIONING_ACTION, params.provisioningAction);
         intent.putExtra(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone);
         intent.putExtra(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale));
         intent.putExtra(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid);
@@ -339,7 +342,9 @@ public class MessageParser {
         } else {
             params.mainColor = null;
         }
-        params.provisioningAction = mUtils.mapIntentToDpmAction(intent);
+        params.provisioningAction = isSelfOriginated ?
+                intent.getStringExtra(EXTRA_PROVISIONING_ACTION) :
+                mUtils.mapIntentToDpmAction(intent);
         try {
             params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
