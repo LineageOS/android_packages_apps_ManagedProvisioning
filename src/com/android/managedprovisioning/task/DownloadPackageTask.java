@@ -94,7 +94,7 @@ public class DownloadPackageTask {
             mCallback.onSuccess();
             return;
         }
-        if (!NetworkMonitor.isConnectedToNetwork(mContext)) {
+        if (!mUtils.isConnectedToNetwork(mContext)) {
             ProvisionLogger.loge("DownloadPackageTask: not connected to the network, can't download"
                     + " the package");
             mCallback.onError(ERROR_OTHER);
