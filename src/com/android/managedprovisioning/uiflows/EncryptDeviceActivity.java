@@ -18,14 +18,10 @@ package com.android.managedprovisioning.uiflows;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.ServiceManager;
-import android.os.RemoteException;
-import android.os.SystemProperties;
 import android.view.View;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.BootReminder;
-import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.SetupLayoutActivity;
@@ -38,44 +34,45 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  * the device.
  */
 public class EncryptDeviceActivity extends SetupLayoutActivity {
-    private Intent mResumeIntent;
+    private ProvisioningParams mParams;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ProvisioningParams params = (ProvisioningParams) getIntent().getParcelableExtra(
+        mParams = (ProvisioningParams) getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        if (params == null) {
+        if (mParams == null) {
             ProvisionLogger.loge("Missing params in EncryptDeviceActivity activity");
             finish();
         }
 
-        if (mUtils.isProfileOwnerAction(params.provisioningAction)) {
-            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_profile, false);
-            setTitle(R.string.setup_profile_encryption);
-            ((TextView) findViewById(R.id.encrypt_main_text)).setText(
+        if (mUtils.isProfileOwnerAction(mParams.provisioningAction)) {
+            initializeUi(R.string.setup_work_profile,
+                    R.string.setup_profile_encryption,
                     R.string.encrypt_device_text_for_profile_owner_setup);
-        } else if (mUtils.isDeviceOwnerAction(params.provisioningAction)) {
-            initializeLayoutParams(R.layout.encrypt_device, R.string.setup_work_device, false);
-            setTitle(R.string.setup_device_encryption);
-            ((TextView) findViewById(R.id.encrypt_main_text)).setText(
+        } else if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+            initializeUi(R.string.setup_work_device,
+                    R.string.setup_device_encryption,
                     R.string.encrypt_device_text_for_device_owner_setup);
         } else {
-            ProvisionLogger.loge("Unknown provisioning action: " + params.provisioningAction);
+            ProvisionLogger.loge("Unknown provisioning action: " + mParams.provisioningAction);
             finish();
         }
+    }
 
+    private void initializeUi(int headerRes, int titleRes, int mainTextRes) {
+        initializeLayoutParams(R.layout.encrypt_device, headerRes, false);
+        setTitle(titleRes);
+        ((TextView) findViewById(R.id.encrypt_main_text)).setText(mainTextRes);
         configureNavigationButtons(R.string.encrypt_device_launch_settings,
             View.VISIBLE, View.VISIBLE);
-        maybeSetLogoAndMainColor(params.mainColor);
-
-        mResumeIntent = new MessageParser().getIntentFromProvisioningParams(params);
+        maybeSetLogoAndMainColor(mParams.mainColor);
     }
 
     @Override
     public void onNavigateNext() {
-        BootReminder.setProvisioningReminder(this, mResumeIntent);
+        EncryptionController.getInstance(this).setEncryptionReminder(mParams);
         // Use settings so user confirms password/pattern and its passed
         // to encryption tool.
         Intent intent = new Intent();

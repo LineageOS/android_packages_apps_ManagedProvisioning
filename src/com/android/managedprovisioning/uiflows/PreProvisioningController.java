@@ -56,6 +56,7 @@ public class PreProvisioningController {
     private final Ui mUi;
     private final MessageParser mMessageParser;
     private final Utils mUtils;
+    private final EncryptionController mEncryptionController;
 
     // used system services
     private final DevicePolicyManager mDevicePolicyManager;
@@ -71,7 +72,8 @@ public class PreProvisioningController {
     public PreProvisioningController(
             @NonNull Context context,
             @NonNull Ui ui) {
-        this(context, ui, new MessageParser(), new Utils());
+        this(context, ui, new MessageParser(), new Utils(),
+                EncryptionController.getInstance(context));
     }
 
     @VisibleForTesting
@@ -79,11 +81,14 @@ public class PreProvisioningController {
             @NonNull Context context,
             @NonNull Ui ui,
             @NonNull MessageParser parser,
-            @NonNull Utils utils) {
+            @NonNull Utils utils,
+            @NonNull EncryptionController encryptionController) {
         mContext = checkNotNull(context, "Context must not be null");
         mUi = checkNotNull(ui, "Ui must not be null");
         mMessageParser = checkNotNull(parser, "MessageParser must not be null");
         mUtils = checkNotNull(utils, "Utils must not be null");
+        mEncryptionController = checkNotNull(encryptionController,
+                "EncryptionController must not be null");
 
         mDevicePolicyManager = (DevicePolicyManager) mContext.getSystemService(
                 Context.DEVICE_POLICY_SERVICE);
@@ -361,6 +366,8 @@ public class PreProvisioningController {
         if (!mUtils.currentLauncherSupportsManagedProfiles(mContext)) {
             mUi.showCurrentLauncherInvalid();
         } else {
+            // Cancel the boot reminder as provisioning has now started.
+            mEncryptionController.cancelEncryptionReminder();
             mUi.startProfileOwnerProvisioning(mParams);
         }
     }
@@ -379,6 +386,8 @@ public class PreProvisioningController {
     }
 
     private void maybeCreateUserAndStartDeviceOwnerProvisioning() {
+        // Cancel the boot reminder as provisioning has now started.
+        mEncryptionController.cancelEncryptionReminder();
         if (isMeatUserCreationRequired(mParams.provisioningAction)) {
             // Create the primary user, and continue the provisioning in this user.
             new CreatePrimaryUserTask().execute();
