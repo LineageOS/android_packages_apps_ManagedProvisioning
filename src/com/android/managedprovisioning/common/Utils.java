@@ -40,15 +40,22 @@ import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.storage.IMountService;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings.Global;
@@ -65,6 +72,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import com.android.managedprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.FinalizationActivity;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams;
@@ -151,7 +159,7 @@ public class Utils {
      * Check that this package is installed, try to infer a potential device admin in this package,
      * and return it.
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public ComponentName findDeviceAdmin(String mdmPackageName,
             ComponentName mdmComponentName, Context c) throws IllegalProvisioningArgumentException {
         if (mdmComponentName != null) {
@@ -330,6 +338,13 @@ public class Utils {
     }
 
     /**
+     * Returns whether DEVICE_PROVISIONED is set.
+     */
+    public boolean isDeviceProvisioned(Context context) {
+        return Global.getInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 0) != 0;
+    }
+
+    /**
      * Set the current users userProvisioningState depending on the following factors:
      * <ul>
      *     <li>We're setting up a managed-profile - need to set state on two users.</li>
@@ -341,7 +356,7 @@ public class Utils {
      * @param context a {@link Context} object
      * @param params configuration for current provisioning attempt
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public void markUserProvisioningStateInitiallyDone(Context context,
             ProvisioningParams params) {
         int currentUserId = UserHandle.myUserId();
@@ -399,7 +414,7 @@ public class Utils {
      *               ManagedProvisioning wasn't used for first phase of provisioning) aassumes we
      *               can just mark current user as being in finalized provisioning state
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public void markUserProvisioningStateFinalized(Context context,
             ProvisioningParams params) {
         int currentUserId = UserHandle.myUserId();
@@ -436,7 +451,7 @@ public class Utils {
      *
      * <p>Note that we currently only support one managed profile per device.
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public UserHandle getManagedProfile(Context context) {
         UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
         int currentUserId = userManager.getUserHandle();
@@ -452,7 +467,7 @@ public class Utils {
     /**
      * Returns the user id of an already existing managed profile or -1 if none exists.
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public int alreadyHasManagedProfile(Context context) {
         UserHandle managedUser = getManagedProfile(context);
         if (managedUser != null) {
@@ -470,7 +485,7 @@ public class Utils {
      * @param context a {@link Context} object
      * @param account the account to be removed
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public void removeAccount(Context context, Account account) {
         try {
             AccountManager accountManager =
@@ -515,7 +530,7 @@ public class Utils {
             return false;
         }
         if (sourceUser.equals(targetUser)) {
-            ProvisionLogger.logw("sourceUser and targetUser are the same, won't migrate account.");
+            ProvisionLogger.loge("sourceUser and targetUser are the same, won't migrate account.");
             return false;
         }
         ProvisionLogger.logd("Attempting to copy account from " + sourceUser + " to " + targetUser);
@@ -561,7 +576,7 @@ public class Utils {
      * @return the appropriate DevicePolicyManager declared action for the given incoming intent.
      * @throws IllegalProvisioningArgumentException if intent is malformed
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public String mapIntentToDpmAction(Intent intent)
             throws IllegalProvisioningArgumentException {
         if (intent == null || intent.getAction() == null) {
@@ -610,7 +625,7 @@ public class Utils {
     /**
      * @return the first {@link NdefRecord} found with a recognized MIME-type
      */
-    // ToDo: Add unit tests
+    // TODO: Add unit tests
     public NdefRecord firstNdefRecord(Intent nfcIntent) {
         // Only one first message with NFC_MIME_TYPE is used.
         for (Parcelable rawMsg : nfcIntent.getParcelableArrayExtra(
@@ -633,7 +648,7 @@ public class Utils {
     /**
      * Sends an intent to trigger a factory reset.
      */
-    // ToDo: Move the FR intent into a Globals class.
+    // TODO: Move the FR intent into a Globals class.
     public void sendFactoryResetBroadcast(Context context, String reason) {
         Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
         intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
@@ -644,7 +659,7 @@ public class Utils {
     /**
      * Returns whether the given provisioning action is a profile owner action.
      */
-    // ToDo: Move the list of device owner actions into a Globals class.
+    // TODO: Move the list of device owner actions into a Globals class.
     public boolean isProfileOwnerAction(String action) {
         return action.equals(ACTION_PROVISION_MANAGED_PROFILE)
                 || action.equals(ACTION_PROVISION_MANAGED_USER);
@@ -653,10 +668,123 @@ public class Utils {
     /**
      * Returns whether the given provisioning action is a device owner action.
      */
-    // ToDo: Move the list of device owner actions into a Globals class.
+    // TODO: Move the list of device owner actions into a Globals class.
     public boolean isDeviceOwnerAction(String action) {
         return action.equals(ACTION_PROVISION_MANAGED_DEVICE)
                 || action.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
     }
 
+    /**
+     * Returns whether the device currently has connectivity.
+     */
+    public boolean isConnectedToNetwork(Context context) {
+        NetworkInfo info = getActiveNetworkInfo(context);
+        return info != null && info.isConnected();
+    }
+
+    /**
+     * Returns whether the device is currently connected to a wifi.
+     */
+    public boolean isConnectedToWifi(Context context) {
+        NetworkInfo info = getActiveNetworkInfo(context);
+        return info != null
+                && info.isConnected()
+                && info.getType() == ConnectivityManager.TYPE_WIFI;
+    }
+
+    private NetworkInfo getActiveNetworkInfo(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            return cm.getActiveNetworkInfo();
+        }
+        return null;
+    }
+
+    /**
+     * Returns whether encryption is required on this device.
+     *
+     * <p>Encryption is required if the device is not currently encrypted and the persistent
+     * system flag {@code persist.sys.no_req_encrypt} is not set.
+     */
+    public boolean isEncryptionRequired() {
+        return !isPhysicalDeviceEncrypted()
+                && !SystemProperties.getBoolean("persist.sys.no_req_encrypt", false);
+    }
+
+    /**
+     * Returns whether the device is currently encrypted.
+     */
+    public boolean isPhysicalDeviceEncrypted() {
+        // TODO remove when we have a fix for b/26950904
+        if ("file".equals(SystemProperties.get("ro.crypto.type"))) {
+            return true;
+        }
+        IMountService mountService = IMountService.Stub.asInterface(
+                ServiceManager.getService("mount"));
+        try {
+            return (mountService.getEncryptionState() == IMountService.ENCRYPTION_STATE_OK);
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Returns the wifi pick intent.
+     */
+    // TODO: Move this intent into a Globals class.
+    public Intent getWifiPickIntent() {
+        Intent wifiIntent = new Intent(WifiManager.ACTION_PICK_WIFI_NETWORK);
+        wifiIntent.putExtra("extra_prefs_show_button_bar", true);
+        wifiIntent.putExtra("wifi_enable_next_on_connect", true);
+        return wifiIntent;
+    }
+
+    /**
+     * Returns whether the device has a split system user.
+     *
+     * <p>Split system user means that user 0 is system only and all meat users are separate from
+     * the system user.
+     */
+    public boolean isSplitSystemUser() {
+        return UserManager.isSplitSystemUser();
+    }
+
+    /**
+     * Returns whether the currently chosen launcher supports managed profiles.
+     *
+     * <p>A launcher is deemed to support managed profiles when its target API version is at least
+     * {@link Build.VERSION_CODES#LOLLIPOP}.
+     */
+    public boolean currentLauncherSupportsManagedProfiles(Context context) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+
+        PackageManager pm = context.getPackageManager();
+        ResolveInfo launcherResolveInfo = pm.resolveActivity(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+        if (launcherResolveInfo == null) {
+            return false;
+        }
+        try {
+            // If the user has not chosen a default launcher, then launcherResolveInfo will be
+            // referring to the resolver activity. It is fine to create a managed profile in
+            // this case since there will always be at least one launcher on the device that
+            // supports managed profile feature.
+            ApplicationInfo launcherAppInfo = pm.getApplicationInfo(
+                    launcherResolveInfo.activityInfo.packageName, 0 /* default flags */);
+            return versionNumberAtLeastL(launcherAppInfo.targetSdkVersion);
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Returns whether the given version number is at least lollipop.
+     *
+     * @param versionNumber the version number to be verified.
+     */
+    private boolean versionNumberAtLeastL(int versionNumber) {
+        return versionNumber >= Build.VERSION_CODES.LOLLIPOP;
+    }
 }

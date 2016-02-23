@@ -23,12 +23,18 @@ import android.accounts.AccountManagerFuture;
 import android.accounts.OperationCanceledException;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageInfo;
 import android.content.pm.ParceledListSlice;
+import android.content.pm.ResolveInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.test.AndroidTestCase;
@@ -43,6 +49,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.mock;
@@ -66,6 +73,7 @@ public class UtilsTest extends AndroidTestCase {
     @Mock private AccountManager mockAccountManager;
     @Mock private IPackageManager mockIPackageManager;
     @Mock private PackageManager mockPackageManager;
+    @Mock private ConnectivityManager mockConnectivityManager;
 
     private Utils mUtils;
 
@@ -78,6 +86,8 @@ public class UtilsTest extends AndroidTestCase {
 
         when(mockContext.getSystemService(Context.ACCOUNT_SERVICE)).thenReturn(mockAccountManager);
         when(mockContext.getPackageManager()).thenReturn(mockPackageManager);
+        when(mockContext.getSystemService(Context.CONNECTIVITY_SERVICE))
+                .thenReturn(mockConnectivityManager);
 
         mUtils = new Utils();
     }
@@ -133,7 +143,7 @@ public class UtilsTest extends AndroidTestCase {
     }
 
     public void testMaybeCopyAccount_success() throws Exception {
-        // GIVEN an account on the primary user and a managed profile present and no timeout
+        // GIVEN an account on the source user and a managed profile present and no timeout
         // or error during migration
         Account testAccount = new Account("test@afw-test.com", "com.google");
         UserHandle primaryUser = UserHandle.of(0);
@@ -145,7 +155,7 @@ public class UtilsTest extends AndroidTestCase {
                 any(UserHandle.class), any(AccountManagerCallback.class), any(Handler.class)))
                 .thenReturn(mockResult);
 
-        // WHEN copying the account from the primary user to the managed profile
+        // WHEN copying the account from the source user to the target user
         // THEN the account migration succeeds
         assertTrue(mUtils.maybeCopyAccount(mockContext, testAccount, primaryUser, managedProfile));
         verify(mockAccountManager).copyAccountToUser(eq(testAccount), eq(primaryUser),
@@ -154,7 +164,7 @@ public class UtilsTest extends AndroidTestCase {
     }
 
     public void testMaybeCopyAccount_error() throws Exception {
-        // GIVEN an account on the primary user and a managed profile present and an error occurs
+        // GIVEN an account on the source user and a target user present and an error occurs
         // during migration
         Account testAccount = new Account("test@afw-test.com", "com.google");
         UserHandle primaryUser = UserHandle.of(0);
@@ -166,7 +176,7 @@ public class UtilsTest extends AndroidTestCase {
                 any(UserHandle.class), any(AccountManagerCallback.class), any(Handler.class)))
                 .thenReturn(mockResult);
 
-        // WHEN copying the account from the primary user to the managed profile
+        // WHEN copying the account from the source user to the target user
         // THEN the account migration fails
         assertFalse(mUtils.maybeCopyAccount(mockContext, testAccount, primaryUser, managedProfile));
         verify(mockAccountManager).copyAccountToUser(eq(testAccount), eq(primaryUser),
@@ -175,20 +185,21 @@ public class UtilsTest extends AndroidTestCase {
     }
 
     public void testMaybeCopyAccount_timeout() throws Exception {
-        // GIVEN an account on the primary user and a managed profile present and a timeout occurs
+        // GIVEN an account on the source user and a target user present and a timeout occurs
         // during migration
         Account testAccount = new Account("test@afw-test.com", "com.google");
         UserHandle primaryUser = UserHandle.of(0);
         UserHandle managedProfile = UserHandle.of(10);
 
         AccountManagerFuture mockResult = mock(AccountManagerFuture.class);
+        // the AccountManagerFuture throws an OperationCanceledException after timeout
         when(mockResult.getResult(anyLong(), any(TimeUnit.class)))
                 .thenThrow(new OperationCanceledException());
         when(mockAccountManager.copyAccountToUser(any(Account.class), any(UserHandle.class),
                 any(UserHandle.class), any(AccountManagerCallback.class), any(Handler.class)))
                 .thenReturn(mockResult);
 
-        // WHEN copying the account from the primary user to the managed profile
+        // WHEN copying the account from the source user to the target user
         // THEN the account migration fails
         assertFalse(mUtils.maybeCopyAccount(mockContext, testAccount, primaryUser, managedProfile));
         verify(mockAccountManager).copyAccountToUser(eq(testAccount), eq(primaryUser),
@@ -197,11 +208,11 @@ public class UtilsTest extends AndroidTestCase {
     }
 
     public void testMaybeCopyAccount_nullAccount() {
-        // GIVEN a device with a managed profile present
+        // GIVEN a device with two users present
         UserHandle primaryUser = UserHandle.of(0);
         UserHandle managedProfile = UserHandle.of(10);
 
-        // WHEN trying to copy a null account from the primary user to the managed profile
+        // WHEN trying to copy a null account from the source user to the target user
         // THEN request is ignored
         assertFalse(mUtils.maybeCopyAccount(mockContext, null /* accountToMigrate */, primaryUser,
                 managedProfile));
@@ -209,14 +220,77 @@ public class UtilsTest extends AndroidTestCase {
     }
 
     public void testMaybeCopyAccount_sameUser() {
-        // GIVEN an account on the primary user and no managed profile
+        // GIVEN an account on a user
         Account testAccount = new Account("test@afw-test.com", "com.google");
         UserHandle primaryUser = UserHandle.of(0);
 
-        // WHEN trying to invoke copying an account from the primary to the primary user
+        // WHEN trying to invoke copying an account with the same user id for source and target user
         // THEN request is ignored
         assertFalse(mUtils.maybeCopyAccount(mockContext, testAccount, primaryUser, primaryUser));
         verifyZeroInteractions(mockAccountManager);
+    }
+
+    public void testIsConnectedToNetwork() throws Exception {
+        // GIVEN the device is currently connected to mobile network
+        setCurrentNetworkMock(ConnectivityManager.TYPE_MOBILE, true);
+        // WHEN checking connectivity
+        // THEN utils should return true
+        assertTrue(mUtils.isConnectedToNetwork(mockContext));
+
+        // GIVEN the device is currently connected to wifi
+        setCurrentNetworkMock(ConnectivityManager.TYPE_WIFI, true);
+        // WHEN checking connectivity
+        // THEN utils should return true
+        assertTrue(mUtils.isConnectedToNetwork(mockContext));
+
+        // GIVEN the device is currently disconnected on wifi
+        setCurrentNetworkMock(ConnectivityManager.TYPE_WIFI, false);
+        // WHEN checking connectivity
+        // THEN utils should return false
+        assertFalse(mUtils.isConnectedToNetwork(mockContext));
+    }
+
+    public void testIsConnectedToWifi() throws Exception {
+        // GIVEN the device is currently connected to mobile network
+        setCurrentNetworkMock(ConnectivityManager.TYPE_MOBILE, true);
+        // WHEN checking whether connected to wifi
+        // THEN utils should return false
+        assertFalse(mUtils.isConnectedToWifi(mockContext));
+
+        // GIVEN the device is currently connected to wifi
+        setCurrentNetworkMock(ConnectivityManager.TYPE_WIFI, true);
+        // WHEN checking whether connected to wifi
+        // THEN utils should return true
+        assertTrue(mUtils.isConnectedToWifi(mockContext));
+
+        // GIVEN the device is currently disconnected on wifi
+        setCurrentNetworkMock(ConnectivityManager.TYPE_WIFI, false);
+        // WHEN checking whether connected to wifi
+        // THEN utils should return false
+        assertFalse(mUtils.isConnectedToWifi(mockContext));
+    }
+
+    public void testCurrentLauncherSupportsManagedProfiles_noLauncherSet() throws Exception {
+        // GIVEN there currently is no default launcher set
+        when(mockPackageManager.resolveActivity(any(Intent.class), anyInt()))
+                .thenReturn(null);
+        // WHEN checking whether the current launcher support managed profiles
+        // THEN utils should return false
+        assertFalse(mUtils.currentLauncherSupportsManagedProfiles(mockContext));
+    }
+
+    public void testCurrentLauncherSupportsManagedProfiles() throws Exception {
+        // GIVEN the current default launcher is built against lollipop
+        setLauncherMock(Build.VERSION_CODES.LOLLIPOP);
+        // WHEN checking whether the current launcher support managed profiles
+        // THEN utils should return true
+        assertTrue(mUtils.currentLauncherSupportsManagedProfiles(mockContext));
+
+        // GIVEN the current default launcher is built against kitkat
+        setLauncherMock(Build.VERSION_CODES.KITKAT);
+        // WHEN checking whether the current launcher support managed profiles
+        // THEN utils should return false
+        assertFalse(mUtils.currentLauncherSupportsManagedProfiles(mockContext));
     }
 
     private ApplicationInfo createApplicationInfo(String packageName, boolean system) {
@@ -226,5 +300,26 @@ public class UtilsTest extends AndroidTestCase {
             ai.flags = ApplicationInfo.FLAG_SYSTEM;
         }
         return ai;
+    }
+
+    private void setCurrentNetworkMock(int type, boolean connected) {
+        NetworkInfo networkInfo = new NetworkInfo(type, 0, null, null);
+        networkInfo.setDetailedState(
+                connected ? NetworkInfo.DetailedState.CONNECTED
+                        : NetworkInfo.DetailedState.DISCONNECTED,
+                null, null);
+        when(mockConnectivityManager.getActiveNetworkInfo()).thenReturn(networkInfo);
+    }
+
+    private void setLauncherMock(int targetSdkVersion) throws Exception {
+        ApplicationInfo appInfo = new ApplicationInfo();
+        appInfo.targetSdkVersion = targetSdkVersion;
+        ActivityInfo actInfo = new ActivityInfo();
+        actInfo.packageName = TEST_PACKAGE_NAME_1;
+        ResolveInfo resInfo = new ResolveInfo();
+        resInfo.activityInfo = actInfo;
+
+        when(mockPackageManager.resolveActivity(any(Intent.class), anyInt())).thenReturn(resInfo);
+        when(mockPackageManager.getApplicationInfo(TEST_PACKAGE_NAME_1, 0)).thenReturn(appInfo);
     }
 }
