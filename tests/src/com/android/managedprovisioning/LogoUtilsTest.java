@@ -111,7 +111,7 @@ public class LogoUtilsTest extends AndroidTestCase {
     public void testDontSaveOrganisationLogo() throws Exception {
         Drawable logo = LogoUtils.getOrganisationLogo(getContext());
         // We didn't save the organisation logo: it should be the default one.
-        Drawable expected = getContext().getResources().getDrawable(R.drawable.ic_corp_icon);
+        Drawable expected = getContext().getResources().getDrawable(R.drawable.briefcase_icon);
         assertEquals(logo.getIntrinsicWidth(), expected.getIntrinsicWidth());
         assertEquals(logo.getIntrinsicHeight(), expected.getIntrinsicHeight());
     }
