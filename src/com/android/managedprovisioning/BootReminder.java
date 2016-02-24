@@ -51,7 +51,8 @@ public class BootReminder extends BroadcastReceiver {
             intentStore.clear();
 
             if (loadedIntent != null) {
-                String action = loadedIntent.getAction();
+                String action = loadedIntent.getStringExtra(
+                        MessageParser.EXTRA_PROVISIONING_ACTION);
 
                 if (mUtils.isProfileOwnerAction(action)) {
                     if (!mUtils.isPhysicalDeviceEncrypted()) {
