@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -63,6 +64,7 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
 
         layout.setIllustration(new HeaderDrawable(this, mainColor));
         layout.setLayoutBackground(new ColorDrawable(mainColor));
+        layout.setProgressBarColor(ColorStateList.valueOf(mainColor));
     }
 
     public void initializeLayoutParams(int layoutResourceId, int headerResourceId,
