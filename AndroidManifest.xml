@@ -121,8 +121,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
+        <!-- Entry to resume encryption after reboot. -->
+        <activity-alias
+            android:name="PreProvisioningActivityAfterEncryption"
+            android:targetActivity=".uiflows.PreProvisioningActivity"
+            android:exported="false">
+            <intent-filter android:priority="10">
+                <action
+                    android:name="com.android.managedprovisioning.action.RESUME_PROVISIONING"
+                />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
         <activity
-            android:name="EncryptDeviceActivity"
+            android:name=".uiflows.EncryptDeviceActivity"
             android:immersive="true"
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">

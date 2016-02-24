@@ -89,7 +89,7 @@ public class HomeReceiverActivity extends Activity {
         intentStore.clear();
         mParams = loadProvisioningParamsFromIntent(intent);
         if (mParams != null) {
-            String action = intent.getAction();
+            String action = mParams.provisioningAction;
             Intent provisioningCompleteIntent = getProvisioningCompleteIntent();
             if (provisioningCompleteIntent == null) {
                 return;

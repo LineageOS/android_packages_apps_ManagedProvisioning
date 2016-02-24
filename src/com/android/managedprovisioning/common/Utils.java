@@ -72,7 +72,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import com.android.managedprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.FinalizationActivity;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams;
@@ -660,7 +659,7 @@ public class Utils {
      * Returns whether the given provisioning action is a profile owner action.
      */
     // TODO: Move the list of device owner actions into a Globals class.
-    public boolean isProfileOwnerAction(String action) {
+    public final boolean isProfileOwnerAction(String action) {
         return action.equals(ACTION_PROVISION_MANAGED_PROFILE)
                 || action.equals(ACTION_PROVISION_MANAGED_USER);
     }
@@ -669,7 +668,7 @@ public class Utils {
      * Returns whether the given provisioning action is a device owner action.
      */
     // TODO: Move the list of device owner actions into a Globals class.
-    public boolean isDeviceOwnerAction(String action) {
+    public final boolean isDeviceOwnerAction(String action) {
         return action.equals(ACTION_PROVISION_MANAGED_DEVICE)
                 || action.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
     }
