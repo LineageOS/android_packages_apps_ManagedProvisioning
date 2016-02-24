@@ -19,6 +19,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.anyString;
@@ -106,32 +107,9 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController = new PreProvisioningController(mContext, mUi, mMessageParser, mUtils);
     }
 
-    public void testUnknownIntentAction() throws Exception {
-        // GIVEN the intent action passed to provisioning is unknown
-        when(mUtils.mapIntentToDpmAction(mIntent))
-                .thenThrow(new IllegalProvisioningArgumentException(""));
-        // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
-        // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_general), anyString());
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testProvisioningNotAllowed() throws Exception {
-        // GIVEN the desired provisioning mode is not currently allowed
-        final String action = DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-        when(mUtils.mapIntentToDpmAction(mIntent)).thenReturn(action);
-        when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(false);
-        // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
-        // THEN show an error dialog
-        verify(mUi).showErrorAndClose(anyInt(), anyString());
-        verifyNoMoreInteractions(mUi);
-    }
-
     public void testManagedProfile() throws Exception {
         // GIVEN an intent to provision a managed profile
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
@@ -147,9 +125,21 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    public void testManagedProfile_provisioningNotAllowed() throws Exception {
+        // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
+        prepareMocksForManagedProfileIntent(false);
+        when(mDevicePolicyManager.isProvisioningAllowed(ACTION_PROVISION_MANAGED_PROFILE))
+                .thenReturn(false);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN show an error dialog
+        verify(mUi).showErrorAndClose(anyInt(), anyString());
+        verifyNoMoreInteractions(mUi);
+    }
+
     public void testManagedProfile_nullCallingPackage() throws Exception {
         // GIVEN a device that is not currently encrypted
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         try {
             // WHEN initiating provisioning
             mController.initiateProvisioning(mIntent, null);
@@ -163,7 +153,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testManagedProfile_withEncryption() throws Exception {
         // GIVEN a device that is not currently encrypted
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -177,8 +167,9 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void testManagedProfile_afterEncryption() throws Exception {
-        // GIVEN managed profile provisioning continues after successful encryption
-        prepareMocksForManagedProfileIntent(false, true);
+        // GIVEN managed profile provisioning continues after successful encryption. In this case
+        // we don't set the startedByTrustedSource flag.
+        prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_PROFILE, false);
         // WHEN initiating with a continuation intent
         mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME);
         // THEN the UI elements should be updated accordingly
@@ -196,7 +187,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testManagedProfile_withExistingProfile() throws Exception {
         // GIVEN a managed profile currently exist on the device
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -218,7 +209,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testManagedProfile_badLauncher() throws Exception {
         // GIVEN that the current launcher does not support managed profiles
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         when(mUtils.currentLauncherSupportsManagedProfiles(mContext)).thenReturn(false);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -238,7 +229,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     public void testManagedProfile_wrongPackage() throws Exception {
         // GIVEN that the provisioning intent tries to set a package different from the caller
         // as owner of the profile
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_BOGUS_PACKAGE);
         // THEN show an error dialog and do not continue
@@ -248,7 +239,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testManagedProfile_frp() throws Exception {
         // GIVEN managed profile provisioning is invoked from SUW with FRP active
-        prepareMocksForManagedProfileIntent(false, false);
+        prepareMocksForManagedProfileIntent(false);
         when(mUtils.isDeviceProvisioned(mContext)).thenReturn(false);
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
@@ -261,7 +252,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testManagedProfile_skipEncryption() throws Exception {
         // GIVEN an intent to provision a managed profile with skip encryption
-        prepareMocksForManagedProfileIntent(true, false);
+        prepareMocksForManagedProfileIntent(true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -281,7 +272,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testNfc() throws Exception {
         // GIVEN provisioning was started via an NFC tap and device is already encrypted
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false, false);
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
@@ -296,7 +287,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testNfc_skipEncryption() throws Exception {
         // GIVEN provisioning was started via an NFC tap with encryption skipped
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
@@ -313,7 +304,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testNfc_withEncryption() throws Exception {
         // GIVEN provisioning was started via an NFC tap with encryption necessary
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false, false);
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
@@ -325,10 +316,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testNfc_afterEncryption() throws Exception {
         // GIVEN provisioning was started via an NFC tap and we have gone through encryption
-        // in this case the device gets resumed with the DO intent
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false, true);
+        // in this case the device gets resumed with the DO intent and startedByTrustedSource flag
+        // set
+        prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_DEVICE, true);
         // WHEN continuing NFC provisioning after encryption
-        mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME);
+        mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
         verifyInitiateDeviceOwnerUi();
         verify(mUi).showUserConsentDialog(mParams, false);
@@ -341,7 +333,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testNfc_frp() throws Exception {
         // GIVEN provisioning was started via an NFC tap, but the device is locked with FRP
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false, false);
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating NFC provisioning
@@ -353,7 +345,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testQr() throws Exception {
         // GIVEN provisioning was started via a QR code and device is already encrypted
-        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false, false);
+        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
@@ -368,7 +360,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testQr_skipEncryption() throws Exception {
         // GIVEN provisioning was started via a QR code with encryption skipped
-        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
@@ -385,7 +377,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testQr_withEncryption() throws Exception {
         // GIVEN provisioning was started via a QR code with encryption necessary
-        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false, false);
+        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
@@ -395,25 +387,9 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    public void testQr_afterEncryption() throws Exception {
-        // GIVEN provisioning was started via a QR code and we have gone through encryption
-        // in this case the device gets resumed with the DO intent
-        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false, true);
-        // WHEN continuing QR provisioning after encryption
-        mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME);
-        // THEN show a user consent dialog
-        verifyInitiateDeviceOwnerUi();
-        verify(mUi).showUserConsentDialog(mParams, false);
-        // WHEN the user consents
-        mController.continueProvisioningAfterUserConsent();
-        // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
-        verifyNoMoreInteractions(mUi);
-    }
-
     public void testQr_frp() throws Exception {
         // GIVEN provisioning was started via a QR code, but the device is locked with FRP
-        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false, false);
+        prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating QR provisioning
@@ -425,7 +401,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testDeviceOwner() throws Exception {
         // GIVEN device owner provisioning was started and device is already encrypted
-        prepareMocksForDoIntent(true, false);
+        prepareMocksForDoIntent(true);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
@@ -443,7 +419,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testDeviceOwner_skipEncryption() throws Exception {
         // GIVEN device owner provisioning was started with skip encryption flag
-        prepareMocksForDoIntent(true, false);
+        prepareMocksForDoIntent(true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -467,7 +443,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     // the UI elements if we're moving away from this activity straight away.
     public void testDeviceOwner_withEncryption() throws Exception {
         // GIVEN device owner provisioning is started with encryption needed
-        prepareMocksForDoIntent(false, false);
+        prepareMocksForDoIntent(false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -478,10 +454,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void testDeviceOwner_afterEncryption() throws Exception {
-        // GIVEN device owner provisioning is continued after encryption
-        prepareMocksForDoIntent(false, true);
+        // GIVEN device owner provisioning is continued after encryption. In this case we do not set
+        // the startedByTrustedSource flag.
+        prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN provisioning is continued
-        mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME);
+        mController.initiateProvisioning(mIntent, null);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
         // WHEN the user clicks next
@@ -497,7 +474,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     public void testDeviceOwner_frp() throws Exception {
         // GIVEN device owner provisioning is invoked with FRP active
-        prepareMocksForDoIntent(true, false);
+        prepareMocksForDoIntent(false);
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating provisioning
@@ -507,82 +484,52 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    private void prepareMocksForManagedProfileIntent(boolean skipEncryption,
-            boolean afterEncryption) throws Exception {
-        when(mIntent.getAction()).thenReturn(ACTION_PROVISION_MANAGED_PROFILE);
-        when(mUtils.mapIntentToDpmAction(mIntent)).thenReturn(ACTION_PROVISION_MANAGED_PROFILE);
-        when(mUtils.isProfileOwnerAction(ACTION_PROVISION_MANAGED_PROFILE)).thenReturn(true);
+    private void prepareMocksForManagedProfileIntent(boolean skipEncryption) throws Exception {
+        final String action = ACTION_PROVISION_MANAGED_PROFILE;
+        when(mIntent.getAction()).thenReturn(action);
         when(mUtils.findDeviceAdmin(TEST_MDM_PACKAGE, null, mContext))
                 .thenReturn(TEST_MDM_COMPONENT_NAME);
         when(mUtils.isDeviceProvisioned(mContext)).thenReturn(true);
-        when(mDevicePolicyManager.isProvisioningAllowed(ACTION_PROVISION_MANAGED_PROFILE))
-                .thenReturn(true);
-        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, afterEncryption)).thenReturn(
-                createParams(false, skipEncryption, null, ACTION_PROVISION_MANAGED_PROFILE,
-                        TEST_MDM_PACKAGE));
+        when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
+        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, false)).thenReturn(
+                createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));
     }
 
-    private void prepareMocksForNfcIntent(String action, boolean skipEncryption,
-            boolean afterEncryption) throws Exception {
-        if (afterEncryption) {
-            when(mIntent.getAction()).thenReturn(action);
-        } else {
-            when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
-        }
-        when(mUtils.mapIntentToDpmAction(mIntent)).thenReturn(action);
-        when(mUtils.isProfileOwnerAction(action)).thenReturn(false);
-        when(mUtils.isDeviceProvisioned(mContext)).thenReturn(false);
+    private void prepareMocksForNfcIntent(String action, boolean skipEncryption) throws Exception {
+        when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        if (afterEncryption) {
-            when(mMessageParser.parseNonNfcIntent(mIntent, mContext, true)).thenReturn(
-                    createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
-        } else {
-            when(mMessageParser.parseNfcIntent(mIntent)).thenReturn(
-                    createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
-        }
-        when(mPdbManager.getDataBlockSize()).thenReturn(0);
-    }
-
-    private void prepareMocksForQrIntent(String action, boolean skipEncryption,
-            boolean afterEncryption) throws Exception {
-        if (afterEncryption) {
-            when(mIntent.getAction()).thenReturn(action);
-        } else {
-            when(mIntent.getAction())
-                    .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
-        }
-        when(mUtils.mapIntentToDpmAction(mIntent)).thenReturn(action);
-        when(mUtils.isProfileOwnerAction(action)).thenReturn(false);
-        when(mUtils.isDeviceProvisioned(mContext)).thenReturn(false);
-        when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, afterEncryption)).thenReturn(
+        when(mMessageParser.parseNfcIntent(mIntent)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
-        when(mPdbManager.getDataBlockSize()).thenReturn(0);
     }
 
-    private void prepareMocksForDoIntent(boolean skipEncryption, boolean afterEncryption)
-            throws Exception {
+    private void prepareMocksForQrIntent(String action, boolean skipEncryption) throws Exception {
+        when(mIntent.getAction())
+                .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
+        when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
+        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, false)).thenReturn(
+                createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
+    }
+
+    private void prepareMocksForDoIntent(boolean skipEncryption) throws Exception {
         final String action = ACTION_PROVISION_MANAGED_DEVICE;
         when(mIntent.getAction()).thenReturn(action);
-        when(mUtils.mapIntentToDpmAction(mIntent)).thenReturn(action);
-        when(mUtils.isProfileOwnerAction(action)).thenReturn(false);
-        when(mUtils.isDeviceProvisioned(mContext)).thenReturn(false);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-
-        if (afterEncryption) {
-            when(mMessageParser.parseNonNfcIntent(mIntent, mContext, true)).thenReturn(
-                    createParams(false, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
-        } else {
-            when(mMessageParser.parseMinimalistNonNfcIntent(mIntent, mContext, false)).thenReturn(
-                    createParams(false, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
-        }
-        when(mPdbManager.getDataBlockSize()).thenReturn(0);
+        when(mMessageParser.parseMinimalistNonNfcIntent(mIntent, mContext, false)).thenReturn(
+                createParams(false, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
-    private ProvisioningParams createParams(boolean trustedSource, boolean skipEncryption,
+    private void prepareMocksForAfterEncryption(String action, boolean startedByTrustedSource)
+            throws Exception {
+        when(mIntent.getAction()).thenReturn(ACTION_RESUME_PROVISIONING);
+        when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
+        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, true)).thenReturn(
+                createParams(startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
+    }
+
+    private ProvisioningParams createParams(boolean startedByTrustedSource, boolean skipEncryption,
             String wifiSsid, String action, String packageName) {
         mParams = new ProvisioningParams();
-        mParams.startedByTrustedSource = trustedSource;
+        mParams.startedByTrustedSource = startedByTrustedSource;
         mParams.skipEncryption = skipEncryption;
         mParams.wifiInfo.ssid = wifiSsid;
         mParams.provisioningAction = action;

@@ -21,6 +21,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -43,7 +44,6 @@ import android.text.TextUtils;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.ProvisioningParams;
@@ -177,31 +177,27 @@ public class PreProvisioningController {
             return;
         }
 
-        String action = null;
         try {
-            action = mUtils.mapIntentToDpmAction(intent);
-            ProvisionLogger.logi(
-                    "Starting provisioning for target action: " + action);
-        } catch (IllegalProvisioningArgumentException e) {
-            // should never happen
-            // TODO: show generic error
-            mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
-            return;
-        }
+            // Read the provisioning params from the provisioning intent
+            mParams = parseIntent(intent);
 
-        mIsProfileOwnerProvisioning = mUtils.isProfileOwnerAction(action);
-        // Check whether provisioning is allowed for the current action
-        if (!mDevicePolicyManager.isProvisioningAllowed(action)) {
-            showProvisioningError(action);
-            return;
-        }
-
-        // Read the provisioning params from the provisioning intent
-        try {
-            readParamsAndMaybeVerifyCaller(intent, callingPackage);
+            // If this is a resume after encryption or trusted intent, we don't need to verify the
+            // caller. Otherwise, verify that the calling app is trying to set itself as
+            // Device/ProfileOwner
+            if (!ACTION_RESUME_PROVISIONING.equals(intent.getAction()) &&
+                    !mParams.startedByTrustedSource) {
+                verifyCaller(callingPackage);
+            }
         } catch (IllegalProvisioningArgumentException e) {
             // TODO: make this a generic error message
             mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
+            return;
+        }
+
+        mIsProfileOwnerProvisioning = mUtils.isProfileOwnerAction(mParams.provisioningAction);
+        // Check whether provisioning is allowed for the current action
+        if (!mDevicePolicyManager.isProvisioningAllowed(mParams.provisioningAction)) {
+            showProvisioningError(mParams.provisioningAction);
             return;
         }
 
@@ -213,25 +209,17 @@ public class PreProvisioningController {
         }
     }
 
-    private void readParamsAndMaybeVerifyCaller(Intent intent, String callingPackage)
-            throws IllegalProvisioningArgumentException {
-        boolean isSelfOriginated = (callingPackage != null)
-                && (callingPackage.equals(mContext.getPackageName()));
-        mParams = parseIntent(intent, isSelfOriginated);
-        if (!isSelfOriginated && !mParams.startedByTrustedSource) {
-            verifyCaller(callingPackage);
-        }
-    }
-
     /**
      * Read the ProvisioningParams from the intent.
      *
      * @throw IllegalProvisioningArgumentException if the parameters are not valid.
      */
     // TODO: Move this logic into message parser
-    private ProvisioningParams parseIntent(Intent intent, boolean isSelfOriginated)
+    private ProvisioningParams parseIntent(Intent intent)
             throws IllegalProvisioningArgumentException {
-        if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
+        if (intent.getAction().equals(ACTION_RESUME_PROVISIONING)) {
+            return mMessageParser.parseNonNfcIntent(intent, mContext, true);
+        } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
             return mMessageParser.parseNfcIntent(intent);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
             // We trusted most of the extras from this intent because the caller is a privileged
@@ -239,19 +227,9 @@ public class PreProvisioningController {
             return mMessageParser.parseNonNfcIntent(intent, mContext, false);
         } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
                 intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
-            ProvisioningParams params;
-            if (isSelfOriginated) {
-                // If we're trusted, we support all the extras.
-                params = mMessageParser.parseNonNfcIntent(intent, mContext, true);
-            } else {
-                // If we were started by another app, we don't support many extras, so use the
-                // minimalist version.
-                params = mMessageParser.parseMinimalistNonNfcIntent(intent, mContext, false);
-            }
-            return params;
+            return mMessageParser.parseMinimalistNonNfcIntent(intent, mContext, false);
         } else { // profile owner provisioning
-            ProvisioningParams params = mMessageParser.parseNonNfcIntent(intent, mContext,
-                    isSelfOriginated);
+            ProvisioningParams params = mMessageParser.parseNonNfcIntent(intent, mContext, false);
             params.deviceAdminComponentName = mUtils.findDeviceAdmin(
                     params.deviceAdminPackageName, params.deviceAdminComponentName, mContext);
             params.deviceAdminPackageName = params.deviceAdminComponentName.getPackageName();

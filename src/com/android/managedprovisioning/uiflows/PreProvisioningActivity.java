@@ -35,7 +35,6 @@ import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.DeleteManagedProfileDialog;
 import com.android.managedprovisioning.DeviceOwnerProvisioningActivity;
-import com.android.managedprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.LogoUtils;
 import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProfileOwnerProvisioningActivity;
@@ -137,14 +136,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void requestEncryption(ProvisioningParams params) {
-        MessageParser parser = new MessageParser();
         Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class);
-
-        Intent toResume = parser.getIntentFromProvisioningParams(params);
-        toResume.setComponent(getComponentName());
-        encryptIntent.putExtra(EncryptDeviceActivity.EXTRA_RESUME, toResume);
         encryptIntent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-
         startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }
 
