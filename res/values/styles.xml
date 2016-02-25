@@ -93,7 +93,7 @@
       <item name="android:windowNoTitle">true</item>
       <item name="android:windowBackground">@color/transparent</item>
       <!-- Color for checked checkbox -->
-      <item name="android:colorControlActivated">@color/accent</item>
+      <item name="android:colorControlActivated">@color/orange</item>
       <!-- Color for enabled button -->
       <item name="android:colorAccent">@color/accent</item>
     </style>
