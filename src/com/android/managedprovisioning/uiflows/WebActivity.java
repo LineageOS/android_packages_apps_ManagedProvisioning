@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.uiflows;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -24,22 +26,20 @@ import android.webkit.WebViewClient;
 import com.android.managedprovisioning.ProvisionLogger;
 
 /**
- * This activity shows a web view, which loads the {@link #EXTRA_URL} indicated in the starting
- * intent. By default the user can click on links and load other urls. However, if the
- * {@link EXTRA_ALLOWED_URL_BASE} is set in the starting intent, then only url starting with the
- * allowed url base will be loaded.
+ * This activity shows a web view, which loads the url indicated in the starting intent. By default
+ * the user can click on links and load other urls. However, by passing the allowed url base, the
+ * web view can be limited to urls that start with this base.
  *
- * <p>
- * This activity is currently used by the {@link com.android.managedprovisioning.UserConsentDialog}
- * to display the google support web page about the Device Owner concept.
- * </p>
+ * <p>This activity is currently used by the
+ * {@link com.android.managedprovisioning.UserConsentDialog} to display the google support web page
+ * about the provisioning concepts.
  */
 public class WebActivity extends Activity {
-    public static final String EXTRA_URL = "extra_url";
+    private static final String EXTRA_URL = "extra_url";
 
     // Users can only browse urls starting with the base specified by the following extra.
     // If this extra is not used, there are no restrictions on browsable urls.
-    public static final String EXTRA_ALLOWED_URL_BASE = "extra_allowed_url_base";
+    private static final String EXTRA_ALLOWED_URL_BASE = "extra_allowed_url_base";
 
     private WebView mWebView;
 
@@ -67,5 +67,18 @@ public class WebActivity extends Activity {
             });
 
         this.setContentView(mWebView);
+    }
+
+    /**
+     * Creates an intent to launch the webactivity.
+     *
+     * @param url the url to be shown upon launching this activity
+     * @param allowedUrlBase the limit to all urls allowed to be seen in this webview
+     */
+    public static Intent createIntent(Context context, String url, String allowedUrlBase) {
+        Intent intent = new Intent(context, WebActivity.class);
+        intent.putExtra(WebActivity.EXTRA_URL, url);
+        intent.putExtra(WebActivity.EXTRA_ALLOWED_URL_BASE, allowedUrlBase);
+        return intent;
     }
 }

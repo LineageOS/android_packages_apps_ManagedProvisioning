@@ -79,6 +79,7 @@ public class UserConsentDialog extends DialogFragment {
         if (ownerType != PROFILE_OWNER && ownerType != DEVICE_OWNER) {
             throw new IllegalArgumentException("Illegal value for argument ownerType.");
         }
+        boolean isProfileOwner = (ownerType == PROFILE_OWNER);
 
         final Dialog dialog = new Dialog(getActivity(), R.style.ManagedProvisioningDialogTheme);
         dialog.setContentView(R.layout.learn_more_dialog);
@@ -89,31 +90,13 @@ public class UserConsentDialog extends DialogFragment {
         final TextView textFrpWarning = (TextView) dialog.findViewById(
                 R.id.learn_more_frp_warning);
 
-        if (ownerType == PROFILE_OWNER) {
-            learnMoreMsg.setText(R.string.admin_has_ability_to_monitor_profile);
-            linkText.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                                Uri.parse(LEARN_MORE_URL_PROFILE_OWNER));
-                        getActivity().startActivity(browserIntent);
-                    }
-                });
-        } else if (ownerType == DEVICE_OWNER) {
-            learnMoreMsg.setText(R.string.admin_has_ability_to_monitor_device);
-            linkText.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent webIntent = new Intent(getActivity(), WebActivity.class);
-                        webIntent.putExtra(WebActivity.EXTRA_URL, LEARN_MORE_URL_DEVICE_OWNER);
-                        webIntent.putExtra(WebActivity.EXTRA_ALLOWED_URL_BASE,
-                                LEARN_MORE_ALLOWED_BASE_URL);
-                        getActivity().startActivity(webIntent);
-                    }
-                });
-            if (mUtils.isFrpSupported(getActivity())) {
-                textFrpWarning.setVisibility(View.VISIBLE);
-            }
+        initializeLearnMoreLink(linkText, isProfileOwner);
+        learnMoreMsg.setText(isProfileOwner ? R.string.admin_has_ability_to_monitor_profile
+                : R.string.admin_has_ability_to_monitor_device);
+
+        if (!isProfileOwner && mUtils.isFrpSupported(getActivity())) {
+            // For device owner, show a warning that FRP might not be fully active
+            textFrpWarning.setVisibility(View.VISIBLE);
         }
 
         final Button positiveButton = (Button) dialog.findViewById(R.id.positive_button);
@@ -149,6 +132,24 @@ public class UserConsentDialog extends DialogFragment {
             });
 
         return dialog;
+    }
+
+    private void initializeLearnMoreLink(TextView linkText, boolean isProfileOwner) {
+        if (!mUtils.isConnectedToNetwork(getActivity())) {
+            // If the device has currently no connectivity, don't show the "learn more" link.
+            linkText.setVisibility(View.GONE);
+        } else {
+            // Otherwise register a listener that starts a webview activity.
+            final String url = isProfileOwner ? LEARN_MORE_URL_PROFILE_OWNER
+                    : LEARN_MORE_URL_DEVICE_OWNER;
+            linkText.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().startActivity(WebActivity.createIntent(getActivity(), url,
+                            LEARN_MORE_ALLOWED_BASE_URL));
+                }
+            });
+        }
     }
 
     @Override
