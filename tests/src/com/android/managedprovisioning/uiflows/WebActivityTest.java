@@ -30,16 +30,14 @@ public class WebActivityTest extends ActivityUnitTestCase<WebActivity> {
     }
 
     public void testNoUrl() {
-        startActivity(new Intent(getInstrumentation().getTargetContext(), WebActivity.class),
-                null, null);
+        startActivity(WebActivity.createIntent(getInstrumentation().getTargetContext(),
+                null, null), null, null);
         assertTrue(isFinishCalled());
     }
 
     public void testUrlLaunched() {
-        Intent launchIntent = new Intent(getInstrumentation().getTargetContext(),
-                WebActivity.class);
-        launchIntent.putExtra(WebActivity.EXTRA_URL, TEST_URL);
-        startActivity(launchIntent, null, null);
+        startActivity(WebActivity.createIntent(getInstrumentation().getTargetContext(),
+                TEST_URL, null), null, null);
         assertFalse(isFinishCalled());
         WebView webView = (WebView) ((ViewGroup) getActivity().findViewById(android.R.id.content))
                 .getChildAt(0);
