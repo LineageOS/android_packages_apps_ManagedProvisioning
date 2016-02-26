@@ -108,12 +108,21 @@ public class LogoUtilsTest extends AndroidTestCase {
         }
     }
 
-    public void testDontSaveOrganisationLogo() throws Exception {
+    public void testDefaultOrganisationLogo() throws Exception {
+        int maxWidth = (int) getContext().getResources().getDimension(R.dimen.max_logo_width);
+        int maxHeight = (int) getContext().getResources().getDimension(R.dimen.max_logo_height);
+        // In this test, we don't save the logo.
+
+        // First let's compute the expected logo. It is the default one, resized if too big.
+        Bitmap expected = BitmapFactory.decodeResource(getContext().getResources(),
+                R.drawable.briefcase_icon);
+        expected = LogoUtils.resizeBitmap(expected, maxWidth, maxHeight);
+
+        // Now, get the actual logo
         Drawable logo = LogoUtils.getOrganisationLogo(getContext());
-        // We didn't save the organisation logo: it should be the default one.
-        Drawable expected = getContext().getResources().getDrawable(R.drawable.briefcase_icon);
-        assertEquals(logo.getIntrinsicWidth(), expected.getIntrinsicWidth());
-        assertEquals(logo.getIntrinsicHeight(), expected.getIntrinsicHeight());
+
+        // They should be equal.
+        assertBitmapEquals(expected, bitmapFromDrawable(logo));
     }
 
     private Bitmap createSampleBitmap(int width, int height) {
@@ -122,6 +131,26 @@ public class LogoUtilsTest extends AndroidTestCase {
         Paint paint = new Paint();
         paint.setColor(SAMPLE_COLOR);
         canvas.drawRect(0, 0, width, height, paint);
+        return bitmap;
+    }
+
+    private void assertBitmapEquals(Bitmap b1, Bitmap b2) {
+        assertEquals(b1.getWidth(), b2.getWidth());
+        assertEquals(b1.getHeight(), b2.getHeight());
+        for (int x = 0; x < b1.getWidth(); x++) {
+            for (int y = 0; y < b1.getHeight(); y++) {
+                assertEquals(b1.getPixel(x, y), b2.getPixel(x, y));
+            }
+        }
+    }
+
+    private Bitmap bitmapFromDrawable(Drawable drawable) {
+        int width = drawable.getIntrinsicWidth();
+        int height = drawable.getIntrinsicHeight();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, width, height);
+        drawable.draw(canvas);
         return bitmap;
     }
 
