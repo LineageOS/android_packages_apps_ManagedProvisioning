@@ -313,14 +313,6 @@ public class Utils {
     public void markDeviceProvisioned(Context context) {
         ProvisionLogger.logd("Setting DEVICE_PROVISIONED to 1");
         Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
-
-        // Setting this flag will either cause Setup Wizard to finish immediately when it starts (if
-        // it is not already running), or when its next activity starts (if it is already running,
-        // e.g. the non-NFC flow).
-        // When either of these things happen, a home intent is fired. We catch that in
-        // HomeReceiverActivity before sending the intent to notify the mdm that provisioning is
-        // complete.
-        markUserSetupComplete(context, UserHandle.myUserId());
     }
 
     /**
@@ -363,9 +355,12 @@ public class Utils {
     public void markUserProvisioningStateInitiallyDone(Context context,
             ProvisioningParams params) {
         int currentUserId = UserHandle.myUserId();
-        int managedProfileUserId = -1;
+        int managedProfileUserId = UserHandle.USER_NULL;
         DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+
+        // new provisioning state for current user, if non-null
         Integer newState = null;
+         // New provisioning state for managed-profile of current user, if non-null.
         Integer newProfileState = null;
 
         boolean userSetupCompleted = isUserSetupCompleted(context);

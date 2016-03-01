@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
 import android.accounts.AccountManager;
@@ -409,26 +410,24 @@ public class ProfileOwnerProvisioningService extends Service {
      * itself.
      */
     private void notifyMdmAndCleanup() {
-        // Set DPM userProvisioningState appropriately.
+        // Set DPM userProvisioningState appropriately and persist mParams for use during
+        // FinalizationActivity if necessary.
         mUtils.markUserProvisioningStateInitiallyDone(this, mParams);
 
-        // TODO: Clean-up/remove the following mUtils.mark*() calls once SUW has been updated to use
-        //       DevicePolicyManager.getUserProvisioningState(). In the mean-time, support both
-        //       mechanisms to avoid breaking integration.
-
-        // skipUserSetup is true by default, and can only be false for managed-user cases, never
-        // managed-profile. We always expect user_setup_complete to be set for managed-profile
-        // cases.
-        if (mParams.skipUserSetup) {
+        if (mParams.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+            // Set the user_setup_complete flag on the managed-profile as setup-wizard is never run
+            // for that user. This is not relevant for other cases since
+            // Utils.markUserProvisioningStateInitiallyDone() communicates provisioning state to
+            // setup-wizard via DPM.setUserProvisioningState() if necessary.
             mUtils.markUserSetupComplete(this, mManagedProfileOrUserInfo.id);
         }
 
-        // If profile owner provisioning was started after user setup is completed, then we
+        // If profile owner provisioning was started after current user setup is completed, then we
         // can directly send the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to the MDM.
-        // But if the provisioning was started as part of setup wizard flow, we shutdown the
-        // Setup wizard at the end of provisioning which will result in a home intent. So, to
-        // avoid the race condition, HomeReceiverActivity is enabled which will in turn send
-        // the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast.
+        // But if the provisioning was started as part of setup wizard flow, we signal setup-wizard
+        // should shutdown via DPM.setUserProvisioningState(), which will result in a finalization
+        // intent being sent to us once setup-wizard finishes. As part of the finalization intent
+        // handling we then broadcast ACTION_PROFILE_PROVISIONING_COMPLETE.
         if (mUtils.isUserSetupCompleted(this)) {
             UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
 
@@ -450,8 +449,6 @@ public class ProfileOwnerProvisioningService extends Service {
                     mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
             ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
                     + managedUserHandle.getIdentifier());
-        } else {
-            HomeReceiverActivity.setReminder(mParams, this);
         }
     }
 
