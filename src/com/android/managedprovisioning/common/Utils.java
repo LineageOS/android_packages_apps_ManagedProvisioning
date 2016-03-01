@@ -42,6 +42,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
@@ -65,6 +66,7 @@ import android.util.Base64;
 
 import java.io.IOException;
 import java.lang.Integer;
+import java.lang.Math;
 import java.lang.String;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
@@ -83,6 +85,8 @@ import com.android.managedprovisioning.TrampolineActivity;
 public class Utils {
     private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 3;  // 3 minutes
 
+    private static final int THRESHOLD_BRIGHT_COLOR = 160; // A color needs a brightness of at least
+    // this value to be considered bright. (brightness being between 0 and 255).
     public Utils() {}
 
     /**
@@ -785,5 +789,11 @@ public class Utils {
      */
     private boolean versionNumberAtLeastL(int versionNumber) {
         return versionNumber >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    public boolean isBrightColor(int color) {
+        // we're using the brightness formula: (r * 299 + g * 587 + b * 144) / 1000
+        return Color.red(color) * 299 + Color.green(color) * 587 + Color.blue(color) * 114
+                >= 1000 * THRESHOLD_BRIGHT_COLOR;
     }
 }

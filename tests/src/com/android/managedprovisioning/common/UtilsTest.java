@@ -32,6 +32,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageInfo;
 import android.content.pm.ParceledListSlice;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -291,6 +292,13 @@ public class UtilsTest extends AndroidTestCase {
         // WHEN checking whether the current launcher support managed profiles
         // THEN utils should return false
         assertFalse(mUtils.currentLauncherSupportsManagedProfiles(mockContext));
+    }
+
+    public void testBrightness() {
+        assertTrue(mUtils.isBrightColor(Color.WHITE));
+        assertTrue(mUtils.isBrightColor(Color.YELLOW));
+        assertFalse(mUtils.isBrightColor(Color.BLACK));
+        assertFalse(mUtils.isBrightColor(Color.BLUE));
     }
 
     private ApplicationInfo createApplicationInfo(String packageName, boolean system) {
