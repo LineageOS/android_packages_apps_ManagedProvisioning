@@ -34,6 +34,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.setupwizardlib.SetupWizardLayout;
@@ -65,6 +66,13 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
         layout.setIllustration(new HeaderDrawable(this, mainColor));
         layout.setLayoutBackground(new ColorDrawable(mainColor));
         layout.setProgressBarColor(ColorStateList.valueOf(mainColor));
+
+        final TextView titleView = (TextView) findViewById(R.id.suw_layout_title);
+        if (mUtils.isBrightColor(mainColor)) {
+            titleView.setTextColor(Color.BLACK);
+        } else {
+            titleView.setTextColor(Color.WHITE);
+        }
     }
 
     public void initializeLayoutParams(int layoutResourceId, int headerResourceId,
