@@ -54,7 +54,7 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
     protected void maybeSetLogoAndMainColor(Integer mainColor) {
         // null means the default value
         if (mainColor == null) {
-            mainColor = getResources().getColor(R.color.accent);
+            mainColor = getResources().getColor(R.color.orange);
         }
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
