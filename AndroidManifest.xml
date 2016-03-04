@@ -172,19 +172,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- TODO: Remove once setup-wizard support for PROVISION_FINALIZATION is implemented. -->
-        <activity android:name=".HomeReceiverActivity"
-                  android:theme="@android:style/Theme.NoDisplay"
-                  android:noHistory="true"
-                  android:excludeFromRecents="true"
-                  android:enabled="false">
-            <intent-filter android:priority="2">
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.HOME" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!-- TODO: Add permission for setup-wizard to guard access? -->
         <activity android:name=".FinalizationActivity"
                 android:theme="@android:style/Theme.NoDisplay"

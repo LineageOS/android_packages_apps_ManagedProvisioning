@@ -83,11 +83,6 @@ public class DeviceOwnerProvisioningService extends Service {
     protected static final String ACTION_REQUEST_WIFI_PICK =
             "com.android.managedprovisioning.request_wifi_pick";
 
-    // Intent action used by the HomeReceiverActivity to notify this Service that a HOME intent was
-    // received, which indicates that the Setup wizard has closed after provisioning completed.
-    protected static final String ACTION_HOME_INDIRECT =
-            "com.android.managedprovisioning.home_indirect";
-
     // Indicates whether provisioning has started.
     private boolean mProvisioningInFlight = false;
 
@@ -340,14 +335,9 @@ public class DeviceOwnerProvisioningService extends Service {
         if (DEBUG) ProvisionLogger.logd("Reporting success.");
         mDone = true;
 
-        // Set DPM userProvisioningState appropriately.
+        // Set DPM userProvisioningState appropriately and persists mParams for use during
+        // FinalizationActivity if necessary.
         mUtils.markUserProvisioningStateInitiallyDone(this, mParams);
-
-        // Persist mParams so HomeReceiverActivity can later retrieve them to finalize provisioning.
-        // This is necessary to deal with accidental reboots during DIA setup, which happens between
-        // the end of this method and HomeReceiverActivity captures the home intent.
-        // TODO: Remove in favor of FinalizationReceiver.
-        HomeReceiverActivity.setReminder(mParams, this);
 
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
