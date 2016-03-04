@@ -56,6 +56,9 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
         if (mainColor == null) {
             mainColor = getResources().getColor(R.color.accent);
         }
+        // We should always use a value of 255 for the alpha.
+        mainColor = Color.argb(255, Color.red(mainColor), Color.green(mainColor),
+                Color.blue(mainColor));
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
