@@ -53,26 +53,21 @@ public class FinalizationActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        try {
-            DevicePolicyManager dpm = getSystemService(DevicePolicyManager.class);
-            int currentState = dpm.getUserProvisioningState();
+        DevicePolicyManager dpm = getSystemService(DevicePolicyManager.class);
+        int currentState = dpm.getUserProvisioningState();
 
-            switch (currentState) {
-                case DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE:
-                case DevicePolicyManager.STATE_USER_SETUP_COMPLETE:
-                case DevicePolicyManager.STATE_USER_PROFILE_COMPLETE:
-                    finalizeProvisioning(dpm);
-                    break;
-                case DevicePolicyManager.STATE_USER_UNMANAGED:
-                case DevicePolicyManager.STATE_USER_SETUP_FINALIZED:
-                    // Nothing to do in these cases.
-                    ProvisionLogger.logw("Received ACTION_PROVISIONING_FINALIZATION intent, but "
-                            + "nothing to do in state: " + currentState);
-                    break;
-            }
-        } finally {
-            // TODO: Remove this once HomeReceiverActivity is removed.
-            HomeReceiverActivity.disableComponent(this);
+        switch (currentState) {
+            case DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE:
+            case DevicePolicyManager.STATE_USER_SETUP_COMPLETE:
+            case DevicePolicyManager.STATE_USER_PROFILE_COMPLETE:
+                finalizeProvisioning(dpm);
+                break;
+            case DevicePolicyManager.STATE_USER_UNMANAGED:
+            case DevicePolicyManager.STATE_USER_SETUP_FINALIZED:
+                // Nothing to do in these cases.
+                ProvisionLogger.logw("Received ACTION_PROVISIONING_FINALIZATION intent, but "
+                        + "nothing to do in state: " + currentState);
+                break;
         }
 
         finish();
