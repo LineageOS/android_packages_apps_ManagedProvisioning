@@ -258,8 +258,8 @@ public class PreProvisioningController {
                 mParams);
 
         // Ask to encrypt the device before proceeding
-        if (isEncryptionRequired(mParams.skipEncryption)) {
-            mUi.requestEncryption(mParams);
+        if (isEncryptionRequired()) {
+            maybeTriggerEncryption();
             return;
         }
 
@@ -323,10 +323,8 @@ public class PreProvisioningController {
      * consent before starting provisioning.
      */
     public void afterNavigateNext() {
-        if (isEncryptionRequired(mParams.skipEncryption)) {
-            // only allow skipping the encryption flow for device owner provisioning
-            ProvisionLogger.logd("Encryption required");
-            mUi.requestEncryption(mParams);
+        if (isEncryptionRequired()) {
+            maybeTriggerEncryption();
         } else {
             // Notify the user once more that the admin will have full control over the profile,
             // then start provisioning.
@@ -339,8 +337,24 @@ public class PreProvisioningController {
      *
      * @param skip indicating whether the parameter to skip encryption was given.
      */
-    private boolean isEncryptionRequired(boolean skip) {
-        return !skip && mUtils.isEncryptionRequired();
+    private boolean isEncryptionRequired() {
+        return !mParams.skipEncryption && mUtils.isEncryptionRequired();
+    }
+
+    /**
+     * Check whether the device supports encryption. If it does not support encryption, but
+     * encryption is requested, show an error dialog.
+     */
+    private void maybeTriggerEncryption() {
+        if (mDevicePolicyManager.getStorageEncryptionStatus() ==
+                DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED) {
+            mUi.showErrorAndClose(R.string.preprovisioning_error_encryption_not_supported,
+                    "This device does not support encryption, but "
+                    + DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION
+                    + " was not passed.");
+        } else {
+            mUi.requestEncryption(mParams);
+        }
     }
 
     private void checkLauncherAndStartProfileOwnerProvisioning() {
