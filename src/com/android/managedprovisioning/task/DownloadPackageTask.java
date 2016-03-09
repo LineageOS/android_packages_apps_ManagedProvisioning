@@ -32,8 +32,8 @@ import android.text.TextUtils;
 
 import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams.PackageDownloadInfo;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.PackageDownloadInfo;
 
 import java.io.InputStream;
 import java.io.IOException;

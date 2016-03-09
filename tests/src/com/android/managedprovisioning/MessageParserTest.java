@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.lang.Exception;
 
 public class MessageParserTest extends AndroidTestCase {

@@ -76,8 +76,9 @@ import java.util.concurrent.TimeUnit;
 
 import com.android.managedprovisioning.FinalizationActivity;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams;
 import com.android.managedprovisioning.TrampolineActivity;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.model.PackageDownloadInfo;
 
 /**
  * Class containing various auxiliary methods.
@@ -271,7 +272,9 @@ public class Utils {
             Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
-            if (packageInfo.versionCode >= minSupportedVersion) {
+            // Always download packages if no minimum version given.
+            if (minSupportedVersion != PackageDownloadInfo.DEFAULT_MINIMUM_VERSION
+                    && packageInfo.versionCode >= minSupportedVersion) {
                 return false;
             }
         } catch (NameNotFoundException e) {

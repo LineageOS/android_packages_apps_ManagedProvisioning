@@ -46,8 +46,8 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.List;
 
@@ -229,11 +229,7 @@ public class PreProvisioningController {
                 intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
             return mMessageParser.parseMinimalistNonNfcIntent(intent, mContext, false);
         } else { // profile owner provisioning
-            ProvisioningParams params = mMessageParser.parseNonNfcIntent(intent, mContext, false);
-            params.deviceAdminComponentName = mUtils.findDeviceAdmin(
-                    params.deviceAdminPackageName, params.deviceAdminComponentName, mContext);
-            params.deviceAdminPackageName = params.deviceAdminComponentName.getPackageName();
-            return params;
+            return mMessageParser.parseNonNfcIntent(intent, mContext, false);
         }
     }
 

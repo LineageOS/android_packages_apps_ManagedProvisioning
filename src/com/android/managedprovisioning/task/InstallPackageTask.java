@@ -28,7 +28,7 @@ import android.text.TextUtils;
 import android.Manifest.permission;
 
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.io.File;
 import java.util.HashSet;
