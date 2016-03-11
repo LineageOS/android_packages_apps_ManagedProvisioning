@@ -27,9 +27,9 @@ import android.widget.TextView;
 import com.android.managedprovisioning.BootReminder;
 import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.ProvisioningParams;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.SetupLayoutActivity;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
  * Activity to ask for permission to activate full-filesystem encryption.

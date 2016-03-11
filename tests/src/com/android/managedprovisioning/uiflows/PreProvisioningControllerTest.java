@@ -42,11 +42,12 @@ import android.service.persistentdata.PersistentDataBlockManager;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.MessageParser;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.MessageParser;
-import com.android.managedprovisioning.ProvisioningParams;
-import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.model.WifiInfo;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -528,12 +529,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     private ProvisioningParams createParams(boolean startedByTrustedSource, boolean skipEncryption,
             String wifiSsid, String action, String packageName) {
-        mParams = new ProvisioningParams();
-        mParams.startedByTrustedSource = startedByTrustedSource;
-        mParams.skipEncryption = skipEncryption;
-        mParams.wifiInfo.ssid = wifiSsid;
-        mParams.provisioningAction = action;
-        mParams.deviceAdminPackageName = packageName;
+        mParams = ProvisioningParams.Builder.builder()
+                .setStartedByTrustedSource(startedByTrustedSource)
+                .setSkipEncryption(skipEncryption)
+                .setWifiInfo(WifiInfo.Builder.builder().setSsid(wifiSsid).build())
+                .setProvisioningAction(action)
+                .setDeviceAdminPackageName(packageName)
+                .build();
         return mParams;
     }
 

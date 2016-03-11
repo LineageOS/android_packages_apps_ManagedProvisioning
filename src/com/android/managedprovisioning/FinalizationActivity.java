@@ -16,6 +16,10 @@
 
 package com.android.managedprovisioning;
 
+import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -26,10 +30,7 @@ import android.os.UserHandle;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
-
-import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 /*
  * This class is used to make sure that we start the MDM after we shut the setup wizard down.

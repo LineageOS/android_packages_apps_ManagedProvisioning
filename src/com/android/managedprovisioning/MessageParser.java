@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
@@ -64,6 +65,9 @@ import android.text.TextUtils;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.PackageDownloadInfo;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.model.WifiInfo;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -181,111 +185,128 @@ public class MessageParser {
         return intent;
     }
 
+    // Begin region for Properties provisioning data parsing.
+
     public ProvisioningParams parseNfcIntent(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing Nfc Payload.");
         NdefRecord firstRecord = mUtils.firstNdefRecord(nfcIntent);
         if (firstRecord != null) {
-            ProvisioningParams params = parseProperties(
-                    new String(firstRecord.getPayload(), UTF_8));
-            params.startedByTrustedSource = true;
-            params.provisioningAction = mUtils.mapIntentToDpmAction(nfcIntent);
-            ProvisionLogger.logi("End processing Nfc Payload.");
-            return params;
+            try {
+                Properties props = new Properties();
+                props.load(new StringReader(new String(firstRecord.getPayload(), UTF_8)));
+
+                // For parsing non-string parameters.
+                String s = null;
+
+                ProvisioningParams.Builder builder = ProvisioningParams.Builder.builder()
+                        .setStartedByTrustedSource(true)
+                        .setProvisioningAction(mUtils.mapIntentToDpmAction(nfcIntent))
+                        .setDeviceAdminPackageName(props.getProperty(
+                                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));
+                if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME))
+                        != null) {
+                    builder.setDeviceAdminComponentName(ComponentName.unflattenFromString(s));
+                }
+
+                // Parse time zone, locale and local time.
+                builder.setTimeZone(props.getProperty(EXTRA_PROVISIONING_TIME_ZONE))
+                        .setLocale(stringToLocale(props.getProperty(EXTRA_PROVISIONING_LOCALE)));
+                if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
+                    builder.setLocalTime(Long.parseLong(s));
+                }
+
+                // Parse WiFi configuration.
+                builder.setWifiInfo(parseWifiInfoFromProperties(props))
+                        // Parse device admin package download info.
+                        .setDeviceAdminDownloadInfo(parsePackageDownloadInfoFromProperties(props))
+                        // Parse EMM customized key-value pairs.
+                        // Note: EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE property contains a
+                        // Properties object serialized into String. See Properties.store() and
+                        // Properties.load() for more details. The property value is optional.
+                        .setAdminExtrasBundle(deserializeExtrasBundle(props,
+                                EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE));
+                if ((s = props.getProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED))
+                        != null) {
+                    builder.setLeaveAllSystemAppsEnabled(Boolean.parseBoolean(s));
+                }
+                if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
+                    builder.setSkipEncryption(Boolean.parseBoolean(s));
+                }
+                if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_USER_SETUP)) != null) {
+                    builder.setSkipUserSetup(Boolean.parseBoolean(s));
+                }
+
+                ProvisionLogger.logi("End processing Nfc Payload.");
+                return builder.build();
+            } catch (IOException e) {
+                throw new IllegalProvisioningArgumentException("Couldn't load payload", e);
+            } catch (NumberFormatException e) {
+                throw new IllegalProvisioningArgumentException("Incorrect numberformat.", e);
+            } catch (IllformedLocaleException e) {
+                throw new IllegalProvisioningArgumentException("Invalid locale.", e);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);
+            } catch (NullPointerException e) {
+                throw new IllegalProvisioningArgumentException(
+                        "Compulsory parameter not found!", e);
+            }
         }
         throw new IllegalProvisioningArgumentException(
                 "Intent does not contain NfcRecord with the correct MIME type.");
     }
 
-    // Note: EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE property contains a Properties object
-    // serialized into String. See Properties.store() and Properties.load() for more details.
-    // The property value is optional.
-    private ProvisioningParams parseProperties(String data)
-            throws IllegalProvisioningArgumentException {
-        ProvisioningParams params = new ProvisioningParams();
-        try {
-            Properties props = new Properties();
-            props.load(new StringReader(data));
-
-            String s; // Used for parsing non-Strings.
-            params.timeZone
-                    = props.getProperty(EXTRA_PROVISIONING_TIME_ZONE);
-            if ((s = props.getProperty(EXTRA_PROVISIONING_LOCALE)) != null) {
-                params.locale = stringToLocale(s);
-            }
-            params.wifiInfo.ssid = props.getProperty(EXTRA_PROVISIONING_WIFI_SSID);
-            params.wifiInfo.securityType = props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
-            params.wifiInfo.password = props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD);
-            params.wifiInfo.proxyHost = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
-            params.wifiInfo.proxyBypassHosts =
-                    props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
-            params.wifiInfo.pacUrl = props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL);
-            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
-                params.wifiInfo.proxyPort = Integer.parseInt(s);
-            }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
-                params.wifiInfo.hidden = Boolean.parseBoolean(s);
-            }
-
-            params.deviceAdminPackageName
-                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-            String componentNameString = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-            if (componentNameString != null) {
-                params.deviceAdminComponentName = ComponentName.unflattenFromString(
-                        componentNameString);
-            }
-            if ((s = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE)) != null) {
-                params.deviceAdminDownloadInfo.minVersion = Integer.parseInt(s);
-            } else {
-                params.deviceAdminDownloadInfo.minVersion =
-                        ProvisioningParams.DEFAULT_MINIMUM_VERSION;
-            }
-            params.deviceAdminDownloadInfo.location
-                    = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
-            params.deviceAdminDownloadInfo.cookieHeader = props.getProperty(
-                    EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
-            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
-                params.deviceAdminDownloadInfo.packageChecksum = mUtils.stringToByteArray(s);
-                // Still support SHA-1 for device admin package hash if we are provisioned by a Nfc
-                // programmer.
-                // TODO: remove once SHA-1 is fully deprecated.
-                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = true;
-            }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
-                    != null) {
-                params.deviceAdminDownloadInfo.signatureChecksum = mUtils.stringToByteArray(s);
-            }
-
-            if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
-                params.localTime = Long.parseLong(s);
-            }
-
-            if ((s = props.getProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED)) != null) {
-                params.leaveAllSystemAppsEnabled = Boolean.parseBoolean(s);
-            }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
-                params.skipEncryption = Boolean.parseBoolean(s);
-            }
-            if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_USER_SETUP)) != null) {
-                params.skipUserSetup = Boolean.parseBoolean(s);
-            } else {
-                params.skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
-            }
-
-            params.adminExtrasBundle = deserializeExtrasBundle(props,
-                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-
-            checkValidityOfProvisioningParams(params);
-            return params;
-        } catch (IOException e) {
-            throw new IllegalProvisioningArgumentException("Couldn't load payload", e);
-        } catch (NumberFormatException e) {
-            throw new IllegalProvisioningArgumentException("Incorrect numberformat.", e);
-        } catch (IllformedLocaleException e) {
-            throw new IllegalProvisioningArgumentException("Invalid locale.", e);
+    /**
+     * Parses Wifi configuration from an {@link Properties} and returns the result in
+     * {@link WifiInfo}.
+     */
+    private WifiInfo parseWifiInfoFromProperties(Properties props) {
+        WifiInfo.Builder builder = WifiInfo.Builder.builder()
+                .setSsid(props.getProperty(EXTRA_PROVISIONING_WIFI_SSID))
+                .setSecurityType(props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
+                .setPassword(props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD))
+                .setProxyHost(props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST))
+                .setProxyBypassHosts(props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS))
+                .setPacUrl(props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL));
+        // For parsing non-string parameters.
+        String s = null;
+        if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
+            builder.setProxyPort(Integer.parseInt(s));
         }
+        if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
+            builder.setHidden(Boolean.parseBoolean(s));
+        }
+
+        return builder.build();
+    }
+
+    /**
+     * Parses device admin package download info from an {@link Properties} and returns the result
+     * in {@link PackageDownloadInfo}.
+     */
+    private PackageDownloadInfo parsePackageDownloadInfoFromProperties(Properties props) {
+        PackageDownloadInfo.Builder builder = PackageDownloadInfo.Builder.builder()
+                .setLocation(props.getProperty(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION))
+                .setCookieHeader(props.getProperty(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER));
+        // For parsing non-string parameters.
+        String s = null;
+        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE)) != null) {
+            builder.setMinVersion(Integer.parseInt(s));
+        }
+        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
+            // Still support SHA-1 for device admin package hash if we are provisioned by a Nfc
+            // programmer.
+            // TODO: remove once SHA-1 is fully deprecated.
+            builder.setPackageChecksum(mUtils.stringToByteArray(s))
+                    .setPackageChecksumSupportsSha1(true);
+        }
+        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
+                != null) {
+            builder.setSignatureChecksum(mUtils.stringToByteArray(s));
+        }
+        return builder.build();
     }
 
     /**
@@ -309,70 +330,105 @@ public class MessageParser {
         }
         return extrasBundle;
     }
+    // End region for Properties provisioning data parsing.
+
+    // Begin region for bundle extras provisioning data parsing.
 
     public ProvisioningParams parseMinimalistNonNfcIntent(
             Intent intent, Context context, boolean isSelfOriginated)
             throws IllegalProvisioningArgumentException {
         ProvisionLogger.logi("Processing mininalist non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(
-                intent, context, isSelfOriginated);
-        if (params.deviceAdminComponentName == null) {
-            throw new IllegalProvisioningArgumentException("Must provide the component name of the"
-                    + " device admin");
-        }
-        return params;
+        return parseMinimalistNonNfcIntentInternal(intent, context, isSelfOriginated).build();
     }
 
-    private ProvisioningParams parseMinimalistNonNfcIntentInternal(
+    /**
+     * Parses minimal supported set of parameters from bundle extras of a provisioning intent.
+     *
+     * <p>Here is the list of supported parameters.
+     * <ul>
+     *     <li>{@link EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME}</li>
+     *     <li>
+     *         {@link EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME} only in
+     *         {@link ACTION_PROVISION_MANAGED_PROFILE}.
+     *     </li>
+     *     <li>{@link EXTRA_PROVISIONING_LOGO_URI}</li>
+     *     <li>{@link EXTRA_PROVISIONING_MAIN_COLOR}</li>
+     *     <li>
+     *         {@link EXTRA_PROVISIONING_SKIP_USER_SETUP} only in
+     *         {@link ACTION_PROVISION_MANAGED_USER} and {@link ACTION_PROVISION_MANAGED_DEVICE}.
+     *     </li>
+     *     <li>{@link EXTRA_PROVISIONING_SKIP_ENCRYPTION}</li>
+     *     <li>{@link EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED}</li>
+     *     <li>{@link EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE}</li>
+     *     <li>{@link EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}</li>
+     * </ul>
+     */
+    private ProvisioningParams.Builder parseMinimalistNonNfcIntentInternal(
             Intent intent, Context context, boolean isSelfOriginated)
             throws IllegalProvisioningArgumentException {
-        ProvisioningParams params = new ProvisioningParams();
-        params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-        params.skipEncryption = intent.getBooleanExtra(
-                EXTRA_PROVISIONING_SKIP_ENCRYPTION,
-                ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION);
-        params.leaveAllSystemAppsEnabled = intent.getBooleanExtra(
-                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
-        params.accountToMigrate = (Account) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
-        if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
-            params.mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
-        } else {
-            params.mainColor = null;
-        }
-        params.provisioningAction = isSelfOriginated ?
-                intent.getStringExtra(EXTRA_PROVISIONING_ACTION) :
-                mUtils.mapIntentToDpmAction(intent);
+
         try {
-            params.adminExtrasBundle = (PersistableBundle) intent.getParcelableExtra(
-                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+            String provisioningAction = isSelfOriginated
+                    ? intent.getStringExtra(EXTRA_PROVISIONING_ACTION)
+                    : mUtils.mapIntentToDpmAction(intent);
+
+            // Parse device admin package name and component name.
+            ComponentName deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
+                    EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+            // Device admin package name is deprecated. It is only supported in Profile Owner
+            // provisioning and NFC provisioning.
+            String deviceAdminPackageName = null;
+            if (ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)) {
+                deviceAdminPackageName = intent.getStringExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
+                // For profile owner, the device admin package should be installed. Verify the
+                // device admin package.
+                deviceAdminComponentName = mUtils.findDeviceAdmin(
+                        deviceAdminPackageName, deviceAdminComponentName, context);
+                deviceAdminPackageName = deviceAdminComponentName.getPackageName();
+            }
+
+            // Parse main color
+            Integer mainColor = ProvisioningParams.DEFAULT_MAIN_COLOR;
+            if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
+                mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
+            }
+
+            // Parse skip user setup in ACTION_PROVISION_MANAGED_USER and
+            // ACTION_PROVISION_MANAGED_DEVICE only.
+            boolean skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
+            if (provisioningAction.equals(ACTION_PROVISION_MANAGED_USER)
+                    || provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE)) {
+                skipUserSetup = intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP,
+                        ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
+            }
+
+            parseOrganizationLogoUrlFromExtras(context, intent, isSelfOriginated);
+
+            return ProvisioningParams.Builder.builder()
+                    .setProvisioningAction(provisioningAction)
+                    .setDeviceAdminComponentName(deviceAdminComponentName)
+                    .setDeviceAdminPackageName(deviceAdminPackageName)
+                    .setSkipEncryption(intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+                            ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION))
+                    .setLeaveAllSystemAppsEnabled(intent.getBooleanExtra(
+                            EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                            ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED))
+                    .setAccountToMigrate((Account) intent.getParcelableExtra(
+                            EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE))
+                    .setAdminExtrasBundle((PersistableBundle) intent.getParcelableExtra(
+                            EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
+                    .setMainColor(mainColor)
+                    .setSkipUserSetup(skipUserSetup);
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra "
                     + EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE
                     + " must be of type PersistableBundle.", e);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);
+        } catch (NullPointerException e) {
+            throw new IllegalProvisioningArgumentException("Compulsory parameter not found!", e);
         }
-        Uri logoUri = intent.getParcelableExtra(EXTRA_PROVISIONING_LOGO_URI);
-        if (logoUri != null) {
-            // If we go through encryption, and if the uri is a content uri:
-            // We'll lose the grant to this uri. So we need to save it to a local file.
-            LogoUtils.saveOrganisationLogo(context, logoUri);
-        } else if (!isSelfOriginated) {
-            // If the intent is not from managed provisioning app, there is a slight possibility
-            // that the logo is still kept on the file system from a previous provisioning. In this
-            // case, remove it.
-            LogoUtils.cleanUp(context);
-        }
-        if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_USER) ||
-                params.provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE)) {
-            params.skipUserSetup = intent.getBooleanExtra(
-                    EXTRA_PROVISIONING_SKIP_USER_SETUP,
-                    ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
-        } else {
-            params.skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
-        }
-        return params;
     }
 
     /**
@@ -389,105 +445,119 @@ public class MessageParser {
     public ProvisioningParams parseNonNfcIntent(
             Intent intent, Context context, boolean isSelfOriginated)
             throws IllegalProvisioningArgumentException {
-        ProvisionLogger.logi("Processing non-nfc intent.");
-        ProvisioningParams params = parseMinimalistNonNfcIntentInternal(
-                intent, context, isSelfOriginated);
-
-        params.timeZone = intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE);
-        String localeString = intent.getStringExtra(EXTRA_PROVISIONING_LOCALE);
-        if (localeString != null) {
-            params.locale = stringToLocale(localeString);
+        try {
+            ProvisionLogger.logi("Processing non-nfc intent.");
+            return parseMinimalistNonNfcIntentInternal(intent, context, isSelfOriginated)
+                    // Parse time zone, local time and locale.
+                    .setTimeZone(intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE))
+                    .setLocalTime(intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
+                            ProvisioningParams.DEFAULT_LOCAL_TIME))
+                    .setLocale(stringToLocale(intent.getStringExtra(EXTRA_PROVISIONING_LOCALE)))
+                    // Parse WiFi configuration.
+                    .setWifiInfo(parseWifiInfoFromExtras(intent))
+                    // Parse device admin package download info.
+                    .setDeviceAdminDownloadInfo(parsePackageDownloadInfoFromExtras(
+                            intent, isSelfOriginated))
+                    // Cases where startedByTrustedSource can be true are
+                    // 1. We are reloading a stored provisioning intent, either Nfc bump or
+                    //    PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE, after encryption reboot,
+                    //    which is a self-originated intent.
+                    // 2. the intent is from a trusted source, for example QR provisioning.
+                    .setStartedByTrustedSource(isSelfOriginated
+                            ? intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
+                            ProvisioningParams.DEFAULT_STARTED_BY_TRUSTED_SOURCE)
+                            : ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(
+                                    intent.getAction()))
+                    .setAccountToMigrate((Account) intent.getParcelableExtra(
+                            EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE))
+                    .build();
+        }  catch (IllegalArgumentException e) {
+            throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);
+        } catch (NullPointerException e) {
+            throw new IllegalProvisioningArgumentException("Compulsory parameter not found!", e);
         }
-        params.wifiInfo.ssid = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID);
-        params.wifiInfo.securityType = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE);
-        params.wifiInfo.password = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PASSWORD);
-        params.wifiInfo.proxyHost = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST);
-        params.wifiInfo.proxyBypassHosts =
-                intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS);
-        params.wifiInfo.pacUrl = intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL);
-        params.wifiInfo.proxyPort = intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-                ProvisioningParams.DEFAULT_WIFI_PROXY_PORT);
-        params.wifiInfo.hidden = intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
-                ProvisioningParams.DEFAULT_WIFI_HIDDEN);
-
-        params.deviceAdminPackageName
-                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
-        params.deviceAdminDownloadInfo.minVersion = intent.getIntExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
-                ProvisioningParams.DEFAULT_MINIMUM_VERSION);
-        params.deviceAdminDownloadInfo.location
-                = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION);
-        params.deviceAdminDownloadInfo.cookieHeader = intent.getStringExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER);
-        String packageHash =
-                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
-        if (packageHash != null) {
-            params.deviceAdminDownloadInfo.packageChecksum = mUtils.stringToByteArray(packageHash);
-            // If we are restarted after an encryption reboot, use stored (isSelfOriginated) value
-            // for this.
-            if (isSelfOriginated) {
-                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1 = intent.getBooleanExtra(
-                        EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM, false);
-            }
-        }
-        String sigHash =
-                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM);
-        if (sigHash != null) {
-            params.deviceAdminDownloadInfo.signatureChecksum = mUtils.stringToByteArray(sigHash);
-        }
-
-        params.localTime = intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
-                ProvisioningParams.DEFAULT_LOCAL_TIME);
-
-        // Cases where startedByTrustedSource can be true are
-        // 1. We are reloading a stored provisioning intent, either Nfc bump or
-        //    PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE, after encryption reboot, which is a
-        //    self-originated intent.
-        // 2. the intent is from a trusted source, for example QR provisioning.
-        params.startedByTrustedSource = isSelfOriginated
-                ? intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE, false)
-                : ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction());
-
-        params.accountToMigrate = (Account) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
-        params.deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
-
-        checkValidityOfProvisioningParams(params);
-        return params;
     }
 
     /**
-     * Check whether necessary fields are set.
+     * Parses Wifi configuration from an Intent and returns the result in {@link WifiInfo}.
      */
-    private void checkValidityOfProvisioningParams(ProvisioningParams params)
-            throws IllegalProvisioningArgumentException  {
-        if (TextUtils.isEmpty(params.deviceAdminPackageName)
-                && params.deviceAdminComponentName == null) {
-            throw new IllegalProvisioningArgumentException("Must provide the name of the device"
-                    + " admin package or component name");
-        }
-        checkDownloadInfoHasChecksum(params.deviceAdminDownloadInfo, "device admin");
+    private WifiInfo parseWifiInfoFromExtras(Intent intent) {
+        return WifiInfo.Builder.builder()
+                .setSsid(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID))
+                .setSecurityType(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
+                .setPassword(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PASSWORD))
+                .setProxyHost(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST))
+                .setProxyBypassHosts(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS))
+                .setPacUrl(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PAC_URL))
+                .setProxyPort(intent.getIntExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT,
+                        WifiInfo.DEFAULT_WIFI_PROXY_PORT))
+                .setHidden(intent.getBooleanExtra(EXTRA_PROVISIONING_WIFI_HIDDEN,
+                        WifiInfo.DEFAULT_WIFI_HIDDEN))
+                .build();
     }
 
-    private void checkDownloadInfoHasChecksum(ProvisioningParams.PackageDownloadInfo info,
-            String downloadName) throws IllegalProvisioningArgumentException {
-        if (!TextUtils.isEmpty(info.location)) {
-            if ((info.packageChecksum == null || info.packageChecksum.length == 0)
-                    && (info.signatureChecksum == null || info.signatureChecksum.length == 0)) {
-                throw new IllegalProvisioningArgumentException("Checksum of installer file"
-                        + " or its signature is required for downloading " + downloadName
-                        + ", but neither is provided.");
+    /**
+     * Parses device admin package download info configuration from an Intent and returns the result
+     * in {@link PackageDownloadInfo}.
+     */
+    private PackageDownloadInfo parsePackageDownloadInfoFromExtras(
+            Intent intent, boolean isSelfOriginated) {
+        PackageDownloadInfo.Builder downloadInfoBuilder = PackageDownloadInfo.Builder.builder()
+                .setMinVersion(intent.getIntExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+                        PackageDownloadInfo.DEFAULT_MINIMUM_VERSION))
+                .setLocation(intent.getStringExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION))
+                .setCookieHeader(intent.getStringExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER));
+        String packageHash =
+                intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
+        if (packageHash != null) {
+            downloadInfoBuilder.setPackageChecksum(mUtils.stringToByteArray(packageHash));
+            // If we are restarted after an encryption reboot, use stored (isSelfOriginated) value
+            // for this.
+            if (isSelfOriginated) {
+                downloadInfoBuilder.setPackageChecksumSupportsSha1(
+                        intent.getBooleanExtra(
+                                EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
+                                false));
             }
         }
+        String sigHash = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM);
+        if (sigHash != null) {
+            downloadInfoBuilder.setSignatureChecksum(mUtils.stringToByteArray(sigHash));
+        }
+        return downloadInfoBuilder.build();
     }
 
-    public static Locale stringToLocale(String string)
-        throws IllformedLocaleException {
-        return new Locale.Builder().setLanguageTag(string.replace("_", "-")).build();
+    /**
+     * Parses the organization logo url from intent.
+     */
+    private void parseOrganizationLogoUrlFromExtras(
+            Context context, Intent intent, boolean isSelfOriginated) {
+        Uri logoUri = intent.getParcelableExtra(EXTRA_PROVISIONING_LOGO_URI);
+        if (logoUri != null) {
+            // If we go through encryption, and if the uri is a content uri:
+            // We'll lose the grant to this uri. So we need to save it to a local file.
+            LogoUtils.saveOrganisationLogo(context, logoUri);
+        } else if (!isSelfOriginated) {
+            // If the intent is not from managed provisioning app, there is a slight possibility
+            // that the logo is still kept on the file system from a previous provisioning. In
+            // this case, remove it.
+            LogoUtils.cleanUp(context);
+        }
+    }
+    // End region for bundle extras provisioning data parsing.
+
+    private static Locale stringToLocale(String string) throws IllformedLocaleException {
+        if (string != null) {
+            return new Locale.Builder().setLanguageTag(string.replace("_", "-")).build();
+        } else {
+            return null;
+        }
     }
 
-    public static String localeToString(Locale locale) {
+    private static String localeToString(Locale locale) {
         if (locale != null) {
             return locale.getLanguage() + "_" + locale.getCountry();
         } else {
