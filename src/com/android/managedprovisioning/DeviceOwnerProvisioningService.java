@@ -35,6 +35,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.android.internal.app.LocalePicker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;

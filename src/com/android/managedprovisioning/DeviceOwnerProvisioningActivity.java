@@ -30,6 +30,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.util.ArrayList;
 
 /**

@@ -44,6 +44,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 

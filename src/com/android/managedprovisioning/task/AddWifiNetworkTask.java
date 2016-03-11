@@ -28,12 +28,11 @@ import android.text.TextUtils;
 
 import java.lang.Thread;
 
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.NetworkMonitor;
-import com.android.managedprovisioning.ProvisioningParams.WifiInfo;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.WifiConfig;
-
+import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.WifiInfo;
 
 /**
  * Adds a wifi network to system.
