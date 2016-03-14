@@ -205,10 +205,12 @@
 
   <!-- TODO: Following strings have to be updated. -->
   <!-- Strings used in the dialog asking for user confirmation to cancel the setup process and factory reset the device. -->
+  <!-- Title shown in the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_title">End setup and factory reset?</string>
   <!-- Message shown in the dialog. [CHAR LIMIT=NONE] -->
-  <string name="cancel_setup_and_factory_reset_dialog_msg">Cancel this setup? Cancelling will factory reset your device and take you to the start of set up.</string>
+  <string name="cancel_setup_and_factory_reset_dialog_msg">Ending this setup will factory reset your device and take you back to the first screen.</string>
   <!-- Cancel button text of the dialog. [CHAR LIMIT=45] -->
   <string name="cancel_setup_and_factory_reset_dialog_cancel">CANCEL</string>
   <!-- OK button text of the dialog. [CHAR LIMIT=45] -->
-  <string name="cancel_setup_and_factory_reset_dialog_ok">RESET</string>
+  <string name="cancel_setup_and_factory_reset_dialog_ok">RESET DEVICE</string>
 </resources>
