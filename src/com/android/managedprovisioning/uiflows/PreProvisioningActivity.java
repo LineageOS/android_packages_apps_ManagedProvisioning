@@ -278,6 +278,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
             finish();
         } else {
             new AlertDialog.Builder(this)
+                    .setTitle(R.string.cancel_setup_and_factory_reset_dialog_title)
                     .setMessage(R.string.cancel_setup_and_factory_reset_dialog_msg)
                     .setNegativeButton(R.string.cancel_setup_and_factory_reset_dialog_cancel, null)
                     .setPositiveButton(R.string.cancel_setup_and_factory_reset_dialog_ok,
