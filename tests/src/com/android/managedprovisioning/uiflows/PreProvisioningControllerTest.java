@@ -299,7 +299,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
@@ -315,7 +314,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
@@ -332,7 +330,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show encryption screen
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).requestEncryption(mParams);
         verifyNoMoreInteractions(mUi);
     }
@@ -345,7 +342,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN continuing NFC provisioning after encryption
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
@@ -376,7 +372,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show an error dialog
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
                 anyString());
         verifyNoMoreInteractions(mUi);
@@ -388,7 +383,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
@@ -404,7 +398,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show a user consent dialog
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
@@ -421,7 +414,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show encryption screen
-        verifyInitiateDeviceOwnerUi();
         verify(mUi).requestEncryption(mParams);
         verifyNoMoreInteractions(mUi);
     }

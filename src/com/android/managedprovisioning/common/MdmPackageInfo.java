@@ -65,7 +65,7 @@ public final class MdmPackageInfo {
                         pm.getApplicationLabel(ai).toString());
             } catch (PackageManager.NameNotFoundException e) {
                 // Package does not exist, ignore. Should never happen.
-                ProvisionLogger.loge("Package does not exist. Should never happen.");
+                ProvisionLogger.logw("Package not currently installed: " + packageName);
             }
         }
         return null;
