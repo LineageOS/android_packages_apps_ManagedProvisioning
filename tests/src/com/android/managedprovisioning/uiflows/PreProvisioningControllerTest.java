@@ -104,6 +104,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(-1);
 
         when(mKeyguardManager.inKeyguardRestrictedInputMode()).thenReturn(false);
+        when(mDevicePolicyManager.getStorageEncryptionStatus())
+                .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_INACTIVE);
 
         mController = new PreProvisioningController(mContext, mUi, mMessageParser, mUtils);
     }
@@ -271,6 +273,25 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    public void testManagedProfile_encryptionNotSupported() throws Exception {
+        // GIVEN an intent to provision a managed profile on an unencrypted device that does not
+        // support encryption
+        prepareMocksForManagedProfileIntent(false);
+        when(mUtils.isEncryptionRequired()).thenReturn(true);
+        when(mDevicePolicyManager.getStorageEncryptionStatus())
+                .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN the UI elements should be updated accordingly
+        verifyInitiateProfileOwnerUi();
+        // WHEN the user clicks next
+        mController.afterNavigateNext();
+        // THEN show an error indicating that this device does not support encryption
+        verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
+                anyString());
+        verifyNoMoreInteractions(mUi);
+    }
+
     public void testNfc() throws Exception {
         // GIVEN provisioning was started via an NFC tap and device is already encrypted
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
@@ -341,6 +362,22 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, null);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), anyString());
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void testNfc_encryptionNotSupported() throws Exception {
+        // GIVEN provisioning was started via an NFC tap, the device is not encrypted and encryption
+        // is not supported on the device
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
+        when(mUtils.isEncryptionRequired()).thenReturn(true);
+        when(mDevicePolicyManager.getStorageEncryptionStatus())
+                .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
+        // WHEN initiating NFC provisioning
+        mController.initiateProvisioning(mIntent, null);
+        // THEN show an error dialog
+        verifyInitiateDeviceOwnerUi();
+        verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
+                anyString());
         verifyNoMoreInteractions(mUi);
     }
 
