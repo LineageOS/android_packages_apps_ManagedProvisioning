@@ -81,10 +81,10 @@ public class DownloadPackageTask {
         mDownloads = new HashSet<DownloadStatusInfo>();
     }
 
-    public void addDownloadIfNecessary(String packageName, PackageDownloadInfo downloadInfo,
-            String label) {
-        if (!TextUtils.isEmpty(downloadInfo.location) && mUtils.packageRequiresUpdate(packageName,
-               downloadInfo.minVersion, mContext)) {
+    public void addDownloadIfNecessary(
+            String packageName, PackageDownloadInfo downloadInfo, String label) {
+        if (downloadInfo != null
+                && mUtils.packageRequiresUpdate(packageName, downloadInfo.minVersion, mContext)) {
             mDownloads.add(new DownloadStatusInfo(downloadInfo, label));
         }
     }

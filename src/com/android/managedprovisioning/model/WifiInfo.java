@@ -16,12 +16,10 @@
 
 package com.android.managedprovisioning.model;
 
-import static com.android.internal.util.Preconditions.checkArgument;
-import static com.android.internal.util.Preconditions.checkNotNull;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import java.util.Objects;
 
@@ -49,7 +47,6 @@ public final class WifiInfo implements Parcelable {
     };
 
     /** Ssid of the wifi network. */
-    @Nullable
     public final String ssid;
     /** Wifi network in {@link #ssid} is hidden or not. */
     public final boolean hidden;
@@ -80,6 +77,8 @@ public final class WifiInfo implements Parcelable {
         proxyPort = builder.mProxyPort;
         proxyBypassHosts = builder.mProxyBypassHosts;
         pacUrl = builder.mPacUrl;
+
+        validateFields();
     }
 
     private WifiInfo(Parcel in) {
@@ -91,6 +90,14 @@ public final class WifiInfo implements Parcelable {
         proxyPort = in.readInt();
         proxyBypassHosts = in.readString();
         pacUrl = in.readString();
+
+        validateFields();
+    }
+
+    private void validateFields() {
+        if (TextUtils.isEmpty(ssid)) {
+            throw new IllegalArgumentException("Ssid must not be empty!");
+        }
     }
 
     @Override

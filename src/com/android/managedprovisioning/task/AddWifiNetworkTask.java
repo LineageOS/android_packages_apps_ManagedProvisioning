@@ -24,6 +24,7 @@ import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import java.lang.Thread;
@@ -44,6 +45,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     private static final int RECONNECT_TIMEOUT_MS = 60000;
 
     private final Context mContext;
+    @Nullable
     private final WifiInfo mWifiInfo;
     private final Callback mCallback;
 
@@ -77,7 +79,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     }
 
     public void run() {
-        if (TextUtils.isEmpty(mWifiInfo.ssid)) {
+        if (mWifiInfo == null) {
             mCallback.onSuccess();
             return;
         }

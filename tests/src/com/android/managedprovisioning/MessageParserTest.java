@@ -16,26 +16,116 @@
 package com.android.managedprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static com.android.managedprovisioning.MessageParser.EXTRA_PROVISIONING_ACTION;
+import static com.android.managedprovisioning.MessageParser.EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE;
+import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_STARTED_BY_TRUSTED_SOURCE;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.spy;
 
+import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.lang.Exception;
+import java.util.Locale;
 
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+/** Tests {@link MessageParser} */
+@SmallTest
 public class MessageParserTest extends AndroidTestCase {
+    private static final String TEST_PACKAGE_NAME = "com.afwsamples.testdpc";
+    private static final ComponentName TEST_COMPONENT_NAME =
+            ComponentName.unflattenFromString(
+                    "com.afwsamples.testdpc/com.afwsamples.testdpc.DeviceAdminReceiver");
+    private static final long TEST_LOCAL_TIME = 1456939524713L;
+    private static final Locale TEST_LOCALE = Locale.UK;
+    private static final String TEST_TIME_ZONE = "GMT";
+    private static final Integer TEST_MAIN_COLOR = 65280;
+    private static final boolean TEST_SKIP_ENCRYPTION = true;
+    private static final Account TEST_ACCOUNT_TO_MIGRATE =
+            new Account("user@gmail.com", "com.google");
 
-    @SmallTest
-    public void testParseAndRecoverIntent(Intent i) throws Exception {
-        Intent first = new Intent(ACTION_PROVISION_MANAGED_PROFILE);
-        first.putExtra(DevicePolicyManager.EXTRA_PROVISIONING_LOCALE, "locale.sample.string");
-        ProvisioningParams params = new MessageParser().parseNonNfcIntent(first, getContext(),
-                true);
-        Intent second = new MessageParser().getIntentFromProvisioningParams(params);
-        TestUtils.assertIntentEquals(first, second);
+    private MessageParser mMessageParser;
+
+    private Utils mUtils;
+
+    @Mock
+    private Context mContext;
+
+    @Override
+    public void setUp() {
+        // this is necessary for mockito to work
+        System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
+
+        MockitoAnnotations.initMocks(this);
+
+        mMessageParser = new MessageParser(mUtils = spy(new Utils()));
+    }
+
+    public void testParseAndRecoverIntent() throws Exception {
+        // GIVEN the device admin app is installed.
+        doReturn(TEST_COMPONENT_NAME)
+                .when(mUtils)
+                .findDeviceAdmin(TEST_PACKAGE_NAME, null, mContext);
+
+        // GIVEN a managed provisioning intent with some extras was being parsed.
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
+                .putExtra(EXTRA_PROVISIONING_LOCAL_TIME, TEST_LOCAL_TIME)
+                .putExtra(EXTRA_PROVISIONING_TIME_ZONE, TEST_TIME_ZONE)
+                .putExtra(EXTRA_PROVISIONING_LOCALE, MessageParser.localeToString(TEST_LOCALE))
+                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
+                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
+                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
+        ProvisioningParams params = mMessageParser.parseNonNfcIntent(intent, mContext, false);
+
+        // WHEN the provisioning data was converted to an intent by getIntentFromProvisioningParams.
+        Intent restoredIntent = mMessageParser.getIntentFromProvisioningParams(params);
+
+        // THEN the intent matches
+        TestUtils.assertIntentEquals(new Intent(ACTION_RESUME_PROVISIONING)
+                        .putExtra(EXTRA_PROVISIONING_ACTION, ACTION_PROVISION_MANAGED_PROFILE)
+                        .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
+                        .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                                TEST_COMPONENT_NAME)
+                        .putExtra(EXTRA_PROVISIONING_LOCAL_TIME, TEST_LOCAL_TIME)
+                        .putExtra(EXTRA_PROVISIONING_TIME_ZONE, TEST_TIME_ZONE)
+                        .putExtra(EXTRA_PROVISIONING_LOCALE,
+                                MessageParser.localeToString(TEST_LOCALE))
+                        .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
+                        .putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP, DEFAULT_SKIP_USER_SETUP)
+                        .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                                DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED)
+                        .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
+                        .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
+                        .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, (PersistableBundle) null)
+                        .putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
+                                DEFAULT_STARTED_BY_TRUSTED_SOURCE),
+                restoredIntent);
     }
 
 }
