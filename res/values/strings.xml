@@ -134,6 +134,8 @@
   <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
   <string name="progress_set_owner">Setting the device owner\u2026</string>
 
+  <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
+  <string name="preprovisioning_error_encryption_not_supported">Your device does not support encryption. Contact your IT department.</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <string name="device_owner_cancel_message">Stop setting up and erase your device\'s data?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
