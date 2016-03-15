@@ -250,12 +250,14 @@ public class PreProvisioningController {
     }
 
     private void initiateDeviceOwnerProvisioning(Intent intent) {
-        mUi.initiateUi(
-                R.string.setup_work_device,
-                R.string.setup_device_start_setup,
-                R.string.company_controls_device,
-                R.string.the_following_is_your_mdm_for_device,
-                mParams);
+        if (!mParams.startedByTrustedSource) {
+            mUi.initiateUi(
+                    R.string.setup_work_device,
+                    R.string.setup_device_start_setup,
+                    R.string.company_controls_device,
+                    R.string.the_following_is_your_mdm_for_device,
+                    mParams);
+        }
 
         // Ask to encrypt the device before proceeding
         if (isEncryptionRequired()) {
