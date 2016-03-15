@@ -21,6 +21,7 @@ import android.os.BaseBundle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import java.util.Objects;
 import java.util.Set;
 
 import static junit.framework.Assert.assertFalse;
@@ -94,9 +95,7 @@ public class TestUtils extends AndroidTestCase {
         for (String key : keys) {
             Object value1 = bundle1.get(key);
             Object value2 = bundle2.get(key);
-            if (value1 == null && value2 != null) {
-                return false;
-            } else if (!value1.equals(value2)) {
+            if (!Objects.equals(value1, value2)) {
                 return false;
             }
         }

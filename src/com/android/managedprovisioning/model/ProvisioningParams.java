@@ -73,6 +73,7 @@ public final class ProvisioningParams implements Parcelable {
     public final Locale locale;
 
     /** WiFi configuration. */
+    @Nullable
     public final WifiInfo wifiInfo;
 
     /**
@@ -107,6 +108,7 @@ public final class ProvisioningParams implements Parcelable {
     public final Integer mainColor;
 
     /** The download information of device admin package. */
+    @Nullable
     public final PackageDownloadInfo deviceAdminDownloadInfo;
 
     /**

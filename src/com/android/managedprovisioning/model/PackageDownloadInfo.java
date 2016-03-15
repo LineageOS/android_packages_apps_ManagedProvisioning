@@ -57,7 +57,6 @@ public final class PackageDownloadInfo implements Parcelable {
      * Url where the package (.apk) can be downloaded from. {@code null} if there is no download
      * location specified.
      */
-    @Nullable
     public final String location;
     /** Cookie header for http request. */
     @Nullable
@@ -80,8 +79,9 @@ public final class PackageDownloadInfo implements Parcelable {
     private PackageDownloadInfo(Builder builder) {
         location = builder.mLocation;
         cookieHeader = builder.mCookieHeader;
-        packageChecksum = checkNotNull(builder.mPackageChecksum);
-        signatureChecksum = checkNotNull(builder.mSignatureChecksum);
+        packageChecksum = checkNotNull(builder.mPackageChecksum, "package checksum can't be null");
+        signatureChecksum = checkNotNull(builder.mSignatureChecksum,
+                "signature checksum can't be null");
         minVersion = builder.mMinVersion;
         packageChecksumSupportsSha1 = builder.mPackageChecksumSupportsSha1;
 
@@ -100,10 +100,12 @@ public final class PackageDownloadInfo implements Parcelable {
     }
 
     private void validateFields() {
-        if (!TextUtils.isEmpty(location)) {
-            checkArgument(
-                    (packageChecksum != null && packageChecksum.length > 0)
-                    || (signatureChecksum != null && signatureChecksum.length > 0));
+        if (TextUtils.isEmpty(location)) {
+            throw new IllegalArgumentException("Download location must not be empty.");
+        }
+        if (packageChecksum.length == 0 && signatureChecksum.length == 0) {
+            throw new IllegalArgumentException("Package checksum or signature checksum must be "
+                    + "provided.");
         }
     }
 
