@@ -41,6 +41,7 @@ import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
+import android.text.TextUtils;
 
 import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.R;
@@ -524,19 +525,21 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mIntent.getAction()).thenReturn(ACTION_RESUME_PROVISIONING);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
         when(mMessageParser.parseNonNfcIntent(mIntent, mContext, true)).thenReturn(
-                createParams(startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
+                createParams(
+                        startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
     private ProvisioningParams createParams(boolean startedByTrustedSource, boolean skipEncryption,
             String wifiSsid, String action, String packageName) {
-        mParams = ProvisioningParams.Builder.builder()
+        ProvisioningParams.Builder builder = ProvisioningParams.Builder.builder()
                 .setStartedByTrustedSource(startedByTrustedSource)
                 .setSkipEncryption(skipEncryption)
-                .setWifiInfo(WifiInfo.Builder.builder().setSsid(wifiSsid).build())
                 .setProvisioningAction(action)
-                .setDeviceAdminPackageName(packageName)
-                .build();
-        return mParams;
+                .setDeviceAdminPackageName(packageName);
+        if (!TextUtils.isEmpty(wifiSsid)) {
+            builder.setWifiInfo(WifiInfo.Builder.builder().setSsid(wifiSsid).build());
+        }
+        return mParams = builder.build();
     }
 
     private void verifyInitiateProfileOwnerUi() {

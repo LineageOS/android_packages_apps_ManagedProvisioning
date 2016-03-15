@@ -63,6 +63,25 @@ public class WifiInfoTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testFailToConstructWifiInfoWithoutSsid() {
+        try {
+            // WHEN a WifiInfo object is constructed without Ssid.
+            WifiInfo wifiInfo = WifiInfo.Builder.builder()
+                    .setHidden(TEST_HIDDEN)
+                    .setSecurityType(TEST_SECURITY_TYPE)
+                    .setPassword(TEST_PASSWORD)
+                    .setProxyHost(TEST_PROXY_HOST)
+                    .setProxyPort(TEST_PROXY_PORT)
+                    .setProxyBypassHosts(TEST_PROXY_BYPASS_HOSTS)
+                    .setPacUrl(TEST_PAC_URL)
+                    .build();
+            fail("Ssid is mandatory.");
+        } catch (IllegalArgumentException e) {
+            // THEN the WifiInfo object fails to construct due to missing ssid.
+        }
+    }
+
+    @SmallTest
     public void testEquals() {
         // GIVEN 2 WifiInfo objects are constructed with the same set of parameters.
         WifiInfo wifiInfo1 = WifiInfo.Builder.builder()
