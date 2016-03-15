@@ -58,7 +58,7 @@ public class PackageDownloadInfoTest extends AndroidTestCase {
 
     @SmallTest
     public void testFailToConstructPackageInfoWithDownloadLocationWithoutChecksum() {
-        // WHEN the PackageDownloadInfo is tried to construct by a download location without any
+        // WHEN the PackageDownloadInfo is constructed with a download location but without any
         // checksum.
         try {
             PackageDownloadInfo downloadInfo = PackageDownloadInfo.Builder.builder()
@@ -68,6 +68,45 @@ public class PackageDownloadInfoTest extends AndroidTestCase {
         } catch (IllegalArgumentException e) {
             // THEN PackageDownloadInfo is failed to construct due to the missing checksum.
         }
+    }
+
+    @SmallTest
+    public void testFailToConstructPackageInfoWithoutDownloadLocation() {
+        // WHEN the PackageDownloadInfo is constructed without any download location.
+        try {
+            PackageDownloadInfo downloadInfo = PackageDownloadInfo.Builder.builder()
+                    .setPackageChecksum(TEST_PACKAGE_CHECKSUM)
+                    .build();
+            fail("Download location is mandatory.");
+        } catch (IllegalArgumentException e) {
+            // THEN PackageDownloadInfo fails to construct due to the missing download location.
+        }
+    }
+
+    @SmallTest
+    public void testConstructPackageInfoWithDownloadLocationAndPackageChecksum() {
+        // WHEN the PackageDownloadInfo is constructed with a download location and a package
+        // checksum.
+        PackageDownloadInfo downloadInfo = PackageDownloadInfo.Builder.builder()
+                .setLocation(TEST_DOWNLOAD_LOCATION)
+                .setPackageChecksum(TEST_PACKAGE_CHECKSUM)
+                .build();
+        // THEN the PackageDownloadInfo is constructed with the following values.
+        assertEquals(TEST_DOWNLOAD_LOCATION, downloadInfo.location);
+        assertEquals(TEST_PACKAGE_CHECKSUM, downloadInfo.packageChecksum);
+    }
+
+    @SmallTest
+    public void testConstructPackageInfoWithDownloadLocationAndSignatureChecksum() {
+        // WHEN the PackageDownloadInfo is constructed with a download location and a signature
+        // checksum.
+        PackageDownloadInfo downloadInfo = PackageDownloadInfo.Builder.builder()
+                .setLocation(TEST_DOWNLOAD_LOCATION)
+                .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
+                .build();
+        // THEN the PackageDownloadInfo is constructed with the following values.
+        assertEquals(TEST_DOWNLOAD_LOCATION, downloadInfo.location);
+        assertEquals(TEST_SIGNATURE_CHECKSUM, downloadInfo.signatureChecksum);
     }
 
     @SmallTest

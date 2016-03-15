@@ -46,6 +46,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECU
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static com.android.internal.util.Preconditions.checkNotNull;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.accounts.Account;
@@ -60,6 +61,8 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.common.Globals;
@@ -125,14 +128,24 @@ import java.util.Properties;
  * DEVICE_OWNER_x_EXTRAS and PROFILE_OWNER_x_EXTRAS, with x the appropriate type.
  */
 public class MessageParser {
-    private static final String EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE  =
+    public static final String EXTRA_PROVISIONING_ACTION =
+            "com.android.managedprovisioning.extra.provisioning_action";
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE  =
             "com.android.managedprovisioning.extra.started_by_trusted_source";
     private static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM =
             "com.android.managedprovisioning.extra.device_admin_support_sha1_package_checksum";
-    public static final String EXTRA_PROVISIONING_ACTION =
-            "com.android.managedprovisioning.extra.provisioning_action";
 
-    private final Utils mUtils = new Utils();
+    private final Utils mUtils;
+
+    public MessageParser() {
+        this(new Utils());
+    }
+
+    @VisibleForTesting
+    MessageParser(Utils utils) {
+        mUtils = checkNotNull(utils);
+    }
 
     /**
      * Converts {@link ProvisioningParams} to {@link Intent}.
@@ -142,46 +155,52 @@ public class MessageParser {
      * sending this intent.
      */
     public Intent getIntentFromProvisioningParams(ProvisioningParams params) {
-        Intent intent = new Intent(Globals.ACTION_RESUME_PROVISIONING);
-        intent.putExtra(EXTRA_PROVISIONING_ACTION, params.provisioningAction);
-        intent.putExtra(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone);
-        intent.putExtra(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale));
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.wifiInfo.securityType);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_PASSWORD, params.wifiInfo.password);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.wifiInfo.proxyHost);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.wifiInfo.proxyBypassHosts);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_PAC_URL, params.wifiInfo.pacUrl);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.wifiInfo.proxyPort);
-        intent.putExtra(EXTRA_PROVISIONING_WIFI_HIDDEN, params.wifiInfo.hidden);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                params.deviceAdminPackageName);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                params.deviceAdminComponentName);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
-                params.deviceAdminDownloadInfo.minVersion);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
-                params.deviceAdminDownloadInfo.location);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
-                params.deviceAdminDownloadInfo.cookieHeader);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                mUtils.byteArrayToString(params.deviceAdminDownloadInfo.packageChecksum));
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
-                params.deviceAdminDownloadInfo.packageChecksumSupportsSha1);
-        intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
-                mUtils.byteArrayToString(params.deviceAdminDownloadInfo.signatureChecksum));
-        intent.putExtra(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime);
-        intent.putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
-                params.startedByTrustedSource);
-        intent.putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                params.leaveAllSystemAppsEnabled);
-        intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
-        intent.putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption);
-        intent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate);
+        Intent intent = new Intent(Globals.ACTION_RESUME_PROVISIONING)
+                .putExtra(EXTRA_PROVISIONING_ACTION, params.provisioningAction)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+                        params.deviceAdminPackageName)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                        params.deviceAdminComponentName)
+                .putExtra(EXTRA_PROVISIONING_TIME_ZONE, params.timeZone)
+                .putExtra(EXTRA_PROVISIONING_LOCALE, localeToString(params.locale))
+                .putExtra(EXTRA_PROVISIONING_LOCAL_TIME, params.localTime)
+                .putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
+                        params.startedByTrustedSource)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                        params.leaveAllSystemAppsEnabled)
+                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle)
+                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, params.skipEncryption)
+                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, params.accountToMigrate)
+                .putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP, params.skipUserSetup);
+        if (params.wifiInfo != null) {
+            intent.putExtra(EXTRA_PROVISIONING_WIFI_SSID, params.wifiInfo.ssid)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, params.wifiInfo.securityType)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_PASSWORD, params.wifiInfo.password)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST, params.wifiInfo.proxyHost)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, params.wifiInfo.proxyBypassHosts)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_PAC_URL, params.wifiInfo.pacUrl)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT, params.wifiInfo.proxyPort)
+                    .putExtra(EXTRA_PROVISIONING_WIFI_HIDDEN, params.wifiInfo.hidden);
+        }
+        if (params.deviceAdminDownloadInfo != null) {
+            intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+                            params.deviceAdminDownloadInfo.minVersion)
+                    .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+                            params.deviceAdminDownloadInfo.location)
+                    .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                            params.deviceAdminDownloadInfo.cookieHeader)
+                    .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+                            mUtils.byteArrayToString(
+                                    params.deviceAdminDownloadInfo.packageChecksum))
+                    .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
+                            params.deviceAdminDownloadInfo.packageChecksumSupportsSha1)
+                    .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
+                            mUtils.byteArrayToString(
+                                    params.deviceAdminDownloadInfo.signatureChecksum));
+        }
         if (params.mainColor != null) {
             intent.putExtra(EXTRA_PROVISIONING_MAIN_COLOR, params.mainColor);
         }
-        intent.putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP, params.skipUserSetup);
         return intent;
     }
 
@@ -260,7 +279,11 @@ public class MessageParser {
      * Parses Wifi configuration from an {@link Properties} and returns the result in
      * {@link WifiInfo}.
      */
+    @Nullable
     private WifiInfo parseWifiInfoFromProperties(Properties props) {
+        if (props.getProperty(EXTRA_PROVISIONING_WIFI_SSID) == null) {
+            return null;
+        }
         WifiInfo.Builder builder = WifiInfo.Builder.builder()
                 .setSsid(props.getProperty(EXTRA_PROVISIONING_WIFI_SSID))
                 .setSecurityType(props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
@@ -284,7 +307,11 @@ public class MessageParser {
      * Parses device admin package download info from an {@link Properties} and returns the result
      * in {@link PackageDownloadInfo}.
      */
+    @Nullable
     private PackageDownloadInfo parsePackageDownloadInfoFromProperties(Properties props) {
+        if (props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION) == null) {
+            return null;
+        }
         PackageDownloadInfo.Builder builder = PackageDownloadInfo.Builder.builder()
                 .setLocation(props.getProperty(
                         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION))
@@ -481,7 +508,11 @@ public class MessageParser {
     /**
      * Parses Wifi configuration from an Intent and returns the result in {@link WifiInfo}.
      */
+    @Nullable
     private WifiInfo parseWifiInfoFromExtras(Intent intent) {
+        if (intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID) == null) {
+            return null;
+        }
         return WifiInfo.Builder.builder()
                 .setSsid(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SSID))
                 .setSecurityType(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
@@ -500,8 +531,13 @@ public class MessageParser {
      * Parses device admin package download info configuration from an Intent and returns the result
      * in {@link PackageDownloadInfo}.
      */
+    @Nullable
     private PackageDownloadInfo parsePackageDownloadInfoFromExtras(
             Intent intent, boolean isSelfOriginated) {
+        if (intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION)
+                == null) {
+            return null;
+        }
         PackageDownloadInfo.Builder downloadInfoBuilder = PackageDownloadInfo.Builder.builder()
                 .setMinVersion(intent.getIntExtra(
                         EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
@@ -557,7 +593,8 @@ public class MessageParser {
         }
     }
 
-    private static String localeToString(Locale locale) {
+    @VisibleForTesting
+    static String localeToString(Locale locale) {
         if (locale != null) {
             return locale.getLanguage() + "_" + locale.getCountry();
         } else {
