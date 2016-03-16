@@ -25,7 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ಈ ಸಾಧನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಈ ಪ್ರೊಫೈಲ್ ಪ್ರವೇಶಿಸುವ ಅಗತ್ಯವಿದೆ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ:"</string>
-    <string name="set_up" msgid="7012862095553564169">"ಹೊಂದಿಸು"</string>
+    <string name="next" msgid="1004321437324424398">"ಮುಂದೆ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿಯೂ ಸೇರಿದಂತೆ, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಹಾಗೂ ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಡೇಟಾ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿ ಸೇರಿದಂತೆ ನಿಮ್ಮ ನಿರ್ವಾಹಕರ ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಅನುಮತಿಗಳು ಮತ್ತು ಈ ಸಾಧನದೊಂದಿಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ವೀಕ್ಷಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯ ಹೊಂದಿದ್ದಾರೆ."</string>
@@ -66,6 +66,8 @@
     <string name="progress_download" msgid="3522436271691064624">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ಸಾಧನದ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ಹೊಂದಾಣಿಕೆಯನ್ನು ನಿಲ್ಲಿಸುವುದೇ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದೇ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ರದ್ದುಮಾಡು"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ಸರಿ"</string>
@@ -98,7 +100,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ. ಪ್ರಗತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ ಬಟನ್‌"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ಐಕಾನ್‌"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"ಈ ಸೆಟಪ್ ರದ್ದುಮಾಡುವುದೇ? ರದ್ದುಮಾಡುವುದರಿಂದ ನಿಮ್ಮ ಸಾಧನದ ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಹೊಂದಿಸುವಿಕೆಯ ಪ್ರಾರಂಭಕ್ಕೆ ಕರೆದೊಯ್ಯಲಾಗುತ್ತದೆ."</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ರದ್ದುಮಾಡು"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"ಮರುಹೊಂದಿಸು"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>

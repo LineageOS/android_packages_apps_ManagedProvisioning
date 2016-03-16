@@ -25,7 +25,8 @@
     <string name="company_controls_device" msgid="8230957518758871390">"ស្ថាប័នរបស់អ្នកនឹងគ្រប់គ្រងឧបករណ៍នេះ និងរក្សាវាឲ្យមានសុវត្ថិភាព។"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"កម្មវិធី​ខាង​ក្រោម​​នឹង​ត្រូវ​ចូល​ដំណើរការ​ប្រវត្តិរូប​របស់​អ្នក៖"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"កម្មវិធីខាងក្រោមនឹងគ្រប់គ្រងឧបករណ៍របស់អ្នក៖"</string>
-    <string name="set_up" msgid="7012862095553564169">"រៀបចំ"</string>
+    <!-- no translation found for next (1004321437324424398) -->
+    <skip />
     <string name="setting_up_workspace" msgid="4517537806569988620">"កំពុងដំឡើងប្រវត្តិរូបការងាររបស់អ្នក…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលដំណើរការរួមគ្នា កម្មវិធី សិទ្ធិអនុញ្ញាត និងទិន្នន័យដែលទាក់ទងនឹងប្រវត្តិរូបនេះ រាប់បញ្ចូលទាំងសកម្មភាពបណ្តាញ និងព័ត៌មានទីតាំងឧបករណ៍របស់អ្នក។"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលដំណើរការរួមគ្នា កម្មវិធី សិទ្ធិអនុញ្ញាត និងទិន្នន័យដែលទាក់ទងនឹងឧបករណ៍នេះ រាប់បញ្ចូលទាំងសកម្មភាពបណ្តាញ និងព័ត៌មានទីតាំងឧបករណ៍របស់អ្នក។"</string>
@@ -66,6 +67,8 @@
     <string name="progress_download" msgid="3522436271691064624">"កំពុងទាញយកកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_install" msgid="2258045670385866183">"កំពុងដំឡើងកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"កំពុងកំណត់ម្ចាស់ឧបករណ៍…"</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"បញ្ឈប់ការដំឡើង ហើយលុបទិន្នន័យនៅក្នុងឧបករណ៍របស់អ្នកចេញ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"បោះបង់"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"យល់ព្រម"</string>
@@ -98,7 +101,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ដំឡើងឧបករណ៍របស់អ្នក។ បង្ហាញការវិវឌ្ឍន៍"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ប៊ូតុងស្វែងយល់បន្ថែម"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"រូបតំណាង <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"បោះបង់ការដំឡើងនេះឬ? ការបោះបង់ការដំឡើងនឹងកំណត់ឧបករណ៍របស់អ្នកឲ្យដូចចេញពីរោងចក្រឡើងវិញ និងនាំអ្នកទៅកាន់ចំណុចចាប់ផ្តើមនៃការដំឡើង។"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"បោះបង់"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"កំណត់ឡើងវិញ"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>

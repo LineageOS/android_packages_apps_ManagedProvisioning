@@ -25,7 +25,8 @@
     <string name="company_controls_device" msgid="8230957518758871390">"Bu cihazın denetimi ve güvenliğinin sağlanması kuruluşunuz tarafından yapılacaktır."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aşağıdaki uygulamanın bu profile erişmesi gerekecek:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Şu uygulama, cihazınızı yönetecek:"</string>
-    <string name="set_up" msgid="7012862095553564169">"Oluştur"</string>
+    <!-- no translation found for next (1004321437324424398) -->
+    <skip />
     <string name="setting_up_workspace" msgid="4517537806569988620">"İş profiliniz oluşturuluyor…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu profille ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri ve verileri izleyip yönetebilir."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu cihazla ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri ve verileri izleyip yönetebilir."</string>
@@ -66,6 +67,8 @@
     <string name="progress_download" msgid="3522436271691064624">"Yönetici uygulaması indiriliyor…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Yönetici uygulaması yükleniyor…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Cihaz sahibi ayarlanıyor…"</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Kurulum durdurulsun ve cihazınızın verileri silinsin mi?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"İPTAL"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"Tamam"</string>
@@ -98,7 +101,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Cihazınızın kurulumunu yapın. İlerleme durumu gösteriliyor"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Daha fazla bilgi edinin düğmesi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> simgesi"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Bu kurulum iptal edilsin mi? Kurulumu iptal etmek, cihazınızı fabrika ayarlarına sıfırlar ve kurulumu baştan başlatır."</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"İPTAL"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"SIFIRLA"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>
