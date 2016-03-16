@@ -25,7 +25,8 @@
     <string name="company_controls_device" msgid="8230957518758871390">"조직에서 이 기기를 제어하고 보안을 유지합니다."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"이 프로필에 액세스해야 하는 앱:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"내 기기를 관리하는 앱:"</string>
-    <string name="set_up" msgid="7012862095553564169">"설정"</string>
+    <!-- no translation found for next (1004321437324424398) -->
+    <skip />
     <string name="setting_up_workspace" msgid="4517537806569988620">"직장 프로필 설정 중..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 프로필과 연결된 데이터, 설정, 기업 액세스, 앱, 권한을 모니터링하고 관리할 수 있습니다."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 기기와 연결된 데이터, 설정, 기업 액세스, 앱, 권한을 모니터링하고 관리할 수 있습니다."</string>
@@ -66,6 +67,8 @@
     <string name="progress_download" msgid="3522436271691064624">"관리 앱 다운로드 중..."</string>
     <string name="progress_install" msgid="2258045670385866183">"관리 앱 설치 중..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"기기 소유자 설정 중..."</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"설정을 중단하고 기기 데이터를 삭제하시겠습니까?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"취소"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"확인"</string>
@@ -98,7 +101,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"기기를 설정합니다. 진행 상황 보기"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"자세히 알아보기 버튼"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> 아이콘"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"이 설정을 취소할까요? 취소하면 기기를 초기화하고 설정 시작 단계로 이동하게 됩니다."</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"취소"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"초기화"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>

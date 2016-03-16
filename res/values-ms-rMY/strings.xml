@@ -25,7 +25,8 @@
     <string name="company_controls_device" msgid="8230957518758871390">"Organisasi anda akan mengawal peranti ini dan memastikannya selamat."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Apl berikut perlu mengakses profil ini:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Apl berikut akan mengurus peranti anda:"</string>
-    <string name="set_up" msgid="7012862095553564169">"Sediakan"</string>
+    <!-- no translation found for next (1004321437324424398) -->
+    <skip />
     <string name="setting_up_workspace" msgid="4517537806569988620">"Menyediakan profil kerja anda…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Pentadbir anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang dikaitkan dengan profil ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Pentadbir anda berkeupayaan untuk memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang dikaitkan dengan peranti ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
@@ -66,6 +67,8 @@
     <string name="progress_download" msgid="3522436271691064624">"Memuat turun apl pentadbir…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Memasang apl pentadbir…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Menetapkan pemilik peranti…"</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Berhenti membuat persediaan dan padamkan data peranti anda?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"BATAL"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
@@ -98,7 +101,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Sediakan peranti anda. Menunjukkan kemajuan"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Butang ketahui lebih lanjut"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"Batalkan persediaan ini? Pembatalan akan menjalankan penetapan semula kilang pada peranti dan membawa anda ke permulaan persediaan."</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"BATAL"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"TETAPKAN SEMULA"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>

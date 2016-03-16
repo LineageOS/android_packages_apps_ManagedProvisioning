@@ -25,7 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"თქვენი ორგანიზაცია კონტროლს გაუწევს ამ მოწყობილობას და მის უსაფრთხოებას უზრუნველყოფს."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"შემდეგ აპს ამ პროფილზე წვდომა დაჭირდება:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"შემდეგი აპი მართავს თქვენს მოწყობილობას:"</string>
-    <string name="set_up" msgid="7012862095553564169">"დაყენება"</string>
+    <string name="next" msgid="1004321437324424398">"შემდეგი"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"თქვენი სამუშაო პროფილის დაყენება…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"თქვენს ადმინისტრატორს შეუძლია ამ პროფილთან ასოცირებული პარამეტრების, კორპორატიული წვდომის, აპებისა და მონაცემების, მათ შორის, ქსელის აქტივობისა და თქვენი მოწყობილობის მდებარეობის ინფორმაციის მონიტორინგი და მართვა."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"თქვენს ადმინისტრატორს შეუძლია ამ მოწყობილობასთან ასოცირებული პარამეტრების, კორპორატიული წვდომის, აპებისა და მონაცემების, მათ შორის, ქსელის აქტივობისა და თქვენი მოწყობილობის მდებარეობის ინფორმაციის მონიტორინგი და მართვა."</string>
@@ -66,6 +66,8 @@
     <string name="progress_download" msgid="3522436271691064624">"ადმინისტრატორის აპის ჩამოტვირთვა…"</string>
     <string name="progress_install" msgid="2258045670385866183">"ადმინისტრატორის აპის ინსტალაცია…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"მოწყობილობის მფლობელის დაყენება…"</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"შეჩერდეს დაყენება და წაიშალოს თქვენი მოწყობილობის მონაცემები?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"გაუქმება"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"კარგი"</string>
@@ -98,7 +100,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"თქვენი მოწყობილობის გამართვა. ნაჩვენებია პროგრესი"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"შეიტყვეთ მეტის ღილაკი"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>-ის ხატულა"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"გსურთ დაყენების გაუქმება? გაუქმების შემთხვევაში, მოწყობილობის პარამეტრები ქარხნულ ნაგულისხმევზე ჩამოიყრება და საჭირო იქნება მისი ხელახლა დაყენება."</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"გაუქმება"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"გადაყენება"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>

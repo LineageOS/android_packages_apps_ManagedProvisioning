@@ -25,7 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"आपली संस्‍था या डिव्‍हाइसचे नियंत्रण करेल आणि त्यास सुरक्षित ठेवेल."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप आपले डिव्‍हाइस व्यवस्‍थापित करेल:"</string>
-    <string name="set_up" msgid="7012862095553564169">"सेट अप"</string>
+    <string name="next" msgid="1004321437324424398">"पुढील"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"आपले कार्य प्रोफाईल सेट करीत आहे..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"आपल्या प्रशासकाकडे नेटवर्क क्रियाकलाप आणि आपल्या डिव्हाइसच्या स्थान माहितीसह सेटिंग्ज, कॉर्पोरेट प्रवेश, अ‍ॅप्स, परवानग्या आणि या प्रोफाईलशी संबंधित डेटाचे परीक्षण करण्याची आणि ते व्यवस्थापित करण्याची क्षमता आहे."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"आपल्या प्रशासकाकडे नेटवर्क क्रियाकलाप आणि आपल्या डिव्हाइसच्या स्थान माहितीसह सेटिंग्ज, कॉर्पोरेट प्रवेश, अ‍ॅप्स, परवानग्या आणि या डिव्हाइसशी संबंधित डेटाचे परीक्षण करण्याची आणि ते व्यवस्थापित करण्याची क्षमता आहे."</string>
@@ -66,6 +66,8 @@
     <string name="progress_download" msgid="3522436271691064624">"प्रशासन अॅप डाउनलोड करीत आहे..."</string>
     <string name="progress_install" msgid="2258045670385866183">"प्रशासन अॅप स्थापित करीत आहे..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"डिव्हाइस मालक सेट करीत आहे..."</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेट करणे थांबवायचे आणि आपला डिव्‍हाइस डेटा मिटवायचा?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"रद्द करा"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ठीक आहे"</string>
@@ -98,7 +100,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"आपले डिव्‍हाइस सेट करा. प्रगती दर्शवित आहे"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"अधिक जाणून घ्‍या बटण"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> चिन्ह"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"हे सेटअप रद्द करायचे? रद्द करण्‍यामुळे आपले डिव्हाइस फॅक्‍टरी रीसेट होईल आणि आपल्‍याला सेटअपच्या प्रारंभावर नेईल."</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"रद्द करा"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"रीसेट करा"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>

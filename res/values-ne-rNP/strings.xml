@@ -25,7 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"तपाईँको संगठनले यस यन्त्रलाई नियन्त्रण गर्ने छ र सुरक्षित राख्ने छ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्न अनुप्रयोगले तपाईँको यन्त्र व्यवस्थापन गर्नेछ:"</string>
-    <string name="set_up" msgid="7012862095553564169">"मिलाउनुहोस्"</string>
+    <string name="next" msgid="1004321437324424398">"अर्को"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"तपाईँको कार्य प्रोफाइल मिलाउँदै..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"तपाईँको प्रशासकले नेटवर्क गतिविधि र तपाईँको यन्त्रको स्थान जानकारी लगायत सेटिङ, कर्पोरेट पहुँच, अनुप्रयोग, अनुमति र यस प्रोफाइलसँग सम्बद्ध डेटा अनुगमन गर्ने र व्यवस्थापन गर्ने क्षमता राख्छ।"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"तपाईँको प्रशासकले नेटवर्क गतिविधि र तपाईँको यन्त्रको स्थान जानकारी लगायत सेटिङ, कर्पोरेट पहुँच, अनुप्रयोग, अनुमति र यस यन्त्रसँग सम्बद्ध डेटा अनुगमन गर्ने र व्यवस्थापन गर्ने क्षमता राख्छ।"</string>
@@ -66,6 +66,8 @@
     <string name="progress_download" msgid="3522436271691064624">"प्रशासकीय अनुप्रयोग डाउनलोड गर्दै..."</string>
     <string name="progress_install" msgid="2258045670385866183">"प्रशासकीय अनुप्रयोग स्थापना गर्दै..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"यन्त्र मालिक मिलाउँदै..."</string>
+    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेटअप रोकी तपाईँको यन्त्रको डेटा मेटाउने हो?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"रद्द गर्नुहोस्"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ठीक छ"</string>
@@ -98,7 +100,11 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"तपाईँको यन्त्र सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"थप जान्नुहोस् बटन"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आइकन"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="2093321283587185584">"यस सेटअपलाई रद्द गर्ने हो? रद्द गर्नाले तपाईंको यन्त्रलाई फ्याक्ट्री रिसेट गर्नेछ र तपाईंलाई सेटअपको सुरुवातमा लानेछ।"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"रद्द गर्नुहोस्"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="9199113132005701097">"रिसेट गर्नुहोस्"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
+    <skip />
 </resources>
