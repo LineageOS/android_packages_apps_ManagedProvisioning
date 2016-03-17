@@ -165,9 +165,6 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
 
 
     private void onProvisioningSuccess() {
-        // Set the device to provisioned.
-        mUtils.markDeviceProvisioned(this);
-
         stopService(new Intent(this, DeviceOwnerProvisioningService.class));
         // Note: the DeviceOwnerProvisioningService will stop itself.
         setResult(Activity.RESULT_OK);
