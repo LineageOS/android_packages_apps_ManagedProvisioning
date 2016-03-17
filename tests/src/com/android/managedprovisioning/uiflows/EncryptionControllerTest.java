@@ -38,10 +38,10 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.IntentStore;
-import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.parser.MessageParser;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
