@@ -75,7 +75,9 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void finish() {
+        // The user has backed out of provisioning, so we perform the necessary clean up steps.
         LogoUtils.cleanUp(this);
+        EncryptionController.getInstance(this).cancelEncryptionReminder();
         super.finish();
     }
 

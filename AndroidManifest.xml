@@ -153,6 +153,24 @@
             android:excludeFromRecents="true">
         </activity>
 
+        <!--
+            When PostEncryptionActivity is disabled, its entire task is going to get killed.
+            So, we explicitly specify a taskAffinity for this instead of a package default to make
+            sure it starts in a new task.
+        -->
+        <activity android:name=".uiflows.PostEncryptionActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:enabled="false"
+            android:taskAffinity=":PostEncryptionActivity">
+            <intent-filter android:priority="10">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name="ProfileOwnerProvisioningService" >
         </service>

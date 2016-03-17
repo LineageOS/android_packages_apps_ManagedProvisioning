@@ -74,6 +74,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.FinalizationActivity;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.TrampolineActivity;
@@ -123,8 +124,25 @@ public class Utils {
      * @param userId the id of the user where the component should be disabled.
      */
     public void disableComponent(ComponentName toDisable, int userId) {
-        disableComponent(IPackageManager.Stub.asInterface(ServiceManager.getService("package")),
-                toDisable, userId);
+        setComponentEnabledSetting(
+                IPackageManager.Stub.asInterface(ServiceManager.getService("package")),
+                toDisable,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                userId);
+    }
+
+    /**
+     * Enables a given component in a given user.
+     *
+     * @param toEnable the component that should be enabled
+     * @param userId the id of the user where the component should be disabled.
+     */
+    public void enableComponent(ComponentName toEnable, int userId) {
+        setComponentEnabledSetting(
+                IPackageManager.Stub.asInterface(ServiceManager.getService("package")),
+                toEnable,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                userId);
     }
 
     /**
@@ -134,15 +152,17 @@ public class Utils {
      * @param toDisable the component that should be disabled
      * @param userId the id of the user where the component should be disabled.
      */
-    public void disableComponent(IPackageManager ipm, ComponentName toDisable, int userId) {
+    @VisibleForTesting
+    void setComponentEnabledSetting(IPackageManager ipm, ComponentName toDisable,
+            int enabledSetting, int userId) {
         try {
             ipm.setComponentEnabledSetting(toDisable,
-                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP,
+                    enabledSetting, PackageManager.DONT_KILL_APP,
                     userId);
         } catch (RemoteException neverThrown) {
             ProvisionLogger.loge("This should not happen.", neverThrown);
         } catch (Exception e) {
-            ProvisionLogger.logw("Component not found, not disabling it: "
+            ProvisionLogger.logw("Component not found, not changing enabled setting: "
                 + toDisable.toShortString());
         }
     }
