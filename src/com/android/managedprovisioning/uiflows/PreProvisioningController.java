@@ -17,9 +17,7 @@
 package com.android.managedprovisioning.uiflows;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
@@ -44,10 +42,10 @@ import android.text.TextUtils;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.MessageParser;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.parser.MessageParser;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.List;
 
@@ -184,7 +182,7 @@ public class PreProvisioningController {
 
         try {
             // Read the provisioning params from the provisioning intent
-            mParams = parseIntent(intent);
+            mParams = mMessageParser.parse(intent, mContext);
 
             // If this is a resume after encryption or trusted intent, we don't need to verify the
             // caller. Otherwise, verify that the calling app is trying to set itself as
@@ -211,30 +209,6 @@ public class PreProvisioningController {
             initiateProfileOwnerProvisioning(intent);
         } else {
             initiateDeviceOwnerProvisioning(intent);
-        }
-    }
-
-    /**
-     * Read the ProvisioningParams from the intent.
-     *
-     * @throw IllegalProvisioningArgumentException if the parameters are not valid.
-     */
-    // TODO: Move this logic into message parser
-    private ProvisioningParams parseIntent(Intent intent)
-            throws IllegalProvisioningArgumentException {
-        if (intent.getAction().equals(ACTION_RESUME_PROVISIONING)) {
-            return mMessageParser.parseNonNfcIntent(intent, mContext, true);
-        } else if (intent.getAction().equals(ACTION_NDEF_DISCOVERED)) {
-            return mMessageParser.parseNfcIntent(intent);
-        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
-            // We trusted most of the extras from this intent because the caller is a privileged
-            // app. But we don't support internal only APIs for this intent.
-            return mMessageParser.parseNonNfcIntent(intent, mContext, false);
-        } else if (intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE) ||
-                intent.getAction().equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)) {
-            return mMessageParser.parseMinimalistNonNfcIntent(intent, mContext, false);
-        } else { // profile owner provisioning
-            return mMessageParser.parseNonNfcIntent(intent, mContext, false);
         }
     }
 

@@ -31,6 +31,7 @@ import android.os.UserHandle;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.parser.MessageParser;
 
 /*
  * This class is used to make sure that we start the MDM after we shut the setup wizard down.
@@ -160,7 +161,7 @@ public class FinalizationActivity extends Activity {
         intentStore.clear();
 
         try {
-            return (new MessageParser()).parseNonNfcIntent(intent, this, true /* trusted */);
+            return new MessageParser().parse(intent, this);
         } catch (IllegalProvisioningArgumentException e) {
             ProvisionLogger.loge("Failed to parse provisioning intent", e);
         }

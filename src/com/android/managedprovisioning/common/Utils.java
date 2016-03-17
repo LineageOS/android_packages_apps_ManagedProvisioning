@@ -633,29 +633,6 @@ public class Utils {
     }
 
     /**
-     * @return the first {@link NdefRecord} found with a recognized MIME-type
-     */
-    // TODO: Add unit tests
-    public NdefRecord firstNdefRecord(Intent nfcIntent) {
-        // Only one first message with NFC_MIME_TYPE is used.
-        for (Parcelable rawMsg : nfcIntent.getParcelableArrayExtra(
-                NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-            NdefMessage msg = (NdefMessage) rawMsg;
-            for (NdefRecord record : msg.getRecords()) {
-                String mimeType = new String(record.getType(), UTF_8);
-
-                if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
-                    return record;
-                }
-
-                // Assume only first record of message is used.
-                break;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Sends an intent to trigger a factory reset.
      */
     // TODO: Move the FR intent into a Globals class.
