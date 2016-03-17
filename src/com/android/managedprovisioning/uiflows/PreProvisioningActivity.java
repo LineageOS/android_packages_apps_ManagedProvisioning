@@ -36,13 +36,13 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.DeleteManagedProfileDialog;
 import com.android.managedprovisioning.DeviceOwnerProvisioningActivity;
 import com.android.managedprovisioning.LogoUtils;
-import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProfileOwnerProvisioningActivity;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.SetupLayoutActivity;
 import com.android.managedprovisioning.UserConsentDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.parser.MessageParser;
 
 public class PreProvisioningActivity extends SetupLayoutActivity
         implements UserConsentDialog.ConsentCallback,

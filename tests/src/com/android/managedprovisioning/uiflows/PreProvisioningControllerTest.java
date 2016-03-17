@@ -43,12 +43,12 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+import com.android.managedprovisioning.parser.MessageParser;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -533,14 +533,14 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .thenReturn(TEST_MDM_COMPONENT_NAME);
         when(mUtils.isDeviceProvisioned(mContext)).thenReturn(true);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, false)).thenReturn(
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));
     }
 
     private void prepareMocksForNfcIntent(String action, boolean skipEncryption) throws Exception {
         when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        when(mMessageParser.parseNfcIntent(mIntent)).thenReturn(
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
@@ -548,7 +548,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mIntent.getAction())
                 .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, false)).thenReturn(
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
@@ -556,7 +556,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         final String action = ACTION_PROVISION_MANAGED_DEVICE;
         when(mIntent.getAction()).thenReturn(action);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        when(mMessageParser.parseMinimalistNonNfcIntent(mIntent, mContext, false)).thenReturn(
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(false, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
@@ -564,7 +564,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
             throws Exception {
         when(mIntent.getAction()).thenReturn(ACTION_RESUME_PROVISIONING);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
-        when(mMessageParser.parseNonNfcIntent(mIntent, mContext, true)).thenReturn(
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(
                         startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }

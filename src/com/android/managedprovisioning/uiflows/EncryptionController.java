@@ -30,11 +30,11 @@ import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.IntentStore;
-import com.android.managedprovisioning.MessageParser;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.parser.MessageParser;
 
 /**
  * This controller manages all things related to the encryption reboot.
