@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.model;
 
+import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
+
 import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -231,25 +233,5 @@ public class ProvisioningParamsTest extends AndroidTestCase {
 
         // THEN the same ProvisioningParams is obtained.
         assertEquals(expectedProvisioningParams, actualProvisioningParams);
-    }
-
-    private static PersistableBundle createTestAdminExtras() {
-        PersistableBundle adminExtras = new PersistableBundle();
-        adminExtras.putBoolean("boolean", true);
-        adminExtras.putBooleanArray("boolean_array", new boolean[] { true, false });
-        adminExtras.putDouble("double", 1.1);
-        adminExtras.putDoubleArray("double_array", new double[] { 1.1, 2.2 });
-        adminExtras.putInt("int", 1);
-        adminExtras.putIntArray("int_array", new int[] { 1, 2 } );
-        adminExtras.putLong("long", 1L);
-        adminExtras.putLongArray("long_array", new long[] { 1L, 2L });
-        adminExtras.putString("string", "Hello");
-        adminExtras.putStringArray("string_array", new String[] { "Hello", "World" } );
-
-        PersistableBundle nestedBundle = new PersistableBundle();
-        nestedBundle.putInt("int", 1);
-        nestedBundle.putStringArray("string_array", new String[] { "Hello", "World" } );
-        adminExtras.putPersistableBundle("persistable_bundle", nestedBundle);
-        return adminExtras;
     }
 }
