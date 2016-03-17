@@ -74,6 +74,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     @Mock private MessageParser mMessageParser;
     @Mock private Utils mUtils;
     @Mock private Intent mIntent;
+    @Mock private EncryptionController mEncryptionController;
 
     private ProvisioningParams mParams;
 
@@ -108,7 +109,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mDevicePolicyManager.getStorageEncryptionStatus())
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_INACTIVE);
 
-        mController = new PreProvisioningController(mContext, mUi, mMessageParser, mUtils);
+        mController = new PreProvisioningController(mContext, mUi, mMessageParser, mUtils,
+                mEncryptionController);
     }
 
     public void testManagedProfile() throws Exception {
@@ -126,6 +128,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
         verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -186,6 +189,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
         verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -208,6 +212,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
         verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -271,6 +276,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN start profile provisioning
         verify(mUi).startProfileOwnerProvisioning(mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -304,6 +310,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
         verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -320,6 +327,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN start device owner provisioning
         verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -445,6 +453,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
         verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -465,6 +474,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN start device owner provisioning
         verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
@@ -500,6 +510,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
         verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 

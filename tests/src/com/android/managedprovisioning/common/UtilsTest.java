@@ -108,10 +108,11 @@ public class UtilsTest extends AndroidTestCase {
         assertTrue(res.contains(TEST_PACKAGE_NAME_2));
     }
 
-    public void testDisableComponent() throws Exception {
+    public void testSetComponentEnabledSetting() throws Exception {
         // GIVEN a component name and a user id
         // WHEN disabling a component
-        mUtils.disableComponent(mockIPackageManager, TEST_COMPONENT_NAME, TEST_USER_ID);
+        mUtils.setComponentEnabledSetting(mockIPackageManager, TEST_COMPONENT_NAME,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, TEST_USER_ID);
         // THEN the correct method on mockIPackageManager gets invoked
         verify(mockIPackageManager).setComponentEnabledSetting(eq(TEST_COMPONENT_NAME),
                 eq(PackageManager.COMPONENT_ENABLED_STATE_DISABLED),
