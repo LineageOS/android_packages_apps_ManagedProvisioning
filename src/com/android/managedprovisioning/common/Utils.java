@@ -328,17 +328,6 @@ public class Utils {
     }
 
     /**
-     * Marks the device as provisioning.
-     *
-     * <p>This will set the DEVICE_PROVISIONED to 1 as well as marking user setup complete
-     * on the calling user.
-     */
-    public void markDeviceProvisioned(Context context) {
-        ProvisionLogger.logd("Setting DEVICE_PROVISIONED to 1");
-        Global.putInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 1);
-    }
-
-    /**
      * Sets user setup complete on a given user.
      *
      * <p>This will set USER_SETUP_COMPLETE to 1 on the given user.
@@ -366,8 +355,8 @@ public class Utils {
      * Set the current users userProvisioningState depending on the following factors:
      * <ul>
      *     <li>We're setting up a managed-profile - need to set state on two users.</li>
-     *     <li>User-setup is complete or not - skip states relating to communicating with
-     *     setup-wizard</li>
+     *     <li>User-setup has previously been completed or not - skip states relating to
+     *     communicating with setup-wizard</li>
      *     <li>DPC requested we skip the rest of setup-wizard.</li>
      * </ul>
      *
