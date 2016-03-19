@@ -25,8 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"この端末は組織によって管理され、安全が維持されます。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"次のアプリはこのプロファイルにアクセスする必要があります。"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"お使いの端末は次のアプリによって管理されます。"</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"次へ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"仕事用プロファイルをセットアップしています…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"管理者は、ネットワークアクティビティや端末の位置情報など、プロファイルに関連付けられた設定、コーポレートアクセス、アプリ、権限、データを監視および管理できます。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"管理者は、ネットワークアクティビティや端末の位置情報など、この端末に関連付けられた設定、コーポレートアクセス、アプリ、権限、データを監視および管理できます。"</string>
@@ -67,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"管理アプリをダウンロードしています…"</string>
     <string name="progress_install" msgid="2258045670385866183">"管理アプリをインストールしています…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"端末の所有者を設定しています…"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"お使いの端末では暗号化がサポートされていません。IT 部門にお問い合わせください。"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"セットアップを中止して端末のデータを消去しますか？"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"キャンセル"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
@@ -101,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"端末のセットアップ: 進行状況の表示"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"詳細ボタン"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>アイコン"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"セットアップを終了して初期状態にリセットしますか？"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"このセットアップを終了すると端末が初期状態にリセットされて最初の画面に戻ります。"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"キャンセル"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"端末をリセット"</string>
 </resources>

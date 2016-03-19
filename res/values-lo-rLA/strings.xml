@@ -25,8 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"ອົງ​ການ​ຂອງ​ທ່ານ​ຈະ​ຄວບ​ຄຸມ​ອຸ​ປະ​ກອນ​ນີ້ ແລະ ຮັກ​ສາ​ໃຫ້​ມັນ​ປອດ​ໄພ."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ແອັບຯ​ຕໍ່​ໄປ​ນີ້​ຈະຕ້ອງ​ການ​ເຂົ້າ​ເຖິງ​ໂປຣ​ໄຟລ໌​ນີ້:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ແອັບຯ​ຕໍ່​ໄປ​ນີ້​ຈະຄຸ້ມ​ຄອງ​ອຸ​ປະ​ກອນ:"</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"ຕໍ່ໄປ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​​ໂປ​ຣ​ໄຟ​ລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"ຜູ້ດູແລລະບົບຂອງທ່ານສາມາດຕິດຕາມ ແລະຈັດການການຕັ້ງຄ່າ, ການເຂົ້າເຖິງ, ແອັບ, ການອະນຸຍາດ ແລະຂໍ້ມູນທີ່ກ່ຽວຂ້ອງກັບໂປຣໄຟລ໌ນີ້ ລວມທັງກິດຈະກໍາເທິງເຄືອຂ່າຍ ແລະຂໍ້ມູນທີ່ຕັ້ງຂອງອຸປະກອນຂອງທ່ານ."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"ຜູ້ດູແລລະບົບຂອງທ່ານສາມາດຕິດຕາມ ແລະຈັດການການຕັ້ງຄ່າ, ການເຂົ້າເຖິງ, ແອັບ, ການອະນຸຍາດ ແລະຂໍ້ມູນທີ່ກ່ຽວຂ້ອງກັບອຸປະກອນນີ້ ລວມທັງກິດຈະກໍາເທິງເຄືອຂ່າຍ ແລະຂໍ້ມູນທີ່ຕັ້ງຂອງອຸປະກອນຂອງທ່ານ."</string>
@@ -67,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ້ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ກຳ​ລັງ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ້​ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ອຸປະກອນຂອງທ່ານບໍ່ຮອງຮັບການເຂົ້າລະຫັດ. ໃຫ້ຕິດຕໍ່ພະແນກໄອທີຂອງທ່ານ."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ຢຸດການຕັ້ງ ແລະລຶບຂໍ້ມູນຂອງອຸປະກອນຂອງທ່ານບໍ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ຍົກເລີກ"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ຕົກລົງ"</string>
@@ -101,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ຕັ້ງ​ຄ່າ​ການ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ. ສະ​ແດງ​ຄວາມ​ຄືບ​ໜ້າ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ປຸ່ມຮຽນຮູ້ເພີ່ມ​ເຕີມ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"ໄອ​ຄອນ <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ສິ້ນສຸດການຕັ້ງຄ່າ ແລະ ຣີເຊັດເປັນຄ່າໂຮງງານບໍ?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ການສິ້ນສຸດການຕັ້ງຄ່ານີ້ຈະຣີເຊັດອຸປະກອນຂອງທ່ານໃຫ້ເປັນຄ່າຈາກໂຮງງານ ແລະ ຈະພາທ່ານໄປສູ່ໜ້າຈໍທຳອິດ."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ຍົກເລີກ"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"ຣີເຊັດອຸປະກອນ"</string>
 </resources>

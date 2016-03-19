@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ਡਿਵਾਈਸ ਮਾਲਕ ਨੂੰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਐਨਕ੍ਰਿਪਸ਼ਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈਟ ਅਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੀ ਡਿਵਾਈਸ ਦਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ਰੱਦ ਕਰੋ"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ਠੀਕ"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ਹੋਰ ਜਾਣੋ ਬਟਨ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ਕੀ ਸਥਾਪਨਾ ਸਮਾਪਤ ਕਰਨੀ ਅਤੇ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ਇਸ ਸਥਾਪਨਾ ਨੂੰ ਸਮਾਪਤ ਕਰਨਾ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ਰੱਦ ਕਰੋ"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"ਡੀਵਾਈਸ ਰੀਸੈੱਟ ਕਰੋ"</string>
 </resources>

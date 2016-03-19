@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"ადმინისტრატორის აპის ჩამოტვირთვა…"</string>
     <string name="progress_install" msgid="2258045670385866183">"ადმინისტრატორის აპის ინსტალაცია…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"მოწყობილობის მფლობელის დაყენება…"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"დაშიფვრა მხარდაუჭერელია თქვენი მოწყობილობის მიერ. დაუკავშირდით თქვენს IT განყოფილებას."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"შეჩერდეს დაყენება და წაიშალოს თქვენი მოწყობილობის მონაცემები?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"გაუქმება"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"კარგი"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"თქვენი მოწყობილობის გამართვა. ნაჩვენებია პროგრესი"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"შეიტყვეთ მეტის ღილაკი"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>-ის ხატულა"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"გსურთ დასრულება და ქარხნული პარამ. დაბრუნება?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"მიმდინარე დაყენების დასრულების შემთხვევაში, თქვენი მოწყობილობა ქარხნულ პარამეტრებს დაუბრუნდება და პირველ ეკრანზე გადახვალთ."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"გაუქმება"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"მოწყობილობის საწყის მდგომარეობაზე დაბრუნება"</string>
 </resources>

@@ -25,8 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"您的機構將會控制此裝置，並保障裝置安全。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"下列應用程式需要存取這個設定檔："</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"下列應用程式將管理您的裝置："</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"下一步"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在設定您的工作設定檔…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"您的管理員可以監控並管理與這個設定檔相關聯的設定、企業存取、應用程式、權限和資料，包括網絡活動和您的裝置位置資料。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"您的管理員可以監控並管理與這部裝置相關聯的設定、企業存取、應用程式、權限和資料，包括網絡活動和您的裝置位置資料。"</string>
@@ -67,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"正在下載管理員應用程式…"</string>
     <string name="progress_install" msgid="2258045670385866183">"正在安裝管理員應用程式…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"正在設定裝置擁有者…"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"您的裝置不支援加密。請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"停止設定並清除您的裝置資料？"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"取消"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"確定"</string>
@@ -101,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"設定您的裝置：正在顯示進度"</string>
     <string name="learn_more_label" msgid="2723716758654655009">" 瞭解詳情按鈕"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>圖示"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"要結束設定並回復至原廠設定嗎？"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"結束此設定會將裝置回復至原廠設定，螢幕將會轉至起始畫面。"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"取消"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"重設裝置"</string>
 </resources>

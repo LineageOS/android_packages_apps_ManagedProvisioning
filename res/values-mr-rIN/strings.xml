@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"प्रशासन अॅप डाउनलोड करीत आहे..."</string>
     <string name="progress_install" msgid="2258045670385866183">"प्रशासन अॅप स्थापित करीत आहे..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"डिव्हाइस मालक सेट करीत आहे..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"आपले डिव्हाइस कूटबद्धीकरणास समर्थन देत नाही. आपल्या IT विभागाशी संपर्क साधा."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेट करणे थांबवायचे आणि आपला डिव्‍हाइस डेटा मिटवायचा?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"रद्द करा"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ठीक आहे"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"आपले डिव्‍हाइस सेट करा. प्रगती दर्शवित आहे"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"अधिक जाणून घ्‍या बटण"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> चिन्ह"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप रद्द करून फॅक्टरी रीसेट करायचे?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"हे सेटअप समाप्त केल्याने आपले डिव्हाइस फॅक्टरी रीसेट केले जाईल आणि आपल्याला परत प्रथम स्क्रीनवर नेण्यात येईल."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"रद्द करा"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"डिव्हाइस रीसेट करा"</string>
 </resources>
