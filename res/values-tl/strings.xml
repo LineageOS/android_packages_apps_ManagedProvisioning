@@ -25,8 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"Kokontrolin ng iyong organisasyon ang device na ito at papanatilihin itong secure."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Kakailanganin ng sumusunod na app na i-access ang profile na ito:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Papamahalaan ng sumusunod na app ang iyong device:"</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"Susunod"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Sine-set up ang iyong profile sa trabaho…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, access ng kumpanya, app at data na nauugnay sa profile, kasama na ang aktibidad sa network at ang impormasyon ng lokasyon ng iyong device."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, corporate na access, app at data na nauugnay sa device na ito, kasama ang aktibidad sa network at impormasyon ng lokasyon ng iyong device."</string>
@@ -67,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Dina-download ang admin app…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Ini-install ang admin app…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Itinatakda ang may-ari ng device…"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Hindi sinusuportahan ng iyong device ang pag-encrypt. Makipag-ugnayan sa iyong IT department."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ihinto ang pagse-set up at burahin ang data ng iyong device?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"KANSELAHIN"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
@@ -101,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"I-set up ang iyong device. Ipinapakita ang pag-usad"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Button na matuto nang higit pa"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icon ng <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Tapusin ang pag-setup at i-factory reset?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Kapag tinapos ang setup na ito, mafa-factory reset ang iyong device at babalk ka sa unang screen."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"KANSELAHIN"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"I-RESET ANG DEVICE"</string>
 </resources>

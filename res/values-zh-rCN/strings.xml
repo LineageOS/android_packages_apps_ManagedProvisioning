@@ -25,8 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"您的单位将控制此设备，并确保其安全无虞。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"下一步"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在设置您的工作资料…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
@@ -67,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"正在下载管理应用…"</string>
     <string name="progress_install" msgid="2258045670385866183">"正在安装管理应用…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"正在设置设备所有者…"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"您的设备不支持加密功能，请与您的 IT 部门联系。"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"要停止设置并清除您设备上的数据吗？"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"取消"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"确定"</string>
@@ -101,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"设置您的设备。当前显示的是进程"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"“了解详情”按钮"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"“<xliff:g id="ICON_LABEL">%1$s</xliff:g>”图标"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"要取消这项设置并恢复出厂设置吗？"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"如果您取消这项设置，设备将恢复出厂设置，而且您会返回首屏画面。"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"取消"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"重置设备"</string>
 </resources>

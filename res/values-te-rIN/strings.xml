@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేస్తోంది..."</string>
     <string name="progress_install" msgid="2258045670385866183">"నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేస్తోంది..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"పరికర యజమానిని సెట్ చేస్తోంది..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"మీ పరికరంలో గుప్తీకరణకు మద్దతు లేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"మీ పరికరాన్ని సెటప్ చేయడం ఆపివేసి, అందులోని డేటాను తీసివేయాలా?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"రద్దు చేయి"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"సరే"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"మీ పరికరాన్ని సెటప్ చేయండి. ప్రోగ్రెస్‌ను చూపుతోంది"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"మరింత తెలుసుకోండి బటన్"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> చిహ్నం"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"సెటప్‌ను ముగించి, ఫ్యాక్టరీ రీసెట్ చేయాలా?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ఈ సెటప్‌ను ముగిస్తే మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్లబడతారు."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"రద్దు చేయి"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"పరికరాన్ని రీసెట్ చేయి"</string>
 </resources>

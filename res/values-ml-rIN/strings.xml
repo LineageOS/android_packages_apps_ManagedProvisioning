@@ -25,8 +25,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"നിങ്ങളുടെ സ്ഥാപനം, ഈ ഉപകരണം നിയന്ത്രിക്കുകയും സുരക്ഷിതമായി സൂക്ഷിക്കുകയും ചെയ്യും."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ഇനിപ്പറയുന്ന അപ്ലിക്കേഷന് ഈ പ്രൊഫൈൽ ആക്‌സസ്സുചെയ്യേണ്ടിവരും:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ഇനിപ്പറയുന്ന അപ്ലിക്കേഷൻ നിങ്ങളുടെ ഉപകരണത്തെ നിയന്ത്രിക്കും:"</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"അടുത്തത്"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കുന്നു…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"നെറ്റ്‌വർക്ക് പ്രവർത്തനവും ഉപകരണത്തിന്റെ ലൊക്കേഷൻ വിവരവും ഉൾപ്പെടെ, ഈ പ്രൊഫൈലുമായി ബന്ധപ്പെട്ട ക്രമീകരണങ്ങളും കോർപ്പറേറ്റ് ആക്‌സസും ആപ്സും ഡാറ്റയും നിരീക്ഷിക്കാനും നിയന്ത്രിക്കാനും നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്റർക്ക് കഴിയും."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"നെറ്റ്‌വർക്ക് പ്രവർത്തനവും ഉപകരണത്തിന്റെ ലൊക്കേഷൻ വിവരവും ഉൾപ്പെടെ, ഈ ഉപകരണവുമായി ബന്ധപ്പെട്ട ക്രമീകരണങ്ങളും കോർപ്പറേറ്റ് ആക്‌സസും ആപ്സും ഡാറ്റയും നിരീക്ഷിക്കാനും നിയന്ത്രിക്കാനും നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്റർക്ക് കഴിയും."</string>
@@ -67,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"അഡ്‌മിൻ ആപ്പ് ഡൗൺലോഡുചെയ്യുന്നു…"</string>
     <string name="progress_install" msgid="2258045670385866183">"അഡ്‌മിൻ ആപ്പ് ഇൻസ്റ്റാളുചെയ്യുന്നു…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ഉപകരണ ഉടമയെ സജ്ജമാക്കുന്നു…"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"നിങ്ങളുടെ ഉപകരണ എൻക്രിപ്ഷൻ പിന്തുണയ്ക്കുന്നില്ല. നിങ്ങളുടെ ഐടി വിഭാഗവുമായി ബന്ധപ്പെടുക."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"സജ്ജീകരിക്കുന്നത് അവസാനിപ്പിച്ച് നിങ്ങളുടെ ഉപകരണത്തിന്റെ ഡാറ്റ മായ്‌ക്കണമെന്ന് തീർച്ചയാണോ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"റദ്ദാക്കുക"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"ശരി"</string>
@@ -101,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"\'കൂടുതലറിയുക\' ബട്ടൺ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ഐക്കൺ"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"സജ്ജമാക്കൽ അവസാനിപ്പിച്ച് ഫാക്ടറി റീസെറ്റ് നടത്തണോ?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ഈ സജ്ജമാക്കൽ അവസാനിപ്പിക്കുന്നത് നിങ്ങളുടെ ഉപകരണത്തെ ഫാക്ടറി റീസെറ്റിലേയ്ക്ക് നയിക്കുകയും സജ്ജമാക്കലിന്റെ തുടക്ക സ്ക്രീനിലേക്ക് നിങ്ങൾ മടങ്ങുകയും ചെയ്യും."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"റദ്ദാക്കുക"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"ഉപകരണം പുനഃക്രമീകരിക്കുക"</string>
 </resources>

@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Ilanda uhlelo lokusebenza lomqondisi..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Ifaka uhlelo lokusebenza lomqondisi..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Isetha umnikazi wedivayisi..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Idivayisi yakho ayisekeli ukubethela. Xhumana nomnyango wakho we-IT."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Yeka ukusetha uphinde usule idatha yedivayisi yakho?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"KHANSELA"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"KULUNGILE"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Setha idivayisi yakho. Ibonisa ukuqhubeka"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Inkinobho yokufunda kabanzi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> isithonjana"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Phelisa ukusetha futhi isethe kabusha?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Ukuphelisa lokhu kusetha kuzosetha kabusha idivayisi yakho futhi kukubuyisele esikrinini sokuqala."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"KHANSELA"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"SETHA KABUSHA IDIVAYISI"</string>
 </resources>

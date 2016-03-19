@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Inapakua programu ya msimamizi..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Inasakinisha programu ya msimamizi..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Inaweka mipangilio ya mmiliki wa kifaa..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Kifaa chako hakitumii usimbaji fiche. Wasiliana na idara yako ya TEHAMA."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Je, ungependa kuacha kusanidi na ufute data iliyomo kwenye kifaa chako?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"GHAIRI"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"SAWA"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Weka mipangilio ya kifaa chako. Inaonyesha maendeleo"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Kitufe cha pata maelezo zaidi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Aikoni ya <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ungependa kuacha kusasisha mipangilio na urejeshe ya kiwandani?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Hatua ya kufunga shughuli hii ya kuweka mipangilio itarejesha mipangilio ya kiwandani kwenye kifaa chako na kuleta skrini ya kwanza."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"GHAIRI"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"WEKA UPYA MIPANGILIO YA KIFAA"</string>
 </resources>

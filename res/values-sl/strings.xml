@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Prenašanje skrbniške aplikacije …"</string>
     <string name="progress_install" msgid="2258045670385866183">"Nameščanje skrbniške aplikacije …"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Nastavljanje lastnika naprave …"</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Naprava ne podpira šifriranja. Obrnite se na oddelek za IT."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ali želite ustaviti nastavitev in izbrisati podatke v napravi?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"PREKLIČI"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"V redu"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Nastavitev naprave. Prikaz napredka."</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Gumb za več informacij"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona za <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Prekinitev nast. in ponastav. na tov. nast.?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Če prekinete nastavitev, bo naprava ponastavljena na tovarniške nastavitve in prikazan bo prvotni zaslon."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"PREKLIČI"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"PONASTAVI NAPRAVO"</string>
 </resources>

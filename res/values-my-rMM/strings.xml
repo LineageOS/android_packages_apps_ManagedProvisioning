@@ -66,8 +66,7 @@
     <string name="progress_download" msgid="3522436271691064624">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ဒေါင်းလုဒ်လုပ်နေသည်..."</string>
     <string name="progress_install" msgid="2258045670385866183">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ထည့်သွင်းနေသည်..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"စက်ပစ္စည်းပိုင်ရှင်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နေသည်..."</string>
-    <!-- no translation found for preprovisioning_error_encryption_not_supported (4633230675475838898) -->
-    <skip />
+    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"သင့်စက်ပစ္စည်းသည် အသွင်ဝှက်ခြင်းကို ပံ့ပိုးမှုမရှိပါ။ သင့်အိုင်တီဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"စဖွင့်စီစဉ်မှုအား ရပ်စဲကာ သင့် ကိရိယာ၏ဒေတာကို ဖျက်ပစ်မည်လား?"</string>
     <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ပယ်ဖျက်"</string>
     <string name="device_owner_error_ok" msgid="2556654993515978854">"အိုကေ"</string>
@@ -100,11 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"သင့်ရဲ့စက်ပစ္စည်းကိုအသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ တိုးတက်မှုကိုဖော်ပြပါ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ခလုတ်များအကြောင်းထပ်လေ့လာပါ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ကိုယ်စားပြုရုပ်ပုံ"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"စနစ်ထည့်သွင်းမှု အဆုံးသတ်ပြီး စက်ရုံထုတ်ဆက်တင်အတိုင်း ပြန်လည်သတ်မှတ်မလား။"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ဤစနစ်ထည့်သွင်းမှုကို အဆုံးသတ်ခြင်းသည် သင့်စက်ပစ္စည်းကို စက်ရုံထုတ်ဆက်တင်အတိုင်း ပြန်လည်သတ်မှတ်ပေးမည်ဖြစ်ပြီး ပထမဦးဆုံးစာမျက်နှာသို့ ပို့ပေးပါလိမ့်မည်။"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ဖျက်သိမ်းပါ"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (1649214005697243897) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"စက်ပစ္စည်းကို ပြန်လည်သတ်မှတ်ပါ"</string>
 </resources>
