@@ -116,7 +116,7 @@ public class FinalizationActivity extends Activity {
             return;
         }
         BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
-                mParams.accountToMigrate, mParams.deviceAdminPackageName);
+                mParams.accountToMigrate, mParams.deviceAdminComponentName.getPackageName());
 
         sendOrderedBroadcastAsUser(provisioningCompleteIntent, managedUserHandle, null,
                 mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
