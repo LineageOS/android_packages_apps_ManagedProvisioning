@@ -99,7 +99,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Menyiapkan perangkat. Menampilkan kemajuan"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Tombol pelajari lebih lanjut"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Selesaikan penyiapan dan kembalikan ke setelan pabrik?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Selesaikan dan kembalikan ke setelan pabrik?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Menyelesaikan penyiapan ini akan mengembalikan perangkat ke setelan pabrik dan membawa Anda kembali ke layar pertama."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"BATAL"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"SETEL ULANG PERANGKAT"</string>

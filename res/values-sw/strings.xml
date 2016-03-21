@@ -99,8 +99,8 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Weka mipangilio ya kifaa chako. Inaonyesha maendeleo"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Kitufe cha pata maelezo zaidi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Aikoni ya <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ungependa kuacha kusasisha mipangilio na urejeshe ya kiwandani?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Hatua ya kufunga shughuli hii ya kuweka mipangilio itarejesha mipangilio ya kiwandani kwenye kifaa chako na kuleta skrini ya kwanza."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Iache kusasisha mipangilio na irejeshe hali iliyotoka nayo kiwandani?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Hatua ya kufunga shughuli hii ya kuweka mipangilio itarejesha kifaa chako katika hali iliyotoka nayo kiwandani na kuleta skrini ya kwanza."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"GHAIRI"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"WEKA UPYA MIPANGILIO YA KIFAA"</string>
 </resources>
