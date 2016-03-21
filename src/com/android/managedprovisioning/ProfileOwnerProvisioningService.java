@@ -260,7 +260,7 @@ public class ProfileOwnerProvisioningService extends Service {
                     mManagedProfileOrUserInfo.id);
             // TODO Add separate set of apps for MANAGED_USER, currently same as of DEVICE_OWNER.
             deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this,
-                    mParams.deviceAdminPackageName,
+                    mParams.deviceAdminComponentName.getPackageName(),
                     (isProvisioningManagedUser() ? DeleteNonRequiredAppsTask.MANAGED_USER
                             : DeleteNonRequiredAppsTask.PROFILE_OWNER),
                     true /* creating new profile */,
@@ -435,7 +435,7 @@ public class ProfileOwnerProvisioningService extends Service {
             // Use an ordered broadcast, so that we only finish when the mdm has received it.
             // Avoids a lag in the transition between provisioning and the mdm.
             BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
-                    mParams.accountToMigrate, mParams.deviceAdminPackageName);
+                    mParams.accountToMigrate, mParams.deviceAdminComponentName.getPackageName());
 
             Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
             completeIntent.setComponent(mParams.deviceAdminComponentName);
@@ -468,11 +468,11 @@ public class ProfileOwnerProvisioningService extends Service {
 
     private void installMdmOnManagedProfile() throws ProvisioningException {
         ProvisionLogger.logd("Installing mobile device management app "
-                + mParams.deviceAdminPackageName + " on managed profile");
+                + mParams.deviceAdminComponentName + " on managed profile");
 
         try {
             int status = mIpm.installExistingPackageAsUser(
-                mParams.deviceAdminPackageName, mManagedProfileOrUserInfo.id);
+                mParams.deviceAdminComponentName.getPackageName(), mManagedProfileOrUserInfo.id);
             switch (status) {
               case PackageManager.INSTALL_SUCCEEDED:
                   return;
@@ -495,12 +495,14 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void setMdmAsManagedProfileOwner() throws ProvisioningException {
-        ProvisionLogger.logd("Setting package " + mParams.deviceAdminPackageName
+        ProvisionLogger.logd("Setting package " + mParams.deviceAdminComponentName
                 + " as managed profile owner.");
 
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (!dpm.setProfileOwner(mParams.deviceAdminComponentName, mParams.deviceAdminPackageName,
+        if (!dpm.setProfileOwner(
+                mParams.deviceAdminComponentName,
+                mParams.deviceAdminComponentName.getPackageName(),
                 mManagedProfileOrUserInfo.id)) {
             ProvisionLogger.logw("Could not set profile owner.");
             throw raiseError("Could not set profile owner.");
@@ -508,7 +510,7 @@ public class ProfileOwnerProvisioningService extends Service {
     }
 
     private void setMdmAsActiveAdmin() {
-        ProvisionLogger.logd("Setting package " + mParams.deviceAdminPackageName
+        ProvisionLogger.logd("Setting package " + mParams.deviceAdminComponentName
                 + " as active admin.");
 
         DevicePolicyManager dpm =
