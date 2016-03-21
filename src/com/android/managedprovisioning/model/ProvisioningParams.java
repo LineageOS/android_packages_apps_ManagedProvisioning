@@ -82,6 +82,7 @@ public final class ProvisioningParams implements Parcelable {
      * <p>At least one one of deviceAdminPackageName and deviceAdminComponentName should be
      * non-null.
      */
+    @Deprecated
     public final String deviceAdminPackageName;
 
     /**
@@ -364,6 +365,7 @@ public final class ProvisioningParams implements Parcelable {
             return this;
         }
 
+        @Deprecated
         public Builder setDeviceAdminPackageName(String deviceAdminPackageName) {
             mDeviceAdminPackageName = deviceAdminPackageName;
             return this;
