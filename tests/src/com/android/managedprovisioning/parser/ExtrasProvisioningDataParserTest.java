@@ -173,7 +173,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setLocalTime(TEST_LOCAL_TIME)
                         .setLocale(TEST_LOCALE)
                         .setTimeZone(TEST_TIME_ZONE)
-                        .setMainColor(TEST_MAIN_COLOR)
+                        // THEN customizable color is not supported.
+                        .setMainColor(ProvisioningParams.DEFAULT_MAIN_COLOR)
                         // THEN the trusted source is set to true.
                         .setStartedByTrustedSource(true)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
