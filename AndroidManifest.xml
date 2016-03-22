@@ -52,6 +52,7 @@
     <uses-permission android:name="android.permission.ACCESS_PDB_STATE" />
 
     <application
+        android:label="@string/app_label"
         android:allowClearUserData="false"
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
