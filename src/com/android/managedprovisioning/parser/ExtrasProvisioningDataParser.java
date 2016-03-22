@@ -179,10 +179,13 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             }
 
             // Parse skip user setup in ACTION_PROVISION_MANAGED_USER and
-            // ACTION_PROVISION_MANAGED_DEVICE only.
+            // ACTION_PROVISION_MANAGED_DEVICE (sync auth) only. This extra is not supported if
+            // provisioning was started by trusted source, as it is not clear where SUW should
+            // continue from.
             boolean skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
-            if (provisioningAction.equals(ACTION_PROVISION_MANAGED_USER)
-                    || provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE)) {
+            if ((!ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction()))
+                    && (provisioningAction.equals(ACTION_PROVISION_MANAGED_USER)
+                            || provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE))) {
                 skipUserSetup = intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP,
                         ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
             }

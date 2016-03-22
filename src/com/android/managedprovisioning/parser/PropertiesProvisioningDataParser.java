@@ -28,7 +28,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
@@ -144,10 +143,6 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                 if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
                     builder.setSkipEncryption(Boolean.parseBoolean(s));
                 }
-                if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_USER_SETUP)) != null) {
-                    builder.setSkipUserSetup(Boolean.parseBoolean(s));
-                }
-
                 ProvisionLogger.logi("End processing Nfc Payload.");
                 return builder.build();
             } catch (IOException e) {
