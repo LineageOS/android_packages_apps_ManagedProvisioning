@@ -145,7 +145,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     private ProvisioningParams.Builder parseMinimalistSupportedProvisioningDataInternal(
             Intent intent, Context context)
             throws IllegalProvisioningArgumentException {
-
+        boolean isProvisionManagedDeviceFromTrustedSourceIntent =
+                ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction());
         try {
             String provisioningAction = isResumeProvisioningIntent(intent)
                     ? intent.getStringExtra(EXTRA_PROVISIONING_ACTION)
@@ -172,25 +173,28 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 deviceAdminPackageName = null;
             }
 
-            // Parse main color
-            Integer mainColor = ProvisioningParams.DEFAULT_MAIN_COLOR;
-            if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
-                mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
-            }
-
             // Parse skip user setup in ACTION_PROVISION_MANAGED_USER and
             // ACTION_PROVISION_MANAGED_DEVICE (sync auth) only. This extra is not supported if
             // provisioning was started by trusted source, as it is not clear where SUW should
             // continue from.
             boolean skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
-            if ((!ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction()))
+            if (!isProvisionManagedDeviceFromTrustedSourceIntent
                     && (provisioningAction.equals(ACTION_PROVISION_MANAGED_USER)
                             || provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE))) {
                 skipUserSetup = intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP,
                         ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
             }
 
-            parseOrganizationLogoUrlFromExtras(context, intent);
+            // Parse main color and organization's logo. This is not supported in managed device
+            // from trusted source provisioning because, currently, there is no way to send
+            // organization logo to the device at this stage.
+            Integer mainColor = ProvisioningParams.DEFAULT_MAIN_COLOR;
+            if (!isProvisionManagedDeviceFromTrustedSourceIntent) {
+                if (intent.hasExtra(EXTRA_PROVISIONING_MAIN_COLOR)) {
+                    mainColor = intent.getIntExtra(EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
+                }
+                parseOrganizationLogoUrlFromExtras(context, intent);
+            }
 
             return ProvisioningParams.Builder.builder()
                     .setProvisioningAction(provisioningAction)
