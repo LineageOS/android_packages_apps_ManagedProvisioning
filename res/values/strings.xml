@@ -50,9 +50,9 @@
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
   <string name="learn_more_link">Learn more </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
-  <string name="cancel_setup">CANCEL</string>
+  <string name="cancel_setup">Cancel</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
-  <string name="ok_setup">OK</string>
+  <string name="ok_setup">Ok</string>
   <!-- Text of the checkbox to consent to the mobile device management app taking control of the device. [CHAR LIMIT=NONE] -->
   <string name="user_consent_msg">I consent</string>
 
@@ -78,18 +78,16 @@
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <string name="sure_you_want_to_delete_profile">All apps and data in this profile will be deleted if you continue.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
-  <string name="delete_profile">DELETE</string>
+  <string name="delete_profile">Delete</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
-  <string name="cancel_delete_profile">CANCEL</string>
+  <string name="cancel_delete_profile">Cancel</string>
 
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <string name="encrypt_device_text_for_profile_owner_setup">To continue setting up your work profile, you\'ll need to encrypt your device. This may take some time.</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <string name="encrypt_device_text_for_device_owner_setup">To continue setting up your device, you\'ll need to encrypt it. This may take some time.</string>
-  <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
-  <string name="encrypt_device_cancel">CANCEL</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
-  <string name="encrypt_device_launch_settings">ENCRYPT</string>
+  <string name="encrypt_device_launch_settings">Encrypt</string>
 
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <string name="continue_provisioning_notify_title">Encryption complete</string>
@@ -109,9 +107,9 @@
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <string name="managed_provisioning_not_supported_by_launcher">Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible.</string>
   <!-- Button text for the button that cancels provisioning  -->
-  <string name="cancel_provisioning">CANCEL</string>
+  <string name="cancel_provisioning">Cancel</string>
   <!-- Button text for the button that opens the launcher picker  -->
-  <string name="pick_launcher">OK</string>
+  <string name="pick_launcher">Ok</string>
 
   <!-- Managed user provisioning flow UI. -->
   <string name="user_setup_incomplete">User Setup Incomplete</string>
@@ -139,11 +137,11 @@
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <string name="device_owner_cancel_message">Stop setting up and erase your device\'s data?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_cancel_cancel">CANCEL</string>
+  <string name="device_owner_cancel_cancel">Cancel</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_error_ok">OK</string>
+  <string name="device_owner_error_ok">Ok</string>
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_error_reset">RESET</string>
+  <string name="device_owner_error_reset">Reset</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_general">Couldn\'t set up your device. Contact your IT department. </string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
@@ -167,9 +165,9 @@
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <string name="profile_owner_cancel_message">Stop setting up?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancel_cancel">NO</string>
+  <string name="profile_owner_cancel_cancel">No</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancel_ok">YES</string>
+  <string name="profile_owner_cancel_ok">Yes</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancelling">Canceling\u2026</string>
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
@@ -177,9 +175,9 @@
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <string name="work_profile_setup_later_message">You can set up your work profile later from the device management app used by your organization.</string>
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
-  <string name="work_profile_setup_continue">CONTINUE</string>
+  <string name="work_profile_setup_continue">Continue</string>
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
-  <string name="work_profile_setup_stop">STOP</string>
+  <string name="work_profile_setup_stop">Stop</string>
 
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
@@ -212,7 +210,7 @@
   <!-- Message shown in the dialog. [CHAR LIMIT=NONE] -->
   <string name="cancel_setup_and_factory_reset_dialog_msg">Ending this setup will factory reset your device and take you back to the first screen.</string>
   <!-- Cancel button text of the dialog. [CHAR LIMIT=45] -->
-  <string name="cancel_setup_and_factory_reset_dialog_cancel">CANCEL</string>
+  <string name="cancel_setup_and_factory_reset_dialog_cancel">Cancel</string>
   <!-- OK button text of the dialog. [CHAR LIMIT=45] -->
-  <string name="cancel_setup_and_factory_reset_dialog_ok">RESET DEVICE</string>
+  <string name="cancel_setup_and_factory_reset_dialog_ok">Reset device</string>
 </resources>

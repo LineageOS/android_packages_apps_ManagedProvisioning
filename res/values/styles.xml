@@ -54,6 +54,7 @@
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="MainTextContainer">
