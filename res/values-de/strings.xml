@@ -19,6 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (8387779258423548445) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppla!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profil einrichten"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Dein Unternehmen verwaltet dieses Profil und sorgt für seine Sicherheit. Du verwaltest alle anderen Aspekte deines Geräts."</string>
@@ -32,8 +34,9 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Wenn du fortfährst, werden die Funktionen zum Schutz vor Diebstahl nicht aktiviert. Um den Diebstahlschutz zu aktivieren, breche den Vorgang jetzt ab und richte das Gerät als persönliches Gerät ein."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Weitere Informationen, auch zur Datenschutzerklärung deiner Organisation, erhältst du bei deinem Administrator."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"Abbrechen"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Abbrechen"</string>
+    <!-- no translation found for ok_setup (4593707675416137504) -->
+    <skip />
     <string name="user_consent_msg" msgid="8820951802130353584">"Ich stimme zu."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbeitsprofil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hauptnutzer"</string>
@@ -42,12 +45,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Dieses Arbeitsprofil wird für %s von der folgenden App verwaltet:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Bevor du fortfährst, "<a href="#read_this_link">"lies diese Informationen"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Wenn du den Vorgang fortsetzt, werden alle Apps und Daten in diesem Profil gelöscht."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"Löschen"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"Abbrechen"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Löschen"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Abbrechen"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Um mit dem Einrichten deines Arbeitsprofils fortzufahren, musst du dein Gerät verschlüsseln. Dies kann einige Zeit dauern."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Um mit dem Einrichten deines Geräts fortzufahren, musst du es verschlüsseln. Dies kann einige Zeit dauern."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"Abbrechen"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"Verschlüsseln"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Verschlüsseln"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Verschlüsselung abgeschlossen"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tippe, um die Einrichtung des Arbeitsprofils fortzusetzen"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später erneut."</string>
@@ -56,8 +58,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Auf verwalteten Geräten können keine Arbeitsprofile eingerichtet werden."</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Das Arbeitsprofil kann nicht erstellt werden, da die maximale Nutzeranzahl auf diesem Gerät bereits erreicht wurde. Bitte entferne mindestens einen Nutzer und versuche es erneut."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Dein Arbeitsprofil wird von dieser Launcher-App nicht unterstützt. Wechsle zu einem kompatiblen Launcher."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"Abbrechen"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Abbrechen"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nutzerverwaltungskonfiguration unvollständig"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Nutzer des Dienstgeräts"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Gerät einrichten"</string>
@@ -68,9 +70,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Geräteeigentümer wird eingerichtet…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Dein Gerät unterstützt keine Verschlüsselung. Wende dich an deine IT-Abteilung."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Einrichtung abbrechen und Daten von deinem Gerät löschen?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"Abbrechen"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"Zurücksetzen"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Abbrechen"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Zurücksetzen"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Das Gerät konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Dieses Gerät ist bereits eingerichtet."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Es konnte keine WLAN-Verbindung hergestellt werden."</string>
@@ -82,13 +84,15 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Die Admin-App kann nicht genutzt werden. Sie wurde beschädigt oder es fehlen Komponenten. Bitte wende dich an deine IT-Abteilung."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Die Admin-App konnte nicht installiert werden."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Einrichtung abbrechen?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"Nein"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"Ja"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nein"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Vorgang wird abgebrochen…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profileinrichtung abbrechen?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Du kannst dein Arbeitsprofil später über die von deiner Organisation verwendete Geräteverwaltungs-App einrichten."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"Weiter"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"Abbrechen"</string>
+    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Nutzerverwaltung"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA-Zertifikate werden eingerichtet"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Profil einrichten. Einrichtung starten."</string>
@@ -101,6 +105,8 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Symbol \"<xliff:g id="ICON_LABEL">%1$s</xliff:g>\""</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Einrichtung beenden &amp; auf Werkszustand zurück?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Wenn du diese Einrichtung beendest, wird dein Gerät auf die Werkseinstellungen zurückgesetzt und dir wird der erste Bildschirm angezeigt."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ABBRECHEN"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"GERÄT ZURÜCKSETZEN"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
+    <skip />
 </resources>

@@ -19,6 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label" msgid="8387779258423548445">"Tööprofiili ettevalmistamine"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vabandust!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profiili seadistamine"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Teie organisatsioon haldab seda profiili ja hoiab seda turvalisena. Kõike muud oma seadmes juhite teie."</string>
@@ -32,8 +33,8 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Kui jätkate, ei lubata vargusvastase kaitse funktsioone. Vargusvastase kaitse sisselülitamiseks valige praegu käsk Tühista ja seadistage see isikliku seadmena."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Lisateabe saamiseks (sh organisatsiooni privaatsuseeskirjade kohta) võtke ühendust administraatoriga."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisateave"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"TÜHISTA"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Tühista"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Olen nõus"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Tööprofiil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Peamine kasutaja"</string>
@@ -42,12 +43,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Seda tööprofiili hallatakse domeeni %s puhul rakendusega"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Enne jätkamist "<a href="#read_this_link">"lugege seda"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Kui jätkate, kustutatakse kõik selle profiili rakendused ja andmed."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"KUSTUTA"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"TÜHISTA"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Kustuta"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Tühista"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Tööprofiili seadistamise jätkamiseks peate seadme krüpteerima. Selleks võib kuluda pisut aega."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Seadme seadistamise jätkamiseks peate selle krüpteerima. Selleks võib kuluda pisut aega."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"TÜHISTA"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"KRÜPTEERI"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Krüpteeri"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Krüpteerimine on lõpule viidud"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Puudutage tööprofiili seadistamise jätkamiseks"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Tööprofiili ei õnnestunud seadistada. Võtke ühendust oma IT-osakonnaga või proovige hiljem uuesti."</string>
@@ -56,8 +56,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Tööprofiile ei saa hallatud seadmes seadistada"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Tööprofiili ei saa luua, kuna teie seadmes on juba maksimaalne arv kasutajaid. Eemaldage vähemalt üks kasutaja ja proovige uuesti."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"See käivitusrakendus ei toeta teie tööprofiili. Peate minema üle ühilduvale käivitusrakendusele."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"TÜHISTA"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Tühista"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Kasutaja seadistus pole valmis"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Tööseadme kasutaja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Seadme seadistamine"</string>
@@ -68,9 +68,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Seadme omaniku määramine ..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Teie seade ei toeta krüpteerimist. Võtke ühendust IT-osakonnaga."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Kas peatada seadistamine ja kustutada seadme andmed?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"TÜHISTA"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"LÄHTESTA"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Tühista"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Ok"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Lähtesta"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Seadet ei õnnestunud seadistada. Võtke ühendust oma IT-osakonnaga."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"See seade on juba seadistatud."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"WiFi-ga ei saanud ühendust"</string>
@@ -82,13 +82,13 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administraatori rakendust ei saa kasutada. See ei sisalda kõiki komponente või on rikutud. Võtke ühendust oma IT-osakonnaga."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Administraatorirakendust ei õnnestunud installida"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Kas peatada seadistamine?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"EI"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"JAH"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ei"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Jah"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Tühistamine ..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Kas peatada profiili seadistamine?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Saate oma tööprofiili seadistada hiljem organisatsioonis kasutatava seadmehalduse rakenduse kaudu."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"JÄTKA"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"PEATA"</string>
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"Jätka"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Peata"</string>
     <string name="provisioning" msgid="4512493827019163451">"Ettevalmistamine"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA-sertifikaatide seadistamine"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Profiili seadistamine. Seadistamise alustamine"</string>
@@ -101,6 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikoon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Lõpetada seadistus ja läht. tehaseandmetele?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Seadistuse lõpetamisel lähtestatakse seade tehaseandmetele ja teid viiakse tagasi esimesele ekraanile."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"TÜHISTA"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"LÄHTESTA SEADE"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Tühista"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Lähtesta seade"</string>
 </resources>

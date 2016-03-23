@@ -19,6 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (8387779258423548445) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹ ਹੋ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੇ ਨਿਯੰਤਰਣ ਪਾਉਂਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਦੀ ਹੈ। ਤੁਸੀਂ ਆਪਣੀ ਡਿਵਾਈਸ ਤੇ ਹੋਰ ਸਭ ਕਿਸੇ ਤੇ ਨਿਯੰਤਰਣ ਪਾ ਸਕਦੇ ਹੋ।"</string>
@@ -32,8 +34,9 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਚੋਰੀ ਰੋਕਥਾਮ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹੋਣਗੀਆਂ। ਚੋਰੀ ਰੋਕਥਾਮ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ, ਹੁਣ ਰੱਦ ਕਰੋ ਅਤੇ ਇਸਨੂੰ ਇੱਕ ਨਿੱਜੀ ਡਿਵਾਈਸ ਦੇ ਤੌਰ ਤੇ ਸੈਟ ਅਪ ਕਰੋ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ, ਤੁਹਾਡੀ ਕੰਪਨੀ ਦੀਆਂ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀਆਂ ਸਮੇਤ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"ਰੱਦ ਕਰੋ"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"ਠੀਕ"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"ਰੱਦ ਕਰੋ"</string>
+    <!-- no translation found for ok_setup (4593707675416137504) -->
+    <skip />
     <string name="user_consent_msg" msgid="8820951802130353584">"ਮੈਂ ਸਹਿਮਤ ਹਾਂ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
@@ -42,12 +45,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ਇਹ ਕੰਮ ਪ੍ਰੋਫਾਈਲ %s ਲਈ ਇਹ ਵਰਤਦੇ ਹੋਏ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਸਾਰੇ ਐਪਸ ਅਤੇ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਜਾਏਗਾ।"</string>
-    <string name="delete_profile" msgid="8384444459432563649">"ਮਿਟਾਓ"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"ਰੱਦ ਕਰੋ"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡਿਵਾਈਸ ਨੂੰ ਐਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"ਆਪਣੀ ਡਿਵਾਈਸ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡਿਵਾਈਸ ਨੂੰ ਐਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"ਰੱਦ ਕਰੋ"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ਐਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"ਐਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ਐਨਕ੍ਰਿਪਸ਼ਨ ਪੂਰਾ"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਦੀ ਸਥਾਪਨਾ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਟੈਪ ਕਰੋ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
@@ -56,8 +58,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"ਕਾਰਜ ਪ੍ਰੋਫ਼ਾਈਲਾਂ ਕਿਸੇ ਪ੍ਰਬੰਧਿਤ ਡਿਵਾਈਸ \'ਤੇ ਸੈੱਟਅੱਪ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀਆਂ ਹਨ"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕਦੀ ਕਿਉਂਕਿ ਤੁਸੀਂ ਆਪਣੀ ਡਿਵਾਈਸ ਤੇ ਅਧਿਕਤਮ ਉਪਭੋਗਤਾਵਾਂ ਦੀ ਸੀਮਾ ਪੂਰੀ ਹੋ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਉਪਭੋਗਤਾ ਨੂੰ ਹਟਾਓ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਇਸ ਲੌਂਚਰ ਐਪ ਵੱਲੋਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ। ਤੁਹਾਨੂੰ ਇੱਕ ਅਜਿਹੇ ਲੌਂਚਰ ਨਾਲ ਸਵਿਚ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ ਜੋ ਅਨੁਕੂਲ ਹੋਵੇ।"</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"ਰੱਦ ਕਰੋ"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"ਠੀਕ"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ਰੱਦ ਕਰੋ"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕੰਮ ਡਿਵਾਈਸ ਦਾ ਉਪਭੋਗਤਾ"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"ਆਪਣੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ"</string>
@@ -68,9 +70,10 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"ਡਿਵਾਈਸ ਮਾਲਕ ਨੂੰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਐਨਕ੍ਰਿਪਸ਼ਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈਟ ਅਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੀ ਡਿਵਾਈਸ ਦਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ਰੱਦ ਕਰੋ"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"ਠੀਕ"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"ਰੀਸੈੱਟ ਕਰੋ"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ਰੱਦ ਕਰੋ"</string>
+    <!-- no translation found for device_owner_error_ok (2002250763093787051) -->
+    <skip />
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"ਰੀਸੈਟ ਕਰੋ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ਇਹ ਡਿਵਾਈਸ ਪਹਿਲਾਂ ਹੀ ਸੈਟ ਅਪ ਕੀਤੀ ਹੋਈ ਹੈ।"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
@@ -82,13 +85,15 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਇਸਦੇ ਕੰਪੋਨੈਂਟ ਲੁਪਤ ਹਨ ਜਾਂ ਕਰਪਟ ਹਨ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ਕੀ ਸੈਟ ਅਪ ਕਰਨਾ ਰੋਕਣਾ ਹੈ?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"ਨਹੀਂ"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"ਹਾਂ"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ਨਹੀਂ"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ਹਾਂ"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ਰੱਦ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ਕੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟਅਪ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ਤੁਸੀਂ ਬਾਅਦ ਵਿੱਚ ਆਪਣੀ ਕੰਪਨੀ ਵੱਲੋਂ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਡਿਵਾਈਸ ਪ੍ਰਬੰਧਨ ਐਪ ਤੋਂ ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਸਕਦੇ ਹੋ।"</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"ਜਾਰੀ ਰੱਖੋ"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"ਰੋਕੋ"</string>
+    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਸੈਟਅਪ ਸ਼ੁਰੂ ਕਰੋ"</string>
@@ -101,6 +106,8 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ਕੀ ਸਥਾਪਨਾ ਸਮਾਪਤ ਕਰਨੀ ਅਤੇ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ਇਸ ਸਥਾਪਨਾ ਨੂੰ ਸਮਾਪਤ ਕਰਨਾ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ਰੱਦ ਕਰੋ"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"ਡੀਵਾਈਸ ਰੀਸੈੱਟ ਕਰੋ"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
+    <skip />
 </resources>
