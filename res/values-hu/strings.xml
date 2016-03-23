@@ -19,6 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label" msgid="8387779258423548445">"Munkaprofil hozzáférés-kezelése"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppá!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profil beállítása"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ezt a profilt szervezete kezeli, és gondoskodik annak biztonságáról. Az eszközön minden mást Ön kezel."</string>
@@ -32,8 +33,8 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ha folytatja, a lopásvédelmi funkciók nem lesznek bekapcsolva. A lopásvédelem aktiváláshoz szakítsa meg a folyamatot, és személyesként állítsa be az eszközt."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne kapni, például szervezetének adatvédelmi irányelveiről."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"További információ"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"MÉGSE"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Mégse"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Beleegyezem"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Munkaprofil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Elsődleges felhasználó"</string>
@@ -42,12 +43,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s számára a következővel kezelik ezt a munkahelyi profilt:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Mielőtt folytatná, "<a href="#read_this_link">"olvassa el ezt"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Ha folytatja, a profilban lévő minden alkalmazás és adat törlődik."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"TÖRLÉS"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"MÉGSE"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Törlés"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Mégse"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"A munkaprofil beállításának folytatásához titkosítania kell eszközét. Ez időigényes lehet."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"A beállítás folytatásához titkosítania kell eszközét. Ez időigényes lehet."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"MÉGSE"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"TITKOSÍTÁS"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Titkosítás"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"A titkosítás kész"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Koppintson a munkaprofil beállításának folytatásához"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Munkaprofil beállítása sikertelen. Forduljon az informatikai részleghez, vagy próbálja újra később."</string>
@@ -56,8 +56,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Munkaprofilt nem lehet beállítani felügyelt eszközön"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Nem hozható létre munkaprofil, mert elérte az eszközén maximálisan engedélyezett felhasználók számát. Távolítson el legalább egy felhasználót, és próbálkozzon újra."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Az Ön munkahelyi profilját nem támogatja ez az indítóalkalmazás. Egy kompatibilis indítóra kell váltania."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"MÉGSE"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Mégse"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"A felhasználóbeállítás hiányos"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"A munkahelyi eszköz felhasználója"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Az eszköz beállítása"</string>
@@ -68,9 +68,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Az eszköz tulajdonosának beállítása…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Eszköze nem támogatja a titkosítást. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Megszakítja a beállítást és törli az eszköz adatait?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"MÉGSE"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"VISSZAÁLLÍTÁS"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Mégse"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Visszaállítás"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nem sikerült az eszköz beállítása. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Az eszközt már beállították."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nem sikerült csatlakozni a Wi-Fi hálózathoz"</string>
@@ -82,13 +82,13 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"A rendszergazda-alkalmazás nem használható, mivel egyes elemei hiányoznak vagy sérültek. Forduljon az informatikai részleghez."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nem lehetett telepíteni a rendszergazdai alkalmazást"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Megszakítja a beállítást?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NEM"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"IGEN"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nem"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Igen"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Törlés…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Leállítja a profil létrehozását?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Munkaprofilját létrehozhatja később a szervezete által használt eszközkezelői alkalmazásban."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"FOLYTATÁS"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"LEÁLLÍTÁS"</string>
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"Tovább"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Leállítás"</string>
     <string name="provisioning" msgid="4512493827019163451">"Hozzáférés-kezelés"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA-tanúsítvány beállítása"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Állítsa be profilját. A beállítás megkezdése"</string>
@@ -101,6 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ikon"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Leállítja, és visszaállítja a gyári adatokat?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"A beállítás befejezésével visszaállítja az eszköz gyári beállításait, és visszakerül az először látott képernyőre."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"MÉGSE"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"ESZKÖZ VISSZAÁLLÍTÁSA"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Mégse"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Eszköz visszaállítása"</string>
 </resources>

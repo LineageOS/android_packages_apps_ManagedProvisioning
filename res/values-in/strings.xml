@@ -19,6 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (8387779258423548445) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Siapkan profil Anda"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisasi Anda mengontrol profil ini dan membuatnya tetap aman. Anda mengontrol hal-hal lain di perangkat."</string>
@@ -32,8 +34,9 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Jika Anda melanjutkan, fitur perlindungan dari pencurian tidak akan diaktifkan. Untuk mengaktifkan perlindungan dari pencurian, batalkan sekarang dan siapkan sebagai perangkat pribadi."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Hubungi administrator untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pelajari lebih lanjut"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"BATAL"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"Oke"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Batal"</string>
+    <!-- no translation found for ok_setup (4593707675416137504) -->
+    <skip />
     <string name="user_consent_msg" msgid="8820951802130353584">"Saya setuju"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil kerja"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pengguna utama"</string>
@@ -42,12 +45,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Profil kerja ini dikelola untuk %s menggunakan:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Sebelum melanjutkan, "<a href="#read_this_link">"baca ini"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Semua aplikasi dan data dalam profil ini akan dihapus jika Anda melanjutkan."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"HAPUS"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"BATAL"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Hapus"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Batal"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Untuk melanjutkan penyiapan profil kerja, Anda perlu mengenkripsi perangkat. Tindakan ini mungkin sedikit memakan waktu."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Untuk melanjutkan penyiapan perangkat, Anda perlu mengenkripsi perangkat. Tindakan ini mungkin sedikit memakan waktu."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"BATAL"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ENKRIPSIKAN"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Enkripsikan"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripsi selesai"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Ketuk untuk melanjutkan penyiapan profil kerja"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Tidak dapat menyiapkan profil kerja Anda. Hubungi departemen TI atau coba lagi nanti."</string>
@@ -56,8 +58,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Profil kerja tidak dapat disiapkan di perangkat yang dikelola"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Profil kerja tidak dapat dibuat karena jumlah maksimum pengguna di perangkat telah tercapai. Hapus setidaknya satu pengguna dan coba lagi."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Profil kerja Anda tidak didukung oleh peluncur aplikasi ini. Anda perlu beralih ke peluncur yang kompatibel."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"BATAL"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"Oke"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Batal"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Oke"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Penyiapan Pelanggan Belum Selesai"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Pengguna perangkat kerja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Siapkan perangkat Anda"</string>
@@ -68,9 +70,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Menyetel pemilik perangkat..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Perangkat tidak mendukung enkripsi. Hubungi departemen TI Anda."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Berhenti menyiapkan dan hapus data perangkat?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"BATAL"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"Oke"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"SETEL ULANG"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Batal"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Oke"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Setel ulang"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Tidak dapat menyiapkan perangkat. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Perangkat ini sudah disiapkan."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Tidak dapat tersambung ke Wi-Fi"</string>
@@ -82,13 +84,15 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan aplikasi admin. Komponen hilang atau rusak. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Tidak dapat memasang aplikasi admin"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Berhenti menyiapkan?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"TIDAK"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"YA"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Tidak"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ya"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Membatalkan…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Hentikan penyiapan profil?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Anda dapat menyiapkan profil kerja nanti dari aplikasi pengelolaan perangkat yang digunakan oleh organisasi."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"LANJUTKAN"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"HENTIKAN"</string>
+    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Penyediaan"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Menyiapkan Sertifikat CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Menyiapkan profil. Mulai penyiapan"</string>
@@ -101,6 +105,8 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Selesaikan dan kembalikan ke setelan pabrik?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Menyelesaikan penyiapan ini akan mengembalikan perangkat ke setelan pabrik dan membawa Anda kembali ke layar pertama."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"BATAL"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"SETEL ULANG PERANGKAT"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
+    <skip />
 </resources>

@@ -19,6 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (8387779258423548445) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Podesite profil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organizacija kontroliše i štiti ovaj profil. Vi kontrolišete sve ostalo na uređaju."</string>
@@ -32,8 +34,9 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ako nastavite, funkcije zaštite od krađe neće biti omogućene. Da biste uključili zaštitu od krađe, odmah otkažite i ovo podesite kao lični uređaj."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kontaktirajte administratora za više informacija, uključujući politiku privatnosti organizacije."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"OTKAŽI"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"Potvrdi"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Otkaži"</string>
+    <!-- no translation found for ok_setup (4593707675416137504) -->
+    <skip />
     <string name="user_consent_msg" msgid="8820951802130353584">"Prihvatam"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil za posao"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primarni korisnik"</string>
@@ -42,12 +45,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ovim profilom za Work se upravlja za %s pomoću:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Pre nego što nastavite, "<a href="#read_this_link">"pročitajte ovo"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Sve aplikacije i podaci sa ovog profila biće izbrisani ako nastavite."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"IZBRIŠI"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"OTKAŽI"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Izbriši"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Otkaži"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da biste nastavili sa podešavanjem poslovnog profila, morate da šifrujete uređaj. To može da potraje."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Da biste nastavili sa podešavanjem uređaja, treba da ga šifrujete. To može da potraje."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"OTKAŽI"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŠIFRUJ"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Šifruj"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Šifrovanje je dovršeno"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Dodirnite da biste nastavili sa podešavanjem profila za Work"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nije moguće podesiti profil za posao. Kontaktirajte IT sektor ili pokušajte ponovo kasnije."</string>
@@ -56,8 +58,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Ne možete da podešavate profile za posao na upravljanom uređaju"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Pravljenje profila za Work nije uspelo jer je dostignut maksimalan broj korisnika na uređaju. Uklonite najmanje jednog korisnika i pokušajte ponovo."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ova aplikacija pokretača ne podržava poslovni profil. Morate da pređete na kompatibilan pokretač."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"OTKAŽI"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"POTVRDI"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Otkaži"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Potvrdi"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Podešavanje korisnika nije dovršeno"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik poslovnog uređaja"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Podesite uređaj"</string>
@@ -68,9 +70,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Podešava se vlasnik uređaja..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Uređaj ne podržava šifrovanje. Kontaktirajte IT sektor."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Želite li da prekinete podešavanje i obrišete podatke uređaja?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"OTKAŽI"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"Potvrdi"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"RESETUJ"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Otkaži"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Potvrdi"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Resetuj"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nije moguće podesiti uređaj. Kontaktirajte IT sektor."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj uređaj je već podešen."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Povezivanje sa Wi-Fi mrežom nije uspelo"</string>
@@ -82,13 +84,15 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nije moguće koristiti aplikaciju za administratore. Nedostaju joj komponente ili je oštećena. Kontaktirajte IT sektor."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Instaliranje aplikacije za administratore nije uspelo"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Želite li da prekinete podešavanje?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NE"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"DA"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ne"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Da"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Otkazuje se…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Želite li da zaustavite podešavanje profila?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Možete kasnije da podesite profil za Work u aplikaciji za upravljanje uređajem koju koristi organizacija."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"NASTAVI"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"ZAUSTAVI"</string>
+    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Dodeljuje se"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Podešava se CA sertifikat"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Podesite profil. Započnite podešavanje"</string>
@@ -101,6 +105,8 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Žel. li da prekin. podeš. i reset. na fab. podeš.?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Ako prekinete podešavanja, resetovaćete uređaj na fabrička podešavanja i vratićete se na početni ekran."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"OTKAŽI"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"RESETUJ UREĐAJ"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
+    <skip />
 </resources>

@@ -19,6 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (8387779258423548445) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hata!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profilinizi oluşturma"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kuruluşunuz bu profili kontrol eder ve güvenliğini sağlar. Cihazınızdaki geri kalan her şey sizin kontrolünüzdedir."</string>
@@ -32,8 +34,9 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Devam ederseniz çalınmaya karşı koruma özellikleri etkinleştirilmeyecektir. Çalınmaya karşı korumayı açmak için kurulumu şimdi iptal edin ve bunu kişisel bir cihaz olarak kurun."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere, daha fazla bilgi için yöneticinize başvurun."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi edinin"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"İPTAL"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"Tamam"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"İptal"</string>
+    <!-- no translation found for ok_setup (4593707675416137504) -->
+    <skip />
     <string name="user_consent_msg" msgid="8820951802130353584">"Kabul ediyorum"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"İş profili"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Birincil kullanıcı"</string>
@@ -42,12 +45,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Bu iş profili %s için şununla yönetiliyor:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Devam etmeden önce "<a href="#read_this_link">"bunu okuyun"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Devam ederseniz bu profildeki tüm uygulamalar ve veriler silinecek."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"SİL"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"İPTAL"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Sil"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"İptal"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"İş profilinizin kurulum işlemlerine devam etmek için cihazınızı şifrelemelisiniz. Bu işlem biraz zaman alabilir."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Cihazınızın kurulumuna devam etmek için cihazınızı şifrelemelisiniz. Bu işlem biraz zaman alabilir."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"İPTAL"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"ŞİFRELE"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Şifrele"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Şifreleme tamamlandı"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"İş profilinizi kurmaya devam etmek için hafifçe dokunun"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"İş profiliniz ayarlanamadı. BT bölümünüze başvurun veya daha sonra tekrar deneyin."</string>
@@ -56,8 +58,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"İş profilleri yönetilen bir cihazda oluşturulamaz"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Cihazınızda maksimum sayıda kullanıcıya ulaşıldığından iş profili oluşturulamıyor. En az bir kullanıcıyı kaldırın ve tekrar deneyin."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"İş profiliniz bu başlatıcı uygulama tarafından desteklenmiyor. Uyumlu bir başlatıcı uygulamaya geçmeniz gerekecek."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"İPTAL"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"TAMAM"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"İptal"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Tamam"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Kullanıcı Kurulumu Tamamlanmadı"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"İş cihazının kullanıcısı"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Cihazınızı kurma"</string>
@@ -68,9 +70,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Cihaz sahibi ayarlanıyor…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Cihazınız şifrelemeyi desteklemiyor. BT bölümünüzle iletişim kurun."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Kurulum durdurulsun ve cihazınızın verileri silinsin mi?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"İPTAL"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"Tamam"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"SIFIRLA"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"İptal"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Tamam"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Sıfırla"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Cihazınızın kurulumu yapılamadı. BT bölümünüze başvurun."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Bu cihaz zaten kurulmuş."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Kablosuz bağlantısı kurulamadı"</string>
@@ -82,13 +84,15 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Yönetim uygulaması kullanılamıyor. Bileşenleri eksik veya bozuk. BT bölümünüze başvurun."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Yönetici uygulaması yüklenemedi"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Kurulum durdurulsun mu?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"HAYIR"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"EVET"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Hayır"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Evet"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"İptal ediliyor..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profil kurulumu durdurulsun mu?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"İş profilinizi daha sonra, kuruluşunuz tarafından kullanılan cihaz yönetimi uygulamasından yapabilirsiniz."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"DEVAM"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"DURDUR"</string>
+    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Temel hazırlık yapılıyor"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA sertifikaları kuruluyor"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Profilinizin kurulumunu yapın. Kurulumu başlatın"</string>
@@ -101,6 +105,8 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> simgesi"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Kurulum sonlandırılıp fabrika ayarlarına sıfırlansın mı?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Bu kurulumu sonlandırmak cihazınızı fabrika ayarlarına sıfırlar ve sizi tekrar ilk ekrana götürür."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"İPTAL"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"CİHAZI SIFIRLA"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
+    <skip />
 </resources>

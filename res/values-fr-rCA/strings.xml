@@ -19,6 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (8387779258423548445) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configurer votre profil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Votre organisation gère ce profil et assure sa sécurité. Vous contrôlez tout le reste sur votre appareil."</string>
@@ -32,8 +34,9 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Si vous continuez, les fonctions de protection contre le vol ne seront pas activées. Pour activer la protection contre le vol, annulez l\'action courante maintenant et suivez les étapes de configuration pour un appareil personnel."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Pour obtenir plus d\'information, y compris les politiques de confidentialité de votre entreprise, communiquez avec votre administrateur."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"En savoir plus"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"ANNULER"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"OK"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Annuler"</string>
+    <!-- no translation found for ok_setup (4593707675416137504) -->
+    <skip />
     <string name="user_consent_msg" msgid="8820951802130353584">"J\'accepte"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil professionnel"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Utilisateur principal"</string>
@@ -42,12 +45,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ce profil professionnel est géré pour %s avec l\'application suivante :"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Avant de continuer, "<a href="#read_this_link">"lisez ceci"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Toutes les applications et les données de ce profil seront supprimées si vous continuez."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"SUPPRIMER"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"ANNULER"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"Supprimer"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Annuler"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Pour continuer la configuration de votre profil professionnel, vous devrez chiffrer votre appareil. Cela peut prendre un certain temps."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Pour continuer la configuration de votre appareil, vous devrez le chiffrer. Cela peut prendre un certain temps."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"ANNULER"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"CRYPTER"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Chiffrer"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Chiffrement terminé"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Touchez ici pour continuer la configuration de votre profil professionnel"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Impossible de configurer votre profil professionnel. Communiquez avec votre service informatique, ou réessayez plus tard."</string>
@@ -56,8 +58,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Impossible de configurer des profils professionnels sur un appareil géré"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Impossible de créer un profil professionnel, car vous avez atteint le nombre maximal d\'utilisateurs sur votre appareil. Veuillez supprimer au moins un profil utilisateur, puis réessayer."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Votre profil professionnel n\'est pas pris en charge par cette application de lancement. Vous devrez utiliser un lanceur d\'applications compatible."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"ANNULER"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"Ok"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Annuler"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuration de l\'utilisateur incomplète"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utilisateur de l\'appareil professionnel"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"Configurer votre appareil"</string>
@@ -68,9 +70,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Définition du propriétaire de l\'appareil…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Votre appareil ne prend pas en charge le chiffrement. Communiquez avec votre service informatique."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Arrêter la configuration et effacer les données de votre appareil?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"ANNULER"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"OK"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"RÉINITIALISER"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Annuler"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Réinitialiser"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Impossible de configurer votre appareil. Communiquez avec votre service informatique."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Cet appareil a déjà été configuré."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Impossible de se connecter au réseau Wi-Fi"</string>
@@ -82,13 +84,15 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Impossible d\'utiliser l\'application d\'administration. Des composants sont manquants ou corrompus. Communiquez avec votre service informatique."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Impossible d\'installer l\'application d\'administration"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Arrêter la configuration?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"NON"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"OUI"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Non"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Oui"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annulation en cours..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Arrêter la configuration du profil?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Vous avez la possibilité de configurer votre profil professionnel plus tard à l\'aide de l\'application de gestion d\'appareil utilisée par votre organisation."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"CONTINUER"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"ARRÊTER"</string>
+    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
+    <skip />
+    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Approvisionnement en cours…"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Configuration des certificats CA en cours…"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Configurer votre profil. Lancement de la configuration."</string>
@@ -101,6 +105,8 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icône <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Temin. la config. et réinitialiser l\'appareil?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Si vous annulez cette configuration, votre appareil sera réinitialisé à ses paramètres d\'usine et vous serez redirigé vers le premier écran."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"ANNULER"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"RÉINITIALISER L\'APPAREIL"</string>
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
+    <skip />
+    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
+    <skip />
 </resources>

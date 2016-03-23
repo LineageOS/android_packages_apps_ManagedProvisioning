@@ -19,6 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label" msgid="8387779258423548445">"કાર્ય પ્રોફાઇલની જોગવાઈ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ઊફ્ફ્ફ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"તમારી પ્રોફાઇલ સેટ કરો"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"તમારી સંસ્થા આ પ્રોફાઇલને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે. તમે તમારા ઉપકરણ પર બાકીનું બધું નિયંત્રિત કરો છો."</string>
@@ -32,8 +33,8 @@
     <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"જો તમે ચાલુ રાખો, તો ચોરીથી રક્ષણ સુવિધા સક્ષમ કરવામાં આવશે નહિ. ચોરીથી રક્ષણ ચાલુ કરવા માટે, હમણાં રદ કરો અને આને વ્યક્તિગત ઉપકરણ તરીકે સેટ કરો."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"તમારી સંસ્થાનું ગોપનીયતા નીતિઓ સહિત વધુ માહિતી માટે તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"વધુ જાણો"</string>
-    <string name="cancel_setup" msgid="3295266841772028057">"રદ કરો"</string>
-    <string name="ok_setup" msgid="5148111905838329307">"ઑકે"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"રદ કરો"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"ઑકે"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"હું સંમતિ આપું છું"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"કાર્ય પ્રોફાઇલ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"પ્રાથમિક વપરાશકર્તા"</string>
@@ -42,12 +43,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"આ કાર્ય પ્રોફાઇલને આની મદદથી %s માટે સંચાલિત કરી છે:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"આગળ વધતા પહેલાં, "<a href="#read_this_link">"આ વાંચો"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"જો તમે ચાલુ રાખો છો તો આ પ્રોફાઇલમાંની તમામ એપ્લિકેશનો અને ડેટા કાઢી નાખવામાં આવશે."</string>
-    <string name="delete_profile" msgid="8384444459432563649">"કાઢી નાખો"</string>
-    <string name="cancel_delete_profile" msgid="5500786140389799348">"રદ કરો"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"કાઢી નાખો"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"રદ કરો"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"તમારી કાર્ય પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે, તમારે તમારા ઉપકરણને એન્ક્રિપ્ટ કરવાની જરૂર પડશે. આમાં થોડો સમય લાગી શકે છે."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"તમારા ઉપકરણને સેટ કરવાનું ચાલુ રાખવા માટે, તમારે તેને એન્ક્રિપ્ટ કરવાની જરૂર છે. આમાં થોડો સમય લાગી શકે છે."</string>
-    <string name="encrypt_device_cancel" msgid="5989855177432338238">"રદ કરો"</string>
-    <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"એન્ક્રિપ્ટ કરો"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"એન્ક્રિપ્ટ કરો"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"એન્ક્રિપ્શન પૂર્ણ"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"તમારી કાર્ય પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે ટૅપ કરો"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"તમારી કાર્ય પ્રોફાઇલ સેટ કરી શકાઈ નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો અથવા પછી ફરીથી પ્રયાસ કરો."</string>
@@ -56,8 +56,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"સંચાલિત ઉપકરણ પર કાર્ય પ્રોફાઇલ્સ સેટ કરી શકાતી નથી"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"કાર્ય પ્રોફાઇલ બનાવી શકાતી નથી કારણ કે તમે તમારા ઉપકરણ પર વપરાશકર્તાઓની મહત્તમ સંખ્યા સુધી પહોંચી ગયા છો. ઓછામાં ઓછો એક વપરાશકર્તા દૂર કરો અને ફરીથી પ્રયાસ કરો."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"તમારી કાર્ય પ્રોફાઇલ આ લોન્ચર એપ્લિકેશન દ્વારા સમર્થિત નથી. તમારે તેવા એક લોન્ચર પર સ્વિચ કરવું જોઈએ જે સુસંગત હોય."</string>
-    <string name="cancel_provisioning" msgid="3753408161948407036">"રદ કરો"</string>
-    <string name="pick_launcher" msgid="4811489057826175648">"ઑકે"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"રદ કરો"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ઓકે"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"વપરાશકર્તા સેટઅપ અપૂર્ણ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"કાર્ય ઉપકરણના વપરાશકર્તા"</string>
     <string name="setup_work_device" msgid="3028145936574439146">"તમારા ઉપકરણને સેટ કરો"</string>
@@ -68,9 +68,10 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"ઉપકરણ માલિક સેટ કરી રહ્યું છે..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"તમારું ઉપકરણ એન્ક્રિપ્શનનું સમર્થન કરતું નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"સેટ કરવાનું બંધ કરીને તમારા ઉપકરણનો ડેટા કાઢી નાખીએ?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1398290143405142587">"રદ કરો"</string>
-    <string name="device_owner_error_ok" msgid="2556654993515978854">"ઑકે"</string>
-    <string name="device_owner_error_reset" msgid="5278392395769857412">"ફરીથી સેટ કરો"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"રદ કરો"</string>
+    <!-- no translation found for device_owner_error_ok (2002250763093787051) -->
+    <skip />
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"ફરીથી સેટ કરો"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"તમારું ઉપકરણ સેટ કરી શકાયું નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"આ ઉપકરણ પહેલાંથી જ સેટ કરેલું છે."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi સાથે કનેક્ટ કરી શકાયું નથી"</string>
@@ -82,13 +83,13 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકતાં નથી. તેમાં ઘટકો ખૂટે છે અથવા દૂષિત છે. તમારા IT વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"વ્યવસ્થાપક એપ્લિકેશન ઇન્સ્ટોલ કરી શકાઈ નહીં"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"સેટ કરવાનું રોકીએ?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="1035206963979858009">"નહીં"</string>
-    <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"હા"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"નહીં"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"હા"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"રદ કરી રહ્યું છે..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"પ્રોફાઇલ સેટઅપ રોકીએ?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"તમે તમારી કાર્ય પ્રોફાઇલ, તમારી સંસ્થા દ્વારા ઉપયોગમાં લેવાતી ઉપકરણ સંચાલન એપ્લિકેશનથી પછીથી સેટ કરી શકો છો."</string>
-    <string name="work_profile_setup_continue" msgid="44459981285359765">"ચાલુ રાખો"</string>
-    <string name="work_profile_setup_stop" msgid="5739020120488653974">"રોકો"</string>
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ચાલુ રાખો"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"રોકો"</string>
     <string name="provisioning" msgid="4512493827019163451">"જોગવાઈ કરી રહ્યું છે"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA પ્રમાણપત્રો સેટ કરી રહ્યાં છે"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"તમારી પ્રોફાઇલ સેટ કરો. સેટઅપ શરૂ કરો"</string>
@@ -101,6 +102,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> આયકન"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"સેટઅપ સમાપ્ત કરી અને ફેક્ટરી રીસેટ કરીએ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"આ સેટઅપને સમાપ્ત કરવું તમારા ઉપકરણને ફેક્ટરી રીસેટ કરશે અને તે તમને પહેલી સ્ક્રીન પર પરત લઈ જશે."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="3156304694325018039">"રદ કરો"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="1649214005697243897">"ઉપકરણ ફરીથી સેટ કરો"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"રદ કરો"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ઉપકરણ ફરીથી સેટ કરો"</string>
 </resources>
