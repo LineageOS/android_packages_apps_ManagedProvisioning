@@ -38,6 +38,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.setupwizardlib.SetupWizardLayout;
+import com.android.setupwizardlib.util.SystemBarHelper;
 import com.android.setupwizardlib.view.NavigationBar;
 import com.android.setupwizardlib.view.NavigationBar.NavigationBarListener;
 
@@ -75,6 +76,9 @@ public abstract class SetupLayoutActivity extends Activity implements Navigation
             titleView.setTextColor(Color.BLACK);
         } else {
             titleView.setTextColor(Color.WHITE);
+        }
+        if (!mUtils.isUserSetupCompleted(this)) {
+            SystemBarHelper.hideSystemBars(window);
         }
     }
 
