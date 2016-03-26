@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"ഔദ്യോഗിക പ്രൊഫൈൽ തയ്യാറാക്കൽ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ക്ഷമിക്കണം!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ, ഈ പ്രൊഫൈൽ നിയന്ത്രിച്ച് അവ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു. ഉപകരണത്തിലെ മറ്റുള്ളവയെല്ലാം നിങ്ങൾക്ക് നിയന്ത്രിക്കാനാവും."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"നിങ്ങളുടെ ഓർഗനൈസേഷന്റെ സ്വകാര്യതാ നയങ്ങൾ ഉൾപ്പെടെയുള്ള കൂടുതൽ വിവരങ്ങൾക്ക് അഡ്‌മിനിസ്‌ട്രേറ്ററെ ബന്ധപ്പെടുക."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"കൂടുതലറിയുക"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"റദ്ദാക്കുക"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"ശരി"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ഞാൻ സമ്മതിക്കുന്നു"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"പ്രാഥമിക ഉപയോക്താവ്"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"റദ്ദാക്കുന്നു…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"പ്രൊഫൈൽ സജ്ജമാക്കൽ നിർത്തണോ?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"സ്ഥാപനം ഉപയോഗിക്കുന്ന ഉപകരണ മാനേജ്‌മെന്റ് ആപ്പിൽ നിന്ന്, നിങ്ങൾക്ക് പിന്നീട് ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കാവുന്നതാണ്."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"തുടരുക"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"അവസാനിപ്പിക്കുക"</string>
     <string name="provisioning" msgid="4512493827019163451">"പ്രൊവിഷൻ ചെയ്യുന്നു"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA സർട്ടിഫിക്കറ്റ് സജ്ജമാക്കുന്നു"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. സജ്ജമാക്കൽ ആരംഭിക്കുക"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ഐക്കൺ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"സജ്ജമാക്കൽ അവസാനിപ്പിച്ച് ഫാക്ടറി റീസെറ്റ് നടത്തണോ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ഈ സജ്ജമാക്കൽ അവസാനിപ്പിക്കുന്നത് നിങ്ങളുടെ ഉപകരണത്തെ ഫാക്ടറി റീസെറ്റിലേയ്ക്ക് നയിക്കുകയും സജ്ജമാക്കലിന്റെ തുടക്ക സ്ക്രീനിലേക്ക് നിങ്ങൾ മടങ്ങുകയും ചെയ്യും."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"റദ്ദാക്കുക"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ഉപകരണം പുനഃസജ്ജീകരിക്കുക"</string>
 </resources>

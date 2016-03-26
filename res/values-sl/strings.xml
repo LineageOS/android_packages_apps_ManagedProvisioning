@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"Priprava za delovni profil"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Nastavitev profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija nadzira ta profil in skrbi za njegovo varnost. Vi nadzirate vse drugo v napravi."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Več o tem"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Prekliči"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"V redu"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Privolim"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Delovni profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primarni uporabnik"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Preklic …"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Ustavitev nastavitve profila?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Delovni profil lahko nastavite pozneje v aplikaciji za upravljanje naprave, ki jo uporablja vaša organizacija."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"Naprej"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Ustavi"</string>
     <string name="provisioning" msgid="4512493827019163451">"Omogočanje uporabe"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Nastavljanje potrdil overiteljev potrdil"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Nastavitev profila. Začetek nastavitve."</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona za <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Prekinitev nast. in ponastav. na tov. nast.?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Če prekinete nastavitev, bo naprava ponastavljena na tovarniške nastavitve in prikazan bo prvotni zaslon."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Prekliči"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Ponastavitev naprave"</string>
 </resources>

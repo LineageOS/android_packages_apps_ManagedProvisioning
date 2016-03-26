@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"직장 프로필 프로비저닝"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"이런!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"프로필 설정"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"기기에서 프로필에 대한 제어와 보안 유지는 조직에서 담당하고, 나머지는 내가 관리합니다."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"조직의 개인정보취급방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"자세히 알아보기"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"취소"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"확인"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"동의합니다."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"직장 프로필"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"기본 사용자"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"취소 중..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"프로필 설정을 중지하시겠습니까?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"이후에 조직에서 사용하는 기기 관리 앱에서 직장 프로필을 설정할 수 있습니다."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"계속"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"중지"</string>
     <string name="provisioning" msgid="4512493827019163451">"프로비저닝 중..."</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA 인증서 설정"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"프로필을 설정합니다. 설정 시작"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> 아이콘"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"설정을 종료하고 초기화하시겠습니까?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"이 설정을 종료하면 기기가 초기화되고 처음 화면으로 이동합니다."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"취소"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"기기 초기화"</string>
 </resources>
