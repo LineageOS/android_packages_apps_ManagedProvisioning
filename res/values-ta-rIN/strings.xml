@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"பணிச் சுயவிவரத்தை அமைத்தல்"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"அச்சச்சோ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"சுயவிவரத்தை அமைக்கவும்"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"உங்கள் நிறுவனம், இந்தச் சுயவிவரத்தைக் கட்டுப்படுத்தி, அதைப் பாதுகாப்பாக வைக்கிறது. உங்கள் சாதனத்தில் இருந்து எல்லாவற்றையும் கட்டுப்படுத்தலாம்."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"உங்கள் நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட, கூடுதல் தகவலுக்கு நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"மேலும் அறிக"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ரத்துசெய்"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"சரி"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ஏற்கிறேன்"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"பணி சுயவிவரம்"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"முதன்மை பயனர்"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ரத்துசெய்கிறது..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"சுயவிவர அமைவை நிறுத்தவா?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"உங்கள் நிறுவனம் பயன்படுத்தும் சாதன நிர்வாகப் பயன்பாட்டிலிருந்து பணி சுயவிவரத்தை பின்னர் அமைக்கலாம்."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"தொடர்க"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"நிறுத்து"</string>
     <string name="provisioning" msgid="4512493827019163451">"அமைக்கிறது"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA சான்றிதழ்களை அமைக்கிறது"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"சுயவிவரத்தை அமைக்கவும். அமைவைத் தொடங்கவும்"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ஐகான்"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"அமைவை முடித்து ஆரம்பநிலைக்கு மீட்டமைக்கவா?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"இந்த அமைவை முடிப்பதால், உங்கள் சாதனம் ஆரம்பநிலைக்கு மீட்டமைக்கப்பட்டு, சாதனத்தின் தொடக்கநிலைக்குக் கொண்டு செல்லும்."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ரத்துசெய்"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"சாதனத்தை மீட்டமை"</string>
 </resources>

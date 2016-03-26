@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"การจัดสรรโปรไฟล์งาน"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"อ๊ะ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ตั้งค่าโปรไฟล์ของคุณ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"องค์กรของคุณควบคุมและรักษาความปลอดภัยให้กับโปรไฟล์นี้ คุณเป็นผู้ควบคุมส่วนที่เหลือในอุปกรณ์"</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายส่วนบุคคลขององค์กร"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"เรียนรู้เพิ่มเติม"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ยกเลิก"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"ตกลง"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ฉันยินยอม"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"โปรไฟล์งาน"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ผู้ใช้หลัก"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"กำลังยกเลิก…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"หยุดการตั้งค่าโปรไฟล์ใช่ไหม"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"คุณสามารถตั้งค่าโปรไฟล์งานได้ในภายหลังจากแอปการจัดการอุปกรณ์ที่องค์กรของคุณใช้"</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ต่อไป"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"หยุด"</string>
     <string name="provisioning" msgid="4512493827019163451">"กำลังจัดสรร"</string>
     <string name="copying_certs" msgid="5697938664953550881">"กำลังตั้งค่าใบรับรอง CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ตั้งค่าโปรไฟล์ เริ่มการตั้งค่า"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"ไอคอน <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"สิ้นสุดการตั้งค่าแล้วรีเซ็ตเป็นค่าเริ่มต้นไหม"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"การสิ้นสุดการตั้งค่านี้จะรีเซ็ตอุปกรณ์เป็นค่าเริ่มต้นและนำคุณกลับไปยังหน้าจอแรก"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ยกเลิก"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"รีเซ็ตอุปกรณ์"</string>
 </resources>

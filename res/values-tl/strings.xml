@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"Provisioning ng profile sa trabaho"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"I-set up ang iyong profile"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kinokontrol ng iyong organisasyon ang profile na ito at pinapanatili itong secure. Ikaw ang kumokontrol sa lahat ng iba pa sa iyong device."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Makipag-ugnayan sa iyong administrator para sa higit pang impormasyon, kasama na ang mga patakaran sa privacy ng iyong organisasyon."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Matuto nang higit pa"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Kanselahin"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Pahihintulutan ko"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profile sa trabaho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pangunahing user"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Kinakansela…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Ihinto ang pag-setup ng profile?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Maaari mong i-set up ang iyong profile sa trabaho sa ibang pagkakataon sa app sa pamamahala ng device na ginagamit ng iyong organisasyon."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"Magpatuloy"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Ihinto"</string>
     <string name="provisioning" msgid="4512493827019163451">"Nagpo-provision"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Sine-set up ang mga CA certificate"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"I-set up ang iyong profile. Simulan ang pag-setup"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icon ng <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Tapusin ang pag-setup at i-factory reset?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Kapag tinapos ang setup na ito, mafa-factory reset ang iyong device at babalk ka sa unang screen."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Kanselahin"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"I-reset ang device"</string>
 </resources>

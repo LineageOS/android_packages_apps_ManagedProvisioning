@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"Настройка рабочего профиля"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ошибка"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Настройка профиля"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ваша организация управляет этим профилем и обеспечивает его защиту. Ко всем остальным данным, приложениям и настройкам на устройстве есть доступ только у вас."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Обратитесь к администратору за дополнительной информацией, в том числе политикой конфиденциальности вашей организации."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Подробнее…"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Отмена"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"ОК"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Разрешить"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Рабочий профиль"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Основной пользователь"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Отмена…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Прекратить настройку профиля?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Рабочий профиль можно настроить позже – в приложении, которым ваша организация пользуется для управления устройствами."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"Продолжить"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Остановить"</string>
     <string name="provisioning" msgid="4512493827019163451">"Синхронизация"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Настройка сертификатов ЦС"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Настройка профиля. Начало."</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"Значок \"<xliff:g id="ICON_LABEL">%1$s</xliff:g>\""</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Отменить настройку?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Все параметры будут сброшены до заводских, и настройку придется начать заново."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Отмена"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Сбросить настройки устройства"</string>
 </resources>
