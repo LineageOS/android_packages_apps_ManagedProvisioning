@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹ ਹੋ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੇ ਨਿਯੰਤਰਣ ਪਾਉਂਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਦੀ ਹੈ। ਤੁਸੀਂ ਆਪਣੀ ਡਿਵਾਈਸ ਤੇ ਹੋਰ ਸਭ ਕਿਸੇ ਤੇ ਨਿਯੰਤਰਣ ਪਾ ਸਕਦੇ ਹੋ।"</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ, ਤੁਹਾਡੀ ਕੰਪਨੀ ਦੀਆਂ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀਆਂ ਸਮੇਤ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ਰੱਦ ਕਰੋ"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"ਠੀਕ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ਮੈਂ ਸਹਿਮਤ ਹਾਂ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
@@ -90,10 +88,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ਰੱਦ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ਕੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟਅਪ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ਤੁਸੀਂ ਬਾਅਦ ਵਿੱਚ ਆਪਣੀ ਕੰਪਨੀ ਵੱਲੋਂ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਡਿਵਾਈਸ ਪ੍ਰਬੰਧਨ ਐਪ ਤੋਂ ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਸਕਦੇ ਹੋ।"</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ਜਾਰੀ ਰੱਖੋ"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ਰੋਕੋ"</string>
     <string name="provisioning" msgid="4512493827019163451">"ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਸੈਟਅਪ ਸ਼ੁਰੂ ਕਰੋ"</string>
@@ -106,8 +102,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ਕੀ ਸਥਾਪਨਾ ਸਮਾਪਤ ਕਰਨੀ ਅਤੇ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ਇਸ ਸਥਾਪਨਾ ਨੂੰ ਸਮਾਪਤ ਕਰਨਾ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ਰੱਦ ਕਰੋ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ਡੀਵਾਈਸ ਮੁੜ-ਸੈੱਟ ਕਰੋ"</string>
 </resources>

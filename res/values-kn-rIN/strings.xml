@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಒದಗಿಸುವಿಕೆ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ಓಹ್!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ಈ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಕಾಪಾಡುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದನ್ನೂ ನೀವು ನಿಯಂತ್ರಿಸಬಹುದು."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ರದ್ದುಮಾಡು"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"ಸರಿ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ನಾನು ಸಮ್ಮತಿಸುತ್ತೇನೆ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ಪ್ರಾಥಮಿಕ ಬಳಕೆದಾರ"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ಪ್ರೊಫೈಲ್ ಸೆಟಪ್ ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ನಿಮ್ಮ ಸಂಸ್ಥೆ ಬಳಸಿರುವ ಸಾಧನ ನಿರ್ವಾಹಕದಿಂದ ನಂತರದಲ್ಲಿ ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನೀವು ಹೊಂದಿಸಬಹುದು."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ಮುಂದುವರಿಸು"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸು"</string>
     <string name="provisioning" msgid="4512493827019163451">"ಒದಗಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಿ. ಸೆಟಪ್‌ ಪ್ರಾರಂಭಿಸಿ"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ಐಕಾನ್‌"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ಸೆಟಪ್ ಮತ್ತು ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸುವಿಕೆಯನ್ನು ಅಂತ್ಯಗೊಳಿಸುವುದೇ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ಈ ಸೆಟಪ್ ಅನ್ನು ಅಂತ್ಯಗೊಳಿಸುವ ಮೂಲಕ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ಸೆಟ್ಟಿಂಗ್‌ಗೆ ಮರುಹೊಂದಿಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಮೊದಲ ಪರದೆಗೆ ಕರೆದೊಯ್ಯುತ್ತದೆ."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ರದ್ದುಮಾಡು"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸಿ"</string>
 </resources>

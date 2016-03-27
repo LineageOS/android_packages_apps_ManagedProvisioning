@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (8387779258423548445) -->
-    <skip />
+    <string name="app_label" msgid="8387779258423548445">"කාර්යාල පැතිකඩ ප්‍රතිපාදන"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"අපොයි!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ඔබගේ පැතිකඩ සකසන්න"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ඔබගේ සංවිධානය මෙම පැතිකඩ පාලනය කරයි සහ එය ආරක්ෂිතව තබයි. ඔබගේ උපාංගයේ අනෙක් සියලු ඔබ පාලනය කරයි."</string>
@@ -35,8 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ඔබගේ සංවිධානයේ පෞද්ගලිකත්ව ප්‍රතිපත්ති ඇතුළුව, තව තොරතුරු සඳහා ඔබගේ පාලකයා සම්බන්ධ කරගන්න."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"තව දැනගන්න"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"අවලංගු කරන්න"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"හරි"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"මම කැමැත්ත දෙමි"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"කාර්යාල පැතිකඩ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"මූලික පරිශීලක"</string>
@@ -89,10 +87,8 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"අවලංගු කරමින්..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"පැතිකඩ පිහිටුවීම් නවත්වන්නද?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ඔබට ඔබගේ සංවිධානය විසින් භාවිත කරන උපාංග කළමනාකරණ යෙදුම වෙතින් පසුව ඔබේ කාර්යාල පැතිකඩ පිහිටුවිය හැකිය."</string>
-    <!-- no translation found for work_profile_setup_continue (6549708818974016509) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"දිගටම කර ගෙන යන්න"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"නතර කරන්න"</string>
     <string name="provisioning" msgid="4512493827019163451">"ප්‍රතිපාදනය කරමින්"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA සහතික සකස් කිරීම"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ඔබගේ පැතිකඩ පිහිටුවීම. පිහිටුවීම ආරම්භ කරන්න"</string>
@@ -105,8 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> නිරූපකය"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"පිහිටුවීම නිම කර කර්මාන්තශාලා යළි සකසන්නද?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"මෙම පිහිටුවීම අවසන් කිරීම ඔබේ උපාංගය කර්මාන්ත ශාලා යළි සැකසීමට පත් කර ඔබව ආපසු මුල් තිරයට ගෙන යනු ඇත."</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"අවලංගු කරන්න"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"උපාංගය යළි සකසන්න"</string>
 </resources>
