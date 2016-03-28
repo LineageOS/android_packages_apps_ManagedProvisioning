@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"कार्य प्रोफाइलका लागि प्रावधान"</string>
+    <string name="app_label" msgid="8387779258423548445">"कार्य प्रोफाइलको प्रावधानीकरण"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"आफ्नो प्रोफाइल सेट अप गर्नुहोस्"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
