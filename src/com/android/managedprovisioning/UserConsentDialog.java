@@ -32,6 +32,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.uiflows.WebActivity;
+import com.android.setupwizardlib.util.SystemBarHelper;
 
 /**
  * Dialog used to notify the user that the admin will have full control over the profile/device.
@@ -84,6 +85,9 @@ public class UserConsentDialog extends DialogFragment {
         final Dialog dialog = new Dialog(getActivity(), R.style.ManagedProvisioningDialogTheme);
         dialog.setContentView(R.layout.learn_more_dialog);
         dialog.setCanceledOnTouchOutside(false);
+        if (!mUtils.isUserSetupCompleted(getActivity())) {
+            SystemBarHelper.hideSystemBars(dialog);
+        }
 
         final TextView learnMoreMsg = (TextView) dialog.findViewById(R.id.learn_more_text1);
         final TextView linkText = (TextView) dialog.findViewById(R.id.learn_more_link);

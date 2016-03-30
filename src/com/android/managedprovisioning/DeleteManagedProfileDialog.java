@@ -30,6 +30,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.Utils;
+import com.android.setupwizardlib.util.SystemBarHelper;
 
 /**
  * Displays information about an existing managed profile and asks the user if it should be deleted.
@@ -101,6 +102,9 @@ public class DeleteManagedProfileDialog extends DialogFragment {
         dialog.setTitle(R.string.delete_profile_title);
         dialog.setContentView(R.layout.delete_managed_profile_dialog);
         dialog.setCanceledOnTouchOutside(false);
+        if (!mUtils.isUserSetupCompleted(getActivity())) {
+            SystemBarHelper.hideSystemBars(dialog);
+        }
 
         ImageView imageView = (ImageView) dialog.findViewById(
                 R.id.device_manager_icon_view);
