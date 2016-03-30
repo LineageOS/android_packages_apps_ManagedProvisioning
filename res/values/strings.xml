@@ -43,13 +43,13 @@
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <string name="setting_up_workspace">Setting up your work profile\u2026</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_profile">Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with the profile, including network activity and your device\'s location information.</string>
+  <string name="admin_has_ability_to_monitor_profile">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with the profile, including network activity and your device\'s location information.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_device">Your administrator has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this device, including network activity and your device\'s location information.</string>
-  <!-- Text in a pop-up that asks the user to confirm that theft protection will be disabled. [CHAR LIMIT=NONE]-->
-  <string name="theft_protection_disabled_warning">If you continue, theft protection features will not be enabled. To turn on theft protection, cancel now and set this up as a personal device.</string>
+  <string name="admin_has_ability_to_monitor_device">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, theft-protection features, and data associated with this device, including network activity and your device\'s location information.</string>
+  <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
+  <string name="theft_protection_disabled_warning">To use theft-protection features, you must have a password-protected screen lock for your device.</string>
   <!-- String telling the user how to get more information about their work profile-->
-  <string name="contact_your_admin_for_more_info">Contact your administrator for more information, including your organization\'s privacy policies.</string>
+  <string name="contact_your_admin_for_more_info">Contact your admin for more information, including your organization\'s privacy policies.</string>
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
   <string name="learn_more_link">Learn more </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
