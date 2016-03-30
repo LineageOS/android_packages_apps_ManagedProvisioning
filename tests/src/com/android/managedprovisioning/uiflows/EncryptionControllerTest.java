@@ -60,11 +60,11 @@ public class EncryptionControllerTest extends AndroidTestCase {
     private static final int RESUME_PROVISIONING_TIMEOUT_MS = 1000;
 
     @Mock private Context mContext;
-    @Mock private NotificationManager mNotificationManager;
     @Mock private IntentStore mIntentStore;
     @Mock private Utils mUtils;
     @Mock private Resources mResources;
     @Mock private PackageManager mPackageManager;
+    @Mock private EncryptionController.ResumeNotificationHelper mResumeNotificationHelper;
 
     private EncryptionController mController;
     private MessageParser mMessageParser;
@@ -79,20 +79,12 @@ public class EncryptionControllerTest extends AndroidTestCase {
 
         mMessageParser = new MessageParser();
 
-        when(mContext.getSystemService(Context.NOTIFICATION_SERVICE))
-                .thenReturn(mNotificationManager);
-        when(mContext.getResources()).thenReturn(mResources);
-
         when(mUtils.isPhysicalDeviceEncrypted()).thenReturn(true);
-
-        // those mocks are necessary for the notification path
-        when(mContext.getPackageName()).thenReturn(MP_PACKAGE_NAME);
-        when(mContext.getApplicationInfo()).thenReturn(new ApplicationInfo());
-        when(mContext.getPackageManager()).thenReturn(mPackageManager);
         when(mContext.getApplicationContext()).thenReturn(mContext);
+        when(mContext.getPackageManager()).thenReturn(mPackageManager);
 
         mController = new EncryptionController(mContext, mIntentStore, mUtils, mMessageParser,
-                TEST_HOME_RECEIVER, TEST_USER_ID);
+                TEST_HOME_RECEIVER, mResumeNotificationHelper, TEST_USER_ID);
     }
 
     public void testSetEncryptionReminder_duringSuw() {
@@ -133,7 +125,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
         // WHEN resuming provisioning
         runResumeProvisioningOnUiThread();
         // THEN a resume notification should be posted and no activity should be started
-        verify(mNotificationManager).notify(anyInt(), any(Notification.class));
+        verify(mResumeNotificationHelper).showResumeNotification(any(Intent.class));
         verify(mContext, never()).startActivity(any(Intent.class));
     }
 
@@ -144,7 +136,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
         runResumeProvisioningOnUiThread();
         // THEN the PreProvisioningActivity should be started and no notification should be posted
         verify(mContext).startActivity(mIntent);
-        verify(mNotificationManager, never()).notify(anyInt(), any(Notification.class));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
     }
 
     public void testResumeProvisioningTwice_profileOwnerDuringSuw() throws Exception {
@@ -157,7 +149,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
         // THEN the PreProvisioningActivity should only be started once and no notification should
         // be posted
         verify(mContext).startActivity(mIntent);
-        verify(mNotificationManager, never()).notify(anyInt(), any(Notification.class));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
     }
 
     public void testResumeProvisioning_deviceOwner() throws Exception {
@@ -167,7 +159,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
         runResumeProvisioningOnUiThread();
         // THEN the PreProvisioningActivity should be started and no notification should be posted
         verify(mContext).startActivity(mIntent);
-        verify(mNotificationManager, never()).notify(anyInt(), any(Notification.class));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
     }
 
     public void testResumeProvisioning_deviceNotEncrypted() throws Exception {
@@ -179,7 +171,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
         runResumeProvisioningOnUiThread();
         // THEN nothing should happen
         verify(mContext, never()).startActivity(any(Intent.class));
-        verify(mNotificationManager, never()).notify(anyInt(), any(Notification.class));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
     }
 
     public void testResumeProvisioning_noIntent() throws Exception {
@@ -190,7 +182,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
         runResumeProvisioningOnUiThread();
         // THEN nothing should happen
         verify(mContext, never()).startActivity(any(Intent.class));
-        verify(mNotificationManager, never()).notify(anyInt(), any(Notification.class));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
     }
 
     public void testCancelProvisioningReminder() {
