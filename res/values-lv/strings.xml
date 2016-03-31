@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"Darba profila nodrošinājums"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hmm..."</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profila iestatīšana"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jūsu organizācija kontrolē šo profilu un uztur tā drošību. Jūs kontrolējat pārējo ierīces saturu."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Šī lietotne pārvaldīs jūsu ierīci:"</string>
     <string name="next" msgid="1004321437324424398">"Tālāk"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Notiek darba profila iestatīšana..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Jūsu administrators var pārraudzīt un pārvaldīt iestatījumus, piekļuvi uzņēmumā, lietotnes, atļaujas un ar profilu saistītos datus, tostarp tīklā veiktās darbības un jūsu ierīces atrašanās vietas informāciju."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administrators var pārraudzīt un pārvaldīt iestatījumus, piekļuvi uzņēmumā, lietotnes, atļaujas un datus, kas ir saistīti ar šo ierīci, tostarp tīkla darbības un informāciju par jūsu ierīces atrašanās vietu."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ja turpināsiet, funkcijas aizsardzībai pret zādzībām netiks iespējotas. Lai ieslēgtu aizsardzību pret zādzībām, atceliet tūlīt un iestatiet šo ierīci kā privātu."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Lai iegūtu plašāku informāciju, tostarp informāciju par uzņēmuma konfidencialitātes politikām, sazinieties ar administratoru."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"Uzzināt vairāk"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Atcelt"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Labi"</string>

@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"Obsługa administracyjna profilu do pracy"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Konfigurowanie profilu"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Twoja organizacja kontroluje i zabezpiecza ten profil. Cała pozostała zawartość urządzenia jest pod Twoją kontrolą."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ta aplikacja będzie zarządzać urządzeniem:"</string>
     <string name="next" msgid="1004321437324424398">"Dalej"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Konfiguruję profil do pracy…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje, uprawnienia i dane powiązane z profilem (w tym aktywność w sieci i informacje o lokalizacji Twojego urządzenia) oraz nimi zarządzać."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje, uprawnienia i dane powiązane z tym urządzeniem (w tym aktywność w sieci i informacje o lokalizacji Twojego urządzenia) oraz nimi zarządzać."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Jeśli przejdziesz dalej, funkcje ochrony przed kradzieżą nie zostaną włączone. Aby je włączyć, anuluj teraz i skonfiguruj to urządzenie jako prywatne."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Aby dowiedzieć się więcej i poznać politykę prywatności swojej organizacji, skontaktuj się z administratorem."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"Więcej informacji"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Anuluj"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

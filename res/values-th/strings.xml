@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"การจัดสรรโปรไฟล์งาน"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"อ๊ะ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ตั้งค่าโปรไฟล์ของคุณ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"องค์กรของคุณควบคุมและรักษาความปลอดภัยให้กับโปรไฟล์นี้ คุณเป็นผู้ควบคุมส่วนที่เหลือในอุปกรณ์"</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"แอปต่อไปนี้จะจัดการอุปกรณ์:"</string>
     <string name="next" msgid="1004321437324424398">"ถัดไป"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"กำลังตั้งค่าโปรไฟล์งาน…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"ผู้ดูแลระบบสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับโปรไฟล์ได้ ซึ่งรวมถึงกิจกรรมในเครือข่ายและข้อมูลตำแหน่งของอุปกรณ์ของคุณ"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"ผู้ดูแลระบบสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับอุปกรณ์นี้ได้ ซึ่งรวมถึงกิจกรรมในเครือข่ายและข้อมูลตำแหน่งของอุปกรณ์ของคุณ"</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"หากดำเนินการต่อ คุณลักษณะการป้องกันขโมยจะไม่เปิดใช้งาน หากต้องการเปิดการป้องกันขโมย ให้ยกเลิกการดำเนินการนี้เลยและตั้งค่าอุปกรณ์นี้เป็นอุปกรณ์ส่วนตัว"</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายส่วนบุคคลขององค์กร"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"เรียนรู้เพิ่มเติม"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ยกเลิก"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ตกลง"</string>
