@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"ഔദ്യോഗിക പ്രൊഫൈൽ തയ്യാറാക്കൽ"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"ക്ഷമിക്കണം!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ, ഈ പ്രൊഫൈൽ നിയന്ത്രിച്ച് അവ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു. ഉപകരണത്തിലെ മറ്റുള്ളവയെല്ലാം നിങ്ങൾക്ക് നിയന്ത്രിക്കാനാവും."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ഇനിപ്പറയുന്ന അപ്ലിക്കേഷൻ നിങ്ങളുടെ ഉപകരണത്തെ നിയന്ത്രിക്കും:"</string>
     <string name="next" msgid="1004321437324424398">"അടുത്തത്"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കുന്നു…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"നെറ്റ്‌വർക്ക് പ്രവർത്തനവും ഉപകരണത്തിന്റെ ലൊക്കേഷൻ വിവരവും ഉൾപ്പെടെ, ഈ പ്രൊഫൈലുമായി ബന്ധപ്പെട്ട ക്രമീകരണങ്ങളും കോർപ്പറേറ്റ് ആക്‌സസും ആപ്സും ഡാറ്റയും നിരീക്ഷിക്കാനും നിയന്ത്രിക്കാനും നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്റർക്ക് കഴിയും."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"നെറ്റ്‌വർക്ക് പ്രവർത്തനവും ഉപകരണത്തിന്റെ ലൊക്കേഷൻ വിവരവും ഉൾപ്പെടെ, ഈ ഉപകരണവുമായി ബന്ധപ്പെട്ട ക്രമീകരണങ്ങളും കോർപ്പറേറ്റ് ആക്‌സസും ആപ്സും ഡാറ്റയും നിരീക്ഷിക്കാനും നിയന്ത്രിക്കാനും നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്റർക്ക് കഴിയും."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"നിങ്ങൾ തുടരുന്നുവെങ്കിൽ, മോഷണ പരിരക്ഷണ ഫീച്ചറുകൾ പ്രവർത്തനക്ഷമമാക്കപ്പെടില്ല. മോഷണ പരിരക്ഷ ഓണാക്കുന്നതിന്, ഇപ്പോൾ റദ്ദാക്കുകയും വ്യക്തിഗത ഉപകരണമായി ഇത് സജ്ജമാക്കുകയും ചെയ്യുക."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"നിങ്ങളുടെ ഓർഗനൈസേഷന്റെ സ്വകാര്യതാ നയങ്ങൾ ഉൾപ്പെടെയുള്ള കൂടുതൽ വിവരങ്ങൾക്ക് അഡ്‌മിനിസ്‌ട്രേറ്ററെ ബന്ധപ്പെടുക."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"കൂടുതലറിയുക"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"റദ്ദാക്കുക"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ശരി"</string>

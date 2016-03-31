@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"工作资料配置"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"设置您的资料"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全。您可以控制设备上的所有其他内容。"</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
     <string name="next" msgid="1004321437324424398">"下一步"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在设置您的工作资料…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"如果您继续，设备将不会启用防盗保护功能。要启用防盗保护功能，请立即取消相关操作并将此设备设置为个人设备。"</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
     <string name="ok_setup" msgid="4593707675416137504">"确定"</string>

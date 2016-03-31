@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"కార్యాలయ ప్రొఫైల్ కేటాయింపు"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"అయ్యో!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది అనువర్తనం మీ పరికరాన్ని నిర్వహిస్తుంది:"</string>
     <string name="next" msgid="1004321437324424398">"తదుపరి"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"మీ నిర్వాహకుడు సెట్టింగ్‌లు, కార్పొరేట్ ప్రాప్యత, అనువర్తనాలు, అనుమతులు మరియు ప్రొఫైల్‌తో అనుబంధించబడిన డేటా, అలాగే నెట్‌వర్క్ కార్యాచరణ మరియు మీ పరికర స్థాన సమాచారాన్ని పర్యవేక్షించగలరు మరియు నిర్వహించగలరు."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"మీ నిర్వాహకుడు సెట్టింగ్‌లు, కార్పొరేట్ ప్రాప్యత, అనువర్తనాలు, అనుమతులు మరియు ఈ పరికరంతో అనుబంధించబడిన డేటా, అలాగే నెట్‌వర్క్ కార్యాచరణ మరియు మీ పరికర స్థాన సమాచారాన్ని పర్యవేక్షించగలరు మరియు నిర్వహించగలరు."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"మీరు కొనసాగితే, చౌర్య రక్షణ లక్షణాలు ప్రారంభించబడవు. చౌర్య రక్షణను ఆన్ చేయడానికి, ఇప్పుడే రద్దు చేసి, దీన్ని వ్యక్తిగత పరికరం వలె సెటప్ చేయండి."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"మీ సంస్థ గోప్యతా విధానాలతో సహా, మరింత సమాచారం కోసం మీ నిర్వాహకుడిని సంప్రదించండి."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"రద్దు చేయి"</string>
     <string name="ok_setup" msgid="4593707675416137504">"సరే"</string>
