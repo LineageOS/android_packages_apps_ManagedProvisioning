@@ -191,6 +191,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         Intent intent = new Intent(Globals.ACTION_RESUME_PROVISIONING)
                 .putExtra(EXTRA_PROVISIONING_ACTION, ACTION_PROVISION_MANAGED_DEVICE)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
                 .putExtras(getTestTimeTimeZoneAndLocaleExtras())
                 .putExtras(getTestWifiInfoExtras())
                 .putExtras(getTestDeviceAdminDownloadExtras())
@@ -212,9 +213,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         // THEN provisioning action is restored to ACTION_PROVISION_MANAGED_DEVICE
                         .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
                         .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                        // THEN device admin package name is not supported in Device Owner
-                        // provisioning.
-                        .setDeviceAdminPackageName(null)
+                        // THEN device admin package name is supported for resume intents
+                        .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
                         .setDeviceAdminDownloadInfo(
                                 PackageDownloadInfo.Builder.builder()
                                         .setLocation(TEST_DOWNLOAD_LOCATION)

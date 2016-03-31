@@ -156,7 +156,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             ComponentName deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
                     EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
             // Device admin package name is deprecated. It is only supported in Profile Owner
-            // provisioning and NFC provisioning (parsing logic is not in this parser).
+            // provisioning and when resuming NFC provisioning.
             String deviceAdminPackageName = null;
             if (ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)) {
                 // In L, we only support package name. This means some DPC may still send us the
@@ -171,6 +171,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 // name has been obtained, it should be safe to set the deprecated package name
                 // value to null.
                 deviceAdminPackageName = null;
+            } else if (isResumeProvisioningIntent(intent)) {
+                deviceAdminPackageName = intent.getStringExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
             }
 
             // Parse skip user setup in ACTION_PROVISION_MANAGED_USER and
