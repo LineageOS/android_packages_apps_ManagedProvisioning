@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹ ਹੋ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੇ ਨਿਯੰਤਰਣ ਪਾਉਂਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਦੀ ਹੈ। ਤੁਸੀਂ ਆਪਣੀ ਡਿਵਾਈਸ ਤੇ ਹੋਰ ਸਭ ਕਿਸੇ ਤੇ ਨਿਯੰਤਰਣ ਪਾ ਸਕਦੇ ਹੋ।"</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ਹੇਠਾਂ ਦਿੱਤੀ ਐਪ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰੇਗੀ:"</string>
     <string name="next" msgid="1004321437324424398">"ਅੱਗੇ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਰਿਹਾ ਹੈ..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"ਤੁਹਾਡੇ ਪ੍ਰਬੰਧਕ ਕੋਲ ਸੈਟਿੰਗਾਂ ਦਾ ਨਿਰੀਖਣ ਕਰਨ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ, ਐਪਸ ਅਤੇ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਜੁੜੇ ਡਾਟਾ ਤੱਕ ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਨੈਟਵਰਕ ਗਤੀਵਿਧੀ ਅਤੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਸਮੇਤ।"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"ਤੁਹਾਡੇ ਪ੍ਰਬੰਧਕ ਕੋਲ ਸੈਟਿੰਗਾਂ ਦਾ ਨਿਰੀਖਣ ਕਰਨ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ, ਐਪਸ ਅਤੇ ਇਸ ਡਿਵਾਈਸ ਨਾਲ ਜੁੜੇ ਡਾਟਾ ਤੱਕ ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਨੈਟਵਰਕ ਗਤੀਵਿਧੀ ਅਤੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਦੀ ਨਿਰਧਾਰਿਤ ਸਥਾਨ ਜਾਣਕਾਰੀ ਸਮੇਤ।"</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਚੋਰੀ ਰੋਕਥਾਮ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹੋਣਗੀਆਂ। ਚੋਰੀ ਰੋਕਥਾਮ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ, ਹੁਣ ਰੱਦ ਕਰੋ ਅਤੇ ਇਸਨੂੰ ਇੱਕ ਨਿੱਜੀ ਡਿਵਾਈਸ ਦੇ ਤੌਰ ਤੇ ਸੈਟ ਅਪ ਕਰੋ।"</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ, ਤੁਹਾਡੀ ਕੰਪਨੀ ਦੀਆਂ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀਆਂ ਸਮੇਤ।"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ਰੱਦ ਕਰੋ"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ਠੀਕ"</string>

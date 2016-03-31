@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"Підготовка робочого профілю"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Помилка"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Налаштування профілю"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ваша організація контролює й захищає цей профіль. Ви контролюєте все інше на пристрої."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Вашим пристроєм керуватиме цей додаток:"</string>
     <string name="next" msgid="1004321437324424398">"Далі"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Налаштування робочого профілю…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Адміністратор може відстежувати та контролювати налаштування, корпоративний доступ, додатки, дозволи й дані, пов’язані з цим профілем, зокрема інформацію про активність у мережі чи місцезнаходження пристрою."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Адміністратор може відстежувати та контролювати налаштування, корпоративний доступ, додатки, дозволи й дані, пов’язані з цим пристроєм, зокрема інформацію про активність у мережі чи місцезнаходження пристрою."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Якщо продовжити, функції захисту від крадіжок буде вимкнено. Щоб увімкнути захист, скасуйте цю дію та зробіть пристрій особистим у налаштуваннях."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Зв’яжіться з адміністратором, щоб дізнатися більше, зокрема про політику конфіденційності вашої організації."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"Докладніше"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Скасувати"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ОК"</string>

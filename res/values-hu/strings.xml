@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"Munkaprofil hozzáférés-kezelése"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppá!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profil beállítása"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ezt a profilt szervezete kezeli, és gondoskodik annak biztonságáról. Az eszközön minden mást Ön kezel."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A következő alkalmazás kezelni fogja az eszközt:"</string>
     <string name="next" msgid="1004321437324424398">"Tovább"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Munkaprofil beállítása…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve a profillal társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, illetve az ezzel az eszközzel társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Ha folytatja, a lopásvédelmi funkciók nem lesznek bekapcsolva. A lopásvédelem aktiváláshoz szakítsa meg a folyamatot, és személyesként állítsa be az eszközt."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne kapni, például szervezetének adatvédelmi irányelveiről."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"További információ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Mégse"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

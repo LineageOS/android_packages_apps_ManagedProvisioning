@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="8387779258423548445">"Provisioning ng profile sa trabaho"</string>
+    <!-- no translation found for app_label (2400883737290705700) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"I-set up ang iyong profile"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kinokontrol ng iyong organisasyon ang profile na ito at pinapanatili itong secure. Ikaw ang kumokontrol sa lahat ng iba pa sa iyong device."</string>
@@ -28,10 +29,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Papamahalaan ng sumusunod na app ang iyong device:"</string>
     <string name="next" msgid="1004321437324424398">"Susunod"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Sine-set up ang iyong profile sa trabaho…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, access ng kumpanya, app at data na nauugnay sa profile, kasama na ang aktibidad sa network at ang impormasyon ng lokasyon ng iyong device."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"May kakayahan ang iyong administrator na subaybayan at pamahalaan ang mga setting, corporate na access, app at data na nauugnay sa device na ito, kasama ang aktibidad sa network at impormasyon ng lokasyon ng iyong device."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Kung magpapatuloy ka, hindi mae-enable ang mga feature ng proteksyon sa pagnanakaw. Upang i-on ang proteksyon sa pagnanakaw, magkansela ngayon at i-set up ito bilang personal na device."</string>
-    <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Makipag-ugnayan sa iyong administrator para sa higit pang impormasyon, kasama na ang mga patakaran sa privacy ng iyong organisasyon."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
+    <skip />
+    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"Matuto nang higit pa"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Kanselahin"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
