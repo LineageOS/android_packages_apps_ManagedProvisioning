@@ -29,7 +29,7 @@
 
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
-  <string name="setup_work_profile">Set up your profile</string>
+  <string name="setup_work_profile">Set up work profile</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <string name="company_controls_workspace">Your organization controls this profile and keeps it secure. You control everything else on your device.</string>
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
@@ -79,7 +79,7 @@
   <!-- String on the dialog that links through to more information about the profile management application. -->
   <string name="read_more_delete_profile">Before proceeding, <a href="#read_this_link">read this</a>.</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
-  <string name="sure_you_want_to_delete_profile">All apps and data in this profile will be deleted if you continue.</string>
+  <string name="sure_you_want_to_delete_profile">If you continue, all apps and data in this profile will be deleted.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
   <string name="delete_profile">Delete</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
@@ -123,7 +123,7 @@
   <string name="default_owned_device_username">User of work device</string>
 
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
-  <string name="setup_work_device">Set up your device</string>
+  <string name="setup_work_device">Set up work device</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
   <string name="progress_data_process">Processing setup data\u2026</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
@@ -132,7 +132,7 @@
   <string name="progress_download">Downloading the admin app\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
   <string name="progress_install">Installing the admin app\u2026</string>
-  <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
+  <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
   <string name="progress_set_owner">Setting the device owner\u2026</string>
 
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
