@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Ρύθμιση προφίλ εργασίας"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ωχ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Ρυθμίστε το προφίλ σας"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ο οργανισμός σας ελέγχει αυτό το προφίλ και το διατηρεί ασφαλές. Εσείς ελέγχετε όλα τα υπόλοιπα στοιχεία στη συσκευή σας."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Η παρακάτω εφαρμογή θα διαχειρίζεται τη συσκευή σας:"</string>
     <string name="next" msgid="1004321437324424398">"Επόμενο"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Δημιουργία του προφίλ εργασίας σας…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Ο διαχειριστής σας έχει τη δυνατότητα να παρακολουθεί και να διαχειρίζεται τις ρυθμίσεις, την εταιρική πρόσβαση, τις εφαρμογές, τα δικαιώματα και τα δεδομένα που σχετίζονται με το προφίλ, συμπεριλαμβανομένης της δραστηριότητας δικτύου και των πληροφοριών τοποθεσίας της συσκευής σας."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Ο διαχειριστής σας έχει τη δυνατότητα να παρακολουθεί και να διαχειρίζεται τις ρυθμίσεις, την εταιρική πρόσβαση, τις εφαρμογές, τα δικαιώματα, τις λειτουργίες προστασίας από κλοπή και τα δεδομένα που σχετίζονται με αυτήν τη συσκευή, συμπεριλαμβανομένης της δραστηριότητας δικτύου και των πληροφοριών τοποθεσίας της συσκευής σας."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Για να χρησιμοποιήσετε τις λειτουργίες προστασίας από κλοπή, πρέπει να έχετε ενεργοποιήσει το κλείδωμα οθόνης με προστασία κωδικού πρόσβασης στη συσκευή σας."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Επικοινωνήστε με το διαχειριστή σας για περισσότερες πληροφορίες, συμπεριλαμβανομένων των πολιτικών απορρήτου του οργανισμού σας."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Μάθετε περισσότερα"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Ακύρωση"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ΟΚ"</string>

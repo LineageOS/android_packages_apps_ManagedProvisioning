@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Configuração do perfil de trabalho"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Epa!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configurar seu perfil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Sua organização controla este perfil e o mantém protegido. Você controla todo o resto em seu dispositivo."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"O seguinte app gerenciará seu dispositivo:"</string>
     <string name="next" msgid="1004321437324424398">"Próximo"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando seu perfil de trabalho…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados com o perfil, incluindo atividade na rede e informações de local do dispositivo."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões, recursos de proteção contra roubo e dados associados a este dispositivo, incluindo atividade na rede e informações de local do dispositivo."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Para usar os recursos de proteção contra roubo, é necessário um bloqueio de tela protegido por senha no dispositivo."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Entre em contato com o administrador para receber mais informações, incluindo as políticas de privacidade da organização."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saiba mais"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

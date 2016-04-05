@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Munkaprofil beállítása"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppá!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profil beállítása"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ezt a profilt szervezete kezeli, és gondoskodik annak biztonságáról. Az eszközön minden mást Ön kezel."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A következő alkalmazás kezelni fogja az eszközt:"</string>
     <string name="next" msgid="1004321437324424398">"Tovább"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Munkaprofil beállítása…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, az engedélyeket, illetve a profillal társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"A rendszergazda felügyelheti és kezelheti a beállításokat, a vállalatszintű hozzáférést, az alkalmazásokat, az engedélyeket, a lopásvédelmi funkciókat, illetve az ezzel az eszközzel társított adatokat, így például a hálózati tevékenységeket és az eszköz helyadatait."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"A lopásvédelmi funkciók használatához jelszavas képernyőzárat kell beállítania eszközén."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne kapni, például szervezetének adatvédelmi irányelveiről."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"További információ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Mégse"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Жумуш профилин жөндөө"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Профилиңизди орнотуңуз"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ишканаңыз бул профилди көзөмөлдөп, коопсуздугун камсыз кылып турат. Түзмөгүңүздөгү калган нерсенин бардыгын өзүңүз көзөмөлдөйсүз."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Төмөнкү колдонмо түзмөгүңүздү башкармакчы:"</string>
     <string name="next" msgid="1004321437324424398">"Кийинки"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Жумуш профилиңиз жөндөлүүдө…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Администраторуңуз жөндөөлөрдү, корпоративдик колдонуу мүмкүнчүлүгүн, колдонмолорду, уруксаттарды жана профилге байланыштуу дайындарды, ошондой эле тармактагы аракеттерди жана түзмөгүңүздүн жайгашкан жери тууралуу маалыматты көзөмөлдөп жана башкара алат."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Администраторуңуз жөндөөлөрдү, корпоративдик колдонуу мүмкүнчүлүгүн, колдонмолорду, уруксаттарды, уурдоодон коргоо функцияларын жана ушул түзмөкө байланыштуу дайындарды, ошондой эле тармактагы аракеттер менен түзмөгүңүздүн жайгашкан жери тууралуу маалыматты көзөмөлдөп жана башкара алат."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Уурдоодон коргоо функцияларын колдонуу үчүн түзмөгүңүздө сырсөз менен корголгон экран кулпусу болуусу зарыл."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Көбүрөөк маалымат алып, ишканаңыздын купуялык саясатын билүү үчүн администраторуңузга кайрылыңыз."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Көбүрөөк билүү"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Жокко чыгаруу"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Жарайт"</string>

@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Жұмыс профилін реттеу"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Профильді реттеу"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ұйымыңыз осы профильді басқарады және оны қауіпсіз сақтайды. Сіз құрылғыдағы барлық басқа нәрселерді басқарасыз."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Келесі қолданба құрылғыңызды басқарады:"</string>
     <string name="next" msgid="1004321437324424398">"Келесі"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Жұмыс профиліңіз реттелуде…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Әкімшіде параметрлерді, қауымдық қатынасты, қолданбаларды, рұқсаттарды және осы профильмен байланысты деректерді, соның ішінде, желілік белсенділікті және құрылғының орны туралы ақпаратты бақылау және басқару мүмкіндігі бар."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Әкімшіде параметрлерді, қауымдық қатынасты, қолданбаларды, рұқсаттарды, ұрлаудан қорғау мүмкіндіктерін және осы құрылғымен байланысты деректерді, соның ішінде, желілік белсенділікті және құрылғының орны туралы ақпаратты бақылау және басқару мүмкіндігі бар."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ұрлаудан қорғау мүмкіндіктерін пайдалану үшін құрылғыда құпия сөзбен қорғалған экран құлпы болуы тиіс."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Қосымша ақпарат, соның ішінде, ұйымның құпиялылық саясаттары туралы ақпарат алу үшін әкімшіге хабарласыңыз."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Қосымша мәліметтер"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Бас тарту"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Жарайды"</string>

@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Thiết lập hồ sơ công việc"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Rất tiếc!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Thiết lập hồ sơ của bạn"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tổ chức của bạn kiểm soát và giữ bảo mật hồ sơ này. Bạn kiểm soát mọi thứ khác trên thiết bị của mình."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ứng dụng sau sẽ quản lý thiết bị của bạn:"</string>
     <string name="next" msgid="1004321437324424398">"Tiếp theo"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Đang thiết lập hồ sơ công việc..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, ứng dụng, quyền và dữ liệu được liên kết với hồ sơ, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Quản trị viên của bạn có thể giám sát và quản lý cài đặt, quyền truy cập của công ty, ứng dụng, quyền, tính năng chống trộm và dữ liệu được liên kết với thiết bị này, bao gồm cả hoạt động mạng và thông tin vị trí của thiết bị."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Để sử dụng tính năng chống trộm, bạn phải có một khóa màn hình được bảo vệ bằng mật khẩu cho thiết bị của mình."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Hãy liên hệ với quản trị viên của bạn để biết thêm thông tin, bao gồm các chính sách bảo mật của tổ chức bạn."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Hủy"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

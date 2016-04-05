@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"İş profili quraşdırması"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vay!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Profilinizi quraşdırın"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Təşkilatınız profilə nəzarət edir və onu güvənli saxlayır. Qalan hər şeyə Siz nəzarət edirsiniz."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aşağıdakı app sizin cihaz idarə edəcək:"</string>
     <string name="next" msgid="1004321437324424398">"Növbəti"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"İş profiliniz quraşdırılır..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Admininiz ayarlara, girişə, tətbiqə, bu istifadəçi ilə əlaqədar dataya, həmçinin şəbəkə fəaliyyətinə və cihazınızın məkan məlumatına nəzarət etmək və idarə etmək iqtidarındadır."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Admininiz ayarlar, korporativ giriş, tətbiqlər, icazələr, oğurluğa qarşı qorunma və bu cihaz ilə əlaqədar data, şəbəkə fəaliyyəti və cihazın məkan məlumatına nəzarət və idarə etmək imkanına malikdir."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Oğurluğa qarşı qorunma xüsusiyyətlərini istifadə etmək üçün, cihazınızda parol ilə qorunan ekran kilidi olmalıdır."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ətraflı məlumat, həmçinin təşkilatınızın məxfilik siyasəti haqqında məlumat almaq üçün admin ilə əlaqə saxlayın."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ətraflı öyrənin"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Ləğv et"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
