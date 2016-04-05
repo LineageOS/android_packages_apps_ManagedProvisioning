@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"ដំឡើងប្រវត្តិរូបការងារ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"អូ​!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"រៀបចំទម្រង់របស់អ្នក"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ស្ថាប័ន​របស់​អ្នកពិនិត្យ​ប្រវត្តិរូប​នេះ ហើយ​រក្សាទុក​វា​​ដោយ​សុវត្ថិភាព។ អ្នក​ពិនិត្យ​អ្វីៗ​ផ្សេង​ទៀត​នៅ​លើ​ឧបករណ៍​របស់​អ្នក។"</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"កម្មវិធីខាងក្រោមនឹងគ្រប់គ្រងឧបករណ៍របស់អ្នក៖"</string>
     <string name="next" msgid="1004321437324424398">"បន្ទាប់"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"កំពុងដំឡើងប្រវត្តិរូបការងាររបស់អ្នក…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលដំណើរការជារួម កម្មវិធី សិទ្ធិអនុញ្ញាត និងទិន្នន័យដែលទាក់ទងនឹងប្រវត្តិរូបនេះ ដោយរាប់បញ្ចូលទាំងសកម្មភាពបណ្តាញ និងព័ត៌មានទីតាំងឧបករណ៍របស់អ្នកផងដែរ។"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលដំណើរការជារួម កម្មវិធី សិទ្ធិអនុញ្ញាត លក្ខណៈពិសេសការពារពីការលួច និងទិន្នន័យដែលពាក់ព័ន្ធនឹងឧបករណ៍នេះ ដោយរាប់បញ្ចូលទាំងសកម្មភាពបណ្តាញ និងព័តមានទីតាំងឧបករណ៍របស់អ្នកផងដែរ។"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ដើម្បីប្រើលក្ខណៈពិសេសការពារពីការលួច អ្នកត្រូវមានសោអេក្រង់ដែលបានការពារដោយពាក្យសម្ងាត់សម្រាប់ឧបករណ៍របស់អ្នក។"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នកសម្រាប់ព័ត៌មានបន្ថែម ដោយរួមទាំងគោលការណ៍ភាពឯកជនស្ថាប័នរបស់អ្នកផងដែរ។"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ស្វែងយល់​បន្ថែម"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"បោះបង់"</string>
     <string name="ok_setup" msgid="4593707675416137504">"យល់ព្រម"</string>

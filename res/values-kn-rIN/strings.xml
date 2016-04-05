@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಾಣಿಕೆ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ಓಹ್!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ಈ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಕಾಪಾಡುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದನ್ನೂ ನೀವು ನಿಯಂತ್ರಿಸಬಹುದು."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ:"</string>
     <string name="next" msgid="1004321437324424398">"ಮುಂದೆ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿ ಸೇರಿದಂತೆ, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಹಾಗೂ ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಡೇಟಾ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿ ಸೇರಿದಂತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಅನುಮತಿಗಳು, ಕಳವು ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯತೆಗಳು ಮತ್ತು ಈ ಸಾಧನದೊಂದಿಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ವೀಕ್ಷಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯ ಹೊಂದಿರುತ್ತಾರೆ."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ಕಳವು ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯತೆಗಳನ್ನು ಉಪಯೋಗಿಸಲು, ನಿಮ್ಮ ಸಾಧನವು ಪಾಸ್‌ವರ್ಡ್ ರಕ್ಷಣೆಯ ಪರದೆ ಲಾಕ್‌ ಅನ್ನು ಹೊಂದಿರಬೇಕು."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ರದ್ದುಮಾಡು"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ಸರಿ"</string>

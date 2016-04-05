@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Konfiguration af arbejdsprofil"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hovsa!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Opret din profil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Din organisation styrer denne profil og sørger for, at den er sikker. Du styrer alt andet på din enhed."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Den følgende app vil styre din enhed:"</string>
     <string name="next" msgid="1004321437324424398">"Næste"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Konfigurerer din arbejdsprofil…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til profilen, herunder netværksaktivitet og enhedens placeringsoplysninger."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser, funktioner, der beskytter mod tyveri, og data, der er knyttet til denne enhed, herunder netværksaktivitet og enhedens placeringsoplysninger."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hvis du vil bruge funktionen, der beskytter mod tyveri, skal din enhed have en skærmlås med en tilhørende adgangskode."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Kontakt din administrator for at få flere oplysninger, herunder om din organisations privatlivspolitik."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Få flere oplysninger"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Annuller"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"কর্মস্থলের প্রোফাইল সেট আপ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ওহো!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"আপনার প্রোফাইল সেট আপ করুন"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"আপনার প্রতিষ্ঠান এই প্রোফাইল নিয়ন্ত্রণ করে এবং একে সুরক্ষিত রাখে। আপনি আপনার ডিভাইসের বাকি সব কিছু নিয়ন্ত্রণ করেন।"</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"নিম্নলিখিত অ্যাপ্লিকেশানটি আপনার ডিভাইস পরিচালনা করবে:"</string>
     <string name="next" msgid="1004321437324424398">"পরবর্তী"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"আপনার কর্মস্থলের প্রোফাইল সেট আপ হচ্ছে..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"আপনার প্রশাসকের কাছে সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান, অনুমতি এবং নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থান তথ্য সহ ডেটা নিরীক্ষণ ও পরিচালনা করার ক্ষমতা আছে।"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"আপনার প্রশাসকের কাছে সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান, অনুমতি, চুরির-সুরক্ষা বৈশিষ্ট্য এবং নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থান তথ্য সহ ডেটা নিরীক্ষণ ও পরিচালনা করার ক্ষমতা আছে।"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"চুরির-সুরক্ষা বৈশিষ্ট্যগুলি ব্যবহার করতে আপনার ডিভাইসে অবশ্যই একটি পাসওয়ার্ড দ্বারা সুরক্ষিত স্ক্রীন লক ব্যবস্থাটিকে সক্ষম রাখতে হবে৷"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"আপনার প্রতিষ্ঠানের গোপনীয়তা নীতিগুলি সহ আরো তথ্যের জন্য আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"আরো জানুন"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"বাতিল করুন"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ওকে"</string>

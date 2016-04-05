@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफ़ाइल सेटअप"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओह!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"अपनी प्रोफ़ाइल सेट करें"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपका संगठन इस प्रोफ़ाइल को नियंत्रित करता है और उसे सुरक्षित रखता है. अपने डिवाइस पर सब कुछ आप नियंत्रित करते हैं."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्‍न ऐप आपके डिवाइस को प्रबंधित करेगा:"</string>
     <string name="next" msgid="1004321437324424398">"अगला"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"आपकी कार्य प्रोफ़ाइल सेट की जा रही है…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"आपके नियंत्रक के पास नेटवर्क गतिविधि और आपके डिवाइस के स्थान की जानकारी सहित प्रोफ़ाइल से संबद्ध सेटिंग, कॉर्पोरेट एक्सेस, ऐप्लिकेशन, अनुमतियों और डेटा की निगरानी करने तथा उसे प्रबंधित करने की क्षमता है."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"आपके व्यवस्थापक के पास नेटवर्क गतिविधि और आपके डिवाइस के स्थान की जानकारी सहित, इस डिवाइस से संबद्ध सेटिंग, कॉर्पोरेट एक्सेस, ऐप्लिकेशन, अनुमतियों और डेटा की निगरानी करने और उसे प्रबंधित करने की क्षमता है."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरी से सुरक्षा संबंधी सुविधाओं का उपयोग करने के लिए, आपके पास अपने डिवाइस के लिए पासवर्ड द्वारा सुरक्षित स्क्रीन लॉक होना चाहिए."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"अपने संगठन की गोपनीयता नीतियों सहित, अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"और जानें"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"अभी नहीं"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ठीक"</string>

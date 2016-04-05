@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Uwekaji wa wasifu wa kazini"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Lo!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Weka wasifu wako"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Shirika lako linadhibiti kifaa chako na kukiweka salama. Unadhibiti vitu vingine vyote kwenye kifaa chako."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Programu zifuatazo zitadhibiti kifaa chako:"</string>
     <string name="next" msgid="1004321437324424398">"Inayofuata"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Inaweka mipangilio ya wasifu wako wa kazi..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia vipengele vya shirika, programu, ruhusa na data inayohusiana na wasifu huu, ikiwa ni pamoja na shughuli za mtandao na maelezo kuhusu mahali kifaa chako kilipo."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia vipengele vya shirika, programu, ruhusa, vipengele vya kifaa vya kuzuia wizi na data inayohusiana na kifaa hiki, ikiwa ni pamoja na shughuli za mtandao na maelezo kuhusu mahali kifaa chako kilipo."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ili utumie vipengele vya kifaa vya kuzuia wizi, lazima uwe na skrini inayoweza kufungwa kwa nenosiri kwenye kifaa chako."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Wasiliana na msimamizi wako kwa maelezo zaidi, ikiwa ni pamoja na sera za faragha za shirika lako."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pata maelezo zaidi"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Ghairi"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Sawa"</string>

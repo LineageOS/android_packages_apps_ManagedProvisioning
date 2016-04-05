@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Configuración do perfil de traballo"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vaia!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Configura o teu perfil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"A túa organización controla este perfil e manteno seguro. Ti controlas o resto do contido do dispositivo."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A seguinte aplicación xestionará o teu dispositivo:"</string>
     <string name="next" msgid="1004321437324424398">"Seguinte"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando o teu perfil de traballo..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"O teu administrador pode supervisar e xestionar a configuración, o acceso corporativo, as aplicacións, os permisos e os datos asociados ao perfil, incluída a actividade da rede e a información de localización do teu dispositivo."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"O teu administrador pode supervisar e xestionar a configuración, o acceso corporativo, as aplicacións, os permisos, as funcións antirroubo e os datos asociados a este dispositivo, incluída a actividade da rede e a información de localización do teu dispositivo."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Para usar as funcións antirroubo, o teu dispositivo debe contar cun bloqueo da pantalla protexido por contrasinal."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Contacta co teu administrador para obter máis información, incluídas as políticas de privacidade da túa organización."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Máis información"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Aceptar"</string>

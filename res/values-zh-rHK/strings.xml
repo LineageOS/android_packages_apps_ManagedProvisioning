@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"工作設定檔設定"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕！"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"設定您的設定檔"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"貴機構可控制這個設定檔並確保其安全；裝置上的其他所有內容則由您自行管理。"</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"下列應用程式將管理您的裝置："</string>
     <string name="next" msgid="1004321437324424398">"下一步"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在設定您的工作設定檔…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"您的管理員可以監控並管理與這個設定檔相關聯的設定、企業存取、應用程式、權限和資料，包括網絡活動和您的裝置位置資料。"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"您的管理員可以監控並管理與這部裝置相關聯的設定、企業存取、應用程式、權限、防盜功能和資料，包括網絡活動和您的裝置位置資料。"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"如要使用防盜功能，您必須在裝置上啟用密碼螢幕鎖定。"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"請與您的管理員聯絡，以獲取詳細資訊，包括您機構的私隱權政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"瞭解詳情"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
     <string name="ok_setup" msgid="4593707675416137504">"確認"</string>

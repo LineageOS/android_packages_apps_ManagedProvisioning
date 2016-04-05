@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Nastavenie pracovného profilu"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Nastavenie profilu"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tento profil riadi a zabezpečuje vaša spoločnosť. Všetko ostatné na tomto zariadení máte pod kontrolou vy."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="next" msgid="1004321437324424398">"Ďalej"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavuje sa pracovný profil…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a dáta priradené k tomuto profilu vrátane aktivity v sieti a informácií o polohe zariadenia."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia, funkcie ochrany proti krádeži a dáta priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe zariadenia."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ak chcete používať funkcie ochrany proti krádeži, musíte mať na zariadení zámku obrazovky chránenú heslom."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) vám poskytne správca."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Viac informácií"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Zrušiť"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>

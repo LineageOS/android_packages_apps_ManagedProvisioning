@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"የሥራ መገለጫ ውቅረት"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ውይ!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"የእርስዎን መገለጫ ያዋቅሩ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ድርጅትዎ ይህን መገለጫ ይቆጣጠራል፣ እና ደህንነቱን ይጠብቃል። መሣሪያዎ ላይ ያለውን የተቀረው ነገር እርስዎ ነዎት የሚቆጣጠሩት።"</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"የሚከተለው መተግበሪያ መሣሪያዎን ያስተዳድረዋል፦"</string>
     <string name="next" msgid="1004321437324424398">"ቀጣይ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"የስራ መገለጫዎን በማዘጋጀት ላይ…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"የእርስዎ አስተዳዳሪ ቅንብሮችን፣ የኮርፖሬት መዳረሻን፣ መተግበሪያዎችን፣ ፍቃዶችን፣ እና የአውታረ መረብ እንቅስቃሴ እና የመሣሪያዎ አካባቢ መረጃን ጨምሮ ከመገለጫው ጋር የተጎዳኘ ውሂብ የመከታተልና የማስተዳደር ብቃት አለው።"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"የእርስዎ አስተዳዳሪ ቅንብሮችን፣ የኮርፖሬት መዳረሻን፣ መተግበሪያዎችን፣ ፍቃዶችን፣ የስርቆት መከላከያ ባህሪያትን፣ እና የአውታረ መረብ እንቅስቃሴ እና የመሣሪያዎ አካባቢ መረጃን ጨምሮ ከዚህ መሣሪያ ጋር የተጎዳኘ ውሂብ የመከታተልና የማስተዳደር ብቃት አለው።"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"የስርቆት መከላከያ ባህሪዎችን ለመጠቀም ለእርስዎ መሣሪያ በይለፍ ቃል የተጠበቀ የማያ ገጽ መቆለፊያ ሊኖርዎት ይገባል።"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"የድርጅትዎ ግላዊነት መመሪያዎችን ጨምሮ ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ተጨማሪ ለመረዳት"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ይቅር"</string>
     <string name="ok_setup" msgid="4593707675416137504">"እሺ"</string>

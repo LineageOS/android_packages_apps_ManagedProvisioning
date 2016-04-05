@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"Radni je profil postavljen"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Postavljanje profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija kontrolira i štiti ovaj profil. Vi kontrolirate sve ostalo na svojem uređaju."</string>
@@ -29,14 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vašim će uređajem upravljati sljedeća aplikacija:"</string>
     <string name="next" msgid="1004321437324424398">"Dalje"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Postavljanje radnog profila…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (8081364233904653752) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (7400390654083275019) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Vaš administrator može nadzirati postavke, korporacijski pristup, aplikacije, dopuštenja i podatke povezane s profilom, uključujući aktivnosti na mreži i podatke o lokaciji uređaja te upravljati njima."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Vaš administrator može nadzirati postavke, korporacijski pristup, aplikacije, dopuštenja, značajke za zaštitu od krađe i podatke povezane s uređajem, uključujući aktivnosti na mreži i podatke o lokaciji uređaja te upravljati njima."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Da biste upotrebljavali značajke za zaštitu od krađe, na uređaju morate postaviti zaporku za otključavanje zaslona."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Više informacija, uključujući pravila o privatnosti u organizaciji, možete saznati od administratora."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Odustani"</string>
     <string name="ok_setup" msgid="4593707675416137504">"U redu"</string>
