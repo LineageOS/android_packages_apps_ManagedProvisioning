@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफाईल सेटअप"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"आपले प्रोफाईल सेट करा"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"आपली संस्‍था या डिव्‍हाइसचे नियंत्रण करेल आणि त्यास सुरक्षित ठेवेल."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"कार्य प्रोफाईल आधीपासून विद्यमान आहे आणि याद्वारे व्यवस्थापित केले आहे:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"हे कार्य प्रोफाईल %s वापरासाठी व्यवस्थापित केले आहे:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"आपण सुरु ठेवल्यास या प्रोफाईलमधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्‍यासाठी, आपल्‍याला आपले डिव्हाइस कूटबद्ध करणे आवश्‍यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक आहे"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"वापरकर्ता सेटअप अपूर्ण"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिव्‍हाइसचा वापरकर्ता"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"आपले डिव्हाइस सेट करा"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटावर प्रक्रिया करीत आहे..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाय-फाय ला कनेक्ट करीत आहे..."</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासन अॅप डाउनलोड करीत आहे..."</string>

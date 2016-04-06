@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Einrichtung des Arbeitsprofils"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hoppla!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"Profil einrichten"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"Dein Unternehmen verwaltet dieses Profil und sorgt für seine Sicherheit. Du verwaltest alle anderen Aspekte deines Geräts."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Deine Organisation hat die Kontrolle über das Gerät und sorgt für den entsprechenden Schutz."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die folgende App benötigt Zugriff auf dieses Profil:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Es ist bereits ein Arbeitsprofil vorhanden und wird verwaltet von:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Dieses Arbeitsprofil wird für %s von der folgenden App verwaltet:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Bevor du fortfährst, "<a href="#read_this_link">"lies diese Informationen"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Wenn du den Vorgang fortsetzt, werden alle Apps und Daten in diesem Profil gelöscht."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"Löschen"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Abbrechen"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Um mit dem Einrichten deines Arbeitsprofils fortzufahren, musst du dein Gerät verschlüsseln. Dies kann einige Zeit dauern."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nutzerverwaltungskonfiguration unvollständig"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Nutzer des Dienstgeräts"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"Gerät einrichten"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"Einrichtungsdaten werden verarbeitet…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"WLAN-Verbindung wird hergestellt…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Admin-App wird heruntergeladen…"</string>

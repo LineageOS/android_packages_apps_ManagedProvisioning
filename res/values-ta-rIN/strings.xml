@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"பணிச் சுயவிவர அமைவு"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"அச்சச்சோ!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"சுயவிவரத்தை அமைக்கவும்"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"உங்கள் நிறுவனம், இந்தச் சுயவிவரத்தைக் கட்டுப்படுத்தி, அதைப் பாதுகாப்பாக வைக்கிறது. உங்கள் சாதனத்தில் இருந்து எல்லாவற்றையும் கட்டுப்படுத்தலாம்."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"உங்கள் நிறுவனம் இந்தச் சாதனத்தைக் கட்டுப்படுத்துவதோடு, அதைப் பாதுகாப்பாகவும் வைக்கும்."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"பின்வரும் பயன்பாடு இந்தச் சுயவிவரத்தை அணுக வேண்டும்:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"பணி சுயவிவரம் ஏற்கனவே உள்ளது மற்றும் அதை நிர்வகிப்பது:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"பின்வருவதைப் பயன்படுத்தி பணி சுயவிவரம் %sக்காக நிர்வகிக்கப்படுகிறது:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"தொடர்வதற்கு முன், "<a href="#read_this_link">"இதைப் படிக்கவும்"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"தொடர்ந்தால், இந்தச் சுயவிவரத்தில் உள்ள எல்லா பயன்பாடுகளும் தகவலும் நீக்கப்படும்."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"நீக்கு"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ரத்துசெய்"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, சாதனத்தை மறையாக்க வேண்டும். அதற்குச் சிறிது நேரம் ஆகலாம்."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"சரி"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"பயனர் அமைவு முழுமையடையவில்லை"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"பணியிடச் சாதனத்தின் பயனர்"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"சாதனத்தை அமைக்கவும்"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"அமைவு தரவைச் செயல்படுத்துகிறது…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"வைஃபையுடன் இணைக்கிறது…"</string>
     <string name="progress_download" msgid="3522436271691064624">"நிர்வாகி பயன்பாட்டை இறக்குகிறது…"</string>

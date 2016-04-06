@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Nastavitev delovnega profila"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"Nastavitev profila"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija nadzira ta profil in skrbi za njegovo varnost. Vi nadzirate vse drugo v napravi."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Vaša organizacija bo nadzirala to napravo in poskrbela za njeno varnost."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ta aplikacija bo morala dostopati do tega profila:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Delovni profil že obstaja in ga upravlja:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ta delovni profil se upravlja za domeno %s z aplikacijo:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Preden nadaljujete, "<a href="#read_this_link">"preberite to"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Če nadaljujete, bodo izbrisane vse aplikacije in podatki v tem profilu."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"Izbriši"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Prekliči"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Če želite nadaljevati nastavitev delovnega profila, morate šifrirati napravo. To bo morda trajalo nekaj časa."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"V redu"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nastavitev uporabnika ni dokončana"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Uporabnik delovne naprave"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"Nastavitev naprave"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"Obdelava podatkov za nastavitev …"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Vzpostavljanje povezave z omrežjem Wi-Fi …"</string>
     <string name="progress_download" msgid="3522436271691064624">"Prenašanje skrbniške aplikacije …"</string>

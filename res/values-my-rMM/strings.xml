@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"အလုပ်ပရိုဖိုင် စနစ်ထည့်သွင်းမှု"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"အူးပ်စ်!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"သင်၏ ပရိုဖိုင်ကို စဖွင့်သတ်မှတ်ရန်"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"သင်၏ အဖွဲ့အစည်းက ဒီပရိုဖိုင်ကို ထိန်းချုပ်လျက် လုံခြုံအောင် ထားရှိပါသည်။ သင်သည် သင့် ကိရိယာ ထဲက ကျန်အရာများကို ထိန်းချုပ်ပါသည်။"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"သင့်အဖွဲ့အစည်းက ဒီကိရိယာကို ထိန်းချုပ်လျက် လုံခြုံအောင် စောင့်ရှောက်ပေးမည်။"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ appက ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"အလုပ်ပရိုဖိုင်တစ်ခု ရှိပြီးဖြစ်ကာ ၎င်းအား စီမံခန့်ခွဲသည်မှာ-"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ဤအလုပ်ပရိုဖိုင်အား ဖော်ပြပါအား သုံးရန်အတွက် စီမံသည်-"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ရှေ့မဆက်မှီ၊ "<a href="#read_this_link">"ဖတ်ပါ"</a>"။"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"သင် ရှေ့ဆက်သွားပါက ဤပရိုဖိုင်ရှိ appများနှင့် ဒေတာ အားလုံးကို ဖျက်ပစ်မည်။"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"ဖျက်ရန်"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ထားတော့"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"သင့် အလုပ်ပရိုဖိုင်ကို ဆက်လက် တပ်ဆင်သတ်မှတ်ရန်၊ သင့်စက်အား လျှို့ဝှက်ကုဒ် သွင်းရမည်။ အချိန်အနည်းငယ် ကြာနိုင်သည်။"</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"အိုကေ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"အသုံးပြုသူ ပြင်ဆင်သတ်မှတ်မှု မပြီးစီးပါ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"သင်၏ ကိရိယာကို စဖွင့်သတ်မှတ်ရန်"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"ဖွဲ့စည်းပုံအချက်အလက်ကို စီမံဆောင်ရွက်နေသည်..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ကြိုးမဲ့အင်တာနက်သို့ ချိတ်ဆက်နေသည်..."</string>
     <string name="progress_download" msgid="3522436271691064624">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ဒေါင်းလုဒ်လုပ်နေသည်..."</string>

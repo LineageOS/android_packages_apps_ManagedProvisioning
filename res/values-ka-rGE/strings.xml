@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"სამსახურის პროფილის დაყენება"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"უკაცრავად!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"თქვენი პროფილის დაყენება"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"თქვენი ორგანიზაცია აკონტროლებს ამ პროფილს და მის უსაფრთხოებას. ყველაფერ დანარჩენს კი თქვენ აკონტროლებთ თქვენს მოწყობილობაზე."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"თქვენი ორგანიზაცია კონტროლს გაუწევს ამ მოწყობილობას და მის უსაფრთხოებას უზრუნველყოფს."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"შემდეგ აპს ამ პროფილზე წვდომა დაჭირდება:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"სამუშაო პროფილი უკვე არსებობს და მას მართავს:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ამ სამუშაო პროფილის მართვა ხორციელდება %s-სთვის, რა დროსაც გამოიყენება:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"გაგრძელებამდე "<a href="#read_this_link">"ეს წაიკითხეთ"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"თუ გააგრძელებთ, წაიშლება ყველა აპი და მონაცემი ამ პროფილში."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"წაშლა"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"გაუქმება"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"თქვენი სამუშაო პროფილის შექმნის გასაგრძელებლად, უნდა დაშიფროთ თქვენი მოწყობილობა. ამას შესაძლოა გარკვეული დრო დასჭირდეს."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"კარგი"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"მომხმარებლის ანგარიშის გამართვა ვერ მოხერხდა"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"სამუშაო მოწყობილობის მომხმარებელი"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"თქვენი მოწყობილობის დაყენება"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"დაყენების მონაცემების დამუშავება…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi-თან დაკავშირება…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ადმინისტრატორის აპის ჩამოტვირთვა…"</string>

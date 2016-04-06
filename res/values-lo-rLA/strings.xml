@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"ຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ອຸຍ!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"​ຕັ້ງ​ຄ່າ​ໂປ​ຣ​ໄຟລ໌​ຂອງ​ທ່ານ"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"ອົງ​ກອນ​ຂອງ​ທ່ານ​ຄວບ​ຄຸມໂປຣ​ໄຟລ໌​ນີ້​ ແລະ​​ເຮັດ​ໃຫ້​ມັນ​ປອດ​ໄພ. ຢ່າງ​ອື່ນໆ​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ແມ່ນ​ທ່ານ​​ເປັນ​ຜູ່ຄວບ​ຄຸມ​."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ອົງ​ການ​ຂອງ​ທ່ານ​ຈະ​ຄວບ​ຄຸມ​ອຸ​ປະ​ກອນ​ນີ້ ແລະ ຮັກ​ສາ​ໃຫ້​ມັນ​ປອດ​ໄພ."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ແອັບຯ​ຕໍ່​ໄປ​ນີ້​ຈະຕ້ອງ​ການ​ເຂົ້າ​ເຖິງ​ໂປຣ​ໄຟລ໌​ນີ້:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ໂປຣໄຟລ໌ບ່ອນເຮັດວຽກມີຢູ່ແລ້ວ ແລະຖືກຄວບຄຸມໂດຍ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ມີການຈັດການໂປຣໄຟລບ່ອນເຮັດວຽກສໍາລັບ %s ການໃຊ້:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ກ່ອນດຳເນີນການ, "<a href="#read_this_link">"ໃຫ້ອ່ານ"</a>" ນີ້."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ແອັບ ແລະຂໍ້ມູນທັງໝົດໃນໂປຣໄຟລນີ້ຈະຖືກລຶບຖ້າທ່ານສືບຕໍ່."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"​ລຶບ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"​ຍົກ​ເລີກ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"​ເພື່ອ​ສືບ​ຕໍ່​ຕັ້ງ​ຄ່າ​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ​ຂອງ​ທ່ານ, ທ່ານ​ຈະ​ຕ້ອງ​ເຂົ້າ​ລະ​ຫັດ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ​ກ່ອນ. ຂັ້ນ​ຕອນ​ນີ້​ຈະ​ໃຊ້​ເວ​ລາ​ໄລ​ຍະ​ນຶ່ງ."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ຕົກລົງ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ການ​ຕັ້ງ​ຜູ້​ໃຊ້​ບໍ່​ສຳ​ເລັດ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"​​ຜູ່​ໃຊ້​ອຸ​ປະ​ກອນ​ບ່ອນ​ເຮັດ​ວຽກ"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່​ກັ​ບ Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ້ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>

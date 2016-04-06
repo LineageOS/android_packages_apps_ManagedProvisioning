@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਨਾ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹ ਹੋ!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੇ ਨਿਯੰਤਰਣ ਪਾਉਂਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਦੀ ਹੈ। ਤੁਸੀਂ ਆਪਣੀ ਡਿਵਾਈਸ ਤੇ ਹੋਰ ਸਭ ਕਿਸੇ ਤੇ ਨਿਯੰਤਰਣ ਪਾ ਸਕਦੇ ਹੋ।"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਡਿਵਾਈਸ ਤੇ ਨਿਯੰਤਰਣ ਪਾਏਗੀ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖੇਗੀ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ਇਸ ਐਪ ਨੂੰ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੱਕ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੋਵੇਗੀ:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ਇੱਕ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ ਅਤੇ ਇਸ ਵੱਲੋਂ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ਇਹ ਕੰਮ ਪ੍ਰੋਫਾਈਲ %s ਲਈ ਇਹ ਵਰਤਦੇ ਹੋਏ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਸਾਰੇ ਐਪਸ ਅਤੇ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਜਾਏਗਾ।"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡਿਵਾਈਸ ਨੂੰ ਐਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕੰਮ ਡਿਵਾਈਸ ਦਾ ਉਪਭੋਗਤਾ"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"ਆਪਣੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ ਡਾਟਾ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
