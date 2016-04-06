@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"הגדרת פרופיל עבודה"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"אופס!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"הגדרת הפרופיל"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"לארגון שלך יש שליטה על הפרופיל ועל אבטחתו. אתה שולט בשאר האפשרויות במכשיר."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"הארגון שלך ישלוט במכשיר הזה וידאג לאבטחה שלו."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"האפליקציה הבאה תצטרך לגשת לפרופיל זה:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"כבר קיים פרופיל עבודה, והוא מנוהל על ידי:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏פרופיל העבודה הזה מנוהל בשביל %s באמצעות:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"קרא את המידע שכאן"</a>" לפני שתמשיך."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"אם תמשיך, כל האפליקציות והנתונים בפרופיל הזה יימחקו."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"מחק"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"בטל"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"כדי להמשיך בהגדרת פרופיל העבודה, יהיה עליך להצפין את המכשיר. הפעולה הזו עשויה להימשך זמן מה."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"אישור"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"הגדרת המשתמש אינה מלאה"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"משתמש של מכשיר עבודה"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"הגדרת המכשיר"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"מעבד נתונים להגדרה…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏מתחבר ל-Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"מוריד את אפליקציית הניהול…"</string>

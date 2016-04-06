@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"การตั้งค่าโปรไฟล์งาน"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"อ๊ะ!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"ตั้งค่าโปรไฟล์ของคุณ"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"องค์กรของคุณควบคุมและรักษาความปลอดภัยให้กับโปรไฟล์นี้ คุณเป็นผู้ควบคุมส่วนที่เหลือในอุปกรณ์"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"องค์กรของคุณจะควบคุมอุปกรณ์นี้และรักษาความปลอดภัยให้อุปกรณ์"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"แอปต่อไปนี้ต้องการเข้าถึงโปรไฟล์นี้:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"มีโปรไฟล์งานอยู่แล้วและได้รับการจัดการโดย:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"มีการจัดการโปรไฟล์งานนี้สำหรับ %s โดยใช้:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ก่อนดำเนินการต่อ โปรด"<a href="#read_this_link">"อ่านข้อมูลนี้"</a></string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"ระบบจะลบแอปและข้อมูลทั้งหมดในโปรไฟล์นี้หากคุณดำเนินการต่อ"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"ลบ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ยกเลิก"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"หากต้องการตั้งค่าโปรไฟล์งานต่อ คุณต้องเข้ารหัสอุปกรณ์ ซึ่งอาจใช้เวลาสักครู่หนึ่ง"</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ตกลง"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"การตั้งค่าผู้ใช้ไม่สมบูรณ์"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ผู้ใช้อุปกรณ์ในการทำงาน"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"ตั้งค่าอุปกรณ์"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"กำลังดำเนินการกับข้อมูลการตั้งค่า…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"กำลังเชื่อมต่อ Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ…"</string>

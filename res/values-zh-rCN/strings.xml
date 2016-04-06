@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"工作资料设置"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"设置您的资料"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全。您可以控制设备上的所有其他内容。"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"您的单位将控制此设备，并确保其安全无虞。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"以下应用需要此资料的访问权限："</string>
@@ -30,7 +31,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在设置您的工作资料…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"您单位的管理员能够监控和管理与此资料相关的设置、企业权限、应用、权限以及数据（其中包括网络活动和您设备的位置信息）。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"您单位的管理员能够监控和管理与此设备相关的设置、企业权限、应用、权限、防盗保护功能以及数据（其中包括网络活动和您设备的位置信息）。"</string>
-    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"要使用防盗保护功能，您必须为您的设备设置采用密码保护的屏幕锁定方式。"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"要使用防盗保护功能，您必须为您的设备设置一种采用密码保护的屏幕锁定方式。"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"请与您单位的管理员联系以了解详情，包括单位的隐私权政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"工作资料已存在，且由以下应用管理："</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s 的此工作资料通过以下应用管理："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"请先"<a href="#read_this_link">"阅读此文"</a>"，然后再继续。"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"如果继续，则此工作资料中的所有应用和数据都会被删除。"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"删除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"要继续设置工作资料，您需要对设备进行加密。此过程可能需要一段时间。"</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"确定"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"用户设置未完成"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"设置您的设备"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"正在处理设置数据…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在连接到 WLAN 网络…"</string>
     <string name="progress_download" msgid="3522436271691064624">"正在下载管理应用…"</string>

@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Configuración del perfil de trabajo"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"¡Uy!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"Configura tu perfil"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tu organización controla este perfil y lo mantiene seguro. Tú controlas todo lo demás en el dispositivo."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Tu organización controlará este dispositivo y lo mantendrá protegido."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"La siguiente aplicación necesitará acceso a este perfil:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Ya existe un perfil de trabajo que administra:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"La siguiente aplicación administra el perfil de trabajo de %s:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Antes de continuar, "<a href="#read_this_link">"lee esta información"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Si continúas, se eliminarán todas las aplicaciones y los datos en este perfil."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"Eliminar"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Para continuar con la configuración del perfil de trabajo, deberás encriptar el dispositivo. Esto podría tardar un poco."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"Aceptar"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuración de usuario incompleta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuario de dispositivo de trabajo"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"Configurar el dispositivo"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"Procesando los datos de configuración…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Conectando a Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Descargando la aplicación de administración…"</string>

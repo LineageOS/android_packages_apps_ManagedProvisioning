@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"راه‌اندازی نمایه کاری"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"وای!"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"تنظیم نمایه"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"سازمان شما این نمایه را کنترل می‌کند و آن را ایمن نگه می‌دارد. کنترل همه چیزهای دیگر در دستگاهتان در دست شماست."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"سازمان شما این دستگاه را کنترل کرده و آن را ایمن نگه می‌دارد."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"برنامه زیر نیاز به دسترسی به این نمایه خواهد داشت:"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"یک نمایه کاری درحال حاضر موجود است و توسط این فرد مدیریت می‌شود:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏سرپرست زیر این نمایه کاری را برای %s مدیریت می‌کند:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل از ادامه، "<a href="#read_this_link">"این را بخوانید"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"اگر ادامه دهید، همه برنامه‌ها و اطلاعات در این نمایه حذف می‌شوند."</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"لغو"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"برای ادامه تنظیم نمایه کاری‌تان، باید دستگاهتان را رمزگذاری کنید. شاید این کار مدتی طول بکشد."</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"تأیید"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"تنظیم کاربر کامل نیست"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کاربر دستگاه کاری"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"تنظیم کردن دستگاه"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"در حال پردازش داده‌های تنظیم…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏در حال برقراری اتصال به Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"در حال بارگیری برنامه سرپرست…"</string>

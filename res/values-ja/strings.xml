@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"仕事用プロファイルの設定"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"エラー"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"プロファイルのセットアップ"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"このプロファイルは組織が管理し、保護します。プロファイル以外の端末上のものはすべて個人で管理します。"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"この端末は組織によって管理され、安全が維持されます。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"次のアプリはこのプロファイルにアクセスする必要があります。"</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"仕事用プロファイルは既に存在します。管理するアプリ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"この「%s」の仕事用プロファイルは次のアプリによって管理されています:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"次に進む前に"<a href="#read_this_link">"こちらをご覧ください"</a>"。"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"続行すると、このプロファイル内のアプリとデータはすべて削除されます。"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"削除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"キャンセル"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"仕事用プロファイルのセットアップを続行するには、端末を暗号化する必要があります。これにはしばらく時間がかかる場合があります。"</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ユーザー設定が完了していません"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"業務用端末のユーザー"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"端末のセットアップ"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"セットアップデータを処理しています…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiに接続しています…"</string>
     <string name="progress_download" msgid="3522436271691064624">"管理アプリをダウンロードしています…"</string>

@@ -21,7 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"工作設定檔設定"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕！"</string>
-    <string name="setup_work_profile" msgid="9164519662954159586">"設定您的設定檔"</string>
+    <!-- no translation found for setup_work_profile (1468934631731845267) -->
+    <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"貴機構可控制這個設定檔並確保其安全；裝置上的其他所有內容則由您自行管理。"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"您的機構將會控制此裝置，並保障裝置安全。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"下列應用程式需要存取這個設定檔："</string>
@@ -42,7 +43,8 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"工作設定檔已存在，並由以下應用程式管理："</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"這個「%s」的工作設定檔由以下應用程式管理："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"請在開始前"<a href="#read_this_link">"閱讀此資訊"</a>"。"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"如果繼續，此設定檔中的所有應用程式和資料將被刪除。"</string>
+    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
+    <skip />
     <string name="delete_profile" msgid="2299218578684663459">"刪除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"如要繼續設定公司檔案，您必須為裝置加密。這項操作可能需要一段時間才能完成。"</string>
@@ -60,7 +62,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"確定"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"使用者設定未完成"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作裝置的使用者"</string>
-    <string name="setup_work_device" msgid="3028145936574439146">"設定您的裝置"</string>
+    <!-- no translation found for setup_work_device (4243324420514896773) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"正在處理設定資料…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在連線至 Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"正在下載管理員應用程式…"</string>
