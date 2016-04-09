@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Thiết lập hồ sơ công việc"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Rất tiếc!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"Thiết lập hồ sơ công việc"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tổ chức của bạn kiểm soát và giữ bảo mật hồ sơ này. Bạn kiểm soát mọi thứ khác trên thiết bị của mình."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Tổ chức của bạn sẽ kiểm soát và giữ an toàn cho thiết bị này."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Ứng dụng sau cần quyền truy cập vào hồ sơ này:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Hồ sơ làm việc đã tồn tại và được quản lý bởi:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Hồ sơ công việc này được quản lý cho %s bằng:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Trước khi tiếp tục, "<a href="#read_this_link">"hãy đọc thông tin sau"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Nếu bạn tiếp tục, tất cả ứng dụng và dữ liệu trong hồ sơ này sẽ bị xóa."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Xóa"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Hủy"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Để tiếp tục thiết lập hồ sơ công việc, bạn cần mã hóa thiết bị của mình. Quá trình này có thể mất vài phút."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"Ok"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Thiết lập người dùng chưa hoàn tất"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Người dùng thiết bị cơ quan"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"Thiết lập thiết bị cơ quan"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Đang xử lý dữ liệu thiết lập..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Đang kết nối Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Đang tải xuống ứng dụng quản trị..."</string>

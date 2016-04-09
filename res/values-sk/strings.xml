@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Nastavenie pracovného profilu"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"Nastavenie pracovného profilu"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tento profil riadi a zabezpečuje vaša spoločnosť. Všetko ostatné na tomto zariadení máte pod kontrolou vy."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Vaša organizácia bude ovládať toto zariadenie a zaistí jeho bezpečnosť."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Nasledujúca aplikácia bude potrebovať prístup k tomuto profilu:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Pracovný profil už existuje a spravuje ho aplikácia:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Tento pracovný profil spravuje pre organizáciu %s aplikácia:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Skôr ako budete pokračovať, "<a href="#read_this_link">"prečítajte si tieto informácie"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ak budete pokračovať, všetky aplikácie a údaje v tomto profile sa odstránia."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Odstrániť"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Zrušiť"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Ak chcete v nastavovaní pracovného profilu pokračovať, bude potrebné zariadenie zašifrovať. To môže chvíľu trvať."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nastavenie používateľa nebolo dokončené"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Používateľ pracovného zariadenia"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"Nastavenie pracovného zariadenia"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Spracovávajú sa údaje nastavenia…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Sťahuje sa aplikácia na správu…"</string>

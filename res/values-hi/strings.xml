@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफ़ाइल सेटअप"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओह!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"कार्यस्थल प्रोफ़ाइल सेट करें"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपका संगठन इस प्रोफ़ाइल को नियंत्रित करता है और उसे सुरक्षित रखता है. अपने डिवाइस पर सब कुछ आप नियंत्रित करते हैं."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"आपका संगठन इस डिवाइस को नियंत्रित करेगा और इसे सुरक्षित बनाए रखेगा."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्नलिखित ऐप्स को इस प्रोफ़ाइल को एक्सेस करने की आवश्यकता होगी:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"एक कार्य प्रोफ़ाइल पहले से मौजूद है और इनके द्वारा प्रबंधित की जाती है:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"यह कार्य प्रोफ़ाइल %s के लिए इसके उपयोग से प्रबंधित की जाती है:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"आगे बढ़ने से पहले, "<a href="#read_this_link">"यह पढ़ें"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"यदि आप जारी रखते हैं, तो इस प्रोफ़ाइल के सभी ऐप्लिकेशन और डेटा को हटा दिया जाएगा."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटाएं"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"अभी नहीं"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"अपनी कार्य प्रोफ़ाइल सेट करना जारी रखने के लिए, आपको अपने डिवाइस को एन्क्रिप्ट करना होगा. इसमें कुछ समय लग सकता है."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"उपयोगकर्ता सेटअप अधूरा है"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिवाइस का उपयोगकर्ता"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"कार्यस्थल डिवाइस सेट करें"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटा संसाधित हो रहा है…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाई-फ़ाई से कनेक्ट हो रहा है…"</string>
     <string name="progress_download" msgid="3522436271691064624">"नियंत्रक ऐप डाउनलोड हो रहा है…"</string>

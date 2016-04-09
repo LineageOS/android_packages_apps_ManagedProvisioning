@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"إعداد ملف شخصي للعمل"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"عفوًا!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"إعداد الملف الشخصي للعمل"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"تتحكم منظمتك في هذا الملف الشخصي وتحافظ على أمانه. بينما تتحكم أنت في كل شيء آخر على جهازك."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ستتحكم مؤسستك في هذا الجهاز وستجعله آمنًا."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"سيحتاج التطبيق التالي إلى الدخول إلى هذا الملف الشخصي:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"هناك ملف شخصي للعمل موجود من قبل وتتم إدارته بواسطة:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"‏تتم إدارة الملف الشخصي للعمل هذا لصالح %s باستخدام:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل المتابعة، يجب "<a href="#read_this_link">"قراءة هذا"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"سيتم حذف جميع التطبيقات والبيانات في هذا الملف الشخصي عند المتابعة."</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"إلغاء"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"لمتابعة إعداد الملف الشخصي للعمل، يجب عليك تشفير الجهاز. قد يستغرق هذا بعض الوقت."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"موافق"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"إعداد حساب المستخدم غير مكتمل"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"مستخدم جهاز العمل"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"إعداد جهاز العمل"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"جارٍ معالجة بيانات الإعداد…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏جارٍ الاتصال بشبكة Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"جارٍ تنزيل تطبيق المشرف…"</string>

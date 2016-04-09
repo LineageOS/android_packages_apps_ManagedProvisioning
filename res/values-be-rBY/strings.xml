@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Наладжванне працоўнага профілю"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Вой!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"Наладжванне рабочага профілю"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ваша арганізацыя кантралюе гэты профіль і забяспечвае яго абарону. Вы кантралюеце ўсё астатняе на вашай прыладзе."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Ваша арганізацыя будзе кантраляваць гэту прыладу і захоўваць яе ў бяспецы."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Наступнай праграме спатрэбіцца доступ да гэтага профілю:"</string>
@@ -44,8 +43,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Працоўны профіль ужо існуе і знаходзіцца пад кіраваннем:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Гэты працоўны профіль знаходзіцца пад кіраваннем для %s з дапамогай:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Перш чым працягнуць, "<a href="#read_this_link">"прачытайце гэта"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Калі вы працягнеце, усе праграмы і даныя ў гэтым профілі будуць выдалены."</string>
     <!-- no translation found for delete_profile (2299218578684663459) -->
     <skip />
     <!-- no translation found for cancel_delete_profile (5155447537894046036) -->
@@ -68,8 +66,7 @@
     <skip />
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Наладжванне карыстальніка не завершана"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Карыстальнік працоўнай прылады"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"Наладжванне рабочай прылады"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Апрацоўка даных наладжвання..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Падлучэнне да Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Спампоўка праграмы для адміністравання..."</string>

@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Ρύθμιση προφίλ εργασίας"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ωχ!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"Ρύθμιση προφίλ εργασίας"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ο οργανισμός σας ελέγχει αυτό το προφίλ και το διατηρεί ασφαλές. Εσείς ελέγχετε όλα τα υπόλοιπα στοιχεία στη συσκευή σας."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Ο οργανισμός σας θα ελέγξει αυτήν τη συσκευή και θα τη διατηρήσει ασφαλή."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Η παρακάτω εφαρμογή θα χρειαστεί πρόσβαση σε αυτό το προφίλ:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Υπάρχει ήδη προφίλ εργασίας και η διαχείρισή του γίνεται από:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Η διαχείριση αυτού του προφίλ γίνεται για %s χρησιμοποιώντας:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Πριν συνεχίσετε, "<a href="#read_this_link">"διάβασε αυτό"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Αν συνεχίσετε, όλες οι εφαρμογές και τα δεδομένα αυτού του προφίλ θα διαγραφούν."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Διαγραφή"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Ακύρωση"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Για να συνεχίσετε με τη ρύθμιση του προφίλ εργασίας σας, θα πρέπει να κρυπτογραφήσετε τη συσκευή σας. Αυτό μπορεί να διαρκέσει λίγη ώρα."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Μη ολοκληρωμένη ρύθμιση χρήστη"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Χρήστης συσκευής εργασίας"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"Ρύθμιση συσκευής εργασίας"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Επεξεργασία δεδομένων ρύθμισης…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Σύνδεση με Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Λήψη εφαρμογής διαχείρισης…"</string>
