@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಾಣಿಕೆ"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ಓಹ್!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ಈ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಕಾಪಾಡುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದನ್ನೂ ನೀವು ನಿಯಂತ್ರಿಸಬಹುದು."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ಈ ಸಾಧನವನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಈ ಪ್ರೊಫೈಲ್ ಪ್ರವೇಶಿಸುವ ಅಗತ್ಯವಿದೆ:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ಕಾರ್ಯ ಪ್ರೊಫೈಲ್ ಈಗಾಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ ಮತ್ತು ಇವರಿಂದ ನಿರ್ವಹಿಸಲಾಗಿದೆ:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ಈ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು %s ಬಳಸಲು ನಿರ್ವಹಿಸಲಾಗಿದೆ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ಮುಂದುವರಿಯುವ ಮೊದಲು, "<a href="#read_this_link">"ಇದನ್ನು ಓದಿ"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ನೀವು ಮುಂದುವರಿಸಿದರೆ, ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ಅಳಿಸಿ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ರದ್ದುಮಾಡು"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು, ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಬೇಕಾದ ಅಗತ್ಯವಿದೆ. ಇದು ಸ್ವಲ್ಪ ಸಮಯವನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ಸರಿ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ಬಳಕೆದಾರ ಸೆಟಪ್ ಅಪೂರ್ಣವಾಗಿದೆ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ಕೆಲಸದ ಸಾಧನದ ಬಳಕೆದಾರರು"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"ಕೆಲಸದ ಸಾಧನವನ್ನು ಹೊಂದಿಸಿ"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ಸೆಟಪ್‌ ಡೇಟಾ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ವೈ-ಫೈಗೆ ಸಂಪರ್ಕಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>

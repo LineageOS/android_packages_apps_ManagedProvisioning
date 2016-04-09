@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Configuração do perfil de trabalho"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"Configurar perfil de trabalho"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"A sua entidade controla este perfil e mantém-no seguro. O utilizador controla tudo o resto no dispositivo."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"A sua entidade irá controlar este dispositivo e mantê-lo seguro."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"A aplicação seguinte terá de aceder a este perfil:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Já existe um perfil de trabalho e é gerido por:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Este perfil de trabalho é gerido por %s através de:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Antes de continuar, "<a href="#read_this_link">"leia isto"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Se continuar, todas as aplicações e todos os dados neste perfil são eliminados."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Eliminar"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Para continuar a configuração do seu perfil de trabalho, tem de encriptar o dispositivo. Esta ação poderá demorar algum tempo."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"Ok"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuração do utilizador incompleta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utilizador de dispositivo de trabalho"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"Configurar dispositivo de trabalho"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"A processar os dados de configuração..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"A ligar à rede Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"A transferir a aplicação de administração..."</string>

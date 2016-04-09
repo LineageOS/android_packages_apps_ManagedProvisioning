@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"İş profili kurulumu"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hata!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"İş profili oluşturun"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Kuruluşunuz bu profili kontrol eder ve güvenliğini sağlar. Cihazınızdaki geri kalan her şey sizin kontrolünüzdedir."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Bu cihazın denetimi ve güvenliğinin sağlanması kuruluşunuz tarafından yapılacaktır."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aşağıdaki uygulamanın bu profile erişmesi gerekecek:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Bir iş profili zaten var ve şu uygulama tarafından yönetiliyor:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Bu iş profili %s için şununla yönetiliyor:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Devam etmeden önce "<a href="#read_this_link">"bunu okuyun"</a>"."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Devam ederseniz bu profildeki tüm uygulamalar ve veriler silinecek."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Sil"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"İptal"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"İş profilinizin kurulum işlemlerine devam etmek için cihazınızı şifrelemelisiniz. Bu işlem biraz zaman alabilir."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"Tamam"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Kullanıcı Kurulumu Tamamlanmadı"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"İş cihazının kullanıcısı"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"İş cihazı kurun"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Kurulum verileri işleniyor…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Kablosuz ağa bağlanılıyor…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Yönetici uygulaması indiriliyor…"</string>

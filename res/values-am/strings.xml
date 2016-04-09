@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"የሥራ መገለጫ ውቅረት"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ውይ!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"የሥራ መገለጫን ያዋቅሩ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ድርጅትዎ ይህን መገለጫ ይቆጣጠራል፣ እና ደህንነቱን ይጠብቃል። መሣሪያዎ ላይ ያለውን የተቀረው ነገር እርስዎ ነዎት የሚቆጣጠሩት።"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"የእርስዎ ድርጅት ይህንን መሳሪያ ይቆጣጠረዋል፣ እና እንደተጠበቀ ያስቀምጠዋል።"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"የሚከተለው መተግበሪያ ይህን መገለጫ መድረስ ያስፈልገዋል።"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ቀድሞውኑ ያለ የስራ መገለጫና በሚከተለው የሚተዳደር፡-"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ይሄ የስራ መገለጫ የሚከተለውን በመጠቀም ለ%s የሚቀናበር ነው፦"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ከመቀጠልዎ በፊት "<a href="#read_this_link">"ይህን ያንብቡት"</a>"።"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ከቀጠሉ በዚህ መገለጫ ውስጥ ያሉ ሁሉም መተግበሪያዎች እና ውሂብ ይሰረዛሉ።"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ሰርዝ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ይቅር"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"የስራ መገለጫዎን ማዋቀር ለመቀጠል መሣሪያዎን ማመስጠር አለብዎት። ይሄ የተወሰነ ጊዜ ሊወስድ ይችላል።"</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"እሺ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"የተጠቃሚ ውቅር አልተጠናቀቀም"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"የስራ መሣሪያ ተጠቃሚ"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"የሥራ መሣሪያን ያዋቅሩ"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"የውቅር ውሂብ በመስራት ላይ…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ከWi-Fi ጋር በመገናኘት ላይ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"የአስተዳዳሪ መተግበሪያውን በማውረድ ላይ…"</string>

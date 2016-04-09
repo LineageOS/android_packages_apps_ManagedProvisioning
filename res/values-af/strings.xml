@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Werkprofielopstelling"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oeps!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"Stel werkprofiel op"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jou organisasie beheer hierdie profiel en hou dit veilig. Jy beheer alle ander goed op jou toestel."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Jou organisasie sal hierdie toestel beheer en dit veilig hou."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die volgende program sal toegang tot hierdie profiel moet hê:"</string>
@@ -43,8 +42,7 @@
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"\'n Werkprofiel bestaan reeds en word bestuur deur:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Hierdie werkprofiel word vir %s bestuur met behulp van:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees hier"</a>" voordat jy voortgaan."</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"As jy voortgaan, sal alle programme en data in hierdie profiel uitgevee word."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Vee uit"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Kanselleer"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Jy moet jou toestel enkripteer om voort te gaan om jou werkprofiel op te stel. Dit kan \'n ruk duur."</string>
@@ -62,8 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Gebruiker se opstelling is onvoltooid"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van werktoestel"</string>
-    <!-- no translation found for setup_work_device (4243324420514896773) -->
-    <skip />
+    <string name="setup_work_device" msgid="4243324420514896773">"Stel werktoestel op"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Verwerk tans opstellingdata …"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Koppel tans aan Wi-Fi …"</string>
     <string name="progress_download" msgid="3522436271691064624">"Laai tans die administrasieprogram af …"</string>
