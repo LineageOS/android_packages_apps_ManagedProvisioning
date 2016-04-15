@@ -69,8 +69,7 @@
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਐਨਕ੍ਰਿਪਸ਼ਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈਟ ਅਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੀ ਡਿਵਾਈਸ ਦਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ਰੱਦ ਕਰੋ"</string>
-    <!-- no translation found for device_owner_error_ok (2002250763093787051) -->
-    <skip />
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ਠੀਕ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ਰੀਸੈਟ ਕਰੋ"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ਇਹ ਡਿਵਾਈਸ ਪਹਿਲਾਂ ਹੀ ਸੈਟ ਅਪ ਕੀਤੀ ਹੋਈ ਹੈ।"</string>

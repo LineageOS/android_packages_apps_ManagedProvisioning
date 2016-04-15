@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Наладжванне працоўнага профілю"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Вой!"</string>
-    <string name="setup_work_profile" msgid="1468934631731845267">"Наладжванне рабочага профілю"</string>
+    <string name="setup_work_profile" msgid="1468934631731845267">"Наладжванне працоўнага профілю"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ваша арганізацыя кантралюе гэты профіль і забяспечвае яго абарону. Вы кантралюеце ўсё астатняе на вашай прыладзе."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Ваша арганізацыя будзе кантраляваць гэту прыладу і захоўваць яе ў бяспецы."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Наступнай праграме спатрэбіцца доступ да гэтага профілю:"</string>
@@ -33,8 +33,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Для выкарыстання функцыі абароны ад крадзяжу вы павінны мець абароненую паролем блакіроўку экрана вашай прылады."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Звярніцеся да адміністратара для атрымання дадатковай інфармацыі, у тым ліку пра палітыкі прыватнасці вашай арганізацыі."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Даведацца больш"</string>
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
+    <string name="cancel_setup" msgid="2949928239276274745">"Скасаваць"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ОК"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Я згаджаюся"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Працоўны профіль"</string>
@@ -44,14 +43,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Гэты працоўны профіль знаходзіцца пад кіраваннем для %s з дапамогай:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Перш чым працягнуць, "<a href="#read_this_link">"прачытайце гэта"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Калі вы працягнеце, усе праграмы і даныя ў гэтым профілі будуць выдалены."</string>
-    <!-- no translation found for delete_profile (2299218578684663459) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5155447537894046036) -->
-    <skip />
+    <string name="delete_profile" msgid="2299218578684663459">"Выдаліць"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Скасаваць"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Каб працягнуць наладжванне працоўнага профілю, вам неабходна зашыфраваць прыладу. Гэта можа заняць некаторы час."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Каб працягнуць наладжванне прылады, вам неабходна зашыфраваць яе. Гэта можа заняць некаторы час."</string>
-    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Зашыфраваць"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шыфраванне завершана"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Краніце, каб працягнуць наладжванне рабочага профілю"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Не атрымалася наладзіць ваш працоўны профіль. Звярніцеся ў аддзел ІТ або паўтарыце спробу пазней."</string>
@@ -60,13 +56,11 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Працоўныя профілі нельга наладзіць на кіраванай прыладзе"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Нельга стварыць працоўны  профіль, таму што вы дасягнулі максімальнай колькасці карыстальнікаў на прыладзе. Выдаліце хаця б аднаго карыстальніка і паспрабуйце яшчэ раз."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ваш працоўны профіль не падтрымліваецца гэтай праграмай запуску. Вам трэба перайсці на сумяшчальную праграму запуску."</string>
-    <!-- no translation found for cancel_provisioning (3408069559452653724) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4257084827403983845) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Скасаваць"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ОК"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Наладжванне карыстальніка не завершана"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Карыстальнік працоўнай прылады"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"Наладжванне рабочай прылады"</string>
+    <string name="setup_work_device" msgid="4243324420514896773">"Наладжванне працоўнай прылады"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Апрацоўка даных наладжвання..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Падлучэнне да Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Спампоўка праграмы для адміністравання..."</string>
@@ -74,12 +68,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Выбар уладальніка прылады..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Ваша прылада не падтрымлівае шыфраванне. Звярніцеся ў аддзел ІТ."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Спыніць наладжванне і сцерці даныя прылады?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1052951540909389275) -->
-    <skip />
-    <!-- no translation found for device_owner_error_ok (2002250763093787051) -->
-    <skip />
-    <!-- no translation found for device_owner_error_reset (1609782972753569267) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Скасаваць"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ОК"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Скінуць налады"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Не атрымалася наладзіць прыладу. Звярніцеся ў аддзел ІТ."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Гэта прылада ўжо наладжана."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Немагчыма падлучыцца да Wi-Fi"</string>
@@ -91,10 +82,8 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Немагчыма выкарыстаць праграму для адміністравання. У яе адсутнічаюць кампаненты, або яна пашкоджана. Звярніцеся ў аддзел ІТ."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Не атрымалася ўсталяваць праграму для адміністравання"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Спыніць наладжванне?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (4408725524311574891) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (5951679183850766029) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Не"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Так"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Скасаванне..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Спыніць наладжванне профілю?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Вы можаце стварыць свой працоўны профіль пазней з праграмы кіравання прыладай, якая выкарыстоўваецца ў вашай арганізацыі."</string>
