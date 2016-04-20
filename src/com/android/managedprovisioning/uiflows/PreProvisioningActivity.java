@@ -93,9 +93,9 @@ public class PreProvisioningActivity extends SetupLayoutActivity
             setResult(resultCode);
             finish();
         } else if (requestCode == CHANGE_LAUNCHER_REQUEST_CODE) {
-            if (resultCode == RESULT_CANCELED) {
+            if (!mUtils.currentLauncherSupportsManagedProfiles(this)) {
                 showCurrentLauncherInvalid();
-            } else if (resultCode == RESULT_OK) {
+            } else {
                 startProfileOwnerProvisioning(mController.getParams());
             }
         } else if (requestCode == WIFI_REQUEST_CODE) {
