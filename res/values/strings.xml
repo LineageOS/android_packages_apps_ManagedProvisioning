@@ -43,7 +43,7 @@
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <string name="setting_up_workspace">Setting up your work profile\u2026</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_profile">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with the profile, including network activity and your device\'s location information.</string>
+  <string name="admin_has_ability_to_monitor_profile">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this profile, including your network activity, as well as your device\'s location, call history, and contact search history.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
   <string name="admin_has_ability_to_monitor_device">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, theft-protection features, and data associated with this device, including network activity and your device\'s location information.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
