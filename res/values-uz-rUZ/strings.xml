@@ -28,7 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Quyidagi ilova qurilmangizni boshqaradi:"</string>
     <string name="next" msgid="1004321437324424398">"Keyingi"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Ishchi profilingiz sozlanmoqda…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Administrator profil bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilovalar va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangiz joylashuvi haqidagi ma’lumotlarni kuzatishi va boshqarishi mumkin."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administratoringiz ushbu qurilma bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilova va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangizning joylashuvi haqidagi ma’lumotlarni kuzatishi va boshqarishi mumkin."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"O‘g‘ridan himoyalanish funksiyasidan foydalanish uchun qurilmangiz ekran qulfi parollangan bo‘lishi kerak."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Qo‘shimcha ma’lumot olish, jumladan, tashkilotingizning maxfiylik siyosati haqida bilish uchun administratoringizga murojaat qiling."</string>

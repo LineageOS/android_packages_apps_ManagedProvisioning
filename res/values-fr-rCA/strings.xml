@@ -28,7 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"L\'application suivante va gérer votre appareil :"</string>
     <string name="next" msgid="1004321437324424398">"Suivant"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configuration de votre profil professionnel en cours…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Votre administrateur peut surveiller et gérer les paramètres, l\'accès aux données d\'entreprise, les applications, les autorisations et les données associées au profil, y compris l\'activité réseau et les données de localisation de votre appareil."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"L\'administrateur de votre entreprise peut surveiller et gérer les paramètres, les accès, les applications, les autorisations, les fonctionnalités de protection contre le vol et les données associés à cet appareil, y compris votre activité réseau et les données de localisation de votre appareil."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Pour utiliser les fonctionnalités de protection contre le vol, vous devez activer le verrouillage d\'écran protégé par mot de passe sur votre appareil."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Pour obtenir plus d\'information, y compris les politiques de confidentialité de votre entreprise, communiquez avec votre administrateur."</string>
