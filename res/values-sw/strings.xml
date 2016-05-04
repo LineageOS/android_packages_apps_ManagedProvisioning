@@ -28,7 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Programu zifuatazo zitadhibiti kifaa chako:"</string>
     <string name="next" msgid="1004321437324424398">"Inayofuata"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Inaweka mipangilio ya wasifu wako wa kazi..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia vipengele vya shirika, programu, ruhusa na data inayohusiana na wasifu huu, ikiwa ni pamoja na shughuli za mtandao na maelezo kuhusu mahali kifaa chako kilipo."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia vipengele vya shirika, programu, ruhusa, vipengele vya kifaa vya kuzuia wizi na data inayohusiana na kifaa hiki, ikiwa ni pamoja na shughuli za mtandao na maelezo kuhusu mahali kifaa chako kilipo."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ili utumie vipengele vya kifaa vya kuzuia wizi, lazima uwe na skrini inayoweza kufungwa kwa nenosiri kwenye kifaa chako."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Wasiliana na msimamizi wako kwa maelezo zaidi, ikiwa ni pamoja na sera za faragha za shirika lako."</string>

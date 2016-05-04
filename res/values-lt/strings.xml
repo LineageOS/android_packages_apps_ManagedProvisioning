@@ -28,7 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ši programa tvarkys jūsų įrenginį:"</string>
     <string name="next" msgid="1004321437324424398">"Kitas"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nustatomas darbo profilis..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Administratorius gali stebėti ir tvarkyti nustatymus, įmonės duomenų pasiekiamumo parinktis, programas, leidimus ir su profiliu susietus duomenis, įskaitant tinklo veiklą ir įrenginio vietovės informaciją."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administratorius gali stebėti ir tvarkyti nustatymus, įmonės duomenų pasiekiamumo parinktis, programas, leidimus, apsaugos nuo vagystės funkcijas ir su šiuo įrenginiu susietus duomenis, įskaitant tinklo veiklą ir įrenginio vietovės informaciją."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Kad galėtumėte naudoti apsaugos nuo vagystės funkcijas, turite nustatyti slaptažodžiu apsaugotą įrenginio ekrano užraktą."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Susisiekite su administratoriumi, jei reikia daugiau informacijos, įskaitant organizacijos privatumo politiką."</string>

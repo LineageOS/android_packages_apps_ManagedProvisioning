@@ -28,7 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"お使いの端末は次のアプリによって管理されます。"</string>
     <string name="next" msgid="1004321437324424398">"次へ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"仕事用プロファイルをセットアップしています…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"管理者は、ネットワーク アクティビティや端末の位置情報など、プロファイルに関連付けられた設定、コーポレート アクセス、アプリ、権限、データを確認して管理できます。"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"管理者は、ネットワーク アクティビティや端末の位置情報など、この端末に関連付けられた設定、コーポレート アクセス、アプリ、権限、盗難防止機能、データを確認して管理できます。"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"盗難防止機能を使用するには、端末でパスワードで保護された画面ロックを設定する必要があります。"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"組織のプライバシー ポリシーなど詳しくは管理者にお問い合わせください。"</string>

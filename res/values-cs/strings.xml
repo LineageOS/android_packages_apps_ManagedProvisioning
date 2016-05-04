@@ -28,7 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zařízení bude spravovat následující aplikace:"</string>
     <string name="next" msgid="1004321437324424398">"Další"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavování pracovního profilu…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Administrátor může sledovat a spravovat nastavení, firemní přístup, aplikace, oprávnění a data přidružená k tomuto profilu, včetně aktivity v síti a informací o poloze vašeho zařízení."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administrátor může sledovat a spravovat nastavení, firemní přístup, aplikace, oprávnění, funkce ochrany proti krádeži a data přidružená k tomuto zařízení, včetně aktivity v síti a informací o poloze vašeho zařízení."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Chcete-li používat funkce ochrany proti krádeži, je nutné mít v zařízení nastaven zámek obrazovky chráněný heslem."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Další informace, včetně zásad ochrany soukromí vaší organizace, vám poskytne administrátor."</string>
