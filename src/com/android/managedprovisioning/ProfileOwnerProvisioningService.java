@@ -49,6 +49,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
+import com.android.managedprovisioning.task.ManagedProfileSettingsTask;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -249,10 +250,11 @@ public class ProfileOwnerProvisioningService extends Service {
             createProfile(getString(R.string.default_managed_profile_name));
         }
         if (mManagedProfileOrUserInfo != null) {
-
             final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask;
             final DisableInstallShortcutListenersTask disableInstallShortcutListenersTask;
             final DisableBluetoothSharingTask disableBluetoothSharingTask;
+            final ManagedProfileSettingsTask managedProfileSettingsTask =
+                    new ManagedProfileSettingsTask(this, mManagedProfileOrUserInfo.id);
 
             disableInstallShortcutListenersTask = new DisableInstallShortcutListenersTask(this,
                     mManagedProfileOrUserInfo.id);
@@ -275,6 +277,7 @@ public class ProfileOwnerProvisioningService extends Service {
                             try {
                                 disableBluetoothSharingTask.run();
                                 if (!isProvisioningManagedUser()) {
+                                    managedProfileSettingsTask.run();
                                     disableInstallShortcutListenersTask.run();
                                 }
                                 setUpUserOrProfile();
