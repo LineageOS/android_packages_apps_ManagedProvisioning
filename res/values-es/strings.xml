@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Esta aplicación administrará tu dispositivo:"</string>
     <string name="next" msgid="1004321437324424398">"Siguiente"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando tu perfil de trabajo…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Tu administrador puede controlar y administrar los ajustes, el acceso corporativo, las aplicaciones, los permisos y los datos asociados al perfil, como la actividad de red, la ubicación del dispositivo, el historial de llamadas y el historial de búsqueda de contactos."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Tu administrador puede controlar y administrar los ajustes, el acceso corporativo, las aplicaciones, los permisos, las funciones de protección antirrobo y los datos asociados a este dispositivo, como la información sobre su ubicación y la actividad de red."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Debes tener un bloqueo de pantalla protegido por contraseña en tu dispositivo para utilizar las funciones de protección antirrobo."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ponte en contacto con el administrador para obtener más información, como las políticas de privacidad de tu organización."</string>

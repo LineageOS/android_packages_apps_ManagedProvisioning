@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Papamahalaan ng sumusunod na app ang iyong device:"</string>
     <string name="next" msgid="1004321437324424398">"Susunod"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Sine-set up ang iyong profile sa trabaho…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"May kakayahan ang iyong admin na subaybayan at pamahalaan ang mga setting, access ng kumpanya, mga app, mga pahintulot at data na nauugnay sa profile na ito, kasama na ang iyong aktibidad sa network, pati na rin ang lokasyon ng iyong device, history ng tawag at history ng paghahanap ng contact."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"May kakayahan ang iyong admin na subaybayan at pamahalaan ang mga setting, access ng kumpanya, mga app, mga pahintulot, mga feature ng proteksyon laban sa pagnanakaw at data na nauugnay sa device na ito, kasama na ang aktibidad sa network at ang impormasyon ng lokasyon ng iyong device."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Upang magamit ang mga feature ng proteksyon laban sa pagnanakaw, dapat ay mayroon kang lock ng screen na protektado ng password para sa iyong device."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Makipag-ugnayan sa iyong admin para sa higit pang impormasyon, kasama na ang mga patakaran sa privacy ng iyong organisasyon."</string>

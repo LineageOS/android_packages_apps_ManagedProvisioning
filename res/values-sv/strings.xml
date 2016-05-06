@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Enheten hanteras med följande app:"</string>
     <string name="next" msgid="1004321437324424398">"Nästa"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Konfigurerar arbetsprofilen …"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Administratören kan kontrollera och hantera inställningar, företagsåtkomst, appar, behörigheter och data som är kopplade till profilen, inklusive nätverksaktivitet och enhetens platsuppgifter, samtalshistorik och kontaktsökhistorik."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administratören kan kontrollera och hantera inställningar, företagsåtkomst, appar, behörigheter stöldskyddsfunktioner och data som är kopplade till den här enheten, inklusive nätverksaktivitet och enhetens platsuppgifter."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Enheten måste ha ett lösenordsskyddat skärmlås för att du ska kunna använda stöldskyddsfunktioner."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Kontakta administratören om du vill veta mer, inklusive om du vill veta mer om organisationens sekretesspolicy."</string>

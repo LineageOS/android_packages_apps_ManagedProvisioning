@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"The following app will manage your device:"</string>
     <string name="next" msgid="1004321437324424398">"Next"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Setting up your work profile…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (4138671070145317359) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Your admin has the ability to monitor and manage settings, corporate access, apps, permissions and data associated with this profile, including your network activity, as well as your device\'s location, call history and contact search history."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, theft-protection features and data associated with this device, including network activity and your device\'s location information."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"To use theft-protection features, you must have a password-protected screen lock for your device."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Contact your admin for more information, including your organisation\'s privacy policies."</string>
