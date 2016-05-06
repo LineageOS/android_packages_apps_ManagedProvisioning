@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aşağıdakı app sizin cihaz idarə edəcək:"</string>
     <string name="next" msgid="1004321437324424398">"Növbəti"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"İş profiliniz quraşdırılır..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Admininiz ayarlara, girişə, tətbiqə, bu istifadəçi ilə əlaqədar dataya, həmçinin şəbəkə fəaliyyətinə və cihazınızın məkan məlumatına nəzarət etmək və idarə etmək iqtidarındadır."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Admininiz ayarlara, korperativ girişə, tətbiqə, icazəyə və bu istifadəçi ilə əlaqədar dataya, həmçinin şəbəkə fəaliyyətinizə, cihazınızın məkan məlumatına, zəng tarixşəsinə və kontakt axtarış tarixçəsinə nəzarət etmək və idarə etmək iqtidarındadır."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Admininiz ayarlar, korporativ giriş, tətbiqlər, icazələr, oğurluğa qarşı qorunma və bu cihaz ilə əlaqədar data, şəbəkə fəaliyyəti və cihazın məkan məlumatına nəzarət və idarə etmək imkanına malikdir."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Oğurluğa qarşı qorunma xüsusiyyətlərini istifadə etmək üçün, cihazınızda parol ilə qorunan ekran kilidi olmalıdır."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ətraflı məlumat, həmçinin təşkilatınızın məxfilik siyasəti haqqında məlumat almaq üçün admin ilə əlaqə saxlayın."</string>
