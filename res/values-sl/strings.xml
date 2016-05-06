@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ta aplikacija bo upravljala napravo:"</string>
     <string name="next" msgid="1004321437324424398">"Naprej"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavljanje delovnega profila …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Skrbnik lahko nadzira in upravlja nastavitve, dostop v podjetju, aplikacije, dovoljenja in podatke, povezane s profilom, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Skrbnik lahko nadzira in upravlja nastavitve, dostop v podjetju, aplikacije, dovoljenja in podatke, povezane s profilom, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Skrbnik lahko nadzira in upravlja nastavitve, dostop v podjetju, aplikacije, dovoljenja, funkcije za zaščito pred krajo in podatke, povezane s to napravo, vključno z omrežno dejavnostjo in podatki o lokaciji naprave."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Za uporabo funkcij za zaščito pred krajo morate imeti v napravi nastavljeno zaklepanje zaslona z geslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika."</string>

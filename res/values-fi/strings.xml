@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Laitettasi hallinnoi seuraava sovellus:"</string>
     <string name="next" msgid="1004321437324424398">"Seuraava"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Määritetään työprofiilia…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Järjestelmänvalvoja voi valvoa ja hallinnoida tämän profiilin asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja profiiliin liittyviä tietoja, kuten verkon käyttöä ja sijaintitietoja."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Järjestelmänvalvoja voi valvoa ja hallinnoida tämän profiilin asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja profiiliin liittyviä tietoja, kuten verkon käyttöä, laitteen sijaintitietoja, puheluhistoriaa ja yhteystietojen hakuhistoriaa."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Järjestelmänvalvoja voi valvoa ja hallinnoida tämän laitteen asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia, varkaudenesto-ominaisuuksia ja laitteeseen liittyviä tietoja, kuten verkon käyttöä ja sijaintitietoja."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Jotta voit käyttää varkaudenesto-ominaisuuksia, laitteesi täytyy käyttää salasanasuojattua näytön lukitusta."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Pyydä järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
