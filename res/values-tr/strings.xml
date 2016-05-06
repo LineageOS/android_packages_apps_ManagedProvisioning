@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Şu uygulama, cihazınızı yönetecek:"</string>
     <string name="next" msgid="1004321437324424398">"İleri"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"İş profiliniz oluşturuluyor…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu profille ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri ve verileri izleyip yönetebilir."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Ayarlar, kurumsal erişim, uygulamalar, izinler ve bu profille ilişkilendirilen veriler (cihazınızın konum bilgileri, çağrı geçmişi ve kişi arama geçmişinin yanı sıra ağ etkinliğiniz) ağ yöneticiniz tarafından izlenip yönetilebilir."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu cihazla ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri, hırsızlığa karşı koruma özelliklerini ve verileri izleyip yönetebilir."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hırsızlığa karşı koruma özelliklerini kullanmak için cihazınızda şifre korumalı bir ekran kilidinizin olması gerekir."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere, daha fazla bilgi için yöneticinize başvurun."</string>

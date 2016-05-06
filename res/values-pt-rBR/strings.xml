@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"O seguinte app gerenciará seu dispositivo:"</string>
     <string name="next" msgid="1004321437324424398">"Próximo"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando seu perfil de trabalho…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados ao perfil, incluindo atividade na rede e informações de local do dispositivo."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Seu administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados a este perfil, incluindo suas atividades na rede, bem como o local, o histórico de chamadas e o histórico de pesquisa de contatos do seu dispositivo."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões, recursos de proteção contra roubo e dados associados a este dispositivo, incluindo atividade na rede e informações de local do dispositivo."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Para usar os recursos de proteção contra roubo, é necessário um bloqueio de tela protegido por senha no dispositivo."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Entre em contato com o administrador para receber mais informações, incluindo as políticas de privacidade da organização."</string>
