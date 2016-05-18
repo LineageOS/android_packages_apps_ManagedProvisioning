@@ -25,7 +25,7 @@
     <string name="company_controls_workspace" msgid="2808025277267917221">"તમારી સંસ્થા આ પ્રોફાઇલને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે. તમે તમારા ઉપકરણ પર બાકીનું બધું નિયંત્રિત કરો છો."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"તમારી સંસ્થા આ ઉપકરણનું નિયંત્રણ કરશે અને તેને સુરક્ષિત રાખશે."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"નીચેની એપ્લિકેશનને આ પ્રોફાઇલ ઍક્સેસ કરવાની જરૂર પડશે:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની એપ્લિકેશન તમારા ઉપકરણને સંચાલિત કરશે:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની ઍપ્લિકેશન તમારા ઉપકરણને સંચાલિત કરશે:"</string>
     <string name="next" msgid="1004321437324424398">"આગલું"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"તમારી કાર્ય પ્રોફાઇલ સેટ કરી રહ્યું છે..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"તમારા વ્યવસ્થાપક પાસે નેટવર્ક પ્રવૃત્તિ તેમજ તમારા ઉપકરણનું સ્થાન, કૉલ ઇતિહાસ અને સામગ્રી શોધ ઇતિહાસ સહિત સેટિંગ્સ, કૉર્પોરેટ ઍક્સેસ, ઍપ્લિકેશનો, પરવાનગીઓ અને આ પ્રોફાઇલ સાથે સંકળાયેલ ડેટાને મૉનિટર અને સંચાલિત કરવાની ક્ષમતા છે."</string>
@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"તમારી સંસ્થાની ગોપનીયતા નીતિઓ સહિત વધુ માહિતી માટે તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"વધુ જાણો"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"રદ કરો"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"ઑકે"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"ઓકે"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"હું સંમતિ આપું છું"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"કાર્ય પ્રોફાઇલ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"પ્રાથમિક વપરાશકર્તા"</string>
@@ -55,7 +55,7 @@
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"આ વપરાશકર્તા કાર્ય પ્રોફાઇલ ધરાવી શકતો નથી"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"સંચાલિત ઉપકરણ પર કાર્ય પ્રોફાઇલ્સ સેટ કરી શકાતી નથી"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"કાર્ય પ્રોફાઇલ બનાવી શકાતી નથી કારણ કે તમે તમારા ઉપકરણ પર વપરાશકર્તાઓની મહત્તમ સંખ્યા સુધી પહોંચી ગયા છો. ઓછામાં ઓછો એક વપરાશકર્તા દૂર કરો અને ફરીથી પ્રયાસ કરો."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"તમારી કાર્ય પ્રોફાઇલ આ લોન્ચર એપ્લિકેશન દ્વારા સમર્થિત નથી. તમારે તેવા એક લોન્ચર પર સ્વિચ કરવું જોઈએ જે સુસંગત હોય."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"તમારી કાર્ય પ્રોફાઇલ આ લોન્ચર ઍપ્લિકેશન દ્વારા સમર્થિત નથી. તમારે તેવા એક લોન્ચર પર સ્વિચ કરવું જોઈએ જે સુસંગત હોય."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"રદ કરો"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ઓકે"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"વપરાશકર્તા સેટઅપ અપૂર્ણ"</string>
@@ -63,13 +63,13 @@
     <string name="setup_work_device" msgid="4243324420514896773">"કાર્ય ઉપકરણને સેટ કરો"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"સેટઅપ ડેટા પર પ્રક્રિયા કરી રહ્યું છે..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi સાથે કનેક્ટ કરી રહ્યું છે..."</string>
-    <string name="progress_download" msgid="3522436271691064624">"વ્યવસ્થાપક એપ્લિકેશન ડાઉનલોડ કરી રહ્યું છે..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"વ્યવસ્થાપક એપ્લિકેશન ઇન્સ્ટોલ કરે છે..."</string>
+    <string name="progress_download" msgid="3522436271691064624">"વ્યવસ્થાપક ઍપ્લિકેશન ડાઉનલોડ કરી રહ્યું છે..."</string>
+    <string name="progress_install" msgid="2258045670385866183">"વ્યવસ્થાપક ઍપ્લિકેશન ઇન્સ્ટોલ કરે છે..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ઉપકરણ માલિક સેટ કરી રહ્યું છે..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"તમારું ઉપકરણ એન્ક્રિપ્શનનું સમર્થન કરતું નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"સેટ કરવાનું બંધ કરીને તમારા ઉપકરણનો ડેટા કાઢી નાખીએ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"રદ કરો"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"ઑકે"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ઓકે"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ફરીથી સેટ કરો"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"તમારું ઉપકરણ સેટ કરી શકાયું નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"આ ઉપકરણ પહેલાંથી જ સેટ કરેલું છે."</string>
@@ -78,9 +78,9 @@
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"કાઢી નાંખી રહ્યું છે"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"કૃપા કરીને રાહ જુઓ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"એક ચેકસમ ભૂલને કારણે વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકાયો નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"વ્યવસ્થાપક એપ્લિકેશન ડાઉનલોડ કરી શકાઈ નથી"</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"વ્યવસ્થાપક ઍપ્લિકેશન ડાઉનલોડ કરી શકાઈ નથી"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"વ્યવસ્થાપક એપ્લિકેશનનો ઉપયોગ કરી શકતાં નથી. તેમાં ઘટકો ખૂટે છે અથવા દૂષિત છે. તમારા IT વિભાગનો સંપર્ક કરો."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"વ્યવસ્થાપક એપ્લિકેશન ઇન્સ્ટોલ કરી શકાઈ નહીં"</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"વ્યવસ્થાપક ઍપ્લિકેશન ઇન્સ્ટોલ કરી શકાઈ નહીં"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"સેટ કરવાનું રોકીએ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"નહીં"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"હા"</string>
