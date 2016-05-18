@@ -55,10 +55,10 @@ import android.os.Parcelable;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.os.storage.IMountService;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.os.storage.StorageManager;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.text.TextUtils;
@@ -703,17 +703,7 @@ public class Utils {
      * Returns whether the device is currently encrypted.
      */
     public boolean isPhysicalDeviceEncrypted() {
-        // TODO remove when we have a fix for b/26950904
-        if ("file".equals(SystemProperties.get("ro.crypto.type"))) {
-            return true;
-        }
-        IMountService mountService = IMountService.Stub.asInterface(
-                ServiceManager.getService("mount"));
-        try {
-            return (mountService.getEncryptionState() == IMountService.ENCRYPTION_STATE_OK);
-        } catch (RemoteException e) {
-            return false;
-        }
+        return StorageManager.isEncrypted();
     }
 
     /**
