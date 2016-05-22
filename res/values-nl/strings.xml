@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oeps!"</string>
     <string name="setup_work_profile" msgid="9164519662954159586">"Je profiel instellen"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"Je organisatie beheert je profiel en beveiligt dit. U beheert alle andere gegevens op je apparaat."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Je organisatie beheert je profiel en beveiligt dit. Je beheert alle andere gegevens op je apparaat."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Dit apparaat wordt beheerd en beveiligd door je organisatie."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"De volgende app heeft toegang nodig tot dit profiel:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Je apparaat wordt beheerd met de volgende app:"</string>
@@ -29,7 +29,7 @@
     <string name="setting_up_workspace" msgid="4517537806569988620">"Je werkprofiel instellen…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4568398182707822770">"Je beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens bijhouden en beheren die aan het profiel zijn gekoppeld, waaronder netwerkactiviteit en de locatiegegevens van je apparaat."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="246829528286153147">"Je beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens bijhouden en beheren die aan dit apparaat zijn gekoppeld, waaronder netwerkactiviteit en de locatiegegevens van je apparaat."</string>
-    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Als u doorgaat, worden de functies voor diefstalbeveiliging niet ingeschakeld. Als u diefstalbeveiliging wilt inschakelen, annuleert u nu en stelt u dit apparaat in als een persoonlijk apparaat."</string>
+    <string name="theft_protection_disabled_warning" msgid="8132394739905501698">"Als je doorgaat, worden de functies voor diefstalbeveiliging niet ingeschakeld. Als je diefstalbeveiliging wilt inschakelen, annuleer je nu en stel je dit apparaat in als een persoonlijk apparaat."</string>
     <string name="contact_your_admin_for_more_info" msgid="6870084889394621288">"Neem contact op met je beheerder voor meer informatie, waaronder het privacybeleid van je organisatie."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Meer informatie"</string>
     <string name="cancel_setup" msgid="3295266841772028057">"ANNULEREN"</string>
@@ -38,12 +38,12 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Werkprofiel verwijderen?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Er is al een werkprofiel dat wordt beheerd door:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Dit werkprofiel wordt beheerd voor %s via:"</string>
-    <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees dit"</a>" voordat u doorgaat."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Alle apps en gegevens in dit profiel worden verwijderd als u doorgaat."</string>
+    <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees dit"</a>" voordat je doorgaat."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="1336653819166266605">"Alle apps en gegevens in dit profiel worden verwijderd als je doorgaat."</string>
     <string name="delete_profile" msgid="8384444459432563649">"VERWIJDEREN"</string>
     <string name="cancel_delete_profile" msgid="5500786140389799348">"ANNULEREN"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Als u wilt doorgaan met het instellen van je werkprofiel, moet u je apparaat versleutelen. Dit kan even duren."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Als u wilt doorgaan met het instellen van je apparaat, moet u je apparaat versleutelen. Dit kan even duren."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Als je wilt doorgaan met het instellen van je werkprofiel, moet je je apparaat versleutelen. Dit kan even duren."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Als je wilt doorgaan met het instellen van je apparaat, moet je je apparaat versleutelen. Dit kan even duren."</string>
     <string name="encrypt_device_cancel" msgid="5989855177432338238">"ANNULEREN"</string>
     <string name="encrypt_device_launch_settings" msgid="5421412897999811117">"VERSLEUTELEN"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Versleuteling voltooid"</string>
@@ -53,7 +53,7 @@
     <string name="user_is_not_owner" msgid="6193230832887977927">"Werkprofielen moeten worden ingesteld door de primaire gebruiker van het apparaat"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Werkprofielen kunnen niet worden ingesteld op een beheerd apparaat"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Werkprofiel kan niet worden gemaakt omdat je het maximumaantal gebruikers op je apparaat hebt bereikt. Verwijder ten minste één gebruiker en probeer het opnieuw."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Je werkprofiel wordt niet ondersteund door deze Launcher-app. U moet overschakelen naar een Launcher die compatibel is."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Je werkprofiel wordt niet ondersteund door deze Launcher-app. Je moet overschakelen naar een Launcher die compatibel is."</string>
     <string name="cancel_provisioning" msgid="3753408161948407036">"ANNULEREN"</string>
     <string name="pick_launcher" msgid="4811489057826175648">"OK"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van zakelijk apparaat"</string>
@@ -85,7 +85,7 @@
     <string name="profile_owner_cancel_ok" msgid="4915817426681209592">"JA"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annuleren…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Instellen van profiel stoppen?"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"U kunt je werkprofiel later instellen via de apparaatbeheer-app die wordt gebruikt door je organisatie."</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Je kunt je werkprofiel later instellen via de apparaatbeheer-app die wordt gebruikt door je organisatie."</string>
     <string name="work_profile_setup_continue" msgid="44459981285359765">"DOORGAAN"</string>
     <string name="work_profile_setup_stop" msgid="5739020120488653974">"STOPPEN"</string>
     <string name="provisioning" msgid="4512493827019163451">"Registreren"</string>
