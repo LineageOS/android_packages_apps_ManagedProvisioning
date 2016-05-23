@@ -70,7 +70,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Sozlash to‘xtatilib, qurilmangizdagi ma’lumotlar tozalab tashlansinmi?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Bekor qilish"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"Qayta tiklash"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Asliga qaytarish"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Qurilmangizni sozlab bo‘lmadi. Kompaniyangizning IT bo‘limiga murojaat qiling."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ushbu qurilma allaqachon moslangan."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi tarmog‘iga ulanib bo‘lmadi"</string>
