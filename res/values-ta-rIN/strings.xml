@@ -46,7 +46,7 @@
     <string name="delete_profile" msgid="2299218578684663459">"நீக்கு"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ரத்துசெய்"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, சாதனத்தை மறையாக்க வேண்டும். அதற்குச் சிறிது நேரம் ஆகலாம்."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"சாதன அமைவைத் தொடர, அதை முறைமையாக்க வேண்டும். அதற்குச் சிறிது நேரம் ஆகலாம்."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"சாதன அமைவைத் தொடர, அதை என்க்ரிப்ட் செய்ய வேண்டும். அதற்குச் சிறிது நேரம் ஆகலாம்."</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"மறையாக்கு"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"குறியாக்கம் முடிந்தது"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, தட்டவும்"</string>
@@ -92,10 +92,10 @@
     <string name="provisioning" msgid="4512493827019163451">"அமைக்கிறது"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA சான்றிதழ்களை அமைக்கிறது"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"சுயவிவரத்தை அமைக்கவும். அமைவைத் தொடங்கவும்"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"சுயவிவரத்தை அமைக்கவும். முறைமையாக்கம்"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"சுயவிவரத்தை அமைக்கவும். என்க்ரிப்ட்"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"சுயவிவரத்தை அமைக்கவும். செயல்நிலையைக் காட்டுகிறது"</string>
     <string name="setup_device_start_setup" msgid="4351340224000741826">"சாதனத்தை அமைக்கவும். அமைவைத் தொடங்கவும்"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"சாதனத்தை அமைக்கவும். முறைமையாக்கம்"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"சாதனத்தை அமைக்கவும். என்க்ரிப்ட்"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"சாதனத்தை அமைக்கவும். செயல்நிலையைக் காட்டுகிறது"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"மேலும் அறிக பொத்தான்"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ஐகான்"</string>

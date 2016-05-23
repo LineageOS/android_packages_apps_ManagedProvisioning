@@ -45,10 +45,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡੈਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਐਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਐਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"ਐਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
-    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ਐਨਕ੍ਰਿਪਸ਼ਨ ਪੂਰਾ"</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"ਇਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ਇਨਕ੍ਰਿਪਸ਼ਨ ਪੂਰਾ"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਦੀ ਸਥਾਪਨਾ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਟੈਪ ਕਰੋ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਕੰਮ ਪ੍ਰੋਫਾਈਲਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ"</string>
@@ -74,7 +74,7 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ਇਹ ਡੀਵਾਈਸ ਪਹਿਲਾਂ ਹੀ ਸੈਟ ਅਪ ਕੀਤੀ ਹੋਈ ਹੈ।"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
-    <string name="device_owner_error_frp" msgid="7053630342416280252">"ਇਹ ਡੀਵਾਈਸ ਫੈਕਟਰੀ ਰੀਸੈਟ ਸੁਰੱਖਿਆ ਵੱਲੋਂ ਲੌਕ ਕੀਤੀ ਗਈ ਹੈ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"ਇਹ ਡੀਵਾਈਸ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਸੁਰੱਖਿਆ ਵੱਲੋਂ ਲੌਕ ਕੀਤੀ ਗਈ ਹੈ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ਮਿਟਾ ਰਿਹਾ ਹੈ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ਕਿਰਪਾ ਕਰਕੇ ਠਹਿਰੋ..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ਇੱਕ checksum ਅਸ਼ੁੱਧੀ ਦੇ ਕਾਰਨ ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
@@ -92,10 +92,10 @@
     <string name="provisioning" msgid="4512493827019163451">"ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਸੈਟਅਪ ਸ਼ੁਰੂ ਕਰੋ"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਐਨਕ੍ਰਿਪਸ਼ਨ"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_device_start_setup" msgid="4351340224000741826">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਸੈਟਅਪ ਸ਼ੁਰੂ ਕਰੋ"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਐਨਕ੍ਰਿਪਸ਼ਨ"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ਹੋਰ ਜਾਣੋ ਬਟਨ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>

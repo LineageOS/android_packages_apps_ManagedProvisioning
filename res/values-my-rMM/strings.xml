@@ -24,7 +24,7 @@
     <string name="setup_work_profile" msgid="1468934631731845267">"အလုပ်ပရိုဖိုင်ကို စနစ်ထည့်သွင်းမှုပြုလုပ်ပါ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"သင်၏ အဖွဲ့အစည်းက ဒီပရိုဖိုင်ကို ထိန်းချုပ်လျက် လုံခြုံအောင် ထားရှိပါသည်။ သင်သည် သင့် ကိရိယာ ထဲက ကျန်အရာများကို ထိန်းချုပ်ပါသည်။"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"သင့်အဖွဲ့အစည်းက ဒီကိရိယာကို ထိန်းချုပ်လျက် လုံခြုံအောင် စောင့်ရှောက်ပေးမည်။"</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ appက ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"အောက်ပါ အက်ပ်က ဒီပရိုဖိုင်ကို ရယူသုံးရန် လိုအပ်မည်:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"အောက်ပါအပ်ဖ်မှ သင့်ကိရိယာကို စီမံခန့်ခွဲလိမ့်မည်။"</string>
     <string name="next" msgid="1004321437324424398">"ရှေ့သို့"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"သင်၏အလုပ် ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နေသည်..."</string>
@@ -55,7 +55,7 @@
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ဒီအသုံးပြုသူထံတွင် အလုပ် ပရိုဖိုင် မရှိနိုင်ပါ"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"စီမံထားသော စက်ကိရိယာတစ်ခုတွင် အလုပ်ပရိုဖိုင်များ ပြင်ဆင်သတ်မှတ်နိုင်ခြင်း မရှိပါ"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"သင့်စက်ကိရိယာတွင် သုံးစွဲသူ အများဆုံးအရေအတွက်သို့ ရောက်ရှိပြီးဖြစ်သောကြောင့် အလုပ်ပရိုဖိုင်းအား မဖန်တီးနိုင်ပါ။ သုံးစွဲသူတစ်ယောက်အား အနည်းဆုံး ဖယ်ထုတ်ပြီး ထပ်မံကြိုးစားပါ။"</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"သင့် အလုပ် ပရိုဖိုင်ကို ဒီဖွင့်တင်ရေး appမှ မပံ့ပိုးပါ။ သင်သည် လိုက်ဖက်သည့် ဖွင့်တင်ရေးစက်သို့ ပြောင်းရန် လိုသည်။"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"သင့် အလုပ် ပရိုဖိုင်ကို ဒီဖွင့်တင်ရေး အက်ပ်မှ မပံ့ပိုးပါ။ သင်သည် လိုက်ဖက်သည့် ဖွင့်တင်ရေးစက်သို့ ပြောင်းရန် လိုသည်။"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ဖျက်သိမ်းရန်"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"အိုကေ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"အသုံးပြုသူ ပြင်ဆင်သတ်မှတ်မှု မပြီးစီးပါ"</string>
@@ -77,10 +77,10 @@
     <string name="device_owner_error_frp" msgid="7053630342416280252">"ဤစက်ပစ္စည်းကို စက်ရုံ ပြန်လည်သတ်မှတ်မှု ကာကွယ်ခြင်းဖြင့် သော့ခတ်ထားသည်။ သင့်အိုင်တီဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ဖျက်နေသည်"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ခဏစောင့်ပါ..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum အမှားကြောင့် စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"အက်ဒမင် appကို ဒေါင်းလုဒ် မလုပ်နိုင်ခဲ့ပါ။"</string>
-    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ appကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"အက်ဒမင် appကို မတပ်ဆင်နိုင်ပါ။"</string>
+    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"checksum အမှားကြောင့် စီမံအုပ်ချုပ်သူ အက်ပ်ကို မသုံးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"အက်ဒမင် အက်ပ်ကို ဒေါင်းလုဒ် မလုပ်နိုင်ခဲ့ပါ။"</string>
+    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ အက်ပ်ကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"အက်ဒမင် အက်ပ်ကို မတပ်ဆင်နိုင်ပါ။"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"စဖွင့်သတ်မှတ်ခြင်း ရပ်စဲမလား?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"မလို"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ဟုတ်"</string>
