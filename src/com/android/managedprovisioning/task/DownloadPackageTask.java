@@ -76,6 +76,7 @@ public class DownloadPackageTask {
         mCallback = callback;
         mContext = context;
         mDlm = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+        mDlm.setAccessFilename(true);
         mPm = context.getPackageManager();
 
         mDownloads = new HashSet<DownloadStatusInfo>();
@@ -113,13 +114,14 @@ public class DownloadPackageTask {
 
             Request request = new Request(Uri.parse(info.mPackageDownloadInfo.location));
             // All we want is to have a different file for each apk
+            // Note that the apk may not actually be downloaded to this path. This could happen if
+            // this file already exists.
             String path = mContext.getExternalFilesDir(null)
                     + "/download_cache/managed_provisioning_downloaded_app_" + mFileNumber + ".apk";
             mFileNumber++;
             File downloadedFile = new File(path);
             downloadedFile.getParentFile().mkdirs(); // If the folder doesn't exists it is created
             request.setDestinationUri(Uri.fromFile(downloadedFile));
-            info.mLocation = path;
             if (info.mPackageDownloadInfo.cookieHeader != null) {
                 request.addRequestHeader("Cookie", info.mPackageDownloadInfo.cookieHeader);
                 if (DEBUG) {
@@ -147,10 +149,12 @@ public class DownloadPackageTask {
                         if (c.moveToFirst()) {
                             long downloadId =
                                     c.getLong(c.getColumnIndex(DownloadManager.COLUMN_ID));
+                            String filePath = c.getString(c.getColumnIndex(
+                                    DownloadManager.COLUMN_LOCAL_FILENAME));
                             int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
                             if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
                                 c.close();
-                                onDownloadSuccess(downloadId);
+                                onDownloadSuccess(downloadId, filePath);
                             } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
                                 int reason = c.getInt(
                                         c.getColumnIndex(DownloadManager.COLUMN_REASON));
@@ -172,7 +176,7 @@ public class DownloadPackageTask {
      * @param downloadId the unique download id for the completed download.
      * @param location the file location of the downloaded file.
      */
-    private void onDownloadSuccess(long downloadId) {
+    private void onDownloadSuccess(long downloadId, String filePath) {
         DownloadStatusInfo info = null;
         for (DownloadStatusInfo infoToMatch : mDownloads) {
             if (downloadId == infoToMatch.mDownloadId) {
@@ -184,6 +188,7 @@ public class DownloadPackageTask {
             return;
         } else {
             info.mDoneDownloading = true;
+            info.mLocation = filePath;
         }
         ProvisionLogger.logd("Downloaded succesfully to: " + info.mLocation);
 
@@ -339,6 +344,12 @@ public class DownloadPackageTask {
     private List<byte[]> computeHashesOfAllSignatures(String packageArchiveLocation) {
         PackageInfo info = mPm.getPackageArchiveInfo(packageArchiveLocation,
                 PackageManager.GET_SIGNATURES);
+        if (info == null) {
+            ProvisionLogger.loge("Unable to get package archive info from "
+                    + packageArchiveLocation);
+            mCallback.onError(ERROR_OTHER);
+            return null;
+        }
 
         List<byte[]> hashes = new LinkedList<byte[]>();
         Signature signatures[] = info.signatures;
