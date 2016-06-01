@@ -26,7 +26,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"Tashkilotingiz ushbu qurilmani nazorat qiladi va uning xavfsizligini ta’minlaydi."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Quyidagi ilova ushbu profilga kirishi zarur:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Quyidagi ilova qurilmangizni boshqaradi:"</string>
-    <string name="next" msgid="1004321437324424398">"Keyingi"</string>
+    <string name="next" msgid="1004321437324424398">"Keyingisi"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Ishchi profilingiz sozlanmoqda…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Administrator bu profil bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilovalar, ruxsatnomalar va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangiz joylashuvi, qo‘ng‘iroqlar tarixi hamda kontakt qidiruv tarixi ma’lumotlarini kuzatishi va boshqarishi mumkin."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administratoringiz ushbu qurilma bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilova va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangizning joylashuvi haqidagi ma’lumotlarni kuzatishi va boshqarishi mumkin."</string>

@@ -82,7 +82,7 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"စီမံအုပ်ချုပ်သူ အက်ပ်ကို မသုံးနိုင်ခဲ့ပါ။ ၎င်းထဲက အစိတ်အပိုင်းများ ​ပျောက်နေ သို့မဟုတ် ပျက်စီးနေသည်။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"အက်ဒမင် အက်ပ်ကို မတပ်ဆင်နိုင်ပါ။"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"စဖွင့်သတ်မှတ်ခြင်း ရပ်စဲမလား?"</string>
-    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"မလို"</string>
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"No"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ဟုတ်"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ပယ်ဖျက်နေသည်..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ကိုယ်ရေးအချက်အလက် အသင့်သုံးနိုင်ရန်စီစဉ်ခြင်းကိုရပ်တန့်လိုပါသလား။"</string>
