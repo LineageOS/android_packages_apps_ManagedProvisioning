@@ -61,7 +61,7 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"تنظیم کاربر کامل نیست"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کاربر دستگاه کاری"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"راه‌اندازی دستگاه کاری"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"در حال پردازش داده‌های تنظیم…"</string>
+    <string name="progress_data_process" msgid="1707745321954672971">"درحال پردازش داده‌های تنظیم…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏در حال برقراری اتصال به Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"در حال بارگیری برنامه سرپرست…"</string>
     <string name="progress_install" msgid="2258045670385866183">"در حال نصب برنامه سرپرست…"</string>

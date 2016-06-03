@@ -22,7 +22,7 @@
     <string name="app_label" msgid="2400883737290705700">"Werkprofielconfiguratie"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oeps!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Werkprofiel instellen"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"Je organisatie beheert je profiel en beveiligt dit. U beheert alle andere gegevens op je apparaat."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Je organisatie beheert je profiel en beveiligt dit. Je beheert alle andere gegevens op je apparaat."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Dit apparaat wordt beheerd en beveiligd door je organisatie."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"De volgende app heeft toegang nodig tot dit profiel:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Je apparaat wordt beheerd met de volgende app:"</string>
@@ -41,12 +41,12 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Werkprofiel verwijderen?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Er is al een werkprofiel dat wordt beheerd door:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Dit werkprofiel wordt beheerd voor %s via:"</string>
-    <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees dit"</a>" voordat u doorgaat."</string>
+    <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees dit"</a>" voordat je doorgaat."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Als je doorgaat, worden alle apps en gegevens in dit profiel verwijderd."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Verwijderen"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Annuleren"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Als u wilt doorgaan met het instellen van je werkprofiel, moet u je apparaat versleutelen. Dit kan even duren."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Als u wilt doorgaan met het instellen van je apparaat, moet u je apparaat versleutelen. Dit kan even duren."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Als je wilt doorgaan met het instellen van je werkprofiel, moet je je apparaat versleutelen. Dit kan even duren."</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Als je wilt doorgaan met het instellen van je apparaat, moet je je apparaat versleutelen. Dit kan even duren."</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Versleutelen"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Versleuteling voltooid"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tik hierop om door te gaan met het instellen van je werkprofiel"</string>
@@ -55,7 +55,7 @@
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Deze gebruiker kan geen werkprofiel hebben"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Werkprofielen kunnen niet worden ingesteld op een beheerd apparaat"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Werkprofiel kan niet worden gemaakt omdat je het maximumaantal gebruikers op je apparaat hebt bereikt. Verwijder ten minste één gebruiker en probeer het opnieuw."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Je werkprofiel wordt niet ondersteund door deze Launcher-app. U moet overschakelen naar een Launcher die compatibel is."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Je werkprofiel wordt niet ondersteund door deze Launcher-app. Je moet overschakelen naar een Launcher die compatibel is."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annuleren"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Instellen van gebruikers niet voltooid"</string>
@@ -86,7 +86,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annuleren…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Instellen van profiel stoppen?"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"U kunt je werkprofiel later instellen via de apparaatbeheer-app die wordt gebruikt door je organisatie."</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Je kunt je werkprofiel later instellen via de apparaatbeheer-app die wordt gebruikt door je organisatie."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Doorgaan"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Stoppen"</string>
     <string name="provisioning" msgid="4512493827019163451">"Registreren"</string>
