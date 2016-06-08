@@ -145,6 +145,7 @@
             android:name=".uiflows.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
+            android:process=":webview"
             android:theme="@style/SetupWorkSpaceTheme">
         </activity>
 
