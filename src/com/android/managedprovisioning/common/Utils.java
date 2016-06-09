@@ -176,7 +176,7 @@ public class Utils {
      * If mdmComponentName is supplied (not null):
      * mdmPackageName is ignored.
      * Check that the package of mdmComponentName is installed, that mdmComponentName is a
-     * receiver in this package, and return it.
+     * receiver in this package, and return it. The receiver can be in disabled state.
      *
      * Otherwise:
      * mdmPackageName must be supplied (not null).
@@ -196,7 +196,7 @@ public class Utils {
         PackageInfo pi;
         try {
             pi = c.getPackageManager().getPackageInfo(mdmPackageName,
-                    PackageManager.GET_RECEIVERS);
+                    PackageManager.GET_RECEIVERS | PackageManager.MATCH_DISABLED_COMPONENTS);
         } catch (NameNotFoundException e) {
             throw new IllegalProvisioningArgumentException("Mdm "+ mdmPackageName
                     + " is not installed. ", e);
