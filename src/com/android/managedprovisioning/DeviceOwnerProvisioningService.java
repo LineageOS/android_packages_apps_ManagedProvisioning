@@ -178,11 +178,11 @@ public class DeviceOwnerProvisioningService extends Service {
         mDownloadPackageTask = new DownloadPackageTask(this,
                 new DownloadPackageTask.Callback() {
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess(String downloadedLocation) {
                         progressUpdate(R.string.progress_install);
                         mInstallPackageTask.addInstallIfNecessary(
                                 params.inferDeviceAdminPackageName(),
-                                mDownloadPackageTask.getDownloadedPackageLocation(DEVICE_OWNER));
+                                downloadedLocation);
                         mInstallPackageTask.run();
                     }
 
@@ -200,11 +200,7 @@ public class DeviceOwnerProvisioningService extends Service {
                                 break;
                         }
                     }
-                });
-
-        // Add packages to download to the DownloadPackageTask.
-        mDownloadPackageTask.addDownloadIfNecessary(params.inferDeviceAdminPackageName(),
-                params.deviceAdminDownloadInfo, DEVICE_OWNER);
+                }, params.deviceAdminDownloadInfo);
 
         mInstallPackageTask = new InstallPackageTask(this,
                 new InstallPackageTask.Callback() {

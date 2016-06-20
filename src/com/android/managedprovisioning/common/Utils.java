@@ -64,11 +64,15 @@ import android.provider.Settings.Secure;
 import android.text.TextUtils;
 import android.util.Base64;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.Integer;
 import java.lang.Math;
 import java.lang.String;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -89,6 +93,10 @@ public class Utils {
 
     private static final int THRESHOLD_BRIGHT_COLOR = 160; // A color needs a brightness of at least
     // this value to be considered bright. (brightness being between 0 and 255).
+
+    public static final String SHA256_TYPE = "SHA-256";
+    public static final String SHA1_TYPE = "SHA-1";
+
     public Utils() {}
 
     /**
@@ -763,5 +771,54 @@ public class Utils {
      */
     private boolean versionNumberAtLeastL(int versionNumber) {
         return versionNumber >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    /**
+     * Computes the sha 256 hash of a byte array.
+     */
+    public byte[] computeHashOfByteArray(byte[] bytes) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance(SHA256_TYPE);
+        md.update(bytes);
+        return md.digest();
+    }
+
+    /**
+     * Computes a hash of a file with a spcific hash algorithm.
+     */
+    public byte[] computeHashOfFile(String fileLocation, String hashType) {
+        InputStream fis = null;
+        MessageDigest md;
+        byte hash[] = null;
+        try {
+            md = MessageDigest.getInstance(hashType);
+        } catch (NoSuchAlgorithmException e) {
+            ProvisionLogger.loge("Hashing algorithm " + hashType + " not supported.", e);
+            return null;
+        }
+        try {
+            fis = new FileInputStream(fileLocation);
+
+            byte[] buffer = new byte[256];
+            int n = 0;
+            while (n != -1) {
+                n = fis.read(buffer);
+                if (n > 0) {
+                    md.update(buffer, 0, n);
+                }
+            }
+            hash = md.digest();
+        } catch (IOException e) {
+            ProvisionLogger.loge("IO error.", e);
+        } finally {
+            // Close input stream quietly.
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (IOException e) {
+                // Ignore.
+            }
+        }
+        return hash;
     }
 }
