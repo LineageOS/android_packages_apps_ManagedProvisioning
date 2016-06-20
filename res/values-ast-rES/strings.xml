@@ -20,92 +20,171 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
+  <string name="provisioning_error_title">¡Ups!</string>
   <!-- Work profile provisioning flow UI. -->
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
+  <string name="setup_work_profile">Configura\'l to perfil</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
+  <string name="company_controls_workspace">La to organización remana esti perfil y caltienlu seguru. Controles tolo demás nel to preséu.</string>
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
+  <string name="company_controls_device">La to organización va remanar esti preséu y caltendrálu seguru.</string>
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
+  <string name="the_following_is_your_mdm">L\'aplicación de darréu precisará acceder a esti perfil:</string>
   <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
+  <string name="the_following_is_your_mdm_for_device">L\'aplicación de darréu xestionará\'l to preséu:</string>
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
+  <string name="set_up">Configurar</string>
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
+  <string name="setting_up_workspace">Configurando\'l to perfil de trabayu\u2026</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor_profile">El to alministrador tien l\'habilidá de monitorizar y xestionar los axustes, l\'accesu corporativu, permisos d\'aplicaciones y datos asociaos col perfil, incluyendo l\'actividá de rede y la información d\'allugamientu del to preséu.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor_device">El to alministrador tien l\'habilidá de monitorizar y xestionar los axustes, l\'accesu corporativu, permisos d\'aplicaciones y datos asociaos con esti preséu, incluyendo l\'actividá de rede y la información d\'allugamientu del to preséu.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will be disabled. [CHAR LIMIT=NONE]-->
+  <string name="theft_protection_disabled_warning">Si continúes, nun s\'habilitará les carauterístiques de proteición de robu. Pa desactivar esa proteición, encaboxa agora esta configuración como un preséu personal.</string>
   <!-- String telling the user how to get more information about their work profile-->
+  <string name="contact_your_admin_for_more_info">Contauta col to alministrador pa más información, incluyendo les polítiques de privacidá de la to organización.</string>
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
+  <string name="learn_more_link">Deprendi más </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="cancel_setup">ENCABOXAR</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="ok_setup">ACEUTAR</string>
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
+  <string name="default_managed_profile_name">Perfil de trabayu</string>
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
+  <string name="delete_profile_title">¿Desaniciar perfil de trabayu?</string>
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
        their existing work profile. The administration app icon and name appear after the final
        colon. [CHAR LIMIT=NONE] -->
+  <string name="opening_paragraph_delete_profile_unknown_company">Yá esiste un perfil de trabayu y ta xestionáu por:</string>
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
          their existing work profile. The administration app icon and name appear after the final
          colon, the %s is replaced by the domain name of the organization that owns the work
          profile. [CHAR LIMIT=NONE] -->
+  <string name="opening_paragraph_delete_profile_known_company">Esti perfil de trabayu ta xestionáu por %s usando:</string>
   <!-- String on the dialog that links through to more information about the profile management application. -->
+  <string name="read_more_delete_profile">Enantes de siguir, <a href="#read_this_link">llei esto</a>.</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
+  <string name="sure_you_want_to_delete_profile">Desaniciaránse toles aplicaciones y datos si continúes.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
+  <string name="delete_profile">ENCABOXAR</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
+  <string name="cancel_delete_profile">ENCABOXAR</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
+  <string name="encrypt_device_text_for_profile_owner_setup">Pa siguir configurando\'l to perfil de trabayu, precisarás cifrar el to preséu. Esto pue entardar daqué.</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
+  <string name="encrypt_device_text_for_device_owner_setup">Pa siguir configurando\'l to preséu, precisarás cifralu. Esto pue entardar daqué.</string>
   <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
+  <string name="encrypt_device_cancel">ENCABOXAR</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
+  <string name="encrypt_device_launch_settings">CIFRAR</string>
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
+  <string name="continue_provisioning_notify_title">Cifráu completáu</string>
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
+  <string name="continue_provisioning_notify_text">Toca pa siguir configurando\'l to perfil de rede</string>
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
+  <string name="managed_provisioning_error_text">Nun pudo configurase\'l to perfil de trabayu. Contauta col to departamentu informáticu o vuelvi tentalo más sero.</string>
   <!-- Error string displayed if this device doesn't support work profiles. -->
+  <string name="managed_provisioning_not_supported">El to preséu nun sofita perfiles de trabayu</string>
   <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
+  <string name="user_is_not_owner">Los perfiles de trabayu precisen configurase pol usuariu primariu del preséu</string>
   <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
+  <string name="device_owner_exists">Los perfiles de trabayu nun puen configurase nun preséu xestionáu</string>
   <!-- Error string displayed if maximum user limit is reached -->
+  <string name="maximum_user_limit_reached">Nun pue crease\'l perfil de trabayu porque algamesti\'l númberu máximu d\'usuarios nel to preséu. Desanicia polo menos ún y volvi tentalo.</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
+  <string name="managed_provisioning_not_supported_by_launcher">El to perfil de trabayu nun ta sofitáu por esti llanzador. Precisarás camudar a otru que seya compatible.</string>
   <!-- Button text for the button that cancels provisioning  -->
+  <string name="cancel_provisioning">ENCABOXAR</string>
   <!-- Button text for the button that opens the launcher picker  -->
+  <string name="pick_launcher">ACEUTAR</string>
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
+  <string name="default_owned_device_username">Usuariu del perfil de trabayu</string>
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
+  <string name="setup_work_device">Configura\'l to preséu</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
+  <string name="progress_data_process">Procesando datos de configuración\u2026</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
+  <string name="progress_connect_to_wifi">Coneutando cola Wi-Fi\u2026</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
+  <string name="progress_download">Descargando l\'aplicación d\'alministración\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
+  <string name="progress_install">Instalando l\'aplicación d\'alministración\u2026</string>
   <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
+  <string name="progress_set_owner">Afitando\'l dueñu\'l preséu\u2026</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_cancel_message">¿Para la configuración y desaniciar los datos del to preséu?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_cancel_cancel">ENCABOXAR</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_ok">ACEUTAR</string>
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_reset">REANICIAR</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_general">Nun pudo configurase\'l to preséu. Contauta col to departamentu informáticu. </string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_already_provisioned">Esti preséu yá ta configuráu.</string>
   <!-- Message of the error dialog when a secondary user has already been provisioned. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_already_provisioned_user">Esti preséu yá ta configuráu por esti usuariu.</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_wifi">Nun pudo coneutase cola Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_frp">El preséu ta bloquiáu pola mor de la proteición escontra restablecimientu de configuración de fábrica. Comunícate col departamentu de TI.</string>
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
+  <string name="frp_clear_progress_title">Desaniciando</string>
   <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
+  <string name="frp_clear_progress_text">Por favor, espera...</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_hash_mismatch">Nun pudo usase l\'aplicación d\'alministración pola mor d\'un fallu de suma de comprobación. Comunícate col Departamentu de TI.</string>
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_download_failed">Nun pudo descargase l\'aplicación d\'alministración</string>
   <!-- Message of the error dialog when package to install is invalid. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_package_invalid">Nun pue usase l\'aplicación d\'alministración. Hai componentes que falten o que tán toyíos. Comunícate col Departamentu de TI.</string>
   <!-- Message of the error dialog when the name of the admin package to be installed is invalid. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_package_name_invalid">Nun pue instalase l\'aplicación d\'alministración. El nome del paquete nun ye válidu. Comunícate col Departamentu de TI.</string>
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_installation_failed">Nun pudo instalase l\'aplicación d\'alministración</string>
   <!-- Message of the error dialog when device admin package is not installed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_package_not_installed">L\'aplicación d\'alministración nun ta instalada nel preséu</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_cancel_message">¿Parar configuración?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancel_cancel">NON</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancel_ok">SÍ</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancelling">Encaboxando\u2026</string>
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_later_title">¿Parar configuración de perfil?</string>
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="work_profile_setup_later_message">Pues configurar el to perfil de trabayu dempués dende l\'aplicación d\'alministración del preséu qu\'usa la to organización.</string>
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_continue">SIGUIR</string>
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_stop">PARAR</string>
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="provisioning">Aprovisionamientu</string>
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="copying_certs">Configurando certificaos CA</string>
   <!-- Accessibility Descriptions -->
   <!-- Accessibility description for the profile setup screen showing organization info. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_start_setup">Configura\'l to perfil. Aniciu</string>
   <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_encryption">Configura\'l to perfil. Cifráu</string>
   <!-- Accessibility description for the profile setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_progress">Configura\'l to perfil. Amosando progresu</string>
   <!-- Accessibility description for the device setup screen showing company info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_start_setup">Configura\'l to preséu. Aniciu</string>
   <!-- Accessibility description for the device setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_encryption">Configura\'l to preséu. Cifráu</string>
   <!-- Accessibility description for the device setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_progress">Configura\'l to preséu. Amosando progresu</string>
   <!-- Accessibility description for the learn more link in user consent dialog. [CHAR LIMIT=NONE] -->
+  <string name="learn_more_label">Botón de deprendi más</string>
   <!-- Accessibility description for the company icon. [CHAR LIMIT=NONE] -->
+  <string name="mdm_icon_label">Iconu de <xliff:g id="icon_label" example="Test App">%1$s</xliff:g></string>
 </resources>
