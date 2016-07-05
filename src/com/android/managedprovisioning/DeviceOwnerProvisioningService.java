@@ -180,10 +180,8 @@ public class DeviceOwnerProvisioningService extends Service {
                     @Override
                     public void onSuccess(String downloadedLocation) {
                         progressUpdate(R.string.progress_install);
-                        mInstallPackageTask.addInstallIfNecessary(
-                                params.inferDeviceAdminPackageName(),
+                        mInstallPackageTask.run(params.inferDeviceAdminPackageName(),
                                 downloadedLocation);
-                        mInstallPackageTask.run();
                     }
 
                     @Override

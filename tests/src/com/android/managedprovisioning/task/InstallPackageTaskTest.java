@@ -16,12 +16,10 @@
 
 package com.android.managedprovisioning.task;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -30,130 +28,136 @@ import static org.mockito.Mockito.when;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageInstallObserver;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.test.AndroidTestCase;
-import android.test.mock.MockContentProvider;
-import android.test.mock.MockContentResolver;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
+import com.android.managedprovisioning.common.Utils;
+
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class InstallPackageTaskTest extends AndroidTestCase {
     private static final String TEST_PACKAGE_NAME = "com.android.test";
     private static final String TEST_PACKAGE_LOCATION = "/sdcard/TestPackage.apk";
 
-    private static final String PACKAGE_NAME = InstallPackageTask.class.getPackage().getName();
-
-    private Context mContext;
-    private PackageManager mPackageManager;
-    private InstallPackageTask.Callback mCallback;
+    @Mock private Context mContext;
+    @Mock private PackageManager mPackageManager;
+    @Mock private InstallPackageTask.Callback mCallback;
     private InstallPackageTask mTask;
     private PackageInfo mPackageInfo;
-    private ActivityInfo mActivityInfo;
-    private MockContentResolver mContentResolver;
-    private MockContentProvider mContentProvider;
+    private Utils mUtils;
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
         // this is necessary for mockito to work
         System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
+        MockitoAnnotations.initMocks(this);
 
-        mContext = mock(Context.class);
-        mActivityInfo = new ActivityInfo();
+        ActivityInfo activityInfo = new ActivityInfo();
         mPackageInfo = new PackageInfo();
-        mPackageManager = mock(PackageManager.class);
-        mContentProvider = new MyMockContentProvider();
-        mContentResolver = new MockContentResolver();
 
-        mActivityInfo.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
+        activityInfo.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
 
         mPackageInfo.packageName = TEST_PACKAGE_NAME;
-        mPackageInfo.receivers = new ActivityInfo[] {mActivityInfo};
-
-        mCallback = mock(InstallPackageTask.Callback.class);
+        mPackageInfo.receivers = new ActivityInfo[] {activityInfo};
 
         when(mPackageManager.getPackageArchiveInfo(eq(TEST_PACKAGE_LOCATION), anyInt())).
                 thenReturn(mPackageInfo);
 
-        mContentResolver.addProvider("settings", mContentProvider);
 
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
-        when(mContext.getPackageName()).thenReturn(PACKAGE_NAME);
-        when(mContext.getContentResolver()).thenReturn(mContentResolver);
+        when(mContext.getPackageName()).thenReturn(getContext().getPackageName());
 
-        mTask = new InstallPackageTask(mContext, mCallback);
+        mUtils = new UtilsStub();
+        mTask = new InstallPackageTask(mContext, mCallback, mUtils);
     }
 
     @SmallTest
     public void testInstall_NoPackages() {
-        mTask.run();
+        // WHEN running the InstallPackageTask without specifying an install location
+        mTask.run(TEST_PACKAGE_NAME, null);
+        // THEN no package is installed, but we get a success callback
         verify(mPackageManager, never()).installPackage(
                 any(Uri.class),
                 any(IPackageInstallObserver.class),
                 anyInt(),
                 anyString());
         verify(mCallback, times(1)).onSuccess();
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
-    public void testInstall_OnePackage() {
-        mTask.addInstallIfNecessary(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
-        Answer installerAnswer = new Answer() {
-                @Override
-                public Object answer(InvocationOnMock invocation) throws Throwable {
-                    Object[] arguments = invocation.getArguments();
-                    IPackageInstallObserver observer = (IPackageInstallObserver)
-                            arguments[1];
-                    int flags = (Integer) arguments[2];
-                    // make sure that the flags value has been set
-                    assertTrue(0 != (flags & PackageManager.INSTALL_REPLACE_EXISTING));
-                    observer.packageInstalled(TEST_PACKAGE_NAME,
-                            PackageManager.INSTALL_SUCCEEDED);
-                    return null;
-                }
-        };
-        doAnswer(installerAnswer).when(mPackageManager).installPackage(
+    public void testInstall_OnePackage() throws Exception {
+        // WHEN running the InstallPackageTask specifying an install location
+        mTask.run(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
+        ArgumentCaptor<IPackageInstallObserver> observer
+                = ArgumentCaptor.forClass(IPackageInstallObserver.class);
+        ArgumentCaptor<Integer> flags = ArgumentCaptor.forClass(Integer.class);
+        // THEN the package is installed and we get a success callback
+        verify(mPackageManager).installPackage(
                 eq(Uri.parse("file://" + TEST_PACKAGE_LOCATION)),
-                any(IPackageInstallObserver.class),
-                anyInt(),
-                eq(PACKAGE_NAME));
-        mTask.run();
+                observer.capture(),
+                flags.capture(),
+                eq(getContext().getPackageName()));
+        // make sure that the flags value has been set
+        assertTrue(0 != (flags.getValue() & PackageManager.INSTALL_REPLACE_EXISTING));
+        observer.getValue().packageInstalled(TEST_PACKAGE_NAME,
+                PackageManager.INSTALL_SUCCEEDED);
         verify(mCallback, times(1)).onSuccess();
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
-    public void testInstall_InstallFailedVersionDowngrade() {
-        mTask.addInstallIfNecessary(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
-        Answer installerAnswer = new Answer() {
-                @Override
-                public Object answer(InvocationOnMock invocation) throws Throwable {
-                    Object[] arguments = invocation.getArguments();
-                    IPackageInstallObserver observer = (IPackageInstallObserver)
-                            arguments[1];
-                    observer.packageInstalled(null,
-                            PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE);
-                    return null;
-                }
-        };
-        doAnswer(installerAnswer).when(mPackageManager).installPackage(
+    public void testInstall_InstallFailedVersionDowngrade() throws Exception {
+        // WHEN running the InstallPackageTask with a package already at a higher version 
+        mTask.run(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
+        ArgumentCaptor<IPackageInstallObserver> observer
+                = ArgumentCaptor.forClass(IPackageInstallObserver.class);
+        verify(mPackageManager).installPackage(
                 eq(Uri.parse("file://" + TEST_PACKAGE_LOCATION)),
-                any(IPackageInstallObserver.class),
+                observer.capture(),
                 anyInt(),
-                eq(PACKAGE_NAME));
-        mTask.run();
+                eq(getContext().getPackageName()));
+        observer.getValue().packageInstalled(null,
+                PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE);
+        // THEN we get a success callback
         verify(mCallback, times(1)).onSuccess();
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
     public void testPackageHasNoReceivers() {
         mPackageInfo.receivers = null;
-        mTask.addInstallIfNecessary(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
-        mTask.run();
+        mTask.run(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
+        verifyDontInstall();
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+    }
+
+    @SmallTest
+    public void testNoArchive() {
+        // GIVEN there is no archive at the package location
+        when(mPackageManager.getPackageArchiveInfo(eq(TEST_PACKAGE_LOCATION), anyInt()))
+                .thenReturn(null);
+        // WHEN running the InstallPackageTask
+        mTask.run(TEST_PACKAGE_NAME, TEST_PACKAGE_LOCATION);
+        // THEN nothing is installed
+        verifyDontInstall();
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+    }
+
+    @SmallTest
+    public void testWrongPackageName() {
+        mTask.run("wrong.test.package.name", TEST_PACKAGE_LOCATION);
+        verifyDontInstall();
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+    }
+
+    private void verifyDontInstall() {
         verify(mPackageManager, never()).installPackage(
                 any(Uri.class),
                 any(IPackageInstallObserver.class),
@@ -162,13 +166,17 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         verify(mCallback, times(1)).onError(InstallPackageTask.ERROR_PACKAGE_INVALID);
     }
 
-    private static class MyMockContentProvider extends MockContentProvider {
-        public MyMockContentProvider() {
+    private static class UtilsStub extends Utils {
+        private boolean mPackageVerifierEnabled = true;
+
+        @Override
+        public boolean isPackageVerifierEnabled(Context c) {
+            return mPackageVerifierEnabled;
         }
 
         @Override
-        public Bundle call(String method, String request, Bundle args) {
-            return new Bundle();
+        public void setPackageVerifierEnabled(Context c, boolean packageVerifierEnabled) {
+            mPackageVerifierEnabled = packageVerifierEnabled;
         }
     }
 }

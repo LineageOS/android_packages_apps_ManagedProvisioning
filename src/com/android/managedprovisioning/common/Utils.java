@@ -360,6 +360,21 @@ public class Utils {
     }
 
     /**
+     * Sets whether package verification is enabled or not.
+     */
+    public void setPackageVerifierEnabled(Context context, boolean packageVerifierEnabled) {
+        Global.putInt(context.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
+                packageVerifierEnabled ? 1 : 0);
+    }
+
+    /**
+     * Returns whether package verification is enabled or not.
+     */
+    public boolean isPackageVerifierEnabled(Context context) {
+        return Global.getInt(context.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0) != 0;
+    }
+
+    /**
      * Set the current users userProvisioningState depending on the following factors:
      * <ul>
      *     <li>We're setting up a managed-profile - need to set state on two users.</li>
