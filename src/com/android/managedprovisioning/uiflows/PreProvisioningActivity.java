@@ -55,6 +55,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
+    private static final String DELETE_MANAGED_PROFILE_DIALOG_FRAGMENT_TAG
+            = "DeleteManagedProfileDialogFragment";
 
     protected PreProvisioningController mController;
 
@@ -304,8 +306,11 @@ public class PreProvisioningActivity extends SetupLayoutActivity
     @Override
     public void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
             int userId) {
-        DeleteManagedProfileDialog.newInstance(userId, mdmPackageName, domainName)
-                .show(getFragmentManager(), "DeleteManagedProfileDialogFragment");
+        if (getFragmentManager().findFragmentByTag(DELETE_MANAGED_PROFILE_DIALOG_FRAGMENT_TAG)
+                == null) {
+            DeleteManagedProfileDialog.newInstance(userId, mdmPackageName, domainName)
+                    .show(getFragmentManager(), DELETE_MANAGED_PROFILE_DIALOG_FRAGMENT_TAG);
+        }
     }
 
     /**
