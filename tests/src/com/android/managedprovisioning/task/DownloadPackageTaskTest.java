@@ -2,8 +2,6 @@ package com.android.managedprovisioning.task;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -17,6 +15,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
 import android.database.MatrixCursor;
 import android.test.AndroidTestCase;
@@ -39,6 +38,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
     @Spy private Utils mUtils;
     @Mock private PackageInfo mPackageInfo;
 
+    private static final String TEST_PACKAGE_NAME = "sample.package.name";
     private static final String TEST_PACKAGE_LOCATION = "http://www.some.uri.com";
     private static final String TEST_LOCAL_FILENAME = "/local/filename";
 
@@ -49,6 +49,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
     private byte[] mTestSignatureHash;
 
     private static final long TEST_DOWNLOAD_ID = 1234;
+    private static final int PACKAGE_VERSION = 43;
 
     @Override
     protected void setUp() throws Exception {
@@ -66,6 +67,10 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         when(mPackageManager.getPackageArchiveInfo(TEST_LOCAL_FILENAME,
                 PackageManager.GET_SIGNATURES)).thenReturn(mPackageInfo);
 
+        // Package is not installed
+        when(mPackageManager.getPackageInfo(TEST_PACKAGE_NAME, 0))
+                .thenThrow(new NameNotFoundException());
+
         when(mUtils.computeHashOfFile(TEST_LOCAL_FILENAME, Utils.SHA256_TYPE))
                 .thenReturn(mTestPackageChecksumHash);
 
@@ -74,7 +79,8 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
 
     public void testNothingToDo() {
         // GIVEN that DownloadPackageTask was created with null download location
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, null, mUtils);
+        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
+                null, mUtils);
         // WHEN running the download package task
         task.run();
         // THEN we get a success callback
@@ -90,12 +96,46 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 .setLocation(TEST_PACKAGE_LOCATION)
                 .setSignatureChecksum(mTestSignatureHash)
                 .build();
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback,
+        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
                 packageDownloadInfo, mUtils);
         // WHEN running the download package task
         task.run();
         // THEN we get an error callback
         verify(mCallback).onError(DownloadPackageTask.ERROR_OTHER);
+        verifyNoMoreInteractions(mCallback);
+    }
+
+    public void testAlreadyInstalled() throws Exception {
+        // GIVEN the package is already installed, with the right version
+        doReturn(mPackageInfo).when(mPackageManager).getPackageInfo(TEST_PACKAGE_NAME, 0);
+        mPackageInfo.versionCode = PACKAGE_VERSION;
+        PackageDownloadInfo packageDownloadInfo = new PackageDownloadInfo.Builder()
+                .setLocation(TEST_PACKAGE_LOCATION)
+                .setSignatureChecksum(mTestSignatureHash)
+                .setMinVersion(PACKAGE_VERSION)
+                .build();
+        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
+                packageDownloadInfo, mUtils);
+        // WHEN running the download package task
+        task.run();
+        // THEN we get a success callback directly
+        verify(mCallback).onSuccess(null);
+        verifyNoMoreInteractions(mCallback);
+    }
+
+    public void testAlreadyInstalledEarlierVersion() throws Exception {
+        // GIVEN the package is already installed with an earlier version
+        doReturn(mPackageInfo).when(mPackageManager).getPackageInfo(TEST_PACKAGE_NAME, 0);
+        mPackageInfo.versionCode = PACKAGE_VERSION - 1;
+        PackageDownloadInfo packageDownloadInfo = new PackageDownloadInfo.Builder()
+                .setLocation(TEST_PACKAGE_LOCATION)
+                .setSignatureChecksum(mTestSignatureHash)
+                .setMinVersion(PACKAGE_VERSION)
+                .build();
+        // WHEN running the download package task
+        runAndMockDownload(packageDownloadInfo, 1);
+        // THEN we get a success callback
+        verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -106,7 +146,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 .setPackageChecksum(mTestPackageChecksumHash)
                 .build();
         // WHEN running the download package task
-        runWithDownloadInfo(packageDownloadInfo, 1);
+        runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get a success callback
         verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
@@ -119,7 +159,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 .setSignatureChecksum(mTestSignatureHash)
                 .build();
         // WHEN running the download package task
-        runWithDownloadInfo(packageDownloadInfo, 1);
+        runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get a success callback
         verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
@@ -133,7 +173,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 .setSignatureChecksum(mTestSignatureHash)
                 .build();
         // WHEN running the download package task and sending the broadcast twice
-        runWithDownloadInfo(packageDownloadInfo, 2);
+        runAndMockDownload(packageDownloadInfo, 2);
         // THEN we get a success callback
         verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
@@ -146,13 +186,13 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 .setSignatureChecksum(new byte[] {1, 2})
                 .build();
         // WHEN running the download package task
-        runWithDownloadInfo(packageDownloadInfo, 1);
+        runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get an error callback
         verify(mCallback).onError(DownloadPackageTask.ERROR_HASH_MISMATCH);
         verifyNoMoreInteractions(mCallback);
     }
 
-    private void runWithDownloadInfo(PackageDownloadInfo packageDownloadInfo, int broadcastCount) {
+    private void runAndMockDownload(PackageDownloadInfo packageDownloadInfo, int broadcastCount) {
         doReturn(true).when(mUtils).isConnectedToNetwork(any(Context.class));
         when(mDownloadManager.enqueue(any(Request.class))).thenReturn(TEST_DOWNLOAD_ID);
         MatrixCursor cursor = new MatrixCursor(new String[] {
@@ -161,7 +201,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         cursor.addRow(new Object[] {DownloadManager.STATUS_SUCCESSFUL, TEST_LOCAL_FILENAME});
         when(mDownloadManager.query(any(Query.class))).thenReturn(cursor);
 
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback,
+        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
                 packageDownloadInfo, mUtils);
         task.run();
         verify(mDownloadManager).setAccessFilename(true);

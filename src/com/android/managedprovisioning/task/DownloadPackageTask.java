@@ -56,7 +56,8 @@ public class DownloadPackageTask {
     private BroadcastReceiver mReceiver;
     private final DownloadManager mDownloadManager;
     private final PackageManager mPackageManager;
-    private PackageDownloadInfo mPackageDownloadInfo;
+    private final String mPackageName;
+    private final PackageDownloadInfo mPackageDownloadInfo;
     private long mDownloadId;
 
     private final Utils mUtils;
@@ -64,26 +65,27 @@ public class DownloadPackageTask {
     private String mDownloadLocationTo; //local file where the package is downloaded.
     private boolean mDoneDownloading;
 
-    public DownloadPackageTask (Context context, Callback callback,
+    public DownloadPackageTask (Context context, Callback callback, String packageName,
             PackageDownloadInfo packageDownloadInfo) {
-        this(context, callback, packageDownloadInfo, new Utils());
+        this(context, callback, packageName, packageDownloadInfo, new Utils());
     }
 
     @VisibleForTesting
-    DownloadPackageTask (Context context, Callback callback,
+    DownloadPackageTask (Context context, Callback callback, String packageName,
             PackageDownloadInfo packageDownloadInfo, Utils utils) {
         mCallback = checkNotNull(callback);
         mContext = checkNotNull(context);
         mDownloadManager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
         mDownloadManager.setAccessFilename(true);
         mPackageManager = context.getPackageManager();
-
-        mPackageDownloadInfo = packageDownloadInfo;
         mUtils = checkNotNull(utils);
+        mPackageName = packageName;
+        mPackageDownloadInfo = packageDownloadInfo;
     }
 
     public void run() {
-        if (mPackageDownloadInfo == null) {
+        if (mPackageDownloadInfo == null || !mUtils.packageRequiresUpdate(mPackageName,
+                mPackageDownloadInfo.minVersion, mContext)) {
             mCallback.onSuccess(null);
             return;
         }

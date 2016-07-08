@@ -198,7 +198,7 @@ public class DeviceOwnerProvisioningService extends Service {
                                 break;
                         }
                     }
-                }, params.deviceAdminDownloadInfo);
+                }, params.inferDeviceAdminPackageName(), params.deviceAdminDownloadInfo);
 
         mInstallPackageTask = new InstallPackageTask(this,
                 new InstallPackageTask.Callback() {
