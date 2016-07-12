@@ -87,7 +87,7 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ပယ်ဖျက်နေသည်..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ကိုယ်ရေးအချက်အလက် အသင့်သုံးနိုင်ရန်စီစဉ်ခြင်းကိုရပ်တန့်လိုပါသလား။"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"သင့်အဖွဲ့အစည်းမှအသုံးပြုတဲ့ စက်ပစ္စည်းစီမံခန့်ခွဲမှုအပ်ဖ်ကနေ နောက်ပိုင်းတွင်သင်၏အလုပ်ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နိုင်သည်။"</string>
-    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ရှေ့ဆက်ပါ"</string>
+    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ဆက်လုပ်ရန်"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"ရပ်ပါ"</string>
     <string name="provisioning" msgid="4512493827019163451">"စီမံဆောင်ရွက်ပေးနေသည်။"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA လက်မှတ်များကို တည်ဆောက်ခြင်း"</string>
