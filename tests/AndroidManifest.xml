@@ -17,11 +17,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.managedprovisioning.tests">
 
+    <!-- System permission to receive result from managed profile -->
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+
     <application>
         <uses-library android:name="android.test.runner" />
+        <receiver android:name="com.android.managedprovisioning.e2eui.ManagedProfileAdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
+    <instrumentation android:name="com.android.managedprovisioning.TestInstrumentationRunner"
         android:targetPackage="com.android.managedprovisioning"
         android:label="Tests for ManagedProvisioning">
     </instrumentation>
