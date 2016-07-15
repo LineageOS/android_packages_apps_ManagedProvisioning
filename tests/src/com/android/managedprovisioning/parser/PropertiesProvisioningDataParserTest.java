@@ -39,10 +39,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE;
 
 import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
@@ -56,17 +53,15 @@ import android.os.PersistableBundle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
-
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
-
 import java.io.ByteArrayOutputStream;
 import java.util.Locale;
 import java.util.Properties;
-
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -242,7 +237,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static Properties setTestTimeTimeZoneAndLocale(Properties props) {
         props.setProperty(EXTRA_PROVISIONING_LOCAL_TIME, Long.toString(TEST_LOCAL_TIME));
         props.setProperty(EXTRA_PROVISIONING_TIME_ZONE, TEST_TIME_ZONE);
-        props.setProperty(EXTRA_PROVISIONING_LOCALE, MessageParser.localeToString(TEST_LOCALE));
+        props.setProperty(EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(TEST_LOCALE));
         return props;
     }
 

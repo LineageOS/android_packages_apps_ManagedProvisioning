@@ -32,6 +32,7 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
+import java.io.File;
 
 /*
  * This class is used to make sure that we start the MDM after we shut the setup wizard down.
@@ -47,9 +48,10 @@ public class FinalizationActivity extends Activity {
 
     private ProvisioningParams mParams;
 
-    private static final String INTENT_STORE_NAME = "finalization-receiver";
-
     private final Utils mUtils = new Utils();
+
+    private static final String PROVISIONING_PARAMS_FILE_NAME =
+            "finalization_activity_provisioning_params.xml";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,12 +78,11 @@ public class FinalizationActivity extends Activity {
     }
 
     public static void storeProvisioningParams(Context context, ProvisioningParams params) {
-        Intent intent = new MessageParser().getIntentFromProvisioningParams(params);
-        getIntentStore(context).save(intent);
+        params.save(getProvisioningParamsFile(context));
     }
 
     private void finalizeProvisioning(DevicePolicyManager dpm) {
-        mParams = loadProvisioningParamsAndClearIntentStore();
+        mParams = loadProvisioningParamsAndClearFile();
         Intent provisioningCompleteIntent = getProvisioningCompleteIntent(dpm);
         if (provisioningCompleteIntent == null) {
             return;
@@ -151,24 +152,14 @@ public class FinalizationActivity extends Activity {
         return intent;
     }
 
-    private ProvisioningParams loadProvisioningParamsAndClearIntentStore() {
-        IntentStore intentStore = getIntentStore(this);
-        Intent intent = intentStore.load();
-        if (intent == null) {
-            ProvisionLogger.loge("Fail to retrieve ProvisioningParams from intent store.");
-            return null;
-        }
-        intentStore.clear();
-
-        try {
-            return new MessageParser().parse(intent, this);
-        } catch (IllegalProvisioningArgumentException e) {
-            ProvisionLogger.loge("Failed to parse provisioning intent", e);
-        }
-        return null;
+    private ProvisioningParams loadProvisioningParamsAndClearFile() {
+        File file = getProvisioningParamsFile(this);
+        ProvisioningParams result = ProvisioningParams.load(file);
+        file.delete();
+        return result;
     }
 
-    private static IntentStore getIntentStore(Context context) {
-        return new IntentStore(context, INTENT_STORE_NAME);
+    private static File getProvisioningParamsFile(Context context) {
+        return new File(context.getFilesDir(), PROVISIONING_PARAMS_FILE_NAME);
     }
 }

@@ -19,24 +19,47 @@ package com.android.managedprovisioning.model;
 import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 
 import android.accounts.Account;
-import android.content.Context;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
-
+import android.util.Xml;
+import com.android.internal.util.FastXmlSerializer;
+import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.WifiInfo.Builder;
+import com.android.managedprovisioning.parser.MessageParser;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
-
-import com.android.internal.annotations.Immutable;
-import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
-import com.android.managedprovisioning.common.Utils;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Provisioning parameters for Device Owner and Profile Owner provisioning.
@@ -50,6 +73,12 @@ public final class ProvisioningParams implements Parcelable {
     public static final boolean DEFAULT_SKIP_USER_SETUP = true;
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
+
+    private static final String TAG_PROVISIONING_PARAMS = "provisioning-params";
+    private static final String TAG_WIFI_INFO = "wifi-info";
+    private static final String TAG_PACKAGE_DOWNLOAD_INFO = "download-info";
+    private static final String TAG_STARTED_BY_TRUSTED_SOURCE = "started-by-trusted-source";
+    private static final String TAG_PROVISIONING_ACTION = "provisioning-action";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
             = new Parcelable.Creator<ProvisioningParams>() {
@@ -279,6 +308,27 @@ public final class ProvisioningParams implements Parcelable {
                         inferedDeviceAdminComponentName, that.inferedDeviceAdminComponentName);
     }
 
+     @Override
+     public String toString() {
+         StringBuilder sb = new StringBuilder();
+         sb.append("timeZone: " + timeZone + "\n");
+         sb.append("localTime: " + localTime + "\n");
+         sb.append("locale: " + locale + "\n");
+         sb.append("wifiInfo: " + wifiInfo + "\n");
+         sb.append("deviceAdminPackageName: " + deviceAdminPackageName + "\n");
+         sb.append("deviceAdminComponentName: " + deviceAdminComponentName + "\n");
+         sb.append("accountToMigrate: " + accountToMigrate + "\n");
+         sb.append("provisioningAction: " + provisioningAction + "\n");
+         sb.append("mainColor: " + mainColor + "\n");
+         sb.append("deviceAdminDownloadInfo: " + deviceAdminDownloadInfo + "\n");
+         sb.append("adminExtrasBundle: " + adminExtrasBundle + "\n");
+         sb.append("startedByTrustedSource: " + startedByTrustedSource + "\n");
+         sb.append("leaveAllSystemAppsEnabled: " + leaveAllSystemAppsEnabled + "\n");
+         sb.append("skipEncryption: " + skipEncryption + "\n");
+         sb.append("skipUserSetup: " + skipUserSetup + "\n");
+         return sb.toString();
+     }
+
     /**
      * Compares two {@link PersistableBundle} objects are equals.
      */
@@ -326,6 +376,169 @@ public final class ProvisioningParams implements Parcelable {
         } else {
             return Objects.equals(val1, val2);
         }
+    }
+
+    /**
+     * Saves the ProvisioningParams to the specified file.
+     */
+    public void save(File file) {
+        ProvisionLogger.logd("Saving ProvisioningParams to " + file);
+        try (FileOutputStream stream = new FileOutputStream(file)) {
+            XmlSerializer serializer = new FastXmlSerializer();
+            serializer.setOutput(stream, StandardCharsets.UTF_8.name());
+            serializer.startDocument(null, true);
+            serializer.startTag(null, TAG_PROVISIONING_PARAMS);
+            save(serializer);
+            serializer.endTag(null, TAG_PROVISIONING_PARAMS);
+            serializer.endDocument();
+            save(serializer);
+        } catch (IOException | XmlPullParserException e) {
+            ProvisionLogger.loge("Caught exception while trying to save Provisioning Params to "
+                    + " file " + file, e);
+            file.delete();
+        }
+    }
+
+    private void save(XmlSerializer serializer) throws XmlPullParserException, IOException {
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_TIME_ZONE, timeZone);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_LOCAL_TIME,
+                Long.toString(localTime));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_LOCALE,
+                StoreUtils.localeToString(locale));
+        if (wifiInfo != null) {
+            serializer.startTag(null, TAG_WIFI_INFO);
+            wifiInfo.save(serializer);
+            serializer.endTag(null, TAG_WIFI_INFO);
+        }
+        StoreUtils.writeTag(serializer,
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
+                deviceAdminPackageName);
+        if (deviceAdminComponentName != null) {
+            StoreUtils.writeTag(serializer,
+                    EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                    deviceAdminComponentName.flattenToString());
+        }
+        StoreUtils.writeAccount(serializer,
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE,
+                accountToMigrate);
+        StoreUtils.writeTag(serializer, TAG_PROVISIONING_ACTION, provisioningAction);
+        if (mainColor != null) {
+            StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_MAIN_COLOR,
+                    Integer.toString(mainColor));
+        }
+        if (deviceAdminDownloadInfo != null) {
+            serializer.startTag(null, TAG_PACKAGE_DOWNLOAD_INFO);
+            deviceAdminDownloadInfo.save(serializer);
+            serializer.endTag(null, TAG_PACKAGE_DOWNLOAD_INFO);
+        }
+
+        if (adminExtrasBundle != null) {
+            serializer.startTag(null, EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+            adminExtrasBundle.saveToXml(serializer);
+            serializer.endTag(null, EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        }
+
+        StoreUtils.writeTag(serializer, TAG_STARTED_BY_TRUSTED_SOURCE,
+                Boolean.toString(startedByTrustedSource));
+        StoreUtils.writeTag(serializer,
+                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                Boolean.toString(leaveAllSystemAppsEnabled));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+                Boolean.toString(skipEncryption));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_USER_SETUP,
+                Boolean.toString(skipUserSetup));
+    }
+
+    /**
+     * Loads the ProvisioningParams From the specified file.
+     */
+    public static ProvisioningParams load(File file) {
+        if (!file.exists()) {
+            return null;
+        }
+        ProvisionLogger.logd("Loading ProvisioningParams from " + file);
+        try (FileInputStream stream = new FileInputStream(file)) {
+            XmlPullParser parser = Xml.newPullParser();
+            parser.setInput(stream, null);
+            return load(parser);
+        } catch (IOException | XmlPullParserException e) {
+            ProvisionLogger.loge("Caught exception while trying to load the provisioning params"
+                    + " from file " + file, e);
+            return null;
+        }
+    }
+
+    private static ProvisioningParams load(XmlPullParser parser) throws XmlPullParserException,
+            IOException {
+        Builder builder = new Builder();
+        int type;
+        int outerDepth = parser.getDepth();
+        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
+                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
+             if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+                 continue;
+             }
+             String tag = parser.getName();
+             switch (tag) {
+                 case EXTRA_PROVISIONING_TIME_ZONE:
+                     builder.setTimeZone(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_LOCAL_TIME:
+                     builder.setLocalTime(
+                         Long.parseLong(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_LOCALE:
+                     builder.setLocale(
+                         StoreUtils.stringToLocale(parser.getAttributeValue(null,
+                                 StoreUtils.ATTR_VALUE)));
+                     break;
+                 case TAG_WIFI_INFO:
+                     builder.setWifiInfo(WifiInfo.load(parser));
+                     break;
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME:
+                     builder.setDeviceAdminPackageName(
+                         parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME:
+                     builder.setDeviceAdminComponentName(ComponentName.unflattenFromString(
+                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE:
+                     builder.setAccountToMigrate(StoreUtils.readAccount(parser));
+                     break;
+                 case TAG_PROVISIONING_ACTION:
+                     builder.setProvisioningAction(parser.getAttributeValue(null,
+                            StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_MAIN_COLOR:
+                     builder.setMainColor(
+                         Integer.parseInt(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case TAG_PACKAGE_DOWNLOAD_INFO:
+                     builder.setDeviceAdminDownloadInfo(PackageDownloadInfo.load(parser));
+                     break;
+                 case EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE:
+                     builder.setAdminExtrasBundle(PersistableBundle.restoreFromXml(parser));
+                     break;
+                 case TAG_STARTED_BY_TRUSTED_SOURCE:
+                     builder.setStartedByTrustedSource(Boolean.parseBoolean(
+                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED:
+                     builder.setLeaveAllSystemAppsEnabled(Boolean.parseBoolean(
+                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_SKIP_ENCRYPTION:
+                     builder.setSkipEncryption(Boolean.parseBoolean(parser.getAttributeValue(null,
+                            StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_SKIP_USER_SETUP:
+                     builder.setSkipUserSetup(Boolean.parseBoolean(parser.getAttributeValue(null,
+                            StoreUtils.ATTR_VALUE)));
+                     break;
+             }
+        }
+        return builder.build();
     }
 
     public final static class Builder {

@@ -16,18 +16,25 @@
 
 package com.android.managedprovisioning.model;
 
-import static com.android.internal.util.Preconditions.checkArgument;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-
+import com.android.internal.annotations.Immutable;
+import com.android.managedprovisioning.common.StoreUtils;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
-
-import com.android.internal.annotations.Immutable;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Stores the device admin package download information.
@@ -39,6 +46,9 @@ public final class PackageDownloadInfo implements Parcelable {
     public static final boolean DEFAULT_PACKAGE_CHECKSUM_SUPPORTS_SHA1 = false;
     // Always download packages if no minimum version given.
     public static final int DEFAULT_MINIMUM_VERSION = Integer.MAX_VALUE;
+
+    private static final String TAG_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM
+            = "supports-sha1-checksum";
 
     public static final Parcelable.Creator<PackageDownloadInfo> CREATOR
             = new Parcelable.Creator<PackageDownloadInfo>() {
@@ -139,6 +149,61 @@ public final class PackageDownloadInfo implements Parcelable {
                 && Objects.equals(cookieHeader, that.cookieHeader)
                 && Arrays.equals(packageChecksum, that.packageChecksum)
                 && Arrays.equals(signatureChecksum, that.signatureChecksum);
+    }
+
+    public void save(XmlSerializer serializer) throws XmlPullParserException, IOException {
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
+                location);
+        StoreUtils.writeTag(serializer,
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER, cookieHeader);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
+                StoreUtils.byteArrayToString(packageChecksum));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
+                StoreUtils.byteArrayToString(signatureChecksum));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
+                Integer.toString(minVersion));
+        StoreUtils.writeTag(serializer,
+                TAG_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
+                Boolean.toString(packageChecksumSupportsSha1));
+    }
+
+    public static PackageDownloadInfo load(XmlPullParser parser) throws XmlPullParserException,
+            IOException {
+        Builder builder = new Builder();
+        int type;
+        int outerDepth = parser.getDepth();
+        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
+                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
+             if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+                 continue;
+             }
+             String tag = parser.getName();
+             switch (tag) {
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION:
+                     builder.setLocation(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER:
+                     builder.setCookieHeader(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM:
+                     builder.setPackageChecksum(StoreUtils.stringToByteArray(
+                             parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM:
+                     builder.setSignatureChecksum(StoreUtils.stringToByteArray(
+                             parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE:
+                     builder.setMinVersion(
+                         Integer.parseInt(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+                 case TAG_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM:
+                     builder.setPackageChecksumSupportsSha1(Boolean.parseBoolean(
+                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                     break;
+             }
+        }
+        return builder.build();
     }
 
     public final static class Builder {

@@ -313,29 +313,6 @@ public class Utils {
     }
 
     /**
-     * Transforms a string into a byte array.
-     *
-     * @param s the string to be transformed
-     */
-    public byte[] stringToByteArray(String s)
-        throws NumberFormatException {
-        try {
-            return Base64.decode(s, Base64.URL_SAFE);
-        } catch (IllegalArgumentException e) {
-            throw new NumberFormatException("Incorrect format. Should be Url-safe Base64 encoded.");
-        }
-    }
-
-    /**
-     * Transforms a byte array into a string.
-     *
-     * @param bytes the byte array to be transformed
-     */
-    public String byteArrayToString(byte[] bytes) {
-        return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
-    }
-
-    /**
      * Sets user setup complete on a given user.
      *
      * <p>This will set USER_SETUP_COMPLETE to 1 on the given user.

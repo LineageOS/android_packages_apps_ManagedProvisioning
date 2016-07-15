@@ -16,14 +16,28 @@
 
 package com.android.managedprovisioning.model;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+
+
+import android.app.admin.DevicePolicyManager;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-
-import java.util.Objects;
-
 import com.android.internal.annotations.Immutable;
+import com.android.managedprovisioning.common.StoreUtils;
+import java.io.IOException;
+import java.util.Objects;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Stores the WiFi configuration which is used in managed provisioning.
@@ -67,6 +81,65 @@ public final class WifiInfo implements Parcelable {
     /** The proxy bypass list for the wifi network in {@link #ssid}. */
     @Nullable
     public final String pacUrl;
+
+    void save(XmlSerializer serializer) throws XmlPullParserException, IOException {
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_SSID, ssid);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_HIDDEN,
+                Boolean.toString(hidden));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_SECURITY_TYPE,
+                securityType);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PASSWORD,
+                password);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PROXY_HOST,
+                proxyHost);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PROXY_PORT,
+                Integer.toString(proxyPort));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
+                proxyBypassHosts);
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PAC_URL,
+                pacUrl);
+    }
+
+    static WifiInfo load(XmlPullParser parser) throws XmlPullParserException, IOException {
+        Builder builder = new Builder();
+        int type;
+        int outerDepth = parser.getDepth();
+        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
+                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
+             if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
+                 continue;
+             }
+             String tag = parser.getName();
+             switch (tag) {
+                 case EXTRA_PROVISIONING_WIFI_SSID:
+                     builder.setSsid(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_WIFI_HIDDEN:
+                     builder.setHidden(Boolean.parseBoolean(parser.getAttributeValue(null,
+                             StoreUtils.ATTR_VALUE)));
+                 case EXTRA_PROVISIONING_WIFI_SECURITY_TYPE:
+                     builder.setSecurityType(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_WIFI_PASSWORD:
+                     builder.setPassword(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_WIFI_PROXY_HOST:
+                     builder.setProxyHost(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_WIFI_PROXY_PORT:
+                     builder.setProxyPort(
+                         Integer.parseInt(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
+                 case EXTRA_PROVISIONING_WIFI_PROXY_BYPASS:
+                     builder.setProxyBypassHosts(parser.getAttributeValue(null,
+                             StoreUtils.ATTR_VALUE));
+                     break;
+                 case EXTRA_PROVISIONING_WIFI_PAC_URL:
+                     builder.setPacUrl(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
+                     break;
+             }
+        }
+        return builder.build();
+    }
 
     private WifiInfo(Builder builder) {
         ssid = builder.mSsid;

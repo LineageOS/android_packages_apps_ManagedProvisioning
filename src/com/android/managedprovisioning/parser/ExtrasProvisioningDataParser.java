@@ -66,6 +66,7 @@ import android.support.annotation.VisibleForTesting;
 import com.android.managedprovisioning.LogoUtils;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -86,7 +87,6 @@ import java.util.Set;
 public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     private static final Set<String> PROVISIONING_ACTIONS_SUPPORT_ALL_PROVISIONING_DATA =
             new HashSet(Arrays.asList(
-                    ACTION_RESUME_PROVISIONING,
                     ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE));
 
     private static final Set<String> PROVISIONING_ACTIONS_SUPPORT_MIN_PROVISIONING_DATA =
@@ -106,7 +106,10 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     public ProvisioningParams parse(Intent provisioningIntent, Context context)
             throws IllegalProvisioningArgumentException{
         String provisioningAction = provisioningIntent.getAction();
-
+        if (ACTION_RESUME_PROVISIONING.equals(provisioningAction)) {
+            return provisioningIntent.getParcelableExtra(
+                    ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        }
         if (PROVISIONING_ACTIONS_SUPPORT_MIN_PROVISIONING_DATA.contains(provisioningAction)) {
             ProvisionLogger.logi("Processing mininalist extras intent.");
             return parseMinimalistSupportedProvisioningDataInternal(provisioningIntent, context)
@@ -148,9 +151,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         boolean isProvisionManagedDeviceFromTrustedSourceIntent =
                 ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction());
         try {
-            String provisioningAction = isResumeProvisioningIntent(intent)
-                    ? intent.getStringExtra(EXTRA_PROVISIONING_ACTION)
-                    : mUtils.mapIntentToDpmAction(intent);
+            String provisioningAction = mUtils.mapIntentToDpmAction(intent);
 
             // Parse device admin package name and component name.
             ComponentName deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
@@ -171,9 +172,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 // name has been obtained, it should be safe to set the deprecated package name
                 // value to null.
                 deviceAdminPackageName = null;
-            } else if (isResumeProvisioningIntent(intent)) {
-                deviceAdminPackageName = intent.getStringExtra(
-                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME);
             }
 
             // Parse skip user setup in ACTION_PROVISION_MANAGED_USER and
@@ -240,7 +238,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setTimeZone(intent.getStringExtra(EXTRA_PROVISIONING_TIME_ZONE))
                     .setLocalTime(intent.getLongExtra(EXTRA_PROVISIONING_LOCAL_TIME,
                             ProvisioningParams.DEFAULT_LOCAL_TIME))
-                    .setLocale(MessageParser.stringToLocale(
+                    .setLocale(StoreUtils.stringToLocale(
                             intent.getStringExtra(EXTRA_PROVISIONING_LOCALE)))
                     // Parse WiFi configuration.
                     .setWifiInfo(parseWifiInfoFromExtras(intent))
@@ -251,11 +249,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     //    PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE, after encryption reboot,
                     //    which is a self-originated intent.
                     // 2. the intent is from a trusted source, for example QR provisioning.
-                    .setStartedByTrustedSource(isResumeProvisioningIntent(intent)
-                            ? intent.getBooleanExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
-                                    ProvisioningParams.DEFAULT_STARTED_BY_TRUSTED_SOURCE)
-                            : ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(
-                                    intent.getAction()))
+                    .setStartedByTrustedSource(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE
+                            .equals(intent.getAction()))
                     .build();
         }  catch (IllegalArgumentException e) {
             throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);
@@ -307,20 +302,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         String packageHash =
                 intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM);
         if (packageHash != null) {
-            downloadInfoBuilder.setPackageChecksum(mUtils.stringToByteArray(packageHash));
-            if (isResumeProvisioningIntent(intent)) {
-                // PackageChecksumSupportsSha1 is only supported in NFC provisioning. But if the
-                // device is rebooted after encryption as part of the NFC provisioning flow, the
-                // value should be restored.
-                downloadInfoBuilder.setPackageChecksumSupportsSha1(
-                        intent.getBooleanExtra(
-                                EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
-                                false));
-            }
+            downloadInfoBuilder.setPackageChecksum(StoreUtils.stringToByteArray(packageHash));
         }
         String sigHash = intent.getStringExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM);
         if (sigHash != null) {
-            downloadInfoBuilder.setSignatureChecksum(mUtils.stringToByteArray(sigHash));
+            downloadInfoBuilder.setSignatureChecksum(StoreUtils.stringToByteArray(sigHash));
         }
         return downloadInfoBuilder.build();
     }
@@ -334,15 +320,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             // If we go through encryption, and if the uri is a content uri:
             // We'll lose the grant to this uri. So we need to save it to a local file.
             LogoUtils.saveOrganisationLogo(context, logoUri);
-        } else if (!isResumeProvisioningIntent(intent)) {
-            // If the intent is not from managed provisioning app, there is a slight possibility
-            // that the logo is still kept on the file system from a previous provisioning. In
-            // this case, remove it.
-            LogoUtils.cleanUp(context);
         }
-    }
-
-    private boolean isResumeProvisioningIntent(Intent intent) {
-        return ACTION_RESUME_PROVISIONING.equals(intent.getAction());
     }
 }

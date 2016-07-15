@@ -29,12 +29,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
-
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
-
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -209,11 +208,11 @@ public class DownloadPackageTask {
 
         ProvisionLogger.loge("Provided hash does not match file hash.");
         ProvisionLogger.loge("Hash provided by programmer: "
-                + mUtils.byteArrayToString(mPackageDownloadInfo.packageChecksum));
-        ProvisionLogger.loge("SHA-256 Hash computed from file: " + mUtils.byteArrayToString(
+                + StoreUtils.byteArrayToString(mPackageDownloadInfo.packageChecksum));
+        ProvisionLogger.loge("SHA-256 Hash computed from file: " + StoreUtils.byteArrayToString(
                 packageSha256Hash));
         if (packageSha1Hash != null) {
-            ProvisionLogger.loge("SHA-1 Hash computed from file: " + mUtils.byteArrayToString(
+            ProvisionLogger.loge("SHA-1 Hash computed from file: " + StoreUtils.byteArrayToString(
                     packageSha1Hash));
         }
         return false;
@@ -240,10 +239,10 @@ public class DownloadPackageTask {
 
         ProvisionLogger.loge("Provided hash does not match any signature hash.");
         ProvisionLogger.loge("Hash provided by programmer: "
-                + mUtils.byteArrayToString(mPackageDownloadInfo.signatureChecksum));
+                + StoreUtils.byteArrayToString(mPackageDownloadInfo.signatureChecksum));
         ProvisionLogger.loge("Hashes computed from package signatures: ");
         for (byte[] sigHash : sigHashes) {
-            ProvisionLogger.loge(mUtils.byteArrayToString(sigHash));
+            ProvisionLogger.loge(StoreUtils.byteArrayToString(sigHash));
         }
 
         return false;

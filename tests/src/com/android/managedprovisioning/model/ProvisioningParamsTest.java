@@ -29,7 +29,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
-
+import java.io.File;
 import java.lang.Exception;
 import java.util.Locale;
 
@@ -120,40 +120,8 @@ public class ProvisioningParamsTest extends AndroidTestCase {
     @SmallTest
     public void testEquals() {
         // GIVEN 2 ProvisioningParams objects created by the same set of parameters
-        ProvisioningParams provisioningParams1 = ProvisioningParams.Builder.builder()
-                .setProvisioningAction(TEST_PROVISIONING_ACTION)
-                .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
-                .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                .setDeviceAdminDownloadInfo(TEST_DOWNLOAD_INFO)
-                .setLocalTime(TEST_LOCAL_TIME)
-                .setLocale(TEST_LOCALE)
-                .setTimeZone(TEST_TIME_ZONE)
-                .setMainColor(TEST_MAIN_COLOR)
-                .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
-                .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
-                .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                .setSkipUserSetup(TEST_SKIP_USER_SETUP)
-                .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
-                .setWifiInfo(TEST_WIFI_INFO)
-                .setAdminExtrasBundle(createTestAdminExtras())
-                .build();
-        ProvisioningParams provisioningParams2 = ProvisioningParams.Builder.builder()
-                .setProvisioningAction(TEST_PROVISIONING_ACTION)
-                .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
-                .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                .setDeviceAdminDownloadInfo(TEST_DOWNLOAD_INFO)
-                .setLocalTime(TEST_LOCAL_TIME)
-                .setLocale(TEST_LOCALE)
-                .setTimeZone(TEST_TIME_ZONE)
-                .setMainColor(TEST_MAIN_COLOR)
-                .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
-                .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
-                .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                .setSkipUserSetup(TEST_SKIP_USER_SETUP)
-                .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
-                .setWifiInfo(TEST_WIFI_INFO)
-                .setAdminExtrasBundle(createTestAdminExtras())
-                .build();
+        ProvisioningParams provisioningParams1 = getCompleteProvisioningParams();
+        ProvisioningParams provisioningParams2 = getCompleteProvisioningParams();
 
         // WHEN these two objects compare.
         // THEN they are the same.
@@ -204,9 +172,47 @@ public class ProvisioningParamsTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testSaveAndRestoreComplete() throws Exception {
+        testSaveAndRestore(getCompleteProvisioningParams());
+    }
+
+    // Testing with a minimum set of parameters to cover all null use cases.
+    @SmallTest
+    public void testSaveAndRestoreMinimalist() throws Exception {
+        testSaveAndRestore(ProvisioningParams.Builder.builder()
+                .setProvisioningAction(TEST_PROVISIONING_ACTION)
+                .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
+                .build());
+    }
+
+    private void testSaveAndRestore(ProvisioningParams original) {
+        // GIVEN a ProvisioningParams object
+        // WHEN the ProvisioningParams is written to xml and then read back
+        File file = new File(mContext.getFilesDir(), "test_store.xml");
+        original.save(file);
+        ProvisioningParams copy = ProvisioningParams.load(file);
+        // THEN the same ProvisioningParams is obtained
+        assertEquals(original, copy);
+    }
+
+    @SmallTest
     public void testParceable() {
         // GIVEN a ProvisioningParams object.
-        ProvisioningParams expectedProvisioningParams = ProvisioningParams.Builder.builder()
+        ProvisioningParams expectedProvisioningParams = getCompleteProvisioningParams();
+
+        // WHEN the ProvisioningParams is written to parcel and then read back.
+        Parcel parcel = Parcel.obtain();
+        expectedProvisioningParams.writeToParcel(parcel, 0);
+        parcel.setDataPosition(0);
+        ProvisioningParams actualProvisioningParams =
+                ProvisioningParams.CREATOR.createFromParcel(parcel);
+
+        // THEN the same ProvisioningParams is obtained.
+        assertEquals(expectedProvisioningParams, actualProvisioningParams);
+    }
+
+    private ProvisioningParams getCompleteProvisioningParams() {
+        return ProvisioningParams.Builder.builder()
                 .setProvisioningAction(TEST_PROVISIONING_ACTION)
                 .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
                 .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
@@ -223,15 +229,5 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setWifiInfo(TEST_WIFI_INFO)
                 .setAdminExtrasBundle(createTestAdminExtras())
                 .build();
-
-        // WHEN the ProvisioningParams is written to parcel and then read back.
-        Parcel parcel = Parcel.obtain();
-        expectedProvisioningParams.writeToParcel(parcel, 0);
-        parcel.setDataPosition(0);
-        ProvisioningParams actualProvisioningParams =
-                ProvisioningParams.CREATOR.createFromParcel(parcel);
-
-        // THEN the same ProvisioningParams is obtained.
-        assertEquals(expectedProvisioningParams, actualProvisioningParams);
     }
 }

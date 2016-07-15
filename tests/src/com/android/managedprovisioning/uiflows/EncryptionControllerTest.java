@@ -37,7 +37,6 @@ import android.os.Looper;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import com.android.managedprovisioning.IntentStore;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -60,14 +59,12 @@ public class EncryptionControllerTest extends AndroidTestCase {
     private static final int RESUME_PROVISIONING_TIMEOUT_MS = 1000;
 
     @Mock private Context mContext;
-    @Mock private IntentStore mIntentStore;
     @Mock private Utils mUtils;
     @Mock private Resources mResources;
     @Mock private PackageManager mPackageManager;
     @Mock private EncryptionController.ResumeNotificationHelper mResumeNotificationHelper;
 
     private EncryptionController mController;
-    private MessageParser mMessageParser;
     private Intent mIntent;
 
     @Override
@@ -77,131 +74,90 @@ public class EncryptionControllerTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
-        mMessageParser = new MessageParser();
-
         when(mUtils.isPhysicalDeviceEncrypted()).thenReturn(true);
         when(mContext.getApplicationContext()).thenReturn(mContext);
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
+        when(mContext.getFilesDir()).thenReturn(getContext().getFilesDir());
 
-        mController = new EncryptionController(mContext, mIntentStore, mUtils, mMessageParser,
-                TEST_HOME_RECEIVER, mResumeNotificationHelper, TEST_USER_ID);
+        mController = createEncryptionController();
+        mController.getProvisioningParamsFile(mContext).delete();
     }
 
-    public void testSetEncryptionReminder_duringSuw() {
-        final String action = ACTION_PROVISION_MANAGED_DEVICE;
-        // GIVEN a set of parameters to be stored for resumption
-        // WHEN setting an encryption reminder
-        mController.setEncryptionReminder(createAndStoreProvisioningParams(action));
-        // THEN the intent is stored in IntentStore and the HOME receiver is enabled
-        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mIntentStore).save(intentCaptor.capture());
-        Intent intent = intentCaptor.getValue();
-        assertEquals(Globals.ACTION_RESUME_PROVISIONING, intent.getAction());
-        assertEquals(action, intent.getStringExtra(MessageParser.EXTRA_PROVISIONING_ACTION));
+    public void testDeviceOwner() throws Exception {
+        // GIVEN we've set a provisioning reminder for device owner provisioning.
+        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
+        setReminder(params);
         verify(mUtils).enableComponent(TEST_HOME_RECEIVER, TEST_USER_ID);
         verify(mPackageManager).flushPackageRestrictionsAsUser(TEST_USER_ID);
+        // WHEN resuming the provisioning
+        runResumeProvisioningOnUiThread();
+        // THEN the pre provisioning activity is started
+        verifyStartPreProvisioningActivity(params);
     }
 
-    public void testSetEncryptionReminder_afterSuw() {
-        final String action = ACTION_PROVISION_MANAGED_PROFILE;
-        // GIVEN a set of parameters to be stored for resumption and user setup has been completed
-        // on the given user
+    public void testProfileOwnerAfterSuw() throws Exception {
+        // GIVEN we set a provisioning reminder for managed profile provisioning after SUW
         when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
-        // WHEN setting an encryption reminder
-        mController.setEncryptionReminder(createAndStoreProvisioningParams(action));
-        // THEN the intent is stored in IntentStore and the HOME receiver is enabled
-        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mIntentStore).save(intentCaptor.capture());
-        Intent intent = intentCaptor.getValue();
-        assertEquals(Globals.ACTION_RESUME_PROVISIONING, intent.getAction());
-        assertEquals(action, intent.getStringExtra(MessageParser.EXTRA_PROVISIONING_ACTION));
-        verify(mUtils, never()).enableComponent(any(ComponentName.class), anyInt());
+        ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
+        setReminder(params);
+        // WHEN resuming the provisioning
+        runResumeProvisioningOnUiThread();
+        // THEN we show a notification
+        verifyShowResumeNotification(params);
     }
 
-    public void testResumeProvisioning_profileOwnerAfterSuw() throws Exception {
-        // GIVEN an intent was stored to resume managed profile provisioning after SUW
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
-        createAndStoreProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
-        // WHEN resuming provisioning
+    public void testProfileOwnerDuringSuw() throws Exception {
+        // GIVEN we set a provisioning reminder for managed profile provisioning during SUW
+        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
+        setReminder(params);
+        verify(mUtils).enableComponent(TEST_HOME_RECEIVER, TEST_USER_ID);
+        verify(mPackageManager).flushPackageRestrictionsAsUser(TEST_USER_ID);
+        // WHEN resuming the provisioning
         runResumeProvisioningOnUiThread();
-        // THEN a resume notification should be posted and no activity should be started
-        verify(mResumeNotificationHelper).showResumeNotification(any(Intent.class));
-        verify(mContext, never()).startActivity(any(Intent.class));
+        // THEN we start the pre provisioning activity
+        verifyStartPreProvisioningActivity(params);
     }
 
-    public void testResumeProvisioning_profileOwnerDuringSuw() throws Exception {
-        // GIVEN an intent was stored to resume managed profile provisioning during SUW
-        createAndStoreProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
-        // WHEN resuming provisioning
-        runResumeProvisioningOnUiThread();
-        // THEN the PreProvisioningActivity should be started and no notification should be posted
-        verify(mContext).startActivity(mIntent);
-        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
-    }
-
-    public void testResumeProvisioningTwice_profileOwnerDuringSuw() throws Exception {
-        // GIVEN an intent was stored to resume managed profile provisioning during SUW
-        createAndStoreProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
-        // GIVEN resuming provisioning was called once.
-        runResumeProvisioningOnUiThread();
-        // // WHEN resuming provisioning is called again.
-        runResumeProvisioningOnUiThread();
-        // THEN the PreProvisioningActivity should only be started once and no notification should
-        // be posted
-        verify(mContext).startActivity(mIntent);
-        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
-    }
-
-    public void testResumeProvisioning_deviceOwner() throws Exception {
-        // GIVEN an intent was stored to resume device owner provisioning during SUW
-        createAndStoreProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
-        // WHEN resuming provisioning
-        runResumeProvisioningOnUiThread();
-        // THEN the PreProvisioningActivity should be started and no notification should be posted
-        verify(mContext).startActivity(mIntent);
-        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
-    }
-
-    public void testResumeProvisioning_deviceNotEncrypted() throws Exception {
+    public void testDeviceNotEncrypted() throws Exception {
         // GIVEN an intent was stored to resume device owner provisioning, but the device
         // is not encrypted
+        ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
+        setReminder(params);
         when(mUtils.isPhysicalDeviceEncrypted()).thenReturn(false);
-        createAndStoreProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
         // WHEN resuming provisioning
         runResumeProvisioningOnUiThread();
         // THEN nothing should happen
-        verify(mContext, never()).startActivity(any(Intent.class));
-        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
+        verifyNothingStarted();
     }
 
-    public void testResumeProvisioning_noIntent() throws Exception {
-        // GIVEN an intent was stored to resume device owner provisioning, but the device
-        // is not encrypted
-        when(mIntentStore.load()).thenReturn(null);
-        // WHEN resuming provisioning
+    public void testResumeProvisioningNoIntent() throws Exception {
+        // GIVEN no reminder is set
+        // WHEN resuming the provisioning
         runResumeProvisioningOnUiThread();
         // THEN nothing should happen
-        verify(mContext, never()).startActivity(any(Intent.class));
-        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
+        verifyNothingStarted();
     }
 
-    public void testCancelProvisioningReminder() {
-        // WHEN cancelling the provisioning reminder
+    public void testCancelProvisioningReminder() throws Exception {
+        // WHEN we've set a provisioning reminder
+        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
+        ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
+        setReminder(params);
+        // WHEN canceling the reminder and then resuming the provisioning
         mController.cancelEncryptionReminder();
-        // THEN the intent store should be cleared and the HOME receiver disabled
-        verify(mIntentStore).clear();
         verify(mUtils).disableComponent(TEST_HOME_RECEIVER, TEST_USER_ID);
+        runResumeProvisioningOnUiThread();
+        // THEN nothing should start
+        verifyNothingStarted();
     }
 
-    private ProvisioningParams createAndStoreProvisioningParams(String action) {
-        ProvisioningParams params = new ProvisioningParams.Builder()
+    private ProvisioningParams createProvisioningParams(String action) {
+        return new ProvisioningParams.Builder()
                 .setProvisioningAction(action)
                 .setDeviceAdminPackageName(TEST_MDM_PACKAGE)
                 .build();
-        mIntent = mMessageParser.getIntentFromProvisioningParams(params);
-        assertEquals(action, mIntent.getStringExtra(MessageParser.EXTRA_PROVISIONING_ACTION));
-        when(mIntentStore.load()).thenReturn(mIntent);
-        return params;
     }
 
     private void runResumeProvisioningOnUiThread() throws InterruptedException {
@@ -209,11 +165,44 @@ public class EncryptionControllerTest extends AndroidTestCase {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                mController.resumeProvisioning();
+                // In a real case, the device may have rebooted between the moment when the
+                // reminder was set and the moment we resume the provisioning. Recreate the
+                // encryption controller to simulate this.
+                createEncryptionController().resumeProvisioning();
                 semaphore.release();
             }
         });
         assertTrue("Timeout trying to resume provisioning",
                 semaphore.tryAcquire(RESUME_PROVISIONING_TIMEOUT_MS, TimeUnit.MILLISECONDS));
+    }
+
+    private EncryptionController createEncryptionController() {
+        return new EncryptionController(mContext, mUtils, TEST_HOME_RECEIVER,
+                mResumeNotificationHelper, TEST_USER_ID);
+    }
+
+    private void setReminder(ProvisioningParams params) {
+        mController.setEncryptionReminder(params);
+    }
+
+    private void verifyStartPreProvisioningActivity(ProvisioningParams params) throws Exception {
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mContext).startActivity(intentCaptor.capture());
+        assertEquals(params, intentCaptor.getValue().getParcelableExtra(
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
+    }
+
+    private void verifyShowResumeNotification(ProvisioningParams params) throws Exception {
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mResumeNotificationHelper).showResumeNotification(intentCaptor.capture());
+        assertEquals(params, intentCaptor.getValue().getParcelableExtra(
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS));
+        verify(mContext, never()).startActivity(any(Intent.class));
+    }
+
+    private void verifyNothingStarted() throws Exception {
+        verify(mContext, never()).startActivity(any(Intent.class));
+        verify(mResumeNotificationHelper, never()).showResumeNotification(any(Intent.class));
     }
 }

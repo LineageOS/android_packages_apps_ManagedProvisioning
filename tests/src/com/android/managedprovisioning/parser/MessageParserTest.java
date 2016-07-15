@@ -99,45 +99,6 @@ public class MessageParserTest extends AndroidTestCase {
         mMessageParser = new MessageParser(mUtils = spy(new Utils()));
     }
 
-    public void testParseAndRecoverIntent() throws Exception {
-        // GIVEN the device admin app is installed.
-        doReturn(TEST_COMPONENT_NAME)
-                .when(mUtils)
-                .findDeviceAdmin(TEST_PACKAGE_NAME, null, mContext);
-
-        // GIVEN a managed provisioning intent with some extras was being parsed.
-        Intent intent = new Intent(ACTION_PROVISION_MANAGED_PROFILE)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
-                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
-        ProvisioningParams params = mMessageParser.parse(intent, mContext);
-
-        // WHEN the provisioning data was converted to an intent by getIntentFromProvisioningParams.
-        Intent restoredIntent = mMessageParser.getIntentFromProvisioningParams(params);
-
-        // THEN the intent matches
-        TestUtils.assertIntentEquals(new Intent(ACTION_RESUME_PROVISIONING)
-                        .putExtra(EXTRA_PROVISIONING_ACTION, ACTION_PROVISION_MANAGED_PROFILE)
-                        // Package name is deprecated and replaced by component name only.
-                        .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, (String) null)
-                        .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                                TEST_COMPONENT_NAME)
-                        .putExtra(EXTRA_PROVISIONING_LOCAL_TIME, DEFAULT_LOCAL_TIME)
-                        .putExtra(EXTRA_PROVISIONING_TIME_ZONE, (String) null)
-                        .putExtra(EXTRA_PROVISIONING_LOCALE, (Locale) null)
-                        .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                        .putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP, DEFAULT_SKIP_USER_SETUP)
-                        .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                                DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED)
-                        .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                        .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
-                        .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, (PersistableBundle) null)
-                        .putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE,
-                                DEFAULT_STARTED_BY_TRUSTED_SOURCE),
-                restoredIntent);
-    }
-
     public void test_correctParserUsedToParseNfcIntent() throws Exception {
         // GIVEN a NFC provisioning intent with some supported data.
         Properties props = new Properties();

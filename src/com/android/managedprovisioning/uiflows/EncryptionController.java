@@ -29,12 +29,13 @@ import android.os.Looper;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.IntentStore;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
+import java.io.File;
 
 /**
  * This controller manages all things related to the encryption reboot.
@@ -46,13 +47,10 @@ import com.android.managedprovisioning.parser.MessageParser;
  */
 public class EncryptionController {
 
-    private static final String BOOT_REMINDER_INTENT_STORE_NAME = "boot-reminder";
     private static final int NOTIFICATION_ID = 1;
 
     private final Context mContext;
-    private final IntentStore mIntentStore;
     private final Utils mUtils;
-    private final MessageParser mMessageParser;
     private final ComponentName mHomeReceiver;
     private final ResumeNotificationHelper mResumeNotificationHelper;
     private final int mUserId;
@@ -63,6 +61,9 @@ public class EncryptionController {
 
     private static EncryptionController sInstance;
 
+    private static final String PROVISIONING_PARAMS_FILE_NAME
+            = "encryption_controller_provisioning_params.xml";
+
     public static synchronized EncryptionController getInstance(Context context) {
         if (sInstance == null) {
             sInstance = new EncryptionController(context);
@@ -72,22 +73,20 @@ public class EncryptionController {
 
     private EncryptionController(Context context) {
         this(context,
-                new IntentStore(context, BOOT_REMINDER_INTENT_STORE_NAME),
                 new Utils(),
-                new MessageParser(),
                 new ComponentName(context, PostEncryptionActivity.class),
                 new ResumeNotificationHelper(context),
                 UserHandle.myUserId());
     }
 
     @VisibleForTesting
-    EncryptionController(Context context, IntentStore intentStore, Utils utils,
-            MessageParser messageParser, ComponentName homeReceiver,
-            ResumeNotificationHelper resumeNotificationHelper, int userId) {
+    EncryptionController(Context context,
+            Utils utils,
+            ComponentName homeReceiver,
+            ResumeNotificationHelper resumeNotificationHelper,
+            int userId) {
         mContext = checkNotNull(context, "Context must not be null").getApplicationContext();
-        mIntentStore = checkNotNull(intentStore, "IntentStore must not be null");
         mUtils = checkNotNull(utils, "Utils must not be null");
-        mMessageParser = checkNotNull(messageParser, "MessageParser must not be null");
         mHomeReceiver = checkNotNull(homeReceiver, "HomeReceiver must not be null");
         mResumeNotificationHelper = checkNotNull(resumeNotificationHelper,
                 "ResumeNotificationHelper must not be null");
@@ -97,7 +96,7 @@ public class EncryptionController {
     }
 
     /**
-     * Store a resume intent into the {@link IntentStore}. Provisioning will be resumed after reboot
+     * Store a resume intent into persistent storage. Provisioning will be resumed after reboot
      * using the stored intent.
      *
      * @param resumeIntent the intent to be stored.
@@ -105,7 +104,7 @@ public class EncryptionController {
     public void setEncryptionReminder(ProvisioningParams params) {
         ProvisionLogger.logd("Setting provisioning reminder for action: "
                 + params.provisioningAction);
-        mIntentStore.save(mMessageParser.getIntentFromProvisioningParams(params));
+        params.save(getProvisioningParamsFile(mContext));
         // Only enable the HOME intent receiver for flows inside SUW, as showing the notification
         // for non-SUW flows is less time cricital.
         if (!mUtils.isUserSetupCompleted(mContext)) {
@@ -122,7 +121,7 @@ public class EncryptionController {
      */
     public void cancelEncryptionReminder() {
         ProvisionLogger.logd("Cancelling provisioning reminder.");
-        mIntentStore.clear();
+        getProvisioningParamsFile(mContext).delete();
         mUtils.disableComponent(mHomeReceiver, mUserId);
     }
 
@@ -147,11 +146,13 @@ public class EncryptionController {
             return;
         }
 
-        Intent resumeIntent = mIntentStore.load();
+        ProvisioningParams params = ProvisioningParams.load(getProvisioningParamsFile(mContext));
 
-        if (resumeIntent != null) {
+        if (params != null) {
+            Intent resumeIntent = new Intent(Globals.ACTION_RESUME_PROVISIONING);
+            resumeIntent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
             mProvisioningResumed = true;
-            String action = resumeIntent.getStringExtra(MessageParser.EXTRA_PROVISIONING_ACTION);
+            String action = params.provisioningAction;
             ProvisionLogger.logd("Provisioning resumed after encryption with action: " + action);
 
             if (!mUtils.isPhysicalDeviceEncrypted()) {
@@ -176,8 +177,9 @@ public class EncryptionController {
         }
     }
 
-    public boolean isResumePending() {
-        return mIntentStore.load() != null;
+    @VisibleForTesting
+    File getProvisioningParamsFile(Context context) {
+        return new File(context.getFilesDir(), PROVISIONING_PARAMS_FILE_NAME);
     }
 
     @VisibleForTesting

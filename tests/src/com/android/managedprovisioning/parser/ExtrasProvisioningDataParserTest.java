@@ -17,9 +17,9 @@ package com.android.managedprovisioning.parser;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
@@ -29,7 +29,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
@@ -45,34 +44,27 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECU
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_ACTION;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 
 import android.accounts.Account;
-import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
-
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
-
+import java.util.Locale;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.Locale;
 
 /** Tests for {@link ExtrasProvisioningDataParser}. */
 @SmallTest
@@ -186,57 +178,17 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     }
 
     public void testParse_resumeProvisioningIntent() throws Exception {
-        // GIVEN a resume provisioning intent which stores a device provisioning intent and other
-        // extras.
+        // GIVEN a ProvisioningParams stored in an intent
+        ProvisioningParams expected = ProvisioningParams.Builder.builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
+                .build();
         Intent intent = new Intent(Globals.ACTION_RESUME_PROVISIONING)
-                .putExtra(EXTRA_PROVISIONING_ACTION, ACTION_PROVISION_MANAGED_DEVICE)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
-                .putExtras(getTestTimeTimeZoneAndLocaleExtras())
-                .putExtras(getTestWifiInfoExtras())
-                .putExtras(getTestDeviceAdminDownloadExtras())
-                // GIVEN the package checksum support sha1 is set to true.
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM, true)
-                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
-                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
-                // GIVEN this original provisioning intent was started by a trusted source.
-                .putExtra(EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE, true);
-
-        // WHEN the intent is parsed by the parser.
+                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, expected);
+        // WHEN the intent is parsed by the parser
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent, mContext);
-
-        // THEN ProvisionParams is constructed as expected.
-        assertEquals(
-                ProvisioningParams.Builder.builder()
-                        // THEN provisioning action is restored to ACTION_PROVISION_MANAGED_DEVICE
-                        .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
-                        .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                        // THEN device admin package name is supported for resume intents
-                        .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
-                        .setDeviceAdminDownloadInfo(
-                                PackageDownloadInfo.Builder.builder()
-                                        .setLocation(TEST_DOWNLOAD_LOCATION)
-                                        .setCookieHeader(TEST_COOKIE_HEADER)
-                                        .setPackageChecksum(TEST_PACKAGE_CHECKSUM)
-                                        .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
-                                        .setMinVersion(TEST_MIN_SUPPORT_VERSION)
-                                        // THEN the package checksum support sha1 is set to true.
-                                        .setPackageChecksumSupportsSha1(true)
-                                        .build())
-                        .setLocalTime(TEST_LOCAL_TIME)
-                        .setLocale(TEST_LOCALE)
-                        .setTimeZone(TEST_TIME_ZONE)
-                        .setMainColor(TEST_MAIN_COLOR)
-                        // THEN the trusted source is set to true.
-                        .setStartedByTrustedSource(true)
-                        .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                        .setWifiInfo(TEST_WIFI_INFO)
-                        .setAdminExtrasBundle(createTestAdminExtras())
-                        .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
-                        .build(),
-                params);
+        // THEN we get back the original ProvisioningParams.
+        assertEquals(expected, params);
     }
 
     public void testParse_managedProfileIntent() throws Exception {
@@ -439,7 +391,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         timeTimezoneAndLocaleExtras.putLong(EXTRA_PROVISIONING_LOCAL_TIME, TEST_LOCAL_TIME);
         timeTimezoneAndLocaleExtras.putString(EXTRA_PROVISIONING_TIME_ZONE, TEST_TIME_ZONE);
         timeTimezoneAndLocaleExtras.putString(
-                EXTRA_PROVISIONING_LOCALE, MessageParser.localeToString(TEST_LOCALE));
+                EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(TEST_LOCALE));
         return timeTimezoneAndLocaleExtras;
     }
 
