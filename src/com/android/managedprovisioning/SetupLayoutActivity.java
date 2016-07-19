@@ -17,12 +17,17 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.Utils;
 import com.android.setupwizardlib.GlifLayout;
 
@@ -59,5 +64,18 @@ public abstract class SetupLayoutActivity extends Activity {
         Drawable logo = LogoUtils.getOrganisationLogo(this);
         layout.setIcon(logo);
         layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
+    }
+
+    /**
+     * Constructs and shows a {@link DialogFragment} unless it is already displayed.
+     * @param dialogBuilder Lightweight builder, that it is inexpensive to discard it if dialog
+     * already shown.
+     * @param tag The tag for this dialog, as per {@link FragmentTransaction#add(Fragment, String)}.
+     */
+    protected void showDialog(DialogBuilder dialogBuilder, String tag) {
+        FragmentManager fragmentManager = getFragmentManager();
+        if (fragmentManager.findFragmentByTag(tag) == null) {
+            dialogBuilder.build().show(fragmentManager, tag);
+        }
     }
 }

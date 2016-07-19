@@ -16,38 +16,19 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.app.admin.DevicePolicyManager;
+import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.ConditionVariable;
 import android.os.Handler;
-import android.os.UserHandle;
-import android.os.UserManager;
-import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
-import android.view.View;
-import android.widget.TextView;
 
+import com.android.managedprovisioning.common.SimpleDialog;
+import com.android.managedprovisioning.common.SimpleProgressDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
-
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Profile owner provisioning sets up a separate profile on a device whose primary user is already
@@ -62,13 +43,18 @@ import java.util.concurrent.ExecutionException;
  * {@link ProfileOwnerProvisioningService}, which runs through the setup steps in an
  * async task.
  */
-public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
+public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
+        implements SimpleDialog.SimpleDialogListener {
     protected static final String ACTION_CANCEL_PROVISIONING =
             "com.android.managedprovisioning.CANCEL_PROVISIONING";
+    private static final String PROFILE_OWNER_ERROR_DIALOG =
+            "ProfileOwnerErrorDialog";
+    private static final String PROFILE_OWNER_CANCEL_PROGRESS_DIALOG =
+            "ProfileOwnerCancelProgressDialog";
+    private static final String PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG =
+            "ProfileOwnerCancelProvisioningDialog";
 
     private BroadcastReceiver mServiceMessageReceiver;
-
-    private static final int BROADCAST_TIMEOUT = 2 * 60 * 1000;
 
     // Provisioning service started
     private static final int STATUS_PROVISIONING = 1;
@@ -84,16 +70,11 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
 
     private int mCancelStatus = STATUS_PROVISIONING;
     private Intent mPendingProvisioningResult = null;
-    private ProgressDialog mCancelProgressDialog = null;
-    private AccountManager mAccountManager;
-
-    private ProvisioningParams mParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ProvisionLogger.logd("Profile owner provisioning activity ONCREATE");
-        mAccountManager = (AccountManager) getSystemService(Context.ACCOUNT_SERVICE);
 
         if (savedInstanceState != null) {
             mCancelStatus = savedInstanceState.getInt(KEY_STATUS, STATUS_PROVISIONING);
@@ -108,10 +89,11 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
         } else if (mCancelStatus == STATUS_CANCELLING) {
             showCancelProgressDialog();
         }
-        mParams = (ProvisioningParams) getIntent().getParcelableExtra(
+
+        final ProvisioningParams params = getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        if (mParams != null) {
-            maybeSetLogoAndMainColor(mParams.mainColor);
+        if (params != null) {
+            maybeSetLogoAndMainColor(params.mainColor);
         }
     }
 
@@ -178,7 +160,6 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
             if (mCancelStatus != STATUS_CANCELLING) {
                 return;
             }
-            mCancelProgressDialog.dismiss();
             onProvisioningAborted();
         }
     }
@@ -200,52 +181,59 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity {
     }
 
     private void showCancelProvisioningDialog() {
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setCancelable(false)
                 .setMessage(R.string.profile_owner_cancel_message)
-                .setNegativeButton(R.string.profile_owner_cancel_cancel,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                mCancelStatus = STATUS_PROVISIONING;
-                                if (mPendingProvisioningResult != null) {
-                                    handleProvisioningResult(mPendingProvisioningResult);
-                                }
-                            }
-                        })
-                .setPositiveButton(R.string.profile_owner_cancel_ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                confirmCancel();
-                            }
-                        })
-                .create();
-        alertDialog.show();
+                .setNegativeButtonMessage(R.string.profile_owner_cancel_cancel)
+                .setPositiveButtonMessage(R.string.profile_owner_cancel_ok);
+        showDialog(dialogBuilder, PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG);
     }
 
     protected void showCancelProgressDialog() {
-        mCancelProgressDialog = new ProgressDialog(this);
-        mCancelProgressDialog.setMessage(getText(R.string.profile_owner_cancelling));
-        mCancelProgressDialog.setCancelable(false);
-        mCancelProgressDialog.setCanceledOnTouchOutside(false);
-        mCancelProgressDialog.show();
+        SimpleProgressDialog.Builder dialog = new SimpleProgressDialog.Builder()
+                .setMessage(R.string.profile_owner_cancelling)
+                .setCancelable(false)
+                .setCanceledOnTouchOutside(false);
+        showDialog(dialog, PROFILE_OWNER_CANCEL_PROGRESS_DIALOG);
     }
 
     public void error(int resourceId, String logText) {
         ProvisionLogger.loge(logText);
-        new AlertDialog.Builder(this)
+
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(R.string.provisioning_error_title)
                 .setMessage(resourceId)
                 .setCancelable(false)
-                .setPositiveButton(R.string.device_owner_error_ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                onProvisioningAborted();
-                            }
-                        })
-                .show();
+                .setPositiveButtonMessage(R.string.device_owner_error_ok);
+        showDialog(dialogBuilder, PROFILE_OWNER_ERROR_DIALOG);
+    }
+
+    @Override
+    public void onNegativeButtonClick(DialogFragment dialog) {
+        switch (dialog.getTag()) {
+            case PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG:
+                mCancelStatus = STATUS_PROVISIONING;
+                if (mPendingProvisioningResult != null) {
+                    handleProvisioningResult(mPendingProvisioningResult);
+                }
+                break;
+            default:
+                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
+        }
+    }
+
+    @Override
+    public void onPositiveButtonClick(DialogFragment dialog) {
+        switch (dialog.getTag()) {
+            case PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG:
+                confirmCancel();
+                break;
+            case PROFILE_OWNER_ERROR_DIALOG:
+                onProvisioningAborted();
+                break;
+            default:
+                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
+        }
     }
 
     private void confirmCancel() {

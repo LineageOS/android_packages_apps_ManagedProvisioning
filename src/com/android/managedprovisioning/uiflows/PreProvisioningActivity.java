@@ -18,10 +18,9 @@ package com.android.managedprovisioning.uiflows;
 
 import android.annotation.NonNull;
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -40,13 +39,14 @@ import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.SetupLayoutActivity;
 import com.android.managedprovisioning.UserConsentDialog;
+import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.MdmPackageInfo;
+import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 public class PreProvisioningActivity extends SetupLayoutActivity
-        implements UserConsentDialog.ConsentCallback,
-        DeleteManagedProfileDialog.DeleteManagedProfileCallback,
-        PreProvisioningController.Ui {
+        implements UserConsentDialog.ConsentCallback, SimpleDialog.SimpleDialogListener,
+        DeleteManagedProfileDialog.DeleteManagedProfileCallback, PreProvisioningController.Ui {
 
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     protected static final int PROVISIONING_REQUEST_CODE = 2;
@@ -55,8 +55,18 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
-    private static final String DELETE_MANAGED_PROFILE_DIALOG_FRAGMENT_TAG
-            = "DeleteManagedProfileDialogFragment";
+    private static final String PRE_PROVISIONING_ERROR_AND_CLOSE_DIALOG =
+            "PreProvisioningErrorAndCloseDialog";
+    private static final String PRE_PROVISIONING_BACK_PRESSED_DIALOG =
+            "PreProvisioningBackPressedDialog";
+    private static final String PRE_PROVISIONING_CANCELLED_CONSENT_DIALOG =
+            "PreProvisioningCancelledConsentDialog";
+    private static final String PRE_PROVISIONING_CURRENT_LAUNCHER_INVALID_DIALOG =
+            "PreProvisioningCurrentLauncherInvalidDialog";
+    private static final String PRE_PROVISIONING_USER_CONSENT_DIALOG =
+            "PreProvisioningUserConsentDialog";
+    private static final String PRE_PROVISIONING_DELETE_MANAGED_PROFILE_DIALOG =
+            "PreProvisioningDeleteManagedProfileDialog";
 
     protected PreProvisioningController mController;
 
@@ -120,21 +130,50 @@ public class PreProvisioningActivity extends SetupLayoutActivity
     @Override
     public void showErrorAndClose(int resourceId, String logText) {
         ProvisionLogger.loge(logText);
-        new AlertDialog.Builder(this)
+
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(R.string.provisioning_error_title)
                 .setMessage(resourceId)
                 .setCancelable(false)
-                .setPositiveButton(R.string.device_owner_error_ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                // Close activity
-                                PreProvisioningActivity.this.setResult(
-                                        Activity.RESULT_CANCELED);
-                                PreProvisioningActivity.this.finish();
-                            }
-                        })
-                .show();
+                .setPositiveButtonMessage(R.string.device_owner_error_ok);
+        showDialog(dialogBuilder, PRE_PROVISIONING_ERROR_AND_CLOSE_DIALOG);
+    }
+
+    @Override
+    public void onNegativeButtonClick(DialogFragment dialog) {
+        switch (dialog.getTag()) {
+            case PRE_PROVISIONING_CANCELLED_CONSENT_DIALOG:
+            case PRE_PROVISIONING_BACK_PRESSED_DIALOG:
+                // user chose to continue. Do nothing
+                break;
+            case PRE_PROVISIONING_CURRENT_LAUNCHER_INVALID_DIALOG:
+                dialog.dismiss();
+                setResult(Activity.RESULT_CANCELED);
+                finish();
+                break;
+            default:
+                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
+        }
+    }
+
+    @Override
+    public void onPositiveButtonClick(DialogFragment dialog) {
+        switch (dialog.getTag()) {
+            case PRE_PROVISIONING_ERROR_AND_CLOSE_DIALOG:
+            case PRE_PROVISIONING_BACK_PRESSED_DIALOG:
+                // Close activity
+                setResult(Activity.RESULT_CANCELED);
+                finish();
+                break;
+            case PRE_PROVISIONING_CANCELLED_CONSENT_DIALOG:
+                mUtils.sendFactoryResetBroadcast(this, "Device owner setup cancelled");
+                break;
+            case PRE_PROVISIONING_CURRENT_LAUNCHER_INVALID_DIALOG:
+                requestLauncherPick();
+                break;
+            default:
+                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
+        }
     }
 
     @Override
@@ -151,26 +190,12 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void showCurrentLauncherInvalid() {
-        new AlertDialog.Builder(this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setCancelable(false)
                 .setMessage(R.string.managed_provisioning_not_supported_by_launcher)
-                .setNegativeButton(R.string.cancel_provisioning,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                dialog.dismiss();
-                                setResult(Activity.RESULT_CANCELED);
-                                finish();
-                            }
-                        })
-                .setPositiveButton(R.string.pick_launcher,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                requestLauncherPick();
-                            }
-                        })
-                .show();
+                .setNegativeButtonMessage(R.string.cancel_provisioning)
+                .setPositiveButtonMessage(R.string.pick_launcher);
+        showDialog(dialogBuilder, PRE_PROVISIONING_CURRENT_LAUNCHER_INVALID_DIALOG);
     }
 
     private void requestLauncherPick() {
@@ -243,15 +268,18 @@ public class PreProvisioningActivity extends SetupLayoutActivity
     }
 
     @Override
-    public void showUserConsentDialog(ProvisioningParams params,
-            boolean isProfileOwnerProvisioning) {
-        UserConsentDialog dialog;
-        if (isProfileOwnerProvisioning) {
-            dialog = UserConsentDialog.newProfileOwnerInstance();
-        } else {
-            dialog = UserConsentDialog.newDeviceOwnerInstance(!params.startedByTrustedSource);
-        }
-        dialog.show(getFragmentManager(), "UserConsentDialogFragment");
+    public void showUserConsentDialog(final ProvisioningParams params,
+            final boolean isProfileOwnerProvisioning) {
+        // TODO: consider a builder being a part of UserConsentDialog
+        DialogBuilder dialogBuilder = new DialogBuilder() {
+            @Override
+            public DialogFragment build() {
+                return isProfileOwnerProvisioning
+                        ? UserConsentDialog.newProfileOwnerInstance()
+                        : UserConsentDialog.newDeviceOwnerInstance(!params.startedByTrustedSource);
+            }
+        };
+        showDialog(dialogBuilder, PRE_PROVISIONING_USER_CONSENT_DIALOG);
     }
 
     /**
@@ -286,31 +314,26 @@ public class PreProvisioningActivity extends SetupLayoutActivity
             setResult(RESULT_CANCELED);
             finish();
         } else {
-            new AlertDialog.Builder(this)
+            SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                     .setTitle(R.string.cancel_setup_and_factory_reset_dialog_title)
                     .setMessage(R.string.cancel_setup_and_factory_reset_dialog_msg)
-                    .setNegativeButton(R.string.cancel_setup_and_factory_reset_dialog_cancel, null)
-                    .setPositiveButton(R.string.cancel_setup_and_factory_reset_dialog_ok,
-                            new AlertDialog.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int id) {
-                                    mUtils.sendFactoryResetBroadcast(
-                                            PreProvisioningActivity.this,
-                                            "Device owner setup cancelled");
-                                }
-                            })
-                    .show();
+                    .setNegativeButtonMessage(R.string.cancel_setup_and_factory_reset_dialog_cancel)
+                    .setPositiveButtonMessage(R.string.cancel_setup_and_factory_reset_dialog_ok);
+            showDialog(dialogBuilder, PRE_PROVISIONING_CANCELLED_CONSENT_DIALOG);
         }
     }
 
     @Override
-    public void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
-            int userId) {
-        if (getFragmentManager().findFragmentByTag(DELETE_MANAGED_PROFILE_DIALOG_FRAGMENT_TAG)
-                == null) {
-            DeleteManagedProfileDialog.newInstance(userId, mdmPackageName, domainName)
-                    .show(getFragmentManager(), DELETE_MANAGED_PROFILE_DIALOG_FRAGMENT_TAG);
-        }
+    public void showDeleteManagedProfileDialog(final ComponentName mdmPackageName,
+            final String domainName, final int userId) {
+        // TODO: consider a builder being a part of DeleteManagedProfileDialog
+        DialogBuilder dialogBuilder = new DialogBuilder() {
+            @Override
+            public DialogFragment build() {
+                return DeleteManagedProfileDialog.newInstance(userId, mdmPackageName, domainName);
+            }
+        };
+        showDialog(dialogBuilder, PRE_PROVISIONING_DELETE_MANAGED_PROFILE_DIALOG);
     }
 
     /**
@@ -340,27 +363,13 @@ public class PreProvisioningActivity extends SetupLayoutActivity
             super.onBackPressed();
             return;
         }
-        // TODO: Update strings for managed user case
-        new AlertDialog.Builder(this)
+
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(R.string.work_profile_setup_later_title)
                 .setMessage(R.string.work_profile_setup_later_message)
                 .setCancelable(false)
-                .setPositiveButton(R.string.work_profile_setup_stop,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,int id) {
-                                PreProvisioningActivity.this.setResult(
-                                        Activity.RESULT_CANCELED);
-                                PreProvisioningActivity.this.finish();
-                            }
-                        })
-                .setNegativeButton(R.string.work_profile_setup_continue,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                              // user chose to continue. Do nothing
-                            }
-                        })
-                .show();
+                .setPositiveButtonMessage(R.string.work_profile_setup_stop)
+                .setNegativeButtonMessage(R.string.work_profile_setup_continue);
+        showDialog(dialogBuilder, PRE_PROVISIONING_BACK_PRESSED_DIALOG);
     }
 }

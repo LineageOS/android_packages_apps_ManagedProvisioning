@@ -17,19 +17,17 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.View;
 import android.widget.TextView;
 
+import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.ArrayList;
@@ -58,19 +56,15 @@ import java.util.ArrayList;
  * repeated. We made sure that all tasks can be done twice without causing any problems.
  * </p>
  */
-public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
-    private static final boolean DEBUG = false; // To control logging.
-
-    private static final String KEY_CANCEL_DIALOG_SHOWN = "cancel_dialog_shown";
+public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
+        implements SimpleDialog.SimpleDialogListener {
     private static final String KEY_PENDING_INTENTS = "pending_intents";
+    private static final String DEVICE_OWNER_CANCEL_RESET_DIALOG = "DeviceOwnerCancelResetDialog";
+    private static final String DEVICE_OWNER_ERROR_DIALOG_OK = "DeviceOwnerErrorDialogOk";
+    private static final String DEVICE_OWNER_ERROR_DIALOG_RESET = "DeviceOwnerErrorDialogReset";
 
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
-
-    private ProvisioningParams mParams;
-
-    // Indicates that the cancel dialog is shown.
-    private boolean mCancelDialogShown = false;
 
     // List of intents received while cancel dialog is shown.
     private ArrayList<Intent> mPendingProvisioningIntents = new ArrayList<Intent>();
@@ -78,10 +72,8 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONCREATE");
 
         if (savedInstanceState != null) {
-            mCancelDialogShown = savedInstanceState.getBoolean(KEY_CANCEL_DIALOG_SHOWN, false);
             mPendingProvisioningIntents = savedInstanceState
                     .getParcelableArrayList(KEY_PENDING_INTENTS);
         }
@@ -89,9 +81,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         // Setup the UI.
         initializeLayoutParams(R.layout.progress, R.string.setup_work_device, true);
         setTitle(R.string.setup_device_progress);
-
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
-        if (mCancelDialogShown) showCancelResetDialog();
 
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
@@ -102,10 +92,10 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
 
         // Load the ProvisioningParams (from message in Intent).
-        mParams = (ProvisioningParams) getIntent().getParcelableExtra(
+        final ProvisioningParams params = getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        if (mParams != null) {
-            maybeSetLogoAndMainColor(mParams.mainColor);
+        if (params != null) {
+            maybeSetLogoAndMainColor(params.mainColor);
         }
         startDeviceOwnerProvisioningService();
     }
@@ -121,8 +111,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         @Override
         public void onReceive(Context context, Intent intent)
         {
-            if (mCancelDialogShown) {
-
+            if (cancelDialogShown()) {
                 // Postpone handling the intent.
                 mPendingProvisioningIntents.add(intent);
                 return;
@@ -131,10 +120,13 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
         }
     }
 
+    private boolean cancelDialogShown() {
+        return getFragmentManager().findFragmentByTag(DEVICE_OWNER_CANCEL_RESET_DIALOG) != null;
+    }
+
     private void handleProvisioningIntent(Intent intent) {
         String action = intent.getAction();
         if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
-            if (DEBUG) ProvisionLogger.logd("Successfully provisioned");
             onProvisioningSuccess();
         } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR)) {
             int errorMessageId = intent.getIntExtra(
@@ -144,73 +136,37 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
                     DeviceOwnerProvisioningService.EXTRA_FACTORY_RESET_REQUIRED,
                     true);
 
-            if (DEBUG) {
-                ProvisionLogger.logd("Error reported with code "
-                        + getResources().getString(errorMessageId));
-            }
             error(errorMessageId, factoryResetRequired);
         } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE)) {
             int progressMessage = intent.getIntExtra(
                     DeviceOwnerProvisioningService.EXTRA_PROGRESS_MESSAGE_ID_KEY, -1);
-            if (DEBUG) {
-                ProvisionLogger.logd("Progress update reported with code "
-                    + getResources().getString(progressMessage));
-            }
             if (progressMessage >= 0) {
                 progressUpdate(progressMessage);
             }
         }
     }
 
-
     private void onProvisioningSuccess() {
-        stopService(new Intent(this, DeviceOwnerProvisioningService.class));
-        // Note: the DeviceOwnerProvisioningService will stop itself.
-        setResult(Activity.RESULT_OK);
+        closeActivity(Activity.RESULT_OK);
         finish();
     }
 
     @Override
     public void onBackPressed() {
-        if (mCancelDialogShown) {
-            return;
-        }
-
-        mCancelDialogShown = true;
         showCancelResetDialog();
     }
 
     private void showCancelResetDialog() {
-        new AlertDialog.Builder(DeviceOwnerProvisioningActivity.this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setCancelable(false)
                 .setMessage(R.string.device_owner_cancel_message)
-                .setNegativeButton(R.string.device_owner_cancel_cancel,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                                handlePendingIntents();
-                                mCancelDialogShown = false;
-                            }
-                        })
-                .setPositiveButton(R.string.device_owner_error_reset,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-
-                                // Factory reset the device.
-                                mUtils.sendFactoryResetBroadcast(
-                                        DeviceOwnerProvisioningActivity.this,
-                                        "DeviceOwnerProvisioningActivity.showCancelResetDialog()");
-                            }
-                        })
-                .show();
+                .setNegativeButtonMessage(R.string.device_owner_cancel_cancel)
+                .setPositiveButtonMessage(R.string.device_owner_error_reset);
+        showDialog(dialogBuilder, DEVICE_OWNER_CANCEL_RESET_DIALOG);
     }
 
     private void handlePendingIntents() {
         for (Intent intent : mPendingProvisioningIntents) {
-            if (DEBUG) ProvisionLogger.logd("Handling pending intent " + intent.getAction());
             handleProvisioningIntent(intent);
         }
         mPendingProvisioningIntents.clear();
@@ -222,56 +178,24 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     }
 
     private void error(int dialogMessage, boolean resetRequired) {
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(R.string.provisioning_error_title)
                 .setMessage(dialogMessage)
-                .setCancelable(false);
-        if (resetRequired) {
-            alertBuilder.setPositiveButton(R.string.device_owner_error_reset,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog,int id) {
-                            dialog.dismiss();
+                .setCancelable(false)
+                .setPositiveButtonMessage(resetRequired
+                        ? R.string.device_owner_error_reset : R.string.device_owner_error_ok);
 
-                            // Factory reset the device.
-                            Intent intent = new Intent(Intent.ACTION_MASTER_CLEAR);
-                            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-                            intent.putExtra(Intent.EXTRA_REASON,
-                                    "DeviceOwnerProvisioningActivity.error()");
-                            sendBroadcast(intent);
-                            stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                                            DeviceOwnerProvisioningService.class));
-                            setResult(RESULT_CANCELED);
-                            finish();
-                        }
-                    });
-        } else {
-            alertBuilder.setPositiveButton(R.string.device_owner_error_ok,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog,int id) {
-                            dialog.dismiss();
-
-                            // Close activity.
-                            stopService(new Intent(DeviceOwnerProvisioningActivity.this,
-                                            DeviceOwnerProvisioningService.class));
-                            setResult(RESULT_CANCELED);
-                            finish();
-                        }
-                    });
-        }
-        alertBuilder.show();
+        showDialog(dialogBuilder, resetRequired
+                ? DEVICE_OWNER_ERROR_DIALOG_RESET : DEVICE_OWNER_ERROR_DIALOG_OK);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean(KEY_CANCEL_DIALOG_SHOWN, mCancelDialogShown);
         outState.putParcelableArrayList(KEY_PENDING_INTENTS, mPendingProvisioningIntents);
     }
 
     @Override
     public void onDestroy() {
-        if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONDESTROY");
         if (mServiceMessageReceiver != null) {
             LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
             mServiceMessageReceiver = null;
@@ -280,26 +204,43 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity {
     }
 
     @Override
-    protected void onRestart() {
-        if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONRESTART");
-        super.onRestart();
+    public void onNegativeButtonClick(DialogFragment dialog) {
+        switch(dialog.getTag()) {
+            case DEVICE_OWNER_CANCEL_RESET_DIALOG:
+                dialog.dismiss();
+                handlePendingIntents();
+                break;
+            default:
+                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
+        }
     }
 
     @Override
-    protected void onResume() {
-        if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONRESUME");
-        super.onResume();
+    public void onPositiveButtonClick(DialogFragment dialog) {
+        dialog.dismiss();
+        switch(dialog.getTag()) {
+            case DEVICE_OWNER_CANCEL_RESET_DIALOG:
+                factoryResetDevice("DeviceOwnerProvisioningActivity.showCancelResetDialog()");
+                break;
+            case DEVICE_OWNER_ERROR_DIALOG_RESET:
+                factoryResetDevice("DeviceOwnerProvisioningActivity.error()");
+                closeActivity(RESULT_CANCELED);
+                break;
+            case DEVICE_OWNER_ERROR_DIALOG_OK:
+                closeActivity(RESULT_CANCELED);
+                break;
+            default:
+                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
+        }
     }
 
-    @Override
-    protected void onPause() {
-        if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONPAUSE");
-        super.onPause();
+    private void factoryResetDevice(String reason) {
+        mUtils.sendFactoryResetBroadcast(this, reason);
     }
 
-    @Override
-    protected void onStop() {
-        if (DEBUG) ProvisionLogger.logd("Device owner provisioning activity ONSTOP");
-        super.onStop();
+    private void closeActivity(int resultCode) {
+        stopService(new Intent(this, DeviceOwnerProvisioningService.class));
+        setResult(resultCode);
+        finish();
     }
 }
