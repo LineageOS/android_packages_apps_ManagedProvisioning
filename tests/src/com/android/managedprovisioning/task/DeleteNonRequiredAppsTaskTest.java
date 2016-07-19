@@ -16,19 +16,26 @@
 
 package com.android.managedprovisioning.task;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ParceledListSlice;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
-import android.content.Context;
-import android.content.Intent;
 import android.os.RemoteException;
 import android.test.AndroidTestCase;
 import android.test.mock.MockPackageManager;
@@ -36,45 +43,34 @@ import android.test.suitebuilder.annotation.SmallTest;
 import android.view.inputmethod.InputMethodInfo;
 
 import com.android.internal.view.IInputMethodManager;
+import com.android.managedprovisioning.model.ProvisioningParams;
+
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
 public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
+    private static final String TEST_MDM_PACKAGE_NAME = "mdm.package.name";
+    private static final int TEST_USER_ID = 123;
 
     private @Mock Resources mResources;
     private @Mock IPackageManager mIPackageManager;
     private @Mock IInputMethodManager mIInputMethodManager;
-    private @Mock DeleteNonRequiredAppsTask.Callback mCallback;
+    private @Mock AbstractProvisioningTask.Callback mCallback;
     private @Mock Context mTestContext;
 
     private FakePackageManager mPackageManager;
 
-    private static final String TEST_MDM_PACKAGE_NAME = "mdm.package.name";
-    private static final int TEST_USER_ID = 0;
     private Set<String> mDeletedApps;
     private String[] mSystemAppsWithLauncher;
     private Set<String> mInstalledApplications;
+    private DeleteNonRequiredAppsTask mTask;
 
     @Override
     protected void setUp() throws Exception {
@@ -112,10 +108,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher("app.a");
         setInstalledSystemApps( "app.a", "app.b");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
         assertDeletedApps("app.a");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -125,10 +121,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setRequiredAppsManagedDevice("app.a");
         setVendorRequiredAppsManagedDevice("app.b");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
         assertDeletedApps("app.c");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -138,10 +134,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setRequiredAppsManagedProfile("app.a");
         setVendorRequiredAppsManagedProfile("app.b");
 
-        runTask(DeleteNonRequiredAppsTask.PROFILE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_PROFILE, true, false);
 
         assertDeletedApps("app.c");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -151,10 +147,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setRequiredAppsManagedUser("app.a");
         setVendorRequiredAppsManagedUser("app.b");
 
-        runTask(DeleteNonRequiredAppsTask.MANAGED_USER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_USER, true, false);
 
         assertDeletedApps("app.c");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -162,10 +158,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher(TEST_MDM_PACKAGE_NAME);
         setInstalledSystemApps(TEST_MDM_PACKAGE_NAME);
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
         assertDeletedApps();
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -175,10 +171,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setDisallowedAppsManagedDevice("app.a");
         setVendorDisallowedAppsManagedDevice("app.b");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
         assertDeletedApps("app.a", "app.b");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -187,10 +183,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setInstalledSystemApps("app.a", "app.b");
         setSystemInputMethods("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
         assertDeletedApps("app.b");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -199,10 +195,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setInstalledSystemApps("app.a", "app.b");
         setSystemInputMethods("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.PROFILE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_PROFILE, true, false);
 
         assertDeletedApps("app.a", "app.b");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -211,10 +207,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setInstalledSystemApps("app.a", "app.b");
         setSystemInputMethods("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.MANAGED_USER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_USER, true, false);
 
         assertDeletedApps("app.b");
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -222,10 +218,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher("app.a");
         setInstalledSystemApps("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, true);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, true);
 
         assertDeletedApps(); //assert that no app has been deleted.
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -233,19 +229,20 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher();
         setInstalledSystemApps("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
         assertDeletedApps(); //assert that no app has been deleted.
 
         // Now, an OTA happens and installs app.b with a launcher
         setSystemAppsWithLauncher("app.b");
         setInstalledSystemApps("app.a", "app.b");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, false, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, false, false);
 
         assertDeletedApps("app.b");
-        verify(mCallback, times(2)).onSuccess();
+        // Don't need to add times(2) here, because mTask was newly defined in runTask
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -253,16 +250,17 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher("app.a");
         setInstalledSystemApps("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
         assertDeletedApps("app.a");
         mDeletedApps.clear();
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, false, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, false, false);
 
         assertDeletedApps();
-        verify(mCallback, times(2)).onSuccess();
+        // Don't need to add times(2) here, because mTask was newly defined in runTask
+        verify(mCallback).onSuccess(mTask);
     }
 
     @SmallTest
@@ -270,9 +268,9 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher("app.a");
         setInstalledSystemApps("app.a");
 
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
 
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback).onSuccess(mTask);
         assertDeletedApps("app.a");
         mDeletedApps.clear();
 
@@ -282,10 +280,10 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         // Now, we set a wrong value to mTestContext.getFilesDir. So it should not find the system apps
         // file. So it should not delete any app, but call onError().
         when(mTestContext.getFilesDir()).thenReturn(new File(""));
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, false, false);
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, false, false);
 
         assertDeletedApps();
-        verify(mCallback, times(1)).onError();
+        verify(mCallback).onError(mTask, 0);
     }
 
     @SmallTest
@@ -293,8 +291,8 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         setSystemAppsWithLauncher("app.a");
         setInstalledSystemApps("app.a");
         mPackageManager.setDeletionSucceeds(false);
-        runTask(DeleteNonRequiredAppsTask.DEVICE_OWNER, true, false);
-        verify(mCallback, times(1)).onError();
+        runTask(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        verify(mCallback).onError(mTask, 0);
     }
 
     private void setRequiredAppsManagedDevice(String... apps) {
@@ -360,11 +358,20 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
                 apps);
     }
 
-    private void runTask(int type, boolean newProfile, boolean leaveAllSystemAppsEnabled) {
-        DeleteNonRequiredAppsTask task = new DeleteNonRequiredAppsTask(mTestContext,
-                mIPackageManager, mIInputMethodManager, TEST_MDM_PACKAGE_NAME, type, newProfile,
-                TEST_USER_ID, leaveAllSystemAppsEnabled, mCallback);
-        task.run();
+    private void runTask(String action, boolean newProfile, boolean leaveAllSystemAppsEnabled) {
+        ProvisioningParams params = new ProvisioningParams.Builder()
+                .setProvisioningAction(action)
+                .setDeviceAdminPackageName(TEST_MDM_PACKAGE_NAME)
+                .setLeaveAllSystemAppsEnabled(leaveAllSystemAppsEnabled)
+                .build();
+        mTask = new DeleteNonRequiredAppsTask(
+                mIPackageManager,
+                mIInputMethodManager,
+                newProfile,
+                mTestContext,
+                params,
+                mCallback);
+        mTask.run(TEST_USER_ID);
     }
 
     private void setStringArray(int resourceId, String[] strs) {
@@ -485,4 +492,3 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
         }
     }
 }
-

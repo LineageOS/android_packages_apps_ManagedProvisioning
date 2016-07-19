@@ -16,15 +16,10 @@
 
 package com.android.managedprovisioning;
 
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-
 import android.app.AlarmManager;
 import android.app.Service;
-import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Process;
@@ -33,9 +28,9 @@ import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.internal.app.LocalePicker;
-import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
@@ -159,33 +154,36 @@ public class DeviceOwnerProvisioningService extends Service {
     private void startDeviceOwnerProvisioning(final ProvisioningParams params) {
         if (DEBUG) ProvisionLogger.logd("Starting device owner provisioning");
 
+        final int userId = UserHandle.myUserId();
+
         // Construct Tasks. Do not start them yet.
-        mAddWifiNetworkTask = new AddWifiNetworkTask(this, params.wifiInfo,
-                new AddWifiNetworkTask.Callback() {
+        mAddWifiNetworkTask = new AddWifiNetworkTask(this,
+                params,
+                new AbstractProvisioningTask.Callback() {
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess(AbstractProvisioningTask task) {
                         progressUpdate(R.string.progress_download);
-                        mDownloadPackageTask.run();
+                        mDownloadPackageTask.run(userId);
                     }
 
                     @Override
-                    public void onError(){
+                    public void onError(AbstractProvisioningTask task, int errorCode){
                         error(R.string.device_owner_error_wifi,
                                 false /* do not require factory reset */);
                     }
                 });
 
         mDownloadPackageTask = new DownloadPackageTask(this,
-                new DownloadPackageTask.Callback() {
+                params,
+                new AbstractProvisioningTask.Callback() {
                     @Override
-                    public void onSuccess(String downloadedLocation) {
+                    public void onSuccess(AbstractProvisioningTask task) {
                         progressUpdate(R.string.progress_install);
-                        mInstallPackageTask.run(params.inferDeviceAdminPackageName(),
-                                downloadedLocation);
+                        mInstallPackageTask.run(userId);
                     }
 
                     @Override
-                    public void onError(int errorCode) {
+                    public void onError(AbstractProvisioningTask task, int errorCode) {
                         switch(errorCode) {
                             case DownloadPackageTask.ERROR_HASH_MISMATCH:
                                 error(R.string.device_owner_error_hash_mismatch);
@@ -198,28 +196,22 @@ public class DeviceOwnerProvisioningService extends Service {
                                 break;
                         }
                     }
-                }, params.inferDeviceAdminPackageName(), params.deviceAdminDownloadInfo);
+                });
 
-        mInstallPackageTask = new InstallPackageTask(this,
-                new InstallPackageTask.Callback() {
+        mInstallPackageTask = new InstallPackageTask(mDownloadPackageTask,
+                this,
+                params,
+                new AbstractProvisioningTask.Callback() {
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess(AbstractProvisioningTask task) {
                         progressUpdate(R.string.progress_set_owner);
-                        try {
-                            // Now that the app has been installed, we can look for the device admin
-                            // component in it.
-                            mSetDevicePolicyTask.run(mParams.inferDeviceAdminComponentName(
-                                    DeviceOwnerProvisioningService.this));
-                        } catch (IllegalProvisioningArgumentException e) {
-                            error(R.string.device_owner_error_general);
-                            ProvisionLogger.loge("Failed to infer the device admin component name",
-                                    e);
-                            return;
-                        }
+                        // Now that the app has been installed, we can look for the device admin
+                        // component in it.
+                        mSetDevicePolicyTask.run(userId);
                     }
 
                     @Override
-                    public void onError(int errorCode) {
+                    public void onError(AbstractProvisioningTask task, int errorCode) {
                         switch(errorCode) {
                             case InstallPackageTask.ERROR_PACKAGE_INVALID:
                                 error(R.string.device_owner_error_package_invalid);
@@ -235,50 +227,52 @@ public class DeviceOwnerProvisioningService extends Service {
                 });
 
         mSetDevicePolicyTask = new SetDevicePolicyTask(this,
-                getResources().getString(R.string.default_owned_device_username),
-                new SetDevicePolicyTask.Callback() {
+                params,
+                new AbstractProvisioningTask.Callback() {
                     @Override
-                    public void onSuccess() {
-                        mDeleteNonRequiredAppsTask.run();
+                    public void onSuccess(AbstractProvisioningTask task) {
+                        mDeleteNonRequiredAppsTask.run(userId);
                     }
 
                     @Override
-                    public void onError() {
+                    public void onError(AbstractProvisioningTask task, int errorCode) {
                         error(R.string.device_owner_error_general);
                     }
                 });
 
-        // For split system user devices that will have a system device owner, don't adjust the set
-        // of enabled packages in the system user as we expect the right set of packages to be
-        // enabled for the system user out of the box. For other devices, the set of available
-        // packages can vary depending on management state.
-        boolean leaveAllSystemAppsEnabled = params.leaveAllSystemAppsEnabled ||
-                params.provisioningAction.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
-        mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
-                this, params.inferDeviceAdminPackageName(),
-                DeleteNonRequiredAppsTask.DEVICE_OWNER, true /* creating new profile */,
-                UserHandle.myUserId(), leaveAllSystemAppsEnabled,
-                new DeleteNonRequiredAppsTask.Callback() {
+        mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(true /* first time */,
+                this,
+                params,
+                new AbstractProvisioningTask.Callback() {
                     @Override
-                    public void onSuccess() {
-                        mDisallowAddUserTask.maybeDisallowAddUsers();
+                    public void onSuccess(AbstractProvisioningTask task) {
+                        mDisallowAddUserTask.run(userId);
+                    }
 
+                    @Override
+                    public void onError(AbstractProvisioningTask task, int resultCode) {
+                        error(R.string.device_owner_error_general);
+                    }
+                });
+
+        mDisallowAddUserTask = new DisallowAddUserTask(this,
+                params,
+                new AbstractProvisioningTask.Callback() {
+                    @Override
+                    public void onSuccess(AbstractProvisioningTask task) {
                         // Done with provisioning. Success.
                         onProvisioningSuccess();
                     }
 
                     @Override
-                    public void onError() {
+                    public void onError(AbstractProvisioningTask task, int resultCode) {
                         error(R.string.device_owner_error_general);
                     }
                 });
 
-        mDisallowAddUserTask = new DisallowAddUserTask((UserManager) getSystemService(USER_SERVICE),
-                UserHandle.myUserId(), UserManager.isSplitSystemUser());
-
         // Start first task, which starts next task in its callback, etc.
         progressUpdate(R.string.progress_connect_to_wifi);
-        mAddWifiNetworkTask.run();
+        mAddWifiNetworkTask.run(userId);
     }
 
     private void error(int dialogMessage) {

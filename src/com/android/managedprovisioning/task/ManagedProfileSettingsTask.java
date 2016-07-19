@@ -16,25 +16,34 @@
 
 package com.android.managedprovisioning.task;
 
-import android.content.ContentResolver;
+import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
+
 import android.content.Context;
 import android.provider.Settings;
 
-import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
+import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
-public class ManagedProfileSettingsTask {
+public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
 
-    private final int mUserId;
-    private final ContentResolver mContentResolver;
-
-    public ManagedProfileSettingsTask(Context context, int userId) {
-        mContentResolver = context.getContentResolver();
-        mUserId = userId;
+    public ManagedProfileSettingsTask(
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
+        super(context, params, callback);
     }
 
-    public void run() {
+    @Override
+    public void run(int userId) {
         // Turn on managed profile contacts remote search.
-        Settings.Secure.putIntForUser(mContentResolver, MANAGED_PROFILE_CONTACT_REMOTE_SEARCH,
-                1, mUserId);
+        Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                MANAGED_PROFILE_CONTACT_REMOTE_SEARCH,
+                1, userId);
+        success();
+    }
+
+    @Override
+    public int getStatusMsgId() {
+        return R.string.progress_finishing_touches;
     }
 }

@@ -15,17 +15,23 @@
  */
 package com.android.managedprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import android.app.admin.DevicePolicyManager;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.UserInfo;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.UserInfo;
+import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 
+import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
@@ -59,35 +65,46 @@ public class PreBootListener extends BroadcastReceiver {
         final ComponentName deviceOwnerComponent =
                 mDevicePolicyManager.getDeviceOwnerComponentOnAnyUser();
         if (deviceOwnerComponent != null) {
-            int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();
+            final int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();
 
             if(DeleteNonRequiredAppsTask.shouldDeleteNonRequiredApps(context, deviceOwnerUserId)) {
 
                 // Delete new apps.
-                new DeleteNonRequiredAppsTask(context, deviceOwnerComponent.getPackageName(),
-                        DeleteNonRequiredAppsTask.DEVICE_OWNER,
+                DeleteNonRequiredAppsTask deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
                         false /* not creating new profile */,
-                        deviceOwnerUserId,
-                        false /* delete non-required system apps */,
-                        new DeleteNonRequiredAppsTask.Callback() {
-
+                        context,
+                        new ProvisioningParams.Builder()
+                                .setDeviceAdminComponentName(deviceOwnerComponent)
+                                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                                .build(),
+                        new AbstractProvisioningTask.Callback() {
                             @Override
-                            public void onSuccess() {
+                            public void onSuccess(AbstractProvisioningTask task) {
                             }
 
                             @Override
-                            public void onError() {
+                            public void onError(AbstractProvisioningTask task, int resultCode) {
                                 ProvisionLogger.loge("Error while checking if there are new system "
                                         + "apps that need to be deleted");
                             }
-                        }).run();
+                        });
+                deleteNonRequiredAppsTask.run(deviceOwnerUserId);
             }
 
             // Ensure additional users cannot be created if we're in the state necessary to require
             // that.
-            boolean splitSystemUser = UserManager.isSplitSystemUser();
-            new DisallowAddUserTask(mUserManager, deviceOwnerUserId, splitSystemUser)
-                    .maybeDisallowAddUsers();
+            new DisallowAddUserTask(context,
+                    null,
+                    new AbstractProvisioningTask.Callback() {
+                        @Override
+                        public void onSuccess(AbstractProvisioningTask task) {
+                        }
+
+                        @Override
+                        public void onError(AbstractProvisioningTask task, int errorCode) {
+                            ProvisionLogger.loge("Error while disallowing to add users");
+                        }
+                    }).run(deviceOwnerUserId);
         }
 
         for (UserInfo userInfo : mUserManager.getUsers()) {
@@ -142,7 +159,7 @@ public class PreBootListener extends BroadcastReceiver {
         }
     }
 
-    void runManagedProfileDisablingTasks(int userId, Context context) {
+    void runManagedProfileDisablingTasks(final int userId, Context context) {
         ComponentName profileOwner = mDevicePolicyManager.getProfileOwnerAsUser(userId);
         if (profileOwner == null) {
             // Shouldn't happen.
@@ -150,29 +167,37 @@ public class PreBootListener extends BroadcastReceiver {
             return;
         }
         final DisableInstallShortcutListenersTask disableInstallShortcutListenersTask
-                = new DisableInstallShortcutListenersTask(context, userId);
+                = new DisableInstallShortcutListenersTask(context, null,
+                new AbstractProvisioningTask.Callback() {
+                    @Override
+                    public void onSuccess(AbstractProvisioningTask task) {
+                    }
 
-        final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask
-                = new DeleteNonRequiredAppsTask(context,
-            profileOwner.getPackageName(),
-            DeleteNonRequiredAppsTask.PROFILE_OWNER,
-            false /* not creating new profile */,
-            userId,
-            false /* delete non-required system apps */,
-            new DeleteNonRequiredAppsTask.Callback() {
+                    @Override
+                    public void onError(AbstractProvisioningTask task, int resultCode) {
+                        ProvisionLogger.loge("Error while checking if there are new system "
+                                + "apps that need to be deleted");
+                    }
+                });
 
-                @Override
-                public void onSuccess() {
-                    disableInstallShortcutListenersTask.run();
-                }
+        DeleteNonRequiredAppsTask deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(false,
+                context,
+                new ProvisioningParams.Builder()
+                        .setDeviceAdminComponentName(profileOwner)
+                        .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                        .build(),
+                new AbstractProvisioningTask.Callback() {
+                    @Override
+                    public void onSuccess(AbstractProvisioningTask task) {
+                        disableInstallShortcutListenersTask.run(userId);
+                    }
 
-                @Override
-                public void onError() {
-                    ProvisionLogger.loge("Error while checking if there are new system "
-                            + "apps that need to be deleted");
-                }
-            });
-
-        deleteNonRequiredAppsTask.run();
+                    @Override
+                    public void onError(AbstractProvisioningTask task, int errorCode) {
+                        ProvisionLogger.loge("Error while checking if there are new system "
+                                + "apps that need to be deleted");
+                    }
+                });
+        deleteNonRequiredAppsTask.run(userId);
     }
 }

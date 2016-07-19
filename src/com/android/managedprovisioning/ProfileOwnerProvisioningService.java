@@ -34,18 +34,18 @@ import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.Settings;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
@@ -106,6 +106,11 @@ public class ProfileOwnerProvisioningService extends Service {
     private ProvisioningParams mParams;
 
     private final Utils mUtils = new Utils();
+
+    private DeleteNonRequiredAppsTask mDeleteNonRequiredAppsTask;
+    private DisableInstallShortcutListenersTask mDisableInstallShortcutListenersTask;
+    private DisableBluetoothSharingTask mDisableBluetoothSharingTask;
+    private ManagedProfileSettingsTask mManagedProfileSettingsTask;
 
     private class RunnerTask extends AsyncTask<Intent, Void, Void> {
         @Override
@@ -250,54 +255,91 @@ public class ProfileOwnerProvisioningService extends Service {
             createProfile(getString(R.string.default_managed_profile_name));
         }
         if (mManagedProfileOrUserInfo != null) {
-            final DeleteNonRequiredAppsTask deleteNonRequiredAppsTask;
-            final DisableInstallShortcutListenersTask disableInstallShortcutListenersTask;
-            final DisableBluetoothSharingTask disableBluetoothSharingTask;
-            final ManagedProfileSettingsTask managedProfileSettingsTask =
-                    new ManagedProfileSettingsTask(this, mManagedProfileOrUserInfo.id);
 
-            disableInstallShortcutListenersTask = new DisableInstallShortcutListenersTask(this,
-                    mManagedProfileOrUserInfo.id);
-            disableBluetoothSharingTask = new DisableBluetoothSharingTask(
-                    mManagedProfileOrUserInfo.id);
             // TODO Add separate set of apps for MANAGED_USER, currently same as of DEVICE_OWNER.
-            deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(this,
-                    mParams.deviceAdminComponentName.getPackageName(),
-                    (isProvisioningManagedUser() ? DeleteNonRequiredAppsTask.MANAGED_USER
-                            : DeleteNonRequiredAppsTask.PROFILE_OWNER),
-                    true /* creating new profile */,
-                    mManagedProfileOrUserInfo.id, false /* delete non-required system apps */,
-                    new DeleteNonRequiredAppsTask.Callback() {
-
+            mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(true, this,
+                    mParams,
+                    new AbstractProvisioningTask.Callback() {
                         @Override
-                        public void onSuccess() {
+                        public void onSuccess(AbstractProvisioningTask task) {
                             // Need to explicitly handle exceptions here, as
                             // onError() is not invoked for failures in
                             // onSuccess().
                             try {
-                                disableBluetoothSharingTask.run();
-                                if (!isProvisioningManagedUser()) {
-                                    managedProfileSettingsTask.run();
-                                    disableInstallShortcutListenersTask.run();
-                                }
-                                setUpUserOrProfile();
-                            } catch (ProvisioningException e) {
-                                error(e.getMessage(), e);
+                                mDisableBluetoothSharingTask.run(mManagedProfileOrUserInfo.id);
                             } catch (Exception e) {
                                 error("Provisioning failed", e);
                             }
-                            finish();
                         }
 
                         @Override
-                        public void onError() {
+                        public void onError(AbstractProvisioningTask task, int errorCode) {
                             // Raise an error with a tracing exception attached.
                             error("Delete non required apps task failed.", new Exception());
                             finish();
                         }
                     });
 
-            deleteNonRequiredAppsTask.run();
+            mDisableBluetoothSharingTask = new DisableBluetoothSharingTask(this,
+                    mParams,
+                    new AbstractProvisioningTask.Callback() {
+                        @Override
+                        public void onSuccess(AbstractProvisioningTask task) {
+                            if (!isProvisioningManagedUser()) {
+                                mManagedProfileSettingsTask.run(mManagedProfileOrUserInfo.id);
+                            } else {
+                                try {
+                                    setUpUserOrProfile();
+                                } catch (ProvisioningException e){
+                                    error(e.getMessage(), e);
+                                }
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onError(AbstractProvisioningTask task, int errorCode) {
+                            error("DisableBluetoothSharingTask failed.", new Exception());
+                            finish();
+                        }
+                    });
+
+            mManagedProfileSettingsTask = new ManagedProfileSettingsTask(this,
+                    mParams,
+                    new AbstractProvisioningTask.Callback() {
+                        @Override
+                        public void onSuccess(AbstractProvisioningTask task) {
+                            mDisableInstallShortcutListenersTask.run(mManagedProfileOrUserInfo.id);
+                        }
+
+                        @Override
+                        public void onError(AbstractProvisioningTask task, int errorCode) {
+                            error("ManagedProfileSettingsTask failed.", new Exception());
+                            finish();
+                        }
+                    });
+
+            mDisableInstallShortcutListenersTask = new DisableInstallShortcutListenersTask(this,
+                    mParams,
+                    new AbstractProvisioningTask.Callback() {
+                        @Override
+                        public void onSuccess(AbstractProvisioningTask task) {
+                            try {
+                                setUpUserOrProfile();
+                            } catch (ProvisioningException e) {
+                                error(e.getMessage(), e);
+                            }
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(AbstractProvisioningTask task, int errorCode) {
+                            error("DisableInstallShortcutListenersTask failed.", new Exception());
+                            finish();
+                        }
+                    });
+
+            mDeleteNonRequiredAppsTask.run(mManagedProfileOrUserInfo.id);
         }
     }
 

@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
-import static org.mockito.Mockito.anyInt;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -29,21 +29,32 @@ import android.content.pm.PackageManager;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
+
 import org.mockito.MockitoAnnotations;
 
 public class SetDevicePolicyTaskTest extends AndroidTestCase {
+    private static final String TEST_TAG = "SetDevicePolicyTask";
+
     private static final String ADMIN_PACKAGE_NAME = "com.admin.test";
     private static final String ADMIN_RECEIVER_NAME = ADMIN_PACKAGE_NAME + ".AdminReceiver";
     private static final ComponentName ADMIN_COMPONENT_NAME = new ComponentName(ADMIN_PACKAGE_NAME,
             ADMIN_RECEIVER_NAME);
-    private static final String OWNER_NAME = "Test Owner";
     private static final int TEST_USER_ID = 123;
+    private static final ProvisioningParams TEST_PARAMS = new ProvisioningParams.Builder()
+            .setDeviceAdminComponentName(ADMIN_COMPONENT_NAME)
+            .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+            .build();
 
     @Mock private Context mContext;
     @Mock private PackageManager mPackageManager;
     @Mock private DevicePolicyManager mDevicePolicyManager;
-    @Mock private SetDevicePolicyTask.Callback mCallback;
+    @Mock private AbstractProvisioningTask.Callback mCallback;
+    @Mock private Utils mUtils;
 
+    private String mDefaultOwnerName;
     private SetDevicePolicyTask mTask;
 
     @Override
@@ -53,66 +64,76 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
         System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
         MockitoAnnotations.initMocks(this);
 
+        mDefaultOwnerName = getContext().getResources()
+                .getString(R.string.default_owned_device_username);
+
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
         when(mContext.getSystemService(Context.DEVICE_POLICY_SERVICE))
                 .thenReturn(mDevicePolicyManager);
+        when(mContext.getResources()).thenReturn(getContext().getResources());
+
         when(mPackageManager.getApplicationEnabledSetting(ADMIN_PACKAGE_NAME))
                 .thenReturn(PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
         when(mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser()).thenReturn(null);
-        when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID))
-                .thenReturn(true);
+        when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID)).thenReturn(true);
+        when(mUtils.findDeviceAdmin(null, ADMIN_COMPONENT_NAME, mContext))
+                .thenReturn(ADMIN_COMPONENT_NAME);
 
-        mTask = new SetDevicePolicyTask(mContext, OWNER_NAME, mCallback, TEST_USER_ID);
+        mTask = new SetDevicePolicyTask(mUtils, mContext, TEST_PARAMS, mCallback);
     }
 
     @SmallTest
     public void testEnableDevicePolicyApp() {
         when(mPackageManager.getApplicationEnabledSetting(ADMIN_PACKAGE_NAME))
                 .thenReturn(PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
-        mTask.run(ADMIN_COMPONENT_NAME);
+        mTask.run(TEST_USER_ID);
         verify(mPackageManager).setApplicationEnabledSetting(ADMIN_PACKAGE_NAME,
                 PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
                 PackageManager.DONT_KILL_APP);
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback, times(1)).onSuccess(mTask);
     }
 
     @SmallTest
     public void testEnableDevicePolicyApp_PackageNotFound() {
         when(mPackageManager.getApplicationEnabledSetting(ADMIN_PACKAGE_NAME))
                 .thenThrow(new IllegalArgumentException());
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mCallback, times(1)).onError();
+        mTask.run(TEST_USER_ID);
+        verify(mCallback, times(1)).onError(mTask, 0);
     }
 
     @SmallTest
     public void testSetActiveAdmin() {
-        mTask.run(ADMIN_COMPONENT_NAME);
+        mTask.run(TEST_USER_ID);
         verify(mDevicePolicyManager).setActiveAdmin(ADMIN_COMPONENT_NAME, true, TEST_USER_ID);
-        verify(mCallback, times(1)).onSuccess();
+        verify(mCallback, times(1)).onSuccess(mTask);
     }
 
     @SmallTest
     public void testSetDeviceOwner() {
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID);
-        verify(mCallback, times(1)).onSuccess();
+        mTask.run(TEST_USER_ID);
+        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID);
+        verify(mCallback, times(1)).onSuccess(mTask);
     }
 
     @SmallTest
     public void testSetDeviceOwner_PreconditionsNotMet() {
-        when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID))
-                .thenThrow(new IllegalStateException());
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID);
-        verify(mCallback, times(1)).onError();
+        when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID)).thenThrow(new IllegalStateException());
+        mTask.run(TEST_USER_ID);
+        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID);
+        verify(mCallback, times(1)).onError(mTask, 0);
     }
 
     @SmallTest
     public void testSetDeviceOwner_ReturnFalse() {
-        when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID))
-                .thenReturn(false);
-        mTask.run(ADMIN_COMPONENT_NAME);
-        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, OWNER_NAME, TEST_USER_ID);
-        verify(mCallback, times(1)).onError();
+        when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID)).thenReturn(false);
+        mTask.run(TEST_USER_ID);
+        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID);
+        verify(mCallback, times(1)).onError(mTask, 0);
     }
 }

@@ -132,6 +132,10 @@
   <string name="progress_download">Downloading the admin app\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
   <string name="progress_install">Installing the admin app\u2026</string>
+  <!-- TODO: Confirm this string with UX. Progress text indicating that non-required system apps are being deleted. [CHAR LIMIT=45] -->
+  <string name="progress_delete_non_required_apps">Removing non-required system apps\u2026</string>
+  <!-- TODO: Confirm this string with UX. Progress text indicating that finishing touches are being put. [CHAR LIMIT=45] -->
+  <string name="progress_finishing_touches">Putting finishing touches\u2026</string>
   <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
   <string name="progress_set_owner">Setting the device owner\u2026</string>
 
