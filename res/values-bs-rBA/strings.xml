@@ -28,13 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Sljedeća aplikacija će upravljati vašim uređajem:"</string>
     <string name="next" msgid="1004321437324424398">"Dalje"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Postavlja se vaš profil za posao..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="8081364233904653752">"Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim profilom, uključujući aktivnosti na mreži i informacije o lokaciji vašeg uređaja, kao i da upravlja njima."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim profilom, uključujući vaše aktivnosti na mreži i informacije o lokaciji vašeg uređaja, historiju poziva i historiju pretrage kontakata, kao i da upravlja njima."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim uređajem, uključujući aktivnosti na mreži i informacije o lokaciji vašeg uređaja, kao i da upravlja njima."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Da biste koristili funkciju za zaštitu od krađe, zaključani ekran vašeg uređaja mora biti zaštićen lozinkom."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Za više informacija, uključujući pravila vaše organizacije o privatnosti, obratite se svom administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
-    <!-- no translation found for cancel_setup (2949928239276274745) -->
-    <skip />
+    <string name="cancel_setup" msgid="2949928239276274745">"Otkaži"</string>
     <string name="ok_setup" msgid="4593707675416137504">"U redu"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Pristajem"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Poslovni profil"</string>
@@ -44,14 +43,11 @@
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Ovim profilom za posao se upravlja za organizaciju %s pomoću:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Prije nego što nastavite, "<a href="#read_this_link">"pročitajte ovo"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ako nastavite, sve aplikacije i podaci sa ovog profila će biti izbrisani."</string>
-    <!-- no translation found for delete_profile (2299218578684663459) -->
-    <skip />
-    <!-- no translation found for cancel_delete_profile (5155447537894046036) -->
-    <skip />
+    <string name="delete_profile" msgid="2299218578684663459">"Tipka za brisanje"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Otkaži"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Da nastavite postavljati profil za posao, morate šifrirati svoj uređaj. To može potrajati."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Da nastavite postavljati svoj uređaj, trebate ga šifrirati. To može potrajati."</string>
-    <!-- no translation found for encrypt_device_launch_settings (826115154646195837) -->
-    <skip />
+    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Šifriraj"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Šifriranje je završeno"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Dodirnite da nastavite podešavanje svog radnog profila"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nije moguće podesiti vaš poslovni profil. Obratite se odjelu za IT ili pokušajte ponovo kasnije."</string>
@@ -60,10 +56,8 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"Profili za posao se ne mogu postaviti na uređaju kojim se upravlja"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Profil za posao se ne može kreirati jer ste dostigli maksimalni broj korisnika na svom uređaju. Uklonite barem jednog korisnika i pokušajte ponovo."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ovaj pokretač aplikacija ne podržava vaš poslovni profil. Upotrijebite neki kompatibilan pokretač."</string>
-    <!-- no translation found for cancel_provisioning (3408069559452653724) -->
-    <skip />
-    <!-- no translation found for pick_launcher (4257084827403983845) -->
-    <skip />
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Otkaži"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Uredu"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Korisnik nije dovršio postavljanje"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik poslovnog uređaja"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"Postavite radni uređaj"</string>
@@ -74,12 +68,9 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Postavlja se vlasnik uređaja..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Vaš uređaj ne podržava šifriranje. Obratite se svom IT odjelu."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Želite li prekinuti postavljanje i izbrisati podatke na svom uređaju?"</string>
-    <!-- no translation found for device_owner_cancel_cancel (1052951540909389275) -->
-    <skip />
-    <!-- no translation found for device_owner_error_ok (2002250763093787051) -->
-    <skip />
-    <!-- no translation found for device_owner_error_reset (1609782972753569267) -->
-    <skip />
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Otkaži"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Uredu"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Poništi"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nije moguće podesiti uređaj. Obratite se odjelu za IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj uređaj je već postavljen."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na Wi-Fi"</string>
@@ -91,10 +82,8 @@
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nije moguće koristiti aplikaciju administratora. Nedostaju neke komponente ili je neispravna. Obratite se odjelu za IT."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nije moguće instalirati aplikaciju administratora"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Želite li zaustaviti postavljanje?"</string>
-    <!-- no translation found for profile_owner_cancel_cancel (4408725524311574891) -->
-    <skip />
-    <!-- no translation found for profile_owner_cancel_ok (5951679183850766029) -->
-    <skip />
+    <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ne"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Da"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Otkazuje se..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Želite li zaustaviti postavljanje profila?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Profil za posao možete postaviti kasnije preko aplikacije za upravljanje uređajem koju koristi vaša organizacija."</string>
