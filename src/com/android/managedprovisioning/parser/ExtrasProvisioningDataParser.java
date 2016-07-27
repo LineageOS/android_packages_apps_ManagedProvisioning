@@ -33,6 +33,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
@@ -45,19 +46,14 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_ACTION;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE;
 
 import android.accounts.Account;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -74,9 +70,6 @@ import com.android.managedprovisioning.model.WifiInfo;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.IllformedLocaleException;
-import java.util.Locale;
-import java.util.Properties;
 import java.util.Set;
 
 /**

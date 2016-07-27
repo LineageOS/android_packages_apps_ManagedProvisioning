@@ -39,7 +39,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM;
 
 import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
@@ -146,10 +145,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         setTestWifiInfo(props);
         setTestTimeTimeZoneAndLocale(props);
         setTestDeviceAdminDownload(props);
-        // GIVEN this intent requested to support SHA1 package checksum.
-        props.setProperty(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
-                Boolean.toString(true));
         props.setProperty(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, getTestAdminExtrasString());
         props.setProperty(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION,
