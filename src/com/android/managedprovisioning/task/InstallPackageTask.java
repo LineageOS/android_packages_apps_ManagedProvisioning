@@ -17,8 +17,6 @@ package com.android.managedprovisioning.task;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.annotation.NonNull;
-import android.annotation.Nullable;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageInstallObserver;
@@ -29,7 +27,9 @@ import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.io.File;
 
@@ -41,13 +41,12 @@ import java.io.File;
  * package and admin receiver.
  * </p>
  */
-public class InstallPackageTask {
+public class InstallPackageTask extends AbstractProvisioningTask {
     public static final int ERROR_PACKAGE_INVALID = 0;
     public static final int ERROR_INSTALLATION_FAILED = 1;
 
-    private final Context mContext;
-    private final Callback mCallback;
     private final Utils mUtils;
+    private final DownloadPackageTask mDownloadPackageTask;
 
     private PackageManager mPm;
     private boolean mInitialPackageVerifierEnabled;
@@ -58,16 +57,31 @@ public class InstallPackageTask {
      *
      * {@see #run(String, String)} for more detail on package installation.
      */
-    public InstallPackageTask (Context context, Callback callback) {
-        this(context, callback, new Utils());
+    public InstallPackageTask(
+            DownloadPackageTask downloadPackageTask,
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
+        this(new Utils(), downloadPackageTask, context, params, callback);
     }
 
     @VisibleForTesting
-    InstallPackageTask (Context context, Callback callback, Utils utils) {
-        mCallback = checkNotNull(callback);
-        mContext = checkNotNull(context);
-        mPm = mContext.getPackageManager();
+    InstallPackageTask(
+            Utils utils,
+            DownloadPackageTask downloadPackageTask,
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
+        super(context, params, callback);
+
+        mPm = context.getPackageManager();
         mUtils = checkNotNull(utils);
+        mDownloadPackageTask = checkNotNull(downloadPackageTask);
+    }
+
+    @Override
+    public int getStatusMsgId() {
+        return R.string.progress_install;
     }
 
     /**
@@ -78,12 +92,15 @@ public class InstallPackageTask {
      *
      * Errors will be indicated if a downloaded package is invalid, or installation fails.
      */
-    public void run(@NonNull String packageName, @Nullable String packageLocation) {
+    @Override
+    public void run(int userId) {
+        String packageLocation = mDownloadPackageTask.getDownloadedPackageLocation();
+        String packageName = mProvisioningParams.inferDeviceAdminPackageName();
 
         ProvisionLogger.logi("Installing package");
         mInitialPackageVerifierEnabled = mUtils.isPackageVerifierEnabled(mContext);
         if (TextUtils.isEmpty(packageLocation)) {
-            mCallback.onSuccess();
+            success();
             return;
         } else if (packageContentIsCorrect(packageName, packageLocation)) {
             // Temporarily turn off package verification.
@@ -105,14 +122,14 @@ public class InstallPackageTask {
         PackageInfo pi = mPm.getPackageArchiveInfo(packageLocation, PackageManager.GET_RECEIVERS);
         if (pi == null) {
             ProvisionLogger.loge("Package could not be parsed successfully.");
-            mCallback.onError(ERROR_PACKAGE_INVALID);
+            error(ERROR_PACKAGE_INVALID);
             return false;
         }
         if (!pi.packageName.equals(packageName)) {
             ProvisionLogger.loge("Package name in apk (" + pi.packageName
                     + ") does not match package name specified by programmer ("
                     + packageName + ").");
-            mCallback.onError(ERROR_PACKAGE_INVALID);
+            error(ERROR_PACKAGE_INVALID);
             return false;
         }
         if (pi.receivers != null) {
@@ -124,7 +141,7 @@ public class InstallPackageTask {
             }
         }
         ProvisionLogger.loge("Installed package has no admin receiver.");
-        mCallback.onError(ERROR_PACKAGE_INVALID);
+        error(ERROR_PACKAGE_INVALID);
         return false;
     }
 
@@ -142,41 +159,27 @@ public class InstallPackageTask {
             mUtils.setPackageVerifierEnabled(mContext, mInitialPackageVerifierEnabled);
             if (packageName != null && !packageName.equals(mPackageName))  {
                 ProvisionLogger.loge("Package doesn't have expected package name.");
-                mCallback.onError(ERROR_PACKAGE_INVALID);
+                error(ERROR_PACKAGE_INVALID);
                 return;
             }
             if (returnCode == PackageManager.INSTALL_SUCCEEDED) {
                 ProvisionLogger.logd(
                         "Package " + mPackageName + " is succesfully installed.");
-                mCallback.onSuccess();
+                success();
             } else if (returnCode == PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE) {
                 ProvisionLogger.logd("Current version of " + mPackageName
                         + " higher than the version to be installed. It was not reinstalled.");
                 // If the package is already at a higher version: success.
-                mCallback.onSuccess();
+                success();
             } else {
                 ProvisionLogger.logd(
                         "Installing package " + mPackageName + " failed.");
                 ProvisionLogger.logd(
                         "Errorcode returned by IPackageInstallObserver = " + returnCode);
-                mCallback.onError(ERROR_INSTALLATION_FAILED);
+                error(ERROR_INSTALLATION_FAILED);
             }
             // remove the file containing the apk in order not to use too much space.
             new File(mPackageLocation).delete();
         }
-    }
-
-    /**
-     * Calls the success callback once the package that needed to be installed is successfully
-     * installed.
-     */
-    private void onSuccess() {
-        // Set package verification flag to its original value.
-        mCallback.onSuccess();
-    }
-
-    public abstract static class Callback {
-        public abstract void onSuccess();
-        public abstract void onError(int errorCode);
     }
 }

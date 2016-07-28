@@ -1,5 +1,6 @@
 package com.android.managedprovisioning.task;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
@@ -23,6 +24,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.mockito.ArgumentCaptor;
 import org.mockito.MockitoAnnotations;
@@ -32,7 +34,7 @@ import org.mockito.Spy;
 @SmallTest
 public class DownloadPackageTaskTest extends AndroidTestCase {
     @Mock private Context mContext;
-    @Mock private DownloadPackageTask.Callback mCallback;
+    @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private DownloadManager mDownloadManager;
     @Mock private PackageManager mPackageManager;
     @Spy private Utils mUtils;
@@ -41,6 +43,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
     private static final String TEST_PACKAGE_NAME = "sample.package.name";
     private static final String TEST_PACKAGE_LOCATION = "http://www.some.uri.com";
     private static final String TEST_LOCAL_FILENAME = "/local/filename";
+    private static final int TEST_USER_ID = 123;
 
     private static final byte[] TEST_PACKAGE_CHECKSUM = new byte[] { '1', '2', '3', '4', '5' };
     private static final byte[] TEST_SIGNATURE = new byte[] {'a', 'b', 'c', 'd'};
@@ -50,6 +53,8 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
 
     private static final long TEST_DOWNLOAD_ID = 1234;
     private static final int PACKAGE_VERSION = 43;
+
+    private DownloadPackageTask mTask;
 
     @Override
     protected void setUp() throws Exception {
@@ -78,13 +83,11 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
     }
 
     public void testNothingToDo() {
-        // GIVEN that DownloadPackageTask was created with null download location
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
-                null, mUtils);
         // WHEN running the download package task
-        task.run();
+        runAndMockDownload(null, 1);
+
         // THEN we get a success callback
-        verify(mCallback).onSuccess(null);
+        verify(mCallback).onSuccess(mTask);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -92,16 +95,17 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         // GIVEN we're not connected to a network
         doReturn(false).when(mUtils).isConnectedToNetwork(any(Context.class));
 
-        PackageDownloadInfo packageDownloadInfo = new PackageDownloadInfo.Builder()
+        // GIVEN a valid download info
+        final PackageDownloadInfo packageDownloadInfo = new PackageDownloadInfo.Builder()
                 .setLocation(TEST_PACKAGE_LOCATION)
                 .setSignatureChecksum(mTestSignatureHash)
                 .build();
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
-                packageDownloadInfo, mUtils);
+
         // WHEN running the download package task
-        task.run();
+        runTaskWithDownloadInfo(packageDownloadInfo);
+
         // THEN we get an error callback
-        verify(mCallback).onError(DownloadPackageTask.ERROR_OTHER);
+        verify(mCallback).onError(mTask, DownloadPackageTask.ERROR_OTHER);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -114,12 +118,12 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 .setSignatureChecksum(mTestSignatureHash)
                 .setMinVersion(PACKAGE_VERSION)
                 .build();
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
-                packageDownloadInfo, mUtils);
+
         // WHEN running the download package task
-        task.run();
+        runTaskWithDownloadInfo(packageDownloadInfo);
+
         // THEN we get a success callback directly
-        verify(mCallback).onSuccess(null);
+        verifyOnTaskFinished(null);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -135,7 +139,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         // WHEN running the download package task
         runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get a success callback
-        verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
+        verifyOnTaskFinished(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -148,7 +152,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         // WHEN running the download package task
         runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get a success callback
-        verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
+        verifyOnTaskFinished(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -161,7 +165,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         // WHEN running the download package task
         runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get a success callback
-        verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
+        verifyOnTaskFinished(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -175,7 +179,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         // WHEN running the download package task and sending the broadcast twice
         runAndMockDownload(packageDownloadInfo, 2);
         // THEN we get a success callback
-        verify(mCallback).onSuccess(TEST_LOCAL_FILENAME);
+        verifyOnTaskFinished(TEST_LOCAL_FILENAME);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -188,8 +192,23 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         // WHEN running the download package task
         runAndMockDownload(packageDownloadInfo, 1);
         // THEN we get an error callback
-        verify(mCallback).onError(DownloadPackageTask.ERROR_HASH_MISMATCH);
+        verify(mCallback).onError(mTask, DownloadPackageTask.ERROR_HASH_MISMATCH);
         verifyNoMoreInteractions(mCallback);
+    }
+
+    private void runTaskWithDownloadInfo(PackageDownloadInfo packageDownloadInfo) {
+        final ProvisioningParams params = new ProvisioningParams.Builder()
+                .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setDeviceAdminDownloadInfo(packageDownloadInfo)
+                .build();
+        mTask = new DownloadPackageTask(
+                mUtils,
+                mContext,
+                params,
+                mCallback);
+
+        mTask.run(TEST_USER_ID);
     }
 
     private void runAndMockDownload(PackageDownloadInfo packageDownloadInfo, int broadcastCount) {
@@ -201,21 +220,27 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         cursor.addRow(new Object[] {DownloadManager.STATUS_SUCCESSFUL, TEST_LOCAL_FILENAME});
         when(mDownloadManager.query(any(Query.class))).thenReturn(cursor);
 
-        DownloadPackageTask task = new DownloadPackageTask(mContext, mCallback, TEST_PACKAGE_NAME,
-                packageDownloadInfo, mUtils);
-        task.run();
+        runTaskWithDownloadInfo(packageDownloadInfo);
+
         verify(mDownloadManager).setAccessFilename(true);
 
-        ArgumentCaptor<BroadcastReceiver> broadcastReceiver = ArgumentCaptor.forClass(
-                BroadcastReceiver.class);
-        ArgumentCaptor<IntentFilter> intentFilter = ArgumentCaptor.forClass(
-                IntentFilter.class);
-        verify(mContext).registerReceiver(broadcastReceiver.capture(), intentFilter.capture());
-        assertEquals(intentFilter.getValue().getAction(0),
-                DownloadManager.ACTION_DOWNLOAD_COMPLETE);
-        for (int i = 0; i < broadcastCount; i++) {
-            broadcastReceiver.getValue().onReceive(mContext,
-                    new Intent(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        if (packageDownloadInfo != null) {
+            ArgumentCaptor<BroadcastReceiver> broadcastReceiver = ArgumentCaptor.forClass(
+                    BroadcastReceiver.class);
+            ArgumentCaptor<IntentFilter> intentFilter = ArgumentCaptor.forClass(
+                    IntentFilter.class);
+            verify(mContext).registerReceiver(broadcastReceiver.capture(), intentFilter.capture());
+            assertEquals(intentFilter.getValue().getAction(0),
+                    DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+            for (int i = 0; i < broadcastCount; i++) {
+                broadcastReceiver.getValue().onReceive(mContext,
+                        new Intent(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+            }
         }
+    }
+
+    private void verifyOnTaskFinished(String location) {
+        verify(mCallback).onSuccess(mTask);
+        assertEquals(location, mTask.getDownloadedPackageLocation());
     }
 }

@@ -29,11 +29,15 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
+
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
+import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -43,15 +47,19 @@ import java.util.List;
 /**
  * Downloads an apk . Also verifies that the downloaded file is the one that is expected.
  */
-public class DownloadPackageTask {
+public class DownloadPackageTask extends AbstractProvisioningTask {
     private static final boolean DEBUG = false; // To control logging.
+
+    /**
+     * String extra that is passed in the result bundle. This extra contains the path to the
+     * downloaded apk.
+     */
+    public static final String EXTRA_PACKAGE_DOWNLOAD_LOCATION = "package-download-location";
 
     public static final int ERROR_HASH_MISMATCH = 0;
     public static final int ERROR_DOWNLOAD_FAILED = 1;
     public static final int ERROR_OTHER = 2;
 
-    private final Context mContext;
-    private final Callback mCallback;
     private BroadcastReceiver mReceiver;
     private final DownloadManager mDownloadManager;
     private final PackageManager mPackageManager;
@@ -64,34 +72,45 @@ public class DownloadPackageTask {
     private String mDownloadLocationTo; //local file where the package is downloaded.
     private boolean mDoneDownloading;
 
-    public DownloadPackageTask (Context context, Callback callback, String packageName,
-            PackageDownloadInfo packageDownloadInfo) {
-        this(context, callback, packageName, packageDownloadInfo, new Utils());
+    public DownloadPackageTask(
+            Context context,
+            ProvisioningParams provisioningParams,
+            Callback callback) {
+        this(new Utils(), context, provisioningParams, callback);
     }
 
     @VisibleForTesting
-    DownloadPackageTask (Context context, Callback callback, String packageName,
-            PackageDownloadInfo packageDownloadInfo, Utils utils) {
-        mCallback = checkNotNull(callback);
-        mContext = checkNotNull(context);
-        mDownloadManager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+    DownloadPackageTask(
+            Utils utils,
+            Context context,
+            ProvisioningParams provisioningParams,
+            Callback callback) {
+        super(context, provisioningParams, callback);
+
+        mUtils = checkNotNull(utils);
+        mDownloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         mDownloadManager.setAccessFilename(true);
         mPackageManager = context.getPackageManager();
-        mUtils = checkNotNull(utils);
-        mPackageName = packageName;
-        mPackageDownloadInfo = packageDownloadInfo;
+        mPackageName = provisioningParams.inferDeviceAdminPackageName();
+        mPackageDownloadInfo = provisioningParams.deviceAdminDownloadInfo;
     }
 
-    public void run() {
+    @Override
+    public int getStatusMsgId() {
+        return R.string.progress_download;
+    }
+
+    @Override
+    public void run(int userId) {
         if (mPackageDownloadInfo == null || !mUtils.packageRequiresUpdate(mPackageName,
                 mPackageDownloadInfo.minVersion, mContext)) {
-            mCallback.onSuccess(null);
+            success();
             return;
         }
         if (!mUtils.isConnectedToNetwork(mContext)) {
             ProvisionLogger.loge("DownloadPackageTask: not connected to the network, can't download"
                     + " the package");
-            mCallback.onError(ERROR_OTHER);
+            error(ERROR_OTHER);
             return;
         }
         mReceiver = createDownloadReceiver();
@@ -170,10 +189,14 @@ public class DownloadPackageTask {
         }
 
         if (downloadedContentsCorrect) {
-            mCallback.onSuccess(mDownloadLocationTo);
+            success();
         } else {
-            mCallback.onError(ERROR_HASH_MISMATCH);
+            error(ERROR_HASH_MISMATCH);
         }
+    }
+
+    public String getDownloadedPackageLocation() {
+        return mDownloadLocationTo;
     }
 
     /**
@@ -252,7 +275,7 @@ public class DownloadPackageTask {
         ProvisionLogger.loge("Downloading package failed.");
         ProvisionLogger.loge("COLUMN_REASON in DownloadManager response has value: "
                 + errorCode);
-        mCallback.onError(ERROR_DOWNLOAD_FAILED);
+        error(ERROR_DOWNLOAD_FAILED);
     }
 
     private List<byte[]> computeHashesOfAllSignatures(String packageArchiveLocation) {
@@ -261,7 +284,7 @@ public class DownloadPackageTask {
         if (info == null) {
             ProvisionLogger.loge("Unable to get package archive info from "
                     + packageArchiveLocation);
-            mCallback.onError(ERROR_OTHER);
+            error(ERROR_OTHER);
             return null;
         }
 
@@ -274,7 +297,7 @@ public class DownloadPackageTask {
             }
         } catch (NoSuchAlgorithmException e) {
             ProvisionLogger.loge("Hashing algorithm " + Utils.SHA256_TYPE + " not supported.", e);
-            mCallback.onError(ERROR_OTHER);
+            error(ERROR_OTHER);
             return null;
         }
         return hashes;
@@ -294,10 +317,5 @@ public class DownloadPackageTask {
             ProvisionLogger.loge("Could not remove installer file.");
             // Ignore this error. Failing cleanup should not stop provisioning flow.
         }
-    }
-
-    public abstract static class Callback {
-        public abstract void onSuccess(String downloadedLocation);
-        public abstract void onError(int errorCode);
     }
 }

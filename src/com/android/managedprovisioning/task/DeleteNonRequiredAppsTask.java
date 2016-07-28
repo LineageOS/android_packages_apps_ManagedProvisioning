@@ -16,17 +16,19 @@
 
 package com.android.managedprovisioning.task;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import android.app.AppGlobals;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.ComponentInfo;
 import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
@@ -35,7 +37,6 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Xml;
 import android.view.inputmethod.InputMethodInfo;
-import android.view.inputmethod.InputMethodManager;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.FastXmlSerializer;
@@ -43,23 +44,22 @@ import com.android.internal.view.IInputMethodManager;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Deletes all system apps with a launcher that are not in the required set of packages.
@@ -75,9 +75,7 @@ import org.xmlpull.v1.XmlSerializer;
  * {@link #shouldDeleteNonRequiredApps} returns true. Note that only newly installed system apps
  * will be deleted.
  */
-public class DeleteNonRequiredAppsTask {
-    private final Callback mCallback;
-    private final Context mContext;
+public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
     private final String mMdmPackageName;
     private final IPackageManager mIPackageManager;
     private final IInputMethodManager mIInputMethodManager;
@@ -86,10 +84,11 @@ public class DeleteNonRequiredAppsTask {
     private final List<String> mDisallowedAppsList;
     private final List<String> mVendorRequiredAppsList;
     private final List<String> mVendorDisallowedAppsList;
-    private final int mUserId;
     private final int mProvisioningType;
     private final boolean mNewProfile; // If we are provisioning a new managed profile/device.
     private final boolean mLeaveAllSystemAppsEnabled;
+
+    private int mUserId;
 
     private static final String TAG_SYSTEM_APPS = "system-apps";
     private static final String TAG_PACKAGE_LIST_ITEM = "item";
@@ -105,53 +104,76 @@ public class DeleteNonRequiredAppsTask {
      * Provisioning type should be either {@link #DEVICE_OWNER}, {@link #PROFILE_OWNER} or
      * {@link #MANAGED_USER}.
      **/
-    public DeleteNonRequiredAppsTask(Context context, String mdmPackageName, int provisioningType,
-            boolean newProfile, int userId, boolean leaveAllSystemAppsEnabled, Callback callback) {
-        this(context, AppGlobals.getPackageManager(), getIInputMethodManager(), mdmPackageName,
-                provisioningType, newProfile, userId, leaveAllSystemAppsEnabled, callback);
+    public DeleteNonRequiredAppsTask(
+            boolean firstTimeCreation,
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
+        this(
+                AppGlobals.getPackageManager(),
+                getIInputMethodManager(),
+                firstTimeCreation,
+                context,
+                params,
+                callback);
     }
 
     @VisibleForTesting
-    DeleteNonRequiredAppsTask(Context context, IPackageManager iPm, IInputMethodManager iimm,
-            String mdmPackageName, int provisioningType, boolean newProfile, int userId,
-            boolean leaveAllSystemAppsEnabled, Callback callback) {
+    DeleteNonRequiredAppsTask(
+            IPackageManager iPackageManager,
+            IInputMethodManager iInputMethodManager,
+            boolean firstTimeCreation,
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
+        super(context, params, callback);
 
-        mCallback = callback;
-        mContext = context;
-        mMdmPackageName = mdmPackageName;
-        mProvisioningType = provisioningType;
-        mUserId = userId;
-        mNewProfile = newProfile;
-        mLeaveAllSystemAppsEnabled = leaveAllSystemAppsEnabled;
-        mPm = context.getPackageManager();
-        mIPackageManager = iPm;
-        mIInputMethodManager = iimm;
+        mIPackageManager = checkNotNull(iPackageManager);
+        mIInputMethodManager = checkNotNull(iInputMethodManager);
+        mMdmPackageName = checkNotNull(params.inferDeviceAdminPackageName());
+        mPm = checkNotNull(context.getPackageManager());
+
+        // For split system user devices that will have a system device owner, don't adjust the set
+        // of enabled packages in the system user as we expect the right set of packages to be
+        // enabled for the system user out of the box. For other devices, the set of available
+        // packages can vary depending on management state.
+        mLeaveAllSystemAppsEnabled = params.leaveAllSystemAppsEnabled ||
+                params.provisioningAction.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
+        mNewProfile = firstTimeCreation;
 
         int requiredAppsListArray;
         int vendorRequiredAppsListArray;
         int disallowedAppsListArray;
         int vendorDisallowedAppsListArray;
-        if (mProvisioningType == DEVICE_OWNER) {
-            requiredAppsListArray = R.array.required_apps_managed_device;
-            disallowedAppsListArray = R.array.disallowed_apps_managed_device;
-            vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_device;
-            vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_device;
-        } else if (mProvisioningType == PROFILE_OWNER) {
-            requiredAppsListArray = R.array.required_apps_managed_profile;
-            disallowedAppsListArray = R.array.disallowed_apps_managed_profile;
-            vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_profile;
-            vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_profile;
-        } else if (mProvisioningType == MANAGED_USER) {
-            requiredAppsListArray = R.array.required_apps_managed_user;
-            disallowedAppsListArray = R.array.disallowed_apps_managed_user;
-            vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_user;
-            vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_user;
-        } else {
-            throw new IllegalArgumentException("Provisioning type " + mProvisioningType +
-                    " not supported.");
+        switch (params.provisioningAction) {
+            case ACTION_PROVISION_MANAGED_USER:
+                mProvisioningType = MANAGED_USER;
+                requiredAppsListArray = R.array.required_apps_managed_user;
+                disallowedAppsListArray = R.array.disallowed_apps_managed_user;
+                vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_user;
+                vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_user;
+                break;
+            case ACTION_PROVISION_MANAGED_PROFILE:
+                mProvisioningType = PROFILE_OWNER;
+                requiredAppsListArray = R.array.required_apps_managed_profile;
+                disallowedAppsListArray = R.array.disallowed_apps_managed_profile;
+                vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_profile;
+                vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_profile;
+                break;
+            case ACTION_PROVISION_MANAGED_DEVICE:
+            case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
+                mProvisioningType = DEVICE_OWNER;
+                requiredAppsListArray = R.array.required_apps_managed_device;
+                disallowedAppsListArray = R.array.disallowed_apps_managed_device;
+                vendorRequiredAppsListArray = R.array.vendor_required_apps_managed_device;
+                vendorDisallowedAppsListArray = R.array.vendor_disallowed_apps_managed_device;
+                break;
+            default:
+                throw new IllegalArgumentException("Provisioning action "
+                        + params.provisioningAction + " not implemented.");
         }
 
-        Resources resources = mContext.getResources();
+        Resources resources = context.getResources();
         mRequiredAppsList = Arrays.asList(resources.getStringArray(requiredAppsListArray));
         mDisallowedAppsList = Arrays.asList(resources.getStringArray(disallowedAppsListArray));
         mVendorRequiredAppsList = Arrays.asList(
@@ -160,10 +182,13 @@ public class DeleteNonRequiredAppsTask {
                 resources.getStringArray(vendorDisallowedAppsListArray));
     }
 
-    public void run() {
+    @Override
+    public void run(int userId) {
+        mUserId = userId;
+
         if (mLeaveAllSystemAppsEnabled) {
             ProvisionLogger.logd("Not deleting non-required apps.");
-            mCallback.onSuccess();
+            success();
             return;
         }
         ProvisionLogger.logd("Deleting non required apps.");
@@ -172,7 +197,7 @@ public class DeleteNonRequiredAppsTask {
         removeNonInstalledPackages(packagesToDelete);
 
         if (packagesToDelete.isEmpty()) {
-            mCallback.onSuccess();
+            success();
             return;
         }
 
@@ -183,6 +208,11 @@ public class DeleteNonRequiredAppsTask {
             mPm.deletePackageAsUser(packageName, packageDeleteObserver,
                     PackageManager.DELETE_SYSTEM_APP, mUserId);
         }
+    }
+
+    @Override
+    public int getStatusMsgId() {
+        return R.string.progress_delete_non_required_apps;
     }
 
     private Set<String> getPackagesToDelete() {
@@ -214,7 +244,7 @@ public class DeleteNonRequiredAppsTask {
             // OTA case.
             ProvisionLogger.loge("Could not find the system apps file " +
                     systemAppsFile.getAbsolutePath());
-            mCallback.onError();
+            error(0);
             return Collections.<String>emptySet();
         } else {
             previousSystemApps = readSystemApps(systemAppsFile);
@@ -379,14 +409,14 @@ public class DeleteNonRequiredAppsTask {
             if (returnCode != PackageManager.DELETE_SUCCEEDED) {
                 ProvisionLogger.logw(
                         "Could not finish the provisioning: package deletion failed");
-                mCallback.onError();
+                error(0);
                 return;
             }
             int currentPackageCount = mPackageCount.decrementAndGet();
             if (currentPackageCount == 0) {
                 ProvisionLogger.logi("All non-required system apps with launcher icon, "
                         + "and all disallowed apps have been uninstalled.");
-                mCallback.onSuccess();
+                success();
             }
         }
     }
@@ -394,10 +424,5 @@ public class DeleteNonRequiredAppsTask {
     private static IInputMethodManager getIInputMethodManager() {
         IBinder b = ServiceManager.getService(Context.INPUT_METHOD_SERVICE);
         return IInputMethodManager.Stub.asInterface(b);
-    }
-
-    public abstract static class Callback {
-        public abstract void onSuccess();
-        public abstract void onError();
     }
 }

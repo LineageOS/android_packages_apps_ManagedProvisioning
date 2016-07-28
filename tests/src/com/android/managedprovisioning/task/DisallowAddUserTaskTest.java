@@ -16,6 +16,13 @@
 
 package com.android.managedprovisioning.task;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyBoolean;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import android.content.Context;
 import android.content.pm.UserInfo;
 import android.os.UserHandle;
@@ -29,21 +36,13 @@ import org.mockito.MockitoAnnotations;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyBoolean;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
-
 /**
  * Unit-tests for {@link DisallowAddUserTask}.
  */
 public class DisallowAddUserTaskTest extends AndroidTestCase {
     @Mock private Context mockContext;
     @Mock private UserManager mockUserManager;
+    @Mock private AbstractProvisioningTask.Callback mCallback;
 
     // Normal cases.
     private UserInfo primaryUser = new UserInfo(0, "Primary",
@@ -61,6 +60,7 @@ public class DisallowAddUserTaskTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
+        when(mockContext.getSystemService(Context.USER_SERVICE)).thenReturn(mockUserManager);
         // Setup sensible default responses.
         when(mockUserManager.hasUserRestriction(anyString(), any(UserHandle.class)))
                 .thenReturn(false);
@@ -68,51 +68,75 @@ public class DisallowAddUserTaskTest extends AndroidTestCase {
 
     @SmallTest
     public void testMaybeDisallowAddUsers_normalSystem() {
+        // GIVEN that only one user exists on the device and the system doesn't have a split system
+        // user
         when(mockUserManager.getUsers()).thenReturn(Collections.singletonList(primaryUser));
+        final DisallowAddUserTask task =
+                new DisallowAddUserTask(false, mockContext, null, mCallback);
 
-        new DisallowAddUserTask(mockUserManager, primaryUser.id, false /* isSplitSystemUser */)
-                .maybeDisallowAddUsers();
+        // WHEN running the DisallowAddUserTask on the single user
+        task.run(primaryUser.id);
 
+        // THEN the user restriction should be set
         verify(mockUserManager).setUserRestriction(UserManager.DISALLOW_ADD_USER, true,
                 primaryUser.getUserHandle());
+        verify(mCallback).onSuccess(task);
     }
 
     @SmallTest
     public void testMaybeDisallowAddUsers_normalSystem_restrictionAlreadySetupForOneUser() {
+        // GIVEN that only one user exists on the device and the system doesn't have a split system
+        // user
         when(mockUserManager.getUsers()).thenReturn(Collections.singletonList(primaryUser));
+        final DisallowAddUserTask task =
+                new DisallowAddUserTask(false, mockContext, null, mCallback);
 
+        // GIVEN that the user restriction has already been set
         when(mockUserManager.hasUserRestriction(UserManager.DISALLOW_ADD_USER,
                 primaryUser.getUserHandle()))
                 .thenReturn(true);
 
-        new DisallowAddUserTask(mockUserManager, meatUser.id, false /* isSplitSystemUser */)
-                .maybeDisallowAddUsers();
+        // WHEN running the DisallowAddUserTask on the single user
+        task.run(primaryUser.id);
 
-        verify(mockUserManager, never()).setUserRestriction(eq(UserManager.DISALLOW_ADD_USER),
-                anyBoolean(), eq(primaryUser.getUserHandle()));
+        // THEN the user restriction should not be set
+        verify(mockUserManager, never()).setUserRestriction(anyString(), anyBoolean(),
+                any(UserHandle.class));
+        verify(mCallback).onSuccess(task);
     }
 
     @SmallTest
     public void testMaybeDisallowAddUsers_splitUserSystem_meatUserDeviceOwner() {
+        // GIVEN that we have a split system user and a single meat user on the device
         when(mockUserManager.getUsers()).thenReturn(Arrays.asList(new UserInfo[]{
                 systemUser, meatUser}));
+        final DisallowAddUserTask task =
+                new DisallowAddUserTask(true, mockContext, null, mCallback);
 
-        new DisallowAddUserTask(mockUserManager, meatUser.id, true /* isSplitSystemUser */)
-                .maybeDisallowAddUsers();
+        // WHEN running the DisallowAddUserTask on the meat user
+        task.run(meatUser.id);
 
+        // THEN the user restriction should be added on both users
         verify(mockUserManager).setUserRestriction(UserManager.DISALLOW_ADD_USER, true,
                 systemUser.getUserHandle());
         verify(mockUserManager).setUserRestriction(UserManager.DISALLOW_ADD_USER, true,
                 meatUser.getUserHandle());
+        verify(mCallback).onSuccess(task);
     }
 
     @SmallTest
     public void testMaybeDisallowAddUsers_splitUserSystem_systemDeviceOwner() {
+        // GIVEN that we have a split system user and only the system user on the device
         when(mockUserManager.getUsers()).thenReturn(Collections.singletonList(systemUser));
+        final DisallowAddUserTask task =
+                new DisallowAddUserTask(true, mockContext, null, mCallback);
 
-        new DisallowAddUserTask(mockUserManager, systemUser.id, true /* isSplitSystemUser */)
-                .maybeDisallowAddUsers();
+        // WHEN running the DisallowAddUserTask on the system user
+        task.run(systemUser.id);
 
-        verifyZeroInteractions(mockUserManager);
+        // THEN the user restriction should not be set
+        verify(mockUserManager, never()).setUserRestriction(anyString(), anyBoolean(),
+                any(UserHandle.class));
+        verify(mCallback).onSuccess(task);
     }
 }

@@ -17,37 +17,32 @@
 package com.android.managedprovisioning.task;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
-
-import java.lang.Thread;
 
 import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.WifiConfig;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 
 /**
  * Adds a wifi network to system.
  */
-public class AddWifiNetworkTask implements NetworkMonitor.Callback {
+public class AddWifiNetworkTask extends AbstractProvisioningTask
+        implements NetworkMonitor.Callback {
     private static final int RETRY_SLEEP_DURATION_BASE_MS = 500;
     private static final int RETRY_SLEEP_MULTIPLIER = 2;
     private static final int MAX_RETRIES = 6;
     private static final int RECONNECT_TIMEOUT_MS = 60000;
 
-    private final Context mContext;
     @Nullable
     private final WifiInfo mWifiInfo;
-    private final Callback mCallback;
 
     private WifiManager mWifiManager;
     private NetworkMonitor mNetworkMonitor;
@@ -64,11 +59,14 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
     /**
      * @throws IllegalArgumentException if the {@code ssid} parameter is empty.
      */
-    public AddWifiNetworkTask(Context context, WifiInfo wifiInfo, Callback callback) {
-        mCallback = callback;
-        mContext = context;
-        mWifiInfo = wifiInfo;
-        mWifiManager  = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+    public AddWifiNetworkTask(
+            Context context,
+            ProvisioningParams provisioningParams,
+            Callback callback) {
+        super(context, provisioningParams, callback);
+
+        mWifiInfo = provisioningParams.wifiInfo;
+        mWifiManager  = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         mWifiConfig = new WifiConfig(mWifiManager);
 
         HandlerThread thread = new HandlerThread("Timeout thread",
@@ -78,24 +76,30 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         mHandler = new Handler(looper);
     }
 
-    public void run() {
+    @Override
+    public void run(int userId) {
         if (mWifiInfo == null) {
-            mCallback.onSuccess();
+            success();
             return;
         }
         if (!enableWifi()) {
             ProvisionLogger.loge("Failed to enable wifi");
-            mCallback.onError();
+            error(0);
             return;
         }
 
         if (isConnectedToSpecifiedWifi()) {
-            mCallback.onSuccess();
+            success();
             return;
         }
 
         mNetworkMonitor = new NetworkMonitor(mContext, this);
         connectToProvidedNetwork();
+    }
+
+    @Override
+    public int getStatusMsgId() {
+        return R.string.progress_connect_to_wifi;
     }
 
     private void connectToProvidedNetwork() {
@@ -119,7 +123,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
             } else {
                 ProvisionLogger.loge("Already retried " +  MAX_RETRIES + " times."
                         + " Quit retrying and report error.");
-                mCallback.onError();
+                error(0);
                 return;
             }
         }
@@ -127,7 +131,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
         // Network was successfully saved, now connect to it.
         if (!mWifiManager.reconnect()) {
             ProvisionLogger.loge("Unable to connect to wifi");
-            mCallback.onError();
+            error(0);
             return;
         }
 
@@ -140,7 +144,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
                         mTaskDone = true;
                     }
                     ProvisionLogger.loge("Setting up wifi connection timed out.");
-                    mCallback.onError();
+                    error(0);
                     return;
                 }
             }, RECONNECT_TIMEOUT_MS);
@@ -165,7 +169,7 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
             mHandler.removeCallbacksAndMessages(null);
 
             cleanUp();
-            mCallback.onSuccess();
+            success();
             return;
         }
     }
@@ -187,10 +191,5 @@ public class AddWifiNetworkTask implements NetworkMonitor.Callback {
                 && mWifiManager != null
                 && mWifiManager.getConnectionInfo() != null
                 && mWifiInfo.ssid.equals(mWifiManager.getConnectionInfo().getSSID());
-    }
-
-    public abstract static class Callback {
-        public abstract void onSuccess();
-        public abstract void onError();
     }
 }

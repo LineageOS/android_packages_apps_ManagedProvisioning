@@ -25,7 +25,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.List;
 import java.util.Set;
@@ -34,18 +36,24 @@ import java.util.Set;
 /**
  * Disables all system app components that listen to ACTION_INSTALL_SHORTCUT.
  */
-public class DisableInstallShortcutListenersTask {
+public class DisableInstallShortcutListenersTask extends AbstractProvisioningTask {
     private final PackageManager mPm;
-    private final int mUserId;
+    private int mUserId;
 
     private final Utils mUtils = new Utils();
 
-    public DisableInstallShortcutListenersTask(Context context, int userId) {
-        mUserId = userId;
+    public DisableInstallShortcutListenersTask(
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
+        super(context, params, callback);
+
         mPm = context.getPackageManager();
     }
 
-    public void run() {
+    @Override
+    public void run(int userId) {
+        mUserId = userId;
         ProvisionLogger.logd("Disabling install shortcut listeners.");
         Intent actionShortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         Set<String> systemApps = mUtils.getCurrentSystemApps(AppGlobals.getPackageManager(),
@@ -54,6 +62,12 @@ public class DisableInstallShortcutListenersTask {
             actionShortcut.setPackage(systemApp);
             disableReceivers(actionShortcut);
         }
+        success();
+    }
+
+    @Override
+    public int getStatusMsgId() {
+        return R.string.progress_finishing_touches;
     }
 
     /**
