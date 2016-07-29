@@ -93,7 +93,7 @@ public class SimpleProgressDialog extends DialogFragment {
          * Creates an {@link SimpleProgressDialog} with the arguments supplied to this builder.
          */
         @Override
-        public DialogFragment build() {
+        public SimpleProgressDialog build() {
             SimpleProgressDialog instance = new SimpleProgressDialog();
             Bundle args = new Bundle();
 
