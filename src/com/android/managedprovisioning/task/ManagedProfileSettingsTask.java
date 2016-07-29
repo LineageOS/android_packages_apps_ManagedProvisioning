@@ -18,7 +18,10 @@ package com.android.managedprovisioning.task;
 
 import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.provider.Settings;
 
 import com.android.managedprovisioning.R;
@@ -39,6 +42,17 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
         Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 MANAGED_PROFILE_CONTACT_REMOTE_SEARCH,
                 1, userId);
+
+        // Disable managed profile wallpaper access
+        UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+        um.setUserRestriction(UserManager.DISALLOW_WALLPAPER, true, UserHandle.of(userId));
+
+        // Set the main color of managed provisioning from the provisioning params
+        if (mProvisioningParams.mainColor != null) {
+            DevicePolicyManager dpm = mContext.getSystemService(DevicePolicyManager.class);
+            dpm.setOrganizationColorForUser(mProvisioningParams.mainColor, userId);
+        }
+
         success();
     }
 

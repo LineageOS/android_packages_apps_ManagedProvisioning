@@ -19,11 +19,11 @@ package com.android.managedprovisioning;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.common.SimpleDialog;
@@ -47,6 +47,11 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
         implements SimpleDialog.SimpleDialogListener {
     protected static final String ACTION_CANCEL_PROVISIONING =
             "com.android.managedprovisioning.CANCEL_PROVISIONING";
+    protected static final String ACTION_START_PROVISIONING =
+            "com.android.managedprovisioning.START_PROVISIONING";
+    protected static final String ACTION_GET_PROVISIONING_STATE =
+            "com.android.managedprovisioning.GET_PROVISIONING_STATE";
+
     private static final String PROFILE_OWNER_ERROR_DIALOG =
             "ProfileOwnerErrorDialog";
     private static final String PROFILE_OWNER_CANCEL_PROGRESS_DIALOG =
@@ -54,41 +59,38 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
     private static final String PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG =
             "ProfileOwnerCancelProvisioningDialog";
 
-    private BroadcastReceiver mServiceMessageReceiver;
+    private static final IntentFilter SERVICE_COMMS_INTENT_FILTER;
+    static {
+        SERVICE_COMMS_INTENT_FILTER = new IntentFilter();
+        SERVICE_COMMS_INTENT_FILTER.addAction(
+                ProfileOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS);
+        SERVICE_COMMS_INTENT_FILTER.addAction(
+                ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
+        SERVICE_COMMS_INTENT_FILTER.addAction(
+                ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED);
+    }
 
-    // Provisioning service started
-    private static final int STATUS_PROVISIONING = 1;
-    // Back button pressed during provisioning, confirm dialog showing.
-    private static final int STATUS_CANCEL_CONFIRMING = 2;
-    // Cancel confirmed, waiting for the provisioning service to complete.
-    private static final int STATUS_CANCELLING = 3;
-    // Cancelling not possible anymore, provisioning already finished successfully.
-    private static final int STATUS_FINALIZING = 4;
-
-    private static final String KEY_STATUS= "status";
-    private static final String KEY_PENDING_INTENT = "pending_intent";
-
-    private int mCancelStatus = STATUS_PROVISIONING;
-    private Intent mPendingProvisioningResult = null;
+    private static final String KEY_PROVISIONING_STARTED = "provisioning_started";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ProvisionLogger.logd("Profile owner provisioning activity ONCREATE");
 
+        boolean provisioningStarted = false;
         if (savedInstanceState != null) {
-            mCancelStatus = savedInstanceState.getInt(KEY_STATUS, STATUS_PROVISIONING);
-            mPendingProvisioningResult = savedInstanceState.getParcelable(KEY_PENDING_INTENT);
+            provisioningStarted = savedInstanceState.getBoolean(KEY_PROVISIONING_STARTED, false);
+        }
+
+        if (!provisioningStarted) {
+            Intent intent = new Intent(ACTION_START_PROVISIONING)
+                    .setComponent(new ComponentName(this, ProfileOwnerProvisioningService.class))
+                    .putExtras(getIntent());
+            startService(intent);
         }
 
         initializeLayoutParams(R.layout.progress, R.string.setting_up_workspace, true);
         setTitle(R.string.setup_profile_progress);
-
-        if (mCancelStatus == STATUS_CANCEL_CONFIRMING) {
-            showCancelProvisioningDialog();
-        } else if (mCancelStatus == STATUS_CANCELLING) {
-            showCancelProgressDialog();
-        }
 
         final ProvisioningParams params = getIntent().getParcelableExtra(
                 ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
@@ -98,86 +100,64 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(KEY_PROVISIONING_STARTED, true);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
         // Setup broadcast receiver for feedback from service.
-        mServiceMessageReceiver = new ServiceMessageReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS);
-        filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
-        filter.addAction(ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED);
-        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver,
+                SERVICE_COMMS_INTENT_FILTER);
 
-        // Start service async to make sure the UI is loaded first.
-        final Handler handler = new Handler(getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
-                        ProfileOwnerProvisioningService.class);
-                intent.putExtras(getIntent());
-                startService(intent);
-            }
-        });
+        Intent intent = new Intent(ACTION_GET_PROVISIONING_STATE)
+                .setComponent(new ComponentName(this, ProfileOwnerProvisioningService.class));
+        startService(intent);
     }
 
-    class ServiceMessageReceiver extends BroadcastReceiver {
+    @Override
+    public void onPause() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
+        super.onPause();
+    }
+
+
+    private final BroadcastReceiver mServiceMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (mCancelStatus == STATUS_CANCEL_CONFIRMING) {
-                // Store the incoming intent and only process it after the user has responded to
-                // the cancel dialog
-                mPendingProvisioningResult = intent;
-                return;
-            }
             handleProvisioningResult(intent);
         }
-    }
+    };
 
     private void handleProvisioningResult(Intent intent) {
         String action = intent.getAction();
         if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS.equals(action)) {
-            if (mCancelStatus == STATUS_CANCELLING) {
-                return;
-            }
-
             ProvisionLogger.logd("Successfully provisioned."
                     + "Finishing ProfileOwnerProvisioningActivity");
-
             onProvisioningSuccess();
         } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_ERROR.equals(action)) {
-            if (mCancelStatus == STATUS_CANCELLING){
-                return;
-            }
             String errorLogMessage = intent.getStringExtra(
                     ProfileOwnerProvisioningService.EXTRA_LOG_MESSAGE_KEY);
             ProvisionLogger.logd("Error reported: " + errorLogMessage);
             error(R.string.managed_provisioning_error_text, errorLogMessage);
-            // Note that this will be reported as a canceled action
-            mCancelStatus = STATUS_FINALIZING;
         } else if (ProfileOwnerProvisioningService.ACTION_PROVISIONING_CANCELLED.equals(action)) {
-            if (mCancelStatus != STATUS_CANCELLING) {
-                return;
-            }
             onProvisioningAborted();
         }
     }
 
-    private void onProvisioningAborted() {
-        stopService(new Intent(this, ProfileOwnerProvisioningService.class));
-        setResult(Activity.RESULT_CANCELED);
-        finish();
-    }
-
     @Override
     public void onBackPressed() {
-        if (mCancelStatus == STATUS_PROVISIONING) {
-            mCancelStatus = STATUS_CANCEL_CONFIRMING;
+        if (!cancelProgressDialogShown()) {
             showCancelProvisioningDialog();
-        } else {
-            super.onBackPressed();
         }
+    }
+
+    private void cancelProvisioning() {
+        Intent intent = new Intent(ACTION_CANCEL_PROVISIONING)
+                .setComponent(new ComponentName(this, ProfileOwnerProvisioningService.class));
+        startService(intent);
     }
 
     private void showCancelProvisioningDialog() {
@@ -189,12 +169,16 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
         showDialog(dialogBuilder, PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG);
     }
 
-    protected void showCancelProgressDialog() {
+    private void showCancelProgressDialog() {
         SimpleProgressDialog.Builder dialog = new SimpleProgressDialog.Builder()
                 .setMessage(R.string.profile_owner_cancelling)
                 .setCancelable(false)
                 .setCanceledOnTouchOutside(false);
         showDialog(dialog, PROFILE_OWNER_CANCEL_PROGRESS_DIALOG);
+    }
+
+    private boolean cancelProgressDialogShown() {
+        return getFragmentManager().findFragmentByTag(PROFILE_OWNER_CANCEL_PROGRESS_DIALOG) != null;
     }
 
     public void error(int resourceId, String logText) {
@@ -212,10 +196,6 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
     public void onNegativeButtonClick(DialogFragment dialog) {
         switch (dialog.getTag()) {
             case PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG:
-                mCancelStatus = STATUS_PROVISIONING;
-                if (mPendingProvisioningResult != null) {
-                    handleProvisioningResult(mPendingProvisioningResult);
-                }
                 break;
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
@@ -226,7 +206,8 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
     public void onPositiveButtonClick(DialogFragment dialog) {
         switch (dialog.getTag()) {
             case PROFILE_OWNER_CANCEL_PROVISIONING_DIALOG:
-                confirmCancel();
+                cancelProvisioning();
+                showCancelProgressDialog();
                 break;
             case PROFILE_OWNER_ERROR_DIALOG:
                 onProvisioningAborted();
@@ -236,38 +217,18 @@ public class ProfileOwnerProvisioningActivity extends SetupLayoutActivity
         }
     }
 
-    private void confirmCancel() {
-        if (mCancelStatus != STATUS_CANCEL_CONFIRMING) {
-            // Can only cancel if provisioning hasn't finished at this point.
-            return;
-        }
-        mCancelStatus = STATUS_CANCELLING;
-        Intent intent = new Intent(ProfileOwnerProvisioningActivity.this,
-                ProfileOwnerProvisioningService.class);
-        intent.setAction(ACTION_CANCEL_PROVISIONING);
-        startService(intent);
-        showCancelProgressDialog();
-    }
-
     /**
      * Finish activity and stop service.
      */
     private void onProvisioningSuccess() {
-        mCancelStatus = STATUS_FINALIZING;
         stopService(new Intent(this, ProfileOwnerProvisioningService.class));
         setResult(Activity.RESULT_OK);
         finish();
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt(KEY_STATUS, mCancelStatus);
-        outState.putParcelable(KEY_PENDING_INTENT, mPendingProvisioningResult);
-    }
-
-    @Override
-    public void onPause() {
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mServiceMessageReceiver);
-        super.onPause();
+    private void onProvisioningAborted() {
+        stopService(new Intent(this, ProfileOwnerProvisioningService.class));
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 }

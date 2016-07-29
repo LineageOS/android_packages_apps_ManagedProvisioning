@@ -53,7 +53,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     private static final int STATUS_RUNNING = 1;
     private static final int STATUS_DONE = 2;
     private static final int STATUS_ERROR = 3;
-    private static final int STATUS_CANCELLED = 4;
+    private static final int STATUS_CANCELLING = 4;
+    private static final int STATUS_CANCELLED = 5;
 
     private int mStatus = STATUS_NOT_STARTED;
     private Pair<Integer, Boolean> mError;
@@ -107,6 +108,10 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
      * one by one and the respective callbacks will be given to the UI.
      */
     public void start() {
+        if (mStatus != STATUS_NOT_STARTED) {
+            return;
+        }
+
         mStatus = STATUS_RUNNING;
         runTask(0);
     }
@@ -128,6 +133,10 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
                 mService.error(mError.first, mError.second);
                 break;
             }
+            case STATUS_CANCELLING: {
+                // No callback, wait for cancelling to complete
+                break;
+            }
             case STATUS_CANCELLED: {
                 mService.cancelled();
                 break;
@@ -144,10 +153,13 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
      * {@link ProvisioningServiceInterface#cancelled()} callback will be given.
      */
     public void cancel() {
+        if (mStatus != STATUS_RUNNING) {
+            return;
+        }
+
         ProvisionLogger.logd("ProvisioningController: cancelled");
-        mStatus = STATUS_CANCELLED;
-        performCleanup();
-        mService.cancelled();
+        mStatus = STATUS_CANCELLING;
+        cleanup(STATUS_CANCELLED);
     }
 
     private void runTask(int index) {
@@ -191,8 +203,19 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
                 getErrorMsgId(task, errorCode),
                 getRequireFactoryReset(task, errorCode));
         mStatus = STATUS_ERROR;
-        performCleanup();
+        cleanup(STATUS_ERROR);
         mService.error(mError.first, mError.second);
+    }
+
+    private void cleanup(final int newStatus) {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                performCleanup();
+                mStatus = newStatus;
+                mService.cancelled();
+            }
+        });
     }
 
     /**

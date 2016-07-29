@@ -65,6 +65,7 @@ public class DeviceOwnerProvisioningService extends Service
 
     @Override
     public void onCreate() {
+        super.onCreate();
         mHandlerThread = new HandlerThread("DeviceOwnerProvisioningHandler");
         mHandlerThread.start();
     }
@@ -72,6 +73,7 @@ public class DeviceOwnerProvisioningService extends Service
     @Override
     public void onDestroy() {
         mHandlerThread.quitSafely();
+        super.onDestroy();
     }
 
     @Override
