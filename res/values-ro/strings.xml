@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Se conectează la Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Se descarcă aplicația de administrare..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Se instalează aplicația de administrare..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Se elimină aplicațiile de sistem nenecesare…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Se adaugă ultimele setări…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Se setează proprietarul dispozitivului..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Dispozitivul dvs. nu acceptă criptarea. Contactați departamentul IT."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Opriți configurarea și ștergeți datele de pe dispozitiv?"</string>

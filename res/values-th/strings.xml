@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"กำลังเชื่อมต่อ Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"กำลังติดตั้งแอปผู้ดูแลระบบ…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"กำลังนำแอประบบที่ไม่จำเป็นออก…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"กำลังตกแต่งขั้นสุดท้าย…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"กำลังตั้งค่าเจ้าของอุปกรณ์…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"อุปกรณ์ของคุณไม่รองรับการเข้ารหัส โปรดติดต่อฝ่ายไอที"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"หยุดการตั้งค่าและลบข้อมูลของอุปกรณ์ไหม"</string>

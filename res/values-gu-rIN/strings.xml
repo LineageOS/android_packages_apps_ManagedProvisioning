@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi સાથે કનેક્ટ કરી રહ્યું છે..."</string>
     <string name="progress_download" msgid="3522436271691064624">"વ્યવસ્થાપક ઍપ્લિકેશન ડાઉનલોડ કરી રહ્યું છે..."</string>
     <string name="progress_install" msgid="2258045670385866183">"વ્યવસ્થાપક ઍપ્લિકેશન ઇન્સ્ટોલ કરે છે..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"બિન-આવશ્યક સિસ્ટમ ઍપ્લિકેશનો દૂર કરે છે…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"અંતિમ રૂપ આપી રહ્યાં છે…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ઉપકરણ માલિક સેટ કરી રહ્યું છે..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"તમારું ઉપકરણ એન્ક્રિપ્શનનું સમર્થન કરતું નથી. તમારા IT વિભાગનો સંપર્ક કરો."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"સેટ કરવાનું બંધ કરીને તમારા ઉપકરણનો ડેટા કાઢી નાખીએ?"</string>

@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi에 연결 중..."</string>
     <string name="progress_download" msgid="3522436271691064624">"관리 앱 다운로드 중..."</string>
     <string name="progress_install" msgid="2258045670385866183">"관리 앱 설치 중..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"불필요한 시스템 앱 삭제 중…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"마무리하는 중…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"기기 소유자 설정 중..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"기기가 암호화를 지원하지 않습니다. IT 부서에 문의하세요."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"설정을 중단하고 기기 데이터를 삭제하시겠습니까?"</string>

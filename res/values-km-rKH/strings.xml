@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"កំពុងភ្ជាប់ទៅ Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"កំពុងទាញយកកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_install" msgid="2258045670385866183">"កំពុងដំឡើងកម្មវិធីគ្រប់គ្រង…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"កំពុងលុបកម្មវិធីប្រព័ន្ធដែលមិនចាំបាច់…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"កំពុងបន្ថែមចំណុចកែសម្រួលចុងក្រោយ…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"កំពុងកំណត់ម្ចាស់ឧបករណ៍…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ឧបករណ៍របស់អ្នកមិនគាំទ្រការអ៊ិនគ្រីបទេ សូមទាក់ទងទៅផ្នែក IT របស់អ្នក។"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"បញ្ឈប់ការដំឡើង ហើយលុបទិន្នន័យនៅក្នុងឧបករណ៍របស់អ្នកចេញ?"</string>

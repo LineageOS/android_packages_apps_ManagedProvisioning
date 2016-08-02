@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"வைஃபையுடன் இணைக்கிறது…"</string>
     <string name="progress_download" msgid="3522436271691064624">"நிர்வாகி பயன்பாட்டை இறக்குகிறது…"</string>
     <string name="progress_install" msgid="2258045670385866183">"நிர்வாகி பயன்பாட்டை நிறுவுகிறது…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"தேவையற்ற சாதனப் பயன்பாடுகளை அகற்றுகிறது…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"இறுதியாகச் சில விஷயங்களைச் சேர்க்கிறது…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"சாதன உரிமையாளரை அமைக்கிறது…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"சாதனம் முறைமையாக்கத்தை ஆதரிக்கவில்லை. IT துறையைத் தொடர்புகொள்ளவும்."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"அமைப்பதை நிறுத்தி, சாதனத் தரவை அழிக்கவா?"</string>

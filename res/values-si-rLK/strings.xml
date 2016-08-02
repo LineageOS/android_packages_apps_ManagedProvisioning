@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi වෙත සම්බන්ධ වෙමින්..."</string>
     <string name="progress_download" msgid="3522436271691064624">"පරිපාලක යෙදුම බාගනිමින්..."</string>
     <string name="progress_install" msgid="2258045670385866183">"පරිපාලක යෙදුම ස්ථාපනය කරමින්..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"අවශ්‍ය නොවන පද්ධති යෙදුම් ඉවත් කරමින්..."</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"අවසන් කිරීමේ දේවල් කරමින්…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"උපාංග හිමිකරු සකසමින්..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ඔබේ උපාංගය සංකේතනයට සහාය නොදක්වයි. ඔබේ IT දෙපාර්තමේන්තුව අමතන්න."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"පිහිටුවීම නවත්වා ඔබේ උපාංගයේ දත්ත මකන්නද?"</string>

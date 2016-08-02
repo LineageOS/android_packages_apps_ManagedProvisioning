@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Conectando a red Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Descargando aplicación de administración…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalando aplicación de administración…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Quitando aplicaciones del sistema no necesarias…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Añadiendo los últimos retoques…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Estableciendo propietario del dispositivo…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Tu dispositivo no es compatible con el cifrado. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"¿Quieres detener la configuración y borrar los datos del dispositivo?"</string>

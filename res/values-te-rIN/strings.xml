@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiకి కనెక్ట్ చేస్తోంది..."</string>
     <string name="progress_download" msgid="3522436271691064624">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేస్తోంది..."</string>
     <string name="progress_install" msgid="2258045670385866183">"నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేస్తోంది..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"అనావశ్యక సిస్టమ్ అనువర్తనాలను తీసివేస్తోంది…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"తుది మెరుగులు చేస్తోంది…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"పరికర యజమానిని సెట్ చేస్తోంది..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"మీ పరికరంలో గుప్తీకరణకు మద్దతు లేదు. మీ IT విభాగాన్ని సంప్రదించండి."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"మీ పరికరాన్ని సెటప్ చేయడం ఆపివేసి, అందులోని డేటాను తీసివేయాలా?"</string>

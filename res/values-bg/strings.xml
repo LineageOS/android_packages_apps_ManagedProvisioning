@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Установява се връзка с Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Приложението за администриране се изтегля…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Приложението за администриране се инсталира…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Незадълж. системни приложения се премахват…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Нанасят се завършващите щрихи…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Собственикът на устройството се задава…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Устройството ви не поддържа шифроване. Свържете се с отдела си за информационни технологии."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Искате ли да спрете настройването и да изтриете данните на устройството си?"</string>

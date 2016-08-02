@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ওয়াই-ফাই -এ সংযুক্ত হচ্ছে..."</string>
     <string name="progress_download" msgid="3522436271691064624">"প্রশাসক অ্যাপ্লিকেশান ডাউনলোড হচ্ছে..."</string>
     <string name="progress_install" msgid="2258045670385866183">"প্রশাসক অ্যাপ্লিকেশান ইনস্টল হচ্ছে..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"অ-প্রয়োজনীয় সিস্টেম অ্যাপ্সকে সরানো হচ্ছে…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"শেষের কয়েকটি জিনিস যোগ করা হচ্ছে…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ডিভাইসের মালিক সেট করা হচ্ছে..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"আপনার ডিভাইস এনক্রিপশান সমর্থন করে না৷ আপনার আইটি বিভাগের সাথে যোগাযোগ করুন৷"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"সেট আপ করা বন্ধ করে আপনার ডিভাইসের ডেটা মুছে ফেলবেন?"</string>

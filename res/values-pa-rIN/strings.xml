@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ਗੈਰ-ਲੋੜੀਂਦੀਆਂ ਸਿਸਟਮ ਐਪਾਂ ਹਟਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"ਅੰਤਿਮ ਰੂਪ ਦਿੱਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ਡੀਵਾਈਸ ਮਾਲਕ ਨੂੰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਐਨਕ੍ਰਿਪਸ਼ਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈਟ ਅਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੀ ਡੀਵਾਈਸ ਦਾ ਡੈਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>

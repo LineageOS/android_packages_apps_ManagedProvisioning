@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Prisijungiama prie „Wi-Fi“..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Atsisiunčiama administratoriaus programa..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Diegiama administratoriaus programa..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Šalinamos nebūtinos sistemos programos…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Baigiama…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Nustatomas įrenginio savininkas..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Jūsų įrenginyje nepalaikoma šifruotė. Susisiekite su IT skyriumi."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Stabdyti įrenginio duomenų nustatymą ir trynimą?"</string>

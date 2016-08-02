@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在連線至 Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"正在下載管理員應用程式…"</string>
     <string name="progress_install" msgid="2258045670385866183">"正在安裝管理員應用程式…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"正在移除非必要的系統應用程式…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"正在完成設定…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"正在設定裝置擁有者…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"您的裝置不支援加密。請與您的 IT 部門聯絡。"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"停止設定並清除您的裝置資料？"</string>

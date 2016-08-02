@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Connecting to Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Downloading the admin app…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Installing the admin app…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Removing non-required system apps…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Putting finishing touches…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Setting the device owner…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Your device does not support encryption. Contact your IT department."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Stop setting up and delete your device\'s data?"</string>

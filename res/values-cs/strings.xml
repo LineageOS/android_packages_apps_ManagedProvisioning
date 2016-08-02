@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Připojování k síti Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Stahování administrátorské aplikace…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Probíhá instalace administrátorské aplikace…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Odstraňování nechtěných systémových aplikací…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Provádění posledních úprav…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Nastavování vlastníka zařízení…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Vaše zařízení šifrování nepodporuje. Obraťte se na oddělení IT."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ukončit nastavování a vymazat data zařízení?"</string>

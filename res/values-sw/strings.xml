@@ -65,6 +65,8 @@
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Inaunganisha kwenye Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Inapakua programu ya msimamizi..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Inasakinisha programu ya msimamizi..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Inaondoa programu za mfumo zisizohitajika…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Inaweka vipengele vya mwisho…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Inaweka mipangilio ya mmiliki wa kifaa..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Kifaa chako hakitumii usimbaji fiche. Wasiliana na idara yako ya TEHAMA."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Je, ungependa kuacha kusanidi na ufute data iliyomo kwenye kifaa chako?"</string>
