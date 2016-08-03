@@ -13,5 +13,8 @@ $ adb shell am instrument -w -e class com.android.managedprovisioning.<class> co
 To run a specific test:
 $ adb shell am instrument -w -e class com.android.managedprovisioning.<class>#<test> com.android.managedprovisioning.tests/android.test.InstrumentationTestRunner
 
+To obtain a test coverage report:
+$ packages/apps/ManagedProvisioning/tests/coverage.sh
+
 More general information can be found at
 http://developer.android.com/reference/android/test/InstrumentationTestRunner.html
