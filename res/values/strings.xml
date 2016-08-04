@@ -138,6 +138,8 @@
   <string name="progress_finishing_touches">Putting finishing touches\u2026</string>
   <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
   <string name="progress_set_owner">Setting the device owner\u2026</string>
+  <!-- TODO: Confirm this string with UX. Progress text indicating that the progress is being initialized. [CHAR LIMIT=45] -->
+  <string name="progress_initialize">Initializing device\u2026</string>
 
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
   <string name="preprovisioning_error_encryption_not_supported">Your device does not support encryption. Contact your IT department.</string>
