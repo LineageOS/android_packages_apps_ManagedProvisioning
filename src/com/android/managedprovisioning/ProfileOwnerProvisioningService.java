@@ -25,30 +25,18 @@ import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.A
 import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 
 import android.app.Activity;
-import android.app.ActivityManagerNative;
-import android.app.IActivityManager;
 import android.app.Service;
-import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.UserInfo;
 import android.os.HandlerThread;
 import android.os.IBinder;
-import android.os.Process;
-import android.os.RemoteException;
 import android.os.UserHandle;
-import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.AbstractProvisioningController;
 import com.android.managedprovisioning.provisioning.ProfileOwnerProvisioningController;
-
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Service that runs the profile owner provisioning.
@@ -67,18 +55,7 @@ public class ProfileOwnerProvisioningService extends Service
             "com.android.managedprovisioning.cancelled";
     public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioningErrorLogMessage";
 
-    // Maximum time we will wait for ACTION_USER_UNLOCK until we give up and continue without
-    // account migration.
-    private static final int USER_UNLOCKED_TIMEOUT_SECONDS = 120; // 2 minutes
-
-    private UserInfo mManagedProfileOrUserInfo;
-    private UserManager mUserManager;
-    private UserUnlockedReceiver mUnlockedReceiver;
-
     private ProvisioningParams mParams;
-
-    // TODO: remove this once everything is moved to separate tasks
-    private boolean mProvisioningCompleted = false;
 
     private final Utils mUtils = new Utils();
 
@@ -89,7 +66,6 @@ public class ProfileOwnerProvisioningService extends Service
     public void onCreate() {
         super.onCreate();
 
-        mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
         mHandlerThread = new HandlerThread("DeviceOwnerProvisioningHandler");
         mHandlerThread.start();
     }
@@ -147,31 +123,14 @@ public class ProfileOwnerProvisioningService extends Service
      */
     // TODO: Consider moving this to a separate task
     private void startManagedProfileOrUserProvisioning() {
-
-        if(isProvisioningManagedUser()) {
-            ProvisionLogger.logd("Starting managed user provisioning");
-            mManagedProfileOrUserInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
-        } else {
-            ProvisionLogger.logd("Starting managed profile provisioning");
-            // Work through the provisioning steps in their corresponding order
-            mManagedProfileOrUserInfo = mUserManager.createProfileForUser(
-                    getString(R.string.default_managed_profile_name),
-                    UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
-                    UserHandle.myUserId());
-        }
-
-        if (mManagedProfileOrUserInfo != null) {
-            mController = new ProfileOwnerProvisioningController(
-                    this,
-                    mParams,
-                    mManagedProfileOrUserInfo.id,
-                    this,
-                    mHandlerThread.getLooper());
-            mController.initialize();
-            mController.start();
-        } else {
-            error("Unable to create a managed profile", new Exception());
-        }
+        mController = new ProfileOwnerProvisioningController(
+                this,
+                mParams,
+                UserHandle.myUserId(),
+                this,
+                mHandlerThread.getLooper());
+        mController.initialize();
+        mController.start();
     }
 
     /**
@@ -180,54 +139,11 @@ public class ProfileOwnerProvisioningService extends Service
      */
     @Override
     public void provisioningComplete() {
-        if (mProvisioningCompleted) {
-            notifyActivityOfSuccess();
-            return;
+        if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)
+                && mUtils.isUserSetupCompleted(this)) {
+            notifyMdmAndCleanup();
         }
-
-        mProvisioningCompleted = true;
-        if (!isProvisioningManagedUser()) {
-            // TODO: Move all of the remaining logic into separate tasks
-            CrossProfileIntentFiltersHelper.setFilters(
-                    getPackageManager(), getUserId(), mManagedProfileOrUserInfo.id);
-            if (!startManagedProfile(mManagedProfileOrUserInfo.id)) {
-                error("Could not start user in background", new Exception());
-            }
-            // Wait for ACTION_USER_UNLOCKED to be sent before trying to migrate the account.
-            // Even if no account is present, we should not send the provisioning complete broadcast
-            // before the managed profile user is properly started.
-            if ((mUnlockedReceiver != null) && !mUnlockedReceiver.waitForUserUnlocked()) {
-                return;
-            }
-
-            // Note: account migration must happen after setting the profile owner.
-            // Otherwise, there will be a time interval where some apps may think that the account
-            // does not have a profile owner.
-            mUtils.maybeCopyAccount(this, mParams.accountToMigrate, Process.myUserHandle(),
-                    mManagedProfileOrUserInfo.getUserHandle());
-        }
-        notifyMdmAndCleanup();
         notifyActivityOfSuccess();
-    }
-
-    /**
-     * Initialize the user that underlies the managed profile.
-     * This is required so that the provisioning complete broadcast can be sent across to the
-     * profile and apps can run on it.
-     */
-    private boolean startManagedProfile(int userId)  {
-        ProvisionLogger.logd("Starting user in background");
-        IActivityManager iActivityManager = ActivityManagerNative.getDefault();
-        // Register a receiver for the Intent.ACTION_USER_UNLOCKED to know when the managed profile
-        // has been started and unlocked.
-        mUnlockedReceiver = new UserUnlockedReceiver(this, userId);
-        try {
-            return iActivityManager.startUserInBackground(userId);
-        } catch (RemoteException neverThrown) {
-            // Never thrown, as we are making local calls.
-            ProvisionLogger.loge("This should not happen.", neverThrown);
-        }
-        return false;
     }
 
     /**
@@ -237,17 +153,6 @@ public class ProfileOwnerProvisioningService extends Service
      */
     // TODO: Consider moving this into FinalizationActivity
     private void notifyMdmAndCleanup() {
-        // Set DPM userProvisioningState appropriately and persist mParams for use during
-        // FinalizationActivity if necessary.
-        mUtils.markUserProvisioningStateInitiallyDone(this, mParams);
-
-        if (mParams.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            // Set the user_setup_complete flag on the managed-profile as setup-wizard is never run
-            // for that user. This is not relevant for other cases since
-            // Utils.markUserProvisioningStateInitiallyDone() communicates provisioning state to
-            // setup-wizard via DPM.setUserProvisioningState() if necessary.
-            mUtils.markUserSetupComplete(this, mManagedProfileOrUserInfo.id);
-        }
 
         // If profile owner provisioning was started after current user setup is completed, then we
         // can directly send the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to the MDM.
@@ -255,28 +160,26 @@ public class ProfileOwnerProvisioningService extends Service
         // should shutdown via DPM.setUserProvisioningState(), which will result in a finalization
         // intent being sent to us once setup-wizard finishes. As part of the finalization intent
         // handling we then broadcast ACTION_PROFILE_PROVISIONING_COMPLETE.
-        if (mUtils.isUserSetupCompleted(this)) {
-            UserHandle managedUserHandle = new UserHandle(mManagedProfileOrUserInfo.id);
+        UserHandle managedUserHandle = mUtils.getManagedProfile(this);
 
-            // Use an ordered broadcast, so that we only finish when the mdm has received it.
-            // Avoids a lag in the transition between provisioning and the mdm.
-            BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
-                    mParams.accountToMigrate, mParams.deviceAdminComponentName.getPackageName());
+        // Use an ordered broadcast, so that we only finish when the mdm has received it.
+        // Avoids a lag in the transition between provisioning and the mdm.
+        BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
+                mParams.accountToMigrate, mParams.deviceAdminComponentName.getPackageName());
 
-            Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-            completeIntent.setComponent(mParams.deviceAdminComponentName);
-            completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                    Intent.FLAG_RECEIVER_FOREGROUND);
-            if (mParams.adminExtrasBundle != null) {
-                completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                        mParams.adminExtrasBundle);
-            }
-
-            sendOrderedBroadcastAsUser(completeIntent, managedUserHandle, null,
-                    mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
-            ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
-                    + managedUserHandle.getIdentifier());
+        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+        completeIntent.setComponent(mParams.deviceAdminComponentName);
+        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
+                Intent.FLAG_RECEIVER_FOREGROUND);
+        if (mParams.adminExtrasBundle != null) {
+            completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                    mParams.adminExtrasBundle);
         }
+
+        sendOrderedBroadcastAsUser(completeIntent, managedUserHandle, null,
+                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
+        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
+                + managedUserHandle.getIdentifier());
     }
 
     @Override
@@ -323,49 +226,4 @@ public class ProfileOwnerProvisioningService extends Service
     public IBinder onBind(Intent intent) {
         return null;
     }
-
-    public boolean isProvisioningManagedUser() {
-        return DevicePolicyManager.ACTION_PROVISION_MANAGED_USER.equals(mParams.provisioningAction);
-    }
-
-    /**
-     * BroadcastReceiver that listens to {@link Intent#ACTION_USER_UNLOCKED} in order to provide
-     * a blocking wait until the managed profile has been started and unlocked.
-     */
-    private static class UserUnlockedReceiver extends BroadcastReceiver {
-        private static final IntentFilter FILTER = new IntentFilter(Intent.ACTION_USER_UNLOCKED);
-
-        private final Semaphore semaphore = new Semaphore(0);
-        private final Context mContext;
-        private final int mUserId;
-
-        UserUnlockedReceiver(Context context, int userId) {
-            mContext = context;
-            mUserId = userId;
-            mContext.registerReceiverAsUser(this, new UserHandle(userId), FILTER, null, null);
-        }
-
-        @Override
-        public void onReceive(Context context, Intent intent ) {
-            if (!Intent.ACTION_USER_UNLOCKED.equals(intent.getAction())) {
-                ProvisionLogger.logw("Unexpected intent: " + intent);
-                return;
-            }
-            if (intent.getIntExtra(Intent.EXTRA_USER_HANDLE, UserHandle.USER_NULL) == mUserId) {
-                ProvisionLogger.logd("Received ACTION_USER_UNLOCKED for user " + mUserId);
-                semaphore.release();
-                mContext.unregisterReceiver(this);
-            }
-        }
-
-        public boolean waitForUserUnlocked() {
-            ProvisionLogger.logd("Waiting for ACTION_USER_UNLOCKED");
-            try {
-                return semaphore.tryAcquire(USER_UNLOCKED_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-            } catch (InterruptedException ie) {
-                mContext.unregisterReceiver(this);
-                return false;
-            }
-        }
-    }
- }
+}

@@ -20,9 +20,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.HandlerThread;
 import android.os.IBinder;
-import android.os.Process;
 import android.os.UserHandle;
-import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.common.Utils;
@@ -117,14 +115,6 @@ public class DeviceOwnerProvisioningService extends Service
 
     @Override
     public void provisioningComplete() {
-        // Copying an account needs to happen late in the provisioning process to allow the current
-        // user to be started, but before we tell the MDM that provisioning succeeded.
-        maybeCopyAccount();
-
-        // Set DPM userProvisioningState appropriately and persists mParams for use during
-        // FinalizationActivity if necessary.
-        mUtils.markUserProvisioningStateInitiallyDone(this, mParams);
-
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         successIntent.setClass(this, DeviceOwnerProvisioningActivity.ServiceMessageReceiver.class);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
@@ -134,18 +124,6 @@ public class DeviceOwnerProvisioningService extends Service
     @Override
     public void cancelled() {
         // Do nothing, as device will be factory reset
-    }
-
-    // TODO: Move this into its own task once ProfileOwnerProvisioningService is refactored.
-    private void maybeCopyAccount() {
-        if (!UserManager.isSplitSystemUser()) {
-            // Only one user involved in this case.
-            return;
-        }
-
-        mUtils.maybeCopyAccount(DeviceOwnerProvisioningService.this,
-                mParams.accountToMigrate, UserHandle.SYSTEM,
-                Process.myUserHandle());
     }
 
     @Override

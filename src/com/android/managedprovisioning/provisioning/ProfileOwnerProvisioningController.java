@@ -26,20 +26,25 @@ import android.os.UserManager;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
+import com.android.managedprovisioning.task.CopyAccountToUserTask;
+import com.android.managedprovisioning.task.CreateManagedProfileTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.ManagedProfileSettingsTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.StartManagedProfileTask;
 
 /**
  * Controller for Profile Owner provisioning.
  */
 // TODO: Consider splitting this controller into one for managed profile and one for user owner
 public class ProfileOwnerProvisioningController extends AbstractProvisioningController {
+    private final int mParentUserId;
 
     public ProfileOwnerProvisioningController(
             Context context,
@@ -47,7 +52,9 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
             int userId,
             ProvisioningServiceInterface service,
             Looper looper) {
-        super(context, params, userId, service, looper);
+        this(context, params, userId, service,
+                new AbstractProvisioningController.ProvisioningTaskHandler(looper),
+                new Utils());
     }
 
     @VisibleForTesting
@@ -56,26 +63,53 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
             ProvisioningParams params,
             int userId,
             ProvisioningServiceInterface service,
-            Handler handler) {
-        super(context, params, userId, service, handler);
+            Handler handler,
+            Utils utils) {
+        super(context, params, userId, service, handler, utils);
+        mParentUserId = userId;
     }
 
     protected void setUpTasks() {
+        if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)) {
+            setUpTasksManagedProfile();
+        } else {
+            setUpTasksManagedUser();
+        }
+    }
+
+    private void setUpTasksManagedProfile() {
+        addTasks(
+                new CreateManagedProfileTask(mContext, mParams, this),
+                new DeleteNonRequiredAppsTask(true /* new profile */, mContext, mParams, this),
+                new InstallExistingPackageTask(mContext, mParams, this),
+                new SetDevicePolicyTask(mContext, mParams, this),
+                new DisableBluetoothSharingTask(mContext, mParams, this),
+                new ManagedProfileSettingsTask(mContext, mParams, this),
+                new DisableInstallShortcutListenersTask(mContext, mParams, this),
+                new StartManagedProfileTask(mContext, mParams, this),
+                new CopyAccountToUserTask(mParentUserId, mContext, mParams, this));
+    }
+
+    private void setUpTasksManagedUser() {
         addTasks(
                 new DeleteNonRequiredAppsTask(true /* new profile */, mContext, mParams, this),
                 new InstallExistingPackageTask(mContext, mParams, this),
                 new SetDevicePolicyTask(mContext, mParams, this));
-
-        if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)) {
-            addTasks(
-                    new DisableBluetoothSharingTask(mContext, mParams, this),
-                    new ManagedProfileSettingsTask(mContext, mParams, this),
-                    new DisableInstallShortcutListenersTask(mContext, mParams, this));
-        }
     }
 
+    @Override
+    public void onSuccess(AbstractProvisioningTask task) {
+        if (task instanceof CreateManagedProfileTask) {
+            // If the task was creating a managed profile, store the profile id
+            mUserId = ((CreateManagedProfileTask) task).getProfileUserId();
+        }
+        super.onSuccess(task);
+    }
+
+    @Override
     protected void performCleanup() {
-        if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)) {
+        if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)
+                && mCurrentTaskIndex > 0) {
             ProvisionLogger.logd("Removing managed profile");
             UserManager um = mContext.getSystemService(UserManager.class);
             um.removeUser(mUserId);

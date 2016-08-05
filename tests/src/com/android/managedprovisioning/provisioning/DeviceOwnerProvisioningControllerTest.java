@@ -24,6 +24,7 @@ import static org.mockito.Mockito.verify;
 import android.content.ComponentName;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
@@ -60,6 +61,8 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
             .build();
 
     @Mock private AbstractProvisioningController.ProvisioningServiceInterface mService;
+    @Mock private Utils mUtils;
+    private ProvisioningParams mParams;
 
     @SmallTest
     public void testRunAllTasks() throws Exception {
@@ -92,6 +95,9 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
 
         // THEN the provisioning complete callback should have happened
         verify(mService).provisioningComplete();
+
+        // THEN the user provisioning state should be marked as completed
+        verify(mUtils).markUserProvisioningStateInitiallyDone(mContext, mParams);
     }
 
     @SmallTest
@@ -197,7 +203,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
     }
 
     private void createController(WifiInfo wifiInfo, PackageDownloadInfo downloadInfo) {
-        ProvisioningParams params = new ProvisioningParams.Builder()
+        mParams = new ProvisioningParams.Builder()
                 .setDeviceAdminComponentName(TEST_ADMIN)
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
                 .setWifiInfo(wifiInfo)
@@ -206,10 +212,11 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
 
         mController = new DeviceOwnerProvisioningController(
                 getContext(),
-                params,
+                mParams,
                 TEST_USER_ID,
                 mService,
-                mHandler);
+                mHandler,
+                mUtils);
         mController.initialize();
     }
 }

@@ -19,12 +19,15 @@ package com.android.managedprovisioning.provisioning;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
+import com.android.managedprovisioning.task.CopyAccountToUserTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DeviceOwnerInitializeProvisioningTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
@@ -43,7 +46,9 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
             int userId,
             ProvisioningServiceInterface service,
             Looper looper) {
-        super(context, params, userId, service, looper);
+        this(context, params, userId, service,
+                new AbstractProvisioningController.ProvisioningTaskHandler(looper),
+                new Utils());
     }
 
     @VisibleForTesting
@@ -52,8 +57,9 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
             ProvisioningParams params,
             int userId,
             ProvisioningServiceInterface service,
-            Handler handler) {
-        super(context, params, userId, service, handler);
+            Handler handler,
+            Utils utils) {
+        super(context, params, userId, service, handler, utils);
     }
 
     protected void setUpTasks() {
@@ -74,6 +80,10 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
                 new SetDevicePolicyTask(mContext, mParams, this),
                 new DisallowAddUserTask(mContext, mParams, this)
         );
+
+        if (mParams.accountToMigrate != null) {
+            addTasks(new CopyAccountToUserTask(UserHandle.USER_SYSTEM, mContext, mParams, this));
+        }
     }
 
     @Override

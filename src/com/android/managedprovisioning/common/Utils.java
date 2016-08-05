@@ -89,8 +89,6 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
  * Class containing various auxiliary methods.
  */
 public class Utils {
-    private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 3;  // 3 minutes
-
     private static final int THRESHOLD_BRIGHT_COLOR = 160; // A color needs a brightness of at least
     // this value to be considered bright. (brightness being between 0 and 255).
 
@@ -313,16 +311,6 @@ public class Utils {
     }
 
     /**
-     * Sets user setup complete on a given user.
-     *
-     * <p>This will set USER_SETUP_COMPLETE to 1 on the given user.
-     */
-    public void markUserSetupComplete(Context context, int userId) {
-        ProvisionLogger.logd("Setting USER_SETUP_COMPLETE to 1 for user " + userId);
-        Secure.putIntForUser(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 1, userId);
-    }
-
-    /**
      * Returns whether USER_SETUP_COMPLETE is set on the calling user.
      */
     public boolean isUserSetupCompleted(Context context) {
@@ -518,51 +506,6 @@ public class Utils {
         } catch (OperationCanceledException | AuthenticatorException | IOException e) {
             ProvisionLogger.logw("Exception removing account from the primary user.", e);
         }
-    }
-
-    /**
-     * Copies an account to a given user.
-     *
-     * <p>Copies a given account form {@code sourceUser} to {@code targetUser}. This call is
-     * blocking until the operation has succeeded. If within a timeout the account hasn't been
-     * successfully copied to the new user, we give up.
-     *
-     * @param context a {@link Context} object
-     * @param accountToMigrate the account to be migrated
-     * @param sourceUser the {@link UserHandle} of the user to copy from
-     * @param targetUser the {@link UserHandle} of the user to copy to
-     * @return whether account migration successfully completed
-     */
-    public boolean maybeCopyAccount(Context context, Account accountToMigrate,
-            UserHandle sourceUser, UserHandle targetUser) {
-        if (accountToMigrate == null) {
-            ProvisionLogger.logd("No account to migrate.");
-            return false;
-        }
-        if (sourceUser.equals(targetUser)) {
-            ProvisionLogger.loge("sourceUser and targetUser are the same, won't migrate account.");
-            return false;
-        }
-        ProvisionLogger.logd("Attempting to copy account from " + sourceUser + " to " + targetUser);
-        try {
-            AccountManager accountManager =
-                    (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
-            boolean copySucceeded = accountManager.copyAccountToUser(
-                    accountToMigrate,
-                    sourceUser,
-                    targetUser,
-                    /* callback= */ null, /* handler= */ null)
-                    .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-            if (copySucceeded) {
-                ProvisionLogger.logi("Copied account to " + targetUser);
-                return true;
-            } else {
-                ProvisionLogger.loge("Could not copy account to " + targetUser);
-            }
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.loge("Exception copying account to " + targetUser, e);
-        }
-        return false;
     }
 
     /**

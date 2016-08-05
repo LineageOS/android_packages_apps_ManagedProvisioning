@@ -24,6 +24,8 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 
+import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
+import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -53,11 +55,29 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
             dpm.setOrganizationColorForUser(mProvisioningParams.mainColor, userId);
         }
 
+        CrossProfileIntentFiltersHelper.setFilters(
+                mContext.getPackageManager(), UserHandle.myUserId(), userId);
+
+        // always mark managed profile setup as completed
+        markUserSetupComplete(userId);
+
         success();
     }
 
     @Override
     public int getStatusMsgId() {
         return R.string.progress_finishing_touches;
+    }
+
+    /**
+     * Sets user setup complete on a given user.
+     *
+     * <p>This will set USER_SETUP_COMPLETE to 1 on the given user.
+     */
+    private void markUserSetupComplete(int userId) {
+        ProvisionLogger.logd("Setting USER_SETUP_COMPLETE to 1 for user " + userId);
+        Settings.Secure.putIntForUser(
+                mContext.getContentResolver(),
+                Settings.Secure.USER_SETUP_COMPLETE, 1, userId);
     }
 }

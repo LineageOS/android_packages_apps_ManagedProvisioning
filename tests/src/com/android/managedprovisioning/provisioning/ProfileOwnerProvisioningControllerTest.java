@@ -17,25 +17,35 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.pm.UserInfo;
 import android.os.UserManager;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
+import com.android.managedprovisioning.task.CopyAccountToUserTask;
+import com.android.managedprovisioning.task.CreateManagedProfileTask;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.ManagedProfileSettingsTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.StartManagedProfileTask;
 
 import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;
@@ -50,13 +60,16 @@ import java.util.concurrent.TimeUnit;
 
 public class ProfileOwnerProvisioningControllerTest extends ProvisioningControllerBaseTest {
 
-    private static final int TEST_USER_ID = 123;
+    private static final int TEST_PARENT_USER_ID = 1;
+    private static final int TEST_PROFILE_USER_ID = 2;
     private static final ComponentName TEST_ADMIN = new ComponentName("com.test.admin",
             "com.test.admin.AdminReceiver");
 
     @Mock private AbstractProvisioningController.ProvisioningServiceInterface mService;
     @Mock private UserManager mUserManager;
+    @Mock private Utils mUtils;
     private Context mContext;
+    private ProvisioningParams mParams;
 
     @Override
     public void setUp() throws Exception {
@@ -71,6 +84,9 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
                 return super.getSystemService(name);
             }
         };
+
+        when(mUserManager.createProfileForUser(anyString(), anyInt(), eq(TEST_PARENT_USER_ID)))
+                .thenReturn(new UserInfo(TEST_PROFILE_USER_ID, null, 0));
     }
 
     @SmallTest
@@ -81,7 +97,15 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         // WHEN starting the test run
         mController.start();
 
-        // THEN the delete non required apps task is run first
+        // THEN the create managed profile task is run first
+        verifyTaskRun(CreateManagedProfileTask.class);
+
+        // WHEN the task completes successfully
+        CreateManagedProfileTask createManagedProfileTask = mock(CreateManagedProfileTask.class);
+        when(createManagedProfileTask.getProfileUserId()).thenReturn(TEST_PROFILE_USER_ID);
+        mController.onSuccess(createManagedProfileTask);
+
+        // THEN the delete non required apps task is run
         taskSucceeded(DeleteNonRequiredAppsTask.class);
 
         // THEN the install existing package task is run
@@ -99,8 +123,17 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         // THEN the disable install shortcut listeners task is run
         taskSucceeded(DisableInstallShortcutListenersTask.class);
 
+        // THEN the start managed profile task is run
+        taskSucceeded(StartManagedProfileTask.class);
+
+        // THEN the copy account to user task is run
+        taskSucceeded(CopyAccountToUserTask.class);
+
         // THEN the provisioning complete callback should have happened
         verify(mService).provisioningComplete();
+
+        // THEN the user provisioning state should be marked as completed
+        verify(mUtils).markUserProvisioningStateInitiallyDone(mContext, mParams);
     }
 
     @MediumTest
@@ -111,7 +144,15 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         // WHEN starting the test run
         mController.start();
 
-        // THEN the delete non required apps task is run first
+        // THEN the create managed profile task is run first
+        verifyTaskRun(CreateManagedProfileTask.class);
+
+        // WHEN the task completes successfully
+        CreateManagedProfileTask createManagedProfileTask = mock(CreateManagedProfileTask.class);
+        when(createManagedProfileTask.getProfileUserId()).thenReturn(TEST_PROFILE_USER_ID);
+        mController.onSuccess(createManagedProfileTask);
+
+        // THEN the delete non required apps task is run
         taskSucceeded(DeleteNonRequiredAppsTask.class);
 
         // THEN the install existing package task is run
@@ -134,7 +175,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         assertTrue(latch.await(1, TimeUnit.SECONDS));
 
         // THEN the managed profile is deleted
-        verify(mUserManager).removeUser(TEST_USER_ID);
+        verify(mUserManager).removeUser(TEST_PROFILE_USER_ID);
 
         // WHEN the install existing package task eventually finishes
         mController.onSuccess(task);
@@ -151,6 +192,14 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         // WHEN starting the test run
         mController.start();
 
+        // THEN the create managed profile task is run first
+        verifyTaskRun(CreateManagedProfileTask.class);
+
+        // WHEN the task completes successfully
+        CreateManagedProfileTask createManagedProfileTask = mock(CreateManagedProfileTask.class);
+        when(createManagedProfileTask.getProfileUserId()).thenReturn(TEST_PROFILE_USER_ID);
+        mController.onSuccess(createManagedProfileTask);
+
         // THEN the delete non required apps task is run first
         taskSucceeded(DeleteNonRequiredAppsTask.class);
 
@@ -165,17 +214,18 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
     }
 
     private void createController() {
-        ProvisioningParams params = new ProvisioningParams.Builder()
+        mParams = new ProvisioningParams.Builder()
                 .setDeviceAdminComponentName(TEST_ADMIN)
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
                 .build();
 
         mController = new ProfileOwnerProvisioningController(
                 mContext,
-                params,
-                TEST_USER_ID,
+                mParams,
+                TEST_PARENT_USER_ID,
                 mService,
-                mHandler);
+                mHandler,
+                mUtils);
         mController.initialize();
     }
 }
