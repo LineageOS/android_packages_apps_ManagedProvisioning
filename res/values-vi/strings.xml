@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Đang xóa các ứng dụng không bắt buộc của hệ thống…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Đang hoàn thiện…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Đang đặt chủ sở hữu thiết bị..."</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Đang khởi chạy thiết bị…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Thiết bị của bạn không hỗ trợ mã hóa. Hãy liên hệ với bộ phận CNTT của bạn."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Dừng thiết lập và xóa dữ liệu trên thiết bị của bạn?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Hủy"</string>

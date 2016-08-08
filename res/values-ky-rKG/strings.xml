@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Керексиз тутум колдонмолорун алып салууда..."</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Бир аз күтө туруңуз…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Түзмөк ээси коюлууда…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Түзмөккө баштапкы маанини берүүдө..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Түзмөгүңүздө шифрлөө колдоого алынбайт. IT бөлүмүңүзгө кайрылыңыз."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Орнотуу токтотулуп, түзмөгүңүздүн дайындары тазалансынбы?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Жокко чыгаруу"</string>

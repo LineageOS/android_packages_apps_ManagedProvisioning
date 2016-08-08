@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"अनावश्यक सिस्टम ऐप्लिकेशन निकाले जा रहे हैं…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"अंतिम रूप दिया जा रहा है…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"डिवाइस स्वामी सेट किया जा रहा है…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"डिवाइस शुरू हो रहा है…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"आपका डिवाइस एन्क्रिप्शन का समर्थन नहीं करता. अपने आईटी विभाग से संपर्क करें."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेट करना बंद करें और आपके डिवाइस का डेटा मिटाएं?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"अभी नहीं"</string>

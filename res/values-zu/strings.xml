@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Isusa izinhlelo zokusebenza ezingadingwa isistimu…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Ukuqedela…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Isetha umnikazi wedivayisi..."</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Iqalisa idivayisi…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Idivayisi yakho ayisekeli ukubethela. Xhumana nomnyango wakho we-IT."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Yeka ukusetha uphinde usule idatha yedivayisi yakho?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Khansela"</string>
