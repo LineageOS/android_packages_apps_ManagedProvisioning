@@ -14,15 +14,21 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.ACTION_CANCEL_PROVISIONING;
-import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.ACTION_GET_PROVISIONING_STATE;
-import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.ACTION_START_PROVISIONING;
-import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_CANCEL_PROVISIONING;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_GET_PROVISIONING_STATE;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROGRESS_UPDATE;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROVISIONING_CANCELLED;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROVISIONING_ERROR;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROVISIONING_SUCCESS;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_START_PROVISIONING;
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_FACTORY_RESET_REQUIRED;
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_PROGRESS_MESSAGE_ID_KEY;
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_USER_VISIBLE_ERROR_ID_KEY;
 
 import android.app.Activity;
 import android.app.Service;
@@ -33,28 +39,27 @@ import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.android.managedprovisioning.DeviceOwnerProvisioningActivity;
+import com.android.managedprovisioning.MdmReceivedSuccessReceiver;
+import com.android.managedprovisioning.ProfileOwnerProvisioningActivity;
+import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.provisioning.AbstractProvisioningController;
-import com.android.managedprovisioning.provisioning.ProfileOwnerProvisioningController;
 
 /**
- * Service that runs the profile owner provisioning.
+ * Service that runs the provisioning process.
  *
- * <p>This service is started from and sends updates to the
- * {@link ProfileOwnerProvisioningActivity}, which contains the provisioning UI.
+ * <p>This service is started from and sends updates to one of the two provisioning activities:
+ * {@link ProfileOwnerProvisioningActivity} or {@link DeviceOwnerProvisioningActivity} which
+ * contain the provisioning UI.</p>
+ *
+ * <p>The actual execution of the various provisioning tasks is handled by the
+ * {@link AbstractProvisioningController} and the main purpose of this service is to decouple the
+ * task execution from the activity life-cycle.</p>
  */
-public class ProfileOwnerProvisioningService extends Service
+public class ProvisioningService extends Service
         implements AbstractProvisioningController.ProvisioningServiceInterface {
-    // Intent actions for communication with DeviceOwnerProvisioningService.
-    public static final String ACTION_PROVISIONING_SUCCESS =
-            "com.android.managedprovisioning.provisioning_success";
-    public static final String ACTION_PROVISIONING_ERROR =
-            "com.android.managedprovisioning.error";
-    public static final String ACTION_PROVISIONING_CANCELLED =
-            "com.android.managedprovisioning.cancelled";
-    public static final String EXTRA_LOG_MESSAGE_KEY = "ProvisioningErrorLogMessage";
-
     private ProvisioningParams mParams;
 
     private final Utils mUtils = new Utils();
@@ -66,7 +71,7 @@ public class ProfileOwnerProvisioningService extends Service
     public void onCreate() {
         super.onCreate();
 
-        mHandlerThread = new HandlerThread("DeviceOwnerProvisioningHandler");
+        mHandlerThread = new HandlerThread("ProvisioningHandler");
         mHandlerThread.start();
     }
 
@@ -94,19 +99,22 @@ public class ProfileOwnerProvisioningService extends Service
                 break;
             case ACTION_START_PROVISIONING:
                 if (mController == null) {
-                    mParams = intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
-                    startManagedProfileOrUserProvisioning();
+                    ProvisionLogger.logd("Starting provisioning service");
+                    mParams = intent.getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+                    mController = buildController();
+                    mController.initialize();
+                    mController.start();
                 } else {
                     ProvisionLogger.loge("Provisioning start requested,"
                             + " but controller not null");
-                    error("Provisioning ongoing", new Exception());
+                    error(R.string.device_owner_error_general, false);
                 }
                 break;
             case ACTION_GET_PROVISIONING_STATE:
                 if (mController == null) {
                     ProvisionLogger.loge("Provisioning status requested,"
                             + " but provisioning not ongoing");
-                    error("Provisioning not ongoing", new Exception());
+                    error(R.string.device_owner_error_general, false);
                 } else {
                     mController.updateStatus();
                 }
@@ -118,19 +126,24 @@ public class ProfileOwnerProvisioningService extends Service
     }
 
     /**
-     * This is the core method to create a managed profile or user. It goes through every
-     * provisioning step.
+     * This method constructs the controller used for the given type of provisioning.
      */
-    // TODO: Consider moving this to a separate task
-    private void startManagedProfileOrUserProvisioning() {
-        mController = new ProfileOwnerProvisioningController(
-                this,
-                mParams,
-                UserHandle.myUserId(),
-                this,
-                mHandlerThread.getLooper());
-        mController.initialize();
-        mController.start();
+    private AbstractProvisioningController buildController() {
+        if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+            return new DeviceOwnerProvisioningController(
+                    this,
+                    mParams,
+                    UserHandle.myUserId(),
+                    this,
+                    mHandlerThread.getLooper());
+        } else {
+            return new ProfileOwnerProvisioningController(
+                    this,
+                    mParams,
+                    UserHandle.myUserId(),
+                    this,
+                    mHandlerThread.getLooper());
+        }
     }
 
     /**
@@ -143,7 +156,8 @@ public class ProfileOwnerProvisioningService extends Service
                 && mUtils.isUserSetupCompleted(this)) {
             notifyMdmAndCleanup();
         }
-        notifyActivityOfSuccess();
+        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
     }
 
     /**
@@ -183,43 +197,24 @@ public class ProfileOwnerProvisioningService extends Service
     }
 
     @Override
-    public void progressUpdate(int progressMessageId) {
-        // TODO: Do something
+    public void progressUpdate(int progressMessage) {
+        Intent intent = new Intent(ACTION_PROGRESS_UPDATE);
+        intent.putExtra(EXTRA_PROGRESS_MESSAGE_ID_KEY, progressMessage);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     @Override
-    public void error(int errorMessageId, boolean factoryResetRequired) {
-        error("Error executing provisioning controller", new Exception());
+    public void error(int dialogMessage, boolean factoryResetRequired) {
+        Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
+        intent.putExtra(EXTRA_USER_VISIBLE_ERROR_ID_KEY, dialogMessage);
+        intent.putExtra(EXTRA_FACTORY_RESET_REQUIRED, factoryResetRequired);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     @Override
     public void cancelled() {
-        notifyActivityCancelled();
-    }
-
-    /**
-     * Record the fact that an error occurred, change mProvisioningStatus to
-     * reflect the fact the provisioning process failed
-     */
-    private void error(String dialogMessage, Exception e) {
-        ProvisionLogger.logw("Error occured during provisioning process: " + dialogMessage, e);
-        notifyActivityError(dialogMessage);
-    }
-
-    private void notifyActivityError(String message) {
-        Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
-        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, message);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-    }
-
-    private void notifyActivityCancelled() {
         Intent cancelIntent = new Intent(ACTION_PROVISIONING_CANCELLED);
         LocalBroadcastManager.getInstance(this).sendBroadcast(cancelIntent);
-    }
-
-    private void notifyActivityOfSuccess() {
-        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
     }
 
     @Override

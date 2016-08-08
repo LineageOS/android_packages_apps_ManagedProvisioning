@@ -16,9 +16,18 @@
 
 package com.android.managedprovisioning;
 
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROGRESS_UPDATE;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROVISIONING_ERROR;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROVISIONING_SUCCESS;
+import static com.android.managedprovisioning.provisioning.Constants.ACTION_START_PROVISIONING;
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_FACTORY_RESET_REQUIRED;
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_PROGRESS_MESSAGE_ID_KEY;
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_USER_VISIBLE_ERROR_ID_KEY;
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -29,6 +38,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.ProvisioningService;
 
 import java.util.ArrayList;
 
@@ -63,6 +73,16 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
     private static final String DEVICE_OWNER_ERROR_DIALOG_OK = "DeviceOwnerErrorDialogOk";
     private static final String DEVICE_OWNER_ERROR_DIALOG_RESET = "DeviceOwnerErrorDialogReset";
 
+    private static final String KEY_PROVISIONING_STARTED = "provisioning_started";
+
+    private static final IntentFilter SERVICE_COMMS_INTENT_FILTER;
+    static {
+        SERVICE_COMMS_INTENT_FILTER = new IntentFilter();
+        SERVICE_COMMS_INTENT_FILTER.addAction(ACTION_PROVISIONING_SUCCESS);
+        SERVICE_COMMS_INTENT_FILTER.addAction(ACTION_PROVISIONING_ERROR);
+        SERVICE_COMMS_INTENT_FILTER.addAction(ACTION_PROGRESS_UPDATE);
+    }
+
     private BroadcastReceiver mServiceMessageReceiver;
     private TextView mProgressTextView;
 
@@ -73,9 +93,11 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        boolean provisioningStarted = false;
         if (savedInstanceState != null) {
             mPendingProvisioningIntents = savedInstanceState
                     .getParcelableArrayList(KEY_PENDING_INTENTS);
+            provisioningStarted = savedInstanceState.getBoolean(KEY_PROVISIONING_STARTED, false);
         }
 
         // Setup the UI.
@@ -85,11 +107,8 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
 
         // Setup broadcast receiver for feedback from service.
         mServiceMessageReceiver = new ServiceMessageReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS);
-        filter.addAction(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR);
-        filter.addAction(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE);
-        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver, filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mServiceMessageReceiver,
+                SERVICE_COMMS_INTENT_FILTER);
 
         // Load the ProvisioningParams (from message in Intent).
         final ProvisioningParams params = getIntent().getParcelableExtra(
@@ -97,12 +116,15 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
         if (params != null) {
             maybeSetLogoAndMainColor(params.mainColor);
         }
-        startDeviceOwnerProvisioningService();
+        if (!provisioningStarted) {
+            startProvisioningService();
+        }
     }
 
-    private void startDeviceOwnerProvisioningService() {
-        Intent intent = new Intent(this, DeviceOwnerProvisioningService.class);
-        intent.putExtras(getIntent());
+    private void startProvisioningService() {
+        Intent intent = new Intent(ACTION_START_PROVISIONING)
+                .setComponent(new ComponentName(this, ProvisioningService.class))
+                .putExtras(getIntent());
         startService(intent);
     }
 
@@ -126,23 +148,27 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
 
     private void handleProvisioningIntent(Intent intent) {
         String action = intent.getAction();
-        if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_SUCCESS)) {
-            onProvisioningSuccess();
-        } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROVISIONING_ERROR)) {
-            int errorMessageId = intent.getIntExtra(
-                    DeviceOwnerProvisioningService.EXTRA_USER_VISIBLE_ERROR_ID_KEY,
-                    R.string.device_owner_error_general);
-            boolean factoryResetRequired = intent.getBooleanExtra(
-                    DeviceOwnerProvisioningService.EXTRA_FACTORY_RESET_REQUIRED,
-                    true);
-
-            error(errorMessageId, factoryResetRequired);
-        } else if (action.equals(DeviceOwnerProvisioningService.ACTION_PROGRESS_UPDATE)) {
-            int progressMessage = intent.getIntExtra(
-                    DeviceOwnerProvisioningService.EXTRA_PROGRESS_MESSAGE_ID_KEY, -1);
-            if (progressMessage >= 0) {
-                progressUpdate(progressMessage);
-            }
+        switch (action) {
+            case ACTION_PROVISIONING_SUCCESS:
+                onProvisioningSuccess();
+                break;
+            case ACTION_PROVISIONING_ERROR:
+                int errorMessageId = intent.getIntExtra(
+                        EXTRA_USER_VISIBLE_ERROR_ID_KEY,
+                        R.string.device_owner_error_general);
+                boolean factoryResetRequired = intent.getBooleanExtra(
+                        EXTRA_FACTORY_RESET_REQUIRED,
+                        true);
+                error(errorMessageId, factoryResetRequired);
+                break;
+            case ACTION_PROGRESS_UPDATE:
+                int progressMessage = intent.getIntExtra(EXTRA_PROGRESS_MESSAGE_ID_KEY, -1);
+                if (progressMessage >= 0) {
+                    progressUpdate(progressMessage);
+                }
+                break;
+            default:
+                ProvisionLogger.logi("Unhandled intent action: " + action);
         }
     }
 
@@ -192,6 +218,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList(KEY_PENDING_INTENTS, mPendingProvisioningIntents);
+        outState.putBoolean(KEY_PROVISIONING_STARTED, true);
     }
 
     @Override
@@ -239,7 +266,7 @@ public class DeviceOwnerProvisioningActivity extends SetupLayoutActivity
     }
 
     private void closeActivity(int resultCode) {
-        stopService(new Intent(this, DeviceOwnerProvisioningService.class));
+        stopService(new Intent(this, ProvisioningService.class));
         setResult(resultCode);
         finish();
     }

@@ -174,10 +174,7 @@
         </activity>
 
         <service
-            android:name=".ProfileOwnerProvisioningService" >
-        </service>
-        <service
-            android:name=".DeviceOwnerProvisioningService" >
+            android:name=".provisioning.ProvisioningService" >
         </service>
 
         <receiver android:name="com.android.managedprovisioning.BootReminder">
