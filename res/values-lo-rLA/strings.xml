@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ກຳລັງລຶບແອັບລະບົບທີ່ບໍ່ຕ້ອງໃຊ້ອອກ…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"ກຳລັງດຳເນີນຂັ້ນຕອນສຸດທ້າຍ…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ..."</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"ກຳລັງເລີ່ມຕົ້ນອຸປະກອນ…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ອຸປະກອນຂອງທ່ານບໍ່ຮອງຮັບການເຂົ້າລະຫັດ. ໃຫ້ຕິດຕໍ່ພະແນກໄອທີຂອງທ່ານ."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ຢຸດການຕັ້ງ ແລະລຶບຂໍ້ມູນຂອງອຸປະກອນຂອງທ່ານບໍ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"​ຍົກ​ເລີກ"</string>

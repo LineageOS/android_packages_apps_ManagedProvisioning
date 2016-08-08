@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ಸಿಸ್ಟಂ ಅಗತ್ಯವಿಲ್ಲದ ಅಪ್ಲಿ. ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"ಅಂತಿಮ ಸ್ಪರ್ಶಗಳನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ಸಾಧನದ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"ಸಾಧನವನ್ನು ಆರಂಭಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ನಿಮ್ಮ ಸಾಧನವು ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ಹೊಂದಾಣಿಕೆಯನ್ನು ನಿಲ್ಲಿಸುವುದೇ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದೇ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ರದ್ದುಮಾಡು"</string>

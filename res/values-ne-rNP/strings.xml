@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"प्रणाली सम्बन्धी अनावश्यक एप्स हटाउँदै…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"अन्तिम रूप दिँदै…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"यन्त्र मालिक मिलाउँदै..."</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"यन्त्रलाई सुरुवात गर्दै…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"तपाईँको यन्त्रले इन्क्रिप्सनलाई समर्थन गर्दैन। आफ्नो IT विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेटअप रोकी तपाईँको यन्त्रको डेटा मेटाउने हो?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द गर्नुहोस्"</string>

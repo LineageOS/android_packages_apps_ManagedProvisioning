@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Inaalis ang mga hindi kailangang system app…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Mayroon lang ilang tinatapos pa…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Itinatakda ang may-ari ng device…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Sinisimulan ang device…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Hindi sinusuportahan ng iyong device ang pag-encrypt. Makipag-ugnayan sa iyong IT department."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ihinto ang pagse-set up at burahin ang data ng iyong device?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Kanselahin"</string>

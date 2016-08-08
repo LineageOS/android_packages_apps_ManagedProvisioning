@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Odstraňujú sa nepotrebné systémové aplikácie…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Pridávajú sa konečné úpravy…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Nastavuje sa vlastník zariadenia…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Zariadenie sa inicializuje…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Vaše zariadenie nepodporuje šifrovanie. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ukončiť nastavovanie a odstrániť údaje zariadenia?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Zrušiť"</string>

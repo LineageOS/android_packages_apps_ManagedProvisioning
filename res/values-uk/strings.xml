@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Видалення непотрібних системних додатків…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Майже завершено…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Налаштування власника пристрою…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Ініціалізація пристрою…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Ваш пристрій не підтримує шифрування. Зв’яжіться з ІТ-відділом."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Припинити налаштування та стерти дані пристрою?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Скасувати"</string>

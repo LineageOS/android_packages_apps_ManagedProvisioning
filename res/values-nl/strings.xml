@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Niet-vereiste systeemapps verwijderen…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Nog even de laatste details…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"De eigenaar van het apparaat instellen…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Apparaat initialiseren…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Je apparaat biedt geen ondersteuning voor versleuteling. Neem contact op met de IT-afdeling."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Configureren stoppen en de gegevens op je apparaat wissen?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Annuleren"</string>

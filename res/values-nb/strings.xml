@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Fjerner unødvendige systemapper …"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Setter siste hånd på verket …"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Angir enhetseieren …"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"Initialiserer enheten …"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Enheten støtter ikke kryptering. Ta kontakt med IT-avdelingen."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Vil du stoppe konfigureringen og slette dataene på enheten?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Avbryt"</string>

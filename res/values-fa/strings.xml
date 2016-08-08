@@ -68,6 +68,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"درحال حذف برنامه‌های غیرلازم سیستم…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"درحال افزودن موارد تکمیلی…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"در حال تنظیم مالک دستگاه…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"مقداردهی اولیه دستگاه…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"دستگاهتان از رمزگذاری پشتیبانی نمی‌کند. با بخش فناوری اطلاعات تماس بگیرید."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"راه‌اندازی متوقف شود و داده‌های دستگاهتان پاک شود؟"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"لغو"</string>
