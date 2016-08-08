@@ -17,31 +17,14 @@ package com.android.managedprovisioning.parser;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
-import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
-import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
-import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_STARTED_BY_TRUSTED_SOURCE;
-import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_ACTION;
-import static com.android.managedprovisioning.parser.MessageParser.EXTRA_PROVISIONING_STARTED_BY_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LOCAL_TIME;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 
 import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
@@ -51,19 +34,15 @@ import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
-import android.os.PersistableBundle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.ByteArrayOutputStream;
-import java.lang.Exception;
 import java.util.Locale;
 import java.util.Properties;
 
