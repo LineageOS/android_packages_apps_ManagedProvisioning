@@ -30,7 +30,8 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
- * This tasks sets a given component as the owner of the device.
+ * This tasks sets a given component as the device or profile owner. It also enables the management
+ * app if it's not currently enabled and sets the component as active admin.
  */
 public class SetDevicePolicyTask extends AbstractProvisioningTask {
 
@@ -74,9 +75,13 @@ public class SetDevicePolicyTask extends AbstractProvisioningTask {
 
             enableDevicePolicyApp(adminPackage);
             setActiveAdmin(adminComponent, userId);
-            success = setDeviceOwner(adminComponent,
-                    mContext.getResources().getString(R.string.default_owned_device_username),
-                    userId);
+            if (mUtils.isProfileOwnerAction(mProvisioningParams.provisioningAction)) {
+                success = setProfileOwner(adminComponent, userId);
+            } else {
+                success = setDeviceOwner(adminComponent,
+                        mContext.getResources().getString(R.string.default_owned_device_username),
+                        userId);
+            }
         } catch (Exception e) {
             ProvisionLogger.loge("Failure setting device or profile owner", e);
             error(0);
@@ -108,9 +113,18 @@ public class SetDevicePolicyTask extends AbstractProvisioningTask {
     }
 
     private boolean setDeviceOwner(ComponentName component, String owner, int userId) {
-        ProvisionLogger.logd("Setting " + component + " as device owner " + owner);
+        ProvisionLogger.logd("Setting " + component + " as device owner of user " + userId);
         if (!component.equals(mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser())) {
             return mDevicePolicyManager.setDeviceOwner(component, owner, userId);
+        }
+        return true;
+    }
+
+    private boolean setProfileOwner(ComponentName component, int userId) {
+        ProvisionLogger.logd("Setting " + component + " as profile owner of user " + userId);
+        if (!component.equals(mDevicePolicyManager.getProfileOwnerAsUser(userId))) {
+            return mDevicePolicyManager.setProfileOwner(component, component.getPackageName(),
+                    userId);
         }
         return true;
     }

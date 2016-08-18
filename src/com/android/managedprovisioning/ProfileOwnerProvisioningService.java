@@ -19,8 +19,11 @@ package com.android.managedprovisioning;
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.ACTION_CANCEL_PROVISIONING;
+import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.ACTION_GET_PROVISIONING_STATE;
+import static com.android.managedprovisioning.ProfileOwnerProvisioningActivity.ACTION_START_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 
-import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
@@ -30,26 +33,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.IPackageManager;
-import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
-import android.os.AsyncTask;
-import android.os.Bundle;
+import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.task.AbstractProvisioningTask;
-import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
-import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
-import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
-import com.android.managedprovisioning.task.ManagedProfileSettingsTask;
+import com.android.managedprovisioning.provisioning.AbstractProvisioningController;
+import com.android.managedprovisioning.provisioning.ProfileOwnerProvisioningController;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -57,10 +53,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * Service that runs the profile owner provisioning.
  *
- * <p>This service is started from and sends updates to the {@link ProfileOwnerProvisioningActivity},
- * which contains the provisioning UI.
+ * <p>This service is started from and sends updates to the
+ * {@link ProfileOwnerProvisioningActivity}, which contains the provisioning UI.
  */
-public class ProfileOwnerProvisioningService extends Service {
+public class ProfileOwnerProvisioningService extends Service
+        implements AbstractProvisioningController.ProvisioningServiceInterface {
     // Intent actions for communication with DeviceOwnerProvisioningService.
     public static final String ACTION_PROVISIONING_SUCCESS =
             "com.android.managedprovisioning.provisioning_success";
@@ -74,272 +71,106 @@ public class ProfileOwnerProvisioningService extends Service {
     // account migration.
     private static final int USER_UNLOCKED_TIMEOUT_SECONDS = 120; // 2 minutes
 
-    // Status flags for the provisioning process.
-    /** Provisioning not started. */
-    private static final int STATUS_UNKNOWN = 0;
-    /** Provisioning started, no errors or cancellation requested received. */
-    private static final int STATUS_STARTED = 1;
-    /** Provisioning in progress, but user has requested cancellation. */
-    private static final int STATUS_CANCELLING = 2;
-    // Final possible states for the provisioning process.
-    /** Provisioning completed successfully. */
-    private static final int STATUS_DONE = 3;
-    /** Provisioning failed and cleanup complete. */
-    private static final int STATUS_ERROR = 4;
-    /** Provisioning cancelled and cleanup complete. */
-    private static final int STATUS_CANCELLED = 5;
-
-    private IPackageManager mIpm;
     private UserInfo mManagedProfileOrUserInfo;
-    private AccountManager mAccountManager;
     private UserManager mUserManager;
     private UserUnlockedReceiver mUnlockedReceiver;
 
-    private AsyncTask<Intent, Void, Void> runnerTask;
-
-    // MessageId of the last error message.
-    private String mLastErrorMessage = null;
-
-    // Current status of the provisioning process.
-    private int mProvisioningStatus = STATUS_UNKNOWN;
-
     private ProvisioningParams mParams;
+
+    // TODO: remove this once everything is moved to separate tasks
+    private boolean mProvisioningCompleted = false;
 
     private final Utils mUtils = new Utils();
 
-    private DeleteNonRequiredAppsTask mDeleteNonRequiredAppsTask;
-    private DisableInstallShortcutListenersTask mDisableInstallShortcutListenersTask;
-    private DisableBluetoothSharingTask mDisableBluetoothSharingTask;
-    private ManagedProfileSettingsTask mManagedProfileSettingsTask;
-
-    private class RunnerTask extends AsyncTask<Intent, Void, Void> {
-        @Override
-        protected Void doInBackground(Intent ... intents) {
-            // Atomically move to STATUS_STARTED at most once.
-            synchronized (ProfileOwnerProvisioningService.this) {
-                if (mProvisioningStatus == STATUS_UNKNOWN) {
-                    mProvisioningStatus = STATUS_STARTED;
-                } else {
-                    // Process already started, don't start again.
-                    return null;
-                }
-            }
-
-            try {
-                initialize(intents[0]);
-                startManagedProfileOrUserProvisioning();
-            } catch (ProvisioningException e) {
-                // Handle internal errors.
-                error(e.getMessage(), e);
-                finish();
-            } catch (Exception e) {
-                // General catch-all to ensure process cleans up in all cases.
-                error("Failed to initialize managed profile, aborting.", e);
-                finish();
-            }
-
-            return null;
-        }
-    }
+    private AbstractProvisioningController mController;
+    private HandlerThread mHandlerThread;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        mIpm = IPackageManager.Stub.asInterface(ServiceManager.getService("package"));
-        mAccountManager = (AccountManager) getSystemService(Context.ACCOUNT_SERVICE);
         mUserManager = (UserManager) getSystemService(Context.USER_SERVICE);
+        mHandlerThread = new HandlerThread("DeviceOwnerProvisioningHandler");
+        mHandlerThread.start();
+    }
 
-        runnerTask = new RunnerTask();
+    @Override
+    public void onDestroy() {
+        mHandlerThread.quitSafely();
+        super.onDestroy();
     }
 
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
-        if (ProfileOwnerProvisioningActivity.ACTION_CANCEL_PROVISIONING.equals(intent.getAction())) {
-            ProvisionLogger.logd("Cancelling profile owner provisioning service");
-            cancelProvisioning();
+        if (intent == null || intent.getAction() == null) {
+            ProvisionLogger.logw("Missing intent or action: " + intent);
             return START_NOT_STICKY;
         }
 
-        ProvisionLogger.logd("Starting profile owner provisioning service");
-
-        try {
-            runnerTask.execute(intent);
-        } catch (IllegalStateException e) {
-            // runnerTask is either in progress, or finished.
-            ProvisionLogger.logd(
-                    "ProfileOwnerProvisioningService: Provisioning already started, "
-                    + "second provisioning intent not being processed, only reporting status.");
-            reportStatus();
+        switch (intent.getAction()) {
+            case ACTION_CANCEL_PROVISIONING:
+                ProvisionLogger.logd("Cancelling profile owner provisioning service");
+                if (mController != null) {
+                    mController.cancel();
+                } else {
+                    ProvisionLogger.logw("Cancelling provisioning, but controller is null");
+                }
+                break;
+            case ACTION_START_PROVISIONING:
+                if (mController == null) {
+                    mParams = intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
+                    startManagedProfileOrUserProvisioning();
+                } else {
+                    ProvisionLogger.loge("Provisioning start requested,"
+                            + " but controller not null");
+                    error("Provisioning ongoing", new Exception());
+                }
+                break;
+            case ACTION_GET_PROVISIONING_STATE:
+                if (mController == null) {
+                    ProvisionLogger.loge("Provisioning status requested,"
+                            + " but provisioning not ongoing");
+                    error("Provisioning not ongoing", new Exception());
+                } else {
+                    mController.updateStatus();
+                }
+                break;
+            default:
+                ProvisionLogger.loge("Unknown intent action: " + intent.getAction());
         }
         return START_NOT_STICKY;
-    }
-
-    private void reportStatus() {
-        synchronized (this) {
-            switch (mProvisioningStatus) {
-                case STATUS_DONE:
-                    notifyActivityOfSuccess();
-                    break;
-                case STATUS_CANCELLED:
-                    notifyActivityCancelled();
-                    break;
-                case STATUS_ERROR:
-                    notifyActivityError();
-                    break;
-                case STATUS_UNKNOWN:
-                case STATUS_STARTED:
-                case STATUS_CANCELLING:
-                    // Don't notify UI of status when just-started/in-progress.
-                    break;
-            }
-        }
-    }
-
-    private void cancelProvisioning() {
-        synchronized (this) {
-            switch (mProvisioningStatus) {
-                case STATUS_DONE:
-                    // Process completed, we should honor user request to cancel
-                    // though.
-                    mProvisioningStatus = STATUS_CANCELLING;
-                    cleanupUserProfile();
-                    mProvisioningStatus = STATUS_CANCELLED;
-                    reportStatus();
-                    break;
-                case STATUS_UNKNOWN:
-                    // Process hasn't started, move straight to cancelled state.
-                    mProvisioningStatus = STATUS_CANCELLED;
-                    reportStatus();
-                    break;
-                case STATUS_STARTED:
-                    // Process is mid-flow, flag up that the user has requested
-                    // cancellation.
-                    mProvisioningStatus = STATUS_CANCELLING;
-                    break;
-                case STATUS_CANCELLING:
-                    // Cancellation already being processed.
-                    break;
-                case STATUS_CANCELLED:
-                case STATUS_ERROR:
-                    // Process already completed, nothing left to cancel.
-                    break;
-            }
-        }
-    }
-
-    private void initialize(Intent intent) {
-        // Load the ProvisioningParams (from message in Intent).
-        mParams = (ProvisioningParams) intent.getParcelableExtra(
-                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        if (mParams.accountToMigrate != null) {
-            ProvisionLogger.logi("Migrating account to managed profile");
-        }
     }
 
     /**
      * This is the core method to create a managed profile or user. It goes through every
      * provisioning step.
      */
-    private void startManagedProfileOrUserProvisioning() throws ProvisioningException {
-
-        ProvisionLogger.logd("Starting managed profile or user provisioning");
+    // TODO: Consider moving this to a separate task
+    private void startManagedProfileOrUserProvisioning() {
 
         if(isProvisioningManagedUser()) {
+            ProvisionLogger.logd("Starting managed user provisioning");
             mManagedProfileOrUserInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
-            if(mManagedProfileOrUserInfo == null) {
-                throw raiseError("Couldn't get current user information");
-            }
         } else {
+            ProvisionLogger.logd("Starting managed profile provisioning");
             // Work through the provisioning steps in their corresponding order
-            createProfile(getString(R.string.default_managed_profile_name));
+            mManagedProfileOrUserInfo = mUserManager.createProfileForUser(
+                    getString(R.string.default_managed_profile_name),
+                    UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
+                    UserHandle.myUserId());
         }
+
         if (mManagedProfileOrUserInfo != null) {
-
-            // TODO Add separate set of apps for MANAGED_USER, currently same as of DEVICE_OWNER.
-            mDeleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(true, this,
+            mController = new ProfileOwnerProvisioningController(
+                    this,
                     mParams,
-                    new AbstractProvisioningTask.Callback() {
-                        @Override
-                        public void onSuccess(AbstractProvisioningTask task) {
-                            // Need to explicitly handle exceptions here, as
-                            // onError() is not invoked for failures in
-                            // onSuccess().
-                            try {
-                                mDisableBluetoothSharingTask.run(mManagedProfileOrUserInfo.id);
-                            } catch (Exception e) {
-                                error("Provisioning failed", e);
-                            }
-                        }
-
-                        @Override
-                        public void onError(AbstractProvisioningTask task, int errorCode) {
-                            // Raise an error with a tracing exception attached.
-                            error("Delete non required apps task failed.", new Exception());
-                            finish();
-                        }
-                    });
-
-            mDisableBluetoothSharingTask = new DisableBluetoothSharingTask(this,
-                    mParams,
-                    new AbstractProvisioningTask.Callback() {
-                        @Override
-                        public void onSuccess(AbstractProvisioningTask task) {
-                            if (!isProvisioningManagedUser()) {
-                                mManagedProfileSettingsTask.run(mManagedProfileOrUserInfo.id);
-                            } else {
-                                try {
-                                    setUpUserOrProfile();
-                                } catch (ProvisioningException e){
-                                    error(e.getMessage(), e);
-                                }
-                                finish();
-                            }
-                        }
-
-                        @Override
-                        public void onError(AbstractProvisioningTask task, int errorCode) {
-                            error("DisableBluetoothSharingTask failed.", new Exception());
-                            finish();
-                        }
-                    });
-
-            mManagedProfileSettingsTask = new ManagedProfileSettingsTask(this,
-                    mParams,
-                    new AbstractProvisioningTask.Callback() {
-                        @Override
-                        public void onSuccess(AbstractProvisioningTask task) {
-                            mDisableInstallShortcutListenersTask.run(mManagedProfileOrUserInfo.id);
-                        }
-
-                        @Override
-                        public void onError(AbstractProvisioningTask task, int errorCode) {
-                            error("ManagedProfileSettingsTask failed.", new Exception());
-                            finish();
-                        }
-                    });
-
-            mDisableInstallShortcutListenersTask = new DisableInstallShortcutListenersTask(this,
-                    mParams,
-                    new AbstractProvisioningTask.Callback() {
-                        @Override
-                        public void onSuccess(AbstractProvisioningTask task) {
-                            try {
-                                setUpUserOrProfile();
-                            } catch (ProvisioningException e) {
-                                error(e.getMessage(), e);
-                            }
-                            finish();
-                        }
-
-                        @Override
-                        public void onError(AbstractProvisioningTask task, int errorCode) {
-                            error("DisableInstallShortcutListenersTask failed.", new Exception());
-                            finish();
-                        }
-                    });
-
-            mDeleteNonRequiredAppsTask.run(mManagedProfileOrUserInfo.id);
+                    mManagedProfileOrUserInfo.id,
+                    this,
+                    mHandlerThread.getLooper());
+            mController.initialize();
+            mController.start();
+        } else {
+            error("Unable to create a managed profile", new Exception());
         }
     }
 
@@ -347,18 +178,20 @@ public class ProfileOwnerProvisioningService extends Service {
      * Called when the new profile or managed user is ready for provisioning (the profile is created
      * and all the apps not needed have been deleted).
      */
-    private void setUpUserOrProfile() throws ProvisioningException {
-        installMdmOnManagedProfile();
-        setMdmAsActiveAdmin();
-        setMdmAsManagedProfileOwner();
+    @Override
+    public void provisioningComplete() {
+        if (mProvisioningCompleted) {
+            notifyActivityOfSuccess();
+            return;
+        }
 
+        mProvisioningCompleted = true;
         if (!isProvisioningManagedUser()) {
-            setOrganizationColor();
-            setDefaultUserRestrictions();
+            // TODO: Move all of the remaining logic into separate tasks
             CrossProfileIntentFiltersHelper.setFilters(
                     getPackageManager(), getUserId(), mManagedProfileOrUserInfo.id);
             if (!startManagedProfile(mManagedProfileOrUserInfo.id)) {
-                throw raiseError("Could not start user in background");
+                error("Could not start user in background", new Exception());
             }
             // Wait for ACTION_USER_UNLOCKED to be sent before trying to migrate the account.
             // Even if no account is present, we should not send the provisioning complete broadcast
@@ -373,55 +206,8 @@ public class ProfileOwnerProvisioningService extends Service {
             mUtils.maybeCopyAccount(this, mParams.accountToMigrate, Process.myUserHandle(),
                     mManagedProfileOrUserInfo.getUserHandle());
         }
-    }
-
-    /**
-     * Notify the calling activity of our final status, perform any cleanup if
-     * the process didn't succeed.
-     */
-    private void finish() {
-        ProvisionLogger.logi("Finishing provisioning process, status: "
-                             + mProvisioningStatus);
-        // Reached the end of the provisioning process, take appropriate action
-        // based on current mProvisioningStatus.
-        synchronized (this) {
-            switch (mProvisioningStatus) {
-                case STATUS_STARTED:
-                    // Provisioning process completed normally.
-                    notifyMdmAndCleanup();
-                    mProvisioningStatus = STATUS_DONE;
-                    break;
-                case STATUS_UNKNOWN:
-                    // No idea how we could end up in finish() in this state,
-                    // but for safety treat it as an error and fall-through to
-                    // STATUS_ERROR.
-                    mLastErrorMessage = "finish() invoked in STATUS_UNKNOWN";
-                    mProvisioningStatus = STATUS_ERROR;
-                    break;
-                case STATUS_ERROR:
-                    // Process errored out, cleanup partially created managed
-                    // profile.
-                    cleanupUserProfile();
-                    break;
-                case STATUS_CANCELLING:
-                    // User requested cancellation during processing, remove
-                    // the successfully created profile.
-                    cleanupUserProfile();
-                    mProvisioningStatus = STATUS_CANCELLED;
-                    break;
-                case STATUS_CANCELLED:
-                case STATUS_DONE:
-                    // Shouldn't be possible to already be in this state?!?
-                    ProvisionLogger.logw("finish() invoked multiple times?");
-                    break;
-            }
-        }
-
-        ProvisionLogger.logi("Finished provisioning process, final status: "
-                + mProvisioningStatus);
-
-        // Notify UI activity of final status reached.
-        reportStatus();
+        notifyMdmAndCleanup();
+        notifyActivityOfSuccess();
     }
 
     /**
@@ -444,17 +230,12 @@ public class ProfileOwnerProvisioningService extends Service {
         return false;
     }
 
-    private void notifyActivityOfSuccess() {
-        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
-        LocalBroadcastManager.getInstance(ProfileOwnerProvisioningService.this)
-                .sendBroadcast(successIntent);
-    }
-
     /**
      * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
      * the service and notify the {@link ProfileOwnerProvisioningActivity} so that it can finish
      * itself.
      */
+    // TODO: Consider moving this into FinalizationActivity
     private void notifyMdmAndCleanup() {
         // Set DPM userProvisioningState appropriately and persist mParams for use during
         // FinalizationActivity if necessary.
@@ -498,82 +279,19 @@ public class ProfileOwnerProvisioningService extends Service {
         }
     }
 
-    private void createProfile(String profileName) throws ProvisioningException {
-
-        ProvisionLogger.logd("Creating managed profile with name " + profileName);
-
-        mManagedProfileOrUserInfo = mUserManager.createProfileForUser(profileName,
-                UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
-                Process.myUserHandle().getIdentifier());
-
-        if (mManagedProfileOrUserInfo == null) {
-            throw raiseError("Couldn't create profile.");
-        }
+    @Override
+    public void progressUpdate(int progressMessageId) {
+        // TODO: Do something
     }
 
-    private void installMdmOnManagedProfile() throws ProvisioningException {
-        ProvisionLogger.logd("Installing mobile device management app "
-                + mParams.deviceAdminComponentName + " on managed profile");
-
-        try {
-            int status = mIpm.installExistingPackageAsUser(
-                mParams.deviceAdminComponentName.getPackageName(), mManagedProfileOrUserInfo.id);
-            switch (status) {
-              case PackageManager.INSTALL_SUCCEEDED:
-                  return;
-              case PackageManager.INSTALL_FAILED_USER_RESTRICTED:
-                  // Should not happen because we're not installing a restricted user
-                  throw raiseError("Could not install mobile device management app on managed "
-                          + "profile because the user is restricted");
-              case PackageManager.INSTALL_FAILED_INVALID_URI:
-                  // Should not happen because we already checked
-                  throw raiseError("Could not install mobile device management app on managed "
-                          + "profile because the package could not be found");
-              default:
-                  throw raiseError("Could not install mobile device management app on managed "
-                          + "profile. Unknown status: " + status);
-            }
-        } catch (RemoteException neverThrown) {
-            // Never thrown, as we are making local calls.
-            ProvisionLogger.loge("This should not happen.", neverThrown);
-        }
+    @Override
+    public void error(int errorMessageId, boolean factoryResetRequired) {
+        error("Error executing provisioning controller", new Exception());
     }
 
-    private void setMdmAsManagedProfileOwner() throws ProvisioningException {
-        ProvisionLogger.logd("Setting package " + mParams.deviceAdminComponentName
-                + " as managed profile owner.");
-
-        DevicePolicyManager dpm =
-                (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (!dpm.setProfileOwner(
-                mParams.deviceAdminComponentName,
-                mParams.deviceAdminComponentName.getPackageName(),
-                mManagedProfileOrUserInfo.id)) {
-            ProvisionLogger.logw("Could not set profile owner.");
-            throw raiseError("Could not set profile owner.");
-        }
-    }
-
-    private void setMdmAsActiveAdmin() {
-        ProvisionLogger.logd("Setting package " + mParams.deviceAdminComponentName
-                + " as active admin.");
-
-        DevicePolicyManager dpm =
-                (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        dpm.setActiveAdmin(mParams.deviceAdminComponentName, true /* refreshing*/,
-                mManagedProfileOrUserInfo.id);
-    }
-
-    private void setOrganizationColor() {
-        if (mParams.mainColor != null) {
-            DevicePolicyManager dpm =
-                    (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-            dpm.setOrganizationColorForUser(mParams.mainColor, mManagedProfileOrUserInfo.id);
-        }
-    }
-
-    private ProvisioningException raiseError(String message) throws ProvisioningException {
-        throw new ProvisioningException(message);
+    @Override
+    public void cancelled() {
+        notifyActivityCancelled();
     }
 
     /**
@@ -581,36 +299,13 @@ public class ProfileOwnerProvisioningService extends Service {
      * reflect the fact the provisioning process failed
      */
     private void error(String dialogMessage, Exception e) {
-        synchronized (this) {
-            // Only case where an error condition should be notified is if we
-            // are in the normal flow for provisioning. If the process has been
-            // cancelled or already completed, then the fact there is an error
-            // is almost irrelevant.
-            if (mProvisioningStatus == STATUS_STARTED) {
-                mProvisioningStatus = STATUS_ERROR;
-                mLastErrorMessage = dialogMessage;
-
-                ProvisionLogger.logw(
-                        "Error occured during provisioning process: "
-                        + dialogMessage,
-                        e);
-            } else {
-                ProvisionLogger.logw(
-                        "Unexpected error occured in status ["
-                        + mProvisioningStatus + "]: " + dialogMessage,
-                        e);
-            }
-        }
+        ProvisionLogger.logw("Error occured during provisioning process: " + dialogMessage, e);
+        notifyActivityError(dialogMessage);
     }
 
-    private void setDefaultUserRestrictions() {
-        mUserManager.setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,
-                mManagedProfileOrUserInfo.getUserHandle());
-    }
-
-    private void notifyActivityError() {
+    private void notifyActivityError(String message) {
         Intent intent = new Intent(ACTION_PROVISIONING_ERROR);
-        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, mLastErrorMessage);
+        intent.putExtra(EXTRA_LOG_MESSAGE_KEY, message);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
@@ -619,14 +314,9 @@ public class ProfileOwnerProvisioningService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(cancelIntent);
     }
 
-    /**
-     * Performs cleanup of any created user-profile on failure/cancellation.
-     */
-    private void cleanupUserProfile() {
-        if (mManagedProfileOrUserInfo != null && !isProvisioningManagedUser()) {
-            ProvisionLogger.logd("Removing managed profile");
-            mUserManager.removeUser(mManagedProfileOrUserInfo.id);
-        }
+    private void notifyActivityOfSuccess() {
+        Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
     }
 
     @Override
@@ -634,19 +324,8 @@ public class ProfileOwnerProvisioningService extends Service {
         return null;
     }
 
-    /**
-     * Internal exception to allow provisioning process to terminal quickly and
-     * cleanly on first error, rather than continuing to process despite errors
-     * occurring.
-     */
-    private static class ProvisioningException extends Exception {
-        public ProvisioningException(String detailMessage) {
-            super(detailMessage);
-        }
-    }
-
     public boolean isProvisioningManagedUser() {
-        return mParams.provisioningAction.equals(DevicePolicyManager.ACTION_PROVISION_MANAGED_USER);
+        return DevicePolicyManager.ACTION_PROVISION_MANAGED_USER.equals(mParams.provisioningAction);
     }
 
     /**
