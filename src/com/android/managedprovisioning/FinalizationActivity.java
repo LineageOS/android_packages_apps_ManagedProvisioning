@@ -34,10 +34,10 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
 import java.io.File;
 
-/*
+/**
  * This class is used to make sure that we start the MDM after we shut the setup wizard down.
- * The shut down of the setup wizard is initiated in the DeviceOwnerProvisioningActivity or
- * ProfileOwnerProvisioningActivity by calling
+ * The shut down of the setup wizard is initiated in the
+ * {@link com.android.managedprovisioning.provisioning.ProvisioningActivity} by calling
  * {@link DevicePolicyManager.setUserProvisioningState()}. This will cause the
  * Setup wizard to shut down and send a ACTION_PROVISIONING_FINALIZATION intent. This intent is
  * caught by this receiver instead which will send the

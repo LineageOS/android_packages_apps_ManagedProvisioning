@@ -64,18 +64,11 @@
             (phone calls) will still pop up a small window that can be activated.
         -->
         <activity
-             android:name=".DeviceOwnerProvisioningActivity"
+             android:name=".provisioning.ProvisioningActivity"
              android:excludeFromRecents="true"
              android:immersive="true"
              android:launchMode="singleTop"
              android:theme="@style/SetupWorkSpaceTheme">
-        </activity>
-        <activity
-            android:name=".ProfileOwnerProvisioningActivity"
-            android:excludeFromRecents="true"
-            android:immersive="true"
-            android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme">
         </activity>
         <activity
             android:name=".uiflows.PreProvisioningActivity"

@@ -39,9 +39,7 @@ import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 
-import com.android.managedprovisioning.DeviceOwnerProvisioningActivity;
 import com.android.managedprovisioning.MdmReceivedSuccessReceiver;
-import com.android.managedprovisioning.ProfileOwnerProvisioningActivity;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
@@ -50,9 +48,8 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 /**
  * Service that runs the provisioning process.
  *
- * <p>This service is started from and sends updates to one of the two provisioning activities:
- * {@link ProfileOwnerProvisioningActivity} or {@link DeviceOwnerProvisioningActivity} which
- * contain the provisioning UI.</p>
+ * <p>This service is started from and sends updates to the {@link ProvisioningActivity} that
+ * contains the provisioning UI.</p>
  *
  * <p>The actual execution of the various provisioning tasks is handled by the
  * {@link AbstractProvisioningController} and the main purpose of this service is to decouple the
@@ -162,8 +159,7 @@ public class ProvisioningService extends Service
 
     /**
      * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
-     * the service and notify the {@link ProfileOwnerProvisioningActivity} so that it can finish
-     * itself.
+     * the service and notify the {@link ProvisioningActivity} so that it can finish itself.
      */
     // TODO: Consider moving this into FinalizationActivity
     private void notifyMdmAndCleanup() {

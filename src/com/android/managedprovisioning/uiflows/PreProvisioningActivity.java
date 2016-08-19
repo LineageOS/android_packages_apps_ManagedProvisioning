@@ -32,9 +32,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.DeleteManagedProfileDialog;
-import com.android.managedprovisioning.DeviceOwnerProvisioningActivity;
 import com.android.managedprovisioning.LogoUtils;
-import com.android.managedprovisioning.ProfileOwnerProvisioningActivity;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.SetupLayoutActivity;
@@ -43,6 +41,7 @@ import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
 public class PreProvisioningActivity extends SetupLayoutActivity
         implements UserConsentDialog.ConsentCallback, SimpleDialog.SimpleDialogListener,
@@ -206,7 +205,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void startDeviceOwnerProvisioning(int userId, ProvisioningParams params) {
-        Intent intent = new Intent(this, DeviceOwnerProvisioningActivity.class);
+        Intent intent = new Intent(this, ProvisioningActivity.class);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         startActivityForResultAsUser(intent, PROVISIONING_REQUEST_CODE, new UserHandle(userId));
         // Set cross-fade transition animation into the interstitial progress activity.
@@ -215,7 +214,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void startProfileOwnerProvisioning(ProvisioningParams params) {
-        Intent intent = new Intent(this, ProfileOwnerProvisioningActivity.class);
+        Intent intent = new Intent(this, ProvisioningActivity.class);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         startActivityForResult(intent, PROVISIONING_REQUEST_CODE);
         // Set cross-fade transition animation into the interstitial progress activity.
