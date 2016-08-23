@@ -15,10 +15,16 @@
  */
 package com.android.managedprovisioning.e2eui;
 
+import android.app.KeyguardManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.WindowManager;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.uiflows.PreProvisioningActivity;
 
 public class TestPreProvisioningActivity extends PreProvisioningActivity {
+    private static final String TAG = "TestPreProvisioningActivity";
+
     /** ManagedProfileTest is running in ManagedProvisioning process, while the AdminReceiver is in
      * test package process. Mock the calling package to pretend we provision it from test package,
      * not from ManagedProvisioning.
@@ -26,5 +32,15 @@ public class TestPreProvisioningActivity extends PreProvisioningActivity {
     @Override
     public String getCallingPackage() {
         return TestInstrumentationRunner.TEST_PACKAGE_NAME;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        boolean isKeyguardLocked = getSystemService(KeyguardManager.class).isKeyguardLocked();
+
+        //TODO: remove this debug message
+        Log.d(TAG, "onCreate isKeyguardLocked " + isKeyguardLocked);
     }
 }
