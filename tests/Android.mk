@@ -10,7 +10,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_PACKAGE_NAME := ManagedProvisioningTests
 LOCAL_CERTIFICATE := platform
 
-LOCAL_STATIC_JAVA_LIBRARIES := android-support-test mockito-target espresso-core
+LOCAL_STATIC_JAVA_LIBRARIES := android-support-test mockito-target-minus-junit4 espresso-core
 
 LOCAL_INSTRUMENTATION_FOR := ManagedProvisioning
 
