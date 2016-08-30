@@ -230,6 +230,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProvisionLogger.logi("Next button (setup_button) is clicked.");
                 mController.afterNavigateNext();
             }
         });
