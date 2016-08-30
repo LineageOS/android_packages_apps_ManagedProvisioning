@@ -17,14 +17,18 @@ package com.android.managedprovisioning.e2eui;
 
 import android.content.pm.UserInfo;
 import android.os.UserManager;
+import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.base.DefaultFailureHandler;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
+import android.view.View;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.uiflows.PreProvisioningActivity;
+import org.hamcrest.Matcher;
 
 import java.util.List;
 
@@ -36,7 +40,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 public class ManagedProfileTest extends AndroidTestCase {
     private static final String TAG = "ManagedProfileTest";
 
-    private static final long TIMEOUT = 60L;
+    private static final long TIMEOUT = 120L;
 
     public ActivityTestRule mActivityRule;
     private ProvisioningResultListener mResultListener;
@@ -80,15 +84,54 @@ public class ManagedProfileTest extends AndroidTestCase {
 
         mResultListener.register();
 
-        onView(withId(R.id.setup_button))
-                .perform(click());
-        onView(withId(R.id.positive_button))
-                .perform(click());
+        new EspressoClickRetryActions(3) {
+            @Override
+            public ViewInteraction newViewInteraction1() {
+                return onView(withId(R.id.setup_button));
+            }
+            @Override
+            public ViewInteraction newViewInteraction2() {
+                return onView(withId(R.id.positive_button));
+            }
+        }.run();
 
         if (mResultListener.await(TIMEOUT)) {
             assertTrue(mResultListener.getResult());
         } else {
             fail("timeout: " + TIMEOUT + " seconds");
+        }
+    }
+
+    private abstract class EspressoClickRetryActions {
+        private final int mRetries;
+        private int i = 0;
+
+        EspressoClickRetryActions(int retries) {
+            mRetries = retries;
+        }
+
+        public abstract ViewInteraction newViewInteraction1();
+        public abstract ViewInteraction newViewInteraction2();
+
+        public void run() {
+            i++;
+            newViewInteraction1()
+                    .withFailureHandler(this::handleFailure)
+                    .perform(click());
+            Log.i(TAG, "newViewInteraction1 succeeds.");
+            newViewInteraction2()
+                    .withFailureHandler(this::handleFailure)
+                    .perform(click());
+            Log.i(TAG, "newViewInteraction2 succeeds.");
+        }
+
+        private void handleFailure(Throwable e, Matcher<View> matcher) {
+            Log.i(TAG, "espresso handleFailure count: " + i, e);
+            if (i < mRetries) {
+                run();
+            } else {
+                new DefaultFailureHandler(getContext()).handle(e, matcher);
+            }
         }
     }
 }
