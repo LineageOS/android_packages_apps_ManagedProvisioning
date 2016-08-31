@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.View;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.uiflows.PreProvisioningActivity;
 import org.hamcrest.Matcher;
 
@@ -80,10 +81,15 @@ public class ManagedProfileTest extends AndroidTestCase {
     }
 
     public void testManagedProfile() throws Exception {
+        if (new Utils().isEncryptionRequired()) {
+            Log.i(TAG, "skip testManagedProfile, as encryption is required.");
+            return;
+        }
         mActivityRule.launchActivity(ManagedProfileAdminReceiver.INTENT_PROVISION_MANAGED_PROFILE);
 
         mResultListener.register();
 
+        // Retry the sequence of 2 actions 3 times to avoid flakiness of the test
         new EspressoClickRetryActions(3) {
             @Override
             public ViewInteraction newViewInteraction1() {

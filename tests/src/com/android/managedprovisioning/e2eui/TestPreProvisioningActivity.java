@@ -37,7 +37,12 @@ public class TestPreProvisioningActivity extends PreProvisioningActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Show activity on top of keyguard
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        // Turn on screen to prevent activity being paused by system
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         boolean isKeyguardLocked = getSystemService(KeyguardManager.class).isKeyguardLocked();
 
         //TODO: remove this debug message
