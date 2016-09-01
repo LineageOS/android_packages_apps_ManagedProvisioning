@@ -37,6 +37,7 @@ public class ProvisioningResultListener {
     private final CountDownLatch mLatch = new CountDownLatch(1);
     private final AtomicBoolean mResult = new AtomicBoolean(false);
     private final ResultReceiver mReceiver = new ResultReceiver();
+    private boolean mIsRegistered = false;
 
     private class ResultReceiver extends BroadcastReceiver {
         @Override
@@ -56,10 +57,14 @@ public class ProvisioningResultListener {
 
     public void register() {
         mContext.registerReceiver(mReceiver, new IntentFilter(ACTION_PROVISION_RESULT));
+        mIsRegistered = true;
     }
 
     public void unregister() {
-        mContext.unregisterReceiver(mReceiver);
+        if (mIsRegistered) {
+            mContext.unregisterReceiver(mReceiver);
+            mIsRegistered = false;
+        }
     }
 
     public boolean await(long timeoutSeconds) throws InterruptedException {
