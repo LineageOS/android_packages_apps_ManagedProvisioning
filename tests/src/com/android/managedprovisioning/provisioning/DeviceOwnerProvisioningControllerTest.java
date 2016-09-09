@@ -61,7 +61,6 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
             .build();
 
     @Mock private AbstractProvisioningController.ProvisioningServiceInterface mService;
-    @Mock private Utils mUtils;
     private ProvisioningParams mParams;
 
     @SmallTest
@@ -95,9 +94,6 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
 
         // THEN the provisioning complete callback should have happened
         verify(mService).provisioningComplete();
-
-        // THEN the user provisioning state should be marked as completed
-        verify(mUtils).markUserProvisioningStateInitiallyDone(mContext, mParams);
     }
 
     @SmallTest
@@ -215,8 +211,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
                 mParams,
                 TEST_USER_ID,
                 mService,
-                mHandler,
-                mUtils);
+                mHandler);
         mController.initialize();
     }
 }

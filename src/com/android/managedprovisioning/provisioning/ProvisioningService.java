@@ -16,9 +16,6 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static com.android.managedprovisioning.provisioning.Constants.ACTION_CANCEL_PROVISIONING;
 import static com.android.managedprovisioning.provisioning.Constants.ACTION_GET_PROVISIONING_STATE;
 import static com.android.managedprovisioning.provisioning.Constants.ACTION_PROGRESS_UPDATE;
@@ -30,19 +27,17 @@ import static com.android.managedprovisioning.provisioning.Constants.EXTRA_FACTO
 import static com.android.managedprovisioning.provisioning.Constants.EXTRA_PROGRESS_MESSAGE_ID_KEY;
 import static com.android.managedprovisioning.provisioning.Constants.EXTRA_USER_VISIBLE_ERROR_ID_KEY;
 
-import android.app.Activity;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.support.v4.content.LocalBroadcastManager;
 
-import com.android.managedprovisioning.MdmReceivedSuccessReceiver;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -149,47 +144,11 @@ public class ProvisioningService extends Service
      */
     @Override
     public void provisioningComplete() {
-        if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)
-                && mUtils.isUserSetupCompleted(this)) {
-            notifyMdmAndCleanup();
-        }
+        // Set DPM userProvisioningState appropriately and persists mParams for use during
+        // FinalizationActivity if necessary.
+        new FinalizationController(this).provisioningInitiallyDone(mParams);
         Intent successIntent = new Intent(ACTION_PROVISIONING_SUCCESS);
         LocalBroadcastManager.getInstance(this).sendBroadcast(successIntent);
-    }
-
-    /**
-     * Notify the mdm that provisioning has completed. When the mdm has received the intent, stop
-     * the service and notify the {@link ProvisioningActivity} so that it can finish itself.
-     */
-    // TODO: Consider moving this into FinalizationActivity
-    private void notifyMdmAndCleanup() {
-
-        // If profile owner provisioning was started after current user setup is completed, then we
-        // can directly send the ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to the MDM.
-        // But if the provisioning was started as part of setup wizard flow, we signal setup-wizard
-        // should shutdown via DPM.setUserProvisioningState(), which will result in a finalization
-        // intent being sent to us once setup-wizard finishes. As part of the finalization intent
-        // handling we then broadcast ACTION_PROFILE_PROVISIONING_COMPLETE.
-        UserHandle managedUserHandle = mUtils.getManagedProfile(this);
-
-        // Use an ordered broadcast, so that we only finish when the mdm has received it.
-        // Avoids a lag in the transition between provisioning and the mdm.
-        BroadcastReceiver mdmReceivedSuccessReceiver = new MdmReceivedSuccessReceiver(
-                mParams.accountToMigrate, mParams.deviceAdminComponentName.getPackageName());
-
-        Intent completeIntent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
-        completeIntent.setComponent(mParams.deviceAdminComponentName);
-        completeIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        if (mParams.adminExtrasBundle != null) {
-            completeIntent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mParams.adminExtrasBundle);
-        }
-
-        sendOrderedBroadcastAsUser(completeIntent, managedUserHandle, null,
-                mdmReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
-        ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
-                + managedUserHandle.getIdentifier());
     }
 
     @Override

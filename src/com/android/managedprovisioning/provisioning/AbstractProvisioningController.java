@@ -27,7 +27,6 @@ import android.util.Pair;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 
@@ -49,7 +48,6 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
 
     private final ProvisioningServiceInterface mService;
     private final Handler mHandler;
-    private final Utils mUtils;
 
     private static final int STATUS_NOT_STARTED = 0;
     private static final int STATUS_RUNNING = 1;
@@ -69,14 +67,12 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
             ProvisioningParams params,
             int userId,
             ProvisioningServiceInterface service,
-            Handler handler,
-            Utils utils) {
+            Handler handler) {
         mContext = checkNotNull(context);
         mParams = checkNotNull(params);
         mUserId = userId;
         mService = checkNotNull(service);
         mHandler = checkNotNull(handler);
-        mUtils = checkNotNull(utils);
     }
 
     /**
@@ -175,10 +171,6 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         mStatus = STATUS_DONE;
         mCurrentTaskIndex = -1;
         mService.provisioningComplete();
-
-        // Set DPM userProvisioningState appropriately and persists mParams for use during
-        // FinalizationActivity if necessary.
-        mUtils.markUserProvisioningStateInitiallyDone(mContext, mParams);
     }
 
     @Override

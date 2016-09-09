@@ -16,9 +16,6 @@
 
 package com.android.managedprovisioning.model;
 
-import static com.android.internal.util.Preconditions.checkArgument;
-import static com.android.internal.util.Preconditions.checkNotNull;
-
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
@@ -30,24 +27,21 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static com.android.internal.util.Preconditions.checkArgument;
+import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.accounts.Account;
-import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.Xml;
+
 import com.android.internal.util.FastXmlSerializer;
 import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.StoreUtils;
-import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.WifiInfo.Builder;
-import com.android.managedprovisioning.parser.MessageParser;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -57,6 +51,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -164,26 +159,11 @@ public final class ProvisioningParams implements Parcelable {
     /** True if user setup can be skipped. */
     public final boolean skipUserSetup;
 
-    // TODO (stevenckng): This shouldn't belong here. Remove this logic from ProvisioningParams.
-    private ComponentName inferedDeviceAdminComponentName;
-
-    private final Utils mUtils = new Utils();
-
     public String inferDeviceAdminPackageName() {
         if (deviceAdminComponentName != null) {
             return deviceAdminComponentName.getPackageName();
         }
         return deviceAdminPackageName;
-    }
-
-    // This should not be called if the app has not been installed yet.
-    public ComponentName inferDeviceAdminComponentName(Context c)
-            throws IllegalProvisioningArgumentException {
-        if (inferedDeviceAdminComponentName == null) {
-            inferedDeviceAdminComponentName = mUtils.findDeviceAdmin(
-                    deviceAdminPackageName, deviceAdminComponentName, c);
-        }
-        return inferedDeviceAdminComponentName;
     }
 
     private ProvisioningParams(Builder builder) {
@@ -303,9 +283,7 @@ public final class ProvisioningParams implements Parcelable {
                 && Objects.equals(provisioningAction, that.provisioningAction)
                 && Objects.equals(mainColor, that.mainColor)
                 && Objects.equals(deviceAdminDownloadInfo, that.deviceAdminDownloadInfo)
-                && isPersistableBundleEquals(adminExtrasBundle, that.adminExtrasBundle)
-                && Objects.equals(
-                        inferedDeviceAdminComponentName, that.inferedDeviceAdminComponentName);
+                && isPersistableBundleEquals(adminExtrasBundle, that.adminExtrasBundle);
     }
 
      @Override

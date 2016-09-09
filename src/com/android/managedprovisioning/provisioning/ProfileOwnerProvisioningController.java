@@ -26,7 +26,6 @@ import android.os.UserManager;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.CopyAccountToUserTask;
@@ -53,8 +52,7 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
             ProvisioningServiceInterface service,
             Looper looper) {
         this(context, params, userId, service,
-                new AbstractProvisioningController.ProvisioningTaskHandler(looper),
-                new Utils());
+                new AbstractProvisioningController.ProvisioningTaskHandler(looper));
     }
 
     @VisibleForTesting
@@ -63,9 +61,8 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
             ProvisioningParams params,
             int userId,
             ProvisioningServiceInterface service,
-            Handler handler,
-            Utils utils) {
-        super(context, params, userId, service, handler, utils);
+            Handler handler) {
+        super(context, params, userId, service, handler);
         mParentUserId = userId;
     }
 

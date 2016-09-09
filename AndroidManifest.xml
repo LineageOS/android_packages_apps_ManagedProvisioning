@@ -183,7 +183,7 @@
         </receiver>
 
         <!-- TODO: Add permission for setup-wizard to guard access? -->
-        <activity android:name=".FinalizationActivity"
+        <activity android:name=".finalization.FinalizationActivity"
                 android:theme="@android:style/Theme.NoDisplay"
                 android:noHistory="true"
                 android:excludeFromRecents="true"
