@@ -275,15 +275,6 @@ public class Utils {
     }
 
     /**
-     * Returns whether the calling user is a managed profile.
-     */
-    public boolean isManagedProfile(Context context) {
-        UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
-        UserInfo user = um.getUserInfo(UserHandle.myUserId());
-        return user != null ? user.isManagedProfile() : false;
-    }
-
-    /**
      * Returns true if the given package requires an update.
      *
      * <p>There are two cases where an update is required:
