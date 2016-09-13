@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.uiflows;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
+
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -40,6 +42,7 @@ import android.service.persistentdata.PersistentDataBlockManager;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.ActivityTimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -63,6 +66,7 @@ public class PreProvisioningController {
     private final ActivityManager mActivityManager;
     private final KeyguardManager mKeyguardManager;
     private final PersistentDataBlockManager mPdbManager;
+    private final ActivityTimeLogger mActivityTimeLogger;
 
     private ProvisioningParams mParams;
     private boolean mIsProfileOwnerProvisioning;
@@ -70,19 +74,22 @@ public class PreProvisioningController {
     public PreProvisioningController(
             @NonNull Context context,
             @NonNull Ui ui) {
-        this(context, ui, new MessageParser(), new Utils(),
-                EncryptionController.getInstance(context));
+        this(context, ui,
+                new ActivityTimeLogger(context, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
+                new MessageParser(), new Utils(), EncryptionController.getInstance(context));
     }
 
     @VisibleForTesting
     PreProvisioningController(
             @NonNull Context context,
             @NonNull Ui ui,
+            @NonNull ActivityTimeLogger activityTimeLogger,
             @NonNull MessageParser parser,
             @NonNull Utils utils,
             @NonNull EncryptionController encryptionController) {
         mContext = checkNotNull(context, "Context must not be null");
         mUi = checkNotNull(ui, "Ui must not be null");
+        mActivityTimeLogger = checkNotNull(activityTimeLogger, "Activity logger must not be null");
         mMessageParser = checkNotNull(parser, "MessageParser must not be null");
         mUtils = checkNotNull(utils, "Utils must not be null");
         mEncryptionController = checkNotNull(encryptionController,
@@ -172,6 +179,11 @@ public class PreProvisioningController {
         void showCurrentLauncherInvalid();
     }
 
+    /**
+     * Initiates Profile owner and device owner provisioning.
+     * @param intent Intent that started provisioning.
+     * @param callingPackage Package that started provisioning.
+     */
     public void initiateProvisioning(Intent intent, String callingPackage) {
         // Check factory reset protection as the first thing
         if (factoryResetProtected()) {
@@ -204,6 +216,7 @@ public class PreProvisioningController {
             return;
         }
 
+        mActivityTimeLogger.start();
         // Initiate the corresponding provisioning mode
         if (mIsProfileOwnerProvisioning) {
             initiateProfileOwnerProvisioning(intent);
@@ -337,6 +350,10 @@ public class PreProvisioningController {
         }
     }
 
+    /**
+     * Checks whether current launcher supports managed profile. If it does not, show current
+     * launcher is invalid dialog, otherwise start profile owner provisioning.
+     */
     private void checkLauncherAndStartProfileOwnerProvisioning() {
         // Check whether the current launcher supports managed profiles.
         if (!mUtils.currentLauncherSupportsManagedProfiles(mContext)) {
@@ -344,10 +361,14 @@ public class PreProvisioningController {
         } else {
             // Cancel the boot reminder as provisioning has now started.
             mEncryptionController.cancelEncryptionReminder();
+            stopActivityTimeLogger();
             mUi.startProfileOwnerProvisioning(mParams);
         }
     }
 
+    /**
+     * Ask for user consent if it is required otherwise start device owner provisioning.
+     */
     public void askForConsentOrStartDeviceOwnerProvisioning() {
         // If we are started by Nfc and the device supports FRP, we need to ask for user consent
         // since FRP will not be activated at the end of the flow.
@@ -361,6 +382,10 @@ public class PreProvisioningController {
         // In other provisioning modes we wait for the user to press next.
     }
 
+    /**
+     * Checks whether meat user is required. If it is, start meat user creation otherwise start
+     * device owner provisioning.
+     */
     private void maybeCreateUserAndStartDeviceOwnerProvisioning() {
         // Cancel the boot reminder as provisioning has now started.
         mEncryptionController.cancelEncryptionReminder();
@@ -368,10 +393,14 @@ public class PreProvisioningController {
             // Create the primary user, and continue the provisioning in this user.
             new CreatePrimaryUserTask().execute();
         } else {
+            stopActivityTimeLogger();
             mUi.startDeviceOwnerProvisioning(mUserManager.getUserHandle(), mParams);
         }
     }
 
+    /**
+     * Returns whether the device is frp protected during setup wizard.
+     */
     private boolean factoryResetProtected() {
         // If we are started during setup wizard, check for factory reset protection.
         // If the device is already setup successfully, do not check factory reset protection.
@@ -389,6 +418,10 @@ public class PreProvisioningController {
         return size > 0;
     }
 
+    /**
+     * Returns whether meat user creation is required or not.
+     * @param action Intent action that started provisioning
+     */
     public boolean isMeatUserCreationRequired(String action) {
         if (mUtils.isSplitSystemUser()
                 && ACTION_PROVISION_MANAGED_DEVICE.equals(action)) {
@@ -405,10 +438,16 @@ public class PreProvisioningController {
         }
     }
 
+    /**
+     * Returns whether activity to pick wifi can be requested or not.
+     */
     private boolean canRequestWifiPick() {
         return mPackageManager.resolveActivity(mUtils.getWifiPickIntent(), 0) != null;
     }
 
+    /**
+     * Returns whether device can have a managed profile or not.
+     */
     private boolean systemHasManagedProfileFeature() {
         return mPackageManager.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
     }
@@ -426,6 +465,13 @@ public class PreProvisioningController {
             throw new IllegalStateException("ProvisioningParams are null");
         }
         return mParams;
+    }
+
+    /**
+     * Notifies the activity time logger that the activity has finished.
+     */
+    public void stopActivityTimeLogger() {
+        mActivityTimeLogger.stop();
     }
 
     // TODO: review the use of async task for the case where the activity might have got killed
@@ -450,6 +496,7 @@ public class PreProvisioningController {
                         "Could not create user to hold the device owner");
             } else {
                 mActivityManager.switchUser(userInfo.id);
+                stopActivityTimeLogger();
                 mUi.startDeviceOwnerProvisioning(userInfo.id, mParams);
             }
         }

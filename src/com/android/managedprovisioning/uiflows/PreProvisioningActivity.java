@@ -106,6 +106,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
             if (!mUtils.currentLauncherSupportsManagedProfiles(this)) {
                 showCurrentLauncherInvalid();
             } else {
+                mController.stopActivityTimeLogger();
                 startProfileOwnerProvisioning(mController.getParams());
             }
         } else if (requestCode == WIFI_REQUEST_CODE) {

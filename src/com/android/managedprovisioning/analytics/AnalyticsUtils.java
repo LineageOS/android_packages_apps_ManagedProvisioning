@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.analytics;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 
 import com.android.managedprovisioning.ProvisionLogger;
@@ -26,11 +27,14 @@ import com.android.managedprovisioning.ProvisionLogger;
  */
 public class AnalyticsUtils {
 
+    public AnalyticsUtils() {}
+
     /**
+     * Returns package name of the installer package, null if package is not present on the device
+     * and empty string if installer package is not present on the device.
+     *
      * @param context Context used to get package manager
      * @param packageName Package name of the installed package
-     * @return Package name of the installer package, null if package or installer package is not
-     *         present on the device.
      */
     @Nullable
     public static String getInstallerPackageName(Context context, String packageName) {
@@ -40,5 +44,12 @@ public class AnalyticsUtils {
             ProvisionLogger.loge(packageName + " is not installed.", e);
             return null;
         }
+    }
+
+    /**
+     * Returns elapsed real time.
+     */
+    public Long elapsedRealTime() {
+        return SystemClock.elapsedRealtime();
     }
 }

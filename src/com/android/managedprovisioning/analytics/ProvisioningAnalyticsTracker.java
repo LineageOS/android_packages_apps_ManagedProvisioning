@@ -50,7 +50,25 @@ public class ProvisioningAnalyticsTracker {
         logActionWithString(context, PROVISIONING_DPC_INSTALLED_BY_PACKAGE, dpcInstallerPackage);
     }
 
+    /**
+     * Wrapper to log action with string values.
+     * @param context Context passed to MetricsLogger.
+     * @param category Metrics category to be logged.
+     * @param value String value to be logged
+     */
     private static void logActionWithString(Context context, int category, String value) {
+        ProvisionLogger
+                .logd("ProvisioningAnalyticsTracker, category:" + category + ", value: " + value);
+        MetricsLogger.action(context, category, value);
+    }
+
+    /**
+     * Wrapper to log action with integer values.
+     * @param context Context passed to MetricsLogger.
+     * @param category Metrics category to be logged.
+     * @param value Int value to be logged.
+     */
+    public void logActionWithInt(Context context, int category, int value) {
         ProvisionLogger
                 .logd("ProvisioningAnalyticsTracker, category:" + category + ", value: " + value);
         MetricsLogger.action(context, category, value);
