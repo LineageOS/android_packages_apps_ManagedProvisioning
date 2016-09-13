@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.hardware.usb.UsbManager;
 import android.provider.AlarmClock;
 import android.provider.MediaStore;
 
@@ -143,8 +144,14 @@ public class CrossProfileIntentFiltersHelper {
             //will not happen
             ProvisionLogger.loge(e);
         }
-        // This is the only filter set on the opposite direction (from parent to managed profile).
         pm.addCrossProfileIntentFilter(send, parentUserId, managedProfileUserId, 0);
+
+        // Can forward USB device/accessory attachment to managed profile
+        IntentFilter usbDeviceAttached = new IntentFilter();
+        usbDeviceAttached.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        usbDeviceAttached.addAction(UsbManager.ACTION_USB_ACCESSORY_ATTACHED);
+        usbDeviceAttached.addCategory(Intent.CATEGORY_DEFAULT);
+        pm.addCrossProfileIntentFilter(usbDeviceAttached, parentUserId, managedProfileUserId, 0);
 
         IntentFilter getContent = new IntentFilter();
         getContent.addAction(Intent.ACTION_GET_CONTENT);
