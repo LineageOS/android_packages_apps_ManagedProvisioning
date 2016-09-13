@@ -16,48 +16,40 @@
 
 package com.android.managedprovisioning.common;
 
-import android.accounts.Account;
+import static org.mockito.Matchers.contains;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
 import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.accounts.OperationCanceledException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.PackageInfo;
 import android.content.pm.ParceledListSlice;
 import android.content.pm.ResolveInfo;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.os.Handler;
-import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 import java.util.List;
 import java.util.Set;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.anyLong;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 /**
  * Unit-tests for {@link Utils}.
@@ -66,9 +58,11 @@ import static org.mockito.Mockito.when;
 public class UtilsTest extends AndroidTestCase {
     private static final String TEST_PACKAGE_NAME_1 = "com.test.packagea";
     private static final String TEST_PACKAGE_NAME_2 = "com.test.packageb";
+    private static final String TEST_DEVICE_ADMIN_NAME = TEST_PACKAGE_NAME_1 + ".DeviceAdmin";
     private static final ComponentName TEST_COMPONENT_NAME = new ComponentName(TEST_PACKAGE_NAME_1,
-            ".MainActivity");
+            TEST_DEVICE_ADMIN_NAME);
     private static final int TEST_USER_ID = 10;
+    private static final String TEST_FILE_NAME = "testfile";
 
     @Mock private Context mockContext;
     @Mock private AccountManager mockAccountManager;
@@ -91,6 +85,11 @@ public class UtilsTest extends AndroidTestCase {
                 .thenReturn(mockConnectivityManager);
 
         mUtils = new Utils();
+    }
+
+    @Override
+    public void tearDown() {
+        mContext.deleteFile(TEST_FILE_NAME);
     }
 
     public void testGetCurrentSystemApps() throws Exception {
@@ -205,6 +204,106 @@ public class UtilsTest extends AndroidTestCase {
         // WHEN checking whether the current launcher support managed profiles
         // THEN utils should return false
         assertFalse(mUtils.currentLauncherSupportsManagedProfiles(mockContext));
+    }
+
+    public void testFindDeviceAdminInPackage_Success() {
+        // GIVEN a package info file with one device admin
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.packageName = TEST_PACKAGE_NAME_1;
+        ActivityInfo receiver = new ActivityInfo();
+        receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
+        receiver.name = TEST_DEVICE_ADMIN_NAME;
+        packageInfo.receivers = new ActivityInfo[] { receiver };
+
+        // THEN calling findDeviceAdminInPackage returns the correct admin
+        assertEquals(TEST_COMPONENT_NAME,
+                mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
+    }
+
+    public void testFindDeviceAdminInPackage_PackageNameMismatch() {
+        // GIVEN a package info file with one device admin
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.packageName = TEST_PACKAGE_NAME_1;
+        ActivityInfo receiver = new ActivityInfo();
+        receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
+        receiver.name = TEST_DEVICE_ADMIN_NAME;
+        packageInfo.receivers = new ActivityInfo[] { receiver };
+
+        // THEN calling findDeviceAdminInPackage with the wrong package name return null
+        assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_2, packageInfo));
+    }
+
+    public void testFindDeviceAdminInPackage_NoAdmin() {
+        // GIVEN a package info file with no device admin
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.packageName = TEST_PACKAGE_NAME_1;
+        ActivityInfo receiver = new ActivityInfo();
+        receiver.name = TEST_DEVICE_ADMIN_NAME;
+        packageInfo.receivers = new ActivityInfo[] { receiver };
+
+        // THEN calling findDeviceAdminInPackage returns null
+        assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
+    }
+
+    public void testFindDeviceAdminInPackage_TwoAdmins() {
+        // GIVEN a package info file with more than one device admin
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.packageName = TEST_PACKAGE_NAME_1;
+        ActivityInfo receiver = new ActivityInfo();
+        receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
+        receiver.name = TEST_DEVICE_ADMIN_NAME;
+        packageInfo.receivers = new ActivityInfo[] { receiver, receiver };
+
+        // THEN calling findDeviceAdminInPackage returns null
+        assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
+    }
+
+    public void testComputeHashOfByteArray() {
+        // GIVEN a byte array
+        byte[] bytes = "TESTARRAY".getBytes();
+        // GIVEN its Sha256 hash
+        byte[] sha256 = new byte[] {100, -45, -118, -68, -104, -15, 63, -60, -84, -44, -13, -63,
+                53, -50, 104, -63, 38, 122, 16, -44, -85, -50, 67, 98, 78, 121, 11, 72, 79, 40, 107,
+                125};
+
+        // THEN computeHashOfByteArray returns the correct result
+        assertTrue(Arrays.equals(sha256, mUtils.computeHashOfByteArray(bytes)));
+    }
+
+    public void testComputeHashOfFile() {
+        // GIVEN a file with test data
+        final String fileLocation = getContext().getFilesDir().toString() + "/" + TEST_FILE_NAME;
+        String string = "Hello world!";
+        FileOutputStream outputStream;
+        try {
+            outputStream = getContext().openFileOutput(TEST_FILE_NAME, Context.MODE_PRIVATE);
+            outputStream.write(string.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // GIVEN the file's Sha256 hash
+        byte[] sha256 = new byte[] {-64, 83, 94, 75, -30, -73, -97, -3, -109, 41, 19, 5, 67, 107,
+                -8, -119, 49, 78, 74, 63, -82, -64, 94, -49, -4, -69, 125, -13, 26, -39, -27, 26};
+        // GIVEN the file's Sha1 hash
+        byte[] sha1 = new byte[] {-45, 72, 106, -23, 19, 110, 120, 86, -68, 66, 33, 35, -123, -22,
+                121, 112, -108, 71, 88, 2};
+
+        //THEN the Sha256 hash is correct
+        assertTrue(
+                Arrays.equals(sha256, mUtils.computeHashOfFile(fileLocation, Utils.SHA256_TYPE)));
+        //THEN the Sha1 hash is correct
+        assertTrue(Arrays.equals(sha1, mUtils.computeHashOfFile(fileLocation, Utils.SHA1_TYPE)));
+    }
+
+    public void testComputeHashOfFile_NotPresent() {
+        // GIVEN no file is present
+        final String fileLocation = getContext().getFilesDir().toString() + "/" + TEST_FILE_NAME;
+        getContext().deleteFile(TEST_FILE_NAME);
+
+        // THEN computeHashOfFile should return null
+        assertNull(mUtils.computeHashOfFile(fileLocation, Utils.SHA256_TYPE));
+        assertNull(mUtils.computeHashOfFile(fileLocation, Utils.SHA1_TYPE));
     }
 
     private ApplicationInfo createApplicationInfo(String packageName, boolean system) {

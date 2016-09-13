@@ -29,6 +29,8 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
+import android.annotation.NonNull;
+import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -161,81 +163,73 @@ public class Utils {
      *
      * We are supporting lookup by package name for legacy reasons.
      *
-     * If mdmComponentName is supplied (not null):
-     * mdmPackageName is ignored.
-     * Check that the package of mdmComponentName is installed, that mdmComponentName is a
+     * If dpcComponentName is supplied (not null): dpcPackageName is ignored.
+     * Check that the package of dpcComponentName is installed, that dpcComponentName is a
      * receiver in this package, and return it. The receiver can be in disabled state.
      *
-     * Otherwise:
-     * mdmPackageName must be supplied (not null).
+     * Otherwise: dpcPackageName must be supplied (not null).
      * Check that this package is installed, try to infer a potential device admin in this package,
      * and return it.
      */
     // TODO: Add unit tests
-    public ComponentName findDeviceAdmin(String mdmPackageName,
-            ComponentName mdmComponentName, Context c) throws IllegalProvisioningArgumentException {
-        if (mdmComponentName != null) {
-            mdmPackageName = mdmComponentName.getPackageName();
+    @NonNull
+    public ComponentName findDeviceAdmin(String dpcPackageName, ComponentName dpcComponentName,
+            Context context) throws IllegalProvisioningArgumentException {
+        if (dpcComponentName != null) {
+            dpcPackageName = dpcComponentName.getPackageName();
         }
-        if (mdmPackageName == null) {
+        if (dpcPackageName == null) {
             throw new IllegalProvisioningArgumentException("Neither the package name nor the"
                     + " component name of the admin are supplied");
         }
         PackageInfo pi;
         try {
-            pi = c.getPackageManager().getPackageInfo(mdmPackageName,
+            pi = context.getPackageManager().getPackageInfo(dpcPackageName,
                     PackageManager.GET_RECEIVERS | PackageManager.MATCH_DISABLED_COMPONENTS);
         } catch (NameNotFoundException e) {
-            throw new IllegalProvisioningArgumentException("Mdm "+ mdmPackageName
+            throw new IllegalProvisioningArgumentException("Dpc "+ dpcPackageName
                     + " is not installed. ", e);
         }
-        if (mdmComponentName != null) {
-            // If the component was specified in the intent: check that it is in the manifest.
-            checkAdminComponent(mdmComponentName, pi);
-            return mdmComponentName;
-        } else {
-            // Otherwise: try to find a potential device admin in the manifest.
-            return findDeviceAdminInPackage(mdmPackageName, pi);
+        ComponentName componentName = findDeviceAdminInPackage(dpcPackageName, pi);
+        if (componentName == null) {
+            throw new IllegalProvisioningArgumentException("Cannot find admin receiver in "
+                    + "package");
         }
+
+        if (dpcComponentName != null && !componentName.equals(dpcComponentName)) {
+            throw new IllegalProvisioningArgumentException("Device admin component name does not" +
+                    "match the package information." +
+                    " expected:" + dpcComponentName.flattenToString() +
+                    " found:" + componentName.flattenToString());
+        }
+
+        return componentName;
     }
 
     /**
-     * Verifies that an admin component is part of a given package.
+     * Finds a device admin in a given {@link PackageInfo} object.
      *
-     * @param mdmComponentName the admin component to be checked
-     * @param pi the {@link PackageInfo} of the package to be checked.
-     *
-     * @throws IllegalProvisioningArgumentException if the given component is not part of the
-     *         package
+     * <p>This function returns {@code null} if no or multiple admin receivers were found, and if
+     * the package name does not match dpcPackageName.</p>
+     * @param packageName packge name that should match the {@link PackageInfo} object.
+     * @param packageInfo package info to be examined.
+     * @return admin receiver or null in case of error.
      */
-    private void checkAdminComponent(ComponentName mdmComponentName, PackageInfo pi)
-            throws IllegalProvisioningArgumentException{
-        for (ActivityInfo ai : pi.receivers) {
-            if (mdmComponentName.getClassName().equals(ai.name)) {
-                return;
-            }
+    @Nullable
+    public ComponentName findDeviceAdminInPackage(String packageName, PackageInfo packageInfo) {
+        if (packageInfo == null || !TextUtils.equals(packageInfo.packageName, packageName)) {
+            return null;
         }
-        throw new IllegalProvisioningArgumentException("The component " + mdmComponentName
-                + " cannot be found");
-    }
 
-    private ComponentName findDeviceAdminInPackage(String mdmPackageName, PackageInfo pi)
-            throws IllegalProvisioningArgumentException {
         ComponentName mdmComponentName = null;
-        for (ActivityInfo ai : pi.receivers) {
-            if (!TextUtils.isEmpty(ai.permission) &&
-                    ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
+        for (ActivityInfo ai : packageInfo.receivers) {
+            if (TextUtils.equals(ai.permission, android.Manifest.permission.BIND_DEVICE_ADMIN)) {
                 if (mdmComponentName != null) {
-                    throw new IllegalProvisioningArgumentException("There are several "
-                            + "device admins in " + mdmPackageName + " but no one in specified");
+                    return null;
                 } else {
-                    mdmComponentName = new ComponentName(mdmPackageName, ai.name);
+                    mdmComponentName = new ComponentName(packageName, ai.name);
                 }
             }
-        }
-        if (mdmComponentName == null) {
-            throw new IllegalProvisioningArgumentException("There are no device admins in"
-                    + mdmPackageName);
         }
         return mdmComponentName;
     }
@@ -579,15 +573,23 @@ public class Utils {
     /**
      * Computes the sha 256 hash of a byte array.
      */
-    public byte[] computeHashOfByteArray(byte[] bytes) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance(SHA256_TYPE);
-        md.update(bytes);
-        return md.digest();
+    @Nullable
+    public byte[] computeHashOfByteArray(byte[] bytes) {
+        try {
+            MessageDigest md = MessageDigest.getInstance(SHA256_TYPE);
+            md.update(bytes);
+            return md.digest();
+        } catch (NoSuchAlgorithmException e) {
+            ProvisionLogger.loge("Hashing algorithm " + SHA256_TYPE + " not supported.", e);
+            return null;
+        }
     }
 
     /**
      * Computes a hash of a file with a spcific hash algorithm.
      */
+    // TODO: Add unit tests
+    @Nullable
     public byte[] computeHashOfFile(String fileLocation, String hashType) {
         InputStream fis = null;
         MessageDigest md;

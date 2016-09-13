@@ -17,21 +17,21 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static com.android.managedprovisioning.task.InstallPackageTask.ERROR_INSTALLATION_FAILED;
+import static com.android.managedprovisioning.task.InstallPackageTask.ERROR_PACKAGE_INVALID;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageInstallObserver;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
@@ -44,26 +44,20 @@ import org.mockito.MockitoAnnotations;
 
 public class InstallPackageTaskTest extends AndroidTestCase {
     private static final String TEST_PACKAGE_NAME = "com.android.test";
+    private static final String OTHER_PACKAGE_NAME = "com.android.other";
     private static final String TEST_PACKAGE_LOCATION = "/sdcard/TestPackage.apk";
     private static final ProvisioningParams TEST_PARAMS = new ProvisioningParams.Builder()
             .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
             .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
             .build();
     private static final int TEST_USER_ID = 123;
-    private static final Bundle TEST_BUNDLE;
-    static {
-        TEST_BUNDLE = new Bundle();
-        TEST_BUNDLE.putString(DownloadPackageTask.EXTRA_PACKAGE_DOWNLOAD_LOCATION,
-                TEST_PACKAGE_LOCATION);
-    }
 
     @Mock private Context mContext;
     @Mock private PackageManager mPackageManager;
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private DownloadPackageTask mDownloadPackageTask;
     private InstallPackageTask mTask;
-    private PackageInfo mPackageInfo;
-    private Utils mUtils;
+    private final Utils mUtils = new UtilsStub();
 
     @Override
     protected void setUp() throws Exception {
@@ -72,28 +66,15 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
         MockitoAnnotations.initMocks(this);
 
-        ActivityInfo activityInfo = new ActivityInfo();
-        mPackageInfo = new PackageInfo();
-
-        activityInfo.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
-
-        mPackageInfo.packageName = TEST_PACKAGE_NAME;
-        mPackageInfo.receivers = new ActivityInfo[] {activityInfo};
-
-        when(mPackageManager.getPackageArchiveInfo(eq(TEST_PACKAGE_LOCATION), anyInt())).
-                thenReturn(mPackageInfo);
-
-
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
         when(mContext.getPackageName()).thenReturn(getContext().getPackageName());
 
-        mUtils = new UtilsStub();
         mTask = new InstallPackageTask(mUtils, mDownloadPackageTask, mContext, TEST_PARAMS,
                 mCallback);
     }
 
     @SmallTest
-    public void testInstall_NoPackages() {
+    public void testNoDownloadLocation() {
         // GIVEN no package was downloaded
         when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(null);
 
@@ -106,104 +87,103 @@ public class InstallPackageTaskTest extends AndroidTestCase {
                 anyInt(),
                 anyString());
         verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
         assertTrue(mUtils.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
-    public void testInstall_OnePackage() throws Exception {
+    public void testSuccess() throws Exception {
         // GIVEN a package was downloaded to TEST_LOCATION
         when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
 
         // WHEN running the InstallPackageTask specifying an install location
         mTask.run(TEST_USER_ID);
 
-        ArgumentCaptor<IPackageInstallObserver> observer
-                = ArgumentCaptor.forClass(IPackageInstallObserver.class);
-        ArgumentCaptor<Integer> flags = ArgumentCaptor.forClass(Integer.class);
-        // THEN the package is installed and we get a success callback
-        verify(mPackageManager).installPackage(
-                eq(Uri.parse("file://" + TEST_PACKAGE_LOCATION)),
-                observer.capture(),
-                flags.capture(),
-                eq(getContext().getPackageName()));
-        // make sure that the flags value has been set
-        assertTrue(0 != (flags.getValue() & PackageManager.INSTALL_REPLACE_EXISTING));
-        observer.getValue().packageInstalled(TEST_PACKAGE_NAME,
-                PackageManager.INSTALL_SUCCEEDED);
+        // THEN package installed is invoked with an install observer
+        IPackageInstallObserver observer = verifyPackageInstalled();
+
+        // WHEN the package installed callback is invoked with success
+        observer.packageInstalled(TEST_PACKAGE_NAME, PackageManager.INSTALL_SUCCEEDED);
+
+        // THEN we receive a success callback
         verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
         assertTrue(mUtils.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
-    public void testInstall_InstallFailedVersionDowngrade() throws Exception {
+    public void testInstallFailedVersionDowngrade() throws Exception {
         // GIVEN a package was downloaded to TEST_LOCATION
         when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
 
         // WHEN running the InstallPackageTask with a package already at a higher version
         mTask.run(TEST_USER_ID);
-        ArgumentCaptor<IPackageInstallObserver> observer
+
+        // THEN package installed is invoked with an install observer
+        IPackageInstallObserver observer = verifyPackageInstalled();
+
+        // WHEN the package installed callback is invoked with version downgrade error
+        observer.packageInstalled(null, PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE);
+
+        // THEN we get a success callback, because an existing version of the DPC is present
+        verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+    }
+
+    @SmallTest
+    public void testInstallFailedOtherError() throws Exception {
+        // GIVEN a package was downloaded to TEST_LOCATION
+        when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
+
+        // WHEN running the InstallPackageTask with a package already at a higher version
+        mTask.run(TEST_USER_ID);
+
+        // THEN package installed is invoked with an install observer
+        IPackageInstallObserver observer = verifyPackageInstalled();
+
+        // WHEN the package installed callback is invoked with version downgrade error
+        observer.packageInstalled(null, PackageManager.INSTALL_FAILED_INVALID_APK);
+
+        // THEN we get a success callback, because an existing version of the DPC is present
+        verify(mCallback).onError(mTask, ERROR_INSTALLATION_FAILED);
+        verifyNoMoreInteractions(mCallback);
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+    }
+
+    @SmallTest
+    public void testDifferentPackageName() throws Exception {
+        // GIVEN a package was downloaded to TEST_LOCATION
+        when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
+
+        // WHEN running the InstallPackageTask with a package already at a higher version
+        mTask.run(TEST_USER_ID);
+
+        // THEN package installed is invoked with an install observer
+        IPackageInstallObserver observer = verifyPackageInstalled();
+
+        // WHEN the package installed callback is invoked with version downgrade error
+        observer.packageInstalled(OTHER_PACKAGE_NAME, PackageManager.INSTALL_SUCCEEDED);
+
+        // THEN we get a success callback, because an existing version of the DPC is present
+        verify(mCallback).onError(mTask, ERROR_PACKAGE_INVALID);
+        verifyNoMoreInteractions(mCallback);
+        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+    }
+
+    private IPackageInstallObserver verifyPackageInstalled() {
+        ArgumentCaptor<IPackageInstallObserver> observerCaptor
                 = ArgumentCaptor.forClass(IPackageInstallObserver.class);
+        ArgumentCaptor<Integer> flagsCaptor = ArgumentCaptor.forClass(Integer.class);
+        // THEN the package is installed and we get a success callback
         verify(mPackageManager).installPackage(
                 eq(Uri.parse("file://" + TEST_PACKAGE_LOCATION)),
-                observer.capture(),
-                anyInt(),
+                observerCaptor.capture(),
+                flagsCaptor.capture(),
                 eq(getContext().getPackageName()));
-        observer.getValue().packageInstalled(null,
-                PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE);
-        // THEN we get a success callback
-        verify(mCallback).onSuccess(mTask);
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
-    }
-
-    @SmallTest
-    public void testPackageHasNoReceivers() {
-        // GIVEN a package was downloaded to TEST_LOCATION
-        when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
-
-        mPackageInfo.receivers = null;
-        mTask.run(TEST_USER_ID);
-        verifyDontInstall();
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
-    }
-
-    @SmallTest
-    public void testNoArchive() {
-        // GIVEN a package was downloaded to TEST_LOCATION
-        when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
-        // GIVEN there is no archive at the package location
-        when(mPackageManager.getPackageArchiveInfo(eq(TEST_PACKAGE_LOCATION), anyInt()))
-                .thenReturn(null);
-        // WHEN running the InstallPackageTask
-        mTask.run(TEST_USER_ID);
-        // THEN nothing is installed
-        verifyDontInstall();
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
-    }
-
-    @SmallTest
-    public void testWrongPackageName() {
-        // GIVEN a package was downloaded to TEST_LOCATION
-        when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
-
-        // GIVEN the package name of the downloaded package is different from the one defined in
-        // the provisioning params
-        mPackageInfo.packageName = "wrong.test.package.name";
-
-        // WHEN running the InstallPackageTask
-        mTask.run(TEST_USER_ID);
-
-        // THEN nothing is installed
-        verifyDontInstall();
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
-    }
-
-    private void verifyDontInstall() {
-        verify(mPackageManager, never()).installPackage(
-                any(Uri.class),
-                any(IPackageInstallObserver.class),
-                anyInt(),
-                anyString());
-        verify(mCallback).onError(mTask, InstallPackageTask.ERROR_PACKAGE_INVALID);
+        // make sure that the flags value has been set
+        assertTrue(0 != (flagsCaptor.getValue() & PackageManager.INSTALL_REPLACE_EXISTING));
+        return observerCaptor.getValue();
     }
 
     private static class UtilsStub extends Utils {

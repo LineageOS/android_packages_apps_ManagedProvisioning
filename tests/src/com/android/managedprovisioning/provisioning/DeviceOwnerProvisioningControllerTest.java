@@ -36,6 +36,7 @@ import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.VerifyPackageTask;
 
 import org.mockito.Mock;
 
@@ -80,6 +81,9 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         // THEN the download package task should be run
         taskSucceeded(DownloadPackageTask.class);
 
+        // THEN the verify package task should be run
+        taskSucceeded(VerifyPackageTask.class);
+
         // THEN the install package task should be run
         taskSucceeded(InstallPackageTask.class);
 
@@ -109,6 +113,9 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
 
         // THEN the download package task should be run
         taskSucceeded(DownloadPackageTask.class);
+
+        // THEN the verify package task should be run
+        taskSucceeded(VerifyPackageTask.class);
 
         // THEN the install package task should be run
         taskSucceeded(InstallPackageTask.class);

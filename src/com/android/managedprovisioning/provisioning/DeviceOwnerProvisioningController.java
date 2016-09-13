@@ -33,6 +33,7 @@ import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.VerifyPackageTask;
 
 /**
  * Controller for Device Owner provisioning.
@@ -69,6 +70,7 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
         if (mParams.deviceAdminDownloadInfo != null) {
             DownloadPackageTask downloadTask = new DownloadPackageTask(mContext, mParams, this);
             addTasks(downloadTask,
+                    new VerifyPackageTask(downloadTask, mContext, mParams, this),
                     new InstallPackageTask(downloadTask, mContext, mParams, this));
         }
 
@@ -88,13 +90,18 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
         if (task instanceof AddWifiNetworkTask) {
             return R.string.device_owner_error_wifi;
         } else if (task instanceof DownloadPackageTask) {
-            switch(errorCode) {
-                case DownloadPackageTask.ERROR_HASH_MISMATCH:
-                    return R.string.device_owner_error_hash_mismatch;
+            switch (errorCode) {
                 case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
                     return R.string.device_owner_error_download_failed;
-                default:
+                case DownloadPackageTask.ERROR_OTHER:
                     return R.string.device_owner_error_general;
+            }
+        } else if (task instanceof VerifyPackageTask) {
+            switch (errorCode) {
+                case VerifyPackageTask.ERROR_HASH_MISMATCH:
+                    return R.string.device_owner_error_hash_mismatch;
+                case VerifyPackageTask.ERROR_DEVICE_ADMIN_MISSING:
+                    return R.string.device_owner_error_package_invalid;
             }
         } else if (task instanceof InstallPackageTask) {
             switch (errorCode) {
@@ -102,8 +109,6 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
                     return R.string.device_owner_error_package_invalid;
                 case InstallPackageTask.ERROR_INSTALLATION_FAILED:
                     return R.string.device_owner_error_installation_failed;
-                default:
-                    return R.string.device_owner_error_general;
             }
         }
 
