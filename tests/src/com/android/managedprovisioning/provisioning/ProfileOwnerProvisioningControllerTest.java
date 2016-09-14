@@ -67,7 +67,6 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
 
     @Mock private AbstractProvisioningController.ProvisioningServiceInterface mService;
     @Mock private UserManager mUserManager;
-    @Mock private Utils mUtils;
     private Context mContext;
     private ProvisioningParams mParams;
 
@@ -131,9 +130,6 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
 
         // THEN the provisioning complete callback should have happened
         verify(mService).provisioningComplete();
-
-        // THEN the user provisioning state should be marked as completed
-        verify(mUtils).markUserProvisioningStateInitiallyDone(mContext, mParams);
     }
 
     @MediumTest
@@ -224,8 +220,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
                 mParams,
                 TEST_PARENT_USER_ID,
                 mService,
-                mHandler,
-                mUtils);
+                mHandler);
         mController.initialize();
     }
 }

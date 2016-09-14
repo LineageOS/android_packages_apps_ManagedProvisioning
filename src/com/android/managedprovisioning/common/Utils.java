@@ -23,7 +23,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHA
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -42,17 +41,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
-import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
@@ -62,36 +55,25 @@ import android.os.storage.StorageManager;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.text.TextUtils;
-import android.util.Base64;
+
+import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.TrampolineActivity;
+import com.android.managedprovisioning.model.PackageDownloadInfo;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.Integer;
-import java.lang.Math;
-import java.lang.String;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
-import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.FinalizationActivity;
-import com.android.managedprovisioning.ProvisionLogger;
-import com.android.managedprovisioning.TrampolineActivity;
-import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.model.PackageDownloadInfo;
 
 /**
  * Class containing various auxiliary methods.
  */
 public class Utils {
-    private static final int THRESHOLD_BRIGHT_COLOR = 160; // A color needs a brightness of at least
-    // this value to be considered bright. (brightness being between 0 and 255).
-
     public static final String SHA256_TYPE = "SHA-256";
     public static final String SHA1_TYPE = "SHA-1";
 
@@ -328,111 +310,6 @@ public class Utils {
      */
     public boolean isPackageVerifierEnabled(Context context) {
         return Global.getInt(context.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0) != 0;
-    }
-
-    /**
-     * Set the current users userProvisioningState depending on the following factors:
-     * <ul>
-     *     <li>We're setting up a managed-profile - need to set state on two users.</li>
-     *     <li>User-setup has previously been completed or not - skip states relating to
-     *     communicating with setup-wizard</li>
-     *     <li>DPC requested we skip the rest of setup-wizard.</li>
-     * </ul>
-     *
-     * @param context a {@link Context} object
-     * @param params configuration for current provisioning attempt
-     */
-    // TODO: Add unit tests
-    public void markUserProvisioningStateInitiallyDone(Context context,
-            ProvisioningParams params) {
-        int currentUserId = UserHandle.myUserId();
-        int managedProfileUserId = UserHandle.USER_NULL;
-        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-
-        // new provisioning state for current user, if non-null
-        Integer newState = null;
-         // New provisioning state for managed-profile of current user, if non-null.
-        Integer newProfileState = null;
-
-        boolean userSetupCompleted = isUserSetupCompleted(context);
-        if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            // Managed profiles are a special case as two users are involved.
-            managedProfileUserId = getManagedProfile(context).getIdentifier();
-            if (userSetupCompleted) {
-                // SUW on current user is complete, so nothing much to do beyond indicating we're
-                // all done.
-                newProfileState = DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
-            } else {
-                // We're still in SUW, so indicate that a managed-profile was setup on current user,
-                // and that we're awaiting finalization on both.
-                newState = DevicePolicyManager.STATE_USER_PROFILE_COMPLETE;
-                newProfileState = DevicePolicyManager.STATE_USER_SETUP_COMPLETE;
-            }
-        } else if (userSetupCompleted) {
-            // User setup was previously completed this is an unexpected case.
-            ProvisionLogger.logw("user_setup_complete set, but provisioning was started");
-        } else if (params.skipUserSetup) {
-            // DPC requested setup-wizard is skipped, indicate this to SUW.
-            newState = DevicePolicyManager.STATE_USER_SETUP_COMPLETE;
-        } else {
-            // DPC requested setup-wizard is not skipped, indicate this to SUW.
-            newState = DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
-        }
-
-        if (newState != null) {
-            setUserProvisioningState(dpm, newState, currentUserId);
-        }
-        if (newProfileState != null) {
-            setUserProvisioningState(dpm, newProfileState, managedProfileUserId);
-        }
-        if (!userSetupCompleted) {
-            // We expect a PROVISIONING_FINALIZATION intent to finish setup if we're still in
-            // user-setup.
-            FinalizationActivity.storeProvisioningParams(context, params);
-        }
-    }
-
-    /**
-     * Finalize the current users userProvisioningState depending on the following factors:
-     * <ul>
-     *     <li>We're setting up a managed-profile - need to set state on two users.</li>
-     * </ul>
-     *
-     * @param context a {@link Context} object
-     * @param params configuration for current provisioning attempt - if null (because
-     *               ManagedProvisioning wasn't used for first phase of provisioning) aassumes we
-     *               can just mark current user as being in finalized provisioning state
-     */
-    // TODO: Add unit tests
-    public void markUserProvisioningStateFinalized(Context context,
-            ProvisioningParams params) {
-        int currentUserId = UserHandle.myUserId();
-        int managedProfileUserId = -1;
-        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-        Integer newState = null;
-        Integer newProfileState = null;
-
-        if (params != null && params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            // Managed profiles are a special case as two users are involved.
-            managedProfileUserId = getManagedProfile(context).getIdentifier();
-
-            newState = DevicePolicyManager.STATE_USER_UNMANAGED;
-            newProfileState = DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
-        } else {
-            newState = DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
-        }
-
-        if (newState != null) {
-            setUserProvisioningState(dpm, newState, currentUserId);
-        }
-        if (newProfileState != null) {
-            setUserProvisioningState(dpm, newProfileState, managedProfileUserId);
-        }
-    }
-
-    private void setUserProvisioningState(DevicePolicyManager dpm, int state, int userId) {
-        ProvisionLogger.logi("Setting userProvisioningState for user " + userId + " to: " + state);
-        dpm.setUserProvisioningState(state, userId);
     }
 
     /**

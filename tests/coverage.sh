@@ -58,7 +58,7 @@ adb shell rm -f "$REMOTE_COVERAGE_OUTPUT_FILE"
 adb install -r -g "$OUT/$TEST_MODULE_INSTALL_PATH"
 adb install -r -g "$OUT/$MODULE_INSTALL_PATH"
 
-adb shell am instrument -e coverage true -w "$TEST_RUNNER"
+adb shell am instrument -e coverage true -e size small -w "$TEST_RUNNER"
 
 mkdir -p "$OUTPUT_DIR"
 
