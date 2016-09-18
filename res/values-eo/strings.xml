@@ -48,10 +48,13 @@
   <!-- String on the dialog that links through to more information about the profile management application. -->
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <!-- String on the button that triggers the deletion of a work profile.-->
+  <string name="delete_profile">FORIGI</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
+  <string name="cancel_delete_profile">NULIGI</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
+  <string name="encrypt_device_cancel">NULIGI</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
