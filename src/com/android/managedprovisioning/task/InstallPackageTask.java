@@ -18,9 +18,7 @@ package com.android.managedprovisioning.task;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageInstallObserver;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -34,12 +32,8 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import java.io.File;
 
 /**
- * Installs a package. Can install a downloaded apk, or install an existing package which is already
- * installed for a different user.
- * <p>
- * Before installing from a downloaded file, the file is checked to ensure it contains the correct
- * package and admin receiver.
- * </p>
+ * Installs the management app apk from a download location provided by
+ * {@link DownloadPackageTask#getDownloadedPackageLocation()}.
  */
 public class InstallPackageTask extends AbstractProvisioningTask {
     public static final int ERROR_PACKAGE_INVALID = 0;
@@ -102,47 +96,17 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         if (TextUtils.isEmpty(packageLocation)) {
             success();
             return;
-        } else if (packageContentIsCorrect(packageName, packageLocation)) {
-            // Temporarily turn off package verification.
-            mUtils.setPackageVerifierEnabled(mContext, false);
+        }
 
-            // Allow for replacing an existing package.
-            // Needed in case this task is performed multiple times.
-            mPm.installPackage(Uri.parse("file://" + packageLocation),
-                    new PackageInstallObserver(packageName, packageLocation),
-                    /* flags */ PackageManager.INSTALL_REPLACE_EXISTING,
-                    mContext.getPackageName());
-        } else {
-            // Error should have been reported in packageContentIsCorrect().
-            return;
-        }
-    }
+        // Temporarily turn off package verification.
+        mUtils.setPackageVerifierEnabled(mContext, false);
 
-    private boolean packageContentIsCorrect(String packageName, String packageLocation) {
-        PackageInfo pi = mPm.getPackageArchiveInfo(packageLocation, PackageManager.GET_RECEIVERS);
-        if (pi == null) {
-            ProvisionLogger.loge("Package could not be parsed successfully.");
-            error(ERROR_PACKAGE_INVALID);
-            return false;
-        }
-        if (!pi.packageName.equals(packageName)) {
-            ProvisionLogger.loge("Package name in apk (" + pi.packageName
-                    + ") does not match package name specified by programmer ("
-                    + packageName + ").");
-            error(ERROR_PACKAGE_INVALID);
-            return false;
-        }
-        if (pi.receivers != null) {
-            for (ActivityInfo ai : pi.receivers) {
-                if (!TextUtils.isEmpty(ai.permission) &&
-                        ai.permission.equals(android.Manifest.permission.BIND_DEVICE_ADMIN)) {
-                    return true;
-                }
-            }
-        }
-        ProvisionLogger.loge("Installed package has no admin receiver.");
-        error(ERROR_PACKAGE_INVALID);
-        return false;
+        // Allow for replacing an existing package.
+        // Needed in case this task is performed multiple times.
+        mPm.installPackage(Uri.parse("file://" + packageLocation),
+                new PackageInstallObserver(packageName, packageLocation),
+                /* flags */ PackageManager.INSTALL_REPLACE_EXISTING,
+                mContext.getPackageName());
     }
 
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {

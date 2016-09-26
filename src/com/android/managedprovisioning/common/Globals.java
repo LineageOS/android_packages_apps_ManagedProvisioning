@@ -18,6 +18,11 @@ package com.android.managedprovisioning.common;
 public final class Globals {
     private Globals() {}
 
+    /**
+     * Make this true to enable extra logging. Do not submit when this is true.
+     */
+    public static final boolean DEBUG = false;
+
     public static final String ACTION_RESUME_PROVISIONING =
             "com.android.managedprovisioning.action.RESUME_PROVISIONING";
 }

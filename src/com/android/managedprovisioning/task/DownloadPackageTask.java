@@ -24,45 +24,29 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.io.File;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
- * Downloads an apk . Also verifies that the downloaded file is the one that is expected.
+ * Downloads the management app apk from the url provided by {@link PackageDownloadInfo#location}.
+ * The location of the downloaded file can be read via {@link #getDownloadedPackageLocation()}.
  */
 public class DownloadPackageTask extends AbstractProvisioningTask {
-    private static final boolean DEBUG = false; // To control logging.
-
-    /**
-     * String extra that is passed in the result bundle. This extra contains the path to the
-     * downloaded apk.
-     */
-    public static final String EXTRA_PACKAGE_DOWNLOAD_LOCATION = "package-download-location";
-
-    public static final int ERROR_HASH_MISMATCH = 0;
-    public static final int ERROR_DOWNLOAD_FAILED = 1;
-    public static final int ERROR_OTHER = 2;
+    public static final int ERROR_DOWNLOAD_FAILED = 0;
+    public static final int ERROR_OTHER = 1;
 
     private BroadcastReceiver mReceiver;
     private final DownloadManager mDownloadManager;
-    private final PackageManager mPackageManager;
     private final String mPackageName;
     private final PackageDownloadInfo mPackageDownloadInfo;
     private long mDownloadId;
@@ -90,9 +74,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
         mUtils = checkNotNull(utils);
         mDownloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         mDownloadManager.setAccessFilename(true);
-        mPackageManager = context.getPackageManager();
         mPackageName = provisioningParams.inferDeviceAdminPackageName();
-        mPackageDownloadInfo = provisioningParams.deviceAdminDownloadInfo;
+        mPackageDownloadInfo = checkNotNull(provisioningParams.deviceAdminDownloadInfo);
     }
 
     @Override
@@ -102,8 +85,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
 
     @Override
     public void run(int userId) {
-        if (mPackageDownloadInfo == null || !mUtils.packageRequiresUpdate(mPackageName,
-                mPackageDownloadInfo.minVersion, mContext)) {
+        if (!mUtils.packageRequiresUpdate(mPackageName, mPackageDownloadInfo.minVersion,
+                mContext)) {
             success();
             return;
         }
@@ -116,7 +99,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
         mReceiver = createDownloadReceiver();
         mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-        if (DEBUG) {
+
+        if (Globals.DEBUG) {
             ProvisionLogger.logd("Starting download from " + mPackageDownloadInfo.location);
         }
 
@@ -132,7 +116,7 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
 
         if (mPackageDownloadInfo.cookieHeader != null) {
             request.addRequestHeader("Cookie", mPackageDownloadInfo.cookieHeader);
-            if (DEBUG) {
+            if (Globals.DEBUG) {
                 ProvisionLogger.logd("Downloading with http cookie header: "
                         + mPackageDownloadInfo.cookieHeader);
             }
@@ -169,106 +153,20 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
     /**
      * For a successful download, check that the downloaded file is the expected file.
      * If the package hash is provided then that is used, otherwise a signature hash is used.
-     * @param location the file location of the downloaded file.
      */
     private void onDownloadSuccess() {
         if (mDoneDownloading) {
             // DownloadManager can send success more than once. Only act first time.
             return;
-        } else {
-            mDoneDownloading = true;
         }
 
         ProvisionLogger.logd("Downloaded succesfully to: " + mDownloadLocationTo);
-
-        boolean downloadedContentsCorrect = false;
-        if (mPackageDownloadInfo.packageChecksum.length > 0) {
-            downloadedContentsCorrect = doesPackageHashMatch();
-        } else if (mPackageDownloadInfo.signatureChecksum.length > 0) {
-            downloadedContentsCorrect = doesASignatureHashMatch();
-        }
-
-        if (downloadedContentsCorrect) {
-            success();
-        } else {
-            error(ERROR_HASH_MISMATCH);
-        }
+        mDoneDownloading = true;
+        success();
     }
 
     public String getDownloadedPackageLocation() {
         return mDownloadLocationTo;
-    }
-
-    /**
-     * Check whether package hash of downloaded file matches the hash given in PackageDownloadInfo.
-     * By default, SHA-256 is used to verify the file hash.
-     * If mPackageDownloadInfo.packageChecksumSupportsSha1 == true, SHA-1 hash is also supported for
-     * backwards compatibility.
-     */
-    private boolean doesPackageHashMatch() {
-        byte[] packageSha256Hash, packageSha1Hash = null;
-
-        ProvisionLogger.logd("Checking file hash of entire apk file.");
-        packageSha256Hash = mUtils.computeHashOfFile(mDownloadLocationTo, Utils.SHA256_TYPE);
-        if (packageSha256Hash == null) {
-            return false;
-        }
-
-        if (Arrays.equals(mPackageDownloadInfo.packageChecksum, packageSha256Hash)) {
-            return true;
-        }
-
-        // Fall back to SHA-1
-        if (mPackageDownloadInfo.packageChecksumSupportsSha1) {
-            packageSha1Hash = mUtils.computeHashOfFile(mDownloadLocationTo, Utils.SHA1_TYPE);
-            if (packageSha1Hash == null) {
-                return false;
-            }
-            if (Arrays.equals(mPackageDownloadInfo.packageChecksum, packageSha1Hash)) {
-                return true;
-            }
-        }
-
-        ProvisionLogger.loge("Provided hash does not match file hash.");
-        ProvisionLogger.loge("Hash provided by programmer: "
-                + StoreUtils.byteArrayToString(mPackageDownloadInfo.packageChecksum));
-        ProvisionLogger.loge("SHA-256 Hash computed from file: " + StoreUtils.byteArrayToString(
-                packageSha256Hash));
-        if (packageSha1Hash != null) {
-            ProvisionLogger.loge("SHA-1 Hash computed from file: " + StoreUtils.byteArrayToString(
-                    packageSha1Hash));
-        }
-        return false;
-    }
-
-    private boolean doesASignatureHashMatch() {
-        // Check whether a signature hash of downloaded apk matches the hash given in constructor.
-        ProvisionLogger.logd("Checking " + Utils.SHA256_TYPE
-                + "-hashes of all signatures of downloaded package.");
-        List<byte[]> sigHashes = computeHashesOfAllSignatures(mDownloadLocationTo);
-        if (sigHashes == null) {
-            // Error should have been reported in computeHashesOfAllSignatures().
-            return false;
-        }
-        if (sigHashes.isEmpty()) {
-            ProvisionLogger.loge("Downloaded package does not have any signatures.");
-            return false;
-        }
-        for (byte[] sigHash : sigHashes) {
-            if (Arrays.equals(sigHash, mPackageDownloadInfo.signatureChecksum)) {
-                return true;
-            }
-        }
-
-        ProvisionLogger.loge("Provided hash does not match any signature hash.");
-        ProvisionLogger.loge("Hash provided by programmer: "
-                + StoreUtils.byteArrayToString(mPackageDownloadInfo.signatureChecksum));
-        ProvisionLogger.loge("Hashes computed from package signatures: ");
-        for (byte[] sigHash : sigHashes) {
-            ProvisionLogger.loge(StoreUtils.byteArrayToString(sigHash));
-        }
-
-        return false;
     }
 
     private void onDownloadFail(int errorCode) {
@@ -276,31 +174,6 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
         ProvisionLogger.loge("COLUMN_REASON in DownloadManager response has value: "
                 + errorCode);
         error(ERROR_DOWNLOAD_FAILED);
-    }
-
-    private List<byte[]> computeHashesOfAllSignatures(String packageArchiveLocation) {
-        PackageInfo info = mPackageManager.getPackageArchiveInfo(packageArchiveLocation,
-                PackageManager.GET_SIGNATURES);
-        if (info == null) {
-            ProvisionLogger.loge("Unable to get package archive info from "
-                    + packageArchiveLocation);
-            error(ERROR_OTHER);
-            return null;
-        }
-
-        List<byte[]> hashes = new LinkedList<byte[]>();
-        Signature signatures[] = info.signatures;
-        try {
-            for (Signature signature : signatures) {
-               byte[] hash = mUtils.computeHashOfByteArray(signature.toByteArray());
-               hashes.add(hash);
-            }
-        } catch (NoSuchAlgorithmException e) {
-            ProvisionLogger.loge("Hashing algorithm " + Utils.SHA256_TYPE + " not supported.", e);
-            error(ERROR_OTHER);
-            return null;
-        }
-        return hashes;
     }
 
     public void cleanUp() {
