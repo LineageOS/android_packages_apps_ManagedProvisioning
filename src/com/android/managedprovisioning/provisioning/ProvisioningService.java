@@ -36,6 +36,7 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -55,6 +56,8 @@ public class ProvisioningService extends Service
     private ProvisioningParams mParams;
 
     private final Utils mUtils = new Utils();
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
+            new ProvisioningAnalyticsTracker();
 
     private AbstractProvisioningController mController;
     private HandlerThread mHandlerThread;
@@ -82,7 +85,7 @@ public class ProvisioningService extends Service
 
         switch (intent.getAction()) {
             case ACTION_CANCEL_PROVISIONING:
-                ProvisionLogger.logd("Cancelling profile owner provisioning service");
+                ProvisionLogger.logd("Cancelling provisioning service");
                 if (mController != null) {
                     mController.cancel();
                 } else {
@@ -92,7 +95,9 @@ public class ProvisioningService extends Service
             case ACTION_START_PROVISIONING:
                 if (mController == null) {
                     ProvisionLogger.logd("Starting provisioning service");
-                    mParams = intent.getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+                    mParams =
+                            intent.getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+                    logPackageInformation(mParams.inferDeviceAdminPackageName());
                     mController = buildController();
                     mController.initialize();
                     mController.start();
@@ -175,5 +180,10 @@ public class ProvisioningService extends Service
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    private void logPackageInformation(String packageName) {
+        mProvisioningAnalyticsTracker.logDPCPackageName(this, packageName);
+        mProvisioningAnalyticsTracker.logDpcInstalledByPackage(this, packageName);
     }
 }
