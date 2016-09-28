@@ -183,6 +183,15 @@ public class UtilsTest extends AndroidTestCase {
         assertFalse(mUtils.isConnectedToWifi(mockContext));
     }
 
+    public void testGetActiveNetworkInfo() throws Exception {
+        // GIVEN the device is connected to a network.
+        final NetworkInfo networkInfo =
+                new NetworkInfo(ConnectivityManager.TYPE_WIFI, 0, null, null);
+        when(mockConnectivityManager.getActiveNetworkInfo()).thenReturn(networkInfo);
+        // THEN calling getActiveNetworkInfo should return the correct network info.
+        assertEquals(mUtils.getActiveNetworkInfo(mockContext), networkInfo);
+    }
+
     public void testCurrentLauncherSupportsManagedProfiles_noLauncherSet() throws Exception {
         // GIVEN there currently is no default launcher set
         when(mockPackageManager.resolveActivity(any(Intent.class), anyInt()))

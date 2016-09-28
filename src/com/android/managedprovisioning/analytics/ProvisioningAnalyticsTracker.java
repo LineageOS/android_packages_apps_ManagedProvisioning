@@ -20,57 +20,50 @@ import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONIN
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
 
 import android.content.Context;
-import com.android.internal.logging.MetricsLogger;
-import com.android.managedprovisioning.ProvisionLogger;
+
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
- * Utility class to log metrics using TRON.
+ * Utility class to log metrics.
  */
 public class ProvisioningAnalyticsTracker {
 
     public ProvisioningAnalyticsTracker() {}
 
-    /**
-     * Logs package name of the dpc.
-     * @param context Context passed to MetricsLogger.
-     * @param dpcPackageName Package name of the dpc.
-     */
-    public void logDPCPackageName(Context context, String dpcPackageName) {
-        logActionWithString(context, PROVISIONING_DPC_PACKAGE_NAME, dpcPackageName);
-    }
+    private final MetricsLoggerWrapper mMetricsLoggerWrapper = new MetricsLoggerWrapper();
 
     /**
-     * Logs package name of the package which installed dpc.
+     * Logs package information of the dpc.
      * @param context Context passed to MetricsLogger.
      * @param dpcPackageName Package name of the dpc.
      */
-    public void logDpcInstalledByPackage(Context context, String dpcPackageName) {
+    private void logDpcPackageInformation(Context context, String dpcPackageName) {
+        // Logs package name of the dpc.
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_DPC_PACKAGE_NAME, dpcPackageName);
+
+        // Logs package name of the package which installed dpc.
         final String dpcInstallerPackage =
                 AnalyticsUtils.getInstallerPackageName(context, dpcPackageName);
-        logActionWithString(context, PROVISIONING_DPC_INSTALLED_BY_PACKAGE, dpcInstallerPackage);
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_DPC_INSTALLED_BY_PACKAGE,
+                dpcInstallerPackage);
     }
 
     /**
-     * Wrapper to log action with string values.
+     * Logs the network type to which the device is connected.
      * @param context Context passed to MetricsLogger.
-     * @param category Metrics category to be logged.
-     * @param value String value to be logged
      */
-    private static void logActionWithString(Context context, int category, String value) {
-        ProvisionLogger
-                .logd("ProvisioningAnalyticsTracker, category:" + category + ", value: " + value);
-        MetricsLogger.action(context, category, value);
+    private void logNetworkType(Context context) {
+        NetworkTypeLogger networkTypeLogger = new NetworkTypeLogger(context);
+        networkTypeLogger.log();
     }
 
     /**
-     * Wrapper to log action with integer values.
+     * Logs some metrics when the provisioning starts.
      * @param context Context passed to MetricsLogger.
-     * @param category Metrics category to be logged.
-     * @param value Int value to be logged.
+     * @param params Provisioning params
      */
-    public void logActionWithInt(Context context, int category, int value) {
-        ProvisionLogger
-                .logd("ProvisioningAnalyticsTracker, category:" + category + ", value: " + value);
-        MetricsLogger.action(context, category, value);
+    public void logProvisioningStarted(Context context, ProvisioningParams params) {
+        logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
+        logNetworkType(context);
     }
 }

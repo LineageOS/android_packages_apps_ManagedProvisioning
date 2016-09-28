@@ -31,7 +31,7 @@ import android.content.Context;
 import android.os.SystemClock;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.analytics.MetricsLoggerWrapper;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.internal.logging.MetricsLogger;
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class ActivityTimeLogger {
 
     private final int mCategory;
     private final Context mContext;
-    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    private final MetricsLoggerWrapper mMetricsLoggerWrapper;
     private final AnalyticsUtils mAnalyticsUtils;
     private Long mActivityStartTime;
 
@@ -59,18 +59,18 @@ public class ActivityTimeLogger {
     public @interface ActivityTimeCategory {}
 
     public ActivityTimeLogger(Context context, @ActivityTimeCategory int category) {
-        this(context, category, new ProvisioningAnalyticsTracker(), new AnalyticsUtils());
+        this(context, category, new MetricsLoggerWrapper(), new AnalyticsUtils());
     }
 
     @VisibleForTesting
     ActivityTimeLogger(
             Context context,
             int category,
-            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            MetricsLoggerWrapper metricsLoggerWrapper,
             AnalyticsUtils analyticsUtils) {
         mContext = checkNotNull(context);
         mCategory = checkNotNull(category);
-        mProvisioningAnalyticsTracker = checkNotNull(provisioningAnalyticsTracker);
+        mMetricsLoggerWrapper = checkNotNull(metricsLoggerWrapper);
         mAnalyticsUtils = checkNotNull(analyticsUtils);
     }
 
@@ -97,7 +97,7 @@ public class ActivityTimeLogger {
                     .logi("ActivityTimeLogger, category:" + mCategory + ", total time:" + time);
             // Clear stored start time, we shouldn't log total time twice for same start time.
             mActivityStartTime = null;
-            mProvisioningAnalyticsTracker.logActionWithInt(mContext, mCategory, time);
+            mMetricsLoggerWrapper.logAction(mContext, mCategory, time);
         } else {
             ProvisionLogger.logi(
                     "ActivityTimeLogger, category:" + mCategory + ", no corresponding start time");

@@ -41,7 +41,7 @@ public class ActivityTimeLoggerTest extends AndroidTestCase {
     private ActivityTimeLogger mActivityTimeLogger;
 
     @Mock private Context mContext;
-    @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    @Mock private MetricsLoggerWrapper mMetricsLoggerWrapper;
     @Mock private AnalyticsUtils mAnalyticsUtils;
 
     @Override
@@ -52,7 +52,7 @@ public class ActivityTimeLoggerTest extends AndroidTestCase {
         MockitoAnnotations.initMocks(this);
 
         mActivityTimeLogger = new ActivityTimeLogger(mContext, CATEGORY,
-                mProvisioningAnalyticsTracker, mAnalyticsUtils);
+                mMetricsLoggerWrapper, mAnalyticsUtils);
     }
 
     @SmallTest
@@ -69,7 +69,7 @@ public class ActivityTimeLoggerTest extends AndroidTestCase {
 
         // THEN time taken by activity should be logged and the value should be stop time - the
         // start time.
-        verify(mProvisioningAnalyticsTracker).logActionWithInt(mContext, CATEGORY,
+        verify(mMetricsLoggerWrapper).logAction(mContext, CATEGORY,
                 (int) (STOP_TIME_MS - START_TIME_MS));
     }
 
@@ -87,13 +87,13 @@ public class ActivityTimeLoggerTest extends AndroidTestCase {
 
         // THEN time taken by activity should be logged and the value should be stop time - the
         // start time.
-        verify(mProvisioningAnalyticsTracker).logActionWithInt(mContext, CATEGORY,
+        verify(mMetricsLoggerWrapper).logAction(mContext, CATEGORY,
                 (int) (STOP_TIME_MS - START_TIME_MS));
 
         // WHEN the activity stops again.
         mActivityTimeLogger.stop();
         // THEN nothing should be logged.
-        verifyNoMoreInteractions(mProvisioningAnalyticsTracker);
+        verifyNoMoreInteractions(mMetricsLoggerWrapper);
     }
 
     @SmallTest
@@ -102,6 +102,6 @@ public class ActivityTimeLoggerTest extends AndroidTestCase {
         // WHEN the activity stops.
         mActivityTimeLogger.stop();
         // THEN nothing should be logged.
-        verifyZeroInteractions(mProvisioningAnalyticsTracker);
+        verifyZeroInteractions(mMetricsLoggerWrapper);
     }
 }

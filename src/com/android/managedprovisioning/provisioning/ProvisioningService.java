@@ -97,7 +97,7 @@ public class ProvisioningService extends Service
                     ProvisionLogger.logd("Starting provisioning service");
                     mParams =
                             intent.getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-                    logPackageInformation(mParams.inferDeviceAdminPackageName());
+                    mProvisioningAnalyticsTracker.logProvisioningStarted(this, mParams);
                     mController = buildController();
                     mController.initialize();
                     mController.start();
@@ -180,10 +180,5 @@ public class ProvisioningService extends Service
     @Override
     public IBinder onBind(Intent intent) {
         return null;
-    }
-
-    private void logPackageInformation(String packageName) {
-        mProvisioningAnalyticsTracker.logDPCPackageName(this, packageName);
-        mProvisioningAnalyticsTracker.logDpcInstalledByPackage(this, packageName);
     }
 }

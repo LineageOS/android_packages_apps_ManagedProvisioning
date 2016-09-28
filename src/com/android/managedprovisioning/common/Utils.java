@@ -484,13 +484,13 @@ public class Utils {
                 && info.getType() == ConnectivityManager.TYPE_WIFI;
     }
 
-    private NetworkInfo getActiveNetworkInfo(Context context) {
+    /**
+     * Returns the active network info of the device.
+     */
+    public NetworkInfo getActiveNetworkInfo(Context context) {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm != null) {
-            return cm.getActiveNetworkInfo();
-        }
-        return null;
+        return cm.getActiveNetworkInfo();
     }
 
     /**
