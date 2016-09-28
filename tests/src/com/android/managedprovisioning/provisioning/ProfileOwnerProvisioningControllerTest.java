@@ -34,7 +34,7 @@ import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.CopyAccountToUserTask;
@@ -65,7 +65,8 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
     private static final ComponentName TEST_ADMIN = new ComponentName("com.test.admin",
             "com.test.admin.AdminReceiver");
 
-    @Mock private AbstractProvisioningController.ProvisioningServiceInterface mService;
+    @Mock private ProvisioningControllerCallback mCallback;
+    @Mock private FinalizationController mFinalizationController;
     @Mock private UserManager mUserManager;
     private Context mContext;
     private ProvisioningParams mParams;
@@ -94,7 +95,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         createController();
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the create managed profile task is run first
         verifyTaskRun(CreateManagedProfileTask.class);
@@ -129,7 +130,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         taskSucceeded(CopyAccountToUserTask.class);
 
         // THEN the provisioning complete callback should have happened
-        verify(mService).provisioningComplete();
+        verify(mCallback).provisioningTasksCompleted();
     }
 
     @MediumTest
@@ -138,7 +139,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         createController();
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the create managed profile task is run first
         verifyTaskRun(CreateManagedProfileTask.class);
@@ -162,7 +163,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
                 latch.countDown();
                 return null;
             }
-        }).when(mService).cancelled();
+        }).when(mCallback).cleanUpCompleted();
 
         // WHEN the user cancels the provisioning progress
         mController.cancel();
@@ -186,7 +187,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         createController();
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the create managed profile task is run first
         verifyTaskRun(CreateManagedProfileTask.class);
@@ -206,7 +207,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         mController.onError(task, 0);
 
         // THEN the activity should be informed about the error
-        verify(mService).error(R.string.managed_provisioning_error_text, false);
+        verify(mCallback).error(R.string.managed_provisioning_error_text, false);
     }
 
     private void createController() {
@@ -219,8 +220,8 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
                 mContext,
                 mParams,
                 TEST_PARENT_USER_ID,
-                mService,
-                mHandler);
+                mCallback,
+                mFinalizationController);
         mController.initialize();
     }
 }

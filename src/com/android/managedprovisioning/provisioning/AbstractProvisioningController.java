@@ -23,10 +23,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Pair;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 
@@ -46,33 +46,41 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     protected final ProvisioningParams mParams;
     protected int mUserId;
 
-    private final ProvisioningServiceInterface mService;
-    private final Handler mHandler;
+    private final ProvisioningControllerCallback mCallback;
+    private final FinalizationController mFinalizationController;
+    private Handler mWorkerHandler;
 
+    // Provisioning hasn't started yet
     private static final int STATUS_NOT_STARTED = 0;
+    // Provisioning tasks are being run
     private static final int STATUS_RUNNING = 1;
-    private static final int STATUS_DONE = 2;
-    private static final int STATUS_ERROR = 3;
-    private static final int STATUS_CANCELLING = 4;
-    private static final int STATUS_CANCELLED = 5;
+    // Provisioning tasks have completed
+    private static final int STATUS_TASKS_COMPLETED = 2;
+    // Prefinalization has completed
+    private static final int STATUS_DONE = 3;
+    // An error occurred during provisioning
+    private static final int STATUS_ERROR = 4;
+    // Provisioning is being cancelled
+    private static final int STATUS_CANCELLING = 5;
+    // Cleanup has completed. This happens after STATUS_ERROR or STATUS_CANCELLING
+    private static final int STATUS_CLEANED_UP = 6;
 
     private int mStatus = STATUS_NOT_STARTED;
-    private Pair<Integer, Boolean> mError;
     private List<AbstractProvisioningTask> mTasks = new ArrayList<>();
 
     protected int mCurrentTaskIndex;
 
-    public AbstractProvisioningController(
+    AbstractProvisioningController(
             Context context,
             ProvisioningParams params,
             int userId,
-            ProvisioningServiceInterface service,
-            Handler handler) {
+            ProvisioningControllerCallback callback,
+            FinalizationController finalizationController) {
         mContext = checkNotNull(context);
         mParams = checkNotNull(params);
         mUserId = userId;
-        mService = checkNotNull(service);
-        mHandler = checkNotNull(handler);
+        mCallback = checkNotNull(callback);
+        mFinalizationController = checkNotNull(finalizationController);
     }
 
     /**
@@ -97,80 +105,62 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
      * Start the provisioning process. The tasks loaded in {@link #initialize()} will be processed
      * one by one and the respective callbacks will be given to the UI.
      */
-    public void start() {
+    public void start(Looper looper) {
+        start(new ProvisioningTaskHandler(looper));
+    }
+
+    @VisibleForTesting
+    void start(Handler handler) {
         if (mStatus != STATUS_NOT_STARTED) {
             return;
         }
+        mWorkerHandler = checkNotNull(handler);
 
         mStatus = STATUS_RUNNING;
         runTask(0);
     }
 
     /**
-     * Invoke a callback to the service about the current status of proceedings.
-     */
-    public void updateStatus() {
-        switch (mStatus) {
-            case STATUS_NOT_STARTED: {
-                start();
-                break;
-            }
-            case STATUS_RUNNING: {
-                updateProgress();
-                break;
-            }
-            case STATUS_ERROR: {
-                mService.error(mError.first, mError.second);
-                break;
-            }
-            case STATUS_CANCELLING: {
-                // No callback, wait for cancelling to complete
-                break;
-            }
-            case STATUS_CANCELLED: {
-                mService.cancelled();
-                break;
-            }
-            case STATUS_DONE: {
-                mService.provisioningComplete();
-                break;
-            }
-        }
-    }
-
-    /**
      * Cancel the provisioning progress. When the cancellation is complete, the
-     * {@link ProvisioningServiceInterface#cancelled()} callback will be given.
+     * {@link ProvisioningControllerCallback#cleanUpCompleted()} callback will be given.
      */
     public void cancel() {
-        if (mStatus != STATUS_RUNNING) {
+        if (mStatus != STATUS_RUNNING
+                && mStatus != STATUS_TASKS_COMPLETED
+                && mStatus != STATUS_CANCELLING
+                && mStatus != STATUS_CLEANED_UP
+                && mStatus != STATUS_ERROR) {
+            ProvisionLogger.logd("Cancel called, but status is " + mStatus);
             return;
         }
 
         ProvisionLogger.logd("ProvisioningController: cancelled");
         mStatus = STATUS_CANCELLING;
-        cleanup(STATUS_CANCELLED);
+        cleanup(STATUS_CLEANED_UP);
+    }
+
+    public void preFinalize() {
+        if (mStatus != STATUS_TASKS_COMPLETED) {
+            return;
+        }
+
+        mStatus = STATUS_DONE;
+        mFinalizationController.provisioningInitiallyDone(mParams);
+        mCallback.preFinalizationCompleted();
     }
 
     private void runTask(int index) {
-        Message msg = mHandler.obtainMessage(MSG_RUN_TASK, mUserId, 0 /* arg2 not used */,
-                mTasks.get(index));
-        mHandler.sendMessage(msg);
-        updateProgress();
+        AbstractProvisioningTask nextTask = mTasks.get(index);
+        Message msg = mWorkerHandler.obtainMessage(MSG_RUN_TASK, mUserId, 0 /* arg2 not used */,
+                nextTask);
+        mWorkerHandler.sendMessage(msg);
+        mCallback.progressUpdate(nextTask.getStatusMsgId());
     }
 
-    private void updateProgress() {
-        AbstractProvisioningTask task = mTasks.get(mCurrentTaskIndex);
-
-        if (task != null) {
-            mService.progressUpdate(task.getStatusMsgId());
-        }
-    }
-
-    private void provisioningComplete() {
-        mStatus = STATUS_DONE;
+    private void tasksCompleted() {
+        mStatus = STATUS_TASKS_COMPLETED;
         mCurrentTaskIndex = -1;
-        mService.provisioningComplete();
+        mCallback.provisioningTasksCompleted();
     }
 
     @Override
@@ -181,7 +171,7 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
 
         mCurrentTaskIndex++;
         if (mCurrentTaskIndex == mTasks.size()) {
-            provisioningComplete();
+            tasksCompleted();
         } else {
             runTask(mCurrentTaskIndex);
         }
@@ -189,23 +179,17 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
 
     @Override
     public void onError(AbstractProvisioningTask task, int errorCode) {
-        mError = Pair.create(
-                getErrorMsgId(task, errorCode),
-                getRequireFactoryReset(task, errorCode));
         mStatus = STATUS_ERROR;
         cleanup(STATUS_ERROR);
-        mService.error(mError.first, mError.second);
+        mCallback.error(getErrorMsgId(task, errorCode), getRequireFactoryReset(task, errorCode));
     }
 
     private void cleanup(final int newStatus) {
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
+        mWorkerHandler.post(() -> {
                 performCleanup();
                 mStatus = newStatus;
-                mService.cancelled();
-            }
-        });
+                mCallback.cleanUpCompleted();
+            });
     }
 
     /**
@@ -228,35 +212,5 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
                 ProvisionLogger.loge("Unknown message: " + msg.what);
             }
         }
-    }
-
-    /**
-     * Interface for communication with the provisioning service and in result with the UI.
-     */
-    public interface ProvisioningServiceInterface {
-        /**
-         * Method called when the provisioning process was successfully cancelled.
-         */
-        void cancelled();
-
-        /**
-         * Method called when an error was encountered during the provisioning process.
-         *
-         * @param errorMessageId resource id of the error message to be displayed to the user.
-         * @param factoryResetRequired indicating whether a factory reset is necessary.
-         */
-        void error(int errorMessageId, boolean factoryResetRequired);
-
-        /**
-         * Method called to indicate a progress update in the provisioning process.
-         *
-         * @param progressMessageId resource id of the progress message to be displayed to the user.
-         */
-        void progressUpdate(int progressMessageId);
-
-        /**
-         * Method called to indicate that the provisioning process has successfully completed.
-         */
-        void provisioningComplete();
     }
 }

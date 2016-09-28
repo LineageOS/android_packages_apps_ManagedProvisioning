@@ -19,13 +19,12 @@ package com.android.managedprovisioning.provisioning;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.CopyAccountToUserTask;
@@ -49,10 +48,8 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
             Context context,
             ProvisioningParams params,
             int userId,
-            ProvisioningServiceInterface service,
-            Looper looper) {
-        this(context, params, userId, service,
-                new AbstractProvisioningController.ProvisioningTaskHandler(looper));
+            ProvisioningControllerCallback callback) {
+        this(context, params, userId, callback, new FinalizationController(context));
     }
 
     @VisibleForTesting
@@ -60,9 +57,9 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
             Context context,
             ProvisioningParams params,
             int userId,
-            ProvisioningServiceInterface service,
-            Handler handler) {
-        super(context, params, userId, service, handler);
+            ProvisioningControllerCallback callback,
+            FinalizationController finalizationController) {
+        super(context, params, userId, callback, finalizationController);
         mParentUserId = userId;
     }
 
@@ -106,7 +103,7 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
     @Override
     protected void performCleanup() {
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(mParams.provisioningAction)
-                && mCurrentTaskIndex > 0) {
+                && mCurrentTaskIndex != 0) {
             ProvisionLogger.logd("Removing managed profile");
             UserManager um = mContext.getSystemService(UserManager.class);
             um.removeUser(mUserId);

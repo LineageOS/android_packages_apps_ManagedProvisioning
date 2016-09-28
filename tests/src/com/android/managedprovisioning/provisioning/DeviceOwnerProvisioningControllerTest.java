@@ -24,7 +24,7 @@ import static org.mockito.Mockito.verify;
 import android.content.ComponentName;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
@@ -61,7 +61,8 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
             .setSignatureChecksum(TEST_PACKAGE_CHECKSUM)
             .build();
 
-    @Mock private AbstractProvisioningController.ProvisioningServiceInterface mService;
+    @Mock private ProvisioningControllerCallback mCallback;
+    @Mock private FinalizationController mFinalizationController;
     private ProvisioningParams mParams;
 
     @SmallTest
@@ -70,7 +71,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         createController(TEST_WIFI_INFO, TEST_DOWNLOAD_INFO);
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the initialization task is run first
         taskSucceeded(DeviceOwnerInitializeProvisioningTask.class);
@@ -97,7 +98,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         taskSucceeded(DisallowAddUserTask.class);
 
         // THEN the provisioning complete callback should have happened
-        verify(mService).provisioningComplete();
+        verify(mCallback).provisioningTasksCompleted();
     }
 
     @SmallTest
@@ -106,7 +107,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         createController(null, TEST_DOWNLOAD_INFO);
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the initialization task is run first
         taskSucceeded(DeviceOwnerInitializeProvisioningTask.class);
@@ -130,7 +131,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         taskSucceeded(DisallowAddUserTask.class);
 
         // THEN the provisioning complete callback should have happened
-        verify(mService).provisioningComplete();
+        verify(mCallback).provisioningTasksCompleted();
     }
 
     @SmallTest
@@ -139,7 +140,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         createController(TEST_WIFI_INFO, null);
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the initialization task is run first
         taskSucceeded(DeviceOwnerInitializeProvisioningTask.class);
@@ -157,7 +158,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         taskSucceeded(DisallowAddUserTask.class);
 
         // THEN the provisioning complete callback should have happened
-        verify(mService).provisioningComplete();
+        verify(mCallback).provisioningTasksCompleted();
     }
 
     @SmallTest
@@ -166,7 +167,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         createController(TEST_WIFI_INFO, TEST_DOWNLOAD_INFO);
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the initialization task is run first
         taskSucceeded(DeviceOwnerInitializeProvisioningTask.class);
@@ -178,7 +179,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         mController.onError(task, 0);
 
         // THEN the onError callback should have been called without factory reset being required
-        verify(mService).error(anyInt(), eq(false));
+        verify(mCallback).error(anyInt(), eq(false));
     }
 
     @SmallTest
@@ -187,7 +188,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         createController(TEST_WIFI_INFO, TEST_DOWNLOAD_INFO);
 
         // WHEN starting the test run
-        mController.start();
+        mController.start(mHandler);
 
         // THEN the initialization task is run first
         taskSucceeded(DeviceOwnerInitializeProvisioningTask.class);
@@ -202,7 +203,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         mController.onError(task, 0);
 
         // THEN the onError callback should have been called with factory reset being required
-        verify(mService).error(anyInt(), eq(true));
+        verify(mCallback).error(anyInt(), eq(true));
     }
 
     private void createController(WifiInfo wifiInfo, PackageDownloadInfo downloadInfo) {
@@ -217,8 +218,8 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
                 getContext(),
                 mParams,
                 TEST_USER_ID,
-                mService,
-                mHandler);
+                mCallback,
+                mFinalizationController);
         mController.initialize();
     }
 }

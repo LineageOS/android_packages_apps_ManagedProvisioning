@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,18 +17,8 @@
 package com.android.managedprovisioning.provisioning;
 
 /**
- * Constants used for communication between service and activity.
+ * Interface for listeners to the {@link ProvisioningManager}. A listener can be registered for
+ * updated via {@link ProvisioningManager#registerListener(ProvisioningControllerCallback)}.
  */
-public final class Constants {
-    // Intents sent by the activity to the service
-    /**
-     * Intent action sent to the {@link ProvisioningService} to indicate that provisioning should be
-     * started.
-     */
-    public static final String ACTION_START_PROVISIONING =
-            "com.android.managedprovisioning.START_PROVISIONING";
-
-    private Constants() {
-        // Do not instantiate
-    }
+public interface ProvisioningManagerCallback extends ProvisioningControllerCallback {
 }
