@@ -28,8 +28,8 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  * Utility class to log metrics.
  */
 public class ProvisioningAnalyticsTracker {
-
-    public ProvisioningAnalyticsTracker() {}
+    private static final ProvisioningAnalyticsTracker sInstance =
+            new ProvisioningAnalyticsTracker();
 
     private final MetricsLoggerWrapper mMetricsLoggerWrapper = new MetricsLoggerWrapper();
 
@@ -42,6 +42,14 @@ public class ProvisioningAnalyticsTracker {
         logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
         logNetworkType(context);
         logProvisioningAction(context, params.provisioningAction);
+    }
+
+    public static ProvisioningAnalyticsTracker getInstance() {
+        return sInstance;
+    }
+
+    private ProvisioningAnalyticsTracker() {
+        // Disables instantiation. Use getInstance() instead.
     }
 
     /**

@@ -57,7 +57,7 @@ public class ProvisioningService extends Service
 
     private final Utils mUtils = new Utils();
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
-            new ProvisioningAnalyticsTracker();
+            ProvisioningAnalyticsTracker.getInstance();
 
     private AbstractProvisioningController mController;
     private HandlerThread mHandlerThread;
