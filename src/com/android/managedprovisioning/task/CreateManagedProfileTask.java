@@ -54,7 +54,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
     @Override
     public void run(int userId) {
         final Set<String> nonRequiredApps = mNonRequiredAppsHelper.getNonRequiredApps(userId);
-        UserInfo userInfo = mUserManager.createProfileForUser(
+        UserInfo userInfo = mUserManager.createProfileForUserEvenWhenDisallowed(
                 mContext.getString(R.string.default_managed_profile_name),
                 UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
                 userId, nonRequiredApps.toArray(new String[nonRequiredApps.size()]));
