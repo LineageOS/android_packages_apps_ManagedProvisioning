@@ -18,6 +18,7 @@ package com.android.managedprovisioning.analytics;
 
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 
 import android.content.Context;
 
@@ -31,6 +32,17 @@ public class ProvisioningAnalyticsTracker {
     public ProvisioningAnalyticsTracker() {}
 
     private final MetricsLoggerWrapper mMetricsLoggerWrapper = new MetricsLoggerWrapper();
+
+    /**
+     * Logs some metrics when the provisioning starts.
+     * @param context Context passed to MetricsLogger.
+     * @param params Provisioning params
+     */
+    public void logProvisioningStarted(Context context, ProvisioningParams params) {
+        logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
+        logNetworkType(context);
+        logProvisioningAction(context, params.provisioningAction);
+    }
 
     /**
      * Logs package information of the dpc.
@@ -58,12 +70,11 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
-     * Logs some metrics when the provisioning starts.
+     * Logs the provisioning action.
      * @param context Context passed to MetricsLogger.
-     * @param params Provisioning params
+     * @param provisioningAction Action that triggered provisioning.
      */
-    public void logProvisioningStarted(Context context, ProvisioningParams params) {
-        logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
-        logNetworkType(context);
+    private void logProvisioningAction(Context context, String provisioningAction) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_ACTION, provisioningAction);
     }
 }
