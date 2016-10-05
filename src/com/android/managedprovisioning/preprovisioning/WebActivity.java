@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
 
 import android.app.Activity;
 import android.content.Context;

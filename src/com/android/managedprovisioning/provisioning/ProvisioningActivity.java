@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
 import android.app.Activity;
 import android.app.DialogFragment;

@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;

@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.common;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 
 import android.app.Activity;
 import android.app.ActivityManager.TaskDescription;

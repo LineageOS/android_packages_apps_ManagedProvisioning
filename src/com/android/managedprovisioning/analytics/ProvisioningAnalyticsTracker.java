@@ -19,15 +19,15 @@ package com.android.managedprovisioning.analytics;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_CANCELLED;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_STATUS;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ERROR;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_CANCELLED;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_STATUS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ERROR;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 
 import android.annotation.IntDef;
 import android.content.Context;
