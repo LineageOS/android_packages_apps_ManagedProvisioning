@@ -17,10 +17,16 @@
 package com.android.managedprovisioning.analytics;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.android.managedprovisioning.ProvisionLogger;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Class containing various auxiliary methods used by provisioning analytics tracker.
@@ -28,6 +34,8 @@ import com.android.managedprovisioning.ProvisionLogger;
 public class AnalyticsUtils {
 
     public AnalyticsUtils() {}
+
+    private static final String PROVISIONING_EXTRA_PREFIX = "android.app.extra.PROVISIONING_";
 
     /**
      * Returns package name of the installer package, null if package is not present on the device
@@ -51,5 +59,33 @@ public class AnalyticsUtils {
      */
     public Long elapsedRealTime() {
         return SystemClock.elapsedRealtime();
+    }
+
+    /**
+     * Returns list of all valid provisioning extras sent by the dpc.
+     *
+     * @param intent Intent that started provisioning
+     */
+    @NonNull
+    public static List<String> getAllProvisioningExtras(Intent intent) {
+        List<String> provisioningExtras = new ArrayList<String>();
+        if (intent != null && intent.getExtras() != null) {
+            final Set<String> keys = intent.getExtras().keySet();
+            for (String key : keys) {
+                if (isValidProvisioningExtra(key)) {
+                    provisioningExtras.add(key);
+                }
+            }
+        }
+        return provisioningExtras;
+    }
+
+    /**
+     * Returns if a string is a valid provisioning extra.
+     */
+    private static boolean isValidProvisioningExtra(String provisioningExtra) {
+        // Currently it verifies using the prefix. We should further change this to verify using the
+        // actual DPM extras.
+        return provisioningExtra != null && provisioningExtra.startsWith(PROVISIONING_EXTRA_PREFIX);
     }
 }
