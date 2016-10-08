@@ -105,9 +105,6 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         when(createManagedProfileTask.getProfileUserId()).thenReturn(TEST_PROFILE_USER_ID);
         mController.onSuccess(createManagedProfileTask);
 
-        // THEN the delete non required apps task is run
-        taskSucceeded(DeleteNonRequiredAppsTask.class);
-
         // THEN the install existing package task is run
         taskSucceeded(InstallExistingPackageTask.class);
 
@@ -148,9 +145,6 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         CreateManagedProfileTask createManagedProfileTask = mock(CreateManagedProfileTask.class);
         when(createManagedProfileTask.getProfileUserId()).thenReturn(TEST_PROFILE_USER_ID);
         mController.onSuccess(createManagedProfileTask);
-
-        // THEN the delete non required apps task is run
-        taskSucceeded(DeleteNonRequiredAppsTask.class);
 
         // THEN the install existing package task is run
         AbstractProvisioningTask task = verifyTaskRun(InstallExistingPackageTask.class);
@@ -196,9 +190,6 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         CreateManagedProfileTask createManagedProfileTask = mock(CreateManagedProfileTask.class);
         when(createManagedProfileTask.getProfileUserId()).thenReturn(TEST_PROFILE_USER_ID);
         mController.onSuccess(createManagedProfileTask);
-
-        // THEN the delete non required apps task is run first
-        taskSucceeded(DeleteNonRequiredAppsTask.class);
 
         // THEN the install existing package task is run
         AbstractProvisioningTask task = verifyTaskRun(InstallExistingPackageTask.class);

@@ -16,12 +16,17 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import android.content.Context;
 import android.content.pm.UserInfo;
 import android.os.UserManager;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
+import java.util.Set;
 
 /**
  * Task to create a managed profile.
@@ -29,23 +34,39 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 public class CreateManagedProfileTask extends AbstractProvisioningTask {
 
     private int mProfileUserId;
+    private final NonRequiredAppsHelper mNonRequiredAppsHelper;
+    private final UserManager mUserManager;
 
-    public CreateManagedProfileTask(Context context, ProvisioningParams params, Callback callback) {
+    public CreateManagedProfileTask(Context context,
+            ProvisioningParams params, NonRequiredAppsHelper helper, Callback callback) {
+        this(context, params, helper, callback,
+                context.getSystemService(UserManager.class));
+    }
+
+    @VisibleForTesting
+    CreateManagedProfileTask(Context context, ProvisioningParams params,
+            NonRequiredAppsHelper helper, Callback callback, UserManager userManager) {
         super(context, params, callback);
+        mNonRequiredAppsHelper = checkNotNull(helper);
+        mUserManager = checkNotNull(userManager);
     }
 
     @Override
     public void run(int userId) {
-        UserManager um = mContext.getSystemService(UserManager.class);
-        UserInfo userInfo = um.createProfileForUser(
+        final Set<String> nonRequiredApps = mNonRequiredAppsHelper.getNonRequiredApps(userId);
+        UserInfo userInfo = mUserManager.createProfileForUser(
                 mContext.getString(R.string.default_managed_profile_name),
                 UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
-                userId);
+                userId, nonRequiredApps.toArray(new String[nonRequiredApps.size()]));
         if (userInfo == null) {
             error(0);
             return;
         }
         mProfileUserId = userInfo.id;
+        // When OTA occurs, we need to compute the non-required apps and delete them. And for
+        // that we need to know the set of system apps prior to OTA. So, save the current system
+        // apps to a file.
+        mNonRequiredAppsHelper.writeCurrentSystemAppsIfNeeded(mProfileUserId);
         success();
     }
 
