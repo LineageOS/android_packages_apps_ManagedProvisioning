@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +26,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 
 /**
@@ -35,7 +35,7 @@ import com.android.managedprovisioning.common.Utils;
  * web view can be limited to urls that start with this base.
  *
  * <p>This activity is currently used by the
- * {@link com.android.managedprovisioning.UserConsentDialog} to display the google support web page
+ * {@link UserConsentDialog} to display the google support web page
  * about the provisioning concepts.
  */
 public class WebActivity extends Activity {

@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.os.Bundle;
 
 /**

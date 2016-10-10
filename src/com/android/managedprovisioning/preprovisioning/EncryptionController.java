@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
@@ -29,12 +29,12 @@ import android.os.Looper;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.parser.MessageParser;
+
 import java.io.File;
 
 /**

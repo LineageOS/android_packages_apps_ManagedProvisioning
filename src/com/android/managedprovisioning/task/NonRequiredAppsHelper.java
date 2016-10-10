@@ -40,7 +40,7 @@ import android.view.inputmethod.InputMethodInfo;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.view.IInputMethodManager;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;

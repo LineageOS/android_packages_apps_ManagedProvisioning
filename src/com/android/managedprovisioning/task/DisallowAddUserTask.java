@@ -22,7 +22,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 

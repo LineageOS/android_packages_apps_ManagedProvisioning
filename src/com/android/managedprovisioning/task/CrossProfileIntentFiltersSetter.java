@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.task;
+
+import static android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -22,12 +24,13 @@ import android.hardware.usb.UsbManager;
 import android.provider.AlarmClock;
 import android.provider.MediaStore;
 
-import static android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH;
+import com.android.managedprovisioning.common.ProvisionLogger;
+
 /**
  * Class to set CrossProfileIntentFilters during managed profile creation, and reset them after an
  * ota.
  */
-public class CrossProfileIntentFiltersHelper {
+public class CrossProfileIntentFiltersSetter {
 
     public static void setFilters(PackageManager pm, int parentUserId, int managedProfileUserId) {
         ProvisionLogger.logd("Setting cross-profile intent filters");

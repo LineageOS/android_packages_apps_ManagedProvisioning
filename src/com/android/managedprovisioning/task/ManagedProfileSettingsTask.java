@@ -24,8 +24,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 
-import com.android.managedprovisioning.CrossProfileIntentFiltersHelper;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -55,7 +54,7 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
             dpm.setOrganizationColorForUser(mProvisioningParams.mainColor, userId);
         }
 
-        CrossProfileIntentFiltersHelper.setFilters(
+        CrossProfileIntentFiltersSetter.setFilters(
                 mContext.getPackageManager(), UserHandle.myUserId(), userId);
 
         // always mark managed profile setup as completed

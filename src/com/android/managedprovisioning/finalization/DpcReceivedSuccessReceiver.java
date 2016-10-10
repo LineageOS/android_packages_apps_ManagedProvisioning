@@ -28,7 +28,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 
 /**

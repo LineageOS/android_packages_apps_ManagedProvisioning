@@ -28,7 +28,7 @@ import android.database.Cursor;
 import android.net.Uri;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.Utils;

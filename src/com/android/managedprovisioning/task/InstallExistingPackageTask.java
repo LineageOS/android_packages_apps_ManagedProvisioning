@@ -3,7 +3,7 @@ package com.android.managedprovisioning.task;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 

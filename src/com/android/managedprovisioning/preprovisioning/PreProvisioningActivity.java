@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import android.annotation.NonNull;
 import android.app.Activity;
@@ -31,12 +31,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.managedprovisioning.DeleteManagedProfileDialog;
-import com.android.managedprovisioning.LogoUtils;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.LogoUtils;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.SetupLayoutActivity;
-import com.android.managedprovisioning.UserConsentDialog;
+import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.SimpleDialog;

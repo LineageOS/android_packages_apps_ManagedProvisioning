@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 
@@ -24,22 +24,18 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
 import android.annotation.NonNull;
-import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.app.KeyguardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.AsyncTask;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.Settings.Global;
 import android.service.persistentdata.PersistentDataBlockManager;
-import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.ActivityTimeLogger;
@@ -48,7 +44,7 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 
 import java.util.List;

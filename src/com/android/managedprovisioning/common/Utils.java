@@ -59,7 +59,6 @@ import android.provider.Settings.Secure;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.ProvisionLogger;
 import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 

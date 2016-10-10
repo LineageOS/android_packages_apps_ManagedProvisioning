@@ -26,16 +26,10 @@ import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONIN
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.annotation.IntDef;
-import android.annotation.NonNull;
 import android.content.Context;
-import android.os.SystemClock;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.analytics.MetricsLoggerWrapper;
-import com.android.managedprovisioning.ProvisionLogger;
-import com.android.internal.logging.MetricsLogger;
-import java.util.HashMap;
-import java.util.Map;
+import com.android.managedprovisioning.common.ProvisionLogger;
 
 /**
  * Utility class to log time taken by each activity.

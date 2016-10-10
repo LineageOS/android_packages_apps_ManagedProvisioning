@@ -23,7 +23,7 @@ import android.content.Context;
 import android.net.NetworkInfo;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 
 /**

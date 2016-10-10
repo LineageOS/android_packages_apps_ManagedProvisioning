@@ -4,7 +4,7 @@ import android.app.AlarmManager;
 import android.content.Context;
 
 import com.android.internal.app.LocalePicker;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 

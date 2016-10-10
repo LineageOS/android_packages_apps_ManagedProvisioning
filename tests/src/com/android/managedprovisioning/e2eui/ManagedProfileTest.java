@@ -28,7 +28,7 @@ import android.view.View;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.uiflows.PreProvisioningActivity;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 import org.hamcrest.Matcher;
 
 import java.util.List;

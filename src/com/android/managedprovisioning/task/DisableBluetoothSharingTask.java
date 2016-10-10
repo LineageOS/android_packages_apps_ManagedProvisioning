@@ -19,7 +19,7 @@ package com.android.managedprovisioning.task;
 import android.content.ComponentName;
 import android.content.Context;
 
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;

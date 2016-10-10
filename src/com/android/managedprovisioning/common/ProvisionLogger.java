@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.common;
 
 import android.content.Context;
 import android.util.Log;

@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.preprovisioning;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-
-import com.android.managedprovisioning.uiflows.EncryptionController;
 
 /**
  * Class that handles the resuming process that takes place after a reboot during the provisioning

@@ -23,7 +23,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.SetupLayoutActivity;
+import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;

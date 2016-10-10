@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
@@ -22,12 +22,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.managedprovisioning.BootReminder;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.SetupLayoutActivity;
+import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.parser.MessageParser;
 
 /**
  * Activity to ask for permission to activate full-filesystem encryption.

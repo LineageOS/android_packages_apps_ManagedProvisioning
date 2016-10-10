@@ -23,10 +23,8 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 
-import com.android.managedprovisioning.NetworkMonitor;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.WifiConfig;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;

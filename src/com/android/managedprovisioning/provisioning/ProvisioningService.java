@@ -23,7 +23,7 @@ import android.content.Intent;
 import android.os.HandlerThread;
 import android.os.IBinder;
 
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 
 /**
  * Service that runs the provisioning process. This service creates a {@link HandlerThread} for the

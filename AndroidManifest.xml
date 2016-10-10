@@ -71,7 +71,7 @@
              android:theme="@style/SetupWorkSpaceTheme">
         </activity>
         <activity
-            android:name=".uiflows.PreProvisioningActivity"
+            android:name=".preprovisioning.PreProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
@@ -90,7 +90,7 @@
         -->
         <activity-alias
             android:name=".PreProvisioningActivityViaNfc"
-            android:targetActivity=".uiflows.PreProvisioningActivity"
+            android:targetActivity=".preprovisioning.PreProvisioningActivity"
             android:permission="android.permission.DISPATCH_NFC_MESSAGE"
             android:exported="true">
             <intent-filter android:priority="10">
@@ -105,7 +105,7 @@
         -->
         <activity-alias
             android:name=".PreProvisioningActivityViaTrustedApp"
-            android:targetActivity=".uiflows.PreProvisioningActivity"
+            android:targetActivity=".preprovisioning.PreProvisioningActivity"
             android:permission="android.permission.DISPATCH_PROVISIONING_MESSAGE"
             android:exported="true">
             <intent-filter android:priority="10">
@@ -118,7 +118,7 @@
         <!-- Entry to resume encryption after reboot. -->
         <activity-alias
             android:name=".PreProvisioningActivityAfterEncryption"
-            android:targetActivity=".uiflows.PreProvisioningActivity"
+            android:targetActivity=".preprovisioning.PreProvisioningActivity"
             android:exported="false">
             <intent-filter android:priority="10">
                 <action
@@ -128,14 +128,14 @@
             </intent-filter>
         </activity-alias>
         <activity
-            android:name=".uiflows.EncryptDeviceActivity"
+            android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
             android:launchMode="singleTop"
             android:theme="@style/SetupWorkSpaceTheme">
         </activity>
 
         <activity
-            android:name=".uiflows.WebActivity"
+            android:name=".preprovisioning.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
             android:process=":webview"
@@ -153,7 +153,7 @@
             So, we explicitly specify a taskAffinity for this instead of a package default to make
             sure it starts in a new task.
         -->
-        <activity android:name=".uiflows.PostEncryptionActivity"
+        <activity android:name=".preprovisioning.PostEncryptionActivity"
             android:theme="@android:style/Theme.NoDisplay"
             android:noHistory="true"
             android:excludeFromRecents="true"
@@ -170,7 +170,7 @@
             android:name=".provisioning.ProvisioningService" >
         </service>
 
-        <receiver android:name="com.android.managedprovisioning.BootReminder">
+        <receiver android:name="com.android.managedprovisioning.preprovisioning.BootReminder">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

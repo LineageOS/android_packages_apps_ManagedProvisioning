@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning.uiflows;
+package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
@@ -44,7 +44,6 @@ import android.test.suitebuilder.annotation.SmallTest;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.analytics.ActivityTimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;

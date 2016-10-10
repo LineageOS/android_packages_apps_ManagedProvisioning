@@ -20,7 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 import com.android.managedprovisioning.TestInstrumentationRunner;
-import com.android.managedprovisioning.uiflows.PreProvisioningActivity;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 
 public class TestPreProvisioningActivity extends PreProvisioningActivity {
     private static final String TAG = "TestPreProvisioningActivity";

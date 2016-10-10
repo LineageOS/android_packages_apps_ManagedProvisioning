@@ -39,7 +39,7 @@ import android.support.annotation.Nullable;
 import android.util.Xml;
 
 import com.android.internal.util.FastXmlSerializer;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StoreUtils;
 
 import java.io.File;

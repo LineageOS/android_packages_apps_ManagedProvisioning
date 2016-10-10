@@ -18,7 +18,7 @@ package com.android.managedprovisioning.analytics;
 
 import android.content.Context;
 import com.android.internal.logging.MetricsLogger;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.ProvisionLogger;
 
 /**
  * Utility class to log metrics using MetricsLogger.

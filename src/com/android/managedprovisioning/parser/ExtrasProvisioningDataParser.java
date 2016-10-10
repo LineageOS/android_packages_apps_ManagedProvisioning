@@ -59,8 +59,8 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import com.android.managedprovisioning.LogoUtils;
-import com.android.managedprovisioning.ProvisionLogger;
+import com.android.managedprovisioning.common.LogoUtils;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;

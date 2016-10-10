@@ -26,12 +26,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
-import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
+import com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
@@ -154,7 +155,7 @@ public class PreBootListener extends BroadcastReceiver {
                 continue;
             }
             mPackageManager.clearCrossProfileIntentFilters(profile.id);
-            CrossProfileIntentFiltersHelper.setFilters(
+            CrossProfileIntentFiltersSetter.setFilters(
                     mPackageManager, userId, profile.id);
         }
     }

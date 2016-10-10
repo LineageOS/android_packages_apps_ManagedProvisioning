@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.task;
 
 import android.net.ProxyInfo;
 import android.net.IpConfiguration.ProxySettings;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+
+import com.android.managedprovisioning.common.ProvisionLogger;
 
 import java.util.Locale;
 
