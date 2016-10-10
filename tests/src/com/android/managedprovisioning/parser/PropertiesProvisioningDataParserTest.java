@@ -58,6 +58,7 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
 import java.io.ByteArrayOutputStream;
 import java.util.Locale;
 import java.util.Properties;
@@ -81,6 +82,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final boolean TEST_SKIP_USER_SETUP = true;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
+    private static final String INVALID_MIME_TYPE = "invalid-mime-type";
 
     // Wifi info
     private static final String TEST_SSID = "TestWifi";
@@ -215,6 +217,42 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         } catch (IllegalProvisioningArgumentException e) {
             // THEN IllegalProvisioningArgumentException is thrown.
         }
+    }
+
+    public void testGetFirstNdefRecord_nullNdefMessages() {
+        // GIVEN nfc intent with no ndef messages
+        Intent nfcIntent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED);
+        // WHEN getting first ndef record
+        // THEN it should return null
+        assertNull(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent));
+    }
+
+    public void testGetFirstNdefRecord_noNfcMimeType() {
+        // GIVEN nfc intent with no ndf message with a record with a valid mime type.
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        NdefRecord record = NdefRecord.createMime(INVALID_MIME_TYPE, stream.toByteArray());
+        NdefMessage ndfMsg = new NdefMessage(new NdefRecord[]{record});
+        Intent nfcIntent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED)
+                .setType(MIME_TYPE_PROVISIONING_NFC)
+                .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
+        // WHEN getting first ndef record
+        // THEN it should return null
+        assertNull(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent));
+    }
+
+    public void testGetFirstNdefRecord() {
+        // GIVEN nfc intent with valid ndf message with a record with mime type nfc.
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        NdefRecord record = NdefRecord.createMime(
+                DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC,
+                stream.toByteArray());
+        NdefMessage ndfMsg = new NdefMessage(new NdefRecord[]{record});
+        Intent nfcIntent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED)
+                .setType(MIME_TYPE_PROVISIONING_NFC)
+                .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
+        // WHEN getting first ndef record
+        // THEN valid record should be returned
+        assertEquals(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent), record);
     }
 
     private static Properties setTestWifiInfo(Properties props) {

@@ -241,20 +241,23 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
     /**
      * @return the first {@link NdefRecord} found with a recognized MIME-type
      */
-    private NdefRecord getFirstNdefRecord(Intent nfcIntent) {
+    public static NdefRecord getFirstNdefRecord(Intent nfcIntent) {
         // Only one first message with NFC_MIME_TYPE is used.
-        for (Parcelable rawMsg : nfcIntent.getParcelableArrayExtra(
-                NfcAdapter.EXTRA_NDEF_MESSAGES)) {
-            NdefMessage msg = (NdefMessage) rawMsg;
-            for (NdefRecord record : msg.getRecords()) {
-                String mimeType = new String(record.getType(), UTF_8);
+        final Parcelable[] ndefMessages = nfcIntent.getParcelableArrayExtra(
+                NfcAdapter.EXTRA_NDEF_MESSAGES);
+        if (ndefMessages != null) {
+            for (Parcelable rawMsg : ndefMessages) {
+                NdefMessage msg = (NdefMessage) rawMsg;
+                for (NdefRecord record : msg.getRecords()) {
+                    String mimeType = new String(record.getType(), UTF_8);
 
-                if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
-                    return record;
+                    if (MIME_TYPE_PROVISIONING_NFC.equals(mimeType)) {
+                        return record;
+                    }
+
+                    // Assume only first record of message is used.
+                    break;
                 }
-
-                // Assume only first record of message is used.
-                break;
             }
         }
         return null;

@@ -16,17 +16,26 @@
 
 package com.android.managedprovisioning.analytics;
 
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.NdefRecord;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.Properties;
 
 /**
  * Class containing various auxiliary methods used by provisioning analytics tracker.
@@ -68,6 +77,18 @@ public class AnalyticsUtils {
      */
     @NonNull
     public static List<String> getAllProvisioningExtras(Intent intent) {
+        if (intent == null || ACTION_RESUME_PROVISIONING.equals(intent.getAction())) {
+            // Provisioning extras should have already been logged for resume case.
+            return new ArrayList<String>();
+        } else if (ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+            return getExtrasFromProperties(intent);
+        } else {
+            return getExtrasFromBundle(intent);
+        }
+    }
+
+    @NonNull
+    private static List<String> getExtrasFromBundle(Intent intent) {
         List<String> provisioningExtras = new ArrayList<String>();
         if (intent != null && intent.getExtras() != null) {
             final Set<String> keys = intent.getExtras().keySet();
@@ -75,6 +96,26 @@ public class AnalyticsUtils {
                 if (isValidProvisioningExtra(key)) {
                     provisioningExtras.add(key);
                 }
+            }
+        }
+        return provisioningExtras;
+    }
+
+    @NonNull
+    private static List<String> getExtrasFromProperties(Intent intent) {
+        List<String> provisioningExtras = new ArrayList<String>();
+        NdefRecord firstRecord = PropertiesProvisioningDataParser.getFirstNdefRecord(intent);
+        if (firstRecord != null) {
+            try {
+                Properties props = new Properties();
+                props.load(new StringReader(new String(firstRecord.getPayload(), UTF_8)));
+                final Set<String> keys = props.stringPropertyNames();
+                for (String key : keys) {
+                    if (isValidProvisioningExtra(key)) {
+                        provisioningExtras.add(key);
+                    }
+                }
+            } catch (IOException e) {
             }
         }
         return provisioningExtras;

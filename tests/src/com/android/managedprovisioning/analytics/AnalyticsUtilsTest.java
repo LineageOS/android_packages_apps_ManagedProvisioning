@@ -18,15 +18,24 @@ package com.android.managedprovisioning.analytics;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
+import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static org.mockito.Mockito.when;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
+import java.util.Properties;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -78,9 +87,27 @@ public class AnalyticsUtilsTest extends AndroidTestCase {
         assertEquals(0, provisioningExtras.size());
     }
 
-    public void testGetAllProvisioningExtras_NullExtras() {
+    public void testGetAllProvisioningExtras_ProvisioningResume() {
+        // GIVEN provisioning was resumed
+        Intent intent = new Intent(ACTION_RESUME_PROVISIONING);
+        // WHEN getting provisioning extras using resume provisioning intent.
+        List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
+        // THEN an empty list of valid provisioning extras should be returned.
+        assertEquals(0, provisioningExtras.size());
+    }
+
+    public void testGetAllProvisioningExtras_NullBundleExtras() {
         // GIVEN intent has null extras
-        Intent intent = new Intent();
+        Intent intent = new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE);
+        // WHEN getting provisioning extras with null extras
+        List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
+        // THEN an empty list of valid provisioning extras should be returned.
+        assertEquals(0, provisioningExtras.size());
+    }
+
+    public void testGetAllProvisioningExtras_NullNfcProperties() throws Exception {
+        // GIVEN intent has null extras
+        Intent intent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED);
         // WHEN getting provisioning extras with null extras
         List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
         // THEN an empty list of valid provisioning extras should be returned.
@@ -89,15 +116,41 @@ public class AnalyticsUtilsTest extends AndroidTestCase {
 
     public void testGetAllProvisioningExtras() {
         // GIVEN intent with both valid and invalid provisioning extras
-        Intent intent = new Intent();
+        Intent intent = new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE);
         intent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, "");
         intent.putExtra(INVALID_PROVISIONING_EXTRA, "");
         intent.putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, "");
         // WHEN getting provisioning extras using the intent
         List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
-        // THEN an empty list of valid provisioning extras should be returned.
+        // THEN a list of valid provisioning extras should be returned.
         assertEquals(2, provisioningExtras.size());
         provisioningExtras.contains(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
         provisioningExtras.contains(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+    }
+
+    public void testGetAllProvisioningExtras_Nfc() throws Exception {
+        // GIVEN a Nfc intent with both valid and invalid provisioning extras
+        Properties props = new Properties();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        props.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, "");
+        props.setProperty(INVALID_PROVISIONING_EXTRA, "");
+        props.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, "");
+        props.store(stream, "NFC provisioning intent" /* data description */);
+
+        NdefRecord record = NdefRecord.createMime(
+                DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC,
+                stream.toByteArray());
+        NdefMessage ndfMsg = new NdefMessage(new NdefRecord[]{record});
+
+        Intent intent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED)
+                .setType(MIME_TYPE_PROVISIONING_NFC)
+                .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
+
+        // WHEN getting provisioning extras using the intent
+        List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
+        // THEN a list of valid provisioning extras should be returned.
+        assertEquals(2, provisioningExtras.size());
+        provisioningExtras.contains(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME);
+        provisioningExtras.contains(EXTRA_PROVISIONING_MAIN_COLOR);
     }
 }

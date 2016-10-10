@@ -58,7 +58,7 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
-     * Logs all the provisionign extras passed by the dpc.
+     * Logs all the provisioning extras passed by the dpc.
      *
      * @param context Context passed to MetricsLogger
      * @param intent Intent that started provisioning
