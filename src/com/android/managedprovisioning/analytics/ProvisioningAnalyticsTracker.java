@@ -16,13 +16,17 @@
 
 package com.android.managedprovisioning.analytics;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
+
+import java.util.List;
 
 /**
  * Utility class to log metrics.
@@ -33,17 +37,6 @@ public class ProvisioningAnalyticsTracker {
 
     private final MetricsLoggerWrapper mMetricsLoggerWrapper = new MetricsLoggerWrapper();
 
-    /**
-     * Logs some metrics when the provisioning starts.
-     * @param context Context passed to MetricsLogger.
-     * @param params Provisioning params
-     */
-    public void logProvisioningStarted(Context context, ProvisioningParams params) {
-        logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
-        logNetworkType(context);
-        logProvisioningAction(context, params.provisioningAction);
-    }
-
     public static ProvisioningAnalyticsTracker getInstance() {
         return sInstance;
     }
@@ -53,9 +46,35 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
+     * Logs some metrics when the provisioning starts.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param params Provisioning params
+     */
+    public void logProvisioningStarted(Context context, ProvisioningParams params) {
+        logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
+        logNetworkType(context);
+        logProvisioningAction(context, params.provisioningAction);
+    }
+
+    /**
+     * Logs all the provisionign extras passed by the dpc.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param intent Intent that started provisioning
+     */
+    public void logProvisioningExtras(Context context, Intent intent) {
+        final List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
+        for (String extra : provisioningExtras) {
+            mMetricsLoggerWrapper.logAction(context, PROVISIONING_EXTRA, extra);
+        }
+    }
+
+    /**
      * Logs package information of the dpc.
-     * @param context Context passed to MetricsLogger.
-     * @param dpcPackageName Package name of the dpc.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param dpcPackageName Package name of the dpc
      */
     private void logDpcPackageInformation(Context context, String dpcPackageName) {
         // Logs package name of the dpc.
@@ -70,7 +89,8 @@ public class ProvisioningAnalyticsTracker {
 
     /**
      * Logs the network type to which the device is connected.
-     * @param context Context passed to MetricsLogger.
+     *
+     * @param context Context passed to MetricsLogger
      */
     private void logNetworkType(Context context) {
         NetworkTypeLogger networkTypeLogger = new NetworkTypeLogger(context);
@@ -79,8 +99,9 @@ public class ProvisioningAnalyticsTracker {
 
     /**
      * Logs the provisioning action.
-     * @param context Context passed to MetricsLogger.
-     * @param provisioningAction Action that triggered provisioning.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param provisioningAction Action that triggered provisioning
      */
     private void logProvisioningAction(Context context, String provisioningAction) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ACTION, provisioningAction);

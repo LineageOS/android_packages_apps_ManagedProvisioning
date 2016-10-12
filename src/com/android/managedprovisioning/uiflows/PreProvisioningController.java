@@ -43,6 +43,7 @@ import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.ActivityTimeLogger;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -67,6 +68,8 @@ public class PreProvisioningController {
     private final KeyguardManager mKeyguardManager;
     private final PersistentDataBlockManager mPdbManager;
     private final ActivityTimeLogger mActivityTimeLogger;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
+            ProvisioningAnalyticsTracker.getInstance();
 
     private ProvisioningParams mParams;
     private boolean mIsProfileOwnerProvisioning;
@@ -217,6 +220,7 @@ public class PreProvisioningController {
         }
 
         mActivityTimeLogger.start();
+        mProvisioningAnalyticsTracker.logProvisioningExtras(mContext, intent);
         // Initiate the corresponding provisioning mode
         if (mIsProfileOwnerProvisioning) {
             initiateProfileOwnerProvisioning(intent);
