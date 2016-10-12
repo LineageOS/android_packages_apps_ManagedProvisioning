@@ -15,17 +15,17 @@
  */
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_START_ENCRYPTION;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
 
-import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -38,43 +38,42 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 public class EncryptDeviceActivity extends SetupLayoutActivity {
     private ProvisioningParams mParams;
 
+    protected EncryptionController getEncryptionController() {
+        return EncryptionController.getInstance(this);
+    }
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mParams = (ProvisioningParams) getIntent().getParcelableExtra(
-                ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         if (mParams == null) {
             ProvisionLogger.loge("Missing params in EncryptDeviceActivity activity");
             finish();
+            return;
         }
 
-        if (mUtils.isProfileOwnerAction(mParams.provisioningAction)) {
+        if (getUtils().isProfileOwnerAction(mParams.provisioningAction)) {
             initializeUi(R.string.setup_work_profile,
                     R.string.setup_profile_encryption,
                     R.string.encrypt_device_text_for_profile_owner_setup);
-        } else if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+        } else if (getUtils().isDeviceOwnerAction(mParams.provisioningAction)) {
             initializeUi(R.string.setup_work_device,
                     R.string.setup_device_encryption,
                     R.string.encrypt_device_text_for_device_owner_setup);
         } else {
             ProvisionLogger.loge("Unknown provisioning action: " + mParams.provisioningAction);
             finish();
+            return;
         }
 
         Button encryptButton = (Button) findViewById(R.id.encrypt_button);
-        encryptButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    EncryptionController.getInstance(EncryptDeviceActivity.this)
-                            .setEncryptionReminder(mParams);
+        encryptButton.setOnClickListener((View v) -> {
+                    getEncryptionController().setEncryptionReminder(mParams);
                     // Use settings so user confirms password/pattern and its passed
                     // to encryption tool.
-                    Intent intent = new Intent();
-                    intent.setAction(DevicePolicyManager.ACTION_START_ENCRYPTION);
-                    startActivity(intent);
-                }
-            });
+                    startActivity(new Intent(ACTION_START_ENCRYPTION));
+                });
     }
 
     @Override

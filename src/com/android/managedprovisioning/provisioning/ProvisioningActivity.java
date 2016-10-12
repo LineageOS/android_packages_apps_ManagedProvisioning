@@ -52,10 +52,6 @@ public class ProvisioningActivity extends SetupLayoutActivity
         return ProvisioningManager.getInstance(this);
     }
 
-    protected Utils getUtils() {
-        return mUtils;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
