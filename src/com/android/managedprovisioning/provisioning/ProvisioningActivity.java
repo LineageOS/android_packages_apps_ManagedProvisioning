@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -45,13 +46,21 @@ public class ProvisioningActivity extends SetupLayoutActivity
     private TextView mProgressTextView;
     private ProvisioningParams mParams;
 
+    protected ProvisioningManager getProvisioningManager() {
+        return ProvisioningManager.getInstance(this);
+    }
+
+    protected Utils getUtils() {
+        return mUtils;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
 
-        ProvisioningManager.getInstance(this).initiateProvisioning(mParams);
+        getProvisioningManager().initiateProvisioning(mParams);
 
         initializeUi(mParams);
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
@@ -60,12 +69,12 @@ public class ProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onResume() {
         super.onResume();
-        ProvisioningManager.getInstance(this).registerListener(this);
+        getProvisioningManager().registerListener(this);
     }
 
     @Override
     public void onPause() {
-        ProvisioningManager.getInstance(this).unregisterListener(this);
+        getProvisioningManager().unregisterListener(this);
         super.onPause();
     }
 
@@ -87,7 +96,7 @@ public class ProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void provisioningTasksCompleted() {
-        ProvisioningManager.getInstance(this).preFinalize();
+        getProvisioningManager().preFinalize();
     }
 
     @Override
@@ -107,12 +116,12 @@ public class ProvisioningActivity extends SetupLayoutActivity
 
         // Stop listening for further updates to avoid finishing the activity after cleanup has
         // completed
-        ProvisioningManager.getInstance(this).unregisterListener(this);
+        getProvisioningManager().unregisterListener(this);
         showDialog(dialogBuilder, resetRequired ? ERROR_DIALOG_RESET : ERROR_DIALOG_OK);
     }
 
-    protected void showCancelProvisioningDialog() {
-        final boolean isDoProvisioning = mUtils.isDeviceOwnerAction(mParams.provisioningAction);
+    private void showCancelProvisioningDialog() {
+        final boolean isDoProvisioning = getUtils().isDeviceOwnerAction(mParams.provisioningAction);
         final String dialogTag = isDoProvisioning ? CANCEL_PROVISIONING_DIALOG_RESET
                 : CANCEL_PROVISIONING_DIALOG_OK;
         final int positiveResId = isDoProvisioning ? R.string.device_owner_error_reset
@@ -130,7 +139,7 @@ public class ProvisioningActivity extends SetupLayoutActivity
 
         // Temporarily stop listening for further updates to avoid the UI changing whilst the user
         // is contemplating cancelling the progress
-        ProvisioningManager.getInstance(this).unregisterListener(this);
+        getProvisioningManager().unregisterListener(this);
         showDialog(dialogBuilder, dialogTag);
     }
 
@@ -139,13 +148,13 @@ public class ProvisioningActivity extends SetupLayoutActivity
         finish();
     }
 
-     @Override
+    @Override
     public void onNegativeButtonClick(DialogFragment dialog) {
         switch (dialog.getTag()) {
             case CANCEL_PROVISIONING_DIALOG_OK:
             case CANCEL_PROVISIONING_DIALOG_RESET:
                 dialog.dismiss();
-                ProvisioningManager.getInstance(this).registerListener(this);
+                getProvisioningManager().registerListener(this);
                 break;
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
@@ -156,18 +165,18 @@ public class ProvisioningActivity extends SetupLayoutActivity
     public void onPositiveButtonClick(DialogFragment dialog) {
         switch (dialog.getTag()) {
             case CANCEL_PROVISIONING_DIALOG_OK:
-                ProvisioningManager.getInstance(this).cancelProvisioning();
+                getProvisioningManager().cancelProvisioning();
                 onProvisioningAborted();
                 break;
             case CANCEL_PROVISIONING_DIALOG_RESET:
-                mUtils.sendFactoryResetBroadcast(this, "DO provisioning cancelled by user");
+                getUtils().sendFactoryResetBroadcast(this, "DO provisioning cancelled by user");
                 onProvisioningAborted();
                 break;
             case ERROR_DIALOG_OK:
                 onProvisioningAborted();
                 break;
             case ERROR_DIALOG_RESET:
-                mUtils.sendFactoryResetBroadcast(this, "Error during DO provisioning");
+                getUtils().sendFactoryResetBroadcast(this, "Error during DO provisioning");
                 onProvisioningAborted();
                 break;
             default:
@@ -176,7 +185,7 @@ public class ProvisioningActivity extends SetupLayoutActivity
     }
 
     private void initializeUi(ProvisioningParams params) {
-        final boolean isDoProvisioning = mUtils.isDeviceOwnerAction(params.provisioningAction);
+        final boolean isDoProvisioning = getUtils().isDeviceOwnerAction(params.provisioningAction);
         final int headerResId = isDoProvisioning ? R.string.setup_work_device
                 : R.string.setting_up_workspace;
         final int titleResId = isDoProvisioning ? R.string.setup_device_progress
