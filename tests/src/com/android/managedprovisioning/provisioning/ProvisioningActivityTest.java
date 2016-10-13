@@ -19,6 +19,7 @@ package com.android.managedprovisioning.provisioning;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -34,6 +35,8 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.provider.Settings;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
 
@@ -42,7 +45,9 @@ import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -74,7 +79,27 @@ public class ProvisioningActivityTest {
 
     @Mock private ProvisioningManager mProvisioningManager;
     @Mock private Utils mUtils;
-    private ProvisioningActivity mActivity;
+    private static int mRotationLocked;
+
+    @BeforeClass
+    public static void setUpClass() {
+        // Stop the activity from rotating in order to keep hold of the context
+        Context context = InstrumentationRegistry.getTargetContext();
+
+        mRotationLocked = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 0);
+        Settings.System.putInt(context.getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 0);
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+        // Reset the rotation value back to what it was before the test
+        Context context = InstrumentationRegistry.getTargetContext();
+
+        Settings.System.putInt(context.getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, mRotationLocked);
+    }
 
     @Before
     public void setUp() {
@@ -106,7 +131,8 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
         // WHEN the activity is paused
-        mActivityRule.runOnUiThread(() -> mActivity.onPause());
+        InstrumentationRegistry.getInstrumentation()
+                .callActivityOnPause(mActivityRule.getActivity());
 
         // THEN the listener is unregistered
         verify(mProvisioningManager).unregisterListener(any(ProvisioningManagerCallback.class));
@@ -119,7 +145,8 @@ public class ProvisioningActivityTest {
         final int progressMsgId = R.string.progress_initialize;
 
         // WHEN a progress update was posted
-        mActivityRule.runOnUiThread(() -> mActivity.progressUpdate(progressMsgId));
+        mActivityRule.runOnUiThread(()
+                -> mActivityRule.getActivity().progressUpdate(progressMsgId));
 
         // THEN the UI should show the progress update
         onView(withId(R.id.prog_text)).check(matches(withText(progressMsgId)));
@@ -132,7 +159,7 @@ public class ProvisioningActivityTest {
 
         // WHEN an error occurred that does not require factory reset
         final int errorMsgId = R.string.managed_provisioning_error_text;
-        mActivityRule.runOnUiThread(() -> mActivity.error(errorMsgId, false));
+        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().error(errorMsgId, false));
 
         // THEN the UI should show an error dialog
         onView(withText(errorMsgId)).check(matches(isDisplayed()));
@@ -143,7 +170,7 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN the activity should be finishing
-        assertTrue(mActivity.isFinishing());
+        assertTrue(mActivityRule.getActivity().isFinishing());
     }
 
     @Test
@@ -153,7 +180,7 @@ public class ProvisioningActivityTest {
 
         // WHEN an error occurred that does not require factory reset
         final int errorMsgId = R.string.managed_provisioning_error_text;
-        mActivityRule.runOnUiThread(() -> mActivity.error(errorMsgId, true));
+        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().error(errorMsgId, true));
 
         // THEN the UI should show an error dialog
         onView(withText(errorMsgId)).check(matches(isDisplayed()));
@@ -173,7 +200,7 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
         // WHEN the user tries to cancel
-        mActivityRule.runOnUiThread(() -> mActivity.onBackPressed());
+        pressBack();
 
         // THEN the cancel dialog should be shown
         onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
@@ -184,10 +211,10 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN the activity should not be finished
-        assertFalse(mActivity.isFinishing());
+        assertFalse(mActivityRule.getActivity().isFinishing());
 
         // WHEN the user tries to cancel
-        mActivityRule.runOnUiThread(() -> mActivity.onBackPressed());
+        pressBack();
 
         // THEN the cancel dialog should be shown
         onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
@@ -201,7 +228,7 @@ public class ProvisioningActivityTest {
         verify(mProvisioningManager).cancelProvisioning();
 
         // THEN the activity should be finished
-        assertTrue(mActivity.isFinishing());
+        assertTrue(mActivityRule.getActivity().isFinishing());
     }
 
     @Test
@@ -210,7 +237,7 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(DEVICE_OWNER_INTENT);
 
         // WHEN the user tries to cancel
-        mActivityRule.runOnUiThread(() -> mActivity.onBackPressed());
+        pressBack();
 
         // THEN the cancel dialog should be shown
         onView(withText(R.string.device_owner_cancel_message)).check(matches(isDisplayed()));
@@ -221,10 +248,10 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN the activity should not be finished
-        assertFalse(mActivity.isFinishing());
+        assertFalse(mActivityRule.getActivity().isFinishing());
 
         // WHEN the user tries to cancel
-        mActivityRule.runOnUiThread(() -> mActivity.onBackPressed());
+        pressBack();
 
         // THEN the cancel dialog should be shown
         onView(withText(R.string.device_owner_cancel_message)).check(matches(isDisplayed()));
@@ -244,20 +271,21 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
         // WHEN provisioning completes successfully
-        mActivityRule.runOnUiThread(() -> mActivity.provisioningTasksCompleted());
+        mActivityRule.runOnUiThread(()
+                -> mActivityRule.getActivity().provisioningTasksCompleted());
 
         // THEN preFinalization should be invoked
         verify(mProvisioningManager).preFinalize();
 
         // WHEN preFinalization is completed
-        mActivityRule.runOnUiThread(() -> mActivity.preFinalizationCompleted());
+        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().preFinalizationCompleted());
 
         // THEN the activity should finish
-        assertTrue(mActivity.isFinishing());
+        assertTrue(mActivityRule.getActivity().isFinishing());
     }
 
     private void launchActivityAndWait(Intent intent) {
-        mActivity = mActivityRule.launchActivity(intent);
+        mActivityRule.launchActivity(intent);
         onView(withId(R.id.setup_wizard_layout));
     }
 }
