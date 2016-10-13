@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.common;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.Fragment;
@@ -24,10 +26,12 @@ import android.app.FragmentTransaction;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.ActivityTimeLogger;
 import com.android.setupwizardlib.GlifLayout;
 
 /**
@@ -35,6 +39,25 @@ import com.android.setupwizardlib.GlifLayout;
  */
 public abstract class SetupLayoutActivity extends Activity {
     protected final Utils mUtils = new Utils();
+
+    private ActivityTimeLogger mActivityTimeLogger;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mActivityTimeLogger = new ActivityTimeLogger(this, getMetricsCategory());
+        mActivityTimeLogger.start();
+    }
+
+    @Override
+    public void onDestroy() {
+        mActivityTimeLogger.stop();
+        super.onDestroy();
+    }
+
+    protected int getMetricsCategory() {
+        return VIEW_UNKNOWN;
+    }
 
     protected void initializeLayoutParams(int layoutResourceId, int headerResourceId,
             boolean showProgressBar) {

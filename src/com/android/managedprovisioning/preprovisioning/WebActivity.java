@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +27,7 @@ import android.view.View.OnLongClickListener;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
+import com.android.managedprovisioning.analytics.ActivityTimeLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 
@@ -47,12 +49,15 @@ public class WebActivity extends Activity {
 
     private WebView mWebView;
     private final Utils mUtils = new Utils();
+    private ActivityTimeLogger mActivityTimeLogger;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mWebView = new WebView(this);
+        mActivityTimeLogger = new ActivityTimeLogger(this, PROVISIONING_WEB_ACTIVITY_TIME_MS);
+
         final String extraUrl = getIntent().getStringExtra(EXTRA_URL);
         final String extraAllowedUrlBase = getIntent().getStringExtra(EXTRA_ALLOWED_URL_BASE);
         if (extraUrl == null) {
@@ -80,7 +85,14 @@ public class WebActivity extends Activity {
                 }
             });
         }
+        mActivityTimeLogger.start();
         this.setContentView(mWebView);
+    }
+
+    @Override
+    public void onDestroy() {
+        mActivityTimeLogger.stop();
+        super.onDestroy();
     }
 
     /**
