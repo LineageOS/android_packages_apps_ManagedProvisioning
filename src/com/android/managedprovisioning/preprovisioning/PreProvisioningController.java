@@ -16,10 +16,9 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
-
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
@@ -216,7 +215,7 @@ public class PreProvisioningController {
         }
 
         mActivityTimeLogger.start();
-        mProvisioningAnalyticsTracker.logProvisioningExtras(mContext, intent);
+        mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
         // Initiate the corresponding provisioning mode
         if (mIsProfileOwnerProvisioning) {
             initiateProfileOwnerProvisioning(intent);

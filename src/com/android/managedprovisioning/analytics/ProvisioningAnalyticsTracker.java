@@ -16,9 +16,11 @@
 
 package com.android.managedprovisioning.analytics;
 
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 
 import android.content.Context;
@@ -58,15 +60,38 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
+     * Logs some metrics when the preprovisioning starts.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param intent Intent that started provisioning
+     */
+    public void logPreProvisioningStarted(Context context, Intent intent) {
+        logProvisioningExtras(context, intent);
+        maybeLogNFCProvisioning(context, intent);
+    }
+
+    /**
      * Logs all the provisioning extras passed by the dpc.
      *
      * @param context Context passed to MetricsLogger
      * @param intent Intent that started provisioning
      */
-    public void logProvisioningExtras(Context context, Intent intent) {
+    private void logProvisioningExtras(Context context, Intent intent) {
         final List<String> provisioningExtras = AnalyticsUtils.getAllProvisioningExtras(intent);
         for (String extra : provisioningExtras) {
             mMetricsLoggerWrapper.logAction(context, PROVISIONING_EXTRA, extra);
+        }
+    }
+
+    /**
+     * Logs if provisioning was started by a NFC bump.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param intent Intent that started provisioning
+     */
+    private void maybeLogNFCProvisioning(Context context, Intent intent) {
+        if (intent != null && ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+            mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_NFC);
         }
     }
 
