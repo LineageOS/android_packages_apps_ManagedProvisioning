@@ -29,6 +29,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
+import android.annotation.ColorInt;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
@@ -43,6 +44,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
@@ -56,6 +58,7 @@ import android.os.UserManager;
 import android.os.storage.StorageManager;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
+import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -77,6 +80,9 @@ import java.util.Set;
 public class Utils {
     public static final String SHA256_TYPE = "SHA-256";
     public static final String SHA1_TYPE = "SHA-1";
+
+    private static final int THRESHOLD_BRIGHT_COLOR = 160; // A color needs a brightness of at least
+    // this value to be considered bright. (brightness being between 0 and 255).
 
     public Utils() {}
 
@@ -624,5 +630,12 @@ public class Utils {
             }
         }
         return hash;
+    }
+
+    public boolean isBrightColor(int color) {
+        // This comes from the YIQ transformation. We're using the formula:
+        // Y = .299 * R + .587 * G + .114 * B
+        return Color.red(color) * 299 + Color.green(color) * 587 + Color.blue(color) * 114
+                >= 1000 * THRESHOLD_BRIGHT_COLOR;
     }
 }
