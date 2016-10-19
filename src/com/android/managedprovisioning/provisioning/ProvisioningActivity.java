@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
@@ -118,6 +120,11 @@ public class ProvisioningActivity extends SetupLayoutActivity
         // completed
         getProvisioningManager().unregisterListener(this);
         showDialog(dialogBuilder, resetRequired ? ERROR_DIALOG_RESET : ERROR_DIALOG_OK);
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
     }
 
     private void showCancelProvisioningDialog() {

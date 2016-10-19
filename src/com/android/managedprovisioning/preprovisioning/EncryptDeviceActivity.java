@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.preprovisioning;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
+
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,6 +75,11 @@ public class EncryptDeviceActivity extends SetupLayoutActivity {
                     startActivity(intent);
                 }
             });
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
     }
 
     private void initializeUi(int headerRes, int titleRes, int mainTextRes) {
