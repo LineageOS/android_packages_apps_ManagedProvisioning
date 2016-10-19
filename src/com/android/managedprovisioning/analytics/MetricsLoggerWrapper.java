@@ -50,4 +50,15 @@ public class MetricsLoggerWrapper {
         ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
         MetricsLogger.action(context, category, value);
     }
+
+    /**
+     * Wrapper to log action.
+     *
+     * @param context Context passed to MetricsLogger.
+     * @param category Metrics category to be logged.
+     */
+    public void logAction(Context context, int category) {
+        ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category);
+        MetricsLogger.action(context, category);
+    }
 }
