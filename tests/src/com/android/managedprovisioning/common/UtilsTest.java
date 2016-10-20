@@ -36,6 +36,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ParceledListSlice;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -313,6 +314,13 @@ public class UtilsTest extends AndroidTestCase {
         // THEN computeHashOfFile should return null
         assertNull(mUtils.computeHashOfFile(fileLocation, Utils.SHA256_TYPE));
         assertNull(mUtils.computeHashOfFile(fileLocation, Utils.SHA1_TYPE));
+    }
+
+    public void testBrightColors() {
+        assertTrue(mUtils.isBrightColor(Color.WHITE));
+        assertTrue(mUtils.isBrightColor(Color.YELLOW));
+        assertFalse(mUtils.isBrightColor(Color.BLACK));
+        assertFalse(mUtils.isBrightColor(Color.BLUE));
     }
 
     private ApplicationInfo createApplicationInfo(String packageName, boolean system) {

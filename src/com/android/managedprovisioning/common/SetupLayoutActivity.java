@@ -27,6 +27,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -86,6 +87,14 @@ public abstract class SetupLayoutActivity extends Activity {
         Drawable logo = LogoUtils.getOrganisationLogo(this);
         layout.setIcon(logo);
         layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
+        View decorView = window.getDecorView();
+        int visibility = decorView.getSystemUiVisibility();
+        if (mUtils.isBrightColor(mainColor)) {
+            visibility |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        } else {
+            visibility &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        }
+        decorView.setSystemUiVisibility(visibility);
     }
 
     /**
