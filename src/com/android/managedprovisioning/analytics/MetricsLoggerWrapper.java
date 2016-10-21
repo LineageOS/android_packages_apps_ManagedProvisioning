@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.analytics;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+
 import android.content.Context;
 import com.android.internal.logging.MetricsLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -36,7 +38,9 @@ public class MetricsLoggerWrapper {
      */
     public void logAction(Context context, int category, String value) {
         ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
-        MetricsLogger.action(context, category, value);
+        if (category != VIEW_UNKNOWN) {
+            MetricsLogger.action(context, category, value);
+        }
     }
 
     /**
@@ -48,7 +52,9 @@ public class MetricsLoggerWrapper {
      */
     public void logAction(Context context, int category, int value) {
         ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
-        MetricsLogger.action(context, category, value);
+        if (category != VIEW_UNKNOWN) {
+            MetricsLogger.action(context, category, value);
+        }
     }
 
     /**
@@ -59,6 +65,8 @@ public class MetricsLoggerWrapper {
      */
     public void logAction(Context context, int category) {
         ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category);
-        MetricsLogger.action(context, category);
+        if (category != VIEW_UNKNOWN) {
+            MetricsLogger.action(context, category);
+        }
     }
 }

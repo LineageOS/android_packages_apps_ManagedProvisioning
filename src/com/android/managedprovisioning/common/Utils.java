@@ -418,6 +418,10 @@ public class Utils {
             // NFC cases which need to take mime-type into account.
             case ACTION_NDEF_DISCOVERED:
                 String mimeType = intent.getType();
+                if (mimeType == null) {
+                    throw new IllegalProvisioningArgumentException(
+                            "Unknown NFC bump mime-type: " + mimeType);
+                }
                 switch (mimeType) {
                     case MIME_TYPE_PROVISIONING_NFC:
                         dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
