@@ -16,11 +16,14 @@
 
 package com.android.managedprovisioning.analytics;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 
 import android.content.Context;
@@ -67,7 +70,7 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logPreProvisioningStarted(Context context, Intent intent) {
         logProvisioningExtras(context, intent);
-        maybeLogNFCProvisioning(context, intent);
+        maybeLogEntryPoint(context, intent);
     }
 
     /**
@@ -84,14 +87,22 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
-     * Logs if provisioning was started by a NFC bump.
+     * Logs some entry points to provisioning.
      *
      * @param context Context passed to MetricsLogger
      * @param intent Intent that started provisioning
      */
-    private void maybeLogNFCProvisioning(Context context, Intent intent) {
-        if (intent != null && ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_NFC);
+    private void maybeLogEntryPoint(Context context, Intent intent) {
+        if (intent == null || intent.getAction() == null) {
+            return;
+        }
+        switch (intent.getAction()) {
+            case ACTION_NDEF_DISCOVERED:
+                mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_NFC);
+                break;
+            case ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE:
+                mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE);
+                break;
         }
     }
 
