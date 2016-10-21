@@ -61,6 +61,10 @@ public abstract class SetupLayoutActivity extends Activity {
         return VIEW_UNKNOWN;
     }
 
+    protected Utils getUtils() {
+        return mUtils;
+    }
+
     protected void initializeLayoutParams(int layoutResourceId, int headerResourceId,
             boolean showProgressBar) {
         setContentView(layoutResourceId);
@@ -90,7 +94,7 @@ public abstract class SetupLayoutActivity extends Activity {
         layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
         View decorView = window.getDecorView();
         int visibility = decorView.getSystemUiVisibility();
-        if (mUtils.isBrightColor(mainColor)) {
+        if (getUtils().isBrightColor(mainColor)) {
             visibility |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         } else {
             visibility &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
