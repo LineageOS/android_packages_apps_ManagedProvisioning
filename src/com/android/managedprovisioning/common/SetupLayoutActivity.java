@@ -19,6 +19,7 @@ package com.android.managedprovisioning.common;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 
 import android.app.Activity;
+import android.app.ActivityManager.TaskDescription;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -95,6 +96,8 @@ public abstract class SetupLayoutActivity extends Activity {
             visibility &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         }
         decorView.setSystemUiVisibility(visibility);
+        setTaskDescription(new TaskDescription(null /* label */, null /* icon */,
+                mainColor));
     }
 
     /**
