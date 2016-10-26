@@ -20,9 +20,6 @@ import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONIN
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_TRAMPOLINE_ACTIVITY_TIME_MS;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_POST_ENCRYPTION_ACTIVITY_TIME_MS;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_FINALIZATION_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.annotation.IntDef;
@@ -46,10 +43,7 @@ public class ActivityTimeLogger {
             PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS,
             PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS,
             PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS,
-            PROVISIONING_WEB_ACTIVITY_TIME_MS,
-            PROVISIONING_TRAMPOLINE_ACTIVITY_TIME_MS,
-            PROVISIONING_POST_ENCRYPTION_ACTIVITY_TIME_MS,
-            PROVISIONING_FINALIZATION_ACTIVITY_TIME_MS})
+            PROVISIONING_WEB_ACTIVITY_TIME_MS})
     public @interface ActivityTimeCategory {}
 
     public ActivityTimeLogger(Context context, @ActivityTimeCategory int category) {
@@ -72,10 +66,9 @@ public class ActivityTimeLogger {
      * Notifies the logger when the activity is actually staring.
      */
     public void start() {
-        final long startTime = mAnalyticsUtils.elapsedRealTime();
-        ProvisionLogger
-                .logi("ActivityTimeLogger, category:" + mCategory + ", start time:" + startTime);
-        mActivityStartTime = startTime;
+        mActivityStartTime = mAnalyticsUtils.elapsedRealTime();
+        ProvisionLogger.logi(
+                "ActivityTimeLogger, category:" + mCategory + ", start time:" + mActivityStartTime);
     }
 
     /**
