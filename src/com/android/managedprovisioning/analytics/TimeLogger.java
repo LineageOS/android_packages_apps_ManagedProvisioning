@@ -29,29 +29,29 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 
 /**
- * Utility class to log time taken by each activity.
+ * Utility class to log time.
  */
-public class ActivityTimeLogger {
+public class TimeLogger {
 
     private final int mCategory;
     private final Context mContext;
     private final MetricsLoggerWrapper mMetricsLoggerWrapper;
     private final AnalyticsUtils mAnalyticsUtils;
-    private Long mActivityStartTime;
+    private Long mStartTime;
 
     @IntDef({
             PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS,
             PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS,
             PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS,
             PROVISIONING_WEB_ACTIVITY_TIME_MS})
-    public @interface ActivityTimeCategory {}
+    public @interface TimeCategory {}
 
-    public ActivityTimeLogger(Context context, @ActivityTimeCategory int category) {
+    public TimeLogger(Context context, @TimeCategory int category) {
         this(context, category, new MetricsLoggerWrapper(), new AnalyticsUtils());
     }
 
     @VisibleForTesting
-    ActivityTimeLogger(
+    TimeLogger(
             Context context,
             int category,
             MetricsLoggerWrapper metricsLoggerWrapper,
@@ -63,31 +63,28 @@ public class ActivityTimeLogger {
     }
 
     /**
-     * Notifies the logger when the activity is actually staring.
+     * Notifies start time to logger.
      */
     public void start() {
-        mActivityStartTime = mAnalyticsUtils.elapsedRealTime();
+        mStartTime = mAnalyticsUtils.elapsedRealTime();
         ProvisionLogger.logi(
-                "ActivityTimeLogger, category:" + mCategory + ", start time:" + mActivityStartTime);
+                "TimeLogger, category:" + mCategory + ", start time:" + mStartTime);
     }
 
     /**
-     * Notifies the logger when the activity is stopping. Call is ignored if there is no
-     * corresponding start time for the activity.
+     * Notifies stop time to logger. Call is ignored if there is no start time.
      */
     public void stop() {
-        // Ignore logging activity time if we couldn't find start time.
-        if (mActivityStartTime != null) {
-            // Activity wouldn't run for 25 days, so int should be fine.
-            final int time = (int) (mAnalyticsUtils.elapsedRealTime() - mActivityStartTime);
-            ProvisionLogger
-                    .logi("ActivityTimeLogger, category:" + mCategory + ", total time:" + time);
+        // Ignore logging time if we couldn't find start time.
+        if (mStartTime != null) {
+            // Provisioning wouldn't run for 25 days, so int should be fine.
+            final int time = (int) (mAnalyticsUtils.elapsedRealTime() - mStartTime);
+            ProvisionLogger.logi("TimeLogger, category:" + mCategory + ", total time:" + time);
             // Clear stored start time, we shouldn't log total time twice for same start time.
-            mActivityStartTime = null;
+            mStartTime = null;
             mMetricsLoggerWrapper.logAction(mContext, mCategory, time);
         } else {
-            ProvisionLogger.logi(
-                    "ActivityTimeLogger, category:" + mCategory + ", no corresponding start time");
+            ProvisionLogger.logi("TimeLogger, category:" + mCategory + ", no start time");
         }
     }
 }

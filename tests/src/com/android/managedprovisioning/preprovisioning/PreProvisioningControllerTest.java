@@ -45,7 +45,7 @@ import android.text.TextUtils;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.analytics.ActivityTimeLogger;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.parser.MessageParser;
@@ -75,7 +75,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     @Mock private Utils mUtils;
     @Mock private Intent mIntent;
     @Mock private EncryptionController mEncryptionController;
-    @Mock private ActivityTimeLogger mActivityTimeLogger;
+    @Mock private TimeLogger mTimeLogger;
 
     private ProvisioningParams mParams;
 
@@ -109,8 +109,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mKeyguardManager.inKeyguardRestrictedInputMode()).thenReturn(false);
         when(mDevicePolicyManager.getStorageEncryptionStatus())
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_INACTIVE);
-        mController = new PreProvisioningController(mContext, mUi, mActivityTimeLogger,
-                mMessageParser, mUtils, mEncryptionController);
+        mController = new PreProvisioningController(mContext, mUi, mTimeLogger, mMessageParser,
+                mUtils, mEncryptionController);
     }
 
     public void testManagedProfile() throws Exception {

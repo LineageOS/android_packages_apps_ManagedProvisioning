@@ -37,7 +37,7 @@ import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.analytics.ActivityTimeLogger;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;
@@ -62,7 +62,7 @@ public class PreProvisioningController {
     private final ActivityManager mActivityManager;
     private final KeyguardManager mKeyguardManager;
     private final PersistentDataBlockManager mPdbManager;
-    private final ActivityTimeLogger mActivityTimeLogger;
+    private final TimeLogger mTimeLogger;
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
             ProvisioningAnalyticsTracker.getInstance();
 
@@ -73,7 +73,7 @@ public class PreProvisioningController {
             @NonNull Context context,
             @NonNull Ui ui) {
         this(context, ui,
-                new ActivityTimeLogger(context, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
+                new TimeLogger(context, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
                 new MessageParser(), new Utils(), EncryptionController.getInstance(context));
     }
 
@@ -81,13 +81,13 @@ public class PreProvisioningController {
     PreProvisioningController(
             @NonNull Context context,
             @NonNull Ui ui,
-            @NonNull ActivityTimeLogger activityTimeLogger,
+            @NonNull TimeLogger timeLogger,
             @NonNull MessageParser parser,
             @NonNull Utils utils,
             @NonNull EncryptionController encryptionController) {
         mContext = checkNotNull(context, "Context must not be null");
         mUi = checkNotNull(ui, "Ui must not be null");
-        mActivityTimeLogger = checkNotNull(activityTimeLogger, "Activity logger must not be null");
+        mTimeLogger = checkNotNull(timeLogger, "Time logger must not be null");
         mMessageParser = checkNotNull(parser, "MessageParser must not be null");
         mUtils = checkNotNull(utils, "Utils must not be null");
         mEncryptionController = checkNotNull(encryptionController,
@@ -214,7 +214,7 @@ public class PreProvisioningController {
             return;
         }
 
-        mActivityTimeLogger.start();
+        mTimeLogger.start();
         mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
         // Initiate the corresponding provisioning mode
         if (mIsProfileOwnerProvisioning) {
@@ -360,7 +360,7 @@ public class PreProvisioningController {
         } else {
             // Cancel the boot reminder as provisioning has now started.
             mEncryptionController.cancelEncryptionReminder();
-            stopActivityTimeLogger();
+            stopTimeLogger();
             mUi.startProfileOwnerProvisioning(mParams);
         }
     }
@@ -392,7 +392,7 @@ public class PreProvisioningController {
             // Create the primary user, and continue the provisioning in this user.
             new CreatePrimaryUserTask().execute();
         } else {
-            stopActivityTimeLogger();
+            stopTimeLogger();
             mUi.startDeviceOwnerProvisioning(mUserManager.getUserHandle(), mParams);
         }
     }
@@ -467,10 +467,10 @@ public class PreProvisioningController {
     }
 
     /**
-     * Notifies the activity time logger that the activity has finished.
+     * Notifies the time logger to stop.
      */
-    public void stopActivityTimeLogger() {
-        mActivityTimeLogger.stop();
+    public void stopTimeLogger() {
+        mTimeLogger.stop();
     }
 
     // TODO: review the use of async task for the case where the activity might have got killed
@@ -495,7 +495,7 @@ public class PreProvisioningController {
                         "Could not create user to hold the device owner");
             } else {
                 mActivityManager.switchUser(userInfo.id);
-                stopActivityTimeLogger();
+                stopTimeLogger();
                 mUi.startDeviceOwnerProvisioning(userInfo.id, mParams);
             }
         }

@@ -29,16 +29,16 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 /**
- * Unit-tests for {@link ActivityTimeLogger}.
+ * Unit-tests for {@link TimeLogger}.
  */
 @SmallTest
-public class ActivityTimeLoggerTest extends AndroidTestCase {
+public class TimeLoggerTest extends AndroidTestCase {
 
     private static final int CATEGORY = 1;
     private static final long START_TIME_MS = 1500;
     private static final long STOP_TIME_MS = 2500;
 
-    private ActivityTimeLogger mActivityTimeLogger;
+    private TimeLogger mTimeLogger;
 
     @Mock private Context mContext;
     @Mock private MetricsLoggerWrapper mMetricsLoggerWrapper;
@@ -51,56 +51,53 @@ public class ActivityTimeLoggerTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
-        mActivityTimeLogger = new ActivityTimeLogger(mContext, CATEGORY,
-                mMetricsLoggerWrapper, mAnalyticsUtils);
+        mTimeLogger = new TimeLogger(mContext, CATEGORY, mMetricsLoggerWrapper, mAnalyticsUtils);
     }
 
     @SmallTest
-    public void testActivityTime_withStartTime() {
+    public void testTimeLogger_withStartTime() {
         // GIVEN that START_TIME_MS is the elapsed real time.
         when(mAnalyticsUtils.elapsedRealTime()).thenReturn(START_TIME_MS);
-        // WHEN the activity starts.
-        mActivityTimeLogger.start();
+        // WHEN logging time starts.
+        mTimeLogger.start();
 
         // GIVEN that STOP_TIME_MS is the elapsed real time.
         when(mAnalyticsUtils.elapsedRealTime()).thenReturn(STOP_TIME_MS);
-        // WHEN the activity stops.
-        mActivityTimeLogger.stop();
+        // WHEN logging time stops.
+        mTimeLogger.stop();
 
-        // THEN time taken by activity should be logged and the value should be stop time - the
-        // start time.
+        // THEN time taken should be logged and the value should be stop time - start time.
         verify(mMetricsLoggerWrapper).logAction(mContext, CATEGORY,
                 (int) (STOP_TIME_MS - START_TIME_MS));
     }
 
     @SmallTest
-    public void testActivityTime_withStartTime_stopsTwice() {
+    public void testTimeLogger_withStartTime_stopsTwice() {
         // GIVEN that START_TIME_MS is the elapsed real time.
         when(mAnalyticsUtils.elapsedRealTime()).thenReturn(START_TIME_MS);
-        // WHEN the activity starts.
-        mActivityTimeLogger.start();
+        // WHEN logging time starts.
+        mTimeLogger.start();
 
         // GIVEN that STOP_TIME_MS is the elapsed real time.
         when(mAnalyticsUtils.elapsedRealTime()).thenReturn(STOP_TIME_MS);
-        // WHEN the activity stops.
-        mActivityTimeLogger.stop();
+        // WHEN logging time stops.
+        mTimeLogger.stop();
 
-        // THEN time taken by activity should be logged and the value should be stop time - the
-        // start time.
+        // THEN time taken should be logged and the value should be stop time - start time.
         verify(mMetricsLoggerWrapper).logAction(mContext, CATEGORY,
                 (int) (STOP_TIME_MS - START_TIME_MS));
 
-        // WHEN the activity stops again.
-        mActivityTimeLogger.stop();
+        // WHEN logging time stops.
+        mTimeLogger.stop();
         // THEN nothing should be logged.
         verifyNoMoreInteractions(mMetricsLoggerWrapper);
     }
 
     @SmallTest
-    public void testActivityTime_withoutStartTime() {
-        // GIVEN activity was never started.
-        // WHEN the activity stops.
-        mActivityTimeLogger.stop();
+    public void testTimeLogger_withoutStartTime() {
+        // GIVEN there is no start time.
+        // WHEN logging time stops.
+        mTimeLogger.stop();
         // THEN nothing should be logged.
         verifyZeroInteractions(mMetricsLoggerWrapper);
     }

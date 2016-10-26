@@ -33,7 +33,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.analytics.ActivityTimeLogger;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.setupwizardlib.GlifLayout;
 
 /**
@@ -42,18 +42,18 @@ import com.android.setupwizardlib.GlifLayout;
 public abstract class SetupLayoutActivity extends Activity {
     protected final Utils mUtils = new Utils();
 
-    private ActivityTimeLogger mActivityTimeLogger;
+    private TimeLogger mTimeLogger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActivityTimeLogger = new ActivityTimeLogger(this, getMetricsCategory());
-        mActivityTimeLogger.start();
+        mTimeLogger = new TimeLogger(this, getMetricsCategory());
+        mTimeLogger.start();
     }
 
     @Override
     public void onDestroy() {
-        mActivityTimeLogger.stop();
+        mTimeLogger.stop();
         super.onDestroy();
     }
 
