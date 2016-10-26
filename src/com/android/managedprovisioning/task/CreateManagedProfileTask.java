@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_CREATE_PROFILE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
@@ -53,6 +54,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
 
     @Override
     public void run(int userId) {
+        startTaskTimer();
         final Set<String> nonRequiredApps = mNonRequiredAppsHelper.getNonRequiredApps(userId);
         UserInfo userInfo = mUserManager.createProfileForUserEvenWhenDisallowed(
                 mContext.getString(R.string.default_managed_profile_name),
@@ -67,12 +69,18 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
         // that we need to know the set of system apps prior to OTA. So, save the current system
         // apps to a file.
         mNonRequiredAppsHelper.writeCurrentSystemAppsIfNeeded(mProfileUserId);
+        stopTaskTimer();
         success();
     }
 
     @Override
     public int getStatusMsgId() {
         return R.string.progress_initialize;
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_CREATE_PROFILE_TASK_MS;
     }
 
     public int getProfileUserId() {

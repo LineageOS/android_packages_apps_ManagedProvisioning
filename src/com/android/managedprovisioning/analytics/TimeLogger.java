@@ -16,9 +16,14 @@
 
 package com.android.managedprovisioning.analytics;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_TASK_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_CREATE_PROFILE_TASK_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_INSTALL_PACKAGE_TASK_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
@@ -43,7 +48,12 @@ public class TimeLogger {
             PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS,
             PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS,
             PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS,
-            PROVISIONING_WEB_ACTIVITY_TIME_MS})
+            PROVISIONING_WEB_ACTIVITY_TIME_MS,
+            PROVISIONING_COPY_ACCOUNT_TASK_MS,
+            PROVISIONING_CREATE_PROFILE_TASK_MS,
+            PROVISIONING_START_PROFILE_TASK_MS,
+            PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS,
+            PROVISIONING_INSTALL_PACKAGE_TASK_MS})
     public @interface TimeCategory {}
 
     public TimeLogger(Context context, @TimeCategory int category) {

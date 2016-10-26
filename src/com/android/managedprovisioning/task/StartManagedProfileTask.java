@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.ActivityManagerNative;
@@ -63,6 +64,7 @@ public class StartManagedProfileTask extends AbstractProvisioningTask {
 
     @Override
     public void run(int userId) {
+        startTaskTimer();
         UserUnlockedReceiver unlockedReceiver = new UserUnlockedReceiver(userId);
         mContext.registerReceiverAsUser(unlockedReceiver, new UserHandle(userId), UNLOCK_FILTER,
                 null, null);
@@ -85,12 +87,18 @@ public class StartManagedProfileTask extends AbstractProvisioningTask {
         } finally {
             mContext.unregisterReceiver(unlockedReceiver);
         }
+        stopTaskTimer();
         success();
     }
 
     @Override
     public int getStatusMsgId() {
         return R.string.progress_finishing_touches;
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_START_PROFILE_TASK_MS;
     }
 
     /**
