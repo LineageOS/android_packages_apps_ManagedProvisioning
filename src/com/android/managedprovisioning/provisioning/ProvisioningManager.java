@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.provisioning;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_DURING_PROVISIONING;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -129,6 +130,8 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     public void cancelProvisioning() {
         synchronized (this) {
             if (mController != null) {
+                mProvisioningAnalyticsTracker.logProvisioningCancelled(mContext,
+                        CANCELLED_DURING_PROVISIONING);
                 mController.cancel();
             } else {
                 ProvisionLogger.loge("Trying to cancel provisioning, but controller is null");
