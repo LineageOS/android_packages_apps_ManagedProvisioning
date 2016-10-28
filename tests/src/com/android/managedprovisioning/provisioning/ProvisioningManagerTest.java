@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.times;
@@ -40,6 +42,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
@@ -88,40 +91,37 @@ public class ProvisioningManagerTest {
     }
 
     @Test
-    public void testInitiateProvisioning() {
+    public void testMaybeStartProvisioning() {
         // GIVEN that provisioning is not currently running
-        // WHEN calling initiateProvisioning
-        mManager.initiateProvisioning(TEST_PARAMS);
+        // WHEN calling maybeStartProvisioning
+        mManager.maybeStartProvisioning(TEST_PARAMS);
 
         // THEN the newly created provisioning controller should be initialized
         verify(mController).initialize();
 
-        // WHEN calling initiateProvisioning again
-        mManager.initiateProvisioning(TEST_PARAMS);
+        // THEN the factory should be called
+        verify(mFactory).createProvisioningController(mContext, TEST_PARAMS, mManager);
 
-        // THEN nothing should happen, because provisioning is already ongoing
+        // THEN the controller should be initialized
+        verify(mController).initialize();
+
+        // THEN the controller should be started on a Looper that is not the main thread
+        ArgumentCaptor<Looper> looperCaptor = ArgumentCaptor.forClass(Looper.class);
+        verify(mController).start(looperCaptor.capture());
+        assertTrue(looperCaptor.getValue() != Looper.getMainLooper());
+
+        // WHEN trying to start provisioning again
+        mManager.maybeStartProvisioning(TEST_PARAMS);
+
+        // THEN nothing should happen
+        verifyNoMoreInteractions(mFactory);
         verifyNoMoreInteractions(mController);
     }
 
     @Test
-    public void testStartProvisioning() {
-        // GIVEN that provisioning has been initialized
-        mManager.initiateProvisioning(TEST_PARAMS);
-        final Looper looper = Looper.getMainLooper();
-
-        // WHEN calling start provisioning
-        mManager.startProvisioning(looper);
-
-        // THEN the controller should be started
-        verify(mController).start(looper);
-    }
-
-    @Test
     public void testCancelProvisioning() {
-        // GIVEN that provisioning has been initialized and started
-        mManager.initiateProvisioning(TEST_PARAMS);
-        final Looper looper = Looper.getMainLooper();
-        mManager.startProvisioning(looper);
+        // GIVEN provisioning has been started
+        mManager.maybeStartProvisioning(TEST_PARAMS);
 
         // WHEN cancelling provisioning
         mManager.cancelProvisioning();
@@ -132,10 +132,8 @@ public class ProvisioningManagerTest {
 
     @Test
     public void testPreFinalizeProvisioning() {
-        // GIVEN that provisioning has been initialized and started
-        mManager.initiateProvisioning(TEST_PARAMS);
-        final Looper looper = Looper.getMainLooper();
-        mManager.startProvisioning(looper);
+        // GIVEN provisioning has been started
+        mManager.maybeStartProvisioning(TEST_PARAMS);
 
         // WHEN prefinalizing provisioning
         mManager.preFinalize();
@@ -214,23 +212,21 @@ public class ProvisioningManagerTest {
 
     @Test
     public void testListener_cleanupCompleted() {
+        // GIVEN provisioning has been started
+        mManager.maybeStartProvisioning(TEST_PARAMS);
+
         // GIVEN a listener is registered
         mManager.registerListener(mCallback);
         // WHEN some progress has occurred previously
         mManager.cleanUpCompleted();
-        // THEN the listener should receive a callback
-        verify(mCallback).cleanUpCompleted();
-
-        // WHEN the listener is unregistered and registered again
-        mManager.unregisterListener(mCallback);
-        mManager.registerListener(mCallback);
-        // THEN the listener should receive a callback again
-        verify(mCallback, times(2)).cleanUpCompleted();
-        verifyNoMoreInteractions(mCallback);
+        // THEN no callback is sent
+        verifyZeroInteractions(mCallback);
     }
 
     @Test
     public void testListener_preFinalizationCompleted() {
+        // GIVEN provisioning has been started
+        mManager.maybeStartProvisioning(TEST_PARAMS);
         // GIVEN a listener is registered
         mManager.registerListener(mCallback);
         // WHEN some progress has occurred previously

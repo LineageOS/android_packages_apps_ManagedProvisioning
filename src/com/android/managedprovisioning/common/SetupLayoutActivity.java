@@ -112,8 +112,17 @@ public abstract class SetupLayoutActivity extends Activity {
      */
     protected void showDialog(DialogBuilder dialogBuilder, String tag) {
         FragmentManager fragmentManager = getFragmentManager();
-        if (fragmentManager.findFragmentByTag(tag) == null) {
+        if (!isDialogAdded(tag)) {
             dialogBuilder.build().show(fragmentManager, tag);
         }
+    }
+
+    /**
+     * Checks whether the {@link DialogFragment} associated with the given tag is currently showing.
+     * @param tag The tag for this dialog.
+     */
+    protected boolean isDialogAdded(String tag) {
+        Fragment fragment = getFragmentManager().findFragmentByTag(tag);
+        return (fragment != null) && (fragment.isAdded());
     }
 }

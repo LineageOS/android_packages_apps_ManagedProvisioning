@@ -25,9 +25,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -39,6 +39,8 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  */
 public class ProvisioningActivity extends SetupLayoutActivity
         implements SimpleDialog.SimpleDialogListener, ProvisioningManagerCallback {
+
+    private static final String KEY_PROVISIONING_STARTED = "ProvisioningStarted";
 
     private static final String ERROR_DIALOG_OK = "ErrorDialogOk";
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
@@ -55,19 +57,35 @@ public class ProvisioningActivity extends SetupLayoutActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-
-        getProvisioningManager().initiateProvisioning(mParams);
-
         initializeUi(mParams);
         mProgressTextView = (TextView) findViewById(R.id.prog_text);
+
+        if (savedInstanceState == null
+                || !savedInstanceState.getBoolean(KEY_PROVISIONING_STARTED)) {
+            getProvisioningManager().maybeStartProvisioning(mParams);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_PROVISIONING_STARTED, true);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getProvisioningManager().registerListener(this);
+        if (!isAnyDialogAdded()) {
+            getProvisioningManager().registerListener(this);
+        }
+    }
+
+    private boolean isAnyDialogAdded() {
+        return isDialogAdded(ERROR_DIALOG_OK)
+                || isDialogAdded(ERROR_DIALOG_RESET)
+                || isDialogAdded(CANCEL_PROVISIONING_DIALOG_OK)
+                || isDialogAdded(CANCEL_PROVISIONING_DIALOG_RESET);
     }
 
     @Override
@@ -79,11 +97,6 @@ public class ProvisioningActivity extends SetupLayoutActivity
     @Override
     public void onBackPressed() {
         showCancelProvisioningDialog();
-    }
-
-    @Override
-    public void cleanUpCompleted() {
-        onProvisioningAborted();
     }
 
     @Override
@@ -112,10 +125,14 @@ public class ProvisioningActivity extends SetupLayoutActivity
                 .setPositiveButtonMessage(resetRequired
                         ? R.string.device_owner_error_reset : R.string.device_owner_error_ok);
 
-        // Stop listening for further updates to avoid finishing the activity after cleanup has
-        // completed
-        getProvisioningManager().unregisterListener(this);
         showDialog(dialogBuilder, resetRequired ? ERROR_DIALOG_RESET : ERROR_DIALOG_OK);
+    }
+
+    @Override
+    protected void showDialog(DialogBuilder builder, String tag) {
+        // Whenever a dialog is shown, stop listening for further updates
+        getProvisioningManager().unregisterListener(this);
+        super.showDialog(builder, tag);
     }
 
     @Override
@@ -140,9 +157,6 @@ public class ProvisioningActivity extends SetupLayoutActivity
                 .setNegativeButtonMessage(negativeResId)
                 .setPositiveButtonMessage(positiveResId);
 
-        // Temporarily stop listening for further updates to avoid the UI changing whilst the user
-        // is contemplating cancelling the progress
-        getProvisioningManager().unregisterListener(this);
         showDialog(dialogBuilder, dialogTag);
     }
 
@@ -157,11 +171,11 @@ public class ProvisioningActivity extends SetupLayoutActivity
             case CANCEL_PROVISIONING_DIALOG_OK:
             case CANCEL_PROVISIONING_DIALOG_RESET:
                 dialog.dismiss();
-                getProvisioningManager().registerListener(this);
                 break;
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
         }
+        getProvisioningManager().registerListener(this);
     }
 
     @Override

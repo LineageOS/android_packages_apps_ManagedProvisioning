@@ -25,4 +25,7 @@ public final class Globals {
 
     public static final String ACTION_RESUME_PROVISIONING =
             "com.android.managedprovisioning.action.RESUME_PROVISIONING";
+
+    public static final String MANAGED_PROVISIONING_PACKAGE_NAME =
+            "com.android.managedprovisioning";
 }

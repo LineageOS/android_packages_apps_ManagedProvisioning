@@ -19,35 +19,10 @@ package com.android.managedprovisioning.provisioning;
 /**
  * Interface for communication of updates from the provisioning controller.
  */
-public interface ProvisioningControllerCallback {
+public interface ProvisioningControllerCallback extends ProvisioningManagerCallback {
     /**
-     * Method called when the provisioning process was successfully clean up. This can occur
-     * after an error or after the user cancelled progress.
+     * Method called when the provisioning process was successfully clean up. This can occur after
+     * an error or after the user cancelled progress.
      */
     void cleanUpCompleted();
-
-    /**
-     * Method called when an error was encountered during the provisioning process.
-     *
-     * @param errorMessageId resource id of the error message to be displayed to the user.
-     * @param factoryResetRequired indicating whether a factory reset is necessary.
-     */
-    void error(int errorMessageId, boolean factoryResetRequired);
-
-    /**
-     * Method called to indicate a progress update in the provisioning process.
-     *
-     * @param progressMessageId resource id of the progress message to be displayed to the user.
-     */
-    void progressUpdate(int progressMessageId);
-
-    /**
-     * Method called to indicate that the provisioning tasks have been completed.
-     */
-    void provisioningTasksCompleted();
-
-    /**
-     * Method called to indicate that pre-finalization has completed.
-     */
-    void preFinalizationCompleted();
 }

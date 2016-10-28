@@ -24,14 +24,16 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import android.util.Pair;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.common.Globals;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.ArrayList;
@@ -44,11 +46,14 @@ import java.util.List;
 public class ProvisioningManager implements ProvisioningControllerCallback {
     private static ProvisioningManager sInstance;
 
+    private static final Intent SERVICE_INTENT = new Intent().setComponent(new ComponentName(
+            Globals.MANAGED_PROVISIONING_PACKAGE_NAME,
+            ProvisioningService.class.getName()));
+
     private static final int CALLBACK_NONE = 0;
     private static final int CALLBACK_ERROR = 1;
     private static final int CALLBACK_PROGRESS = 2;
-    private static final int CALLBACK_CANCELLED = 3;
-    private static final int CALLBACK_TASKS_COMPLETED = 5;
+    private static final int CALLBACK_TASKS_COMPLETED = 3;
     private static final int CALLBACK_PRE_FINALIZED = 4;
 
     private final Context mContext;
@@ -65,6 +70,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     private int mLastCallback = CALLBACK_NONE;
     private Pair<Integer, Boolean> mLastError;
     private int mLastProgressMsgId;
+    private HandlerThread mHandlerThread;
 
     public static ProvisioningManager getInstance(Context context) {
         if (sInstance == null) {
@@ -101,34 +107,32 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
      *
      * @param params {@link ProvisioningParams} associated with the new provisioning process.
      */
-    public void initiateProvisioning(final ProvisioningParams params) {
+    public void maybeStartProvisioning(final ProvisioningParams params) {
         synchronized (this) {
             if (mController == null) {
-                mLastCallback = CALLBACK_NONE;
-                ProvisionLogger.logd("Initializing provisioning process");
-                mController = mFactory.createProvisioningController(mContext, params, this);
-                mController.initialize();
+                mTimeLogger.start();
+                startNewProvisioningLocked(params);
                 mProvisioningAnalyticsTracker.logProvisioningStarted(mContext, params);
-                mContext.startService(new Intent(Constants.ACTION_START_PROVISIONING)
-                        .setComponent(new ComponentName(mContext, ProvisioningService.class)));
             } else {
                 ProvisionLogger.loge("Trying to start provisioning, but it's already running");
             }
         }
    }
 
-    /**
-     * Start the provisioning process.
-     *
-     * @param looper looper of a worker thread.
-     */
-    public void startProvisioning(Looper looper) {
-        synchronized (this) {
-            if (mController != null) {
-                mTimeLogger.start();
-                mController.start(looper);
-            }
+    private void startNewProvisioningLocked(final ProvisioningParams params) {
+        ProvisionLogger.logd("Initializing provisioning process");
+        if (mHandlerThread == null) {
+            mHandlerThread = new HandlerThread("Provisioning Worker");
+            mHandlerThread.start();
+            mContext.startService(SERVICE_INTENT);
         }
+        mLastCallback = CALLBACK_NONE;
+        mLastError = null;
+        mLastProgressMsgId = 0;
+
+        mController = mFactory.createProvisioningController(mContext, params, this);
+        mController.initialize();
+        mController.start(mHandlerThread.getLooper());
     }
 
     /**
@@ -190,18 +194,14 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     @Override
     public void cleanUpCompleted() {
         synchronized (this) {
-            for (ProvisioningControllerCallback callback : mCallbacks) {
-                mUiHandler.post(() -> callback.cleanUpCompleted());
-            }
-            mLastCallback = CALLBACK_CANCELLED;
-            finishLocked();
+            clearControllerLocked();
         }
     }
 
     @Override
     public void error(int errorMessageId, boolean factoryResetRequired) {
         synchronized (this) {
-            for (ProvisioningControllerCallback callback : mCallbacks) {
+            for (ProvisioningManagerCallback callback : mCallbacks) {
                 mUiHandler.post(() -> callback.error(errorMessageId, factoryResetRequired));
             }
             mLastCallback = CALLBACK_ERROR;
@@ -212,7 +212,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     @Override
     public void progressUpdate(int progressMsgId) {
         synchronized (this) {
-            for (ProvisioningControllerCallback callback : mCallbacks) {
+            for (ProvisioningManagerCallback callback : mCallbacks) {
                 mUiHandler.post(() -> callback.progressUpdate(progressMsgId));
             }
             mLastCallback = CALLBACK_PROGRESS;
@@ -224,7 +224,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     public void provisioningTasksCompleted() {
         synchronized (this) {
             mTimeLogger.stop();
-            for (ProvisioningControllerCallback callback : mCallbacks) {
+            for (ProvisioningManagerCallback callback : mCallbacks) {
                 mUiHandler.post(() -> callback.provisioningTasksCompleted());
             }
             mLastCallback = CALLBACK_TASKS_COMPLETED;
@@ -234,19 +234,16 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     @Override
     public void preFinalizationCompleted() {
         synchronized (this) {
-            for (ProvisioningControllerCallback callback : mCallbacks) {
+            for (ProvisioningManagerCallback callback : mCallbacks) {
                 mUiHandler.post(() -> callback.preFinalizationCompleted());
             }
             mLastCallback = CALLBACK_PRE_FINALIZED;
-            finishLocked();
+            clearControllerLocked();
         }
     }
 
     private void callLastCallbackLocked(ProvisioningManagerCallback callback) {
         switch (mLastCallback) {
-            case CALLBACK_CANCELLED:
-                mUiHandler.post(() -> callback.cleanUpCompleted());
-                break;
             case CALLBACK_ERROR:
                 final Pair<Integer, Boolean> error = mLastError;
                 mUiHandler.post(() -> callback.error(error.first, error.second));
@@ -266,9 +263,13 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
         }
     }
 
-    // TODO: improve life-cycle management
-    public void finishLocked() {
+    private void clearControllerLocked() {
         mController = null;
-        mContext.stopService(new Intent(mContext, ProvisioningService.class));
+
+        if (mHandlerThread != null) {
+            mHandlerThread.quitSafely();
+            mHandlerThread = null;
+            mContext.stopService(SERVICE_INTENT);
+        }
     }
 }

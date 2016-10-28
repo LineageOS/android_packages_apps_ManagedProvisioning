@@ -16,52 +16,14 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static com.android.managedprovisioning.provisioning.Constants.ACTION_START_PROVISIONING;
-
 import android.app.Service;
 import android.content.Intent;
-import android.os.HandlerThread;
 import android.os.IBinder;
 
-import com.android.managedprovisioning.common.ProvisionLogger;
-
 /**
- * Service that runs the provisioning process. This service creates a {@link HandlerThread} for the
- * execution of the provisioning process. It retrieves the {@link AbstractProvisioningController}
- * from the {@link ProvisioningManager} and executes this on the handler thread.
+ * Service that keeps the provisioning process alive.
  */
 public class ProvisioningService extends Service {
-    private HandlerThread mHandlerThread;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        // TODO: Move handler thread into ProvisioningManager
-        mHandlerThread = new HandlerThread("ProvisioningHandler");
-        mHandlerThread.start();
-    }
-
-    @Override
-    public void onDestroy() {
-        mHandlerThread.quitSafely();
-        super.onDestroy();
-    }
-
-    @Override
-    public int onStartCommand(final Intent intent, int flags, int startId) {
-        if (intent == null || intent.getAction() == null) {
-            ProvisionLogger.logw("Missing intent or action: " + intent);
-            return START_NOT_STICKY;
-        }
-
-        if (ACTION_START_PROVISIONING.equals(intent.getAction())) {
-            ProvisioningManager.getInstance(this).startProvisioning(mHandlerThread.getLooper());
-        } else {
-            ProvisionLogger.loge("Unknown intent action: " + intent.getAction());
-        }
-        return START_NOT_STICKY;
-    }
 
     @Override
     public IBinder onBind(Intent intent) {

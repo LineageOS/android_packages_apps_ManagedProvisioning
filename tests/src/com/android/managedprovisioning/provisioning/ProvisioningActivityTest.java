@@ -35,6 +35,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
@@ -118,11 +119,32 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
         // THEN the provisioning process should be initiated
-        verify(mProvisioningManager).initiateProvisioning(PROFILE_OWNER_PARAMS);
+        verify(mProvisioningManager).maybeStartProvisioning(PROFILE_OWNER_PARAMS);
 
         // THEN the activity should start listening for provisioning updates
         verify(mProvisioningManager).registerListener(any(ProvisioningManagerCallback.class));
         verifyNoMoreInteractions(mProvisioningManager);
+    }
+
+    @Test
+    public void testSavedInstanceState() throws Throwable {
+        // GIVEN the activity was launched with a profile owner intent
+        launchActivityAndWait(PROFILE_OWNER_INTENT);
+
+        // THEN the provisioning process should be initiated
+        verify(mProvisioningManager).maybeStartProvisioning(PROFILE_OWNER_PARAMS);
+
+        // WHEN the activity is recreated with a saved instance state
+        mActivityRule.runOnUiThread(() -> {
+                    Bundle bundle = new Bundle();
+                    InstrumentationRegistry.getInstrumentation()
+                            .callActivityOnSaveInstanceState(mActivityRule.getActivity(), bundle);
+                    InstrumentationRegistry.getInstrumentation()
+                            .callActivityOnCreate(mActivityRule.getActivity(), bundle);
+                });
+
+        // THEN provisioning should not be initiated again
+        verify(mProvisioningManager).maybeStartProvisioning(PROFILE_OWNER_PARAMS);
     }
 
     @Test
