@@ -15,6 +15,7 @@
  */
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.DownloadManager;
@@ -85,8 +86,11 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
 
     @Override
     public void run(int userId) {
+        startTaskTimer();
         if (!mUtils.packageRequiresUpdate(mPackageName, mPackageDownloadInfo.minVersion,
                 mContext)) {
+            // Do not log time if package is already on device and does not require an update, as
+            // that isn't useful.
             success();
             return;
         }
@@ -122,6 +126,11 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
             }
         }
         mDownloadId = mDownloadManager.enqueue(request);
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
     }
 
     private BroadcastReceiver createDownloadReceiver() {
@@ -162,6 +171,7 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
 
         ProvisionLogger.logd("Downloaded succesfully to: " + mDownloadLocationTo);
         mDoneDownloading = true;
+        stopTaskTimer();
         success();
     }
 

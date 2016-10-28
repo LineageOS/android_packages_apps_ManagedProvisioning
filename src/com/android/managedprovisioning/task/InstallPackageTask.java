@@ -15,6 +15,7 @@
  */
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_INSTALL_PACKAGE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
@@ -88,12 +89,14 @@ public class InstallPackageTask extends AbstractProvisioningTask {
      */
     @Override
     public void run(int userId) {
+        startTaskTimer();
         String packageLocation = mDownloadPackageTask.getDownloadedPackageLocation();
         String packageName = mProvisioningParams.inferDeviceAdminPackageName();
 
         ProvisionLogger.logi("Installing package");
         mInitialPackageVerifierEnabled = mUtils.isPackageVerifierEnabled(mContext);
         if (TextUtils.isEmpty(packageLocation)) {
+            // Do not log time if not installing any package, as that isn't useful.
             success();
             return;
         }
@@ -107,6 +110,11 @@ public class InstallPackageTask extends AbstractProvisioningTask {
                 new PackageInstallObserver(packageName, packageLocation),
                 /* flags */ PackageManager.INSTALL_REPLACE_EXISTING,
                 mContext.getPackageName());
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_INSTALL_PACKAGE_TASK_MS;
     }
 
     private class PackageInstallObserver extends IPackageInstallObserver.Stub {
@@ -127,13 +135,14 @@ public class InstallPackageTask extends AbstractProvisioningTask {
                 return;
             }
             if (returnCode == PackageManager.INSTALL_SUCCEEDED) {
-                ProvisionLogger.logd(
-                        "Package " + mPackageName + " is succesfully installed.");
+                ProvisionLogger.logd("Package " + mPackageName + " is succesfully installed.");
+                stopTaskTimer();
                 success();
             } else if (returnCode == PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE) {
                 ProvisionLogger.logd("Current version of " + mPackageName
                         + " higher than the version to be installed. It was not reinstalled.");
                 // If the package is already at a higher version: success.
+                // Do not log time if package is already at a higher version, as that isn't useful.
                 success();
             } else {
                 ProvisionLogger.logd(

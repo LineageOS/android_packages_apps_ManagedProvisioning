@@ -16,10 +16,12 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
 
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -29,6 +31,7 @@ public abstract class AbstractProvisioningTask {
     protected final Context mContext;
     protected final ProvisioningParams mProvisioningParams;
     private final Callback mCallback;
+    private TimeLogger mTimeLogger;
 
     /**
      * Constructor for a provisioning task
@@ -44,6 +47,8 @@ public abstract class AbstractProvisioningTask {
         mContext = checkNotNull(context);
         mProvisioningParams = provisioningParams;
         mCallback = checkNotNull(callback);
+
+        mTimeLogger = new TimeLogger(context, getMetricsCategory());
     }
 
     protected final void success() {
@@ -52,6 +57,18 @@ public abstract class AbstractProvisioningTask {
 
     protected final void error(int resultCode) {
         mCallback.onError(this, resultCode);
+    }
+
+    protected void startTaskTimer() {
+        mTimeLogger.start();
+    }
+
+    protected void stopTaskTimer() {
+        mTimeLogger.stop();
+    }
+
+    protected int getMetricsCategory() {
+        return VIEW_UNKNOWN;
     }
 
     /**

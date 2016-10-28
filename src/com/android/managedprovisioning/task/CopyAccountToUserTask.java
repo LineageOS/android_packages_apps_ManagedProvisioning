@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_TASK_MS;
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
@@ -55,7 +57,13 @@ public class CopyAccountToUserTask extends AbstractProvisioningTask {
 
     @Override
     public void run(int userId) {
-        maybeCopyAccount(userId);
+        startTaskTimer();
+
+        final boolean copySucceeded = maybeCopyAccount(userId);
+        // Do not log time if account migration did not succeed, as that isn't useful.
+        if (copySucceeded) {
+            stopTaskTimer();
+        }
         // account migration is not considered a critical operation, so succeed anyway
         success();
     }
@@ -63,6 +71,11 @@ public class CopyAccountToUserTask extends AbstractProvisioningTask {
     @Override
     public int getStatusMsgId() {
         return R.string.progress_finishing_touches;
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_COPY_ACCOUNT_TASK_MS;
     }
 
     @VisibleForTesting
