@@ -21,6 +21,7 @@ import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_CANCELLED;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_STATUS;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
@@ -55,6 +56,21 @@ public class ProvisioningAnalyticsTracker {
         CANCELLED_DURING_PROVISIONING})
     public @interface CancelState {}
 
+    // Only add to the end of the list. Do not change or rearrange these values, that will break
+    // historical data. Do not use negative numbers or zero, logger only handles positive
+    // integers.
+    public static final int COPY_ACCOUNT_SUCCEEDED = 1;
+    public static final int COPY_ACCOUNT_FAILED = 2;
+    public static final int COPY_ACCOUNT_TIMED_OUT = 3;
+    public static final int COPY_ACCOUNT_EXCEPTION = 4;
+
+    @IntDef({
+        COPY_ACCOUNT_SUCCEEDED,
+        COPY_ACCOUNT_FAILED,
+        COPY_ACCOUNT_TIMED_OUT,
+        COPY_ACCOUNT_EXCEPTION})
+    public @interface CopyAccountStatus {}
+
     public static ProvisioningAnalyticsTracker getInstance() {
         return sInstance;
     }
@@ -84,6 +100,16 @@ public class ProvisioningAnalyticsTracker {
     public void logPreProvisioningStarted(Context context, Intent intent) {
         logProvisioningExtras(context, intent);
         maybeLogEntryPoint(context, intent);
+    }
+
+    /**
+     * Logs status of copy account to user task.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param status Status of copy account to user task
+     */
+    public void logCopyAccountStatus(Context context, @CopyAccountStatus int status) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_COPY_ACCOUNT_STATUS, status);
     }
 
     /**

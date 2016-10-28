@@ -17,6 +17,10 @@
 package com.android.managedprovisioning.task;
 
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_TASK_MS;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_EXCEPTION;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_FAILED;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_SUCCEEDED;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_TIMED_OUT;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -26,6 +30,7 @@ import android.content.Context;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -44,6 +49,8 @@ public class CopyAccountToUserTask extends AbstractProvisioningTask {
     private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 3;  // 3 minutes
 
     private final int mSourceUserId;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
+            ProvisioningAnalyticsTracker.getInstance();
 
     public CopyAccountToUserTask(
             int sourceUserId,
@@ -104,11 +111,18 @@ public class CopyAccountToUserTask extends AbstractProvisioningTask {
                     .getResult(ACCOUNT_COPY_TIMEOUT_SECONDS, TimeUnit.SECONDS);
             if (copySucceeded) {
                 ProvisionLogger.logi("Copied account to " + targetUser);
+                mProvisioningAnalyticsTracker.logCopyAccountStatus(mContext,
+                        COPY_ACCOUNT_SUCCEEDED);
                 return true;
             } else {
+                mProvisioningAnalyticsTracker.logCopyAccountStatus(mContext, COPY_ACCOUNT_FAILED);
                 ProvisionLogger.loge("Could not copy account to " + targetUser);
             }
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
+        } catch (OperationCanceledException e) {
+            mProvisioningAnalyticsTracker.logCopyAccountStatus(mContext, COPY_ACCOUNT_TIMED_OUT);
+            ProvisionLogger.loge("Exception copying account to " + targetUser, e);
+        } catch (AuthenticatorException | IOException e) {
+            mProvisioningAnalyticsTracker.logCopyAccountStatus(mContext, COPY_ACCOUNT_EXCEPTION);
             ProvisionLogger.loge("Exception copying account to " + targetUser, e);
         }
         return false;
