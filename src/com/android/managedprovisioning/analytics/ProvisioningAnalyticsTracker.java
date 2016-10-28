@@ -20,12 +20,14 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_CANCELLED;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 
+import android.annotation.IntDef;
 import android.content.Context;
 import android.content.Intent;
 
@@ -41,6 +43,17 @@ public class ProvisioningAnalyticsTracker {
             new ProvisioningAnalyticsTracker();
 
     private final MetricsLoggerWrapper mMetricsLoggerWrapper = new MetricsLoggerWrapper();
+
+    // Only add to the end of the list. Do not change or rearrange these values, that will break
+    // historical data. Do not use negative numbers or zero, logger only handles positive
+    // integers.
+    public static final int CANCELLED_BEFORE_PROVISIONING = 1;
+    public static final int CANCELLED_DURING_PROVISIONING = 2;
+
+    @IntDef({
+        CANCELLED_BEFORE_PROVISIONING,
+        CANCELLED_DURING_PROVISIONING})
+    public @interface CancelState {}
 
     public static ProvisioningAnalyticsTracker getInstance() {
         return sInstance;
@@ -71,6 +84,16 @@ public class ProvisioningAnalyticsTracker {
     public void logPreProvisioningStarted(Context context, Intent intent) {
         logProvisioningExtras(context, intent);
         maybeLogEntryPoint(context, intent);
+    }
+
+    /**
+     * Logs when provisioning is cancelled.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param cancelState State when provisioning was cancelled
+     */
+    public void logProvisioningCancelled(Context context, @CancelState int cancelState) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_CANCELLED, cancelState);
     }
 
     /**

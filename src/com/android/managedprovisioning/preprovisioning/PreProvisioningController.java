@@ -18,8 +18,10 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
 import android.annotation.NonNull;
@@ -471,6 +473,14 @@ public class PreProvisioningController {
      */
     public void stopTimeLogger() {
         mTimeLogger.stop();
+    }
+
+    /**
+     * Log if PreProvisioning was cancelled.
+     */
+    public void logPreProvisioningCancelled() {
+        mProvisioningAnalyticsTracker.logProvisioningCancelled(mContext,
+                CANCELLED_BEFORE_PROVISIONING);
     }
 
     // TODO: review the use of async task for the case where the activity might have got killed

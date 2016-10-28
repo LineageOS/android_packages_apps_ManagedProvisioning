@@ -161,6 +161,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity
             case PRE_PROVISIONING_BACK_PRESSED_DIALOG:
                 // Close activity
                 setResult(Activity.RESULT_CANCELED);
+                // TODO: Move logging to close button, if we finish provisioning there.
+                mController.logPreProvisioningCancelled();
                 finish();
                 break;
             case PRE_PROVISIONING_CANCELLED_CONSENT_DIALOG:
@@ -360,6 +362,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity
     public void onBackPressed() {
         if (!mController.isProfileOwnerProvisioning()) {
             super.onBackPressed();
+            // TODO: Move logging to close button, if we finish provisioning there.
+            mController.logPreProvisioningCancelled();
             return;
         }
 
