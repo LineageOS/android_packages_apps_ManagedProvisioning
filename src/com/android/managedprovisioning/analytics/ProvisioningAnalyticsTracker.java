@@ -26,6 +26,7 @@ import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONIN
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ERROR;
 import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 
 import android.annotation.IntDef;
@@ -33,6 +34,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.AbstractProvisioningTask;
 
 import java.util.List;
 
@@ -120,6 +122,19 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logProvisioningCancelled(Context context, @CancelState int cancelState) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_CANCELLED, cancelState);
+    }
+
+    /**
+     * Logs error during provisioning tasks.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param task Provisioning task which threw error
+     * @param errorCode Code indicating the type of error that happened.
+     */
+    public void logProvisioningError(Context context, AbstractProvisioningTask task,
+            int errorCode) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_ERROR,
+                AnalyticsUtils.getErrorString(task, errorCode));
     }
 
     /**

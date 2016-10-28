@@ -49,8 +49,7 @@ public class CopyAccountToUserTask extends AbstractProvisioningTask {
     private static final int ACCOUNT_COPY_TIMEOUT_SECONDS = 60 * 3;  // 3 minutes
 
     private final int mSourceUserId;
-    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
-            ProvisioningAnalyticsTracker.getInstance();
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     public CopyAccountToUserTask(
             int sourceUserId,
@@ -60,6 +59,7 @@ public class CopyAccountToUserTask extends AbstractProvisioningTask {
         super(context, provisioningParams, callback);
 
         mSourceUserId = sourceUserId;
+        mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
     }
 
     @Override

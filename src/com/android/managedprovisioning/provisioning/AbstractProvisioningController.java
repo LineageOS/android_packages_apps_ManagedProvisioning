@@ -25,6 +25,7 @@ import android.os.Looper;
 import android.os.Message;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -46,6 +47,7 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     protected final ProvisioningParams mParams;
     protected int mUserId;
 
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private final ProvisioningControllerCallback mCallback;
     private final FinalizationController mFinalizationController;
     private Handler mWorkerHandler;
@@ -81,6 +83,7 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         mUserId = userId;
         mCallback = checkNotNull(callback);
         mFinalizationController = checkNotNull(finalizationController);
+        mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
     }
 
     /**
@@ -181,6 +184,7 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     public void onError(AbstractProvisioningTask task, int errorCode) {
         mStatus = STATUS_ERROR;
         cleanup(STATUS_ERROR);
+        mProvisioningAnalyticsTracker.logProvisioningError(mContext, task, errorCode);
         mCallback.error(getErrorMsgId(task, errorCode), getRequireFactoryReset(task, errorCode));
     }
 

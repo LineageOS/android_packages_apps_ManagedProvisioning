@@ -29,6 +29,7 @@ import android.support.annotation.Nullable;
 
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
+import com.android.managedprovisioning.task.AbstractProvisioningTask;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -85,6 +86,22 @@ public class AnalyticsUtils {
         } else {
             return getExtrasFromBundle(intent);
         }
+    }
+
+    /**
+     * Returns unique string for all provisioning task errors.
+     *
+     * @param task Provisioning task which threw error
+     * @param errorCode Unique code from class indicating the error
+     */
+    @Nullable
+    public static String getErrorString(AbstractProvisioningTask task, int errorCode) {
+        if (task == null) {
+            return null;
+        }
+        // We do not have definite codes for all provisioning errors yet. We just pass the task's
+        // class name and the internal task's error code to generate a unique error code.
+        return task.getClass().getSimpleName() + ":" + errorCode;
     }
 
     @NonNull

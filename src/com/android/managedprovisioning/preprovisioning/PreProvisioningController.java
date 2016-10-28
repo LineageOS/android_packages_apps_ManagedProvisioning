@@ -65,8 +65,7 @@ public class PreProvisioningController {
     private final KeyguardManager mKeyguardManager;
     private final PersistentDataBlockManager mPdbManager;
     private final TimeLogger mTimeLogger;
-    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
-            ProvisioningAnalyticsTracker.getInstance();
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private ProvisioningParams mParams;
     private boolean mIsProfileOwnerProvisioning;
@@ -103,6 +102,7 @@ public class PreProvisioningController {
         mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
         mPdbManager = (PersistentDataBlockManager) mContext.getSystemService(
                 Context.PERSISTENT_DATA_BLOCK_SERVICE);
+        mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
     }
 
     interface Ui {
