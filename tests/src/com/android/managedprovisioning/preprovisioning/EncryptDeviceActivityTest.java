@@ -108,15 +108,6 @@ public class EncryptDeviceActivityTest {
     }
 
     @Test
-    public void testNoParams() {
-        // WHEN launching EncryptDeviceActivity without a params object
-        mActivityRule.launchActivity(new Intent());
-
-        // THEN the activity should finish immediately
-        assertTrue(mActivityRule.getActivity().isFinishing());
-    }
-
-    @Test
     public void testProfileOwner() {
         // WHEN launching EncryptDeviceActivity with a profile owner intent
         mActivityRule.launchActivity(PROFILE_OWNER_INTENT);
