@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_TOTAL_TASK_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_DURING_PROVISIONING;
 
@@ -30,6 +31,7 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.ArrayList;
@@ -59,6 +61,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     private List<ProvisioningManagerCallback> mCallbacks = new ArrayList<>();
 
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    private final TimeLogger mTimeLogger;
     private int mLastCallback = CALLBACK_NONE;
     private Pair<Integer, Boolean> mLastError;
     private int mLastProgressMsgId;
@@ -75,7 +78,8 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
                 context,
                 new Handler(Looper.getMainLooper()),
                 new ProvisioningControllerFactory(),
-                ProvisioningAnalyticsTracker.getInstance());
+                ProvisioningAnalyticsTracker.getInstance(),
+                new TimeLogger(context, PROVISIONING_TOTAL_TASK_TIME_MS));
     }
 
     @VisibleForTesting
@@ -83,11 +87,13 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
             Context context,
             Handler uiHandler,
             ProvisioningControllerFactory factory,
-            ProvisioningAnalyticsTracker analyticsTracker) {
+            ProvisioningAnalyticsTracker analyticsTracker,
+            TimeLogger timeLogger) {
         mContext = checkNotNull(context);
         mUiHandler = checkNotNull(uiHandler);
         mFactory = checkNotNull(factory);
         mProvisioningAnalyticsTracker = checkNotNull(analyticsTracker);
+        mTimeLogger = checkNotNull(timeLogger);
     }
 
     /**
@@ -119,6 +125,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     public void startProvisioning(Looper looper) {
         synchronized (this) {
             if (mController != null) {
+                mTimeLogger.start();
                 mController.start(looper);
             }
         }
@@ -216,6 +223,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     @Override
     public void provisioningTasksCompleted() {
         synchronized (this) {
+            mTimeLogger.stop();
             for (ProvisioningControllerCallback callback : mCallbacks) {
                 mUiHandler.post(() -> callback.provisioningTasksCompleted());
             }

@@ -34,6 +34,7 @@ import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Before;
@@ -61,6 +62,7 @@ public class ProvisioningManagerTest {
     @Mock private Context mContext;
     @Mock private ProvisioningControllerFactory mFactory;
     @Mock private ProvisioningAnalyticsTracker mAnalyticsTracker;
+    @Mock private TimeLogger mTimeLogger;
     @Mock private Handler mUiHandler;
     @Mock private ProvisioningManagerCallback mCallback;
     @Mock private AbstractProvisioningController mController;
@@ -79,7 +81,8 @@ public class ProvisioningManagerTest {
                         msg.getCallback().run();
                         return null;
                     });
-        mManager = new ProvisioningManager(mContext, mUiHandler, mFactory, mAnalyticsTracker);
+        mManager = new ProvisioningManager(mContext, mUiHandler, mFactory, mAnalyticsTracker,
+                mTimeLogger);
         when(mFactory.createProvisioningController(mContext, TEST_PARAMS, mManager))
                 .thenReturn(mController);
     }
