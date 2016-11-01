@@ -98,4 +98,13 @@
       <!-- Color for enabled button -->
       <item name="android:colorAccent">@color/accent</item>
     </style>
+
+    <style name="InfoTextTitle" parent="@android:style/TextAppearance.Material.Title">
+        <item name="android:textSize">@dimen/info_text_title_size</item>
+        <item name="android:layout_marginTop">@dimen/info_text_margin_top</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">@dimen/info_view_width</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>

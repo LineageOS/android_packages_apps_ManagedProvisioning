@@ -188,6 +188,15 @@
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <string name="work_profile_setup_stop">Stop</string>
 
+  <!-- Screen informing a user about benefits of having a managed profile (http://go/anim-e1f256) -->
+  <!--TODO: Revisit once translations complete. Aim for 1 - 2 lines of text (http://b/32826664). -->
+  <!-- Title 1/3 from slides [CHAR LIMIT=NONE]-->
+  <string name="info_anim_title_0">Change the way you work</string>
+  <!-- Title 2/3 from slides [CHAR LIMIT=NONE]-->
+  <string name="info_anim_title_1">Separate work data\nfrom personal data</string>
+  <!-- Title 3/3 from slides [CHAR LIMIT=NONE]-->
+  <string name="info_anim_title_2">Work the way you want</string>
+
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <string name="provisioning">Provisioning</string>
