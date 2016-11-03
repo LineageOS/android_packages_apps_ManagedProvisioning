@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.finalization;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISIONING_SUCCESSFUL;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -29,8 +30,8 @@ import android.content.Intent;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -128,13 +129,15 @@ public class FinalizationController {
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             notifyDpcManagedProfile(params);
         } else {
-            // For managed user and device owner, we just need to send the provisioning complete
-            // intent to the DPC.
+            // For managed user and device owner, we send the provisioning complete intent and maybe
+            // launch the DPC.
             Intent provisioningCompleteIntent = createProvisioningCompleteIntent(params);
             if (provisioningCompleteIntent == null) {
                 return;
             }
             mContext.sendBroadcast(provisioningCompleteIntent);
+
+            maybeLaunchDpc(params, UserHandle.myUserId());
         }
 
         mHelper.markUserProvisioningStateFinalized(params);
@@ -158,6 +161,16 @@ public class FinalizationController {
                 dpcReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
                 + managedUserHandle.getIdentifier());
+
+        maybeLaunchDpc(params, managedUserHandle.getIdentifier());
+    }
+
+    private void maybeLaunchDpc(ProvisioningParams params, int userId) {
+        final Intent dpcLaunchIntent = createDpcLaunchIntent(params);
+        if (mUtils.canResolveIntentAsUser(mContext, dpcLaunchIntent, userId)) {
+            mContext.startActivityAsUser(dpcLaunchIntent, UserHandle.of(userId));
+            ProvisionLogger.logd("Dpc was launched for user: " + userId);
+        }
     }
 
     private Intent createProvisioningCompleteIntent(@NonNull ProvisioningParams params) {
@@ -171,8 +184,25 @@ public class FinalizationController {
             return null;
         }
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES | Intent.FLAG_RECEIVER_FOREGROUND);
-        intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
+        addExtrasToIntent(intent, params);
         return intent;
+    }
+
+    private Intent createDpcLaunchIntent(@NonNull ProvisioningParams params) {
+        Intent intent = new Intent(ACTION_PROVISIONING_SUCCESSFUL);
+        final String packageName = params.inferDeviceAdminPackageName();
+        if (packageName == null) {
+            ProvisionLogger.loge("Device admin package name is null");
+            return null;
+        }
+        intent.setPackage(packageName);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        addExtrasToIntent(intent, params);
+        return intent;
+    }
+
+    private void addExtrasToIntent(Intent intent, ProvisioningParams params) {
+        intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
     }
 
     private void storeProvisioningParams(ProvisioningParams params) {

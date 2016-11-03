@@ -31,6 +31,14 @@
                 <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name="com.android.managedprovisioning.e2eui.DpcPostProvisioningActivity"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <action android:name="android.app.action.PROVISIONING_SUCCESSFUL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
     <instrumentation android:name="com.android.managedprovisioning.TestInstrumentationRunner"

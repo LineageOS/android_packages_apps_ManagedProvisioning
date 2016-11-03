@@ -15,43 +15,31 @@
  */
 package com.android.managedprovisioning.e2eui;
 
+import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 
-import android.util.Log;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 
-import java.util.function.Supplier;
-
-public class ManagedProfileAdminReceiver extends AbstractAdminReceiver {
+public class ManagedProfileAdminReceiver extends DeviceAdminReceiver {
     public static final ComponentName COMPONENT_NAME = new ComponentName(
             TestInstrumentationRunner.TEST_PACKAGE_NAME,
             ManagedProfileAdminReceiver.class.getName());
 
-    public static final Intent INTENT_PROVISION_MANAGED_PROFILE = insertProvisioningExtras(
-            new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)
-                    .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                            COMPONENT_NAME)
-    );
-
-    private static final String TAG = ManagedProfileAdminReceiver.class.getSimpleName();
+    public static final Intent INTENT_PROVISION_MANAGED_PROFILE =
+            E2eUiTestUtils.insertProvisioningExtras(
+                    new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE).putExtra(
+                            DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                            COMPONENT_NAME));
 
     @Override
     public void onProfileProvisioningComplete(Context context, Intent intent) {
-        DevicePolicyManager dpm = getManager(context);
-        dpm.setProfileEnabled(COMPONENT_NAME);
-
-        boolean isProfileOwner = dpm.isProfileOwnerApp(context.getPackageName());
-        Log.i(TAG, "isProfileOwner: " + isProfileOwner);
-
-        boolean testResult = isProfileOwner && verifyProvisioningExtras(intent);
-        Log.i(TAG, "testResult: " + testResult);
-
-        sendResult(context, testResult);
-
-        // cleanup, remove this user, kill this process.
-        dpm.wipeData(0);
+        // Verify that managed profile has been successfully created.
+        boolean testResult = E2eUiTestUtils.verifyProfile(context, intent, getManager(context));
+        // Informs the result to provisioning result listener.
+        E2eUiTestUtils.sendResult(ProvisioningResultListener.ACTION_PROVISION_RESULT_BROADCAST, context,
+                testResult);
     }
 }
