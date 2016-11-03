@@ -251,7 +251,8 @@ public class PreProvisioningController {
         if (mKeyguardManager.inKeyguardRestrictedInputMode()) {
             ProvisionLogger.logi("Cannot pick wifi because the screen is locked.");
             // Have the user pick a wifi network if necessary.
-        } else if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null) {
+        } else if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null
+               && mParams.deviceAdminDownloadInfo != null) {
             if (canRequestWifiPick()) {
                 mUi.requestWifiPick();
                 return;
