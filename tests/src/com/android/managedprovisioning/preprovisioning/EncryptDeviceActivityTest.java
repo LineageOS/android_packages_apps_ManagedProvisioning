@@ -22,10 +22,9 @@ import static android.app.admin.DevicePolicyManager.ACTION_START_ENCRYPTION;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.intent.Intents.intended;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasAction;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 
@@ -34,8 +33,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.filters.SmallTest;
+import android.support.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
@@ -70,7 +69,7 @@ public class EncryptDeviceActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, DEVICE_OWNER_PARAMS);
 
     @Rule
-    public IntentsTestRule<EncryptDeviceActivity> mActivityRule = new IntentsTestRule<>(
+    public ActivityTestRule<EncryptDeviceActivity> mActivityRule = new ActivityTestRule<>(
             EncryptDeviceActivity.class, true /* Initial touch mode  */,
             false /* Lazily launch activity */);
 
@@ -102,6 +101,7 @@ public class EncryptDeviceActivityTest {
         MockitoAnnotations.initMocks(this);
 
         TestEncryptionActivity.sController = mController;
+        TestEncryptionActivity.sLastLaunchedIntent = null;
 
         TestInstrumentationRunner.registerReplacedActivity(EncryptDeviceActivity.class,
                 TestEncryptionActivity.class);
@@ -123,7 +123,8 @@ public class EncryptDeviceActivityTest {
         verify(mController).setEncryptionReminder(PROFILE_OWNER_PARAMS);
 
         // THEN encryption activity should be started
-        intended(hasAction(ACTION_START_ENCRYPTION));
+        assertEquals(ACTION_START_ENCRYPTION,
+                TestEncryptionActivity.sLastLaunchedIntent.getAction());
     }
 
     @Test
@@ -142,6 +143,16 @@ public class EncryptDeviceActivityTest {
         verify(mController).setEncryptionReminder(DEVICE_OWNER_PARAMS);
 
         // THEN encryption activity should be started
-        intended(hasAction(ACTION_START_ENCRYPTION));
+        assertEquals(ACTION_START_ENCRYPTION,
+                TestEncryptionActivity.sLastLaunchedIntent.getAction());
+    }
+
+    @Test
+    public void testNoParams() {
+        // WHEN launching EncryptDeviceActivity without a params object
+        mActivityRule.launchActivity(new Intent());
+
+        // THEN the activity should finish immediately
+        assertTrue(mActivityRule.getActivity().isFinishing());
     }
 }
