@@ -16,33 +16,47 @@
 
 package com.android.managedprovisioning.task;
 
-import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
+import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.Settings;
 
-import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
+
+    @VisibleForTesting
+    static final boolean DEFAULT_CONTACT_REMOTE_SEARCH = true;
+
+    private final SettingsFacade mSettingsFacade;
 
     public ManagedProfileSettingsTask(
             Context context,
             ProvisioningParams params,
             Callback callback) {
+        this(new SettingsFacade(), context, params, callback);
+    }
+
+    @VisibleForTesting
+    ManagedProfileSettingsTask(
+            SettingsFacade settingsFacade,
+            Context context,
+            ProvisioningParams params,
+            Callback callback) {
         super(context, params, callback);
+        mSettingsFacade = checkNotNull(settingsFacade);
     }
 
     @Override
     public void run(int userId) {
         // Turn on managed profile contacts remote search.
-        Settings.Secure.putIntForUser(mContext.getContentResolver(),
-                MANAGED_PROFILE_CONTACT_REMOTE_SEARCH,
-                1, userId);
+        mSettingsFacade.setProfileContactRemoteSearch(mContext, DEFAULT_CONTACT_REMOTE_SEARCH,
+                userId);
 
         // Disable managed profile wallpaper access
         UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
@@ -50,7 +64,8 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
 
         // Set the main color of managed provisioning from the provisioning params
         if (mProvisioningParams.mainColor != null) {
-            DevicePolicyManager dpm = mContext.getSystemService(DevicePolicyManager.class);
+            DevicePolicyManager dpm = (DevicePolicyManager) mContext.getSystemService(
+                    Context.DEVICE_POLICY_SERVICE);
             dpm.setOrganizationColorForUser(mProvisioningParams.mainColor, userId);
         }
 
@@ -58,7 +73,7 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
                 mContext.getPackageManager(), UserHandle.myUserId(), userId);
 
         // always mark managed profile setup as completed
-        markUserSetupComplete(userId);
+        mSettingsFacade.setUserSetupCompleted(mContext, userId);
 
         success();
     }
@@ -66,17 +81,5 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
     @Override
     public int getStatusMsgId() {
         return R.string.progress_finishing_touches;
-    }
-
-    /**
-     * Sets user setup complete on a given user.
-     *
-     * <p>This will set USER_SETUP_COMPLETE to 1 on the given user.
-     */
-    private void markUserSetupComplete(int userId) {
-        ProvisionLogger.logd("Setting USER_SETUP_COMPLETE to 1 for user " + userId);
-        Settings.Secure.putIntForUser(
-                mContext.getContentResolver(),
-                Settings.Secure.USER_SETUP_COMPLETE, 1, userId);
     }
 }

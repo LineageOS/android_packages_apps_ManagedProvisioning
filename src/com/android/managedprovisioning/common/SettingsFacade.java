@@ -18,6 +18,7 @@ package com.android.managedprovisioning.common;
 
 import static android.provider.Settings.Global.DEVICE_PROVISIONED;
 import static android.provider.Settings.Global.PACKAGE_VERIFIER_ENABLE;
+import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
 import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
 
 import android.content.Context;
@@ -28,6 +29,14 @@ import android.provider.Settings.Secure;
  * Wrapper class around the static Settings provider calls.
  */
 public class SettingsFacade {
+    /**
+     * Sets USER_SETUP_COMPLETE for a given user.
+     */
+    public void setUserSetupCompleted(Context context, int userId) {
+        ProvisionLogger.logd("Setting USER_SETUP_COMPLETE to 1 for user " + userId);
+        Secure.putIntForUser(context.getContentResolver(), USER_SETUP_COMPLETE, 1, userId);
+    }
+
     /**
      * Returns whether USER_SETUP_COMPLETE is set on the calling user.
      */
@@ -55,5 +64,13 @@ public class SettingsFacade {
      */
     public boolean isPackageVerifierEnabled(Context context) {
         return Global.getInt(context.getContentResolver(), PACKAGE_VERIFIER_ENABLE, 0) != 0;
+    }
+
+    /**
+     * Sets whether profile contact remote search is enabled.
+     */
+    public void setProfileContactRemoteSearch(Context context, boolean allowed, int userId) {
+        Secure.putIntForUser(context.getContentResolver(),
+                MANAGED_PROFILE_CONTACT_REMOTE_SEARCH, allowed ? 1 : 0, userId);
     }
 }
