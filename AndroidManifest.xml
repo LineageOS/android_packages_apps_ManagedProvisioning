@@ -183,7 +183,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.PreBootListener">
+        <receiver android:name="com.android.managedprovisioning.ota.PreBootListener">
             <intent-filter>
                 <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
             </intent-filter>
