@@ -14,45 +14,31 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.task;
+package com.android.managedprovisioning.task.nonrequiredapps;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
-
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.app.AppGlobals;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.util.Xml;
 import android.view.inputmethod.InputMethodInfo;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.view.IInputMethodManager;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlSerializer;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -60,20 +46,15 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Helper class to compute non-required apps.
+ * Class that provides the apps that are not required on a managed device / profile according to the
+ * overlays provided via (vendor_|)required_apps_managed_(profile|device).xml.
  */
-public class NonRequiredAppsHelper {
+public class OverlayPackagesProvider {
 
-    private static final String TAG_SYSTEM_APPS = "system-apps";
-    private static final String TAG_PACKAGE_LIST_ITEM = "item";
-    private static final String ATTR_VALUE = "value";
+    private static final int DEVICE_OWNER = 0;
+    private static final int PROFILE_OWNER = 1;
+    private static final int MANAGED_USER = 2;
 
-    public static final int DEVICE_OWNER = 0;
-    public static final int PROFILE_OWNER = 1;
-    public static final int MANAGED_USER = 2;
-
-    private final Context mContext;
-    private final IPackageManager mIPackageManager;
     private final PackageManager mPm;
     private final IInputMethodManager mIInputMethodManager;
     private final String mDpcPackageName;
@@ -83,23 +64,19 @@ public class NonRequiredAppsHelper {
     private final List<String> mVendorDisallowedAppsList;
     private final int mProvisioningType;
     private final boolean mLeaveAllSystemAppsEnabled;
-    private final Utils mUtils = new Utils();
-    private final boolean mNewProfile;
 
-    public NonRequiredAppsHelper(Context context, ProvisioningParams params, boolean newProfile) {
-        this(context, params, AppGlobals.getPackageManager(), getIInputMethodManager(), newProfile);
+    public OverlayPackagesProvider(Context context, ProvisioningParams params) {
+        this(context, params, getIInputMethodManager());
     }
 
     @VisibleForTesting
-    NonRequiredAppsHelper(Context context, ProvisioningParams params,
-            IPackageManager iPackageManager, IInputMethodManager iInputMethodManager,
-            boolean newProfile) {
-        mContext = checkNotNull(context);
-        mIPackageManager = checkNotNull(iPackageManager);
+    OverlayPackagesProvider(
+            Context context,
+            ProvisioningParams params,
+            IInputMethodManager iInputMethodManager) {
         mPm = checkNotNull(context.getPackageManager());
         mIInputMethodManager = checkNotNull(iInputMethodManager);
         mDpcPackageName = checkNotNull(params.inferDeviceAdminPackageName());
-        mNewProfile = newProfile;
 
         // For split system user devices that will have a system device owner, don't adjust the set
         // of enabled packages in the system user as we expect the right set of packages to be
@@ -176,68 +153,6 @@ public class NonRequiredAppsHelper {
         return nonRequiredApps;
     }
 
-    /**
-     * Finds the new system apps installed in the user. When called for the first time, it will
-     * just return all the system apps installed and also saves them to the disk. when called after
-     * this, it will get all the system apps and compares it with the system apps last saved.
-     *
-     * @param userId The userId for which the new system apps needs to be computed.
-     * @return the set of new system apps or null in case of an error.
-     */
-    public Set<String> getNewSystemApps(int userId) {
-        File systemAppsFile = getSystemAppsFile(mContext, userId);
-        systemAppsFile.getParentFile().mkdirs(); // Creating the folder if it does not exist
-
-        Set<String> currentSystemApps = mUtils.getCurrentSystemApps(mIPackageManager, userId);
-        final Set<String> previousSystemApps;
-        if (mNewProfile) {
-            // Provisioning case.
-            previousSystemApps = Collections.<String>emptySet();
-        } else if (!systemAppsFile.exists()) {
-            // OTA case.
-            ProvisionLogger.loge("Could not find the system apps file " +
-                    systemAppsFile.getAbsolutePath());
-            return null;
-        } else {
-            // OTA case.
-            previousSystemApps = readSystemApps(systemAppsFile);
-        }
-
-        writeSystemApps(currentSystemApps, systemAppsFile);
-        Set<String> newApps = currentSystemApps;
-        newApps.removeAll(previousSystemApps);
-        return newApps;
-    }
-
-    /**
-     * Call this method when the current set of system apps of a user needs to be saved to disk.
-     * Note: If the DPC chose to skip the disabling of system apps, then this method won't do
-     * anything.
-     *
-     * @param userId The userId for which the system apps info needs to be saved.
-     */
-    public void writeCurrentSystemAppsIfNeeded(int userId) {
-        if (mLeaveAllSystemAppsEnabled) {
-            return;
-        }
-        final File systemAppsFile = getSystemAppsFile(mContext, userId);
-        systemAppsFile.getParentFile().mkdirs(); // Creating the folder if it does not exist
-        writeSystemApps(mUtils.getCurrentSystemApps(mIPackageManager, userId), systemAppsFile);
-    }
-
-    /**
-     * @return {@code true} if DPC chose to skip the disabling of system apps or if the system user
-     * device owner is being provisioned.
-     */
-    public boolean leaveSystemAppsEnabled() {
-        return mLeaveAllSystemAppsEnabled;
-    }
-
-    static File getSystemAppsFile(Context context, int userId) {
-        return new File(context.getFilesDir() + File.separator + "system_apps"
-                + File.separator + "user" + userId + ".xml");
-    }
-
     private Set<String> getCurrentAppsWithLauncher(int userId) {
         Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
         launcherIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -272,62 +187,6 @@ public class NonRequiredAppsHelper {
             }
         }
         return systemInputMethods;
-    }
-
-    @VisibleForTesting
-    void writeSystemApps(Set<String> packageNames, File systemAppsFile) {
-        try {
-            FileOutputStream stream = new FileOutputStream(systemAppsFile, false);
-            XmlSerializer serializer = new FastXmlSerializer();
-            serializer.setOutput(stream, "utf-8");
-            serializer.startDocument(null, true);
-            serializer.startTag(null, TAG_SYSTEM_APPS);
-            for (String packageName : packageNames) {
-                serializer.startTag(null, TAG_PACKAGE_LIST_ITEM);
-                serializer.attribute(null, ATTR_VALUE, packageName);
-                serializer.endTag(null, TAG_PACKAGE_LIST_ITEM);
-            }
-            serializer.endTag(null, TAG_SYSTEM_APPS);
-            serializer.endDocument();
-            stream.close();
-        } catch (IOException e) {
-            ProvisionLogger.loge("IOException trying to write the system apps", e);
-        }
-    }
-
-    @VisibleForTesting
-    Set<String> readSystemApps(File systemAppsFile) {
-        Set<String> result = new HashSet<>();
-        if (!systemAppsFile.exists()) {
-            return result;
-        }
-        try {
-            FileInputStream stream = new FileInputStream(systemAppsFile);
-
-            XmlPullParser parser = Xml.newPullParser();
-            parser.setInput(stream, null);
-
-            int type = parser.next();
-            int outerDepth = parser.getDepth();
-            while ((type=parser.next()) != XmlPullParser.END_DOCUMENT
-                    && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-                if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
-                    continue;
-                }
-                String tag = parser.getName();
-                if (tag.equals(TAG_PACKAGE_LIST_ITEM)) {
-                    result.add(parser.getAttributeValue(null, ATTR_VALUE));
-                } else {
-                    ProvisionLogger.loge("Unknown tag: " + tag);
-                }
-            }
-            stream.close();
-        } catch (IOException e) {
-            ProvisionLogger.loge("IOException trying to read the system apps", e);
-        } catch (XmlPullParserException e) {
-            ProvisionLogger.loge("XmlPullParserException trying to read the system apps", e);
-        }
-        return result;
     }
 
     private Set<String> getRequiredApps() {

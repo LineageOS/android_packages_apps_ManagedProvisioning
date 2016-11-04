@@ -17,164 +17,132 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import android.content.Context;
 import android.content.pm.IPackageDeleteObserver;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.RemoteException;
-import android.test.AndroidTestCase;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SmallTest;
 import android.test.mock.MockPackageManager;
-import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
-
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+@SmallTest
+public class DeleteNonRequiredAppsTaskTest {
     private static final String TEST_DPC_PACKAGE_NAME = "dpc.package.name";
     private static final int TEST_USER_ID = 123;
+    private static final ProvisioningParams TEST_PARAMS = new ProvisioningParams.Builder()
+            .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+            .setDeviceAdminPackageName(TEST_DPC_PACKAGE_NAME)
+            .build();
 
     private @Mock AbstractProvisioningTask.Callback mCallback;
     private @Mock Context mTestContext;
-    private @Mock NonRequiredAppsHelper mHelper;
+    private @Mock NonRequiredAppsLogic mLogic;
 
     private FakePackageManager mPackageManager;
-
     private Set<String> mDeletedApps;
-    private Set<String> mInstalledApplications;
     private DeleteNonRequiredAppsTask mTask;
 
-    @Override
-    protected void setUp() throws Exception {
-        // this is necessary for mockito to work
-        System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
-
+    @Before
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         mPackageManager = new FakePackageManager();
 
         when(mTestContext.getPackageManager()).thenReturn(mPackageManager);
-        when(mTestContext.getFilesDir()).thenReturn(getContext().getFilesDir());
+        when(mTestContext.getFilesDir()).thenReturn(InstrumentationRegistry.getTargetContext()
+                .getFilesDir());
 
         mDeletedApps = new HashSet<>();
+
+        mTask = new DeleteNonRequiredAppsTask(mTestContext, TEST_PARAMS, mCallback, mLogic);
     }
 
-    // We run most methods for device owner only, and we'll assume they also work for profile owner.
-    @SmallTest
-    public void testNonRequiredAppsAreDeleted() {
-        setNonRequiredApps("app.a", "app.b");
-        setNewSystemApps("app.a", "app.b");
-        setInstalledSystemApps("app.a", "app.b");
+    @Test
+    public void testNoAppsToDelete() {
+        // GIVEN that no apps should be deleted
+        when(mLogic.getSystemAppsToRemove(TEST_USER_ID)).thenReturn(Collections.emptySet());
 
-        runTask(ACTION_PROVISION_MANAGED_DEVICE, false);
-
-        assertDeletedApps("app.a", "app.b");
-        verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @SmallTest
-    public void testLeaveAllAppsEnabled() {
-        runTask(ACTION_PROVISION_MANAGED_DEVICE, true);
-
-        assertDeletedApps();
-        verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @SmallTest
-    public void testEmptyNewSystemApps() {
-        setNonRequiredApps("app.a", "app.b");
-        setNewSystemApps();
-        setInstalledSystemApps("app.c");
-
-        runTask(ACTION_PROVISION_MANAGED_DEVICE, false);
-
-        assertDeletedApps();
-        verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @SmallTest
-    public void testNewSystemAppsFailed() {
-        setNonRequiredApps("app.a", "app.b");
-        setNewSystemApps(null);
-        setInstalledSystemApps("app.a", "app.c");
-
-        runTask(ACTION_PROVISION_MANAGED_DEVICE, false);
-
-        assertDeletedApps();
-        verify(mCallback).onError(mTask, 0);
-    }
-
-    @SmallTest
-    public void testWhenNonRequiredAppsAreNotInstalled() {
-        setNonRequiredApps("app.a", "app.b");
-        setNewSystemApps("app.a", "app.c");
-        setInstalledSystemApps("app.a", "app.c");
-
-        runTask(ACTION_PROVISION_MANAGED_DEVICE, false);
-
-        assertDeletedApps("app.a");
-        verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @SmallTest
-    public void testWhenDeletionFails() {
-        setNonRequiredApps("app.a");
-        setNewSystemApps("app.a");
-        setInstalledSystemApps("app.a");
-        mPackageManager.setDeletionSucceeds(false);
-        runTask(ACTION_PROVISION_MANAGED_DEVICE, false);
-        verify(mCallback).onError(mTask, 0);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    private void runTask(String action, boolean leaveAllSystemAppsEnabled) {
-        ProvisioningParams params = new ProvisioningParams.Builder()
-                .setProvisioningAction(action)
-                .setDeviceAdminPackageName(TEST_DPC_PACKAGE_NAME)
-                .setLeaveAllSystemAppsEnabled(leaveAllSystemAppsEnabled)
-                .build();
-        mTask = new DeleteNonRequiredAppsTask(
-                mTestContext,
-                params,
-                mCallback,
-                mHelper);
+        // WHEN running the task
         mTask.run(TEST_USER_ID);
+
+        // THEN maybe take snapshot should have been called
+        verify(mLogic).maybeTakeSystemAppsSnapshot(TEST_USER_ID);
+
+        // THEN success should be called
+        verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
+
+        // THEN no apps should have been deleted
+        assertDeletedApps();
     }
 
-    private void assertDeletedApps(String... appArray) {
-        assertEquals(setFromArray(appArray), mDeletedApps);
+    @Test
+    public void testAppsToDelete() {
+        // GIVEN that some apps should be deleted
+        when(mLogic.getSystemAppsToRemove(TEST_USER_ID))
+                .thenReturn(setFromArray("app.a", "app.b"));
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN maybe take snapshot should have been called
+        verify(mLogic).maybeTakeSystemAppsSnapshot(TEST_USER_ID);
+
+        // THEN success should be called
+        verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
+
+        // THEN those apps should have been deleted
+        assertDeletedApps("app.a", "app.b");
     }
 
-    private void setNonRequiredApps(String... appArray) {
-        when(mHelper.getNonRequiredApps(TEST_USER_ID)).thenReturn(setFromArray(appArray));
+    @Test
+    public void testDeletionFailed() {
+        // GIVEN that one app should be deleted
+        when(mLogic.getSystemAppsToRemove(TEST_USER_ID)).thenReturn(Collections.singleton("app.a"));
+        // GIVEN that deletion fails
+        mPackageManager.setDeletionSucceeds(false);
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN maybe take snapshot should have been called
+        verify(mLogic).maybeTakeSystemAppsSnapshot(TEST_USER_ID);
+
+        // THEN error should be returned
+        verify(mCallback).onError(mTask, 0);
+        verifyNoMoreInteractions(mCallback);
     }
 
-    private void setNewSystemApps(String... appArray) {
-        when(mHelper.getNewSystemApps(TEST_USER_ID)).thenReturn(setFromArray(appArray));
-    }
-
-    private void setInstalledSystemApps(String... installedSystemApps) {
-        mInstalledApplications = setFromArray(installedSystemApps);
-    }
-
-    private <T> Set<T> setFromArray(T[] array) {
+    private <T> Set<T> setFromArray(T... array) {
         if (array == null) {
             return null;
         }
         return new HashSet<>(Arrays.asList(array));
+    }
+
+    private void assertDeletedApps(String... appArray) {
+        assertEquals(setFromArray(appArray), mDeletedApps);
     }
 
     class FakePackageManager extends MockPackageManager {
@@ -205,15 +173,6 @@ public class DeleteNonRequiredAppsTaskTest extends AndroidTestCase {
             } catch (RemoteException e) {
                 fail(e.toString());
             }
-        }
-
-        @Override
-        public PackageInfo getPackageInfoAsUser(String packageName, int flags, int userId)
-                throws NameNotFoundException {
-            if (mInstalledApplications.contains(packageName)) {
-                return new PackageInfo();
-            }
-            throw new NameNotFoundException();
         }
     }
 }

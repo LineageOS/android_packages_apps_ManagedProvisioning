@@ -20,16 +20,14 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
 import android.content.pm.IPackageDeleteObserver;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -44,9 +42,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
     private final PackageManager mPm;
-    private final NonRequiredAppsHelper mNonRequiredAppsHelper;
-
-    private int mUserId;
+    private final NonRequiredAppsLogic mLogic;
 
     public DeleteNonRequiredAppsTask(
             boolean firstTimeCreation,
@@ -57,7 +53,7 @@ public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
                 context,
                 params,
                 callback,
-                new NonRequiredAppsHelper(context, params, firstTimeCreation));
+                new NonRequiredAppsLogic(context, firstTimeCreation, params));
     }
 
     @VisibleForTesting
@@ -65,34 +61,17 @@ public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
             Context context,
             ProvisioningParams params,
             Callback callback,
-            NonRequiredAppsHelper helper) {
+            NonRequiredAppsLogic logic) {
         super(context, params, callback);
 
         mPm = checkNotNull(context.getPackageManager());
-        mNonRequiredAppsHelper = checkNotNull(helper);
+        mLogic = checkNotNull(logic);
     }
 
     @Override
     public void run(int userId) {
-        mUserId = userId;
-
-        if (mNonRequiredAppsHelper.leaveSystemAppsEnabled()) {
-            ProvisionLogger.logd("Not deleting non-required apps.");
-            success();
-            return;
-        }
-        ProvisionLogger.logd("Deleting non required apps.");
-
-        final Set<String> packagesToDelete = mNonRequiredAppsHelper.getNonRequiredApps(userId);
-        Set<String> newSystemApps = mNonRequiredAppsHelper.getNewSystemApps(userId);
-        if (newSystemApps == null) {
-            error(0);
-            newSystemApps = Collections.emptySet();
-        }
-
-        packagesToDelete.retainAll(newSystemApps);
-        removeNonInstalledPackages(packagesToDelete);
-
+        Set<String> packagesToDelete = mLogic.getSystemAppsToRemove(userId);
+        mLogic.maybeTakeSystemAppsSnapshot(userId);
         if (packagesToDelete.isEmpty()) {
             success();
             return;
@@ -101,42 +80,15 @@ public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
         PackageDeleteObserver packageDeleteObserver =
                 new PackageDeleteObserver(packagesToDelete.size());
         for (String packageName : packagesToDelete) {
-            ProvisionLogger.logd("Deleting package [" + packageName + "] as user " + mUserId);
+            ProvisionLogger.logd("Deleting package [" + packageName + "] as user " + userId);
             mPm.deletePackageAsUser(packageName, packageDeleteObserver,
-                    PackageManager.DELETE_SYSTEM_APP, mUserId);
+                    PackageManager.DELETE_SYSTEM_APP, userId);
         }
     }
 
     @Override
     public int getStatusMsgId() {
         return R.string.progress_delete_non_required_apps;
-    }
-
-    /**
-     * Remove all packages from the set that are not installed.
-     */
-    private void removeNonInstalledPackages(Set<String> packages) {
-        Set<String> toBeRemoved = new HashSet<String>();
-        for (String packageName : packages) {
-            try {
-                PackageInfo info = mPm.getPackageInfoAsUser(packageName, 0 /* default flags */,
-                        mUserId);
-                if (info == null) {
-                    toBeRemoved.add(packageName);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                toBeRemoved.add(packageName);
-            }
-        }
-        packages.removeAll(toBeRemoved);
-    }
-
-    /**
-     * Returns if this task should be run on OTA.
-     * This is indicated by the presence of the system apps file.
-     */
-    public static boolean shouldDeleteNonRequiredApps(Context context, int userId) {
-        return NonRequiredAppsHelper.getSystemAppsFile(context, userId).exists();
     }
 
     /**

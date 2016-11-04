@@ -26,6 +26,7 @@ import android.os.UserManager;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
 import java.util.Set;
 
@@ -35,7 +36,7 @@ import java.util.Set;
 public class CreateManagedProfileTask extends AbstractProvisioningTask {
 
     private int mProfileUserId;
-    private final NonRequiredAppsHelper mNonRequiredAppsHelper;
+    private final NonRequiredAppsLogic mNonRequiredAppsLogic;
     private final UserManager mUserManager;
 
     public CreateManagedProfileTask(Context context, ProvisioningParams params, Callback callback) {
@@ -44,7 +45,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
                 params,
                 callback,
                 context.getSystemService(UserManager.class),
-                new NonRequiredAppsHelper(context, params, true));
+                new NonRequiredAppsLogic(context, true, params));
     }
 
     @VisibleForTesting
@@ -53,16 +54,16 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
             ProvisioningParams params,
             Callback callback,
             UserManager userManager,
-            NonRequiredAppsHelper helper) {
+            NonRequiredAppsLogic logic) {
         super(context, params, callback);
-        mNonRequiredAppsHelper = checkNotNull(helper);
+        mNonRequiredAppsLogic = checkNotNull(logic);
         mUserManager = checkNotNull(userManager);
     }
 
     @Override
     public void run(int userId) {
         startTaskTimer();
-        final Set<String> nonRequiredApps = mNonRequiredAppsHelper.getNonRequiredApps(userId);
+        final Set<String> nonRequiredApps = mNonRequiredAppsLogic.getSystemAppsToRemove(userId);
         UserInfo userInfo = mUserManager.createProfileForUserEvenWhenDisallowed(
                 mContext.getString(R.string.default_managed_profile_name),
                 UserInfo.FLAG_MANAGED_PROFILE | UserInfo.FLAG_DISABLED,
@@ -72,10 +73,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
             return;
         }
         mProfileUserId = userInfo.id;
-        // When OTA occurs, we need to compute the non-required apps and delete them. And for
-        // that we need to know the set of system apps prior to OTA. So, save the current system
-        // apps to a file.
-        mNonRequiredAppsHelper.writeCurrentSystemAppsIfNeeded(mProfileUserId);
+        mNonRequiredAppsLogic.maybeTakeSystemAppsSnapshot(userInfo.id);
         stopTaskTimer();
         success();
     }

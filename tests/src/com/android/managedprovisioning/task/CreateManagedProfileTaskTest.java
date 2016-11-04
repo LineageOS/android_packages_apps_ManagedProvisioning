@@ -31,6 +31,7 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +49,7 @@ public class CreateManagedProfileTaskTest {
             .build();
 
     private @Mock UserManager mUserManager;
-    private @Mock NonRequiredAppsHelper mHelper;
+    private @Mock NonRequiredAppsLogic mLogic;
     private @Mock AbstractProvisioningTask.Callback mCallback;
 
     private CreateManagedProfileTask mTask;
@@ -57,7 +58,7 @@ public class CreateManagedProfileTaskTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         mTask = new CreateManagedProfileTask(InstrumentationRegistry.getTargetContext(),
-                TEST_PARAMS, mCallback, mUserManager, mHelper);
+                TEST_PARAMS, mCallback, mUserManager, mLogic);
     }
 
     @Test
@@ -74,7 +75,7 @@ public class CreateManagedProfileTaskTest {
         // THEN any other callback should not happen
         verifyNoMoreInteractions(mCallback);
         // THEN list of system apps in the new user should be saved
-        verify(mHelper).writeCurrentSystemAppsIfNeeded(TEST_USER_ID);
+        verify(mLogic).maybeTakeSystemAppsSnapshot(TEST_USER_ID);
     }
 
     @Test

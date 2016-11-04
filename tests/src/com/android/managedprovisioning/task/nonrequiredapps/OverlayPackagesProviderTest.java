@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.task;
+package com.android.managedprovisioning.task.nonrequiredapps;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -30,9 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
-import android.content.pm.ParceledListSlice;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
@@ -45,33 +42,29 @@ import android.view.inputmethod.InputMethodInfo;
 import com.android.internal.view.IInputMethodManager;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 @SmallTest
-public class NonRequiredAppsHelperTest {
+public class OverlayPackagesProviderTest {
     private static final String TEST_DPC_PACKAGE_NAME = "dpc.package.name";
     private static final int TEST_USER_ID = 123;
 
     private @Mock Resources mResources;
-    private @Mock IPackageManager mIPackageManager;
     private @Mock IInputMethodManager mIInputMethodManager;
     private @Mock Context mTestContext;
 
     private FakePackageManager mPackageManager;
     private String[] mSystemAppsWithLauncher;
-    private NonRequiredAppsHelper mHelper;
-    private File mSystemAppsTestFile;
+    private OverlayPackagesProvider mHelper;
 
     @Before
     public void setUp() {
@@ -95,192 +88,119 @@ public class NonRequiredAppsHelperTest {
         setVendorRequiredAppsManagedUser();
         setDisallowedAppsManagedUser();
         setVendorDisallowedAppsManagedUser();
-        mSystemAppsTestFile = NonRequiredAppsHelper.getSystemAppsFile(mTestContext, TEST_USER_ID);
-    }
-
-    @After
-    public void tearDown() {
-        if (mSystemAppsTestFile.exists()) {
-            mSystemAppsTestFile.delete();
-        }
     }
 
     @Test
     public void testAppsWithLauncherAreNonRequiredByDefault() {
         setSystemAppsWithLauncher("app.a", "app.b");
-        setInstalledSystemApps("app.a", "app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
         verifyAppsAreNonRequired("app.a", "app.b");
-        verifyNewSystemApps("app.a", "app.b");
     }
 
     @Test
     public void testDeviceOwnerRequiredApps() {
         setSystemAppsWithLauncher("app.a", "app.b", "app.c");
-        setInstalledSystemApps("app.a", "app.b", "app.c");
         setRequiredAppsManagedDevice("app.a");
         setVendorRequiredAppsManagedDevice("app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
         verifyAppsAreNonRequired("app.c");
-        verifyNewSystemApps("app.a", "app.b", "app.c");
     }
 
     @Test
     public void testProfileOwnerRequiredApps() {
         setSystemAppsWithLauncher("app.a", "app.b", "app.c");
-        setInstalledSystemApps("app.a", "app.b", "app.c");
         setRequiredAppsManagedProfile("app.a");
         setVendorRequiredAppsManagedProfile("app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_PROFILE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_PROFILE, false);
         verifyAppsAreNonRequired("app.c");
-        verifyNewSystemApps("app.a", "app.b", "app.c");
     }
 
     @Test
     public void testManagedUserRequiredApps() {
         setSystemAppsWithLauncher("app.a", "app.b", "app.c");
-        setInstalledSystemApps("app.a", "app.b", "app.c");
         setRequiredAppsManagedUser("app.a");
         setVendorRequiredAppsManagedUser("app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_USER, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_USER, false);
         verifyAppsAreNonRequired("app.c");
-        verifyNewSystemApps("app.a", "app.b", "app.c");
     }
 
     @Test
     public void testDpcIsRequired() {
         setSystemAppsWithLauncher("app.a", TEST_DPC_PACKAGE_NAME);
-        setInstalledSystemApps("app.a", TEST_DPC_PACKAGE_NAME);
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
         verifyAppsAreNonRequired("app.a");
-        verifyNewSystemApps("app.a", TEST_DPC_PACKAGE_NAME);
     }
 
     @Test
     public void testDisallowedAppsAreNonRequiredEvenIfNoLauncher() {
         setSystemAppsWithLauncher();
-        setInstalledSystemApps("app.a", "app.b");
         setDisallowedAppsManagedDevice("app.a");
         setVendorDisallowedAppsManagedDevice("app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
         verifyAppsAreNonRequired("app.a", "app.b");
-        verifyNewSystemApps("app.a", "app.b");
     }
 
     @Test
     public void testDeviceOwnerImesAreRequired() {
         setSystemAppsWithLauncher("app.a", "app.b");
         setSystemInputMethods("app.a");
-        setInstalledSystemApps("app.a", "app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
         verifyAppsAreNonRequired("app.b");
-        verifyNewSystemApps("app.a", "app.b");
     }
 
     @Test
     public void testProfileOwnerImesAreNonRequired() {
         setSystemAppsWithLauncher("app.a", "app.b");
         setSystemInputMethods("app.a");
-        setInstalledSystemApps("app.a", "app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_PROFILE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_PROFILE, false);
         verifyAppsAreNonRequired("app.a", "app.b");
-        verifyNewSystemApps("app.a", "app.b");
     }
 
     @Test
     public void testManagedUserImesAreRequired() {
         setSystemAppsWithLauncher("app.a", "app.b");
         setSystemInputMethods("app.a");
-        setInstalledSystemApps("app.a", "app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_USER, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_USER, false);
         verifyAppsAreNonRequired("app.b");
-        verifyNewSystemApps("app.a", "app.b");
     }
 
     @Test
     public void testDisallowedAppsAreNonInstalled() {
         setSystemAppsWithLauncher("app.a");
-        setInstalledSystemApps("app.a", "app.b");
         setDisallowedAppsManagedDevice("app.c");
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
         verifyAppsAreNonRequired("app.a", "app.c");
-        verifyNewSystemApps("app.a", "app.b");
     }
 
     @Test
     public void testLeaveAllSystemAppsEnabled() {
         setSystemAppsWithLauncher("app.a", "app.b");
-        setInstalledSystemApps("app.a", "app.b");
 
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, true);
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true);
         verifyAppsAreNonRequired();
-        verifyNewSystemApps("app.a", "app.b");
-    }
-
-    @Test
-    public void testAfterOta() {
-        setSystemAppsWithLauncher("app.a");
-        setInstalledSystemApps("app.a", "app.b");
-        setDisallowedAppsManagedDevice("app.c");
-
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
-        verifyAppsAreNonRequired("app.a", "app.c");
-        verifyNewSystemApps("app.a", "app.b");
-
-        setSystemAppsWithLauncher();
-        setInstalledSystemApps("app.b", "app.c");
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false, false);
-        verifyAppsAreNonRequired("app.c");
-        verifyNewSystemApps("app.c");
-    }
-
-    @Test
-    public void testWhenSystemAppsWithNoSystemAppsFile() {
-        setSystemAppsWithLauncher("app.a", "app.b");
-        setInstalledSystemApps("app.a", "app.b");
-        // Now, we set a wrong value to mTestContext.getFilesDir. So it should not find the
-        // system apps file.
-        when(mTestContext.getFilesDir()).thenReturn(new File(""));
-
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false, false);
-        verifyAppsAreNonRequired("app.a", "app.b");
-        verifyNewSystemApps(null);
-    }
-
-    @Test
-    public void testReadWriteSystemApps() {
-        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, true, false);
-        final Set<String> systemTestApps = setFromArray("app.a", "app.b", "app.c");
-        mHelper.writeSystemApps(systemTestApps, mSystemAppsTestFile);
-        assertEquals(systemTestApps, mHelper.readSystemApps(mSystemAppsTestFile));
     }
 
     private void verifyAppsAreNonRequired(String... appArray) {
         assertEquals(setFromArray(appArray), mHelper.getNonRequiredApps(TEST_USER_ID));
     }
 
-    private void verifyNewSystemApps(String... appArray) {
-        assertEquals(setFromArray(appArray), mHelper.getNewSystemApps(TEST_USER_ID));
-    }
-
-    private void buildHelper(String action, boolean newProfile, boolean leaveAllSystemAppsEnabled) {
+    private void buildHelper(String action, boolean leaveAllSystemAppsEnabled) {
         ProvisioningParams params = new ProvisioningParams.Builder()
                 .setProvisioningAction(action)
                 .setDeviceAdminPackageName(TEST_DPC_PACKAGE_NAME)
                 .setLeaveAllSystemAppsEnabled(leaveAllSystemAppsEnabled)
                 .build();
-        mHelper = new NonRequiredAppsHelper(mTestContext, params,
-                mIPackageManager, mIInputMethodManager, newProfile);
+        mHelper = new OverlayPackagesProvider(mTestContext, params, mIInputMethodManager);
     }
 
     private void setRequiredAppsManagedDevice(String... apps) {
@@ -349,22 +269,6 @@ public class NonRequiredAppsHelperTest {
     private void setStringArray(int resourceId, String[] strs) {
         when(mResources.getStringArray(eq(resourceId)))
                 .thenReturn(strs);
-    }
-
-    private void setInstalledSystemApps(String... installedSystemApps) {
-        List<ApplicationInfo> applications = new ArrayList<ApplicationInfo>();
-        for (String app : installedSystemApps) {
-            ApplicationInfo aInfo = new ApplicationInfo();
-            aInfo.flags = ApplicationInfo.FLAG_SYSTEM;
-            aInfo.packageName = app;
-            applications.add(aInfo);
-        }
-        try {
-            when(mIPackageManager.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES,
-                    TEST_USER_ID)).thenReturn(new ParceledListSlice(applications));
-        } catch (RemoteException e) {
-            fail(e.toString());
-        }
     }
 
     private void setSystemInputMethods(String... packageNames) {

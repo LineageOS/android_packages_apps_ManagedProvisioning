@@ -68,29 +68,25 @@ public class PreBootListener extends BroadcastReceiver {
         if (deviceOwnerComponent != null) {
             final int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();
 
-            if(DeleteNonRequiredAppsTask.shouldDeleteNonRequiredApps(context, deviceOwnerUserId)) {
+            // Delete new apps.
+            new DeleteNonRequiredAppsTask(
+                    false /* not creating new profile */,
+                    context,
+                    new ProvisioningParams.Builder()
+                            .setDeviceAdminComponentName(deviceOwnerComponent)
+                            .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                            .build(),
+                    new AbstractProvisioningTask.Callback() {
+                        @Override
+                        public void onSuccess(AbstractProvisioningTask task) {
+                        }
 
-                // Delete new apps.
-                DeleteNonRequiredAppsTask deleteNonRequiredAppsTask = new DeleteNonRequiredAppsTask(
-                        false /* not creating new profile */,
-                        context,
-                        new ProvisioningParams.Builder()
-                                .setDeviceAdminComponentName(deviceOwnerComponent)
-                                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
-                                .build(),
-                        new AbstractProvisioningTask.Callback() {
-                            @Override
-                            public void onSuccess(AbstractProvisioningTask task) {
-                            }
-
-                            @Override
-                            public void onError(AbstractProvisioningTask task, int resultCode) {
-                                ProvisionLogger.loge("Error while checking if there are new system "
-                                        + "apps that need to be deleted");
-                            }
-                        });
-                deleteNonRequiredAppsTask.run(deviceOwnerUserId);
-            }
+                        @Override
+                        public void onError(AbstractProvisioningTask task, int resultCode) {
+                            ProvisionLogger.loge("Error while checking if there are new system "
+                                    + "apps that need to be deleted");
+                        }
+                    }).run(deviceOwnerUserId);
 
             // Ensure additional users cannot be created if we're in the state necessary to require
             // that.
