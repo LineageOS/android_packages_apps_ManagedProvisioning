@@ -31,6 +31,7 @@ import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -45,20 +46,23 @@ public class UserProvisioningStateHelper {
     private final Context mContext;
     private final DevicePolicyManager mDevicePolicyManager;
     private final Utils mUtils;
+    private final SettingsFacade mSettingsFacade;
     private final int mMyUserId;
 
     UserProvisioningStateHelper(Context context) {
-        this(context, new Utils(), UserHandle.myUserId());
+        this(context, new Utils(), new SettingsFacade(), UserHandle.myUserId());
     }
 
     @VisibleForTesting
     UserProvisioningStateHelper(Context context,
             Utils utils,
+            SettingsFacade settingsFacade,
             int myUserId) {
         mContext = checkNotNull(context);
         mDevicePolicyManager = (DevicePolicyManager) mContext.getSystemService(
                 DEVICE_POLICY_SERVICE);
         mUtils = checkNotNull(utils);
+        mSettingsFacade = checkNotNull(settingsFacade);
         mMyUserId = myUserId;
     }
 
@@ -75,7 +79,7 @@ public class UserProvisioningStateHelper {
      */
     @VisibleForTesting
     public void markUserProvisioningStateInitiallyDone(ProvisioningParams params) {
-        final boolean userSetupCompleted = mUtils.isUserSetupCompleted(mContext);
+        final boolean userSetupCompleted = mSettingsFacade.isUserSetupCompleted(mContext);
 
         int managedProfileUserId = UserHandle.USER_NULL;
 

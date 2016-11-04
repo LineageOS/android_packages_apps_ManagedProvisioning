@@ -33,6 +33,7 @@ import android.os.Looper;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -49,17 +50,16 @@ public class EncryptionControllerTest extends AndroidTestCase {
     private static final ComponentName TEST_HOME_RECEIVER = new ComponentName(MP_PACKAGE_NAME,
             ".HomeReceiverActivity");
     private static final String TEST_MDM_PACKAGE = "com.admin.test";
-    private static final String TEST_STRING = "Test";
     private static final int RESUME_PROVISIONING_TIMEOUT_MS = 1000;
 
     @Mock private Context mContext;
     @Mock private Utils mUtils;
+    @Mock private SettingsFacade mSettingsFacade;
     @Mock private Resources mResources;
     @Mock private PackageManager mPackageManager;
     @Mock private EncryptionController.ResumeNotificationHelper mResumeNotificationHelper;
 
     private EncryptionController mController;
-    private Intent mIntent;
 
     @Override
     public void setUp() {
@@ -79,7 +79,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
 
     public void testDeviceOwner() throws Exception {
         // GIVEN we've set a provisioning reminder for device owner provisioning.
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
         ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
         setReminder(params);
         verify(mUtils).enableComponent(TEST_HOME_RECEIVER, TEST_USER_ID);
@@ -92,7 +92,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
 
     public void testProfileOwnerAfterSuw() throws Exception {
         // GIVEN we set a provisioning reminder for managed profile provisioning after SUW
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         setReminder(params);
         // WHEN resuming the provisioning
@@ -103,7 +103,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
 
     public void testProfileOwnerDuringSuw() throws Exception {
         // GIVEN we set a provisioning reminder for managed profile provisioning during SUW
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
         ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         setReminder(params);
         verify(mUtils).enableComponent(TEST_HOME_RECEIVER, TEST_USER_ID);
@@ -136,7 +136,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
 
     public void testCancelProvisioningReminder() throws Exception {
         // WHEN we've set a provisioning reminder
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         setReminder(params);
         // WHEN canceling the reminder and then resuming the provisioning
@@ -171,7 +171,7 @@ public class EncryptionControllerTest extends AndroidTestCase {
     }
 
     private EncryptionController createEncryptionController() {
-        return new EncryptionController(mContext, mUtils, TEST_HOME_RECEIVER,
+        return new EncryptionController(mContext, mUtils, mSettingsFacade, TEST_HOME_RECEIVER,
                 mResumeNotificationHelper, TEST_USER_ID);
     }
 

@@ -44,6 +44,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -73,6 +74,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     @Mock private PreProvisioningController.Ui mUi;
     @Mock private MessageParser mMessageParser;
     @Mock private Utils mUtils;
+    @Mock private SettingsFacade mSettingsFacade;
     @Mock private Intent mIntent;
     @Mock private EncryptionController mEncryptionController;
     @Mock private TimeLogger mTimeLogger;
@@ -110,7 +112,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mDevicePolicyManager.getStorageEncryptionStatus())
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_INACTIVE);
         mController = new PreProvisioningController(mContext, mUi, mTimeLogger, mMessageParser,
-                mUtils, mEncryptionController);
+                mUtils, mSettingsFacade, mEncryptionController);
     }
 
     public void testManagedProfile() throws Exception {
@@ -249,7 +251,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     public void testManagedProfile_frp() throws Exception {
         // GIVEN managed profile provisioning is invoked from SUW with FRP active
         prepareMocksForManagedProfileIntent(false);
-        when(mUtils.isDeviceProvisioned(mContext)).thenReturn(false);
+        when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(false);
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating managed profile provisioning
@@ -531,7 +533,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mIntent.getAction()).thenReturn(action);
         when(mUtils.findDeviceAdmin(TEST_MDM_PACKAGE, null, mContext))
                 .thenReturn(TEST_MDM_COMPONENT_NAME);
-        when(mUtils.isDeviceProvisioned(mContext)).thenReturn(true);
+        when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(true);
         when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
         when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));

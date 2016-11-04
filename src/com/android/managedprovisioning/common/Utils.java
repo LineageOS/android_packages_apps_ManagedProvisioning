@@ -29,7 +29,6 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
-import android.annotation.ColorInt;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
@@ -56,9 +55,6 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
-import android.provider.Settings.Global;
-import android.provider.Settings.Secure;
-import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -280,35 +276,6 @@ public class Utils {
         }
 
         return true;
-    }
-
-    /**
-     * Returns whether USER_SETUP_COMPLETE is set on the calling user.
-     */
-    public boolean isUserSetupCompleted(Context context) {
-        return Secure.getInt(context.getContentResolver(), Secure.USER_SETUP_COMPLETE, 0) != 0;
-    }
-
-    /**
-     * Returns whether DEVICE_PROVISIONED is set.
-     */
-    public boolean isDeviceProvisioned(Context context) {
-        return Global.getInt(context.getContentResolver(), Global.DEVICE_PROVISIONED, 0) != 0;
-    }
-
-    /**
-     * Sets whether package verification is enabled or not.
-     */
-    public void setPackageVerifierEnabled(Context context, boolean packageVerifierEnabled) {
-        Global.putInt(context.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
-                packageVerifierEnabled ? 1 : 0);
-    }
-
-    /**
-     * Returns whether package verification is enabled or not.
-     */
-    public boolean isPackageVerifierEnabled(Context context) {
-        return Global.getInt(context.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0) != 0;
     }
 
     /**

@@ -35,7 +35,7 @@ import android.net.Uri;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.mockito.ArgumentCaptor;
@@ -57,7 +57,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private DownloadPackageTask mDownloadPackageTask;
     private InstallPackageTask mTask;
-    private final Utils mUtils = new UtilsStub();
+    private final SettingsFacade mSettingsFacade = new SettingsFacadeStub();
 
     @Override
     protected void setUp() throws Exception {
@@ -69,7 +69,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
         when(mContext.getPackageName()).thenReturn(getContext().getPackageName());
 
-        mTask = new InstallPackageTask(mUtils, mDownloadPackageTask, mContext, TEST_PARAMS,
+        mTask = new InstallPackageTask(mSettingsFacade, mDownloadPackageTask, mContext, TEST_PARAMS,
                 mCallback);
     }
 
@@ -88,7 +88,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
                 anyString());
         verify(mCallback).onSuccess(mTask);
         verifyNoMoreInteractions(mCallback);
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+        assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
@@ -108,7 +108,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         // THEN we receive a success callback
         verify(mCallback).onSuccess(mTask);
         verifyNoMoreInteractions(mCallback);
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+        assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
@@ -128,7 +128,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         // THEN we get a success callback, because an existing version of the DPC is present
         verify(mCallback).onSuccess(mTask);
         verifyNoMoreInteractions(mCallback);
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+        assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
@@ -148,7 +148,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         // THEN we get a success callback, because an existing version of the DPC is present
         verify(mCallback).onError(mTask, ERROR_INSTALLATION_FAILED);
         verifyNoMoreInteractions(mCallback);
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+        assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
     }
 
     @SmallTest
@@ -168,7 +168,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         // THEN we get a success callback, because an existing version of the DPC is present
         verify(mCallback).onError(mTask, ERROR_PACKAGE_INVALID);
         verifyNoMoreInteractions(mCallback);
-        assertTrue(mUtils.isPackageVerifierEnabled(mContext));
+        assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
     }
 
     private IPackageInstallObserver verifyPackageInstalled() {
@@ -186,7 +186,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         return observerCaptor.getValue();
     }
 
-    private static class UtilsStub extends Utils {
+    private static class SettingsFacadeStub extends SettingsFacade {
         private boolean mPackageVerifierEnabled = true;
 
         @Override

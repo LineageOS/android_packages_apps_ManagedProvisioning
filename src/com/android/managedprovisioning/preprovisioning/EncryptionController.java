@@ -32,6 +32,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Globals;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -51,6 +52,7 @@ public class EncryptionController {
 
     private final Context mContext;
     private final Utils mUtils;
+    private final SettingsFacade mSettingsFacade;
     private final ComponentName mHomeReceiver;
     private final ResumeNotificationHelper mResumeNotificationHelper;
     private final int mUserId;
@@ -74,6 +76,7 @@ public class EncryptionController {
     private EncryptionController(Context context) {
         this(context,
                 new Utils(),
+                new SettingsFacade(),
                 new ComponentName(context, PostEncryptionActivity.class),
                 new ResumeNotificationHelper(context),
                 UserHandle.myUserId());
@@ -82,10 +85,12 @@ public class EncryptionController {
     @VisibleForTesting
     EncryptionController(Context context,
             Utils utils,
+            SettingsFacade settingsFacade,
             ComponentName homeReceiver,
             ResumeNotificationHelper resumeNotificationHelper,
             int userId) {
         mContext = checkNotNull(context, "Context must not be null").getApplicationContext();
+        mSettingsFacade = checkNotNull(settingsFacade);
         mUtils = checkNotNull(utils, "Utils must not be null");
         mHomeReceiver = checkNotNull(homeReceiver, "HomeReceiver must not be null");
         mResumeNotificationHelper = checkNotNull(resumeNotificationHelper,
@@ -99,7 +104,7 @@ public class EncryptionController {
      * Store a resume intent into persistent storage. Provisioning will be resumed after reboot
      * using the stored intent.
      *
-     * @param resumeIntent the intent to be stored.
+     * @param params the params to be stored.
      */
     public void setEncryptionReminder(ProvisioningParams params) {
         ProvisionLogger.logd("Setting provisioning reminder for action: "
@@ -107,7 +112,7 @@ public class EncryptionController {
         params.save(getProvisioningParamsFile(mContext));
         // Only enable the HOME intent receiver for flows inside SUW, as showing the notification
         // for non-SUW flows is less time cricital.
-        if (!mUtils.isUserSetupCompleted(mContext)) {
+        if (!mSettingsFacade.isUserSetupCompleted(mContext)) {
             ProvisionLogger.logd("Enabling PostEncryptionActivity");
             mUtils.enableComponent(mHomeReceiver, mUserId);
             // To ensure that the enabled state has been persisted to disk, we flush the
@@ -163,7 +168,7 @@ public class EncryptionController {
             resumeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             if (mUtils.isProfileOwnerAction(action)) {
-                if (mUtils.isUserSetupCompleted(mContext)) {
+                if (mSettingsFacade.isUserSetupCompleted(mContext)) {
                     mResumeNotificationHelper.showResumeNotification(resumeIntent);
                 } else {
                     mContext.startActivity(resumeIntent);

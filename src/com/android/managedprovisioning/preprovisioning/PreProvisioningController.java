@@ -42,6 +42,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
@@ -55,6 +56,7 @@ public class PreProvisioningController {
     private final Ui mUi;
     private final MessageParser mMessageParser;
     private final Utils mUtils;
+    private final SettingsFacade mSettingsFacade;
     private final EncryptionController mEncryptionController;
 
     // used system services
@@ -75,7 +77,8 @@ public class PreProvisioningController {
             @NonNull Ui ui) {
         this(context, ui,
                 new TimeLogger(context, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
-                new MessageParser(), new Utils(), EncryptionController.getInstance(context));
+                new MessageParser(), new Utils(), new SettingsFacade(),
+                EncryptionController.getInstance(context));
     }
 
     @VisibleForTesting
@@ -85,11 +88,13 @@ public class PreProvisioningController {
             @NonNull TimeLogger timeLogger,
             @NonNull MessageParser parser,
             @NonNull Utils utils,
+            @NonNull SettingsFacade settingsFacade,
             @NonNull EncryptionController encryptionController) {
         mContext = checkNotNull(context, "Context must not be null");
         mUi = checkNotNull(ui, "Ui must not be null");
         mTimeLogger = checkNotNull(timeLogger, "Time logger must not be null");
         mMessageParser = checkNotNull(parser, "MessageParser must not be null");
+        mSettingsFacade = checkNotNull(settingsFacade);
         mUtils = checkNotNull(utils, "Utils must not be null");
         mEncryptionController = checkNotNull(encryptionController,
                 "EncryptionController must not be null");
@@ -328,8 +333,6 @@ public class PreProvisioningController {
 
     /**
      * Returns whether the device needs encryption.
-     *
-     * @param skip indicating whether the parameter to skip encryption was given.
      */
     private boolean isEncryptionRequired() {
         return !mParams.skipEncryption && mUtils.isEncryptionRequired();
@@ -405,7 +408,7 @@ public class PreProvisioningController {
     private boolean factoryResetProtected() {
         // If we are started during setup wizard, check for factory reset protection.
         // If the device is already setup successfully, do not check factory reset protection.
-        if (mUtils.isDeviceProvisioned(mContext)) {
+        if (mSettingsFacade.isDeviceProvisioned(mContext)) {
             ProvisionLogger.logd("Device is provisioned, FRP not required.");
             return false;
         }
@@ -539,7 +542,7 @@ public class PreProvisioningController {
                 mUi.showErrorAndClose(R.string.managed_provisioning_error_text, "Managed profile"
                         + " provisioning not allowed for an unknown reason.");
             }
-        } else if (mUtils.isDeviceProvisioned(mContext)) {
+        } else if (mSettingsFacade.isDeviceProvisioned(mContext)) {
             mUi.showErrorAndClose(R.string.device_owner_error_already_provisioned,
                     "Device already provisioned.");
         } else if (!mUtils.isCurrentUserSystem()) {

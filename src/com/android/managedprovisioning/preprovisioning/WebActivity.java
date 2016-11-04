@@ -29,7 +29,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.common.SettingsFacade;
 
 /**
  * This activity shows a web view, which loads the url indicated in the starting intent. By default
@@ -48,7 +48,7 @@ public class WebActivity extends Activity {
     private static final String EXTRA_ALLOWED_URL_BASE = "extra_allowed_url_base";
 
     private WebView mWebView;
-    private final Utils mUtils = new Utils();
+    private final SettingsFacade mSettingsFacade = new SettingsFacade();
     private TimeLogger mTimeLogger;
 
     @Override
@@ -76,7 +76,7 @@ public class WebActivity extends Activity {
                 return true;
             }
         });
-        if (!mUtils.isUserSetupCompleted(this)) {
+        if (!mSettingsFacade.isUserSetupCompleted(this)) {
             // User should not be able to escape provisioning if user setup isn't complete.
             mWebView.setOnLongClickListener(new OnLongClickListener() {
                 @Override

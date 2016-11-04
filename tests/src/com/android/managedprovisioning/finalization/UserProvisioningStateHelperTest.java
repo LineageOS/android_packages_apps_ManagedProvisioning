@@ -33,6 +33,7 @@ import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -50,6 +51,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     @Mock private Context mContext;
     @Mock private DevicePolicyManager mDevicePolicyManager;
     @Mock private Utils mUtils;
+    @Mock private SettingsFacade mSettingsFacade;
 
     private UserProvisioningStateHelper mHelper;
 
@@ -63,6 +65,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         mHelper = new UserProvisioningStateHelper(
                 mContext,
                 mUtils,
+                mSettingsFacade,
                 PRIMARY_USER_ID);
     }
 
@@ -71,7 +74,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile after SUW
         final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE,
                 false);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
 
         // WHEN calling markUserProvisioningStateInitiallyDone
@@ -87,7 +90,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile during SUW
         final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE,
                 false);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
 
         // WHEN calling markUserProvisioningStateInitiallyDone
@@ -106,7 +109,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // GIVEN that we've provisioned a device owner with skip user setup true
         final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
                 true);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
 
         // WHEN calling markUserProvisioningStateInitiallyDone
         mHelper.markUserProvisioningStateInitiallyDone(params);
@@ -121,7 +124,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // GIVEN that we've provisioned a device owner with skip user setup false
         final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
                 false);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
 
         // WHEN calling markUserProvisioningStateInitiallyDone
         mHelper.markUserProvisioningStateInitiallyDone(params);

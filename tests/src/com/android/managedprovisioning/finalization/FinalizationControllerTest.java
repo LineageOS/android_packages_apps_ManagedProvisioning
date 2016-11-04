@@ -34,6 +34,7 @@ import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -53,6 +54,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
 
     @Mock private Context mContext;
     @Mock private Utils mUtils;
+    @Mock private SettingsFacade mSettingsFacade;
     @Mock private UserProvisioningStateHelper mHelper;
 
     private FinalizationController mController;
@@ -66,7 +68,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         when(mUtils.findDeviceAdmin(null, TEST_MDM_ADMIN, mContext)).thenReturn(TEST_MDM_ADMIN);
         when(mContext.getFilesDir()).thenReturn(getContext().getFilesDir());
 
-        mController = new FinalizationController(mContext, mUtils, mHelper);
+        mController = new FinalizationController(mContext, mUtils, mSettingsFacade, mHelper);
     }
 
     @Override
@@ -125,7 +127,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile after SUW
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_PROFILE);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(true);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         when(mUtils.getManagedProfile(mContext))
                 .thenReturn(MANAGED_PROFILE_USER_HANDLE);
 
@@ -159,7 +161,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile after SUW
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_PROFILE);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
         when(mUtils.getManagedProfile(mContext))
                 .thenReturn(MANAGED_PROFILE_USER_HANDLE);
 
@@ -203,7 +205,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile after SUW
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_DEVICE);
-        when(mUtils.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
 
         // WHEN calling provisioningInitiallyDone
         mController.provisioningInitiallyDone(params);

@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.MdmPackageInfo;
-import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.setupwizardlib.util.SystemBarHelper;
 
 /**
@@ -45,7 +45,7 @@ public class DeleteManagedProfileDialog extends DialogFragment {
     private static final String KEY_MDM_PACKAGE_NAME = "mdm_package_name";
     private static final String KEY_PROFILE_OWNER_DOMAIN = "profile_owner_domain";
 
-    private final Utils mUtils = new Utils();
+    private final SettingsFacade mSettingsFacade = new SettingsFacade();
 
     /**
      * @param managedProfileUserId user-id for the managed profile which will be passed back to the
@@ -104,7 +104,7 @@ public class DeleteManagedProfileDialog extends DialogFragment {
         dialog.setTitle(R.string.delete_profile_title);
         dialog.setContentView(R.layout.delete_managed_profile_dialog);
         dialog.setCanceledOnTouchOutside(false);
-        if (!mUtils.isUserSetupCompleted(getActivity())) {
+        if (!mSettingsFacade.isUserSetupCompleted(getActivity())) {
             SystemBarHelper.hideSystemBars(dialog);
         }
 

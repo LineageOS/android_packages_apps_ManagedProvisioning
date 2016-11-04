@@ -29,6 +29,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.setupwizardlib.util.SystemBarHelper;
 
@@ -54,6 +55,7 @@ public class UserConsentDialog extends DialogFragment {
     private static final String KEY_SHOW_CONSENT_CHECKBOX = "consent_checkbox";
 
     private final Utils mUtils = new Utils();
+    private final SettingsFacade mSettingsFacade = new SettingsFacade();
 
     public static UserConsentDialog newProfileOwnerInstance() {
         return newInstance(PROFILE_OWNER, false);
@@ -83,7 +85,7 @@ public class UserConsentDialog extends DialogFragment {
         final Dialog dialog = new Dialog(getActivity(), R.style.ManagedProvisioningDialogTheme);
         dialog.setContentView(R.layout.learn_more_dialog);
         dialog.setCanceledOnTouchOutside(false);
-        if (!mUtils.isUserSetupCompleted(getActivity())) {
+        if (!mSettingsFacade.isUserSetupCompleted(getActivity())) {
             SystemBarHelper.hideSystemBars(dialog);
         }
 

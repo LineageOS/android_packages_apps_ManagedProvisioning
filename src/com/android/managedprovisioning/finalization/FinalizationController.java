@@ -31,6 +31,7 @@ import android.os.UserHandle;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -49,21 +50,25 @@ public class FinalizationController {
 
     private final Context mContext;
     private final Utils mUtils;
+    private final SettingsFacade mSettingsFacade;
     private final UserProvisioningStateHelper mHelper;
 
     public FinalizationController(Context context) {
         this(
                 context,
                 new Utils(),
+                new SettingsFacade(),
                 new UserProvisioningStateHelper(context));
     }
 
     @VisibleForTesting
     FinalizationController(Context context,
             Utils utils,
+            SettingsFacade settingsFacade,
             UserProvisioningStateHelper helper) {
         mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
+        mSettingsFacade = checkNotNull(settingsFacade);
         mHelper = checkNotNull(helper);
     }
 
@@ -90,7 +95,7 @@ public class FinalizationController {
 
         mHelper.markUserProvisioningStateInitiallyDone(params);
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)
-                && mUtils.isUserSetupCompleted(mContext)) {
+                && mSettingsFacade.isUserSetupCompleted(mContext)) {
             // If a managed profile was provisioned after SUW, notify the DPC straight away
             notifyDpcManagedProfile(params);
         } else {
