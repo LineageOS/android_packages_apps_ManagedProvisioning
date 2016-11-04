@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -26,6 +27,7 @@ import android.view.WindowManager;
 public class TestEncryptionActivity extends EncryptDeviceActivity {
 
     static EncryptionController sController;
+    static Intent sLastLaunchedIntent;
 
     @Override
     protected EncryptionController getEncryptionController() {
@@ -40,5 +42,10 @@ public class TestEncryptionActivity extends EncryptDeviceActivity {
         // Turn on screen to prevent activity being paused by system
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        sLastLaunchedIntent = intent;
     }
 }
