@@ -38,15 +38,22 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
     private final NonRequiredAppsHelper mNonRequiredAppsHelper;
     private final UserManager mUserManager;
 
-    public CreateManagedProfileTask(Context context,
-            ProvisioningParams params, NonRequiredAppsHelper helper, Callback callback) {
-        this(context, params, helper, callback,
-                context.getSystemService(UserManager.class));
+    public CreateManagedProfileTask(Context context, ProvisioningParams params, Callback callback) {
+        this(
+                context,
+                params,
+                callback,
+                context.getSystemService(UserManager.class),
+                new NonRequiredAppsHelper(context, params, true));
     }
 
     @VisibleForTesting
-    CreateManagedProfileTask(Context context, ProvisioningParams params,
-            NonRequiredAppsHelper helper, Callback callback, UserManager userManager) {
+    CreateManagedProfileTask(
+            Context context,
+            ProvisioningParams params,
+            Callback callback,
+            UserManager userManager,
+            NonRequiredAppsHelper helper) {
         super(context, params, callback);
         mNonRequiredAppsHelper = checkNotNull(helper);
         mUserManager = checkNotNull(userManager);

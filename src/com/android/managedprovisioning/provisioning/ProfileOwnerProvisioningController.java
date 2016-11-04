@@ -22,8 +22,8 @@ import android.content.Context;
 import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
@@ -34,7 +34,6 @@ import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.ManagedProfileSettingsTask;
-import com.android.managedprovisioning.task.NonRequiredAppsHelper;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
 import com.android.managedprovisioning.task.StartManagedProfileTask;
 
@@ -74,8 +73,7 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
 
     private void setUpTasksManagedProfile() {
         addTasks(
-                new CreateManagedProfileTask(mContext, mParams,
-                        new NonRequiredAppsHelper(mContext, mParams, true /* new profile*/), this),
+                new CreateManagedProfileTask(mContext, mParams, this),
                 new InstallExistingPackageTask(mContext, mParams, this),
                 new SetDevicePolicyTask(mContext, mParams, this),
                 new DisableBluetoothSharingTask(mContext, mParams, this),

@@ -17,7 +17,7 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -33,6 +33,7 @@ import android.support.test.filters.SmallTest;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -55,14 +56,15 @@ public class CreateManagedProfileTaskTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        mTask = new CreateManagedProfileTask(InstrumentationRegistry.getContext(),
-                TEST_PARAMS, mHelper, mCallback, mUserManager);
+        mTask = new CreateManagedProfileTask(InstrumentationRegistry.getTargetContext(),
+                TEST_PARAMS, mCallback, mUserManager, mHelper);
     }
 
-    @SmallTest
+    @Test
     public void testSuccess() {
         // GIVEN that a new profile can be created
-        when(mUserManager.createProfileForUser(anyString(), anyInt(), eq(TEST_PARENT_USER_ID)))
+        when(mUserManager.createProfileForUserEvenWhenDisallowed(
+                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID), any(String[].class)))
                 .thenReturn(new UserInfo(TEST_USER_ID, null, 0));
 
         // WHEN the CreateManagedProfileTask is run
@@ -75,11 +77,12 @@ public class CreateManagedProfileTaskTest {
         verify(mHelper).writeCurrentSystemAppsIfNeeded(TEST_USER_ID);
     }
 
-    @SmallTest
+    @Test
     public void testError() {
         // GIVEN that a new profile can't be created
-        when(mUserManager.createProfileForUser(anyString(), anyInt(), eq(TEST_PARENT_USER_ID)))
-                .thenReturn(new UserInfo(TEST_USER_ID, null, 0));
+        when(mUserManager.createProfileForUserEvenWhenDisallowed(
+                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID), any(String[].class)))
+                .thenReturn(null);
 
         // WHEN the CreateManagedProfileTask is run
         mTask.run(TEST_PARENT_USER_ID);
