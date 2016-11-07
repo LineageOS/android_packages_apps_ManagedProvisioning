@@ -36,6 +36,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
@@ -48,8 +49,10 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECU
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams.inferStaticDeviceAdminPackageName;
 
 import android.accounts.Account;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -136,11 +139,13 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
      *     <li>{@link EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED}</li>
      *     <li>{@link EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE}</li>
      *     <li>{@link EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE}</li>
+     *     <li>{@link EXTRA_PROVISIONING_SKIP_USER_CONSENT}</li>
      * </ul>
      */
     private ProvisioningParams.Builder parseMinimalistSupportedProvisioningDataInternal(
             Intent intent, Context context)
             throws IllegalProvisioningArgumentException {
+        final DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
         boolean isProvisionManagedDeviceFromTrustedSourceIntent =
                 ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction());
         try {
@@ -179,6 +184,18 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                         ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
             }
 
+            // Only current DeviceOwner can specify EXTRA_PROVISIONING_SKIP_USER_CONSENT when
+            // provisioning PO with ACTION_PROVISION_MANAGED_PROFILE
+            final ComponentName deviceOwner = dpm.getDeviceOwnerComponentOnCallingUser();
+            final boolean skipUserConsent =
+                    ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)
+                            && intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT,
+                                    ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT)
+                            && deviceOwner != null
+                            && deviceOwner.getPackageName()
+                            .equals(inferStaticDeviceAdminPackageName(
+                                    deviceAdminComponentName, deviceAdminPackageName));
+
             // Parse main color and organization's logo. This is not supported in managed device
             // from trusted source provisioning because, currently, there is no way to send
             // organization logo to the device at this stage.
@@ -202,6 +219,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setAdminExtrasBundle((PersistableBundle) intent.getParcelableExtra(
                             EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
                     .setMainColor(mainColor)
+                    .setSkipUserConsent(skipUserConsent)
                     .setSkipUserSetup(skipUserSetup)
                     .setAccountToMigrate((Account) intent.getParcelableExtra(
                             EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE));

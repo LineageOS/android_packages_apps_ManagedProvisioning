@@ -25,6 +25,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static com.android.internal.util.Preconditions.checkArgument;
@@ -65,6 +66,7 @@ public final class ProvisioningParams implements Parcelable {
     public static final boolean DEFAULT_STARTED_BY_TRUSTED_SOURCE = false;
     public static final boolean DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT = false;
     public static final boolean DEFAULT_SKIP_USER_SETUP = true;
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
@@ -159,11 +161,19 @@ public final class ProvisioningParams implements Parcelable {
     /** True if user setup can be skipped. */
     public final boolean skipUserSetup;
 
-    public String inferDeviceAdminPackageName() {
+    /** True if user consent page in pre-provisioning can be skipped. */
+    public final boolean skipUserConsent;
+
+    public static String inferStaticDeviceAdminPackageName(ComponentName deviceAdminComponentName,
+            String deviceAdminPackageName) {
         if (deviceAdminComponentName != null) {
             return deviceAdminComponentName.getPackageName();
         }
         return deviceAdminPackageName;
+    }
+
+    public String inferDeviceAdminPackageName() {
+        return inferStaticDeviceAdminPackageName(deviceAdminComponentName, deviceAdminPackageName);
     }
 
     private ProvisioningParams(Builder builder) {
@@ -186,6 +196,7 @@ public final class ProvisioningParams implements Parcelable {
         accountToMigrate = builder.mAccountToMigrate;
         provisioningAction = checkNotNull(builder.mProvisioningAction);
         mainColor = builder.mMainColor;
+        skipUserConsent = builder.mSkipUserConsent;
         skipUserSetup = builder.mSkipUserSetup;
 
         validateFields();
@@ -218,6 +229,7 @@ public final class ProvisioningParams implements Parcelable {
             mainColor = null;
         }
         skipUserSetup = in.readInt() == 1;
+        skipUserConsent = in.readInt() == 1;
 
         validateFields();
     }
@@ -258,6 +270,7 @@ public final class ProvisioningParams implements Parcelable {
             out.writeInt(0);
         }
         out.writeInt(skipUserSetup ? 1 : 0);
+        out.writeInt(skipUserConsent ? 1 : 0);
     }
 
     @Override
@@ -273,6 +286,7 @@ public final class ProvisioningParams implements Parcelable {
                 && startedByTrustedSource == that.startedByTrustedSource
                 && leaveAllSystemAppsEnabled == that.leaveAllSystemAppsEnabled
                 && skipEncryption == that.skipEncryption
+                && skipUserConsent == that.skipUserConsent
                 && skipUserSetup == that.skipUserSetup
                 && Objects.equals(timeZone, that.timeZone)
                 && Objects.equals(locale, that.locale)
@@ -303,6 +317,7 @@ public final class ProvisioningParams implements Parcelable {
          sb.append("startedByTrustedSource: " + startedByTrustedSource + "\n");
          sb.append("leaveAllSystemAppsEnabled: " + leaveAllSystemAppsEnabled + "\n");
          sb.append("skipEncryption: " + skipEncryption + "\n");
+         sb.append("skipUserConsent: " + skipUserConsent + "\n");
          sb.append("skipUserSetup: " + skipUserSetup + "\n");
          return sb.toString();
      }
@@ -425,6 +440,8 @@ public final class ProvisioningParams implements Parcelable {
                 Boolean.toString(skipEncryption));
         StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_USER_SETUP,
                 Boolean.toString(skipUserSetup));
+        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_USER_CONSENT,
+                Boolean.toString(skipUserConsent));
     }
 
     /**
@@ -514,6 +531,10 @@ public final class ProvisioningParams implements Parcelable {
                      builder.setSkipUserSetup(Boolean.parseBoolean(parser.getAttributeValue(null,
                             StoreUtils.ATTR_VALUE)));
                      break;
+                 case EXTRA_PROVISIONING_SKIP_USER_CONSENT:
+                     builder.setSkipUserConsent(Boolean.parseBoolean(parser.getAttributeValue(null,
+                             StoreUtils.ATTR_VALUE)));
+                     break;
              }
         }
         return builder.build();
@@ -534,6 +555,7 @@ public final class ProvisioningParams implements Parcelable {
         private boolean mStartedByTrustedSource = DEFAULT_STARTED_BY_TRUSTED_SOURCE;
         private boolean mLeaveAllSystemAppsEnabled = DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
         private boolean mSkipEncryption = DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+        private boolean mSkipUserConsent = DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT;
         private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
 
         public Builder setTimeZone(String timeZone) {
@@ -604,6 +626,11 @@ public final class ProvisioningParams implements Parcelable {
 
         public Builder setSkipEncryption(boolean skipEncryption) {
             mSkipEncryption = skipEncryption;
+            return this;
+        }
+
+        public Builder setSkipUserConsent(boolean skipUserConsent) {
+            mSkipUserConsent = skipUserConsent;
             return this;
         }
 
