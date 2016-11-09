@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.analytics;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_NETWORK_TYPE;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_NETWORK_TYPE;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;

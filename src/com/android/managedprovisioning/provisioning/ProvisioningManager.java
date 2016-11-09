@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_TOTAL_TASK_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TOTAL_TASK_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_DURING_PROVISIONING;
 

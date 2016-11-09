@@ -18,7 +18,7 @@ package com.android.managedprovisioning.analytics;
 
 import static android.net.ConnectivityManager.TYPE_WIFI;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_NETWORK_TYPE;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_NETWORK_TYPE;
 import static com.android.managedprovisioning.analytics.NetworkTypeLogger.NETWORK_TYPE_NOT_CONNECTED;
 
 import static org.mockito.Mockito.verify;

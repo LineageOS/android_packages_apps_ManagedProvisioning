@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_TASK_MS;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_EXCEPTION;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_FAILED;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.COPY_ACCOUNT_SUCCEEDED;

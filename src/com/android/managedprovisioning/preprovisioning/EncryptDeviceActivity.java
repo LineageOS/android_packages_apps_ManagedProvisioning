@@ -16,7 +16,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_START_ENCRYPTION;
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.task;
 
-import static com.android.internal.logging.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.ActivityManagerNative;
