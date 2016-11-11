@@ -19,7 +19,7 @@ package com.android.managedprovisioning.task;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.app.ActivityManagerNative;
+import android.app.ActivityManager;
 import android.app.IActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -48,7 +48,7 @@ public class StartManagedProfileTask extends AbstractProvisioningTask {
     private final IActivityManager mIActivityManager;
 
     public StartManagedProfileTask(Context context, ProvisioningParams params, Callback callback) {
-        this(ActivityManagerNative.getDefault(), context, params, callback);
+        this(ActivityManager.getService(), context, params, callback);
     }
 
     @VisibleForTesting
