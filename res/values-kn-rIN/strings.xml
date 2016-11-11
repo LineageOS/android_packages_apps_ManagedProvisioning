@@ -33,7 +33,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ಕಳವು ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯತೆಗಳನ್ನು ಉಪಯೋಗಿಸಲು, ನಿಮ್ಮ ಸಾಧನವು ಪಾಸ್‌ವರ್ಡ್ ರಕ್ಷಣೆಯ ಸ್ಕ್ರೀನ್ ಲಾಕ್‌ ಅನ್ನು ಹೊಂದಿರಬೇಕು."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"ರದ್ದುಮಾಡು"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"ರದ್ದುಮಾಡಿ"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ಸರಿ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ನಾನು ಸಮ್ಮತಿಸುತ್ತೇನೆ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
@@ -44,7 +44,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ಮುಂದುವರಿಯುವ ಮೊದಲು, "<a href="#read_this_link">"ಇದನ್ನು ಓದಿ"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ನೀವು ಮುಂದುವರಿಸಿದರೆ, ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ಅಳಿಸಿ"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"ರದ್ದುಮಾಡು"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"ರದ್ದುಮಾಡಿ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು, ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಬೇಕಾದ ಅಗತ್ಯವಿದೆ. ಇದು ಸ್ವಲ್ಪ ಸಮಯವನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು, ನೀವು ಅದನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಬೇಕಾದ ಅಗತ್ಯವಿದೆ. ಇದಕ್ಕೆ ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"ಎನ್‌ಕ್ರಿಪ್ಟ್‌‌ ಮಾಡಿ"</string>
@@ -56,7 +56,7 @@
     <string name="device_owner_exists" msgid="8020080296133337023">"ನಿರ್ವಹಿಸಿದ ಸಾಧನದಲ್ಲಿ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಬಳಕೆದಾರರ ಗರಿಷ್ಠ ಸಂಖ್ಯೆಯನ್ನು ನೀವು ತಲುಪಿರುವ ಕಾರಣ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ರಚಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ. ಕನಿಷ್ಠ ಒಬ್ಬ ಬಳಕೆದಾರರನ್ನು ತೆಗೆದುಹಾಕಿ ಹಾಗೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಈ ಲಾಂಚರ್‌‌ ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ. ನೀವು, ಹೊಂದಿಕೆಯಾಗುವಂತಹ ಲಾಂಚರ್‌‌ಗೆ ಬದಲಾಯಿಸುವ ಅಗತ್ಯವಿದೆ."</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"ರದ್ದುಮಾಡು"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ರದ್ದುಮಾಡಿ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ಸರಿ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ಬಳಕೆದಾರ ಸೆಟಪ್ ಅಪೂರ್ಣವಾಗಿದೆ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ಕೆಲಸದ ಸಾಧನದ ಬಳಕೆದಾರರು"</string>
@@ -68,7 +68,7 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"ಸಾಧನದ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ನಿಮ್ಮ ಸಾಧನವು ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ಹೊಂದಾಣಿಕೆಯನ್ನು ನಿಲ್ಲಿಸುವುದೇ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದೇ?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ರದ್ದುಮಾಡು"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ರದ್ದುಮಾಡಿ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ಸರಿ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ಮರುಹೊಂದಿಸು"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
@@ -101,6 +101,6 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ಐಕಾನ್‌"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ಸೆಟಪ್ ಮತ್ತು ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸುವಿಕೆಯನ್ನು ಅಂತ್ಯಗೊಳಿಸುವುದೇ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ಈ ಸೆಟಪ್ ಅನ್ನು ಅಂತ್ಯಗೊಳಿಸುವ ಮೂಲಕ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ಸೆಟ್ಟಿಂಗ್‌ಗೆ ಮರುಹೊಂದಿಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಮೊದಲ ಪರದೆಗೆ ಕರೆದೊಯ್ಯುತ್ತದೆ."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ರದ್ದುಮಾಡು"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ರದ್ದುಮಾಡಿ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸಿ"</string>
 </resources>
