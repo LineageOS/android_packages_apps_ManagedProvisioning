@@ -31,7 +31,7 @@
     <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"관리자는 네트워크 활동, 기기의 위치, 통화 기록, 연락처 검색 기록을 비롯하여 이 프로필과 연결된 데이터, 설정, 기업 액세스, 앱, 권한을 모니터링하고 관리할 수 있습니다."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 기기와 연결된 데이터, 설정, 기업 액세스, 앱, 권한, 도난 방지 기능을 모니터링하고 관리할 수 있습니다."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"도난 방지 기능을 사용하려면 기기에 비밀번호로 보호되는 화면 잠금이 있어야 합니다."</string>
-    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"조직의 개인정보취급방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"조직의 개인정보처리방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"자세히 알아보기"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"취소"</string>
     <string name="ok_setup" msgid="4593707675416137504">"확인"</string>
