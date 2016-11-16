@@ -45,6 +45,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -60,8 +61,12 @@ public class UtilsTest extends AndroidTestCase {
     private static final String TEST_PACKAGE_NAME_1 = "com.test.packagea";
     private static final String TEST_PACKAGE_NAME_2 = "com.test.packageb";
     private static final String TEST_DEVICE_ADMIN_NAME = TEST_PACKAGE_NAME_1 + ".DeviceAdmin";
+    // Another DeviceAdmin in package 1
+    private static final String TEST_DEVICE_ADMIN_NAME_2 = TEST_PACKAGE_NAME_1 + ".DeviceAdmin2";
     private static final ComponentName TEST_COMPONENT_NAME = new ComponentName(TEST_PACKAGE_NAME_1,
             TEST_DEVICE_ADMIN_NAME);
+    private static final ComponentName TEST_COMPONENT_NAME_2 = new ComponentName(TEST_PACKAGE_NAME_1,
+            TEST_DEVICE_ADMIN_NAME_2);
     private static final int TEST_USER_ID = 10;
     private static final String TEST_FILE_NAME = "testfile";
 
@@ -216,53 +221,81 @@ public class UtilsTest extends AndroidTestCase {
         assertFalse(mUtils.currentLauncherSupportsManagedProfiles(mockContext));
     }
 
-    public void testFindDeviceAdminInPackage_Success() {
-        // GIVEN a package info file with one device admin
-        PackageInfo packageInfo = new PackageInfo();
-        packageInfo.packageName = TEST_PACKAGE_NAME_1;
-        ActivityInfo receiver = new ActivityInfo();
-        receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
-        receiver.name = TEST_DEVICE_ADMIN_NAME;
-        packageInfo.receivers = new ActivityInfo[] { receiver };
+    public void testFindDeviceAdmin_ComponentName() throws Exception {
+        // GIVEN a package info with more than one device admin
+        setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME, TEST_DEVICE_ADMIN_NAME_2);
+
+        // THEN calling findDeviceAdmin returns the correct admin
+        assertEquals(TEST_COMPONENT_NAME_2,
+                mUtils.findDeviceAdmin(null, TEST_COMPONENT_NAME_2, mockContext));
+    }
+
+    public void testFindDeviceAdmin_PackageName() throws Exception {
+        // GIVEN a package info with one device admin
+        setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
+
+        // THEN calling findDeviceAdmin returns the correct admin
+        assertEquals(TEST_COMPONENT_NAME,
+                mUtils.findDeviceAdmin(TEST_PACKAGE_NAME_1, null, mockContext));
+    }
+
+    public void testFindDeviceAdmin_NoPackageName() throws Exception {
+        // GIVEN no package info file
+        when(mockPackageManager.getPackageInfo(TEST_PACKAGE_NAME_1,
+                PackageManager.GET_RECEIVERS | PackageManager.MATCH_DISABLED_COMPONENTS))
+                .thenReturn(null);
+
+        // THEN throw IllegalProvisioningArgumentException
+        try {
+            mUtils.findDeviceAdmin(TEST_PACKAGE_NAME_1, null, mockContext);
+            fail();
+        } catch (IllegalProvisioningArgumentException e) {
+            // expected
+        }
+    }
+
+    public void testFindDeviceAdmin_AnotherComponentName() throws Exception {
+        // GIVEN a package info with one device admin
+        setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
+
+        // THEN looking another device admin throws IllegalProvisioningArgumentException
+        try {
+            mUtils.findDeviceAdmin(null, TEST_COMPONENT_NAME_2, mockContext);
+            fail();
+        } catch (IllegalProvisioningArgumentException e) {
+            // expected
+        }
+    }
+
+    public void testFindDeviceAdminInPackage_Success() throws Exception {
+        // GIVEN a package info with one device admin
+        PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
 
         // THEN calling findDeviceAdminInPackage returns the correct admin
         assertEquals(TEST_COMPONENT_NAME,
                 mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
     }
 
-    public void testFindDeviceAdminInPackage_PackageNameMismatch() {
-        // GIVEN a package info file with one device admin
-        PackageInfo packageInfo = new PackageInfo();
-        packageInfo.packageName = TEST_PACKAGE_NAME_1;
-        ActivityInfo receiver = new ActivityInfo();
-        receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
-        receiver.name = TEST_DEVICE_ADMIN_NAME;
-        packageInfo.receivers = new ActivityInfo[] { receiver };
+    public void testFindDeviceAdminInPackage_PackageNameMismatch() throws Exception {
+        // GIVEN a package info with one device admin
+        PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
 
         // THEN calling findDeviceAdminInPackage with the wrong package name return null
         assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_2, packageInfo));
     }
 
-    public void testFindDeviceAdminInPackage_NoAdmin() {
-        // GIVEN a package info file with no device admin
-        PackageInfo packageInfo = new PackageInfo();
-        packageInfo.packageName = TEST_PACKAGE_NAME_1;
-        ActivityInfo receiver = new ActivityInfo();
-        receiver.name = TEST_DEVICE_ADMIN_NAME;
-        packageInfo.receivers = new ActivityInfo[] { receiver };
+    public void testFindDeviceAdminInPackage_NoAdmin() throws Exception {
+        // GIVEN a package info with no device admin
+        PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1);
 
         // THEN calling findDeviceAdminInPackage returns null
         assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
     }
 
-    public void testFindDeviceAdminInPackage_TwoAdmins() {
-        // GIVEN a package info file with more than one device admin
-        PackageInfo packageInfo = new PackageInfo();
-        packageInfo.packageName = TEST_PACKAGE_NAME_1;
-        ActivityInfo receiver = new ActivityInfo();
-        receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
-        receiver.name = TEST_DEVICE_ADMIN_NAME;
-        packageInfo.receivers = new ActivityInfo[] { receiver, receiver };
+    public void testFindDeviceAdminInPackage_TwoAdmins() throws Exception {
+        // GIVEN a package info with more than one device admin
+        PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME,
+                TEST_DEVICE_ADMIN_NAME_2);
 
         // THEN calling findDeviceAdminInPackage returns null
         assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
@@ -351,5 +384,23 @@ public class UtilsTest extends AndroidTestCase {
 
         when(mockPackageManager.resolveActivity(any(Intent.class), anyInt())).thenReturn(resInfo);
         when(mockPackageManager.getApplicationInfo(TEST_PACKAGE_NAME_1, 0)).thenReturn(appInfo);
+    }
+
+    private PackageInfo setUpPackage(String packageName, String... adminNames)
+            throws NameNotFoundException {
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.packageName = packageName;
+        packageInfo.receivers = new ActivityInfo[adminNames.length];
+        for (int i = 0; i < adminNames.length; i++) {
+            ActivityInfo receiver = new ActivityInfo();
+            receiver.permission = android.Manifest.permission.BIND_DEVICE_ADMIN;
+            receiver.name = adminNames[i];
+            packageInfo.receivers[i] = receiver;
+        }
+        when(mockPackageManager.getPackageInfo(packageName,
+                PackageManager.GET_RECEIVERS | PackageManager.MATCH_DISABLED_COMPONENTS))
+                .thenReturn(packageInfo);
+
+        return packageInfo;
     }
 }

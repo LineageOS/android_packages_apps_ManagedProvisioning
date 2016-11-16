@@ -172,7 +172,6 @@ public class Utils {
      * Check that this package is installed, try to infer a potential device admin in this package,
      * and return it.
      */
-    // TODO: Add unit tests
     @NonNull
     public ComponentName findDeviceAdmin(String dpcPackageName, ComponentName dpcComponentName,
             Context context) throws IllegalProvisioningArgumentException {
@@ -191,17 +190,20 @@ public class Utils {
             throw new IllegalProvisioningArgumentException("Dpc "+ dpcPackageName
                     + " is not installed. ", e);
         }
-        ComponentName componentName = findDeviceAdminInPackage(dpcPackageName, pi);
-        if (componentName == null) {
-            throw new IllegalProvisioningArgumentException("Cannot find admin receiver in "
-                    + "package");
-        }
 
-        if (dpcComponentName != null && !componentName.equals(dpcComponentName)) {
-            throw new IllegalProvisioningArgumentException("Device admin component name does not" +
-                    "match the package information." +
-                    " expected:" + dpcComponentName.flattenToString() +
-                    " found:" + componentName.flattenToString());
+        final ComponentName componentName;
+        if (dpcComponentName != null) {
+            if (!isComponentInPackageInfo(dpcComponentName, pi)) {
+                throw new IllegalProvisioningArgumentException("The component " + dpcComponentName
+                        + " cannot be found");
+            }
+            componentName = dpcComponentName;
+        } else {
+            componentName = findDeviceAdminInPackage(dpcPackageName, pi);
+            if (componentName == null) {
+                throw new IllegalProvisioningArgumentException("Cannot find any admin receiver in "
+                        + "package " + dpcPackageName);
+            }
         }
 
         return componentName;
@@ -233,6 +235,16 @@ public class Utils {
             }
         }
         return mdmComponentName;
+    }
+
+    private boolean isComponentInPackageInfo(ComponentName dpcComponentName,
+            PackageInfo pi) {
+        for (ActivityInfo ai : pi.receivers) {
+            if (dpcComponentName.getClassName().equals(ai.name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
