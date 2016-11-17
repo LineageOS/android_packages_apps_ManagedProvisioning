@@ -20,37 +20,27 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
   <!-- App label displayed on the notification shown to indicate that the provisioning process was previously started but not completed. [CHAR LIMIT=45] -->
-  <string name="app_label">Postavljanje radnog profila</string>
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
+  <string name="provisioning_error_title">Вой!</string>
   <!-- Work profile provisioning flow UI. -->
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
-  <string name="setup_work_profile">Postavite radni profil</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
-  <string name="next">Dalje</string>
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_profile">Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim profilom, uključujući vaše aktivnosti na mreži i informacije o lokaciji vašeg uređaja, historiju poziva i historiju pretrage kontakata, kao i da upravlja njima.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_device">Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim uređajem, uključujući aktivnosti na mreži i informacije o lokaciji vašeg uređaja, kao i da upravlja njima.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
-  <string name="theft_protection_disabled_warning">Da biste koristili funkciju za zaštitu od krađe, zaključani ekran vašeg uređaja mora biti zaštićen lozinkom.</string>
   <!-- String telling the user how to get more information about their work profile-->
-  <string name="contact_your_admin_for_more_info">Za više informacija, uključujući pravila vaše organizacije o privatnosti, obratite se svom administratoru.</string>
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
-  <string name="cancel_setup">Otkaži</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
-  <string name="ok_setup">U redu</string>
   <!-- Text of the checkbox to consent to the mobile device management app taking control of the device. [CHAR LIMIT=NONE] -->
-  <string name="user_consent_msg">Pristajem</string>
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <!-- Default name used for the creation of the first meat user on a device with system-user split. [CHAR LIMIT=NONE] -->
-  <string name="default_first_meat_user_name">Glavni korisnik</string>
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
        their existing work profile. The administration app icon and name appear after the final
@@ -61,49 +51,35 @@
          profile. [CHAR LIMIT=NONE] -->
   <!-- String on the dialog that links through to more information about the profile management application. -->
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
-  <string name="sure_you_want_to_delete_profile">Ako nastavite, sve aplikacije i podaci sa ovog profila će biti izbrisani.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
-  <string name="delete_profile">Tipka za brisanje</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
-  <string name="cancel_delete_profile">Otkaži</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
-  <string name="encrypt_device_launch_settings">Šifriraj</string>
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
-  <string name="continue_provisioning_notify_text">Dodirnite da nastavite podešavanje svog radnog profila</string>
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
   <!-- Error string displayed if this device doesn't support work profiles. -->
   <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
-  <string name="user_cannot_have_work_profile">Ovaj korisnik ne može imati poslovni profil</string>
   <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
   <!-- Error string displayed if maximum user limit is reached -->
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <!-- Button text for the button that cancels provisioning  -->
-  <string name="cancel_provisioning">Otkaži</string>
   <!-- Button text for the button that opens the launcher picker  -->
-  <string name="pick_launcher">Uredu</string>
   <!-- Managed user provisioning flow UI. -->
-  <string name="user_setup_incomplete">Korisnik nije dovršio postavljanje</string>
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
-  <string name="setup_work_device">Postavite radni uređaj</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
-  <string name="preprovisioning_error_encryption_not_supported">Vaš uređaj ne podržava šifriranje. Obratite se svom IT odjelu.</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_cancel_cancel">Otkaži</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_error_ok">Uredu</string>
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_error_reset">Poništi</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
@@ -116,16 +92,12 @@
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancel_cancel">Ne</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancel_ok">Da</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
-  <string name="work_profile_setup_continue">Nastavi</string>
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
-  <string name="work_profile_setup_stop">Zaustavi</string>
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
@@ -141,11 +113,7 @@
   <!-- TODO: Following strings have to be updated. -->
   <!-- Strings used in the dialog asking for user confirmation to cancel the setup process and factory reset the device. -->
   <!-- Title shown in the dialog. [CHAR LIMIT=45] -->
-  <string name="cancel_setup_and_factory_reset_dialog_title">Okončati podešavanje i vratiti na fabričke postavke?</string>
   <!-- Message shown in the dialog. [CHAR LIMIT=NONE] -->
-  <string name="cancel_setup_and_factory_reset_dialog_msg">Okončanjem ovog podešavanja, vaš uređaj će biti vraćen na fabričke postavke te ćete se vratiti na početni ekran.</string>
   <!-- Cancel button text of the dialog. [CHAR LIMIT=45] -->
-  <string name="cancel_setup_and_factory_reset_dialog_cancel">Otkaži</string>
   <!-- OK button text of the dialog. [CHAR LIMIT=45] -->
-  <string name="cancel_setup_and_factory_reset_dialog_ok">Ponovo pokreni uređaj</string>
 </resources>
