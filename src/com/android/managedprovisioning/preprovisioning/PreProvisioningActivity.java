@@ -27,16 +27,17 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.managedprovisioning.common.LogoUtils;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.DialogBuilder;
+import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.MdmPackageInfo;
+import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
@@ -69,6 +70,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
     protected TextView mConsentMessageTextView;
     protected TextView mMdmInfoTextView;
+    protected BenefitsAnimation mBenefitsAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -248,6 +250,12 @@ public class PreProvisioningActivity extends SetupLayoutActivity
         maybeSetLogoAndMainColor(params.mainColor);
 
         setTitle(titleRes);
+
+        if (mController.isProfileOwnerProvisioning()) {
+            getLayoutInflater().inflate(R.layout.animated_introduction,
+                    (ViewGroup) findViewById(R.id.introduction_container));
+            mBenefitsAnimation = new BenefitsAnimation(this);
+        }
     }
 
     private void setMdmIconAndLabel(@NonNull String packageName) {
@@ -374,5 +382,21 @@ public class PreProvisioningActivity extends SetupLayoutActivity
                 .setPositiveButtonMessage(R.string.work_profile_setup_stop)
                 .setNegativeButtonMessage(R.string.work_profile_setup_continue);
         showDialog(dialogBuilder, PRE_PROVISIONING_BACK_PRESSED_DIALOG);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mBenefitsAnimation != null) {
+            mBenefitsAnimation.start();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mBenefitsAnimation != null) {
+            mBenefitsAnimation.stop();
+        }
     }
 }

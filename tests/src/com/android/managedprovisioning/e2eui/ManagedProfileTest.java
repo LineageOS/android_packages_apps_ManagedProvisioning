@@ -35,6 +35,7 @@ import java.util.List;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @LargeTest
@@ -123,7 +124,7 @@ public class ManagedProfileTest extends AndroidTestCase {
             i++;
             newViewInteraction1()
                     .withFailureHandler(this::handleFailure)
-                    .perform(click());
+                    .perform(scrollTo(), click());
             Log.i(TAG, "newViewInteraction1 succeeds.");
             newViewInteraction2()
                     .withFailureHandler(this::handleFailure)

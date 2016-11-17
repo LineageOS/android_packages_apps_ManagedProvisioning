@@ -1,0 +1,123 @@
+package com.android.managedprovisioning.preprovisioning;
+
+import static com.android.internal.util.Preconditions.checkNotNull;
+
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.app.Activity;
+import android.graphics.drawable.Animatable2;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.android.managedprovisioning.R;
+
+/**
+ * <p>Drives the animation showing benefits of having a Managed Profile
+ * <p>Tightly coupled with the {@link R.layout#animated_introduction} layout
+ */
+class BenefitsAnimation {
+    /** Array of Id pairs: {{@link ObjectAnimator}, {@link TextView}} */
+    private static final int[][] ID_ANIMATION_TARGET = {
+            {R.anim.text_scene_0_animation, R.id.text_0},
+            {R.anim.text_scene_1_animation, R.id.text_1},
+            {R.anim.text_scene_2_animation, R.id.text_2},
+            {R.anim.text_scene_3_animation, R.id.text_3},
+            {R.anim.text_scene_master_animation, R.id.text_master}};
+
+    /** Id of an {@link ImageView} containing the animated graphic */
+    private static final int ID_ANIMATED_GRAPHIC = R.id.animated_info;
+
+    /** Id of an {@link ImageView} containing the animated pager dots */
+    private static final int ID_ANIMATED_DOTS = R.id.animated_dots;
+
+    private final AnimatedVectorDrawable mTopAnimation;
+    private final AnimatedVectorDrawable mDotsAnimation;
+    private final Animator mTextAnimation;
+    private final Activity mActivity;
+
+    private boolean mStopped;
+
+    public BenefitsAnimation(Activity activity) {
+        mActivity = checkNotNull(activity);
+        mTextAnimation = checkNotNull(assembleTextAnimation());
+        mDotsAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_DOTS));
+        mTopAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_GRAPHIC));
+
+        // chain all animations together
+        chainAnimations();
+    }
+
+    /** Starts playing the animation in a loop */
+    public void start() {
+        mStopped = false;
+        mTopAnimation.start();
+    }
+
+    /** Stops the animation */
+    public void stop() {
+        mStopped = true;
+        mTopAnimation.stop();
+    }
+
+    /**
+     * <p>Chains all three sub-animations, and configures them to play in sync in a loop.
+     * <p>Looping {@link AnimatedVectorDrawable} and {@link AnimatorSet} currently not possible in
+     * XML.
+     */
+    private void chainAnimations() {
+        mTopAnimation.registerAnimationCallback(new Animatable2.AnimationCallback() {
+            @Override
+            public void onAnimationStart(Drawable drawable) {
+                super.onAnimationStart(drawable);
+
+                // starting the other animations at the same time
+                mDotsAnimation.start();
+                mTextAnimation.start();
+            }
+
+            @Override
+            public void onAnimationEnd(Drawable drawable) {
+                super.onAnimationEnd(drawable);
+
+                // without explicitly stopping them, sometimes they won't restart
+                mDotsAnimation.stop();
+                mTextAnimation.cancel();
+
+                // repeating the animation in loop
+                if (!mStopped) {
+                    mTopAnimation.start();
+                }
+            }
+        });
+    }
+
+    /**
+     * <p>Inflates animators required to animate text headers' part of the whole animation.
+     * <p>This has to be done through code, as setting a target on {@link
+     * android.animation.ObjectAnimator} is not currently possible in XML.
+     *
+     * @return {@link AnimatorSet} responsible for the animated text
+     */
+    private AnimatorSet assembleTextAnimation() {
+        Animator[] animators = new Animator[ID_ANIMATION_TARGET.length];
+        for (int i = 0; i < ID_ANIMATION_TARGET.length; i++) {
+            int[] instance = ID_ANIMATION_TARGET[i];
+            animators[i] = AnimatorInflater.loadAnimator(mActivity, instance[0]);
+            animators[i].setTarget(mActivity.findViewById(instance[1]));
+        }
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(animators);
+        return animatorSet;
+    }
+
+    /** Extracts an {@link AnimatedVectorDrawable} from a containing {@link ImageView} */
+    private AnimatedVectorDrawable extractAnimationFromImageView(int id) {
+        ImageView imageView = (ImageView) mActivity.findViewById(id);
+        return (AnimatedVectorDrawable) imageView.getDrawable();
+    }
+}
