@@ -29,9 +29,11 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID
 import android.app.admin.DevicePolicyManager;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.android.internal.annotations.Immutable;
+import com.android.managedprovisioning.common.PersistableBundlable;
 import com.android.managedprovisioning.common.StoreUtils;
 import java.io.IOException;
 import java.util.Objects;
@@ -43,7 +45,7 @@ import org.xmlpull.v1.XmlSerializer;
  * Stores the WiFi configuration which is used in managed provisioning.
  */
 @Immutable
-public final class WifiInfo implements Parcelable {
+public final class WifiInfo implements PersistableBundlable {
     public static final boolean DEFAULT_WIFI_HIDDEN = false;
     public static final int DEFAULT_WIFI_PROXY_PORT = 0;
 
@@ -82,63 +84,35 @@ public final class WifiInfo implements Parcelable {
     @Nullable
     public final String pacUrl;
 
-    void save(XmlSerializer serializer) throws XmlPullParserException, IOException {
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_SSID, ssid);
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_HIDDEN,
-                Boolean.toString(hidden));
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_SECURITY_TYPE,
-                securityType);
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PASSWORD,
-                password);
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PROXY_HOST,
-                proxyHost);
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PROXY_PORT,
-                Integer.toString(proxyPort));
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PROXY_BYPASS,
-                proxyBypassHosts);
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_WIFI_PAC_URL,
-                pacUrl);
+    @Override
+    public PersistableBundle toPersistableBundle() {
+        final PersistableBundle bundle = new PersistableBundle();
+        bundle.putString(EXTRA_PROVISIONING_WIFI_SSID, ssid);
+        bundle.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, hidden);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, securityType);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, password);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, proxyHost);
+        bundle.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, proxyPort);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, proxyBypassHosts);
+        bundle.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, pacUrl);
+        return bundle;
     }
 
-    static WifiInfo load(XmlPullParser parser) throws XmlPullParserException, IOException {
+    /* package */ static WifiInfo fromPersistableBundle(PersistableBundle bundle) {
+        return createBuilderFromPersistableBundle(bundle).build();
+    }
+
+    private static Builder createBuilderFromPersistableBundle(PersistableBundle bundle) {
         Builder builder = new Builder();
-        int type;
-        int outerDepth = parser.getDepth();
-        while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
-                && (type != XmlPullParser.END_TAG || parser.getDepth() > outerDepth)) {
-             if (type == XmlPullParser.END_TAG || type == XmlPullParser.TEXT) {
-                 continue;
-             }
-             String tag = parser.getName();
-             switch (tag) {
-                 case EXTRA_PROVISIONING_WIFI_SSID:
-                     builder.setSsid(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_WIFI_HIDDEN:
-                     builder.setHidden(Boolean.parseBoolean(parser.getAttributeValue(null,
-                             StoreUtils.ATTR_VALUE)));
-                 case EXTRA_PROVISIONING_WIFI_SECURITY_TYPE:
-                     builder.setSecurityType(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_WIFI_PASSWORD:
-                     builder.setPassword(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_WIFI_PROXY_HOST:
-                     builder.setProxyHost(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_WIFI_PROXY_PORT:
-                     builder.setProxyPort(
-                         Integer.parseInt(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
-                 case EXTRA_PROVISIONING_WIFI_PROXY_BYPASS:
-                     builder.setProxyBypassHosts(parser.getAttributeValue(null,
-                             StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_WIFI_PAC_URL:
-                     builder.setPacUrl(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-             }
-        }
-        return builder.build();
+        builder.setSsid(bundle.getString(EXTRA_PROVISIONING_WIFI_SSID));
+        builder.setHidden(bundle.getBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN));
+        builder.setSecurityType(bundle.getString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE));
+        builder.setPassword(bundle.getString(EXTRA_PROVISIONING_WIFI_PASSWORD));
+        builder.setProxyHost(bundle.getString(EXTRA_PROVISIONING_WIFI_PROXY_HOST));
+        builder.setProxyPort(bundle.getInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT));
+        builder.setProxyBypassHosts(bundle.getString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS));
+        builder.setPacUrl(bundle.getString(EXTRA_PROVISIONING_WIFI_PAC_URL));
+        return builder;
     }
 
     private WifiInfo(Builder builder) {
@@ -155,16 +129,8 @@ public final class WifiInfo implements Parcelable {
     }
 
     private WifiInfo(Parcel in) {
-        ssid = in.readString();
-        hidden = in.readInt() == 1;
-        securityType = in.readString();
-        password = in.readString();
-        proxyHost = in.readString();
-        proxyPort = in.readInt();
-        proxyBypassHosts = in.readString();
-        pacUrl = in.readString();
-
-        validateFields();
+        this(createBuilderFromPersistableBundle(
+                PersistableBundlable.getPersistableBundleFromParcel(in)));
     }
 
     private void validateFields() {
@@ -174,39 +140,8 @@ public final class WifiInfo implements Parcelable {
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeString(ssid);
-        out.writeInt(hidden ? 1 : 0);
-        out.writeString(securityType);
-        out.writeString(password);
-        out.writeString(proxyHost);
-        out.writeInt(proxyPort);
-        out.writeString(proxyBypassHosts);
-        out.writeString(pacUrl);
-    }
-
-    @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        WifiInfo that = (WifiInfo) o;
-        return hidden == that.hidden
-                && proxyPort == that.proxyPort
-                && Objects.equals(ssid, that.ssid)
-                && Objects.equals(securityType, that.securityType)
-                && Objects.equals(password, that.password)
-                && Objects.equals(proxyHost, that.proxyHost)
-                && Objects.equals(proxyBypassHosts, that.proxyBypassHosts)
-                && Objects.equals(pacUrl, that.pacUrl);
+        return PersistableBundlable.isPersistableBundlableEquals(this, o);
     }
 
     public final static class Builder {

@@ -30,6 +30,12 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.common.StoreUtils.accountToPersistableBundle;
+import static com.android.managedprovisioning.common.StoreUtils.getIntegerAttrFromPersistableBundle;
+import static com.android.managedprovisioning.common.StoreUtils.getObjectAttrFromPersistableBundle;
+import static com.android.managedprovisioning.common.StoreUtils.getStringAttrFromPersistableBundle;
+import static com.android.managedprovisioning.common.StoreUtils.putIntegerIfNotNull;
+import static com.android.managedprovisioning.common.StoreUtils.putPersistableBundlableIfNotNull;
 
 import android.accounts.Account;
 import android.content.ComponentName;
@@ -40,6 +46,7 @@ import android.support.annotation.Nullable;
 import android.util.Xml;
 
 import com.android.internal.util.FastXmlSerializer;
+import com.android.managedprovisioning.common.PersistableBundlable;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StoreUtils;
 
@@ -48,10 +55,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Locale;
-import java.util.Objects;
-import java.util.Set;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -60,7 +64,7 @@ import org.xmlpull.v1.XmlSerializer;
 /**
  * Provisioning parameters for Device Owner and Profile Owner provisioning.
  */
-public final class ProvisioningParams implements Parcelable {
+public final class ProvisioningParams implements PersistableBundlable {
     public static final long DEFAULT_LOCAL_TIME = -1;
     public static final Integer DEFAULT_MAIN_COLOR = null;
     public static final boolean DEFAULT_STARTED_BY_TRUSTED_SOURCE = false;
@@ -203,35 +207,8 @@ public final class ProvisioningParams implements Parcelable {
     }
 
     private ProvisioningParams(Parcel in) {
-        timeZone = in.readString();
-        localTime = in.readLong();
-        locale = (Locale) in.readSerializable();
-
-        wifiInfo = (WifiInfo) in.readParcelable(WifiInfo.class.getClassLoader());
-
-        deviceAdminPackageName = in.readString();
-        deviceAdminComponentName = (ComponentName)
-                in.readParcelable(null /* use default classloader */);
-
-        deviceAdminDownloadInfo =
-                (PackageDownloadInfo) in.readParcelable(PackageDownloadInfo.class.getClassLoader());
-
-        adminExtrasBundle = in.readParcelable(null /* use default classloader */);
-
-        startedByTrustedSource = in.readInt() == 1;
-        leaveAllSystemAppsEnabled = in.readInt() == 1;
-        skipEncryption = in.readInt() == 1;
-        accountToMigrate = (Account) in.readParcelable(null /* use default classloader */);
-        provisioningAction = checkNotNull(in.readString());
-        if (in.readInt() != 0) {
-            mainColor = in.readInt();
-        } else {
-            mainColor = null;
-        }
-        skipUserSetup = in.readInt() == 1;
-        skipUserConsent = in.readInt() == 1;
-
-        validateFields();
+        this(createBuilderFromPersistableBundle(
+                PersistableBundlable.getPersistableBundleFromParcel(in)));
     }
 
     private void validateFields() {
@@ -239,136 +216,74 @@ public final class ProvisioningParams implements Parcelable {
     }
 
     @Override
-    public int describeContents() {
-        return 0;
+    public PersistableBundle toPersistableBundle() {
+        final PersistableBundle bundle = new PersistableBundle();
+
+        bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, timeZone);
+        bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, localTime);
+        bundle.putString(EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(locale));
+        putPersistableBundlableIfNotNull(bundle, TAG_WIFI_INFO, wifiInfo);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, deviceAdminPackageName);
+        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                StoreUtils.componentNameToString(deviceAdminComponentName));
+        bundle.putPersistableBundle(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, accountToMigrate == null
+                ? null : accountToPersistableBundle(accountToMigrate));
+        bundle.putString(TAG_PROVISIONING_ACTION, provisioningAction);
+        putIntegerIfNotNull(bundle, EXTRA_PROVISIONING_MAIN_COLOR, mainColor);
+        putPersistableBundlableIfNotNull(bundle, TAG_PACKAGE_DOWNLOAD_INFO,
+                deviceAdminDownloadInfo);
+        bundle.putPersistableBundle(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, adminExtrasBundle);
+        bundle.putBoolean(TAG_STARTED_BY_TRUSTED_SOURCE, startedByTrustedSource);
+        bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                leaveAllSystemAppsEnabled);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, skipEncryption);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP, skipUserSetup);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT, skipUserConsent);
+        return bundle;
     }
 
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeString(timeZone);
-        out.writeLong(localTime);
-        out.writeSerializable(locale);
+    /* package */ static ProvisioningParams fromPersistableBundle(PersistableBundle bundle) {
+        return createBuilderFromPersistableBundle(bundle).build();
+    }
 
-        out.writeParcelable(wifiInfo, 0 /* default */ );
-
-        out.writeString(deviceAdminPackageName);
-        out.writeParcelable(deviceAdminComponentName, 0 /* default */);
-
-        out.writeParcelable(deviceAdminDownloadInfo, 0 /* default */);
-
-        out.writeParcelable(adminExtrasBundle, 0 /* default */);
-
-        out.writeInt(startedByTrustedSource ? 1 : 0);
-        out.writeInt(leaveAllSystemAppsEnabled ? 1 : 0);
-        out.writeInt(skipEncryption ? 1 : 0);
-        out.writeParcelable(accountToMigrate, 0 /* default */);
-        out.writeString(provisioningAction);
-        if (mainColor != null) {
-            out.writeInt(1);
-            out.writeInt(mainColor);
-        } else {
-            out.writeInt(0);
-        }
-        out.writeInt(skipUserSetup ? 1 : 0);
-        out.writeInt(skipUserConsent ? 1 : 0);
+    private static Builder createBuilderFromPersistableBundle(PersistableBundle bundle) {
+        Builder builder = new Builder();
+        builder.setTimeZone(bundle.getString(EXTRA_PROVISIONING_TIME_ZONE));
+        builder.setLocalTime(bundle.getLong(EXTRA_PROVISIONING_LOCAL_TIME));
+        builder.setLocale(getStringAttrFromPersistableBundle(bundle,
+                EXTRA_PROVISIONING_LOCALE, StoreUtils::stringToLocale));
+        builder.setWifiInfo(getObjectAttrFromPersistableBundle(bundle,
+                TAG_WIFI_INFO, WifiInfo::fromPersistableBundle));
+        builder.setDeviceAdminPackageName(bundle.getString(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));
+        builder.setDeviceAdminComponentName(getStringAttrFromPersistableBundle(bundle,
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, StoreUtils::stringToComponentName));
+        builder.setAccountToMigrate(getObjectAttrFromPersistableBundle(bundle,
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, StoreUtils::persistableBundleToAccount));
+        builder.setProvisioningAction(bundle.getString(TAG_PROVISIONING_ACTION));
+        builder.setMainColor(getIntegerAttrFromPersistableBundle(bundle,
+                EXTRA_PROVISIONING_MAIN_COLOR));
+        builder.setDeviceAdminDownloadInfo(getObjectAttrFromPersistableBundle(bundle,
+                TAG_PACKAGE_DOWNLOAD_INFO, PackageDownloadInfo::fromPersistableBundle));
+        builder.setAdminExtrasBundle(bundle.getPersistableBundle(
+                EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE));
+        builder.setStartedByTrustedSource(bundle.getBoolean(TAG_STARTED_BY_TRUSTED_SOURCE));
+        builder.setSkipEncryption(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION));
+        builder.setLeaveAllSystemAppsEnabled(bundle.getBoolean(
+                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED));
+        builder.setSkipUserSetup(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP));
+        builder.setSkipUserConsent(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT));
+        return builder;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ProvisioningParams that = (ProvisioningParams) o;
-        return localTime == that.localTime
-                && startedByTrustedSource == that.startedByTrustedSource
-                && leaveAllSystemAppsEnabled == that.leaveAllSystemAppsEnabled
-                && skipEncryption == that.skipEncryption
-                && skipUserConsent == that.skipUserConsent
-                && skipUserSetup == that.skipUserSetup
-                && Objects.equals(timeZone, that.timeZone)
-                && Objects.equals(locale, that.locale)
-                && Objects.equals(wifiInfo, that.wifiInfo)
-                && Objects.equals(deviceAdminPackageName, that.deviceAdminPackageName)
-                && Objects.equals(deviceAdminComponentName, that.deviceAdminComponentName)
-                && Objects.equals(accountToMigrate, that.accountToMigrate)
-                && Objects.equals(provisioningAction, that.provisioningAction)
-                && Objects.equals(mainColor, that.mainColor)
-                && Objects.equals(deviceAdminDownloadInfo, that.deviceAdminDownloadInfo)
-                && isPersistableBundleEquals(adminExtrasBundle, that.adminExtrasBundle);
+        return PersistableBundlable.isPersistableBundlableEquals(this, o);
     }
 
-     @Override
-     public String toString() {
-         StringBuilder sb = new StringBuilder();
-         sb.append("timeZone: " + timeZone + "\n");
-         sb.append("localTime: " + localTime + "\n");
-         sb.append("locale: " + locale + "\n");
-         sb.append("wifiInfo: " + wifiInfo + "\n");
-         sb.append("deviceAdminPackageName: " + deviceAdminPackageName + "\n");
-         sb.append("deviceAdminComponentName: " + deviceAdminComponentName + "\n");
-         sb.append("accountToMigrate: " + accountToMigrate + "\n");
-         sb.append("provisioningAction: " + provisioningAction + "\n");
-         sb.append("mainColor: " + mainColor + "\n");
-         sb.append("deviceAdminDownloadInfo: " + deviceAdminDownloadInfo + "\n");
-         sb.append("adminExtrasBundle: " + adminExtrasBundle + "\n");
-         sb.append("startedByTrustedSource: " + startedByTrustedSource + "\n");
-         sb.append("leaveAllSystemAppsEnabled: " + leaveAllSystemAppsEnabled + "\n");
-         sb.append("skipEncryption: " + skipEncryption + "\n");
-         sb.append("skipUserConsent: " + skipUserConsent + "\n");
-         sb.append("skipUserSetup: " + skipUserSetup + "\n");
-         return sb.toString();
-     }
-
-    /**
-     * Compares two {@link PersistableBundle} objects are equals.
-     */
-    private static boolean isPersistableBundleEquals(
-            PersistableBundle obj1, PersistableBundle obj2) {
-        if (obj1 == obj2) {
-            return true;
-        }
-        if (obj1 == null || obj2 == null || obj1.size() != obj2.size()) {
-            return false;
-        }
-        Set<String> keys = obj1.keySet();
-        for (String key : keys) {
-            Object val1 = obj1.get(key);
-            Object val2 = obj2.get(key);
-            if (!isPersistableBundleSupportedValueEquals(val1, val2)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Compares two values which type is supported by {@link PersistableBundle}.
-     *
-     * <p>If the type isn't supported. The equality is done by {@link Object#equals(Object)}.
-     */
-    private static boolean isPersistableBundleSupportedValueEquals(Object val1, Object val2) {
-        if (val1 == val2) {
-            return true;
-        } else if (val1 == null || val2 == null || !val1.getClass().equals(val2.getClass())) {
-            return false;
-        } else if (val1 instanceof PersistableBundle && val2 instanceof PersistableBundle) {
-            return isPersistableBundleEquals((PersistableBundle) val1, (PersistableBundle) val2);
-        } else if (val1 instanceof int[]) {
-            return Arrays.equals((int[]) val1, (int[]) val2);
-        } else if (val1 instanceof long[]) {
-            return Arrays.equals((long[]) val1, (long[]) val2);
-        } else if (val1 instanceof double[]) {
-            return Arrays.equals((double[]) val1, (double[]) val2);
-        } else if (val1 instanceof boolean[]) {
-            return Arrays.equals((boolean[]) val1, (boolean[]) val2);
-        } else if (val1 instanceof String[]) {
-            return Arrays.equals((String[]) val1, (String[]) val2);
-        } else {
-            return Objects.equals(val1, val2);
-        }
+    @Override
+    public String toString() {
+        return "ProvisioningParams values: " + toPersistableBundle().toString();
     }
 
     /**
@@ -381,67 +296,14 @@ public final class ProvisioningParams implements Parcelable {
             serializer.setOutput(stream, StandardCharsets.UTF_8.name());
             serializer.startDocument(null, true);
             serializer.startTag(null, TAG_PROVISIONING_PARAMS);
-            save(serializer);
+            toPersistableBundle().saveToXml(serializer);
             serializer.endTag(null, TAG_PROVISIONING_PARAMS);
             serializer.endDocument();
-            save(serializer);
         } catch (IOException | XmlPullParserException e) {
             ProvisionLogger.loge("Caught exception while trying to save Provisioning Params to "
                     + " file " + file, e);
             file.delete();
         }
-    }
-
-    private void save(XmlSerializer serializer) throws XmlPullParserException, IOException {
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_TIME_ZONE, timeZone);
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_LOCAL_TIME,
-                Long.toString(localTime));
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_LOCALE,
-                StoreUtils.localeToString(locale));
-        if (wifiInfo != null) {
-            serializer.startTag(null, TAG_WIFI_INFO);
-            wifiInfo.save(serializer);
-            serializer.endTag(null, TAG_WIFI_INFO);
-        }
-        StoreUtils.writeTag(serializer,
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME,
-                deviceAdminPackageName);
-        if (deviceAdminComponentName != null) {
-            StoreUtils.writeTag(serializer,
-                    EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                    deviceAdminComponentName.flattenToString());
-        }
-        StoreUtils.writeAccount(serializer,
-                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE,
-                accountToMigrate);
-        StoreUtils.writeTag(serializer, TAG_PROVISIONING_ACTION, provisioningAction);
-        if (mainColor != null) {
-            StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_MAIN_COLOR,
-                    Integer.toString(mainColor));
-        }
-        if (deviceAdminDownloadInfo != null) {
-            serializer.startTag(null, TAG_PACKAGE_DOWNLOAD_INFO);
-            deviceAdminDownloadInfo.save(serializer);
-            serializer.endTag(null, TAG_PACKAGE_DOWNLOAD_INFO);
-        }
-
-        if (adminExtrasBundle != null) {
-            serializer.startTag(null, EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-            adminExtrasBundle.saveToXml(serializer);
-            serializer.endTag(null, EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-        }
-
-        StoreUtils.writeTag(serializer, TAG_STARTED_BY_TRUSTED_SOURCE,
-                Boolean.toString(startedByTrustedSource));
-        StoreUtils.writeTag(serializer,
-                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                Boolean.toString(leaveAllSystemAppsEnabled));
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_ENCRYPTION,
-                Boolean.toString(skipEncryption));
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_USER_SETUP,
-                Boolean.toString(skipUserSetup));
-        StoreUtils.writeTag(serializer, EXTRA_PROVISIONING_SKIP_USER_CONSENT,
-                Boolean.toString(skipUserConsent));
     }
 
     /**
@@ -465,7 +327,6 @@ public final class ProvisioningParams implements Parcelable {
 
     private static ProvisioningParams load(XmlPullParser parser) throws XmlPullParserException,
             IOException {
-        Builder builder = new Builder();
         int type;
         int outerDepth = parser.getDepth();
         while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
@@ -475,69 +336,12 @@ public final class ProvisioningParams implements Parcelable {
              }
              String tag = parser.getName();
              switch (tag) {
-                 case EXTRA_PROVISIONING_TIME_ZONE:
-                     builder.setTimeZone(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_LOCAL_TIME:
-                     builder.setLocalTime(
-                         Long.parseLong(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
-                     break;
-                 case EXTRA_PROVISIONING_LOCALE:
-                     builder.setLocale(
-                         StoreUtils.stringToLocale(parser.getAttributeValue(null,
-                                 StoreUtils.ATTR_VALUE)));
-                     break;
-                 case TAG_WIFI_INFO:
-                     builder.setWifiInfo(WifiInfo.load(parser));
-                     break;
-                 case EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME:
-                     builder.setDeviceAdminPackageName(
-                         parser.getAttributeValue(null, StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME:
-                     builder.setDeviceAdminComponentName(ComponentName.unflattenFromString(
-                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
-                     break;
-                 case EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE:
-                     builder.setAccountToMigrate(StoreUtils.readAccount(parser));
-                     break;
-                 case TAG_PROVISIONING_ACTION:
-                     builder.setProvisioningAction(parser.getAttributeValue(null,
-                            StoreUtils.ATTR_VALUE));
-                     break;
-                 case EXTRA_PROVISIONING_MAIN_COLOR:
-                     builder.setMainColor(
-                         Integer.parseInt(parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
-                     break;
-                 case TAG_PACKAGE_DOWNLOAD_INFO:
-                     builder.setDeviceAdminDownloadInfo(PackageDownloadInfo.load(parser));
-                     break;
-                 case EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE:
-                     builder.setAdminExtrasBundle(PersistableBundle.restoreFromXml(parser));
-                     break;
-                 case TAG_STARTED_BY_TRUSTED_SOURCE:
-                     builder.setStartedByTrustedSource(Boolean.parseBoolean(
-                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
-                     break;
-                 case EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED:
-                     builder.setLeaveAllSystemAppsEnabled(Boolean.parseBoolean(
-                            parser.getAttributeValue(null, StoreUtils.ATTR_VALUE)));
-                     break;
-                 case EXTRA_PROVISIONING_SKIP_ENCRYPTION:
-                     builder.setSkipEncryption(Boolean.parseBoolean(parser.getAttributeValue(null,
-                            StoreUtils.ATTR_VALUE)));
-                     break;
-                 case EXTRA_PROVISIONING_SKIP_USER_SETUP:
-                     builder.setSkipUserSetup(Boolean.parseBoolean(parser.getAttributeValue(null,
-                            StoreUtils.ATTR_VALUE)));
-                     break;
-                 case EXTRA_PROVISIONING_SKIP_USER_CONSENT:
-                     builder.setSkipUserConsent(Boolean.parseBoolean(parser.getAttributeValue(null,
-                             StoreUtils.ATTR_VALUE)));
-                     break;
+                 case TAG_PROVISIONING_PARAMS:
+                     return createBuilderFromPersistableBundle(
+                             PersistableBundle.restoreFromXml(parser)).build();
              }
         }
-        return builder.build();
+        return new Builder().build();
     }
 
     public final static class Builder {
