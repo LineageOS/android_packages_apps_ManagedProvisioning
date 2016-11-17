@@ -1,11 +1,26 @@
+/*
+ * Copyright 2016, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -16,8 +31,8 @@ import android.widget.TextView;
 import com.android.managedprovisioning.R;
 
 /**
- * <p>Drives the animation showing benefits of having a Managed Profile
- * <p>Tightly coupled with the {@link R.layout#animated_introduction} layout
+ * <p>Drives the animation showing benefits of having a Managed Profile.
+ * <p>Tightly coupled with the {@link R.layout#animated_introduction} layout.
  */
 class BenefitsAnimation {
     /** Array of Id pairs: {{@link ObjectAnimator}, {@link TextView}} */
@@ -51,13 +66,13 @@ class BenefitsAnimation {
         chainAnimations();
     }
 
-    /** Starts playing the animation in a loop */
+    /** Starts playing the animation in a loop. */
     public void start() {
         mStopped = false;
         mTopAnimation.start();
     }
 
-    /** Stops the animation */
+    /** Stops the animation. */
     public void stop() {
         mStopped = true;
         mTopAnimation.stop();
@@ -115,7 +130,7 @@ class BenefitsAnimation {
         return animatorSet;
     }
 
-    /** Extracts an {@link AnimatedVectorDrawable} from a containing {@link ImageView} */
+    /** Extracts an {@link AnimatedVectorDrawable} from a containing {@link ImageView}. */
     private AnimatedVectorDrawable extractAnimationFromImageView(int id) {
         ImageView imageView = (ImageView) mActivity.findViewById(id);
         return (AnimatedVectorDrawable) imageView.getDrawable();
