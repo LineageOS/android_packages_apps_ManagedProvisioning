@@ -32,6 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/show_terms_button"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/view_terms"
+            style="@style/TransparentButton"/>
+
         <include layout="@layout/user_consent_main_text"/>
     </LinearLayout>
 </com.android.setupwizardlib.GlifLayout>

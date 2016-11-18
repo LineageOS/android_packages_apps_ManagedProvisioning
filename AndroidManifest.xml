@@ -128,6 +128,13 @@
             </intent-filter>
         </activity-alias>
         <activity
+            android:name=".preprovisioning.terms.TermsActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Provisioning2Theme">
+        </activity>
+        <activity
             android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
             android:launchMode="singleTop"

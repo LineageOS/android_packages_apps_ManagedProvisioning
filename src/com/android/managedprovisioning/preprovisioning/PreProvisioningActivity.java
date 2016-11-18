@@ -37,12 +37,13 @@ import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.SetupLayoutActivity;
+import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
-public class PreProvisioningActivity extends SetupLayoutActivity
+public class PreProvisioningActivity extends SetupGlifLayoutActivity
         implements UserConsentDialog.ConsentCallback, SimpleDialog.SimpleDialogListener,
         DeleteManagedProfileDialog.DeleteManagedProfileCallback, PreProvisioningController.Ui {
 
@@ -251,11 +252,21 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
         setTitle(titleRes);
 
+        Button showTermsButton = (Button) findViewById(R.id.show_terms_button);
         if (mController.isProfileOwnerProvisioning()) {
+            // show the intro animation
             getLayoutInflater().inflate(R.layout.animated_introduction,
                     (ViewGroup) findViewById(R.id.introduction_container));
             mBenefitsAnimation = new BenefitsAnimation(this);
+
+            // wire the 'show terms' button
+            showTermsButton.setOnClickListener(v -> {
+                Intent intent = new Intent(PreProvisioningActivity.this, TermsActivity.class);
+                intent.putExtra(TermsActivity.IS_PROFILE_OWNER_FLAG, true);
+                startActivity(intent);
+            });
         }
+        showTermsButton.setVisibility(View.GONE); // TODO: remove after b/32760303 is done
     }
 
     private void setMdmIconAndLabel(@NonNull String packageName) {

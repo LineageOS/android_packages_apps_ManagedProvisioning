@@ -60,4 +60,7 @@
     <dimen name="info_view_width_x0.5">206dp</dimen>
     <dimen name="info_view_width_x1.5">618dp</dimen>
     <dimen name="info_view_width_x2.5">1030dp</dimen>
+
+    <!-- Terms screen -->
+    <dimen name="spacer_16">16dp</dimen>
 </resources>

@@ -26,7 +26,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
-import com.android.managedprovisioning.common.SetupLayoutActivity;
+import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -37,7 +37,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  * {@link ProvisioningManager}. It shows progress updates as provisioning progresses and handles
  * showing of cancel and error dialogs.</p>
  */
-public class ProvisioningActivity extends SetupLayoutActivity
+public class ProvisioningActivity extends SetupGlifLayoutActivity
         implements SimpleDialog.SimpleDialogListener, ProvisioningManagerCallback {
 
     private static final String KEY_PROVISIONING_STARTED = "ProvisioningStarted";

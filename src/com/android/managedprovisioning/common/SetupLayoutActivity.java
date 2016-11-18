@@ -24,17 +24,13 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
-import com.android.setupwizardlib.GlifLayout;
 
 /**
  * Base class for setting up the layout.
@@ -65,33 +61,14 @@ public abstract class SetupLayoutActivity extends Activity {
         return mUtils;
     }
 
-    protected void initializeLayoutParams(int layoutResourceId, int headerResourceId,
-            boolean showProgressBar) {
-        setContentView(layoutResourceId);
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
-        layout.setHeaderText(headerResourceId);
-        if (showProgressBar) {
-            layout.setProgressBarShown(true);
-        }
-    }
-
-    protected void maybeSetLogoAndMainColor(Integer mainColor) {
-        // null means the default value
-        if (mainColor == null) {
-            mainColor = getResources().getColor(R.color.orange);
-        }
-        // We should always use a value of 255 for the alpha.
-        mainColor = Color.argb(255, Color.red(mainColor), Color.green(mainColor),
-                Color.blue(mainColor));
+    protected void setMainColor(int mainColor) {
+        mainColor = toSolidColor(mainColor);
 
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(mainColor);
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
-        Drawable logo = LogoUtils.getOrganisationLogo(this);
-        layout.setIcon(logo);
-        layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
+
         View decorView = window.getDecorView();
         int visibility = decorView.getSystemUiVisibility();
         if (getUtils().isBrightColor(mainColor)) {
@@ -100,8 +77,16 @@ public abstract class SetupLayoutActivity extends Activity {
             visibility &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         }
         decorView.setSystemUiVisibility(visibility);
-        setTaskDescription(new TaskDescription(null /* label */, null /* icon */,
-                mainColor));
+        setTaskDescription(new TaskDescription(null /* label */, null /* icon */, mainColor));
+    }
+
+    /**
+     * Removes transparency from the color
+     *
+     * <p>Needed for correct calculation of Status Bar icons (light / dark)
+     */
+    Integer toSolidColor(Integer color) {
+        return Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
     }
 
     /**

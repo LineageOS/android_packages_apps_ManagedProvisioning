@@ -28,4 +28,8 @@
     <color name="accent">#4285F4</color>
     <color name="transparent">#00000000</color>
     <color name="orange">#FF5722</color>
+    <!-- Provisioning 2.0 -->
+    <color name="divider_gray">#DCDCDC</color>
+    <color name="window_background">#FFF</color>
+    <color name="toolbar_black">#2D2D2D</color>
 </resources>
