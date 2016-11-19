@@ -92,6 +92,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ທ່ານ​ສາ​ມາດ​ຕັ້ງ​ໂປ​ຣ​ໄຟ​ລ໌​ເຄືອ​ຂ່າຍ​ຂອງ​ທ່ານ​ໄດ້​ພາຍ​ຫຼັງ​ຈາກ​ແອັບຯ​ການ​ຈັດ​ການ​ອຸ​ປະ​ກອນ​ທີ່​ອົງ​ການ​ຂອງ​ທ່ານ​ໃຊ້."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"ດຳເນີນການຕໍ່"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"ຢຸດ"</string>
+    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
+    <skip />
+    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
+    <skip />
+    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"ກຳ​ລັງ​ຈັດ​ການ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"ການ​ຕັ້ງ​ໃບ​ຢັ້ງ​ຢືນ CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ຕັ້ງ​​ຄ່າອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ. ເລີ່ມ​ການ​ຕັ້ງ​ຄ່າ"</string>

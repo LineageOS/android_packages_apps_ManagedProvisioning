@@ -92,6 +92,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"സ്ഥാപനം ഉപയോഗിക്കുന്ന ഉപകരണ മാനേജ്‌മെന്റ് ആപ്പിൽ നിന്ന്, നിങ്ങൾക്ക് പിന്നീട് ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കാവുന്നതാണ്."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"തുടരുക"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"അവസാനിപ്പിക്കുക"</string>
+    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
+    <skip />
+    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
+    <skip />
+    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"പ്രൊവിഷൻ ചെയ്യുന്നു"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA സർട്ടിഫിക്കറ്റ് സജ്ജമാക്കുന്നു"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. സജ്ജമാക്കൽ ആരംഭിക്കുക"</string>

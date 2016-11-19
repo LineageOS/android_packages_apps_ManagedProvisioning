@@ -92,6 +92,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Жұмыс профилінің параметрлерін кейінірек ұйымыңыз пайдаланатын құрылғыларды басқару қолданбасынан орнатуға болады."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Жалғастыру"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Тоқтату"</string>
+    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
+    <skip />
+    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
+    <skip />
+    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"Дайындау"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA сертификаттарын реттеу"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Профиль параметрлерін орнату. Параметрлерді орната бастау"</string>
