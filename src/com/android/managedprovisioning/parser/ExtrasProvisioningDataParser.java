@@ -30,6 +30,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -193,8 +194,15 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                                     ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT)
                             && deviceOwner != null
                             && deviceOwner.getPackageName()
+
                             .equals(inferStaticDeviceAdminPackageName(
                                     deviceAdminComponentName, deviceAdminPackageName));
+
+            // Only when provisioning PO with ACTION_PROVISION_MANAGED_PROFILE
+            final boolean keepAccountMigrated =
+                    ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)
+                            && intent.getBooleanExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION,
+                            ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED);
 
             // Parse main color and organization's logo. This is not supported in managed device
             // from trusted source provisioning because, currently, there is no way to send
@@ -220,6 +228,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                             EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
                     .setMainColor(mainColor)
                     .setSkipUserConsent(skipUserConsent)
+                    .setKeepAccountMigrated(keepAccountMigrated)
                     .setSkipUserSetup(skipUserSetup)
                     .setAccountToMigrate((Account) intent.getParcelableExtra(
                             EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE));
