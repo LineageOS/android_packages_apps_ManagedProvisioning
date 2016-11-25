@@ -621,4 +621,12 @@ public class Utils {
         return Color.red(color) * 299 + Color.green(color) * 587 + Color.blue(color) * 114
                 >= 1000 * THRESHOLD_BRIGHT_COLOR;
     }
+
+    /**
+     * Returns whether given intent can be resolved for the user.
+     */
+    public boolean canResolveIntentAsUser(Context context, Intent intent, int userId) {
+        return intent != null
+                && context.getPackageManager().resolveActivityAsUser(intent, 0, userId) != null;
+    }
 }

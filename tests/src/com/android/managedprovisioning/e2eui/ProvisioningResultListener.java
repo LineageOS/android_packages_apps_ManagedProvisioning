@@ -20,6 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -29,13 +30,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Listen to provisioning result from DPC running in test process
  */
 public class ProvisioningResultListener {
-    public static final String ACTION_PROVISION_RESULT =
-            "com.android.managedprovisioning.e2eui.ACTION_PROVISION_RESULT";
+    private static final String TAG = ProvisioningResultListener.class.getSimpleName();
+
+    public static final String ACTION_PROVISION_RESULT_BROADCAST =
+            "com.android.managedprovisioning.e2eui.ACTION_PROVISION_RESULT_BROADCAST";
+    public static final String ACTION_PROVISION_RESULT_INTENT =
+            "com.android.managedprovisioning.e2eui.ACTION_PROVISION_RESULT_INTENT";
     public static final String EXTRA_RESULT = "result";
 
     private final Context mContext;
-    private final CountDownLatch mLatch = new CountDownLatch(1);
-    private final AtomicBoolean mResult = new AtomicBoolean(false);
+    private final CountDownLatch mLatch = new CountDownLatch(2);
+    private final AtomicBoolean mBroadcastResult = new AtomicBoolean(false);
+    private final AtomicBoolean mIntentResult = new AtomicBoolean(false);
     private final ResultReceiver mReceiver = new ResultReceiver();
     private boolean mIsRegistered = false;
 
@@ -43,8 +49,12 @@ public class ProvisioningResultListener {
         @Override
         public void onReceive(Context context, Intent intent) {
             switch(intent.getAction()) {
-                case ACTION_PROVISION_RESULT:
-                    mResult.set(intent.getBooleanExtra(EXTRA_RESULT, false));
+                case ACTION_PROVISION_RESULT_BROADCAST:
+                    mBroadcastResult.set(intent.getBooleanExtra(EXTRA_RESULT, false));
+                    mLatch.countDown();
+                    break;
+                case ACTION_PROVISION_RESULT_INTENT:
+                    mIntentResult.set(intent.getBooleanExtra(EXTRA_RESULT, false));
                     mLatch.countDown();
                     break;
             }
@@ -56,7 +66,8 @@ public class ProvisioningResultListener {
     }
 
     public void register() {
-        mContext.registerReceiver(mReceiver, new IntentFilter(ACTION_PROVISION_RESULT));
+        mContext.registerReceiver(mReceiver, new IntentFilter(ACTION_PROVISION_RESULT_BROADCAST));
+        mContext.registerReceiver(mReceiver, new IntentFilter(ACTION_PROVISION_RESULT_INTENT));
         mIsRegistered = true;
     }
 
@@ -72,6 +83,8 @@ public class ProvisioningResultListener {
     }
 
     public boolean getResult() {
-        return mResult.get();
+        Log.i(TAG, "mBroadcastResult: " + mBroadcastResult.get());
+        Log.i(TAG, "mIntentResult: " + mIntentResult.get());
+        return mBroadcastResult.get() && mIntentResult.get();
     }
 }

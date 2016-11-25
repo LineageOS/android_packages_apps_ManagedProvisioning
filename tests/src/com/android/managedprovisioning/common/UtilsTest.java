@@ -356,6 +356,27 @@ public class UtilsTest extends AndroidTestCase {
         assertFalse(mUtils.isBrightColor(Color.BLUE));
     }
 
+    public void testCanResolveIntentAsUser() {
+        // GIVEN intent is null
+        // THEN intent should not be resolved
+        assertFalse(mUtils.canResolveIntentAsUser(mockContext, null, TEST_USER_ID));
+
+        // GIVEN a valid intent
+        Intent intent = new Intent();
+
+        // WHEN resolve activity as user returns null
+        when(mockPackageManager.resolveActivityAsUser(any(Intent.class), anyInt(), anyInt()))
+                .thenReturn(null);
+        // THEN intent should not be resolved for user
+        assertFalse(mUtils.canResolveIntentAsUser(mockContext, intent, TEST_USER_ID));
+
+        // WHEN resolve activity as user returns valid resolve info
+        when(mockPackageManager.resolveActivityAsUser(any(Intent.class), anyInt(), anyInt()))
+                .thenReturn(new ResolveInfo());
+        // THEN intent should be resolved
+        assertTrue(mUtils.canResolveIntentAsUser(mockContext, intent, TEST_USER_ID));
+    }
+
     private ApplicationInfo createApplicationInfo(String packageName, boolean system) {
         ApplicationInfo ai = new ApplicationInfo();
         ai.packageName = packageName;
