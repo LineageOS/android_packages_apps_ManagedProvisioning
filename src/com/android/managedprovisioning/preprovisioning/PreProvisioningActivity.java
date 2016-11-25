@@ -401,7 +401,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity
 
         // Check again if it fulfill the condition to skip user consent. If yes, it will start
         // provisioning
-        mController.maybeStartCompProvisioning();
+        mController.maybeStartProfileOwnerProvisioningIfSkipUserConsent();
     }
 
     /**

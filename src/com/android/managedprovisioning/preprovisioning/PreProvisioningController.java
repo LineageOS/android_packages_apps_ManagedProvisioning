@@ -224,13 +224,14 @@ public class PreProvisioningController {
 
         mIsProfileOwnerProvisioning = mUtils.isProfileOwnerAction(mParams.provisioningAction);
         // Check whether provisioning is allowed for the current action
+        // if isSilentProvisioningForTestingDeviceOwner returns true, the component must be
+        // current device owner, and we can safely ignore isProvisioningAllowed as we don't call
+        // setDeviceOwner.
         int provisioningPreCondition =
                 mDevicePolicyManager.checkProvisioningPreCondition(mParams.provisioningAction);
-        if (provisioningPreCondition != CODE_OK) {
+        if (provisioningPreCondition != CODE_OK && !isSilentProvisioningForTestingDeviceOwner()) {
             mProvisioningAnalyticsTracker.logProvisioningNotAllowed(mContext,
                     provisioningPreCondition);
-            showProvisioningError(mParams.provisioningAction, provisioningPreCondition);
-            return;
         }
 
         mTimeLogger.start();
@@ -305,13 +306,13 @@ public class PreProvisioningController {
             mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
                     existingManagedProfileUserId);
         } else {
-            maybeStartCompProvisioning();
+            maybeStartProfileOwnerProvisioningIfSkipUserConsent();
         }
     }
 
     // Skipping user consent only when no existing work profile and not requiring encryption
-    public void maybeStartCompProvisioning() {
-        if (!mParams.skipUserConsent) {
+    public void maybeStartProfileOwnerProvisioningIfSkipUserConsent() {
+        if (!mParams.skipUserConsent && !isSilentProvisioningForTestingManagedProfile()) {
             return;
         }
 
@@ -360,6 +361,32 @@ public class PreProvisioningController {
         return !mParams.skipEncryption && mUtils.isEncryptionRequired();
     }
 
+    private boolean isSilentProvisioningForTestingDeviceOwner() {
+        final ComponentName currentDeviceOwner =
+                mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser();
+        final ComponentName targetDeviceAdmin = mParams.deviceAdminComponentName;
+
+        switch(mParams.provisioningAction) {
+            case DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE:
+                return isPackageTestOnly()
+                        && currentDeviceOwner != null
+                        && targetDeviceAdmin != null
+                        && currentDeviceOwner.equals(targetDeviceAdmin);
+            default:
+                return false;
+        }
+    }
+
+    private boolean isSilentProvisioningForTestingManagedProfile() {
+        return DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE.equals(
+                mParams.provisioningAction) && isPackageTestOnly();
+    }
+
+    private boolean isPackageTestOnly() {
+        return mUtils.isPackageTestOnly(mContext.getPackageManager(),
+                mParams.inferDeviceAdminPackageName(), mUserManager.getUserHandle());
+    }
+
     /**
      * Check whether the device supports encryption. If it does not support encryption, but
      * encryption is requested, show an error dialog.
@@ -396,6 +423,12 @@ public class PreProvisioningController {
      * Ask for user consent if it is required otherwise start device owner provisioning.
      */
     public void askForConsentOrStartDeviceOwnerProvisioning() {
+        if (isSilentProvisioningForTestingDeviceOwner()) {
+            maybeCreateUserAndStartDeviceOwnerProvisioning();
+            ProvisionLogger.logi("bypass user consent for DeviceOwner provisioning");
+            return;
+        }
+
         // If we are started by Nfc and the device supports FRP, we need to ask for user consent
         // since FRP will not be activated at the end of the flow.
         if (mParams.startedByTrustedSource) {

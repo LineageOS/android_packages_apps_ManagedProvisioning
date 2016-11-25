@@ -248,6 +248,48 @@ public class Utils {
     }
 
     /**
+     * Return if a given package has testOnly="true", in which case we'll relax certain rules
+     * for CTS.
+     *
+     * The system allows this flag to be changed when an app is updated. But
+     * {@link DevicePolicyManager} uses the persisted version to do actual checks for relevant
+     * dpm command.
+     *
+     * @see DevicePolicyManagerService#isPackageTestOnly for more info
+     */
+    public boolean isPackageTestOnly(PackageManager pm, String packageName, int userHandle) {
+        if (TextUtils.isEmpty(packageName)) {
+            return false;
+        }
+
+        try {
+            final ApplicationInfo ai = pm.getApplicationInfoAsUser(packageName,
+                    PackageManager.MATCH_DIRECT_BOOT_AWARE
+                            | PackageManager.MATCH_DIRECT_BOOT_UNAWARE, userHandle);
+            return ai != null && (ai.flags & ApplicationInfo.FLAG_TEST_ONLY) != 0;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+
+    }
+
+    /**
+     * Returns whether the current user is the system user.
+     */
+    public boolean isCurrentUserSystem() {
+        return UserHandle.myUserId() == UserHandle.USER_SYSTEM;
+    }
+
+    /**
+     * Returns whether the device is currently managed.
+     */
+    public boolean isDeviceManaged(Context context) {
+        DevicePolicyManager dpm =
+                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        return dpm.isDeviceManaged();
+    }
+
+    /**
      * Returns true if the given package requires an update.
      *
      * <p>There are two cases where an update is required:
