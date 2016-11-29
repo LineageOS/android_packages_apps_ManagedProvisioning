@@ -26,6 +26,7 @@ import static org.mockito.Mockito.verify;
 import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
+import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
@@ -47,6 +48,7 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
     private static final String TEST_MDM_PACKAGE_NAME = "mdm.package.name";
     private static final Account TEST_ACCOUNT = new Account("test@account.com", "account.type");
     private static final Intent TEST_INTENT = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);
+    private static final UserHandle MANAGED_PROFILE_USER_HANDLE = UserHandle.of(123);
 
     @Mock private Context mContext;
     @Mock private Utils mUtils;
@@ -61,8 +63,8 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
     @SmallTest
     public void testNoAccountMigration() {
         // GIVEN that no account migration occurred during provisioning
-        final DpcReceivedSuccessReceiver receiver =
-                new DpcReceivedSuccessReceiver(null, TEST_MDM_PACKAGE_NAME, mUtils);
+        final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(null,
+                TEST_MDM_PACKAGE_NAME, MANAGED_PROFILE_USER_HANDLE, mUtils);
 
         // WHEN the profile provisioning complete intent was received by the DPC
         receiver.onReceive(mContext, TEST_INTENT);
@@ -76,6 +78,10 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
 
         // THEN the receiver package is the DPC
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
+
+        // THEN the extra user handle should be of managed profile
+        assertEquals(MANAGED_PROFILE_USER_HANDLE,
+                intentCaptor.getValue().getExtra(Intent.EXTRA_USER));
     }
 
     @SmallTest
@@ -88,8 +94,8 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
             }).when(mContext).sendBroadcast(any(Intent.class));
 
         // GIVEN that account migration occurred during provisioning
-        final DpcReceivedSuccessReceiver receiver =
-                new DpcReceivedSuccessReceiver(TEST_ACCOUNT, TEST_MDM_PACKAGE_NAME, mUtils);
+        final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
+                TEST_MDM_PACKAGE_NAME, MANAGED_PROFILE_USER_HANDLE, mUtils);
 
         // WHEN the profile provisioning complete intent was received by the DPC
         receiver.onReceive(mContext, TEST_INTENT);
@@ -105,6 +111,10 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
 
         // THEN the receiver package is the DPC
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
+
+        // THEN the extra user handle should be of managed profile
+        assertEquals(MANAGED_PROFILE_USER_HANDLE,
+                intentCaptor.getValue().getExtra(Intent.EXTRA_USER));
 
         // THEN the account was added to the broadcast
         assertEquals(TEST_ACCOUNT, intentCaptor.getValue().getParcelableExtra(

@@ -152,8 +152,9 @@ public class FinalizationController {
 
         // Use an ordered broadcast, so that we only finish when the DPC has received it.
         // Avoids a lag in the transition between provisioning and the DPC.
-        BroadcastReceiver dpcReceivedSuccessReceiver = new DpcReceivedSuccessReceiver(
-                params.accountToMigrate, params.deviceAdminComponentName.getPackageName());
+        BroadcastReceiver dpcReceivedSuccessReceiver =
+                new DpcReceivedSuccessReceiver(params.accountToMigrate,
+                        params.deviceAdminComponentName.getPackageName(), managedUserHandle);
 
         Intent completeIntent = createProvisioningCompleteIntent(params);
 

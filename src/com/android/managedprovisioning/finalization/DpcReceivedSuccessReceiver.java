@@ -25,6 +25,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.UserHandle;
 import android.support.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -42,15 +43,19 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
     private final Account mMigratedAccount;
     private final String mMdmPackageName;
     private final Utils mUtils;
+    private final UserHandle mManagedUserHandle;
 
-    public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount, String mdmPackageName) {
-        this(migratedAccount, mdmPackageName, new Utils());
+    public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount, String mdmPackageName,
+            UserHandle managedUserHandle) {
+        this(migratedAccount, mdmPackageName, managedUserHandle, new Utils());
     }
 
     @VisibleForTesting
-    DpcReceivedSuccessReceiver(Account migratedAccount, String mdmPackageName, Utils utils) {
+    DpcReceivedSuccessReceiver(Account migratedAccount, String mdmPackageName,
+            UserHandle managedUserHandle, Utils utils) {
         mMigratedAccount = migratedAccount;
         mMdmPackageName = checkNotNull(mdmPackageName);
+        mManagedUserHandle = checkNotNull(managedUserHandle);
         mUtils = checkNotNull(utils);
     }
 
@@ -62,6 +67,7 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
         primaryProfileSuccessIntent.setPackage(mMdmPackageName);
         primaryProfileSuccessIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
                 Intent.FLAG_RECEIVER_FOREGROUND);
+        primaryProfileSuccessIntent.putExtra(Intent.EXTRA_USER, mManagedUserHandle);
 
         // Now cleanup the primary profile if necessary
         if (mMigratedAccount != null) {
