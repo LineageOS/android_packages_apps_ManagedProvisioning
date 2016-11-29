@@ -17,10 +17,16 @@
 package com.android.managedprovisioning.common;
 
 import android.accounts.Account;
+import android.content.ComponentName;
+import android.os.BaseBundle;
+import android.os.PersistableBundle;
 import android.util.Base64;
 import java.io.IOException;
 import java.util.IllformedLocaleException;
 import java.util.Locale;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlSerializer;
 
@@ -34,38 +40,47 @@ public class StoreUtils {
     private static final String ATTR_ACCOUNT_NAME = "account-name";
     private static final String ATTR_ACCOUNT_TYPE = "account-type";
 
-    /**
-     * Adds a tag with the given value to an XmlSerializer.
-     */
-    public static void writeTag(XmlSerializer serializer, String tag, String value)
-            throws IOException {
-        if (value != null) {
-            serializer.startTag(null, tag);
-            serializer.attribute(null, ATTR_VALUE, value);
-            serializer.endTag(null, tag);
-        }
-    }
 
     /**
-     * Reads an account from an XmlParser.
+     * Reads an account from a {@link PersistableBundle}.
      */
-    public static Account readAccount(XmlPullParser parser) {
+    public static Account persistableBundleToAccount(PersistableBundle bundle) {
         return new Account(
-                parser.getAttributeValue(null, ATTR_ACCOUNT_NAME),
-                parser.getAttributeValue(null, ATTR_ACCOUNT_TYPE));
+                bundle.getString(ATTR_ACCOUNT_NAME),
+                bundle.getString(ATTR_ACCOUNT_TYPE));
     }
 
     /**
-     * Writes an account to an XmlSerializer.
+     * Writes an account to a {@link PersistableBundle}.
      */
-    public static void writeAccount(XmlSerializer serializer, String tag, Account account)
-            throws IOException {
-        if (account != null) {
-            serializer.startTag(null, tag);
-            serializer.attribute(null, ATTR_ACCOUNT_NAME, account.name);
-            serializer.attribute(null, ATTR_ACCOUNT_TYPE, account.type);
-            serializer.endTag(null, tag);
+    public static PersistableBundle accountToPersistableBundle(Account account) {
+        final PersistableBundle bundle = new PersistableBundle();
+        bundle.putString(ATTR_ACCOUNT_NAME, account.name);
+        bundle.putString(ATTR_ACCOUNT_TYPE, account.type);
+        return bundle;
+    }
+
+    /**
+     * Serialize ComponentName.
+     */
+    public static String componentNameToString(ComponentName componentName) {
+        return componentName == null ? null
+                : componentName.getPackageName() + "/" + componentName.getClassName();
+    }
+
+    /**
+     * Deserialize ComponentName.
+     * Don't use {@link ComponentName#unflattenFromString(String)}, because it doesn't keep
+     * original class name
+     */
+    public static ComponentName stringToComponentName(String str) {
+        int sep = str.indexOf('/');
+        if (sep < 0 || (sep+1) >= str.length()) {
+            return null;
         }
+        String pkg = str.substring(0, sep);
+        String cls = str.substring(sep+1);
+        return new ComponentName(pkg, cls);
     }
 
     /**
@@ -111,5 +126,36 @@ public class StoreUtils {
      */
     public static String byteArrayToString(byte[] bytes) {
         return Base64.encodeToString(bytes, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+    }
+
+    public static void putIntegerIfNotNull(PersistableBundle bundle, String attrName,
+            Integer integer) {
+        if (integer != null) {
+            bundle.putInt(attrName, integer);
+        }
+    }
+
+    public static void putPersistableBundlableIfNotNull(PersistableBundle bundle, String attrName,
+            PersistableBundlable bundlable) {
+        if (bundlable != null) {
+            bundle.putPersistableBundle(attrName, bundlable.toPersistableBundle());
+        }
+    }
+
+    public static <E> E getObjectAttrFromPersistableBundle(PersistableBundle bundle,
+            String attrName, Function<PersistableBundle, E> converter) {
+        final PersistableBundle attrBundle = bundle.getPersistableBundle(attrName);
+        return attrBundle == null ? null : converter.apply(attrBundle);
+    }
+
+    public static <E> E getStringAttrFromPersistableBundle(PersistableBundle bundle,
+            String attrName, Function<String, E> converter) {
+        final String str = bundle.getString(attrName);
+        return str == null ? null : converter.apply(str);
+    }
+
+    public static Integer getIntegerAttrFromPersistableBundle(PersistableBundle bundle,
+            String attrName) {
+        return bundle.containsKey(attrName) ? bundle.getInt(attrName) : null;
     }
 }
