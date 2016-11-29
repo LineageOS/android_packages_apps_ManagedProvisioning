@@ -18,7 +18,6 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
@@ -299,7 +298,24 @@ public class PreProvisioningController {
                     .getProfileOwnerNameAsUser(existingManagedProfileUserId);
             mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
                     existingManagedProfileUserId);
+        } else {
+            maybeStartCompProvisioning(intent);
         }
+    }
+
+    // Skipping user consent only when no existing work profile and not requiring encryption
+    private void maybeStartCompProvisioning(Intent intent) {
+        if (!mParams.skipUserConsent) {
+            return;
+        }
+
+        // Ask for encryption consent even though skipUserConsent is true
+        if (isEncryptionRequired()) {
+            maybeTriggerEncryption();
+            return;
+        }
+
+        continueProvisioningAfterUserConsent();
     }
 
     /**

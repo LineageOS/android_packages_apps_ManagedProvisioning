@@ -96,6 +96,11 @@ public class ProvisioningActivity extends SetupLayoutActivity
 
     @Override
     public void onBackPressed() {
+        // if EXTRA_PROVISIONING_SKIP_USER_CONSENT is specified, don't allow user to cancel
+        if (mParams.skipUserConsent) {
+            return;
+        }
+
         showCancelProvisioningDialog();
     }
 
