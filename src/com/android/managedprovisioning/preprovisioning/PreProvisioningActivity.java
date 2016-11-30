@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.LogoUtils;
@@ -47,13 +48,18 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
         implements UserConsentDialog.ConsentCallback, SimpleDialog.SimpleDialogListener,
         DeleteManagedProfileDialog.DeleteManagedProfileCallback, PreProvisioningController.Ui {
 
+    @VisibleForTesting
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
+    @VisibleForTesting
     protected static final int PROVISIONING_REQUEST_CODE = 2;
+    @VisibleForTesting
     protected static final int WIFI_REQUEST_CODE = 3;
+    @VisibleForTesting
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 4;
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
+
     private static final String PRE_PROVISIONING_ERROR_AND_CLOSE_DIALOG =
             "PreProvisioningErrorAndCloseDialog";
     private static final String PRE_PROVISIONING_BACK_PRESSED_DIALOG =
@@ -67,20 +73,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     private static final String PRE_PROVISIONING_DELETE_MANAGED_PROFILE_DIALOG =
             "PreProvisioningDeleteManagedProfileDialog";
 
-    protected PreProvisioningController mController;
-
-    protected TextView mConsentMessageTextView;
-    protected TextView mMdmInfoTextView;
-    protected BenefitsAnimation mBenefitsAnimation;
+    private PreProvisioningController mController;
+    private BenefitsAnimation mBenefitsAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mController = new PreProvisioningController(
-                this,
-                this);
-
+        mController = new PreProvisioningController(this, this);
         mController.initiateProvisioning(getIntent(), getCallingPackage());
     }
 
@@ -231,20 +231,17 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
         // Setup the UI.
         initializeLayoutParams(R.layout.user_consent, headerRes, false);
         Button nextButton = (Button) findViewById(R.id.setup_button);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProvisionLogger.logi("Next button (setup_button) is clicked.");
-                mController.afterNavigateNext();
-            }
+        nextButton.setOnClickListener(v -> {
+            ProvisionLogger.logi("Next button (setup_button) is clicked.");
+            mController.afterNavigateNext();
         });
         nextButton.setText(R.string.next);
 
-        mConsentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
-        mMdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
+        TextView consentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
+        TextView mdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
 
-        mConsentMessageTextView.setText(consentRes);
-        mMdmInfoTextView.setText(mdmInfoRes);
+        consentMessageTextView.setText(consentRes);
+        mdmInfoTextView.setText(mdmInfoRes);
 
         setMdmIconAndLabel(params.inferDeviceAdminPackageName());
 
@@ -288,18 +285,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void showUserConsentDialog(final ProvisioningParams params,
-            final boolean isProfileOwnerProvisioning) {
+    public void showUserConsentDialog(ProvisioningParams params,
+            boolean isProfileOwnerProvisioning) {
         // TODO: consider a builder being a part of UserConsentDialog
-        DialogBuilder dialogBuilder = new DialogBuilder() {
-            @Override
-            public DialogFragment build() {
-                return isProfileOwnerProvisioning
+        showDialog(() -> isProfileOwnerProvisioning
                         ? UserConsentDialog.newProfileOwnerInstance()
-                        : UserConsentDialog.newDeviceOwnerInstance(!params.startedByTrustedSource);
-            }
-        };
-        showDialog(dialogBuilder, PRE_PROVISIONING_USER_CONSENT_DIALOG);
+                        : UserConsentDialog.newDeviceOwnerInstance(!params.startedByTrustedSource),
+                PRE_PROVISIONING_USER_CONSENT_DIALOG);
     }
 
     /**
@@ -307,7 +299,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
      */
     @Override
     public void onDialogConsent() {
-        // Right after user consent, provisioning will be started. To avoid talkback reading out
+        // Right after user consent, provisioning will be started. To avoid TalkBack reading out
         // the activity title in the time this activity briefly comes back to the foreground, we
         // remove the title.
         setTitle("");
@@ -344,15 +336,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void showDeleteManagedProfileDialog(final ComponentName mdmPackageName,
-            final String domainName, final int userId) {
+    public void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
+            int userId) {
         // TODO: consider a builder being a part of DeleteManagedProfileDialog
-        DialogBuilder dialogBuilder = new DialogBuilder() {
-            @Override
-            public DialogFragment build() {
-                return DeleteManagedProfileDialog.newInstance(userId, mdmPackageName, domainName);
-            }
-        };
+        DialogBuilder dialogBuilder = () -> DeleteManagedProfileDialog.newInstance(userId,
+                mdmPackageName, domainName);
         showDialog(dialogBuilder, PRE_PROVISIONING_DELETE_MANAGED_PROFILE_DIALOG);
     }
 
