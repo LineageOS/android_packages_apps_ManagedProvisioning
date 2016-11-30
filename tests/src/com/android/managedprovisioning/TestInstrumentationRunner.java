@@ -17,11 +17,15 @@
 package com.android.managedprovisioning;
 
 import android.app.Activity;
+import android.app.Application;
+import android.app.Application.ActivityLifecycleCallbacks;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.test.runner.AndroidJUnitRunner;
 import android.util.ArrayMap;
-import android.util.Log;
 
+import android.view.WindowManager;
 import java.util.Map;
 
 public class TestInstrumentationRunner extends AndroidJUnitRunner {
@@ -30,10 +34,18 @@ public class TestInstrumentationRunner extends AndroidJUnitRunner {
     public static final String TEST_PACKAGE_NAME = "com.android.managedprovisioning.tests";
 
     private static final String TAG = "TestInstrumentationRunner";
-    private static final Map<String, Class<?>> sReplacedActivityMap = new ArrayMap();
+    private static final Map<String, OnActivityCreatedCallback> sReplacedActivityMap =
+            new ArrayMap();
 
-    public static void registerReplacedActivity(Class<?> oldActivity, Class<?> newActivity) {
-        sReplacedActivityMap.put(oldActivity.getCanonicalName(), newActivity);
+    public static void registerReplacedActivity(Class<?> oldActivity,
+            OnActivityCreatedCallback onActivityCreatedCallback) {
+        sReplacedActivityMap.put(oldActivity.getCanonicalName(), onActivityCreatedCallback);
+    }
+
+    public static void registerReplacedActivity(Class<?> oldActivity,
+            Class<? extends Activity> newActivity) {
+        registerReplacedActivity(oldActivity,
+                (classLoader, className, intent) -> newActivity.newInstance());
     }
 
     public static void unregisterReplacedActivity(Class<?> oldActivity) {
@@ -43,14 +55,51 @@ public class TestInstrumentationRunner extends AndroidJUnitRunner {
     @Override
     public Activity newActivity(ClassLoader cl, String className, Intent intent)
             throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        Class<?> replacedActivity = sReplacedActivityMap.get(className);
-        if (replacedActivity != null) {
-            Log.i(TAG, "Launching " + replacedActivity.getCanonicalName()
-                    + " for an intent launching " + className);
-            cl = replacedActivity.getClassLoader();
-            className = replacedActivity.getCanonicalName();
+        OnActivityCreatedCallback callback = sReplacedActivityMap.get(className);
+        if (callback != null) {
+            return callback.createActivity(cl, className, intent);
+        } else {
+            return super.newActivity(cl, className, intent);
         }
-        return super.newActivity(cl, className, intent);
     }
 
+    @Override
+    public Application newApplication(ClassLoader cl, String className, Context context)
+            throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        Application app = super.newApplication(cl, className, context);
+        app.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(Activity activity, Bundle bundle) {
+                // Show activity on top of keyguard
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+                // Turn on screen to prevent activity being paused by system. See b/31262906
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {}
+
+            @Override
+            public void onActivityResumed(Activity activity) {}
+
+            @Override
+            public void onActivityPaused(Activity activity) {}
+
+            @Override
+            public void onActivityStopped(Activity activity) {}
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {}
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {}
+        });
+        return app;
+    }
+
+    public interface OnActivityCreatedCallback {
+        Activity createActivity(ClassLoader cl, String className, Intent intent)
+                throws IllegalAccessException, InstantiationException;
+    }
 }

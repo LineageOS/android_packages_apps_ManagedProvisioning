@@ -26,6 +26,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,9 +37,18 @@ import com.android.managedprovisioning.analytics.TimeLogger;
  * Base class for setting up the layout.
  */
 public abstract class SetupLayoutActivity extends Activity {
-    protected final Utils mUtils = new Utils();
+    protected final Utils mUtils;
 
     private TimeLogger mTimeLogger;
+
+    public SetupLayoutActivity() {
+        this(new Utils());
+    }
+
+    @VisibleForTesting
+    protected SetupLayoutActivity(Utils utils) {
+        mUtils = utils;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

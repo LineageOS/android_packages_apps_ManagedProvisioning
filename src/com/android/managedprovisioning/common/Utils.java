@@ -629,4 +629,9 @@ public class Utils {
         return intent != null
                 && context.getPackageManager().resolveActivityAsUser(intent, 0, userId) != null;
     }
+
+    public boolean isPackageDeviceOwner(DevicePolicyManager dpm, String packageName) {
+        final ComponentName deviceOwner = dpm.getDeviceOwnerComponentOnCallingUser();
+        return deviceOwner != null && deviceOwner.getPackageName().equals(packageName);
+    }
 }

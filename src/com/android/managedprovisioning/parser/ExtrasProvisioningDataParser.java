@@ -192,10 +192,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)
                             && intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT,
                                     ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT)
-                            && deviceOwner != null
-                            && deviceOwner.getPackageName()
-
-                            .equals(inferStaticDeviceAdminPackageName(
+                            && mUtils.isPackageDeviceOwner(dpm, inferStaticDeviceAdminPackageName(
                                     deviceAdminComponentName, deviceAdminPackageName));
 
             // Only when provisioning PO with ACTION_PROVISION_MANAGED_PROFILE

@@ -29,9 +29,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -43,9 +45,12 @@ import android.support.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
+import com.android.managedprovisioning.TestInstrumentationRunner.OnActivityCreatedCallback;
+import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -59,7 +64,8 @@ import org.mockito.MockitoAnnotations;
  */
 @SmallTest
 public class ProvisioningActivityTest {
-    private static final ComponentName ADMIN = new ComponentName("com.test.admin", ".Receiver");
+    private static final String ADMIN_PACKAGE = "com.test.admin";
+    private static final ComponentName ADMIN = new ComponentName(ADMIN_PACKAGE, ".Receiver");
     private static final ProvisioningParams PROFILE_OWNER_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
@@ -106,11 +112,14 @@ public class ProvisioningActivityTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        TestProvisioningActivity.sManager = mProvisioningManager;
-        TestProvisioningActivity.sUtils = mUtils;
-
         TestInstrumentationRunner.registerReplacedActivity(ProvisioningActivity.class,
-                TestProvisioningActivity.class);
+                (classLoader, className, intent) ->
+                        new ProvisioningActivity(mProvisioningManager, mUtils));
+    }
+
+    @After
+    public void tearDown() {
+        TestInstrumentationRunner.unregisterReplacedActivity(ProvisioningActivity.class);
     }
 
     @Test
@@ -251,6 +260,48 @@ public class ProvisioningActivityTest {
 
         // THEN the activity should be finished
         assertTrue(mActivityRule.getActivity().isFinishing());
+    }
+
+    @Test
+    public void testCancelProfileOwner_CompProvisioningWithSkipConsent() throws Throwable {
+        // GIVEN launching profile intent with skipping user consent
+        ProvisioningParams params = new ProvisioningParams.Builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                .setDeviceAdminComponentName(ADMIN)
+                .setSkipUserConsent(true)
+                .build();
+        Intent intent = new Intent()
+                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
+        launchActivityAndWait(new Intent(intent));
+
+        // WHEN the user tries to cancel
+        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().onBackPressed());
+
+        // THEN never unregistering ProvisioningManager
+        verify(mProvisioningManager, never()).unregisterListener(
+                any(ProvisioningManagerCallback.class));
+    }
+
+    @Test
+    public void testCancelProfileOwner_CompProvisioningWithoutSkipConsent() throws Throwable {
+        // GIVEN launching profile intent without skipping user consent
+        ProvisioningParams params = new ProvisioningParams.Builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                .setDeviceAdminComponentName(ADMIN)
+                .setSkipUserConsent(false)
+                .build();
+        Intent intent = new Intent()
+                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
+        launchActivityAndWait(new Intent(intent));
+
+        // WHEN the user tries to cancel
+        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().onBackPressed());
+
+        // THEN unregistering ProvisioningManager
+        verify(mProvisioningManager).unregisterListener(any(ProvisioningManagerCallback.class));
+
+        // THEN the cancel dialog should be shown
+        onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
     }
 
     @Test

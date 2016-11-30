@@ -21,6 +21,7 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -49,9 +51,25 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
 
     private TextView mProgressTextView;
     private ProvisioningParams mParams;
+    private ProvisioningManager mProvisioningManager;
 
-    protected ProvisioningManager getProvisioningManager() {
-        return ProvisioningManager.getInstance(this);
+    public ProvisioningActivity() {
+        this(null, new Utils());
+    }
+
+    @VisibleForTesting
+    public ProvisioningActivity(ProvisioningManager provisioningManager, Utils utils) {
+        super(utils);
+        mProvisioningManager = provisioningManager;
+    }
+
+    // Lazily initialize ProvisioningManager, since we can't call in ProvisioningManager.getInstance
+    // in constructor as base context is not available in constructor
+    private ProvisioningManager getProvisioningManager() {
+        if (mProvisioningManager == null) {
+            mProvisioningManager = ProvisioningManager.getInstance(this);
+        }
+        return mProvisioningManager;
     }
 
     @Override

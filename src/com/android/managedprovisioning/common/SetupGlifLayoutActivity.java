@@ -19,6 +19,7 @@ package com.android.managedprovisioning.common;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 
+import android.support.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.setupwizardlib.GlifLayout;
 
@@ -26,6 +27,15 @@ import com.android.setupwizardlib.GlifLayout;
  * Base class for setting up the layout.
  */
 public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
+
+    public SetupGlifLayoutActivity() {
+        super();
+    }
+
+    @VisibleForTesting
+    protected SetupGlifLayoutActivity(Utils utils) {
+        super(utils);
+    }
     protected void initializeLayoutParams(int layoutResourceId, int headerResourceId,
             boolean showProgressBar) {
         setContentView(layoutResourceId);

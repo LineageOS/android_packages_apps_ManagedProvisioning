@@ -40,6 +40,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -105,6 +106,11 @@ public class EncryptDeviceActivityTest {
 
         TestInstrumentationRunner.registerReplacedActivity(EncryptDeviceActivity.class,
                 TestEncryptionActivity.class);
+    }
+
+    @After
+    public void tearDown() {
+        TestInstrumentationRunner.unregisterReplacedActivity(EncryptDeviceActivity.class);
     }
 
     @Test
