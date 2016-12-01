@@ -92,12 +92,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"तपाईँले आफ्नो संस्थाद्वारा प्रयोग गरिएको  यन्त्र व्यवस्थापन अनुप्रयोगबाट आफ्नो कार्य प्रोफाइल पछि मिलाउन सक्नुहुन्छ।"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"जारी राख्नुहोस्"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोक्नुहोस्"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="info_anim_title_0" msgid="3285414600215959704">"आफूले काम गर्ने तरीका बदल्नुहोस्"</string>
+    <string name="info_anim_title_1" msgid="870033078617407737">"कामसम्बन्धी डेटालाई\nव्यक्तिगत डेटाबाट अलग्याउनुहोस्"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"आफ्नो इच्छा अनुसार काम गर्नुहोस्"</string>
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान गरिँदै"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रहरू सेट अप गरिँदै"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। सेटअप सुरू गर्नुहोस्"</string>

@@ -92,12 +92,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Можете касније да подесите профил за Work у апликацији за управљање уређајем коју користи организација."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Настави"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Заустави"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="info_anim_title_0" msgid="3285414600215959704">"Промените начин рада"</string>
+    <string name="info_anim_title_1" msgid="870033078617407737">"Одвојите пословне податке\nод личних података"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"Радите онако како желите"</string>
     <string name="provisioning" msgid="4512493827019163451">"Додељује се"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Подешава се CA сертификат"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Подесите профил. Започните подешавање"</string>

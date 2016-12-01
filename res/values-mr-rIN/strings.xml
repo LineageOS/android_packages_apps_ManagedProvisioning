@@ -92,12 +92,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"आपल्‍या संस्‍थेद्वारे वापरलेल्या डिव्‍हाइस व्यवस्थापन अ‍ॅपमधून आपण आपले कार्य प्रोफाईल नंतर सेट करू शकता."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"सुरू ठेवा"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"थांबा"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="info_anim_title_0" msgid="3285414600215959704">"आपण ज्या पद्धतीने कार्य करता ती पद्धत बदला"</string>
+    <string name="info_anim_title_1" msgid="870033078617407737">"वैैयक्तिक डेटापासून\nकार्य डेटा वेगळा करा"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"आपण इच्छिता त्या पद्धतीने कार्य करा"</string>
     <string name="provisioning" msgid="4512493827019163451">"तरतूद"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करीत आहे"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"आपले प्रोफाईल सेट करा. सेटअप प्रारंभ करा"</string>

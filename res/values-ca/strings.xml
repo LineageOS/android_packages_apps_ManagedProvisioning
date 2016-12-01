@@ -92,12 +92,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Pots configurar el perfil professional més endavant des de l\'aplicació de gestió de dispositius de la teva organització."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continua"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Atura"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="info_anim_title_0" msgid="3285414600215959704">"Canvia la manera de treballar"</string>
+    <string name="info_anim_title_1" msgid="870033078617407737">"Mantén les dades personals\ni de la feina separades"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"Treballa com a tu t\'agrada"</string>
     <string name="provisioning" msgid="4512493827019163451">"S\'estan administrant"</string>
     <string name="copying_certs" msgid="5697938664953550881">"S\'estan configurant els certificats de CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Configura el perfil. Inicia la configuració"</string>
