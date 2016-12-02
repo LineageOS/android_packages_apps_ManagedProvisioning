@@ -131,7 +131,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
         mLastProgressMsgId = 0;
 
         mController = mFactory.createProvisioningController(mContext, params, this);
-        mController.initialize();
         mController.start(mHandlerThread.getLooper());
     }
 

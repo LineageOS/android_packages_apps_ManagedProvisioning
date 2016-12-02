@@ -220,6 +220,5 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
                 TEST_USER_ID,
                 mCallback,
                 mFinalizationController);
-        mController.initialize();
     }
 }
