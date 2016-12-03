@@ -195,8 +195,18 @@
   <string name="work_profile_setup_stop">Stop</string>
 
   <!--Pre-provisioning screen informing a user of benefits and consequences of creating a Profile Owner / Device Owner (http://go/anim-e1f256) -->
-  <!--Button that lauches a screen showing terms and conditions [CHAR LIMIT=NONE] -->
+  <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_short_info">A new work profile will be created. Only the apps and data within will be managed by your organization.</string>
+  <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
+  <string name="device_owner_short_info">This device will be managed by your company. Your organization will control your device and keep it secure. <xliff:g id="view_terms" example="View Terms">%1$s</xliff:g></string>
+  <!--Button that lauches a screen showing terms and conditions [CHAR LIMIT=20] -->
   <string name="view_terms">View terms</string>
+  <!--Button initiating a profile/device owner setup process [CHAR LIMIT=20] -->
+  <string name="accept_and_continue">Accept and continue</string>
+  <!--Close button cancelling a profile/device owner setup process [CHAR LIMIT=20] -->
+  <string name="close">Close</string>
+  <!--Header for device owner provisioning setup screen [CHAR LIMIT=NONE] -->
+  <string name="set_up_your_device">Set up your device</string>
 
   <!-- Animation informing a user about benefits of having a managed profile (http://go/anim-e1f256) -->
   <!--TODO: Revisit once translations complete. Aim for 1 - 2 lines of text (http://b/32826664). -->

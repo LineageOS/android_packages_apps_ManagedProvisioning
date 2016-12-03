@@ -34,9 +34,10 @@
                 android:id="@+id/delete_managed_profile_opening_paragraph"
                 android:text="@string/opening_paragraph_delete_profile_unknown_company"
                 style="@style/MainText"
-                android:paddingTop="@dimen/row_padding_top"/>
+                android:paddingTop="@dimen/row_padding_top"
+                android:layout_marginBottom="@dimen/main_text_padding_between_text"/>
 
-            <include layout="@layout/device_manager_icon_label" />
+            <include layout="@layout/device_manager_icon_label"/>
 
             <TextView
                 android:id="@+id/delete_managed_profile_read_more_link"
@@ -62,14 +63,14 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:text="@string/delete_profile"
-            style="@style/TransparentButton" />
+            style="@style/TransparentButton"/>
 
         <Button
             android:id="@+id/delete_managed_profile_negative_button"
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@id/delete_managed_profile_positive_button"
             android:text="@string/cancel_delete_profile"
-            style="@style/TransparentButton" />
+            style="@style/TransparentButton"/>
 
     </RelativeLayout>
 
