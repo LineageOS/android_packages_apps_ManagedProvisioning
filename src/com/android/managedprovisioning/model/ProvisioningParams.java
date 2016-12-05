@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_T
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -71,6 +72,7 @@ public final class ProvisioningParams implements PersistableBundlable {
     public static final boolean DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT = false;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED = false;
     public static final boolean DEFAULT_SKIP_USER_SETUP = true;
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
@@ -126,6 +128,9 @@ public final class ProvisioningParams implements PersistableBundlable {
     /** {@link Account} that should be migrated to the managed profile. */
     @Nullable
     public final Account accountToMigrate;
+
+    /** True if the account will not be removed from the calling user after it is migrated. */
+    public final boolean keepAccountMigrated;
 
     /** Provisioning action comes along with the provisioning data. */
     public final String provisioningAction;
@@ -202,6 +207,7 @@ public final class ProvisioningParams implements PersistableBundlable {
         mainColor = builder.mMainColor;
         skipUserConsent = builder.mSkipUserConsent;
         skipUserSetup = builder.mSkipUserSetup;
+        keepAccountMigrated = builder.mKeepAccountMigrated;
 
         validateFields();
     }
@@ -239,6 +245,7 @@ public final class ProvisioningParams implements PersistableBundlable {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, skipEncryption);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP, skipUserSetup);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT, skipUserConsent);
+        bundle.putBoolean(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, keepAccountMigrated);
         return bundle;
     }
 
@@ -273,6 +280,8 @@ public final class ProvisioningParams implements PersistableBundlable {
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED));
         builder.setSkipUserSetup(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP));
         builder.setSkipUserConsent(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT));
+        builder.setKeepAccountMigrated(bundle.getBoolean(
+                EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
         return builder;
     }
 
@@ -361,6 +370,7 @@ public final class ProvisioningParams implements PersistableBundlable {
         private boolean mSkipEncryption = DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
         private boolean mSkipUserConsent = DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT;
         private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
+        private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
 
         public Builder setTimeZone(String timeZone) {
             mTimeZone = timeZone;
@@ -440,6 +450,11 @@ public final class ProvisioningParams implements PersistableBundlable {
 
         public Builder setSkipUserSetup(boolean skipUserSetup) {
             mSkipUserSetup = skipUserSetup;
+            return this;
+        }
+
+        public Builder setKeepAccountMigrated(boolean keepAccountMigrated) {
+            mKeepAccountMigrated = keepAccountMigrated;
             return this;
         }
 

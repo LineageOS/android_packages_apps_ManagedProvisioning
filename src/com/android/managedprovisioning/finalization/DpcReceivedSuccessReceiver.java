@@ -42,18 +42,20 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
 
     private final Account mMigratedAccount;
     private final String mMdmPackageName;
+    private final boolean mKeepAccountMigrated;
     private final Utils mUtils;
     private final UserHandle mManagedUserHandle;
 
-    public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount, String mdmPackageName,
-            UserHandle managedUserHandle) {
-        this(migratedAccount, mdmPackageName, managedUserHandle, new Utils());
+    public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount,
+            boolean keepAccountMigrated, UserHandle managedUserHandle, String mdmPackageName) {
+        this(migratedAccount, keepAccountMigrated, managedUserHandle, mdmPackageName, new Utils());
     }
 
     @VisibleForTesting
-    DpcReceivedSuccessReceiver(Account migratedAccount, String mdmPackageName,
-            UserHandle managedUserHandle, Utils utils) {
+    DpcReceivedSuccessReceiver(Account migratedAccount, boolean keepAccountMigrated,
+        UserHandle managedUserHandle, String mdmPackageName, Utils utils) {
         mMigratedAccount = migratedAccount;
+        mKeepAccountMigrated = keepAccountMigrated;
         mMdmPackageName = checkNotNull(mdmPackageName);
         mManagedUserHandle = checkNotNull(managedUserHandle);
         mUtils = checkNotNull(utils);
@@ -85,7 +87,9 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
-                mUtils.removeAccount(context, mMigratedAccount);
+                if (!mKeepAccountMigrated) {
+                    mUtils.removeAccount(context, mMigratedAccount);
+                }
                 context.sendBroadcast(primaryProfileSuccessIntent);
                 return null;
             }

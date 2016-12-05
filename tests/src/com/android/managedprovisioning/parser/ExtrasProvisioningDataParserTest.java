@@ -32,6 +32,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -87,6 +88,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
     private static final boolean TEST_SKIP_ENCRYPTION = true;
     private static final boolean TEST_SKIP_USER_CONSENT = true;
+    private static final boolean TEST_KEEP_ACCOUNT_MIGRATED = true;
     private static final boolean TEST_SKIP_USER_SETUP = true;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
@@ -162,6 +164,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
                 .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
 
@@ -186,6 +189,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         // THEN skipping user consent flag is ignored
                         .setSkipUserConsent(false)
+                        // THEN keep account migrated flag is ignored
+                        .setKeepAccountMigrated(false)
                         .setWifiInfo(TEST_WIFI_INFO)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
@@ -220,6 +225,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
 
         // GIVEN the device admin is installed.
@@ -246,6 +252,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         // THEN skipping user consent flag is ignored
                         .setSkipUserConsent(false)
+                        .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
                         .build(),
@@ -265,6 +272,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
 
         // GIVEN the device admin is installed.
@@ -293,6 +301,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setMainColor(TEST_MAIN_COLOR)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         .setSkipUserConsent(TEST_SKIP_USER_CONSENT)
+                        .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
                         .build(),
@@ -303,7 +312,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         // GIVEN a managed profile provisioning intent and other extras.
         Intent intent = new Intent(ACTION_PROVISION_MANAGED_PROFILE)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT);
+                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED);
 
         // GIVEN the device admin is installed.
         doReturn(TEST_COMPONENT_NAME)
@@ -323,6 +333,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
                         // THEN skipping user consent flag is ignored
                         .setSkipUserConsent(false)
+                        .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
                         .build(),
                 params);
     }
