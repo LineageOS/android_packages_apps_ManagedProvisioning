@@ -363,6 +363,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     public void onRemoveProfileApproval(int existingManagedProfileUserId) {
         UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
         userManager.removeUser(existingManagedProfileUserId);
+
+        // Check again if it fulfill the condition to skip user consent. If yes, it will start
+        // provisioning
+        mController.maybeStartCompProvisioning();
     }
 
     /**

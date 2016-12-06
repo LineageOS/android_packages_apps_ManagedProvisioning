@@ -299,12 +299,12 @@ public class PreProvisioningController {
             mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
                     existingManagedProfileUserId);
         } else {
-            maybeStartCompProvisioning(intent);
+            maybeStartCompProvisioning();
         }
     }
 
     // Skipping user consent only when no existing work profile and not requiring encryption
-    private void maybeStartCompProvisioning(Intent intent) {
+    public void maybeStartCompProvisioning() {
         if (!mParams.skipUserConsent) {
             return;
         }
