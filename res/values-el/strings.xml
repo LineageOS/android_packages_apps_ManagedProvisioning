@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Ακύρωση"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ΟΚ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Συμφωνώ"</string>
+    <string name="terms" msgid="8295436105384703903">"Όροι"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"Το νέο προφίλ εργασίας σας διαχωρίζει τα δεδομένα εργασίας από τα προσωπικά σας δεδομένα.\nΙσχύουν οι παρακάτω όροι για το προφίλ εργασίας σας."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Προφίλ εργασίας"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Κύριος χρήστης"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Κατάργηση προφίλ εργασίας;"</string>
@@ -92,8 +94,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Μπορείτε να ρυθμίσετε το προφίλ εργασίας σας αργότερα από την εφαρμογή διαχείρισης συσκευής που χρησιμοποιείται από τον οργανισμό σας."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Συνέχεια"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Διακοπή"</string>
+    <string name="view_terms" msgid="7230493092383341605">"Προβολή όρων"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Αλλάξτε τον τρόπο που εργάζεστε"</string>
-    <string name="info_anim_title_1" msgid="870033078617407737">"Διαχωρίστε τα δεδομένα εργασίας\nαπό τα προσωπικά δεδομένα σας"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"Διαχωρίστε την εργασία από τα προσωπικά"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Εργαστείτε όπως θέλετε"</string>
     <string name="provisioning" msgid="4512493827019163451">"Παροχή"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Ρύθμιση πιστοποιητικών CA"</string>

@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Batal"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Saya bersetuju"</string>
+    <string name="terms" msgid="8295436105384703903">"Syarat"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"Profil kerja anda yang baharu memastikan data kerja dan data peribadi diasingkan.\nSyarat berikut dikenakan pada profil kerja anda."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil kerja"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pengguna utama"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Alih keluar profil kerja?"</string>
@@ -92,12 +94,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Anda boleh menyediakan profil kerja anda selepas ini daripada apl pengurusan peranti yang digunakan oleh organisasi anda."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Teruskan"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Berhenti"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="view_terms" msgid="7230493092383341605">"Lihat syarat"</string>
+    <string name="info_anim_title_0" msgid="3285414600215959704">"Ubah cara anda bekerja"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"Asingkan kerja daripada peribadi"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"Bekerja mengikut cara anda"</string>
     <string name="provisioning" msgid="4512493827019163451">"Memperuntukkan"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Menyediakan sijil CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Sediakan profil anda. Mulakan persediaan"</string>

@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"રદ કરો"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ઓકે"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"હું સંમતિ આપું છું"</string>
+    <string name="terms" msgid="8295436105384703903">"શરતો"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"તમારી નવી કાર્ય પ્રોફાઇલ તમારા કાર્ય અને વ્યક્તિગત ડેટાને અલગ રાખે છે.\nતમારી કાર્ય પ્રોફાઇલ પર નીચેની શરતો લાગુ થાય છે."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"કાર્ય પ્રોફાઇલ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"પ્રાથમિક વપરાશકર્તા"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"કાર્ય પ્રોફાઇલ દૂર કરીએ?"</string>
@@ -92,8 +94,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"તમે તમારી કાર્ય પ્રોફાઇલ, તમારી સંસ્થા દ્વારા ઉપયોગમાં લેવાતી ઉપકરણ સંચાલન એપ્લિકેશનથી પછીથી સેટ કરી શકો છો."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"ચાલુ રાખો"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"રોકો"</string>
+    <string name="view_terms" msgid="7230493092383341605">"શરતો જુઓ"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"તમારી કાર્યપદ્ધતિમાં ફેરફાર કરો"</string>
-    <string name="info_anim_title_1" msgid="870033078617407737">"વ્યક્તિગત ડેટામાંથી\nકાર્ય ડેટાને અલગ કરો"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"વ્યક્તિગત ડેટામાંથી કાર્ય ડેટાને અલગ કરો"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"તમે ઇચ્છો તે પ્રમાણે કાર્ય કરો"</string>
     <string name="provisioning" msgid="4512493827019163451">"જોગવાઈ કરી રહ્યું છે"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA પ્રમાણપત્રો સેટ કરી રહ્યાં છે"</string>

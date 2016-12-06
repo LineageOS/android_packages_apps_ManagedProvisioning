@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Aceptar"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Estoy de acuerdo"</string>
+    <string name="terms" msgid="8295436105384703903">"Condiciones"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"Tu nuevo perfil de trabajo mantiene separados tus datos del trabajo de tu información personal.\nLos términos que se indican a continuación se aplican a tu perfil de trabajo."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabajo"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuario principal"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"¿Quitar perfil de trabajo?"</string>
@@ -92,8 +94,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Puedes configurar tu perfil de trabajo más tarde con la aplicación de administración de dispositivos que utilice tu organización."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Detener"</string>
+    <string name="view_terms" msgid="7230493092383341605">"Ver condiciones"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Cambia tu forma de trabajar"</string>
-    <string name="info_anim_title_1" msgid="870033078617407737">"Separa tus datos del trabajo\nde tu información personal"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"Separa tus datos del trabajo de tu información personal"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Trabaja como quieras"</string>
     <string name="provisioning" msgid="4512493827019163451">"Administrando"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Configurando certificados de CA"</string>
