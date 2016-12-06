@@ -27,7 +27,6 @@ import android.util.Log;
 import android.view.View;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 import org.hamcrest.Matcher;
 
@@ -50,13 +49,13 @@ public class ManagedProfileTest extends AndroidTestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
-                TestPreProvisioningActivity.class);
         mActivityRule = new ActivityTestRule<>(
                 PreProvisioningActivity.class,
                 true /* initialTouchMode */,
                 false);  // launchActivity. False to set intent per method
         mResultListener = new ProvisioningResultListener(getContext());
+        TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
+                (cl, className, intent) -> new TestPreProvisioningActivity(mResultListener));
     }
 
     @Override
@@ -82,10 +81,6 @@ public class ManagedProfileTest extends AndroidTestCase {
     }
 
     public void testManagedProfile() throws Exception {
-        if (new Utils().isEncryptionRequired()) {
-            Log.i(TAG, "skip testManagedProfile, as encryption is required.");
-            return;
-        }
         mActivityRule.launchActivity(ManagedProfileAdminReceiver.INTENT_PROVISION_MANAGED_PROFILE);
 
         mResultListener.register();
