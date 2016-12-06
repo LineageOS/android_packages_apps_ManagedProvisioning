@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Aceito"</string>
+    <string name="terms" msgid="8295436105384703903">"Termos"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"O seu novo perfil de trabalho mantém os dados pessoais e de trabalho separados.\nAplicam-se os termos seguintes ao seu perfil de trabalho."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Utilizador principal"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Pretende remover o perfil de trabalho?"</string>
@@ -92,8 +94,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Pode configurar o seu perfil de trabalho mais tarde a partir da aplicação de gestão de dispositivos utilizada pela sua entidade."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Parar"</string>
+    <string name="view_terms" msgid="7230493092383341605">"Ver termos"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Mudar a sua maneira de trabalhar"</string>
-    <string name="info_anim_title_1" msgid="870033078617407737">"Separe os dados de trabalho\ndos dados pessoais"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"Separar o trabalho da vida pessoal"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Trabalhar à sua maneira"</string>
     <string name="provisioning" msgid="4512493827019163451">"Administração de contas"</string>
     <string name="copying_certs" msgid="5697938664953550881">"A configurar os certificados da AC"</string>

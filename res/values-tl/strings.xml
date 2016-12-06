@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Kanselahin"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Pahihintulutan ko"</string>
+    <string name="terms" msgid="8295436105384703903">"Mga Tuntunin"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"Dahil sa iyong bagong profile sa trabaho, nananatiling magkahiwalay ang iyong data sa trabaho at personal na data.\nNalalapat ang mga sumusunod na tuntunin sa iyong profile sa trabaho."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profile sa trabaho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pangunahing user"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Alisin ang profile sa trabaho?"</string>
@@ -92,12 +94,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Maaari mong i-set up ang iyong profile sa trabaho sa ibang pagkakataon sa app sa pamamahala ng device na ginagamit ng iyong organisasyon."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Magpatuloy"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Ihinto"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="view_terms" msgid="7230493092383341605">"Tingnan ang mga tuntunin"</string>
+    <string name="info_anim_title_0" msgid="3285414600215959704">"Baguhin ang iyong paraan ng pagtatrabaho"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"Ihiwalay ang trabaho sa personal"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"Magtrabaho sa paraang gusto mo"</string>
     <string name="provisioning" msgid="4512493827019163451">"Nagpo-provision"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Sine-set up ang mga CA certificate"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"I-set up ang iyong profile. Simulan ang pag-setup"</string>

@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"বাতিল করুন"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ঠিক আছে"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"আমি সম্মতি জানাচ্ছি"</string>
+    <string name="terms" msgid="8295436105384703903">"শর্তাদি"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"আপনার নতুন কর্মস্থলের প্রোফাইল কর্মস্থলের ডেটা এবং ব্যক্তিগত ডেটা আলাদা রাখে\nআপনার কর্মস্থলের প্রোফাইল নিম্নলিখিত শর্তাবলী প্রয়োগ করা হবে৷"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"কর্মস্থলের প্রোফাইল"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"প্রাথমিক ব্যবহারকারী"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"কর্মস্থলের প্রোফাইল সরাবেন?"</string>
@@ -92,12 +94,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"আপনি আপনার প্রতিষ্ঠানের দ্বারা ব্যবহৃত ডিভাইস পরিচালনার অ্যাপ্লিকেশান থেকে পরে আপনার কর্মস্থলের প্রোফাইল সেট আপ করতে পারবেন৷"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"চালিয়ে যান"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"থামান"</string>
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (870033078617407737) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (1799488690711073300) -->
-    <skip />
+    <string name="view_terms" msgid="7230493092383341605">"শর্তাবলী দেখুন"</string>
+    <string name="info_anim_title_0" msgid="3285414600215959704">"আপনার কাজের পদ্ধতি পাল্টান"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"ব্যক্তিগত থেকে কাজ আলাদা করুন"</string>
+    <string name="info_anim_title_2" msgid="1799488690711073300">"আপনি যে ভাবে চান সেভাবে কাজ করুন"</string>
     <string name="provisioning" msgid="4512493827019163451">"প্রস্তুতি চলছে"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA সংশাপত্রগুলি সেট আপ করা হচ্ছে"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"আপনার প্রোফাইল সেট আপ করুন৷ সেটআপ শুরু"</string>

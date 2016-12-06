@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Откажи"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Во ред"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Се согласувам"</string>
+    <string name="terms" msgid="8295436105384703903">"Услови"</string>
+    <string name="terms_intro" msgid="2626943728063219232">"Вашиот нов работен профил ги одделува службените и личните податоци.\nСледниве услови се однесуваат на работниот профил."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Работен профил"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Примарен корисник"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Да се отстрани работниот профил?"</string>
@@ -92,8 +94,9 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Работниот профил може да го поставите подоцна од апликацијата за управување со уредот што ја користи вашата организација."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Продолжи"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Сопри"</string>
+    <string name="view_terms" msgid="7230493092383341605">"Прикажи услови"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Променете го начинот на кој работите"</string>
-    <string name="info_anim_title_1" msgid="870033078617407737">"Одделете ги службените податоци\nод личните"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"Одделете ги службените од личните"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Работете како што сакате"</string>
     <string name="provisioning" msgid="4512493827019163451">"Се обезбедува"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Се поставуваат сертификатите ЦА"</string>
