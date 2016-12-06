@@ -31,5 +31,6 @@ public class DpcPostProvisioningActivity extends Activity {
         // Informs the result to provisioning result listener.
         E2eUiTestUtils.sendResult(ProvisioningResultListener.ACTION_PROVISION_RESULT_INTENT,
                 this, testResult);
+        finish();
     }
 }

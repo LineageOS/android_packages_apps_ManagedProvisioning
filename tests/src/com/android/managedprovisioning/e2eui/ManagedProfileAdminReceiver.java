@@ -29,10 +29,11 @@ public class ManagedProfileAdminReceiver extends DeviceAdminReceiver {
             ManagedProfileAdminReceiver.class.getName());
 
     public static final Intent INTENT_PROVISION_MANAGED_PROFILE =
-            E2eUiTestUtils.insertProvisioningExtras(
-                    new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE).putExtra(
-                            DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
-                            COMPONENT_NAME));
+            E2eUiTestUtils.insertProvisioningExtras(new Intent(
+                    DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)
+                    .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                            COMPONENT_NAME)
+                    .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION, true));
 
     @Override
     public void onProfileProvisioningComplete(Context context, Intent intent) {

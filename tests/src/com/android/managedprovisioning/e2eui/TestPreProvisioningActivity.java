@@ -15,15 +15,19 @@
  */
 package com.android.managedprovisioning.e2eui;
 
-import android.app.KeyguardManager;
-import android.os.Bundle;
+import android.content.Intent;
 import android.util.Log;
-import android.view.WindowManager;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 
 public class TestPreProvisioningActivity extends PreProvisioningActivity {
     private static final String TAG = "TestPreProvisioningActivity";
+
+    private final ProvisioningResultListener mlistener;
+
+    public TestPreProvisioningActivity(ProvisioningResultListener listener) {
+        mlistener = listener;
+    }
 
     /** ManagedProfileTest is running in ManagedProvisioning process, while the AdminReceiver is in
      * test package process. Mock the calling package to pretend we provision it from test package,
@@ -35,17 +39,12 @@ public class TestPreProvisioningActivity extends PreProvisioningActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Show activity on top of keyguard
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
-        // Turn on screen to prevent activity being paused by system
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        boolean isKeyguardLocked = getSystemService(KeyguardManager.class).isKeyguardLocked();
-
-        //TODO: remove this debug message
-        Log.d(TAG, "onCreate isKeyguardLocked " + isKeyguardLocked);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(TAG, "onActivityResult " + requestCode);
+        // Return the result code to the test and verify it.
+        if (requestCode == PROVISIONING_REQUEST_CODE) {
+            mlistener.setPreprovisioningActivityResult(resultCode == RESULT_OK);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

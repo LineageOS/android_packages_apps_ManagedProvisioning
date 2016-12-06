@@ -44,6 +44,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.analytics.TimeLogger;
@@ -526,6 +527,69 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), anyString());
         verifyNoMoreInteractions(mUi);
+    }
+
+    public void testMaybeStartCompProvisioning_continueProvisioning() throws Exception {
+        // GIVEN skipping user consent and encryption
+        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(true, true, false);
+        // WHEN calling initiateProvisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN start profile owner provisioning
+        verify(mUi).startProfileOwnerProvisioning(params);
+    }
+
+    public void testMaybeStartCompProvisioning_notSkipUserConsent() throws Exception {
+        // GIVEN not skipping user consent
+        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(false, true, false);
+        // WHEN calling initiateProvisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN not starting profile owner provisioning
+        verify(mUi, never()).startProfileOwnerProvisioning(params);
+    }
+
+    public void testMaybeStartCompProvisioning_requireEncryption() throws Exception {
+        // GIVEN skipping user consent and encryption
+        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(true, false, false);
+        // WHEN calling initiateProvisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN not starting profile owner provisioning
+        verify(mUi, never()).startProfileOwnerProvisioning(params);
+        // THEN show encryption ui
+        verify(mUi).requestEncryption(params);
+    }
+
+    public void testMaybeStartCompProvisioning_managedProfileExists() throws Exception {
+        // GIVEN skipping user consent and encryption, but current managed profile exists
+        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(true, true, true);
+        // WHEN calling initiateProvisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN not starting profile owner provisioning
+        verify(mUi, never()).startProfileOwnerProvisioning(params);
+        // THEN show UI to delete user
+        verify(mUi).showDeleteManagedProfileDialog(any(ComponentName.class), anyString(), anyInt());
+        // WHEN user agrees to remove the current profile and continue provisioning
+        mController.maybeStartCompProvisioning();
+        // THEN start profile owner provisioning
+        verify(mUi).startProfileOwnerProvisioning(params);
+    }
+
+    private ProvisioningParams prepareMocksForMaybeStartCompProvisioning(boolean skipUserConsent,
+            boolean skipEncryption, boolean managedProfileExists)
+            throws IllegalProvisioningArgumentException {
+        String action = ACTION_PROVISION_MANAGED_PROFILE;
+        when(mDevicePolicyManager.isProvisioningAllowed(action)).thenReturn(true);
+        ProvisioningParams params = ProvisioningParams.Builder.builder()
+                .setProvisioningAction(action)
+                .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
+                .setSkipUserConsent(skipUserConsent)
+                .build();
+
+        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(
+                managedProfileExists ? 10 : -1);
+        when(mUtils.isEncryptionRequired()).thenReturn(!skipEncryption);
+
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(params);
+        return params;
     }
 
     private void prepareMocksForManagedProfileIntent(boolean skipEncryption) throws Exception {

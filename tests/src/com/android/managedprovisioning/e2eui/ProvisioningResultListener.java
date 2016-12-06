@@ -39,8 +39,9 @@ public class ProvisioningResultListener {
     public static final String EXTRA_RESULT = "result";
 
     private final Context mContext;
-    private final CountDownLatch mLatch = new CountDownLatch(2);
+    private final CountDownLatch mLatch = new CountDownLatch(3);
     private final AtomicBoolean mBroadcastResult = new AtomicBoolean(false);
+    private final AtomicBoolean mPreprovisioningActivityResult = new AtomicBoolean(false);
     private final AtomicBoolean mIntentResult = new AtomicBoolean(false);
     private final ResultReceiver mReceiver = new ResultReceiver();
     private boolean mIsRegistered = false;
@@ -82,9 +83,16 @@ public class ProvisioningResultListener {
         return mLatch.await(timeoutSeconds, TimeUnit.SECONDS);
     }
 
+    public void setPreprovisioningActivityResult(boolean result) {
+        mPreprovisioningActivityResult.set(result);
+        mLatch.countDown();
+    }
+
     public boolean getResult() {
         Log.i(TAG, "mBroadcastResult: " + mBroadcastResult.get());
         Log.i(TAG, "mIntentResult: " + mIntentResult.get());
-        return mBroadcastResult.get() && mIntentResult.get();
+        Log.i(TAG, "mPreprovisioningActivityResult: " + mPreprovisioningActivityResult.get());
+        return mBroadcastResult.get() && mIntentResult.get()
+                && mPreprovisioningActivityResult.get();
     }
 }
