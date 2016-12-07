@@ -248,22 +248,6 @@ public class Utils {
     }
 
     /**
-     * Returns whether the current user is the system user.
-     */
-    public boolean isCurrentUserSystem() {
-        return UserHandle.myUserId() == UserHandle.USER_SYSTEM;
-    }
-
-    /**
-     * Returns whether the device is currently managed.
-     */
-    public boolean isDeviceManaged(Context context) {
-        DevicePolicyManager dpm =
-                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        return dpm.isDeviceManaged();
-    }
-
-    /**
      * Returns true if the given package requires an update.
      *
      * <p>There are two cases where an update is required:

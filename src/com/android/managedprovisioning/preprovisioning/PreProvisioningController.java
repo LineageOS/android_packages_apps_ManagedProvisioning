@@ -17,7 +17,16 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+import static android.app.admin.DevicePolicyManager.CODE_CANNOT_ADD_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.CODE_HAS_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
+import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
+import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
+import static android.app.admin.DevicePolicyManager.CODE_OK;
+import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
@@ -213,8 +222,10 @@ public class PreProvisioningController {
 
         mIsProfileOwnerProvisioning = mUtils.isProfileOwnerAction(mParams.provisioningAction);
         // Check whether provisioning is allowed for the current action
-        if (!mDevicePolicyManager.isProvisioningAllowed(mParams.provisioningAction)) {
-            showProvisioningError(mParams.provisioningAction);
+        int provisioningPreCondition =
+                mDevicePolicyManager.checkProvisioningPreCondition(mParams.provisioningAction);
+        if (provisioningPreCondition != CODE_OK) {
+            showProvisioningError(mParams.provisioningAction, provisioningPreCondition);
             return;
         }
 
@@ -457,13 +468,6 @@ public class PreProvisioningController {
     }
 
     /**
-     * Returns whether device can have a managed profile or not.
-     */
-    private boolean systemHasManagedProfileFeature() {
-        return mPackageManager.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
-    }
-
-    /**
      * Returns whether the provisioning process is a profile owner provisioning process.
      */
     public boolean isProfileOwnerProvisioning() {
@@ -521,48 +525,69 @@ public class PreProvisioningController {
         }
     }
 
-    private void showProvisioningError(String action) {
-        UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
-        if (DevicePolicyManager.ACTION_PROVISION_MANAGED_USER.equals(action)) {
-            mUi.showErrorAndClose(R.string.user_setup_incomplete,
+    private void showProvisioningError(String action, int provisioningPreCondition) {
+        // Try to show an error message explaining why provisioning is not allowed.
+        switch (action) {
+            case ACTION_PROVISION_MANAGED_USER:
+                mUi.showErrorAndClose(R.string.user_setup_incomplete,
                         "Exiting managed user provisioning, setup incomplete");
-        } else if (DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE.equals(action)) {
-            // Try to show an error message explaining why provisioning is not allowed.
-            if (!systemHasManagedProfileFeature()) {
+                return;
+            case ACTION_PROVISION_MANAGED_PROFILE:
+                showManagedProfileError(provisioningPreCondition);
+                return;
+            case ACTION_PROVISION_MANAGED_DEVICE:
+            case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
+                showDeviceOwnerError(provisioningPreCondition);
+                return;
+        }
+        // This should never be the case, as showProvisioningError is always called after
+        // verifying the supported provisioning actions.
+    }
+
+    private void showManagedProfileError(int provisioningPreCondition) {
+        UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
+        switch (provisioningPreCondition) {
+            case CODE_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.managed_provisioning_not_supported,
                         "Exiting managed profile provisioning, "
-                        + "managed profiles feature is not available");
-            } else if (!userInfo.canHaveProfile()) {
-                mUi.showErrorAndClose(R.string.user_cannot_have_work_profile,
-                        "Exiting managed profile provisioning, calling user cannot have managed"
-                        + "profiles.");
-            } else if (mUtils.isDeviceManaged(mContext)) {
-                // The actual check in isProvisioningAllowed() is more than just "is there DO?",
-                // but for error message showing purpose, isDeviceManaged() will do.
+                                + "managed profiles feature is not available");
+                return;
+            case CODE_CANNOT_ADD_MANAGED_PROFILE:
+                if (!userInfo.canHaveProfile()) {
+                    mUi.showErrorAndClose(R.string.user_cannot_have_work_profile,
+                            "Exiting managed profile provisioning, calling user cannot have managed"
+                                    + "profiles.");
+                } else {
+                    mUi.showErrorAndClose(R.string.maximum_user_limit_reached,
+                            "Exiting managed profile provisioning, cannot add more managed"
+                                    + "profiles");
+                }
+                return;
+            case CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER:
                 mUi.showErrorAndClose(R.string.device_owner_exists,
                         "Exiting managed profile provisioning, a device owner exists");
-            } else if (!mUserManager.canAddMoreManagedProfiles(UserHandle.myUserId(),
-                    true /* after removing one eventual existing managed profile */)) {
-                mUi.showErrorAndClose(R.string.maximum_user_limit_reached,
-                        "Exiting managed profile provisioning, cannot add more managed profiles.");
-            } else {
-                mUi.showErrorAndClose(R.string.managed_provisioning_error_text, "Managed profile"
-                        + " provisioning not allowed for an unknown reason.");
-            }
-        } else if (mSettingsFacade.isDeviceProvisioned(mContext)) {
-            mUi.showErrorAndClose(R.string.device_owner_error_already_provisioned,
-                    "Device already provisioned.");
-        } else if (!mUtils.isCurrentUserSystem()) {
-            mUi.showErrorAndClose(R.string.device_owner_error_general,
-                    "Device owner can only be set up for USER_SYSTEM.");
-        } else if (action.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE) &&
-                !UserManager.isSplitSystemUser()) {
-            mUi.showErrorAndClose(R.string.device_owner_error_general,
-                    "System User Device owner can only be set on a split-user system.");
-        } else {
-            // TODO: show generic error
-            mUi.showErrorAndClose(R.string.device_owner_error_general,
-                    "Device Owner provisioning not allowed for an unknown reason.");
+                return;
         }
+        mUi.showErrorAndClose(R.string.managed_provisioning_error_text,
+                "Managed profile provisioning not allowed for an unknown reason.");
+    }
+
+    private void showDeviceOwnerError(int provisioningPreCondition) {
+        switch (provisioningPreCondition) {
+            case CODE_HAS_DEVICE_OWNER:
+                mUi.showErrorAndClose(R.string.device_owner_error_already_provisioned,
+                        "Device already provisioned.");
+                return;
+            case CODE_NOT_SYSTEM_USER:
+                mUi.showErrorAndClose(R.string.device_owner_error_general,
+                        "Device owner can only be set up for USER_SYSTEM.");
+                return;
+            case CODE_NOT_SYSTEM_USER_SPLIT:
+                mUi.showErrorAndClose(R.string.device_owner_error_general,
+                        "System User Device owner can only be set on a split-user system.");
+                return;
+        }
+        mUi.showErrorAndClose(R.string.device_owner_error_general,
+                "Device Owner provisioning not allowed for an unknown reason.");
     }
 }
