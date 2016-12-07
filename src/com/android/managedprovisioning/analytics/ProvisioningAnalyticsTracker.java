@@ -102,7 +102,6 @@ public class ProvisioningAnalyticsTracker {
      * @param intent Intent that started provisioning
      */
     public void logPreProvisioningStarted(Context context, Intent intent) {
-        logProvisioningSessionStarted(context);
         logProvisioningExtras(context, intent);
         maybeLogEntryPoint(context, intent);
     }
@@ -138,6 +137,16 @@ public class ProvisioningAnalyticsTracker {
             int errorCode) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ERROR,
                 AnalyticsUtils.getErrorString(task, errorCode));
+    }
+
+    /**
+     * Logs error code, when provisioning is not allowed.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param provisioningErrorCode Code indicating why provisioning is not allowed.
+     */
+    public void logProvisioningNotAllowed(Context context, int provisioningErrorCode) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_ERROR, provisioningErrorCode);
     }
 
     /**

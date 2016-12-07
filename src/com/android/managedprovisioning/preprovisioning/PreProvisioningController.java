@@ -196,6 +196,8 @@ public class PreProvisioningController {
      * @param callingPackage Package that started provisioning.
      */
     public void initiateProvisioning(Intent intent, String callingPackage) {
+        mProvisioningAnalyticsTracker.logProvisioningSessionStarted(mContext);
+
         // Check factory reset protection as the first thing
         if (factoryResetProtected()) {
             mUi.showErrorAndClose(R.string.device_owner_error_frp,
@@ -225,6 +227,8 @@ public class PreProvisioningController {
         int provisioningPreCondition =
                 mDevicePolicyManager.checkProvisioningPreCondition(mParams.provisioningAction);
         if (provisioningPreCondition != CODE_OK) {
+            mProvisioningAnalyticsTracker.logProvisioningNotAllowed(mContext,
+                    provisioningPreCondition);
             showProvisioningError(mParams.provisioningAction, provisioningPreCondition);
             return;
         }
