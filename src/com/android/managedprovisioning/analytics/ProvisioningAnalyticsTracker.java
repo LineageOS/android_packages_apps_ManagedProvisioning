@@ -28,6 +28,8 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ERROR;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_SESSION_COMPLETED;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_SESSION_STARTED;
 
 import android.annotation.IntDef;
 import android.content.Context;
@@ -100,6 +102,7 @@ public class ProvisioningAnalyticsTracker {
      * @param intent Intent that started provisioning
      */
     public void logPreProvisioningStarted(Context context, Intent intent) {
+        logProvisioningSessionStarted(context);
         logProvisioningExtras(context, intent);
         maybeLogEntryPoint(context, intent);
     }
@@ -135,6 +138,24 @@ public class ProvisioningAnalyticsTracker {
             int errorCode) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ERROR,
                 AnalyticsUtils.getErrorString(task, errorCode));
+    }
+
+    /**
+     * logs when a provisioning session has started.
+     *
+     * @param context Context passed to MetricsLogger
+     */
+    public void logProvisioningSessionStarted(Context context) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_SESSION_STARTED);
+    }
+
+    /**
+     * logs when a provisioning session has completed.
+     *
+     * @param context Context passed to MetricsLogger
+     */
+    public void logProvisioningSessionCompleted(Context context) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_SESSION_COMPLETED);
     }
 
     /**

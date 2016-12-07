@@ -238,6 +238,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
                 mUiHandler.post(() -> callback.preFinalizationCompleted());
             }
             mLastCallback = CALLBACK_PRE_FINALIZED;
+            mProvisioningAnalyticsTracker.logProvisioningSessionCompleted(mContext);
             clearControllerLocked();
         }
     }
