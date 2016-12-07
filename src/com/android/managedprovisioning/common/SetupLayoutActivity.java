@@ -79,15 +79,25 @@ public abstract class SetupLayoutActivity extends Activity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(mainColor);
 
-        View decorView = window.getDecorView();
+        boolean brightColor = getUtils().isBrightColor(mainColor);
+        setStatusBarIconColor(brightColor);
+
+        setTaskDescription(new TaskDescription(null /* label */, null /* icon */, mainColor));
+    }
+
+    /**
+     * Sets status bar icons to white / black based on the boolean param
+     */
+    protected void setStatusBarIconColor(boolean setToDark) {
+        View decorView = getWindow().getDecorView();
         int visibility = decorView.getSystemUiVisibility();
-        if (getUtils().isBrightColor(mainColor)) {
+
+        if (setToDark) {
             visibility |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         } else {
             visibility &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         }
         decorView.setSystemUiVisibility(visibility);
-        setTaskDescription(new TaskDescription(null /* label */, null /* icon */, mainColor));
     }
 
     /**

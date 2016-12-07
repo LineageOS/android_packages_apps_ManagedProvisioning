@@ -131,16 +131,14 @@ public class PreProvisioningController {
         void requestWifiPick();
 
         /**
-         * Initialize the pre provisioning UI with the mdm info and the relevant strings.
+         * Initialize the pre provisioning UI
          *
-         * @param headerRes resource id for the header text
+         * @param layoutRes resource id for the layout
          * @param titleRes resource id for the title text
-         * @param consentRes resource id of the consent text
-         * @param mdmInfoRes resource id for the mdm info text
+         * @param mainColorRes resource id for the main color
          * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
          */
-        void initiateUi(int headerRes, int titleRes, int consentRes, int mdmInfoRes,
-                ProvisioningParams params);
+        void initiateUi(int layoutRes, int titleRes, int mainColorRes, ProvisioningParams params);
 
         /**
          * Start device owner provisioning.
@@ -248,12 +246,8 @@ public class PreProvisioningController {
 
     private void initiateDeviceOwnerProvisioning(Intent intent) {
         if (!mParams.startedByTrustedSource) {
-            mUi.initiateUi(
-                    R.string.setup_work_device,
-                    R.string.setup_device_start_setup,
-                    R.string.company_controls_device,
-                    R.string.the_following_is_your_mdm_for_device,
-                    mParams);
+            mUi.initiateUi(R.layout.intro_device_owner, R.string.setup_device_start_setup,
+                    R.color.blue, mParams);
         }
 
         // Ask to encrypt the device before proceeding
@@ -283,12 +277,8 @@ public class PreProvisioningController {
     }
 
     private void initiateProfileOwnerProvisioning(Intent intent) {
-        mUi.initiateUi(
-                R.string.setup_work_profile,
-                R.string.setup_profile_start_setup,
-                R.string.company_controls_workspace,
-                R.string.the_following_is_your_mdm,
-                mParams);
+        mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
+                R.color.gray_status_bar, mParams);
 
         // If there is already a managed profile, setup the profile deletion dialog.
         int existingManagedProfileUserId = mUtils.alreadyHasManagedProfile(mContext);
@@ -395,7 +385,7 @@ public class PreProvisioningController {
         // since FRP will not be activated at the end of the flow.
         if (mParams.startedByTrustedSource) {
             if (mUtils.isFrpSupported(mContext)) {
-                mUi.showUserConsentDialog(mParams, false);
+                mUi.showUserConsentDialog(mParams, false    );
             } else {
                 maybeCreateUserAndStartDeviceOwnerProvisioning();
             }

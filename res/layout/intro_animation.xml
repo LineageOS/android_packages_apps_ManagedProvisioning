@@ -23,12 +23,6 @@
     android:layout_gravity="center_horizontal"
     android:orientation="vertical">
 
-    <!--temporary spacer until redesign is finished-->
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"/>
-
     <ImageView
         android:id="@+id/animated_info"
         android:layout_width="wrap_content"
@@ -36,20 +30,18 @@
         android:scaleType="fitCenter"
         android:src="@drawable/topinfo_animation"/>
 
-    <include layout="@layout/text_introduction_titles"/>
+    <include layout="@layout/intro_animation_captions"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_20"
         android:gravity="center">
         <ImageView
             android:id="@+id/animated_dots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter"
-            android:layout_marginTop="@dimen/info_dots_margin_top"
-            android:layout_marginBottom="@dimen/info_dots_margin_bottom"
             android:src="@drawable/dots_animation"/>
     </LinearLayout>
-
 </LinearLayout>

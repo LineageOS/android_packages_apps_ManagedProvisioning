@@ -89,7 +89,7 @@ public class ManagedProfileTest extends AndroidTestCase {
         new EspressoClickRetryActions(3) {
             @Override
             public ViewInteraction newViewInteraction1() {
-                return onView(withId(R.id.setup_button));
+                return onView(withId(R.id.next_button));
             }
             @Override
             public ViewInteraction newViewInteraction2() {

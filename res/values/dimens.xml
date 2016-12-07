@@ -51,16 +51,25 @@
     <dimen name="max_logo_width">140dp</dimen>
     <dimen name="max_logo_height">86dp</dimen>
 
-    <!-- Pre-provisioning disclaimer screen -->
-    <dimen name="info_text_title_size">24sp</dimen>
-    <dimen name="info_text_margin_top">24dp</dimen>
-    <dimen name="info_dots_margin_top">20dp</dimen>
-    <dimen name="info_dots_margin_bottom">20dp</dimen>
+    <!--== Provisioning2 ==-->
+
+    <!-- General -->
+    <dimen name="spacer_8">8dp</dimen>
+    <dimen name="spacer_12">12dp</dimen>
+    <dimen name="spacer_16">16dp</dimen>
+    <dimen name="spacer_20">20dp</dimen>
+    <dimen name="spacer_24">24dp</dimen>
+    <dimen name="spacer_32">32dp</dimen>
+    <dimen name="spacer_40">40dp</dimen>
+
+    <!-- Pre-provisioning -->
     <dimen name="info_view_width">412dp</dimen>
     <dimen name="info_view_width_x0.5">206dp</dimen>
     <dimen name="info_view_width_x1.5">618dp</dimen>
     <dimen name="info_view_width_x2.5">1030dp</dimen>
 
-    <!-- Terms screen -->
-    <dimen name="spacer_16">16dp</dimen>
+    <dimen name="info_text_title_size">24sp</dimen>
+
+    <dimen name="intro_button_width">208dp</dimen>
+    <dimen name="intro_button_height">36dp</dimen>
 </resources>

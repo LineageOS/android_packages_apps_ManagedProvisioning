@@ -16,10 +16,13 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
+import static android.app.admin.DevicePolicyManager
+        .ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.anyString;
@@ -65,20 +68,34 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private static final String MP_PACKAGE_NAME = "com.android.managedprovisioning";
     private static final int TEST_USER_ID = 10;
 
-    @Mock private Context mContext;
-    @Mock private DevicePolicyManager mDevicePolicyManager;
-    @Mock private UserManager mUserManager;
-    @Mock private PackageManager mPackageManager;
-    @Mock private ActivityManager mActivityManager;
-    @Mock private KeyguardManager mKeyguardManager;
-    @Mock private PersistentDataBlockManager mPdbManager;
-    @Mock private PreProvisioningController.Ui mUi;
-    @Mock private MessageParser mMessageParser;
-    @Mock private Utils mUtils;
-    @Mock private SettingsFacade mSettingsFacade;
-    @Mock private Intent mIntent;
-    @Mock private EncryptionController mEncryptionController;
-    @Mock private TimeLogger mTimeLogger;
+    @Mock
+    private Context mContext;
+    @Mock
+    private DevicePolicyManager mDevicePolicyManager;
+    @Mock
+    private UserManager mUserManager;
+    @Mock
+    private PackageManager mPackageManager;
+    @Mock
+    private ActivityManager mActivityManager;
+    @Mock
+    private KeyguardManager mKeyguardManager;
+    @Mock
+    private PersistentDataBlockManager mPdbManager;
+    @Mock
+    private PreProvisioningController.Ui mUi;
+    @Mock
+    private MessageParser mMessageParser;
+    @Mock
+    private Utils mUtils;
+    @Mock
+    private SettingsFacade mSettingsFacade;
+    @Mock
+    private Intent mIntent;
+    @Mock
+    private EncryptionController mEncryptionController;
+    @Mock
+    private TimeLogger mTimeLogger;
 
     private ProvisioningParams mParams;
 
@@ -649,20 +666,12 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     private void verifyInitiateProfileOwnerUi() {
-        verify(mUi).initiateUi(
-                R.string.setup_work_profile,
-                R.string.setup_profile_start_setup,
-                R.string.company_controls_workspace,
-                R.string.the_following_is_your_mdm,
-                mParams);
+        verify(mUi).initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
+                R.color.gray_status_bar, mParams);
     }
 
     private void verifyInitiateDeviceOwnerUi() {
-        verify(mUi).initiateUi(
-                R.string.setup_work_device,
-                R.string.setup_device_start_setup,
-                R.string.company_controls_device,
-                R.string.the_following_is_your_mdm_for_device,
-                mParams);
+        verify(mUi).initiateUi(R.layout.intro_device_owner, R.string.setup_device_start_setup,
+                R.color.blue, mParams);
     }
 }

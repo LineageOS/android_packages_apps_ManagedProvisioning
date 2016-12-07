@@ -26,34 +26,47 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.SoundEffectConstants;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
+import com.android.setupwizardlib.GlifLayout;
 
-public class PreProvisioningActivity extends SetupGlifLayoutActivity
+public class PreProvisioningActivity extends SetupLayoutActivity
         implements UserConsentDialog.ConsentCallback, SimpleDialog.SimpleDialogListener,
         DeleteManagedProfileDialog.DeleteManagedProfileCallback, PreProvisioningController.Ui {
 
+    @VisibleForTesting
     protected static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
+    @VisibleForTesting
     protected static final int PROVISIONING_REQUEST_CODE = 2;
+    @VisibleForTesting
     protected static final int WIFI_REQUEST_CODE = 3;
+    @VisibleForTesting
     protected static final int CHANGE_LAUNCHER_REQUEST_CODE = 4;
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
+
     private static final String PRE_PROVISIONING_ERROR_AND_CLOSE_DIALOG =
             "PreProvisioningErrorAndCloseDialog";
     private static final String PRE_PROVISIONING_BACK_PRESSED_DIALOG =
@@ -67,20 +80,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     private static final String PRE_PROVISIONING_DELETE_MANAGED_PROFILE_DIALOG =
             "PreProvisioningDeleteManagedProfileDialog";
 
-    protected PreProvisioningController mController;
-
-    protected TextView mConsentMessageTextView;
-    protected TextView mMdmInfoTextView;
-    protected BenefitsAnimation mBenefitsAnimation;
+    private PreProvisioningController mController;
+    private BenefitsAnimation mBenefitsAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mController = new PreProvisioningController(
-                this,
-                this);
-
+        mController = new PreProvisioningController(this, this);
         mController.initiateProvisioning(getIntent(), getCallingPackage());
     }
 
@@ -226,47 +233,84 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void initiateUi(int headerRes, int titleRes, int consentRes, int mdmInfoRes,
+    public void initiateUi(int layoutRes, int titleRes, int mainColorRes,
             ProvisioningParams params) {
         // Setup the UI.
-        initializeLayoutParams(R.layout.user_consent, headerRes, false);
-        Button nextButton = (Button) findViewById(R.id.setup_button);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProvisionLogger.logi("Next button (setup_button) is clicked.");
-                mController.afterNavigateNext();
-            }
+        setContentView(layoutRes);
+
+        Button nextButton = (Button) findViewById(R.id.next_button);
+        nextButton.setOnClickListener(v -> {
+            ProvisionLogger.logi("Next button (next_button) is clicked.");
+            mController.afterNavigateNext();
         });
-        nextButton.setText(R.string.next);
 
-        mConsentMessageTextView = (TextView) findViewById(R.id.user_consent_message);
-        mMdmInfoTextView = (TextView) findViewById(R.id.mdm_info_message);
-
-        mConsentMessageTextView.setText(consentRes);
-        mMdmInfoTextView.setText(mdmInfoRes);
-
-        setMdmIconAndLabel(params.inferDeviceAdminPackageName());
-
-        maybeSetLogoAndMainColor(params.mainColor);
-
+        setMainColor(getColor(mainColorRes));
+        setStatusBarIconColor(false /* set to light */);
         setTitle(titleRes);
 
-        Button showTermsButton = (Button) findViewById(R.id.show_terms_button);
         if (mController.isProfileOwnerProvisioning()) {
-            // show the intro animation
-            getLayoutInflater().inflate(R.layout.animated_introduction,
-                    (ViewGroup) findViewById(R.id.introduction_container));
-            mBenefitsAnimation = new BenefitsAnimation(this);
-
-            // wire the 'show terms' button
-            showTermsButton.setOnClickListener(v -> {
-                Intent intent = new Intent(PreProvisioningActivity.this, TermsActivity.class);
-                intent.putExtra(TermsActivity.IS_PROFILE_OWNER_FLAG, true);
-                startActivity(intent);
+            // set up the cancel button
+            Button cancelButton = (Button) findViewById(R.id.close_button);
+            cancelButton.setOnClickListener(v -> {
+                ProvisionLogger.logi("Close button (close_button) is clicked.");
+                PreProvisioningActivity.this.onBackPressed();
             });
+
+            // set up show terms button
+            findViewById(R.id.show_terms_button).setOnClickListener(this::onViewTermsClick);
+
+            // show the intro animation
+            mBenefitsAnimation = new BenefitsAnimation(this);
+        } else {
+            GlifLayout layout = (GlifLayout) findViewById(R.id.intro_device_owner);
+            layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
+            layout.setHeaderText(R.string.set_up_your_device);
+            setMdmIconAndLabel(params.inferDeviceAdminPackageName());
+
+            // short terms info text with clickable 'view terms' link
+            TextView shortInfoText = (TextView) findViewById(R.id.device_owner_short_info);
+            shortInfoText.setText(assembleTermsMessage(R.string.device_owner_short_info,
+                    R.string.view_terms, this::onViewTermsClick));
+            shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
         }
-        showTermsButton.setVisibility(View.GONE); // TODO: remove after b/32760303 is done
+    }
+
+    private void onViewTermsClick(View view) {
+        Intent intent = new Intent(PreProvisioningActivity.this, TermsActivity.class);
+        intent.putExtra(TermsActivity.IS_PROFILE_OWNER_FLAG,
+                mController.isProfileOwnerProvisioning());
+        startActivity(intent);
+    }
+
+    private Spannable assembleTermsMessage(int messageTextId, int linkTextId,
+            View.OnClickListener viewTermsClickListener) {
+        String linkText = getString(linkTextId);
+        String messageText = getResources().getString(messageTextId, linkText);
+
+        Spannable result = new SpannableString(messageText);
+        int start = messageText.indexOf(linkText);
+        makeClickable(result, start, start + linkText.length(), viewTermsClickListener);
+        return result;
+    }
+
+    private void makeClickable(Spannable spannable, int start, int end,
+            final View.OnClickListener onClickListener) {
+        ClickableSpan clickable = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                onClickListener.onClick(widget);
+                widget.playSoundEffect(SoundEffectConstants.CLICK);
+            }
+
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+                ds.setColor(getColor(R.color.blue));
+            }
+        };
+
+        spannable.setSpan(clickable, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
     private void setMdmIconAndLabel(@NonNull String packageName) {
@@ -288,18 +332,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void showUserConsentDialog(final ProvisioningParams params,
-            final boolean isProfileOwnerProvisioning) {
+    public void showUserConsentDialog(ProvisioningParams params,
+            boolean isProfileOwnerProvisioning) {
         // TODO: consider a builder being a part of UserConsentDialog
-        DialogBuilder dialogBuilder = new DialogBuilder() {
-            @Override
-            public DialogFragment build() {
-                return isProfileOwnerProvisioning
+        showDialog(() -> isProfileOwnerProvisioning
                         ? UserConsentDialog.newProfileOwnerInstance()
-                        : UserConsentDialog.newDeviceOwnerInstance(!params.startedByTrustedSource);
-            }
-        };
-        showDialog(dialogBuilder, PRE_PROVISIONING_USER_CONSENT_DIALOG);
+                        : UserConsentDialog.newDeviceOwnerInstance(!params.startedByTrustedSource),
+                PRE_PROVISIONING_USER_CONSENT_DIALOG);
     }
 
     /**
@@ -307,7 +346,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
      */
     @Override
     public void onDialogConsent() {
-        // Right after user consent, provisioning will be started. To avoid talkback reading out
+        // Right after user consent, provisioning will be started. To avoid TalkBack reading out
         // the activity title in the time this activity briefly comes back to the foreground, we
         // remove the title.
         setTitle("");
@@ -344,15 +383,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void showDeleteManagedProfileDialog(final ComponentName mdmPackageName,
-            final String domainName, final int userId) {
+    public void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
+            int userId) {
         // TODO: consider a builder being a part of DeleteManagedProfileDialog
-        DialogBuilder dialogBuilder = new DialogBuilder() {
-            @Override
-            public DialogFragment build() {
-                return DeleteManagedProfileDialog.newInstance(userId, mdmPackageName, domainName);
-            }
-        };
+        DialogBuilder dialogBuilder = () -> DeleteManagedProfileDialog.newInstance(userId,
+                mdmPackageName, domainName);
         showDialog(dialogBuilder, PRE_PROVISIONING_DELETE_MANAGED_PROFILE_DIALOG);
     }
 
