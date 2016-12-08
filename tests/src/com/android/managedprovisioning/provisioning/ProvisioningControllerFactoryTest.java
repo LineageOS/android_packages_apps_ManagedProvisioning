@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -48,7 +49,6 @@ public class ProvisioningControllerFactoryTest {
 
     private ProvisioningControllerFactory mFactory = new ProvisioningControllerFactory();
     @Mock private ProvisioningControllerCallback mCallback;
-    @Mock private Context mContext;
 
     @Before
     public void setUp() {
@@ -59,7 +59,8 @@ public class ProvisioningControllerFactoryTest {
     public void testProfileOwner() {
         // WHEN calling the factory with a set of profile owner params
         AbstractProvisioningController controller =
-                mFactory.createProvisioningController(mContext, PROFILE_OWNER_PARAMS, mCallback);
+                mFactory.createProvisioningController(InstrumentationRegistry.getTargetContext(),
+                        PROFILE_OWNER_PARAMS, mCallback);
 
         // THEN the controller should be a profile owner controller
         assertTrue(controller instanceof ProfileOwnerProvisioningController);
@@ -69,7 +70,8 @@ public class ProvisioningControllerFactoryTest {
     public void testDeviceOwner() {
         // WHEN calling the factory with a set of device owner params
         AbstractProvisioningController controller =
-                mFactory.createProvisioningController(mContext, DEVICE_OWNER_PARAMS, mCallback);
+                mFactory.createProvisioningController(InstrumentationRegistry.getTargetContext(),
+                        DEVICE_OWNER_PARAMS, mCallback);
 
         // THEN the controller should be a device owner controller
         assertTrue(controller instanceof DeviceOwnerProvisioningController);

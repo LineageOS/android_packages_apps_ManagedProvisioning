@@ -27,6 +27,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -101,8 +103,12 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
             return;
         }
         mReceiver = createDownloadReceiver();
+        // register the receiver on the worker thread to avoid threading issues with respect to
+        // the location variable
         mContext.registerReceiver(mReceiver,
-                new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+                new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE),
+                null,
+                new Handler(Looper.myLooper()));
 
         if (Globals.DEBUG) {
             ProvisionLogger.logd("Starting download from " + mPackageDownloadInfo.location);

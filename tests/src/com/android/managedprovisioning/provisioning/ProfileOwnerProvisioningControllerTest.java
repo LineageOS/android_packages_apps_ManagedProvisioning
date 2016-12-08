@@ -213,6 +213,5 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
                 TEST_PARENT_USER_ID,
                 mCallback,
                 mFinalizationController);
-        mController.initialize();
     }
 }

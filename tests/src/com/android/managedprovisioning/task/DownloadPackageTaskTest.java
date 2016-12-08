@@ -19,7 +19,9 @@ package com.android.managedprovisioning.task;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_DOWNLOAD_FAILED;
 import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_OTHER;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -33,19 +35,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.MatrixCursor;
-import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.MockitoAnnotations.Mock;
 
 @SmallTest
-public class DownloadPackageTaskTest extends AndroidTestCase {
+public class DownloadPackageTaskTest {
     @Mock private Context mContext;
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private DownloadManager mDownloadManager;
@@ -72,11 +77,8 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
 
     private DownloadPackageTask mTask;
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        // This is necessary for mockito to work
-        System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
+    @Before
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         when(mContext.getSystemService(Context.DOWNLOAD_SERVICE)).thenReturn(mDownloadManager);
@@ -88,8 +90,12 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 mContext,
                 PARAMS,
                 mCallback);
+        if (Looper.myLooper() == null) {
+            Looper.prepare();
+        }
     }
 
+    @Test
     public void testAlreadyInstalled() throws Exception {
         // GIVEN the package is already installed, with the right version
         when(mUtils.packageRequiresUpdate(TEST_PACKAGE_NAME, PACKAGE_VERSION, mContext))
@@ -103,6 +109,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         verifyNoMoreInteractions(mCallback);
     }
 
+    @Test
     public void testNotConnected() throws Exception {
         // GIVEN we're not connected to a network
         doReturn(false).when(mUtils).isConnectedToNetwork(mContext);
@@ -115,6 +122,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         verifyNoMoreInteractions(mCallback);
     }
 
+    @Test
     public void testDownloadFailed() throws Exception {
         // GIVEN the download succeeds
         mockSuccessfulDownload(DownloadManager.STATUS_FAILED);
@@ -133,6 +141,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
         verifyNoMoreInteractions(mCallback);
     }
 
+    @Test
     public void testDownloadSucceeded() throws Exception {
         // GIVEN the download succeeds
         mockSuccessfulDownload(DownloadManager.STATUS_SUCCESSFUL);
@@ -152,6 +161,7 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
     }
 
     /** Test that it works fine even if DownloadManager sends the broadcast twice */
+    @Test
     public void testSendBroadcastTwice() throws Exception {
         // GIVEN the download succeeds
         mockSuccessfulDownload(DownloadManager.STATUS_SUCCESSFUL);
@@ -187,7 +197,11 @@ public class DownloadPackageTaskTest extends AndroidTestCase {
                 BroadcastReceiver.class);
         ArgumentCaptor<IntentFilter> filterCaptor = ArgumentCaptor.forClass(
                 IntentFilter.class);
-        verify(mContext).registerReceiver(receiverCaptor.capture(), filterCaptor.capture());
+        verify(mContext).registerReceiver(
+                receiverCaptor.capture(),
+                filterCaptor.capture(),
+                anyString(),
+                any(Handler.class));
         assertEquals(filterCaptor.getValue().getAction(0),
                 DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         return receiverCaptor.getValue();

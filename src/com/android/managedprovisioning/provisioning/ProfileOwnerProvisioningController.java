@@ -91,7 +91,7 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
     }
 
     @Override
-    public void onSuccess(AbstractProvisioningTask task) {
+    public synchronized void onSuccess(AbstractProvisioningTask task) {
         if (task instanceof CreateManagedProfileTask) {
             // If the task was creating a managed profile, store the profile id
             mUserId = ((CreateManagedProfileTask) task).getProfileUserId();

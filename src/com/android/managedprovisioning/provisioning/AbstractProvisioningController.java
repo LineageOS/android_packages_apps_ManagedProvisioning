@@ -18,6 +18,7 @@ package com.android.managedprovisioning.provisioning;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.annotation.MainThread;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -84,16 +85,12 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         mCallback = checkNotNull(callback);
         mFinalizationController = checkNotNull(finalizationController);
         mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
-    }
 
-    /**
-     * Initialize the provisioning controller. This will load the necessary provisioning tasks.
-     */
-    public void initialize() {
         setUpTasks();
     }
 
-    protected void addTasks(AbstractProvisioningTask... tasks) {
+    @MainThread
+    protected synchronized void addTasks(AbstractProvisioningTask... tasks) {
         for (AbstractProvisioningTask task : tasks) {
             mTasks.add(task);
         }
@@ -105,10 +102,11 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     protected abstract boolean getRequireFactoryReset(AbstractProvisioningTask task, int errorCode);
 
     /**
-     * Start the provisioning process. The tasks loaded in {@link #initialize()} will be processed
-     * one by one and the respective callbacks will be given to the UI.
+     * Start the provisioning process. The tasks loaded in {@link #setUpTasks()} ()} will be
+     * processed one by one and the respective callbacks will be given to the UI.
      */
-    public void start(Looper looper) {
+    @MainThread
+    public synchronized void start(Looper looper) {
         start(new ProvisioningTaskHandler(looper));
     }
 
@@ -127,7 +125,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
      * Cancel the provisioning progress. When the cancellation is complete, the
      * {@link ProvisioningControllerCallback#cleanUpCompleted()} callback will be given.
      */
-    public void cancel() {
+    @MainThread
+    public synchronized void cancel() {
         if (mStatus != STATUS_RUNNING
                 && mStatus != STATUS_TASKS_COMPLETED
                 && mStatus != STATUS_CANCELLING
@@ -142,7 +141,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         cleanup(STATUS_CLEANED_UP);
     }
 
-    public void preFinalize() {
+    @MainThread
+    public synchronized void preFinalize() {
         if (mStatus != STATUS_TASKS_COMPLETED) {
             return;
         }
@@ -167,7 +167,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     }
 
     @Override
-    public void onSuccess(AbstractProvisioningTask task) {
+    // Note that this callback might come on the main thread
+    public synchronized void onSuccess(AbstractProvisioningTask task) {
         if (mStatus != STATUS_RUNNING) {
             return;
         }
@@ -181,7 +182,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     }
 
     @Override
-    public void onError(AbstractProvisioningTask task, int errorCode) {
+    // Note that this callback might come on the main thread
+    public synchronized void onError(AbstractProvisioningTask task, int errorCode) {
         mStatus = STATUS_ERROR;
         cleanup(STATUS_ERROR);
         mProvisioningAnalyticsTracker.logProvisioningError(mContext, task, errorCode);

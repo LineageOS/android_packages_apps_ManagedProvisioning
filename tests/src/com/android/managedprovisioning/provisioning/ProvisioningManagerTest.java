@@ -96,14 +96,8 @@ public class ProvisioningManagerTest {
         // WHEN calling maybeStartProvisioning
         mManager.maybeStartProvisioning(TEST_PARAMS);
 
-        // THEN the newly created provisioning controller should be initialized
-        verify(mController).initialize();
-
         // THEN the factory should be called
         verify(mFactory).createProvisioningController(mContext, TEST_PARAMS, mManager);
-
-        // THEN the controller should be initialized
-        verify(mController).initialize();
 
         // THEN the controller should be started on a Looper that is not the main thread
         ArgumentCaptor<Looper> looperCaptor = ArgumentCaptor.forClass(Looper.class);
