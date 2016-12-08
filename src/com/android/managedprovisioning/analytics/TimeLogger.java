@@ -31,7 +31,6 @@ import android.annotation.IntDef;
 import android.content.Context;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 
 /**
  * Utility class to log time.
@@ -77,8 +76,6 @@ public class TimeLogger {
      */
     public void start() {
         mStartTime = mAnalyticsUtils.elapsedRealTime();
-        ProvisionLogger.logi(
-                "TimeLogger, category:" + mCategory + ", start time:" + mStartTime);
     }
 
     /**
@@ -89,12 +86,9 @@ public class TimeLogger {
         if (mStartTime != null) {
             // Provisioning wouldn't run for 25 days, so int should be fine.
             final int time = (int) (mAnalyticsUtils.elapsedRealTime() - mStartTime);
-            ProvisionLogger.logi("TimeLogger, category:" + mCategory + ", total time:" + time);
             // Clear stored start time, we shouldn't log total time twice for same start time.
             mStartTime = null;
             mMetricsLoggerWrapper.logAction(mContext, mCategory, time);
-        } else {
-            ProvisionLogger.logi("TimeLogger, category:" + mCategory + ", no start time");
         }
     }
 }

@@ -28,6 +28,8 @@ import com.android.managedprovisioning.common.ProvisionLogger;
  */
 public class MetricsLoggerWrapper {
 
+    public static final boolean LOG_ENABLED = false;
+
     public MetricsLoggerWrapper() {}
 
     /**
@@ -38,7 +40,7 @@ public class MetricsLoggerWrapper {
      * @param value String value to be logged
      */
     public void logAction(Context context, int category, String value) {
-        ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
+        logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
         if (category != VIEW_UNKNOWN) {
             MetricsLogger.action(context, category, value);
         }
@@ -52,7 +54,7 @@ public class MetricsLoggerWrapper {
      * @param value Int value to be logged.
      */
     public void logAction(Context context, int category, int value) {
-        ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
+        logd("MetricsLoggerWrapper, category:" + category + ", value: " + value);
         if (category != VIEW_UNKNOWN) {
             MetricsLogger.action(context, category, value);
         }
@@ -65,9 +67,15 @@ public class MetricsLoggerWrapper {
      * @param category Metrics category to be logged.
      */
     public void logAction(Context context, int category) {
-        ProvisionLogger.logd("MetricsLoggerWrapper, category:" + category);
+        logd("MetricsLoggerWrapper, category:" + category);
         if (category != VIEW_UNKNOWN) {
             MetricsLogger.action(context, category);
+        }
+    }
+
+    private void logd(String logText) {
+        if (LOG_ENABLED) {
+            ProvisionLogger.logd(logText);
         }
     }
 }
