@@ -23,7 +23,6 @@ import android.content.Context;
 import android.net.NetworkInfo;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 
 /**
@@ -58,10 +57,8 @@ public class NetworkTypeLogger {
         final NetworkInfo networkInfo = mUtils.getActiveNetworkInfo(mContext);
         if (mUtils.isConnectedToNetwork(mContext)) {
             final int networkType = networkInfo.getType();
-            ProvisionLogger.logd("Network type:" + networkType);
             mMetricsLoggerWrapper.logAction(mContext, PROVISIONING_NETWORK_TYPE, networkType);
         } else {
-            ProvisionLogger.logd("Network type:" + NETWORK_TYPE_NOT_CONNECTED);
             mMetricsLoggerWrapper.logAction(mContext, PROVISIONING_NETWORK_TYPE,
                     NETWORK_TYPE_NOT_CONNECTED);
         }
