@@ -90,9 +90,6 @@ public class DownloadPackageTaskTest {
                 mContext,
                 PARAMS,
                 mCallback);
-        if (Looper.myLooper() == null) {
-            Looper.prepare();
-        }
     }
 
     @Test
@@ -102,7 +99,7 @@ public class DownloadPackageTaskTest {
                 .thenReturn(false);
 
         // WHEN running the download package task
-        mTask.run(TEST_USER_ID);
+        runTask();
 
         // THEN we get a success callback directly
         verifyOnTaskFinished(null);
@@ -115,7 +112,7 @@ public class DownloadPackageTaskTest {
         doReturn(false).when(mUtils).isConnectedToNetwork(mContext);
 
         // WHEN running the download package task
-        mTask.run(TEST_USER_ID);
+        runTask();
 
         // THEN we get an error callback
         verify(mCallback).onError(mTask, ERROR_OTHER);
@@ -128,7 +125,7 @@ public class DownloadPackageTaskTest {
         mockSuccessfulDownload(DownloadManager.STATUS_FAILED);
 
         // WHEN running the download package task
-        mTask.run(TEST_USER_ID);
+        runTask();
 
         // THEN a download receiver was registered
         BroadcastReceiver receiver = verifyDownloadReceiver();
@@ -147,7 +144,7 @@ public class DownloadPackageTaskTest {
         mockSuccessfulDownload(DownloadManager.STATUS_SUCCESSFUL);
 
         // WHEN running the download package task
-        mTask.run(TEST_USER_ID);
+        runTask();
 
         // THEN a download receiver was registered
         BroadcastReceiver receiver = verifyDownloadReceiver();
@@ -167,7 +164,7 @@ public class DownloadPackageTaskTest {
         mockSuccessfulDownload(DownloadManager.STATUS_SUCCESSFUL);
 
         // WHEN running the download package task
-        mTask.run(TEST_USER_ID);
+        runTask();
 
         // THEN a download receiver was registered
         BroadcastReceiver receiver = verifyDownloadReceiver();
@@ -210,5 +207,12 @@ public class DownloadPackageTaskTest {
     private void verifyOnTaskFinished(String location) {
         verify(mCallback).onSuccess(mTask);
         assertEquals(location, mTask.getDownloadedPackageLocation());
+    }
+
+    private void runTask() {
+        if (Looper.myLooper() == null) {
+            Looper.prepare();
+        }
+        mTask.run(TEST_USER_ID);
     }
 }
