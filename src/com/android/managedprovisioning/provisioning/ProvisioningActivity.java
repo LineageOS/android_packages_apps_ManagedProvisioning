@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
@@ -124,6 +125,7 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
 
     @Override
     public void preFinalizationCompleted() {
+        ProvisionLogger.logi("ProvisioningActivity pre-finalization completed");
         setResult(Activity.RESULT_OK);
         finish();
     }
