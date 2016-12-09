@@ -94,9 +94,19 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"អ្នកអាចដំឡើងប្រវត្តិរូបរបស់អ្នកនៅពេលក្រោយ ចេញពីកម្មវិធីគ្រប់គ្រងឧបករណ៍ដែលបានប្រើដោយស្ថាប័នរបស់អ្នក។"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"បន្ត"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"បញ្ឈប់"</string>
+    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
+    <skip />
+    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
+    <skip />
     <string name="view_terms" msgid="7230493092383341605">"មើលលក្ខខណ្ឌ"</string>
+    <!-- no translation found for accept_and_continue (8361403983052024073) -->
+    <skip />
+    <!-- no translation found for close (7208600934846389439) -->
+    <skip />
+    <!-- no translation found for set_up_your_device (1896651520959894681) -->
+    <skip />
     <string name="info_anim_title_0" msgid="3285414600215959704">"ផ្លាស់ប្តូររបៀបធ្វើការងាររបស់អ្នក"</string>
-    <string name="info_anim_title_1" msgid="2657512519467714760">"បែងចែកទិន្នន័យការងារផ្សេងពីទិន្នន័យផ្ទាល់ខ្លួន"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"បែងចែកទិន្នន័យការងារពីទិន្នន័យផ្ទាល់ខ្លួន"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"ធ្វើការតាមរបៀបដែលអ្នកប្រាថ្នា"</string>
     <string name="provisioning" msgid="4512493827019163451">"ការផ្តល់"</string>
     <string name="copying_certs" msgid="5697938664953550881">"ការដំឡើងវិញ្ញាបនបត្រ CA"</string>
