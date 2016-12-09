@@ -239,6 +239,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
             mLastCallback = CALLBACK_PRE_FINALIZED;
             mProvisioningAnalyticsTracker.logProvisioningSessionCompleted(mContext);
             clearControllerLocked();
+            ProvisionLogger.logi("ProvisioningManager pre-finalization completed");
         }
     }
 
