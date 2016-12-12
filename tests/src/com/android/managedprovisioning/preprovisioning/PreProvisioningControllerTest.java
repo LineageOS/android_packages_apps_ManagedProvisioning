@@ -19,9 +19,10 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager
         .ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
+import static android.app.admin.DevicePolicyManager.CODE_OK;
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
 import static org.mockito.Mockito.any;
@@ -41,6 +42,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.VectorDrawable;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.test.AndroidTestCase;
@@ -48,10 +50,10 @@ import android.test.suitebuilder.annotation.SmallTest;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.parser.MessageParser;
@@ -62,6 +64,7 @@ import org.mockito.MockitoAnnotations;
 @SmallTest
 public class PreProvisioningControllerTest extends AndroidTestCase {
     private static final String TEST_MDM_PACKAGE = "com.test.mdm";
+    private static final String TEST_MDM_PACKAGE_LABEL = "Test MDM";
     private static final ComponentName TEST_MDM_COMPONENT_NAME = new ComponentName(TEST_MDM_PACKAGE,
             "com.test.mdm.DeviceAdmin");
     private static final String TEST_BOGUS_PACKAGE = "com.test.bogus";
@@ -103,7 +106,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private PreProvisioningController mController;
 
     @Override
-    public void setUp() {
+    public void setUp() throws PackageManager.NameNotFoundException {
         // this is necessary for mockito to work
         System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
 
@@ -121,11 +124,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
         when(mUserManager.getUserHandle()).thenReturn(TEST_USER_ID);
 
-        when(mUtils.isFrpSupported(mContext)).thenReturn(true);
         when(mUtils.isSplitSystemUser()).thenReturn(false);
         when(mUtils.isEncryptionRequired()).thenReturn(false);
         when(mUtils.currentLauncherSupportsManagedProfiles(mContext)).thenReturn(true);
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(-1);
+
+        when(mPackageManager.getApplicationIcon(anyString())).thenReturn(new VectorDrawable());
+        when(mPackageManager.getApplicationLabel(any())).thenReturn(TEST_MDM_PACKAGE_LABEL);
 
         when(mKeyguardManager.inKeyguardRestrictedInputMode()).thenReturn(false);
         when(mDevicePolicyManager.getStorageEncryptionStatus())
@@ -141,14 +146,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, true);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
-        verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -162,7 +163,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(anyInt(), anyString());
+        verify(mUi).showErrorAndClose(anyInt(), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -186,10 +187,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // WHEN the user consents
+        mController.continueProvisioningAfterUserConsent();
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
         // THEN show encryption screen
         verify(mUi).requestEncryption(mParams);
         verifyNoMoreInteractions(mUi);
@@ -203,14 +204,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, true);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
-        verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -224,16 +221,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN the UI elements should be updated accordingly and a dialog to remove the existing
         // profile should be shown
         verifyInitiateProfileOwnerUi();
-        verify(mUi).showDeleteManagedProfileDialog(any(ComponentName.class),
-                anyString(), eq(TEST_USER_ID));
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, true);
+        verify(mUi).showDeleteManagedProfileDialog(any(), any(), eq(TEST_USER_ID));
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
-        verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -246,10 +238,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, true);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN show a dialog indicating that the current launcher is invalid
@@ -264,7 +252,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_BOGUS_PACKAGE);
         // THEN show an error dialog and do not continue
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_general), anyString());
+        verifyInitiateProfileOwnerUi();
+        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_general), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -277,7 +266,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog and do not continue
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), anyString());
+        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -289,14 +278,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, true);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start profile provisioning
-        verify(mUi).startProfileOwnerProvisioning(mParams);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
@@ -311,13 +296,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // WHEN the user consents
+        mController.continueProvisioningAfterUserConsent();
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
         // THEN show an error indicating that this device does not support encryption
         verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
-                anyString());
+                any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -326,12 +311,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verifyInitiateDeviceOwnerUi();
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -342,12 +326,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verifyInitiateDeviceOwnerUi();
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
@@ -359,7 +342,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
+        // WHEN the user consents
+        mController.continueProvisioningAfterUserConsent();
         // THEN show encryption screen
+        verifyInitiateDeviceOwnerUi();
         verify(mUi).requestEncryption(mParams);
         verifyNoMoreInteractions(mUi);
     }
@@ -371,12 +357,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_DEVICE, true);
         // WHEN continuing NFC provisioning after encryption
         mController.initiateProvisioning(mIntent, null);
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verifyInitiateDeviceOwnerUi();
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verifyNoMoreInteractions(mUi);
     }
 
@@ -387,8 +372,9 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
+
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), anyString());
+        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -401,9 +387,12 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null);
+        // WHEN the user consents
+        mController.continueProvisioningAfterUserConsent();
         // THEN show an error dialog
+        verifyInitiateDeviceOwnerUi();
         verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
-                anyString());
+                any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -412,12 +401,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verifyInitiateDeviceOwnerUi();
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verifyNoMoreInteractions(mUi);
     }
 
@@ -426,14 +414,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating QR provisioning
-        mController.initiateProvisioning(mIntent, null);
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
-        verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
+        verifyInitiateDeviceOwnerUi();
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
+        verify(mUi, never()).requestEncryption(any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -442,8 +429,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating QR provisioning
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // WHEN the user consents
+        mController.continueProvisioningAfterUserConsent();
         // THEN show encryption screen
+        verifyInitiateDeviceOwnerUi();
         verify(mUi).requestEncryption(mParams);
         verifyNoMoreInteractions(mUi);
     }
@@ -456,7 +446,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), anyString());
+        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -467,14 +457,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -487,15 +473,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
-        verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
+        verify(mUi, never()).requestEncryption(any());
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -510,6 +492,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // WHEN the user consents
+        mController.continueProvisioningAfterUserConsent();
         // THEN update the UI elements and show encryption screen
         verifyInitiateDeviceOwnerUi();
         verify(mUi).requestEncryption(mParams);
@@ -524,14 +508,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, null);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
-        // WHEN the user clicks next
-        mController.afterNavigateNext();
-        // THEN show a user consent dialog
-        verify(mUi).showUserConsentDialog(mParams, false);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
-        verify(mUi).startDeviceOwnerProvisioning(TEST_USER_ID, mParams);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -544,65 +524,66 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), anyString());
+        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
     }
 
     public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_continueProvisioning()
             throws Exception {
         // GIVEN skipping user consent and encryption
-        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(true, true, false);
+        prepareMocksForMaybeStartProvisioning(true, true, false);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN start profile owner provisioning
-        verify(mUi).startProfileOwnerProvisioning(params);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
     }
 
     public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_notSkipUserConsent()
             throws Exception {
         // GIVEN not skipping user consent
-        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(false, true, false);
+        prepareMocksForMaybeStartProvisioning(false, true, false);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
-        verify(mUi, never()).startProfileOwnerProvisioning(params);
+        verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
     }
 
     public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_requireEncryption()
             throws Exception {
         // GIVEN skipping user consent and encryption
-        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(true, false, false);
+        prepareMocksForMaybeStartProvisioning(true, false, false);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
-        verify(mUi, never()).startProfileOwnerProvisioning(params);
+        verify(mUi, never()).startProvisioning(anyInt(), any());
         // THEN show encryption ui
-        verify(mUi).requestEncryption(params);
+        verify(mUi).requestEncryption(mParams);
+        verifyNoMoreInteractions(mUi);
     }
 
     public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_managedProfileExists()
             throws Exception {
         // GIVEN skipping user consent and encryption, but current managed profile exists
-        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(true, true, true);
+        prepareMocksForMaybeStartProvisioning(true, true, true);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
-        verify(mUi, never()).startProfileOwnerProvisioning(params);
+        verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
         // THEN show UI to delete user
-        verify(mUi).showDeleteManagedProfileDialog(any(ComponentName.class), anyString(), anyInt());
+        verify(mUi).showDeleteManagedProfileDialog(any(), any(), anyInt());
         // WHEN user agrees to remove the current profile and continue provisioning
-        mController.maybeStartProfileOwnerProvisioningIfSkipUserConsent();
+        mController.continueProvisioningAfterUserConsent();
         // THEN start profile owner provisioning
-        verify(mUi).startProfileOwnerProvisioning(params);
+        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
     }
 
-    private ProvisioningParams prepareMocksForMaybeStartProvisioning(
+    private void prepareMocksForMaybeStartProvisioning(
             boolean skipUserConsent, boolean skipEncryption, boolean managedProfileExists)
             throws IllegalProvisioningArgumentException {
         String action = ACTION_PROVISION_MANAGED_PROFILE;
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        ProvisioningParams params = ProvisioningParams.Builder.builder()
+        mParams = ProvisioningParams.Builder.builder()
                 .setProvisioningAction(action)
                 .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
                 .setSkipUserConsent(skipUserConsent)
@@ -612,8 +593,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 managedProfileExists ? 10 : -1);
         when(mUtils.isEncryptionRequired()).thenReturn(!skipEncryption);
 
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(params);
-        return params;
+        when(mMessageParser.parse(mIntent, mContext)).thenReturn(mParams);
     }
 
     private void prepareMocksForManagedProfileIntent(boolean skipEncryption) throws Exception {
@@ -679,11 +659,12 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     private void verifyInitiateProfileOwnerUi() {
         verify(mUi).initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                R.color.gray_status_bar, mParams);
+                R.color.gray_status_bar, null, null, true);
     }
 
     private void verifyInitiateDeviceOwnerUi() {
-        verify(mUi).initiateUi(R.layout.intro_device_owner, R.string.setup_device_start_setup,
-                R.color.blue, mParams);
+        verify(mUi).initiateUi(eq(R.layout.intro_device_owner),
+                eq(R.string.setup_device_start_setup), eq(R.color.blue), eq(TEST_MDM_PACKAGE_LABEL),
+                any(), eq(false));
     }
 }

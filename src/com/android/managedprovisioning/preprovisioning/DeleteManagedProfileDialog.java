@@ -23,8 +23,6 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,13 +30,14 @@ import android.widget.TextView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.setupwizardlib.util.SystemBarHelper;
 
 /**
  * Displays information about an existing managed profile and asks the user if it should be deleted.
  *
- * <p>Expects parent component to implement {@link DeleteManagedProfileCallback} for user-response
- * handling.
+ * <p>Expects parent component to implement {@link SimpleDialog.SimpleDialogListener} for
+ * user-response handling.
  */
 public class DeleteManagedProfileDialog extends DialogFragment {
     private static final String KEY_USER_PROFILE_CALLBACK_ID = "user_profile_callback_id";
@@ -48,13 +47,11 @@ public class DeleteManagedProfileDialog extends DialogFragment {
     private final SettingsFacade mSettingsFacade = new SettingsFacade();
 
     /**
-     * @param managedProfileUserId user-id for the managed profile which will be passed back to the
-     *     parent component in the {@link DeleteManagedProfileCallback#onRemoveProfileApproval(int)}
-     *     call
-     * @param mdmPackagename package name of the MDM application for the current managed profile, or
-     *     null if the managed profile has no profile owner associated.
+     * @param managedProfileUserId user-id for the managed profile
+     * @param mdmPackagename package name of the MDM application for the current managed profile,
+     * or null if the managed profile has no profile owner associated.
      * @param profileOwnerDomain domain name of the organization which owns the managed profile, or
-     *     null if not known
+     * null if not known
      * @return initialized dialog
      */
     public static DeleteManagedProfileDialog newInstance(
@@ -77,13 +74,14 @@ public class DeleteManagedProfileDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        if (!(getActivity() instanceof DeleteManagedProfileCallback)) {
+        if (!(getActivity() instanceof SimpleDialog.SimpleDialogListener)) {
             throw new IllegalStateException("Calling activity must implement " +
                     "DeleteManagedProfileCallback, found: " + getActivity().getLocalClassName());
         }
+        SimpleDialog.SimpleDialogListener dialogListener =
+                (SimpleDialog.SimpleDialogListener) getActivity();
 
         Bundle arguments = getArguments();
-        final int callbackUserProfileId = arguments.getInt(KEY_USER_PROFILE_CALLBACK_ID);
         String mdmPackageName = arguments.getString(KEY_MDM_PACKAGE_NAME);
 
         String appLabel;
@@ -96,7 +94,7 @@ public class DeleteManagedProfileDialog extends DialogFragment {
             appLabel = mdmPackageInfo.appLabel;
             appIcon = mdmPackageInfo.packageIcon;
         } else {
-            appLabel= getResources().getString(android.R.string.unknownName);
+            appLabel = getResources().getString(android.R.string.unknownName);
             appIcon = getActivity().getPackageManager().getDefaultActivityIcon();
         }
 
@@ -112,7 +110,7 @@ public class DeleteManagedProfileDialog extends DialogFragment {
                 R.id.device_manager_icon_view);
         imageView.setImageDrawable(appIcon);
         imageView.setContentDescription(
-                    getResources().getString(R.string.mdm_icon_label, appLabel));
+                getResources().getString(R.string.mdm_icon_label, appLabel));
 
         TextView deviceManagerName = (TextView) dialog.findViewById(
                 R.id.device_manager_name);
@@ -120,51 +118,32 @@ public class DeleteManagedProfileDialog extends DialogFragment {
 
         Button positiveButton = (Button) dialog.findViewById(
                 R.id.delete_managed_profile_positive_button);
-        positiveButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                    ((DeleteManagedProfileCallback) getActivity())
-                            .onRemoveProfileApproval(callbackUserProfileId);
-                }
-            });
+        positiveButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            dialogListener.onPositiveButtonClick(DeleteManagedProfileDialog.this);
+        });
 
         Button negativeButton = (Button) dialog.findViewById(
                 R.id.delete_managed_profile_negative_button);
-        negativeButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                    ((DeleteManagedProfileCallback) getActivity()).onRemoveProfileCancel();
-                }
-            });
+        negativeButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            dialogListener.onNegativeButtonClick(DeleteManagedProfileDialog.this);
+        });
 
         return dialog;
+    }
+
+    /**
+     * @return User id with which the dialog was instantiated
+     */
+    public int getUserId() {
+        return getArguments().getInt(KEY_USER_PROFILE_CALLBACK_ID);
     }
 
     @Override
     public void onCancel(DialogInterface dialog) {
         dialog.dismiss();
-        ((DeleteManagedProfileCallback) getActivity()).onRemoveProfileCancel();
-    }
-
-    /**
-     * Callback interface for outcome of {@link DeleteManagedProfileDialog} presentation.
-     */
-    public interface DeleteManagedProfileCallback {
-
-        /**
-         * Invoked if the user hits the positive response (perform removal) button.
-         *
-         * @param managedProfileUserId user-id of the managed-profile that the dialog was presented
-         *                             for
-         */
-        public abstract void onRemoveProfileApproval(int managedProfileUserId);
-
-        /**
-         * Invoked if the user hits the negative response (DO NOT perform removal) button, or the
-         * dialog was otherwise dismissed.
-         */
-        public abstract void onRemoveProfileCancel();
+        ((SimpleDialog.SimpleDialogListener) getActivity()).onNegativeButtonClick(
+                DeleteManagedProfileDialog.this);
     }
 }

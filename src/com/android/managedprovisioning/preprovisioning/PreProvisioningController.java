@@ -27,6 +27,7 @@ import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
 import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
@@ -34,28 +35,29 @@ import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVI
 
 import android.annotation.NonNull;
 import android.app.ActivityManager;
-import android.app.admin.DevicePolicyManager;
 import android.app.KeyguardManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.UserHandle;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.MdmPackageInfo;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
-import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.R;
 
 import java.util.List;
 
@@ -78,7 +80,6 @@ public class PreProvisioningController {
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private ProvisioningParams mParams;
-    private boolean mIsProfileOwnerProvisioning;
 
     public PreProvisioningController(
             @NonNull Context context,
@@ -121,7 +122,6 @@ public class PreProvisioningController {
     interface Ui {
         /**
          * Show an error message and cancel provisioning.
-         *
          * @param resId resource id used to form the user facing error message
          * @param errorMessage an error message that gets logged for debugging
          */
@@ -129,7 +129,6 @@ public class PreProvisioningController {
 
         /**
          * Request the user to encrypt the device.
-         *
          * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
          */
         void requestEncryption(ProvisioningParams params);
@@ -141,43 +140,24 @@ public class PreProvisioningController {
 
         /**
          * Initialize the pre provisioning UI
-         *
          * @param layoutRes resource id for the layout
          * @param titleRes resource id for the title text
          * @param mainColorRes resource id for the main color
-         * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
          */
-        void initiateUi(int layoutRes, int titleRes, int mainColorRes, ProvisioningParams params);
+        void initiateUi(int layoutRes, int titleRes, int mainColorRes, String packageName,
+                Drawable packageIcon, boolean isProfileOwnerProvisioning);
 
         /**
-         * Start device owner provisioning.
-         *
+         * Start provisioning.
          * @param userId the id of the user we want to start provisioning on
          * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
          */
-        void startDeviceOwnerProvisioning(int userId, ProvisioningParams params);
-
-        /**
-         * Start profile owner provisioning.
-         *
-         * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
-         */
-        void startProfileOwnerProvisioning(ProvisioningParams params);
-
-        /**
-         * Show a user consent dialog.
-         *
-         * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
-         * @param isProfileOwnerProvisioning whether we're provisioning a profile owner
-         */
-        void showUserConsentDialog(ProvisioningParams params, boolean isProfileOwnerProvisioning);
+        void startProvisioning(int userId, ProvisioningParams params);
 
         /**
          * Show a dialog to delete an existing managed profile.
-         *
          * @param mdmPackageName the {@link ComponentName} of the existing profile's profile owner
          * @param domainName domain name of the organization which owns the managed profile
-         *
          * @param userId the user id of the existing profile
          */
         void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
@@ -198,13 +178,189 @@ public class PreProvisioningController {
     public void initiateProvisioning(Intent intent, String callingPackage) {
         mProvisioningAnalyticsTracker.logProvisioningSessionStarted(mContext);
 
-        // Check factory reset protection as the first thing
-        if (factoryResetProtected()) {
-            mUi.showErrorAndClose(R.string.device_owner_error_frp,
-                    "Factory reset protection blocks provisioning.");
+        if (!checkFactoryResetProtection()) {
             return;
         }
 
+        if (!tryParseParameters(intent)) {
+            return;
+        }
+
+        if (!verifyCaller(intent, callingPackage)) {
+            return;
+        }
+
+        // Check whether provisioning is allowed for the current action
+        if (!checkDevicePolicyPreconditions()) {
+            return;
+        }
+
+        // PO preconditions
+        boolean waitForUserDelete = false;
+        if (isProfileOwnerProvisioning()) {
+            // If there is already a managed profile, setup the profile deletion dialog.
+            int existingManagedProfileUserId = mUtils.alreadyHasManagedProfile(mContext);
+            if (existingManagedProfileUserId != -1) {
+                ComponentName mdmPackageName = mDevicePolicyManager
+                        .getProfileOwnerAsUser(existingManagedProfileUserId);
+                String domainName = mDevicePolicyManager
+                        .getProfileOwnerNameAsUser(existingManagedProfileUserId);
+                mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
+                        existingManagedProfileUserId);
+                waitForUserDelete = true;
+            }
+        }
+
+        // DO preconditions
+        if (!isProfileOwnerProvisioning()) {
+            // TODO: make a general test based on deviceAdminDownloadInfo field
+            // PO doesn't ever initialize that field, so OK as a general case
+            if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null
+                    && mParams.deviceAdminDownloadInfo != null) {
+                // Have the user pick a wifi network if necessary.
+                // It is not possible to ask the user to pick a wifi network if
+                // the screen is locked.
+                // TODO: remove this check once we know the screen will not be locked.
+                if (mKeyguardManager.inKeyguardRestrictedInputMode()) {
+                    // TODO: decide on what to do in that case; fail? retry on screen unlock?
+                    ProvisionLogger.logi("Cannot pick wifi because the screen is locked.");
+                } else if (canRequestWifiPick()) {
+                    // we resume this method after a successful WiFi pick
+                    // TODO: refactor as evil - logic should be less spread out
+                    mUi.requestWifiPick();
+                    return;
+                } else {
+                    mUi.showErrorAndClose(R.string.device_owner_error_general,
+                            "Cannot pick WiFi because there is no handler to the intent");
+                }
+            }
+        }
+
+        mTimeLogger.start();
+        mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
+
+        // as of now this is only true for COMP provisioning, where we already have a user consent
+        // since the DPC is DO already
+        if (mParams.skipUserConsent || isSilentProvisioningForTestingDeviceOwner()
+                || isSilentProvisioningForTestingManagedProfile()) {
+            if (!waitForUserDelete) {
+                continueProvisioningAfterUserConsent();
+            }
+            return;
+        }
+        // show UI so we can get user's consent to continue
+        if (isProfileOwnerProvisioning()) {
+            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
+                    R.color.gray_status_bar, null, null, isProfileOwnerProvisioning());
+        } else {
+            String packageName = mParams.inferDeviceAdminPackageName();
+            MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
+                    packageName);
+            mUi.initiateUi(R.layout.intro_device_owner,
+                    R.string.setup_device_start_setup,
+                    R.color.blue,
+                    packageInfo == null ? packageName : packageInfo.appLabel,
+                    packageInfo == null ? null : packageInfo.packageIcon,
+                    isProfileOwnerProvisioning()
+            );
+        }
+    }
+
+    /**
+     * Start provisioning for real. In profile owner case, double check that the launcher
+     * supports managed profiles if necessary. In device owner case, possibly create a new user
+     * before starting provisioning.
+     */
+    public void continueProvisioningAfterUserConsent() {
+        // check if encryption is required
+        if (isEncryptionRequired()) {
+            if (mDevicePolicyManager.getStorageEncryptionStatus()
+                    == DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED) {
+                mUi.showErrorAndClose(R.string.preprovisioning_error_encryption_not_supported,
+                        "This device does not support encryption, and "
+                                + DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION
+                                + " was not passed.");
+            } else {
+                mUi.requestEncryption(mParams);
+                // we come back to this method after returning from encryption dialog
+                // TODO: refactor as evil - logic should be less spread out
+            }
+            return;
+        }
+
+        if (isProfileOwnerProvisioning()) { // PO case
+            // Check whether the current launcher supports managed profiles.
+            if (!mUtils.currentLauncherSupportsManagedProfiles(mContext)) {
+                mUi.showCurrentLauncherInvalid();
+                // we come back to this method after returning from launcher dialog
+                // TODO: refactor as evil - logic should be less spread out
+                return;
+            } else {
+                // Cancel the boot reminder as provisioning has now started.
+                mEncryptionController.cancelEncryptionReminder();
+                stopTimeLogger();
+                mUi.startProvisioning(mUserManager.getUserHandle(), mParams);
+            }
+        } else { // DO case
+            // Cancel the boot reminder as provisioning has now started.
+            mEncryptionController.cancelEncryptionReminder();
+            if (isMeatUserCreationRequired(mParams.provisioningAction)) {
+                // Create the primary user, and continue the provisioning in this user.
+                // successful end of this task triggers provisioning
+                // TODO: refactor as evil - logic should be less spread out
+                new CreatePrimaryUserTask().execute();
+            } else {
+                stopTimeLogger();
+                mUi.startProvisioning(mUserManager.getUserHandle(), mParams);
+            }
+        }
+    }
+
+    /** @return False if condition preventing further provisioning */
+    private boolean checkFactoryResetProtection() {
+        if (factoryResetProtected()) {
+            mUi.showErrorAndClose(R.string.device_owner_error_frp,
+                    "Factory reset protection blocks provisioning.");
+            return false;
+        }
+        return true;
+    }
+
+    /** @return False if condition preventing further provisioning */
+    private boolean checkDevicePolicyPreconditions() {
+        // If isSilentProvisioningForTestingDeviceOwner returns true, the component must be
+        // current device owner, and we can safely ignore isProvisioningAllowed as we don't call
+        // setDeviceOwner.
+        if (isSilentProvisioningForTestingDeviceOwner()) {
+            return true;
+        }
+
+        int provisioningPreCondition = mDevicePolicyManager.checkProvisioningPreCondition(
+                mParams.provisioningAction, mParams.inferDeviceAdminPackageName());
+        // Check whether provisioning is allowed for the current action.
+        if (provisioningPreCondition != CODE_OK) {
+            mProvisioningAnalyticsTracker.logProvisioningNotAllowed(mContext,
+                    provisioningPreCondition);
+            showProvisioningErrorAndClose(mParams.provisioningAction, provisioningPreCondition);
+            return false;
+        }
+        return true;
+    }
+
+    /** @return False if condition preventing further provisioning */
+    private boolean tryParseParameters(Intent intent) {
+        try {
+            // Read the provisioning params from the provisioning intent
+            mParams = mMessageParser.parse(intent, mContext);
+        } catch (IllegalProvisioningArgumentException e) {
+            mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    /** @return False if condition preventing further provisioning */
+    private boolean verifyCaller(Intent intent, String callingPackage) {
         try {
             // Read the provisioning params from the provisioning intent
             mParams = mMessageParser.parse(intent, mContext);
@@ -217,36 +373,14 @@ public class PreProvisioningController {
                 verifyCaller(callingPackage);
             }
         } catch (IllegalProvisioningArgumentException e) {
-            // TODO: make this a generic error message
             mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
-            return;
-        }
 
-        mIsProfileOwnerProvisioning = mUtils.isProfileOwnerAction(mParams.provisioningAction);
-        // Check whether provisioning is allowed for the current action and package.
-        // If isSilentProvisioningForTestingDeviceOwner returns true, the component must be
-        // current device owner, and we can safely ignore isProvisioningAllowed as we don't call
-        // setDeviceOwner.
-        int provisioningPreCondition = mDevicePolicyManager.checkProvisioningPreCondition(
-                mParams.provisioningAction, mParams.inferDeviceAdminPackageName());
-        if (provisioningPreCondition != CODE_OK && !isSilentProvisioningForTestingDeviceOwner()) {
-            mProvisioningAnalyticsTracker.logProvisioningNotAllowed(mContext,
-                    provisioningPreCondition);
         }
-
-        mTimeLogger.start();
-        mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
-        // Initiate the corresponding provisioning mode
-        if (mIsProfileOwnerProvisioning) {
-            initiateProfileOwnerProvisioning(intent);
-        } else {
-            initiateDeviceOwnerProvisioning(intent);
-        }
+        return true;
     }
 
     /**
      * Verify that the caller is trying to set itself as owner.
-     *
      * @throws IllegalProvisioningArgumentException if the caller is trying to set a different
      * package as owner.
      */
@@ -257,100 +391,6 @@ public class PreProvisioningController {
         if (!callingPackage.equals(mParams.inferDeviceAdminPackageName())) {
             throw new IllegalProvisioningArgumentException("Permission denied, "
                     + "calling package tried to set a different package as owner. ");
-        }
-    }
-
-    private void initiateDeviceOwnerProvisioning(Intent intent) {
-        if (!mParams.startedByTrustedSource) {
-            mUi.initiateUi(R.layout.intro_device_owner, R.string.setup_device_start_setup,
-                    R.color.blue, mParams);
-        }
-
-        // Ask to encrypt the device before proceeding
-        if (isEncryptionRequired()) {
-            maybeTriggerEncryption();
-            return;
-        }
-
-        // Have the user pick a wifi network if necessary.
-        // It is not possible to ask the user to pick a wifi network if
-        // the screen is locked.
-        // TODO: remove this check once we know the screen will not be locked.
-        if (mKeyguardManager.inKeyguardRestrictedInputMode()) {
-            ProvisionLogger.logi("Cannot pick wifi because the screen is locked.");
-            // Have the user pick a wifi network if necessary.
-        } else if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null
-               && mParams.deviceAdminDownloadInfo != null) {
-            if (canRequestWifiPick()) {
-                mUi.requestWifiPick();
-                return;
-            } else {
-                ProvisionLogger.logi(
-                        "Cannot pick wifi because there is no handler to the intent");
-            }
-        }
-        askForConsentOrStartDeviceOwnerProvisioning();
-    }
-
-    private void initiateProfileOwnerProvisioning(Intent intent) {
-        mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                R.color.gray_status_bar, mParams);
-
-        // If there is already a managed profile, setup the profile deletion dialog.
-        int existingManagedProfileUserId = mUtils.alreadyHasManagedProfile(mContext);
-        if (existingManagedProfileUserId != -1) {
-            ComponentName mdmPackageName = mDevicePolicyManager
-                    .getProfileOwnerAsUser(existingManagedProfileUserId);
-            String domainName = mDevicePolicyManager
-                    .getProfileOwnerNameAsUser(existingManagedProfileUserId);
-            mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
-                    existingManagedProfileUserId);
-        } else {
-            maybeStartProfileOwnerProvisioningIfSkipUserConsent();
-        }
-    }
-
-    // Skipping user consent only when no existing work profile and not requiring encryption
-    public void maybeStartProfileOwnerProvisioningIfSkipUserConsent() {
-        if (!mParams.skipUserConsent && !isSilentProvisioningForTestingManagedProfile()) {
-            return;
-        }
-
-        // Ask for encryption consent even though skipUserConsent is true
-        if (isEncryptionRequired()) {
-            maybeTriggerEncryption();
-            return;
-        }
-
-        continueProvisioningAfterUserConsent();
-    }
-
-    /**
-     * Start provisioning for real. In profile owner case, double check that the launcher
-     * supports managed profiles if necessary. In device owner case, possibly create a new user
-     * before starting provisioning.
-     */
-    public void continueProvisioningAfterUserConsent() {
-        if (isProfileOwnerProvisioning()) {
-            checkLauncherAndStartProfileOwnerProvisioning();
-        } else {
-            maybeCreateUserAndStartDeviceOwnerProvisioning();
-        }
-    }
-
-    /**
-     * Invoked when the user continues provisioning by pressing the next button.
-     *
-     * <p>If device hasn't been encrypted yet, invoke the encryption flow. Otherwise, show a user
-     * consent before starting provisioning.
-     */
-    public void afterNavigateNext() {
-        if (isEncryptionRequired()) {
-            maybeTriggerEncryption();
-        } else {
-            // Notify the user once more that the admin will have full control over the profile,
-            // then start provisioning.
-            mUi.showUserConsentDialog(mParams, mIsProfileOwnerProvisioning);
         }
     }
 
@@ -366,7 +406,7 @@ public class PreProvisioningController {
                 mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser();
         final ComponentName targetDeviceAdmin = mParams.deviceAdminComponentName;
 
-        switch(mParams.provisioningAction) {
+        switch (mParams.provisioningAction) {
             case DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE:
                 return isPackageTestOnly()
                         && currentDeviceOwner != null
@@ -385,76 +425,6 @@ public class PreProvisioningController {
     private boolean isPackageTestOnly() {
         return mUtils.isPackageTestOnly(mContext.getPackageManager(),
                 mParams.inferDeviceAdminPackageName(), mUserManager.getUserHandle());
-    }
-
-    /**
-     * Check whether the device supports encryption. If it does not support encryption, but
-     * encryption is requested, show an error dialog.
-     */
-    private void maybeTriggerEncryption() {
-        if (mDevicePolicyManager.getStorageEncryptionStatus() ==
-                DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED) {
-            mUi.showErrorAndClose(R.string.preprovisioning_error_encryption_not_supported,
-                    "This device does not support encryption, but "
-                    + DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION
-                    + " was not passed.");
-        } else {
-            mUi.requestEncryption(mParams);
-        }
-    }
-
-    /**
-     * Checks whether current launcher supports managed profile. If it does not, show current
-     * launcher is invalid dialog, otherwise start profile owner provisioning.
-     */
-    private void checkLauncherAndStartProfileOwnerProvisioning() {
-        // Check whether the current launcher supports managed profiles.
-        if (!mUtils.currentLauncherSupportsManagedProfiles(mContext)) {
-            mUi.showCurrentLauncherInvalid();
-        } else {
-            // Cancel the boot reminder as provisioning has now started.
-            mEncryptionController.cancelEncryptionReminder();
-            stopTimeLogger();
-            mUi.startProfileOwnerProvisioning(mParams);
-        }
-    }
-
-    /**
-     * Ask for user consent if it is required otherwise start device owner provisioning.
-     */
-    public void askForConsentOrStartDeviceOwnerProvisioning() {
-        if (isSilentProvisioningForTestingDeviceOwner()) {
-            maybeCreateUserAndStartDeviceOwnerProvisioning();
-            ProvisionLogger.logi("bypass user consent for DeviceOwner provisioning");
-            return;
-        }
-
-        // If we are started by Nfc and the device supports FRP, we need to ask for user consent
-        // since FRP will not be activated at the end of the flow.
-        if (mParams.startedByTrustedSource) {
-            if (mUtils.isFrpSupported(mContext)) {
-                mUi.showUserConsentDialog(mParams, false    );
-            } else {
-                maybeCreateUserAndStartDeviceOwnerProvisioning();
-            }
-        }
-        // In other provisioning modes we wait for the user to press next.
-    }
-
-    /**
-     * Checks whether meat user is required. If it is, start meat user creation otherwise start
-     * device owner provisioning.
-     */
-    private void maybeCreateUserAndStartDeviceOwnerProvisioning() {
-        // Cancel the boot reminder as provisioning has now started.
-        mEncryptionController.cancelEncryptionReminder();
-        if (isMeatUserCreationRequired(mParams.provisioningAction)) {
-            // Create the primary user, and continue the provisioning in this user.
-            new CreatePrimaryUserTask().execute();
-        } else {
-            stopTimeLogger();
-            mUi.startDeviceOwnerProvisioning(mUserManager.getUserHandle(), mParams);
-        }
     }
 
     /**
@@ -488,7 +458,7 @@ public class PreProvisioningController {
             if (users.size() > 1) {
                 mUi.showErrorAndClose(R.string.device_owner_error_general,
                         "Cannot start Device Owner Provisioning because there are already "
-                        + users.size() + " users");
+                                + users.size() + " users");
                 return false;
             }
             return true;
@@ -508,7 +478,7 @@ public class PreProvisioningController {
      * Returns whether the provisioning process is a profile owner provisioning process.
      */
     public boolean isProfileOwnerProvisioning() {
-        return mIsProfileOwnerProvisioning;
+        return mUtils.isProfileOwnerAction(mParams.provisioningAction);
     }
 
     @NonNull
@@ -534,6 +504,25 @@ public class PreProvisioningController {
                 CANCELLED_BEFORE_PROVISIONING);
     }
 
+    /**
+     * Removes a user profile. If we are in COMP case, and were blocked by having to delete a user,
+     * resumes COMP provisioning.
+     */
+    public void removeUser(int userProfileId) {
+        mUserManager.removeUser(userProfileId);
+    }
+
+    /**
+     * See comment in place of usage. Check if we were in silent provisioning, got blocked, and now
+     * can resume.
+     */
+    public void checkResumeSilentProvisioning() {
+        if (mParams.skipUserConsent || isSilentProvisioningForTestingDeviceOwner()
+                || isSilentProvisioningForTestingManagedProfile()) {
+            continueProvisioningAfterUserConsent();
+        }
+    }
+
     // TODO: review the use of async task for the case where the activity might have got killed
     private class CreatePrimaryUserTask extends AsyncTask<Void, Void, UserInfo> {
         @Override
@@ -557,12 +546,13 @@ public class PreProvisioningController {
             } else {
                 mActivityManager.switchUser(userInfo.id);
                 stopTimeLogger();
-                mUi.startDeviceOwnerProvisioning(userInfo.id, mParams);
+                // TODO: refactor as evil - logic should be less spread out
+                mUi.startProvisioning(userInfo.id, mParams);
             }
         }
     }
 
-    private void showProvisioningError(String action, int provisioningPreCondition) {
+    private void showProvisioningErrorAndClose(String action, int provisioningPreCondition) {
         // Try to show an error message explaining why provisioning is not allowed.
         switch (action) {
             case ACTION_PROVISION_MANAGED_USER:
@@ -570,18 +560,18 @@ public class PreProvisioningController {
                         "Exiting managed user provisioning, setup incomplete");
                 return;
             case ACTION_PROVISION_MANAGED_PROFILE:
-                showManagedProfileError(provisioningPreCondition);
+                showManagedProfileErrorAndClose(provisioningPreCondition);
                 return;
             case ACTION_PROVISION_MANAGED_DEVICE:
             case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
-                showDeviceOwnerError(provisioningPreCondition);
+                showDeviceOwnerErrorAndClose(provisioningPreCondition);
                 return;
         }
         // This should never be the case, as showProvisioningError is always called after
         // verifying the supported provisioning actions.
     }
 
-    private void showManagedProfileError(int provisioningPreCondition) {
+    private void showManagedProfileErrorAndClose(int provisioningPreCondition) {
         UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
         switch (provisioningPreCondition) {
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
@@ -609,7 +599,7 @@ public class PreProvisioningController {
                 "Managed profile provisioning not allowed for an unknown reason.");
     }
 
-    private void showDeviceOwnerError(int provisioningPreCondition) {
+    private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
         switch (provisioningPreCondition) {
             case CODE_HAS_DEVICE_OWNER:
                 mUi.showErrorAndClose(R.string.device_owner_error_already_provisioned,

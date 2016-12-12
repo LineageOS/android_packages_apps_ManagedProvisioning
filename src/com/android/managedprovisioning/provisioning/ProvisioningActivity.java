@@ -235,6 +235,8 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
 
         initializeLayoutParams(R.layout.progress, headerResId, true);
         setTitle(titleResId);
-        maybeSetLogoAndMainColor(params.mainColor);
+
+        setMainColor(getColor(R.color.blue));
+        setStatusBarIconColor(false);
     }
 }

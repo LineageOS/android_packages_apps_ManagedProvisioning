@@ -91,10 +91,6 @@ public class ManagedProfileTest extends AndroidTestCase {
             public ViewInteraction newViewInteraction1() {
                 return onView(withId(R.id.next_button));
             }
-            @Override
-            public ViewInteraction newViewInteraction2() {
-                return onView(withId(R.id.positive_button));
-            }
         }.run();
 
         if (mResultListener.await(TIMEOUT)) {
@@ -113,7 +109,6 @@ public class ManagedProfileTest extends AndroidTestCase {
         }
 
         public abstract ViewInteraction newViewInteraction1();
-        public abstract ViewInteraction newViewInteraction2();
 
         public void run() {
             i++;
@@ -121,10 +116,6 @@ public class ManagedProfileTest extends AndroidTestCase {
                     .withFailureHandler(this::handleFailure)
                     .perform(scrollTo(), click());
             Log.i(TAG, "newViewInteraction1 succeeds.");
-            newViewInteraction2()
-                    .withFailureHandler(this::handleFailure)
-                    .perform(click());
-            Log.i(TAG, "newViewInteraction2 succeeds.");
         }
 
         private void handleFailure(Throwable e, Matcher<View> matcher) {

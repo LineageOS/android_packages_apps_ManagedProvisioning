@@ -16,7 +16,8 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
-import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent
+        .PROVISIONING_WEB_ACTIVITY_TIME_MS;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,18 +28,22 @@ import android.view.View.OnLongClickListener;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 /**
  * This activity shows a web view, which loads the url indicated in the starting intent. By default
  * the user can click on links and load other urls. However, by passing the allowed url base, the
  * web view can be limited to urls that start with this base.
  *
- * <p>This activity is currently used by the
- * {@link UserConsentDialog} to display the google support web page
- * about the provisioning concepts.
+ * <p>This activity is considered for using by
+ * {@link TermsActivity} to display the support web pages
+ * about provisioning concepts.
+ *
+ * TODO: remove if not used by 2017-Jan-27 -- http://b/33811446
  */
 public class WebActivity extends Activity {
     private static final String EXTRA_URL = "extra_url";
