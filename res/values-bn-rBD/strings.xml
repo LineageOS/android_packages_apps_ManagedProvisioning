@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"আপনি আপনার প্রতিষ্ঠানের দ্বারা ব্যবহৃত ডিভাইস পরিচালনার অ্যাপ্লিকেশান থেকে পরে আপনার কর্মস্থলের প্রোফাইল সেট আপ করতে পারবেন৷"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"চালিয়ে যান"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"থামান"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"একটি নতুন কর্মস্থলের প্রোফাইল তৈরি করা হবে৷ এর মধ্যে থাকা শুধুমাত্র অ্যাপ্স এবং ডেটা আপনার সংগঠনের দ্বারা পরিচালিত হবে৷"</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"এই ডিভাইসটি আপনার কোম্পানীর দ্বারা পরিচালিত হবে৷ আপনার সংগঠন আপনার ডিভাইসটিকে নিয়ন্ত্রণ করবে এবং এটিকে সুরক্ষিত রাখবে৷ <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"শর্তাবলী দেখুন"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"স্বীকার করে চালিয়ে যান"</string>
+    <string name="close" msgid="7208600934846389439">"বন্ধ করুন"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"আপনার ডিভাইস সেট আপ করুন"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"আপনার কাজের পদ্ধতি পাল্টান"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"ব্যক্তিগত থেকে কাজ আলাদা করুন"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"আপনি যে ভাবে চান সেভাবে কাজ করুন"</string>

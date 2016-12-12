@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"您可以稍後透過您的機構所使用的裝置管理應用程式，設定您的工作設定檔。"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"繼續"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"停止"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"將會建立新工作設定檔。您的機構只會管理這個設定檔內的應用程式和資料。"</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"此裝置將會由您的公司管理。您的機構將會控制和保護您的裝置。<xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"查看條款"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"接受並繼續"</string>
+    <string name="close" msgid="7208600934846389439">"關閉"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"設定您的裝置"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"改變您的工作方式"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"分開工作和個人資料"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"以您喜歡的方式工作"</string>

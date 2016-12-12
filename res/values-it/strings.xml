@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Puoi configurare il tuo profilo di lavoro in un secondo momento dall\'app per la gestione dei dispositivi utilizzata dalla tua organizzazione."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continua"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Interrompi"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"Verrà creato un nuovo profilo di lavoro. Solo i relativi dati e app saranno gestiti dalla tua organizzazione."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Questo dispositivo sarà gestito dalla tua azienda. L\'organizzazione controllerà il dispositivo e lo manterrà protetto. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Visualizza termini"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"Accetta e continua"</string>
+    <string name="close" msgid="7208600934846389439">"Chiudi"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"Configura il tuo dispositivo"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Cambia il tuo modo di lavorare"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Separa i dati relativi al lavoro da quelli personali"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Lavora come più preferisci"</string>

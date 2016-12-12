@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"உங்கள் நிறுவனம் பயன்படுத்தும் சாதன நிர்வாகப் பயன்பாட்டிலிருந்து பணி சுயவிவரத்தை பின்னர் அமைக்கலாம்."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"தொடர்க"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"நிறுத்து"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"பணி விவரம் உருவாக்கப்படும். அதிலுள்ள பயன்பாடுகளையும் தரவையும் மட்டுமே உங்கள் நிறுவனம் நிர்வகிக்கும்."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"இந்தச் சாதனத்தை உங்கள் நிறுவனம் கட்டுப்படுத்தும். அத்துடன் அதைக் கட்டுப்படுத்தி, பாதுகாப்பாக வைக்கும். <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"விதிமுறைகளைக் காட்டு"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"ஏற்று, தொடரவும்"</string>
+    <string name="close" msgid="7208600934846389439">"மூடு"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"சாதனத்தை அமைக்கவும்"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"நீங்கள் வேலை செய்யும் விதத்தை மாற்றலாம்"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"தனிப்பட்ட தரவிலிருந்து பணித் தரவைப் பிரிக்கலாம்"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"உங்களுக்குப் பிடித்த விதத்தில் வேலை செய்யலாம்"</string>

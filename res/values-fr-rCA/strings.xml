@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Vous avez la possibilité de configurer votre profil professionnel plus tard à l\'aide de l\'application de gestion d\'appareil utilisée par votre organisation."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continuer"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Arrêter"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"Un nouveau profil professionnel sera créé. Votre organisation ne pourra gérer que les applications et les données contenues dans ce profil."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Cet appareil sera géré par votre entreprise. C\'est votre organisation qui contrôle et sécurise votre appareil. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Consulter les conditions d\'utilisation"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"Accepter et continuer"</string>
+    <string name="close" msgid="7208600934846389439">"Fermer"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"Configurer votre appareil"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Changez la façon dont vous travaillez"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Séparez votre contenu professionnel et personnel"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Travaillez comme vous le voulez"</string>

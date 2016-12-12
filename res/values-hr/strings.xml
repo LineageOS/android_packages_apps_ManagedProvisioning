@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Radni profil možete postaviti kasnije iz aplikacije za upravljanje uređajem kojom se koristi vaša organizacija."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Nastavi"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Zaustavi"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"Izradit će se novi radni profil. Vaša će organizacija upravljati samo aplikacijama i podacima na tom profilu."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Ovim će uređajem upravljati vaša tvrtka. Vaša će organizacija kontrolirati i štititi vaš uređaj. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Prikaz uvjeta"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"Prihvati i nastavi"</string>
+    <string name="close" msgid="7208600934846389439">"Zatvori"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"Postavljanje uređaja"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Promijenite način rada"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Odvojite poslovno od osobnog"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Radite kako želite"</string>

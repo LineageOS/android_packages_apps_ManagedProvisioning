@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Можете касније да подесите профил за Work у апликацији за управљање уређајем коју користи организација."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Настави"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Заустави"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"Биће направљен нови пословни профил. Организација ће управљати само апликацијама и подацима у оквиру њега."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Овим уређајем управља компанија. Организација контролише и штити уређај. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Прикажи услове"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"Прихвати и настави"</string>
+    <string name="close" msgid="7208600934846389439">"Затвори"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"Подесите уређај"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Промените начин рада"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Одвојите пословне податке од личних"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Радите онако како желите"</string>

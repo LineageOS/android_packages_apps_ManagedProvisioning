@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"آپ کی تنظیم کے زیر استعمال آلہ نظم کرنے کی ایپ کے ذریعے آپ اپنا دفتری پروفائل بعد میں سیٹ اپ کر سکتے ہیں۔"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"جاری رکھیں"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"روکیں"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"ایک نئی دفتری پروفائل بنائی جائے گی۔ صرف اس میں موجود ایپس اور ڈیٹا آپ کی تنظیم کے زیر انتظام ہوں گے۔"</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"یہ آلہ آپ کی کمپنی کے زیر انتظام ہوگا۔ آپ کی تنظیم آپ کے آلے کو کنٹرول کرے گی اور اسے محفوظ رکھے گی۔ <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"شرائط دیکھیں"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"قبول کریں اور جاری رکھیں"</string>
+    <string name="close" msgid="7208600934846389439">"بند کریں"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"اپنے آلہ کو ترتیب دیں"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"اپنا کام کرنے کا طریقہ بدلیں"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"دفتری کام کو ذاتی کام سے علیحدہ کریں"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"اپنے من چاہے طریقے سے کام کریں"</string>

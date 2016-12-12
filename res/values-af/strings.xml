@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Jy kan jou werkprofiel later opstel uit die toestelbestuurprogram wat jou organisasie gebruik."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Gaan voort"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Stop"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"\'n Nuwe werkprofiel sal geskep word. Jou organisasie sal net die programme en data bestuur."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Hierdie toestel sal deur jou maatskappy bestuur word. Jou organisasie sal jou toestel beheer en dit veilig hou. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Bekyk bepalings"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"Aanvaar en gaan voort"</string>
+    <string name="close" msgid="7208600934846389439">"Maak toe"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"Stel jou toestel op"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Verander die manier waarop jy werk"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Skei werk- van persoonlike data"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"Werk soos jy wil"</string>

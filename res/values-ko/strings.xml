@@ -94,17 +94,12 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"이후에 조직에서 사용하는 기기 관리 앱에서 직장 프로필을 설정할 수 있습니다."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"계속"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"중지"</string>
-    <!-- no translation found for profile_owner_short_info (4880192378938092137) -->
-    <skip />
-    <!-- no translation found for device_owner_short_info (6788746308703120308) -->
-    <skip />
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"새로운 직장 프로필이 생성됩니다. 프로필 내의 앱과 데이터만 조직에서 관리합니다."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"이 기기는 회사에서 관리합니다. 조직에서 이 기기를 제어하고 보안을 유지합니다. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"약관 보기"</string>
-    <!-- no translation found for accept_and_continue (8361403983052024073) -->
-    <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
+    <string name="accept_and_continue" msgid="8361403983052024073">"동의 및 계속"</string>
+    <string name="close" msgid="7208600934846389439">"닫기"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"기기 설정"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"작업 방식의 변화"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"직장 및 개인 데이터 구분"</string>
     <string name="info_anim_title_2" msgid="1799488690711073300">"원하는 방식으로 작업"</string>
