@@ -88,9 +88,9 @@ public class NonRequiredAppsLogicTest {
         initializeApps();
 
         // THEN getSystemAppsToRemove should return a non-empty list with the only app to removed
-        // being the one that is installed, a current system app, non required and not in the last
-        // snapshot.
-        assertEquals(Collections.singleton(APPS[8]), logic.getSystemAppsToRemove(TEST_USER_ID));
+        // being the one that is installed, a current system app, non required
+        assertEquals(getSetFromArray(new int[] { 0, 8 }),
+                logic.getSystemAppsToRemove(TEST_USER_ID));
     }
 
     @Test
