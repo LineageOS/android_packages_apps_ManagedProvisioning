@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 
@@ -28,11 +30,16 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  */
 public class InstallExistingPackageTask extends AbstractProvisioningTask {
 
+    private final String mPackageName;
+
     public InstallExistingPackageTask(
+            String packageName,
             Context context,
             ProvisioningParams params,
             Callback callback) {
         super(context, params, callback);
+
+        mPackageName = checkNotNull(packageName);
     }
 
     public int getStatusMsgId() {
@@ -43,8 +50,7 @@ public class InstallExistingPackageTask extends AbstractProvisioningTask {
     public void run(int userId) {
         PackageManager pm = mContext.getPackageManager();
         try {
-            int status = pm.installExistingPackageAsUser(
-                    mProvisioningParams.deviceAdminComponentName.getPackageName(), userId);
+            int status = pm.installExistingPackageAsUser(mPackageName, userId);
             if (status == PackageManager.INSTALL_SUCCEEDED) {
                 success();
             } else {

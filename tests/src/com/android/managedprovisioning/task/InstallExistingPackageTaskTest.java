@@ -24,22 +24,25 @@ import static org.mockito.Mockito.when;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
+import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 /**
  * Unit tests for {@link InstallExistingPackageTask}.
  */
-public class InstallExistingPackageTaskTest extends AndroidTestCase {
+@SmallTest
+public class InstallExistingPackageTaskTest {
     private static final String ADMIN_PACKAGE_NAME = "com.admin.test";
     private static final String ADMIN_RECEIVER_NAME = ADMIN_PACKAGE_NAME + ".AdminReceiver";
     private static final ComponentName ADMIN_COMPONENT_NAME = new ComponentName(ADMIN_PACKAGE_NAME,
             ADMIN_RECEIVER_NAME);
+    private static final String INSTALL_PACKAGE_NAME = "com.install.package";
     private static final int TEST_USER_ID = 123;
     private final ProvisioningParams TEST_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
@@ -51,37 +54,35 @@ public class InstallExistingPackageTaskTest extends AndroidTestCase {
     @Mock private AbstractProvisioningTask.Callback mCallback;
     private InstallExistingPackageTask mTask;
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        // This is necessary for mockito to work
-        System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
+    @Before
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
 
-        mTask = new InstallExistingPackageTask(mContext, TEST_PARAMS, mCallback);
+        mTask = new InstallExistingPackageTask(INSTALL_PACKAGE_NAME, mContext, TEST_PARAMS,
+                mCallback);
     }
 
-    @SmallTest
+    @Test
     public void testSuccess() throws Exception {
         // GIVEN that installing the existing package succeeds
-        when(mPackageManager.installExistingPackageAsUser(ADMIN_PACKAGE_NAME, TEST_USER_ID))
+        when(mPackageManager.installExistingPackageAsUser(INSTALL_PACKAGE_NAME, TEST_USER_ID))
                 .thenReturn(PackageManager.INSTALL_SUCCEEDED);
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
 
         // THEN the existing package should have been installed
-        verify(mPackageManager).installExistingPackageAsUser(ADMIN_PACKAGE_NAME, TEST_USER_ID);
+        verify(mPackageManager).installExistingPackageAsUser(INSTALL_PACKAGE_NAME, TEST_USER_ID);
         verify(mCallback).onSuccess(mTask);
         verifyNoMoreInteractions(mCallback);
     }
 
-    @SmallTest
+    @Test
     public void testPackageNotFound() throws Exception {
         // GIVEN that the package is not present on the device
-        when(mPackageManager.installExistingPackageAsUser(ADMIN_PACKAGE_NAME, TEST_USER_ID))
+        when(mPackageManager.installExistingPackageAsUser(INSTALL_PACKAGE_NAME, TEST_USER_ID))
                 .thenThrow(new PackageManager.NameNotFoundException());
 
         // WHEN running the task
@@ -92,10 +93,10 @@ public class InstallExistingPackageTaskTest extends AndroidTestCase {
         verifyNoMoreInteractions(mCallback);
     }
 
-    @SmallTest
+    @Test
     public void testInstallFailed() throws Exception {
         // GIVEN that the package is not present on the device
-        when(mPackageManager.installExistingPackageAsUser(ADMIN_PACKAGE_NAME, TEST_USER_ID))
+        when(mPackageManager.installExistingPackageAsUser(INSTALL_PACKAGE_NAME, TEST_USER_ID))
                 .thenReturn(PackageManager.INSTALL_FAILED_INVALID_APK);
 
         // WHEN running the task
