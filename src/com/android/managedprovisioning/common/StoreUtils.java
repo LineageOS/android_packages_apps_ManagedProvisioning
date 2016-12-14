@@ -18,17 +18,20 @@ package com.android.managedprovisioning.common;
 
 import android.accounts.Account;
 import android.content.ComponentName;
-import android.os.BaseBundle;
+import android.content.ContentResolver;
+import android.net.Uri;
 import android.os.PersistableBundle;
 import android.util.Base64;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.IllformedLocaleException;
 import java.util.Locale;
-import java.util.function.Consumer;
 import java.util.function.Function;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Class with Utils methods to store values in xml files, and to convert various
@@ -157,5 +160,44 @@ public class StoreUtils {
     public static Integer getIntegerAttrFromPersistableBundle(PersistableBundle bundle,
             String attrName) {
         return bundle.containsKey(attrName) ? bundle.getInt(attrName) : null;
+    }
+
+    /**
+     * @return true if successfully copy the uri into the file. Otherwise, the outputFile will not
+     * be created.
+     */
+    public static boolean copyUriIntoFile(ContentResolver cr, Uri uri, File outputFile) {
+        try (final InputStream in = cr.openInputStream(uri)) {
+            try (final FileOutputStream out = new FileOutputStream(outputFile)) {
+                copyStream(in, out);
+            }
+            ProvisionLogger.logi("Successfully copy from uri " + uri + " has been successfully"
+                    + " copied to " + outputFile);
+            return true;
+        } catch (IOException e) {
+            ProvisionLogger.logi("Could not write file from " + uri + " to "
+                    + outputFile, e);
+            // If the file was only partly written, delete it.
+            outputFile.delete();
+            return false;
+        }
+    }
+
+    public static String readString(File file) throws IOException {
+        try (final InputStream in = new FileInputStream(file)) {
+            try (final ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+                copyStream(in, out);
+                return out.toString();
+            }
+        }
+    }
+
+    public static void copyStream(final InputStream in,
+            final OutputStream out) throws IOException {
+        final byte buffer[] = new byte[1024];
+        int bytesReadCount;
+        while ((bytesReadCount = in.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesReadCount);
+        }
     }
 }

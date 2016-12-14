@@ -36,28 +36,30 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 public class MessageParser implements ProvisioningDataParser {
 
     private final Utils mUtils;
+    private final Context mContext;
 
-    public MessageParser() {
-        this(new Utils());
+    public MessageParser(Context context) {
+        this(context, new Utils());
     }
 
     @VisibleForTesting
-    MessageParser(Utils utils) {
+    MessageParser(Context context, Utils utils) {
+        mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
     }
 
     @Override
-    public ProvisioningParams parse(Intent provisioningIntent, Context context)
+    public ProvisioningParams parse(Intent provisioningIntent)
             throws IllegalProvisioningArgumentException {
-        return getParser(provisioningIntent).parse(provisioningIntent, context);
+        return getParser(provisioningIntent).parse(provisioningIntent);
     }
 
     @VisibleForTesting
     ProvisioningDataParser getParser(Intent provisioningIntent) {
         if (ACTION_NDEF_DISCOVERED.equals(provisioningIntent.getAction())) {
-            return new PropertiesProvisioningDataParser(mUtils);
+            return new PropertiesProvisioningDataParser(mContext, mUtils);
         } else {
-            return new ExtrasProvisioningDataParser(mUtils);
+            return new ExtrasProvisioningDataParser(mContext, mUtils);
         }
     }
 }

@@ -19,12 +19,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 
+import android.support.annotation.NonNull;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 
 public interface PersistableBundlable extends Parcelable {
-    PersistableBundle toPersistableBundle();
+    @NonNull PersistableBundle toPersistableBundle();
 
     static PersistableBundle getPersistableBundleFromParcel(Parcel parcel) {
         return parcel.readParcelable(PersistableBundle.class.getClassLoader());

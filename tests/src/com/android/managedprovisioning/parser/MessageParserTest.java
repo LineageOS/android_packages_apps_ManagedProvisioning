@@ -75,7 +75,7 @@ public class MessageParserTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
-        mMessageParser = new MessageParser(mUtils = spy(new Utils()));
+        mMessageParser = new MessageParser(mContext, mUtils = spy(new Utils()));
     }
 
     public void test_correctParserUsedToParseNfcIntent() throws Exception {

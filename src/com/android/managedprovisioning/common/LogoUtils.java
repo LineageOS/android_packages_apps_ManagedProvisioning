@@ -22,37 +22,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.ProvisionLogger;
-
-import java.io.InputStream;
-import java.io.IOException;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.lang.Math;
 
 public class LogoUtils {
     public static void saveOrganisationLogo(Context context, Uri uri) {
         final File logoFile = getOrganisationLogoFile(context);
-        try {
-            final InputStream in = context.getContentResolver().openInputStream(uri);
-            final FileOutputStream out = new FileOutputStream(logoFile);
-            final byte buffer[] = new byte[1024];
-            int bytesReadCount;
-            while ((bytesReadCount = in.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesReadCount);
-            }
-            out.close();
-            ProvisionLogger.logi("Organisation logo from uri " + uri + " has been successfully"
-                    + " copied to " + logoFile);
-        } catch (IOException e) {
-            ProvisionLogger.logi("Could not write organisation logo from " + uri + " to "
-                    + logoFile, e);
-            // If the file was only partly written, delete it.
-            logoFile.delete();
-        }
+        StoreUtils.copyUriIntoFile(context.getContentResolver(), uri, logoFile);
     }
 
     public static Drawable getOrganisationLogo(Context context) {

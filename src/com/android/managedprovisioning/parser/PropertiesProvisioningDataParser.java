@@ -52,6 +52,7 @@ import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.StoreUtils;
@@ -79,12 +80,22 @@ import java.util.Properties;
 public class PropertiesProvisioningDataParser implements ProvisioningDataParser {
 
     private final Utils mUtils;
+    private final Context mContext;
+    private final ManagedProvisioningSharedPreferences mSharedPreferences;
 
-    PropertiesProvisioningDataParser(Utils utils) {
-        mUtils = checkNotNull(utils);
+    PropertiesProvisioningDataParser(Context context, Utils utils) {
+        this(context, utils, new ManagedProvisioningSharedPreferences(context));
     }
 
-    public ProvisioningParams parse(Intent nfcIntent, Context context)
+    @VisibleForTesting
+    PropertiesProvisioningDataParser(Context context, Utils utils,
+            ManagedProvisioningSharedPreferences sharedPreferences) {
+        mContext = checkNotNull(context);
+        mUtils = checkNotNull(utils);
+        mSharedPreferences = checkNotNull(sharedPreferences);
+    }
+
+    public ProvisioningParams parse(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         if (!ACTION_NDEF_DISCOVERED.equals(nfcIntent.getAction())) {
             throw new IllegalProvisioningArgumentException(
@@ -102,6 +113,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                 String s = null;
 
                 ProvisioningParams.Builder builder = ProvisioningParams.Builder.builder()
+                        .setProvisioningId(mSharedPreferences.incrementAndGetProvisioningId())
                         .setStartedByTrustedSource(true)
                         .setProvisioningAction(mUtils.mapIntentToDpmAction(nfcIntent))
                         .setDeviceAdminPackageName(props.getProperty(

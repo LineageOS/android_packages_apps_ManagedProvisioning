@@ -143,7 +143,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN an intent to provision a managed profile
         prepareMocksForManagedProfileIntent(false);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
@@ -161,7 +161,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 ACTION_PROVISION_MANAGED_PROFILE, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_MANAGED_USERS_NOT_SUPPORTED);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(anyInt(), any());
         verifyNoMoreInteractions(mUi);
@@ -172,7 +172,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForManagedProfileIntent(false);
         try {
             // WHEN initiating provisioning
-            mController.initiateProvisioning(mIntent, null);
+            mController.initiateProvisioning(mIntent, null, null);
             fail("Expected NullPointerException not thrown");
         } catch (NullPointerException ne) {
             // THEN a NullPointerException is thrown
@@ -186,7 +186,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForManagedProfileIntent(false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating managed profile provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN the UI elements should be updated accordingly
@@ -201,7 +201,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // we don't set the startedByTrustedSource flag.
         prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_PROFILE, false);
         // WHEN initiating with a continuation intent
-        mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME);
+        mController.initiateProvisioning(mIntent, null, MP_PACKAGE_NAME);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
@@ -217,7 +217,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForManagedProfileIntent(false);
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
         // WHEN initiating managed profile provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly and a dialog to remove the existing
         // profile should be shown
         verifyInitiateProfileOwnerUi();
@@ -235,7 +235,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForManagedProfileIntent(false);
         when(mUtils.currentLauncherSupportsManagedProfiles(mContext)).thenReturn(false);
         // WHEN initiating managed profile provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
@@ -250,7 +250,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // as owner of the profile
         prepareMocksForManagedProfileIntent(false);
         // WHEN initiating managed profile provisioning
-        mController.initiateProvisioning(mIntent, TEST_BOGUS_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_BOGUS_PACKAGE);
         // THEN show an error dialog and do not continue
         verifyInitiateProfileOwnerUi();
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_general), any());
@@ -264,7 +264,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating managed profile provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog and do not continue
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
@@ -275,7 +275,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForManagedProfileIntent(true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
@@ -295,7 +295,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mDevicePolicyManager.getStorageEncryptionStatus())
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN the UI elements should be updated accordingly
@@ -310,7 +310,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN provisioning was started via an NFC tap and device is already encrypted
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
@@ -325,7 +325,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null);
+
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
@@ -341,7 +342,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN show encryption screen
@@ -356,7 +357,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // set
         prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_DEVICE, true);
         // WHEN continuing NFC provisioning after encryption
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
@@ -371,8 +372,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null);
-
+        mController.initiateProvisioning(mIntent, null, null);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
@@ -386,7 +386,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mDevicePolicyManager.getStorageEncryptionStatus())
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
         // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN show an error dialog
@@ -400,7 +400,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN provisioning was started via a QR code and device is already encrypted
         prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN initiating QR provisioning
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
@@ -414,7 +414,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating QR provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN start device owner provisioning
@@ -429,7 +429,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForQrIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating QR provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, null);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN show encryption screen
@@ -444,7 +444,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating QR provisioning
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
@@ -454,7 +454,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN device owner provisioning was started and device is already encrypted
         prepareMocksForDoIntent(true);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
         // WHEN the user consents
@@ -470,7 +470,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForDoIntent(true);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
         // WHEN the user consents
@@ -491,7 +491,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         prepareMocksForDoIntent(false);
         when(mUtils.isEncryptionRequired()).thenReturn(true);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN update the UI elements and show encryption screen
@@ -505,7 +505,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // the startedByTrustedSource flag.
         prepareMocksForAfterEncryption(ACTION_PROVISION_MANAGED_DEVICE, false);
         // WHEN provisioning is continued
-        mController.initiateProvisioning(mIntent, null);
+        mController.initiateProvisioning(mIntent, null, null);
         // THEN the UI elements should be updated accordingly
         verifyInitiateDeviceOwnerUi();
         // WHEN the user consents
@@ -522,7 +522,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // setting the data block size to any number greater than 0 should invoke FRP.
         when(mPdbManager.getDataBlockSize()).thenReturn(4);
         // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
         verifyNoMoreInteractions(mUi);
@@ -533,7 +533,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN skipping user consent and encryption
         prepareMocksForMaybeStartProvisioning(true, true, false);
         // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN start profile owner provisioning
         verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
     }
@@ -543,7 +543,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN not skipping user consent
         prepareMocksForMaybeStartProvisioning(false, true, false);
         // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
         verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
     }
@@ -553,7 +553,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN skipping user consent and encryption
         prepareMocksForMaybeStartProvisioning(true, false, false);
         // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
         verify(mUi, never()).startProvisioning(anyInt(), any());
         // THEN show encryption ui
@@ -566,7 +566,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // GIVEN skipping user consent and encryption, but current managed profile exists
         prepareMocksForMaybeStartProvisioning(true, true, true);
         // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
         verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
         // THEN show UI to delete user
@@ -593,7 +593,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 managedProfileExists ? 10 : -1);
         when(mUtils.isEncryptionRequired()).thenReturn(!skipEncryption);
 
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(mParams);
+
+        when(mMessageParser.parse(mIntent)).thenReturn(mParams);
     }
 
     private void prepareMocksForManagedProfileIntent(boolean skipEncryption) throws Exception {
@@ -604,7 +605,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(true);
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
+        when(mMessageParser.parse(mIntent)).thenReturn(
                 createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));
     }
 
@@ -612,7 +613,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
+        when(mMessageParser.parse(mIntent)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
@@ -621,7 +622,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
+        when(mMessageParser.parse(mIntent)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
@@ -630,7 +631,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mIntent.getAction()).thenReturn(action);
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
+        when(mMessageParser.parse(mIntent)).thenReturn(
                 createParams(false, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
@@ -639,7 +640,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mIntent.getAction()).thenReturn(ACTION_RESUME_PROVISIONING);
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        when(mMessageParser.parse(mIntent, mContext)).thenReturn(
+        when(mMessageParser.parse(mIntent)).thenReturn(
                 createParams(
                         startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }

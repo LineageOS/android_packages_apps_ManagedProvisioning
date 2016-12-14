@@ -58,6 +58,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
+    private static final String SAVED_PROVISIONING_PARAMS = "saved_provisioning_params";
 
     private static final String ERROR_AND_CLOSE_DIALOG = "PreProvErrorAndCloseDialog";
     private static final String BACK_PRESSED_DIALOG = "PreProvBackPressedDialog";
@@ -72,15 +73,24 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mController = new PreProvisioningController(this, this);
-        mController.initiateProvisioning(getIntent(), getCallingPackage());
+        ProvisioningParams params = savedInstanceState == null ? null
+                : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
+        mController.initiateProvisioning(getIntent(), params, getCallingPackage());
     }
 
     @Override
     public void finish() {
         // The user has backed out of provisioning, so we perform the necessary clean up steps.
         LogoUtils.cleanUp(this);
+        mController.getParams().cleanUp();
         EncryptionController.getInstance(this).cancelEncryptionReminder();
         super.finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(SAVED_PROVISIONING_PARAMS, mController.getParams());
     }
 
     @Override
@@ -104,7 +114,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
                 } else if (resultCode == RESULT_OK) {
                     ProvisionLogger.logd("Wifi request result is OK");
                 }
-                mController.initiateProvisioning(getIntent(), getCallingPackage());
+                mController.initiateProvisioning(getIntent(), null /* cached params */,
+                        getCallingPackage());
                 break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
@@ -260,9 +271,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     }
 
     private void onViewTermsClick(View view) {
-        Intent intent = new Intent(PreProvisioningActivity.this, TermsActivity.class);
-        intent.putExtra(TermsActivity.IS_PROFILE_OWNER_FLAG,
-                mController.isProfileOwnerProvisioning());
+        Intent intent = new Intent(this, TermsActivity.class);
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mController.getParams());
         startActivity(intent);
     }
 

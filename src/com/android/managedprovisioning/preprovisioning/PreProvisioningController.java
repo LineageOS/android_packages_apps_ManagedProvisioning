@@ -86,7 +86,7 @@ public class PreProvisioningController {
             @NonNull Ui ui) {
         this(context, ui,
                 new TimeLogger(context, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
-                new MessageParser(), new Utils(), new SettingsFacade(),
+                new MessageParser(context), new Utils(), new SettingsFacade(),
                 EncryptionController.getInstance(context));
     }
 
@@ -173,16 +173,18 @@ public class PreProvisioningController {
     /**
      * Initiates Profile owner and device owner provisioning.
      * @param intent Intent that started provisioning.
+     * @param params cached ProvisioningParams if it has been parsed from Intent
      * @param callingPackage Package that started provisioning.
      */
-    public void initiateProvisioning(Intent intent, String callingPackage) {
+    public void initiateProvisioning(Intent intent, ProvisioningParams params,
+            String callingPackage) {
         mProvisioningAnalyticsTracker.logProvisioningSessionStarted(mContext);
 
         if (!checkFactoryResetProtection()) {
             return;
         }
 
-        if (!tryParseParameters(intent)) {
+        if (!tryParseParameters(intent, params)) {
             return;
         }
 
@@ -348,10 +350,10 @@ public class PreProvisioningController {
     }
 
     /** @return False if condition preventing further provisioning */
-    private boolean tryParseParameters(Intent intent) {
+    private boolean tryParseParameters(Intent intent, ProvisioningParams params) {
         try {
             // Read the provisioning params from the provisioning intent
-            mParams = mMessageParser.parse(intent, mContext);
+            mParams = params == null ? mMessageParser.parse(intent) : params;
         } catch (IllegalProvisioningArgumentException e) {
             mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
             return false;
@@ -362,9 +364,6 @@ public class PreProvisioningController {
     /** @return False if condition preventing further provisioning */
     private boolean verifyCaller(Intent intent, String callingPackage) {
         try {
-            // Read the provisioning params from the provisioning intent
-            mParams = mMessageParser.parse(intent, mContext);
-
             // If this is a resume after encryption or trusted intent, we don't need to verify the
             // caller. Otherwise, verify that the calling app is trying to set itself as
             // Device/ProfileOwner
@@ -374,7 +373,6 @@ public class PreProvisioningController {
             }
         } catch (IllegalProvisioningArgumentException e) {
             mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
-
         }
         return true;
     }

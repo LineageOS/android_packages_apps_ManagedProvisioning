@@ -39,6 +39,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static org.mockito.Mockito.when;
 
 import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
@@ -53,12 +54,12 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
-import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
 import java.io.ByteArrayOutputStream;
 import java.util.Locale;
 import java.util.Properties;
@@ -80,6 +81,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
     private static final boolean TEST_SKIP_ENCRYPTION = true;
     private static final boolean TEST_SKIP_USER_SETUP = true;
+    private static final long TEST_PROVISIONING_ID = 2000L;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
     private static final String INVALID_MIME_TYPE = "invalid-mime-type";
@@ -124,6 +126,9 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     @Mock
     private Context mContext;
 
+    @Mock
+    private ManagedProvisioningSharedPreferences mSharedPreferences;
+
     private PropertiesProvisioningDataParser mPropertiesProvisioningDataParser;
 
     @Override
@@ -133,7 +138,9 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
-        mPropertiesProvisioningDataParser = new PropertiesProvisioningDataParser(new Utils());
+        when(mSharedPreferences.incrementAndGetProvisioningId()).thenReturn(TEST_PROVISIONING_ID);
+        mPropertiesProvisioningDataParser = new PropertiesProvisioningDataParser(mContext,
+                new Utils(), mSharedPreferences);
     }
 
     public void testParse_nfcProvisioningIntent() throws Exception {
@@ -166,7 +173,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
 
         // WHEN the intent is parsed by the parser.
-        ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent, mContext);
+        ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
 
 
         // THEN ProvisionParams is constructed as expected.
@@ -177,6 +184,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                         .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
                         .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
                         .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
+                        .setProvisioningId(TEST_PROVISIONING_ID)
                         .setDeviceAdminDownloadInfo(
                                 PackageDownloadInfo.Builder.builder()
                                         .setLocation(TEST_DOWNLOAD_LOCATION)
@@ -211,7 +219,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
 
         try {
             // WHEN the intent is parsed by the parser.
-            ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent, mContext);
+            ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
             fail("PropertiesProvisioningDataParser doesn't support intent other than NFC. "
                     + "IllegalProvisioningArgumentException should be thrown");
         } catch (IllegalProvisioningArgumentException e) {

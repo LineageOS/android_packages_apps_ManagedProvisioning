@@ -15,43 +15,37 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.Toolbar;
-
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
-
-import java.util.Arrays;
+import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.DisclaimersParam.Disclaimer;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Activity responsible for displaying the Terms screen
  */
 public class TermsActivity extends SetupLayoutActivity {
-    public static final String IS_PROFILE_OWNER_FLAG = "isProfileOwner";
-
-    private static final String TERMS_HTML_SAMPLE =
-            "<h1>Heading1<h2>Heading2<h3>Heading3<ul><li>Item1<li>Item2";
+    private Utils mUtils = new Utils();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.terms_screen);
 
-        String sampleDisclaimer = getResources().getString(
-                getIntent().getExtras().getBoolean(IS_PROFILE_OWNER_FLAG)
-                        ? R.string.admin_has_ability_to_monitor_profile
-                        : R.string.admin_has_ability_to_monitor_device);
+        ProvisioningParams params = checkNotNull(
+                getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS)
+        );
 
-        // TODO: source actual disclaimers as a part of b/32760305
-        List<TermsDocument> terms = Arrays.asList(
-                TermsDocument.fromHtml("MyEMM", sampleDisclaimer),
-                TermsDocument.fromHtml("Company (html)",
-                        sampleDisclaimer + TERMS_HTML_SAMPLE + sampleDisclaimer),
-                TermsDocument.fromHtml("Google", sampleDisclaimer),
-                TermsDocument.fromHtml("Play for Work", sampleDisclaimer));
+        List<TermsDocument> terms = getTerms(params);
 
         ExpandableListView container = (ExpandableListView) findViewById(R.id.terms_container);
         container.setAdapter(
@@ -61,5 +55,30 @@ public class TermsActivity extends SetupLayoutActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
+    }
+
+    private List<TermsDocument> getTerms(ProvisioningParams params) {
+        boolean isProfileOwnerAction = mUtils.isProfileOwnerAction(params.provisioningAction);
+        String aospDisclaimer = getResources().getString(isProfileOwnerAction
+                ? R.string.admin_has_ability_to_monitor_profile
+                : R.string.admin_has_ability_to_monitor_device);
+
+        List<TermsDocument> terms = new ArrayList<>();
+        // TODO: finalize AOSP disclaimer header and content
+        terms.add(TermsDocument.fromHtml("AOSP", aospDisclaimer));
+
+        Disclaimer[] disclaimers = params.disclaimersParam == null ? null
+                : params.disclaimersParam.mDisclaimers;
+        if (disclaimers != null) {
+            for (Disclaimer disclaimer : disclaimers) {
+                try {
+                    terms.add(TermsDocument.fromHtml(disclaimer.mHeader,
+                            disclaimer.getDisclaimerContentString()));
+                } catch (IOException e) {
+                    ProvisionLogger.loge("Failed to read disclaimer", e);
+                }
+            }
+        }
+        return terms;
     }
 }

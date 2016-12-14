@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_T
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
@@ -31,6 +32,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences.DEFAULT_PROVISIONING_ID;
 import static com.android.managedprovisioning.common.StoreUtils.accountToPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.getIntegerAttrFromPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.getObjectAttrFromPersistableBundle;
@@ -40,24 +42,23 @@ import static com.android.managedprovisioning.common.StoreUtils.putPersistableBu
 
 import android.accounts.Account;
 import android.content.ComponentName;
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.Xml;
-
 import com.android.internal.util.FastXmlSerializer;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PersistableBundlable;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StoreUtils;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -77,6 +78,7 @@ public final class ProvisioningParams implements PersistableBundlable {
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
+    private static final String TAG_PROVISIONING_ID = "provisioning-id";
     private static final String TAG_PROVISIONING_PARAMS = "provisioning-params";
     private static final String TAG_WIFI_INFO = "wifi-info";
     private static final String TAG_PACKAGE_DOWNLOAD_INFO = "download-info";
@@ -95,6 +97,8 @@ public final class ProvisioningParams implements PersistableBundlable {
             return new ProvisioningParams[size];
         }
     };
+
+    public final long provisioningId;
 
     @Nullable
     public final String timeZone;
@@ -147,6 +151,10 @@ public final class ProvisioningParams implements PersistableBundlable {
     @Nullable
     public final PackageDownloadInfo deviceAdminDownloadInfo;
 
+    /** List of disclaimers */
+    @Nullable
+    public final DisclaimersParam disclaimersParam;
+
     /**
      * Custom key-value pairs from enterprise mobility management which are passed to device admin
      * package after provisioning.
@@ -186,6 +194,7 @@ public final class ProvisioningParams implements PersistableBundlable {
     }
 
     private ProvisioningParams(Builder builder) {
+        provisioningId = builder.mProvisioningId;
         timeZone = builder.mTimeZone;
         localTime = builder.mLocalTime;
         locale = builder.mLocale;
@@ -196,6 +205,7 @@ public final class ProvisioningParams implements PersistableBundlable {
         deviceAdminPackageName = builder.mDeviceAdminPackageName;
 
         deviceAdminDownloadInfo = builder.mDeviceAdminDownloadInfo;
+        disclaimersParam = builder.mDisclaimersParam;
 
         adminExtrasBundle = builder.mAdminExtrasBundle;
 
@@ -225,6 +235,7 @@ public final class ProvisioningParams implements PersistableBundlable {
     public PersistableBundle toPersistableBundle() {
         final PersistableBundle bundle = new PersistableBundle();
 
+        bundle.putLong(TAG_PROVISIONING_ID, provisioningId);
         bundle.putString(EXTRA_PROVISIONING_TIME_ZONE, timeZone);
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, localTime);
         bundle.putString(EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(locale));
@@ -238,6 +249,8 @@ public final class ProvisioningParams implements PersistableBundlable {
         putIntegerIfNotNull(bundle, EXTRA_PROVISIONING_MAIN_COLOR, mainColor);
         putPersistableBundlableIfNotNull(bundle, TAG_PACKAGE_DOWNLOAD_INFO,
                 deviceAdminDownloadInfo);
+        putPersistableBundlableIfNotNull(bundle, EXTRA_PROVISIONING_DISCLAIMERS,
+                disclaimersParam);
         bundle.putPersistableBundle(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, adminExtrasBundle);
         bundle.putBoolean(TAG_STARTED_BY_TRUSTED_SOURCE, startedByTrustedSource);
         bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
@@ -255,6 +268,7 @@ public final class ProvisioningParams implements PersistableBundlable {
 
     private static Builder createBuilderFromPersistableBundle(PersistableBundle bundle) {
         Builder builder = new Builder();
+        builder.setProvisioningId(bundle.getLong(TAG_PROVISIONING_ID, DEFAULT_PROVISIONING_ID));
         builder.setTimeZone(bundle.getString(EXTRA_PROVISIONING_TIME_ZONE));
         builder.setLocalTime(bundle.getLong(EXTRA_PROVISIONING_LOCAL_TIME));
         builder.setLocale(getStringAttrFromPersistableBundle(bundle,
@@ -272,6 +286,8 @@ public final class ProvisioningParams implements PersistableBundlable {
                 EXTRA_PROVISIONING_MAIN_COLOR));
         builder.setDeviceAdminDownloadInfo(getObjectAttrFromPersistableBundle(bundle,
                 TAG_PACKAGE_DOWNLOAD_INFO, PackageDownloadInfo::fromPersistableBundle));
+        builder.setDisclaimersParam(getObjectAttrFromPersistableBundle(bundle,
+                EXTRA_PROVISIONING_DISCLAIMERS, DisclaimersParam::fromPersistableBundle));
         builder.setAdminExtrasBundle(bundle.getPersistableBundle(
                 EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE));
         builder.setStartedByTrustedSource(bundle.getBoolean(TAG_STARTED_BY_TRUSTED_SOURCE));
@@ -315,6 +331,12 @@ public final class ProvisioningParams implements PersistableBundlable {
         }
     }
 
+    public void cleanUp() {
+        if (disclaimersParam != null) {
+            disclaimersParam.cleanUp();
+        }
+    }
+
     /**
      * Loads the ProvisioningParams From the specified file.
      */
@@ -354,6 +376,7 @@ public final class ProvisioningParams implements PersistableBundlable {
     }
 
     public final static class Builder {
+        private long mProvisioningId;
         private String mTimeZone;
         private long mLocalTime = DEFAULT_LOCAL_TIME;
         private Locale mLocale;
@@ -364,6 +387,7 @@ public final class ProvisioningParams implements PersistableBundlable {
         private String mProvisioningAction;
         private Integer mMainColor = DEFAULT_MAIN_COLOR;
         private PackageDownloadInfo mDeviceAdminDownloadInfo;
+        private DisclaimersParam mDisclaimersParam;
         private PersistableBundle mAdminExtrasBundle;
         private boolean mStartedByTrustedSource = DEFAULT_STARTED_BY_TRUSTED_SOURCE;
         private boolean mLeaveAllSystemAppsEnabled = DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
@@ -371,6 +395,11 @@ public final class ProvisioningParams implements PersistableBundlable {
         private boolean mSkipUserConsent = DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT;
         private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
+
+        public Builder setProvisioningId(long provisioningId) {
+            mProvisioningId = provisioningId;
+            return this;
+        }
 
         public Builder setTimeZone(String timeZone) {
             mTimeZone = timeZone;
@@ -420,6 +449,11 @@ public final class ProvisioningParams implements PersistableBundlable {
 
         public Builder setDeviceAdminDownloadInfo(PackageDownloadInfo deviceAdminDownloadInfo) {
             mDeviceAdminDownloadInfo = deviceAdminDownloadInfo;
+            return this;
+        }
+
+        public Builder setDisclaimersParam(DisclaimersParam disclaimersParam) {
+            mDisclaimersParam = disclaimersParam;
             return this;
         }
 
