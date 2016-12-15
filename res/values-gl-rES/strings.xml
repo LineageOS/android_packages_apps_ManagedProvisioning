@@ -94,8 +94,8 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Podes configurar o teu perfil de traballo máis tarde desde a aplicación de xestión do dispositivo que utiliza a túa organización."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Deter"</string>
-    <string name="profile_owner_short_info" msgid="4880192378938092137">"Crearase un novo perfil de traballo e a túa organización só poderá xestionar as aplicacións e os datos incluídos nel.."</string>
-    <string name="device_owner_short_info" msgid="6788746308703120308">"A túa empresa xestionará este dispositivo. A túa organización controlará e protexerá o teu dispositivo. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
+    <string name="profile_owner_short_info" msgid="4880192378938092137">"Crearase un novo perfil de traballo e a túa organización só poderá xestionar as aplicacións e os datos incluídos nel."</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Este dispositivo xestionarao a túa empresa, quen será a encargada de controlalo e protexer a súa seguranza. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Consultar condicións"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"Aceptar e continuar"</string>
     <string name="close" msgid="7208600934846389439">"Pechar"</string>
