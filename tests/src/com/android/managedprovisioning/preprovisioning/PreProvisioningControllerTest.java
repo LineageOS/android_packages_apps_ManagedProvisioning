@@ -547,27 +547,30 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    public void testMaybeStartCompProvisioning_continueProvisioning() throws Exception {
+    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_continueProvisioning()
+            throws Exception {
         // GIVEN skipping user consent and encryption
-        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(true, true, false);
+        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(true, true, false);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN start profile owner provisioning
         verify(mUi).startProfileOwnerProvisioning(params);
     }
 
-    public void testMaybeStartCompProvisioning_notSkipUserConsent() throws Exception {
+    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_notSkipUserConsent()
+            throws Exception {
         // GIVEN not skipping user consent
-        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(false, true, false);
+        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(false, true, false);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
         verify(mUi, never()).startProfileOwnerProvisioning(params);
     }
 
-    public void testMaybeStartCompProvisioning_requireEncryption() throws Exception {
+    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_requireEncryption()
+            throws Exception {
         // GIVEN skipping user consent and encryption
-        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(true, false, false);
+        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(true, false, false);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
@@ -576,9 +579,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verify(mUi).requestEncryption(params);
     }
 
-    public void testMaybeStartCompProvisioning_managedProfileExists() throws Exception {
+    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_managedProfileExists()
+            throws Exception {
         // GIVEN skipping user consent and encryption, but current managed profile exists
-        ProvisioningParams params = prepareMocksForMaybeStartCompProvisioning(true, true, true);
+        ProvisioningParams params = prepareMocksForMaybeStartProvisioning(true, true, true);
         // WHEN calling initiateProvisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
@@ -586,13 +590,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN show UI to delete user
         verify(mUi).showDeleteManagedProfileDialog(any(ComponentName.class), anyString(), anyInt());
         // WHEN user agrees to remove the current profile and continue provisioning
-        mController.maybeStartCompProvisioning();
+        mController.maybeStartProfileOwnerProvisioningIfSkipUserConsent();
         // THEN start profile owner provisioning
         verify(mUi).startProfileOwnerProvisioning(params);
     }
 
-    private ProvisioningParams prepareMocksForMaybeStartCompProvisioning(boolean skipUserConsent,
-            boolean skipEncryption, boolean managedProfileExists)
+    private ProvisioningParams prepareMocksForMaybeStartProvisioning(
+            boolean skipUserConsent, boolean skipEncryption, boolean managedProfileExists)
             throws IllegalProvisioningArgumentException {
         String action = ACTION_PROVISION_MANAGED_PROFILE;
         when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);

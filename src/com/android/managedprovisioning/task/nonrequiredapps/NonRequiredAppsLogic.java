@@ -103,8 +103,10 @@ public class NonRequiredAppsLogic {
         // Start with all currently installed system apps
         Set<String> newSystemApps = mUtils.getCurrentSystemApps(mIPackageManager, userId);
 
-        // Remove the ones that were already present in the last snapshot
-        newSystemApps.removeAll(mSnapshot.getSnapshot(userId));
+        // Remove the ones that were already present in the last snapshot only when OTA
+        if (!mNewProfile) {
+            newSystemApps.removeAll(mSnapshot.getSnapshot(userId));
+        }
 
         // Get the packages from the black/white lists
         Set<String> packagesToDelete = mProvider.getNonRequiredApps(userId);
