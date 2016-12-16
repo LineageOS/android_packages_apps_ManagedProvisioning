@@ -223,12 +223,12 @@ public class PreProvisioningController {
         }
 
         mIsProfileOwnerProvisioning = mUtils.isProfileOwnerAction(mParams.provisioningAction);
-        // Check whether provisioning is allowed for the current action
-        // if isSilentProvisioningForTestingDeviceOwner returns true, the component must be
+        // Check whether provisioning is allowed for the current action and package.
+        // If isSilentProvisioningForTestingDeviceOwner returns true, the component must be
         // current device owner, and we can safely ignore isProvisioningAllowed as we don't call
         // setDeviceOwner.
-        int provisioningPreCondition =
-                mDevicePolicyManager.checkProvisioningPreCondition(mParams.provisioningAction);
+        int provisioningPreCondition = mDevicePolicyManager.checkProvisioningPreCondition(
+                mParams.provisioningAction, mParams.inferDeviceAdminPackageName());
         if (provisioningPreCondition != CODE_OK && !isSilentProvisioningForTestingDeviceOwner()) {
             mProvisioningAnalyticsTracker.logProvisioningNotAllowed(mContext,
                     provisioningPreCondition);

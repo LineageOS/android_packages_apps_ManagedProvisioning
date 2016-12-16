@@ -156,7 +156,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     public void testManagedProfile_provisioningNotAllowed() throws Exception {
         // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
         prepareMocksForManagedProfileIntent(false);
-        when(mDevicePolicyManager.checkProvisioningPreCondition(ACTION_PROVISION_MANAGED_PROFILE))
+        when(mDevicePolicyManager.checkProvisioningPreCondition(
+                ACTION_PROVISION_MANAGED_PROFILE, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_MANAGED_USERS_NOT_SUPPORTED);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
@@ -599,7 +600,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
             boolean skipUserConsent, boolean skipEncryption, boolean managedProfileExists)
             throws IllegalProvisioningArgumentException {
         String action = ACTION_PROVISION_MANAGED_PROFILE;
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);
+        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(CODE_OK);
         ProvisioningParams params = ProvisioningParams.Builder.builder()
                 .setProvisioningAction(action)
                 .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
@@ -620,14 +622,16 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.findDeviceAdmin(TEST_MDM_PACKAGE, null, mContext))
                 .thenReturn(TEST_MDM_COMPONENT_NAME);
         when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(true);
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);
+        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));
     }
 
     private void prepareMocksForNfcIntent(String action, boolean skipEncryption) throws Exception {
         when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);
+        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
@@ -635,7 +639,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private void prepareMocksForQrIntent(String action, boolean skipEncryption) throws Exception {
         when(mIntent.getAction())
                 .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);
+        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
@@ -643,7 +648,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private void prepareMocksForDoIntent(boolean skipEncryption) throws Exception {
         final String action = ACTION_PROVISION_MANAGED_DEVICE;
         when(mIntent.getAction()).thenReturn(action);
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);
+        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(false, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
@@ -651,7 +657,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private void prepareMocksForAfterEncryption(String action, boolean startedByTrustedSource)
             throws Exception {
         when(mIntent.getAction()).thenReturn(ACTION_RESUME_PROVISIONING);
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action)).thenReturn(CODE_OK);
+        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent, mContext)).thenReturn(
                 createParams(
                         startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
