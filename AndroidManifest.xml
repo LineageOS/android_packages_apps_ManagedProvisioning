@@ -173,9 +173,8 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".provisioning.ProvisioningService" >
-        </service>
+        <service android:name=".provisioning.ProvisioningService" />
+        <service android:name=".ota.OtaService" />
 
         <receiver android:name="com.android.managedprovisioning.preprovisioning.BootReminder">
             <intent-filter>

@@ -26,7 +26,6 @@ import static org.mockito.Mockito.when;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.UserHandle;
@@ -51,13 +50,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 /**
- * Unit tests for {@link PreBootListener}.
+ * Unit tests for {@link OtaController}.
  */
 @SmallTest
-public class PreBootListenerTest {
+public class OtaControllerTest {
     private static final int DEVICE_OWNER_USER_ID = 12;
     private static final int MANAGED_PROFILE_USER_ID = 15;
-    private static final Intent INTENT = new Intent(Intent.ACTION_PRE_BOOT_COMPLETED);
 
     private static final ComponentName ADMIN_COMPONENT = new ComponentName("com.test.admin",
             ".AdminReceiver");
@@ -67,8 +65,8 @@ public class PreBootListenerTest {
     @Mock private PackageManager mPackageManager;
     @Mock private UserManager mUserManager;
 
-    private TaskExecutor mTaskExecutor = new FakeTaskExecutor();
-    private PreBootListener mListener = new PreBootListener(mTaskExecutor);
+    private TaskExecutor mTaskExecutor;
+    private OtaController mController;
 
     private List<Pair<Integer, AbstractProvisioningTask>> mTasks
             = new ArrayList<>();
@@ -89,6 +87,9 @@ public class PreBootListenerTest {
         when(mUserManager.getUsers()).thenReturn(mUsers);
         when(mUserManager.getProfiles(UserHandle.USER_SYSTEM)).thenReturn(mProfiles);
 
+        mTaskExecutor = new FakeTaskExecutor(mContext);
+        mController = new OtaController(mContext, mTaskExecutor);
+
         addSystemUser();
     }
 
@@ -97,8 +98,8 @@ public class PreBootListenerTest {
         // GIVEN that there is a device owner on the system user
         setDeviceOwner(UserHandle.USER_SYSTEM, ADMIN_COMPONENT);
 
-        // WHEN running the PreBootListener
-        mListener.onReceive(mContext, INTENT);
+        // WHEN running the OtaController
+        mController.run();
 
         // THEN the task list should contain DeleteNonRequiredAppsTask and DisallowAddUserTask
         assertTaskList(
@@ -112,8 +113,8 @@ public class PreBootListenerTest {
         addMeatUser(DEVICE_OWNER_USER_ID);
         setDeviceOwner(DEVICE_OWNER_USER_ID, ADMIN_COMPONENT);
 
-        // WHEN running the PreBootListener
-        mListener.onReceive(mContext, INTENT);
+        // WHEN running the OtaController
+        mController.run();
 
         // THEN the task list should contain DeleteNonRequiredAppsTask and DisallowAddUserTask
         assertTaskList(
@@ -129,8 +130,8 @@ public class PreBootListenerTest {
         // GIVEN that there is a managed profile
         addManagedProfile(MANAGED_PROFILE_USER_ID, ADMIN_COMPONENT);
 
-        // WHEN running the PreBootListener
-        mListener.onReceive(mContext, INTENT);
+        // WHEN running the OtaController
+        mController.run();
 
         // THEN the task list should contain InstallExistingPackageTask,
         // DisableInstallShortcutListenersTask and DeleteNonRequiredAppsTask
@@ -148,6 +149,11 @@ public class PreBootListenerTest {
     }
 
     private class FakeTaskExecutor extends TaskExecutor {
+
+        public FakeTaskExecutor(Context context) {
+            super(context);
+        }
+
         @Override
         public synchronized void execute(int userId, AbstractProvisioningTask task) {
             mTasks.add(Pair.create(userId, task));

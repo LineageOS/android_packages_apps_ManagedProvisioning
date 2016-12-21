@@ -13,25 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.android.managedprovisioning.ota;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
+import android.app.Service;
 import android.content.Intent;
-
-import com.android.managedprovisioning.common.ProvisionLogger;
+import android.os.IBinder;
 
 /**
- * This receiver is invoked after a system update.
+ * Service that keeps the ota process alive.
  */
-public class PreBootListener extends BroadcastReceiver {
+public class OtaService extends Service {
 
     @Override
-    public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_PRE_BOOT_COMPLETED.equals(intent.getAction())) {
-            new OtaController(context).run();
-        } else {
-            ProvisionLogger.logw("Unexpected intent action: " + intent.getAction());
-        }
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }
