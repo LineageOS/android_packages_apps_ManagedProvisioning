@@ -16,71 +16,74 @@
 
 package com.android.managedprovisioning.task;
 
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import android.content.Context;
+import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.support.annotation.Nullable;
 
-import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.model.WifiInfo;
+import com.android.managedprovisioning.task.wifi.NetworkMonitor;
+import com.android.managedprovisioning.task.wifi.WifiConfigurationProvider;
 
 /**
- * Adds a wifi network to system.
+ * Adds a wifi network to the system and waits for it to successfully connect. If the system does
+ * not support wifi, the adding or connection times out {@link #error(int)} will be called.
  */
 public class AddWifiNetworkTask extends AbstractProvisioningTask
-        implements NetworkMonitor.Callback {
+        implements NetworkMonitor.NetworkConnectedCallback {
     private static final int RETRY_SLEEP_DURATION_BASE_MS = 500;
     private static final int RETRY_SLEEP_MULTIPLIER = 2;
     private static final int MAX_RETRIES = 6;
     private static final int RECONNECT_TIMEOUT_MS = 60000;
 
-    @Nullable
-    private final WifiInfo mWifiInfo;
-
-    private WifiManager mWifiManager;
-    private NetworkMonitor mNetworkMonitor;
-    private WifiConfig mWifiConfig;
+    private final WifiConfigurationProvider mWifiConfigurationProvider;
+    private final WifiManager mWifiManager;
+    private final NetworkMonitor mNetworkMonitor;
 
     private Handler mHandler;
     private boolean mTaskDone = false;
 
-    private int mDurationNextSleep = RETRY_SLEEP_DURATION_BASE_MS;
-    private int mRetriesLeft = MAX_RETRIES;
-
     private final Utils mUtils = new Utils();
+    private Runnable mTimeoutRunnable;
 
-    /**
-     * @throws IllegalArgumentException if the {@code ssid} parameter is empty.
-     */
     public AddWifiNetworkTask(
+            Context context,
+            ProvisioningParams provisioningParams,
+            Callback callback) {
+        this(
+                new NetworkMonitor(context),
+                new WifiConfigurationProvider(),
+                context, provisioningParams, callback);
+    }
+
+    @VisibleForTesting
+    AddWifiNetworkTask(
+            NetworkMonitor networkMonitor,
+            WifiConfigurationProvider wifiConfigurationProvider,
             Context context,
             ProvisioningParams provisioningParams,
             Callback callback) {
         super(context, provisioningParams, callback);
 
-        mWifiInfo = provisioningParams.wifiInfo;
+        mNetworkMonitor = checkNotNull(networkMonitor);
+        mWifiConfigurationProvider = checkNotNull(wifiConfigurationProvider);
         mWifiManager  = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        mWifiConfig = new WifiConfig(mWifiManager);
-
-        HandlerThread thread = new HandlerThread("Timeout thread",
-                android.os.Process.THREAD_PRIORITY_BACKGROUND);
-        thread.start();
-        Looper looper = thread.getLooper();
-        mHandler = new Handler(looper);
     }
 
     @Override
     public void run(int userId) {
-        if (mWifiInfo == null) {
+        if (mProvisioningParams.wifiInfo == null) {
             success();
             return;
         }
-        if (!enableWifi()) {
+
+        if (mWifiManager == null || !enableWifi()) {
             ProvisionLogger.loge("Failed to enable wifi");
             error(0);
             return;
@@ -91,7 +94,9 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
             return;
         }
 
-        mNetworkMonitor = new NetworkMonitor(mContext, this);
+        mTaskDone = false;
+        mHandler = new Handler();
+        mNetworkMonitor.startListening(this);
         connectToProvidedNetwork();
     }
 
@@ -101,30 +106,25 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
     }
 
     private void connectToProvidedNetwork() {
-        int netId = mWifiConfig.addNetwork(mWifiInfo.ssid, mWifiInfo.hidden, mWifiInfo.securityType,
-                mWifiInfo.password, mWifiInfo.proxyHost, mWifiInfo.proxyPort,
-                mWifiInfo.proxyBypassHosts, mWifiInfo.pacUrl);
+        WifiConfiguration wifiConf =
+                mWifiConfigurationProvider.generateWifiConfiguration(mProvisioningParams.wifiInfo);
 
-        if (netId == -1) {
-            ProvisionLogger.loge("Failed to save network.");
-            if (mRetriesLeft > 0) {
-                ProvisionLogger.loge("Retrying in " + mDurationNextSleep + " ms.");
-                try {
-                    Thread.sleep(mDurationNextSleep);
-                } catch (InterruptedException e) {
-                    ProvisionLogger.loge("Retry interrupted.");
-                }
-                mDurationNextSleep *= RETRY_SLEEP_MULTIPLIER;
-                mRetriesLeft--;
-                connectToProvidedNetwork();
-                return;
-            } else {
-                ProvisionLogger.loge("Already retried " +  MAX_RETRIES + " times."
-                        + " Quit retrying and report error.");
-                error(0);
-                return;
-            }
+        if (wifiConf == null) {
+            ProvisionLogger.loge("WifiConfiguration is null");
+            error(0);
+            return;
         }
+
+        int netId = tryAddingNetwork(wifiConf);
+        if (netId == -1) {
+            ProvisionLogger.loge("Unable to add network after trying " +  MAX_RETRIES + " times.");
+            error(0);
+            return;
+        }
+
+        // Setting disableOthers to 'true' should trigger a connection attempt.
+        mWifiManager.enableNetwork(netId, true);
+        mWifiManager.saveConfiguration();
 
         // Network was successfully saved, now connect to it.
         if (!mWifiManager.reconnect()) {
@@ -135,59 +135,61 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
 
         // NetworkMonitor will call onNetworkConnected when in Wifi mode.
         // Post time out event in case the NetworkMonitor doesn't call back.
-        mHandler.postDelayed(new Runnable() {
-                public void run(){
-                    synchronized(this) {
-                        if (mTaskDone) return;
-                        mTaskDone = true;
-                    }
-                    ProvisionLogger.loge("Setting up wifi connection timed out.");
-                    error(0);
-                    return;
-                }
-            }, RECONNECT_TIMEOUT_MS);
+        mTimeoutRunnable = () -> finishTask(false);
+        mHandler.postDelayed(mTimeoutRunnable, RECONNECT_TIMEOUT_MS);
+    }
+
+    private int tryAddingNetwork(WifiConfiguration wifiConf) {
+        int netId = mWifiManager.addNetwork(wifiConf);
+        int retriesLeft = MAX_RETRIES;
+        int durationNextSleep = RETRY_SLEEP_DURATION_BASE_MS;
+
+        while(netId == -1 && retriesLeft > 0) {
+            ProvisionLogger.loge("Retrying in " + durationNextSleep + " ms.");
+            try {
+                Thread.sleep(durationNextSleep);
+            } catch (InterruptedException e) {
+                ProvisionLogger.loge("Retry interrupted.");
+            }
+            durationNextSleep *= RETRY_SLEEP_MULTIPLIER;
+            retriesLeft--;
+            netId = mWifiManager.addNetwork(wifiConf);
+        }
+        return netId;
     }
 
     private boolean enableWifi() {
-        return mWifiManager != null
-                && (mWifiManager.isWifiEnabled() || mWifiManager.setWifiEnabled(true));
+        return mWifiManager.isWifiEnabled() || mWifiManager.setWifiEnabled(true);
     }
 
     @Override
     public void onNetworkConnected() {
         if (isConnectedToSpecifiedWifi()) {
-            synchronized(this) {
-                if (mTaskDone) return;
-                mTaskDone = true;
-            }
-
             ProvisionLogger.logd("Connected to the correct network");
-
+            finishTask(true);
             // Remove time out callback.
-            mHandler.removeCallbacksAndMessages(null);
-
-            cleanUp();
-            success();
-            return;
+            mHandler.removeCallbacks(mTimeoutRunnable);
         }
     }
 
-    @Override
-    public void onNetworkDisconnected() {
+    private synchronized void finishTask(boolean isSuccess) {
+        if (mTaskDone) {
+            return;
+        }
 
-    }
-
-    public void cleanUp() {
-        if (mNetworkMonitor != null) {
-            mNetworkMonitor.close();
-            mNetworkMonitor = null;
+        mTaskDone = true;
+        mNetworkMonitor.stopListening();
+        if (isSuccess) {
+            success();
+        } else {
+            error(0);
         }
     }
 
     private boolean isConnectedToSpecifiedWifi() {
         return mUtils.isConnectedToWifi(mContext)
-                && mWifiManager != null
                 && mWifiManager.getConnectionInfo() != null
-                && mWifiInfo.ssid.equals(mWifiManager.getConnectionInfo().getSSID());
+                && mProvisioningParams.wifiInfo.ssid.equals(
+                        mWifiManager.getConnectionInfo().getSSID());
     }
 }

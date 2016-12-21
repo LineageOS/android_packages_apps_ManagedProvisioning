@@ -1,5 +1,5 @@
 /*
- * Copyright 2014, The Android Open Source Project
+ * Copyright 2016, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,95 +14,63 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.task;
+package com.android.managedprovisioning.task.wifi;
 
-import android.net.ProxyInfo;
 import android.net.IpConfiguration.ProxySettings;
+import android.net.ProxyInfo;
 import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.common.ProvisionLogger;
-
-import java.util.Locale;
+import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.model.WifiInfo;
 
 /**
- * Utility class for configuring a new WiFi network.
+ * Utility class for configuring a new {@link WifiConfiguration} object from the provisioning
+ * parameters represented via {@link WifiInfo}.
  */
-public class WifiConfig {
+public class WifiConfigurationProvider {
 
-    private final WifiManager mWifiManager;
-
-    enum SecurityType {
-        NONE,
-        WPA,
-        WEP;
-    }
-
-    public WifiConfig(WifiManager manager) {
-        mWifiManager = manager;
-    }
+    @VisibleForTesting
+    static final String WPA = "WPA";
+    @VisibleForTesting
+    static final String WEP = "WEP";
+    @VisibleForTesting
+    static final String NONE = "NONE";
 
     /**
-     * Adds a new WiFi network.
-     *
-     * @return the ID of the newly created network description. Returns -1 on failure.
+     * Create a {@link WifiConfiguration} object from the internal representation given via
+     * {@link WifiInfo}.
      */
-    public int addNetwork(String ssid, boolean hidden, String type, String password,
-            String proxyHost, int proxyPort, String proxyBypassHosts, String pacUrl) {
-        if (!mWifiManager.isWifiEnabled()) {
-            mWifiManager.setWifiEnabled(true);
-        }
-
+    public WifiConfiguration generateWifiConfiguration(WifiInfo wifiInfo) {
         WifiConfiguration wifiConf = new WifiConfiguration();
-        SecurityType securityType;
-        if (type == null || TextUtils.isEmpty(type)) {
-            securityType = SecurityType.NONE;
-        } else {
-            try {
-                securityType = Enum.valueOf(SecurityType.class, type.toUpperCase(Locale.US));
-            } catch (IllegalArgumentException e) {
-                ProvisionLogger.loge("Invalid Wifi security type: " + type);
-                return -1;
-            }
-        }
-        // If we have a password, and no security type, assume WPA.
-        // TODO: Remove this when the programmer supports it.
-        if (securityType.equals(SecurityType.NONE) && !TextUtils.isEmpty(password)) {
-            securityType = SecurityType.WPA;
-        }
-
-        wifiConf.SSID = ssid;
+        wifiConf.SSID = wifiInfo.ssid;
         wifiConf.status = WifiConfiguration.Status.ENABLED;
-        wifiConf.hiddenSSID = hidden;
+        wifiConf.hiddenSSID = wifiInfo.hidden;
         wifiConf.userApproved = WifiConfiguration.USER_APPROVED;
+        String securityType = wifiInfo.securityType != null ? wifiInfo.securityType : NONE;
         switch (securityType) {
-            case NONE:
+            case WPA:
+                updateForWPAConfiguration(wifiConf, wifiInfo.password);
+                break;
+            case WEP:
+                updateForWEPConfiguration(wifiConf, wifiInfo.password);
+                break;
+            default: // NONE
                 wifiConf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
                 wifiConf.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
                 break;
-            case WPA:
-                updateForWPAConfiguration(wifiConf, password);
-                break;
-            case WEP:
-                updateForWEPConfiguration(wifiConf, password);
-                break;
         }
 
-        updateForProxy(wifiConf, proxyHost, proxyPort, proxyBypassHosts, pacUrl);
-
-        int netId = mWifiManager.addNetwork(wifiConf);
-
-        if (netId != -1) {
-            // Setting disableOthers to 'true' should trigger a connection attempt.
-            mWifiManager.enableNetwork(netId, true);
-            mWifiManager.saveConfiguration();
-        }
-
-        return netId;
+        updateForProxy(
+                wifiConf,
+                wifiInfo.proxyHost,
+                wifiInfo.proxyPort,
+                wifiInfo.proxyBypassHosts,
+                wifiInfo.pacUrl);
+        return wifiConf;
     }
 
-    protected void updateForWPAConfiguration(WifiConfiguration wifiConf, String wifiPassword) {
+    private void updateForWPAConfiguration(WifiConfiguration wifiConf, String wifiPassword) {
         wifiConf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
         wifiConf.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
         wifiConf.allowedProtocols.set(WifiConfiguration.Protocol.WPA); // For WPA
@@ -116,7 +84,7 @@ public class WifiConfig {
         }
     }
 
-    protected void updateForWEPConfiguration(WifiConfiguration wifiConf, String password) {
+    private void updateForWEPConfiguration(WifiConfiguration wifiConf, String password) {
         wifiConf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
         wifiConf.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
         wifiConf.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.SHARED);
