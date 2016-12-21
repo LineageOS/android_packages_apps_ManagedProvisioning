@@ -66,7 +66,7 @@ import org.xmlpull.v1.XmlSerializer;
 /**
  * Provisioning parameters for Device Owner and Profile Owner provisioning.
  */
-public final class ProvisioningParams implements PersistableBundlable {
+public final class ProvisioningParams extends PersistableBundlable {
     public static final long DEFAULT_LOCAL_TIME = -1;
     public static final Integer DEFAULT_MAIN_COLOR = null;
     public static final boolean DEFAULT_STARTED_BY_TRUSTED_SOURCE = false;
@@ -299,11 +299,6 @@ public final class ProvisioningParams implements PersistableBundlable {
         builder.setKeepAccountMigrated(bundle.getBoolean(
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
         return builder;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return PersistableBundlable.isPersistableBundlableEquals(this, o);
     }
 
     @Override

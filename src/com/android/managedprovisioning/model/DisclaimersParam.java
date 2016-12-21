@@ -28,8 +28,7 @@ import java.io.IOException;
  * Stores disclaimers information.
  */
 @Immutable
-public class DisclaimersParam implements PersistableBundlable {
-    // Keys for storing into PersistableBundle
+public class DisclaimersParam extends PersistableBundlable {
     private static final String HEADER_KEY = "HEADER_KEY";
     private static final String CONTENT_PATH_KEY = "CONTENT_PATH_KEY";
 
@@ -98,11 +97,6 @@ public class DisclaimersParam implements PersistableBundlable {
             bundle.putStringArray(CONTENT_PATH_KEY, contentPaths);
         }
         return bundle;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return PersistableBundlable.isPersistableBundlableEquals(this, o);
     }
 
     @Immutable

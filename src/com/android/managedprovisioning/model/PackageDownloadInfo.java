@@ -42,7 +42,7 @@ import org.xmlpull.v1.XmlSerializer;
  * Stores the device admin package download information.
  */
 @Immutable
-public final class PackageDownloadInfo implements PersistableBundlable {
+public final class PackageDownloadInfo extends PersistableBundlable {
     public static final byte[] DEFAULT_PACKAGE_CHECKSUM = new byte[0];
     public static final byte[] DEFAULT_SIGNATURE_CHECKSUM = new byte[0];
     public static final boolean DEFAULT_PACKAGE_CHECKSUM_SUPPORTS_SHA1 = false;
@@ -150,11 +150,6 @@ public final class PackageDownloadInfo implements PersistableBundlable {
         bundle.putBoolean(TAG_PROVISIONING_DEVICE_ADMIN_SUPPORT_SHA1_PACKAGE_CHECKSUM,
                 packageChecksumSupportsSha1);
         return bundle;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return PersistableBundlable.isPersistableBundlableEquals(this, o);
     }
 
     public final static class Builder {

@@ -45,7 +45,7 @@ import org.xmlpull.v1.XmlSerializer;
  * Stores the WiFi configuration which is used in managed provisioning.
  */
 @Immutable
-public final class WifiInfo implements PersistableBundlable {
+public final class WifiInfo extends PersistableBundlable {
     public static final boolean DEFAULT_WIFI_HIDDEN = false;
     public static final int DEFAULT_WIFI_PROXY_PORT = 0;
 
@@ -137,11 +137,6 @@ public final class WifiInfo implements PersistableBundlable {
         if (TextUtils.isEmpty(ssid)) {
             throw new IllegalArgumentException("Ssid must not be empty!");
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return PersistableBundlable.isPersistableBundlableEquals(this, o);
     }
 
     public final static class Builder {

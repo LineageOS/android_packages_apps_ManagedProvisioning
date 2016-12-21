@@ -15,23 +15,51 @@
  */
 package com.android.managedprovisioning.common;
 
+import static java.lang.String.CASE_INSENSITIVE_ORDER;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
-
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public interface PersistableBundlable extends Parcelable {
-    @NonNull PersistableBundle toPersistableBundle();
+public abstract class PersistableBundlable implements Parcelable {
+    public abstract @NonNull PersistableBundle toPersistableBundle();
 
-    static PersistableBundle getPersistableBundleFromParcel(Parcel parcel) {
+    public static PersistableBundle getPersistableBundleFromParcel(Parcel parcel) {
         return parcel.readParcelable(PersistableBundle.class.getClassLoader());
     }
 
-    static boolean isPersistableBundlableEquals(PersistableBundlable pb1, Object obj) {
+    @Override
+    public boolean equals(Object object) {
+        return isPersistableBundlableEquals(this, object);
+    }
+
+    @Override
+    public int hashCode() {
+        // Concatenated sorted keys should be good enough as a hash
+        List<String> keys = new ArrayList(toPersistableBundle().keySet());
+        Collections.sort(keys, CASE_INSENSITIVE_ORDER);
+        return TextUtils.join(",", keys).hashCode();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(toPersistableBundle(), flags);
+    }
+
+    private static boolean isPersistableBundlableEquals(PersistableBundlable pb1, Object obj) {
         if (pb1 == obj) {
             return true;
         }
@@ -47,7 +75,7 @@ public interface PersistableBundlable extends Parcelable {
     /**
      * Compares two {@link PersistableBundle} objects are equals.
      */
-    static boolean isPersistableBundleEquals(PersistableBundle obj1, PersistableBundle obj2) {
+    private static boolean isPersistableBundleEquals(PersistableBundle obj1, PersistableBundle obj2) {
         if (obj1 == obj2) {
             return true;
         }
@@ -70,7 +98,7 @@ public interface PersistableBundlable extends Parcelable {
      *
      * <p>If the type isn't supported. The equality is done by {@link Object#equals(Object)}.
      */
-    static boolean isPersistableBundleSupportedValueEquals(Object val1, Object val2) {
+    private static boolean isPersistableBundleSupportedValueEquals(Object val1, Object val2) {
         if (val1 == val2) {
             return true;
         } else if (val1 == null || val2 == null || !val1.getClass().equals(val2.getClass())) {
@@ -92,13 +120,4 @@ public interface PersistableBundlable extends Parcelable {
         }
     }
 
-    @Override
-    default int describeContents() {
-        return 0;
-    }
-
-    @Override
-    default void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(toPersistableBundle(), flags);
-    }
 }
