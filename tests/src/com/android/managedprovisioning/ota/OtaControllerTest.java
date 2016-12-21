@@ -21,6 +21,7 @@ import static org.junit.Assert.fail;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import android.app.admin.DevicePolicyManager;
@@ -35,6 +36,7 @@ import android.support.test.filters.SmallTest;
 import android.util.Pair;
 
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
+import com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
@@ -64,6 +66,7 @@ public class OtaControllerTest {
     @Mock private DevicePolicyManager mDevicePolicyManager;
     @Mock private PackageManager mPackageManager;
     @Mock private UserManager mUserManager;
+    @Mock private CrossProfileIntentFiltersSetter mCrossProfileIntentFiltersSetter;
 
     private TaskExecutor mTaskExecutor;
     private OtaController mController;
@@ -88,7 +91,7 @@ public class OtaControllerTest {
         when(mUserManager.getProfiles(UserHandle.USER_SYSTEM)).thenReturn(mProfiles);
 
         mTaskExecutor = new FakeTaskExecutor(mContext);
-        mController = new OtaController(mContext, mTaskExecutor);
+        mController = new OtaController(mContext, mTaskExecutor, mCrossProfileIntentFiltersSetter);
 
         addSystemUser();
     }
@@ -105,6 +108,9 @@ public class OtaControllerTest {
         assertTaskList(
                 Pair.create(UserHandle.USER_SYSTEM, DeleteNonRequiredAppsTask.class),
                 Pair.create(UserHandle.USER_SYSTEM, DisallowAddUserTask.class));
+
+        // THEN cross profile intent filters setter should be invoked for system user
+        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
     }
 
     @Test
@@ -121,8 +127,9 @@ public class OtaControllerTest {
                 Pair.create(DEVICE_OWNER_USER_ID, DeleteNonRequiredAppsTask.class),
                 Pair.create(DEVICE_OWNER_USER_ID, DisallowAddUserTask.class));
 
-        // THEN no cross profile intent filters should be reset
-        verify(mPackageManager, never()).clearCrossProfileIntentFilters(anyInt());
+        // THEN cross profile intent filters setter should be invoked for both users
+        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
+        verify(mCrossProfileIntentFiltersSetter).resetFilters(DEVICE_OWNER_USER_ID);
     }
 
     @Test
@@ -141,7 +148,8 @@ public class OtaControllerTest {
                 Pair.create(MANAGED_PROFILE_USER_ID, DeleteNonRequiredAppsTask.class));
 
         // THEN the cross profile intent filters should be reset
-        verify(mPackageManager).clearCrossProfileIntentFilters(UserHandle.USER_SYSTEM);
+        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
+        verify(mCrossProfileIntentFiltersSetter, never()).resetFilters(MANAGED_PROFILE_USER_ID);
 
         // THEN the DISALLOW_WALLPAPER restriction should be set
         verify(mUserManager).setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,

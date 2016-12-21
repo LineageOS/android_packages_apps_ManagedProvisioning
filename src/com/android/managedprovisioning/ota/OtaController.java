@@ -37,8 +37,6 @@ import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 
-import java.util.List;
-
 /**
  * After a system update, this class resets the cross-profile intent filters and performs any
  * tasks necessary to bring the system up to date.
@@ -49,24 +47,25 @@ public class OtaController {
 
     private final Context mContext;
     private final TaskExecutor mTaskExecutor;
+    private final CrossProfileIntentFiltersSetter mCrossProfileIntentFiltersSetter;
 
     private final UserManager mUserManager;
-    private final PackageManager mPackageManager;
     private final DevicePolicyManager mDevicePolicyManager;
 
     public OtaController(Context context) {
-        this(context, new TaskExecutor(context));
+        this(context, new TaskExecutor(context), new CrossProfileIntentFiltersSetter(context));
     }
 
     @VisibleForTesting
-    OtaController(Context context, TaskExecutor taskExecutor) {
+    OtaController(Context context, TaskExecutor taskExecutor,
+            CrossProfileIntentFiltersSetter crossProfileIntentFiltersSetter) {
         mContext = checkNotNull(context);
         mTaskExecutor = checkNotNull(taskExecutor);
+        mCrossProfileIntentFiltersSetter = checkNotNull(crossProfileIntentFiltersSetter);
 
         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
         mDevicePolicyManager = (DevicePolicyManager) context.getSystemService(
                 Context.DEVICE_POLICY_SERVICE);
-        mPackageManager = context.getPackageManager();
     }
 
     public void run() {
@@ -86,31 +85,8 @@ public class OtaController {
             } else {
                 // if this user has managed profiles, reset the cross-profile intent filters between
                 // this user and its managed profiles.
-                resetCrossProfileIntentFilters(userInfo.id);
+                mCrossProfileIntentFiltersSetter.resetFilters(userInfo.id);
             }
-        }
-    }
-
-    /**
-     * Reset the cross profile intent filters between userId and all of its managed profiles if any.
-     */
-    // TODO: Move this into CrossProfileIntentFiltersSetter
-    private void resetCrossProfileIntentFilters(int userId) {
-        List<UserInfo> profiles = mUserManager.getProfiles(userId);
-        if (profiles.size() <= 1) {
-            return;
-        }
-
-        // Removes cross profile intent filters from the parent to all the managed profiles.
-        mPackageManager.clearCrossProfileIntentFilters(userId);
-
-        // For each managed profile reset cross profile intent filters
-        for (UserInfo profile : profiles) {
-            if (!profile.isManagedProfile()) {
-                continue;
-            }
-            mPackageManager.clearCrossProfileIntentFilters(profile.id);
-            CrossProfileIntentFiltersSetter.setFilters(mPackageManager, userId, profile.id);
         }
     }
 

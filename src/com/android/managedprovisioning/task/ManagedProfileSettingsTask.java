@@ -34,22 +34,26 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
     static final boolean DEFAULT_CONTACT_REMOTE_SEARCH = true;
 
     private final SettingsFacade mSettingsFacade;
+    private final CrossProfileIntentFiltersSetter mCrossProfileIntentFiltersSetter;
 
     public ManagedProfileSettingsTask(
             Context context,
             ProvisioningParams params,
             Callback callback) {
-        this(new SettingsFacade(), context, params, callback);
+        this(new SettingsFacade(), new CrossProfileIntentFiltersSetter(context), context, params,
+                callback);
     }
 
     @VisibleForTesting
     ManagedProfileSettingsTask(
             SettingsFacade settingsFacade,
+            CrossProfileIntentFiltersSetter crossProfileIntentFiltersSetter,
             Context context,
             ProvisioningParams params,
             Callback callback) {
         super(context, params, callback);
         mSettingsFacade = checkNotNull(settingsFacade);
+        mCrossProfileIntentFiltersSetter = checkNotNull(crossProfileIntentFiltersSetter);
     }
 
     @Override
@@ -69,8 +73,7 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
             dpm.setOrganizationColorForUser(mProvisioningParams.mainColor, userId);
         }
 
-        CrossProfileIntentFiltersSetter.setFilters(
-                mContext.getPackageManager(), UserHandle.myUserId(), userId);
+        mCrossProfileIntentFiltersSetter.setFilters(UserHandle.myUserId(), userId);
 
         // always mark managed profile setup as completed
         mSettingsFacade.setUserSetupCompleted(mContext, userId);

@@ -18,10 +18,8 @@ package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static com.android.managedprovisioning.task.ManagedProfileSettingsTask.DEFAULT_CONTACT_REMOTE_SEARCH;
-import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -30,7 +28,6 @@ import static org.mockito.Mockito.when;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.UserManager;
@@ -69,6 +66,7 @@ public class ManagedProfileSettingsTaskTest {
     @Mock private PackageManager mPackageManager;
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private SettingsFacade mSettingsFacade;
+    @Mock private CrossProfileIntentFiltersSetter mCrossProfileIntentFiltersSetter;
     private ManagedProfileSettingsTask mTask;
 
     @Before
@@ -85,8 +83,8 @@ public class ManagedProfileSettingsTaskTest {
     @Test
     public void testNoMainColor() {
         // GIVEN that no main color was passed in the parameter
-        mTask = new ManagedProfileSettingsTask(mSettingsFacade, mContext, NO_COLOR_PARAMS,
-                mCallback);
+        mTask = new ManagedProfileSettingsTask(mSettingsFacade, mCrossProfileIntentFiltersSetter,
+                mContext, NO_COLOR_PARAMS, mCallback);
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
@@ -105,18 +103,14 @@ public class ManagedProfileSettingsTaskTest {
                 DEFAULT_CONTACT_REMOTE_SEARCH, TEST_USER_ID);
 
         // THEN cross profile intent filters are set
-        verify(mPackageManager, atLeastOnce()).addCrossProfileIntentFilter(
-                any(IntentFilter.class),
-                eq(TEST_USER_ID),
-                anyInt(),
-                anyInt());
+        verify(mCrossProfileIntentFiltersSetter).setFilters(anyInt(), eq(TEST_USER_ID));
     }
 
     @Test
     public void testMainColor() {
         // GIVEN that a main color was passed in the parameter
-        mTask = new ManagedProfileSettingsTask(mSettingsFacade, mContext, COLOR_PARAMS,
-                mCallback);
+        mTask = new ManagedProfileSettingsTask(mSettingsFacade, mCrossProfileIntentFiltersSetter,
+                mContext, COLOR_PARAMS, mCallback);
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
@@ -134,10 +128,6 @@ public class ManagedProfileSettingsTaskTest {
                 DEFAULT_CONTACT_REMOTE_SEARCH, TEST_USER_ID);
 
         // THEN cross profile intent filters are set
-        verify(mPackageManager, atLeastOnce()).addCrossProfileIntentFilter(
-                any(IntentFilter.class),
-                eq(TEST_USER_ID),
-                anyInt(),
-                anyInt());
+        verify(mCrossProfileIntentFiltersSetter).setFilters(anyInt(), eq(TEST_USER_ID));
     }
 }
