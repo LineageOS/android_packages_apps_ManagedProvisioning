@@ -39,7 +39,7 @@
     <string name="terms" msgid="8295436105384703903">"Պայմաններ"</string>
     <string name="terms_intro" msgid="2626943728063219232">"Նոր աշխատանքային պրոֆիլը թույլ է տալիս տարանջատել ձեր անձնական և աշխատանքային տվյալները:\nՀետևյալ պայմանները կիրառվում են ձեր աշխատանքային պրոֆիլի նկատմամբ:"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Աշխատանքային պրոֆիլ"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Առաջնային օգտվող"</string>
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Առաջնային օգտատեր"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Հեռացնե՞լ աշխատանքային պրոֆիլը:"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Արդեն գոյություն ունի աշխատանքային պրոֆիլ: Կառավարիչ՝"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Այս աշխատանքային պրոֆիլը %s-ի համար կառավարվում է այս հավելվածի օգնությամբ՝"</string>
@@ -54,13 +54,13 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Հպեք՝ ձեր աշխատանքային պրոֆիլի կարգավորումը շարունակելու համար"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Չհաջողվեց ստեղծել ձեր աշխատանքը պրոֆիլը: Դիմեք ձեր տեխնիկական սպասարկման բաժին կամ փորձեք մի փոքր ուշ:"</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Ձեր սարքը չի աջակցում աշխատանքային պրոֆիլներ"</string>
-    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Այս օգտվողը չի կարող աշխատանքային պրոֆիլ ունենալ"</string>
+    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Այս օգտատերը չի կարող աշխատանքային պրոֆիլ ունենալ"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Հնարավոր չէ կարգավորել աշխատանքային պրոֆիլները կառավարվող սարքի վրա"</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Հնարավոր չէ ստեղծել աշխատանքային պրոֆիլ, քանի որ ձեր սարքում օգտվողների առավելագույն քանակն արդեն լրացել է: Հեռացրեք առնվազն մեկ օգտվող, ապա նորից փորձեք:"</string>
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Հնարավոր չէ ստեղծել աշխատանքային պրոֆիլ, քանի որ ձեր սարքում օգտատերների առավելագույն քանակն արդեն լրացել է: Հեռացրեք առնվազն մեկ օգտատեր, ապա նորից փորձեք:"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ձեր պրոֆիլը չի աջակցվում այս գործարկչի կողմից: Դուք պետք է փոխարկեք դեպի որևէ աջակցող գործարկիչ:"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Չեղարկել"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Լավ"</string>
-    <string name="user_setup_incomplete" msgid="6494920045526591079">"Օգտվողի կարգավորումն անավարտ է"</string>
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"Օգտատիրոջ կարգավորումն անավարտ է"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Աշխատանքային սարքի օգտագործող"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"Աշխատանքային սարքի կարգավորում"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Տեղադրման տվյալների մշակում…"</string>
@@ -95,7 +95,7 @@
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Շարունակել"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Դադարեցնել"</string>
     <string name="profile_owner_short_info" msgid="4880192378938092137">"Կստեղծվի նոր աշխատանքային պրոֆիլ: Ձեր կազմակերպությունը կկառավարի միայն այդ պրոֆիլի հավելվածները և տվյալները:"</string>
-    <string name="device_owner_short_info" msgid="6788746308703120308">"Այս սարքը կկառավարվի ձեր ընկերության կողմից: Ձեր կազմակերպությունը կապահովի սարքի վերահսկողությունը և անվտանգությունը: <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
+    <string name="device_owner_short_info" msgid="6788746308703120308">"Այս սարքը կկառավարվի ձեր ընկերության կողմից: Ձեր կազմակերպությունը կվերահսկի սարքը և կապահովի նրա անվտանգությունը: <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"Դիտել պայմանները"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"Ընդունել և շարունակել"</string>
     <string name="close" msgid="7208600934846389439">"Փակել"</string>
