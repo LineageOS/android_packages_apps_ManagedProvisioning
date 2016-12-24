@@ -144,6 +144,7 @@
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <string name="copying_certs">Configurando certificaos CA</string>
   <!-- Accessibility Descriptions -->
+  <skip></skip>
   <!-- Accessibility description for the profile setup screen showing organization info. [CHAR LIMIT=NONE] -->
   <string name="setup_profile_start_setup">Configura\'l to perfil. Aniciu</string>
   <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
