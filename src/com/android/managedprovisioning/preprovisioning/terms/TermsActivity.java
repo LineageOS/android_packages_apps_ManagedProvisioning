@@ -20,12 +20,14 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 import android.widget.Toolbar;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam.Disclaimer;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,15 @@ public class TermsActivity extends SetupLayoutActivity {
                 new TermsListAdapter(terms, getLayoutInflater(), container::isGroupExpanded));
         container.addHeaderView(
                 getLayoutInflater().inflate(R.layout.terms_screen_header, container, false));
+
+        // keep at most one group expanded at a time
+        container.setOnGroupExpandListener((int groupPosition) -> {
+            for (int i = 0; i < terms.size(); i++) {
+                if (i != groupPosition && container.isGroupExpanded(i)) {
+                    container.collapseGroup(i);
+                }
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
