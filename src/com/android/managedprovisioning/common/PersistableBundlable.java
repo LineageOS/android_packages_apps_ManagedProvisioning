@@ -15,8 +15,6 @@
  */
 package com.android.managedprovisioning.common;
 
-import static java.lang.String.CASE_INSENSITIVE_ORDER;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
@@ -45,7 +43,7 @@ public abstract class PersistableBundlable implements Parcelable {
     public int hashCode() {
         // Concatenated sorted keys should be good enough as a hash
         List<String> keys = new ArrayList(toPersistableBundle().keySet());
-        Collections.sort(keys, CASE_INSENSITIVE_ORDER);
+        Collections.sort(keys);
         return TextUtils.join(",", keys).hashCode();
     }
 
