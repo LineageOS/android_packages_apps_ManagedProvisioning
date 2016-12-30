@@ -132,7 +132,7 @@ public class DisclaimersParserTest {
         assertEquals(disclaimers.mDisclaimers.length, 1);
         assertEquals(disclaimers.mDisclaimers[0].mHeader, DISCLAIMER_HEADER_1);
         assertEquals(disclaimers.mDisclaimers[0].mContentFilePath, DISCLAIMER_FILE_DEST_1);
-        assertEquals(disclaimers.mDisclaimers[0].getDisclaimerContentString(),
+        assertEquals(getDisclaimerContentString(disclaimers.mDisclaimers[0]),
                 DISCLAIMER_CONTENT_1);
     }
 
@@ -156,16 +156,21 @@ public class DisclaimersParserTest {
         assertEquals(disclaimers.mDisclaimers.length, 3);
         assertEquals(disclaimers.mDisclaimers[0].mHeader, DISCLAIMER_HEADER_1);
         assertEquals(disclaimers.mDisclaimers[0].mContentFilePath, DISCLAIMER_FILE_DEST_1);
-        assertEquals(disclaimers.mDisclaimers[0].getDisclaimerContentString(),
+        assertEquals(getDisclaimerContentString(disclaimers.mDisclaimers[0]),
                 DISCLAIMER_CONTENT_1);
         assertEquals(disclaimers.mDisclaimers[1].mHeader, DISCLAIMER_HEADER_2);
         assertEquals(disclaimers.mDisclaimers[1].mContentFilePath, DISCLAIMER_FILE_DEST_2);
-        assertEquals(disclaimers.mDisclaimers[1].getDisclaimerContentString(),
+        assertEquals(getDisclaimerContentString(disclaimers.mDisclaimers[1]),
                 DISCLAIMER_CONTENT_2);
         assertEquals(disclaimers.mDisclaimers[2].mHeader, DISCLAIMER_HEADER_3);
         assertEquals(disclaimers.mDisclaimers[2].mContentFilePath, DISCLAIMER_FILE_DEST_3);
-        assertEquals(disclaimers.mDisclaimers[2].getDisclaimerContentString(),
+        assertEquals(getDisclaimerContentString(disclaimers.mDisclaimers[2]),
                 DISCLAIMER_CONTENT_3);
+    }
+
+    private String getDisclaimerContentString(DisclaimersParam.Disclaimer disclaimer)
+            throws IOException {
+        return StoreUtils.readString(new File(disclaimer.mContentFilePath));
     }
 
     private static Uri resourceToUri(Context context, int resID) {

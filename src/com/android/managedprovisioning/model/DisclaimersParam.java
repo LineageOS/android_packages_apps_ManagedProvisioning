@@ -107,10 +107,6 @@ public class DisclaimersParam extends PersistableBundlable {
             mHeader = header;
             mContentFilePath = contentFilePath;
         }
-
-        public String getDisclaimerContentString() throws IOException {
-            return StoreUtils.readString(new File(mContentFilePath));
-        }
     }
 
     public final static class Builder {

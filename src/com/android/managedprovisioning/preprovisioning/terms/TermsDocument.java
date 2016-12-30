@@ -24,6 +24,8 @@ import android.text.Spanned;
  * Class responsible for storing disclaimers
  */
 final class TermsDocument {
+    public static final int HTML_MODE = Html.FROM_HTML_MODE_COMPACT;
+
     private final String mHeading;
     private final Spanned mContent;
 
@@ -42,7 +44,7 @@ final class TermsDocument {
      */
     public static TermsDocument fromHtml(String heading, String htmlContent) {
         return new TermsDocument(checkStringNotEmpty(heading),
-                Html.fromHtml(checkStringNotEmpty(htmlContent), Html.FROM_HTML_MODE_COMPACT));
+                Html.fromHtml(checkStringNotEmpty(htmlContent), HTML_MODE));
     }
 
     /**

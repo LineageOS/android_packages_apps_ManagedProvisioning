@@ -200,4 +200,8 @@ public class StoreUtils {
             out.write(buffer, 0, bytesReadCount);
         }
     }
+
+    public interface TextFileReader {
+        String read(File file) throws IOException;
+    }
 }

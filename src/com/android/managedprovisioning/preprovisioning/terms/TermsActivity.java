@@ -18,16 +18,19 @@ package com.android.managedprovisioning.preprovisioning.terms;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.widget.ExpandableListView;
 import android.widget.Toolbar;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
+import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam.Disclaimer;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,17 @@ import java.util.List;
  * Activity responsible for displaying the Terms screen
  */
 public class TermsActivity extends SetupLayoutActivity {
-    private Utils mUtils = new Utils();
+    private final StoreUtils.TextFileReader mTextFileReader;
+
+    public TermsActivity() {
+        this(StoreUtils::readString);
+    }
+
+    @VisibleForTesting
+    TermsActivity(StoreUtils.TextFileReader textFileReader) {
+        super(new Utils());
+        mTextFileReader = textFileReader;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +57,7 @@ public class TermsActivity extends SetupLayoutActivity {
         setContentView(R.layout.terms_screen);
 
         ProvisioningParams params = checkNotNull(
-                getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS)
-        );
+                getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS));
 
         List<TermsDocument> terms = getTerms(params);
 
@@ -84,7 +96,7 @@ public class TermsActivity extends SetupLayoutActivity {
             for (Disclaimer disclaimer : disclaimers) {
                 try {
                     terms.add(TermsDocument.fromHtml(disclaimer.mHeader,
-                            disclaimer.getDisclaimerContentString()));
+                            mTextFileReader.read(new File(disclaimer.mContentFilePath))));
                 } catch (IOException e) {
                     ProvisionLogger.loge("Failed to read disclaimer", e);
                 }
