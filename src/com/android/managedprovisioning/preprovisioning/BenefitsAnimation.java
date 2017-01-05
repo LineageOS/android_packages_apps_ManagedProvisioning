@@ -32,7 +32,7 @@ import com.android.managedprovisioning.R;
 
 /**
  * <p>Drives the animation showing benefits of having a Managed Profile.
- * <p>Tightly coupled with the {@link R.layout#animated_introduction} layout.
+ * <p>Tightly coupled with the {@link R.layout#intro_animation} layout.
  */
 class BenefitsAnimation {
     /** Array of Id pairs: {{@link ObjectAnimator}, {@link TextView}} */
