@@ -18,15 +18,17 @@ package com.android.managedprovisioning.preprovisioning.terms;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
+import static org.hamcrest.core.IsNot.not;
+
 import android.content.ComponentName;
 import android.content.Intent;
 import android.provider.Settings;
+import android.support.test.espresso.ViewAssertion;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
 
@@ -95,7 +97,7 @@ public class TermsActivityTest {
         }
 
         // none of the content is displayed
-        onView(withId(R.id.disclaimer_content)).check(doesNotExist());
+        onView(withId(R.id.disclaimer_content)).check(isNotDisplayed());
 
         // when clicking on one, it expands
         onView(withText(HEADER_1)).perform(click());
@@ -103,17 +105,28 @@ public class TermsActivityTest {
 
         // when clicking on another, it collapses the first one, and expands the other one
         onView(withText(HEADER_3_BOTTOM)).perform(click());
-        onView(withText(CONTENT_1)).check(doesNotExist());
+        onView(withText(CONTENT_1)).check(isNotDisplayed());
         onView(withText(CONTENT_3)).check(matches(isDisplayed()));
 
         // when clicking again on the first one, the last one collapses
         onView(withText(HEADER_1)).perform(click());
-        onView(withText(CONTENT_3)).check(doesNotExist());
+        onView(withText(CONTENT_3)).check(isNotDisplayed());
         onView(withText(CONTENT_1)).check(matches(isDisplayed()));
 
         // check that HTML in disclaimers is respected
         onView(withText("header2")).perform(click());
         onView(withId(R.id.disclaimer_content)).check(matches(withText("item1\nitem2\n")));
+    }
+
+    /**
+     * As long as as the item is not visible to the user, we're happy
+     */
+    private ViewAssertion isNotDisplayed() {
+        return (view, e) -> {
+            if (view != null) {
+                matches(not(isDisplayed()));
+            }
+        };
     }
 
     private Intent createIntent(String provisioningAction,
