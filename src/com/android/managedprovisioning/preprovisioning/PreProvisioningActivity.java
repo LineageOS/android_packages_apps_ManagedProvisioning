@@ -43,16 +43,20 @@ import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
+import com.android.managedprovisioning.common.StringConcatenator;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 import com.android.setupwizardlib.GlifLayout;
 
+import java.util.List;
+
 public class PreProvisioningActivity extends SetupLayoutActivity implements
         SimpleDialog.SimpleDialogListener, PreProvisioningController.Ui {
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
-    @VisibleForTesting protected static final int PROVISIONING_REQUEST_CODE = 2;
+    @VisibleForTesting
+    protected static final int PROVISIONING_REQUEST_CODE = 2;
     private static final int WIFI_REQUEST_CODE = 3;
     private static final int CHANGE_LAUNCHER_REQUEST_CODE = 4;
 
@@ -221,7 +225,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
 
     @Override
     public void initiateUi(int layoutId, int titleId, int mainColorId, String packageName,
-            Drawable packageIcon, boolean isProfileOwnerProvisioning) {
+            Drawable packageIcon, boolean isProfileOwnerProvisioning,
+            @NonNull List<String> termsHeaders) {
         setContentView(layoutId);
 
         Button nextButton = (Button) findViewById(R.id.next_button);
@@ -234,20 +239,28 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         setStatusBarIconColor(false /* set to light */);
         setTitle(titleId);
 
+        String headers = new StringConcatenator(getResources()).join(termsHeaders);
         if (isProfileOwnerProvisioning) {
-            initiateUIProfileOwner();
+            initiateUIProfileOwner(headers);
         } else {
-            initiateUIDeviceOwner(packageName, packageIcon);
+            initiateUIDeviceOwner(packageName, packageIcon, headers);
         }
     }
 
-    private void initiateUIProfileOwner() {
+    private void initiateUIProfileOwner(@NonNull String termsHeaders) {
         // set up the cancel button
         Button cancelButton = (Button) findViewById(R.id.close_button);
         cancelButton.setOnClickListener(v -> {
             ProvisionLogger.logi("Close button (close_button) is clicked.");
             PreProvisioningActivity.this.onBackPressed();
         });
+
+        // set the short info text
+        TextView shortInfo = (TextView) findViewById(R.id.profile_owner_short_info);
+        shortInfo.setText(termsHeaders.isEmpty()
+                ? getString(R.string.profile_owner_short_info)
+                : getResources().getString(R.string.profile_owner_short_info_with_terms_headers,
+                        termsHeaders));
 
         // set up show terms button
         findViewById(R.id.show_terms_button).setOnClickListener(this::onViewTermsClick);
@@ -256,7 +269,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         mBenefitsAnimation = new BenefitsAnimation(this);
     }
 
-    private void initiateUIDeviceOwner(String packageName, Drawable packageIcon) {
+    private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
+            @NonNull String termsHeaders) {
         GlifLayout layout = (GlifLayout) findViewById(R.id.intro_device_owner);
         layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
         layout.setHeaderText(R.string.set_up_your_device);
@@ -265,8 +279,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
 
         // short terms info text with clickable 'view terms' link
         TextView shortInfoText = (TextView) findViewById(R.id.device_owner_short_info);
-        shortInfoText.setText(assembleTermsMessage(R.string.device_owner_short_info,
-                R.string.view_terms, this::onViewTermsClick));
+
+        shortInfoText.setText(assembleDOTermsMessage(this::onViewTermsClick, termsHeaders));
         shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
     }
 
@@ -276,10 +290,14 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         startActivity(intent);
     }
 
-    private Spannable assembleTermsMessage(int messageTextId, int linkTextId,
-            View.OnClickListener viewTermsClickListener) {
-        String linkText = getString(linkTextId);
-        String messageText = getResources().getString(messageTextId, linkText);
+    private Spannable assembleDOTermsMessage(View.OnClickListener viewTermsClickListener,
+            @NonNull String termsHeaders) {
+        String linkText = getString(R.string.view_terms);
+
+        String messageText = termsHeaders.isEmpty()
+                ? getResources().getString(R.string.device_owner_short_info, linkText)
+                : getResources().getString(R.string.device_owner_short_info_with_terms_headers,
+                        termsHeaders, linkText);
 
         Spannable result = new SpannableString(messageText);
         int start = messageText.indexOf(linkText);

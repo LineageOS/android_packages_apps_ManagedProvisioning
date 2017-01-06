@@ -33,6 +33,8 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
+import static java.util.Collections.emptyList;
+
 import android.annotation.NonNull;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
@@ -56,9 +58,11 @@ import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PreProvisioningController {
@@ -143,9 +147,14 @@ public class PreProvisioningController {
          * @param layoutRes resource id for the layout
          * @param titleRes resource id for the title text
          * @param mainColorRes resource id for the main color
+         * @param packageName package name
+         * @param packageIcon package icon
+         * @param isProfileOwnerProvisioning false for Device Owner provisioning
+         * @param termsHeaders list of terms headers
          */
         void initiateUi(int layoutRes, int titleRes, int mainColorRes, String packageName,
-                Drawable packageIcon, boolean isProfileOwnerProvisioning);
+                Drawable packageIcon, boolean isProfileOwnerProvisioning,
+                List<String> termsHeaders);
 
         /**
          * Start provisioning.
@@ -250,10 +259,12 @@ public class PreProvisioningController {
             }
             return;
         }
+
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
             mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                    R.color.gray_status_bar, null, null, isProfileOwnerProvisioning());
+                    R.color.gray_status_bar, null, null, isProfileOwnerProvisioning(),
+                    getDisclaimerHeaders());
         } else {
             String packageName = mParams.inferDeviceAdminPackageName();
             MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
@@ -263,9 +274,27 @@ public class PreProvisioningController {
                     R.color.blue,
                     packageInfo == null ? packageName : packageInfo.appLabel,
                     packageInfo == null ? null : packageInfo.packageIcon,
-                    isProfileOwnerProvisioning()
-            );
+                    isProfileOwnerProvisioning(),
+                    getDisclaimerHeaders());
         }
+    }
+
+    private @NonNull List<String> getDisclaimerHeaders() {
+        DisclaimersParam disclaimersParam = mParams.disclaimersParam;
+        if (disclaimersParam == null) {
+            return emptyList();
+        }
+
+        DisclaimersParam.Disclaimer[] disclaimers = disclaimersParam.mDisclaimers;
+        if (disclaimers == null || disclaimers.length == 0) {
+            return emptyList();
+        }
+
+        List<String> result = new ArrayList<>(disclaimers.length);
+        for (DisclaimersParam.Disclaimer disclaimer : disclaimers) {
+            result.add(disclaimer.mHeader);
+        }
+        return result;
     }
 
     /**

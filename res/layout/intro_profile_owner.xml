@@ -35,12 +35,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/profile_owner_short_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacer_20"
                 android:breakStrategy="balanced"
                 android:gravity="center"
-                android:text="@string/profile_owner_short_info"
                 style="@style/Provisioning2Theme.Text.Secondary"/>
 
             <Button

@@ -16,8 +16,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager
-        .ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
@@ -34,6 +33,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
+
+import static java.util.Collections.emptyList;
 
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
@@ -660,12 +661,12 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     private void verifyInitiateProfileOwnerUi() {
         verify(mUi).initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                R.color.gray_status_bar, null, null, true);
+                R.color.gray_status_bar, null, null, true, emptyList());
     }
 
     private void verifyInitiateDeviceOwnerUi() {
         verify(mUi).initiateUi(eq(R.layout.intro_device_owner),
                 eq(R.string.setup_device_start_setup), eq(R.color.blue), eq(TEST_MDM_PACKAGE_LABEL),
-                any(), eq(false));
+                any(), eq(false), emptyList());
     }
 }
