@@ -19,6 +19,7 @@ package com.android.managedprovisioning.common;
 import android.accounts.Account;
 import android.content.ComponentName;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.net.Uri;
 import android.os.PersistableBundle;
 import android.util.Base64;
@@ -40,9 +41,16 @@ import java.util.function.Function;
 public class StoreUtils {
     public static final String ATTR_VALUE = "value";
 
+    /**
+     * Directory name under parent directory {@link Context#getFilesDir()}
+     * It's directory to cache all files / uri from external provisioning intent.
+     * Files must be prefixed by their own prefixes to avoid collisions.
+     */
+    public static final String DIR_PROVISIONING_PARAMS_FILE_CACHE =
+            "provisioning_params_file_cache";
+
     private static final String ATTR_ACCOUNT_NAME = "account-name";
     private static final String ATTR_ACCOUNT_TYPE = "account-type";
-
 
     /**
      * Reads an account from a {@link PersistableBundle}.
@@ -167,14 +175,14 @@ public class StoreUtils {
      * be created.
      */
     public static boolean copyUriIntoFile(ContentResolver cr, Uri uri, File outputFile) {
-        try (final InputStream in = cr.openInputStream(uri)) {
+        try (final InputStream in = cr.openInputStream(uri)) { // Throws SecurityException
             try (final FileOutputStream out = new FileOutputStream(outputFile)) {
                 copyStream(in, out);
             }
             ProvisionLogger.logi("Successfully copy from uri " + uri + " has been successfully"
                     + " copied to " + outputFile);
             return true;
-        } catch (IOException e) {
+        } catch (IOException | SecurityException e) {
             ProvisionLogger.logi("Could not write file from " + uri + " to "
                     + outputFile, e);
             // If the file was only partly written, delete it.

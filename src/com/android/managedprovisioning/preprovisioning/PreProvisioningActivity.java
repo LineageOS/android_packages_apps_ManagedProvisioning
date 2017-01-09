@@ -224,7 +224,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     }
 
     @Override
-    public void initiateUi(int layoutId, int titleId, int mainColorId, String packageName,
+    public void initiateUi(int layoutId, int titleId, int mainColorId, String packageLabel,
             Drawable packageIcon, boolean isProfileOwnerProvisioning,
             @NonNull List<String> termsHeaders) {
         setContentView(layoutId);
@@ -243,7 +243,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         if (isProfileOwnerProvisioning) {
             initiateUIProfileOwner(headers);
         } else {
-            initiateUIDeviceOwner(packageName, packageIcon, headers);
+            initiateUIDeviceOwner(packageLabel, packageIcon, headers);
         }
     }
 
