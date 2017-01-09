@@ -108,6 +108,10 @@ public class TermsActivityTest {
         onView(withText(CONTENT_1)).check(isNotDisplayed());
         onView(withText(CONTENT_3)).check(matches(isDisplayed()));
 
+        // TODO: replace with a proper fix; all attempts failed so far
+        // Not tried yet: https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/
+        Thread.sleep(500);
+
         // when clicking again on the first one, the last one collapses
         onView(withText(HEADER_1)).perform(click());
         onView(withText(CONTENT_3)).check(isNotDisplayed());
