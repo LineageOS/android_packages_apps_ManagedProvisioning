@@ -667,6 +667,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private void verifyInitiateDeviceOwnerUi() {
         verify(mUi).initiateUi(eq(R.layout.intro_device_owner),
                 eq(R.string.setup_device_start_setup), eq(R.color.blue), eq(TEST_MDM_PACKAGE_LABEL),
-                any(), eq(false), emptyList());
+                any(), eq(false), eq(emptyList()));
     }
 }
