@@ -24,6 +24,7 @@ import static java.util.Collections.singletonList;
 
 import android.content.res.Resources;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SmallTest;
 
 import org.junit.After;
 import org.junit.Before;
@@ -32,6 +33,8 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Locale;
 
+
+@SmallTest
 public class StringConcatenatorTest {
     private StringConcatenator mInstance;
     private LocaleTestUtils mLocaleTestUtils;
