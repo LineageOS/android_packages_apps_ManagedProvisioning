@@ -16,19 +16,21 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
-import static com.android.internal.logging.nano.MetricsProto.MetricsEvent
-        .PROVISIONING_WEB_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnLongClickListener;
+import android.support.annotation.Nullable;
+import android.webkit.URLUtil;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -42,56 +44,52 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
  * <p>This activity is considered for using by
  * {@link TermsActivity} to display the support web pages
  * about provisioning concepts.
- *
- * TODO: remove if not used by 2017-Jan-27 -- http://b/33811446
  */
 public class WebActivity extends Activity {
     private static final String EXTRA_URL = "extra_url";
 
-    // Users can only browse urls starting with the base specified by the following extra.
-    // If this extra is not used, there are no restrictions on browsable urls.
-    private static final String EXTRA_ALLOWED_URL_BASE = "extra_allowed_url_base";
-
     private WebView mWebView;
-    private final SettingsFacade mSettingsFacade = new SettingsFacade();
+    private SettingsFacade mSettingsFacade = new SettingsFacade();
     private TimeLogger mTimeLogger;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mWebView = new WebView(this);
         mTimeLogger = new TimeLogger(this, PROVISIONING_WEB_ACTIVITY_TIME_MS);
 
         final String extraUrl = getIntent().getStringExtra(EXTRA_URL);
-        final String extraAllowedUrlBase = getIntent().getStringExtra(EXTRA_ALLOWED_URL_BASE);
         if (extraUrl == null) {
+            Toast.makeText(this, R.string.url_error, Toast.LENGTH_SHORT).show();
             ProvisionLogger.loge("No url provided to WebActivity.");
             finish();
-            return;
         }
-        mWebView.loadUrl(extraUrl);
+
+        mWebView = new WebView(this);
+        // We need a custom WebViewClient. Without this an external browser will load the URL.
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                String url = request.getUrl().toString();
-                if (extraAllowedUrlBase != null && url.startsWith(extraAllowedUrlBase)) {
+                final String url = request.getUrl().toString();
+                if (URLUtil.isNetworkUrl(url)) {
                     view.loadUrl(url);
-                }
-                return true;
-            }
-        });
-        if (!mSettingsFacade.isUserSetupCompleted(this)) {
-            // User should not be able to escape provisioning if user setup isn't complete.
-            mWebView.setOnLongClickListener(new OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
                     return true;
                 }
-            });
+                return false;
+            }
+        });
+        mWebView.loadUrl(extraUrl);
+        // Enable zoom gesture in web view.
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setJavaScriptEnabled(true); // TODO: review with security http://b/34292506
+        if (!mSettingsFacade.isUserSetupCompleted(this)) {
+            // User should not be able to escape provisioning if user setup isn't complete.
+            mWebView.setOnLongClickListener(v -> true);
         }
         mTimeLogger.start();
-        this.setContentView(mWebView);
+        setContentView(mWebView);
     }
 
     @Override
@@ -100,16 +98,24 @@ public class WebActivity extends Activity {
         super.onDestroy();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     /**
-     * Creates an intent to launch the webactivity.
-     *
+     * Creates an intent to launch the {@link WebActivity}.
      * @param url the url to be shown upon launching this activity
-     * @param allowedUrlBase the limit to all urls allowed to be seen in this webview
      */
-    public static Intent createIntent(Context context, String url, String allowedUrlBase) {
-        Intent intent = new Intent(context, WebActivity.class);
-        intent.putExtra(WebActivity.EXTRA_URL, url);
-        intent.putExtra(WebActivity.EXTRA_ALLOWED_URL_BASE, allowedUrlBase);
-        return intent;
+    @Nullable
+    static Intent createIntent(Context context, String url) {
+        if (URLUtil.isNetworkUrl(url)) {
+            return new Intent(context, WebActivity.class).putExtra(EXTRA_URL, url);
+        }
+        return null;
     }
 }

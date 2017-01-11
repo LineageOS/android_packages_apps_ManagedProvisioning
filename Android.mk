@@ -16,8 +16,6 @@ LOCAL_PRIVILEGED_MODULE := true
 # Packages to be included in code coverage runs. This does not affect production builds.
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.managedprovisioning.*
 
-LOCAL_PROGUARD_FLAG_FILES := proguard.flags
-
 include frameworks/opt/setupwizard/library/common.mk
 
 include $(BUILD_PACKAGE)

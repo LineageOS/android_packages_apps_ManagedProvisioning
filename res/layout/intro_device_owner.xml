@@ -30,21 +30,37 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/device_owner_short_info"
+            android:id="@+id/device_owner_terms_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacer_20"
+            android:layout_marginTop="@dimen/spacer_24"
             style="@style/Provisioning2Theme.Text.Secondary"/>
 
         <TextView
+            android:id="@+id/device_owner_provider_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacer_32"
-            android:layout_marginBottom="@dimen/spacer_8"
-            android:text="@string/the_following_is_your_mdm_for_device"
+            android:layout_marginTop="@dimen/spacer_24"
+            android:visibility="gone"
             style="@style/Provisioning2Theme.Text.Secondary"/>
 
-        <include layout="@layout/device_manager_icon_label"/>
+        <LinearLayout
+            android:id="@+id/intro_device_owner_app_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/device_owner_app_info_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacer_24"
+                android:layout_marginBottom="@dimen/spacer_12"
+                style="@style/Provisioning2Theme.Text.Secondary"/>
+
+            <include layout="@layout/device_manager_icon_label"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/next_button"

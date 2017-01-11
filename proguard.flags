@@ -1,2 +1,0 @@
-# TODO: remove if not used by 2017-Jan-27 -- http://b/33811446
--keep class com.android.managedprovisioning.preprovisioning.WebActivity { *; }

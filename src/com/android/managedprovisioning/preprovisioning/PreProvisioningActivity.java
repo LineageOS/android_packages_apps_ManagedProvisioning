@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import android.annotation.NonNull;
+import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.ComponentName;
@@ -29,6 +30,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.SoundEffectConstants;
@@ -229,7 +231,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     @Override
     public void initiateUi(int layoutId, int titleId, int mainColorId, String packageLabel,
             Drawable packageIcon, boolean isProfileOwnerProvisioning,
-            @NonNull List<String> termsHeaders) {
+            @NonNull List<String> termsHeaders, String orgName, @Nullable String supportUrl) {
         setContentView(layoutId);
 
         Button nextButton = (Button) findViewById(R.id.next_button);
@@ -246,7 +248,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         if (isProfileOwnerProvisioning) {
             initiateUIProfileOwner(headers);
         } else {
-            initiateUIDeviceOwner(packageLabel, packageIcon, headers);
+            initiateUIDeviceOwner(packageLabel, packageIcon, headers, orgName, supportUrl);
         }
     }
 
@@ -261,8 +263,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         // set the short info text
         TextView shortInfo = (TextView) findViewById(R.id.profile_owner_short_info);
         shortInfo.setText(termsHeaders.isEmpty()
-                ? getString(R.string.profile_owner_short_info)
-                : getResources().getString(R.string.profile_owner_short_info_with_terms_headers,
+                ? getString(R.string.profile_owner_info)
+                : getResources().getString(R.string.profile_owner_info_with_terms_headers,
                         termsHeaders));
 
         // set up show terms button
@@ -273,18 +275,43 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     }
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
-            @NonNull String termsHeaders) {
+            @NonNull String termsHeaders, String orgName, @Nullable String supportUrl) {
         GlifLayout layout = (GlifLayout) findViewById(R.id.intro_device_owner);
         layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
         layout.setHeaderText(R.string.set_up_your_device);
 
-        setMdmIconAndLabel(packageName, packageIcon);
-
         // short terms info text with clickable 'view terms' link
-        TextView shortInfoText = (TextView) findViewById(R.id.device_owner_short_info);
-
-        shortInfoText.setText(assembleDOTermsMessage(this::onViewTermsClick, termsHeaders));
+        TextView shortInfoText = (TextView) findViewById(R.id.device_owner_terms_info);
+        shortInfoText.setText(
+                assembleDOTermsMessage(this::onViewTermsClick, termsHeaders, orgName));
         shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+
+        // if you have any questions, contact your device's provider
+        //
+        // TODO: refactor complex localized string assembly to an abstraction http://b/34288292
+        // there is a bit of copy-paste, and some details easy to forget (e.g. setMovementMethod)
+        if (supportUrl != null) {
+            TextView info = (TextView) findViewById(R.id.device_owner_provider_info);
+            info.setVisibility(View.VISIBLE);
+            String deviceProvider = getString(R.string.device_provider);
+            String contactDeviceProvider = getString(R.string.contact_device_provider,
+                    deviceProvider);
+            SpannableString spannableString = new SpannableString(contactDeviceProvider);
+            int startIx = contactDeviceProvider.indexOf(deviceProvider);
+            makeClickable(spannableString, startIx, startIx + deviceProvider.length(),
+                    view -> {
+                        Intent intent = WebActivity.createIntent(this, supportUrl);
+                        if (intent != null) {
+                            startActivity(intent);
+                        }
+                    });
+
+            info.setText(spannableString);
+            info.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+        }
+
+        // set up DPC icon and label
+        setDpcIconAndLabel(packageName, packageIcon, orgName);
     }
 
     private void onViewTermsClick(View view) {
@@ -293,14 +320,19 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         startActivity(intent);
     }
 
+    // TODO: refactor complex localized string assembly to an abstraction http://b/34288292
+    // there is a bit of copy-paste, and some details easy to forget (e.g. setMovementMethod)
     private Spannable assembleDOTermsMessage(View.OnClickListener viewTermsClickListener,
-            @NonNull String termsHeaders) {
+            @NonNull String termsHeaders, String orgName) {
         String linkText = getString(R.string.view_terms);
 
+        if (TextUtils.isEmpty(orgName)) {
+            orgName = getString(R.string.your_organization_middle);
+        }
         String messageText = termsHeaders.isEmpty()
-                ? getResources().getString(R.string.device_owner_short_info, linkText)
-                : getResources().getString(R.string.device_owner_short_info_with_terms_headers,
-                        termsHeaders, linkText);
+                ? getString(R.string.device_owner_info, orgName, linkText)
+                : getString(R.string.device_owner_info_with_terms_headers, orgName, termsHeaders,
+                        linkText);
 
         Spannable result = new SpannableString(messageText);
         int start = messageText.indexOf(linkText);
@@ -328,18 +360,27 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         spannable.setSpan(clickable, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
-    private void setMdmIconAndLabel(@NonNull String packageName, Drawable packageIcon) {
-        // TODO: customize for NFC, etc. as we don't have an icon
-        if (packageIcon != null) {
-            ImageView imageView = (ImageView) findViewById(R.id.device_manager_icon_view);
-            imageView.setImageDrawable(packageIcon);
-            imageView.setContentDescription(
-                    getResources().getString(R.string.mdm_icon_label, packageName));
+    private void setDpcIconAndLabel(@NonNull String appName, Drawable packageIcon, String orgName) {
+        if (packageIcon == null || TextUtils.isEmpty(appName)) {
+            return;
         }
-        // During provisioning from trusted source, the package is not actually on the device
-        // yet, so show a default information.
+
+        // make a container with all parts of DPC app description visible
+        findViewById(R.id.intro_device_owner_app_info_container).setVisibility(View.VISIBLE);
+
+        if(TextUtils.isEmpty(orgName)) {
+            orgName = getString(R.string.your_organization_beginning);
+        }
+        String message = getString(R.string.your_org_app_used, orgName);
+        TextView appInfoText = (TextView) findViewById(R.id.device_owner_app_info_text);
+        appInfoText.setText(message);
+
+        ImageView imageView = (ImageView) findViewById(R.id.device_manager_icon_view);
+        imageView.setImageDrawable(packageIcon);
+        imageView.setContentDescription(getResources().getString(R.string.mdm_icon_label, appName));
+
         TextView deviceManagerName = (TextView) findViewById(R.id.device_manager_name);
-        deviceManagerName.setText(packageName);
+        deviceManagerName.setText(appName);
     }
 
     @Override

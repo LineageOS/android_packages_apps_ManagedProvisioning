@@ -15,6 +15,9 @@
  */
 package com.android.managedprovisioning.preprovisioning;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import android.app.Instrumentation;
 import android.content.Intent;
 import android.support.test.InstrumentationRegistry;
@@ -44,14 +47,13 @@ public class WebActivityTest extends ActivityUnitTestCase<WebActivity> {
     }
 
     public void testNoUrl() {
-        startActivityOnMainSync(WebActivity.createIntent(getInstrumentation().getTargetContext(),
-                null, null));
-        assertTrue(isFinishCalled());
+        Intent intent = WebActivity.createIntent(getInstrumentation().getTargetContext(), null);
+        assertThat(intent, nullValue());
     }
 
     public void testUrlLaunched() {
         startActivityOnMainSync(WebActivity.createIntent(getInstrumentation().getTargetContext(),
-                TEST_URL, null));
+                TEST_URL));
         assertFalse(isFinishCalled());
         final AtomicReference<String> urlRef = new AtomicReference<>(null);
         getInstrumentation().runOnMainSync(() ->
