@@ -50,6 +50,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
+import android.support.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
@@ -527,11 +528,8 @@ public class PreProvisioningController {
         return mUtils.isProfileOwnerAction(mParams.provisioningAction);
     }
 
-    @NonNull
+    @Nullable
     public ProvisioningParams getParams() {
-        if (mParams == null) {
-            throw new IllegalStateException("ProvisioningParams are null");
-        }
         return mParams;
     }
 
