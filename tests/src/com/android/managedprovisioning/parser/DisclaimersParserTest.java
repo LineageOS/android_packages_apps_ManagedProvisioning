@@ -15,10 +15,9 @@
  */
 package com.android.managedprovisioning.parser;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
-import static com.android.managedprovisioning.parser.DisclaimersParser.DIR_DISCLAIMERS;
+import static com.android.managedprovisioning.common.StoreUtils.DIR_PROVISIONING_PARAMS_FILE_CACHE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -32,11 +31,10 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.model.DisclaimersParam;
+import com.android.managedprovisioning.testcommon.TestUtils;
 import com.android.managedprovisioning.tests.R;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -81,15 +79,15 @@ public class DisclaimersParserTest {
         ContentResolver cr = targetContext.getContentResolver();
         TEST_FILE_DIR = new File(targetContext.getFilesDir(), TEST_FILE_DIRNAME);
 
-        DISCLAIMER_URI_1 = resourceToUri(testContext, R.raw.test_disclaimer1);
-        DISCLAIMER_CONTENT_1 = stringFromUri(cr, DISCLAIMER_URI_1);
-        DISCLAIMER_FILE_DEST_1 = getDisclaimerDest(1);
-        DISCLAIMER_URI_2 = resourceToUri(testContext, R.raw.test_disclaimer2);
-        DISCLAIMER_CONTENT_2 = stringFromUri(cr, DISCLAIMER_URI_2);
-        DISCLAIMER_FILE_DEST_2 = getDisclaimerDest(2);
-        DISCLAIMER_URI_3 = resourceToUri(testContext, R.raw.test_disclaimer3);
-        DISCLAIMER_CONTENT_3 = stringFromUri(cr, DISCLAIMER_URI_3);
-        DISCLAIMER_FILE_DEST_3 = getDisclaimerDest(3);
+        DISCLAIMER_URI_1 = TestUtils.resourceToUri(testContext, R.raw.test_disclaimer1);
+        DISCLAIMER_CONTENT_1 = TestUtils.stringFromUri(cr, DISCLAIMER_URI_1);
+        DISCLAIMER_FILE_DEST_1 = getDisclaimerPath(1);
+        DISCLAIMER_URI_2 = TestUtils.resourceToUri(testContext, R.raw.test_disclaimer2);
+        DISCLAIMER_CONTENT_2 = TestUtils.stringFromUri(cr, DISCLAIMER_URI_2);
+        DISCLAIMER_FILE_DEST_2 = getDisclaimerPath(2);
+        DISCLAIMER_URI_3 = TestUtils.resourceToUri(testContext, R.raw.test_disclaimer3);
+        DISCLAIMER_CONTENT_3 = TestUtils.stringFromUri(cr, DISCLAIMER_URI_3);
+        DISCLAIMER_FILE_DEST_3 = getDisclaimerPath(3);
     }
 
     @Before
@@ -104,7 +102,7 @@ public class DisclaimersParserTest {
 
     @After
     public void tearDown() {
-        deleteRecursive(TEST_FILE_DIR);
+        TestUtils.deleteRecursive(TEST_FILE_DIR);
     }
 
     @Test
@@ -173,32 +171,8 @@ public class DisclaimersParserTest {
         return StoreUtils.readString(new File(disclaimer.mContentFilePath));
     }
 
-    private static Uri resourceToUri(Context context, int resID) {
-        return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
-                + TEST_PACKAGE + '/'
-                + context.getResources().getResourceTypeName(resID) + '/'
-                + context.getResources().getResourceEntryName(resID) );
-    }
-
-    private static String stringFromUri(ContentResolver cr, Uri uri) throws IOException {
-        try (final InputStream in = cr.openInputStream(uri)) {
-            try (final ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-                StoreUtils.copyStream(in, out);
-                return out.toString();
-            }
-        }
-    }
-
-    private static void deleteRecursive(File fileOrDirectory) {
-        if (fileOrDirectory.isDirectory())
-            for (File child : fileOrDirectory.listFiles())
-                deleteRecursive(child);
-
-        fileOrDirectory.delete();
-    }
-
-    private static String getDisclaimerDest(int index) {
-        return new File(new File(TEST_FILE_DIR, DIR_DISCLAIMERS),
+    private static String getDisclaimerPath(int index) {
+        return new File(new File(TEST_FILE_DIR, DIR_PROVISIONING_PARAMS_FILE_CACHE),
                 "disclaimer_content_" + TEST_PROVISIONING_ID + "_" + ( index - 1 ) + ".txt")
                 .getAbsolutePath();
     }

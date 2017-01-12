@@ -27,14 +27,17 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
@@ -95,6 +98,9 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
     private static final String TEST_SHARED_PREFERENCE = "ExtrasProvisioningDataParserTest";
+    private static final String TEST_DEVICE_ADMIN_PACKAGE_LABEL = "TestPackage";
+    private static final String TEST_ORGANIZATION_NAME = "TestOrganizationName";
+    private static final String TEST_SUPPORT_URL = "https://www.support.url/";
 
     // Wifi info
     private static final String TEST_SSID = "TestWifi";
@@ -174,7 +180,11 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
+                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
+                        TEST_DEVICE_ADMIN_PACKAGE_LABEL)
+                .putExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME, TEST_ORGANIZATION_NAME)
+                .putExtra(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL);
 
         // WHEN the intent is parsed by the parser.
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
@@ -203,6 +213,9 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setWifiInfo(TEST_WIFI_INFO)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
+                        .setDeviceAdminLabel(TEST_DEVICE_ADMIN_PACKAGE_LABEL)
+                        .setOrganizationName(TEST_ORGANIZATION_NAME)
+                        .setSupportUrl(TEST_SUPPORT_URL)
                         .build(),
                 params);
     }

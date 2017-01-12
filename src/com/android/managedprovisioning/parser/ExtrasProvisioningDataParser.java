@@ -28,6 +28,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
@@ -37,9 +39,11 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
@@ -225,6 +229,20 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             DisclaimersParam disclaimersParam = new DisclaimersParser(context, provisioningId)
                     .parse(intent.getParcelableArrayExtra(EXTRA_PROVISIONING_DISCLAIMERS));
 
+            String deviceAdminLabel = null;
+            String organizationName = null;
+            String supportUrl = null;
+            String deviceAdminIconFilePath = null;
+            if (isProvisionManagedDeviceFromTrustedSourceIntent) {
+                deviceAdminLabel = intent.getStringExtra(
+                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL);
+                organizationName = intent.getStringExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME);
+                supportUrl = intent.getStringExtra(EXTRA_PROVISIONING_SUPPORT_URL);
+                deviceAdminIconFilePath = new DeviceAdminIconParser(context, provisioningId).parse(
+                        intent.getParcelableExtra(
+                                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI));
+            }
+
             return ProvisioningParams.Builder.builder()
                     .setProvisioningId(provisioningId)
                     .setProvisioningAction(provisioningAction)
@@ -243,7 +261,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setKeepAccountMigrated(keepAccountMigrated)
                     .setSkipUserSetup(skipUserSetup)
                     .setAccountToMigrate(intent.getParcelableExtra(
-                            EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE));
+                            EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE))
+                    .setDeviceAdminLabel(deviceAdminLabel)
+                    .setOrganizationName(organizationName)
+                    .setSupportUrl(supportUrl)
+                    .setDeviceAdminIconFilePath(deviceAdminIconFilePath);
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {

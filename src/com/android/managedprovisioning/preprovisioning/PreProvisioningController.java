@@ -27,7 +27,6 @@ import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
 import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
-
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
@@ -44,6 +43,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.UserManager;
@@ -152,7 +154,7 @@ public class PreProvisioningController {
          * @param isProfileOwnerProvisioning false for Device Owner provisioning
          * @param termsHeaders list of terms headers
          */
-        void initiateUi(int layoutRes, int titleRes, int mainColorRes, String packageName,
+        void initiateUi(int layoutRes, int titleRes, int mainColorRes, String packageLabel,
                 Drawable packageIcon, boolean isProfileOwnerProvisioning,
                 List<String> termsHeaders);
 
@@ -263,18 +265,23 @@ public class PreProvisioningController {
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
             mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                    R.color.gray_status_bar, null, null, isProfileOwnerProvisioning(),
+                    R.color.gray_status_bar, null, null, true /* isProfileOwnerProvisioning */,
                     getDisclaimerHeaders());
         } else {
             String packageName = mParams.inferDeviceAdminPackageName();
             MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
                     packageName);
+            // Always take packageInfo first for installed app since PackageManager is more reliable
+            String packageLabel = packageInfo != null ? packageInfo.appLabel
+                    : mParams.deviceAdminLabel != null ? mParams.deviceAdminLabel : packageName;
+            Drawable packageIcon = packageInfo != null ? packageInfo.packageIcon
+                    : getDeviceAdminIconDrawable(mParams.deviceAdminIconFilePath);
             mUi.initiateUi(R.layout.intro_device_owner,
                     R.string.setup_device_start_setup,
                     R.color.blue,
-                    packageInfo == null ? packageName : packageInfo.appLabel,
-                    packageInfo == null ? null : packageInfo.packageIcon,
-                    isProfileOwnerProvisioning(),
+                    packageLabel,
+                    packageIcon,
+                    false /* isProfileOwnerProvisioning */,
                     getDisclaimerHeaders());
         }
     }
@@ -295,6 +302,18 @@ public class PreProvisioningController {
             result.add(disclaimer.mHeader);
         }
         return result;
+    }
+
+    private Drawable getDeviceAdminIconDrawable(String deviceAdminIconFilePath) {
+        if (deviceAdminIconFilePath == null) {
+            return null;
+        }
+
+        Bitmap bitmap = BitmapFactory.decodeFile(mParams.deviceAdminIconFilePath);
+        if (bitmap == null) {
+            return null;
+        }
+        return new BitmapDrawable(mContext.getResources(), bitmap);
     }
 
     /**
