@@ -95,11 +95,9 @@
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"ચાલુ રાખો"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"રોકો"</string>
     <string name="profile_owner_short_info" msgid="4880192378938092137">"એક નવી કાર્ય પ્રોફાઇલ બનાવવામાં આવશે. ફક્ત ઍપ્લિકેશનો અને તેની અંતર્ગતનો ડેટા તમારી સંસ્થા દ્વારા સંચાલિત કરવામાં આવશે."</string>
-    <!-- no translation found for profile_owner_short_info_with_terms_headers (5579339202378942519) -->
-    <skip />
+    <string name="profile_owner_short_info_with_terms_headers" msgid="5579339202378942519">"એક નવી કાર્ય પ્રોફાઇલ બનાવવામાં આવશે. ફક્ત ઍપ્લિકેશનો અને તેની અંતર્ગતનો ડેટા તમારી સંસ્થા દ્વારા સંચાલિત કરવામાં આવશે. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ની શરતો લાગુ."</string>
     <string name="device_owner_short_info" msgid="6788746308703120308">"આ ઉપકરણ તમારી કંપની દ્વારા સંચાલિત કરવામાં આવશે. તમારી સંસ્થા તમારા ઉપકરણને નિયંત્રિત કરશે તથા તેને સુરક્ષિત કરશે. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
-    <!-- no translation found for device_owner_short_info_with_terms_headers (7990913720137761161) -->
-    <skip />
+    <string name="device_owner_short_info_with_terms_headers" msgid="7990913720137761161">"આ ઉપકરણ તમારી કંપની દ્વારા સંચાલિત કરવામાં આવશે. તમારી સંસ્થા તમારા ઉપકરણને નિયંત્રિત કરશે તથા તેને સુરક્ષિત કરશે. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ની શરતો લાગુ. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"શરતો જુઓ"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"સ્વીકારો અને ચાલુ રાખો"</string>
     <string name="close" msgid="7208600934846389439">"બંધ કરો"</string>
@@ -121,12 +119,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"આ સેટઅપને સમાપ્ત કરવું તમારા ઉપકરણને ફેક્ટરી રીસેટ કરશે અને તે તમને પહેલી સ્ક્રીન પર પરત લઈ જશે."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"રદ કરો"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ઉપકરણ ફરીથી સેટ કરો"</string>
-    <!-- no translation found for join_two_items (6110273439759895837) -->
-    <skip />
-    <!-- no translation found for join_many_items_last (3953431463001211545) -->
-    <skip />
-    <!-- no translation found for join_many_items_first (8365482726853276608) -->
-    <skip />
-    <!-- no translation found for join_many_items_middle (8569294838319639963) -->
-    <skip />
+    <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> અને <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
+    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> અને <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
+    <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>

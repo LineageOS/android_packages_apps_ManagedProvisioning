@@ -95,11 +95,9 @@
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"جاری رکھیں"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"روکیں"</string>
     <string name="profile_owner_short_info" msgid="4880192378938092137">"ایک نئی دفتری پروفائل بنائی جائے گی۔ صرف اس میں موجود ایپس اور ڈیٹا آپ کی تنظیم کے زیر انتظام ہوں گے۔"</string>
-    <!-- no translation found for profile_owner_short_info_with_terms_headers (5579339202378942519) -->
-    <skip />
+    <string name="profile_owner_short_info_with_terms_headers" msgid="5579339202378942519">"ایک نئی دفتری پروفائل بنائی جائے گی۔ صرف اس میں موجود ایپس اور ڈیٹا آپ کی تنظیم کے زیر انتظام ہوں گے۔ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> کی پالیسیاں لاگو ہوں گی۔"</string>
     <string name="device_owner_short_info" msgid="6788746308703120308">"یہ آلہ آپ کی کمپنی کے زیر انتظام ہوگا۔ آپ کی تنظیم آپ کے آلے کو کنٹرول کرے گی اور اسے محفوظ رکھے گی۔ <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
-    <!-- no translation found for device_owner_short_info_with_terms_headers (7990913720137761161) -->
-    <skip />
+    <string name="device_owner_short_info_with_terms_headers" msgid="7990913720137761161">"یہ آلہ آپ کی کمپنی کے زیر انتظام ہوگا۔ آپ کی تنظیم آپ کے آلے کو کنٹرول کرے گی اور اسے محفوظ رکھے گی۔ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> کی پالیسیاں لاگو ہوں گی۔ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="view_terms" msgid="7230493092383341605">"شرائط دیکھیں"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"قبول کریں اور جاری رکھیں"</string>
     <string name="close" msgid="7208600934846389439">"بند کریں"</string>
@@ -121,12 +119,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"اس سیٹ اپ کو ختم کرنے سے آپ کا آلہ فیکٹری ری سیٹ ہو جائے گا اور آپ واپس پہلی اسکرین پر چلے جائیں گے۔"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"منسوخ کریں"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"آلہ کو ری سیٹ کریں"</string>
-    <!-- no translation found for join_two_items (6110273439759895837) -->
-    <skip />
-    <!-- no translation found for join_many_items_last (3953431463001211545) -->
-    <skip />
-    <!-- no translation found for join_many_items_first (8365482726853276608) -->
-    <skip />
-    <!-- no translation found for join_many_items_middle (8569294838319639963) -->
-    <skip />
+    <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> اور <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
+    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> اور <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>، <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
+    <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>، <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
