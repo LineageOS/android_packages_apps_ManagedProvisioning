@@ -517,6 +517,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    public void testNullParams() throws Exception {
+        // THEN verifying params is null initially
+        assertNull(mController.getParams());
+    }
+
     public void testDeviceOwner_frp() throws Exception {
         // GIVEN device owner provisioning is invoked with FRP active
         prepareMocksForDoIntent(false);
