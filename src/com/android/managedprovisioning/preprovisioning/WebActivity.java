@@ -111,11 +111,14 @@ public class WebActivity extends SetupLayoutActivity {
      * @param url the url to be shown upon launching this activity
      */
     @Nullable
-    static Intent createIntent(Context context, String url, int statusBarColor) {
+    public static Intent createIntent(Context context, String url, Integer statusBarColor) {
         if (URLUtil.isNetworkUrl(url)) {
-            return new Intent(context, WebActivity.class)
-                    .putExtra(EXTRA_URL, url)
-                    .putExtra(EXTRA_STATUS_BAR_COLOR, statusBarColor);
+            Intent intent = new Intent(context, WebActivity.class)
+                    .putExtra(EXTRA_URL, url);
+            if (statusBarColor != null) {
+                intent.putExtra(EXTRA_STATUS_BAR_COLOR, statusBarColor);
+            }
+            return intent;
         }
         return null;
     }
