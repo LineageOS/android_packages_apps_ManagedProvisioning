@@ -16,6 +16,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_START_ENCRYPTION;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
 
 import android.content.Intent;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -82,9 +84,9 @@ public class EncryptDeviceActivity extends SetupGlifLayoutActivity {
     }
 
     private void initializeUi(int headerRes, int titleRes, int mainTextRes) {
-        initializeLayoutParams(R.layout.encrypt_device, headerRes, false);
+        initializeLayoutParams(R.layout.encrypt_device, headerRes, false,
+                CustomizationParams.createInstance(mParams, this, mUtils).mainColor);
         setTitle(titleRes);
         ((TextView) findViewById(R.id.encrypt_main_text)).setText(mainTextRes);
-        maybeSetLogoAndMainColor(mParams.mainColor);
     }
 }

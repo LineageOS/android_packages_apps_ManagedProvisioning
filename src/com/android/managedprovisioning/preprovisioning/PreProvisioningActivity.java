@@ -17,7 +17,6 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import android.annotation.NonNull;
-import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.ComponentName;
@@ -46,6 +45,7 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.StringConcatenator;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
@@ -229,26 +229,35 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     }
 
     @Override
-    public void initiateUi(int layoutId, int titleId, int mainColorId, String packageLabel,
-            Drawable packageIcon, boolean isProfileOwnerProvisioning,
-            @NonNull List<String> termsHeaders, String orgName, @Nullable String supportUrl) {
+    public void initiateUi(int layoutId, int titleId, String packageLabel, Drawable packageIcon,
+            boolean isProfileOwnerProvisioning, List<String> termsHeaders,
+            CustomizationParams customization) {
         setContentView(layoutId);
 
+        setMainColor(customization.mainColor);
+
+        // set up the 'accept and continue' button
         Button nextButton = (Button) findViewById(R.id.next_button);
         nextButton.setOnClickListener(v -> {
             ProvisionLogger.logi("Next button (next_button) is clicked.");
             mController.continueProvisioningAfterUserConsent();
         });
+        nextButton.setBackgroundColor(customization.mainColor);
+        if (mUtils.isBrightColor(customization.mainColor)) {
+            nextButton.setTextColor(getColor(R.color.gray_button_text));
+        }
 
-        setMainColor(getColor(mainColorId));
-        setStatusBarIconColor(false /* set to light */);
+        // set the activity title
         setTitle(titleId);
 
+        // set up terms headers
         String headers = new StringConcatenator(getResources()).join(termsHeaders);
+
+        // initiate UI for MP / DO
         if (isProfileOwnerProvisioning) {
             initiateUIProfileOwner(headers);
         } else {
-            initiateUIDeviceOwner(packageLabel, packageIcon, headers, orgName, supportUrl);
+            initiateUIDeviceOwner(packageLabel, packageIcon, headers, customization);
         }
     }
 
@@ -275,22 +284,22 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     }
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
-            @NonNull String termsHeaders, String orgName, @Nullable String supportUrl) {
-        GlifLayout layout = (GlifLayout) findViewById(R.id.intro_device_owner);
-        layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
+            @NonNull String termsHeaders, CustomizationParams customization) {
+        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
         layout.setHeaderText(R.string.set_up_your_device);
+        layout.setIcon(LogoUtils.getOrganisationLogo(this, customization.mainColor));
 
         // short terms info text with clickable 'view terms' link
         TextView shortInfoText = (TextView) findViewById(R.id.device_owner_terms_info);
-        shortInfoText.setText(
-                assembleDOTermsMessage(this::onViewTermsClick, termsHeaders, orgName));
+        shortInfoText.setText(assembleDOTermsMessage(this::onViewTermsClick, termsHeaders,
+                customization.orgName));
         shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
 
         // if you have any questions, contact your device's provider
         //
         // TODO: refactor complex localized string assembly to an abstraction http://b/34288292
         // there is a bit of copy-paste, and some details easy to forget (e.g. setMovementMethod)
-        if (supportUrl != null) {
+        if (customization.supportUrl != null) {
             TextView info = (TextView) findViewById(R.id.device_owner_provider_info);
             info.setVisibility(View.VISIBLE);
             String deviceProvider = getString(R.string.device_provider);
@@ -300,7 +309,8 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
             int startIx = contactDeviceProvider.indexOf(deviceProvider);
             makeClickable(spannableString, startIx, startIx + deviceProvider.length(),
                     view -> {
-                        Intent intent = WebActivity.createIntent(this, supportUrl);
+                        Intent intent = WebActivity.createIntent(this, customization.supportUrl,
+                                customization.mainColor);
                         if (intent != null) {
                             startActivity(intent);
                         }
@@ -311,7 +321,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         }
 
         // set up DPC icon and label
-        setDpcIconAndLabel(packageName, packageIcon, orgName);
+        setDpcIconAndLabel(packageName, packageIcon, customization.orgName);
     }
 
     private void onViewTermsClick(View view) {
@@ -368,7 +378,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         // make a container with all parts of DPC app description visible
         findViewById(R.id.intro_device_owner_app_info_container).setVisibility(View.VISIBLE);
 
-        if(TextUtils.isEmpty(orgName)) {
+        if (TextUtils.isEmpty(orgName)) {
             orgName = getString(R.string.your_organization_beginning);
         }
         String message = getString(R.string.your_org_app_used, orgName);

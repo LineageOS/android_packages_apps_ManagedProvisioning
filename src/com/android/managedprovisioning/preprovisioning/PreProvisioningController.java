@@ -62,6 +62,7 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -151,17 +152,15 @@ public class PreProvisioningController {
          * Initialize the pre provisioning UI
          * @param layoutRes resource id for the layout
          * @param titleRes resource id for the title text
-         * @param mainColorRes resource id for the main color
-         * @param packageLabel package packageLabel
+         * @param packageLabel package label
          * @param packageIcon package icon
          * @param isProfileOwnerProvisioning false for Device Owner provisioning
          * @param termsHeaders list of terms headers
-         * @param orgName organization name
-         * @param supportUrl support url of the organization
+         * @param customization customization parameters
          */
-        void initiateUi(int layoutRes, int titleRes, int mainColorRes, String packageLabel,
-                Drawable packageIcon, boolean isProfileOwnerProvisioning,
-                List<String> termsHeaders, String orgName, @Nullable String supportUrl);
+        void initiateUi(int layoutRes, int titleRes, @Nullable String packageLabel,
+                @Nullable Drawable packageIcon, boolean isProfileOwnerProvisioning,
+                @NonNull List<String> termsHeaders, @NonNull CustomizationParams customization);
 
         /**
          * Start provisioning.
@@ -267,13 +266,14 @@ public class PreProvisioningController {
             return;
         }
 
-        String supportUrl = URLUtil.isNetworkUrl(mParams.supportUrl) ? mParams.supportUrl : null;
+        CustomizationParams customization = CustomizationParams.createInstance(mParams, mContext,
+                mUtils);
 
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
             mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                    R.color.gray_status_bar, null, null, true /* isProfileOwnerProvisioning */,
-                    getDisclaimerHeaders(), mParams.organizationName, supportUrl);
+                    null, null, true /* isProfileOwnerProvisioning */,
+                    getDisclaimerHeaders(), customization);
         } else {
             String packageName = mParams.inferDeviceAdminPackageName();
             MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
@@ -285,11 +285,10 @@ public class PreProvisioningController {
                     : getDeviceAdminIconDrawable(mParams.deviceAdminIconFilePath);
             mUi.initiateUi(R.layout.intro_device_owner,
                     R.string.setup_device_start_setup,
-                    R.color.blue,
                     packageLabel,
                     packageIcon,
                     false /* isProfileOwnerProvisioning */,
-                    getDisclaimerHeaders(), mParams.organizationName, supportUrl);
+                    getDisclaimerHeaders(), customization);
         }
     }
 

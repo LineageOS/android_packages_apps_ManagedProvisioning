@@ -43,6 +43,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.drawable.VectorDrawable;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
@@ -75,6 +76,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     @Mock
     private Context mContext;
+    @Mock
+    private Resources mResources;
     @Mock
     private DevicePolicyManager mDevicePolicyManager;
     @Mock
@@ -122,6 +125,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mContext.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE))
                 .thenReturn(mPdbManager);
         when(mContext.getPackageName()).thenReturn(MP_PACKAGE_NAME);
+        when(mContext.getResources()).thenReturn(mResources);
 
         when(mUserManager.getUserHandle()).thenReturn(TEST_USER_ID);
 
@@ -665,13 +669,14 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     private void verifyInitiateProfileOwnerUi() {
-        verify(mUi).initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                R.color.gray_status_bar, null, null, true, emptyList(), null, null);
+        verify(mUi).initiateUi(eq(R.layout.intro_profile_owner),
+                eq(R.string.setup_profile_start_setup), any(), any(), eq(true),
+                eq(emptyList()), any());
     }
 
     private void verifyInitiateDeviceOwnerUi() {
         verify(mUi).initiateUi(eq(R.layout.intro_device_owner),
-                eq(R.string.setup_device_start_setup), eq(R.color.blue), eq(TEST_MDM_PACKAGE_LABEL),
-                any(), eq(false), eq(emptyList()), eq(null), eq(null));
+                eq(R.string.setup_device_start_setup), eq(TEST_MDM_PACKAGE_LABEL), any(), eq(false),
+                eq(emptyList()), any());
     }
 }

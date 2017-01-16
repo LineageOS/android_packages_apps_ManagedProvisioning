@@ -17,23 +17,20 @@
 package com.android.managedprovisioning.common;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
-
-import com.android.managedprovisioning.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
 
 @SmallTest
 public class LogoUtilsTest extends AndroidTestCase {
-
     private static final int SAMPLE_COLOR = Color.RED;
 
     public void testPartiallyResizedBitmap() throws Exception {
@@ -96,7 +93,7 @@ public class LogoUtilsTest extends AndroidTestCase {
         File tempFile = writeBitmapToTempFile(bitmap);
         try {
             LogoUtils.saveOrganisationLogo(getContext(), Uri.fromFile(tempFile));
-            Drawable drawable = LogoUtils.getOrganisationLogo(getContext());
+            Drawable drawable = LogoUtils.getOrganisationLogo(getContext(), SAMPLE_COLOR);
             // We should have the original drawable.
             assertEquals(7, drawable.getIntrinsicWidth());
             assertEquals(5, drawable.getIntrinsicHeight());
@@ -106,20 +103,16 @@ public class LogoUtilsTest extends AndroidTestCase {
     }
 
     public void testDefaultOrganisationLogo() throws Exception {
-        int maxWidth = (int) getContext().getResources().getDimension(R.dimen.max_logo_width);
-        int maxHeight = (int) getContext().getResources().getDimension(R.dimen.max_logo_height);
-        // In this test, we don't save the logo.
-
-        // First let's compute the expected logo. It is the default one, resized if too big.
-        Bitmap expected = BitmapFactory.decodeResource(getContext().getResources(),
-                R.drawable.ic_corp_icon);
-        expected = LogoUtils.resizeBitmap(expected, maxWidth, maxHeight);
+        // First let's compute the expected logo. It is the default one.
+        Drawable expected = getContext().getResources().getDrawable(
+                LogoUtils.DEFAULT_LOGO_ID, getContext().getTheme());
+        expected.setColorFilter(SAMPLE_COLOR, PorterDuff.Mode.SRC_ATOP);
 
         // Now, get the actual logo
-        Drawable logo = LogoUtils.getOrganisationLogo(getContext());
+        Drawable actual = LogoUtils.getOrganisationLogo(getContext(), SAMPLE_COLOR);
 
         // They should be equal.
-        assertBitmapEquals(expected, bitmapFromDrawable(logo));
+        assertBitmapEquals(bitmapFromDrawable(expected), bitmapFromDrawable(actual));
     }
 
     private Bitmap createSampleBitmap(int width, int height) {

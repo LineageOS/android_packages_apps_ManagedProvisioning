@@ -31,6 +31,7 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -233,10 +234,8 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         final int titleResId = isDoProvisioning ? R.string.setup_device_progress
                 : R.string.setup_profile_progress;
 
-        initializeLayoutParams(R.layout.progress, headerResId, true);
+        initializeLayoutParams(R.layout.progress, headerResId, true,
+                CustomizationParams.createInstance(mParams, this, mUtils).mainColor);
         setTitle(titleResId);
-
-        setMainColor(getColor(R.color.blue));
-        setStatusBarIconColor(false);
     }
 }

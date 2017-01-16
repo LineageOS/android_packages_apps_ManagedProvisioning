@@ -16,23 +16,32 @@
 
 package com.android.managedprovisioning.common;
 
+import android.annotation.NonNull;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+
 import java.io.File;
 
 public class LogoUtils {
+    @VisibleForTesting static final int DEFAULT_LOGO_ID = R.drawable.ic_enterprise_blue_24dp;
+
     public static void saveOrganisationLogo(Context context, Uri uri) {
         final File logoFile = getOrganisationLogoFile(context);
         StoreUtils.copyUriIntoFile(context.getContentResolver(), uri, logoFile);
     }
 
-    public static Drawable getOrganisationLogo(Context context) {
+    /**
+     * @param colorTint optional color colorTint to apply to the logo
+     */
+    public static @NonNull Drawable getOrganisationLogo(Context context, Integer colorTint) {
         final File logoFile = getOrganisationLogoFile(context);
         Bitmap bitmap = null;
         int maxWidth = (int) context.getResources().getDimension(R.dimen.max_logo_width);
@@ -43,13 +52,18 @@ public class LogoUtils {
                 ProvisionLogger.loge("Could not get organisation logo from " + logoFile);
             }
         }
-        // If the app that started ManagedProvisioning didn't specify a logo or we couldn't get a
-        // logo from the uri they specified, use the default logo.
-        if (bitmap == null) {
-            bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_corp_icon);
+
+        if (bitmap != null) {
+            return new BitmapDrawable(context.getResources(),
+                    resizeBitmap(bitmap, maxWidth, maxHeight));
         }
-        return new BitmapDrawable(context.getResources(),
-                resizeBitmap(bitmap, maxWidth, maxHeight));
+
+        // fall back to a default logo
+        Drawable organisationLogo = context.getDrawable(DEFAULT_LOGO_ID);
+        if (colorTint != null) {
+            organisationLogo.setColorFilter(colorTint, PorterDuff.Mode.SRC_ATOP);
+        }
+        return organisationLogo;
     }
 
     /**

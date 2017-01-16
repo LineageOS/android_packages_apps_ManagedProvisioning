@@ -20,6 +20,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
@@ -31,6 +32,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @SmallTest
 public class WebActivityTest extends ActivityUnitTestCase<WebActivity> {
     private static final String TEST_URL = "http://www.test.com/support";
+    private static final int STATUS_BAR_COLOR = Color.parseColor("#BDBDBD"); // any color would do
 
     public WebActivityTest() {
         super(WebActivity.class);
@@ -47,13 +49,14 @@ public class WebActivityTest extends ActivityUnitTestCase<WebActivity> {
     }
 
     public void testNoUrl() {
-        Intent intent = WebActivity.createIntent(getInstrumentation().getTargetContext(), null);
+        Intent intent = WebActivity.createIntent(getInstrumentation().getTargetContext(), null,
+                STATUS_BAR_COLOR);
         assertThat(intent, nullValue());
     }
 
     public void testUrlLaunched() {
         startActivityOnMainSync(WebActivity.createIntent(getInstrumentation().getTargetContext(),
-                TEST_URL));
+                TEST_URL, STATUS_BAR_COLOR));
         assertFalse(isFinishCalled());
         final AtomicReference<String> urlRef = new AtomicReference<>(null);
         getInstrumentation().runOnMainSync(() ->

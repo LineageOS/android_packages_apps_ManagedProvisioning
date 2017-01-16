@@ -18,7 +18,6 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,9 +30,9 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 /**
@@ -45,24 +44,27 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
  * {@link TermsActivity} to display the support web pages
  * about provisioning concepts.
  */
-public class WebActivity extends Activity {
+public class WebActivity extends SetupLayoutActivity {
     private static final String EXTRA_URL = "extra_url";
+    private static final String EXTRA_STATUS_BAR_COLOR = "extra_status_bar_color";
 
     private WebView mWebView;
     private SettingsFacade mSettingsFacade = new SettingsFacade();
-    private TimeLogger mTimeLogger;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mTimeLogger = new TimeLogger(this, PROVISIONING_WEB_ACTIVITY_TIME_MS);
-
-        final String extraUrl = getIntent().getStringExtra(EXTRA_URL);
+        String extraUrl = getIntent().getStringExtra(EXTRA_URL);
         if (extraUrl == null) {
             Toast.makeText(this, R.string.url_error, Toast.LENGTH_SHORT).show();
             ProvisionLogger.loge("No url provided to WebActivity.");
             finish();
+        }
+
+        Bundle extras = getIntent().getExtras();
+        if (extras.containsKey(EXTRA_STATUS_BAR_COLOR)) {
+            setMainColor(extras.getInt(EXTRA_STATUS_BAR_COLOR));
         }
 
         mWebView = new WebView(this);
@@ -88,14 +90,11 @@ public class WebActivity extends Activity {
             // User should not be able to escape provisioning if user setup isn't complete.
             mWebView.setOnLongClickListener(v -> true);
         }
-        mTimeLogger.start();
         setContentView(mWebView);
     }
 
-    @Override
-    public void onDestroy() {
-        mTimeLogger.stop();
-        super.onDestroy();
+    protected int getMetricsCategory() {
+        return PROVISIONING_WEB_ACTIVITY_TIME_MS;
     }
 
     @Override
@@ -112,9 +111,11 @@ public class WebActivity extends Activity {
      * @param url the url to be shown upon launching this activity
      */
     @Nullable
-    static Intent createIntent(Context context, String url) {
+    static Intent createIntent(Context context, String url, int statusBarColor) {
         if (URLUtil.isNetworkUrl(url)) {
-            return new Intent(context, WebActivity.class).putExtra(EXTRA_URL, url);
+            return new Intent(context, WebActivity.class)
+                    .putExtra(EXTRA_URL, url)
+                    .putExtra(EXTRA_STATUS_BAR_COLOR, statusBarColor);
         }
         return null;
     }

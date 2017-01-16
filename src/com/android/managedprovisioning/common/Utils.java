@@ -77,8 +77,8 @@ public class Utils {
     public static final String SHA256_TYPE = "SHA-256";
     public static final String SHA1_TYPE = "SHA-1";
 
-    private static final int THRESHOLD_BRIGHT_COLOR = 160; // A color needs a brightness of at least
-    // this value to be considered bright. (brightness being between 0 and 255).
+    // value chosen to match UX designs; when updating check status bar icon colors
+    private static final int THRESHOLD_BRIGHT_COLOR = 190;
 
     public Utils() {}
 
