@@ -74,7 +74,7 @@ public class ManagedProfileTest extends AndroidTestCase {
         for (UserInfo user : users) {
             if (user.isManagedProfile()) {
                 int userId = user.getUserHandle().getIdentifier();
-                um.removeUser(userId);
+                um.removeUserEvenWhenDisallowed(userId);
                 Log.e(TAG, "remove managed profile user: " + userId);
             }
         }

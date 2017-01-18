@@ -559,7 +559,12 @@ public class PreProvisioningController {
      * resumes COMP provisioning.
      */
     public void removeUser(int userProfileId) {
-        mUserManager.removeUser(userProfileId);
+        // There is a possibility that the DO has set the disallow remove managed profile user
+        // restriction, but is initiating the provisioning. In this case, we still want to remove
+        // the managed profile.
+        // We know that we can remove the managed profile because we checked
+        // DevicePolicyManager.checkProvisioningPreCondition
+        mUserManager.removeUserEvenWhenDisallowed(userProfileId);
     }
 
     /**
