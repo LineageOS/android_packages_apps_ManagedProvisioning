@@ -36,6 +36,8 @@
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द करा"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ठीक आहे"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मी संमती देतो"</string>
+    <!-- no translation found for url_error (5958494012986243186) -->
+    <skip />
     <string name="terms" msgid="8295436105384703903">"अटी"</string>
     <string name="terms_intro" msgid="2626943728063219232">"आपले नवीन कार्य प्रोफाईल आपले कार्य आणि वैयक्तिक डेटा स्वतंत्र ठेवते.\nखालील अटी आपल्या कार्य प्रोफाईलवर लागू होतात."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
@@ -94,10 +96,24 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"आपल्‍या संस्‍थेद्वारे वापरलेल्या डिव्‍हाइस व्यवस्थापन अ‍ॅपमधून आपण आपले कार्य प्रोफाईल नंतर सेट करू शकता."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"सुरू ठेवा"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"थांबा"</string>
-    <string name="profile_owner_short_info" msgid="4880192378938092137">"एक नवीन कार्य प्रोफाइल तयार केले जाईल. केवळ आपल्या संस्थेमध्ये असलेले अॅप्स आणि डेटा व्यवस्थापित केला जाईल."</string>
-    <string name="profile_owner_short_info_with_terms_headers" msgid="5579339202378942519">"एक नवीन कार्य प्रोफाइल तयार केले जाईल. आपली संस्‍था केवळ त्या संस्थेमधील अॅप्स आणि डेटा व्यवस्थापित करेल. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> मधील अटी लागू होतात."</string>
-    <string name="device_owner_short_info" msgid="6788746308703120308">"आपली संस्‍था हे डिव्हाइस व्यवस्थापित करेल. आपली संस्‍था आपले डिव्‍हाइस नियंत्रित करेल आणि ते सुरक्षित ठेवेल. <xliff:g id="VIEW_TERMS">%1$s</xliff:g>"</string>
-    <string name="device_owner_short_info_with_terms_headers" msgid="7990913720137761161">"आपली संस्‍था हे डिव्हाइस व्यवस्थापित करेल. आपली संस्‍था आपले डिव्‍हाइस नियंत्रित करेल आणि ते सुरक्षित ठेवेल. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> मधील अटी लागू होतात. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <!-- no translation found for profile_owner_info (6693210677067612542) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
+    <skip />
+    <!-- no translation found for device_owner_info (9015249759994198680) -->
+    <skip />
+    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
+    <skip />
+    <!-- no translation found for contact_device_provider (462704678510856705) -->
+    <skip />
+    <!-- no translation found for device_provider (3278537487796207495) -->
+    <skip />
+    <!-- no translation found for your_org_app_used (4136582853192890775) -->
+    <skip />
+    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
+    <skip />
+    <!-- no translation found for your_organization_middle (8288538158061644733) -->
+    <skip />
     <string name="view_terms" msgid="7230493092383341605">"अटी पहा"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"स्वीकारा आणि सुरू ठेवा"</string>
     <string name="close" msgid="7208600934846389439">"बंद करा"</string>
