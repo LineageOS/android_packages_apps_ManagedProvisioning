@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"בטל"</string>
     <string name="ok_setup" msgid="4593707675416137504">"אישור"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"אני מסכים"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"לא ניתן להציג את הקישור."</string>
     <string name="terms" msgid="8295436105384703903">"תנאים"</string>
     <string name="terms_intro" msgid="2626943728063219232">"פרופיל העבודה החדש שלך שומר על הפרדה בין נתוני העבודה לנתונים האישיים שלך.\nהתנאים הבאים חלים על פרופיל העבודה שלך."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"פרופיל עבודה"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"באפשרותך להגדיר את פרופיל העבודה מאוחר יותר באמצעות האפליקציה לניהול המכשיר שבה משתמש הארגון שלך."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"המשך"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"עצור"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"ייווצר פרופיל עבודה חדש. רק האפליקציות והנתונים שבתוכן ינוהלו על ידי הארגון שלך."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"ייווצר פרופיל עבודה חדש. רק האפליקציות והנתונים שבפרופיל ינוהלו על-ידי הארגון שלך. בכפוף לתנאים של <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"מכשיר זה ינוהל ואבטחתו תטופל על ידי <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"מכשיר זה ינוהל ואבטחתו תטופל על ידי <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. בכפוף לתנאים של <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"אם יש לך שאלות, צור קשר עם <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>."</string>
+    <string name="device_provider" msgid="3278537487796207495">"ספק המכשיר"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"מכשיר זה ינוהל על ידי <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> באמצעות האפליקציה הבאה:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"הארגון שלך"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"הארגון שלך"</string>
     <string name="view_terms" msgid="7230493092383341605">"הצג תנאים והגבלות"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"אשר והמשך"</string>
     <string name="close" msgid="7208600934846389439">"סגור"</string>

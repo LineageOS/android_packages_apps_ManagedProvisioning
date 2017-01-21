@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Odustani"</string>
     <string name="ok_setup" msgid="4593707675416137504">"U redu"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Prihvaćam"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"Veza se ne može prikazati."</string>
     <string name="terms" msgid="8295436105384703903">"Uvjeti"</string>
     <string name="terms_intro" msgid="2626943728063219232">"Vaš novi radni profil odvaja vaše poslovne podatke od osobnih.\nNa vaš radni profil primjenjuju se sljedeći uvjeti."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Radni profil"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Radni profil možete postaviti kasnije iz aplikacije za upravljanje uređajem kojom se koristi vaša organizacija."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Nastavi"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Zaustavi"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"Izradit će se novi radni profil. Vaša će organizacija upravljati samo aplikacijama i podacima na tom profilu."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"Izradit će se novi radni profil. Vaša će organizacija upravljati samo aplikacijama i podacima na tom profilu. Primjenjuju se uvjeti tvrtki <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"Organizacija <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> upravljat će ovim uređajem i pružati mu sigurnosnu zaštitu. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"Organizacija <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> upravljat će ovim uređajem i pružati mu sigurnosnu zaštitu. Primjenjuju se uvjeti tvrtki <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"Ako imate pitanja, obratite se organizaciji od koje ste dobili uređaj (<xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>)."</string>
+    <string name="device_provider" msgid="3278537487796207495">"davatelj uređaja"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"Organizacija <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> upravljat će ovim uređajem pomoću sljedeće aplikacije:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"Vaša organizacija"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"vaša organizacija"</string>
     <string name="view_terms" msgid="7230493092383341605">"Prikaz uvjeta"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"Prihvati i nastavi"</string>
     <string name="close" msgid="7208600934846389439">"Zatvori"</string>

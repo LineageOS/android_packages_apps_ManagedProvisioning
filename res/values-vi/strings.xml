@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Hủy"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Tôi đồng ý"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"Không thể hiển thị liên kết này."</string>
     <string name="terms" msgid="8295436105384703903">"Điều khoản"</string>
     <string name="terms_intro" msgid="2626943728063219232">"Hồ sơ công việc mới giúp tách bạch dữ liệu công việc và dữ liệu cá nhân của bạn.\nCác điều khoản sau áp dụng cho hồ sơ công việc."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Hồ sơ công việc"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Bạn có thể thiết lập hồ sơ công việc của mình sau này từ ứng dụng quản lý thiết bị được tổ chức bạn sử dụng."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Tiếp tục"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Dừng"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"Hồ sơ công việc mới sẽ được tạo. Tổ chức của bạn chỉ quản lý những ứng dụng và dữ liệu bên trong."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"Hồ sơ công việc mới sẽ được tạo. Chỉ các ứng dụng và dữ liệu bên trong sẽ do tổ chức của bạn quản lý. Các điều khoản từ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> được áp dụng."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"Thiết bị này sẽ do <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> quản lý và giữ an toàn. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"Thiết bị này sẽ do <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> quản lý và giữ an toàn. Các điều khoản từ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> được áp dụng. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"Nếu bạn có thắc mắc, vui lòng liên hệ với <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>."</string>
+    <string name="device_provider" msgid="3278537487796207495">"nhà cung cấp thiết bị"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> sẽ quản lý thiết bị này bằng ứng dụng sau:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"Tổ chức của bạn"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"tổ chức của bạn"</string>
     <string name="view_terms" msgid="7230493092383341605">"Xem điều khoản"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"Đồng ý và tiếp tục"</string>
     <string name="close" msgid="7208600934846389439">"Đóng"</string>

@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"ரத்துசெய்"</string>
     <string name="ok_setup" msgid="4593707675416137504">"சரி"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ஏற்கிறேன்"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"இந்த இணைப்பைக் காட்ட முடியவில்லை."</string>
     <string name="terms" msgid="8295436105384703903">"விதிமுறைகள்"</string>
     <string name="terms_intro" msgid="2626943728063219232">"புதிய பணி விவரமானது உங்கள் பணித் தரவையும் தனிப்பட்ட தரவையும் தனித்தனியாக வைத்திருக்கும்.\nஉங்கள் பணி விவரம் பின்வரும் விதிமுறைகளுக்கு உட்பட்டதாகும்."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"பணி சுயவிவரம்"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"உங்கள் நிறுவனம் பயன்படுத்தும் சாதன நிர்வாகப் பயன்பாட்டிலிருந்து பணி சுயவிவரத்தை பின்னர் அமைக்கலாம்."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"தொடர்க"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"நிறுத்து"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"புதிய பணி விவரம் உருவாக்கப்படும். அதிலுள்ள பயன்பாடுகளையும் தரவையும் மட்டுமே உங்கள் நிறுவனம் நிர்வகிக்கும்."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"புதிய பணி விவரம் உருவாக்கப்படும். அதிலுள்ள பயன்பாடுகளையும் தரவையும் மட்டுமே உங்கள் நிறுவனம் நிர்வகிக்கும். <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> இன் விதிமுறைகள் பொருந்தும்."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"இந்தச் சாதனத்தை <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> நிர்வகித்து, பாதுகாக்கும். <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"இந்தச் சாதனத்தை <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> நிர்வகித்து, பாதுகாக்கும். <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> இன் விதிமுறைகள் பொருந்தும். <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"கேள்விகள் இருப்பின், உங்கள் <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>ஐத் தொடர்புகொள்ளவும்."</string>
+    <string name="device_provider" msgid="3278537487796207495">"சாதன வழங்குநர்"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> பின்வரும் பயன்பாட்டைப் பயன்படுத்தி இந்தச் சாதனத்தை நிர்வகிக்கும்:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"உங்கள் நிறுவனம்"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"உங்கள் நிறுவனம்"</string>
     <string name="view_terms" msgid="7230493092383341605">"விதிமுறைகளைக் காட்டு"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"ஏற்று, தொடரவும்"</string>
     <string name="close" msgid="7208600934846389439">"மூடு"</string>

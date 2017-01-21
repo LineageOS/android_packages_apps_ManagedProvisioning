@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Aceptar"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Acepto"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"Non se pode mostrar esta ligazón."</string>
     <string name="terms" msgid="8295436105384703903">"Condicións"</string>
     <string name="terms_intro" msgid="2626943728063219232">"O teu novo perfil de traballo mantén separados os datos do traballo e os datos persoais.\nAs seguintes condicións son aplicables ao teu perfil de traballo."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil do traballo"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Podes configurar o teu perfil de traballo máis tarde desde a aplicación de xestión do dispositivo que utiliza a túa organización."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Deter"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"Crearase un novo perfil de traballo e a túa organización só poderá xestionar as aplicacións e os datos incluídos nel."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"Crearase un novo perfil de traballo e a túa organización só poderá xestionar as aplicacións e os datos incluídos nel. Aplicaranse as condicións de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará e protexerá este dispositivo. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará e protexerá este dispositivo. Aplícanse as condicións de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"Se tes algunha pregunta, contacta co <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>."</string>
+    <string name="device_provider" msgid="3278537487796207495">"provedor do dispositivo"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará este dispositivo coa seguinte aplicación:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"A túa organización"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"a túa organización"</string>
     <string name="view_terms" msgid="7230493092383341605">"Consultar condicións"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"Aceptar e continuar"</string>
     <string name="close" msgid="7208600934846389439">"Pechar"</string>

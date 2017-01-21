@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Avbryt"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Jag samtycker"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"Det går inte att visa den här länken."</string>
     <string name="terms" msgid="8295436105384703903">"Villkor"</string>
     <string name="terms_intro" msgid="2626943728063219232">"Med en jobbprofil hålls jobbrelaterade och personliga uppgifter åtskilda.\nFöljande villkor gäller för jobbprofilen."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbetsprofil"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Du kan konfigurera jobbprofilen senare med den app som används för att hantera enheter inom organisationen."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Fortsätt"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Avsluta"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"En ny jobbprofil skapas. Endast appar och data i profilen hanteras av organisationen."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"En ny jobbprofil skapas. Endast appar och data i profilen hanteras av organisationen. Villkor från <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> gäller."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"Enheten hanteras och skyddas av <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"Den här enheten hanteras och skyddas av <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Villkor från <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> gäller. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"Om du har frågor kontaktar du <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>."</string>
+    <string name="device_provider" msgid="3278537487796207495">"den som har gett dig enheten"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"Enheten hanteras av <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> med hjälp av följande app:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"organisationen"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"organisationen"</string>
     <string name="view_terms" msgid="7230493092383341605">"Visa användarvillkoren"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"Godkänn och fortsätt"</string>
     <string name="close" msgid="7208600934846389439">"Stäng"</string>

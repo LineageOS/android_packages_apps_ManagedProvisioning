@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"अभी नहीं"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ठीक"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मैं सहमत हूं"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"यह लिंक दिखाया नहीं जा सकता."</string>
     <string name="terms" msgid="8295436105384703903">"शर्तें"</string>
     <string name="terms_intro" msgid="2626943728063219232">"आपकी नई कार्य प्रोफ़ाइल आपके कार्य और व्यक्तिगत डेटा को अलग-अलग बनाए रखती है.\nनिम्न शर्तें आपकी कार्य प्रोफ़ाइल पर लागू होती हैं."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफ़ाइल"</string>
@@ -96,24 +95,15 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"आप बाद में अपने संगठन द्वारा उपयोग किए जाने वाले डिवाइस प्रबंधन ऐप से अपनी कार्य प्रोफ़ाइल सेट कर सकते हैं."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"जारी रखें"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोकें"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
-    <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
-    <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6693210677067612542">"नई कार्य प्रोफ़ाइल बनाई जाएगी. केवल उसमें मौजूद ऐप्लिकेशन और डेटा को आपका संगठन प्रबंधित करेगा."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"नई कार्य प्रोफ़ाइल बनाई जाएगी. केवल उसमें मौजूद ऐप्लिकेशन और डेटा को आपका संगठन प्रबंधित करेगा. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> की शर्तें लागू होंगी."</string>
+    <string name="device_owner_info" msgid="9015249759994198680">"आपके डिवाइस का प्रबंधन करने और उसे सुरक्षित रखने का कार्य <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> के माध्यम से किया जाएगा. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"आपके डिवाइस का प्रबंधन करने और उसे सुरक्षित रखने का कार्य <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> के माध्यम से किया जाएगा. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> की शर्तें लागू होंगी. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"अगर आपके प्रश्न हैं, तो अपने <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> से संपर्क करें."</string>
+    <string name="device_provider" msgid="3278537487796207495">"डिवाइस प्रदाता"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> निम्न ऐप्लिकेशन का उपयोग करके यह डिवाइस प्रबंधित करेगा:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"आपका संगठन"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"आपका संगठन"</string>
     <string name="view_terms" msgid="7230493092383341605">"शर्तें देखें"</string>
     <string name="accept_and_continue" msgid="8361403983052024073">"स्वीकारें और जारी रखें"</string>
     <string name="close" msgid="7208600934846389439">"बंद करें"</string>
