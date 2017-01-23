@@ -179,8 +179,7 @@ public class StoreUtils {
             try (final FileOutputStream out = new FileOutputStream(outputFile)) {
                 copyStream(in, out);
             }
-            ProvisionLogger.logi("Successfully copy from uri " + uri + " has been successfully"
-                    + " copied to " + outputFile);
+            ProvisionLogger.logi("Successfully copy from uri " + uri + " to " + outputFile);
             return true;
         } catch (IOException | SecurityException e) {
             ProvisionLogger.logi("Could not write file from " + uri + " to "
