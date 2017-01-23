@@ -15,14 +15,17 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.widget.ExpandableListView;
 import android.widget.Toolbar;
+import android.util.ArraySet;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.StoreUtils;
@@ -34,12 +37,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Activity responsible for displaying the Terms screen
  */
 public class TermsActivity extends SetupLayoutActivity {
     private final StoreUtils.TextFileReader mTextFileReader;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    private final Set<Integer> mExpandedGroupsPosition = new ArraySet<>();
 
     public TermsActivity() {
         this(StoreUtils::readString);
@@ -49,6 +55,7 @@ public class TermsActivity extends SetupLayoutActivity {
     TermsActivity(StoreUtils.TextFileReader textFileReader) {
         super(new Utils());
         mTextFileReader = textFileReader;
+        mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
     }
 
     @Override
@@ -67,9 +74,19 @@ public class TermsActivity extends SetupLayoutActivity {
         container.addHeaderView(
                 getLayoutInflater().inflate(R.layout.terms_screen_header, container, false));
 
+        final int numberOfTerms = terms.size();
+
+        // Add default open terms to the expanded groups set.
+        for (int i = 0; i < numberOfTerms; i++) {
+            if (container.isGroupExpanded(i)) {
+                mExpandedGroupsPosition.add(i);
+            }
+        }
+
         // keep at most one group expanded at a time
         container.setOnGroupExpandListener((int groupPosition) -> {
-            for (int i = 0; i < terms.size(); i++) {
+            mExpandedGroupsPosition.add(groupPosition);
+            for (int i = 0; i < numberOfTerms; i++) {
                 if (i != groupPosition && container.isGroupExpanded(i)) {
                     container.collapseGroup(i);
                 }
@@ -78,6 +95,19 @@ public class TermsActivity extends SetupLayoutActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
+
+        mProvisioningAnalyticsTracker.logNumberOfTermsDisplayed(this, numberOfTerms);
+    }
+
+    @Override
+    public void onDestroy() {
+        mProvisioningAnalyticsTracker.logNumberOfTermsRead(this, mExpandedGroupsPosition.size());
+        super.onDestroy();
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return PROVISIONING_TERMS_ACTIVITY_TIME_MS;
     }
 
     private List<TermsDocument> getTerms(ProvisioningParams params) {
