@@ -166,7 +166,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         assertTrue(latch.await(1, TimeUnit.SECONDS));
 
         // THEN the managed profile is deleted
-        verify(mUserManager).removeUser(TEST_PROFILE_USER_ID);
+        verify(mUserManager).removeUserEvenWhenDisallowed(TEST_PROFILE_USER_ID);
 
         // WHEN the install existing package task eventually finishes
         mController.onSuccess(task);

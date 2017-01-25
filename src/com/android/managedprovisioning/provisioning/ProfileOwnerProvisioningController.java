@@ -107,7 +107,7 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
                 && mCurrentTaskIndex != 0) {
             ProvisionLogger.logd("Removing managed profile");
             UserManager um = mContext.getSystemService(UserManager.class);
-            um.removeUser(mUserId);
+            um.removeUserEvenWhenDisallowed(mUserId);
         }
     }
 
