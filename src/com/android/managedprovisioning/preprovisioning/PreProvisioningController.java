@@ -52,7 +52,6 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
-import android.webkit.URLUtil;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
@@ -62,8 +61,8 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
-import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
@@ -155,11 +154,12 @@ public class PreProvisioningController {
          * @param packageLabel package label
          * @param packageIcon package icon
          * @param isProfileOwnerProvisioning false for Device Owner provisioning
+         * @param isComp true if in COMP provisioning mode
          * @param termsHeaders list of terms headers
          * @param customization customization parameters
          */
         void initiateUi(int layoutRes, int titleRes, @Nullable String packageLabel,
-                @Nullable Drawable packageIcon, boolean isProfileOwnerProvisioning,
+                @Nullable Drawable packageIcon, boolean isProfileOwnerProvisioning, boolean isComp,
                 @NonNull List<String> termsHeaders, @NonNull CustomizationParams customization);
 
         /**
@@ -271,9 +271,11 @@ public class PreProvisioningController {
 
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
-            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup,
-                    null, null, true /* isProfileOwnerProvisioning */,
-                    getDisclaimerHeaders(), customization);
+            boolean isComp = mDevicePolicyManager.isDeviceManaged();
+
+            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup, null,
+                    null, true /* isProfileOwnerProvisioning */, isComp, getDisclaimerHeaders(),
+                    customization);
         } else {
             String packageName = mParams.inferDeviceAdminPackageName();
             MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
@@ -287,8 +289,10 @@ public class PreProvisioningController {
                     R.string.setup_device_start_setup,
                     packageLabel,
                     packageIcon,
-                    false /* isProfileOwnerProvisioning */,
-                    getDisclaimerHeaders(), customization);
+                    false  /* isProfileOwnerProvisioning */,
+                    false, /* isComp */
+                    getDisclaimerHeaders(),
+                    customization);
         }
     }
 

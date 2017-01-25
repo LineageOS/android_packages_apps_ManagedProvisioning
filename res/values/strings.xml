@@ -198,13 +198,17 @@
 
   <!--Pre-provisioning screen informing a user of benefits and consequences of creating a Profile Owner / Device Owner (http://go/anim-e1f256) -->
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
-  <string name="profile_owner_info">A new work profile will be created. Only the apps and data within will be managed by your organization.</string>
+  <string name="profile_owner_info">You\'re about to create a new work profile that\'ll be managed by your organization.</string>
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
-  <string name="profile_owner_info_with_terms_headers">A new work profile will be created. Only the apps and data within will be managed by your organization. Terms from <xliff:g id="terms_headers" example="AirWatch, ACME and Google">%1$s</xliff:g> apply.</string>
+  <string name="profile_owner_info_with_terms_headers">You\'re about to create a new work profile that\'ll be managed by your organization. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%1$s</xliff:g> apply.</string>
+  <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_info_comp">A profile will be created for your work apps. This profile and the rest of your device are managed by your organization.</string>
+  <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_info_with_terms_headers_comp">A profile will be created for your work apps. This profile and the rest of your device are managed by your organization. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%1$s</xliff:g> apply.</string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
   <string name="device_owner_info">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. <xliff:g id="view_terms" example="View Terms">%2$s</xliff:g></string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
-  <string name="device_owner_info_with_terms_headers">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms from <xliff:g id="terms_headers" example="AirWatch, ACME and Google">%2$s</xliff:g> apply. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
+  <string name="device_owner_info_with_terms_headers">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> apply. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
   <!-- Text with link to device's provider in case of more questions [CHAR LIMIT=NONE] -->
   <string name="contact_device_provider">If you have questions, contact your <xliff:g id="device's provider" example="device's provider">%1$s</xliff:g>.</string>
   <!-- Provider of the device (e.g. employer) [CHAR LIMIT=NONE] -->
@@ -218,20 +222,21 @@
   <!--Button that lauches a screen showing terms and conditions [CHAR LIMIT=20] -->
   <string name="view_terms">View terms</string>
   <!--Button initiating a profile/device owner setup process [CHAR LIMIT=20] -->
-  <string name="accept_and_continue">Accept and continue</string>
+  <string name="accept_and_continue">Accept &amp; continue</string>
   <!--Close button cancelling a profile/device owner setup process [CHAR LIMIT=20] -->
   <string name="close">Close</string>
   <!--Header for device owner provisioning setup screen [CHAR LIMIT=NONE] -->
   <string name="set_up_your_device">Set up your device</string>
 
   <!-- Animation informing a user about benefits of having a managed profile (http://go/anim-e1f256) -->
-  <!--TODO: Revisit once translations complete. Aim for 1 - 2 lines of text (http://b/32826664). -->
   <!-- Title 1/3 from slides [CHAR LIMIT=NONE]-->
   <string name="info_anim_title_0">Change the way you work</string>
   <!-- Title 2/3 from slides [CHAR LIMIT=NONE]-->
   <string name="info_anim_title_1">Separate work from personal</string>
+  <!-- Title 2/3 from slides - COMP case [CHAR LIMIT=NONE]-->
+  <string name="one_place_for_work_apps">One place for work apps</string>
   <!-- Title 3/3 from slides [CHAR LIMIT=NONE]-->
-  <string name="info_anim_title_2">Work the way you want</string>
+  <string name="info_anim_title_2">Turn off work when you\'re done</string>
 
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->

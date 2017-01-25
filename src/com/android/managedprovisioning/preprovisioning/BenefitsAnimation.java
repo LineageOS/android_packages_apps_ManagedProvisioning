@@ -25,10 +25,14 @@ import android.app.Activity;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
+
+import java.util.List;
 
 /**
  * <p>Drives the animation showing benefits of having a Managed Profile.
@@ -43,11 +47,16 @@ class BenefitsAnimation {
             {R.anim.text_scene_3_animation, R.id.text_3},
             {R.anim.text_scene_master_animation, R.id.text_master}};
 
+    private static final int[] SLIDE_CAPTION_TEXT_VIEWS = {
+            R.id.text_0, R.id.text_1, R.id.text_2, R.id.text_3};
+
     /** Id of an {@link ImageView} containing the animated graphic */
     private static final int ID_ANIMATED_GRAPHIC = R.id.animated_info;
 
     /** Id of an {@link ImageView} containing the animated pager dots */
     private static final int ID_ANIMATED_DOTS = R.id.animated_dots;
+
+    private static final int SLIDE_COUNT = 3;
 
     private final AnimatedVectorDrawable mTopAnimation;
     private final AnimatedVectorDrawable mDotsAnimation;
@@ -56,9 +65,17 @@ class BenefitsAnimation {
 
     private boolean mStopped;
 
-    public BenefitsAnimation(Activity activity) {
+    /**
+     * @param captions slide captions for the animation
+     */
+    public BenefitsAnimation(Activity activity, @NonNull List<Integer> captions) {
+        if (captions.size() != SLIDE_COUNT) {
+            throw new IllegalArgumentException(
+                    "Wrong number of slide captions. Expected: " + SLIDE_COUNT);
+        }
         mActivity = checkNotNull(activity);
         mTextAnimation = checkNotNull(assembleTextAnimation());
+        applySlideCaptions(captions);
         mDotsAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_DOTS));
         mTopAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_GRAPHIC));
 
@@ -128,6 +145,17 @@ class BenefitsAnimation {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(animators);
         return animatorSet;
+    }
+
+    /**
+     * @param captions slide titles
+     */
+    private void applySlideCaptions(List<Integer> captions) {
+        int slideIx = 0;
+        for (int viewId : SLIDE_CAPTION_TEXT_VIEWS) {
+            ((TextView) mActivity.findViewById(viewId)).setText(
+                    captions.get(slideIx++ % captions.size()));
+        }
     }
 
     /** Extracts an {@link AnimatedVectorDrawable} from a containing {@link ImageView}. */

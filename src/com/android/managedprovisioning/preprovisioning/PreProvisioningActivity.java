@@ -16,6 +16,9 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static java.util.Collections.emptyList;
+import static java.util.Collections.unmodifiableList;
+
 import android.annotation.NonNull;
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -51,10 +54,19 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 import com.android.setupwizardlib.GlifLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PreProvisioningActivity extends SetupLayoutActivity implements
         SimpleDialog.SimpleDialogListener, PreProvisioningController.Ui {
+    private static final List<Integer> SLIDE_CAPTIONS = createImmutableList(
+            R.string.info_anim_title_0,
+            R.string.info_anim_title_1,
+            R.string.info_anim_title_2);
+    private static final List<Integer> SLIDE_CAPTIONS_COMP = createImmutableList(
+            R.string.info_anim_title_0,
+            R.string.one_place_for_work_apps,
+            R.string.info_anim_title_2);
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     @VisibleForTesting
@@ -230,7 +242,7 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
 
     @Override
     public void initiateUi(int layoutId, int titleId, String packageLabel, Drawable packageIcon,
-            boolean isProfileOwnerProvisioning, List<String> termsHeaders,
+            boolean isProfileOwnerProvisioning, boolean isComp, List<String> termsHeaders,
             CustomizationParams customization) {
         setContentView(layoutId);
 
@@ -255,13 +267,13 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
 
         // initiate UI for MP / DO
         if (isProfileOwnerProvisioning) {
-            initiateUIProfileOwner(headers);
+            initiateUIProfileOwner(headers, isComp);
         } else {
             initiateUIDeviceOwner(packageLabel, packageIcon, headers, customization);
         }
     }
 
-    private void initiateUIProfileOwner(@NonNull String termsHeaders) {
+    private void initiateUIProfileOwner(@NonNull String termsHeaders, @NonNull boolean isComp) {
         // set up the cancel button
         Button cancelButton = (Button) findViewById(R.id.close_button);
         cancelButton.setOnClickListener(v -> {
@@ -269,18 +281,22 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
             PreProvisioningActivity.this.onBackPressed();
         });
 
+        int messageId = isComp ? R.string.profile_owner_info_comp : R.string.profile_owner_info;
+        int messageWithTermsId = isComp ? R.string.profile_owner_info_with_terms_headers_comp
+                : R.string.profile_owner_info_with_terms_headers;
+
         // set the short info text
         TextView shortInfo = (TextView) findViewById(R.id.profile_owner_short_info);
         shortInfo.setText(termsHeaders.isEmpty()
-                ? getString(R.string.profile_owner_info)
-                : getResources().getString(R.string.profile_owner_info_with_terms_headers,
-                        termsHeaders));
+                ? getString(messageId)
+                : getResources().getString(messageWithTermsId, termsHeaders));
 
         // set up show terms button
         findViewById(R.id.show_terms_button).setOnClickListener(this::onViewTermsClick);
 
         // show the intro animation
-        mBenefitsAnimation = new BenefitsAnimation(this);
+        mBenefitsAnimation = new BenefitsAnimation(this,
+                isComp ? SLIDE_CAPTIONS_COMP : SLIDE_CAPTIONS);
     }
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
@@ -420,5 +436,16 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
         if (mBenefitsAnimation != null) {
             mBenefitsAnimation.stop();
         }
+    }
+
+    private static List<Integer> createImmutableList(int... values) {
+        if (values == null || values.length == 0) {
+            return emptyList();
+        }
+        List<Integer> result = new ArrayList<>(values.length);
+        for (int value : values) {
+            result.add(value);
+        }
+        return unmodifiableList(result);
     }
 }
