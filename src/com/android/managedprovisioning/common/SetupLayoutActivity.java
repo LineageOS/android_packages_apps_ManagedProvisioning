@@ -26,6 +26,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
@@ -33,6 +34,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
 
 /**
@@ -57,6 +59,11 @@ public abstract class SetupLayoutActivity extends Activity {
         super.onCreate(savedInstanceState);
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
         mTimeLogger.start();
+
+        // lock orientation to portrait on phones
+        if (getResources().getBoolean(R.bool.lock_to_portrait)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
     @Override

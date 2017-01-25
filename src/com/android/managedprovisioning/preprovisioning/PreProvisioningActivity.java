@@ -45,19 +45,18 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.SetupLayoutActivity;
+import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.StringConcatenator;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
-import com.android.setupwizardlib.GlifLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreProvisioningActivity extends SetupLayoutActivity implements
+public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         SimpleDialog.SimpleDialogListener, PreProvisioningController.Ui {
     private static final List<Integer> SLIDE_CAPTIONS = createImmutableList(
             R.string.info_anim_title_0,
@@ -244,9 +243,11 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
     public void initiateUi(int layoutId, int titleId, String packageLabel, Drawable packageIcon,
             boolean isProfileOwnerProvisioning, boolean isComp, List<String> termsHeaders,
             CustomizationParams customization) {
-        setContentView(layoutId);
-
-        setMainColor(customization.mainColor);
+        initializeLayoutParams(
+                layoutId,
+                isProfileOwnerProvisioning ? null : R.string.set_up_your_device,
+                false /* progress bar */,
+                customization.mainColor);
 
         // set up the 'accept and continue' button
         Button nextButton = (Button) findViewById(R.id.next_button);
@@ -301,10 +302,6 @@ public class PreProvisioningActivity extends SetupLayoutActivity implements
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
             @NonNull String termsHeaders, CustomizationParams customization) {
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
-        layout.setHeaderText(R.string.set_up_your_device);
-        layout.setIcon(LogoUtils.getOrganisationLogo(this, customization.mainColor));
-
         // short terms info text with clickable 'view terms' link
         TextView shortInfoText = (TextView) findViewById(R.id.device_owner_terms_info);
         shortInfoText.setText(assembleDOTermsMessage(this::onViewTermsClick, termsHeaders,

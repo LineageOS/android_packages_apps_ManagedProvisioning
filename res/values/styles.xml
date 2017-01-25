@@ -101,6 +101,7 @@
 
     <style name="Provisioning2Theme" parent="SuwThemeMaterial.Light">
         <item name="android:windowBackground">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
     </style>
 
     <style name="Provisioning2Theme.Text">
