@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning.preprovisioning;
+package com.android.managedprovisioning.preprovisioning.anim;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
@@ -26,7 +26,6 @@ import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +37,7 @@ import java.util.List;
  * <p>Drives the animation showing benefits of having a Managed Profile.
  * <p>Tightly coupled with the {@link R.layout#intro_animation} layout.
  */
-class BenefitsAnimation {
+public class BenefitsAnimation {
     /** Array of Id pairs: {{@link ObjectAnimator}, {@link TextView}} */
     private static final int[][] ID_ANIMATION_TARGET = {
             {R.anim.text_scene_0_animation, R.id.text_0},

@@ -50,6 +50,9 @@ import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.StringConcatenator;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.preprovisioning.anim.BenefitsAnimation;
+import com.android.managedprovisioning.preprovisioning.anim.ColorMatcher;
+import com.android.managedprovisioning.preprovisioning.anim.SwiperThemeMatcher;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
@@ -243,6 +246,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     public void initiateUi(int layoutId, int titleId, String packageLabel, Drawable packageIcon,
             boolean isProfileOwnerProvisioning, boolean isComp, List<String> termsHeaders,
             CustomizationParams customization) {
+        if (isProfileOwnerProvisioning) {
+            // setting a theme so that the animation swiper matches the mainColor
+            // needs to happen before {@link Activity#setContentView}
+            setTheme(new SwiperThemeMatcher(this,
+                    new ColorMatcher()) // TODO: introduce DI framework
+                    .findTheme(customization.mainColor));
+        }
+
         initializeLayoutParams(
                 layoutId,
                 isProfileOwnerProvisioning ? null : R.string.set_up_your_device,

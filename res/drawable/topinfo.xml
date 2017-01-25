@@ -4160,7 +4160,7 @@
             android:name="rectangle_1" >
             <path
                 android:name="rectangle_path_2"
-                android:fillColor="#FF26A599"
+                android:fillColor="?attr/swiper_color"
                 android:pathData="M 0.0,-157.0 l 0.0,0.0 c 1.3807118745,0.0 2.5,1.1192881255 2.5,2.5 l 0.0,309.0 c 0.0,1.3807118745 -1.1192881255,2.5 -2.5,2.5 l 0.0,0.0 c -1.3807118745,0.0 -2.5,-1.1192881255 -2.5,-2.5 l 0.0,-309.0 c 0.0,-1.3807118745 1.1192881255,-2.5 2.5,-2.5 Z" />
         </group>
     </group>

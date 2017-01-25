@@ -102,6 +102,7 @@
     <style name="Provisioning2Theme" parent="SuwThemeMaterial.Light">
         <item name="android:windowBackground">@color/white</item>
         <item name="android:colorBackground">@color/white</item>
+        <item name="swiper_color">@color/teal2</item>
     </style>
 
     <style name="Provisioning2Theme.Text">

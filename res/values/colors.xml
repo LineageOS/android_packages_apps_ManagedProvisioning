@@ -37,4 +37,5 @@
     <color name="gray_divider">#DCDCDC</color>
     <color name="gray_status_bar">#BDBDBD</color>
     <color name="white">#FFF</color>
+    <color name="teal2">#FF26A599</color>
 </resources>
