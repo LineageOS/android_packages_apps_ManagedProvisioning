@@ -100,7 +100,6 @@
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <!-- Accessibility Descriptions -->
-  <skip></skip>
   <!-- Accessibility description for the profile setup screen showing organization info. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description for the profile setup screen showing progress. [CHAR LIMIT=NONE] -->
