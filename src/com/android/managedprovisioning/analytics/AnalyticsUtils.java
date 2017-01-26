@@ -27,7 +27,6 @@ import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 
@@ -59,7 +58,6 @@ public class AnalyticsUtils {
         try {
             return context.getPackageManager().getInstallerPackageName(packageName);
         } catch (IllegalArgumentException e) {
-            ProvisionLogger.loge(packageName + " is not installed.", e);
             return null;
         }
     }

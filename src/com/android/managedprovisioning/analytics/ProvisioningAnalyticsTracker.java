@@ -30,6 +30,8 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_SESSION_COMPLETED;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_SESSION_STARTED;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_COUNT;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_READ;
 
 import android.annotation.IntDef;
 import android.content.Context;
@@ -165,6 +167,26 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logProvisioningSessionCompleted(Context context) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_SESSION_COMPLETED);
+    }
+
+    /**
+     * logs number of terms displayed on the terms screen.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param count Number of terms displayed
+     */
+    public void logNumberOfTermsDisplayed(Context context, int count) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_TERMS_COUNT, count);
+    }
+
+    /**
+     * logs number of terms read on the terms screen.
+     *
+     * @param context Context passed to MetricsLogger
+     * @param count Number of terms read
+     */
+    public void logNumberOfTermsRead(Context context, int count) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_TERMS_READ, count);
     }
 
     /**
