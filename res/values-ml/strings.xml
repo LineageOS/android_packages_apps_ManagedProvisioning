@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"റദ്ദാക്കുക"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ശരി"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ഞാൻ സമ്മതിക്കുന്നു"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"ഈ ലിങ്ക് പ്രദർശിപ്പിക്കാൻ കഴിയില്ല."</string>
     <string name="terms" msgid="8295436105384703903">"നിബന്ധനകള്‍"</string>
     <string name="terms_intro" msgid="2626943728063219232">"നിങ്ങളുടെ പുതിയ ഔദ്യോഗിക പ്രൊഫൈൽ, ഔദ്യോഗിക വിവരങ്ങളും വ്യക്തിഗത വിവരങ്ങളും വെവ്വേറെയായി സൂക്ഷിക്കുന്നു.\nനിങ്ങളുടെ പുതിയ ഔദ്യോഗിക പ്രൊഫൈലിന് ഇനിപ്പറയുന്ന നിബന്ധനകൾ ബാധകമാണ്."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
@@ -96,31 +95,32 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"സ്ഥാപനം ഉപയോഗിക്കുന്ന ഉപകരണ മാനേജ്‌മെന്റ് ആപ്പിൽ നിന്ന്, നിങ്ങൾക്ക് പിന്നീട് ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കാവുന്നതാണ്."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"തുടരുക"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"അവസാനിപ്പിക്കുക"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
+    <!-- no translation found for profile_owner_info (6975830281038077091) -->
     <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
+    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
     <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
+    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
     <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
+    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
     <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="device_owner_info" msgid="9015249759994198680">"ഈ ഉപകരണം മാനേജുചെയ്യുന്നതും സുരക്ഷിതമായി സൂക്ഷിക്കുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"ഈ ഉപകരണം മാനേജുചെയ്യുന്നതും സുരക്ഷിതമായി സൂക്ഷിക്കുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> എന്നതിലെ നിബന്ധനകൾ ബാധകമാവും.<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"നിങ്ങൾക്ക് ചോദ്യങ്ങളുണ്ടെങ്കിൽ, നിങ്ങളുടെ <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> ബന്ധപ്പെടുക."</string>
+    <string name="device_provider" msgid="3278537487796207495">"ഉപകരണ ദാതാവ്"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"താഴെ പറയുന്ന ആപ്പ് ഉപയോഗിച്ച് <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ഈ ഉപകരണം നിയന്ത്രിക്കും:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ"</string>
     <string name="view_terms" msgid="7230493092383341605">"നിബന്ധനകൾ കാണുക"</string>
-    <string name="accept_and_continue" msgid="8361403983052024073">"അംഗീകരിച്ച് തുടരുക"</string>
+    <!-- no translation found for accept_and_continue (1632679734918410653) -->
+    <skip />
     <string name="close" msgid="7208600934846389439">"അടയ്‌ക്കുക"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുക"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"നിങ്ങൾ ജോലി ചെയ്യുന്ന രീതി തന്നെ മാറ്റുക"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"ഔദ്യോഗിക വിവരങ്ങളും വ്യക്തിഗത വിവരങ്ങളും വെവ്വേറെയാക്കുക"</string>
-    <string name="info_anim_title_2" msgid="1799488690711073300">"നിങ്ങൾക്ക് ഇഷ്ടമുള്ള രീതിയിൽ ജോലി ചെയ്യുക"</string>
+    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
+    <skip />
+    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"പ്രൊവിഷൻ ചെയ്യുന്നു"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA സർട്ടിഫിക്കറ്റ് സജ്ജമാക്കുന്നു"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. സജ്ജമാക്കൽ ആരംഭിക്കുക"</string>

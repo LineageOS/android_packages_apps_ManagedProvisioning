@@ -95,22 +95,32 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"您稍后可以通过您所在单位使用的设备管理应用来设置自己的工作资料。"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"继续"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"停止"</string>
-    <string name="profile_owner_info" msgid="6693210677067612542">"系统将创建一份新的工作资料。您所在的单位只会管理其中的应用和数据。"</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="2016816688186591080">"系统将创建一份新的工作资料。您所在的单位只会管理其中的应用和数据。相应行为受“<xliff:g id="TERMS_HEADERS">%1$s</xliff:g>”的相关条款约束。"</string>
+    <!-- no translation found for profile_owner_info (6975830281038077091) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
+    <skip />
     <string name="device_owner_info" msgid="9015249759994198680">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理，并确保其安全。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理，并确保其安全。相应行为受“<xliff:g id="TERMS_HEADERS">%2$s</xliff:g>”的相关条款约束。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理，并确保其安全。相应行为受<xliff:g id="TERMS_HEADERS">%2$s</xliff:g>的相关条款约束。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="462704678510856705">"如果您有疑问，请与您的<xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>联系。"</string>
-    <string name="device_provider" msgid="3278537487796207495">"设备提供商"</string>
+    <string name="device_provider" msgid="3278537487796207495">"设备提供者"</string>
     <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>将使用以下应用管理此设备："</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"您的单位"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"您的单位"</string>
     <string name="view_terms" msgid="7230493092383341605">"查看条款"</string>
-    <string name="accept_and_continue" msgid="8361403983052024073">"接受并继续"</string>
+    <!-- no translation found for accept_and_continue (1632679734918410653) -->
+    <skip />
     <string name="close" msgid="7208600934846389439">"关闭"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"设置设备"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"改变您的工作方式"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"将工作数据与个人数据隔离开"</string>
-    <string name="info_anim_title_2" msgid="1799488690711073300">"以您喜欢的方式工作"</string>
+    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
+    <skip />
+    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"正在配置"</string>
     <string name="copying_certs" msgid="5697938664953550881">"正在设置 CA 证书"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"设置您的个人资料。开始设置"</string>

@@ -36,8 +36,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द करा"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ठीक आहे"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मी संमती देतो"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"ही लिंक प्रदर्शित करता येणार नाही."</string>
     <string name="terms" msgid="8295436105384703903">"अटी"</string>
     <string name="terms_intro" msgid="2626943728063219232">"आपले नवीन कार्य प्रोफाईल आपले कार्य आणि वैयक्तिक डेटा स्वतंत्र ठेवते.\nखालील अटी आपल्या कार्य प्रोफाईलवर लागू होतात."</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
@@ -96,31 +95,32 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"आपल्‍या संस्‍थेद्वारे वापरलेल्या डिव्‍हाइस व्यवस्थापन अ‍ॅपमधून आपण आपले कार्य प्रोफाईल नंतर सेट करू शकता."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"सुरू ठेवा"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"थांबा"</string>
-    <!-- no translation found for profile_owner_info (6693210677067612542) -->
+    <!-- no translation found for profile_owner_info (6975830281038077091) -->
     <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (2016816688186591080) -->
+    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
     <skip />
-    <!-- no translation found for device_owner_info (9015249759994198680) -->
+    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
     <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (4019378178527872716) -->
+    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
     <skip />
-    <!-- no translation found for contact_device_provider (462704678510856705) -->
-    <skip />
-    <!-- no translation found for device_provider (3278537487796207495) -->
-    <skip />
-    <!-- no translation found for your_org_app_used (4136582853192890775) -->
-    <skip />
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="device_owner_info" msgid="9015249759994198680">"हे डिव्‍हाइस व्‍यवस्‍थापित केले जाईल आणि <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> द्वारे सुरक्षित केले जाईल. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"हे डिव्‍हाइस व्‍यवस्‍थापित केले जाईल आणि <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> द्वारे सुरक्षित केले जाईल. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> कडून अटी लागू. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="462704678510856705">"आपल्‍याला प्रश्‍न असल्‍यास, आपल्‍या <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> शी संपर्क साधा."</string>
+    <string name="device_provider" msgid="3278537487796207495">"डिव्‍हाइसचा प्रदाता"</string>
+    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> खालील अॅप वापरून हे डिव्‍हाइस व्‍यवस्‍थापित करेल:"</string>
+    <string name="your_organization_beginning" msgid="5952561489910967255">"आपली संस्‍था"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"आपली संस्था"</string>
     <string name="view_terms" msgid="7230493092383341605">"अटी पहा"</string>
-    <string name="accept_and_continue" msgid="8361403983052024073">"स्वीकारा आणि सुरू ठेवा"</string>
+    <!-- no translation found for accept_and_continue (1632679734918410653) -->
+    <skip />
     <string name="close" msgid="7208600934846389439">"बंद करा"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"आपले डिव्हाइस सेट करा"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"आपण ज्या पद्धतीने कार्य करता ती पद्धत बदला"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"वैैयक्तिक मधून कार्य स्वतंत्र करा"</string>
-    <string name="info_anim_title_2" msgid="1799488690711073300">"आपण इच्छिता त्या पद्धतीने कार्य करा"</string>
+    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
+    <skip />
+    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
+    <skip />
     <string name="provisioning" msgid="4512493827019163451">"तरतूद"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करीत आहे"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"आपले प्रोफाईल सेट करा. सेटअप प्रारंभ करा"</string>
