@@ -17,8 +17,16 @@ package com.android.managedprovisioning.preprovisioning.terms;
 
 import static com.android.internal.util.Preconditions.checkStringNotEmpty;
 
+import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.URLSpan;
+import android.view.View;
+
+import com.android.managedprovisioning.preprovisioning.WebActivity;
 
 /**
  * Class responsible for storing disclaimers
@@ -43,8 +51,7 @@ final class TermsDocument {
      * object
      */
     public static TermsDocument fromHtml(String heading, String htmlContent) {
-        return new TermsDocument(checkStringNotEmpty(heading),
-                Html.fromHtml(checkStringNotEmpty(htmlContent), HTML_MODE));
+        return new TermsDocument(checkStringNotEmpty(heading), getSpannedFromHtml(htmlContent));
     }
 
     /**
@@ -59,5 +66,45 @@ final class TermsDocument {
      */
     public Spanned getContent() {
         return mContent;
+    }
+
+
+    private static Spanned getSpannedFromHtml(String htmlContent) {
+        Spanned spanned = Html.fromHtml(checkStringNotEmpty(htmlContent), HTML_MODE);
+        if (spanned == null) {
+            return null;
+        }
+        // Make html <a> tag opens WebActivity
+        SpannableStringBuilder spanBuilder = new SpannableStringBuilder(spanned);
+        URLSpan[] urlSpans = spanBuilder.getSpans(0, spanBuilder.length(), URLSpan.class);
+        for (URLSpan urlSpan : urlSpans) {
+            int start = spanBuilder.getSpanStart(urlSpan);
+            int end = spanBuilder.getSpanEnd(urlSpan);
+            setSpanFromMark(spanBuilder, urlSpan, new WebviewUrlSpan(urlSpan.getURL()));
+        }
+        return spanBuilder;
+    }
+
+    private static void setSpanFromMark(Spannable text, Object mark, Object span) {
+        int where = text.getSpanStart(mark);
+        text.removeSpan(mark);
+        int len = text.length();
+        text.setSpan(span, where, len, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+
+    private static class WebviewUrlSpan extends URLSpan {
+
+        public WebviewUrlSpan(String url) {
+            super(url);
+        }
+
+        @Override
+        public void onClick(View widget) {
+            Context context = widget.getContext();
+            Intent intent = WebActivity.createIntent(context, getURL(), null);
+            if (intent != null) {
+                context.startActivity(intent);
+            }
+        }
     }
 }

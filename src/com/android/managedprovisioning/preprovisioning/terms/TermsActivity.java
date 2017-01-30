@@ -16,8 +16,14 @@
 package com.android.managedprovisioning.preprovisioning.terms;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
+import static android.content.pm.PackageManager.GET_META_DATA;
+import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.widget.ExpandableListView;
@@ -32,7 +38,6 @@ import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam.Disclaimer;
 import com.android.managedprovisioning.model.ProvisioningParams;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -119,6 +124,7 @@ public class TermsActivity extends SetupLayoutActivity {
         List<TermsDocument> terms = new ArrayList<>();
         // TODO: finalize AOSP disclaimer header and content
         terms.add(TermsDocument.fromHtml("AOSP", aospDisclaimer));
+        terms.addAll(getSystemAppTerms());
 
         Disclaimer[] disclaimers = params.disclaimersParam == null ? null
                 : params.disclaimersParam.mDisclaimers;
@@ -133,5 +139,35 @@ public class TermsActivity extends SetupLayoutActivity {
             }
         }
         return terms;
+    }
+
+    private List<TermsDocument> getSystemAppTerms() {
+        List<TermsDocument> terms = new ArrayList<>();
+        List<ApplicationInfo> appInfos = getPackageManager().getInstalledApplications(
+                MATCH_SYSTEM_ONLY | GET_META_DATA);
+        for (ApplicationInfo appInfo : appInfos) {
+            String header = getStringMetaData(appInfo,
+                    DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER);
+            String content = getStringMetaData(appInfo,
+                    DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT);
+            if (header != null && content != null) {
+                terms.add(TermsDocument.fromHtml(header, content));
+            }
+        }
+        return terms;
+    }
+
+    private String getStringMetaData(ApplicationInfo appInfo, String key) {
+        if (appInfo.metaData != null) {
+            int resId = appInfo.metaData.getInt(key);
+            if (resId != 0) {
+                try {
+                    return getPackageManager().getResourcesForApplication(appInfo).getString(resId);
+                } catch (NameNotFoundException | Resources.NotFoundException e) {
+                    ProvisionLogger.loge("NameNotFoundException", e);
+                }
+            }
+        }
+        return null;
     }
 }
