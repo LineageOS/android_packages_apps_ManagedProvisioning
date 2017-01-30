@@ -16,9 +16,10 @@
 
 package com.android.managedprovisioning.common;
 
+import android.annotation.Nullable;
 import android.content.res.ColorStateList;
-
 import android.support.annotation.VisibleForTesting;
+
 import com.android.managedprovisioning.R;
 import com.android.setupwizardlib.GlifLayout;
 
@@ -35,16 +36,22 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         super(utils);
     }
 
-    protected void initializeLayoutParams(int layoutResourceId, int headerResourceId,
+    protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
             boolean showProgressBar, int mainColor) {
         setContentView(layoutResourceId);
         GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
+
         setMainColor(mainColor);
         layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
-        layout.setHeaderText(headerResourceId);
+
+        if (headerResourceId != null) {
+            layout.setHeaderText(headerResourceId);
+        }
+
         if (showProgressBar) {
             layout.setProgressBarShown(true);
         }
+
         layout.setIcon(LogoUtils.getOrganisationLogo(this, mainColor));
     }
 }
