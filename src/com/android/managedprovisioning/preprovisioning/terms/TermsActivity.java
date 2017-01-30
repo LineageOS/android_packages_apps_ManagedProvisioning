@@ -15,29 +15,35 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
-import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
 import static android.content.pm.PackageManager.GET_META_DATA;
 import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
+
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.app.admin.DevicePolicyManager;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
+import android.util.ArraySet;
 import android.widget.ExpandableListView;
 import android.widget.Toolbar;
-import android.util.ArraySet;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.HtmlToSpannedParser;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam.Disclaimer;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.preprovisioning.WebActivity;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,10 +58,12 @@ public class TermsActivity extends SetupLayoutActivity {
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private final Set<Integer> mExpandedGroupsPosition = new ArraySet<>();
 
+    @SuppressWarnings("unused")
     public TermsActivity() {
         this(StoreUtils::readString);
     }
 
+    @SuppressWarnings("WeakerAccess")
     @VisibleForTesting
     TermsActivity(StoreUtils.TextFileReader textFileReader) {
         super(new Utils());
@@ -79,10 +87,8 @@ public class TermsActivity extends SetupLayoutActivity {
         container.addHeaderView(
                 getLayoutInflater().inflate(R.layout.terms_screen_header, container, false));
 
-        final int numberOfTerms = terms.size();
-
         // Add default open terms to the expanded groups set.
-        for (int i = 0; i < numberOfTerms; i++) {
+        for (int i = 0; i < terms.size(); i++) {
             if (container.isGroupExpanded(i)) {
                 mExpandedGroupsPosition.add(i);
             }
@@ -91,7 +97,7 @@ public class TermsActivity extends SetupLayoutActivity {
         // keep at most one group expanded at a time
         container.setOnGroupExpandListener((int groupPosition) -> {
             mExpandedGroupsPosition.add(groupPosition);
-            for (int i = 0; i < numberOfTerms; i++) {
+            for (int i = 0; i < terms.size(); i++) {
                 if (i != groupPosition && container.isGroupExpanded(i)) {
                     container.collapseGroup(i);
                 }
@@ -101,7 +107,7 @@ public class TermsActivity extends SetupLayoutActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
 
-        mProvisioningAnalyticsTracker.logNumberOfTermsDisplayed(this, numberOfTerms);
+        mProvisioningAnalyticsTracker.logNumberOfTermsDisplayed(this, terms.size());
     }
 
     @Override
@@ -116,6 +122,11 @@ public class TermsActivity extends SetupLayoutActivity {
     }
 
     private List<TermsDocument> getTerms(ProvisioningParams params) {
+        TermsDocument.Factory termsDocumentFactory = new TermsDocument.Factory(
+                new HtmlToSpannedParser(new ClickableSpanFactory(getColor(R.color.blue)),
+                        url -> WebActivity.createIntent(TermsActivity.this, url,
+                                getWindow().getStatusBarColor())));
+
         boolean isProfileOwnerAction = mUtils.isProfileOwnerAction(params.provisioningAction);
         String aospDisclaimer = getResources().getString(isProfileOwnerAction
                 ? R.string.admin_has_ability_to_monitor_profile
@@ -123,9 +134,9 @@ public class TermsActivity extends SetupLayoutActivity {
 
         List<TermsDocument> terms = new ArrayList<>();
         // TODO: finalize AOSP disclaimer header and content
-        terms.add(TermsDocument.fromHtml("AOSP", aospDisclaimer));
+        terms.add(termsDocumentFactory.create("AOSP", aospDisclaimer));
         if (!isProfileOwnerAction) {
-            terms.addAll(getSystemAppTerms());
+            terms.addAll(getSystemAppTerms(termsDocumentFactory));
         }
 
         Disclaimer[] disclaimers = params.disclaimersParam == null ? null
@@ -133,8 +144,9 @@ public class TermsActivity extends SetupLayoutActivity {
         if (disclaimers != null) {
             for (Disclaimer disclaimer : disclaimers) {
                 try {
-                    terms.add(TermsDocument.fromHtml(disclaimer.mHeader,
-                            mTextFileReader.read(new File(disclaimer.mContentFilePath))));
+                    String htmlContent = mTextFileReader.read(
+                            new File(disclaimer.mContentFilePath));
+                    terms.add(termsDocumentFactory.create(disclaimer.mHeader, htmlContent));
                 } catch (IOException e) {
                     ProvisionLogger.loge("Failed to read disclaimer", e);
                 }
@@ -143,17 +155,15 @@ public class TermsActivity extends SetupLayoutActivity {
         return terms;
     }
 
-    private List<TermsDocument> getSystemAppTerms() {
+    private List<TermsDocument> getSystemAppTerms(TermsDocument.Factory termsDocumentFactory) {
         List<TermsDocument> terms = new ArrayList<>();
         List<ApplicationInfo> appInfos = getPackageManager().getInstalledApplications(
                 MATCH_SYSTEM_ONLY | GET_META_DATA);
         for (ApplicationInfo appInfo : appInfos) {
-            String header = getStringMetaData(appInfo,
-                    DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER);
-            String content = getStringMetaData(appInfo,
-                    DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT);
+            String header = getStringMetaData(appInfo, EXTRA_PROVISIONING_DISCLAIMER_HEADER);
+            String content = getStringMetaData(appInfo, EXTRA_PROVISIONING_DISCLAIMER_CONTENT);
             if (header != null && content != null) {
-                terms.add(TermsDocument.fromHtml(header, content));
+                terms.add(termsDocumentFactory.create(header, content));
             }
         }
         return terms;
