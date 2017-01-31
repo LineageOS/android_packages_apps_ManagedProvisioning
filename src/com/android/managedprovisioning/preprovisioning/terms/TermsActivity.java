@@ -124,7 +124,9 @@ public class TermsActivity extends SetupLayoutActivity {
         List<TermsDocument> terms = new ArrayList<>();
         // TODO: finalize AOSP disclaimer header and content
         terms.add(TermsDocument.fromHtml("AOSP", aospDisclaimer));
-        terms.addAll(getSystemAppTerms());
+        if (!isProfileOwnerAction) {
+            terms.addAll(getSystemAppTerms());
+        }
 
         Disclaimer[] disclaimers = params.disclaimersParam == null ? null
                 : params.disclaimersParam.mDisclaimers;
