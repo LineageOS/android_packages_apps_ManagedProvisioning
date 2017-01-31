@@ -95,14 +95,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"உங்கள் நிறுவனம் பயன்படுத்தும் சாதன நிர்வாகப் பயன்பாட்டிலிருந்து பணி சுயவிவரத்தை பின்னர் அமைக்கலாம்."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"தொடர்க"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"நிறுத்து"</string>
-    <!-- no translation found for profile_owner_info (6975830281038077091) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6975830281038077091">"உங்கள் நிறுவனம் நிர்வகிக்கவிருக்கும் புதிய பணி விவரத்தை உருவாக்க உள்ளீர்கள்."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"உங்கள் நிறுவனம் நிர்வகிக்கவிருக்கும் புதிய பணி விவரத்தை உருவாக்க உள்ளீர்கள். <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> இன் விதிமுறைகள் பொருந்தும்."</string>
+    <string name="profile_owner_info_comp" msgid="2100379544031830570">"பணி தொடர்பான பயன்பாடுகளுக்கு, சுயவிவரம் உருவாக்கப்படும். அத்துடன், இந்தச் சுயவிவரத்தையும் சாதனத்திலுள்ள பிற விஷயங்களையும் உங்கள் சாதனம் நிர்வகிக்கும்."</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"பணி தொடர்பான பயன்பாடுகளுக்கு, சுயவிவரம் உருவாக்கப்படும். அத்துடன், இந்தச் சுயவிவரத்தையும் சாதனத்திலுள்ள பிற விஷயங்களையும் உங்கள் சாதனம் நிர்வகிக்கும். <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> இன் விதிமுறைகள் பொருந்தும்."</string>
     <string name="device_owner_info" msgid="9015249759994198680">"இந்தச் சாதனத்தை <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> நிர்வகித்து, பாதுகாக்கும். <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"இந்தச் சாதனத்தை <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> நிர்வகித்து, பாதுகாக்கும். <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> இன் விதிமுறைகள் பொருந்தும். <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="462704678510856705">"கேள்விகள் இருப்பின், உங்கள் <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>ஐத் தொடர்புகொள்ளவும்."</string>
@@ -111,16 +107,13 @@
     <string name="your_organization_beginning" msgid="5952561489910967255">"உங்கள் நிறுவனம்"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"உங்கள் நிறுவனம்"</string>
     <string name="view_terms" msgid="7230493092383341605">"விதிமுறைகளைக் காட்டு"</string>
-    <!-- no translation found for accept_and_continue (1632679734918410653) -->
-    <skip />
+    <string name="accept_and_continue" msgid="1632679734918410653">"ஏற்று, தொடர்க"</string>
     <string name="close" msgid="7208600934846389439">"மூடு"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"சாதனத்தை அமைக்கவும்"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"நீங்கள் வேலை செய்யும் விதத்தை மாற்றலாம்"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"தனிப்பட்ட தரவிலிருந்து பணித் தரவைப் பிரிக்கலாம்"</string>
-    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
-    <skip />
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"பணி தொடர்பான பயன்பாடுகள் அனைத்தும் ஒரே இடத்தில்"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"முடித்ததும், பணியை முடக்கவும்"</string>
     <string name="provisioning" msgid="4512493827019163451">"அமைக்கிறது"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA சான்றிதழ்களை அமைக்கிறது"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"சுயவிவரத்தை அமைக்கவும். அமைவைத் தொடங்கவும்"</string>

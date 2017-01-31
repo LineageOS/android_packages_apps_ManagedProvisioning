@@ -95,14 +95,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"તમે તમારી કાર્ય પ્રોફાઇલ, તમારી સંસ્થા દ્વારા ઉપયોગમાં લેવાતી ઉપકરણ સંચાલન એપ્લિકેશનથી પછીથી સેટ કરી શકો છો."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"ચાલુ રાખો"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"રોકો"</string>
-    <!-- no translation found for profile_owner_info (6975830281038077091) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6975830281038077091">"તમે એક નવી કાર્ય પ્રોફાઇલ બનાવવાની પ્રક્રિયામાં છો, જેનું સંચાલન તમારી સંસ્થા દ્વારા કરવામાં આવશે."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"તમે એક નવી કાર્ય પ્રોફાઇલ બનાવવાની પ્રક્રિયામાં છો, જેનું સંચાલન તમારી સંસ્થા દ્વારા કરવામાં આવશે. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ની શરતો લાગુ થશે."</string>
+    <string name="profile_owner_info_comp" msgid="2100379544031830570">"તમારી કાર્ય ઍપ્લિકેશનો માટે એક પ્રોફાઇલ બનાવવામાં આવશે. આ પ્રોફાઇલ અને સંપૂર્ણ ઉપકરણનું સંચાલન તમારી સંસ્થા દ્વારા કરવામાં આવશે."</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"તમારી કાર્ય ઍપ્લિકેશનો માટે એક પ્રોફાઇલ બનાવવામાં આવશે. આ પ્રોફાઇલ અને સંપૂર્ણ ઉપકરણનું સંચાલન તમારી સંસ્થા દ્વારા કરવામાં આવશે. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ની શરતો લાગુ થશે."</string>
     <string name="device_owner_info" msgid="9015249759994198680">"આ ઉપકરણનું સંચાલન અને સુરક્ષા <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> દ્વારા કરવામાં આવશે. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"આ ઉપકરણનું સંચાલન અને સુરક્ષા <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> દ્વારા કરવામાં આવશે. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ની શરતો લાગુ. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="462704678510856705">"જો તમને કોઈ પ્રશ્ન હોય, તો તમારા <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> નો સંપર્ક કરો."</string>
@@ -111,16 +107,13 @@
     <string name="your_organization_beginning" msgid="5952561489910967255">"તમારી સંસ્થા"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"તમારી સંસ્થા"</string>
     <string name="view_terms" msgid="7230493092383341605">"શરતો જુઓ"</string>
-    <!-- no translation found for accept_and_continue (1632679734918410653) -->
-    <skip />
+    <string name="accept_and_continue" msgid="1632679734918410653">"સ્વીકારો અને ચાલુ રાખો"</string>
     <string name="close" msgid="7208600934846389439">"બંધ કરો"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"તમારા ઉપકરણને સેટ કરો"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"તમારી કાર્યપદ્ધતિમાં ફેરફાર કરો"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"વ્યક્તિગત ડેટામાંથી કાર્ય ડેટાને અલગ કરો"</string>
-    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
-    <skip />
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"કાર્ય ઍપ્લિકેશનો માટે એક સ્થાન"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"જ્યારે તમારું કાર્ય પૂર્ણ થાય ત્યારે બંધ કરો"</string>
     <string name="provisioning" msgid="4512493827019163451">"જોગવાઈ કરી રહ્યું છે"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA પ્રમાણપત્રો સેટ કરી રહ્યાં છે"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"તમારી પ્રોફાઇલ સેટ કરો. સેટઅપ શરૂ કરો"</string>

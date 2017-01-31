@@ -95,14 +95,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Pots configurar el perfil professional més endavant des de l\'aplicació de gestió de dispositius de la teva organització."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Continua"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Atura"</string>
-    <!-- no translation found for profile_owner_info (6975830281038077091) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6975830281038077091">"Estàs a punt de crear un perfil professional que gestionarà la teva organització."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"Estàs a punt de crear un perfil professional que gestionarà la teva organització. S\'hi apliquen les condicions de: <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="profile_owner_info_comp" msgid="2100379544031830570">"Es crearà un perfil per a les aplicacions de la feina. La teva organització gestionarà aquest perfil i la resta del dispositiu."</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"Es crearà un perfil per a les aplicacions de la feina. La teva organització gestionarà aquest perfil i la resta del dispositiu. S\'hi apliquen les condicions de: <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="device_owner_info" msgid="9015249759994198680">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> gestionarà i protegirà aquest dispositiu. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> gestionarà i protegirà aquest dispositiu. S\'hi apliquen les condicions de: <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="462704678510856705">"Si tens cap pregunta, contacta amb el <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>."</string>
@@ -111,16 +107,13 @@
     <string name="your_organization_beginning" msgid="5952561489910967255">"La teva organització"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"la teva organització"</string>
     <string name="view_terms" msgid="7230493092383341605">"Mostra les condicions"</string>
-    <!-- no translation found for accept_and_continue (1632679734918410653) -->
-    <skip />
+    <string name="accept_and_continue" msgid="1632679734918410653">"Accepta i continua"</string>
     <string name="close" msgid="7208600934846389439">"Tanca"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Configura el dispositiu"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Canvia la manera de treballar"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Mantén separades les dades personals i de la feina"</string>
-    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
-    <skip />
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"Un lloc per a les aplicacions de la feina"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"Desactiva el perfil professional quan hagis acabat"</string>
     <string name="provisioning" msgid="4512493827019163451">"S\'estan administrant"</string>
     <string name="copying_certs" msgid="5697938664953550881">"S\'estan configurant els certificats de CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Configura el perfil. Inicia la configuració"</string>

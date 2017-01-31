@@ -95,14 +95,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"អ្នកអាចដំឡើងប្រវត្តិរូបរបស់អ្នកនៅពេលក្រោយ ចេញពីកម្មវិធីគ្រប់គ្រងឧបករណ៍ដែលបានប្រើដោយស្ថាប័នរបស់អ្នក។"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"បន្ត"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"បញ្ឈប់"</string>
-    <!-- no translation found for profile_owner_info (6975830281038077091) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6975830281038077091">"អ្នក​ត្រៀម​នឹង​បង្កើត​កម្រង​ព័ត៌មាន​ការងារថ្មី​ ដែល​ស្ថិត​ក្រោម​ការ​​គ្រប់គ្រង​ស្ថាប័ន​របស់​អ្នក។"</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"អ្នក​ត្រៀម​នឹង​បង្កើត​កម្រង​ព័ត៌មាន​ការងារថ្មី​ដែលស្ថិត​ក្រោម​ការគ្រប់គ្រង​ស្ថាប័ន​របស់​អ្នក។ អនុវត្ត​តាម​លក្ខខណ្ឌ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ។"</string>
+    <string name="profile_owner_info_comp" msgid="2100379544031830570">"កម្រង​ព័ត៌មាន​នឹងត្រូវ​បានបង្កើត​សម្រាប់​កម្មវិធី​ការងារ​របស់​អ្នក។ កម្រង​ព័ត៌មាន​នេះ និង​ផ្នែក​ផ្សេង​ទៀត​នៃ​ឧបករណ៍​របស់អ្នក​នឹង​ស្ថិត​ក្រោម​ការគ្រប់គ្រង​​ស្ថាប័ន​របស់​អ្នក។"</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"កម្រង​ព័ត៌មាន​នឹងត្រូវ​បានបង្កើត​សម្រាប់​កម្មវិធី​ការងារ​របស់​អ្នក។ កម្រង​ព័ត៌មាន​នេះ និង​ផ្នែក​ផ្សេង​ទៀត​នៃ​ឧបករណ៍​របស់អ្នកនឹង​ស្ថិត​ក្រោម​ការគ្រប់គ្រង​​ស្ថាប័ន​របស់​អ្នក។ អនុវត្ត​តាម​លក្ខខណ្ឌ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ។"</string>
     <string name="device_owner_info" msgid="9015249759994198680">"ឧបករណ៍នេះ​នឹង​ស្ថិតក្រោម​ការ​គ្រប់គ្រង និង​រក្សា​ឲ្យ​មាន​សុវត្ថិភាព​ដោយ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ។ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"ឧបករណ៍នេះ​នឹង​ស្ថិតក្រោម​ការ​គ្រប់គ្រង និង​រក្សា​ឲ្យ​មាន​សុវត្ថិភាព​ដោយ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ។ អនុវត្ត​លក្ខខណ្ឌ​របស់ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ។ <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="462704678510856705">"ប្រសិន​បើអ្នក​មាន​សំណួរណាមួយ សូម​ទាក់ទង​ទៅកាន់ <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> របស់​អ្នក។"</string>
@@ -111,16 +107,13 @@
     <string name="your_organization_beginning" msgid="5952561489910967255">"ស្ថាប័ន​របស់​អ្នក"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"ស្ថាប័ន​របស់​អ្នក"</string>
     <string name="view_terms" msgid="7230493092383341605">"មើលលក្ខខណ្ឌ"</string>
-    <!-- no translation found for accept_and_continue (1632679734918410653) -->
-    <skip />
+    <string name="accept_and_continue" msgid="1632679734918410653">"ព្រមទទួល និង​បន្ត"</string>
     <string name="close" msgid="7208600934846389439">"បិទ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"រៀបចំឧបករណ៍របស់អ្នក"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"ផ្លាស់ប្តូររបៀបធ្វើការងាររបស់អ្នក"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"បែងចែកទិន្នន័យការងារពីទិន្នន័យផ្ទាល់ខ្លួន"</string>
-    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
-    <skip />
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"កន្លែង​តែ​មួយសម្រាប់​កម្មវិធី​ការងារ"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"បិទ​ការងារ​នៅពេល​ដែល​អ្នក​ធ្វើ​រួច"</string>
     <string name="provisioning" msgid="4512493827019163451">"ការផ្តល់"</string>
     <string name="copying_certs" msgid="5697938664953550881">"ការដំឡើងវិញ្ញាបនបត្រ CA"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ដំឡើងប្រវត្តិរូបរបស់អ្នក។ ចាប់ផ្តើមដំឡើង"</string>

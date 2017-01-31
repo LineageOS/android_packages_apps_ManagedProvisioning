@@ -95,14 +95,10 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Работниот профил може да го поставите подоцна од апликацијата за управување со уредот што ја користи вашата организација."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Продолжи"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Сопри"</string>
-    <!-- no translation found for profile_owner_info (6975830281038077091) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers (5952395484354271568) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_comp (2100379544031830570) -->
-    <skip />
-    <!-- no translation found for profile_owner_info_with_terms_headers_comp (7685734522417715587) -->
-    <skip />
+    <string name="profile_owner_info" msgid="6975830281038077091">"Ќе создадете нов работен профил со кој ќе управува вашата организацијата."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"Ќе создадете нов работен профил со кој ќе управува вашата организацијата. Условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ќе важат за него."</string>
+    <string name="profile_owner_info_comp" msgid="2100379544031830570">"Ќе биде создаден профил за работните апликации. Вашата организација ќе управува со него и со остатокот од вашиот уред."</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"Ќе биде создаден профил за работните апликации. Вашата организација ќе управува со него и со остатокот од вашиот уред. Условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ќе важат за него."</string>
     <string name="device_owner_info" msgid="9015249759994198680">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ќе управува со уредов и ќе го обезбедува. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ќе управува со уредов и ќе го обезбедува. Важат условите од <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="462704678510856705">"Ако имате прашања, контактирајте го вашиот <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g>."</string>
@@ -111,16 +107,13 @@
     <string name="your_organization_beginning" msgid="5952561489910967255">"Вашата организација"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"вашата организација"</string>
     <string name="view_terms" msgid="7230493092383341605">"Прикажи услови"</string>
-    <!-- no translation found for accept_and_continue (1632679734918410653) -->
-    <skip />
+    <string name="accept_and_continue" msgid="1632679734918410653">"Прифати и продолжи"</string>
     <string name="close" msgid="7208600934846389439">"Затвори"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Поставете го уредот"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Променете го начинот на кој работите"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Одделете ги службените од личните"</string>
-    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
-    <skip />
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"Едно место за работните апликации"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"Исклучете ја работната кога ќе завршите"</string>
     <string name="provisioning" msgid="4512493827019163451">"Се обезбедува"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Се поставуваат сертификатите ЦА"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Поставете го профилот. Започнете поставување"</string>
