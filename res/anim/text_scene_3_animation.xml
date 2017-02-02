@@ -20,17 +20,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:ordering="sequentially">
     <objectAnimator
-        android:duration="5005"
+        android:duration="5338"
         android:propertyName="alpha"
         android:valueFrom="0.0"
         android:valueTo="0.0"
         android:valueType="floatType"
         android:interpolator="@android:interpolator/linear"/>
     <objectAnimator
-        android:duration="1001"
+        android:duration="667"
         android:propertyName="alpha"
         android:valueFrom="0.0"
         android:valueTo="1.0"
         android:valueType="floatType"
-        android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        android:interpolator="@interpolator/topinfo_animation_interpolator_alpha"/>
 </set>
