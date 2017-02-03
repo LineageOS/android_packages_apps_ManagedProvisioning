@@ -63,7 +63,7 @@
     <string name="setup_work_device" msgid="4243324420514896773">"Siapkan perangkat kerja"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Memproses data penyiapan..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Menyambungkan ke Wi-Fi..."</string>
-    <string name="progress_download" msgid="3522436271691064624">"Mengunduh aplikasi admin..."</string>
+    <string name="progress_download" msgid="3522436271691064624">"Mendownload aplikasi admin..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Memasang aplikasi admin..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Menyetel pemilik perangkat..."</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Perangkat tidak mendukung enkripsi. Hubungi departemen TI Anda."</string>
@@ -78,7 +78,7 @@
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Menghapus"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Harap tunggu..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Tidak dapat menggunakan aplikasi admin karena kesalahan checksum. Hubungi departemen TI Anda."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat mengunduh aplikasi admin"</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Tidak dapat mendownload aplikasi admin"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Tidak dapat menggunakan aplikasi admin. Komponen hilang atau rusak. Hubungi departemen TI Anda."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Tidak dapat memasang aplikasi admin"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Berhenti menyiapkan?"</string>
