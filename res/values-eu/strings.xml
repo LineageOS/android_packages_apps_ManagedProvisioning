@@ -97,7 +97,7 @@
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Gelditu"</string>
     <string name="profile_owner_info" msgid="6975830281038077091">"Erakundeak kudeatuko duen laneko profil bat sortzera zoaz."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"Erakundeak kudeatuko duen laneko profil bat sortzera zoaz. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> enpresen baldintzak aplikatzen dira."</string>
-    <string name="profile_owner_info_comp" msgid="2100379544031830570">"Profil bat sortuko da laneko aplikazioetarako. Bai profil hori, bai gailuaren gainontzeko datuak eta eginbideak erakundeak kudeatuko ditu."</string>
+    <string name="profile_owner_info_comp" msgid="2100379544031830570">"Profil bat sortuko da laneko aplikazioetarako. Erakundeak kudeatuko ditu bai profil hori, bai gailuaren gainontzeko datuak eta eginbideak."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"Profil bat sortuko da laneko aplikazioetarako. Erakundeak kudeatuko ditu bai profil hori, bai gailuaren gainontzeko datuak eta eginbideak. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> enpresen baldintzak aplikatzen dira."</string>
     <string name="device_owner_info" msgid="9015249759994198680">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> erakundeak kudeatuko eta babestuko du gailua. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> erakundeak kudeatuko eta babestuko du gailua. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> baldintzak aplikatzen dira. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
