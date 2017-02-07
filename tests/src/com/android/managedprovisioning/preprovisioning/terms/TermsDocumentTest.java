@@ -20,10 +20,29 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
 
+import android.graphics.Color;
+import android.support.test.InstrumentationRegistry;
 import android.text.Spanned;
+
+import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.HtmlToSpannedParser;
+import com.android.managedprovisioning.preprovisioning.WebActivity;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class TermsDocumentTest {
+    private static final int SAMPLE_COLOR = Color.MAGENTA;
+    private TermsDocument.Factory mTermsDocumentFactory;
+
+    @Before
+    public void setUp() throws Exception {
+        mTermsDocumentFactory = new TermsDocument.Factory(
+                new HtmlToSpannedParser(new ClickableSpanFactory(SAMPLE_COLOR),
+                        url -> WebActivity.createIntent(InstrumentationRegistry.getTargetContext(),
+                                url, SAMPLE_COLOR)));
+    }
+
     @Test
     public void throwsExceptionForEmptyInputs() {
         // given: empty, null, typical string
@@ -34,7 +53,7 @@ public class TermsDocumentTest {
             for (String htmlContent : inputs) {
                 if (isEmpty(header) || isEmpty(htmlContent)) { // when at least one empty arg
                     try {
-                        TermsDocument.fromHtml(header, htmlContent);
+                        mTermsDocumentFactory.create(header, htmlContent);
                     } catch (IllegalArgumentException e) { // expect an exception
                         count++;
                         continue;
@@ -76,14 +95,14 @@ public class TermsDocumentTest {
      */
     @Test
     public void assertFieldTypes() throws Exception {
-        TermsDocument termsDocument = TermsDocument.fromHtml("a", "b");
+        TermsDocument termsDocument = mTermsDocumentFactory.create("a", "b");
         assertThat(termsDocument.getHeading(), instanceOf(String.class));
         assertThat(termsDocument.getContent(), instanceOf(Spanned.class));
     }
 
     private void assertRawTextCorrect(String header, String inputHtml, String textRaw) {
         // when: document created from inputs
-        TermsDocument actual = TermsDocument.fromHtml(header, inputHtml);
+        TermsDocument actual = mTermsDocumentFactory.create(header, inputHtml);
 
         // then: raw text values match expected ones
         assertThat(actual.getHeading(), equalTo(header));

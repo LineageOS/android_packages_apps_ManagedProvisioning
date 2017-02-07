@@ -15,15 +15,19 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
+import static android.graphics.Color.BLUE;
+import static android.graphics.Color.MAGENTA;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 
+import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +35,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.HtmlToSpannedParser;
+import com.android.managedprovisioning.preprovisioning.WebActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,15 +56,22 @@ public class TermsListAdapterTest {
     private @Mock TextView mTextView;
     private @Mock ImageView mChevron;
 
-    private TermsDocument mDoc1 = TermsDocument.fromHtml("h1", "c1");
-    private TermsDocument mDoc2 = TermsDocument.fromHtml("h2", "c2");
-    private TermsDocument mDoc3 = TermsDocument.fromHtml("h3", "c3");
-    private List<TermsDocument> mDocs = Arrays.asList(mDoc1, mDoc2, mDoc3);
+    private List<TermsDocument> mDocs;
     private TermsListAdapter.GroupExpandedInfo mGroupInfoAlwaysCollapsed = i -> false;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
+
+        TermsDocument.Factory termsDocumentFactory = new TermsDocument.Factory(
+                new HtmlToSpannedParser(new ClickableSpanFactory(BLUE),
+                        url -> WebActivity.createIntent(InstrumentationRegistry.getTargetContext(),
+                                url, MAGENTA)));
+
+        TermsDocument doc1 = termsDocumentFactory.create("h1", "c1");
+        TermsDocument doc2 = termsDocumentFactory.create("h2", "c2");
+        TermsDocument doc3 = termsDocumentFactory.create("h3", "c3");
+        mDocs = Arrays.asList(doc1, doc2, doc3);
     }
 
     @Test
@@ -109,7 +123,7 @@ public class TermsListAdapterTest {
         TermsListAdapter adapter = new TermsListAdapter(mDocs, mLayoutInflater,
                 mGroupInfoAlwaysCollapsed);
 
-        when(mLayoutInflater.inflate(eq(R.layout.terms_disclaimer_header), anyObject(),
+        when(mLayoutInflater.inflate(eq(R.layout.terms_disclaimer_header), any(),
                 eq(false))).thenReturn(mLayout);
         when(mLayout.findViewById(R.id.header_text)).thenReturn(mTextView);
         when(mLayout.findViewById(R.id.chevron)).thenReturn(mChevron);

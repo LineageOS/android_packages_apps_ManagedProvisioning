@@ -31,11 +31,9 @@ import android.provider.Settings;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,6 +41,7 @@ import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
@@ -88,10 +87,12 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     private PreProvisioningController mController;
     private BenefitsAnimation mBenefitsAnimation;
+    private ClickableSpanFactory mClickableSpanFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mClickableSpanFactory = new ClickableSpanFactory(getColor(R.color.blue));
         mController = new PreProvisioningController(this, this);
         ProvisioningParams params = savedInstanceState == null ? null
                 : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
@@ -304,7 +305,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 : getResources().getString(messageWithTermsId, termsHeaders));
 
         // set up show terms button
-        findViewById(R.id.show_terms_button).setOnClickListener(this::onViewTermsClick);
+        findViewById(R.id.show_terms_button).setOnClickListener(this::startViewTermsActivity);
 
         // show the intro animation
         mBenefitsAnimation = new BenefitsAnimation(this,
@@ -315,8 +316,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             @NonNull String termsHeaders, CustomizationParams customization) {
         // short terms info text with clickable 'view terms' link
         TextView shortInfoText = (TextView) findViewById(R.id.device_owner_terms_info);
-        shortInfoText.setText(assembleDOTermsMessage(this::onViewTermsClick, termsHeaders,
-                customization.orgName));
+        shortInfoText.setText(assembleDOTermsMessage(termsHeaders, customization.orgName));
         shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
 
         // if you have any questions, contact your device's provider
@@ -330,34 +330,36 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             String contactDeviceProvider = getString(R.string.contact_device_provider,
                     deviceProvider);
             SpannableString spannableString = new SpannableString(contactDeviceProvider);
-            int startIx = contactDeviceProvider.indexOf(deviceProvider);
-            makeClickable(spannableString, startIx, startIx + deviceProvider.length(),
-                    view -> {
-                        Intent intent = WebActivity.createIntent(this, customization.supportUrl,
-                                customization.mainColor);
-                        if (intent != null) {
-                            startActivity(intent);
-                        }
-                    });
+
+            Intent intent = WebActivity.createIntent(this, customization.supportUrl,
+                    customization.mainColor);
+            if (intent != null) {
+                ClickableSpan span = mClickableSpanFactory.create(intent);
+                int startIx = contactDeviceProvider.indexOf(deviceProvider);
+                int endIx = startIx + deviceProvider.length();
+                spannableString.setSpan(span, startIx, endIx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                info.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+            }
 
             info.setText(spannableString);
-            info.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
         }
 
         // set up DPC icon and label
         setDpcIconAndLabel(packageName, packageIcon, customization.orgName);
     }
 
-    private void onViewTermsClick(View view) {
-        Intent intent = new Intent(this, TermsActivity.class);
-        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mController.getParams());
-        startActivity(intent);
+    private void startViewTermsActivity(@SuppressWarnings("unused") View view) {
+        startActivity(createViewTermsIntent());
+    }
+
+    private Intent createViewTermsIntent() {
+        return new Intent(this, TermsActivity.class).putExtra(
+                ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mController.getParams());
     }
 
     // TODO: refactor complex localized string assembly to an abstraction http://b/34288292
     // there is a bit of copy-paste, and some details easy to forget (e.g. setMovementMethod)
-    private Spannable assembleDOTermsMessage(View.OnClickListener viewTermsClickListener,
-            @NonNull String termsHeaders, String orgName) {
+    private Spannable assembleDOTermsMessage(@NonNull String termsHeaders, String orgName) {
         String linkText = getString(R.string.view_terms);
 
         if (TextUtils.isEmpty(orgName)) {
@@ -370,28 +372,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
         Spannable result = new SpannableString(messageText);
         int start = messageText.indexOf(linkText);
-        makeClickable(result, start, start + linkText.length(), viewTermsClickListener);
+
+        ClickableSpan span = mClickableSpanFactory.create(createViewTermsIntent());
+        result.setSpan(span, start, start + linkText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return result;
-    }
-
-    private void makeClickable(Spannable spannable, int start, int end,
-            final View.OnClickListener onClickListener) {
-        ClickableSpan clickable = new ClickableSpan() {
-            @Override
-            public void onClick(View widget) {
-                onClickListener.onClick(widget);
-                widget.playSoundEffect(SoundEffectConstants.CLICK);
-            }
-
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(false);
-                ds.setColor(getColor(R.color.blue));
-            }
-        };
-
-        spannable.setSpan(clickable, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
     private void setDpcIconAndLabel(@NonNull String appName, Drawable packageIcon, String orgName) {
