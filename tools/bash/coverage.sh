@@ -9,7 +9,7 @@ MODULE_NAME='ManagedProvisioning'
 MODULE_PATH='packages/apps/ManagedProvisioning'
 MODULE_INSTALL_PATH='system/priv-app/ManagedProvisioning/ManagedProvisioning.apk'
 
-TEST_MODULE_PATH='packages/apps/ManagedProvisioning/tests'
+TEST_MODULE_PATH='packages/apps/ManagedProvisioning/tests/instrumentation'
 TEST_MODULE_INSTALL_PATH='data/app/ManagedProvisioningTests/ManagedProvisioningTests.apk'
 TEST_RUNNER='com.android.managedprovisioning.tests/com.android.managedprovisioning.TestInstrumentationRunner'
 
