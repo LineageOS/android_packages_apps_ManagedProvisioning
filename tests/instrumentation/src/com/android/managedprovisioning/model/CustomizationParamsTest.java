@@ -18,8 +18,10 @@ package com.android.managedprovisioning.model;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_MAIN_COLOR_ID_DO;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_MAIN_COLOR_ID_MP;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_BUTTON;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_DO;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_MP;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_SWIPER;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -55,7 +57,9 @@ public class CustomizationParamsTest {
         CustomizationParams instance = createInstance(params);
 
         // then
-        assertThat(instance.mainColor, equalTo(getColor(DEFAULT_MAIN_COLOR_ID_MP)));
+        assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_COLOR_ID_MP)));
+        assertThat(instance.swiperColor, equalTo(getColor(DEFAULT_COLOR_ID_SWIPER)));
+        assertThat(instance.buttonColor, equalTo(getColor(DEFAULT_COLOR_ID_BUTTON)));
     }
 
     @Test
@@ -67,7 +71,9 @@ public class CustomizationParamsTest {
         CustomizationParams instance = createInstance(params);
 
         // then
-        assertThat(instance.mainColor, equalTo(getColor(DEFAULT_MAIN_COLOR_ID_DO)));
+        assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_COLOR_ID_DO)));
+        assertThat(instance.swiperColor, equalTo(getColor(DEFAULT_COLOR_ID_SWIPER)));
+        assertThat(instance.buttonColor, equalTo(getColor(DEFAULT_COLOR_ID_BUTTON)));
     }
 
     @Test
@@ -79,7 +85,9 @@ public class CustomizationParamsTest {
         CustomizationParams instance = createInstance(params);
 
         // then
-        assertThat(instance.mainColor, equalTo(SAMPLE_COLOR));
+        assertThat(instance.statusBarColor, equalTo(SAMPLE_COLOR));
+        assertThat(instance.swiperColor, equalTo(SAMPLE_COLOR));
+        assertThat(instance.buttonColor, equalTo(SAMPLE_COLOR));
     }
 
     @Test

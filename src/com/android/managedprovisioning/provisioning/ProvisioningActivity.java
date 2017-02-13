@@ -235,7 +235,7 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
                 : R.string.setup_profile_progress;
 
         initializeLayoutParams(R.layout.progress, headerResId, true,
-                CustomizationParams.createInstance(mParams, this, mUtils).mainColor);
+                CustomizationParams.createInstance(mParams, this, mUtils).statusBarColor);
         setTitle(titleResId);
     }
 }

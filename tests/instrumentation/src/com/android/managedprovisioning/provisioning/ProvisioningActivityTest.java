@@ -25,6 +25,11 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
+import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationLogo;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_DO;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_MP;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -33,10 +38,13 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
+import static java.util.Arrays.asList;
+
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.test.InstrumentationRegistry;
@@ -45,8 +53,8 @@ import android.support.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
-import com.android.managedprovisioning.TestInstrumentationRunner.OnActivityCreatedCallback;
-import com.android.managedprovisioning.common.DialogBuilder;
+import com.android.managedprovisioning.common.CustomizationVerifier;
+import com.android.managedprovisioning.common.UriBitmap;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -58,6 +66,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import java.io.IOException;
 
 /**
  * Unit tests for {@link ProvisioningActivity}.
@@ -133,6 +143,57 @@ public class ProvisioningActivityTest {
         // THEN the activity should start listening for provisioning updates
         verify(mProvisioningManager).registerListener(any(ProvisioningManagerCallback.class));
         verifyNoMoreInteractions(mProvisioningManager);
+    }
+
+    @Test
+    public void testColors() {
+        Context context = InstrumentationRegistry.getTargetContext();
+
+        // default color Managed Profile (MP)
+        assertColorsCorrect(PROFILE_OWNER_INTENT, context.getColor(DEFAULT_COLOR_ID_MP));
+
+        // default color Device Owner (DO)
+        assertColorsCorrect(DEVICE_OWNER_INTENT, context.getColor(DEFAULT_COLOR_ID_DO));
+
+        // custom color for both cases (MP, DO)
+        int targetColor = Color.parseColor("#d40000"); // any color (except default) would do
+        for (String action : asList(ACTION_PROVISION_MANAGED_PROFILE,
+                ACTION_PROVISION_MANAGED_DEVICE)) {
+            ProvisioningParams provisioningParams = new ProvisioningParams.Builder()
+                    .setProvisioningAction(action)
+                    .setDeviceAdminComponentName(ADMIN)
+                    .setMainColor(targetColor)
+                    .build();
+            assertColorsCorrect(new Intent().putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS,
+                    provisioningParams), targetColor);
+        }
+    }
+
+    private void assertColorsCorrect(Intent intent, int color) {
+        launchActivityAndWait(intent);
+        Activity activity = mActivityRule.getActivity();
+
+        CustomizationVerifier customizationVerifier = new CustomizationVerifier(activity);
+        customizationVerifier.assertStatusBarColorCorrect(color);
+        customizationVerifier.assertDefaultLogoCorrect(color);
+        customizationVerifier.assertProgressBarColorCorrect(color);
+
+        activity.finish();
+    }
+
+    @Test
+    public void testCustomLogo() throws IOException {
+        assertCustomLogoCorrect(PROFILE_OWNER_INTENT);
+        assertCustomLogoCorrect(DEVICE_OWNER_INTENT);
+    }
+
+    private void assertCustomLogoCorrect(Intent intent) throws IOException {
+        UriBitmap targetLogo = UriBitmap.createSimpleInstance();
+        saveOrganisationLogo(InstrumentationRegistry.getTargetContext(), targetLogo.getUri());
+        launchActivityAndWait(intent);
+        ProvisioningActivity activity = mActivityRule.getActivity();
+        new CustomizationVerifier(activity).assertCustomLogoCorrect(targetLogo.getBitmap());
+        activity.finish();
     }
 
     @Test

@@ -387,7 +387,7 @@ public class PreProvisioningController {
     }
 
     /** @return False if condition preventing further provisioning */
-    private boolean checkDevicePolicyPreconditions() {
+    @VisibleForTesting protected boolean checkDevicePolicyPreconditions() {
         // If isSilentProvisioningForTestingDeviceOwner returns true, the component must be
         // current device owner, and we can safely ignore isProvisioningAllowed as we don't call
         // setDeviceOwner.
@@ -420,7 +420,7 @@ public class PreProvisioningController {
     }
 
     /** @return False if condition preventing further provisioning */
-    private boolean verifyCaller(Intent intent, String callingPackage) {
+    @VisibleForTesting protected boolean verifyCaller(Intent intent, String callingPackage) {
         try {
             // If this is a resume after encryption or trusted intent, we don't need to verify the
             // caller. Otherwise, verify that the calling app is trying to set itself as

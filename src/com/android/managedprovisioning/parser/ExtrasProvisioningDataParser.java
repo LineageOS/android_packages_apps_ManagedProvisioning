@@ -77,6 +77,7 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -87,11 +88,11 @@ import java.util.Set;
 @VisibleForTesting
 public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     private static final Set<String> PROVISIONING_ACTIONS_SUPPORT_ALL_PROVISIONING_DATA =
-            new HashSet(Arrays.asList(
+            new HashSet<>(Collections.singletonList(
                     ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE));
 
     private static final Set<String> PROVISIONING_ACTIONS_SUPPORT_MIN_PROVISIONING_DATA =
-            new HashSet(Arrays.asList(
+            new HashSet<>(Arrays.asList(
                     ACTION_PROVISION_MANAGED_DEVICE,
                     ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE,
                     ACTION_PROVISION_MANAGED_USER,

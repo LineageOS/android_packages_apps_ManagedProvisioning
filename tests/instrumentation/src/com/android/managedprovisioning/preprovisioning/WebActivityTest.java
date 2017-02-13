@@ -27,6 +27,8 @@ import android.test.ActivityUnitTestCase;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import com.android.managedprovisioning.common.CustomizationVerifier;
+
 import java.util.concurrent.atomic.AtomicReference;
 
 @SmallTest
@@ -36,16 +38,6 @@ public class WebActivityTest extends ActivityUnitTestCase<WebActivity> {
 
     public WebActivityTest() {
         super(WebActivity.class);
-    }
-
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
-    @Override
-    public void tearDown() throws Exception {
-        super.tearDown();
     }
 
     public void testNoUrl() {
@@ -63,6 +55,7 @@ public class WebActivityTest extends ActivityUnitTestCase<WebActivity> {
                 urlRef.set(((WebView) ((ViewGroup) getActivity()
                         .findViewById(android.R.id.content)).getChildAt(0)).getUrl()));
         assertEquals(TEST_URL, urlRef.get());
+        new CustomizationVerifier(getActivity()).assertStatusBarColorCorrect(STATUS_BAR_COLOR);
     }
 
     private void startActivityOnMainSync(final Intent intent) {

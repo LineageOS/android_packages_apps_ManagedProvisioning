@@ -86,14 +86,23 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private static final String DELETE_MANAGED_PROFILE_DIALOG = "PreProvDeleteManagedProfileDialog";
 
     private PreProvisioningController mController;
+    private ControllerProvider mControllerProvider;
     private BenefitsAnimation mBenefitsAnimation;
     private ClickableSpanFactory mClickableSpanFactory;
+
+    public PreProvisioningActivity() {
+        this(activity -> new PreProvisioningController(activity, activity));
+    }
+
+    @VisibleForTesting public PreProvisioningActivity(ControllerProvider controllerProvider) {
+        mControllerProvider = controllerProvider;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mClickableSpanFactory = new ClickableSpanFactory(getColor(R.color.blue));
-        mController = new PreProvisioningController(this, this);
+        mController = mControllerProvider.getInstance(this);
         ProvisioningParams params = savedInstanceState == null ? null
                 : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
         mController.initiateProvisioning(getIntent(), params, getCallingPackage());
@@ -252,14 +261,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             // needs to happen before {@link Activity#setContentView}
             setTheme(new SwiperThemeMatcher(this,
                     new ColorMatcher()) // TODO: introduce DI framework
-                    .findTheme(customization.mainColor));
+                    .findTheme(customization.swiperColor));
         }
 
         initializeLayoutParams(
                 layoutId,
                 isProfileOwnerProvisioning ? null : R.string.set_up_your_device,
                 false /* progress bar */,
-                customization.mainColor);
+                customization.statusBarColor);
 
         // set up the 'accept and continue' button
         Button nextButton = (Button) findViewById(R.id.next_button);
@@ -267,8 +276,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             ProvisionLogger.logi("Next button (next_button) is clicked.");
             mController.continueProvisioningAfterUserConsent();
         });
-        nextButton.setBackgroundColor(customization.mainColor);
-        if (mUtils.isBrightColor(customization.mainColor)) {
+        nextButton.setBackgroundColor(customization.buttonColor);
+        if (mUtils.isBrightColor(customization.buttonColor)) {
             nextButton.setTextColor(getColor(R.color.gray_button_text));
         }
 
@@ -332,7 +341,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             SpannableString spannableString = new SpannableString(contactDeviceProvider);
 
             Intent intent = WebActivity.createIntent(this, customization.supportUrl,
-                    customization.mainColor);
+                    customization.statusBarColor);
             if (intent != null) {
                 ClickableSpan span = mClickableSpanFactory.create(intent);
                 int startIx = contactDeviceProvider.indexOf(deviceProvider);
@@ -439,5 +448,15 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             result.add(value);
         }
         return unmodifiableList(result);
+    }
+
+    /**
+     * Constructs {@link PreProvisioningController} for a given {@link PreProvisioningActivity}
+     */
+    interface ControllerProvider {
+        /**
+         * Constructs {@link PreProvisioningController} for a given {@link PreProvisioningActivity}
+         */
+        PreProvisioningController getInstance(PreProvisioningActivity activity);
     }
 }
