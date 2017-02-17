@@ -57,7 +57,7 @@
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"আপনার ডিভাইস কর্মস্থলের প্রোফাইলগুলি সমর্থন করে না"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"এই ব্যবহারকারীর কোনো কর্মস্থলের প্রোফাইল থাকতে পারে না৷"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"কাজের প্রোফাইলগুলি একটি পরিচালিত ডিভাইসে সেটআপ করা যাবে না"</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"কাজের প্রোফাইল তৈরি করা যাবে না কারণ আপনি আপনার ডিভাইসে সর্বোচ্চ সংখ্যক ব্যবহারকারীর সীমা ছাড়িয়ে গেছেন। অন্ততপক্ষে একজন ব্যবহারকারীকে সরান এবং পুনরায় চেষ্টা করুন।"</string>
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"কাজের প্রোফাইল তৈরি করা যাবে না কারণ আপনি আপনার ডিভাইসে সর্বোচ্চ সংখ্যক ব্যবহারকারীর সীমা ছাড়িয়ে গেছেন। অন্ততপক্ষে একজন ব্যবহারকারীকে সরান এবং আবার চেষ্টা করুন।"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"আপনার কর্মস্থলের প্রোফাইল এই লঞ্চার অ্যাপ্লিকেশান দ্বারা সমর্থিত নয়। আপনাকে একটি সামঞ্জস্যপূর্ণ লঞ্চারে যেতে হবে।"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"বাতিল করুন"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ঠিক আছে"</string>
@@ -76,7 +76,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"সেট আপ করা বন্ধ করে আপনার ডিভাইসের ডেটা মুছে ফেলবেন?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"বাতিল করুন"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ঠিক আছে"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"পুনরায় সেট করুন"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"আবার সেট করুন"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"আপনার ডিভাইস সেট আপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"এই ডিভাইসটি ইতিমধ্যে সেট আপ হয়ে আছে৷"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ওয়াই-ফাই এর সাথে সংযুক্ত করা যায়নি"</string>
@@ -127,7 +127,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"সেট আপ করার কাজ বন্ধ করে, ফ্যাক্টরি রিসেট করবেন?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"এই সেট আপ করার কাজটি বন্ধ করা হলে তা আপনার ডিভাইসের ফ্যাক্টরি রিসেট করবে এবং আপনাকে প্রথম স্ক্রীনে নিয়ে যাবে৷"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"বাতিল করুন"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ডিভাইস পুনরায় সেট করুন"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ডিভাইস আবার সেট করুন"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> এবং <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> এবং <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>

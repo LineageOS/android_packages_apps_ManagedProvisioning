@@ -95,8 +95,8 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"तपाईँले आफ्नो संस्थाद्वारा प्रयोग गरिएको  यन्त्र व्यवस्थापन अनुप्रयोगबाट आफ्नो कार्य प्रोफाइल पछि मिलाउन सक्नुहुन्छ।"</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"जारी राख्नुहोस्"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोक्नुहोस्"</string>
-    <string name="profile_owner_info" msgid="6975830281038077091">"तपाईँ आफ्नो संगठनले व्यवस्थित गर्ने एउटा नयाँ कार्य प्रोफाइल सिर्जना गर्न लाग्नुभएको छ।"</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"तपाईँ आफ्नो संगठनले व्यवस्थित गर्ने एउटा नयाँ कार्य प्रोफाइल सिर्जना लाग्नु भएको छ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
+    <string name="profile_owner_info" msgid="6975830281038077091">"तपाईं आफ्नो संगठनले व्यवस्थित गर्ने एउटा नयाँ कार्य प्रोफाइल सिर्जना गर्न लाग्नुभएको छ।"</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"तपाईं आफ्नो संगठनले व्यवस्थित गर्ने एउटा नयाँ कार्य प्रोफाइल सिर्जना लाग्नु भएको छ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
     <string name="profile_owner_info_comp" msgid="2100379544031830570">"तपाईँका कार्य सम्बन्धी अनुप्रयोगहरूका लागि एउटा प्रोफाइल सिर्जना गरिनेछ। यो प्रोफाइल र तपाईँका बाँकी यन्त्रलाई तपाईँको संगठनले व्यवस्थापन गर्दछ।"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"तपाईँका कार्य सम्बन्धी अनुप्रयोगहरूका लागि एउटा प्रोफाइल सिर्जना गरिनेछ। यो प्रोफाइल र तपाईँका बाँकी यन्त्रलाई तपाईँको संगठनले व्यवस्थापन गर्दछ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
     <string name="device_owner_info" msgid="9015249759994198680">"यस यन्त्रलाई <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ले व्यवस्थित तथा सुरक्षित राख्नेछ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
@@ -125,7 +125,7 @@
     <string name="learn_more_label" msgid="2723716758654655009">"थप जान्नुहोस् बटन"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आइकन"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप र फ्याक्ट्री रिसेटलाई अन्त्य गर्ने हो?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"यस सेटअपलाई अन्त्य गर्नाले तपाईँको यन्त्र फ्याक्ट्री रिसेट हुनेछ र तपाईँ फेरि पहिलो स्क्रिनमा पुग्नुहुनेछ।"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"यस सेटअपलाई अन्त्य गर्नाले तपाईंको यन्त्र फ्याक्ट्री रिसेट हुनेछ र तपाईं फेरि पहिलो स्क्रिनमा पुग्नुहुनेछ।"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द गर्नुहोस्"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"यन्त्रलाई रिसेट गर्नुहोस्"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> र <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
