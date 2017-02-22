@@ -273,7 +273,7 @@ public class PreProvisioningController {
         if (isProfileOwnerProvisioning()) {
             boolean isComp = mDevicePolicyManager.isDeviceManaged();
 
-            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile_start_setup, null,
+            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile, null,
                     null, true /* isProfileOwnerProvisioning */, isComp, getDisclaimerHeaders(),
                     customization);
         } else {
@@ -286,7 +286,7 @@ public class PreProvisioningController {
             Drawable packageIcon = packageInfo != null ? packageInfo.packageIcon
                     : getDeviceAdminIconDrawable(mParams.deviceAdminIconFilePath);
             mUi.initiateUi(R.layout.intro_device_owner,
-                    R.string.setup_device_start_setup,
+                    R.string.setup_device,
                     packageLabel,
                     packageIcon,
                     false  /* isProfileOwnerProvisioning */,

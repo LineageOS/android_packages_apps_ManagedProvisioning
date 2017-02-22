@@ -245,14 +245,16 @@
   <string name="copying_certs">Setting up CA certificates</string>
 
   <!-- Accessibility Descriptions --> <skip/>
-  <!-- Accessibility description for the profile setup screen showing organization info. [CHAR LIMIT=NONE] -->
-  <string name="setup_profile_start_setup">Set up your profile. Start setup</string>
+  <!-- Accessibility description for the profile setup screen. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile">Set up your profile</string>
+  <!-- Accessibility description for the profile benefits animation (shown on profile setup screen) [CHAR LIMIT=NONE] -->
+  <string name="profile_benefits_description">By using a work profile, you can separate work data from personal data.</string>
   <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
   <string name="setup_profile_encryption">Set up your profile. Encryption</string>
   <!-- Accessibility description for the profile setup screen showing progress. [CHAR LIMIT=NONE] -->
   <string name="setup_profile_progress">Set up your profile. Showing progress</string>
   <!-- Accessibility description for the device setup screen showing company info. [CHAR LIMIT=NONE] -->
-  <string name="setup_device_start_setup">Set up your device. Start setup</string>
+  <string name="setup_device">Set up your device</string>
   <!-- Accessibility description for the device setup screen showing encryption info. [CHAR LIMIT=NONE] -->
   <string name="setup_device_encryption">Set up your device. Encryption</string>
   <!-- Accessibility description for the device setup screen showing progress. [CHAR LIMIT=NONE] -->

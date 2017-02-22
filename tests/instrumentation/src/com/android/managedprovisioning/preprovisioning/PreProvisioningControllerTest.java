@@ -670,13 +670,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     private void verifyInitiateProfileOwnerUi() {
         verify(mUi).initiateUi(eq(R.layout.intro_profile_owner),
-                eq(R.string.setup_profile_start_setup), any(), any(), eq(true),
+                eq(R.string.setup_profile), any(), any(), eq(true),
                 eq(false), eq(emptyList()), any());
     }
 
     private void verifyInitiateDeviceOwnerUi() {
         verify(mUi).initiateUi(eq(R.layout.intro_device_owner),
-                eq(R.string.setup_device_start_setup), eq(TEST_MDM_PACKAGE_LABEL), any(), eq(false),
+                eq(R.string.setup_device), eq(TEST_MDM_PACKAGE_LABEL), any(), eq(false),
                 eq(false), eq(emptyList()), any());
     }
 }

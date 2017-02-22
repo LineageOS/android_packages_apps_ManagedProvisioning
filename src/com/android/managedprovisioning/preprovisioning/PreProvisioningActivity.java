@@ -47,6 +47,7 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.StringConcatenator;
+import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.anim.BenefitsAnimation;
@@ -89,6 +90,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private ControllerProvider mControllerProvider;
     private BenefitsAnimation mBenefitsAnimation;
     private ClickableSpanFactory mClickableSpanFactory;
+    private TouchTargetEnforcer mTouchTargetEnforcer;
 
     public PreProvisioningActivity() {
         this(activity -> new PreProvisioningController(activity, activity));
@@ -102,6 +104,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mClickableSpanFactory = new ClickableSpanFactory(getColor(R.color.blue));
+        mTouchTargetEnforcer = new TouchTargetEnforcer(getResources().getDisplayMetrics().density);
         mController = mControllerProvider.getInstance(this);
         ProvisioningParams params = savedInstanceState == null ? null
                 : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
@@ -314,7 +317,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 : getResources().getString(messageWithTermsId, termsHeaders));
 
         // set up show terms button
-        findViewById(R.id.show_terms_button).setOnClickListener(this::startViewTermsActivity);
+        View viewTermsButton = findViewById(R.id.show_terms_button);
+        viewTermsButton.setOnClickListener(this::startViewTermsActivity);
+        mTouchTargetEnforcer.enforce(viewTermsButton, (View) viewTermsButton.getParent());
 
         // show the intro animation
         mBenefitsAnimation = new BenefitsAnimation(this,
