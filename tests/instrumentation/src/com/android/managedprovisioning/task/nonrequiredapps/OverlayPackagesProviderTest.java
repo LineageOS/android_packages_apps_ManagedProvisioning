@@ -314,8 +314,10 @@ public class OverlayPackagesProviderTest {
                     (flags & PackageManager.MATCH_UNINSTALLED_PACKAGES) != 0);
             assertTrue("Expected the flag MATCH_DISABLED_COMPONENTS",
                     (flags & PackageManager.MATCH_DISABLED_COMPONENTS) != 0);
-            assertTrue("Expected the flag MATCH_ENCRYPTION_AWARE_AND_UNAWARE",
-                    (flags & PackageManager.MATCH_ENCRYPTION_AWARE_AND_UNAWARE) != 0);
+            assertTrue("Expected the flag MATCH_DIRECT_BOOT_AWARE",
+                    (flags & PackageManager.MATCH_DIRECT_BOOT_AWARE) != 0);
+            assertTrue("Expected the flag MATCH_DIRECT_BOOT_UNAWARE",
+                    (flags & PackageManager.MATCH_DIRECT_BOOT_UNAWARE) != 0);
             assertEquals(userId, TEST_USER_ID);
             List<ResolveInfo> result = new ArrayList<>();
             if (mSystemAppsWithLauncher == null) {
