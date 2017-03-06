@@ -27,6 +27,7 @@
         android:id="@+id/device_manager_icon_view"
         android:layout_width="@dimen/icon_width_height"
         android:layout_height="@dimen/icon_width_height"
+        android:importantForAccessibility="no"
         android:scaleType="fitCenter"/>
     <TextView
         android:id="@+id/device_manager_name"

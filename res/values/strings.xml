@@ -76,16 +76,13 @@
   <string name="default_first_meat_user_name">Primary user</string>
 
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
-  <string name="delete_profile_title">Remove work profile?</string>
+  <string name="delete_profile_title">Delete existing profile?</string>
+
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
        their existing work profile. The administration app icon and name appear after the final
        colon. [CHAR LIMIT=NONE] -->
-  <string name="opening_paragraph_delete_profile_unknown_company">A work profile already exists and is managed by:</string>
-    <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
-         their existing work profile. The administration app icon and name appear after the final
-         colon, the %s is replaced by the domain name of the organization that owns the work
-         profile. [CHAR LIMIT=NONE] -->
-  <string name="opening_paragraph_delete_profile_known_company">This work profile is managed for %s using:</string>
+  <string name="opening_paragraph_delete_profile">You already have a work profile which is managed by the following app:</string>
+
   <!-- String on the dialog that links through to more information about the profile management application. -->
   <string name="read_more_delete_profile">Before proceeding, <a href="#read_this_link">read this</a>.</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->

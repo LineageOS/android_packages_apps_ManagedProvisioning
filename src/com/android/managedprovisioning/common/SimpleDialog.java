@@ -44,7 +44,7 @@ public class SimpleDialog extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         final SimpleDialogListener dialogListener = (SimpleDialogListener) getActivity();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

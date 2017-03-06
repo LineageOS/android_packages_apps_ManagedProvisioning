@@ -17,13 +17,13 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import android.annotation.Nullable;
-import android.app.Dialog;
-import android.app.DialogFragment;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +39,7 @@ import com.android.setupwizardlib.util.SystemBarHelper;
  * <p>Expects parent component to implement {@link SimpleDialog.SimpleDialogListener} for
  * user-response handling.
  */
-public class DeleteManagedProfileDialog extends DialogFragment {
+public class DeleteManagedProfileDialog extends SimpleDialog {
     private static final String KEY_USER_PROFILE_CALLBACK_ID = "user_profile_callback_id";
     private static final String KEY_MDM_PACKAGE_NAME = "mdm_package_name";
     private static final String KEY_PROFILE_OWNER_DOMAIN = "profile_owner_domain";
@@ -48,22 +48,32 @@ public class DeleteManagedProfileDialog extends DialogFragment {
 
     /**
      * @param managedProfileUserId user-id for the managed profile
-     * @param mdmPackagename package name of the MDM application for the current managed profile,
+     * @param mdmPackageName package name of the MDM application for the current managed profile,
      * or null if the managed profile has no profile owner associated.
      * @param profileOwnerDomain domain name of the organization which owns the managed profile, or
      * null if not known
      * @return initialized dialog
      */
     public static DeleteManagedProfileDialog newInstance(
-            int managedProfileUserId, @Nullable ComponentName mdmPackagename,
+            int managedProfileUserId, @Nullable ComponentName mdmPackageName,
             @Nullable String profileOwnerDomain) {
-        Bundle args = new Bundle();
+
+        // TODO: this is a bit hacky; tidy up if time permits, e.g. by creating a CustomDialog class
+        Bundle args = new SimpleDialog.Builder()
+                .setTitle(R.string.delete_profile_title)
+                .setPositiveButtonMessage(R.string.delete_profile)
+                .setNegativeButtonMessage(R.string.cancel_delete_profile)
+                .setCancelable(false)
+                .build()
+                .getArguments();
+
         args.putInt(KEY_USER_PROFILE_CALLBACK_ID, managedProfileUserId);
+
         // The device could be in a inconsistent state where it has a managed profile but no
         // associated profile owner package, for example after an unexpected reboot in the middle
         // of provisioning.
-        if (mdmPackagename != null) {
-            args.putString(KEY_MDM_PACKAGE_NAME, mdmPackagename.getPackageName());
+        if (mdmPackageName != null) {
+            args.putString(KEY_MDM_PACKAGE_NAME, mdmPackageName.getPackageName());
         }
         args.putString(KEY_PROFILE_OWNER_DOMAIN, profileOwnerDomain);
 
@@ -73,17 +83,24 @@ public class DeleteManagedProfileDialog extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        if (!(getActivity() instanceof SimpleDialog.SimpleDialogListener)) {
-            throw new IllegalStateException("Calling activity must implement " +
-                    "DeleteManagedProfileCallback, found: " + getActivity().getLocalClassName());
+    public AlertDialog onCreateDialog(Bundle savedInstanceState) {
+        // TODO: this is a bit hacky; tidy up if time permits, e.g. by creating a CustomDialog class
+        AlertDialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.setView(createContentView());
+
+        if (!mSettingsFacade.isUserSetupCompleted(getActivity())) {
+            SystemBarHelper.hideSystemBars(dialog);
         }
-        SimpleDialog.SimpleDialogListener dialogListener =
-                (SimpleDialog.SimpleDialogListener) getActivity();
 
-        Bundle arguments = getArguments();
-        String mdmPackageName = arguments.getString(KEY_MDM_PACKAGE_NAME);
+        return dialog;
+    }
 
+    private View createContentView() {
+        View view = getActivity().getLayoutInflater().inflate(
+                R.layout.delete_managed_profile_dialog,
+                (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+
+        String mdmPackageName = getArguments().getString(KEY_MDM_PACKAGE_NAME);
         String appLabel;
         Drawable appIcon;
         MdmPackageInfo mdmPackageInfo = null;
@@ -98,39 +115,15 @@ public class DeleteManagedProfileDialog extends DialogFragment {
             appIcon = getActivity().getPackageManager().getDefaultActivityIcon();
         }
 
-        final Dialog dialog = new Dialog(getActivity(), R.style.ManagedProvisioningDialogTheme);
-        dialog.setTitle(R.string.delete_profile_title);
-        dialog.setContentView(R.layout.delete_managed_profile_dialog);
-        dialog.setCanceledOnTouchOutside(false);
-        if (!mSettingsFacade.isUserSetupCompleted(getActivity())) {
-            SystemBarHelper.hideSystemBars(dialog);
-        }
-
-        ImageView imageView = (ImageView) dialog.findViewById(
-                R.id.device_manager_icon_view);
+        ImageView imageView = view.findViewById(R.id.device_manager_icon_view);
         imageView.setImageDrawable(appIcon);
         imageView.setContentDescription(
                 getResources().getString(R.string.mdm_icon_label, appLabel));
 
-        TextView deviceManagerName = (TextView) dialog.findViewById(
-                R.id.device_manager_name);
+        TextView deviceManagerName = view.findViewById(R.id.device_manager_name);
         deviceManagerName.setText(appLabel);
 
-        Button positiveButton = (Button) dialog.findViewById(
-                R.id.delete_managed_profile_positive_button);
-        positiveButton.setOnClickListener(v -> {
-            dialog.dismiss();
-            dialogListener.onPositiveButtonClick(DeleteManagedProfileDialog.this);
-        });
-
-        Button negativeButton = (Button) dialog.findViewById(
-                R.id.delete_managed_profile_negative_button);
-        negativeButton.setOnClickListener(v -> {
-            dialog.dismiss();
-            dialogListener.onNegativeButtonClick(DeleteManagedProfileDialog.this);
-        });
-
-        return dialog;
+        return view;
     }
 
     /**
