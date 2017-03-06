@@ -51,7 +51,7 @@ import java.util.Map;
  */
 @SmallTest
 public class TermsActivityTest {
-    private static final String HEADER_0_TOP = "AOSP";
+    private static final String HEADER_0_TOP = "General";
     private static final String HEADER_1 = "header1";
     private static final String HEADER_2 = "header2";
     private static final String HEADER_3_BOTTOM = "header3";

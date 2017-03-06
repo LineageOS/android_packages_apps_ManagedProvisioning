@@ -66,6 +66,8 @@
   <string name="terms">Terms</string>
   <!-- Introduction on the terms screen [CHAR LIMIT=NONE] -->
   <string name="terms_intro">Your new work profile keeps your work and personal data separate.\nThe following terms apply to your work profile.</string>
+  <!-- General terms section heading. [CHAR LIMIT=NONE] -->
+  <string name="general">General</string>
 
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <string name="default_managed_profile_name">Work profile</string>
@@ -263,6 +265,14 @@
   <string name="learn_more_label">Learn more button</string>
   <!-- Accessibility description for the company icon. [CHAR LIMIT=NONE] -->
   <string name="mdm_icon_label"><xliff:g id="icon_label" example="Test App">%1$s</xliff:g> icon</string>
+  <!-- Accessibility description for a section heading. [CHAR LIMIT=NONE] -->
+  <string name="section_heading"><xliff:g id="section_heading" example="Early Renaissance">%1$s</xliff:g> section heading.</string>
+  <!-- Accessibility description for section content. Followed by actual content. [CHAR LIMIT=NONE] -->
+  <string name="section_content"><xliff:g id="section_heading" example="Early Renaissance">%1$s</xliff:g> section content: <xliff:g id="section_content" example="Once upon a time [...]">%2$s</xliff:g></string>
+  <!-- Accessibility description for triggering an expansion of a collapsed element. [CHAR LIMIT=NONE] -->
+  <string name="expand">Expand</string>
+  <!-- Accessibility description for triggering collapsing of an expanded element. [CHAR LIMIT=NONE] -->
+  <string name="collapse">Collapse</string>
 
   <!-- TODO: Following strings have to be updated. -->
   <!-- Strings used in the dialog asking for user confirmation to cancel the setup process and factory reset the device. -->

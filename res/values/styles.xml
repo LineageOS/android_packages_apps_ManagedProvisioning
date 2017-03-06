@@ -179,5 +179,6 @@
         <item name="android:background">@color/black_toolbar</item>
         <item name="android:titleTextColor">?android:attr/windowBackground</item>
         <item name="android:navigationIcon">@drawable/ic_arrow_back_wht_24dp</item>
+        <item name="android:navigationContentDescription">@*android:string/action_bar_up_description</item>
     </style>
 </resources>

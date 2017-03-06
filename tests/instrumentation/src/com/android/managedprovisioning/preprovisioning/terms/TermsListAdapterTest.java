@@ -20,21 +20,13 @@ import static android.graphics.Color.MAGENTA;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.when;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.HtmlToSpannedParser;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
@@ -51,10 +43,6 @@ import java.util.List;
 @SmallTest
 public class TermsListAdapterTest {
     private @Mock LayoutInflater mLayoutInflater;
-    private @Mock View mLayout;
-    private @Mock View mDivider;
-    private @Mock TextView mTextView;
-    private @Mock ImageView mChevron;
 
     private List<TermsDocument> mDocs;
     private TermsListAdapter.GroupExpandedInfo mGroupInfoAlwaysCollapsed = i -> false;
@@ -113,26 +101,5 @@ public class TermsListAdapterTest {
             assertThat(adapter.getChild(i, 0), sameInstance(mDocs.get(i)));
             assertThat(adapter.getGroup(i), sameInstance(mDocs.get(i)));
         }
-    }
-
-    // TODO: replace with TermsActivityTest (http://b/33289850)
-    // as this is going too far towards 'copy of the implementation'
-    @Test
-    public void returnsGroupViews() {
-        // given: an adapter
-        TermsListAdapter adapter = new TermsListAdapter(mDocs, mLayoutInflater,
-                mGroupInfoAlwaysCollapsed);
-
-        when(mLayoutInflater.inflate(eq(R.layout.terms_disclaimer_header), any(),
-                eq(false))).thenReturn(mLayout);
-        when(mLayout.findViewById(R.id.header_text)).thenReturn(mTextView);
-        when(mLayout.findViewById(R.id.chevron)).thenReturn(mChevron);
-        when(mLayout.findViewById(R.id.divider)).thenReturn(mDivider);
-
-        // when: adapter is asked for a view for the first child
-        View groupView = adapter.getGroupView(0, false, null, null);
-
-        // then: a non-null view is returned
-        assertNotNull(groupView);
     }
 }

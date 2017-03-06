@@ -63,9 +63,7 @@ public class TermsActivity extends SetupLayoutActivity {
         this(StoreUtils::readString);
     }
 
-    @SuppressWarnings("WeakerAccess")
-    @VisibleForTesting
-    TermsActivity(StoreUtils.TextFileReader textFileReader) {
+    @VisibleForTesting TermsActivity(StoreUtils.TextFileReader textFileReader) {
         super(new Utils());
         mTextFileReader = textFileReader;
         mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
@@ -75,6 +73,7 @@ public class TermsActivity extends SetupLayoutActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.terms_screen);
+        setTitle(R.string.terms);
 
         ProvisioningParams params = checkNotNull(
                 getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS));
@@ -85,7 +84,8 @@ public class TermsActivity extends SetupLayoutActivity {
         container.setAdapter(
                 new TermsListAdapter(terms, getLayoutInflater(), container::isGroupExpanded));
         container.addHeaderView(
-                getLayoutInflater().inflate(R.layout.terms_screen_header, container, false));
+                getLayoutInflater().inflate(R.layout.terms_screen_header, container, false), null,
+                false);
 
         // Add default open terms to the expanded groups set.
         for (int i = 0; i < terms.size(); i++) {
@@ -133,8 +133,7 @@ public class TermsActivity extends SetupLayoutActivity {
                 : R.string.admin_has_ability_to_monitor_device);
 
         List<TermsDocument> terms = new ArrayList<>();
-        // TODO: finalize AOSP disclaimer header and content
-        terms.add(termsDocumentFactory.create("AOSP", aospDisclaimer));
+        terms.add(termsDocumentFactory.create(getString(R.string.general), aospDisclaimer));
         if (!isProfileOwnerAction) {
             terms.addAll(getSystemAppTerms(termsDocumentFactory));
         }

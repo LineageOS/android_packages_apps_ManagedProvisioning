@@ -26,4 +26,5 @@
     android:paddingBottom="@dimen/spacer_16"
     android:paddingTop="@dimen/spacer_16"
     android:text="@string/terms_intro"
+    android:stateListAnimator="@null"
     style="@style/Provisioning2Theme.Text.Secondary.Small"/>

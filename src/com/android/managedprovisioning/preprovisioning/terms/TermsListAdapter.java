@@ -21,6 +21,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -87,15 +88,28 @@ class TermsListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
             ViewGroup parent) {
+        String heading = getDisclaimer(groupPosition).getHeading();
+
         View groupView = convertView != null ? convertView : mInflater.inflate(
                 R.layout.terms_disclaimer_header, parent, false);
+        groupView.setContentDescription(
+                parent.getResources().getString(R.string.section_heading, heading));
+        groupView.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override public void onInitializeAccessibilityNodeInfo(View host,
+                    AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(
+                        AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK.getId(),
+                        parent.getResources().getString(
+                                isExpanded ? R.string.collapse : R.string.expand)));
+            }
+        });
 
-        TextView textView = (TextView) groupView.findViewById(R.id.header_text);
-        textView.setText(getDisclaimer(groupPosition).getHeading());
+        TextView textView = groupView.findViewById(R.id.header_text);
+        textView.setText(heading);
 
-        ImageView chevron = (ImageView) groupView.findViewById(R.id.chevron);
+        ImageView chevron = groupView.findViewById(R.id.chevron);
         chevron.setRotation(isExpanded ? 90 : -90); // chevron down / up retrospectively
-
         groupView.findViewById(R.id.divider).setVisibility(
                 shouldShowGroupDivider(groupPosition) ? View.VISIBLE : View.INVISIBLE);
 
@@ -117,9 +131,13 @@ class TermsListAdapter extends BaseExpandableListAdapter {
         View view = convertView != null ? convertView : mInflater.inflate(
                 R.layout.terms_disclaimer_content, parent, false);
 
-        TextView textView = (TextView) view.findViewById(R.id.disclaimer_content);
+        TermsDocument disclaimer = getDisclaimer(groupPosition);
+        TextView textView = view.findViewById(R.id.disclaimer_content);
+        textView.setText(disclaimer.getContent());
+        textView.setContentDescription(
+                parent.getResources().getString(R.string.section_content, disclaimer.getHeading(),
+                        disclaimer.getContent()));
         textView.setMovementMethod(LinkMovementMethod.getInstance()); // makes html links clickable
-        textView.setText(getDisclaimer(groupPosition).getContent());
 
         return view;
     }
