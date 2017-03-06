@@ -116,10 +116,13 @@
     <string name="info_anim_title_2" msgid="4629781398620470204">"Аяқтаған кезде, жұмыс профилін өшіріп қойыңыз"</string>
     <string name="provisioning" msgid="4512493827019163451">"Дайындау"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA сертификаттарын реттеу"</string>
-    <string name="setup_profile_start_setup" msgid="6793984532953528297">"Профиль параметрлерін орнату. Параметрлерді орната бастау"</string>
+    <!-- no translation found for setup_profile (5573950582159698549) -->
+    <skip />
+    <!-- no translation found for profile_benefits_description (2750373196318271680) -->
+    <skip />
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Профиль параметрлерін орнату. Шифрлау"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Профиль параметрлерін орнату. Барысы көрсетілуде"</string>
-    <string name="setup_device_start_setup" msgid="4351340224000741826">"Құрылғы параметрлерін орнату. Орната бастау"</string>
+    <string name="setup_device" msgid="6725265673245816366">"Құрылғыны реттеу"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"Құрылғы параметрлерін орнату. Шифрлау"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"Құрылғы параметрлерін орнату. Барысы көрсетілуде"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Толығырақ мәлімет түймесі"</string>

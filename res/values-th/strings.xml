@@ -116,10 +116,13 @@
     <string name="info_anim_title_2" msgid="4629781398620470204">"ปิดงานเมื่อคุณดำเนินการเสร็จแล้ว"</string>
     <string name="provisioning" msgid="4512493827019163451">"กำลังจัดสรร"</string>
     <string name="copying_certs" msgid="5697938664953550881">"กำลังตั้งค่าใบรับรอง CA"</string>
-    <string name="setup_profile_start_setup" msgid="6793984532953528297">"ตั้งค่าโปรไฟล์ เริ่มการตั้งค่า"</string>
+    <!-- no translation found for setup_profile (5573950582159698549) -->
+    <skip />
+    <!-- no translation found for profile_benefits_description (2750373196318271680) -->
+    <skip />
     <string name="setup_profile_encryption" msgid="5241291404536277038">"ตั้งค่าโปรไฟล์ การเข้ารหัส"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"ตั้งค่าโปรไฟล์ กำลังแสดงความคืบหน้า"</string>
-    <string name="setup_device_start_setup" msgid="4351340224000741826">"ตั้งค่าอุปกรณ์ เริ่มการตั้งค่า"</string>
+    <string name="setup_device" msgid="6725265673245816366">"ตั้งค่าอุปกรณ์"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"ตั้งค่าอุปกรณ์ การเข้ารหัส"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ตั้งค่าอุปกรณ์ กำลังแสดงความคืบหน้า"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มเรียนรู้เพิ่มเติม"</string>
