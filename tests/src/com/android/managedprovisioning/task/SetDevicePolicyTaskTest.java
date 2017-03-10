@@ -20,7 +20,6 @@ import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.Mock;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -29,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class SetDevicePolicyTaskTest extends AndroidTestCase {
