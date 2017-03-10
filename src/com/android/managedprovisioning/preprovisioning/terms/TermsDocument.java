@@ -17,20 +17,34 @@ package com.android.managedprovisioning.preprovisioning.terms;
 
 import static com.android.internal.util.Preconditions.checkStringNotEmpty;
 
-import android.text.Spanned;
-
-import com.android.managedprovisioning.common.HtmlToSpannedParser;
+import com.android.managedprovisioning.common.ProvisionLogger;
 
 /**
  * Class responsible for storing disclaimers
  */
-final class TermsDocument {
+public final class TermsDocument {
     private final String mHeading;
-    private final Spanned mContent;
+    private final String mContent;
 
-    private TermsDocument(String heading, Spanned content) {
-        mHeading = heading;
-        mContent = content;
+    /**
+     * Creates a {@link TermsDocument} instance.
+     *
+     * @param heading non-empty {@link String}
+     * @param content non-empty {@link String}
+     * @return null if either of the invocation arguments is an empty string
+     */
+    public static TermsDocument createInstance(String heading, String content) {
+        try {
+            return new TermsDocument(heading, content);
+        } catch (IllegalArgumentException e) {
+            ProvisionLogger.loge("Failed to parse a disclaimer.", e);
+            return null;
+        }
+    }
+
+    private TermsDocument(String heading, String content) {
+        mHeading = checkStringNotEmpty(heading);
+        mContent = checkStringNotEmpty(content);
     }
 
     /** @return Document heading */
@@ -38,21 +52,8 @@ final class TermsDocument {
         return mHeading;
     }
 
-    /** @return Document content */
-    public Spanned getContent() {
+    /** @return Document raw HTML content */
+    public String getContent() {
         return mContent;
-    }
-
-    public static final class Factory {
-        private final HtmlToSpannedParser mHtmlParser;
-
-        public Factory(HtmlToSpannedParser htmlParser) {
-            mHtmlParser = htmlParser;
-        }
-
-        public TermsDocument create(String heading, String htmlContent) {
-            Spanned content = mHtmlParser.parseHtml(checkStringNotEmpty(htmlContent));
-            return new TermsDocument(checkStringNotEmpty(heading), content);
-        }
     }
 }

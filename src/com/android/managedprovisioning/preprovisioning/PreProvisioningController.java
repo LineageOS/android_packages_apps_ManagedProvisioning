@@ -33,8 +33,6 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
-import static java.util.Collections.emptyList;
-
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
@@ -61,14 +59,16 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
-import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
+import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
+import com.android.managedprovisioning.preprovisioning.terms.TermsProvider;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PreProvisioningController {
     private final Context mContext;
@@ -272,10 +272,8 @@ public class PreProvisioningController {
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
             boolean isComp = mDevicePolicyManager.isDeviceManaged();
-
-            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile, null,
-                    null, true /* isProfileOwnerProvisioning */, isComp, getDisclaimerHeaders(),
-                    customization);
+            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile, null, null, true,
+                    isComp, getDisclaimerHeadings(), customization);
         } else {
             String packageName = mParams.inferDeviceAdminPackageName();
             MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
@@ -291,27 +289,19 @@ public class PreProvisioningController {
                     packageIcon,
                     false  /* isProfileOwnerProvisioning */,
                     false, /* isComp */
-                    getDisclaimerHeaders(),
+                    getDisclaimerHeadings(),
                     customization);
         }
     }
 
-    private @NonNull List<String> getDisclaimerHeaders() {
-        DisclaimersParam disclaimersParam = mParams.disclaimersParam;
-        if (disclaimersParam == null) {
-            return emptyList();
-        }
-
-        DisclaimersParam.Disclaimer[] disclaimers = disclaimersParam.mDisclaimers;
-        if (disclaimers == null || disclaimers.length == 0) {
-            return emptyList();
-        }
-
-        List<String> result = new ArrayList<>(disclaimers.length);
-        for (DisclaimersParam.Disclaimer disclaimer : disclaimers) {
-            result.add(disclaimer.mHeader);
-        }
-        return result;
+    private @NonNull List<String> getDisclaimerHeadings() {
+        String generalHeading = mContext.getString(R.string.general);
+        // TODO: only fetch headings, no need to fetch content; now not fast, but at least correct
+        return new TermsProvider(mContext, StoreUtils::readString, mUtils)
+                .getTerms(mParams, TermsProvider.Flags.SKIP_GENERAL_DISCLAIMER)
+                .stream()
+                .map(TermsDocument::getHeading)
+                .collect(Collectors.toList());
     }
 
     private Drawable getDeviceAdminIconDrawable(String deviceAdminIconFilePath) {

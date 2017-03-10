@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.HtmlToSpannedParser;
 
 import java.util.List;
 
@@ -37,15 +38,17 @@ import java.util.List;
 class TermsListAdapter extends BaseExpandableListAdapter {
     private final List<TermsDocument> mTermsDocuments;
     private final LayoutInflater mInflater;
+    private final HtmlToSpannedParser mHtmlToSpannedParser;
     private final GroupExpandedInfo mGroupExpandedInfo;
 
     /**
      * Creates a new instance of the class.
      */
     TermsListAdapter(List<TermsDocument> termsDocuments, LayoutInflater layoutInflater,
-            GroupExpandedInfo groupExpandedInfo) {
+            HtmlToSpannedParser htmlToSpannedParser, GroupExpandedInfo groupExpandedInfo) {
         mTermsDocuments = checkNotNull(termsDocuments);
         mInflater = checkNotNull(layoutInflater);
+        mHtmlToSpannedParser = checkNotNull(htmlToSpannedParser);
         mGroupExpandedInfo = checkNotNull(groupExpandedInfo);
     }
 
@@ -133,7 +136,7 @@ class TermsListAdapter extends BaseExpandableListAdapter {
 
         TermsDocument disclaimer = getDisclaimer(groupPosition);
         TextView textView = view.findViewById(R.id.disclaimer_content);
-        textView.setText(disclaimer.getContent());
+        textView.setText(mHtmlToSpannedParser.parseHtml(disclaimer.getContent()));
         textView.setContentDescription(
                 parent.getResources().getString(R.string.section_content, disclaimer.getHeading(),
                         disclaimer.getContent()));

@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -78,12 +79,11 @@ public class ProvisioningManagerTest {
 
         // Immediately execute any message that is sent onto the handler
         when(mUiHandler.sendMessageAtTime(any(Message.class), anyLong())).thenAnswer(
-                (InvocationOnMock invocation) ->
-                    {
-                        Message msg = (Message) invocation.getArguments()[0];
-                        msg.getCallback().run();
-                        return null;
-                    });
+                (InvocationOnMock invocation) -> {
+                    Message msg = (Message) invocation.getArguments()[0];
+                    msg.getCallback().run();
+                    return null;
+                });
         mManager = new ProvisioningManager(mContext, mUiHandler, mFactory, mAnalyticsTracker,
                 mTimeLogger);
         when(mFactory.createProvisioningController(mContext, TEST_PARAMS, mManager))

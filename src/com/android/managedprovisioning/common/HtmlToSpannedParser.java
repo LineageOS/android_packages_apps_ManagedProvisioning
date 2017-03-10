@@ -54,8 +54,6 @@ public class HtmlToSpannedParser {
      * See {@link Html#fromHtml(String, int)} for caveats regarding limited HTML support
      */
     public Spanned parseHtml(String htmlContent) {
-
-
         Spanned spanned = Html.fromHtml(checkStringNotEmpty(htmlContent), HTML_MODE);
         if (spanned == null) {
             return null;

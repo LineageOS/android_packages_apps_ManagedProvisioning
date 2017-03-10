@@ -47,6 +47,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.VectorDrawable;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
 import android.text.TextUtils;
@@ -125,7 +126,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mContext.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE))
                 .thenReturn(mPdbManager);
         when(mContext.getPackageName()).thenReturn(MP_PACKAGE_NAME);
-        when(mContext.getResources()).thenReturn(mResources);
+        when(mContext.getResources()).thenReturn(
+                InstrumentationRegistry.getTargetContext().getResources());
 
         when(mUserManager.getUserHandle()).thenReturn(TEST_USER_ID);
 

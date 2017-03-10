@@ -15,14 +15,10 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
-import static android.graphics.Color.BLUE;
-import static android.graphics.Color.MAGENTA;
-
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
+import android.graphics.Color;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.view.LayoutInflater;
@@ -36,7 +32,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,55 +40,49 @@ public class TermsListAdapterTest {
     private @Mock LayoutInflater mLayoutInflater;
 
     private List<TermsDocument> mDocs;
+    private HtmlToSpannedParser mHtmlToSpannedParser;
     private TermsListAdapter.GroupExpandedInfo mGroupInfoAlwaysCollapsed = i -> false;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        TermsDocument.Factory termsDocumentFactory = new TermsDocument.Factory(
-                new HtmlToSpannedParser(new ClickableSpanFactory(BLUE),
-                        url -> WebActivity.createIntent(InstrumentationRegistry.getTargetContext(),
-                                url, MAGENTA)));
-
-        TermsDocument doc1 = termsDocumentFactory.create("h1", "c1");
-        TermsDocument doc2 = termsDocumentFactory.create("h2", "c2");
-        TermsDocument doc3 = termsDocumentFactory.create("h3", "c3");
+        TermsDocument doc1 = TermsDocument.createInstance("h1", "c1");
+        TermsDocument doc2 = TermsDocument.createInstance("h2", "c2");
+        TermsDocument doc3 = TermsDocument.createInstance("h3", "c3");
         mDocs = Arrays.asList(doc1, doc2, doc3);
+
+        mHtmlToSpannedParser = new HtmlToSpannedParser(new ClickableSpanFactory(Color.MAGENTA),
+                url -> WebActivity.createIntent(InstrumentationRegistry.getTargetContext(), url,
+                        Color.BLUE));
     }
 
-    @Test
-    public void throwsForEmptyArguments() {
-        List[] termsArr = {new ArrayList<TermsDocument>(), null};
-        LayoutInflater[] inflaterArr = {mLayoutInflater, null};
-        TermsListAdapter.GroupExpandedInfo[] expandedInfoArr = {mGroupInfoAlwaysCollapsed, null};
+    @Test(expected = NullPointerException.class)
+    public void throwsForNullArgument1() {
+        new TermsListAdapter(null, mLayoutInflater, mHtmlToSpannedParser,
+                mGroupInfoAlwaysCollapsed);
+    }
 
-        int count = 0;
-        for (@SuppressWarnings("unchecked") List<TermsDocument> terms : termsArr) {
-            for (LayoutInflater inflater : inflaterArr) {
-                for (TermsListAdapter.GroupExpandedInfo expandedInfo : expandedInfoArr) {
-                    if (terms == null || inflater == null || expandedInfo == null) {
-                        try {
-                            new TermsListAdapter(terms, inflater, expandedInfo);
-                        } catch (NullPointerException e) {
-                            count++;
-                            continue;
-                        }
-                        fail(); // no NullPointerException thrown despite a null argument
-                    }
-                }
-            }
-        }
+    @Test(expected = NullPointerException.class)
+    public void throwsForNullArgument2() {
+        new TermsListAdapter(mDocs, null, mHtmlToSpannedParser, mGroupInfoAlwaysCollapsed);
+    }
 
-        // there are 7 cases where at least one of the arguments is null (2 x 2 x 2 - 1)
-        assertThat(count, equalTo(7));
+    @Test(expected = NullPointerException.class)
+    public void throwsForNullArgument3() {
+        new TermsListAdapter(mDocs, mLayoutInflater, null, mGroupInfoAlwaysCollapsed);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void throwsForNullArgument4() {
+        new TermsListAdapter(mDocs, mLayoutInflater, mHtmlToSpannedParser, null);
     }
 
     @Test
     public void returnsCorrectDocument() {
         // given: an adapter
         TermsListAdapter adapter = new TermsListAdapter(mDocs, mLayoutInflater,
-                mGroupInfoAlwaysCollapsed);
+                mHtmlToSpannedParser, mGroupInfoAlwaysCollapsed);
 
         // when: asked for a document from the initially passed-in list
         for (int i = 0; i < mDocs.size(); i++) {
