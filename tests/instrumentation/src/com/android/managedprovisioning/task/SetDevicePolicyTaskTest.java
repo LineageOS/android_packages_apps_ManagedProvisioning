@@ -21,7 +21,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.Mock;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -34,6 +33,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class SetDevicePolicyTaskTest extends AndroidTestCase {
