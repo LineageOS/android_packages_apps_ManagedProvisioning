@@ -39,11 +39,14 @@
     <string name="url_error" msgid="5958494012986243186">"No se puede mostrar el enlace."</string>
     <string name="terms" msgid="8295436105384703903">"Condiciones"</string>
     <string name="terms_intro" msgid="2626943728063219232">"Tu nuevo perfil de trabajo mantiene separados tus datos del trabajo de tu información personal.\nLos términos que se indican a continuación se aplican a tu perfil de trabajo."</string>
+    <!-- no translation found for general (4327185905521992102) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabajo"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuario principal"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"¿Quitar perfil de trabajo?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Ya existe un perfil de trabajo, que está administrado por:"</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Este perfil de trabajo está administrado para %s con:"</string>
+    <!-- no translation found for delete_profile_title (2841349358380849525) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Para continuar, "<a href="#read_this_link">"consulta esta información"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Si continuas, se eliminarán las aplicaciones y los datos de este perfil."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Eliminar"</string>
@@ -116,10 +119,8 @@
     <string name="info_anim_title_2" msgid="4629781398620470204">"Desconecta del trabajo en cuanto lo acabes"</string>
     <string name="provisioning" msgid="4512493827019163451">"Administrando"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Configurando certificados de CA"</string>
-    <!-- no translation found for setup_profile (5573950582159698549) -->
-    <skip />
-    <!-- no translation found for profile_benefits_description (2750373196318271680) -->
-    <skip />
+    <string name="setup_profile" msgid="5573950582159698549">"Configura tu perfil"</string>
+    <string name="profile_benefits_description" msgid="2750373196318271680">"Si utilizas un perfil de trabajo, puedes mantener separados tus datos personales y los profesionales."</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Configura tu perfil. Cifrado"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Configura tu perfil. Mostrando progreso"</string>
     <string name="setup_device" msgid="6725265673245816366">"Configura tu dispositivo"</string>
@@ -127,6 +128,14 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configura tu dispositivo. Mostrando progreso"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Botón para obtener más información"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icono de <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <!-- no translation found for section_heading (3924666803774291908) -->
+    <skip />
+    <!-- no translation found for section_content (8875502515704374394) -->
+    <skip />
+    <!-- no translation found for expand (37188292156131304) -->
+    <skip />
+    <!-- no translation found for collapse (7817530505064432580) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"¿Cancelar configuración y restablecer datos?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Al finalizar esta configuración, se restablecerán los datos de fábrica de tu dispositivo y volverás a la primera pantalla."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Cancelar"</string>

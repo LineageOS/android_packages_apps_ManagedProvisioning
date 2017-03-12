@@ -39,11 +39,14 @@
     <string name="url_error" msgid="5958494012986243186">"ഈ ലിങ്ക് പ്രദർശിപ്പിക്കാൻ കഴിയില്ല."</string>
     <string name="terms" msgid="8295436105384703903">"നിബന്ധനകള്‍"</string>
     <string name="terms_intro" msgid="2626943728063219232">"നിങ്ങളുടെ പുതിയ ഔദ്യോഗിക പ്രൊഫൈൽ, ഔദ്യോഗിക വിവരങ്ങളും വ്യക്തിഗത വിവരങ്ങളും വെവ്വേറെയായി സൂക്ഷിക്കുന്നു.\nനിങ്ങളുടെ പുതിയ ഔദ്യോഗിക പ്രൊഫൈലിന് ഇനിപ്പറയുന്ന നിബന്ധനകൾ ബാധകമാണ്."</string>
+    <!-- no translation found for general (4327185905521992102) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"പ്രാഥമിക ഉപയോക്താവ്"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"ഔദ്യോഗിക പ്രൊഫൈൽ നീക്കംചെയ്യണോ?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ഒരു ഔദ്യോഗിക പ്രൊഫൈൽ ഇതിനകം നിലവിലുണ്ട്, ഇത് നിയന്ത്രിക്കുന്നത്:"</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ഇതുപയോഗിക്കുന്ന %s എന്നതിനായാണ് ഈ ഔദ്യോഗിക പ്രൊഫൈൽ നിയന്ത്രിക്കുന്നത്:"</string>
+    <!-- no translation found for delete_profile_title (2841349358380849525) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"തുടരുന്നതിന് മുമ്പ്, "<a href="#read_this_link">"ഇത് വായിക്കുക"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"നിങ്ങൾ തുടരുകയാണെങ്കിൽ, ഈ പ്രൊഫൈലിലെ എല്ലാ ആപ്‌സും ഡാറ്റയും ഇല്ലാതാക്കും."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ഇല്ലാതാക്കുക"</string>
@@ -116,10 +119,8 @@
     <string name="info_anim_title_2" msgid="4629781398620470204">"ഉപയോഗത്തിനുശേഷം വർക്ക് ഓഫ് ചെയ്യുക"</string>
     <string name="provisioning" msgid="4512493827019163451">"പ്രൊവിഷൻ ചെയ്യുന്നു"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA സർട്ടിഫിക്കറ്റ് സജ്ജമാക്കുന്നു"</string>
-    <!-- no translation found for setup_profile (5573950582159698549) -->
-    <skip />
-    <!-- no translation found for profile_benefits_description (2750373196318271680) -->
-    <skip />
+    <string name="setup_profile" msgid="5573950582159698549">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക"</string>
+    <string name="profile_benefits_description" msgid="2750373196318271680">"ഔദ്യോഗിക പ്രൊഫൈൽ ഉപയോഗിക്കുന്നതിലൂടെ, നിങ്ങൾക്ക് ഔദ്യോഗിക ഡാറ്റയും സ്വകാര്യ ഡാറ്റയും വേർതിരിക്കാം."</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. എൻക്രിപ്ഷൻ"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
     <string name="setup_device" msgid="6725265673245816366">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുക"</string>
@@ -127,6 +128,14 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"\'കൂടുതലറിയുക\' ബട്ടൺ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ഐക്കൺ"</string>
+    <!-- no translation found for section_heading (3924666803774291908) -->
+    <skip />
+    <!-- no translation found for section_content (8875502515704374394) -->
+    <skip />
+    <!-- no translation found for expand (37188292156131304) -->
+    <skip />
+    <!-- no translation found for collapse (7817530505064432580) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"സജ്ജമാക്കൽ അവസാനിപ്പിച്ച് ഫാക്ടറി റീസെറ്റ് നടത്തണോ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ഈ സജ്ജമാക്കൽ അവസാനിപ്പിക്കുന്നത് നിങ്ങളുടെ ഉപകരണത്തെ ഫാക്ടറി റീസെറ്റിലേയ്ക്ക് നയിക്കുകയും സജ്ജമാക്കലിന്റെ തുടക്ക സ്ക്രീനിലേക്ക് നിങ്ങൾ മടങ്ങുകയും ചെയ്യും."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"റദ്ദാക്കുക"</string>

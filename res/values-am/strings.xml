@@ -39,11 +39,14 @@
     <string name="url_error" msgid="5958494012986243186">"ይህን አገናኝ ማሳየት አይቻልም።"</string>
     <string name="terms" msgid="8295436105384703903">"ውሎች"</string>
     <string name="terms_intro" msgid="2626943728063219232">"የእርስዎ አዲሱ የሥራ መገለጫ የእርስዎን የሥራ እና የግል ውሂብ ለየብቻቸው ያቆያል።\nየሚከተሉት ውሎች በእርስዎ የሥራ መገለጫ ላይ ተፈጻሚነት ይኖራቸዋል።"</string>
+    <!-- no translation found for general (4327185905521992102) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"የስራ መገለጫ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ዋና ተጠቃሚ"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"የስራ መገለጫ ይወገድ?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ቀድሞውኑ ያለ የስራ መገለጫና በሚከተለው የሚተዳደር፡-"</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ይሄ የስራ መገለጫ የሚከተለውን በመጠቀም ለ%s የሚቀናበር ነው፦"</string>
+    <!-- no translation found for delete_profile_title (2841349358380849525) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ከመቀጠልዎ በፊት "<a href="#read_this_link">"ይህን ያንብቡት"</a>"።"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ከቀጠሉ በዚህ መገለጫ ውስጥ ያሉ ሁሉም መተግበሪያዎች እና ውሂብ ይሰረዛሉ።"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ሰርዝ"</string>
@@ -116,10 +119,8 @@
     <string name="info_anim_title_2" msgid="4629781398620470204">"ሲጨርሱ ስራን ያጥፉ"</string>
     <string name="provisioning" msgid="4512493827019163451">"በማቅረብ ላይ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"የCA የዕውቅና ማረጋገጫዎችን በማቀነበር ላይ"</string>
-    <!-- no translation found for setup_profile (5573950582159698549) -->
-    <skip />
-    <!-- no translation found for profile_benefits_description (2750373196318271680) -->
-    <skip />
+    <string name="setup_profile" msgid="5573950582159698549">"የእርስዎን መገለጫ ያዋቅሩ"</string>
+    <string name="profile_benefits_description" msgid="2750373196318271680">"የስራ መገለጫ በመጠቀም የስራ ውሂብ ከግል ውሂብ መለየት ይችላሉ።"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"መገለጫዎን ያዘጋጁ። ምስጠራ"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"የእርስዎን መገለጫ ያዘጋጁት። ሂደት በማሳየት ላይ"</string>
     <string name="setup_device" msgid="6725265673245816366">"መሣሪያዎን ያዋቅሩ"</string>
@@ -127,6 +128,14 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"መሳሪያዎን ያዘጋጁ። ሂደትን በማሳየት ላይ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"የተጨማሪ ይወቁ አዝራር"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> አዶ"</string>
+    <!-- no translation found for section_heading (3924666803774291908) -->
+    <skip />
+    <!-- no translation found for section_content (8875502515704374394) -->
+    <skip />
+    <!-- no translation found for expand (37188292156131304) -->
+    <skip />
+    <!-- no translation found for collapse (7817530505064432580) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ማዋቀር ቆሞ የፋብሪካ ዳግም ይጀምር?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ይህን ቅንብር መጨረስ መሣሪያውን የፋብሪካ ዳግም ያስጀምረውና ወደ መጀመሪያው ማያ ገጽ መልሶ ይወስደዎታል።"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ተወው"</string>

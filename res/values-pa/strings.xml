@@ -39,11 +39,14 @@
     <string name="url_error" msgid="5958494012986243186">"ਇਹ ਲਿੰਕ ਦਿਖਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"</string>
     <string name="terms" msgid="8295436105384703903">"ਮਦਾਂ"</string>
     <string name="terms_intro" msgid="2626943728063219232">"ਤੁਹਾਡਾ ਨਵਾਂ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਤੁਹਾਡੇ ਕਾਰਜ ਅਤੇ ਨਿੱਜੀ ਡੈਟੇ ਨੂੰ ਵੱਖ ਰੱਖਦਾ ਹੈ।\nਹੇਠ ਦਿੱਤੀਆਂ ਮਦਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ \'ਤੇ ਲਾਗੂ ਹੁੰਦੀਆਂ ਹਨ।"</string>
+    <!-- no translation found for general (4327185905521992102) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"ਕੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਹਟਾਉਣੀ ਹੈ?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"ਇੱਕ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ ਅਤੇ ਇਸ ਵੱਲੋਂ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
-    <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"ਇਹ ਕੰਮ ਪ੍ਰੋਫਾਈਲ %s ਲਈ ਇਹ ਵਰਤਦੇ ਹੋਏ ਵਿਵਸਥਿਤ ਕੀਤੀ ਗਈ ਹੈ:"</string>
+    <!-- no translation found for delete_profile_title (2841349358380849525) -->
+    <skip />
+    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡੈਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
@@ -116,10 +119,8 @@
     <string name="info_anim_title_2" msgid="4629781398620470204">"ਕੰਮ ਪੂਰਾ ਹੋਣ \'ਤੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਬੰਦ ਕਰੋ"</string>
     <string name="provisioning" msgid="4512493827019163451">"ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ"</string>
-    <!-- no translation found for setup_profile (5573950582159698549) -->
-    <skip />
-    <!-- no translation found for profile_benefits_description (2750373196318271680) -->
-    <skip />
+    <string name="setup_profile" msgid="5573950582159698549">"ਆਪਣਾ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਕਰੋ"</string>
+    <string name="profile_benefits_description" msgid="2750373196318271680">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਨਿੱਜੀ ਡੈਟੇ ਤੋਂ ਕਾਰਜ ਡੈਟੇ ਨੂੰ ਵੱਖ ਕਰ ਸਕਦੇ ਹੋ।"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_device" msgid="6725265673245816366">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ"</string>
@@ -127,6 +128,14 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ਹੋਰ ਜਾਣੋ ਬਟਨ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>
+    <!-- no translation found for section_heading (3924666803774291908) -->
+    <skip />
+    <!-- no translation found for section_content (8875502515704374394) -->
+    <skip />
+    <!-- no translation found for expand (37188292156131304) -->
+    <skip />
+    <!-- no translation found for collapse (7817530505064432580) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ਕੀ ਸਥਾਪਨਾ ਸਮਾਪਤ ਕਰਨੀ ਅਤੇ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ਇਸ ਸਥਾਪਨਾ ਨੂੰ ਸਮਾਪਤ ਕਰਨਾ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ਰੱਦ ਕਰੋ"</string>
