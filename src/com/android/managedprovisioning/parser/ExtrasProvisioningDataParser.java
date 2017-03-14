@@ -167,6 +167,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         try {
             final long provisioningId = mSharedPreferences.incrementAndGetProvisioningId();
             String provisioningAction = mUtils.mapIntentToDpmAction(intent);
+            final boolean isManagedProfileAction =
+                    ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction);
 
             // Parse device admin package name and component name.
             ComponentName deviceAdminComponentName = (ComponentName) intent.getParcelableExtra(
@@ -174,7 +176,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             // Device admin package name is deprecated. It is only supported in Profile Owner
             // provisioning and when resuming NFC provisioning.
             String deviceAdminPackageName = null;
-            if (ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)) {
+            if (isManagedProfileAction) {
                 // In L, we only support package name. This means some DPC may still send us the
                 // device admin package name only. Attempts to obtain the package name from extras.
                 deviceAdminPackageName = intent.getStringExtra(
@@ -203,16 +205,14 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
 
             // Only current DeviceOwner can specify EXTRA_PROVISIONING_SKIP_USER_CONSENT when
             // provisioning PO with ACTION_PROVISION_MANAGED_PROFILE
-            final boolean skipUserConsent =
-                    ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)
+            final boolean skipUserConsent = isManagedProfileAction
                             && intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT,
                                     ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT)
                             && mUtils.isPackageDeviceOwner(dpm, inferStaticDeviceAdminPackageName(
                                     deviceAdminComponentName, deviceAdminPackageName));
 
             // Only when provisioning PO with ACTION_PROVISION_MANAGED_PROFILE
-            final boolean keepAccountMigrated =
-                    ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)
+            final boolean keepAccountMigrated = isManagedProfileAction
                             && intent.getBooleanExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION,
                             ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED);
 
@@ -244,6 +244,12 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI));
             }
 
+            final boolean leaveAllSystemAppsEnabled = isManagedProfileAction
+                    ? false
+                    : intent.getBooleanExtra(
+                            EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                            ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
+
             return ProvisioningParams.Builder.builder()
                     .setProvisioningId(provisioningId)
                     .setProvisioningAction(provisioningAction)
@@ -251,9 +257,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setDeviceAdminPackageName(deviceAdminPackageName)
                     .setSkipEncryption(intent.getBooleanExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION,
                             ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION))
-                    .setLeaveAllSystemAppsEnabled(intent.getBooleanExtra(
-                            EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
-                            ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED))
+                    .setLeaveAllSystemAppsEnabled(leaveAllSystemAppsEnabled)
                     .setAdminExtrasBundle((PersistableBundle) intent.getParcelableExtra(
                             EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
                     .setMainColor(mainColor)
