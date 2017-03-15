@@ -18,5 +18,6 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     legacy-android-test
 
 LOCAL_INSTRUMENTATION_FOR := ManagedProvisioning
+LOCAL_COMPATIBILITY_SUITE := device-tests
 
 include $(BUILD_PACKAGE)
