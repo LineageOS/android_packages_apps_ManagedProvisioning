@@ -35,8 +35,11 @@
   <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
   <!-- String telling the user how to get more information about their work profile-->
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
+  <string name="learn_more_link">Deprendi más </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="cancel_setup">Encaboxar</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="ok_setup">Aceutar</string>
   <!-- Text of the checkbox to consent to the mobile device management app taking control of the device. [CHAR LIMIT=NONE] -->
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <!-- Default name used for the creation of the first meat user on a device with system-user split. [CHAR LIMIT=NONE] -->
@@ -52,6 +55,7 @@
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <!-- String on the button that triggers the deletion of a work profile.-->
   <!-- String on the button that cancels out of the deletion of a work profile.-->
+  <string name="cancel_delete_profile">Encaboxar</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
@@ -64,7 +68,9 @@
   <!-- Error string displayed if maximum user limit is reached -->
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <!-- Button text for the button that cancels provisioning  -->
+  <string name="cancel_provisioning">Encaboxar</string>
   <!-- Button text for the button that opens the launcher picker  -->
+  <string name="pick_launcher">Aceutar</string>
   <!-- Managed user provisioning flow UI. -->
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
@@ -77,7 +83,9 @@
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_cancel_cancel">Encaboxar</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_ok">Aceutar</string>
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
@@ -93,6 +101,7 @@
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancelling">Encaboxando\u2026</string>
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
@@ -114,5 +123,6 @@
   <!-- Title shown in the dialog. [CHAR LIMIT=45] -->
   <!-- Message shown in the dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_cancel">Encaboxar</string>
   <!-- OK button text of the dialog. [CHAR LIMIT=45] -->
 </resources>
