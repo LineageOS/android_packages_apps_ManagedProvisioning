@@ -30,6 +30,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
@@ -179,6 +180,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
                 .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                        TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
@@ -210,6 +213,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setSkipUserConsent(false)
                         // THEN keep account migrated flag is ignored
                         .setKeepAccountMigrated(false)
+                        .setLeaveAllSystemAppsEnabled(true)
                         .setWifiInfo(TEST_WIFI_INFO)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
@@ -248,6 +252,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                        TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
 
         // GIVEN the device admin is installed.
@@ -273,6 +279,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setWifiInfo(null)
                         .setMainColor(TEST_MAIN_COLOR)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
+                        // THEN leave all system apps flag is ignored
+                        .setLeaveAllSystemAppsEnabled(false)
                         // THEN skipping user consent flag is ignored
                         .setSkipUserConsent(false)
                         .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
@@ -413,6 +421,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtras(getTestDeviceAdminDownloadExtras())
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                        TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
 
@@ -434,6 +444,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         // THEN time, time zone and locale are not supported.
                         .setMainColor(TEST_MAIN_COLOR)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
+                        .setLeaveAllSystemAppsEnabled(true)
                         // THEN wifi configuration is not supported.
                         .setWifiInfo(null)
                         .setAdminExtrasBundle(createTestAdminExtras())
