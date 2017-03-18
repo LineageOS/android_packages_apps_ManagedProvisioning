@@ -43,9 +43,9 @@
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <string name="setting_up_workspace">Setting up your work profile\u2026</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_profile">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this profile, including your network activity, as well as your device\'s location, call history, and contact search history.</string>
+  <string name="admin_has_ability_to_monitor_profile">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this profile, including your network activity, as well as your device\'s location, call history, and contact search history.<xliff:g id="star">&lt;br&gt;&lt;br&gt;</xliff:g>Contact your admin for more information, including your organization\'s privacy policies.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
-  <string name="admin_has_ability_to_monitor_device">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, theft-protection features, and data associated with this device, including network activity and your device\'s location information.</string>
+  <string name="admin_has_ability_to_monitor_device">Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, and data associated with this device including your network activity, as well as your device\'s location, call history, and contact search history.<xliff:g id="star">&lt;br&gt;&lt;br&gt;</xliff:g>Contact your admin for more information, including your organization\'s privacy policies.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
   <string name="theft_protection_disabled_warning">To use theft-protection features, you must have a password-protected screen lock for your device.</string>
   <!-- String telling the user how to get more information about their work profile-->
@@ -64,8 +64,6 @@
   <!-- 'Terms and conditions' screen -->
   <!--Toolbar header [CHAR LIMIT=NONE] -->
   <string name="terms">Terms</string>
-  <!-- Introduction on the terms screen [CHAR LIMIT=NONE] -->
-  <string name="terms_intro">Your new work profile keeps your work and personal data separate.\nThe following terms apply to your work profile.</string>
   <!-- General terms section heading. [CHAR LIMIT=NONE] -->
   <string name="general">General</string>
 

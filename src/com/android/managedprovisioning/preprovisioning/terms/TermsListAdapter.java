@@ -17,6 +17,7 @@ package com.android.managedprovisioning.preprovisioning.terms;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -136,10 +137,11 @@ class TermsListAdapter extends BaseExpandableListAdapter {
 
         TermsDocument disclaimer = getDisclaimer(groupPosition);
         TextView textView = view.findViewById(R.id.disclaimer_content);
-        textView.setText(mHtmlToSpannedParser.parseHtml(disclaimer.getContent()));
+        Spanned content = mHtmlToSpannedParser.parseHtml(disclaimer.getContent());
+        textView.setText(content);
         textView.setContentDescription(
                 parent.getResources().getString(R.string.section_content, disclaimer.getHeading(),
-                        disclaimer.getContent()));
+                        content));
         textView.setMovementMethod(LinkMovementMethod.getInstance()); // makes html links clickable
 
         return view;

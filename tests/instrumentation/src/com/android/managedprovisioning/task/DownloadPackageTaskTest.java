@@ -17,8 +17,10 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+
 import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_DOWNLOAD_FAILED;
 import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_OTHER;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
@@ -37,6 +39,7 @@ import android.content.IntentFilter;
 import android.database.MatrixCursor;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.test.filters.FlakyTest;
 import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
@@ -50,6 +53,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 @SmallTest
+@FlakyTest // TODO: http://b/34117742
 public class DownloadPackageTaskTest {
     @Mock private Context mContext;
     @Mock private AbstractProvisioningTask.Callback mCallback;

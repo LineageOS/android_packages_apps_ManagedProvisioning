@@ -76,11 +76,11 @@ import java.io.IOException;
 public class ProvisioningActivityTest {
     private static final String ADMIN_PACKAGE = "com.test.admin";
     private static final ComponentName ADMIN = new ComponentName(ADMIN_PACKAGE, ".Receiver");
-    private static final ProvisioningParams PROFILE_OWNER_PARAMS = new ProvisioningParams.Builder()
+    public static final ProvisioningParams PROFILE_OWNER_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
             .build();
-    private static final ProvisioningParams DEVICE_OWNER_PARAMS = new ProvisioningParams.Builder()
+    public static final ProvisioningParams DEVICE_OWNER_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
             .setDeviceAdminComponentName(ADMIN)
             .build();

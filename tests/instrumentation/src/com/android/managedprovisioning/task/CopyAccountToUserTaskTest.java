@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.eq;
@@ -33,6 +34,7 @@ import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.os.Handler;
 import android.os.UserHandle;
+import android.support.test.filters.FlakyTest;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
@@ -46,6 +48,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Unit tests for {@link CopyAccountToUserTask}.
  */
+@FlakyTest // TODO: http://b/34117742
 public class CopyAccountToUserTaskTest extends AndroidTestCase {
     private static final String TEST_MDM_PACKAGE_NAME = "mdm.package.name";
     private static final Account TEST_ACCOUNT = new Account("test@afw-test.com", "com.google");

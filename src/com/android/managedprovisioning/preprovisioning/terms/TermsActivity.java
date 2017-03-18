@@ -72,9 +72,7 @@ public class TermsActivity extends SetupLayoutActivity {
                         url -> WebActivity.createIntent(this, url,
                                 this.getWindow().getStatusBarColor())),
                 container::isGroupExpanded));
-        container.addHeaderView(
-                getLayoutInflater().inflate(R.layout.terms_screen_header, container, false), null,
-                false);
+        container.expandGroup(0); // expand the 'General' section
 
         // Add default open terms to the expanded groups set.
         for (int i = 0; i < terms.size(); i++) {

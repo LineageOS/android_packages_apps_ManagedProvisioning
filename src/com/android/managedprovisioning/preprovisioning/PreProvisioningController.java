@@ -295,7 +295,6 @@ public class PreProvisioningController {
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {
-        String generalHeading = mContext.getString(R.string.general);
         // TODO: only fetch headings, no need to fetch content; now not fast, but at least correct
         return new TermsProvider(mContext, StoreUtils::readString, mUtils)
                 .getTerms(mParams, TermsProvider.Flags.SKIP_GENERAL_DISCLAIMER)
