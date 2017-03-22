@@ -21,6 +21,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.nullable;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -71,8 +72,8 @@ public class CopyAccountToUserTaskTest extends AndroidTestCase {
                 eq(TEST_ACCOUNT),
                 eq(UserHandle.of(TEST_SOURCE_USER_ID)),
                 eq(UserHandle.of(TEST_TARGET_USER_ID)),
-                any(AccountManagerCallback.class),
-                any(Handler.class))).thenReturn(mAccountManagerFuture);
+                nullable(AccountManagerCallback.class),
+                nullable(Handler.class))).thenReturn(mAccountManagerFuture);
     }
 
     @SmallTest
@@ -91,8 +92,8 @@ public class CopyAccountToUserTaskTest extends AndroidTestCase {
                 eq(TEST_ACCOUNT),
                 eq(UserHandle.of(TEST_SOURCE_USER_ID)),
                 eq(UserHandle.of(TEST_TARGET_USER_ID)),
-                any(AccountManagerCallback.class),
-                any(Handler.class));
+                nullable(AccountManagerCallback.class),
+                nullable(Handler.class));
 
         // THEN the success callback should be given
         verify(mCallback).onSuccess(mTask);
@@ -115,8 +116,8 @@ public class CopyAccountToUserTaskTest extends AndroidTestCase {
                 eq(TEST_ACCOUNT),
                 eq(UserHandle.of(TEST_SOURCE_USER_ID)),
                 eq(UserHandle.of(TEST_TARGET_USER_ID)),
-                any(AccountManagerCallback.class),
-                any(Handler.class));
+                nullable(AccountManagerCallback.class),
+                nullable(Handler.class));
 
         // THEN the success callback should be given
         verify(mCallback).onSuccess(mTask);

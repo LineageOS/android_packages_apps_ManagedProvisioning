@@ -25,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Matchers.nullable;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -201,7 +202,7 @@ public class DownloadPackageTaskTest {
         verify(mContext).registerReceiver(
                 receiverCaptor.capture(),
                 filterCaptor.capture(),
-                anyString(),
+                nullable(String.class),
                 any(Handler.class));
         assertEquals(filterCaptor.getValue().getAction(0),
                 DownloadManager.ACTION_DOWNLOAD_COMPLETE);
