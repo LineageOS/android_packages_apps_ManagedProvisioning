@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"පහත යෙදුම් ඔබේ උපාංගය කළමනාකරණය කරනු ඇත:"</string>
     <string name="next" msgid="1004321437324424398">"ඊළඟ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ඔබගේ කාර්යාල පැතිකඩ පිහිටුවමින්..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"ඔබේ ජාල ක්‍රියාකාරකම්, මෙන්ම ඔබේ උපාංගයේ ස්ථානය, ඇමතුම් ඉතිහාසය, සහ සම්බන්ධතා සෙවීම් ඉතිහාසය ඇතුළුව, සැකසීම්, සංස්ථාපිත ප්‍රවේශය, යෙදුම්, අවසර සහ මෙම පැතිකඩ සමඟ සම්බන්ධිත දත්ත නිරීක්ෂණය කිරීමේ සහ කළමනාකරණය කිරීමේ හැකියාව ඔබේ පරිපාලකට තිබේ."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"ජාල ක්‍රියාකාරකම් සහ ඔබේ උපාංගයේ ස්ථාන තොරතුරු ඇතුළුව, සැකසීම්, සංස්ථාපිත ප්‍රවේශය, යෙදුම්, අවසර සහ මෙම උපාංගය සමඟ සම්බන්ධිත දත්ත නිරීක්ෂණය සහ කළමනාකරණය කිරීමේ හැකියාව ඔබේ පරිපාලකට තිබේ."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"සොරකම්වලින්-ආරක්ෂා වීමේ විශේෂාංග භාවිත කිරීම සඳහා, ඔබට ඔබේ උපාංගය සඳහා මුරපදයකින් ආරක්ෂිත තිර අගුලක් තිබිය යුතුය."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ඔබේ සංවිධානයේ රහස්‍යතා ප්‍රතිපත්ති ඇතුළුව, තව තොරතුරු සඳහා ඔබේ පරිපාලක අමතන්න."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"තව දැනගන්න"</string>
@@ -38,7 +40,6 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"මම කැමැත්ත දෙමි"</string>
     <string name="url_error" msgid="5958494012986243186">"මේ සබැඳිය සංදර්ශනය කළ නොහැකිය."</string>
     <string name="terms" msgid="8295436105384703903">"නියම"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"ඔබේ නව වැඩ පැතිකඩ ඔබේ කාර්යාල සහ පුද්ගලික දත්ත වෙන්ව තබයි.\nපහත සඳහන් නියම ඔබේ කාර්යාල පැතිකඩ සඳහා අදාළ වේ."</string>
     <string name="general" msgid="4327185905521992102">"පොදු"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"කාර්යාල පැතිකඩ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"මූලික පරිශීලක"</string>

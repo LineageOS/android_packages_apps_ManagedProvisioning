@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది అనువర్తనం మీ పరికరాన్ని నిర్వహిస్తుంది:"</string>
     <string name="next" msgid="1004321437324424398">"తదుపరి"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"మీ నిర్వాహకులు సెట్టింగ్‌లను, కార్పొరేట్ ప్రాప్యతను, అనువర్తనాలను, అనుమతులను మరియు మీ ప్రొఫైల్‌తో అనుబంధించబడిన డేటాను, దానితో పాటుగా మీ నెట్‌వర్క్ కార్యాచరణను, అలాగే మీ పరికర స్థానాన్ని, కాల్ చరిత్రను మరియు పరిచయాల శోధన చరిత్రను పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం కలిగి ఉంటారు."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"మీ నిర్వాహకుడు సెట్టింగ్‌లను, కార్పొరేట్ ప్రాప్యతను, అనువర్తనాలను, అనుమతులను, అపహరణ జరగకుండా రక్షణనిచ్చే లక్షణాలను మరియు ఈ పరికరంతో అనుబంధించబడిన డేటాను, అలాగే నెట్‌వర్క్ కార్యాచరణను మరియు మీ పరికర స్థాన సమాచారాన్ని పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం కలిగి ఉంటారు."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"అపహరణ జరగకుండా రక్షణనిచ్చే లక్షణాలను ఉపయోగించడానికి, మీరు మీ పరికరం కోసం తప్పనిసరిగా పాస్‌వర్డ్ సురక్షిత స్క్రీన్ లాక్‌ను కలిగి ఉండాలి."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"మీ సంస్థ గోప్యతా విధానాలతో సహా మరింత సమాచారం కోసం మీ నిర్వాహకుని సంప్రదించండి."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"నేను సమ్మతిస్తున్నాను"</string>
     <string name="url_error" msgid="5958494012986243186">"ఈ లింక్‌ని ప్రదర్శించడం సాధ్యం కాదు."</string>
     <string name="terms" msgid="8295436105384703903">"నిబంధనలు"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"మీ కొత్త కార్యాలయ ప్రొఫైల్ మీ కార్యాలయ మరియు వ్యక్తిగత డేటాను వేర్వేరుగా ఉంచుతుంది.\nక్రింది నిబంధనలు మీ కార్యాలయ ప్రొఫైల్‌కు వర్తిస్తాయి."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"సాధారణం"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ప్రాథమిక వినియోగదారు"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"ప్రస్తుతం ఉన్న ప్రొఫైల్‌ని తొలగించాలా?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"మీరు ఇప్పటికే కింది అనువర్తనం ద్వారా నిర్వహించబడుతున్న ఒక కార్యాలయ ప్రొఫైల్‌ని కలిగి ఉన్నారు:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"కొనసాగడానికి ముందు, "<a href="#read_this_link">"దీన్ని చదవండి"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"మీరు కొనసాగిస్తే, ఈ ప్రొఫైల్‌లోని అన్ని అనువర్తనాలు మరియు డేటా తొలగించబడతాయి."</string>
     <string name="delete_profile" msgid="2299218578684663459">"తొలగించు"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"మీ పరికరాన్ని సెటప్ చేయండి. ప్రోగ్రెస్‌ను చూపుతోంది"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"మరింత తెలుసుకోండి బటన్"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> చిహ్నం"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> విభాగం శీర్షిక."</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> విభాగం కంటెంట్: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"విస్తరింపజేస్తుంది"</string>
+    <string name="collapse" msgid="7817530505064432580">"కుదిస్తుంది"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"సెటప్‌ను ముగించి, ఫ్యాక్టరీ రీసెట్ చేయాలా?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ఈ సెటప్‌ను ముగిస్తే మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్లబడతారు."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయి"</string>

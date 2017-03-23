@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Uhlelo lokusebenza olulandelayo luzophatha idivayisi yakho:"</string>
     <string name="next" msgid="1004321437324424398">"Okulandelayo"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Isetha iphrofayela yakho yomsebenzi..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Umlawuli wakho unamandla wokwengamela nokuphatha izilungiselelo, ukufinyelela kwebhizinisi, izinhlelo zokusebenza, izimvume, nedatha ephathelene nephrofayela, kufaka phakathi umlando wekholi nomlando wosesho loxhumana naye."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Umlawuli wakho unamandla wokwengamela nokuphatha izilungiselelo, ukufinyelela kwebhizinisi, izinhlelo zokusebenza, izimvume, nedatha ephathelene nale divayisi, kufaka phakathi umsebenzi wenethiwekhi, nolwazi lwendawo yedivayisi yakho."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ukuze usebenzise izici zokuvikela ubugebengu, kufanele nokukhiya kwesikrini okuvikelwe ngephasiwedi kudivayisi yakho."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Xhumana nomlawuli wakho ngolwazi olubanzi, kufaka phakathi izinqubomgomo zokwemfihlo zenhlangano yakho."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Funda kabanzi"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Ngiyavuma"</string>
     <string name="url_error" msgid="5958494012986243186">"Lesi sixhumanisi asikwazi ukuboniswa."</string>
     <string name="terms" msgid="8295436105384703903">"Imigomo"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Iphrofayela yakho entsha yomsebenzi igcina idatha yakho yomsebenzi neyomuntu siqu ihlukene.\nImigomo elandelayo isebenza kuphrofayela yakho yomsebenzi."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Okuvamile"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Iphrofayela yomsebenzi"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Umsebenzisi oyinhloko"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Susa iphrofayela ekhona?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Usuvele unephrofayela yomsebenzi ephethwe uhlelo lokusebenza olulandelayo:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Ngaphambi kokuqhubeka, "<a href="#read_this_link">"funda lokhu"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Uma uqhubeka, zonke izinhlelo zokusebenza nedatha kule phrofayela kuzosulwa."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Susa"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Setha idivayisi yakho. Ibonisa ukuqhubeka"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Inkinobho yokufunda kabanzi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> isithonjana"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> isihloko sesigaba."</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> okuqukethwe kwesigaba: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Nweba"</string>
+    <string name="collapse" msgid="7817530505064432580">"Goqa"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Phelisa ukusetha futhi isethe kabusha?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Ukuphelisa lokhu kusetha kuzosetha kabusha idivayisi yakho futhi kukubuyisele esikrinini sokuqala."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Khansela"</string>

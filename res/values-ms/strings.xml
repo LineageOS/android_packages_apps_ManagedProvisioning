@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Apl berikut akan mengurus peranti anda:"</string>
     <string name="next" msgid="1004321437324424398">"Seterusnya"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Menyediakan profil kerja anda…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Pentadbir anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang dikaitkan dengan profil ini, termasuk aktiviti rangkaian serta lokasi, sejarah panggilan dan sejarah carian kenalan peranti anda."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Pentadbir anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran, ciri perlindungan kecurian dan data yang dikaitkan dengan peranti ini, termasuk aktiviti rangkaian dan maklumat lokasi peranti anda."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Untuk menggunakan ciri perlindungan kecurian, anda mesti mempunyai kunci skrin yang dilindungi kata laluan untuk peranti anda."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Hubungi pentadbir anda untuk mendapatkan maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ketahui lebih lanjut"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Saya bersetuju"</string>
     <string name="url_error" msgid="5958494012986243186">"Pautan ini tidak boleh dipaparkan."</string>
     <string name="terms" msgid="8295436105384703903">"Syarat"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Profil kerja anda yang baharu memastikan data kerja dan data peribadi diasingkan.\nSyarat berikut dikenakan pada profil kerja anda."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Umum"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil kerja"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pengguna utama"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Padamkan profil semasa?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Anda sudah mempunyai profil kerja yang diurus oleh apl berikut:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Sebelum meneruskan, "<a href="#read_this_link">"baca ini"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Jika anda meneruskan, semua apl dan data dalam profil ini akan dipadamkan."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Padam"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Sediakan peranti anda. Menunjukkan kemajuan"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Butang ketahui lebih lanjut"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Tajuk bahagian <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Kandungan bahagian <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Kembangkan"</string>
+    <string name="collapse" msgid="7817530505064432580">"Runtuhkan"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Tamatkan persediaan &amp; buat ttpn smla kilang?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Tindakan menamatkan persediaan ini akan menjalankan penetapan semula kilang pada peranti dan membawa anda ke skrin yang pertama."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Batal"</string>

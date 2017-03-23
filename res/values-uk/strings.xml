@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Вашим пристроєм керуватиме цей додаток:"</string>
     <string name="next" msgid="1004321437324424398">"Далі"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Налаштування робочого профілю…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Адміністратор може відстежувати та контролювати налаштування, корпоративний доступ, додатки, дозволи й дані, пов’язані з цим профілем, зокрема інформацію про активність у мережі, а також місцезнаходження пристрою, історію викликів і пошуку контактів."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Адміністратор може відстежувати та контролювати налаштування, корпоративний доступ, додатки, дозволи, функції захисту від крадіжок і дані, пов’язані з цим пристроєм, зокрема інформацію про активність у мережі чи місцезнаходження пристрою."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Щоб користуватися функціями захисту від крадіжок, потрібно ввімкнути блокування екрана за допомогою пароля."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Зв’яжіться з адміністратором, щоб дізнатися більше, зокрема про політику конфіденційності вашої організації."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Докладніше"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Дозволити"</string>
     <string name="url_error" msgid="5958494012986243186">"Посилання не відображається."</string>
     <string name="terms" msgid="8295436105384703903">"Умови"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"У вашому новому профілі робочі дані зберігаються окремо від особистих.\nНа ваш робочий профіль поширюються указані нижче умови."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Загальні"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Робочий профіль"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Основний користувач"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Видалити наявний профіль?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"У вас уже є робочий профіль, яким керує додаток"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Перш ніж продовжити, "<a href="#read_this_link">"прочитайте цю інформацію"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Якщо продовжити, усі додатки та дані в цьому профілі буде видалено."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Видалити"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Налаштування пристрою: перебіг"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Кнопка \"Докладніше\""</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Значок \"<xliff:g id="ICON_LABEL">%1$s</xliff:g>\""</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Назва розділу \"<xliff:g id="SECTION_HEADING">%1$s</xliff:g>\"."</string>
+    <string name="section_content" msgid="8875502515704374394">"Вміст розділу \"<xliff:g id="SECTION_HEADING">%1$s</xliff:g>\": <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Розгорнути"</string>
+    <string name="collapse" msgid="7817530505064432580">"Згорнути"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Припинити та відновити заводські параметри?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Якщо ви припините налаштування, відновляться заводські параметри пристрою, і ви повернетесь на перший екран."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Скасувати"</string>

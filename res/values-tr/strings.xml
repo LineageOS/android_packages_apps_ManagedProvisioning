@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Şu uygulama, cihazınızı yönetecek:"</string>
     <string name="next" msgid="1004321437324424398">"İleri"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"İş profiliniz oluşturuluyor…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Ayarlar, kurumsal erişim, uygulamalar, izinler ve bu profille ilişkilendirilen veriler (cihazınızın konum bilgileri, çağrı geçmişi ve kişi arama geçmişinin yanı sıra ağ etkinliğiniz) ağ yöneticiniz tarafından izlenip yönetilebilir."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Yöneticiniz, ağ etkinliği ve cihazınızın konum bilgileri dahil olmak üzere bu cihazla ilişkili ayarları, kurumsal erişimi, uygulamaları, izinleri, hırsızlığa karşı koruma özelliklerini ve verileri izleyip yönetebilir."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hırsızlığa karşı koruma özelliklerini kullanmak için cihazınızda şifre korumalı bir ekran kilidinizin olması gerekir."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere, daha fazla bilgi için yöneticinize başvurun."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi edinin"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Kabul ediyorum"</string>
     <string name="url_error" msgid="5958494012986243186">"Bu bağlantı görüntülenemez."</string>
     <string name="terms" msgid="8295436105384703903">"Şartlar"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Yeni iş profiliniz iş verilerinizi ve kişisel verilerinizi ayrı tutar.\nİş profiliniz için aşağıdaki şartlar geçerlidir."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Genel"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"İş profili"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Birincil kullanıcı"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Mevcut profil silinsin mi?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Zaten şu uygulama tarafından yönetilen bir iş profiliniz var:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Devam etmeden önce "<a href="#read_this_link">"bunu okuyun"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Devam ederseniz bu profildeki tüm uygulamalar ve veriler silinecek."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Sil"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Cihazınızın kurulumunu yapın. İlerleme durumu gösteriliyor"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Daha fazla bilgi edinin düğmesi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> simgesi"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> bölümünün başlığı."</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> bölümünün içeriği: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Genişlet"</string>
+    <string name="collapse" msgid="7817530505064432580">"Daraltır"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Kurulum sonlandırılıp fabrika ayarlarına sıfırlansın mı?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Bu kurulumu sonlandırmak cihazınızı fabrika ayarlarına sıfırlar ve sizi tekrar ilk ekrana götürür."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"İptal"</string>

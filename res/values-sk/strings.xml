@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="next" msgid="1004321437324424398">"Ďalej"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavuje sa pracovný profil…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a dáta priradené k tomuto profilu vrátane aktivity v sieti a informácií o polohe zariadenia, histórii hovorov a histórii vyhľadávania kontaktov."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia, funkcie ochrany proti krádeži a dáta priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe zariadenia."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ak chcete používať funkcie ochrany proti krádeži, musíte mať na zariadení zámku obrazovky chránenú heslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) vám poskytne správca."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Viac informácií"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Súhlasím"</string>
     <string name="url_error" msgid="5958494012986243186">"Tento odkaz sa nedá zobraziť."</string>
     <string name="terms" msgid="8295436105384703903">"Zmluvné podmienky"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Nový pracovný profil umožňuje oddeliť vaše pracovné a osobné dáta.\nNa pracovný profil sa vzťahujú nasledujúce zmluvné podmienky."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Všeobecné"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Pracovný profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hlavný používateľ"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Odstrániť existujúci profil?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Už máte pracovný profil, ktorý spravuje nasledujúca aplikácia:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Skôr ako budete pokračovať, "<a href="#read_this_link">"prečítajte si tieto informácie"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ak budete pokračovať, všetky aplikácie a údaje v tomto profile sa odstránia."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Odstrániť"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Nastavenie zariadenia. Zobrazenie priebehu"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Tlačidlo Ďalšie informácie"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Nadpis sekcie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Obsah sekcie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Rozbaliť"</string>
+    <string name="collapse" msgid="7817530505064432580">"Zbaliť"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ukončiť nastavenie a obnoviť tov. nastavenia?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Ukončením tohto procesu nastavenia obnovíte na zariadení továrenské nastavenia a prejdete na prvú obrazovku."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Zrušiť"</string>

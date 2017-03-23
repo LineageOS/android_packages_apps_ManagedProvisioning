@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"កម្មវិធីខាងក្រោមនឹងគ្រប់គ្រងឧបករណ៍របស់អ្នក៖"</string>
     <string name="next" msgid="1004321437324424398">"បន្ទាប់"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"កំពុងដំឡើងប្រវត្តិរូបការងាររបស់អ្នក…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលដំណើរការជារួម កម្មវិធី សិទ្ធិអនុញ្ញាត និងទិន្នន័យដែលពាក់ព័ន្ធជាមួយប្រវត្តិរូបនេះ ដោយរាប់បញ្ចូលទាំងសកម្មភាពបណ្តាញ ក៏ដូចជាទីតាំងឧបករណ៍ ប្រវត្តិនៃការហៅទូរស័ព្ទ និងប្រវត្តិស្វែងរកទំនាក់ទំនងរបស់អ្នកផងដែរ។"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលដំណើរការជារួម កម្មវិធី សិទ្ធិអនុញ្ញាត លក្ខណៈពិសេសការពារពីការលួច និងទិន្នន័យដែលពាក់ព័ន្ធនឹងឧបករណ៍នេះ ដោយរាប់បញ្ចូលទាំងសកម្មភាពបណ្តាញ និងព័តមានទីតាំងឧបករណ៍របស់អ្នកផងដែរ។"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ដើម្បីប្រើលក្ខណៈពិសេសការពារពីការលួច អ្នកត្រូវមានសោអេក្រង់ដែលបានការពារដោយពាក្យសម្ងាត់សម្រាប់ឧបករណ៍របស់អ្នក។"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នកសម្រាប់ព័ត៌មានបន្ថែម ដោយរួមទាំងគោលការណ៍ភាពឯកជនស្ថាប័នរបស់អ្នកផងដែរ។"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ស្វែងយល់​បន្ថែម"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"ខ្ញុំយល់ព្រម"</string>
     <string name="url_error" msgid="5958494012986243186">"មិន​អាច​បង្ហាញ​តំណ​នេះ​បាន​ទេ។"</string>
     <string name="terms" msgid="8295436105384703903">"លក្ខខណ្ឌ"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"កម្រងព័ត៌មានការងារថ្មីរបស់អ្នករក្សាទិន្នន័យការងារ និងផ្ទាល់ខ្លួនរបស់អ្នកដាច់ដោយឡែកពីគ្នា។\nលក្ខខណ្ឌខាងក្រោមអនុវត្តចំពោះកម្រងព័ត៌មានការងាររបស់អ្នក។"</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"ទូទៅ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"អ្នកប្រើសំខាន់"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"លុប​កម្រង​ព័ត៌មាន​ដែល​មាន​ស្រាប់?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"អ្នក​មាន​កម្រង​ព័ត៌មាន​ការងារ ដែល​ស្ថិត​ក្រោម​ការគ្រប់គ្រង​របស់​កម្មវិធី​ខាងក្រោម​នេះ​រួច​ហើយ៖"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"មុននឹងដំណើរការ "<a href="#read_this_link">"សូមអាន"</a>" នេះ។"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ប្រសិនបើអ្នកបន្ត នោះកម្មវិធី និងទិន្នន័យទាំងអស់នៅក្នុងប្រវត្តិរូបនេះនឹងត្រូវបានលុប។"</string>
     <string name="delete_profile" msgid="2299218578684663459">"លុប"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ដំឡើងឧបករណ៍របស់អ្នក។ បង្ហាញការវិវឌ្ឍន៍"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ប៊ូតុងស្វែងយល់បន្ថែម"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"រូបតំណាង <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"ចំណងជើង​ផ្នែក <xliff:g id="SECTION_HEADING">%1$s</xliff:g> ។"</string>
+    <string name="section_content" msgid="8875502515704374394">"មាតិកា​ផ្នែក <xliff:g id="SECTION_HEADING">%1$s</xliff:g>៖ <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"បង្ហាញ"</string>
+    <string name="collapse" msgid="7817530505064432580">"លាក់"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"បញ្ចប់ការដំឡើង ហើយកំណត់ដូចចេញពីរោងចក្រឬ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ការបញ្ចប់ការដំឡើងនេះនឹងកំណត់ឧបករណ៍របស់អ្នកដូចចេញពីរោងចក្រឡើងវិញ និងនាំអ្នកទៅកាន់អេក្រង់ដំបូង។"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"បោះបង់"</string>

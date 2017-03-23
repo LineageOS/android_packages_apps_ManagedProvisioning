@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"L\'application suivante va gérer votre appareil :"</string>
     <string name="next" msgid="1004321437324424398">"Suivant"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configuration de votre profil professionnel en cours…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Votre administrateur peut surveiller et gérer les paramètres, l\'accès aux données d\'entreprise, les applications, les autorisations et les données associées au profil, y compris la position, l\'historique d\'appel et l\'historique de recherche de contacts."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"L\'administrateur de votre entreprise peut surveiller et gérer les paramètres, les accès, les applications, les autorisations, les fonctionnalités de protection contre le vol et les données associés à cet appareil, y compris votre activité réseau et les données de localisation de votre appareil."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Pour utiliser les fonctionnalités de protection contre le vol, vous devez activer le verrouillage d\'écran protégé par mot de passe sur votre appareil."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Pour obtenir plus d\'information, y compris les politiques de confidentialité de votre entreprise, communiquez avec votre administrateur."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"En savoir plus"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"J\'accepte"</string>
     <string name="url_error" msgid="5958494012986243186">"Impossible d\'afficher ce lien."</string>
     <string name="terms" msgid="8295436105384703903">"Conditions d\'utilisation"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Votre nouveau profil professionnel garde vos données personnelles distinctes de vos données professionnelles.\nLes conditions d\'utilisation suivantes s\'appliquent à votre profil professionnel."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Général"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil professionnel"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Utilisateur principal"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Supprimer le profil existant?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Vous avez déjà un profil professionnel, géré par l\'application suivante :"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Avant de continuer, "<a href="#read_this_link">"lisez ceci"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Si vous continuez, toutes les applications et les données de ce profil seront supprimées."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Supprimer"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configurer votre appareil. Affichage de la progression."</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Bouton En savoir plus"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icône <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"En-tête de section <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Section de contenu <xliff:g id="SECTION_HEADING">%1$s</xliff:g> : <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Développer"</string>
+    <string name="collapse" msgid="7817530505064432580">"Réduire"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Temin. la config. et réinitialiser l\'appareil?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Si vous annulez cette configuration, votre appareil sera réinitialisé à ses paramètres d\'usine et vous serez redirigé vers le premier écran."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Annuler"</string>
