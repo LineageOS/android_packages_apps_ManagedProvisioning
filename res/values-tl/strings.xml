@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Papamahalaan ng sumusunod na app ang iyong device:"</string>
     <string name="next" msgid="1004321437324424398">"Susunod"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Sine-set up ang iyong profile sa trabaho…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"May kakayahan ang iyong admin na subaybayan at pamahalaan ang mga setting, access ng kumpanya, mga app, mga pahintulot at data na nauugnay sa profile na ito, kasama na ang iyong aktibidad sa network, pati na rin ang lokasyon ng iyong device, history ng tawag at history ng paghahanap ng contact."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"May kakayahan ang iyong admin na subaybayan at pamahalaan ang mga setting, access ng kumpanya, mga app, mga pahintulot, mga feature ng proteksyon laban sa pagnanakaw at data na nauugnay sa device na ito, kasama na ang aktibidad sa network at ang impormasyon ng lokasyon ng iyong device."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Upang magamit ang mga feature ng proteksyon laban sa pagnanakaw, dapat ay mayroon kang screen lock na protektado ng password para sa iyong device."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Makipag-ugnayan sa iyong admin para sa higit pang impormasyon, kasama na ang mga patakaran sa privacy ng iyong organisasyon."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Matuto nang higit pa"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Pahihintulutan ko"</string>
     <string name="url_error" msgid="5958494012986243186">"Hindi maipakita ang link na ito."</string>
     <string name="terms" msgid="8295436105384703903">"Mga Tuntunin"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Dahil sa iyong bagong profile sa trabaho, nananatiling magkahiwalay ang iyong data sa trabaho at personal na data.\nNalalapat ang mga sumusunod na tuntunin sa iyong profile sa trabaho."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Pangkalahatan"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profile sa trabaho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pangunahing user"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"I-delete ang kasalukuyang profile?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Mayroon ka nang profile sa trabaho na pinamamahalaan ng sumusunod na app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Bago magpatuloy, "<a href="#read_this_link">"basahin ito"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Kung magpapatuloy ka, made-delete ang lahat ng app at data sa profile na ito."</string>
     <string name="delete_profile" msgid="2299218578684663459">"I-delete"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"I-set up ang iyong device. Ipinapakita ang pag-usad"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Button na matuto nang higit pa"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icon ng <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Heading ng seksyong <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Content ng seksyong <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Palawakin"</string>
+    <string name="collapse" msgid="7817530505064432580">"I-collapse"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Tapusin ang pag-setup at i-factory reset?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Kapag tinapos ang setup na ito, mafa-factory reset ang iyong device at babalk ka sa unang screen."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Kanselahin"</string>

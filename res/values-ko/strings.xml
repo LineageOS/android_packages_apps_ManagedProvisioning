@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"내 기기를 관리하는 앱:"</string>
     <string name="next" msgid="1004321437324424398">"다음"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"직장 프로필 설정 중..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"관리자는 네트워크 활동, 기기의 위치, 통화 기록, 연락처 검색 기록을 비롯하여 이 프로필과 연결된 데이터, 설정, 기업 액세스, 앱, 권한을 모니터링하고 관리할 수 있습니다."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"관리자는 네트워크 활동 및 기기의 위치 정보를 비롯하여 기기와 연결된 데이터, 설정, 기업 액세스, 앱, 권한, 도난 방지 기능을 모니터링하고 관리할 수 있습니다."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"도난 방지 기능을 사용하려면 기기에 비밀번호로 보호되는 화면 잠금이 있어야 합니다."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"조직의 개인정보처리방침을 비롯한 자세한 내용은 관리자에게 문의하세요."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"자세히 알아보기"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"동의합니다."</string>
     <string name="url_error" msgid="5958494012986243186">"표시할 수 없는 링크입니다."</string>
     <string name="terms" msgid="8295436105384703903">"약관"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"새 직장 프로필을 사용하여 직장 관련 데이터와 개인 데이터를 별도로 보관할 수 있습니다.\n직장 프로필에는 다음 약관이 적용됩니다."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"일반"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"직장 프로필"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"기본 사용자"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"기존 프로필을 삭제하시겠습니까?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"직장 프로필이 이미 있으며 다음 앱을 통해 관리됩니다."</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"계속하기 전에 "<a href="#read_this_link">"이 글을 읽어주세요"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"계속하면 이 프로필에 있는 모든 앱과 데이터가 삭제됩니다."</string>
     <string name="delete_profile" msgid="2299218578684663459">"삭제"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"기기를 설정합니다. 진행 상황 보기"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"자세히 알아보기 버튼"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> 아이콘"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> 섹션 제목"</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> 섹션 콘텐츠: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"확대"</string>
+    <string name="collapse" msgid="7817530505064432580">"접기"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"설정을 종료하고 초기화하시겠습니까?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"이 설정을 종료하면 기기가 초기화되고 처음 화면으로 이동합니다."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"취소"</string>

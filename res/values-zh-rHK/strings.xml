@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"下列應用程式將管理您的裝置："</string>
     <string name="next" msgid="1004321437324424398">"下一步"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"正在設定您的工作設定檔…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"您的管理員可以監控及管理與這個設定檔相關聯的設定、企業存取、應用程式、權限和資料，包括網絡活動、裝置的位置資料、通話記錄和聯絡人搜尋記錄。"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"您的管理員可以監控並管理與這部裝置相關聯的設定、企業存取、應用程式、權限、防盜功能和資料，包括網絡活動和您的裝置位置資料。"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"如要使用防盜功能，您必須在裝置上啟用密碼螢幕鎖定。"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"請與您的管理員聯絡，以獲取詳細資訊，包括您機構的私隱權政策。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"瞭解詳情"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"我同意"</string>
     <string name="url_error" msgid="5958494012986243186">"無法顯示此連結。"</string>
     <string name="terms" msgid="8295436105384703903">"條款"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"您的新工作設定檔讓您將工作和個人資料分開。\n您的工作設定檔受以下條款約束。"</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"一般"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"公司檔案"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"主要使用者"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"要刪除現有設定檔嗎？"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"您已具備由以下應用程式管理的工作設定檔："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"請在開始前"<a href="#read_this_link">"閱讀此資訊"</a>"。"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"如繼續，此設定檔中的所有應用程式和資料將會刪除。"</string>
     <string name="delete_profile" msgid="2299218578684663459">"刪除"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"設定您的裝置：正在顯示進度"</string>
     <string name="learn_more_label" msgid="2723716758654655009">" 瞭解詳情按鈕"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g>圖示"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"「<xliff:g id="SECTION_HEADING">%1$s</xliff:g>」部分標題。"</string>
+    <string name="section_content" msgid="8875502515704374394">"「<xliff:g id="SECTION_HEADING">%1$s</xliff:g>」部分內容：<xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"展開"</string>
+    <string name="collapse" msgid="7817530505064432580">"收合"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"要結束設定並回復至原廠設定嗎？"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"結束此設定會將裝置回復至原廠設定，螢幕將會轉至起始畫面。"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"取消"</string>

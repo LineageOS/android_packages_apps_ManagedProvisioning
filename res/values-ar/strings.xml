@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"سيدير التطبيق التالي جهازك:"</string>
     <string name="next" msgid="1004321437324424398">"التالي"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"جارٍ إعداد الملف الشخصي للعمل…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"لدى المشرف إمكانية مراقبة وإدارة كل من الإعدادات والدخول إلى المؤسسة والتطبيقات والأذونات والبيانات المرتبطة بهذا الملف الشخصي، بما في ذلك أنشطة الشبكة وموقع الجهاز وسجل المكالمات وسجل البحث في جهات الاتصال."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"لدى المشرف إمكانية مراقبة وإدارة كل من الإعدادات والدخول إلى المؤسسة والتطبيقات والأذونات وميزات الحماية من السرقة والبيانات المرتبطة بهذا الجهاز، بما في ذلك أنشطة الشبكة ومعلومات موقع جهازك."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"لاستخدام ميزات الحماية من السرقة، يجب أن يتوفر لديك قفل شاشة محمي بكلمة مرور لجهازك."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"اتصل بالمشرف للحصول على مزيد من المعلومات، بما في ذلك سياسات الخصوصية المتبعة في مؤسستك."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"مزيد من المعلومات"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"أوافق"</string>
     <string name="url_error" msgid="5958494012986243186">"لا يمكن عرض هذا الرابط."</string>
     <string name="terms" msgid="8295436105384703903">"البنود"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"يحتفظ ملفك الشخصي الجديد للعمل ببيانات عملك بشكل منفصل عن بياناتك الشخصية.\nوتنطبق البنود التالية على الملف الشخصي للعمل."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"عامة"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"الملف الشخصي للعمل"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"المستخدم الأساسي"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"هل تريد حذف الملف الشخصي الحالي؟"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"لديك ملف شخصي للعمل من قبل تتم إدارته بواسطة التطبيق التالي:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل المتابعة، يجب "<a href="#read_this_link">"قراءة هذا"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"سيتم حذف جميع التطبيقات والبيانات في هذا الملف الشخصي عند المتابعة."</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"إعداد جهازك. جارٍ عرض التقدم"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"زر \"مزيد من المعلومات\""</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"رمز <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"عنوان القسم <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"محتوى القسم <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"توسيع"</string>
+    <string name="collapse" msgid="7817530505064432580">"تصغير"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"أتريد إنهاء الإعداد وإعادة تعيين بيانات المصنع؟"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"سيؤدي إنهاء هذا الإعداد إلى إعادة تعيين بيانات المصنع لجهازك ونقلك إلى الشاشة الأولى مرة أخرى."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"إلغاء"</string>

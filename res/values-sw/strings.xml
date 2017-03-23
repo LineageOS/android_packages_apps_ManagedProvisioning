@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Programu zifuatazo zitadhibiti kifaa chako:"</string>
     <string name="next" msgid="1004321437324424398">"Inayofuata"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Inaweka mipangilio ya wasifu wako wa kazi..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia vipengele vya shirika, programu, ruhusa na data inayohusiana na wasifu huu, ikiwa ni pamoja na shughuli zako za mtandao na vile vile maelezo kuhusu mahali kifaa chako kilipo, rekodi ya simu zilizopigwa na historia ya utafutaji wa anwani."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Msimamizi wako ana uwezo wa kufuatilia na kudhibiti mipangilio, idhini ya kufikia vipengele vya shirika, programu, ruhusa, vipengele vya kifaa vya kuzuia wizi na data inayohusiana na kifaa hiki, ikiwa ni pamoja na shughuli za mtandao na maelezo kuhusu mahali kifaa chako kilipo."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ili utumie vipengele vya kifaa vya kuzuia wizi, lazima uwe na skrini inayoweza kufungwa kwa nenosiri kwenye kifaa chako."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Wasiliana na msimamizi wako kwa maelezo zaidi, ikiwa ni pamoja na sera za faragha za shirika lako."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Pata maelezo zaidi"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Ninakubali"</string>
     <string name="url_error" msgid="5958494012986243186">"Kiungo hiki hakiwezi kuonyeshwa."</string>
     <string name="terms" msgid="8295436105384703903">"Sheria na masharti"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Wasifu wako mpya wa kazini unatenganisha data yako ya kazini na ya binafsi.\nMasharti yafuatayo yanatumika kwenye wasifu wako wa kazini."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Jumla"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Wasifu wa kazini"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Mtumiaji wa kwanza"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Futa wasifu uliopo?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Tayari una wasifu wa kazini ambao unasimamiwa na programu ifuatayo:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Kabla ya kuendelea, "<a href="#read_this_link">"soma hapa"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ukiendelea, utafuta data na programu zote zilizo kwenye wasifu huu."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Futa"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Weka mipangilio ya kifaa chako. Inaonyesha maendeleo"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Kitufe cha pata maelezo zaidi"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Aikoni ya <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Sehemu ya kichwa cha <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Sehemu ya maudhui ya <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Panua"</string>
+    <string name="collapse" msgid="7817530505064432580">"Kunja"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Iache kusasisha mipangilio na irejeshe hali iliyotoka nayo kiwandani?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Hatua ya kufunga shughuli hii ya kuweka mipangilio itarejesha kifaa chako katika hali iliyotoka nayo kiwandani na kuleta skrini ya kwanza."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Ghairi"</string>

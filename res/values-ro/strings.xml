@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Dispozitivul va fi gestionat de următoarea aplicație:"</string>
     <string name="next" msgid="1004321437324424398">"Înainte"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Se configurează profilul de serviciu..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Administratorul poate să monitorizeze și să gestioneze setările, accesul la nivelul companiei, aplicațiile, permisiunile și datele asociate cu profilul, inclusiv activitatea în rețea și informațiile despre locația dispozitivului, istoricul apelurilor și istoricul căutărilor persoanelor de contact."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administratorul poate să monitorizeze și să gestioneze setările, accesul la nivelul companiei, aplicațiile, permisiunile, funcțiile de protecție împotriva furtului și datele asociate acestui dispozitiv, inclusiv activitatea în rețea și informațiile despre locația dispozitivului."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Pentru a folosi funcțiile de protecție împotriva furtului, trebuie să aveți o blocare a ecranului protejată prin parolă pentru dispozitiv."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Contactați administratorul pentru mai multe informații, inclusiv politicile de confidențialitate ale organizației."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Aflați mai multe"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Sunt de acord"</string>
     <string name="url_error" msgid="5958494012986243186">"Acest link nu se poate afișa."</string>
     <string name="terms" msgid="8295436105384703903">"Termeni"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Noul profil de serviciu vă separă datele de serviciu de cele personale.\nUrmătorii termeni se aplică profilului de serviciu."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Condiții generale"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profilul de serviciu"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Utilizatorul principal"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Ștergeți profilul existent?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Aveți deja un profil de serviciu gestionat de următoarea aplicație:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Înainte de a continua, "<a href="#read_this_link">"citiți aici"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"În cazul în care continuați, toate aplicațiile și datele din acest profil vor fi șterse."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Ștergeți"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configurați dispozitivul. Se afișează progresul"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Butonul Aflați mai multe"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Pictograma <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Titlul secțiunii <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Conținutul secțiunii <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Extindeți"</string>
+    <string name="collapse" msgid="7817530505064432580">"Restrângeți"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Încheiați configurarea și reveniți la setările din fabrică?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Dacă încheiați această configurare, dispozitivul va reveni la setările din fabrică, iar dvs. veți reveni la primul ecran."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Anulați"</string>

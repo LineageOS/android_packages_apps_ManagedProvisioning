@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"برنامه زیر، دستگاهتان را مدیریت می‌کند:"</string>
     <string name="next" msgid="1004321437324424398">"بعدی"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"در حال راه اندازی نمایه کاری‌تان…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"سرپرست سیستمتان می‌تواند بر تنظیمات، دسترسی شرکتی، برنامه‌ها، مجوزها و داده‌های مرتبط با این نمایه، از جمله فعالیت شبکه و اطلاعات مکان دستگاه‌، سابقه تماس و سابقه جستجوی مخاطب شما نظارت کرده و آن‌ها را مدیریت کند."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"سرپرست سیستمتان می‌تواند بر تنظیمات، دسترسی شرکتی، برنامه‌ها، مجوزها، قابلیت‌های محافظت دربرابر دزدی و داده‌های مرتبط با این دستگاه، از جمله فعالیت شبکه و اطلاعات مکان دستگاه‌ شما نظارت کرده و آن‌ها را مدیریت کند."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"برای استفاده از قابلیت‌های محافظت دربرابر دزدی، باید برای دستگاهتان قفل صفحه با محافظت گذرواژه داشته باشید."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"برای دریافت اطلاعات بیشتر، از جمله خط‌مشی‌های رازداری سازمانتان، با سرپرست سیستمتان تماس بگیرید."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"بیشتر بدانید"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"رضایت دارم"</string>
     <string name="url_error" msgid="5958494012986243186">"این پیوند نمی‌تواند نمایش داده شود."</string>
     <string name="terms" msgid="8295436105384703903">"شرایط"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"نمایه کاری جدید شما داده‌های کاری‌تان را از داده‌های شخصی‌تان جدا نگه‌می‌دارد.\nشرایط زیر در مورد نمایه کاری‌تان اعمال می‌شود."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"کلی"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"نمایه کاری"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"کاربر اصلی"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"نمایه موجود حذف شود؟"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"درحال‌حاضر نمایه کاری‌ای دارید که با این برنامه مدیریت می‌شود:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل از ادامه، "<a href="#read_this_link">"این را بخوانید"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"اگر ادامه دهید، همه برنامه‌ها و داده‌ها در این نمایه حذف خواهند شد."</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"دستگاهتان را تنظیم کنید. نمایش پیشرفت"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"دکمه بیشتر بدانید"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"نماد <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"عنوان بخش <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"محتوای بخش <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"بزرگ کردن"</string>
+    <string name="collapse" msgid="7817530505064432580">"کوچک کردن"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"لغو راه‌اندازی و بازنشانی کارخانه‌ای؟"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"لغو این راه‌اندازی باعث بازنشانی کارخانه‌ای دستگاهتان می‌شود و شما را به صفحه اول برمی‌گرداند."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"لغو"</string>

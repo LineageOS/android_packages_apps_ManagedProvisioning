@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ഇനിപ്പറയുന്ന അപ്ലിക്കേഷൻ നിങ്ങളുടെ ഉപകരണത്തെ നിയന്ത്രിക്കും:"</string>
     <string name="next" msgid="1004321437324424398">"അടുത്തത്"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കുന്നു…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്റ്റിവിറ്റി ഉൾപ്പെടെ ഈ പ്രൊഫൈലുമായി ബന്ധപ്പെട്ട ക്രമീകരണവും കോർപ്പറേറ്റ് ആക്‌സസും ആപ്സും അനുമതികളും വിവരങ്ങളും, കൂടാതെ ഉപകരണത്തിന്റെ ലൊക്കേഷനും കോൾ ചരിത്രവും കോൺടാക്റ്റ് തിരയൽ ചരിത്രവും നിരീക്ഷിക്കാനും മാനേജുചെയ്യാനും നിങ്ങളുടെ അഡ്‌മിന് കഴിയും."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"നെറ്റ്‌വർക്ക് ആക്ടിവിറ്റിയും ഉപകരണത്തിന്റെ ലൊക്കേഷൻ വിവരവും ഉൾപ്പെടെ, ഈ ഉപകരണവുമായി ബന്ധപ്പെട്ട ക്രമീകരണവും കോർപ്പറേറ്റ് ആക്‌സസും ആപ്സും അനുമതികളും മോഷണ പരിരക്ഷാ ഫീച്ചറുകളും വിവരങ്ങളും നിരീക്ഷിക്കാനും മാനേജുചെയ്യാനും നിങ്ങളുടെ അഡ്‌മിനിസ്‌ട്രേറ്റർക്ക് കഴിയും."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"മോഷണ പരിരക്ഷാ ഫീച്ചറുകൾ ഉപയോഗിക്കാൻ, നിങ്ങളുടെ ഉപകരണത്തിൽ പാസ്‌വേഡ് കൊണ്ട് പരിരക്ഷിച്ചിട്ടുള്ള ഒരു സ്ക്രീൻ ലോക്ക് ഉണ്ടായിരിക്കണം."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"നിങ്ങളുടെ സ്ഥാപനത്തിന്റെ സ്വകാര്യതാ നയങ്ങൾ ഉൾപ്പെടെയുള്ള കൂടുതൽ വിവരങ്ങൾക്ക് അഡ്‌മിനിസ്‌ട്രേറ്ററെ ബന്ധപ്പെടുക."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"കൂടുതലറിയുക"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"ഞാൻ സമ്മതിക്കുന്നു"</string>
     <string name="url_error" msgid="5958494012986243186">"ഈ ലിങ്ക് പ്രദർശിപ്പിക്കാൻ കഴിയില്ല."</string>
     <string name="terms" msgid="8295436105384703903">"നിബന്ധനകള്‍"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"നിങ്ങളുടെ പുതിയ ഔദ്യോഗിക പ്രൊഫൈൽ, ഔദ്യോഗിക വിവരങ്ങളും വ്യക്തിഗത വിവരങ്ങളും വെവ്വേറെയായി സൂക്ഷിക്കുന്നു.\nനിങ്ങളുടെ പുതിയ ഔദ്യോഗിക പ്രൊഫൈലിന് ഇനിപ്പറയുന്ന നിബന്ധനകൾ ബാധകമാണ്."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"പൊതുവായത്"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"പ്രാഥമിക ഉപയോക്താവ്"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"നിലവിലെ പ്രൊഫൈൽ ഇല്ലാതാക്കണോ?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"ഇനിപ്പറയുന്ന ആപ്പ് മാനേജുചെയ്യുന്ന ഒരു ഔദ്യോഗിക പ്രൊഫൈൽ നിങ്ങൾക്ക് ഇതിനകം തന്നെയുണ്ട്:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"തുടരുന്നതിന് മുമ്പ്, "<a href="#read_this_link">"ഇത് വായിക്കുക"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"നിങ്ങൾ തുടരുകയാണെങ്കിൽ, ഈ പ്രൊഫൈലിലെ എല്ലാ ആപ്‌സും ഡാറ്റയും ഇല്ലാതാക്കും."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ഇല്ലാതാക്കുക"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"\'കൂടുതലറിയുക\' ബട്ടൺ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ഐക്കൺ"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> വിഭാഗ തലക്കെട്ട്."</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> വിഭാഗ ഉള്ളടക്കം: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"വികസിപ്പിക്കുക"</string>
+    <string name="collapse" msgid="7817530505064432580">"ചുരുക്കുക"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"സജ്ജമാക്കൽ അവസാനിപ്പിച്ച് ഫാക്ടറി റീസെറ്റ് നടത്തണോ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ഈ സജ്ജമാക്കൽ അവസാനിപ്പിക്കുന്നത് നിങ്ങളുടെ ഉപകരണത്തെ ഫാക്ടറി റീസെറ്റിലേയ്ക്ക് നയിക്കുകയും സജ്ജമാക്കലിന്റെ തുടക്ക സ്ക്രീനിലേക്ക് നിങ്ങൾ മടങ്ങുകയും ചെയ്യും."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"റദ്ദാക്കുക"</string>

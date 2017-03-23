@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"အောက်ပါအပ်ဖ်မှ သင့်ကိရိယာကို စီမံခန့်ခွဲလိမ့်မည်။"</string>
     <string name="next" msgid="1004321437324424398">"ရှေ့သို့"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"သင်၏အလုပ် ကိုယ်ရေးအချက်အလက်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နေသည်..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"သင့်စီမံခန့်ခွဲသူသည် ကွန်ရက်လုပ်ဆောင်ချက်၊ စက်ပစ္စည်း၏တည်နေရာ၊ ခေါ်ဆိုမှုမှတ်တမ်းနှင့် အဆက်အသွယ် ရှာဖွေမှုမှတ်တမ်းများအပါအဝင် ဆက်တင်များ၊ ပူးပေါင်းအသုံးပြုမှု၊ အက်ပ်များ၊ ခွင့်ပြုချက်များနှင့် သင့်ပရိုဖိုင်နှင့်ဆက်စပ်လျက်ရှိသည့် ဒေတာများကို စောင့်ကြည့်ပြီး စီမံခန့်ခွဲနိုင်ပါသည်။"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"သင့်စီမံခန့်ခွဲသူသည် ကွန်ရက်လုပ်ဆောင်ချက်နှင့် သင့်စက်ပစ္စည်း၏တည်နေရာ အချက်အလက်များအပါအဝင် ဆက်တင်များ၊ ပူးပေါင်းအသုံးပြုမှုများ၊ အက်ပ်များ၊ ခွင့်ပြုချက်များ၊ သူခိုးရန်မှ ကာကွယ်ခြင်း ဝန်ဆောင်မှုများနှင့် ဤစက်ပစ္စည်းနှင့် ဆက်စပ်နေသည့် ဒေတာများကို စီမံခန့်ခွဲခွင့်ရှိပါသည်။"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"သူခိုးရန်မှကာကွယ်ခြင်း ဝန်ဆောင်မှုများကိုအသုံးပြုရန်၊ သင့်စက်ပစ္စည်းတွင် စကားဝှက်ဖြင့်ကာကွယ်ထားသည့် ဖန်သားပြင်လော့ခ်ချခြင်း ရှိရပါမည်။"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"သင့်အဖွဲ့အစည်း၏ ပုဂ္ဂိုလ်ရေးဆိုင်ရာ လုံခြုံရေးမူဝါဒများအပါအဝင်၊ နောက်ထပ်အချက်အလက်များအတွက် သင့်စီမံခန့်ခွဲသူကိုဆက်သွယ်ပါ။"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ပိုမိုသိလိုလျှင်"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"သဘောတူခွင့်ပြုသည်"</string>
     <string name="url_error" msgid="5958494012986243186">"ဤလင့်ခ်ကို ဖော်ပြ၍မရပါ။"</string>
     <string name="terms" msgid="8295436105384703903">"စည်းကမ်းချက်များ"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"သင့်အလုပ်ပရိုဖိုင်အသစ်သည် သင့်အလုပ်နှင့် ကိုယ်ရေးကိုယ်တာဒေတာကို ခွဲခြားပေးပါသည်။\nသင့်အလုပ်ပရိုဖိုင်အတွက် အောက်ပါစည်းမျဉ်းများ သက်ရောက်နိုင်ပါသည်။"</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"အထွေထွေ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"အလုပ် ပရိုဖိုင်"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ပထမအသုံးပြုသူ"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"လက်ရှိပရိုဖိုင်ကို ဖျက်လိုပါသလား။"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"အောက်ပါအက်ပ်က စီမံခန့်ခွဲထားသော အလုပ်ပရိုဖိုင်တစ်ခု ရှိပြီးသားဖြစ်သည်−"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ရှေ့မဆက်မှီ၊ "<a href="#read_this_link">"ဖတ်ပါ"</a>"။"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"သင်ရှေ့ဆက်လျှင်၊ ဤပရိုဖိုင်ရှိ အက်ပ်များနှင့် ဒေတာများအားလုံးကို ဖျက်လိုက်ပါမည်။"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ဖျက်ရန်"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"သင့်ရဲ့စက်ပစ္စည်းကိုအသင့်သုံးနိုင်ရန်စီစဉ်ပါ။ တိုးတက်မှုကိုဖော်ပြပါ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ခလုတ်များအကြောင်းထပ်လေ့လာပါ"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ကိုယ်စားပြုရုပ်ပုံ"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> ကဏ္ဍခေါင်းစီး။"</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> ကဏ္ဍပါ အကြောင်းအရာ− <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"ချဲ့ရန်"</string>
+    <string name="collapse" msgid="7817530505064432580">"လျှော့ပြရန်"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"စနစ်ထည့်သွင်းမှု အဆုံးသတ်ပြီး စက်ရုံထုတ်ဆက်တင်အတိုင်း ပြန်လည်သတ်မှတ်မလား။"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ဤစနစ်ထည့်သွင်းမှုကို အဆုံးသတ်ခြင်းသည် သင့်စက်ပစ္စည်းကို စက်ရုံထုတ်ဆက်တင်အတိုင်း ပြန်လည်သတ်မှတ်ပေးမည်ဖြစ်ပြီး ပထမဦးဆုံးစာမျက်နှာသို့ ပို့ပေးပါလိမ့်မည်။"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"မလုပ်တော့"</string>

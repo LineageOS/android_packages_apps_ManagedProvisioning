@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"O seguinte app gerenciará seu dispositivo:"</string>
     <string name="next" msgid="1004321437324424398">"Próximo"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Configurando seu perfil de trabalho…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Seu administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões e dados associados a este perfil, incluindo suas atividades na rede, bem como o local, o histórico de chamadas e o histórico de pesquisa de contatos do seu dispositivo."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"O administrador pode monitorar e gerenciar configurações, acesso corporativo, apps, permissões, recursos de proteção contra roubo e dados associados a este dispositivo, incluindo atividade na rede e informações de local do dispositivo."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Para usar os recursos de proteção contra roubo, é necessário um bloqueio de tela protegido por senha no dispositivo."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Entre em contato com o administrador para receber mais informações, incluindo as políticas de privacidade da organização."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saiba mais"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Eu concordo"</string>
     <string name="url_error" msgid="5958494012986243186">"O link não pode ser exibido."</string>
     <string name="terms" msgid="8295436105384703903">"Termos"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Seu novo perfil de trabalho mantém seus dados profissionais e pessoais separados.\nOs termos a seguir se aplicam ao seu perfil de trabalho."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Geral"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuário principal"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Deseja excluir o perfil já existente?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Você já tem um perfil de trabalho, gerenciado pelo seguinte app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Antes de prosseguir, "<a href="#read_this_link">"leia isso"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Se você continuar, todos os apps e dados deste perfil serão excluídos."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Excluir"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configurar seu dispositivo. Mostrando progresso"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Botão \"Saiba mais\""</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ícone de <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Título da seção <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Conteúdo da seção <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Expandir"</string>
+    <string name="collapse" msgid="7817530505064432580">"Recolher"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Finalizar a configuração e a redefinição?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"A finalização desta configuração redefinirá o dispositivo para a configuração original e levará você de volta para a primeira tela."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Cancelar"</string>

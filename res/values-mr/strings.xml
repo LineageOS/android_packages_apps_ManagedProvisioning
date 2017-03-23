@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप आपले डिव्‍हाइस व्यवस्‍थापित करेल:"</string>
     <string name="next" msgid="1004321437324424398">"पुढील"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"आपले कार्य प्रोफाईल सेट करीत आहे..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"आपल्या प्रशासकाकडे नेटवर्क क्रियाकलाप तसेच आपल्या डिव्हाइसची स्थान माहिती, कॉल इतिहास आणि संपर्क शोध इतिहासासह सेटिंग्ज, कॉर्पोरेट प्रवेश, अॅप्स, परवानग्या आणि या प्रोफाईलसह संबद्ध असलेल्या डेटाचे परीक्षण करण्याची आणि व्यवस्थापित करण्याची क्षमता आहे."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"आपल्या प्रशासकाकडे सेटिंग्ज, कॉर्पोरेट प्रवेश, अॅप्स, परवानग्या, चोरीपासून-संरक्षण करणे आणि नेटवर्क क्रियाकलाप आणि आपल्या डिव्हाइसच्या स्थान माहितीसह या डिव्हाइससह संबद्ध असलेल्या डेटाचे परीक्षण करण्याची आणि व्यवस्थापित करण्याची क्षमता आहे."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरीपासून-संरक्षण वैशिष्ट्ये वापरण्यासाठी, आपल्याकडे आपल्या डिव्हाइससाठी संकेतशब्द-संरक्षित स्क्रीन लॉक असणे आवश्यक आहे."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"आपल्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी आपल्या प्रशासकाशी संपर्क साधा."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"अधिक जाणून घ्या"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"मी संमती देतो"</string>
     <string name="url_error" msgid="5958494012986243186">"ही लिंक प्रदर्शित करता येणार नाही."</string>
     <string name="terms" msgid="8295436105384703903">"अटी"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"आपले नवीन कार्य प्रोफाईल आपले कार्य आणि वैयक्तिक डेटा स्वतंत्र ठेवते.\nखालील अटी आपल्या कार्य प्रोफाईलवर लागू होतात."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"सामान्य"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक वापरकर्ता"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"आपल्याकडे आधीपासून पुढील अ‍ॅपने व्यवस्थापित केलेले कार्य प्रोफाइल आहे:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"आपण सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"आपले डिव्‍हाइस सेट करा. प्रगती दर्शवित आहे"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"अधिक जाणून घ्‍या बटण"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> चिन्ह"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग मथळा."</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग सामग्री: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"विस्तृत करा"</string>
+    <string name="collapse" msgid="7817530505064432580">"संकुचित करा"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप रद्द करून फॅक्टरी रीसेट करायचे?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"हे सेटअप समाप्त केल्याने आपले डिव्हाइस फॅक्टरी रीसेट केले जाईल आणि आपल्याला परत प्रथम स्क्रीनवर नेण्यात येईल."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द करा"</string>

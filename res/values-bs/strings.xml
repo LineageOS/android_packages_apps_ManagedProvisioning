@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Sljedeća aplikacija će upravljati vašim uređajem:"</string>
     <string name="next" msgid="1004321437324424398">"Naprijed"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Postavlja se vaš profil za posao..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim profilom, uključujući vaše aktivnosti na mreži i informacije o lokaciji vašeg uređaja, historiju poziva i historiju pretrage kontakata, kao i da upravlja njima."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Vaš administrator ima mogućnost da prati postavke, korporativni pristup, aplikacije, odobrenja i podatke povezane s ovim uređajem, uključujući aktivnosti na mreži i informacije o lokaciji vašeg uređaja, kao i da upravlja njima."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Da biste koristili funkciju za zaštitu od krađe, zaključani ekran vašeg uređaja mora biti zaštićen lozinkom."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Za više informacija, uključujući pravila vaše organizacije o privatnosti, obratite se svom administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Pristajem"</string>
     <string name="url_error" msgid="5958494012986243186">"Nije moguće prikazati ovaj link."</string>
     <string name="terms" msgid="8295436105384703903">"Uslovi"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Vaš novi radni profil razdvaja vaše poslovne i lične podatke.\nNa vaš radni profil odnose se sljedeći uslovi."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"Općenito"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Poslovni profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Glavni korisnik"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"Izbrisati postojeći profil?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Već imate radni profil kojim upravlja sljedeća aplikacija:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Prije nego što nastavite, "<a href="#read_this_link">"pročitajte ovo"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ako nastavite, sve aplikacije i podaci sa ovog profila će biti izbrisani."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Tipka za brisanje"</string>
@@ -129,14 +127,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Postavite svoj uređaj. Prikazuje se napredak"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Dugme Saznajte više"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Ikona <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"Zaglavlje odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_content" msgid="8875502515704374394">"Sadržaj odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"Proširi"</string>
+    <string name="collapse" msgid="7817530505064432580">"Skupi"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Okončati podešavanje i vratiti na fabričke postavke?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Okončanjem ovog podešavanja, vaš uređaj će biti vraćen na fabričke postavke te ćete se vratiti na početni ekran."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Otkaži"</string>

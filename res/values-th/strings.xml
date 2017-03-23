@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"แอปต่อไปนี้จะจัดการอุปกรณ์:"</string>
     <string name="next" msgid="1004321437324424398">"ถัดไป"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"กำลังตั้งค่าโปรไฟล์งาน…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"ผู้ดูแลระบบสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับโปรไฟล์นี้ ซึ่งรวมถึงกิจกรรมในเครือข่าย ตลอดจนตำแหน่งของอุปกรณ์ ประวัติการโทร และประวัติการค้นหารายชื่อติดต่อ"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"ผู้ดูแลระบบสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ คุณลักษณะการป้องกันขโมย และข้อมูลที่เชื่อมโยงกับอุปกรณ์นี้ได้ ซึ่งรวมถึงกิจกรรมในเครือข่ายและข้อมูลตำแหน่งของอุปกรณ์ของคุณ"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"หากต้องการใช้คุณลักษณะการป้องกันขโมย อุปกรณ์ของคุณต้องมีการล็อกหน้าจอที่ป้องกันด้วยรหัสผ่าน"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายความเป็นส่วนตัวขององค์กร"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"เรียนรู้เพิ่มเติม"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"ฉันยินยอม"</string>
     <string name="url_error" msgid="5958494012986243186">"แสดงลิงก์ไม่ได้"</string>
     <string name="terms" msgid="8295436105384703903">"ข้อกำหนด"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"โปรไฟล์งานใหม่ช่วยแยกข้อมูลงานออกจากข้อมูลส่วนตัว\nข้อกำหนดต่อไปนี้มีผลต่อโปรไฟล์งานของคุณ"</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"ทั่วไป"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"โปรไฟล์งาน"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ผู้ใช้หลัก"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"ลบโปรไฟล์ที่มีอยู่ใช่ไหม"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"คุณมีโปรไฟล์งานอยู่แล้ว ซึ่งจัดการโดยแอปต่อไปนี้"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ก่อนดำเนินการต่อ โปรด"<a href="#read_this_link">"อ่านข้อมูลนี้"</a></string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"หากดำเนินการต่อ ระบบจะลบแอปและข้อมูลทั้งหมดในโปรไฟล์นี้"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ลบ"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ตั้งค่าอุปกรณ์ กำลังแสดงความคืบหน้า"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มเรียนรู้เพิ่มเติม"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"ไอคอน <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"หัวข้อของส่วน <xliff:g id="SECTION_HEADING">%1$s</xliff:g>"</string>
+    <string name="section_content" msgid="8875502515704374394">"เนื้อหาของส่วน <xliff:g id="SECTION_HEADING">%1$s</xliff:g> คือ <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"ขยาย"</string>
+    <string name="collapse" msgid="7817530505064432580">"ยุบ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"สิ้นสุดการตั้งค่าแล้วรีเซ็ตเป็นค่าเริ่มต้นไหม"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"การสิ้นสุดการตั้งค่านี้จะรีเซ็ตอุปกรณ์เป็นค่าเริ่มต้นและนำคุณกลับไปยังหน้าจอแรก"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ยกเลิก"</string>

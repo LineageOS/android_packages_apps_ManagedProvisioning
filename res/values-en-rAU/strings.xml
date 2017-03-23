@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"The following app will manage your device:"</string>
     <string name="next" msgid="1004321437324424398">"Next"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Setting up your work profile…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Your admin has the ability to monitor and manage settings, corporate access, apps, permissions and data associated with this profile, including your network activity, as well as your device\'s location, call history and contact search history."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Your admin has the ability to monitor and manage settings, corporate access, apps, permissions, theft-protection features and data associated with this device, including network activity and your device\'s location information."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"To use theft-protection features, you must have a password-protected screen lock for your device."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Contact your admin for more information, including your organisation\'s privacy policies."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Learn more"</string>
@@ -38,7 +40,6 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"I consent"</string>
     <string name="url_error" msgid="5958494012986243186">"This link cannot be displayed."</string>
     <string name="terms" msgid="8295436105384703903">"Terms"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"Your new work profile keeps your work and personal data separate.\nThe following terms apply to your work profile."</string>
     <string name="general" msgid="4327185905521992102">"General"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Work profile"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primary user"</string>

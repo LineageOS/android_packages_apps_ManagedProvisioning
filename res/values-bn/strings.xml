@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"নিম্নলিখিত অ্যাপ্লিকেশানটি আপনার ডিভাইস পরিচালনা করবে:"</string>
     <string name="next" msgid="1004321437324424398">"পরবর্তী"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"আপনার কর্মস্থলের প্রোফাইল সেট আপ হচ্ছে..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"আপনার প্রশাসকের কাছে নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থান তথ্য, পুরোনো কলের তালিকা এবং অনুসন্ধান ইতিহাসে যোগাযোগ সহ প্রোফাইলটির সাথে সম্পর্কিত সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান, অনুমতি এবং ডেটা নিরীক্ষণ ও পরিচালনা করার ক্ষমতা আছে।"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"আপনার প্রশাসকের কাছে সেটিংস, কর্পোরেট অ্যাক্সেস, অ্যাপ্লিকেশান, অনুমতি, চুরির-সুরক্ষা বৈশিষ্ট্য এবং নেটওয়ার্ক কার্যকলাপ ও আপনার ডিভাইসের অবস্থান তথ্য সহ ডেটা নিরীক্ষণ ও পরিচালনা করার ক্ষমতা আছে।"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"চুরির-সুরক্ষা বৈশিষ্ট্যগুলি ব্যবহার করতে আপনার ডিভাইসে অবশ্যই একটি পাসওয়ার্ড দ্বারা সুরক্ষিত স্ক্রীন লক ব্যবস্থাটিকে সক্ষম রাখতে হবে৷"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"আপনার প্রতিষ্ঠানের গোপনীয়তা নীতিগুলি সহ আরো তথ্যের জন্য আপনার প্রশাসকের সাথে যোগাযোগ করুন।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"আরো জানুন"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"আমি সম্মতি জানাচ্ছি"</string>
     <string name="url_error" msgid="5958494012986243186">"লিঙ্কটি প্রদর্শন করা যাচ্ছে না।"</string>
     <string name="terms" msgid="8295436105384703903">"শর্তাদি"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"আপনার নতুন কর্মস্থলের প্রোফাইল কর্মস্থলের ডেটা এবং ব্যক্তিগত ডেটা আলাদা রাখে\nআপনার কর্মস্থলের প্রোফাইল নিম্নলিখিত শর্তাবলী প্রয়োগ করা হবে৷"</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"সাধারণ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"কর্মস্থলের প্রোফাইল"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"প্রাথমিক ব্যবহারকারী"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"বর্তমান প্রোফাইলটি মুছবেন?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"এই অ্যাপটি ইতিমধ্যেই আপনার একটি কর্মস্থলের প্রোফাইল পরিচালনা করে:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"প্রক্রিয়ার আগে, "<a href="#read_this_link">"এটি পড়ুন"</a>"৷"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"যদি আপনি চালিয়ে যান তবে এই প্রোফাইলের সমস্ত অ্যাপ্লিকেশান ও ডেটা মুছে ফেলা হবে।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"মুছুন"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"আপনার ডিভাইস সেট আপ করুন৷ অগ্রগতি দেখাচ্ছে"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"আরো জানুন বোতাম"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> আইকন"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> বিভাগের শিরোনাম।"</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> বিভাগের সামগ্রী: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"প্রসারিত করুন"</string>
+    <string name="collapse" msgid="7817530505064432580">"সঙ্কুচিত করুন"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"সেট আপ করার কাজ বন্ধ করে, ফ্যাক্টরি রিসেট করবেন?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"এই সেট আপ করার কাজটি বন্ধ করা হলে তা আপনার ডিভাইসের ফ্যাক্টরি রিসেট করবে এবং আপনাকে প্রথম স্ক্রীনে নিয়ে যাবে৷"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"বাতিল করুন"</string>

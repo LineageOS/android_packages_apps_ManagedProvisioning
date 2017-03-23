@@ -28,8 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ:"</string>
     <string name="next" msgid="1004321437324424398">"ಮುಂದೆ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಅಲ್ಲದೆ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ, ಕರೆ ಇತಿಹಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಹುಡುಕಾಟದ ಇತಿಹಾಸ ಸೇರಿದಂತೆ, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಅನುಮತಿಗಳು ಹಾಗೂ ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಜೊತೆಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುವ ಮತ್ತು ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿದ್ದಾರೆ."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"ನಿಮ್ಮ ನಿರ್ವಾಹಕರು ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ ಮಾಹಿತಿ ಸೇರಿದಂತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಅನುಮತಿಗಳು, ಕಳವು ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯತೆಗಳು ಮತ್ತು ಈ ಸಾಧನದೊಂದಿಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ವೀಕ್ಷಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯ ಹೊಂದಿರುತ್ತಾರೆ."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ಕಳವು ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯತೆಗಳನ್ನು ಉಪಯೋಗಿಸಲು, ನಿಮ್ಮ ಸಾಧನವು ಪಾಸ್‌ವರ್ಡ್ ರಕ್ಷಣೆಯ ಸ್ಕ್ರೀನ್ ಲಾಕ್‌ ಅನ್ನು ಹೊಂದಿರಬೇಕು."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
@@ -38,15 +40,11 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"ನಾನು ಸಮ್ಮತಿಸುತ್ತೇನೆ"</string>
     <string name="url_error" msgid="5958494012986243186">"ಈ ಲಿಂಕ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."</string>
     <string name="terms" msgid="8295436105384703903">"ನಿಯಮಗಳು"</string>
-    <string name="terms_intro" msgid="2626943728063219232">"ನಿಮ್ಮ ಹೊಸ ಕೆಲಸದ ಪ್ರೊಫೈಲ್, ನಿಮ್ಮ ಕೆಲಸದ ಮತ್ತು ವೈಯಕ್ತಿಕ ಡೇಟಾವನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ಇರಿಸುತ್ತದೆ.\nಕೆಳಗಿನ ನಿಯಮಗಳು ನಿಮ್ಮ ಕೆಲಸ ಪ್ರೊಫೈಲ್‌ಗೆ ಅನ್ವಯವಾಗುತ್ತದೆ."</string>
-    <!-- no translation found for general (4327185905521992102) -->
-    <skip />
+    <string name="general" msgid="4327185905521992102">"ಸಾಮಾನ್ಯ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ಪ್ರಾಥಮಿಕ ಬಳಕೆದಾರ"</string>
-    <!-- no translation found for delete_profile_title (2841349358380849525) -->
-    <skip />
-    <!-- no translation found for opening_paragraph_delete_profile (2467792999160003758) -->
-    <skip />
+    <string name="delete_profile_title" msgid="2841349358380849525">"ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಅಳಿಸುವುದೇ?"</string>
+    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"ನಿಮ್ಮ ಬಳಿ ಈಗಾಗಲೇ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಇದೆ; ಅದನ್ನು ಈ ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್ ನಿರ್ವಹಿಸುತ್ತಿದೆ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ಮುಂದುವರಿಯುವ ಮೊದಲು, "<a href="#read_this_link">"ಇದನ್ನು ಓದಿ"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ನೀವು ಮುಂದುವರಿಸಿದರೆ, ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ಅಳಿಸಿ"</string>
@@ -128,14 +126,10 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"ನಿಮ್ಮ ಸಾಧನ ಹೊಂದಿಸಿ. ಪ್ರಗತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ ಬಟನ್‌"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ಐಕಾನ್‌"</string>
-    <!-- no translation found for section_heading (3924666803774291908) -->
-    <skip />
-    <!-- no translation found for section_content (8875502515704374394) -->
-    <skip />
-    <!-- no translation found for expand (37188292156131304) -->
-    <skip />
-    <!-- no translation found for collapse (7817530505064432580) -->
-    <skip />
+    <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> ವಿಭಾಗದ ಶಿರೋನಾಮೆ."</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> ವಿಭಾಗದ ವಿಷಯ: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="expand" msgid="37188292156131304">"ವಿಸ್ತೃತಗೊಳಿಸಿ"</string>
+    <string name="collapse" msgid="7817530505064432580">"ಕುಗ್ಗಿಸಿ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ಸೆಟಪ್ ಮತ್ತು ಫ್ಯಾಕ್ಟರಿ ಮರುಹೊಂದಿಸುವಿಕೆಯನ್ನು ಅಂತ್ಯಗೊಳಿಸುವುದೇ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ಈ ಸೆಟಪ್ ಅನ್ನು ಅಂತ್ಯಗೊಳಿಸುವ ಮೂಲಕ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ಸೆಟ್ಟಿಂಗ್‌ಗೆ ಮರುಹೊಂದಿಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಮೊದಲ ಪರದೆಗೆ ಕರೆದೊಯ್ಯುತ್ತದೆ."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ರದ್ದುಮಾಡಿ"</string>
