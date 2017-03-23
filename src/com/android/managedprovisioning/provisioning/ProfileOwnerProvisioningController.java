@@ -111,6 +111,10 @@ public class ProfileOwnerProvisioningController extends AbstractProvisioningCont
         }
     }
 
+    @Override protected int getErrorTitle() {
+        return R.string.cant_set_up_profile;
+    }
+
     @Override
     protected int getErrorMsgId(AbstractProvisioningTask task, int errorCode) {
         return R.string.managed_provisioning_error_text;

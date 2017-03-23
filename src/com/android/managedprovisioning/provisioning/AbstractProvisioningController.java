@@ -98,6 +98,7 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
 
     protected abstract void setUpTasks();
     protected abstract void performCleanup();
+    protected abstract int getErrorTitle();
     protected abstract int getErrorMsgId(AbstractProvisioningTask task, int errorCode);
     protected abstract boolean getRequireFactoryReset(AbstractProvisioningTask task, int errorCode);
 
@@ -187,7 +188,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         mStatus = STATUS_ERROR;
         cleanup(STATUS_ERROR);
         mProvisioningAnalyticsTracker.logProvisioningError(mContext, task, errorCode);
-        mCallback.error(getErrorMsgId(task, errorCode), getRequireFactoryReset(task, errorCode));
+        mCallback.error(getErrorTitle(), getErrorMsgId(task, errorCode),
+                getRequireFactoryReset(task, errorCode));
     }
 
     private void cleanup(final int newStatus) {

@@ -143,10 +143,10 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void error(int dialogMessage, boolean resetRequired) {
+    public void error(int titleId, int messageId, boolean resetRequired) {
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
-                .setTitle(R.string.provisioning_error_title)
-                .setMessage(dialogMessage)
+                .setTitle(titleId)
+                .setMessage(messageId)
                 .setCancelable(false)
                 .setPositiveButtonMessage(resetRequired
                         ? R.string.device_owner_error_reset : R.string.device_owner_error_ok);
@@ -174,7 +174,8 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
                 : R.string.profile_owner_cancel_ok;
         final int negativeResId = isDoProvisioning ? R.string.device_owner_cancel_cancel
                 : R.string.profile_owner_cancel_cancel;
-        final int dialogMsgResId = isDoProvisioning ? R.string.device_owner_cancel_message
+        final int dialogMsgResId = isDoProvisioning
+                ? R.string.this_will_factory_reset_take_back_first_screen
                 : R.string.profile_owner_cancel_message;
 
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
@@ -182,6 +183,9 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
                 .setMessage(dialogMsgResId)
                 .setNegativeButtonMessage(negativeResId)
                 .setPositiveButtonMessage(positiveResId);
+        if (isDoProvisioning) {
+            dialogBuilder.setTitle(R.string.stop_setup_reset_device_question);
+        }
 
         showDialog(dialogBuilder, dialogTag);
     }

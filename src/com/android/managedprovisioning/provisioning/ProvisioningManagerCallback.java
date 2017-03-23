@@ -24,10 +24,11 @@ public interface ProvisioningManagerCallback {
     /**
      * Method called when an error was encountered during the provisioning process.
      *
+     * @param dialogTitleId resource id of the error title to be displayed to the user.
      * @param errorMessageId resource id of the error message to be displayed to the user.
      * @param factoryResetRequired indicating whether a factory reset is necessary.
      */
-    void error(int errorMessageId, boolean factoryResetRequired);
+    void error(int dialogTitleId, int errorMessageId, boolean factoryResetRequired);
 
     /**
      * Method called to indicate a progress update in the provisioning process.

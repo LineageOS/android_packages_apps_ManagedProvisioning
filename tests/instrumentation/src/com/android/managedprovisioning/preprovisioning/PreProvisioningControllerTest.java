@@ -43,7 +43,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.drawable.VectorDrawable;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
@@ -77,8 +76,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     @Mock
     private Context mContext;
-    @Mock
-    private Resources mResources;
     @Mock
     private DevicePolicyManager mDevicePolicyManager;
     @Mock
@@ -170,7 +167,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(anyInt(), any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
+                eq(R.string.work_profiles_cant_be_added_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -260,7 +258,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, null, TEST_BOGUS_PACKAGE);
         // THEN show an error dialog and do not continue
         verifyInitiateProfileOwnerUi();
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_general), any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.contact_your_admin_for_help), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -273,7 +272,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog and do not continue
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.device_has_reset_protection_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -308,8 +308,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // THEN show an error indicating that this device does not support encryption
-        verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
-                any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.device_doesnt_allow_encryption_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -381,7 +381,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating NFC provisioning
         mController.initiateProvisioning(mIntent, null, null);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.device_has_reset_protection_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -398,8 +399,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.continueProvisioningAfterUserConsent();
         // THEN show an error dialog
         verifyInitiateDeviceOwnerUi();
-        verify(mUi).showErrorAndClose(eq(R.string.preprovisioning_error_encryption_not_supported),
-                any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.device_doesnt_allow_encryption_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -453,7 +454,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating QR provisioning
         mController.initiateProvisioning(mIntent, null, null);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.device_has_reset_protection_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -536,7 +538,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.device_owner_error_frp), any());
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.device_has_reset_protection_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 

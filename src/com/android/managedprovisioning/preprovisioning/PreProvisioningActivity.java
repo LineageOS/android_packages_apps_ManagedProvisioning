@@ -160,12 +160,12 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     @Override
-    public void showErrorAndClose(int resourceId, String logText) {
+    public void showErrorAndClose(int titleId, int messageId, String logText) {
         ProvisionLogger.loge(logText);
 
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
-                .setTitle(R.string.provisioning_error_title)
-                .setMessage(resourceId)
+                .setTitle(titleId)
+                .setMessage(messageId)
                 .setCancelable(false)
                 .setPositiveButtonMessage(R.string.device_owner_error_ok);
         showDialog(dialogBuilder, ERROR_AND_CLOSE_DIALOG);
@@ -236,7 +236,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     public void showCurrentLauncherInvalid() {
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setCancelable(false)
-                .setMessage(R.string.managed_provisioning_not_supported_by_launcher)
+                .setTitle(R.string.change_device_launcher)
+                .setMessage(R.string.launcher_app_cant_be_used_by_work_profile)
                 .setNegativeButtonMessage(R.string.cancel_provisioning)
                 .setPositiveButtonMessage(R.string.pick_launcher);
         showDialog(dialogBuilder, LAUNCHER_INVALID_DIALOG);

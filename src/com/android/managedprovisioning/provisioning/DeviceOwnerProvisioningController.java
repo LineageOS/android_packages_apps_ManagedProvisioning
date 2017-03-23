@@ -82,6 +82,10 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
         }
     }
 
+    @Override protected int getErrorTitle() {
+        return R.string.cant_set_up_device;
+    }
+
     @Override
     protected int getErrorMsgId(AbstractProvisioningTask task, int errorCode) {
         if (task instanceof AddWifiNetworkTask) {
@@ -91,7 +95,7 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
                 case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
                     return R.string.device_owner_error_download_failed;
                 case DownloadPackageTask.ERROR_OTHER:
-                    return R.string.device_owner_error_general;
+                    return R.string.cant_set_up_device;
             }
         } else if (task instanceof VerifyPackageTask) {
             switch (errorCode) {
@@ -109,7 +113,7 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
             }
         }
 
-        return R.string.device_owner_error_general;
+        return R.string.cant_set_up_device;
     }
 
     @Override

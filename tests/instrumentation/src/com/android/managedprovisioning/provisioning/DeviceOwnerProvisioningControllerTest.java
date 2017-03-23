@@ -22,8 +22,9 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
 import android.content.ComponentName;
-import android.test.suitebuilder.annotation.SmallTest;
+import android.support.test.filters.SmallTest;
 
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -179,7 +180,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         mController.onError(task, 0);
 
         // THEN the onError callback should have been called without factory reset being required
-        verify(mCallback).error(anyInt(), eq(false));
+        verify(mCallback).error(eq(R.string.cant_set_up_device), anyInt(), eq(false));
     }
 
     @SmallTest
@@ -203,7 +204,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         mController.onError(task, 0);
 
         // THEN the onError callback should have been called with factory reset being required
-        verify(mCallback).error(anyInt(), eq(true));
+        verify(mCallback).error(anyInt(), anyInt(), eq(true));
     }
 
     private void createController(WifiInfo wifiInfo, PackageDownloadInfo downloadInfo) {

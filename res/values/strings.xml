@@ -105,15 +105,19 @@
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
   <string name="managed_provisioning_error_text">Couldn\'t set up your work profile. Contact your IT department or try again later.</string>
   <!-- Error string displayed if this device doesn't support work profiles. -->
-  <string name="managed_provisioning_not_supported">Your device doesn\'t support work profiles</string>
+  <string name="cant_add_work_profile">Can\'t add work profile</string>
+  <!-- Error string displayed if this device doesn't support work profiles. -->
+  <string name="work_profiles_cant_be_added_contact_admin">Work profiles can’t be added to this device. Contact your admin.</string>
   <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
-  <string name="user_cannot_have_work_profile">This user cannot have a work profile</string>
+  <string name="user_cannot_have_work_profiles_contact_admin">This user cannot have work profiles. Contact your admin.</string>
   <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
   <string name="device_owner_exists">Work profiles can not be setup on a managed device</string>
   <!-- Error string displayed if maximum user limit is reached -->
-  <string name="maximum_user_limit_reached">Work profile can\'t be created because you\'ve reached the maximum number of users on your device. Remove at least one user and try again.</string>
+  <string name="too_many_users_on_device_remove_user_try_again">There may be too many users on this device. Remove a user, then try again.</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
-  <string name="managed_provisioning_not_supported_by_launcher">Your work profile isn\'t supported by this launcher app. You\'ll need to switch to a launcher that\'s compatible.</string>
+  <string name="change_device_launcher">Change device launcher</string>
+  <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
+  <string name="launcher_app_cant_be_used_by_work_profile">This launcher app can’t be used by your work profile</string>
   <!-- Button text for the button that cancels provisioning  -->
   <string name="cancel_provisioning">Cancel</string>
   <!-- Button text for the button that opens the launcher picker  -->
@@ -147,8 +151,12 @@
   <string name="progress_initialize">Initializing device\u2026</string>
 
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
-  <string name="preprovisioning_error_encryption_not_supported">Your device does not support encryption. Contact your IT department.</string>
-  <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="device_doesnt_allow_encryption_contact_admin">This device doesn\'t allow encryption, which is needed for setup. Contact your admin.</string>
+  <!-- Title of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
+  <string name="stop_setup_reset_device_question">Stop setup &amp; reset device?</string>
+  <!-- Title of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
+  <string name="this_will_factory_reset_take_back_first_screen">This will factory reset your device and take you back to the first screen</string>
+  <!-- Message of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
   <string name="device_owner_cancel_message">Stop setting up and erase your device\'s data?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_cancel">Cancel</string>
@@ -157,13 +165,17 @@
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_error_reset">Reset</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_general">Couldn\'t set up your device. Contact your IT department. </string>
+  <string name="cant_set_up_profile">Can\'t set up profile</string>
+  <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
+  <string name="cant_set_up_device">Can\'t set up device</string>
+  <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
+  <string name="contact_your_admin_for_help">Contact your admin for help</string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_already_provisioned">This device is already set up.</string>
+  <string name="device_already_set_up">Device is already set up</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_frp">This device is locked by factory reset protection. Contact your IT department.</string>
+  <string name="device_has_reset_protection_contact_admin">Your device has reset protection turned on. Contact your admin.</string>
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
   <string name="frp_clear_progress_title" >Erasing</string>
   <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
@@ -206,8 +218,12 @@
   <string name="device_owner_info">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. <xliff:g id="view_terms" example="View Terms">%2$s</xliff:g></string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
   <string name="device_owner_info_with_terms_headers">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> apply. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
+  <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
+  <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished">This link isn\'t secure and can\'t be opened until device setup is finished: <xliff:g id="link_raw_test" example="http://insecure-http-link.com/?p1=v1&amp;p2=v2">%1$s</xliff:g></string>
   <!-- Text with link to device's provider in case of more questions [CHAR LIMIT=NONE] -->
   <string name="contact_device_provider">If you have questions, contact your <xliff:g id="device's provider" example="device's provider">%1$s</xliff:g>.</string>
+  <!-- Error message encouraging to contact admin [CHAR LIMIT=NONE] -->
+  <string name="if_questions_contact_admin">If you have questions, contact your admin</string>
   <!-- Provider of the device (e.g. employer) [CHAR LIMIT=NONE] -->
   <string name="device_provider">device\'s provider</string>
   <!-- Information of the app used by your organization to manage the device -->
@@ -268,6 +284,10 @@
   <string name="expand">Expand</string>
   <!-- Accessibility description for triggering collapsing of an expanded element. [CHAR LIMIT=NONE] -->
   <string name="collapse">Collapse</string>
+  <!-- Accessibility description for opening a context menu with a list of links contained in the text element. [CHAR LIMIT=NONE] -->
+  <string name="access_list_of_links">Access a list of links</string>
+  <!--List item responsible for closing the list of links [CHAR LIMIT=20] -->
+  <string name="close_list">Close list</string>
 
   <!-- TODO: Following strings have to be updated. -->
   <!-- Strings used in the dialog asking for user confirmation to cancel the setup process and factory reset the device. -->

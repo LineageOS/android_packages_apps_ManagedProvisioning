@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -30,8 +31,8 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.UserInfo;
 import android.os.UserManager;
-import android.test.suitebuilder.annotation.MediumTest;
-import android.test.suitebuilder.annotation.SmallTest;
+import android.support.test.filters.MediumTest;
+import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.finalization.FinalizationController;
@@ -39,7 +40,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.CopyAccountToUserTask;
 import com.android.managedprovisioning.task.CreateManagedProfileTask;
-import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
@@ -198,7 +198,8 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
         mController.onError(task, 0);
 
         // THEN the activity should be informed about the error
-        verify(mCallback).error(R.string.managed_provisioning_error_text, false);
+        verify(mCallback).error(R.string.cant_set_up_profile,
+                R.string.managed_provisioning_error_text, false);
     }
 
     private void createController() {

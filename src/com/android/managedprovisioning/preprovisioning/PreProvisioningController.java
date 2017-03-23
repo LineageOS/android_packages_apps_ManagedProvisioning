@@ -131,10 +131,11 @@ public class PreProvisioningController {
     interface Ui {
         /**
          * Show an error message and cancel provisioning.
-         * @param resId resource id used to form the user facing error message
+         * @param titleId resource id used to form the user facing error title
+         * @param messageId resource id used to form the user facing error message
          * @param errorMessage an error message that gets logged for debugging
          */
-        void showErrorAndClose(int resId, String errorMessage);
+        void showErrorAndClose(int titleId, int messageId, String errorMessage);
 
         /**
          * Request the user to encrypt the device.
@@ -247,7 +248,8 @@ public class PreProvisioningController {
                     mUi.requestWifiPick();
                     return;
                 } else {
-                    mUi.showErrorAndClose(R.string.device_owner_error_general,
+                    mUi.showErrorAndClose(R.string.cant_set_up_device,
+                            R.string.contact_your_admin_for_help,
                             "Cannot pick WiFi because there is no handler to the intent");
                 }
             }
@@ -325,7 +327,8 @@ public class PreProvisioningController {
         if (isEncryptionRequired()) {
             if (mDevicePolicyManager.getStorageEncryptionStatus()
                     == DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED) {
-                mUi.showErrorAndClose(R.string.preprovisioning_error_encryption_not_supported,
+                mUi.showErrorAndClose(R.string.cant_set_up_device,
+                        R.string.device_doesnt_allow_encryption_contact_admin,
                         "This device does not support encryption, and "
                                 + DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION
                                 + " was not passed.");
@@ -368,7 +371,8 @@ public class PreProvisioningController {
     /** @return False if condition preventing further provisioning */
     private boolean checkFactoryResetProtection() {
         if (factoryResetProtected()) {
-            mUi.showErrorAndClose(R.string.device_owner_error_frp,
+            mUi.showErrorAndClose(R.string.cant_set_up_device,
+                    R.string.device_has_reset_protection_contact_admin,
                     "Factory reset protection blocks provisioning.");
             return false;
         }
@@ -402,7 +406,8 @@ public class PreProvisioningController {
             // Read the provisioning params from the provisioning intent
             mParams = params == null ? mMessageParser.parse(intent) : params;
         } catch (IllegalProvisioningArgumentException e) {
-            mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
+            mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,
+                    e.getMessage());
             return false;
         }
         return true;
@@ -419,7 +424,8 @@ public class PreProvisioningController {
                 verifyCaller(callingPackage);
             }
         } catch (IllegalProvisioningArgumentException e) {
-            mUi.showErrorAndClose(R.string.device_owner_error_general, e.getMessage());
+            mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,
+                    e.getMessage());
         }
         return true;
     }
@@ -501,7 +507,8 @@ public class PreProvisioningController {
                 && ACTION_PROVISION_MANAGED_DEVICE.equals(action)) {
             List<UserInfo> users = mUserManager.getUsers();
             if (users.size() > 1) {
-                mUi.showErrorAndClose(R.string.device_owner_error_general,
+                mUi.showErrorAndClose(R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
                         "Cannot start Device Owner Provisioning because there are already "
                                 + users.size() + " users");
                 return false;
@@ -588,7 +595,8 @@ public class PreProvisioningController {
         @Override
         protected void onPostExecute(UserInfo userInfo) {
             if (userInfo == null) {
-                mUi.showErrorAndClose(R.string.device_owner_error_general,
+                mUi.showErrorAndClose(R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
                         "Could not create user to hold the device owner");
             } else {
                 mActivityManager.switchUser(userInfo.id);
@@ -603,7 +611,8 @@ public class PreProvisioningController {
         // Try to show an error message explaining why provisioning is not allowed.
         switch (action) {
             case ACTION_PROVISION_MANAGED_USER:
-                mUi.showErrorAndClose(R.string.user_setup_incomplete,
+                mUi.showErrorAndClose(R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
                         "Exiting managed user provisioning, setup incomplete");
                 return;
             case ACTION_PROVISION_MANAGED_PROFILE:
@@ -622,46 +631,49 @@ public class PreProvisioningController {
         UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
         switch (provisioningPreCondition) {
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
-                mUi.showErrorAndClose(R.string.managed_provisioning_not_supported,
-                        "Exiting managed profile provisioning, "
-                                + "managed profiles feature is not available");
+                mUi.showErrorAndClose(R.string.cant_add_work_profile,
+                        R.string.work_profiles_cant_be_added_contact_admin,
+                        "Exiting managed profile provisioning, managed profiles feature is not available");
                 return;
             case CODE_CANNOT_ADD_MANAGED_PROFILE:
                 if (!userInfo.canHaveProfile()) {
-                    mUi.showErrorAndClose(R.string.user_cannot_have_work_profile,
-                            "Exiting managed profile provisioning, calling user cannot have managed"
-                                    + "profiles.");
+                    mUi.showErrorAndClose(R.string.cant_add_work_profile,
+                            R.string.user_cannot_have_work_profiles_contact_admin,
+                            "Exiting managed profile provisioning, calling user cannot have managed profiles.");
                 } else {
-                    mUi.showErrorAndClose(R.string.maximum_user_limit_reached,
-                            "Exiting managed profile provisioning, cannot add more managed"
-                                    + "profiles");
+                    mUi.showErrorAndClose(R.string.cant_add_work_profile,
+                            R.string.too_many_users_on_device_remove_user_try_again,
+                            "Exiting managed profile provisioning, cannot add more managedprofiles");
                 }
                 return;
             case CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER:
-                mUi.showErrorAndClose(R.string.device_owner_exists,
+                mUi.showErrorAndClose(R.string.cant_add_work_profile,
+                        R.string.contact_your_admin_for_help,
                         "Exiting managed profile provisioning, a device owner exists");
                 return;
         }
-        mUi.showErrorAndClose(R.string.managed_provisioning_error_text,
+        mUi.showErrorAndClose(R.string.cant_add_work_profile, R.string.contact_your_admin_for_help,
                 "Managed profile provisioning not allowed for an unknown reason.");
     }
 
     private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
         switch (provisioningPreCondition) {
             case CODE_HAS_DEVICE_OWNER:
-                mUi.showErrorAndClose(R.string.device_owner_error_already_provisioned,
-                        "Device already provisioned.");
+                mUi.showErrorAndClose(R.string.device_already_set_up,
+                        R.string.if_questions_contact_admin, "Device already provisioned.");
                 return;
             case CODE_NOT_SYSTEM_USER:
-                mUi.showErrorAndClose(R.string.device_owner_error_general,
+                mUi.showErrorAndClose(R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
                         "Device owner can only be set up for USER_SYSTEM.");
                 return;
             case CODE_NOT_SYSTEM_USER_SPLIT:
-                mUi.showErrorAndClose(R.string.device_owner_error_general,
+                mUi.showErrorAndClose(R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
                         "System User Device owner can only be set on a split-user system.");
                 return;
         }
-        mUi.showErrorAndClose(R.string.device_owner_error_general,
+        mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,
                 "Device Owner provisioning not allowed for an unknown reason.");
     }
 }

@@ -68,7 +68,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private final TimeLogger mTimeLogger;
     private int mLastCallback = CALLBACK_NONE;
-    private Pair<Integer, Boolean> mLastError;
+    private Pair<Pair<Integer, Integer>, Boolean> mLastError; // TODO: refactor
     private int mLastProgressMsgId;
     private HandlerThread mHandlerThread;
 
@@ -198,13 +198,13 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     }
 
     @Override
-    public void error(int errorMessageId, boolean factoryResetRequired) {
+    public void error(int titleId, int messageId, boolean factoryResetRequired) {
         synchronized (this) {
             for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(() -> callback.error(errorMessageId, factoryResetRequired));
+                mUiHandler.post(() -> callback.error(titleId, messageId, factoryResetRequired));
             }
             mLastCallback = CALLBACK_ERROR;
-            mLastError = Pair.create(errorMessageId, factoryResetRequired);
+            mLastError = Pair.create(Pair.create(titleId, messageId), factoryResetRequired);
         }
     }
 
@@ -224,7 +224,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
         synchronized (this) {
             mTimeLogger.stop();
             for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(() -> callback.provisioningTasksCompleted());
+                mUiHandler.post(callback::provisioningTasksCompleted);
             }
             mLastCallback = CALLBACK_TASKS_COMPLETED;
         }
@@ -234,7 +234,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     public void preFinalizationCompleted() {
         synchronized (this) {
             for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(() -> callback.preFinalizationCompleted());
+                mUiHandler.post(callback::preFinalizationCompleted);
             }
             mLastCallback = CALLBACK_PRE_FINALIZED;
             mProvisioningAnalyticsTracker.logProvisioningSessionCompleted(mContext);
@@ -246,18 +246,19 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     private void callLastCallbackLocked(ProvisioningManagerCallback callback) {
         switch (mLastCallback) {
             case CALLBACK_ERROR:
-                final Pair<Integer, Boolean> error = mLastError;
-                mUiHandler.post(() -> callback.error(error.first, error.second));
+                final Pair<Pair<Integer, Integer>, Boolean> error = mLastError;
+                mUiHandler.post(
+                        () -> callback.error(error.first.first, error.first.second, error.second));
                 break;
             case CALLBACK_PROGRESS:
                 final int progressMsg = mLastProgressMsgId;
                 mUiHandler.post(() -> callback.progressUpdate(progressMsg));
                 break;
             case CALLBACK_PRE_FINALIZED:
-                mUiHandler.post(() -> callback.preFinalizationCompleted());
+                mUiHandler.post(callback::preFinalizationCompleted);
                 break;
             case CALLBACK_TASKS_COMPLETED:
-                mUiHandler.post(() -> callback.provisioningTasksCompleted());
+                mUiHandler.post(callback::provisioningTasksCompleted);
                 break;
             default:
                 ProvisionLogger.logd("No previous callback");
