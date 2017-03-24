@@ -168,7 +168,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
-                eq(R.string.work_profiles_cant_be_added_contact_admin), any());
+                eq(R.string.user_cant_have_work_profile_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 

@@ -343,7 +343,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         if (customization.supportUrl != null) {
             TextView info = (TextView) findViewById(R.id.device_owner_provider_info);
             info.setVisibility(View.VISIBLE);
-            String deviceProvider = getString(R.string.device_provider);
+            String deviceProvider = getString(R.string.organization_admin);
             String contactDeviceProvider = getString(R.string.contact_device_provider,
                     deviceProvider);
             SpannableString spannableString = new SpannableString(contactDeviceProvider);

@@ -279,7 +279,7 @@ public class ProvisioningActivityTest {
 
         // WHEN clicking the ok button that says that factory reset is required
         onView(withId(android.R.id.button1))
-                .check(matches(withText(R.string.device_owner_error_reset)))
+                .check(matches(withText(R.string.reset)))
                 .perform(click());
 
         // THEN factory reset should be invoked
@@ -375,7 +375,7 @@ public class ProvisioningActivityTest {
 
         // THEN the cancel dialog should be shown
         onView(withText(R.string.stop_setup_reset_device_question)).check(matches(isDisplayed()));
-        onView(withText(R.string.this_will_factory_reset_take_back_first_screen))
+        onView(withText(R.string.this_will_reset_take_back_first_screen))
                 .check(matches(isDisplayed()));
 
         // WHEN deciding not to cancel
@@ -394,7 +394,7 @@ public class ProvisioningActivityTest {
 
         // WHEN deciding to cancel
         onView(withId(android.R.id.button1))
-                .check(matches(withText(R.string.device_owner_error_reset)))
+                .check(matches(withText(R.string.reset)))
                 .perform(click());
 
         // THEN factory reset should be invoked

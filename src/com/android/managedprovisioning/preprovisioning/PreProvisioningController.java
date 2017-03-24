@@ -632,7 +632,7 @@ public class PreProvisioningController {
         switch (provisioningPreCondition) {
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                        R.string.work_profiles_cant_be_added_contact_admin,
+                        R.string.user_cant_have_work_profile_contact_admin,
                         "Exiting managed profile provisioning, managed profiles feature is not available");
                 return;
             case CODE_CANNOT_ADD_MANAGED_PROFILE:
