@@ -37,6 +37,7 @@
     <Button
         android:id="@+id/show_terms_button"
         android:text="@string/view_terms"
+        android:contentDescription="@string/read_terms"
         style="@style/Provisioning2Theme.Button.Transparent"/>
 
     <Button

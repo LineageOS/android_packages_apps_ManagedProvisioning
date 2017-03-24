@@ -22,36 +22,35 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-
 import static org.hamcrest.core.IsNot.not;
 
 import android.content.ComponentName;
 import android.content.Intent;
 import android.provider.Settings;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.filters.FlakyTest;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
-
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
-
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Tests for {@link TermsActivity}.
  */
 @SmallTest
 public class TermsActivityTest {
-    private static final String HEADER_0_TOP = "General";
+
+    private static final String HEADER_0_TOP = InstrumentationRegistry.getTargetContext()
+        .getString(R.string.work_profile_info);
     private static final String HEADER_1 = "header1";
     private static final String HEADER_2 = "header2";
     private static final String HEADER_3_BOTTOM = "header3";

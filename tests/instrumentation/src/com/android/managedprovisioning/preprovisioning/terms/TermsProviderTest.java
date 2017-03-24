@@ -37,32 +37,33 @@ import java.util.List;
 
 @SmallTest
 public class TermsProviderTest {
-    private Context mContext;
     private TermsProvider mTermsProvider;
-    private String stringGeneral;
+    private String stringGeneralPo;
+    private String stringGeneralDo;
     private String stringAdminDisclaimerDo;
     private String stringAdminDisclaimerPo;
 
     @Before
     public void setUp() {
-        mContext = InstrumentationRegistry.getTargetContext();
-        mTermsProvider = new TermsProvider(mContext, s -> "", new Utils());
-        stringGeneral = mContext.getString(R.string.general);
-        stringAdminDisclaimerDo = mContext.getString(R.string.admin_has_ability_to_monitor_device);
-        stringAdminDisclaimerPo = mContext.getString(R.string.admin_has_ability_to_monitor_profile);
+        Context context = InstrumentationRegistry.getTargetContext();
+        mTermsProvider = new TermsProvider(context, s -> "", new Utils());
+        stringGeneralPo = context.getString(R.string.work_profile_info);
+        stringGeneralDo = context.getString(R.string.managed_device_info);
+        stringAdminDisclaimerDo = context.getString(R.string.admin_has_ability_to_monitor_device);
+        stringAdminDisclaimerPo = context.getString(R.string.admin_has_ability_to_monitor_profile);
     }
 
     @Test
     public void generalHeading_presentAsFirst_profileOwner() throws Exception {
         List<TermsDocument> terms = mTermsProvider.getTerms(PROFILE_OWNER_PARAMS, 0);
-        assertThat(terms.get(0).getHeading(), equalTo(mContext.getString(R.string.general)));
+        assertThat(terms.get(0).getHeading(), equalTo(stringGeneralPo));
         assertThat(terms.get(0).getContent(), equalTo(stringAdminDisclaimerPo));
     }
 
     @Test
     public void generalHeading_presentAsFirst_deviceOwner() throws Exception {
         List<TermsDocument> terms = mTermsProvider.getTerms(DEVICE_OWNER_PARAMS, 0);
-        assertThat(terms.get(0).getHeading(), equalTo(stringGeneral));
+        assertThat(terms.get(0).getHeading(), equalTo(stringGeneralDo));
         assertThat(terms.get(0).getContent(), equalTo(stringAdminDisclaimerDo));
     }
 
@@ -73,7 +74,8 @@ public class TermsProviderTest {
             List<TermsDocument> terms = mTermsProvider.getTerms(p,
                     TermsProvider.Flags.SKIP_GENERAL_DISCLAIMER);
             if (terms != null && !terms.isEmpty()) {
-                assertThat(terms.get(0), not(equalTo(stringGeneral)));
+                assertThat(terms.get(0), not(equalTo(stringGeneralPo)));
+                assertThat(terms.get(0), not(equalTo(stringGeneralDo)));
             }
         }
     }

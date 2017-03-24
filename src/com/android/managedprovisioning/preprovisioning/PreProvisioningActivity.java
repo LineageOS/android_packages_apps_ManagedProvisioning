@@ -38,7 +38,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
@@ -55,7 +54,6 @@ import com.android.managedprovisioning.preprovisioning.anim.ColorMatcher;
 import com.android.managedprovisioning.preprovisioning.anim.SwiperThemeMatcher;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -299,7 +297,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         }
     }
 
-    private void initiateUIProfileOwner(@NonNull String termsHeaders, @NonNull boolean isComp) {
+    private void initiateUIProfileOwner(@NonNull String termsHeaders, boolean isComp) {
         // set up the cancel button
         Button cancelButton = (Button) findViewById(R.id.close_button);
         cancelButton.setOnClickListener(v -> {
@@ -325,6 +323,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         // show the intro animation
         mBenefitsAnimation = new BenefitsAnimation(this,
                 isComp ? SLIDE_CAPTIONS_COMP : SLIDE_CAPTIONS);
+        // TODO: move line below to be a part of BenefitsAnimation class
+        findViewById(R.id.animation_top_level_frame).setContentDescription(getString(isComp
+            ? R.string.comp_profile_benefits_description
+            : R.string.profile_benefits_description));
     }
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
