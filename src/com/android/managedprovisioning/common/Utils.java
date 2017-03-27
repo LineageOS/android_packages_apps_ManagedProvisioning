@@ -457,6 +457,8 @@ public class Utils {
     // TODO: Move the FR intent into a Globals class.
     public void sendFactoryResetBroadcast(Context context, String reason) {
         Intent intent = new Intent(Intent.ACTION_FACTORY_RESET);
+        // Send explicit broadcast due to Broadcast Limitations
+        intent.setPackage("android");
         intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
         intent.putExtra(Intent.EXTRA_REASON, reason);
         context.sendBroadcast(intent);
