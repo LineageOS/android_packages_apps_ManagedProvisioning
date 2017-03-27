@@ -132,11 +132,6 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void provisioningTasksCompleted() {
-        getProvisioningManager().preFinalize();
-    }
-
-    @Override
     public void progressUpdate(int progressMessage) {
         mProgressTextView.setText(progressMessage);
         mProgressTextView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);

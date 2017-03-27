@@ -125,18 +125,6 @@ public class ProvisioningManagerTest {
     }
 
     @Test
-    public void testPreFinalizeProvisioning() {
-        // GIVEN provisioning has been started
-        mManager.maybeStartProvisioning(TEST_PARAMS);
-
-        // WHEN prefinalizing provisioning
-        mManager.preFinalize();
-
-        // THEN the controller should be prefinalized
-        verify(mController).preFinalize();
-    }
-
-    @Test
     public void testRegisterListener_noProgress() {
         // GIVEN no progress has previously been achieved
         // WHEN a listener is registered
@@ -188,20 +176,13 @@ public class ProvisioningManagerTest {
     }
 
     @Test
-    public void testListener_tasksCompleted() {
-        // GIVEN a listener is registered
-        mManager.registerListener(mCallback);
-        // WHEN some progress has occurred previously
+    public void testProvisioningTasksCompleted() {
+        // GIVEN provisioning has been started
+        mManager.maybeStartProvisioning(TEST_PARAMS);
+        // WHEN all tasks are completed.
         mManager.provisioningTasksCompleted();
-        // THEN the listener should receive a callback
-        verify(mCallback).provisioningTasksCompleted();
-
-        // WHEN the listener is unregistered and registered again
-        mManager.unregisterListener(mCallback);
-        mManager.registerListener(mCallback);
-        // THEN the listener should receive a callback again
-        verify(mCallback, times(2)).provisioningTasksCompleted();
-        verifyNoMoreInteractions(mCallback);
+        // THEN the controller should be prefinalized
+        verify(mController).preFinalize();
     }
 
     @Test

@@ -25,4 +25,9 @@ public interface ProvisioningControllerCallback extends ProvisioningManagerCallb
      * an error or after the user cancelled progress.
      */
     void cleanUpCompleted();
+
+    /**
+     * Method called to indicate that the provisioning tasks have been completed.
+     */
+    void provisioningTasksCompleted();
 }

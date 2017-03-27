@@ -406,13 +406,6 @@ public class ProvisioningActivityTest {
         // GIVEN the activity was launched with a profile owner intent
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
-        // WHEN provisioning completes successfully
-        mActivityRule.runOnUiThread(()
-                -> mActivityRule.getActivity().provisioningTasksCompleted());
-
-        // THEN preFinalization should be invoked
-        verify(mProvisioningManager).preFinalize();
-
         // WHEN preFinalization is completed
         mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().preFinalizationCompleted());
 

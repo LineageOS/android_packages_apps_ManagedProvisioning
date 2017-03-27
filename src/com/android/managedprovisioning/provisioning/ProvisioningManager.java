@@ -53,8 +53,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     private static final int CALLBACK_NONE = 0;
     private static final int CALLBACK_ERROR = 1;
     private static final int CALLBACK_PROGRESS = 2;
-    private static final int CALLBACK_TASKS_COMPLETED = 3;
-    private static final int CALLBACK_PRE_FINALIZED = 4;
+    private static final int CALLBACK_PRE_FINALIZED = 3;
 
     private final Context mContext;
     private final ProvisioningControllerFactory mFactory;
@@ -150,21 +149,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     }
 
     /**
-     * Prefinalize the provisioning progress.
-     *
-     * <p>This is the last step that this class is concerned with.</p>
-     */
-    public void preFinalize() {
-        synchronized (this) {
-            if (mController != null) {
-                mController.preFinalize();
-            } else {
-                ProvisionLogger.loge("Trying to pre-finalize provisioning, but controller is null");
-            }
-        }
-    }
-
-    /**
      * Register a listener for updates of the provisioning progress.
      *
      * <p>Registering a listener will immediately result in the last callback being sent to the
@@ -223,10 +207,11 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     public void provisioningTasksCompleted() {
         synchronized (this) {
             mTimeLogger.stop();
-            for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(callback::provisioningTasksCompleted);
+            if (mController != null) {
+                mUiHandler.post(mController::preFinalize);
+            } else {
+                ProvisionLogger.loge("Trying to pre-finalize provisioning, but controller is null");
             }
-            mLastCallback = CALLBACK_TASKS_COMPLETED;
         }
     }
 
@@ -256,9 +241,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
                 break;
             case CALLBACK_PRE_FINALIZED:
                 mUiHandler.post(callback::preFinalizationCompleted);
-                break;
-            case CALLBACK_TASKS_COMPLETED:
-                mUiHandler.post(callback::provisioningTasksCompleted);
                 break;
             default:
                 ProvisionLogger.logd("No previous callback");

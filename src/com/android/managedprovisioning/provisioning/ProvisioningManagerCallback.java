@@ -38,11 +38,6 @@ public interface ProvisioningManagerCallback {
     void progressUpdate(int progressMessageId);
 
     /**
-     * Method called to indicate that the provisioning tasks have been completed.
-     */
-    void provisioningTasksCompleted();
-
-    /**
      * Method called to indicate that pre-finalization has completed.
      */
     void preFinalizationCompleted();
