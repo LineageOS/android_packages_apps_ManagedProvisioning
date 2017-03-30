@@ -68,7 +68,7 @@ public class PreProvisioningActivityTest {
                             protected boolean verifyCaller(Intent intent, String caller) {
                                 return true;
                             }
-                        }));
+                        }, null));
     }
 
     @AfterClass

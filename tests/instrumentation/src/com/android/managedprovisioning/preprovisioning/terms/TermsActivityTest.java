@@ -22,6 +22,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
 import static org.hamcrest.core.IsNot.not;
 
 import android.content.ComponentName;
@@ -32,16 +33,19 @@ import android.support.test.espresso.ViewAssertion;
 import android.support.test.filters.FlakyTest;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import java.util.HashMap;
-import java.util.Map;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Tests for {@link TermsActivity}.
@@ -69,7 +73,7 @@ public class TermsActivityTest {
     public void setUp() throws Settings.SettingNotFoundException {
         TestInstrumentationRunner.registerReplacedActivity(TermsActivity.class,
                 (classLoader, className, intent) -> new TermsActivity(
-                        (file) -> mPathToContent.get(file.getPath())));
+                        (file) -> mPathToContent.get(file.getPath()), null));
         mPathToContent.clear();
     }
 

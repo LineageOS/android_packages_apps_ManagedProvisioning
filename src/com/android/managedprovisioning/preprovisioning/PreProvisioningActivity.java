@@ -34,13 +34,17 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
@@ -54,6 +58,7 @@ import com.android.managedprovisioning.preprovisioning.anim.ColorMatcher;
 import com.android.managedprovisioning.preprovisioning.anim.SwiperThemeMatcher;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,16 +91,22 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     private PreProvisioningController mController;
     private ControllerProvider mControllerProvider;
+    private final AccessibilityContextMenuMaker mContextMenuMaker;
     private BenefitsAnimation mBenefitsAnimation;
     private ClickableSpanFactory mClickableSpanFactory;
     private TouchTargetEnforcer mTouchTargetEnforcer;
 
     public PreProvisioningActivity() {
-        this(activity -> new PreProvisioningController(activity, activity));
+        this(activity -> new PreProvisioningController(activity, activity), null);
     }
 
-    @VisibleForTesting public PreProvisioningActivity(ControllerProvider controllerProvider) {
+    @VisibleForTesting
+    public PreProvisioningActivity(ControllerProvider controllerProvider,
+            AccessibilityContextMenuMaker contextMenuMaker) {
         mControllerProvider = controllerProvider;
+        mContextMenuMaker =
+                contextMenuMaker != null ? contextMenuMaker : new AccessibilityContextMenuMaker(
+                        this);
     }
 
     @Override
@@ -335,6 +346,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         TextView shortInfoText = (TextView) findViewById(R.id.device_owner_terms_info);
         shortInfoText.setText(assembleDOTermsMessage(termsHeaders, customization.orgName));
         shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+        mContextMenuMaker.registerWithActivity(shortInfoText);
 
         // if you have any questions, contact your device's provider
         //
@@ -359,10 +371,19 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             }
 
             info.setText(spannableString);
+            mContextMenuMaker.registerWithActivity(info);
         }
 
         // set up DPC icon and label
         setDpcIconAndLabel(packageName, packageIcon, customization.orgName);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        if (v instanceof TextView) {
+            mContextMenuMaker.populateMenuContent(menu, (TextView) v);
+        }
     }
 
     private void startViewTermsActivity(@SuppressWarnings("unused") View view) {
