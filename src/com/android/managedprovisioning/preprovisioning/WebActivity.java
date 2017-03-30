@@ -18,12 +18,15 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
 
+import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.webkit.URLUtil;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -71,13 +74,15 @@ public class WebActivity extends SetupLayoutActivity {
         // We need a custom WebViewClient. Without this an external browser will load the URL.
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                final String url = request.getUrl().toString();
-                if (URLUtil.isNetworkUrl(url)) {
-                    view.loadUrl(url);
-                    return true;
+            public WebResourceResponse shouldInterceptRequest(WebView view,
+                    WebResourceRequest request) {
+                String url = request.getUrl().toString();
+                if (!URLUtil.isHttpsUrl(url)) {
+                    ProvisionLogger.loge("Secure connection required, but insecure URL requested "
+                            + "explicitly, or as a part of the page.");
+                    return createNewSecurityErrorResponse();
                 }
-                return false;
+                return super.shouldInterceptRequest(view, request);
             }
         });
         mWebView.loadUrl(extraUrl);
@@ -85,12 +90,18 @@ public class WebActivity extends SetupLayoutActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
-        webSettings.setJavaScriptEnabled(true); // TODO: review with security http://b/34292506
+        webSettings.setJavaScriptEnabled(true);
         if (!mSettingsFacade.isUserSetupCompleted(this)) {
             // User should not be able to escape provisioning if user setup isn't complete.
             mWebView.setOnLongClickListener(v -> true);
         }
         setContentView(mWebView);
+    }
+
+    private WebResourceResponse createNewSecurityErrorResponse() {
+        WebResourceResponse response = new WebResourceResponse("text/plain", "UTF-8", null);
+        response.setStatusCodeAndReasonPhrase(HTTP_FORBIDDEN, "Secure connection required");
+        return response;
     }
 
     protected int getMetricsCategory() {
