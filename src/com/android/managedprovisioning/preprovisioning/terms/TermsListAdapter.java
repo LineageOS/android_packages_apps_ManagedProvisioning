@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.HtmlToSpannedParser;
 
 import java.util.List;
@@ -40,17 +41,20 @@ class TermsListAdapter extends BaseExpandableListAdapter {
     private final List<TermsDocument> mTermsDocuments;
     private final LayoutInflater mInflater;
     private final HtmlToSpannedParser mHtmlToSpannedParser;
+    private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final GroupExpandedInfo mGroupExpandedInfo;
 
     /**
      * Creates a new instance of the class.
      */
     TermsListAdapter(List<TermsDocument> termsDocuments, LayoutInflater layoutInflater,
-            HtmlToSpannedParser htmlToSpannedParser, GroupExpandedInfo groupExpandedInfo) {
+            AccessibilityContextMenuMaker contextMenuMaker, HtmlToSpannedParser htmlToSpannedParser,
+            GroupExpandedInfo groupExpandedInfo) {
         mTermsDocuments = checkNotNull(termsDocuments);
         mInflater = checkNotNull(layoutInflater);
         mHtmlToSpannedParser = checkNotNull(htmlToSpannedParser);
         mGroupExpandedInfo = checkNotNull(groupExpandedInfo);
+        mContextMenuMaker = checkNotNull(contextMenuMaker);
     }
 
     @Override
@@ -143,7 +147,7 @@ class TermsListAdapter extends BaseExpandableListAdapter {
                 parent.getResources().getString(R.string.section_content, disclaimer.getHeading(),
                         content));
         textView.setMovementMethod(LinkMovementMethod.getInstance()); // makes html links clickable
-
+        mContextMenuMaker.registerWithActivity(textView);
         return view;
     }
 

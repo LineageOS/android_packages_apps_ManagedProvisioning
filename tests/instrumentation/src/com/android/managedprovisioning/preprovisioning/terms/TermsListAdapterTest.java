@@ -24,6 +24,7 @@ import android.support.test.filters.SmallTest;
 import android.view.LayoutInflater;
 
 import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.HtmlToSpannedParser;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 
@@ -38,6 +39,7 @@ import java.util.List;
 @SmallTest
 public class TermsListAdapterTest {
     private @Mock LayoutInflater mLayoutInflater;
+    private @Mock AccessibilityContextMenuMaker mContextMenuMaker;
 
     private List<TermsDocument> mDocs;
     private HtmlToSpannedParser mHtmlToSpannedParser;
@@ -57,31 +59,10 @@ public class TermsListAdapterTest {
                         Color.BLUE));
     }
 
-    @Test(expected = NullPointerException.class)
-    public void throwsForNullArgument1() {
-        new TermsListAdapter(null, mLayoutInflater, mHtmlToSpannedParser,
-                mGroupInfoAlwaysCollapsed);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void throwsForNullArgument2() {
-        new TermsListAdapter(mDocs, null, mHtmlToSpannedParser, mGroupInfoAlwaysCollapsed);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void throwsForNullArgument3() {
-        new TermsListAdapter(mDocs, mLayoutInflater, null, mGroupInfoAlwaysCollapsed);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void throwsForNullArgument4() {
-        new TermsListAdapter(mDocs, mLayoutInflater, mHtmlToSpannedParser, null);
-    }
-
     @Test
     public void returnsCorrectDocument() {
         // given: an adapter
-        TermsListAdapter adapter = new TermsListAdapter(mDocs, mLayoutInflater,
+        TermsListAdapter adapter = new TermsListAdapter(mDocs, mLayoutInflater, mContextMenuMaker,
                 mHtmlToSpannedParser, mGroupInfoAlwaysCollapsed);
 
         // when: asked for a document from the initially passed-in list

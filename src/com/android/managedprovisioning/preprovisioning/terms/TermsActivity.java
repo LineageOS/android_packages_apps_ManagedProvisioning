@@ -21,12 +21,16 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.util.ArraySet;
+import android.view.ContextMenu;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.HtmlToSpannedParser;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.StoreUtils;
@@ -42,18 +46,23 @@ import java.util.Set;
  */
 public class TermsActivity extends SetupLayoutActivity {
     private final TermsProvider mTermsProvider;
+    private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private final Set<Integer> mExpandedGroupsPosition = new ArraySet<>();
 
     @SuppressWarnings("unused")
     public TermsActivity() {
-        this(StoreUtils::readString);
+        this(StoreUtils::readString, null);
     }
 
-    @VisibleForTesting TermsActivity(StoreUtils.TextFileReader textFileReader) {
+    @VisibleForTesting TermsActivity(StoreUtils.TextFileReader textFileReader,
+            AccessibilityContextMenuMaker contextMenuMaker) {
         super(new Utils());
         mTermsProvider = new TermsProvider(this, textFileReader, mUtils);
         mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
+        mContextMenuMaker =
+                contextMenuMaker != null ? contextMenuMaker : new AccessibilityContextMenuMaker(
+                        this);
     }
 
     @Override
@@ -67,11 +76,15 @@ public class TermsActivity extends SetupLayoutActivity {
         List<TermsDocument> terms = mTermsProvider.getTerms(params, 0);
 
         ExpandableListView container = (ExpandableListView) findViewById(R.id.terms_container);
-        container.setAdapter(new TermsListAdapter(terms, getLayoutInflater(),
-                new HtmlToSpannedParser(new ClickableSpanFactory(getColor(R.color.blue)),
-                        url -> WebActivity.createIntent(this, url,
-                                this.getWindow().getStatusBarColor())),
-                container::isGroupExpanded));
+        container.setAdapter(
+                new TermsListAdapter(terms,
+                        getLayoutInflater(),
+                        new AccessibilityContextMenuMaker(this),
+                        new HtmlToSpannedParser(
+                                new ClickableSpanFactory(getColor(R.color.blue)),
+                                url -> WebActivity.createIntent(this, url,
+                                        this.getWindow().getStatusBarColor())),
+                        container::isGroupExpanded));
         container.expandGroup(0); // expand the 'General' section
 
         // Add default open terms to the expanded groups set.
@@ -93,6 +106,15 @@ public class TermsActivity extends SetupLayoutActivity {
         toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
 
         mProvisioningAnalyticsTracker.logNumberOfTermsDisplayed(this, terms.size());
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+            ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        if (v instanceof TextView) {
+            mContextMenuMaker.populateMenuContent(menu, (TextView) v);
+        }
     }
 
     @Override
