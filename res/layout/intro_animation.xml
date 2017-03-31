@@ -22,6 +22,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/animation_top_level_frame"
+    android:layout_gravity="center"
     android:layout_width="@dimen/info_view_width"
     android:layout_height="wrap_content">
 
