@@ -28,9 +28,9 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप आपले डिव्‍हाइस व्यवस्‍थापित करेल:"</string>
     <string name="next" msgid="1004321437324424398">"पुढील"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"आपले कार्य प्रोफाईल सेट करीत आहे..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4552308842716093826) -->
     <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <!-- no translation found for admin_has_ability_to_monitor_device (2375961046794109749) -->
     <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरीपासून-संरक्षण वैशिष्ट्ये वापरण्यासाठी, आपल्याकडे आपल्या डिव्हाइससाठी संकेतशब्द-संरक्षित स्क्रीन लॉक असणे आवश्यक आहे."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"आपल्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी आपल्या प्रशासकाशी संपर्क साधा."</string>
@@ -40,26 +40,43 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"मी संमती देतो"</string>
     <string name="url_error" msgid="5958494012986243186">"ही लिंक प्रदर्शित करता येणार नाही."</string>
     <string name="terms" msgid="8295436105384703903">"अटी"</string>
-    <string name="general" msgid="4327185905521992102">"सामान्य"</string>
+    <!-- no translation found for work_profile_info (5433388376309583996) -->
+    <skip />
+    <!-- no translation found for managed_device_info (1529447646526616811) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक वापरकर्ता"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"आपल्याकडे आधीपासून पुढील अ‍ॅपने व्यवस्थापित केलेले कार्य प्रोफाइल आहे:"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (7846971308431780139) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"आपण सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्‍यासाठी, आपल्‍याला आपले डिव्हाइस कूटबद्ध करणे आवश्‍यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"आपले डिव्हाइस सेट करणे सुरु ठेवण्यासाठी, आपल्याला ते कूटबद्ध करणे आवश्यक असेल. यास कदाचित काही वेळ लागू शकतो."</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"कूटबद्ध करा"</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (7828515754696057140) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (5194673142404735676) -->
+    <skip />
+    <!-- no translation found for encrypt_this_device_question (8719916619866892601) -->
+    <skip />
+    <!-- no translation found for encrypt (1749320161747489212) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"कूटबद्धीकरण पूर्ण"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी टॅप करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
-    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"आपले डिव्‍हाइस कार्य प्रोफाईलचे समर्थन करीत नाही"</string>
-    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"या वापरकर्त्याकडे कार्य प्रोफाईल असू शकत नाही"</string>
+    <!-- no translation found for cant_add_work_profile (9217268909964154934) -->
+    <skip />
+    <!-- no translation found for user_cant_have_work_profile_contact_admin (1014351338944641678) -->
+    <skip />
+    <!-- no translation found for user_cannot_have_work_profiles_contact_admin (4386452918273443379) -->
+    <skip />
     <string name="device_owner_exists" msgid="8020080296133337023">"व्यवस्थापित केलेल्‍या डिव्‍हाइसवर कार्य प्रोफाईल सेट केले जाऊ शकत नाही"</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"कार्य प्रोफाईल तयार केले जाऊ शकत नाही कारण आपण आपल्‍या डिव्‍हाइसवरील वापरकर्त्यांच्या कमाल संख्‍येवर पोहचला आहात. किमान एक वापरकर्ता काढा आणि पुन्हा प्रयत्न करा."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"आपले कार्य प्रोफाईल या लाँचर अॅपद्वारे समर्थित नाही. आपल्याला सुसंगत असलेल्या लाँचरवर स्विच करण्याची आवश्यकता असेल."</string>
+    <!-- no translation found for too_many_users_on_device_remove_user_try_again (2795045208576680027) -->
+    <skip />
+    <!-- no translation found for change_device_launcher (4523563368433637980) -->
+    <skip />
+    <!-- no translation found for launcher_app_cant_be_used_by_work_profile (3524366082000739743) -->
+    <skip />
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द करा"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक आहे"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"वापरकर्ता सेटअप अपूर्ण"</string>
@@ -73,38 +90,76 @@
     <string name="progress_finishing_touches" msgid="9037776404089697198">"अखेरच्या सुधारणा करीत आहे..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"डिव्हाइस मालक सेट करीत आहे..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"डिव्हाइस प्रारंभ करत आहे..."</string>
-    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"आपले डिव्हाइस कूटबद्धीकरणास समर्थन देत नाही. आपल्या IT विभागाशी संपर्क साधा."</string>
+    <!-- no translation found for device_doesnt_allow_encryption_contact_admin (8297141458771829628) -->
+    <skip />
+    <!-- no translation found for stop_setup_reset_device_question (7547191251522623210) -->
+    <skip />
+    <!-- no translation found for this_will_reset_take_back_first_screen (4623290347188404725) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेट करणे थांबवायचे आणि आपला डिव्‍हाइस डेटा मिटवायचा?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द करा"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ठीक आहे"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"रीसेट करा"</string>
-    <string name="device_owner_error_general" msgid="5962462955470123776">"आपले डिव्हाइस सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा."</string>
-    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"हे डिव्‍हाइस आधीपासून सेट केले आहे."</string>
+    <!-- no translation found for reset (6467204151306265796) -->
+    <skip />
+    <!-- no translation found for cant_set_up_profile (4341825293970158436) -->
+    <skip />
+    <!-- no translation found for cant_set_up_device (4120090138983350714) -->
+    <skip />
+    <!-- no translation found for couldnt_set_up_device (60699158233724802) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_help (8045606258802719235) -->
+    <skip />
+    <!-- no translation found for device_already_set_up (507881934487140294) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाय-फाय ला कनेक्ट करू शकलो नाही"</string>
-    <string name="device_owner_error_frp" msgid="7053630342416280252">"हे डिव्हाइस फॅक्टरी रीसेट संरक्षणाद्वारे संरक्षित आहे. आपल्या IT विभागाशी संपर्क साधा."</string>
+    <!-- no translation found for device_has_reset_protection_contact_admin (1221351721899290155) -->
+    <skip />
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"मिटवत आहे"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा करा..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"एका checksum त्रुटीमुळे प्रशासन अॅप वापरणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा."</string>
+    <!-- no translation found for device_owner_error_hash_mismatch (7256273143549784838) -->
+    <skip />
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अ‍ॅप डाउनलोड करणे शक्य झाले नाही"</string>
-    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"प्रशासन अॅप वापरणे शक्य नाही. ते गहाळ घटक किंवा दूषित आहेत. आपल्या IT विभागाशी संपर्क साधा."</string>
+    <!-- no translation found for device_owner_error_package_invalid (1096901016820157695) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"प्रशासक अ‍ॅप स्‍थापित करणे शक्य झाले नाही"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"सेट करणे थांबवायचे?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"नाही"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"होय"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"रद्द करत आहे..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"प्रोफाईल सेटअप थांबवायचे?"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"आपल्‍या संस्‍थेद्वारे वापरलेल्या डिव्‍हाइस व्यवस्थापन अ‍ॅपमधून आपण आपले कार्य प्रोफाईल नंतर सेट करू शकता."</string>
-    <string name="work_profile_setup_continue" msgid="6549708818974016509">"सुरू ठेवा"</string>
+    <!-- no translation found for work_profile_setup_later_message (122069011117225292) -->
+    <skip />
+    <!-- no translation found for continue_button (7177918589510964446) -->
+    <skip />
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"थांबा"</string>
-    <string name="profile_owner_info" msgid="6975830281038077091">"आपण नवीन कार्य प्रोफाइल तयार करण्‍याच्‍या बेतात आहात, जिचे व्यवस्थापन आपल्या संस्थेद्वारे केले जाईल."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"आपण नवीन कार्य प्रोफाइल तयार करण्‍याच्‍या बेतात आहात, जिचे व्यवस्थापन आपल्या संस्थेद्वारे केले जाईल.<xliff:g id="TERMS_HEADERS">%1$s</xliff:g> च्या अटी लागू."</string>
-    <string name="profile_owner_info_comp" msgid="2100379544031830570">"आपल्या कार्यसंबंधित अॅप्ससाठी एक प्रोफाइल तयार केली जाईल. ही प्रोफाइल आणि आपल्या उर्वरित डिव्हाइसचे व्यवस्थापन आपल्या संस्थेने केले आहे."</string>
-    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"आपल्या कार्यसंबंधित अॅप्ससाठी एक प्रोफाइल तयार केली जाईल. ही प्रोफाइल आणि आपल्या उर्वरित डिव्हाइसचे व्यवस्थापन आपल्या संस्थेने केले आहे.<xliff:g id="TERMS_HEADERS">%1$s</xliff:g> च्या अटी लागू."</string>
-    <string name="device_owner_info" msgid="9015249759994198680">"हे डिव्‍हाइस व्‍यवस्‍थापित केले जाईल आणि <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> द्वारे सुरक्षित केले जाईल. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"हे डिव्‍हाइस व्‍यवस्‍थापित केले जाईल आणि <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> द्वारे सुरक्षित केले जाईल. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> कडून अटी लागू. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="462704678510856705">"आपल्‍याला प्रश्‍न असल्‍यास, आपल्‍या <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> शी संपर्क साधा."</string>
-    <string name="device_provider" msgid="3278537487796207495">"डिव्‍हाइसचा प्रदाता"</string>
-    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> खालील अॅप वापरून हे डिव्‍हाइस व्‍यवस्‍थापित करेल:"</string>
+    <!-- no translation found for dismiss (9009534756748565880) -->
+    <skip />
+    <!-- no translation found for profile_owner_info (8975319972303812298) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers (7373591910245655373) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_comp (9190421701126119142) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers_comp (2012766614492554556) -->
+    <skip />
+    <!-- no translation found for device_owner_info (2883639372446424007) -->
+    <skip />
+    <!-- no translation found for device_owner_info_with_terms_headers (7333703548160002079) -->
+    <skip />
+    <!-- no translation found for link_isnt_secure_and_cant_be_opened_until_device_setup_finished (1604497932637832657) -->
+    <skip />
+    <!-- no translation found for contact_device_provider (2139307808033714181) -->
+    <skip />
+    <!-- no translation found for if_questions_contact_admin (6147462485780267795) -->
+    <skip />
+    <!-- no translation found for setup_isnt_finished_contact_admin (235011880559615998) -->
+    <skip />
+    <!-- no translation found for for_help_contact_admin (8687037236275184653) -->
+    <skip />
+    <!-- no translation found for organization_admin (1595001081906025683) -->
+    <skip />
+    <!-- no translation found for your_org_app_used (5336414768293540831) -->
+    <skip />
     <string name="your_organization_beginning" msgid="5952561489910967255">"आपली संस्‍था"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"आपली संस्था"</string>
     <string name="view_terms" msgid="7230493092383341605">"अटी पहा"</string>
@@ -118,7 +173,10 @@
     <string name="provisioning" msgid="4512493827019163451">"तरतूद"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करीत आहे"</string>
     <string name="setup_profile" msgid="5573950582159698549">"आपली प्रोफाइल सेट करा"</string>
-    <string name="profile_benefits_description" msgid="2750373196318271680">"एक कार्य प्रोफाइल वापरून, आपण वैयक्तिक डेटा मधून कार्य डेटा वेगळा करू शकता."</string>
+    <!-- no translation found for profile_benefits_description (758432985984252636) -->
+    <skip />
+    <!-- no translation found for comp_profile_benefits_description (379837075456998273) -->
+    <skip />
     <string name="setup_profile_encryption" msgid="5241291404536277038">"आपले प्रोफाईल सेट करा. कूटबद्धीकरण"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"आपले प्रोफाईल सेट करा. प्रगती दर्शवित आहे"</string>
     <string name="setup_device" msgid="6725265673245816366">"आपले डिव्हाइस सेट करा"</string>
@@ -130,6 +188,16 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग सामग्री: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"विस्तृत करा"</string>
     <string name="collapse" msgid="7817530505064432580">"संकुचित करा"</string>
+    <!-- no translation found for access_list_of_links (7094123315959323372) -->
+    <skip />
+    <!-- no translation found for access_links (7991363727326168600) -->
+    <skip />
+    <!-- no translation found for access_terms (1982500872249763745) -->
+    <skip />
+    <!-- no translation found for read_terms (1745011123626640728) -->
+    <skip />
+    <!-- no translation found for close_list (9053538299788717597) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप रद्द करून फॅक्टरी रीसेट करायचे?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"हे सेटअप समाप्त केल्याने आपले डिव्हाइस फॅक्टरी रीसेट केले जाईल आणि आपल्याला परत प्रथम स्क्रीनवर नेण्यात येईल."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द करा"</string>

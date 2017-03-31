@@ -28,9 +28,9 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Quyidagi ilova qurilmangizni boshqaradi:"</string>
     <string name="next" msgid="1004321437324424398">"Keyingisi"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"Ishchi profilingiz sozlanmoqda…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
+    <!-- no translation found for admin_has_ability_to_monitor_profile (4552308842716093826) -->
     <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
+    <!-- no translation found for admin_has_ability_to_monitor_device (2375961046794109749) -->
     <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"O‘g‘ridan himoyalanish funksiyasidan foydalanish uchun qurilmangiz ekran qulfi parollangan bo‘lishi kerak."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Qo‘shimcha ma’lumot olish, jumladan, tashkilotingizning maxfiylik siyosati haqida bilish uchun administratoringizga murojaat qiling."</string>
@@ -40,26 +40,43 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Roziman"</string>
     <string name="url_error" msgid="5958494012986243186">"Bu havolani ko‘rsatib bo‘lmadi."</string>
     <string name="terms" msgid="8295436105384703903">"Shartlar"</string>
-    <string name="general" msgid="4327185905521992102">"Umumiy"</string>
+    <!-- no translation found for work_profile_info (5433388376309583996) -->
+    <skip />
+    <!-- no translation found for managed_device_info (1529447646526616811) -->
+    <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Ishchi profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Asosiy foydalanuvchi"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Mavjud profil o‘chirib tashlansinmi?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"Allaqachon quyidagi ilova tomonidan boshqariladigan ishchi profil bor:"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (7846971308431780139) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Davom etishdan oldin "<a href="#read_this_link">"buni o‘qib chiqing"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Agar davom etsangiz, bu profildagi barcha ilovalar va ma’lumotlar o‘chirib tashlanadi."</string>
     <string name="delete_profile" msgid="2299218578684663459">"O‘chirish"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Bekor qilish"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"Qurilmani sozlashda davom etish uchun qurilmangizni shifrlashingiz lozim. Bu biroz vaqt olishi mumkin."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Qurilmani sozlashda davom etish uchun uni shifrlash lozim. Bu biroz vaqt olishi mumkin."</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Shifrlash"</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (7828515754696057140) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (5194673142404735676) -->
+    <skip />
+    <!-- no translation found for encrypt_this_device_question (8719916619866892601) -->
+    <skip />
+    <!-- no translation found for encrypt (1749320161747489212) -->
+    <skip />
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Shifrlash tugallandi"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Ishchi profilingizni sozlashda davom etish uchun bosing"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Ishchi profilingizni sozlab bo‘lmadi. IT bo‘limiga murojaat qiling yoki keyinroq qayta urinib ko‘ring."</string>
-    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Qurilmangiz ishchi profillarni qo‘llab-quvvatlamaydi"</string>
-    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Ushbu foydalanuvchi ish profiliga ega bo‘la olmaydi"</string>
+    <!-- no translation found for cant_add_work_profile (9217268909964154934) -->
+    <skip />
+    <!-- no translation found for user_cant_have_work_profile_contact_admin (1014351338944641678) -->
+    <skip />
+    <!-- no translation found for user_cannot_have_work_profiles_contact_admin (4386452918273443379) -->
+    <skip />
     <string name="device_owner_exists" msgid="8020080296133337023">"Ishchi profillar boshqariladigan qurilmalarda qo‘llab-quvvatlanmaydi"</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Qurilmangizdagi profillar soni maksimal miqdorga yetgani tufayli ishchi profil yaratib bo‘lmaydi. Kamida bitta profilni o‘chirib tashlang va qaytadan urining."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Ishchi profilingiz ushbu launcher ilovasi tomonidan qo‘llab-quvvatlanmaydi. Mos launcher rejimiga o‘tishingiz lozim."</string>
+    <!-- no translation found for too_many_users_on_device_remove_user_try_again (2795045208576680027) -->
+    <skip />
+    <!-- no translation found for change_device_launcher (4523563368433637980) -->
+    <skip />
+    <!-- no translation found for launcher_app_cant_be_used_by_work_profile (3524366082000739743) -->
+    <skip />
     <string name="cancel_provisioning" msgid="3408069559452653724">"Bekor qilish"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Foydalanuvchi hisobini sozlab bo‘lmadi"</string>
@@ -73,38 +90,76 @@
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Sozlash tugay deb qoldi…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Qurilma egasi belgilanmoqda…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Qurilma ishga tushirilmoqda…"</string>
-    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Qurilmangiz shifrlashni qo‘llab-quvvatlamaydi. IT bo‘limingizga murojaat qiling."</string>
+    <!-- no translation found for device_doesnt_allow_encryption_contact_admin (8297141458771829628) -->
+    <skip />
+    <!-- no translation found for stop_setup_reset_device_question (7547191251522623210) -->
+    <skip />
+    <!-- no translation found for this_will_reset_take_back_first_screen (4623290347188404725) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Sozlash to‘xtatilib, qurilmangizdagi ma’lumotlar tozalab tashlansinmi?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Bekor qilish"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"Asliga qaytarish"</string>
-    <string name="device_owner_error_general" msgid="5962462955470123776">"Qurilmangizni sozlab bo‘lmadi. Kompaniyangizning IT bo‘limiga murojaat qiling."</string>
-    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ushbu qurilma allaqachon moslangan."</string>
+    <!-- no translation found for reset (6467204151306265796) -->
+    <skip />
+    <!-- no translation found for cant_set_up_profile (4341825293970158436) -->
+    <skip />
+    <!-- no translation found for cant_set_up_device (4120090138983350714) -->
+    <skip />
+    <!-- no translation found for couldnt_set_up_device (60699158233724802) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_help (8045606258802719235) -->
+    <skip />
+    <!-- no translation found for device_already_set_up (507881934487140294) -->
+    <skip />
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi tarmog‘iga ulanib bo‘lmadi"</string>
-    <string name="device_owner_error_frp" msgid="7053630342416280252">"Bu qurilma zavod sozlamalarini tiklashga qarshi himoyalangan. IT bo‘limingizga murojaat qiling."</string>
+    <!-- no translation found for device_has_reset_protection_contact_admin (1221351721899290155) -->
+    <skip />
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"O‘chirilmoqda"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Iltimos, kuting…"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nazorat qiymati bilan bog‘liq muammo tufayli administrator ilovasidan foydalanib bo‘lmadi. IT bo‘limiga murojaat qiling."</string>
+    <!-- no translation found for device_owner_error_hash_mismatch (7256273143549784838) -->
+    <skip />
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administrator ilovasini yuklab olib bo‘lmadi"</string>
-    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Administrator ilovasidan foydalanib bo‘lmaydi. Unda ba’zi tarkibiy qismlar mavjud emas yoki buzilgan. IT bo‘limiga murojaat qiling."</string>
+    <!-- no translation found for device_owner_error_package_invalid (1096901016820157695) -->
+    <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Administrator ilovasini o‘rnatib bo‘lmadi"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Sozlash to‘xtatilsinmi?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Yo‘q"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ha"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Bekor qilinmoqda…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profilni sozlash to‘xtatilsinmi?"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Siz profilingizni keyinroq tashkilotingiz tomonidan ishlatiladigan qurilmalarni boshqarish ilovasi yordamida sozlashingiz mumkin."</string>
-    <string name="work_profile_setup_continue" msgid="6549708818974016509">"Davom etish"</string>
+    <!-- no translation found for work_profile_setup_later_message (122069011117225292) -->
+    <skip />
+    <!-- no translation found for continue_button (7177918589510964446) -->
+    <skip />
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"To‘xtatish"</string>
-    <string name="profile_owner_info" msgid="6975830281038077091">"Tashkilotingiz tomonidan boshqariladigan ishchi profil yaratish arafasidasiz."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"Tashkilotingiz tomonidan boshqariladigan ishchi profil yaratish arafasidasiz. Ushbu shartlar qo‘llaniladi: <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="profile_owner_info_comp" msgid="2100379544031830570">"Profil ishchi ilovalar uchun yaratiladi. Bu profil va boshqa qurilmalar tashkilotingiz tomonidan boshqariladi."</string>
-    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"Profil ishchi ilovalar uchun yaratiladi. Bu profil va boshqa qurilmalar tashkilotingiz tomonidan boshqariladi. Ushbu shartlar qo‘llaniladi: <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="9015249759994198680">"Bu qurilma <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tomonidan boshqariladi va xavfsizligini ta’minlaydi. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"Bu qurilma <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tomonidan boshqariladi va xavfsizligini ta’minlaydi. Ushbu shartlar qo‘llaniladi: <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="462704678510856705">"Savollaringiz bo‘lsa <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> bilan bog‘laning."</string>
-    <string name="device_provider" msgid="3278537487796207495">"qurilma ta’minotchisi"</string>
-    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> bu qurilmani quyidagi ilovalar yordamida boshqaradi:"</string>
+    <!-- no translation found for dismiss (9009534756748565880) -->
+    <skip />
+    <!-- no translation found for profile_owner_info (8975319972303812298) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers (7373591910245655373) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_comp (9190421701126119142) -->
+    <skip />
+    <!-- no translation found for profile_owner_info_with_terms_headers_comp (2012766614492554556) -->
+    <skip />
+    <!-- no translation found for device_owner_info (2883639372446424007) -->
+    <skip />
+    <!-- no translation found for device_owner_info_with_terms_headers (7333703548160002079) -->
+    <skip />
+    <!-- no translation found for link_isnt_secure_and_cant_be_opened_until_device_setup_finished (1604497932637832657) -->
+    <skip />
+    <!-- no translation found for contact_device_provider (2139307808033714181) -->
+    <skip />
+    <!-- no translation found for if_questions_contact_admin (6147462485780267795) -->
+    <skip />
+    <!-- no translation found for setup_isnt_finished_contact_admin (235011880559615998) -->
+    <skip />
+    <!-- no translation found for for_help_contact_admin (8687037236275184653) -->
+    <skip />
+    <!-- no translation found for organization_admin (1595001081906025683) -->
+    <skip />
+    <!-- no translation found for your_org_app_used (5336414768293540831) -->
+    <skip />
     <string name="your_organization_beginning" msgid="5952561489910967255">"Tashkilotingiz"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"tashkilotingiz"</string>
     <string name="view_terms" msgid="7230493092383341605">"Shartlarni ko‘rish"</string>
@@ -118,7 +173,10 @@
     <string name="provisioning" msgid="4512493827019163451">"Sinxronlanmoqda"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA sertifikatlari sozlanmoqda"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Profilingizni sozlang"</string>
-    <string name="profile_benefits_description" msgid="2750373196318271680">"Ishchi profil orqali shaxsiy va ish ma’lumotlarini alohida qilishingiz mumkin."</string>
+    <!-- no translation found for profile_benefits_description (758432985984252636) -->
+    <skip />
+    <!-- no translation found for comp_profile_benefits_description (379837075456998273) -->
+    <skip />
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Profilni sozlash. Shifrlash."</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Profilni sozlash. Jarayon ko‘rsatilmoqda."</string>
     <string name="setup_device" msgid="6725265673245816366">"Qurilmangizni sozlash"</string>
@@ -130,6 +188,16 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> bo‘limi kontenti: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Yoyish"</string>
     <string name="collapse" msgid="7817530505064432580">"Yig‘ish"</string>
+    <!-- no translation found for access_list_of_links (7094123315959323372) -->
+    <skip />
+    <!-- no translation found for access_links (7991363727326168600) -->
+    <skip />
+    <!-- no translation found for access_terms (1982500872249763745) -->
+    <skip />
+    <!-- no translation found for read_terms (1745011123626640728) -->
+    <skip />
+    <!-- no translation found for close_list (9053538299788717597) -->
+    <skip />
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Sozlash bekor qilinsinmi?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Barcha parametrlar zavod holatiga qaytariladi va sozlashni qaytadan boshlash kerak bo‘ladi."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Bekor qilish"</string>
