@@ -18,6 +18,7 @@ package com.android.managedprovisioning.ota;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.android.managedprovisioning.common.ProvisionLogger;
 
@@ -29,7 +30,13 @@ public class PreBootListener extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_PRE_BOOT_COMPLETED.equals(intent.getAction())) {
-            new OtaController(context).run();
+            final PendingResult result = goAsync();
+            Thread thread = new Thread(() -> {
+                new OtaController(context).run();
+                result.finish();
+            });
+            thread.setPriority(Thread.MAX_PRIORITY);
+            thread.start();
         } else {
             ProvisionLogger.logw("Unexpected intent action: " + intent.getAction());
         }
