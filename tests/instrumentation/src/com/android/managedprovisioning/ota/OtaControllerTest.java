@@ -90,7 +90,7 @@ public class OtaControllerTest {
         when(mUserManager.getUsers()).thenReturn(mUsers);
         when(mUserManager.getProfiles(UserHandle.USER_SYSTEM)).thenReturn(mProfiles);
 
-        mTaskExecutor = new FakeTaskExecutor(mContext);
+        mTaskExecutor = new FakeTaskExecutor();
         mController = new OtaController(mContext, mTaskExecutor, mCrossProfileIntentFiltersSetter);
 
         addSystemUser();
@@ -158,8 +158,8 @@ public class OtaControllerTest {
 
     private class FakeTaskExecutor extends TaskExecutor {
 
-        public FakeTaskExecutor(Context context) {
-            super(context);
+        public FakeTaskExecutor() {
+            super();
         }
 
         @Override

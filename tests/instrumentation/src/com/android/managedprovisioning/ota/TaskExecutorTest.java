@@ -16,10 +16,6 @@
 
 package com.android.managedprovisioning.ota;
 
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-
 import android.content.Context;
 import android.support.test.filters.SmallTest;
 
@@ -29,6 +25,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import static org.mockito.Mockito.verify;
 
 /**
  * Unit tests for {@link TaskExecutor}.
@@ -47,7 +45,7 @@ public class TaskExecutorTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        mExecutor = new TaskExecutor(mContext);
+        mExecutor = new TaskExecutor();
     }
 
     @Test
@@ -55,17 +53,8 @@ public class TaskExecutorTest {
         // WHEN executing the first task
         mExecutor.execute(TEST_USER_ID, mTask1);
 
-        // THEN the service should be started
-        verify(mContext).startService(TaskExecutor.SERVICE_INTENT);
-
         // THEN run method of the task should be called
         verify(mTask1).run(TEST_USER_ID);
-
-        // WHEN the task completes
-        mExecutor.onSuccess(mTask1);
-
-        // THEN the service should be stopped again
-        verify(mContext).stopService(TaskExecutor.SERVICE_INTENT);
     }
 
     @Test
@@ -73,31 +62,13 @@ public class TaskExecutorTest {
         // WHEN executing the first task
         mExecutor.execute(TEST_USER_ID, mTask1);
 
-        // THEN the service should be started
-        verify(mContext).startService(TaskExecutor.SERVICE_INTENT);
-
         // THEN run method of the task should be called
         verify(mTask1).run(TEST_USER_ID);
 
         // WHEN executing a second task
         mExecutor.execute(TEST_USER_ID, mTask2);
 
-        // THEN the service should not be started again
-        verifyNoMoreInteractions(mContext);
-
         // THEN run method of the task should be called
         verify(mTask2).run(TEST_USER_ID);
-
-        // WHEN the second task completes
-        mExecutor.onSuccess(mTask2);
-
-        // THEN the service should not be stopped
-        verify(mContext, never()).stopService(TaskExecutor.SERVICE_INTENT);
-
-        // WHEN the first task completes
-        mExecutor.onError(mTask1, 0);
-
-        // THEN the service should be stopped
-        verify(mContext).stopService(TaskExecutor.SERVICE_INTENT);
     }
 }
