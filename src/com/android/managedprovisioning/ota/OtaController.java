@@ -53,7 +53,7 @@ public class OtaController {
     private final DevicePolicyManager mDevicePolicyManager;
 
     public OtaController(Context context) {
-        this(context, new TaskExecutor(context), new CrossProfileIntentFiltersSetter(context));
+        this(context, new TaskExecutor(), new CrossProfileIntentFiltersSetter(context));
     }
 
     @VisibleForTesting
