@@ -423,11 +423,12 @@ public class PreProvisioningController {
                     !mParams.startedByTrustedSource) {
                 verifyCaller(callingPackage);
             }
+            return true;
         } catch (IllegalProvisioningArgumentException e) {
             mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,
                     e.getMessage());
+            return false;
         }
-        return true;
     }
 
     /**
@@ -437,8 +438,11 @@ public class PreProvisioningController {
      */
     private void verifyCaller(@NonNull String callingPackage)
             throws IllegalProvisioningArgumentException {
-        checkNotNull(callingPackage,
-                "Calling package is null. Was startActivityForResult used to start this activity?");
+        if (callingPackage == null) {
+            throw new IllegalProvisioningArgumentException("Calling package is null. Was " +
+                    "startActivityForResult used to start this activity?");
+        }
+
         if (!callingPackage.equals(mParams.inferDeviceAdminPackageName())) {
             throw new IllegalProvisioningArgumentException("Permission denied, "
                     + "calling package tried to set a different package as owner. ");
