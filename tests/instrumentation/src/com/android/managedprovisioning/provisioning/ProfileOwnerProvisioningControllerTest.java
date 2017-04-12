@@ -40,7 +40,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.CopyAccountToUserTask;
 import com.android.managedprovisioning.task.CreateManagedProfileTask;
-import com.android.managedprovisioning.task.DisableBluetoothSharingTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.ManagedProfileSettingsTask;
@@ -110,9 +109,6 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
 
         // THEN the set device policy task is run
         taskSucceeded(SetDevicePolicyTask.class);
-
-        // THEN the disable bluetooth sharing task install package task is run
-        taskSucceeded(DisableBluetoothSharingTask.class);
 
         // THEN the managed profile settings task is run
         taskSucceeded(ManagedProfileSettingsTask.class);
