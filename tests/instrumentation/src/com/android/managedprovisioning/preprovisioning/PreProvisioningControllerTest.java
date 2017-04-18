@@ -175,15 +175,23 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     public void testManagedProfile_nullCallingPackage() throws Exception {
         // GIVEN a device that is not currently encrypted
         prepareMocksForManagedProfileIntent(false);
-        try {
-            // WHEN initiating provisioning
-            mController.initiateProvisioning(mIntent, null, null);
-            fail("Expected NullPointerException not thrown");
-        } catch (NullPointerException ne) {
-            // THEN a NullPointerException is thrown
-        }
-        // THEN no user interaction occurs
-        verifyZeroInteractions(mUi);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, null, null);
+        // THEN error is shown
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.contact_your_admin_for_help), any(String.class));
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void testManagedProfile_invalidCallingPackage() throws Exception {
+        // GIVEN a device that is not currently encrypted
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, null, "com.android.invalid.dpc");
+        // THEN error is shown
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.contact_your_admin_for_help), any(String.class));
+        verifyNoMoreInteractions(mUi);
     }
 
     public void testManagedProfile_withEncryption() throws Exception {
@@ -257,7 +265,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, null, TEST_BOGUS_PACKAGE);
         // THEN show an error dialog and do not continue
-        verifyInitiateProfileOwnerUi();
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.contact_your_admin_for_help), any());
         verifyNoMoreInteractions(mUi);
