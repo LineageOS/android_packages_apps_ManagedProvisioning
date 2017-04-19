@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+import static android.app.admin.DevicePolicyManager.CODE_ADD_MANAGED_PROFILE_DISALLOWED;
 import static android.app.admin.DevicePolicyManager.CODE_CANNOT_ADD_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.CODE_HAS_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
@@ -634,30 +635,34 @@ public class PreProvisioningController {
     private void showManagedProfileErrorAndClose(int provisioningPreCondition) {
         UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
         switch (provisioningPreCondition) {
+            case CODE_ADD_MANAGED_PROFILE_DISALLOWED:
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
                         R.string.user_cant_have_work_profile_contact_admin,
                         "Exiting managed profile provisioning, managed profiles feature is not available");
-                return;
+                break;
             case CODE_CANNOT_ADD_MANAGED_PROFILE:
                 if (!userInfo.canHaveProfile()) {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
                             R.string.user_cannot_have_work_profiles_contact_admin,
-                            "Exiting managed profile provisioning, calling user cannot have managed profiles.");
+                            "Exiting managed profile provisioning, calling user cannot have managed profiles");
                 } else {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
                             R.string.too_many_users_on_device_remove_user_try_again,
-                            "Exiting managed profile provisioning, cannot add more managedprofiles");
+                            "Exiting managed profile provisioning, cannot add more managed profiles");
                 }
-                return;
+                break;
             case CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
                         R.string.contact_your_admin_for_help,
                         "Exiting managed profile provisioning, a device owner exists");
-                return;
+                break;
+            default:
+                mUi.showErrorAndClose(R.string.cant_add_work_profile,
+                        R.string.contact_your_admin_for_help,
+                        "Managed profile provisioning not allowed for an unknown " +
+                        "reason, code: " + provisioningPreCondition);
         }
-        mUi.showErrorAndClose(R.string.cant_add_work_profile, R.string.contact_your_admin_for_help,
-                "Managed profile provisioning not allowed for an unknown reason.");
     }
 
     private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
