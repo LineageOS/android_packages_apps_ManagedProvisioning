@@ -136,7 +136,7 @@ public class PreProvisioningController {
          * @param messageId resource id used to form the user facing error message
          * @param errorMessage an error message that gets logged for debugging
          */
-        void showErrorAndClose(int titleId, int messageId, String errorMessage);
+        void showErrorAndClose(Integer titleId, int messageId, String errorMessage);
 
         /**
          * Request the user to encrypt the device.
@@ -634,6 +634,8 @@ public class PreProvisioningController {
 
     private void showManagedProfileErrorAndClose(int provisioningPreCondition) {
         UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
+        ProvisionLogger.logw("DevicePolicyManager.checkProvisioningPreCondition returns code: "
+                + provisioningPreCondition);
         switch (provisioningPreCondition) {
             case CODE_ADD_MANAGED_PROFILE_DISALLOWED:
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
@@ -646,6 +648,10 @@ public class PreProvisioningController {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
                             R.string.user_cannot_have_work_profiles_contact_admin,
                             "Exiting managed profile provisioning, calling user cannot have managed profiles");
+                } else if (isRemovingManagedProfileDisallowed()){
+                    mUi.showErrorAndClose(null,
+                            R.string.managed_provisioning_error_text,
+                            "Exiting managed profile provisioning, removing managed profile is disallowed");
                 } else {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
                             R.string.too_many_users_on_device_remove_user_try_again,
@@ -663,6 +669,11 @@ public class PreProvisioningController {
                         "Managed profile provisioning not allowed for an unknown " +
                         "reason, code: " + provisioningPreCondition);
         }
+    }
+
+    private boolean isRemovingManagedProfileDisallowed() {
+        return mUtils.alreadyHasManagedProfile(mContext) != -1
+                && mUserManager.hasUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE);
     }
 
     private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
