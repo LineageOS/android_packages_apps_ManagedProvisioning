@@ -110,14 +110,10 @@
   <string name="managed_provisioning_error_text">Couldn\'t set up your work profile. Contact your IT department or try again later.</string>
   <!-- Error string displayed if this device doesn't support work profiles. -->
   <string name="cant_add_work_profile">Can\'t add work profile</string>
-  <!-- Error string displayed if this device doesn't support work profiles. -->
-  <string name="user_cant_have_work_profile_contact_admin">This user can\'t have a work profile. For help, contact your admin.</string>
-  <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
-  <string name="user_cannot_have_work_profiles_contact_admin">This user cannot have work profiles. Contact your admin.</string>
-  <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
-  <string name="device_owner_exists">Work profiles can not be setup on a managed device</string>
-  <!-- Error string displayed if maximum user limit is reached -->
-  <string name="too_many_users_on_device_remove_user_try_again">There may be too many users on this device. Remove a user, then try again.</string>
+  <!-- Title of an error dialog that appears when a user tries to set up a work profile. In this case, the work profile can't be added because one already exists and can't be replaced, or it isn't supported by the device or the IT admin. -->
+  <string name="cant_replace_or_remove_work_profile">Can\'t replace or remove work profile</string>
+  <!-- Message of an error dialog that appears when a user tries to set up a work profile. In this case, the work profile can't be added because one already exists and can't be replaced, or it isn't supported by the device or the IT admin. -->
+  <string name="work_profile_cant_be_added_contact_admin">A work profile can’t be added to this device. If you have questions, contact your admin.</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <string name="change_device_launcher">Change device launcher</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->

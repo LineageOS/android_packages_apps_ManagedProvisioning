@@ -640,21 +640,21 @@ public class PreProvisioningController {
             case CODE_ADD_MANAGED_PROFILE_DISALLOWED:
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                        R.string.user_cant_have_work_profile_contact_admin,
+                        R.string.work_profile_cant_be_added_contact_admin,
                         "Exiting managed profile provisioning, managed profiles feature is not available");
                 break;
             case CODE_CANNOT_ADD_MANAGED_PROFILE:
                 if (!userInfo.canHaveProfile()) {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                            R.string.user_cannot_have_work_profiles_contact_admin,
+                            R.string.work_profile_cant_be_added_contact_admin,
                             "Exiting managed profile provisioning, calling user cannot have managed profiles");
                 } else if (isRemovingManagedProfileDisallowed()){
-                    mUi.showErrorAndClose(null,
-                            R.string.managed_provisioning_error_text,
+                    mUi.showErrorAndClose(R.string.cant_replace_or_remove_work_profile,
+                            R.string.for_help_contact_admin,
                             "Exiting managed profile provisioning, removing managed profile is disallowed");
                 } else {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                            R.string.too_many_users_on_device_remove_user_try_again,
+                            R.string.work_profile_cant_be_added_contact_admin,
                             "Exiting managed profile provisioning, cannot add more managed profiles");
                 }
                 break;
