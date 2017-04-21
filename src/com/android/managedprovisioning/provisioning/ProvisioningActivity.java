@@ -51,7 +51,6 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
     private static final String CANCEL_PROVISIONING_DIALOG_OK = "CancelProvisioningDialogOk";
     private static final String CANCEL_PROVISIONING_DIALOG_RESET = "CancelProvisioningDialogReset";
 
-    private TextView mProgressTextView;
     private ProvisioningParams mParams;
     private ProvisioningManager mProvisioningManager;
 
@@ -79,7 +78,6 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         super.onCreate(savedInstanceState);
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         initializeUi(mParams);
-        mProgressTextView = (TextView) findViewById(R.id.prog_text);
 
         if (savedInstanceState == null
                 || !savedInstanceState.getBoolean(KEY_PROVISIONING_STARTED)) {
@@ -133,8 +131,6 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
 
     @Override
     public void progressUpdate(int progressMessage) {
-        mProgressTextView.setText(progressMessage);
-        mProgressTextView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
     }
 
     @Override
