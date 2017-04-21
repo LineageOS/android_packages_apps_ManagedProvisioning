@@ -65,7 +65,7 @@ public class PreProvisioningActivityTest {
                             }
 
                             @Override
-                            protected boolean verifyCaller(Intent intent, String caller) {
+                            protected boolean verifyActionAndCaller(Intent intent, String caller) {
                                 return true;
                             }
                         }, null));

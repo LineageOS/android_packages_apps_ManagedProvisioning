@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
@@ -28,6 +29,7 @@ import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
 import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -205,7 +207,7 @@ public class PreProvisioningController {
             return;
         }
 
-        if (!verifyCaller(intent, callingPackage)) {
+        if (!verifyActionAndCaller(intent, callingPackage)) {
             return;
         }
 
@@ -415,39 +417,66 @@ public class PreProvisioningController {
     }
 
     /** @return False if condition preventing further provisioning */
-    @VisibleForTesting protected boolean verifyCaller(Intent intent, String callingPackage) {
-        try {
-            // If this is a resume after encryption or trusted intent, we don't need to verify the
-            // caller. Otherwise, verify that the calling app is trying to set itself as
-            // Device/ProfileOwner
-            if (!ACTION_RESUME_PROVISIONING.equals(intent.getAction()) &&
-                    !mParams.startedByTrustedSource) {
-                verifyCaller(callingPackage);
-            }
+    @VisibleForTesting protected boolean verifyActionAndCaller(Intent intent,
+            String callingPackage) {
+        if (verifyActionAndCallerInner(intent, callingPackage)) {
             return true;
-        } catch (IllegalProvisioningArgumentException e) {
+        } else {
             mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,
-                    e.getMessage());
+                    "invalid intent or calling package");
             return false;
         }
     }
 
+    private boolean verifyActionAndCallerInner(Intent intent, String callingPackage) {
+        // If this is a resume after encryption or trusted intent, we verify the activity alias.
+        // Otherwise, verify that the calling app is trying to set itself as Device/ProfileOwner
+        if (ACTION_RESUME_PROVISIONING.equals(intent.getAction())) {
+            return verifyActivityAlias(intent, "PreProvisioningActivityAfterEncryption");
+        } else if (ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+            return verifyActivityAlias(intent, "PreProvisioningActivityViaNfc");
+        } else if (ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())) {
+            return verifyActivityAlias(intent, "PreProvisioningActivityViaTrustedApp");
+        } else {
+            return verifyCaller(callingPackage);
+        }
+    }
+
+    private boolean verifyActivityAlias(Intent intent, String activityAlias) {
+        ComponentName componentName = intent.getComponent();
+        if (componentName == null || componentName.getClassName() == null) {
+            ProvisionLogger.loge("null class in component when verifying activity alias "
+                    + activityAlias);
+            return false;
+        }
+
+        if (!componentName.getClassName().endsWith(activityAlias)) {
+            ProvisionLogger.loge("Looking for activity alias " + activityAlias + ", but got "
+                    + componentName.getClassName());
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * Verify that the caller is trying to set itself as owner.
-     * @throws IllegalProvisioningArgumentException if the caller is trying to set a different
-     * package as owner.
+     * @return false if the caller is trying to set a different package as owner.
      */
-    private void verifyCaller(@NonNull String callingPackage)
-            throws IllegalProvisioningArgumentException {
+    private boolean verifyCaller(@NonNull String callingPackage) {
         if (callingPackage == null) {
-            throw new IllegalProvisioningArgumentException("Calling package is null. Was " +
-                    "startActivityForResult used to start this activity?");
+            ProvisionLogger.loge("Calling package is null. Was startActivityForResult used to "
+                    + "start this activity?");
+            return false;
         }
 
         if (!callingPackage.equals(mParams.inferDeviceAdminPackageName())) {
-            throw new IllegalProvisioningArgumentException("Permission denied, "
+            ProvisionLogger.loge("Permission denied, "
                     + "calling package tried to set a different package as owner. ");
+            return false;
         }
+
+        return true;
     }
 
     /**

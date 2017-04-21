@@ -633,6 +633,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
     private void prepareMocksForNfcIntent(String action, boolean skipEncryption) throws Exception {
         when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
+        when(mIntent.getComponent()).thenReturn(ComponentName.createRelative(MP_PACKAGE_NAME,
+                ".PreProvisioningActivityViaNfc"));
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent)).thenReturn(
@@ -642,6 +644,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private void prepareMocksForQrIntent(String action, boolean skipEncryption) throws Exception {
         when(mIntent.getAction())
                 .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
+        when(mIntent.getComponent()).thenReturn(ComponentName.createRelative(MP_PACKAGE_NAME,
+                ".PreProvisioningActivityViaTrustedApp"));
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent)).thenReturn(
@@ -660,6 +664,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private void prepareMocksForAfterEncryption(String action, boolean startedByTrustedSource)
             throws Exception {
         when(mIntent.getAction()).thenReturn(ACTION_RESUME_PROVISIONING);
+        when(mIntent.getComponent()).thenReturn(ComponentName.createRelative(MP_PACKAGE_NAME,
+                ".PreProvisioningActivityAfterEncryption"));
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent)).thenReturn(
