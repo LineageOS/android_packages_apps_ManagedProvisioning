@@ -33,7 +33,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Түзмөгүңүздүн уурдалып кетишинен коргоо функциясын колдонуу үчүн түзмөгүңүздү сырсөз менен кулпулап коюңуз."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Көбүрөөк маалымат алып, ишканаңыздын купуялык саясатын билүү үчүн администраторуңузга кайрылыңыз."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Көбүрөөк билүү"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"Жокко чыгаруу"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Жок"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Жарайт"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Мен макулмун"</string>
     <string name="url_error" msgid="5958494012986243186">"Бул шилтемени ачуу мүмкүн эмес."</string>
@@ -47,7 +47,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Улантуудан мурун "<a href="#read_this_link">"муну окуп чыгыңыз"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Эгер улантсаңыз, бул профилдеги бардык колдонмолор жана дайындар жок кылынат."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Жок кылуу"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"Жокко чыгаруу"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Жок"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Жумуш профилиңизди жөндөө үчүн түзмөгүңүздү шифрлеп алыш керек. Буга бир аз убакыт кетиши мүмкүн."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Бул түзмөктү жөндөөдөн мурун аны шифрлеп алыш керек. Буга бир аз убакыт кетиши мүмкүн."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Бул түзмөк шифрл-би?"</string>
@@ -79,7 +79,7 @@
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Жөндөө токтотулуп, түзмөк баштапкы абалына келтирилсинби?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Ушуну менен түзмөгүңүз баштапкы абалга келтирилип, кайрадан биринчи экранга өтөсүз."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Орнотуу токтотулуп, түзмөгүңүздүн дайындары тазалансынбы?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Жокко чыгаруу"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Жок"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Ok"</string>
     <string name="reset" msgid="6467204151306265796">"Баштапкы абалга келтирүү"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Профиль жөндөлбөй жатат"</string>
@@ -150,7 +150,7 @@
     <string name="close_list" msgid="9053538299788717597">"Тизмени жабуу"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Жөндөө токтотулп, түзмк баштпк аблга келснби?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Бул жөндөө токтотулса түзмөгүңүз баштапкы абалга келтирилип, кайрадан биринчи экранга өтөсүз."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Жокко чыгаруу"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Жок"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Түзмөктү баштапкы абалга келтирүү"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> жана <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> жана <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
