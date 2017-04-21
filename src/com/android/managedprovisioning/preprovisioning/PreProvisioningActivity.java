@@ -169,7 +169,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     @Override
-    public void showErrorAndClose(int titleId, int messageId, String logText) {
+    public void showErrorAndClose(Integer titleId, int messageId, String logText) {
         ProvisionLogger.loge(logText);
 
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()

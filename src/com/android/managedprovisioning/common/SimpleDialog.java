@@ -101,7 +101,7 @@ public class SimpleDialog extends DialogFragment {
          * Sets the title
          * @param title Title resource id.
          */
-        public Builder setTitle(int title) {
+        public Builder setTitle(Integer title) {
             mTitle = title;
             return this;
         }
