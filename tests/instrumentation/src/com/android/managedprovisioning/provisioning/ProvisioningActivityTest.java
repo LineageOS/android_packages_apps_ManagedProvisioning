@@ -223,8 +223,10 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
         // WHEN the activity is paused
-        InstrumentationRegistry.getInstrumentation()
-                .callActivityOnPause(mActivityRule.getActivity());
+        mActivityRule.runOnUiThread(() -> {
+            InstrumentationRegistry.getInstrumentation()
+                    .callActivityOnPause(mActivityRule.getActivity());
+        });
 
         // THEN the listener is unregistered
         verify(mProvisioningManager).unregisterListener(any(ProvisioningManagerCallback.class));
