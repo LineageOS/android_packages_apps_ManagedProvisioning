@@ -22,16 +22,16 @@
     <string name="app_label" msgid="2400883737290705700">"Work 設定檔設定"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕！"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"設定 Work 設定檔"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"貴機構可控制這個設定檔並確保其安全性，裝置上的其他所有內容則由您自行管理。"</string>
-    <string name="company_controls_device" msgid="8230957518758871390">"您的機構將控管這個裝置並確保其安全。"</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"貴機構可控制這個設定檔並確保其安全性，裝置上的其他所有內容則由你自行管理。"</string>
+    <string name="company_controls_device" msgid="8230957518758871390">"你的機構將控管這個裝置並確保其安全。"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"下列應用程式需要存取這個設定檔："</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"下列應用程式將管理您的裝置："</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"下列應用程式將管理你的裝置："</string>
     <string name="next" msgid="1004321437324424398">"繼續"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"正在設定您的 Work 設定檔…"</string>
+    <string name="setting_up_workspace" msgid="4517537806569988620">"正在設定你的 Work 設定檔…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"你的管理員可以監控及管理與這個設定檔相關聯的設定、公司系統權限、應用程式、權限和資料，包括你的網路活動，以及裝置的位置資訊、通話紀錄和聯絡人搜尋紀錄。<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>如要瞭解詳情 (包括貴機構的隱私權政策)，請與你的管理員聯絡。"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"你的管理員可以監控及管理與這個裝置相關聯的設定、公司系統權限、應用程式、權限和資料，包括你的網路活動，以及裝置的位置資訊、通話紀錄和聯絡人搜尋紀錄。<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>如要瞭解詳情 (包括貴機構的隱私權政策)，請與你的管理員聯絡。"</string>
-    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"您必須為裝置設定以密碼保護的螢幕鎖定，才能使用防盜功能。"</string>
-    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"如需詳細資訊 (包括貴機構的隱私權政策)，請與您的管理員聯絡。"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"你必須為裝置設定以密碼保護的螢幕鎖定，才能使用防盜功能。"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"如需詳細資訊 (包括貴機構的隱私權政策)，請與你的管理員聯絡。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"瞭解詳情"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"取消"</string>
     <string name="ok_setup" msgid="4593707675416137504">"確定"</string>
@@ -53,8 +53,8 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"要為這個裝置加密嗎？"</string>
     <string name="encrypt" msgid="1749320161747489212">"加密"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"加密完成"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"輕觸即可繼續設定您的 Work 設定檔"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定您的工作設定檔，請與您的 IT 部門聯絡或稍後再試。"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"輕觸即可繼續設定你的 Work 設定檔"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定你的工作設定檔，請與你的 IT 部門聯絡或稍後再試。"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"無法新增 Work 設定檔"</string>
     <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"這位使用者無法使用 Work 設定檔。如需協助，請與你的管理員聯絡。"</string>
     <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"這位使用者無法使用 Work 設定檔，請與你的管理員聯絡。"</string>
@@ -132,11 +132,11 @@
     <string name="setup_profile" msgid="5573950582159698549">"設定你的設定檔"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"只要使用 Work 設定檔，就能將你的工作資料與個人資料區分開來"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"只要使用 Work 設定檔，就能集中存放你的工作應用程式"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"設定您的設定檔。加密資訊"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"設定您的設定檔。顯示進度"</string>
-    <string name="setup_device" msgid="6725265673245816366">"設定您的裝置"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"設定您的裝置。加密資訊"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"設定您的裝置。顯示進度"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"設定你的設定檔。加密資訊"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"設定你的設定檔。顯示進度"</string>
+    <string name="setup_device" msgid="6725265673245816366">"設定你的裝置"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"設定你的裝置。加密資訊"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"設定你的裝置。顯示進度"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"[瞭解詳情] 按鈕"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"「<xliff:g id="ICON_LABEL">%1$s</xliff:g>」圖示"</string>
     <string name="section_heading" msgid="3924666803774291908">"「<xliff:g id="SECTION_HEADING">%1$s</xliff:g>」專區標題。"</string>
@@ -149,7 +149,7 @@
     <string name="read_terms" msgid="1745011123626640728">"閱讀條款"</string>
     <string name="close_list" msgid="9053538299788717597">"關閉清單"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"要結束設定程序並恢復原廠設定嗎？"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"如果您結束這項設定程序，裝置將恢復原廠設定，而您必須重新進行設定。"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"如果你結束這項設定程序，裝置將恢復原廠設定，而你必須重新進行設定。"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"取消"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"重設裝置"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>和<xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
