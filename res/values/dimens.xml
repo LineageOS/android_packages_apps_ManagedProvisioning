@@ -33,6 +33,7 @@
     <dimen name="dialog_fragment_margin_top_bottom">16dp</dimen>
 
     <!-- Buttons -->
+    <dimen name="button_corner_radius">2dp</dimen>
     <dimen name="button_text_size">14dp</dimen>
 
     <dimen name="row_height">72dp</dimen>

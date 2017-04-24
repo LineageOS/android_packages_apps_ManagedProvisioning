@@ -289,7 +289,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             ProvisionLogger.logi("Next button (next_button) is clicked.");
             mController.continueProvisioningAfterUserConsent();
         });
-        nextButton.setBackgroundColor(customization.buttonColor);
+        nextButton.getBackground().setTint(customization.buttonColor);
         if (mUtils.isBrightColor(customization.buttonColor)) {
             nextButton.setTextColor(getColor(R.color.gray_button_text));
         }
