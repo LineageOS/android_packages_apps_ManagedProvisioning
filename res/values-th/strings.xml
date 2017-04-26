@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"แตะเพื่อตั้งค่าโปรไฟล์งานต่อ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ไม่สามารถตั้งค่าโปรไฟล์งานของคุณได้ โปรดติดต่อฝ่ายไอทีหรือลองอีกครั้งในภายหลัง"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"ไม่สามารถเพิ่มโปรไฟล์งาน"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"ผู้ใช้นี้ไม่สามารถมีโปรไฟล์งาน โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"ผู้ใช้นี้ไม่สามารถมีโปรไฟล์งาน โปรดติดต่อผู้ดูแลระบบ"</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"ไม่สามารถติดตั้งโปรไฟล์งานบนอุปกรณ์ที่มีการจัดการ"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"อุปกรณ์นี้อาจมีผู้ใช้มากเกินไป โปรดนำผู้ใช้ออกแล้วลองอีกครั้ง"</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"เปลี่ยน Launcher ของอุปกรณ์"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"โปรไฟล์งานของคุณไม่สามารถใช้แอป Launcher นี้"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ยกเลิก"</string>

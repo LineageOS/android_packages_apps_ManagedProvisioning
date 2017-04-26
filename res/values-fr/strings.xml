@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Appuyez pour continuer la configuration de votre profil professionnel."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Impossible de configurer votre profil professionnel. Contactez votre service informatique, ou réessayez plus tard."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Impossible d\'ajouter un profil professionnel"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"Cet utilisateur ne peut pas se servir d\'un profil professionnel. Contactez votre administrateur pour obtenir de l\'aide."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"Cet utilisateur ne peut pas se servir d\'un profil professionnel. Contactez votre administrateur."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"Impossible de configurer des profils professionnels sur un appareil géré."</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"Trop de personnes utilisent peut-être déjà cet appareil. Supprimez un compte utilisateur, puis réessayez."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"Changer le lanceur d\'applications de l\'appareil"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Impossible d\'utiliser ce lanceur d\'applications avec votre profil professionnel"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annuler"</string>
