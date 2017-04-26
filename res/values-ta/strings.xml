@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, தட்டவும்"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"பணி விவரத்தைச் சேர்க்க முடியாது"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"இந்தப் பயனருக்குப் பணி விவரத்தை உருவாக்க முடியாது. உதவிக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"இந்தப் பயனருக்குப் பணி விவரங்களை உருவாக்க முடியாது. நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"நிர்வகிக்கப்படும் சாதனத்தில் பணி சுயவிவரங்களை அமைக்க முடியாது"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"இந்தச் சாதனத்தில் அதிகப்படியான பயனர்கள் இருக்கலாம். ஒரு பயனரை அகற்றி, மீண்டும் முயலவும்."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"சாதனத் துவக்கியை மாற்றவும்"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"உங்கள் பணி விவரத்தில் இந்தத் துவக்கிப் பயன்பாட்டைப் பயன்படுத்த முடியாது"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ரத்துசெய்"</string>

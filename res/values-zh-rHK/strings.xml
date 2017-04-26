@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"輕按即可繼續設定工作設定檔"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定您的公司檔案，請與您的 IT 部門聯絡或稍後再試。"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"無法加入工作設定檔"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"此使用者無法建立工作設定檔。如需協助，請聯絡您的管理員。"</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"此使用者無法建立工作設定檔。請聯絡您的管理員。"</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"受管理的裝置無法設定公司檔案"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"此裝置的使用者可能過多。請移除使用者，然後再試一次。"</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"變更裝置啟動器"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"您的工作設定檔無法使用這個啟動器應用程式"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>

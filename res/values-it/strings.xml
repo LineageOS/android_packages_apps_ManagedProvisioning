@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tocca per continuare a configurare il profilo di lavoro"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Impossibile impostare il tuo profilo di lavoro. Contatta il tuo reparto IT oppure riprova in un secondo momento."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Impossibile aggiungere il profilo di lavoro"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"Questo utente non può avere un profilo di lavoro. Per assistenza, contatta l\'amministratore."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"Questo utente non può avere profili di lavoro. Contatta l\'amministratore."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"I profili di lavoro non possono essere configurati su un dispositivo gestito"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"È possibile che sul dispositivo siano configurati troppi utenti. Rimuovi un utente e riprova."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"Cambia Avvio applicazioni del dispositivo"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Questa app Avvio applicazioni non supporta il tuo profilo di lavoro"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annulla"</string>

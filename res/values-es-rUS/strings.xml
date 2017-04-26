@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Presiona para seguir configurando tu perfil de trabajo"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No se pudo configurar el perfil de trabajo. Comunícate con el Departamento de TI o vuelve a intentarlo más tarde."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"No se puede agregar el perfil de trabajo"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"Este usuario no puede tener un perfil de trabajo. Para obtener ayuda, comunícate con tu administrador."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"Este usuario no puede tener perfiles de trabajo. Comunícate con tu administrador."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"Los perfiles de trabajo no se pueden configurar en un dispositivo administrado."</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"Hay demasiados usuarios en este dispositivo. Quita un usuario y vuelve a intentarlo."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"Cambia el selector de dispositivos"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Esta app de Launcher no se puede usar en tu perfil de trabajo"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Cancelar"</string>
@@ -72,7 +72,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Descargando la aplicación de administración…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalando la aplicación de administración…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Quitando apps del sistema no necesarias…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Realizando los últimos ajustes…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Últimos retoques…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Configurando propietario del dispositivo…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Iniciando dispositivo…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"Este dispositivo no permite la encriptación, que es necesaria para la configuración. Para obtener ayuda, comunícate con tu administrador."</string>

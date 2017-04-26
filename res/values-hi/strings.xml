@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"अपनी कार्य प्रोफ़ाइल सेट करना जारी रखने के लिए टैप करें"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपकी कार्य प्रोफ़ाइल सेट नहीं की जा सकी. अपने IT विभाग से संपर्क करें या बाद में पुन: प्रयास करें."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफ़ाइल जोड़ी नहीं जा सकती"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"इस उपयोगकर्ता की कार्य प्रोफ़ाइल नहीं हो सकती. सहायता के लिए, अपने व्यवस्थापक से संपर्क करें."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"इस उपयोगकर्ता की कार्य प्रोफ़ाइल नहीं हो सकतीं. अपने व्यवस्थापक से संपर्क करें."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"कार्य प्रोफ़ाइल किसी प्रबंधित डिवाइस पर सेटअप नहीं की जा सकतीं"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"इस डिवाइस पर शायद बहुत से उपयोगकर्ता हैं. किसी उपयोगकर्ता को निकालें, फिर दोबारा कोशिश करें."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"डिवाइस लॉन्चर बदलें"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"आपकी कार्य प्रोफ़ाइल इस लॉन्चर ऐप्लिकेशन का उपयोग नहीं कर सकती"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"अभी नहीं"</string>

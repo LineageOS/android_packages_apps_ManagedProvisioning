@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Краніце, каб працягнуць наладжванне рабочага профілю"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Не атрымалася наладзіць ваш працоўны профіль. Звярніцеся ў аддзел ІТ або паўтарыце спробу пазней."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Немагчыма дадаць працоўны профіль"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"Гэты карыстальнік не можа мець працоўны профіль. Звярніцеся да адміністратара па дапамогу."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"Гэты карыстальнік не можа мець працоўныя профілі. Звярніцеся да адміністратара."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"Працоўныя профілі нельга наладзіць на кіраванай прыладзе"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"На гэтай прыладзе можа быць занадта шмат карыстальнікаў. Выдаліце карыстальніка і паўтарыце спробу."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"Змяніце праграму запуску на прыладзе"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Гэту праграму запуску немагчыма выкарыстоўваць у вашым працоўным профілі"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Скасаваць"</string>
