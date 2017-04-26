@@ -72,7 +72,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Descargando la aplicación de administración…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalando la aplicación de administración…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Quitando apps del sistema no necesarias…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Realizando los últimos ajustes…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Últimos retoques…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Configurando propietario del dispositivo…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Iniciando dispositivo…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"Este dispositivo no permite la encriptación, que es necesaria para la configuración. Para obtener ayuda, comunícate con tu administrador."</string>

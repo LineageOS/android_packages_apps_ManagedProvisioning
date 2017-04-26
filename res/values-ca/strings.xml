@@ -72,7 +72,7 @@
     <string name="progress_download" msgid="3522436271691064624">"S\'està baixant l\'aplicació d\'administració..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Instal·lant l\'aplicació d\'administració..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Suprimint aplic. del sistema no obligatòries…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"S\'estan afegint els últims detalls…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Estem afegint els últims retocs…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Definint el propietari del dispositiu..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"El dispositiu s\'està inicialitzant…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"Aquest dispositiu no permet l\'encriptació, necessària per a la configuració. Contacta amb l\'administrador per obtenir ajuda."</string>
