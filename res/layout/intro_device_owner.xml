@@ -23,8 +23,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_marginLeft="@dimen/spacer_40"
-        android:layout_marginRight="@dimen/spacer_40"
+        android:layout_marginLeft="?attr/suwMarginSides"
+        android:layout_marginRight="?attr/suwMarginSides"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacer_24"
-            style="@style/Provisioning2Theme.Text.Secondary"/>
+            style="@style/Provisioning2Theme.Text.Primary"/>
 
         <TextView
             android:id="@+id/device_owner_provider_info"

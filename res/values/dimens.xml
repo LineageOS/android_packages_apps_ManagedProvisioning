@@ -74,4 +74,5 @@
     <dimen name="intro_button_width">208dp</dimen>
     <dimen name="intro_button_height">36dp</dimen>
     <dimen name="case_icon_size">32dp</dimen>
+    <dimen name="intro_margin">24dp</dimen>
 </resources>
