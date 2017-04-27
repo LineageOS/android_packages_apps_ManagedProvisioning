@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಸೇರಿಸಲಾಗುತ್ತಿಲ್ಲ"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"ಈ ಬಳಕೆದಾರರು ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿರುವಂತಿಲ್ಲ.ಸಹಾಯಕ್ಕಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"ಈ ಬಳಕೆದಾರರು ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಹೊಂದುವಂತಿಲ್ಲ. ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"ನಿರ್ವಹಿಸಿದ ಸಾಧನದಲ್ಲಿ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"ಈ ಸಾಧನದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬಳಕೆದಾರರು ಇರುವಂತೆ ಕಾಣಿಸುತ್ತಿದೆ. ಓರ್ವ ಬಳಕೆದಾರರನ್ನು ತೆಗೆದುಹಾಕಿ, ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"ಸಾಧನದ ಲಾಂಚರ್ ಬದಲಾಯಿಸಿ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ಈ ಲಾಂಚರ್ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಬಳಸಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ರದ್ದುಮಾಡಿ"</string>

@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"点按即可继续设置您的工作资料"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"无法设置您的工作资料，请与您公司的IT部门联系或稍后重试。"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"无法添加工作资料"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"此用户无法使用工作资料。如需帮助，请与您的管理员联系。"</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"此用户无法使用工作资料。请与您的管理员联系。"</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"无法在受管理的设备上设置工作资料"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"此设备上的用户可能太多。请移除一个用户，然后重试。"</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"请更改设备启动器"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"此启动器应用不能用于您的工作资料"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>

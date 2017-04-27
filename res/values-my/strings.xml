@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"သင့်အလုပ်ပရိုဖိုင်ကို ရှေ့ဆက်စနစ်ထည့်သွင်းမှု ပြုလုပ်ရန် တို့ပါ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ် မရခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ သို့မဟုတ် နောက်မှာ ထပ်စမ်းပါ။"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"အလုပ်ပရိုဖိုင်ကို ထည့်၍မရပါ"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"ဤအသုံးပြုသူအတွက် အလုပ်ပရိုဖိုင်ပြုလုပ်၍မရပါ။ အကူအညီရယူရန် သင်၏ စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"ဤအသုံးပြုသူအတွက် အလုပ်ပရိုဖိုင်ပြုလုပ်၍မရပါ။ သင်၏ စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"စီမံထားသော စက်ကိရိယာတစ်ခုတွင် အလုပ်ပရိုဖိုင်များ ပြင်ဆင်သတ်မှတ်နိုင်ခြင်း မရှိပါ"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"ဤစက်ပစ္စည်းတွင် အသုံးပြုသူ အလွန်များနေသောကြောင့် ဖြစ်နိုင်ပါသည်။ အသုံးပြုသူတစ်ဦးကို ဖယ်ရှားပြီး ထပ်လုပ်ကြည့်ပါ။"</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"စက်ပစ္စည်း launcher ကို ပြောင်းပါ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ဤ launcher အက်ပ်ကို သင်၏ အလုပ်ပရိုဖိုင်အတွက် အသုံးပြု၍မရပါ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"မလုပ်တော့"</string>

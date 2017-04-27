@@ -56,10 +56,10 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"আপনার কর্মস্থলের প্রোফাইল সেট আপ করা অব্যাহত রাখতে আলতো চাপ দিন"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"আপনার কর্মস্থলের প্রোফাইলটি সেটআপ করা যায়নি। আপনার IT বিভাগের সাথে যোগাযোগ করুন অথবা পরে আবার চেষ্টা করুন।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"কর্মস্থলের প্রোফাইল যোগ করা যাবে না"</string>
-    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"এই ব্যবহারকারী কর্মস্থলের প্রোফাইল তৈরি করতে পারবেন না৷ সহায়তার জন্য প্রশাসকের সাথে যোগাযোগ করুন।"</string>
-    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"এই ব্যবহারকারী কর্মস্থলের প্রোফাইল তৈরি করতে পারবেন না৷ প্রশাসকের সাথে যোগাযোগ করুন।"</string>
-    <string name="device_owner_exists" msgid="8020080296133337023">"কাজের প্রোফাইলগুলি একটি পরিচালিত ডিভাইসে সেটআপ করা যাবে না"</string>
-    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"মনে হচ্ছে এই ডিভাইসের ব্যবহারকারীর সংখ্য খুব বেশি। একজন ব্যবহারকারীকে সরিয়ে আবার চেষ্টা করুন।"</string>
+    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
+    <skip />
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"ডিভাইস লঞ্চার পরিবর্তন করুন"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"আপনার কর্মস্থলের প্রোফাইল থেকে এই লঞ্চার অ্যাপটি ব্যবহার করা যাবে না"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"বাতিল করুন"</string>
