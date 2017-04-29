@@ -81,7 +81,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"စဖွင့်စီစဉ်မှုအား ရပ်စဲကာ သင့် ကိရိယာ၏ဒေတာကို ဖျက်ပစ်မည်လား?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"မလုပ်တော့"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"အိုကေ"</string>
-    <string name="reset" msgid="6467204151306265796">"ပြင်ဆင်သတ်မှတ်ရန်"</string>
+    <string name="reset" msgid="6467204151306265796">"ပြန်သတ်မှတ်ရန်"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ပရိုဖိုင်ကို စနစ်ထည့်သွင်း၍ မရပါ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်း၍ မရပါ"</string>
     <string name="couldnt_set_up_device" msgid="60699158233724802">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်း၍ မရပါ။ အကူအညီရယူရန် သင်၏စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>

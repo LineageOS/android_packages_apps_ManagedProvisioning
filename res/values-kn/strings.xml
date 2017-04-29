@@ -102,7 +102,7 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ಪ್ರೊಫೈಲ್ ಸೆಟಪ್ ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಸಾಧನ ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಆನಂತರ  ಹೊಂದಿಸಬಹುದು"</string>
     <string name="continue_button" msgid="7177918589510964446">"ಮುಂದುವರಿಸಿ"</string>
-    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸು"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸಿ"</string>
     <string name="dismiss" msgid="9009534756748565880">"ವಜಾಗೊಳಿಸಿ"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"ನೀವು ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಒಂದನ್ನು ರಚಿಸುತ್ತಿದ್ದೀರಿ. ಅದನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿರ್ವಹಿಸುತ್ತದೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ. ನಿಯಮಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"ನೀವು ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಒಂದನ್ನು ರಚಿಸುತ್ತಿದ್ದೀರಿ. ಅದನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿರ್ವಹಿಸುತ್ತದೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ನ ನಿಯಮಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."</string>

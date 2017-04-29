@@ -53,7 +53,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Cihaz şifrelensin mi?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Şifrele"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Şifreleme tamamlandı"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"İş profilinizi kurmaya devam etmek için hafifçe dokunun"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"İş profilinizi kurmaya devam etmek için dokunun"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"İş profiliniz ayarlanamadı. BT bölümünüze başvurun veya daha sonra tekrar deneyin."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"İş profili eklenemiyor"</string>
     <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"Bu kullanıcının bir iş profili olamaz. Yardım için yöneticinize başvurun."</string>

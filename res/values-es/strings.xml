@@ -72,7 +72,7 @@
     <string name="progress_download" msgid="3522436271691064624">"Descargando aplicación de administración…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalando aplicación de administración…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Quitando aplicaciones del sistema innecesarias…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Añadiendo los últimos retoques…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Dando los últimos retoques…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Estableciendo propietario del dispositivo…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Inicializando el dispositivo…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"Este dispositivo no admite el cifrado, que es necesario para la configuración. Para obtener ayuda, ponte en contacto con el administrador."</string>
@@ -103,7 +103,7 @@
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Puedes configurar tu perfil de trabajo más tarde con la aplicación de administración de dispositivos de tu organización"</string>
     <string name="continue_button" msgid="7177918589510964446">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Detener"</string>
-    <string name="dismiss" msgid="9009534756748565880">"Ignorar"</string>
+    <string name="dismiss" msgid="9009534756748565880">"Descartar"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"Estás a punto de crear un perfil de trabajo que gestionará y supervisará tu organización. Se aplicarán condiciones."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Estás a punto de crear un perfil de trabajo que gestionará y supervisará tu organización. Se aplicarán las condiciones de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Se creará un perfil para tus aplicaciones de trabajo. Tu organización gestionará y supervisará este perfil y el resto de tu dispositivo. Se aplicarán condiciones."</string>
