@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Dodirnite da biste nastavili sa podešavanjem profila za Work"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nije moguće podesiti profil za posao. Kontaktirajte IT sektor ili pokušajte ponovo kasnije."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Dodavanje profila za Work nije uspelo"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Zamena ili uklanjanje profila za Work nisu uspeli"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Dodavanje profila za Work na ovaj uređaj nije uspelo. Ako imate pitanja, kontaktirajte administratora."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Promenite pokretač za uređaj"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Ova aplikacija pokretača ne može da se koristi preko profila za Work"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Otkaži"</string>

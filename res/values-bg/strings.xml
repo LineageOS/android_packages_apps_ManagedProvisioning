@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Докоснете, за да продължите с настройването на служебния си потребителски профил"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Служебният ви потребителски профил не можа да се настрои. Свържете се с отдела си за информационни технологии или опитайте отново по-късно."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Служебният потребителски профил не може да се добави"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Служебният потребителски профил не може да бъде заменен или премахнат"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Не можете да добавите служебен потребителски профил към това устройство. Ако имате въпроси, свържете се с администратора си."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Промяна на стартовия панел на устройството"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Това приложение за стартов панел не може да се използва от служебния ви потребителски профил"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Отказ"</string>
