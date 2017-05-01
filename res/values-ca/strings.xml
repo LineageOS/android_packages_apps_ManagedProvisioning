@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Toca per continuar configurant el perfil professional"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"No s\'ha pogut configurar el perfil professional. Contacta amb el departament de TI o prova-ho més tard."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"No es pot afegir un perfil professional"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"No es pot substituir ni suprimir el perfil professional"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"No es pot afegir un perfil professional a aquest dispositiu. Si tens qualsevol pregunta, contacta amb l\'administrador."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Canvia el menú d\'aplicacions del dispositiu"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"El teu perfil professional no pot fer servir aquesta aplicació de menú d\'aplicacions"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Cancel·la"</string>

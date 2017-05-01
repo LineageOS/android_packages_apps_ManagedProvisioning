@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸುವುದನ್ನು ಮುಂದುವರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ IT ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಸೇರಿಸಲಾಗುತ್ತಿಲ್ಲ"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"ಉದ್ಯೋಗದ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ಬದಲಾಯಿಸಲು ಅಥವಾ ತೆಗೆದುಹಾಕಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"ಉದ್ಯೋಗದ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ಈ ಸಾಧನಕ್ಕೆ ಸೇರಿಸಲಾಗುವುದಿಲ್ಲ. ನಿಮ್ಮಲ್ಲಿ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿದ್ದರೆ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"ಸಾಧನದ ಲಾಂಚರ್ ಬದಲಾಯಿಸಿ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ಈ ಲಾಂಚರ್ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಬಳಸಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ರದ್ದುಮಾಡಿ"</string>
@@ -102,7 +100,7 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ಪ್ರೊಫೈಲ್ ಸೆಟಪ್ ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಸಾಧನ ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಆನಂತರ  ಹೊಂದಿಸಬಹುದು"</string>
     <string name="continue_button" msgid="7177918589510964446">"ಮುಂದುವರಿಸಿ"</string>
-    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸು"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸಿ"</string>
     <string name="dismiss" msgid="9009534756748565880">"ವಜಾಗೊಳಿಸಿ"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"ನೀವು ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಒಂದನ್ನು ರಚಿಸುತ್ತಿದ್ದೀರಿ. ಅದನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿರ್ವಹಿಸುತ್ತದೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ. ನಿಯಮಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"ನೀವು ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಒಂದನ್ನು ರಚಿಸುತ್ತಿದ್ದೀರಿ. ಅದನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿರ್ವಹಿಸುತ್ತದೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ನ ನಿಯಮಗಳು ಅನ್ವಯಿಸುತ್ತವೆ."</string>

@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ඔබගේ කාර්යාල පැතිකඩ පිහිටුවීම දිගටම කරගෙන යාමට තට්ටු කරන්න"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ඔබගේ කාර්යාල පැතිකඩ සැකසීමට නොහැකි විය. ඔබගේ IT අංශය සම්බන්ධ කර ගන්න හෝ පසුව නැවත උත්සාහ කරන්න."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"කාර්යාල පැතිකඩ එකතු කිරීමට නොහැක"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"කාර්ය පැතිකඩ ප්‍රතිස්ථාපනය කිරීමට හෝ ඉවත් කිරීමට නොහැකිය"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"මෙම උපාංගයට කාර්ය පැතිකඩක් එක් කළ නොහැකිය. ඔබට ගැටලු තිබේ නම්, ඔබගේ පරිපාලක අමතන්න."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"උපාංග දියත්කරණය වෙනස් කරන්න"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"මෙම දියත්කරණය යෙදුම ඔබගේ කාර්යාල පැතිකඩ මඟින් භාවිතා කිරීමට නොහැක"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"අවලංගු කරන්න"</string>

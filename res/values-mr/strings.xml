@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी टॅप करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफाइल जोडू शकत नाही"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"कामाची प्रोफाइल बदलू किंवा काढू शकत नाही"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"कामाची प्रोफाइल या डिव्हाइसशी जोडू शकत नाही. तुम्हाला काही प्रश्न असल्यास, तुमच्या प्रशासकाशी संपर्क साधा."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"डिव्हाइस लाँचर बदला"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"हे लाँचर अ‍ॅप आपल्या कार्य प्रोफाइलद्वारे वापरले जाऊ शकत नाही"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द करा"</string>
