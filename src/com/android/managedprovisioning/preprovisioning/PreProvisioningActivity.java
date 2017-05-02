@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -40,11 +41,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
@@ -58,7 +58,6 @@ import com.android.managedprovisioning.preprovisioning.anim.ColorMatcher;
 import com.android.managedprovisioning.preprovisioning.anim.SwiperThemeMatcher;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -289,7 +288,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             ProvisionLogger.logi("Next button (next_button) is clicked.");
             mController.continueProvisioningAfterUserConsent();
         });
-        nextButton.getBackground().setTint(customization.buttonColor);
+        nextButton.setBackgroundTintList(ColorStateList.valueOf(customization.buttonColor));
         if (mUtils.isBrightColor(customization.buttonColor)) {
             nextButton.setTextColor(getColor(R.color.gray_button_text));
         }
