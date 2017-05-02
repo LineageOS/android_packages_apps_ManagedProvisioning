@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Touchez ici pour continuer la configuration de votre profil professionnel"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Impossible de configurer votre profil professionnel. Communiquez avec votre service informatique, ou réessayez plus tard."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Impossible d\'ajouter le profil professionnel"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Impossible de remplacer ou de supprimer le profil professionnel"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Impossible d\'ajouter un profil professionnel à cet appareil. Si vous avez des questions, communiquez avec votre administrateur."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Changer le lanceur d\'applications de l\'appareil"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Impossible d\'utiliser ce lanceur d\'applications avec votre profil professionnel"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annuler"</string>

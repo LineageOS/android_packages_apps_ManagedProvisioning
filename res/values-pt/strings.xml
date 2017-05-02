@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Toque para continuar a configuração do seu perfil de trabalho"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Não foi possível configurar seu perfil de trabalho. Entre em contato com o departamento de TI ou tente novamente mais tarde."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Não é possível adicionar um perfil de trabalho"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Não foi possível substituir ou remover o perfil de trabalho"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Não é possível adicionar um perfil de trabalho a esse dispositivo. Se você tem perguntas, entre em contato com seu administrador."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Alterar tela de início do dispositivo"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Não é possível usar este app da tela de início em seu perfil de trabalho"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Cancelar"</string>

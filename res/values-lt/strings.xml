@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Palieskite, kad galėtumėte tęsti darbo profilio sąranką"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nepavyko nustatyti jūsų darbo profilio. Susisiekite su IT skyriumi arba vėliau bandykite dar kartą."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Negalima pridėti darbo profilio"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Negalima pakeisti ar pašalinti darbo profilio"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Darbo profilio negalima pridėti prie šio įrenginio. Jei turite klausimų, susisiekite su administratoriumi."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Pakeiskite įrenginio paleidimo priemonę"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Šios paleidimo priemonės programos negalima naudoti darbo profilyje"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Atšaukti"</string>

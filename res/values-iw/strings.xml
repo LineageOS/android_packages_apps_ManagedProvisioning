@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"הקש כדי להמשיך בהגדרת פרופיל העבודה שלך"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏לא ניתן להגדיר את פרופיל העבודה שלך. צור קשר עם מחלקת ה-IT או נסה שוב מאוחר יותר."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"לא ניתן להוסיף פרופיל עבודה"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"לא ניתן להחליף או להסיר את פרופיל העבודה"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"לא ניתן להוסיף פרופיל עבודה למכשיר הזה. אם יש לך שאלות, פנה למנהל המערכת."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"שנה את מפעיל האפליקציות במכשיר"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"פרופיל העבודה שלך לא יכול להשתמש במפעיל האפליקציות הזה"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"בטל"</string>

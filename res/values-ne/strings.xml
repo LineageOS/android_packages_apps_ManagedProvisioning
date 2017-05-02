@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तपाईंको कार्य प्रोफाइल स्थापना जारी राख्न  ट्याप गर्नुहोस्"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफाइल थप्न सकिँदैन"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"कार्य प्रोफाइललाई प्रतिस्थापन गर्न वा हटाउन सकिँदैन"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"यस यन्त्रमा कुनै कार्य प्रोफाइल थप्न सकिँदैन। तपाईंका कुनै प्रश्न भएमा, आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"यन्त्रको लन्चर बदल्नुहोस्"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"तपाईंको कार्य प्रोफाइलले यो लन्चर अनुप्रयोग प्रयोग गर्न सक्दैन"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द गर्नुहोस्"</string>

@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Πατήστε για να συνεχίσετε τη ρύθμιση του προφίλ εργασίας σας"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Δεν ήταν δυνατή η ρύθμιση του προφίλ εργασίας σας. Επικοινωνήστε με το τμήμα πληροφορικής υποστήριξης ή δοκιμάστε ξανά αργότερα."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Η προσθήκη προφίλ εργασίας δεν είναι δυνατή"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Δεν είναι δυνατή η αντικατάσταση ή η κατάργηση του προφίλ εργασίας"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Δεν είναι δυνατή η προσθήκη ενός προφίλ εργασίας σε αυτήν τη συσκευή. Εάν έχετε απορίες, επικοινωνήστε με τον διαχειριστή σας."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Αλλάξτε την εφαρμογή εκκίνησης συσκευής"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Αυτή η εφαρμογή εκκίνησης δεν μπορεί να χρησιμοποιηθεί από το προφίλ εργασίας σας"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Ακύρωση"</string>

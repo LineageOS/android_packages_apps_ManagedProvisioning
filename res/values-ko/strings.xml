@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"계속해서 직장 프로필을 설정하려면 탭하세요."</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"직장 프로필을 설정할 수 없습니다. IT 부서에 문의하거나 나중에 다시 시도해 주시기 바랍니다."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"직장 프로필을 추가할 수 없습니다."</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"직장 프로필을 교체하거나 삭제할 수 없음"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"이 기기에는 직장 프로필을 추가할 수 없습니다. 질문이 있는 경우 관리자에게 문의하세요."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"기기 런처를 변경하세요."</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"이 런처 앱은 직장 프로필에서 사용될 수 없습니다."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"취소"</string>

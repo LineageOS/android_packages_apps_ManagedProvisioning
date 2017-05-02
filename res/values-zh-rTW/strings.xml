@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"輕觸即可繼續設定你的 Work 設定檔"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"無法設定你的工作設定檔，請與你的 IT 部門聯絡或稍後再試。"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"無法新增 Work 設定檔"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"無法取代或移除 Work 設定檔"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"無法在這個裝置上新增 Work 設定檔。如有任何問題，請與管理員聯絡。"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"請變更裝置啟動器"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"這個啟動器應用程式不支援 Work 設定檔"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>
