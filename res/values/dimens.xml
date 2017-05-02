@@ -33,6 +33,7 @@
     <dimen name="dialog_fragment_margin_top_bottom">16dp</dimen>
 
     <!-- Buttons -->
+    <dimen name="button_corner_radius">2dp</dimen>
     <dimen name="button_text_size">14dp</dimen>
 
     <dimen name="row_height">72dp</dimen>
@@ -73,4 +74,5 @@
     <dimen name="intro_button_width">208dp</dimen>
     <dimen name="intro_button_height">36dp</dimen>
     <dimen name="case_icon_size">32dp</dimen>
+    <dimen name="intro_margin">24dp</dimen>
 </resources>

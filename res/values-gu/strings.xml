@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"તમારી કાર્ય પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે ટૅપ કરો"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"તમારી કાર્ય પ્રોફાઇલ સેટ કરી શકાઈ નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો અથવા પછી ફરીથી પ્રયાસ કરો."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"કાર્ય પ્રોફાઇલ ઉમેરી શકતા નથી"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"કાર્ય પ્રોફાઇલને બદલી અથવા દૂર કરી શકાતી નથી"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"આ ઉપકરણમાં કાર્ય પ્રોફાઇલ ઉમેરી શકાતી નથી. જો તમને કોઈ પ્રશ્ન હોય, તો તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"ઉપકરણ લોન્ચર બદલો"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"તમારી કાર્ય પ્રોફાઇલ દ્વારા આ લોન્ચર ઍપ્લિકેશનનો ઉપયોગ કરી શકાશે નહીં"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"રદ કરો"</string>

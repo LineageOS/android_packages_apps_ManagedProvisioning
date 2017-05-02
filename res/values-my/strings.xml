@@ -56,10 +56,8 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"သင့်အလုပ်ပရိုဖိုင်ကို ရှေ့ဆက်စနစ်ထည့်သွင်းမှု ပြုလုပ်ရန် တို့ပါ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"သင်၏ အလုပ် ပရိုဖိုင်ကို စဖွင့်စီစဉ် မရခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ သို့မဟုတ် နောက်မှာ ထပ်စမ်းပါ။"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"အလုပ်ပရိုဖိုင်ကို ထည့်၍မရပါ"</string>
-    <!-- no translation found for cant_replace_or_remove_work_profile (7861054306792698290) -->
-    <skip />
-    <!-- no translation found for work_profile_cant_be_added_contact_admin (4740182491195894659) -->
-    <skip />
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"အလုပ်ပရိုဖိုင်ကို အစားထိုး သို့မဟုတ် ဖယ်ရှား ၍မရပါ"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"အလုပ်ပရိုဖိုင်ကို ဤစက်ပစ္စည်းသို့ ထည့်သွင်း၍မရပါ။ မေးမြန်းစရာများရှိပါက စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"စက်ပစ္စည်း launcher ကို ပြောင်းပါ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ဤ launcher အက်ပ်ကို သင်၏ အလုပ်ပရိုဖိုင်အတွက် အသုံးပြု၍မရပါ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"မလုပ်တော့"</string>
@@ -81,7 +79,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"စဖွင့်စီစဉ်မှုအား ရပ်စဲကာ သင့် ကိရိယာ၏ဒေတာကို ဖျက်ပစ်မည်လား?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"မလုပ်တော့"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"အိုကေ"</string>
-    <string name="reset" msgid="6467204151306265796">"ပြင်ဆင်သတ်မှတ်ရန်"</string>
+    <string name="reset" msgid="6467204151306265796">"ပြန်သတ်မှတ်ရန်"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ပရိုဖိုင်ကို စနစ်ထည့်သွင်း၍ မရပါ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်း၍ မရပါ"</string>
     <string name="couldnt_set_up_device" msgid="60699158233724802">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်း၍ မရပါ။ အကူအညီရယူရန် သင်၏စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
