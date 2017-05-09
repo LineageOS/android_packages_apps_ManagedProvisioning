@@ -35,7 +35,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"למידע נוסף"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ביטול"</string>
     <string name="ok_setup" msgid="4593707675416137504">"אישור"</string>
-    <string name="user_consent_msg" msgid="8820951802130353584">"אני מסכים"</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"אני מסכים/ה"</string>
     <string name="url_error" msgid="5958494012986243186">"לא ניתן להציג את הקישור."</string>
     <string name="terms" msgid="8295436105384703903">"תנאים"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"הפרטים של פרופיל העבודה"</string>
