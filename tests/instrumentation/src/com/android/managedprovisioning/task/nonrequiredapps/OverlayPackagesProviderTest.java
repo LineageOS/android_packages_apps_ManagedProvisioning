@@ -19,6 +19,7 @@ package com.android.managedprovisioning.task.nonrequiredapps;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -41,6 +42,7 @@ import android.view.inputmethod.InputMethodInfo;
 
 import com.android.internal.view.IInputMethodManager;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -241,66 +243,51 @@ public class OverlayPackagesProviderTest {
     }
 
     private void setRequiredAppsManagedDevice(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_device,
-                apps);
+        setStringArray(R.array.required_apps_managed_device, apps);
     }
 
     private void setVendorRequiredAppsManagedDevice(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_device,
-                apps);
+        setStringArray(R.array.vendor_required_apps_managed_device, apps);
     }
 
     private void setDisallowedAppsManagedDevice(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_device,
-                apps);
+        setStringArray(R.array.disallowed_apps_managed_device, apps);
     }
 
     private void setVendorDisallowedAppsManagedDevice(String... apps) {
-        setStringArray(
-                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_device,
-                apps);
+        setStringArray(R.array.vendor_disallowed_apps_managed_device, apps);
     }
 
     private void setRequiredAppsManagedProfile(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_profile,
-                apps);
+        setStringArray(R.array.required_apps_managed_profile, apps);
     }
 
     private void setVendorRequiredAppsManagedProfile(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_profile,
-                apps);
+        setStringArray(R.array.vendor_required_apps_managed_profile, apps);
     }
 
     private void setDisallowedAppsManagedProfile(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_profile,
-                apps);
+        setStringArray(R.array.disallowed_apps_managed_profile, apps);
     }
 
     private void setVendorDisallowedAppsManagedProfile(String... apps) {
-        setStringArray(
-                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_profile,
-                apps);
+        setStringArray(R.array.vendor_disallowed_apps_managed_profile, apps);
     }
 
     private void setRequiredAppsManagedUser(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_user,
-                apps);
+        setStringArray(R.array.required_apps_managed_user, apps);
     }
 
     private void setVendorRequiredAppsManagedUser(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_user,
-                apps);
+        setStringArray(R.array.vendor_required_apps_managed_user, apps);
     }
 
     private void setDisallowedAppsManagedUser(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_user,
-                apps);
+        setStringArray(R.array.disallowed_apps_managed_user, apps);
     }
 
     private void setVendorDisallowedAppsManagedUser(String... apps) {
-        setStringArray(
-                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_user,
-                apps);
+        setStringArray(R.array.vendor_disallowed_apps_managed_user, apps);
     }
 
     private void setStringArray(int resourceId, String[] strs) {
@@ -364,7 +351,7 @@ public class OverlayPackagesProviderTest {
                 ActivityInfo ai = new ActivityInfo();
                 ai.packageName = packageName;
                 ResolveInfo ri = new ResolveInfo();
-                ri.activityInfo  = ai;
+                ri.activityInfo = ai;
                 result.add(ri);
             }
             return result;
