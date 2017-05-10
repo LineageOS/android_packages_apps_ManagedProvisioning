@@ -63,6 +63,7 @@ public class OverlayPackagesProviderTest {
     private @Mock Resources mResources;
     private @Mock IInputMethodManager mIInputMethodManager;
     private @Mock Context mTestContext;
+    private Resources mRealResources;
 
     private FakePackageManager mPackageManager;
     private String[] mSystemAppsWithLauncher;
@@ -90,6 +91,8 @@ public class OverlayPackagesProviderTest {
         setVendorRequiredAppsManagedUser();
         setDisallowedAppsManagedUser();
         setVendorDisallowedAppsManagedUser();
+
+        mRealResources = InstrumentationRegistry.getTargetContext().getResources();
     }
 
     @Test
@@ -227,6 +230,53 @@ public class OverlayPackagesProviderTest {
 
         buildHelper(ACTION_PROVISION_MANAGED_PROFILE, false);
         verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
+    @Test
+    public void testNotRequiredAndDisallowedInResManagedDevice() {
+        verifyEmptyIntersection(R.array.required_apps_managed_device,
+                                R.array.disallowed_apps_managed_device);
+    }
+
+    @Test
+    public void testNotRequiredAndDisallowedInResManagedUser() {
+        verifyEmptyIntersection(R.array.required_apps_managed_user,
+                                R.array.disallowed_apps_managed_user);
+    }
+
+    @Test
+    public void testNotRequiredAndDisallowedInResManagedProfile() {
+        verifyEmptyIntersection(R.array.required_apps_managed_profile,
+                                R.array.disallowed_apps_managed_profile);
+    }
+
+    @Test
+    public void testNotRequiredAndDisallowedInResManagedDeviceVendor() {
+        verifyEmptyIntersection(R.array.vendor_required_apps_managed_device,
+                                R.array.vendor_disallowed_apps_managed_device);
+    }
+
+    @Test
+    public void testNotRequiredAndDisallowedInResManagedUserVendor() {
+        verifyEmptyIntersection(R.array.vendor_required_apps_managed_user,
+                                R.array.vendor_disallowed_apps_managed_user);
+    }
+
+    @Test
+    public void testNotRequiredAndDisallowedInResManagedProfileVendor() {
+        verifyEmptyIntersection(R.array.vendor_required_apps_managed_profile,
+                                R.array.vendor_disallowed_apps_managed_profile);
+    }
+
+    private ArrayList<String> getStringArrayInRealResources(int id) {
+        return new ArrayList<>(Arrays.asList(mRealResources.getStringArray(id)));
+    }
+
+    private void verifyEmptyIntersection(int requiredId, int disallowedId) {
+        ArrayList<String> required = getStringArrayInRealResources(requiredId);
+        ArrayList<String> disallowed = getStringArrayInRealResources(disallowedId);
+        required.retainAll(disallowed);
+        assertTrue(required.isEmpty());
     }
 
     private void verifyAppsAreNonRequired(String... appArray) {
