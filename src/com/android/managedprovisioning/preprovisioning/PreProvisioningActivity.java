@@ -331,12 +331,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mTouchTargetEnforcer.enforce(viewTermsButton, (View) viewTermsButton.getParent());
 
         // show the intro animation
-        mBenefitsAnimation = new BenefitsAnimation(this,
-                isComp ? SLIDE_CAPTIONS_COMP : SLIDE_CAPTIONS);
-        // TODO: move line below to be a part of BenefitsAnimation class
-        findViewById(R.id.animation_top_level_frame).setContentDescription(getString(isComp
-            ? R.string.comp_profile_benefits_description
-            : R.string.profile_benefits_description));
+        mBenefitsAnimation = new BenefitsAnimation(
+                this,
+                isComp
+                        ? SLIDE_CAPTIONS_COMP
+                        : SLIDE_CAPTIONS,
+                isComp
+                        ? R.string.comp_profile_benefits_description
+                        : R.string.profile_benefits_description);
     }
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
