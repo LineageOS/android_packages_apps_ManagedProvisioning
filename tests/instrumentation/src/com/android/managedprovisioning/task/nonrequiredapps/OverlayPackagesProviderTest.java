@@ -190,6 +190,43 @@ public class OverlayPackagesProviderTest {
         verifyAppsAreNonRequired();
     }
 
+    /**
+     * If an app is listed as both required and disallowed, it should be only in the disallowed
+     * list. Therefore, it should be present in the non-required list.
+     */
+    @Test
+    public void testAllowedAndDisallowedAtTheSameTimeManagedDevice() {
+        setDisallowedAppsManagedDevice(TEST_DPC_PACKAGE_NAME);
+        setRequiredAppsManagedDevice(TEST_DPC_PACKAGE_NAME);
+
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
+        verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
+    /**
+     * @see {@link #testAllowedAndDisallowedAtTheSameTimeManagedDevice}
+     */
+    @Test
+    public void testAllowedAndDisallowedAtTheSameTimeManagedUser() {
+        setDisallowedAppsManagedUser(TEST_DPC_PACKAGE_NAME);
+        setRequiredAppsManagedUser(TEST_DPC_PACKAGE_NAME);
+
+        buildHelper(ACTION_PROVISION_MANAGED_USER, false);
+        verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
+    /**
+     * @see {@link #testAllowedAndDisallowedAtTheSameTimeManagedDevice}
+     */
+    @Test
+    public void testAllowedAndDisallowedAtTheSameTimeManagedProfile() {
+        setDisallowedAppsManagedProfile(TEST_DPC_PACKAGE_NAME);
+        setRequiredAppsManagedProfile(TEST_DPC_PACKAGE_NAME);
+
+        buildHelper(ACTION_PROVISION_MANAGED_PROFILE, false);
+        verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
     private void verifyAppsAreNonRequired(String... appArray) {
         assertEquals(setFromArray(appArray), mHelper.getNonRequiredApps(TEST_USER_ID));
     }
