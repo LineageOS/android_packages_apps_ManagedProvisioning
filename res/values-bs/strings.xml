@@ -81,7 +81,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Želite li prekinuti postavljanje i izbrisati podatke na svom uređaju?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Otkaži"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Uredu"</string>
-    <string name="reset" msgid="6467204151306265796">"Ponovo postavi"</string>
+    <string name="reset" msgid="6467204151306265796">"Vrati na zadano"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Nije moguće postaviti profil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Nije moguće postaviti uređaj"</string>
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Uređaj nije postavljen. Obratite se administratoru za pomoć."</string>
