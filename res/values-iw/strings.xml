@@ -33,9 +33,9 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"כדי להשתמש בתכונות הגנה מפני גניבה, נדרשת נעילת מסך המוגנת על ידי סיסמה במכשיר."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"פנה למנהל המערכת לקבלת מידע נוסף, כולל מדיניות הפרטיות של הארגון."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"למידע נוסף"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"בטל"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"ביטול"</string>
     <string name="ok_setup" msgid="4593707675416137504">"אישור"</string>
-    <string name="user_consent_msg" msgid="8820951802130353584">"אני מסכים"</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"אני מסכים/ה"</string>
     <string name="url_error" msgid="5958494012986243186">"לא ניתן להציג את הקישור."</string>
     <string name="terms" msgid="8295436105384703903">"תנאים"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"הפרטים של פרופיל העבודה"</string>
@@ -47,7 +47,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"קרא את המידע שכאן"</a>" לפני שתמשיך."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"אם תמשיך, כל האפליקציות והנתונים בפרופיל זה יימחקו."</string>
     <string name="delete_profile" msgid="2299218578684663459">"מחק"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"בטל"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"ביטול"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"כדי להגדיר את פרופיל העבודה, עליך להצפין את המכשיר. הפעולה הזו עשויה להימשך זמן מה."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"כדי להגדיר את המכשיר, עליך להצפין אותו. הפעולה הזו עשויה להימשך זמן מה."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"להצפין את המכשיר?"</string>
@@ -60,7 +60,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"לא ניתן להוסיף פרופיל עבודה למכשיר הזה. אם יש לך שאלות, פנה למנהל המערכת."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"שנה את מפעיל האפליקציות במכשיר"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"פרופיל העבודה שלך לא יכול להשתמש במפעיל האפליקציות הזה"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"בטל"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ביטול"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"אישור"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"הגדרת המשתמש אינה מלאה"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"משתמש של מכשיר עבודה"</string>
@@ -77,7 +77,7 @@
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"להפסיק את ההגדרה ולאפס את המכשיר?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"פעולה זו תאפס את המכשיר להגדרות היצרן ותחזיר אותך למסך הראשון"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"האם להפסיק את ההגדרה ולמחוק את נתוני המכשיר?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"בטל"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ביטול"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"אישור"</string>
     <string name="reset" msgid="6467204151306265796">"אפס את המכשיר"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"לא ניתן להגדיר את הפרופיל"</string>
@@ -148,7 +148,7 @@
     <string name="close_list" msgid="9053538299788717597">"סגור את הרשימה"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"האם לסיים את ההגדרה ולאפס את המכשיר להגדרות היצרן?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"סיום ההגדרה הזאת יגרום לאיפוס המכשיר להגדרות היצרן ויעביר אותך למסך הראשון."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"בטל"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ביטול"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"איפוס מכשיר"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> וגם <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ו-<xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>

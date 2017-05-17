@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Լրացուցիչ տեղեկությունների համար, ինչպես նաև ձեր ընկերության գաղտնիության քաղաքականություններին ծանոթանալու համար դիմեք ձեր ադմինիստրատորին:"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Մանրամասն"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Չեղարկել"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"Լավ"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"Հաստատել"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Համաձայն եմ"</string>
     <string name="url_error" msgid="5958494012986243186">"Հնարավոր չէ ցուցադրել այս հղումը:"</string>
     <string name="terms" msgid="8295436105384703903">"Պայմաններ"</string>
@@ -61,7 +61,7 @@
     <string name="change_device_launcher" msgid="4523563368433637980">"Փոխեք սարքի գործարկիչը"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Ձեր աշխատանքային պրոֆիլը չի կարող օգտագործել այս գործարկիչը"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Չեղարկել"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"Լավ"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Հաստատել"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Օգտատիրոջ կարգավորումն անավարտ է"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Աշխատանքային սարքի օգտագործող"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"Աշխատանքային սարքի կարգավորում"</string>
@@ -78,7 +78,7 @@
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Արդյունքում սարքը կվերակայվի, և դուք կվերադառնաք առաջին էկրան:"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Դադարեցնե՞լ կարգավորումը և ջնջել սարքի տվյալները:"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Չեղարկել"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"Լավ"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Եղավ"</string>
     <string name="reset" msgid="6467204151306265796">"Վերակայել"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Հնարավոր չէ կարգավորել պրոֆիլը"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Հնարավոր չէ կարգավորել սարքը"</string>

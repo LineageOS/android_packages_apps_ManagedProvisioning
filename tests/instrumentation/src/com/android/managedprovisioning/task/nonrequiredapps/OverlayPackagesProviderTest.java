@@ -19,6 +19,7 @@ package com.android.managedprovisioning.task.nonrequiredapps;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -41,6 +42,7 @@ import android.view.inputmethod.InputMethodInfo;
 
 import com.android.internal.view.IInputMethodManager;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -190,6 +192,43 @@ public class OverlayPackagesProviderTest {
         verifyAppsAreNonRequired();
     }
 
+    /**
+     * If an app is listed as both required and disallowed, it should be only in the disallowed
+     * list. Therefore, it should be present in the non-required list.
+     */
+    @Test
+    public void testAllowedAndDisallowedAtTheSameTimeManagedDevice() {
+        setDisallowedAppsManagedDevice(TEST_DPC_PACKAGE_NAME);
+        setRequiredAppsManagedDevice(TEST_DPC_PACKAGE_NAME);
+
+        buildHelper(ACTION_PROVISION_MANAGED_DEVICE, false);
+        verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
+    /**
+     * @see {@link #testAllowedAndDisallowedAtTheSameTimeManagedDevice}
+     */
+    @Test
+    public void testAllowedAndDisallowedAtTheSameTimeManagedUser() {
+        setDisallowedAppsManagedUser(TEST_DPC_PACKAGE_NAME);
+        setRequiredAppsManagedUser(TEST_DPC_PACKAGE_NAME);
+
+        buildHelper(ACTION_PROVISION_MANAGED_USER, false);
+        verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
+    /**
+     * @see {@link #testAllowedAndDisallowedAtTheSameTimeManagedDevice}
+     */
+    @Test
+    public void testAllowedAndDisallowedAtTheSameTimeManagedProfile() {
+        setDisallowedAppsManagedProfile(TEST_DPC_PACKAGE_NAME);
+        setRequiredAppsManagedProfile(TEST_DPC_PACKAGE_NAME);
+
+        buildHelper(ACTION_PROVISION_MANAGED_PROFILE, false);
+        verifyAppsAreNonRequired(TEST_DPC_PACKAGE_NAME);
+    }
+
     private void verifyAppsAreNonRequired(String... appArray) {
         assertEquals(setFromArray(appArray), mHelper.getNonRequiredApps(TEST_USER_ID));
     }
@@ -204,66 +243,51 @@ public class OverlayPackagesProviderTest {
     }
 
     private void setRequiredAppsManagedDevice(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_device,
-                apps);
+        setStringArray(R.array.required_apps_managed_device, apps);
     }
 
     private void setVendorRequiredAppsManagedDevice(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_device,
-                apps);
+        setStringArray(R.array.vendor_required_apps_managed_device, apps);
     }
 
     private void setDisallowedAppsManagedDevice(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_device,
-                apps);
+        setStringArray(R.array.disallowed_apps_managed_device, apps);
     }
 
     private void setVendorDisallowedAppsManagedDevice(String... apps) {
-        setStringArray(
-                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_device,
-                apps);
+        setStringArray(R.array.vendor_disallowed_apps_managed_device, apps);
     }
 
     private void setRequiredAppsManagedProfile(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_profile,
-                apps);
+        setStringArray(R.array.required_apps_managed_profile, apps);
     }
 
     private void setVendorRequiredAppsManagedProfile(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_profile,
-                apps);
+        setStringArray(R.array.vendor_required_apps_managed_profile, apps);
     }
 
     private void setDisallowedAppsManagedProfile(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_profile,
-                apps);
+        setStringArray(R.array.disallowed_apps_managed_profile, apps);
     }
 
     private void setVendorDisallowedAppsManagedProfile(String... apps) {
-        setStringArray(
-                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_profile,
-                apps);
+        setStringArray(R.array.vendor_disallowed_apps_managed_profile, apps);
     }
 
     private void setRequiredAppsManagedUser(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.required_apps_managed_user,
-                apps);
+        setStringArray(R.array.required_apps_managed_user, apps);
     }
 
     private void setVendorRequiredAppsManagedUser(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.vendor_required_apps_managed_user,
-                apps);
+        setStringArray(R.array.vendor_required_apps_managed_user, apps);
     }
 
     private void setDisallowedAppsManagedUser(String... apps) {
-        setStringArray(com.android.managedprovisioning.R.array.disallowed_apps_managed_user,
-                apps);
+        setStringArray(R.array.disallowed_apps_managed_user, apps);
     }
 
     private void setVendorDisallowedAppsManagedUser(String... apps) {
-        setStringArray(
-                com.android.managedprovisioning.R.array.vendor_disallowed_apps_managed_user,
-                apps);
+        setStringArray(R.array.vendor_disallowed_apps_managed_user, apps);
     }
 
     private void setStringArray(int resourceId, String[] strs) {
@@ -327,7 +351,7 @@ public class OverlayPackagesProviderTest {
                 ActivityInfo ai = new ActivityInfo();
                 ai.packageName = packageName;
                 ResolveInfo ri = new ResolveInfo();
-                ri.activityInfo  = ai;
+                ri.activityInfo = ai;
                 result.add(ri);
             }
             return result;
