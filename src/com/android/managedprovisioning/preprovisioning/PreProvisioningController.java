@@ -397,8 +397,7 @@ public class PreProvisioningController {
                 .getString(com.android.internal.R.string.config_persistentDataPackageName);
         try {
             // Only skip the FRP check if the caller is the package responsible for maintaining FRP
-            // and the persistent device owner state is present in the params - i.e. if this is a
-            // flow for restoring device owner after factory reset.
+            // - i.e. if this is a flow for restoring device owner after factory reset.
             PackageInfo callingPackageInfo = mPackageManager.getPackageInfo(callingPackage, 0);
             return callingPackageInfo != null
                     && callingPackageInfo.applicationInfo != null
