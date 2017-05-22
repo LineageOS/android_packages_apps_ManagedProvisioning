@@ -19,6 +19,7 @@ package com.android.managedprovisioning.preprovisioning;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
@@ -29,9 +30,9 @@ import android.os.Looper;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Globals;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -48,7 +49,10 @@ import java.io.File;
  */
 public class EncryptionController {
 
-    private static final int NOTIFICATION_ID = 1;
+    @VisibleForTesting
+    public static final String CHANNEL_ID = "encrypt";
+    @VisibleForTesting
+    public static final int NOTIFICATION_ID = 1;
 
     private final Context mContext;
     private final Utils mUtils;
@@ -199,9 +203,14 @@ public class EncryptionController {
         public void showResumeNotification(Intent intent) {
             NotificationManager notificationManager = (NotificationManager)
                     mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
+                    mContext.getString(R.string.encrypt), NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(channel);
+
             final PendingIntent resumePendingIntent = PendingIntent.getActivity(
                     mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             final Notification.Builder notify = new Notification.Builder(mContext)
+                    .setChannel(CHANNEL_ID)
                     .setContentIntent(resumePendingIntent)
                     .setContentTitle(mContext
                             .getString(R.string.continue_provisioning_notify_title))
