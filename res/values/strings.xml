@@ -81,7 +81,7 @@
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
        their existing work profile. The administration app icon and name appear after the final
        colon. [CHAR LIMIT=NONE] -->
-  <string name="opening_paragraph_delete_profile">You already have a work profile, which is managed using the following app:</string>
+  <string name="opening_paragraph_delete_profile">You already have a work profile. It\'s managed using the following app:</string>
 
   <!-- String on the dialog that links through to more information about the profile management application. -->
   <string name="read_more_delete_profile">Before proceeding, <a href="#read_this_link">read this</a>.</string>
