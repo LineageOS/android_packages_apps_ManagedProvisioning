@@ -27,9 +27,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"برنامه زیر نیاز به دسترسی به این نمایه خواهد داشت:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"برنامه زیر، دستگاهتان را مدیریت می‌کند:"</string>
     <string name="next" msgid="1004321437324424398">"بعدی"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"در حال راه اندازی نمایه کاری‌تان…"</string>
+    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"سرپرست سیستمتان می‌تواند تنظیمات، دسترسی شرکتی، برنامه‌ها، مجوزها و داده‌های مرتبط با این نمایه (ازجمله فعالیت شما در شبکه و همچنین مکان دستگاه، سابقه تماس و سابقه جستجوی مخاطب) را پایش و مدیریت کند.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>برای دریافت اطلاعات بیشتر (ازجمله خط‌مشی‌های رازداری سازمانتان)، با سرپرست سیستم تماس بگیرید."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"سرپرست سیستمتان می‌تواند تنظیمات، دسترسی شرکتی، برنامه‌ها، مجوزها و داده‌های مرتبط با این دستگاه (ازجمله فعالیت شما در شبکه و همچنین مکان دستگاه، سابقه تماس و سابقه جستجوی مخاطب) را پایش و مدیریت کند.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>برای دریافت اطلاعات بیشتر (ازجمله خط‌مشی‌های رازداری سازمانتان)، با سرپرست سیستم تماس بگیرید."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"برای استفاده از قابلیت‌های محافظت دربرابر دزدی، باید برای دستگاهتان قفل صفحه با محافظت گذرواژه داشته باشید."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"برای دریافت اطلاعات بیشتر، از جمله خط‌مشی‌های رازداری سازمانتان، با سرپرست سیستمتان تماس بگیرید."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"بیشتر بدانید"</string>
@@ -43,7 +45,8 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"نمایه کاری"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"کاربر اصلی"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"نمایه موجود حذف شود؟"</string>
-    <string name="opening_paragraph_delete_profile" msgid="7846971308431780139">"از قبل یک نمایه کاری دارید که توسط برنامه زیر مدیریت می‌شود:"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل از ادامه، "<a href="#read_this_link">"این را بخوانید"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"اگر ادامه دهید، همه برنامه‌ها و داده‌ها در این نمایه حذف خواهند شد."</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
@@ -64,7 +67,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"تأیید"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"تنظیم کاربر کامل نیست"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کاربر دستگاه کاری"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"راه‌اندازی دستگاه کاری"</string>
+    <!-- no translation found for setup_work_device (6003988351437862369) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"درحال پردازش داده‌های تنظیم…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏در حال برقراری اتصال به Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"در حال بارگیری برنامه سرپرست…"</string>
@@ -151,7 +155,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"لغو"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"بازنشانی دستگاه"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> و <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> و <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <!-- no translation found for join_many_items_last (7469666990442158802) -->
+    <skip />
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>، <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>، <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>

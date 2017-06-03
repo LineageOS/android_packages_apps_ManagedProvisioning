@@ -27,9 +27,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Quyidagi ilova ushbu profilga kirishi zarur:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Quyidagi ilova qurilmangizni boshqaradi:"</string>
     <string name="next" msgid="1004321437324424398">"Keyingisi"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"Ishchi profilingiz sozlanmoqda…"</string>
+    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"Administrator bu profil bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilovalar, ruxsatnomalar va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangiz joylashuvi, qo‘ng‘iroqlar tarixi hamda kontakt qidiruv tarixi ma’lumotlarini kuzatishi va boshqarishi mumkin.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Batafsil axborot, jumladan, tashkilotingiz maxfiylik siyosati haqida ma’lumot olish uchun administratoringiz bilan bog‘laning."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"Administrator bu qurilma bilan bog‘liq sozlamalar, korporativ kirish huquqi, ilovalar, ruxsatnomalar va ma’lumotlarni, jumladan, tarmoqdagi faollik va qurilmangiz joylashuvi, qo‘ng‘iroqlar tarixi hamda kontakt qidiruv tarixi ma’lumotlarini kuzatishi va boshqarishi mumkin.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Batafsil axborot, jumladan, tashkilotingiz maxfiylik siyosati haqida ma’lumot olish uchun administratoringiz bilan bog‘laning."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"O‘g‘ridan himoyalanish funksiyasidan foydalanish uchun qurilmangiz ekran qulfi parollangan bo‘lishi kerak."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Qo‘shimcha ma’lumot olish, jumladan, tashkilotingizning maxfiylik siyosati haqida bilish uchun administratoringizga murojaat qiling."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Batafsil ma’lumot"</string>
@@ -43,7 +45,8 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Ishchi profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Asosiy foydalanuvchi"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Mavjud profil o‘chirib tashlansinmi?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="7846971308431780139">"Sizda allaqachon quyidagi ilova tomonidan boshqariladigan ishchi profil bor:"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Davom etishdan oldin "<a href="#read_this_link">"buni o‘qib chiqing"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Agar davom etsangiz, bu profildagi barcha ilovalar va ma’lumotlar o‘chirib tashlanadi."</string>
     <string name="delete_profile" msgid="2299218578684663459">"O‘chirish"</string>
@@ -64,7 +67,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Foydalanuvchi hisobini sozlab bo‘lmadi"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Ishchi qurilma foydalanuvchisi"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"Ishchi qurilmani sozlash"</string>
+    <!-- no translation found for setup_work_device (6003988351437862369) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"Ma’lumotlarga ishlov berilmoqda…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi tarmog‘iga ulanmoqda…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Administrator ilovasi yuklab olinmoqda…"</string>
@@ -151,7 +155,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Bekor qilish"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Qurilma sozlamalarini tiklash"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> va <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> va <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <!-- no translation found for join_many_items_last (7469666990442158802) -->
+    <skip />
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
