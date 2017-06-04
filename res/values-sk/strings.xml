@@ -27,9 +27,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Nasledujúca aplikácia bude potrebovať prístup k tomuto profilu:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="next" msgid="1004321437324424398">"Ďalej"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"Nastavuje sa pracovný profil…"</string>
+    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a dáta priradené k tomuto profilu vrátane aktivity v sieti a informácií o polohe zariadenia, histórii hovorov a histórii vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) získate od správcu."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a dáta priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe zariadenia, histórii hovorov a histórii vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) získate od správcu."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ak chcete používať funkcie ochrany proti krádeži, musíte mať na zariadení zámku obrazovky chránenú heslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) vám poskytne správca."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Viac informácií"</string>
@@ -43,7 +45,8 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Pracovný profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hlavný používateľ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Odstrániť existujúci profil?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="7846971308431780139">"Už máte pracovný profil, ktorý je spravovaný nasledujúcou aplikáciou:"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Skôr ako budete pokračovať, "<a href="#read_this_link">"prečítajte si tieto informácie"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ak budete pokračovať, všetky aplikácie a údaje v tomto profile sa odstránia."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Odstrániť"</string>
@@ -64,7 +67,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nastavenie používateľa nebolo dokončené"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Používateľ pracovného zariadenia"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"Nastavenie pracovného zariadenia"</string>
+    <!-- no translation found for setup_work_device (6003988351437862369) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"Spracovávajú sa údaje nastavenia…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Sťahuje sa aplikácia na správu…"</string>
@@ -151,7 +155,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Zrušiť"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Obnoviť zariadenie"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> a <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> a <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <!-- no translation found for join_many_items_last (7469666990442158802) -->
+    <skip />
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
