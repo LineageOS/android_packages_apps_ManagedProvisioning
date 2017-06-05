@@ -27,9 +27,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ਇਸ ਐਪ ਨੂੰ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੱਕ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੋਵੇਗੀ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ਹੇਠਾਂ ਦਿੱਤੀ ਐਪ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰੇਗੀ:"</string>
     <string name="next" msgid="1004321437324424398">"ਅੱਗੇ"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡੈਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡੈਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ਚੋਰੀ ਤੋਂ ਰੱਖਿਆ ਕਰਨ ਵਾਲੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਕੋਲ ਲਾਜ਼ਮੀ ਤੌਰ \'ਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਲਈ ਪਾਸਵਰਡ ਦੁਆਰਾ ਸੁਰੱਖਿਤ ਕੀਤਾ ਸਕ੍ਰੀਨ ਲੌਕ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਹਿਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
@@ -43,7 +45,8 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ਕੀ ਮੌਜੂਦਾ ਪ੍ਰੋਫਾਈਲ ਮਿਟਾਉਣਾ ਹੈ?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="7846971308431780139">"ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਹੈ, ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡੈਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
@@ -64,7 +67,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕੰਮ ਡੀਵਾਈਸ ਦਾ ਉਪਭੋਗਤਾ"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"ਕੰਮ ਡੀਵਾਈਸ ਸਥਾਪਤ ਕਰੋ"</string>
+    <!-- no translation found for setup_work_device (6003988351437862369) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ ਡੈਟਾ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
@@ -151,7 +155,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ਰੱਦ ਕਰੋ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ਡੀਵਾਈਸ ਮੁੜ-ਸੈੱਟ ਕਰੋ"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> ਅਤੇ <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ਅਤੇ <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <!-- no translation found for join_many_items_last (7469666990442158802) -->
+    <skip />
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>

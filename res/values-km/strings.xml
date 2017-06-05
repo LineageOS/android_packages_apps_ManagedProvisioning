@@ -27,9 +27,11 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"កម្មវិធី​ខាង​ក្រោម​​នឹង​ត្រូវ​ចូល​ដំណើរការ​ប្រវត្តិរូប​របស់​អ្នក៖"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"កម្មវិធីខាងក្រោមនឹងគ្រប់គ្រងឧបករណ៍របស់អ្នក៖"</string>
     <string name="next" msgid="1004321437324424398">"បន្ទាប់"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"កំពុងដំឡើងប្រវត្តិរូបការងាររបស់អ្នក…"</string>
+    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលកម្មវិធី កម្មវីធី សិទ្ធិអនុញ្ញាត និងទិន្នន័យដែលពាក់ព័ន្ធនឹងកម្រងព័ត៌មាននេះ រួមទាំងសកម្មភាពបណ្តាញ ក៏ដូចជាទីតាំងឧបករណ៍ ប្រវត្តិហៅទូរសព្ទ និងប្រវត្តិស្វែងរកទំនាក់ទំនងរបស់អ្នកផងដែរ។<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>សូមទាក់ទងទៅអ្នកគ្រប់គ្រងរបស់អ្នកសម្រាប់ព័ត៌មានបន្ថែម ដោយរាប់បញ្ចូលទាំងគោលការណ៍ឯកជនភាពរបស់ស្ថាប័នអ្នកផងដែរ។"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"អ្នកគ្រប់គ្រងរបស់អ្នកមានលទ្ធភាពតាមដាន និងគ្រប់គ្រងការកំណត់ ការចូលកម្មវិធី កម្មវីធី សិទ្ធិអនុញ្ញាត និងទិន្នន័យដែលពាក់ព័ន្ធនឹងឧបករណ៍នេះ រួមទាំងសកម្មភាពបណ្តាញ ក៏ដូចជាទីតាំងឧបករណ៍ ប្រវត្តិហៅទូរសព្ទ និងប្រវត្តិស្វែងរកទំនាក់ទំនងរបស់អ្នកផងដែរ។<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>សូមទាក់ទងទៅអ្នកគ្រប់គ្រងរបស់អ្នកសម្រាប់ព័ត៌មានបន្ថែម ដោយរាប់បញ្ចូលទាំងគោលការណ៍ឯកជនភាពរបស់ស្ថាប័នអ្នកផងដែរ។"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ដើម្បីប្រើលក្ខណៈពិសេសការពារពីការលួច អ្នកត្រូវមានសោអេក្រង់ដែលបានការពារដោយពាក្យសម្ងាត់សម្រាប់ឧបករណ៍របស់អ្នក។"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នកសម្រាប់ព័ត៌មានបន្ថែម ដោយរួមទាំងគោលការណ៍ភាពឯកជនស្ថាប័នរបស់អ្នកផងដែរ។"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ស្វែងយល់​បន្ថែម"</string>
@@ -43,7 +45,8 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"អ្នកប្រើសំខាន់"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"លុប​កម្រង​ព័ត៌មាន​ដែល​មាន​ស្រាប់?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="7846971308431780139">"អ្នក​មាន​កម្រង​ព័ត៌មាន​ការងារ​ដែល​ស្ថិត​ក្រោម​ការគ្រប់គ្រង​របស់​កម្មវិធី​ខាងក្រោម​រួច​ហើយ៖"</string>
+    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
+    <skip />
     <string name="read_more_delete_profile" msgid="7789171620401666343">"មុននឹងដំណើរការ "<a href="#read_this_link">"សូមអាន"</a>" នេះ។"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ប្រសិនបើអ្នកបន្ត នោះកម្មវិធី និងទិន្នន័យទាំងអស់នៅក្នុងប្រវត្តិរូបនេះនឹងត្រូវបានលុប។"</string>
     <string name="delete_profile" msgid="2299218578684663459">"លុប"</string>
@@ -64,7 +67,8 @@
     <string name="pick_launcher" msgid="4257084827403983845">"យល់ព្រម"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ការដំឡើងអ្នកប្រើមិនពេញលេញ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"អ្នកប្រើ​ឧបករណ៍​ការងារ"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"ដំឡើងឧបករណ៍ការងារ"</string>
+    <!-- no translation found for setup_work_device (6003988351437862369) -->
+    <skip />
     <string name="progress_data_process" msgid="1707745321954672971">"កំពុងដំណើរការទិន្នន័យដំឡើង…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"កំពុងភ្ជាប់ទៅ Wi-Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"កំពុងទាញយកកម្មវិធីគ្រប់គ្រង…"</string>
@@ -151,7 +155,8 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"បោះបង់"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"កំណត់ឧបករណ៍ឡើងវិញ"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> និង <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <string name="join_many_items_last" msgid="3953431463001211545">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> និង <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <!-- no translation found for join_many_items_last (7469666990442158802) -->
+    <skip />
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
