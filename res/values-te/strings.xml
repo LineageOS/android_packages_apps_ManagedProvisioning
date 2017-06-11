@@ -27,11 +27,9 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది అనువర్తనం ఈ ప్రొఫైల్‌ను ప్రాప్యత చేయాలి:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది అనువర్తనం మీ పరికరాన్ని నిర్వహిస్తుంది:"</string>
     <string name="next" msgid="1004321437324424398">"తదుపరి"</string>
-    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="7862472373642601041">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"మీ పరికరం యొక్క స్థానం, కాల్ చరిత్ర మరియు పరిచయ శోధన చరిత్రతో పాటు ఈ ప్రొఫైల్‌కు అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ ప్రాప్యత, అనువర్తనాలు, అనుమతులు మరియు డేటాతో సహా మీ నెట్‌వర్క్ కార్యాచరణను కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>మీ సంస్థ యొక్క గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ నిర్వాహకులను సంప్రదించండి."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"మీ పరికరం యొక్క స్థానం, కాల్ చరిత్ర మరియు పరిచయ శోధన చరిత్రతో పాటు ఈ పరికరానికి అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు మరియు డేటాతో సహా మీ నెట్‌వర్క్ కార్యాచరణను కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>మీ సంస్థ యొక్క గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"అపహరణ జరగకుండా రక్షణనిచ్చే లక్షణాలను ఉపయోగించడానికి, మీరు మీ పరికరం కోసం తప్పనిసరిగా పాస్‌వర్డ్ సురక్షిత స్క్రీన్ లాక్‌ను కలిగి ఉండాలి."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"మీ సంస్థ గోప్యతా విధానాలతో సహా మరింత సమాచారం కోసం మీ నిర్వాహకుని సంప్రదించండి."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
@@ -45,8 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ప్రాథమిక వినియోగదారు"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ప్రస్తుతం ఉన్న ప్రొఫైల్‌ని తొలగించాలా?"</string>
-    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
-    <skip />
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ఇప్పటికే మీ వద్ద కార్యాలయ ప్రొఫైల్ ఉంది. కింది యాప్ ద్వారా ఇది నిర్వహించబడుతోంది:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"కొనసాగడానికి ముందు, "<a href="#read_this_link">"దీన్ని చదవండి"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"మీరు కొనసాగిస్తే, ఈ ప్రొఫైల్‌లోని అన్ని అనువర్తనాలు మరియు డేటా తొలగించబడతాయి."</string>
     <string name="delete_profile" msgid="2299218578684663459">"తొలగించు"</string>
@@ -67,8 +64,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"సరే"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"వినియోగదారు సెటప్ పూర్తికాలేదు"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"కార్యాలయ పరికర వినియోగదారు"</string>
-    <!-- no translation found for setup_work_device (6003988351437862369) -->
-    <skip />
+    <string name="setup_work_device" msgid="6003988351437862369">"కార్యాలయ పరికరాన్ని సెటప్ చేస్తోంది…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiకి కనెక్ట్ చేస్తోంది..."</string>
     <string name="progress_download" msgid="3522436271691064624">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేస్తోంది..."</string>
@@ -155,8 +151,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయి"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"పరికరాన్ని రీసెట్ చేయి"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> మరియు <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <!-- no translation found for join_many_items_last (7469666990442158802) -->
-    <skip />
+    <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> మరియు <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
