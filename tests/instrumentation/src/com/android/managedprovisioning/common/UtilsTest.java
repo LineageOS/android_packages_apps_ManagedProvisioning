@@ -267,38 +267,58 @@ public class UtilsTest extends AndroidTestCase {
         }
     }
 
-    public void testFindDeviceAdminInPackage_Success() throws Exception {
+    public void testFindDeviceAdminInPackageInfo_Success() throws Exception {
         // GIVEN a package info with one device admin
         PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
 
-        // THEN calling findDeviceAdminInPackage returns the correct admin
+        // THEN calling findDeviceAdminInPackageInfo returns the correct admin
         assertEquals(TEST_COMPONENT_NAME,
-                mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
+                mUtils.findDeviceAdminInPackageInfo(TEST_PACKAGE_NAME_1, null, packageInfo));
     }
 
-    public void testFindDeviceAdminInPackage_PackageNameMismatch() throws Exception {
+    public void testFindDeviceAdminInPackageInfo_PackageNameMismatch() throws Exception {
         // GIVEN a package info with one device admin
         PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
 
-        // THEN calling findDeviceAdminInPackage with the wrong package name return null
-        assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_2, packageInfo));
+        // THEN calling findDeviceAdminInPackageInfo with the wrong package name return null
+        assertNull(mUtils.findDeviceAdminInPackageInfo(TEST_PACKAGE_NAME_2, null, packageInfo));
     }
 
-    public void testFindDeviceAdminInPackage_NoAdmin() throws Exception {
+    public void testFindDeviceAdminInPackageInfo_NoAdmin() throws Exception {
         // GIVEN a package info with no device admin
         PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1);
 
-        // THEN calling findDeviceAdminInPackage returns null
-        assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
+        // THEN calling findDeviceAdminInPackageInfo returns null
+        assertNull(mUtils.findDeviceAdminInPackageInfo(TEST_PACKAGE_NAME_1, null, packageInfo));
     }
 
-    public void testFindDeviceAdminInPackage_TwoAdmins() throws Exception {
+    public void testFindDeviceAdminInPackageInfo_TwoAdmins() throws Exception {
         // GIVEN a package info with more than one device admin
         PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME,
                 TEST_DEVICE_ADMIN_NAME_2);
 
-        // THEN calling findDeviceAdminInPackage returns null
-        assertNull(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME_1, packageInfo));
+        // THEN calling findDeviceAdminInPackageInfo returns null
+        assertNull(mUtils.findDeviceAdminInPackageInfo(TEST_PACKAGE_NAME_1, null, packageInfo));
+    }
+
+    public void testFindDeviceAdminInPackageInfo_TwoAdminsWithComponentName() throws Exception {
+        // GIVEN a package info with more than one device admin
+        PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME,
+                TEST_DEVICE_ADMIN_NAME_2);
+
+        // THEN calling findDeviceAdminInPackageInfo return component 1
+        assertEquals(TEST_COMPONENT_NAME, mUtils.findDeviceAdminInPackageInfo(
+                TEST_PACKAGE_NAME_1, TEST_COMPONENT_NAME, packageInfo));
+    }
+
+
+    public void testFindDeviceAdminInPackageInfo_InvalidComponentName() throws Exception {
+        // GIVEN a package info with component 1
+        PackageInfo packageInfo = setUpPackage(TEST_PACKAGE_NAME_1, TEST_DEVICE_ADMIN_NAME);
+
+        // THEN calling findDeviceAdminInPackageInfo with component 2 returns null
+        assertNull(mUtils.findDeviceAdminInPackageInfo(
+                TEST_PACKAGE_NAME_1, TEST_COMPONENT_NAME_2, packageInfo));
     }
 
     public void testComputeHashOfByteArray() {
