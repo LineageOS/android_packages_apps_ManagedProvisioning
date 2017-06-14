@@ -191,22 +191,37 @@ public class Utils {
                     + " is not installed. ", e);
         }
 
-        final ComponentName componentName;
+        final ComponentName componentName = findDeviceAdminInPackageInfo(dpcPackageName,
+                dpcComponentName, pi);
+        if (componentName == null) {
+            throw new IllegalProvisioningArgumentException("Cannot find any admin receiver in "
+                    + "package " + dpcPackageName + " with component " + dpcComponentName);
+        }
+        return componentName;
+    }
+
+    /**
+     * If dpcComponentName is not null: dpcPackageName is ignored.
+     * Check that the package of dpcComponentName is installed, that dpcComponentName is a
+     * receiver in this package, and return it. The receiver can be in disabled state.
+     *
+     * Otherwise, try to infer a potential device admin component in this package info.
+     *
+     * @return infered device admin component in package info. Otherwise, null
+     */
+    @Nullable
+    public ComponentName findDeviceAdminInPackageInfo(@NonNull String dpcPackageName,
+            @Nullable ComponentName dpcComponentName, @NonNull PackageInfo pi) {
         if (dpcComponentName != null) {
             if (!isComponentInPackageInfo(dpcComponentName, pi)) {
-                throw new IllegalProvisioningArgumentException("The component " + dpcComponentName
-                        + " cannot be found");
+                ProvisionLogger.logw("The component " + dpcComponentName + " isn't registered in "
+                        + "the apk");
+                return null;
             }
-            componentName = dpcComponentName;
+            return dpcComponentName;
         } else {
-            componentName = findDeviceAdminInPackage(dpcPackageName, pi);
-            if (componentName == null) {
-                throw new IllegalProvisioningArgumentException("Cannot find any admin receiver in "
-                        + "package " + dpcPackageName);
-            }
+            return findDeviceAdminInPackage(dpcPackageName, pi);
         }
-
-        return componentName;
     }
 
     /**
@@ -219,7 +234,7 @@ public class Utils {
      * @return admin receiver or null in case of error.
      */
     @Nullable
-    public ComponentName findDeviceAdminInPackage(String packageName, PackageInfo packageInfo) {
+    private ComponentName findDeviceAdminInPackage(String packageName, PackageInfo packageInfo) {
         if (packageInfo == null || !TextUtils.equals(packageInfo.packageName, packageName)) {
             return null;
         }
@@ -228,6 +243,7 @@ public class Utils {
         for (ActivityInfo ai : packageInfo.receivers) {
             if (TextUtils.equals(ai.permission, android.Manifest.permission.BIND_DEVICE_ADMIN)) {
                 if (mdmComponentName != null) {
+                    ProvisionLogger.logw("more than 1 device admin component are found");
                     return null;
                 } else {
                     mdmComponentName = new ComponentName(packageName, ai.name);
