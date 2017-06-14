@@ -90,8 +90,16 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
 
         PackageInfo packageInfo = mPackageManager.getPackageArchiveInfo(downloadLocation,
                 PackageManager.GET_SIGNATURES | PackageManager.GET_RECEIVERS);
-        if (mUtils.findDeviceAdminInPackage(mProvisioningParams.inferDeviceAdminPackageName(),
-                packageInfo) == null) {
+        String packageName = mProvisioningParams.inferDeviceAdminPackageName();
+        // Device admin package name can't be null
+        if (packageInfo == null || packageName == null) {
+            ProvisionLogger.loge("Device admin package info or name is null");
+            error(ERROR_DEVICE_ADMIN_MISSING);
+            return;
+        }
+
+        if (mUtils.findDeviceAdminInPackageInfo(packageName,
+                mProvisioningParams.deviceAdminComponentName, packageInfo) == null) {
             error(ERROR_DEVICE_ADMIN_MISSING);
             return;
         }

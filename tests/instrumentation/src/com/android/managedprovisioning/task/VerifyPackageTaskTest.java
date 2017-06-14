@@ -85,7 +85,7 @@ public class VerifyPackageTaskTest {
 
         when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_LOCAL_FILENAME);
 
-        when(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME, mPackageInfo))
+        when(mUtils.findDeviceAdminInPackageInfo(TEST_PACKAGE_NAME, null, mPackageInfo))
                 .thenReturn(new ComponentName(TEST_PACKAGE_NAME, TEST_ADMIN_NAME));
     }
 
@@ -105,7 +105,8 @@ public class VerifyPackageTaskTest {
     @Test
     public void testMissingDeviceAdminComponent() {
         // GIVEN that the device admin component cannot be found
-        when(mUtils.findDeviceAdminInPackage(TEST_PACKAGE_NAME, mPackageInfo)).thenReturn(null);
+        when(mUtils.findDeviceAdminInPackageInfo(TEST_PACKAGE_NAME, null, mPackageInfo))
+                .thenReturn(null);
 
         // WHEN running the VerifyPackageTask
         runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY, false);
