@@ -67,15 +67,13 @@
              android:name=".provisioning.ProvisioningActivity"
              android:excludeFromRecents="true"
              android:immersive="true"
-             android:launchMode="singleTop"
-             android:theme="@style/SetupWorkSpaceTheme">
+             android:launchMode="singleTop">
         </activity>
         <activity
             android:name=".preprovisioning.PreProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
-            android:launchMode="singleTop"
-            android:theme="@style/Provisioning2Theme">
+            android:launchMode="singleTop">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_USER" />
@@ -137,16 +135,14 @@
         <activity
             android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
-            android:launchMode="singleTop"
-            android:theme="@style/SetupWorkSpaceTheme">
+            android:launchMode="singleTop">
         </activity>
 
         <activity
             android:name=".preprovisioning.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:process=":webview"
-            android:theme="@style/SetupWorkSpaceTheme">
+            android:process=":webview">
         </activity>
 
         <activity
