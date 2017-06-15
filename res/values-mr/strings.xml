@@ -27,11 +27,9 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप आपले डिव्‍हाइस व्यवस्‍थापित करेल:"</string>
     <string name="next" msgid="1004321437324424398">"पुढील"</string>
-    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफाइल सेट अप करीत आहे..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"आपल्या प्रशासकाकडे आपला नेटवर्क क्रियाकलाप तसेच आपल्या डिव्हाइसचे स्थान, कॉल इतिहास आणि संपर्क शोध इतिहास यांसह या प्रोफाइलशी संबद्ध सेटिंग्ज, कॉर्पोरेट प्रवेश, अॅप्स, परवानग्या आणि डेटा यांचे परीक्षण आणि व्यवस्थापन करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>आपल्या संस्थेच्या गोपनीयता धोरणासह अधिक माहितीसाठी आपल्या प्रशासकाशी संपर्क साधा."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"तुमच्या प्रशासकाकडे तुमची नेटवर्क अ‍ॅक्टिव्हिटी तसेच तुमच्या डिव्हाइसचे स्थान, कॉल इतिहास आणि संपर्क शोध इतिहास यांसह या डिव्हाइसशी संबंधित सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अॅप्स, परवानग्या आणि डेटा यांचे परीक्षण आणि व्‍यवस्‍थापित करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>तुमच्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी तुमच्या प्रशासकाशी संपर्क साधा."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरीपासून-संरक्षण वैशिष्ट्ये वापरण्यासाठी, आपल्याकडे आपल्या डिव्हाइससाठी संकेतशब्द-संरक्षित स्क्रीन लॉक असणे आवश्यक आहे."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"आपल्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी आपल्या प्रशासकाशी संपर्क साधा."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"अधिक जाणून घ्या"</string>
@@ -45,8 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक वापरकर्ता"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
-    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
-    <skip />
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तुमची आधीपासून एक कार्य प्रोफाइल आहे. ती खालील अ‍ॅप वापरून व्यवस्थापित केली जाते:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"आपण सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
@@ -67,8 +64,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक आहे"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"वापरकर्ता सेटअप अपूर्ण"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिव्‍हाइसचा वापरकर्ता"</string>
-    <!-- no translation found for setup_work_device (6003988351437862369) -->
-    <skip />
+    <string name="setup_work_device" msgid="6003988351437862369">"कार्य डिव्हाइस सेट अप करत आहे..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटावर प्रक्रिया करीत आहे..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाय-फाय ला कनेक्ट करीत आहे..."</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासन अॅप डाउनलोड करीत आहे..."</string>
@@ -155,8 +151,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द करा"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"डिव्हाइस रीसेट करा"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> आणि <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <!-- no translation found for join_many_items_last (7469666990442158802) -->
-    <skip />
+    <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> आणि <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>

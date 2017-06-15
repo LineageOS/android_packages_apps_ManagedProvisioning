@@ -27,11 +27,9 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्न अनुप्रयोगले तपाईँको यन्त्र व्यवस्थापन गर्नेछ:"</string>
     <string name="next" msgid="1004321437324424398">"अर्को"</string>
-    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफाइल सेट अप गर्दै…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"तपाईंका प्रशासकले तपाईंको नेटवर्कको गतिविधिका साथै तपाईंको यन्त्रको स्थान, कलको इतिहास र सम्पर्कको खोजी सम्बन्धी इतिहास लगायत सेटिङहरू, संस्थागत पहुँच, अनुप्रयोगहरू, अनुमतिहरू र यस प्रोफाइलसँग सम्बन्धित डेटाको अनुगमन तथा व्यवस्थापन गर्न सक्नुहुन्छ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>तपाईंको संगठनका गोपनीयता नीतिहरू लगायत थप जानकारीका लागि आफ्ना प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"तपाईंका प्रशासकसँग नेटवर्कको गतिविधिका साथै तपाईंको यन्त्रको स्थान, कलको इतिहास र सम्पर्कको खोजी सम्बन्धी इतिहास लगायत सेटिङहरू, संस्थागत पहुँच, अनुप्रयोगहरू, अनुमतिहरू र यस यन्त्रसँग सम्बन्धित डेटाको अनुगमन तथा व्यवस्थापन गर्न सक्नुहुन्छ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>तपाईंको संगठनका गोपनीयता नीतिहरू लगायत थप जानकारीका लागि आफ्ना प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरीबाट सुरक्षा गर्ने सुविधाहरू प्रयोग गर्नका लागि तपाईँले आफ्नो यन्त्रको लागि पासवर्डद्वारा सुरक्षित स्क्रिन लक अनिवार्य रूपमा राख्नुपर्छ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"आफ्नो संगठनका गोपनीयता नीतिहरू लगायत थप जानकारीको लागि आफ्नो प्रशासकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"थप जान्नुहोस्"</string>
@@ -45,8 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक प्रयोगकर्ता"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइललाई मेट्ने हो?"</string>
-    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
-    <skip />
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तपाईंसँग पहिलैदेखि कार्य प्रोफाइल छ। निम्न अनुप्रयोगको प्रयोगमार्फत व्यवस्थापन भइरहेको छ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"अघि बढ्नु पूर्व "<a href="#read_this_link">"यो पढ्नुहोस्"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तपाईँले जारी राख्नुभयो भने यस प्रोफाइलमा भएका सबै अनुप्रयोग र डेटालाई मेटाइनेछ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"मेटाउनुहोस्"</string>
@@ -67,8 +64,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक छ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"प्रयोगकर्ता सेटअप सम्पन्न भएन"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
-    <!-- no translation found for setup_work_device (6003988351437862369) -->
-    <skip />
+    <string name="setup_work_device" msgid="6003988351437862369">"कार्य यन्त्र सेट अप गर्दै…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटा प्रशोधन गर्दै..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi मा जडान गर्दै..."</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासकीय अनुप्रयोग डाउनलोड गर्दै..."</string>
@@ -155,8 +151,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द गर्नुहोस्"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"यन्त्रलाई रिसेट गर्नुहोस्"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> र <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <!-- no translation found for join_many_items_last (7469666990442158802) -->
-    <skip />
+    <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> र <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
