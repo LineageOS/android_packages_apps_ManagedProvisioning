@@ -22,7 +22,6 @@ import android.annotation.IntDef;
 import android.app.AppGlobals;
 import android.content.Context;
 import android.content.pm.IPackageManager;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -32,7 +31,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -100,7 +98,7 @@ public class NonRequiredAppsLogic {
             return Collections.emptySet();
         }
 
-        // Start with all currently installed system apps
+        // Start with all system apps
         Set<String> newSystemApps = mUtils.getCurrentSystemApps(mIPackageManager, userId);
 
         // Remove the ones that were already present in the last snapshot only when OTA
@@ -114,9 +112,6 @@ public class NonRequiredAppsLogic {
         // Retain only new system apps
         packagesToDelete.retainAll(newSystemApps);
 
-        // Remove all packages that are not currently installed
-        removeNonInstalledPackages(packagesToDelete, userId);
-
         return packagesToDelete;
     }
 
@@ -124,23 +119,6 @@ public class NonRequiredAppsLogic {
         if (shouldDeleteSystemApps(userId)) {
             mSnapshot.takeNewSnapshot(userId);
         }
-    }
-
-    private void removeNonInstalledPackages(Set<String> packages, int userId) {
-        Set<String> toBeRemoved = new HashSet<>();
-        for (String packageName : packages) {
-            try {
-                PackageInfo info = mPackageManager.getPackageInfoAsUser(
-                        packageName, 0 /* default flags */,
-                        userId);
-                if (info == null) {
-                    toBeRemoved.add(packageName);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                toBeRemoved.add(packageName);
-            }
-        }
-        packages.removeAll(toBeRemoved);
     }
 
     private boolean shouldDeleteSystemApps(int userId) {

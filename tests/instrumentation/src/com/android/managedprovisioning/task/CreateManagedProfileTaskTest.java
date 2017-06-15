@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.AdditionalMatchers.aryEq;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
@@ -33,6 +35,10 @@ import android.support.test.filters.SmallTest;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -47,6 +53,7 @@ public class CreateManagedProfileTaskTest {
             .setDeviceAdminPackageName(TEST_DPC_PACKAGE_NAME)
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .build();
+    private static final String[] SYSTEM_APPS_TO_DELETE = {"app.a", "app.b"};
 
     private @Mock UserManager mUserManager;
     private @Mock NonRequiredAppsLogic mLogic;
@@ -59,13 +66,17 @@ public class CreateManagedProfileTaskTest {
         MockitoAnnotations.initMocks(this);
         mTask = new CreateManagedProfileTask(InstrumentationRegistry.getTargetContext(),
                 TEST_PARAMS, mCallback, mUserManager, mLogic);
+        // GIVEN that a set of system apps should not be installed on the new user
+        when(mLogic.getSystemAppsToRemove(TEST_PARENT_USER_ID))
+            .thenReturn(new LinkedHashSet<String>(Arrays.asList(SYSTEM_APPS_TO_DELETE)));
     }
 
     @Test
     public void testSuccess() {
         // GIVEN that a new profile can be created
         when(mUserManager.createProfileForUserEvenWhenDisallowed(
-                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID), any(String[].class)))
+                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID),
+                        aryEq(SYSTEM_APPS_TO_DELETE)))
                 .thenReturn(new UserInfo(TEST_USER_ID, null, 0));
 
         // WHEN the CreateManagedProfileTask is run
@@ -76,13 +87,16 @@ public class CreateManagedProfileTaskTest {
         verifyNoMoreInteractions(mCallback);
         // THEN list of system apps in the new user should be saved
         verify(mLogic).maybeTakeSystemAppsSnapshot(TEST_USER_ID);
+        // THEN the id of the new profile should be returned by getProfileUserId
+        assertEquals(TEST_USER_ID, mTask.getProfileUserId());
     }
 
     @Test
     public void testError() {
         // GIVEN that a new profile can't be created
         when(mUserManager.createProfileForUserEvenWhenDisallowed(
-                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID), any(String[].class)))
+                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID),
+                        aryEq(SYSTEM_APPS_TO_DELETE)))
                 .thenReturn(null);
 
         // WHEN the CreateManagedProfileTask is run
