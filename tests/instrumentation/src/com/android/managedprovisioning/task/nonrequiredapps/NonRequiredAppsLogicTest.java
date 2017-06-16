@@ -20,13 +20,11 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.content.pm.IPackageManager;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.test.filters.SmallTest;
 
@@ -51,12 +49,10 @@ public class NonRequiredAppsLogicTest {
     private static final int TEST_USER_ID = 123;
     private static final String[] APPS = {
             "app.a", "app.b", "app.c", "app.d", "app.e", "app.f", "app.g", "app.h",
-            "app.i", "app.j", "app.k", "app.l", "app.m", "app.n", "app.o", "app.p",
     };
-    private static final int[] SNAPSHOT_APPS = {0, 1, 2, 3, 4, 5, 6, 7};
-    private static final int[] SYSTEM_APPS = {0, 1, 2, 3, 8, 9, 10, 11};
-    private static final int[] INSTALLED_APPS = {0, 1, 4, 5, 8, 9, 12, 13};
-    private static final int[] BLACKLIST_APPS = {0, 2, 4, 6, 8, 10, 12, 14};
+    private static final int[] SNAPSHOT_APPS = {0, 1, 2, 3};
+    private static final int[] SYSTEM_APPS = {0, 1, 4, 5};
+    private static final int[] BLACKLIST_APPS = {0, 2, 4, 6};
 
     @Mock private PackageManager mPackageManager;
     @Mock private IPackageManager mIPackageManager;
@@ -88,14 +84,15 @@ public class NonRequiredAppsLogicTest {
         initializeApps();
 
         // THEN getSystemAppsToRemove should return a non-empty list with the only app to removed
-        // being the one that is installed, a current system app, non required
-        assertEquals(getSetFromArray(new int[] { 0, 8 }),
+        // being the one that is a current system app and non required
+        assertEquals(getSetFromArray(new int[] { 0, 4 }),
                 logic.getSystemAppsToRemove(TEST_USER_ID));
     }
 
     @Test
     public void testGetSystemAppsToRemove_OtaLeave() throws Exception {
-        // GIVEN that an OTA occurs and that system apps should not be deleted
+        // GIVEN that an OTA occurs and that system apps should not be deleted (indicated by the
+        // fact that no snapshot currently exists)
         final NonRequiredAppsLogic logic = createLogic(false, false);
         // GIVEN that a combination of apps is present
         initializeApps();
@@ -108,15 +105,16 @@ public class NonRequiredAppsLogicTest {
 
     @Test
     public void testGetSystemAppsToRemove_OtaDelete() throws Exception {
-        // GIVEN that an OTA occurs and that system apps should be deleted
+        // GIVEN that an OTA occurs and that system apps should be deleted (indicated by the fact
+        // that a snapshot currently exists)
         final NonRequiredAppsLogic logic = createLogic(false, false);
         // GIVEN that a combination of apps is present
         initializeApps();
 
         // THEN getSystemAppsToRemove should return a non-empty list with the only app to removed
-        // being the one that is installed, a current system app, non required and not in the last
+        // being the one that is a current system app, non required and not in the last
         // snapshot.
-        assertEquals(Collections.singleton(APPS[8]), logic.getSystemAppsToRemove(TEST_USER_ID));
+        assertEquals(Collections.singleton(APPS[4]), logic.getSystemAppsToRemove(TEST_USER_ID));
     }
 
     @Test
@@ -145,9 +143,9 @@ public class NonRequiredAppsLogicTest {
 
     @Test
     public void testMaybeTakeSnapshot_OtaLeave() {
-        // GIVEN that an OTA occurs and that system apps should not be deleted
+        // GIVEN that an OTA occurs and that system apps should not be deleted (indicated by the
+        // fact that no snapshot currently exists)
         final NonRequiredAppsLogic logic = createLogic(false, false);
-        // GIVEN that no snapshot currently exists
         when(mSnapshot.hasSnapshot(TEST_USER_ID)).thenReturn(false);
 
         // WHEN calling maybeTakeSystemAppsSnapshot
@@ -159,9 +157,9 @@ public class NonRequiredAppsLogicTest {
 
     @Test
     public void testMaybeTakeSnapshot_OtaDelete() {
-        // GIVEN that an OTA occurs and that system apps should be deleted
+        // GIVEN that an OTA occurs and that system apps should be deleted (indicated by the fact
+        // that a snapshot currently exists)
         final NonRequiredAppsLogic logic = createLogic(false, false);
-        // GIVEN that a snapshot currently exists
         when(mSnapshot.hasSnapshot(TEST_USER_ID)).thenReturn(true);
 
         // WHEN calling maybeTakeSystemAppsSnapshot
@@ -175,7 +173,6 @@ public class NonRequiredAppsLogicTest {
         setCurrentSystemApps(getSetFromArray(SYSTEM_APPS));
         setLastSnapshot(getSetFromArray(SNAPSHOT_APPS));
         setNonRequiredApps(getSetFromArray(BLACKLIST_APPS));
-        setInstalledApps(getSetFromArray(INSTALLED_APPS));
     }
 
     private void setCurrentSystemApps(Set<String> set) {
@@ -189,13 +186,6 @@ public class NonRequiredAppsLogicTest {
 
     private void setNonRequiredApps(Set<String> set) {
         when(mProvider.getNonRequiredApps(TEST_USER_ID)).thenReturn(set);
-    }
-
-    private void setInstalledApps(Set<String> set) throws Exception {
-        for (String pkg : set) {
-            when(mPackageManager.getPackageInfoAsUser(eq(pkg), anyInt(), eq(TEST_USER_ID)))
-                    .thenReturn(new PackageInfo());
-        }
     }
 
     private Set<String> getSetFromArray(int[] ids) {
