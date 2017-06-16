@@ -20,6 +20,7 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
 import android.content.pm.IPackageDeleteObserver;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -28,6 +29,7 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -35,9 +37,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Deletes all non-required apps.
  *
  * This task may be run when a profile (both for managed device and managed profile) is created.
- * In that case the newProfile flag should be true.
+ * In that case the firstTimeCreation flag should be true.
  *
- * It should also be run after a system update with newProfile false. Note that only
+ * It should also be run after a system update with firstTimeCreation false. Note that only
  * newly installed system apps will be deleted.
  */
 public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
@@ -72,6 +74,10 @@ public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
     public void run(int userId) {
         Set<String> packagesToDelete = mLogic.getSystemAppsToRemove(userId);
         mLogic.maybeTakeSystemAppsSnapshot(userId);
+
+        // Remove all packages that are not currently installed
+        removeNonInstalledPackages(packagesToDelete, userId);
+
         if (packagesToDelete.isEmpty()) {
             success();
             return;
@@ -84,6 +90,23 @@ public class DeleteNonRequiredAppsTask extends AbstractProvisioningTask {
             mPm.deletePackageAsUser(packageName, packageDeleteObserver,
                     PackageManager.DELETE_SYSTEM_APP, userId);
         }
+    }
+
+    private void removeNonInstalledPackages(Set<String> packages, int userId) {
+        Set<String> toBeRemoved = new HashSet<>();
+        for (String packageName : packages) {
+            try {
+                PackageInfo info = mPm.getPackageInfoAsUser(
+                    packageName, 0 /* default flags */,
+                    userId);
+                if (info == null) {
+                    toBeRemoved.add(packageName);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                toBeRemoved.add(packageName);
+            }
+        }
+        packages.removeAll(toBeRemoved);
     }
 
     @Override
