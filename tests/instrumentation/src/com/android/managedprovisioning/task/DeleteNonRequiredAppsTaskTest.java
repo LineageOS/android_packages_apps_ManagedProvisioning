@@ -26,6 +26,7 @@ import static org.mockito.Mockito.when;
 
 import android.content.Context;
 import android.content.pm.IPackageDeleteObserver;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.RemoteException;
 import android.support.test.InstrumentationRegistry;
@@ -81,6 +82,7 @@ public class DeleteNonRequiredAppsTaskTest {
     public void testNoAppsToDelete() {
         // GIVEN that no apps should be deleted
         when(mLogic.getSystemAppsToRemove(TEST_USER_ID)).thenReturn(Collections.emptySet());
+        mPackageManager.setInstalledApps(setFromArray("app.a"));
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
@@ -101,6 +103,8 @@ public class DeleteNonRequiredAppsTaskTest {
         // GIVEN that some apps should be deleted
         when(mLogic.getSystemAppsToRemove(TEST_USER_ID))
                 .thenReturn(setFromArray("app.a", "app.b"));
+        // GIVEN that only app a is currently installed
+        mPackageManager.setInstalledApps(setFromArray("app.a", "app.c"));
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
@@ -113,13 +117,36 @@ public class DeleteNonRequiredAppsTaskTest {
         verifyNoMoreInteractions(mCallback);
 
         // THEN those apps should have been deleted
-        assertDeletedApps("app.a", "app.b");
+        assertDeletedApps("app.a");
+    }
+
+    @Test
+    public void testAllAppsAlreadyDeleted() {
+        // GIVEN that some apps should be deleted
+        when(mLogic.getSystemAppsToRemove(TEST_USER_ID))
+            .thenReturn(setFromArray("app.a", "app.b"));
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN maybe take snapshot should have been called
+        verify(mLogic).maybeTakeSystemAppsSnapshot(TEST_USER_ID);
+
+        // THEN success should be called
+        verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
+
+        // THEN those apps should have been deleted
+        assertDeletedApps();
     }
 
     @Test
     public void testDeletionFailed() {
         // GIVEN that one app should be deleted
-        when(mLogic.getSystemAppsToRemove(TEST_USER_ID)).thenReturn(Collections.singleton("app.a"));
+        when(mLogic.getSystemAppsToRemove(TEST_USER_ID))
+            .thenReturn(setFromArray("app.a"));
+        mPackageManager.setInstalledApps(setFromArray("app.a"));
+
         // GIVEN that deletion fails
         mPackageManager.setDeletionSucceeds(false);
 
@@ -145,11 +172,17 @@ public class DeleteNonRequiredAppsTaskTest {
         assertEquals(setFromArray(appArray), mDeletedApps);
     }
 
+
     class FakePackageManager extends MockPackageManager {
         private boolean mDeletionSucceeds = true;
+        private Set<String> mInstalledApps = new HashSet<>();
 
         void setDeletionSucceeds(boolean deletionSucceeds) {
             mDeletionSucceeds = deletionSucceeds;
+        }
+
+        void setInstalledApps(Set<String> set) {
+            mInstalledApps = set;
         }
 
         @Override
@@ -167,12 +200,22 @@ public class DeleteNonRequiredAppsTaskTest {
             } else {
                 resultCode = PackageManager.DELETE_FAILED_INTERNAL_ERROR;
             }
+            assertTrue(mInstalledApps.remove(packageName));
 
             try {
                 observer.packageDeleted(packageName, resultCode);
             } catch (RemoteException e) {
                 fail(e.toString());
             }
+        }
+
+        @Override
+        public PackageInfo getPackageInfoAsUser(String pkg, int flag, int userId)
+                throws NameNotFoundException {
+            if (mInstalledApps.contains(pkg) && userId == TEST_USER_ID) {
+                return new PackageInfo();
+            }
+            throw new NameNotFoundException();
         }
     }
 }
