@@ -43,7 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"公司檔案"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"主要使用者"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"要刪除現有設定檔嗎？"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"您已有可以透過下列應用程式管理的工作設定檔："</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"您可以透過下列應用程式管理現有的工作設定檔："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"請在開始前"<a href="#read_this_link">"閱讀此資訊"</a>"。"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"如繼續，此設定檔中的所有應用程式和資料將會刪除。"</string>
     <string name="delete_profile" msgid="2299218578684663459">"刪除"</string>
