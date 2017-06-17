@@ -43,7 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbeitsprofil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hauptnutzer"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Vorhandenes Profil löschen?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Du hast schon ein Arbeitsprofil. Es wird mit folgender App verwaltet:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Du hast bereits ein Arbeitsprofil. Es wird mit folgender App verwaltet:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Bevor du fortfährst, "<a href="#read_this_link">"lies diese Informationen"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Wenn du den Vorgang fortsetzt, werden alle Apps und Daten in diesem Profil gelöscht."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Löschen"</string>
