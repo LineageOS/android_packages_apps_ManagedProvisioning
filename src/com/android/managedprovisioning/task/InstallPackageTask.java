@@ -18,6 +18,7 @@ package com.android.managedprovisioning.task;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_INSTALL_PACKAGE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageManager;
@@ -25,8 +26,8 @@ import android.net.Uri;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -43,7 +44,8 @@ public class InstallPackageTask extends AbstractProvisioningTask {
     private final SettingsFacade mSettingsFacade;
     private final DownloadPackageTask mDownloadPackageTask;
 
-    private PackageManager mPm;
+    private final PackageManager mPm;
+    private final DevicePolicyManager mDpm;
     private boolean mInitialPackageVerifierEnabled;
 
     /**
@@ -70,6 +72,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         super(context, params, callback);
 
         mPm = context.getPackageManager();
+        mDpm = context.getSystemService(DevicePolicyManager.class);
         mSettingsFacade = checkNotNull(settingsFacade);
         mDownloadPackageTask = checkNotNull(downloadPackageTask);
     }
@@ -93,7 +96,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         String packageLocation = mDownloadPackageTask.getDownloadedPackageLocation();
         String packageName = mProvisioningParams.inferDeviceAdminPackageName();
 
-        ProvisionLogger.logi("Installing package");
+        ProvisionLogger.logi("Installing package " + packageName);
         mInitialPackageVerifierEnabled = mSettingsFacade.isPackageVerifierEnabled(mContext);
         if (TextUtils.isEmpty(packageLocation)) {
             // Do not log time if not installing any package, as that isn't useful.
@@ -104,11 +107,19 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         // Temporarily turn off package verification.
         mSettingsFacade.setPackageVerifierEnabled(mContext, false);
 
+        int installFlags = PackageManager.INSTALL_REPLACE_EXISTING;
+        // Current device owner (if exists) must be test-only, so it is fine to replace it with a
+        // test-only package of same package name. No need to further verify signature as
+        // installation will fail if signatures don't match.
+        if (mDpm.isDeviceOwnerApp(packageName)) {
+            installFlags |= PackageManager.INSTALL_ALLOW_TEST;
+        }
+
         // Allow for replacing an existing package.
         // Needed in case this task is performed multiple times.
         mPm.installPackage(Uri.parse("file://" + packageLocation),
                 new PackageInstallObserver(packageName, packageLocation),
-                /* flags */ PackageManager.INSTALL_REPLACE_EXISTING,
+                installFlags,
                 mContext.getPackageName());
     }
 
