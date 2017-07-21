@@ -17,6 +17,9 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.content.pm.PackageManager.INSTALL_ALLOW_TEST;
+import static android.content.pm.PackageManager.INSTALL_REPLACE_EXISTING;
+
 import static com.android.managedprovisioning.task.InstallPackageTask.ERROR_INSTALLATION_FAILED;
 import static com.android.managedprovisioning.task.InstallPackageTask.ERROR_PACKAGE_INVALID;
 import static org.mockito.Matchers.any;
@@ -28,6 +31,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageManager;
@@ -54,6 +58,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
 
     @Mock private Context mContext;
     @Mock private PackageManager mPackageManager;
+    @Mock private DevicePolicyManager mDpm;
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private DownloadPackageTask mDownloadPackageTask;
     private InstallPackageTask mTask;
@@ -68,6 +73,10 @@ public class InstallPackageTaskTest extends AndroidTestCase {
 
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
         when(mContext.getPackageName()).thenReturn(getContext().getPackageName());
+        when(mContext.getSystemServiceName(eq(DevicePolicyManager.class)))
+                .thenReturn(Context.DEVICE_POLICY_SERVICE);
+        when(mContext.getSystemService(eq(Context.DEVICE_POLICY_SERVICE))).thenReturn(mDpm);
+
 
         mTask = new InstallPackageTask(mSettingsFacade, mDownloadPackageTask, mContext, TEST_PARAMS,
                 mCallback);
@@ -100,7 +109,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         mTask.run(TEST_USER_ID);
 
         // THEN package installed is invoked with an install observer
-        IPackageInstallObserver observer = verifyPackageInstalled();
+        IPackageInstallObserver observer = verifyPackageInstalled(INSTALL_REPLACE_EXISTING);
 
         // WHEN the package installed callback is invoked with success
         observer.packageInstalled(TEST_PACKAGE_NAME, PackageManager.INSTALL_SUCCEEDED);
@@ -112,6 +121,30 @@ public class InstallPackageTaskTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testSuccess_allowTestOnly() throws Exception {
+        // GIVEN a package was downloaded to TEST_LOCATION
+        when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
+        // WHEN package to be installed is the current device owner.
+        when(mDpm.isDeviceOwnerApp(eq(TEST_PACKAGE_NAME))).thenReturn(true);
+
+        // WHEN running the InstallPackageTask specifying an install location
+        mTask.run(TEST_USER_ID);
+
+        // THEN package installed is invoked with an install observer
+        IPackageInstallObserver observer = verifyPackageInstalled(
+                INSTALL_REPLACE_EXISTING | INSTALL_ALLOW_TEST);
+
+        // WHEN the package installed callback is invoked with success
+        observer.packageInstalled(TEST_PACKAGE_NAME, PackageManager.INSTALL_SUCCEEDED);
+
+        // THEN we receive a success callback
+        verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
+        assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
+    }
+
+
+    @SmallTest
     public void testInstallFailedVersionDowngrade() throws Exception {
         // GIVEN a package was downloaded to TEST_LOCATION
         when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(TEST_PACKAGE_LOCATION);
@@ -120,7 +153,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         mTask.run(TEST_USER_ID);
 
         // THEN package installed is invoked with an install observer
-        IPackageInstallObserver observer = verifyPackageInstalled();
+        IPackageInstallObserver observer = verifyPackageInstalled(INSTALL_REPLACE_EXISTING);
 
         // WHEN the package installed callback is invoked with version downgrade error
         observer.packageInstalled(null, PackageManager.INSTALL_FAILED_VERSION_DOWNGRADE);
@@ -140,7 +173,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         mTask.run(TEST_USER_ID);
 
         // THEN package installed is invoked with an install observer
-        IPackageInstallObserver observer = verifyPackageInstalled();
+        IPackageInstallObserver observer = verifyPackageInstalled(INSTALL_REPLACE_EXISTING);
 
         // WHEN the package installed callback is invoked with version downgrade error
         observer.packageInstalled(null, PackageManager.INSTALL_FAILED_INVALID_APK);
@@ -160,7 +193,7 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         mTask.run(TEST_USER_ID);
 
         // THEN package installed is invoked with an install observer
-        IPackageInstallObserver observer = verifyPackageInstalled();
+        IPackageInstallObserver observer = verifyPackageInstalled(INSTALL_REPLACE_EXISTING);
 
         // WHEN the package installed callback is invoked with version downgrade error
         observer.packageInstalled(OTHER_PACKAGE_NAME, PackageManager.INSTALL_SUCCEEDED);
@@ -171,18 +204,15 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         assertTrue(mSettingsFacade.isPackageVerifierEnabled(mContext));
     }
 
-    private IPackageInstallObserver verifyPackageInstalled() {
+    private IPackageInstallObserver verifyPackageInstalled(int installFlags) {
         ArgumentCaptor<IPackageInstallObserver> observerCaptor
                 = ArgumentCaptor.forClass(IPackageInstallObserver.class);
-        ArgumentCaptor<Integer> flagsCaptor = ArgumentCaptor.forClass(Integer.class);
         // THEN the package is installed and we get a success callback
         verify(mPackageManager).installPackage(
                 eq(Uri.parse("file://" + TEST_PACKAGE_LOCATION)),
                 observerCaptor.capture(),
-                flagsCaptor.capture(),
+                eq(installFlags),
                 eq(getContext().getPackageName()));
-        // make sure that the flags value has been set
-        assertTrue(0 != (flagsCaptor.getValue() & PackageManager.INSTALL_REPLACE_EXISTING));
         return observerCaptor.getValue();
     }
 
