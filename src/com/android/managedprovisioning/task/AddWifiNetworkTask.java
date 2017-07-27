@@ -49,7 +49,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
     private Handler mHandler;
     private boolean mTaskDone = false;
 
-    private final Utils mUtils = new Utils();
+    private final Utils mUtils;
     private Runnable mTimeoutRunnable;
 
     public AddWifiNetworkTask(
@@ -59,7 +59,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
         this(
                 new NetworkMonitor(context),
                 new WifiConfigurationProvider(),
-                context, provisioningParams, callback);
+                context, provisioningParams, callback, new Utils());
     }
 
     @VisibleForTesting
@@ -68,12 +68,14 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
             WifiConfigurationProvider wifiConfigurationProvider,
             Context context,
             ProvisioningParams provisioningParams,
-            Callback callback) {
+            Callback callback,
+            Utils utils) {
         super(context, provisioningParams, callback);
 
         mNetworkMonitor = checkNotNull(networkMonitor);
         mWifiConfigurationProvider = checkNotNull(wifiConfigurationProvider);
         mWifiManager  = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        mUtils = checkNotNull(utils);
     }
 
     @Override

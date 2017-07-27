@@ -23,10 +23,13 @@ import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.support.test.filters.SmallTest;
 
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.task.wifi.NetworkMonitor;
 import com.android.managedprovisioning.task.wifi.WifiConfigurationProvider;
 
@@ -43,17 +46,26 @@ public class AddWifiNetworkTaskTest {
 
     private static final int TEST_USER_ID = 123;
     private static final ComponentName ADMIN = new ComponentName("com.test.admin", ".Receiver");
+    private static final String TEST_SSID = "TEST_SSID";
     private static final ProvisioningParams NO_WIFI_INFO_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
             .setWifiInfo(null)
             .build();
+    private static final ProvisioningParams WIFI_INFO_PARAMS = new ProvisioningParams.Builder()
+            .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+            .setDeviceAdminComponentName(ADMIN)
+            .setWifiInfo(new WifiInfo.Builder().setSsid(TEST_SSID).build())
+            .build();
 
     @Mock private Context mContext;
+    @Mock private ConnectivityManager mConnectivityManager;
     @Mock private WifiManager mWifiManager;
     @Mock private NetworkMonitor mNetworkMonitor;
     @Mock private WifiConfigurationProvider mWifiConfigurationProvider;
     @Mock private AbstractProvisioningTask.Callback mCallback;
+    @Mock private Utils mUtils;
+    @Mock private android.net.wifi.WifiInfo mWifiInfo;
     private AddWifiNetworkTask mTask;
 
     @Before
@@ -61,13 +73,73 @@ public class AddWifiNetworkTaskTest {
         MockitoAnnotations.initMocks(this);
 
         when(mContext.getSystemService(Context.WIFI_SERVICE)).thenReturn(mWifiManager);
+        when(mContext.getSystemService(Context.CONNECTIVITY_SERVICE))
+                .thenReturn(mConnectivityManager);
     }
 
     @Test
     public void testNoWifiInfo() {
         // GIVEN that no wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                NO_WIFI_INFO_PARAMS, mCallback);
+                NO_WIFI_INFO_PARAMS, mCallback, mUtils);
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN success should be called
+        verify(mCallback).onSuccess(mTask);
+    }
+
+    @Test
+    public void testWifiManagerNull() {
+        // GIVEN that wifi info was passed in the parameter
+        mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
+                WIFI_INFO_PARAMS, mCallback, mUtils);
+
+        // GIVEN that mWifiManager is null
+        when(mContext.getSystemService(Context.WIFI_SERVICE)).thenReturn(null);
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN error should be called
+        verify(mCallback).onError(mTask, 0);
+    }
+
+    @Test
+    public void testFailToEnableWifi() {
+        // GIVEN that wifi info was passed in the parameter
+        mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
+                WIFI_INFO_PARAMS, mCallback, mUtils);
+
+        // GIVEN that wifi is not enabled
+        when(mWifiManager.isWifiEnabled()).thenReturn(false);
+
+        // GIVEN that enabling wifi failed
+        when(mWifiManager.setWifiEnabled(true)).thenReturn(false);
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN error should be called
+        verify(mCallback).onError(mTask, 0);
+    }
+
+    @Test
+    public void testIsConnectedToSpecifiedWifiTrue() {
+        // GIVEN that wifi info was passed in the parameter
+        mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
+                WIFI_INFO_PARAMS, mCallback, mUtils);
+
+        // GIVEN that wifi is enabled
+        when(mWifiManager.isWifiEnabled()).thenReturn(true);
+
+        // GIVEN connected to wifi
+        when(mUtils.isConnectedToWifi(mContext)).thenReturn(true);
+
+        // GIVEN the connected SSID is the same as the wifi param
+        when(mWifiManager.getConnectionInfo()).thenReturn(mWifiInfo);
+        when(mWifiInfo.getSSID()).thenReturn(TEST_SSID);
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
