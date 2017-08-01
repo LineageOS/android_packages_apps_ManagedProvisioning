@@ -132,7 +132,7 @@
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"ഔദ്യോഗിക പ്രൊഫൈൽ ഉപയോഗിക്കുന്നതിലൂടെ, ഒരിടത്ത് നിങ്ങൾക്ക് ഔദ്യോഗിക ആപ്പുകൾ സൂക്ഷിക്കാവുന്നതാണ്"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. എൻക്രിപ്ഷൻ"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
-    <string name="setup_device" msgid="6725265673245816366">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുക"</string>
+    <string name="setup_device" msgid="6725265673245816366">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക. എൻക്രിപ്ഷൻ"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുക. പുരോഗതി കാണിക്കുന്നു"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"\'കൂടുതലറിയുക\' ബട്ടൺ"</string>
