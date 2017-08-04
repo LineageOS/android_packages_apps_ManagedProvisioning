@@ -60,6 +60,7 @@
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
+  <string name="encrypt_device_launch_settings">Cifrar</string>
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
@@ -106,6 +107,7 @@
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_continue">Siguir</string>
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
