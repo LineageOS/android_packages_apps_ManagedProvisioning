@@ -52,7 +52,7 @@
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Այս սարքը կարգավորելու համար այն նախ անհրաժեշտ է գաղտնագրել։ Դա կարող է որոշ ժամանակ պահանջել:"</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Գաղտնագրե՞լ սարքը։"</string>
     <string name="encrypt" msgid="1749320161747489212">"Գաղտնագրել"</string>
-    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Կոդավորումն ավարտվեց"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Գաղտնագրումը ավարտվեց"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Հպեք՝ ձեր աշխատանքային պրոֆիլի կարգավորումը շարունակելու համար"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Չհաջողվեց ստեղծել ձեր աշխատանքը պրոֆիլը: Դիմեք ձեր տեխնիկական սպասարկման բաժին կամ փորձեք մի փոքր ուշ:"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Հնարավոր չէ ավելացնել աշխատանքային պրոֆիլ"</string>
