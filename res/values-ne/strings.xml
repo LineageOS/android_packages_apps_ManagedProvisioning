@@ -132,7 +132,7 @@
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"कुनै कार्य प्रोफाइलको प्रयोग गरेर तपाईं आफ्ना कार्य सम्बन्धी अनुप्रयोगहरूलाई एकै ठाउँमा राख्न सक्नुहुन्छ"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। इन्क्रिप्सन"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
-    <string name="setup_device" msgid="6725265673245816366">"तपाईँको उपकरण स्थापना गर्नुहोस्"</string>
+    <string name="setup_device" msgid="6725265673245816366">"आफ्नो यन्त्रलाई सेट अप गर्नुहोस्"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"तपाईँको यन्त्र सेटअप गर्नुहोस्। इन्क्रिप्सन"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"तपाईँको यन्त्र सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"थप जान्नुहोस् बटन"</string>

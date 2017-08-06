@@ -132,8 +132,7 @@
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"Korištenjem radnog profila, radne aplikacije možete čuvati na jednom mjestu"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Postavite svoj profil. Šifriranje"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Postavite svoj profil. Prikazuje se napredak"</string>
-    <!-- no translation found for setup_device (6725265673245816366) -->
-    <skip />
+    <string name="setup_device" msgid="6725265673245816366">"Postavite svoj uređaj"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"Postavite svoj uređaj. Šifriranje"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"Postavite svoj uređaj. Prikazuje se napredak"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Dugme Saznajte više"</string>
