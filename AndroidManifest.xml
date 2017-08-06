@@ -50,6 +50,7 @@
 
     <uses-permission android:name="android.permission.PERFORM_CDMA_PROVISIONING" />
     <uses-permission android:name="android.permission.ACCESS_PDB_STATE" />
+    <uses-permission android:name="android.permission.PEERS_MAC_ADDRESS" />
 
     <application
         android:label="@string/app_label"
