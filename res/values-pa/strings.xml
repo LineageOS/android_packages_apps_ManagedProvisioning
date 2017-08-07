@@ -28,10 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ਹੇਠਾਂ ਦਿੱਤੀ ਐਪ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰੇਗੀ:"</string>
     <string name="next" msgid="1004321437324424398">"ਅੱਗੇ"</string>
     <string name="setting_up_workspace" msgid="4517537806569988620">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਰਿਹਾ ਹੈ..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (3700477045214300236) -->
-    <skip />
-    <!-- no translation found for admin_has_ability_to_monitor_device (1328417417271345288) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡੈਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="2375961046794109749">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡੈਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ਚੋਰੀ ਤੋਂ ਰੱਖਿਆ ਕਰਨ ਵਾਲੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਕੋਲ ਲਾਜ਼ਮੀ ਤੌਰ \'ਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਲਈ ਪਾਸਵਰਡ ਦੁਆਰਾ ਸੁਰੱਖਿਤ ਕੀਤਾ ਸਕ੍ਰੀਨ ਲੌਕ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਹਿਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
@@ -40,26 +38,30 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"ਮੈਂ ਸਹਿਮਤ ਹਾਂ"</string>
     <string name="url_error" msgid="5958494012986243186">"ਇਹ ਲਿੰਕ ਦਿਖਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"</string>
     <string name="terms" msgid="8295436105384703903">"ਮਦਾਂ"</string>
-    <string name="general" msgid="4327185905521992102">"ਸਧਾਰਨ"</string>
+    <string name="work_profile_info" msgid="5433388376309583996">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਜਾਣਕਾਰੀ"</string>
+    <string name="managed_device_info" msgid="1529447646526616811">"ਪ੍ਰਬੰਧਿਤ ਕੀਤੀ ਡੀਵਾਈਸ ਬਾਰੇ ਜਾਣਕਾਰੀ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ਕੀ ਮੌਜੂਦਾ ਪ੍ਰੋਫਾਈਲ ਮਿਟਾਉਣਾ ਹੈ?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="2467792999160003758">"ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਹੈ, ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="7846971308431780139">"ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਹੈ, ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡੈਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="4325067657681168120">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਸੈਟ ਅਪ ਕਰਨਾ ਜਾਰੀ ਰੱਖਣ ਲਈ, ਤੁਹਾਨੂੰ ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ। ਇਸ ਵਿੱਚ ਥੋੜ੍ਹੀ ਦੇਰ ਲੱਗ ਸਕਦੀ ਹੈ।"</string>
-    <string name="encrypt_device_launch_settings" msgid="826115154646195837">"ਇਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸਥਾਪਤ ਕਰਨ ਲਈ, ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕੀਤੇ ਜਾਣ ਦੀ ਲੋੜ ਹੈ। ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"</string>
+    <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਸਥਾਪਤ ਕਰਨ ਲਈ, ਇਸਨੂੰ ਪਹਿਲਾਂ ਇਨਕ੍ਰਿਪਟ ਕੀਤੇ ਜਾਣ ਦੀ ਲੋੜ ਹੈ। ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"</string>
+    <string name="encrypt_this_device_question" msgid="8719916619866892601">"ਡੀਵਾਈਸ ਇਨਕ੍ਰਿਪਟ ਕਰੀਏ?"</string>
+    <string name="encrypt" msgid="1749320161747489212">"ਇਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ਇਨਕ੍ਰਿਪਸ਼ਨ ਪੂਰਾ"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਦੀ ਸਥਾਪਨਾ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਟੈਪ ਕਰੋ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
-    <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਕੰਮ ਪ੍ਰੋਫਾਈਲਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ"</string>
-    <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"ਇਸ ਉਪਭੋਗਤਾ ਦੀ ਇੱਕ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਹੋ ਸਕਦੀ"</string>
+    <string name="cant_add_work_profile" msgid="9217268909964154934">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
+    <string name="user_cant_have_work_profile_contact_admin" msgid="1014351338944641678">"ਇਸ ਵਰਤੋਂਕਾਰ ਕੋਲ ਕੋਈ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਹੋ ਸਕਦਾ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="user_cannot_have_work_profiles_contact_admin" msgid="4386452918273443379">"ਇਸ ਵਰਤੋਂਕਾਰ ਕੋਲ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਹੋ ਸਕਦੇ। ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"ਕਾਰਜ ਪ੍ਰੋਫ਼ਾਈਲਾਂ ਕਿਸੇ ਪ੍ਰਬੰਧਿਤ ਡੀਵਾਈਸ \'ਤੇ ਸੈੱਟਅੱਪ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀਆਂ ਹਨ"</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕਦੀ ਕਿਉਂਕਿ ਤੁਸੀਂ ਆਪਣੀ ਡੀਵਾਈਸ ਤੇ ਅਧਿਕਤਮ ਉਪਭੋਗਤਾਵਾਂ ਦੀ ਸੀਮਾ ਪੂਰੀ ਹੋ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਉਪਭੋਗਤਾ ਨੂੰ ਹਟਾਓ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਇਸ ਲੌਂਚਰ ਐਪ ਵੱਲੋਂ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ। ਤੁਹਾਨੂੰ ਇੱਕ ਅਜਿਹੇ ਲੌਂਚਰ ਨਾਲ ਸਵਿਚ ਕਰਨ ਦੀ ਲੋੜ ਹੋਵੇਗੀ ਜੋ ਅਨੁਕੂਲ ਹੋਵੇ।"</string>
+    <string name="too_many_users_on_device_remove_user_try_again" msgid="2795045208576680027">"ਹੋ ਸਕਦਾ ਹੈ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਬਹੁਤ ਸਾਰੇ ਵਰਤੋਂਕਾਰ ਹੋਣ। ਕਿਸੇ ਵਰਤੋਂਕਾਰ ਨੂੰ ਹਟਾਓ, ਫਿਰ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="change_device_launcher" msgid="4523563368433637980">"ਡੀਵਾਈਸ ਲਾਂਚਰ ਨੂੰ ਬਦਲੋ"</string>
+    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ਇਹ ਲਾਂਚਰ ਐਪ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵੱਲੋਂ ਨਹੀਂ ਵਰਤੀ ਜਾ ਸਕਦੀ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ਰੱਦ ਕਰੋ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
@@ -73,38 +75,48 @@
     <string name="progress_finishing_touches" msgid="9037776404089697198">"ਅੰਤਿਮ ਰੂਪ ਦਿੱਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ਡੀਵਾਈਸ ਮਾਲਕ ਨੂੰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"ਡੀਵਾਈਸ ਚਾਲੂ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"</string>
-    <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਐਨਕ੍ਰਿਪਸ਼ਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"ਇਹ ਡੀਵਾਈਸ ਇਨਕ੍ਰਿਪਸ਼ਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦੀ ਹੈ, ਜਿਸਦੀ ਸਥਾਪਨਾ ਕਰਨ ਲਈ ਲੋੜ ਹੈ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"ਸਥਾਪਨਾ ਨੂੰ ਬੰਦ ਅਤੇ ਡੀਵਾਈਸ ਨੂੰ ਰੀਸੈੱਟ ਕਰੀਏ?"</string>
+    <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ਇਸ ਨਾਲ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਰੀਸੈੱਟ ਹੋ ਜਾਵੇਗੀ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈਟ ਅਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੀ ਡੀਵਾਈਸ ਦਾ ਡੈਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ਰੱਦ ਕਰੋ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ਠੀਕ"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"ਰੀਸੈੱਟ ਕਰੋ"</string>
-    <string name="device_owner_error_general" msgid="5962462955470123776">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ਇਹ ਡੀਵਾਈਸ ਪਹਿਲਾਂ ਹੀ ਸੈਟ ਅਪ ਕੀਤੀ ਹੋਈ ਹੈ।"</string>
+    <string name="reset" msgid="6467204151306265796">"ਰੀਸੈੱਟ ਕਰੋ"</string>
+    <string name="cant_set_up_profile" msgid="4341825293970158436">"ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
+    <string name="cant_set_up_device" msgid="4120090138983350714">"ਡੀਵਾਈਸ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ"</string>
+    <string name="couldnt_set_up_device" msgid="60699158233724802">"ਡੀਵਾਈਸ ਨੂੰ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ਮਦਦ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ"</string>
+    <string name="device_already_set_up" msgid="507881934487140294">"ਡੀਵਾਈਸ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਥਾਪਤ ਕੀਤੀ ਹੋਈ ਹੈ"</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
-    <string name="device_owner_error_frp" msgid="7053630342416280252">"ਇਹ ਡੀਵਾਈਸ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਸੁਰੱਖਿਆ ਵੱਲੋਂ ਲੌਕ ਕੀਤੀ ਗਈ ਹੈ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਵਿੱਚ \'ਰੀਸੈੱਟ ਕਰਨ ਸਬੰਧੀ ਸੁਰੱਖਿਆ\' ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਹੋਇਆ ਹੈ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ਮਿਟਾ ਰਿਹਾ ਹੈ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ਕਿਰਪਾ ਕਰਕੇ ਠਹਿਰੋ..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ਇੱਕ checksum ਅਸ਼ੁੱਧੀ ਦੇ ਕਾਰਨ ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"ਕਿਸੇ ਚੈੱਕਸਮ ਗੜਬੜ ਦੇ ਕਾਰਨ ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਨੂੰ ਵਰਤਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ਐਡਮਿਨ ਐਪ ਨੂੰ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
-    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਇਸਦੇ ਕੰਪੋਨੈਂਟ ਲੁਪਤ ਹਨ ਜਾਂ ਕਰਪਟ ਹਨ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਵਰਤੀ ਨਹੀਂ ਜਾ ਸਕਦੀ। ਇਸ ਵਿੱਚ ਕੁਝ ਹਿੱਸੇ ਮੌਜੂਦ ਨਹੀਂ ਹਨ ਜਾਂ ਖਰਾਬ ਹਨ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ਕੀ ਸੈਟ ਅਪ ਕਰਨਾ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ਨਹੀਂ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ਹਾਂ"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ਰੱਦ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ਕੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟਅਪ ਰੋਕਣਾ ਹੈ?"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ਤੁਸੀਂ ਬਾਅਦ ਵਿੱਚ ਆਪਣੀ ਕੰਪਨੀ ਵੱਲੋਂ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਨ ਐਪ ਤੋਂ ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰ ਸਕਦੇ ਹੋ।"</string>
-    <string name="work_profile_setup_continue" msgid="6549708818974016509">"ਜਾਰੀ ਰੱਖੋ"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"ਤੁਸੀਂ ਆਪਣੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਬਾਅਦ ਵਿੱਚ ਆਪਣੀ ਸੰਸਥਾ ਦੀ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਨ ਐਪ ਵਿੱਚ ਸਥਾਪਤ ਕਰ ਸਕਦੇ ਹੋ"</string>
+    <string name="continue_button" msgid="7177918589510964446">"ਜਾਰੀ ਰੱਖੋ"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"ਰੋਕੋ"</string>
-    <string name="profile_owner_info" msgid="6975830281038077091">"ਤੁਸੀਂ ਇੱਕ ਨਵਾਂ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਬਣਾਉਣ ਜਾ ਰਹੇ ਹੋ ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਤੁਹਾਡੀ ਸੰਸਥਾ ਦੁਆਰਾ ਕੀਤਾ ਜਾਵੇਗਾ।"</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="5952395484354271568">"ਤੁਸੀਂ ਇੱਕ ਨਵਾਂ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਬਣਾਉਣ ਜਾ ਰਹੇ ਹੋ ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਤੁਹਾਡੀ ਸੰਸਥਾ ਦੁਆਰਾ ਕੀਤਾ ਜਾਵੇਗਾ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ਦੀਆਂ ਮਦਾਂ ਲਾਗੂ ਹੁੰਦੀਆਂ ਹਨ।"</string>
-    <string name="profile_owner_info_comp" msgid="2100379544031830570">"ਤੁਹਾਡੀਆਂ ਕਾਰਜ ਸਬੰਧੀ ਐਪਾਂ ਦੇ ਲਈ ਇੱਕ ਪ੍ਰੋਫਾਈਲ ਬਣਾਇਆ ਜਾਵੇਗਾ। ਇਸ ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀਆਂ ਬਾਕੀ ਚੀਜ਼ਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਤੁਹਾਡੀ ਸੰਸਥਾ ਦੁਆਰਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"</string>
-    <string name="profile_owner_info_with_terms_headers_comp" msgid="7685734522417715587">"ਤੁਹਾਡੀਆਂ ਕਾਰਜ ਸਬੰਧੀ ਐਪਾਂ ਦੇ ਲਈ ਇੱਕ ਪ੍ਰੋਫਾਈਲ ਬਣਾਇਆ ਜਾਵੇਗਾ। ਇਸ ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀਆਂ ਬਾਕੀ ਚੀਜ਼ਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਤੁਹਾਡੀ ਸੰਸਥਾ ਦੁਆਰਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ਦੀਆਂ ਮਦਾਂ ਲਾਗੂ ਹੁੰਦੀਆਂ ਹਨ।"</string>
-    <string name="device_owner_info" msgid="9015249759994198680">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="4019378178527872716">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ਦੀਆਂ ਮਦਾਂ ਲਾਗੂ  ਹੁੰਦੀਆਂ ਹਨ। <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="462704678510856705">"ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਈ ਸਵਾਲ ਹਨ, ਤਾਂ ਆਪਣੇ <xliff:g id="DEVICE_S_PROVIDER">%1$s</xliff:g> ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="device_provider" msgid="3278537487796207495">"ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਦਾਨਕ"</string>
-    <string name="your_org_app_used" msgid="4136582853192890775">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਨਾਲ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੇਗੀ:"</string>
+    <string name="dismiss" msgid="9009534756748565880">"ਖਾਰਜ ਕਰੋ"</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"ਤੁਸੀਂ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਬਣਾਉਣ ਲੱਗੇ ਹੋ ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਤੁਹਾਡੀ ਸੰਸਥਾ ਵੱਲੋਂ ਕੀਤੀ ਜਾਵੇਗੀ। ਮਦਾਂ ਲਾਗੂ ਹੋਣਗੀਆਂ।"</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"ਤੁਸੀਂ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਬਣਾਉਣ ਲੱਗੇ ਹੋ ਜਿਸਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਤੁਹਾਡੀ ਸੰਸਥਾ ਵੱਲੋਂ ਕੀਤੀ ਜਾਵੇਗੀ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ਦੀਆਂ ਮਦਾਂ ਲਾਗੂ ਹੋਣਗੀਆਂ।"</string>
+    <string name="profile_owner_info_comp" msgid="9190421701126119142">"ਤੁਹਾਡੀਆਂ ਕਾਰਜ ਸਬੰਧੀ ਐਪਾਂ ਦੇ ਲਈ ਇੱਕ ਪ੍ਰੋਫਾਈਲ ਬਣਾਇਆ ਜਾਵੇਗਾ। ਇਸ ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀਆਂ ਬਾਕੀ ਚੀਜ਼ਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਤੁਹਾਡੀ ਸੰਸਥਾ ਵੱਲੋਂ ਕੀਤੀ ਜਾਵੇਗੀ। ਮਦਾਂ ਲਾਗੂ ਹੋਣਗੀਆਂ।"</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"ਤੁਹਾਡੀਆਂ ਕਾਰਜ ਸਬੰਧੀ ਐਪਾਂ ਦੇ ਲਈ ਇੱਕ ਪ੍ਰੋਫਾਈਲ ਬਣਾਇਆ ਜਾਵੇਗਾ। ਇਸ ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਦੀਆਂ ਬਾਕੀ ਚੀਜ਼ਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਤੁਹਾਡੀ ਸੰਸਥਾ ਵੱਲੋਂ ਕੀਤੀ ਜਾਵੇਗੀ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> ਦੀਆਂ ਮਦਾਂ ਲਾਗੂ ਹੋਣਗੀਆਂ।"</string>
+    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ। ਮਦਾਂ ਲਾਗੂ ਹੋਣਗੀਆਂ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ਦੀਆਂ ਮਦਾਂ ਲਾਗੂ ਹੋਣਗੀਆਂ। <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ਇਹ ਲਿੰਕ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਹੈ ਅਤੇ ਇਸਨੂੰ ਡੀਵਾਈਸ ਦੀ ਸਥਾਪਨਾ ਪੂਰੀ ਹੋਣ ਤੱਕ ਖੋਲ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
+    <string name="contact_device_provider" msgid="9100405424740726066">"ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਈ ਸਵਾਲ ਹਨ, ਤਾਂ ਆਪਣੇ <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="if_questions_contact_admin" msgid="6147462485780267795">"ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਈ ਸਵਾਲ ਹਨ, ਤਾਂ ਆਪਣੀ ਸੰਸਥਾ ਦੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"</string>
+    <string name="setup_isnt_finished_contact_admin" msgid="235011880559615998">"ਸਥਾਪਨਾ ਮੁਕੰਮਲ ਨਹੀਂ ਹੋਈ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="for_help_contact_admin" msgid="8687037236275184653">"ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"</string>
+    <string name="organization_admin" msgid="1595001081906025683">"ਸੰਸਥਾ ਦਾ ਪ੍ਰਸ਼ਾਸਕ"</string>
+    <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਨਾਲ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਕਰੇਗੀ:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"ਤੁਹਾਡੀ ਸੰਸਥਾ"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"ਤੁਹਾਡੀ ਸੰਸਥਾ"</string>
     <string name="view_terms" msgid="7230493092383341605">"ਮਦਾਂ ਵੇਖੋ"</string>
@@ -118,10 +130,11 @@
     <string name="provisioning" msgid="4512493827019163451">"ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_profile" msgid="5573950582159698549">"ਆਪਣਾ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਕਰੋ"</string>
-    <string name="profile_benefits_description" msgid="2750373196318271680">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਨਿੱਜੀ ਡੈਟੇ ਤੋਂ ਕਾਰਜ ਡੈਟੇ ਨੂੰ ਵੱਖ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+    <string name="profile_benefits_description" msgid="758432985984252636">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਨਿੱਜੀ ਡੈਟੇ ਤੋਂ ਕਾਰਜ ਡੈਟੇ ਨੂੰ ਵੱਖ ਕਰ ਸਕਦੇ ਹੋ"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਨੂੰ ਇੱਕੋ ਥਾਂ \'ਤੇ ਰੱਖ ਸਕਦੇ ਹੋ"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
-    <string name="setup_device" msgid="6725265673245816366">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ"</string>
+    <string name="setup_device" msgid="6725265673245816366">"ਆਪਣੀ ਡੀਵਾਈਸ ਸਥਾਪਤ ਕਰੋ"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣੀ ਡੀਵਾਈਸ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ਹੋਰ ਜਾਣੋ ਬਟਨ"</string>
@@ -130,6 +143,11 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> ਸੈਕਸ਼ਨ ਸਮੱਗਰੀ: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"ਵਿਸਤਾਰ ਕਰੋ"</string>
     <string name="collapse" msgid="7817530505064432580">"ਸੁੰਗੇੜੋ"</string>
+    <string name="access_list_of_links" msgid="7094123315959323372">"ਲਿੰਕਾਂ ਦੀ ਸੂਚੀ ਤੱਕ ਪਹੁੰਚ ਕਰੋ"</string>
+    <string name="access_links" msgid="7991363727326168600">"ਲਿੰਕਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰੋ"</string>
+    <string name="access_terms" msgid="1982500872249763745">"ਮਦਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰੋ"</string>
+    <string name="read_terms" msgid="1745011123626640728">"ਮਦਾਂ ਪੜ੍ਹੋ"</string>
+    <string name="close_list" msgid="9053538299788717597">"ਸੂਚੀ ਬੰਦ ਕਰੋ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ਕੀ ਸਥਾਪਨਾ ਸਮਾਪਤ ਕਰਨੀ ਅਤੇ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ਇਸ ਸਥਾਪਨਾ ਨੂੰ ਸਮਾਪਤ ਕਰਨਾ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ਰੱਦ ਕਰੋ"</string>
