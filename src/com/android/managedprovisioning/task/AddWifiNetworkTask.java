@@ -41,6 +41,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
     private static final int RETRY_SLEEP_MULTIPLIER = 2;
     private static final int MAX_RETRIES = 6;
     private static final int RECONNECT_TIMEOUT_MS = 60000;
+    @VisibleForTesting  static final int ADD_NETWORK_FAIL = -1;
 
     private final WifiConfigurationProvider mWifiConfigurationProvider;
     private final WifiManager mWifiManager;
@@ -51,6 +52,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
 
     private final Utils mUtils;
     private Runnable mTimeoutRunnable;
+    private Injector mInjector;
 
     public AddWifiNetworkTask(
             Context context,
@@ -59,7 +61,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
         this(
                 new NetworkMonitor(context),
                 new WifiConfigurationProvider(),
-                context, provisioningParams, callback, new Utils());
+                context, provisioningParams, callback, new Utils(), new Injector());
     }
 
     @VisibleForTesting
@@ -69,13 +71,15 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
             Context context,
             ProvisioningParams provisioningParams,
             Callback callback,
-            Utils utils) {
+            Utils utils,
+            Injector injector) {
         super(context, provisioningParams, callback);
 
         mNetworkMonitor = checkNotNull(networkMonitor);
         mWifiConfigurationProvider = checkNotNull(wifiConfigurationProvider);
         mWifiManager  = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         mUtils = checkNotNull(utils);
+        mInjector = checkNotNull(injector);
     }
 
     @Override
@@ -118,7 +122,8 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
         }
 
         int netId = tryAddingNetwork(wifiConf);
-        if (netId == -1) {
+
+        if (netId == ADD_NETWORK_FAIL) {
             ProvisionLogger.loge("Unable to add network after trying " +  MAX_RETRIES + " times.");
             error(0);
             return;
@@ -149,7 +154,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
         while(netId == -1 && retriesLeft > 0) {
             ProvisionLogger.loge("Retrying in " + durationNextSleep + " ms.");
             try {
-                Thread.sleep(durationNextSleep);
+                mInjector.threadSleep(durationNextSleep);
             } catch (InterruptedException e) {
                 ProvisionLogger.loge("Retry interrupted.");
             }
@@ -193,5 +198,12 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
                 && mWifiManager.getConnectionInfo() != null
                 && mProvisioningParams.wifiInfo.ssid.equals(
                         mWifiManager.getConnectionInfo().getSSID());
+    }
+
+    @VisibleForTesting
+    static class Injector {
+        public void threadSleep(long milliseconds) throws InterruptedException {
+            Thread.sleep(milliseconds);
+        }
     }
 }
