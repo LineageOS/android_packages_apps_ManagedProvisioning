@@ -24,8 +24,8 @@
     <string name="setup_work_profile" msgid="1468934631731845267">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"మీ సంస్థ ఈ పరికరాన్ని నియంత్రిస్తుంది మరియు సురక్షితంగా ఉంచుతుంది."</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది అనువర్తనం ఈ ప్రొఫైల్‌ను ప్రాప్యత చేయాలి:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది అనువర్తనం మీ పరికరాన్ని నిర్వహిస్తుంది:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది యాప్ ఈ ప్రొఫైల్‌ను యాక్సెస్ చేయాలి:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది యాప్ మీ డివైజ్‌ను నిర్వహిస్తుంది:"</string>
     <string name="next" msgid="1004321437324424398">"తదుపరి"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"మీ పరికరం యొక్క స్థానం, కాల్ చరిత్ర మరియు పరిచయ శోధన చరిత్రతో పాటు ఈ ప్రొఫైల్‌కు అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ ప్రాప్యత, అనువర్తనాలు, అనుమతులు మరియు డేటాతో సహా మీ నెట్‌వర్క్ కార్యాచరణను కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>మీ సంస్థ యొక్క గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ నిర్వాహకులను సంప్రదించండి."</string>
@@ -59,7 +59,7 @@
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"కార్యాలయ ప్రొఫైల్‌ని భర్తీ చేయలేరు లేదా తీసివేయలేరు"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"ఈ పరికరానికి కార్యాలయ ప్రొఫైల్‌ని జోడించలేరు. మీకు సందేహాలుంటే, మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"పరికర లాంచర్‌‌ని మార్చండి"</string>
-    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"మీ కార్యాలయ ప్రొఫైల్ ద్వారా ఈ లాంచర్ అనువర్తనం ఉపయోగించలేరు"</string>
+    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"మీ కార్యాలయ ప్రొఫైల్ ద్వారా ఈ లాంచర్ యాప్ ఉపయోగించలేరు"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"రద్దు చేయి"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"సరే"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"వినియోగదారు సెటప్ పూర్తికాలేదు"</string>
@@ -68,7 +68,7 @@
     <string name="progress_data_process" msgid="1707745321954672971">"సెటప్ డేటాను ప్రాసెస్ చేస్తోంది..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiకి కనెక్ట్ చేస్తోంది..."</string>
     <string name="progress_download" msgid="3522436271691064624">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేస్తోంది..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"నిర్వాహక అనువర్తనం ఇన్‌స్టాల్ చేస్తోంది..."</string>
+    <string name="progress_install" msgid="2258045670385866183">"నిర్వాహక యాప్ ఇన్‌స్టాల్ చేస్తోంది..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"అనావశ్యక సిస్టమ్ అనువర్తనాలను తీసివేస్తోంది…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"తుది మెరుగులు చేస్తోంది…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"పరికర యజమానిని సెట్ చేస్తోంది..."</string>
