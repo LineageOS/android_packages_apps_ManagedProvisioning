@@ -89,7 +89,7 @@
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"మీ పరికరంలో రీసెట్ రక్షణ ఆన్ చేయబడింది. సహాయం కోసం, మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ఎరేజ్ చేస్తోంది"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"దయచేసి వేచి ఉండండి..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"చెక్‌సమ్ లోపం కారణంగా నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడలేదు. సహాయం కోసం, మీ నిర్వాహకులను సంప్రదించండి."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"చెక్‌సమ్ లోపం కారణంగా నిర్వాహక యాప్‌ను ఉపయోగించడం సాధ్యపడలేదు. సహాయం కోసం, మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"నిర్వాహక అనువర్తనాన్ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"నిర్వాహక అనువర్తనాన్ని ఉపయోగించడం సాధ్యపడదు. ఇందులో కొన్ని భాగాలు లేవు లేదా పాడైంది. సహాయం కోసం, మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"నిర్వాహక అనువర్తనాన్ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు"</string>
