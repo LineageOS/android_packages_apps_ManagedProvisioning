@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफ़ाइल सेटअप"</string>
-    <string name="provisioning_error_title" msgid="6320515739861578118">"ओह!"</string>
+    <string name="provisioning_error_title" msgid="6320515739861578118">"ओह हो, कुछ गड़बड़ हुई!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"कार्यस्थल प्रोफ़ाइल सेट करें"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपका संगठन इस प्रोफ़ाइल को नियंत्रित करता है और उसे सुरक्षित रखता है. अपने डिवाइस पर सब कुछ आप नियंत्रित करते हैं."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"आपका संगठन इस डिवाइस को नियंत्रित करेगा और इसे सुरक्षित बनाए रखेगा."</string>
@@ -28,17 +28,17 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्‍न ऐप आपके डिवाइस को प्रबंधित करेगा:"</string>
     <string name="next" msgid="1004321437324424398">"अगला"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफ़ाइल सेट अप की जा रही है…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"आपका व्यवस्थापक आपकी नेटवर्क गतिविधि सहित, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट एक्सेस, ऐप्लिकेशन, अनुमतियों और डेटा के साथ ही आपके डिवाइस के स्थान, कॉल इतिहास और संपर्क खोज इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों सहित, अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"आपका व्यवस्थापक आपकी नेटवर्क गतिविधि सहित, इस डिवाइस से जुड़ी सेटिंग, कॉर्पोरेट एक्सेस, ऐप्लिकेशन, अनुमतियों और डेटा के साथ ही आपके डिवाइस के स्थान, कॉल इतिहास और संपर्क खोज इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों सहित, अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"आपका एडमिन आपकी इंटरनेट से जुड़ी गतिविधि, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट पहुंच, ऐप्लिकेशन, अनुमतियों और इस प्रोफ़ाइल से जुड़े डेटा के साथ ही आपके डिवाइस के स्थान, कॉल इतिहास और संपर्क सर्च इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों सहित, और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"आपका एडमिन आपकी इंटरनेट से जुड़ी गतिविधि, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट पहुंच, ऐप्लिकेशन, अनुमतियों और इस प्रोफ़ाइल से जुड़े डेटा के साथ ही आपके डिवाइस के स्थान, कॉल इतिहास और संपर्क सर्च इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों के साथ-साथ और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरी से सुरक्षा संबंधी सुविधाओं का उपयोग करने के लिए, आपके पास अपने डिवाइस के लिए पासवर्ड द्वारा सुरक्षित स्क्रीन लॉक होना चाहिए."</string>
-    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"अपने संगठन की निजता नीतियों सहित, अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें."</string>
-    <string name="learn_more_link" msgid="3012495805919550043">"और जानें"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"अभी नहीं"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"अपने संगठन की निजता नीतियों के साथ ही और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"ज़्यादा जानें"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"रद्द करें"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ठीक"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मैं सहमत हूं"</string>
     <string name="url_error" msgid="5958494012986243186">"यह लिंक दिखाया नहीं जा सकता."</string>
     <string name="terms" msgid="8295436105384703903">"शर्तें"</string>
-    <string name="work_profile_info" msgid="5433388376309583996">"कार्य प्रोफ़ाइल की जानकारी"</string>
+    <string name="work_profile_info" msgid="5433388376309583996">"वर्क प्रोफ़ाइल की जानकारी"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"प्रबंधित डिवाइस की जानकारी"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफ़ाइल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक उपयोगकर्ता"</string>
@@ -47,12 +47,12 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"आगे बढ़ने से पहले, "<a href="#read_this_link">"यह पढ़ें"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"यदि आप जारी रखते हैं, तो इस प्रोफ़ाइल के सभी ऐप्लिकेशन और डेटा को हटा दिया जाएगा."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटाएं"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"अभी नहीं"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करें"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"अपनी कार्य प्रोफ़ाइल सेट अप करने के लिए, आपके डिवाइस को एन्क्रिप्ट करना ज़रूरी है. इसमें कुछ समय लग सकता है."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"यह डिवाइस सेट अप करने के लिए, सबसे पहले इसे एन्क्रिप्ट करना ज़रूरी है. इसमें कुछ समय लग सकता है."</string>
-    <string name="encrypt_this_device_question" msgid="8719916619866892601">"डिवाइस एन्क्रिप्ट करें?"</string>
-    <string name="encrypt" msgid="1749320161747489212">"एन्‍क्रिप्‍ट करें"</string>
-    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"एन्‍क्रिप्‍शन पूर्ण"</string>
+    <string name="encrypt_this_device_question" msgid="8719916619866892601">"डिवाइस सुरक्षित करें?"</string>
+    <string name="encrypt" msgid="1749320161747489212">"सुरक्षित करें"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"सुरक्षित करने का काम पूरा हुआ"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"अपनी कार्य प्रोफ़ाइल सेट करना जारी रखने के लिए टैप करें"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपकी कार्य प्रोफ़ाइल सेट नहीं की जा सकी. अपने IT विभाग से संपर्क करें या बाद में पुन: प्रयास करें."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफ़ाइल जोड़ी नहीं जा सकती"</string>
@@ -60,7 +60,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"इस डिवाइस पर काम से संबंधित प्रोफ़ाइल जोड़ी नहीं जा सकती. अगर आपके प्रश्न हैं, तो अपने व्यवस्थापक से संपर्क करें."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"डिवाइस लॉन्चर बदलें"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"आपकी कार्य प्रोफ़ाइल इस लॉन्चर ऐप्लिकेशन का उपयोग नहीं कर सकती"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"अभी नहीं"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द करें"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"उपयोगकर्ता सेटअप अधूरा है"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिवाइस का उपयोगकर्ता"</string>
@@ -73,11 +73,11 @@
     <string name="progress_finishing_touches" msgid="9037776404089697198">"अंतिम रूप दिया जा रहा है…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"डिवाइस स्वामी सेट किया जा रहा है…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"डिवाइस शुरू हो रहा है…"</string>
-    <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"यह डिवाइस एन्क्रिप्शन की अनुमति नहीं देता है, जो सेटअप के लिए ज़रूरी है. सहायता के लिए, अपने व्यवस्थापक से संपर्क करें."</string>
+    <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"यह डिवाइस सुरक्षित करने की अनुमति नहीं देता है, जो सेटअप के लिए ज़रूरी है. सहायता के लिए, अपने एडमिन से संपर्क करें."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"सेटअप रोकेंं और डिवाइस रीसेट करें?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"इससे आपका डिवाइस रीसेट हो जाएगा और आप वापस पहली स्क्रीन पर चले जाएंगे"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेट करना बंद करें और आपके डिवाइस का डेटा मिटाएं?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"अभी नहीं"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द करें"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ठीक"</string>
     <string name="reset" msgid="6467204151306265796">"रीसेट करें"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"प्रोफ़ाइल सेट अप नहीं की जा सकती"</string>
@@ -130,13 +130,13 @@
     <string name="setup_profile" msgid="5573950582159698549">"अपनी प्रोफ़ाइल सेट अप करें"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"कार्य प्रोफ़ाइल का उपयोग करके, आप कार्य डेटा को व्यक्तिगत डेटा से अलग कर सकते हैं"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"कार्य प्रोफ़ाइल का उपयोग करके, आप अपने कार्य ऐप्लिकेशन एक ही स्थान पर रख सकते हैं"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"अपनी प्रोफ़ाइल सेट करें. एन्क्रिप्शन"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"अपनी प्रोफ़ाइल सेट करें. सुरक्षित करने का तरीका"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"अपनी प्रोफ़ाइल सेट करें. प्रगति दिखा रहा है"</string>
     <string name="setup_device" msgid="6725265673245816366">"अपना डिवाइस सेट करें"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"अपना डिवाइस सेट करें. एन्क्रिप्शन"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"अपना डिवाइस सेट करें. सुरक्षित करने का तरीका"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"अपना डिवाइस सेट करें. प्रगति दिखा रहा है"</string>
-    <string name="learn_more_label" msgid="2723716758654655009">"और जानें बटन"</string>
-    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आइकन"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"ज़्यादा जानें बटन"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आइकॉन"</string>
     <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> अनुभाग शीर्षक."</string>
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> अनुभाग सामग्री: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"विस्तृत करें"</string>
@@ -148,7 +148,7 @@
     <string name="close_list" msgid="9053538299788717597">"सूची बंद करें"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप समाप्त करें और फ़ैक्टरी रीसेट करें?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"इस सेटअप को समाप्त करने से आपका डिवाइस फ़ैक्टरी रीसेट हो जाएगा और आपको वापस पहली स्क्रीन पर ले जाया जाएगा."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"अभी नहीं"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द करें"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"डिवाइस रीसेट करें"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> और <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> और <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>

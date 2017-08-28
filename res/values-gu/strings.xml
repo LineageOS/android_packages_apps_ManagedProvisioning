@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"કાર્ય ઉપકરણના વપરાશકર્તા"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"કાર્ય ઉપકરણ સેટ કરી રહ્યાં છીએ..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"સેટઅપ ડેટા પર પ્રક્રિયા કરી રહ્યું છે..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi સાથે કનેક્ટ કરી રહ્યું છે..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"વાઇ-ફાઇ સાથે કનેક્ટ કરી રહ્યું છે..."</string>
     <string name="progress_download" msgid="3522436271691064624">"વ્યવસ્થાપક ઍપ્લિકેશન ડાઉનલોડ કરી રહ્યું છે..."</string>
     <string name="progress_install" msgid="2258045670385866183">"વ્યવસ્થાપક ઍપ્લિકેશન ઇન્સ્ટોલ કરે છે..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"બિન-આવશ્યક સિસ્ટમ ઍપ્લિકેશનો દૂર કરે છે…"</string>
@@ -85,7 +85,7 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ઉપકરણ સેટ કરી શક્યા નહીં. સહાય માટે, તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"સહાય માટે તમારા વ્યવસ્થાપકનો સંપર્ક કરો"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ઉપકરણ પહેલેથી જ સેટ કરેલું છે"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi સાથે કનેક્ટ કરી શકાયું નથી"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"વાઇ-ફાઇ સાથે કનેક્ટ કરી શકાયું નથી"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"તમારા ઉપકરણે સુરક્ષા ફરીથી સેટ કરવાનું ચાલુ કર્યું છે. સહાય માટે, તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"કાઢી નાંખી રહ્યું છે"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"કૃપા કરીને રાહ જુઓ..."</string>
