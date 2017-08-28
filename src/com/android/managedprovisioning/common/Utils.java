@@ -485,8 +485,8 @@ public class Utils {
      */
     // TODO: Move the list of device owner actions into a Globals class.
     public final boolean isProfileOwnerAction(String action) {
-        return action.equals(ACTION_PROVISION_MANAGED_PROFILE)
-                || action.equals(ACTION_PROVISION_MANAGED_USER);
+        return ACTION_PROVISION_MANAGED_PROFILE.equals(action)
+                || ACTION_PROVISION_MANAGED_USER.equals(action);
     }
 
     /**
@@ -494,8 +494,8 @@ public class Utils {
      */
     // TODO: Move the list of device owner actions into a Globals class.
     public final boolean isDeviceOwnerAction(String action) {
-        return action.equals(ACTION_PROVISION_MANAGED_DEVICE)
-                || action.equals(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE);
+        return ACTION_PROVISION_MANAGED_DEVICE.equals(action)
+                || ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE.equals(action);
     }
 
     /**

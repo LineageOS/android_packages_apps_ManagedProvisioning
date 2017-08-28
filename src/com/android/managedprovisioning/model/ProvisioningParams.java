@@ -51,6 +51,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.util.AtomicFile;
 import android.util.Xml;
 import com.android.internal.util.FastXmlSerializer;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -334,7 +335,11 @@ public final class ProvisioningParams extends PersistableBundlable {
      */
     public void save(File file) {
         ProvisionLogger.logd("Saving ProvisioningParams to " + file);
-        try (FileOutputStream stream = new FileOutputStream(file)) {
+        AtomicFile atomicFile = null;
+        FileOutputStream stream = null;
+        try {
+            atomicFile = new AtomicFile(file);
+            stream = atomicFile.startWrite();
             XmlSerializer serializer = new FastXmlSerializer();
             serializer.setOutput(stream, StandardCharsets.UTF_8.name());
             serializer.startDocument(null, true);
@@ -342,10 +347,14 @@ public final class ProvisioningParams extends PersistableBundlable {
             toPersistableBundle().saveToXml(serializer);
             serializer.endTag(null, TAG_PROVISIONING_PARAMS);
             serializer.endDocument();
+            atomicFile.finishWrite(stream);
         } catch (IOException | XmlPullParserException e) {
             ProvisionLogger.loge("Caught exception while trying to save Provisioning Params to "
                     + " file " + file, e);
             file.delete();
+            if (atomicFile != null) {
+                atomicFile.failWrite(stream);
+            }
         }
     }
 
