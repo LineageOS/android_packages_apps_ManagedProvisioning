@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕਾਰਜ ਡੀਵਾਈਸ ਦਾ ਵਰਤੋਂਕਾਰ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ਕਾਰਜ ਡੀਵਾਈਸ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ ਡੈਟਾ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ਗੈਰ-ਲੋੜੀਂਦੀਆਂ ਸਿਸਟਮ ਐਪਾਂ ਹਟਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…"</string>
@@ -85,7 +85,7 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ਡੀਵਾਈਸ ਨੂੰ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ਮਦਦ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ਡੀਵਾਈਸ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਥਾਪਤ ਕੀਤਾ ਹੋਇਆ ਹੈ"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਿਆ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਵਿੱਚ \'ਰੀਸੈੱਟ ਕਰਨ ਸਬੰਧੀ ਸੁਰੱਖਿਆ\' ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਹੋਇਆ ਹੈ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ਮਿਟਾ ਰਿਹਾ ਹੈ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ਕਿਰਪਾ ਕਰਕੇ ਠਹਿਰੋ..."</string>
