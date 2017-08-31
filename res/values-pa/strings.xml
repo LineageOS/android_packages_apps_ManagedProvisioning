@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਨਾ"</string>
-    <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹ ਹੋ!"</string>
+    <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹੋ!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਕਰੋ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦਾ ਨਿਯੰਤਰਣ ਕਰਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਦੀ ਹੈ। ਤੁਸੀਂ ਆਪਣੇ ਡੀਵਾਈਸ ਤੇ ਹੋਰ ਸਭ \'ਤੇ ਨਿਯੰਤਰਣ ਪਾ ਸਕਦੇ ਹੋ।"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਡੀਵਾਈਸ ਦਾ ਨਿਯੰਤਰਣ ਕਰੇਗੀ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖੇਗੀ।"</string>
@@ -28,8 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ਹੇਠਾਂ ਦਿੱਤੀ ਐਪ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰੇਗੀ:"</string>
     <string name="next" msgid="1004321437324424398">"ਅੱਗੇ"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟਾ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟਾ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ਚੋਰੀ ਤੋਂ ਰੱਖਿਆ ਕਰਨ ਵਾਲੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਕੋਲ ਲਾਜ਼ਮੀ ਤੌਰ \'ਤੇ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਲਈ ਪਾਸਵਰਡ ਦੁਆਰਾ ਸੁਰੱਖਿਤ ਕੀਤਾ ਸਕ੍ਰੀਨ ਲੌਕ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਹਿਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕਾਰਜ ਡੀਵਾਈਸ ਦਾ ਵਰਤੋਂਕਾਰ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ਕਾਰਜ ਡੀਵਾਈਸ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ ਡੈਟਾ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ਗੈਰ-ਲੋੜੀਂਦੀਆਂ ਸਿਸਟਮ ਐਪਾਂ ਹਟਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…"</string>
@@ -85,7 +85,7 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ਡੀਵਾਈਸ ਨੂੰ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ਮਦਦ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ਡੀਵਾਈਸ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਥਾਪਤ ਕੀਤਾ ਹੋਇਆ ਹੈ"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਿਆ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਵਿੱਚ \'ਰੀਸੈੱਟ ਕਰਨ ਸਬੰਧੀ ਸੁਰੱਖਿਆ\' ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਹੋਇਆ ਹੈ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ਮਿਟਾ ਰਿਹਾ ਹੈ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ਕਿਰਪਾ ਕਰਕੇ ਠਹਿਰੋ..."</string>
