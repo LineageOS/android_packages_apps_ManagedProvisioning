@@ -20,8 +20,8 @@
 
     <option name="test-suite-tag" value="apct" />
     <option name="test-tag" value="ManagedProvisioningTests" />
-    <test class="com.android.tradefed.testtype.InstrumentationTest" >
+    <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
         <option name="package" value="com.android.managedprovisioning.tests" />
-        <option name="runner" value="android.test.InstrumentationTestRunner" />
+        <option name="runner" value="com.android.managedprovisioning.TestInstrumentationRunner" />
     </test>
 </configuration>
