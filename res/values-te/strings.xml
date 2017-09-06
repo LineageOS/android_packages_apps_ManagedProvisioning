@@ -26,7 +26,7 @@
     <string name="company_controls_device" msgid="8230957518758871390">"మీ సంస్థ ఈ పరికరాన్ని నియంత్రిస్తుంది మరియు సురక్షితంగా ఉంచుతుంది."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది యాప్ ఈ ప్రొఫైల్‌ను యాక్సెస్ చేయాలి:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది యాప్ మీ డివైజ్‌ను నిర్వహిస్తుంది:"</string>
-    <string name="next" msgid="1004321437324424398">"తదుపరి"</string>
+    <string name="next" msgid="1004321437324424398">"తర్వాత"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"మీ పరికరం యొక్క స్థానం, కాల్ చరిత్ర మరియు పరిచయ శోధన చరిత్రతో పాటు ఈ ప్రొఫైల్‌కు అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు మరియు డేటాతో సహా మీ నెట్‌వర్క్ కార్యకలాపాన్ని కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>మీ సంస్థ యొక్క గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"మీ పరికరం యొక్క స్థానం, కాల్ చరిత్ర మరియు పరిచయ శోధన చరిత్రతో పాటు ఈ పరికరానికి అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు మరియు డేటాతో సహా మీ నెట్‌వర్క్ కార్యాచరణను కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>మీ సంస్థ యొక్క గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ నిర్వాహకులను సంప్రదించండి."</string>
@@ -51,8 +51,8 @@
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడానికి, మొదట మీ పరికరం గుప్తీకరించబడాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ఈ పరికరం సెటప్ చేయడానికి, మొదట అది గుప్తీకరించబడాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"ఈ పరికరాన్ని గుప్తీకరించాలా?"</string>
-    <string name="encrypt" msgid="1749320161747489212">"గుప్తీకరించు"</string>
-    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"గుప్తీకరణ పూర్తయింది"</string>
+    <string name="encrypt" msgid="1749320161747489212">"ఎన్‌క్రిప్ట్ చేయి"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ఎన్‌క్రిప్షన్ పూర్తయింది"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి నొక్కండి"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"కార్యాలయ ప్రొఫైల్‌ని జోడించడం సాధ్యపడదు"</string>
@@ -130,10 +130,10 @@
     <string name="setup_profile" msgid="5573950582159698549">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"కార్యాలయ ప్రొఫైల్‌ని ఉపయోగించడం ద్వారా, మీరు వ్యక్తిగత డేటాని మరియు కార్యాలయ డేటాని విడివిడిగా ఉంచవచ్చు"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"కార్యాలయ ప్రొఫైల్‌ని ఉపయోగించడం ద్వారా, మీ కార్యాలయ అనువర్తనాలన్నీ మీరు ఒకే చోట ఉంచవచ్చు"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి. గుప్తీకరణ"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి. ఎన్‌క్రిప్షన్"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"మీ ప్రొఫైల్‌ను సెటప్ చేయండి. ప్రోగ్రెస్‌ను చూపుతోంది"</string>
     <string name="setup_device" msgid="6725265673245816366">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"మీ పరికరాన్ని సెటప్ చేయండి. గుప్తీకరణ"</string>
+    <string name="setup_device_encryption" msgid="7852944465414197103">"మీ పరికరాన్ని సెటప్ చేయండి. ఎన్‌క్రిప్షన్"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"మీ పరికరాన్ని సెటప్ చేయండి. ప్రోగ్రెస్‌ను చూపుతోంది"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"మరింత తెలుసుకోండి బటన్"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> చిహ్నం"</string>

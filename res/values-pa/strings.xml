@@ -19,9 +19,9 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਨਾ"</string>
-    <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹ ਹੋ!"</string>
-    <string name="setup_work_profile" msgid="1468934631731845267">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਕਰੋ"</string>
+    <string name="app_label" msgid="2400883737290705700">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਨਾ"</string>
+    <string name="provisioning_error_title" msgid="6320515739861578118">"ਓਹੋ!"</string>
+    <string name="setup_work_profile" msgid="1468934631731845267">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਕਰੋ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦਾ ਨਿਯੰਤਰਣ ਕਰਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਦੀ ਹੈ। ਤੁਸੀਂ ਆਪਣੇ ਡੀਵਾਈਸ ਤੇ ਹੋਰ ਸਭ \'ਤੇ ਨਿਯੰਤਰਣ ਪਾ ਸਕਦੇ ਹੋ।"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ਤੁਹਾਡੀ ਕੰਪਨੀ ਇਸ ਡੀਵਾਈਸ ਦਾ ਨਿਯੰਤਰਣ ਕਰੇਗੀ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖੇਗੀ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ਇਸ ਐਪ ਨੂੰ ਇਸ ਪ੍ਰੋਫਾਈਲ ਤੱਕ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੋਵੇਗੀ:"</string>
@@ -29,7 +29,7 @@
     <string name="next" msgid="1004321437324424398">"ਅੱਗੇ"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਕੋਲ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਸਬੰਧਿਤ ਸੈਟਿੰਗਾਂ, ਕਾਰਪੋਰੇਟ ਪਹੁੰਚ, ਐਪਾਂ, ਇਜਾਜ਼ਤਾਂ, ਅਤੇ ਡਾਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੇ ਨਾਲ-ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਟਿਕਾਣਾ, ਕਾਲ ਇਤਿਹਾਸ, ਅਤੇ ਸੰਪਰਕ ਖੋਜ ਇਤਿਹਾਸ ਵੀ ਸ਼ਾਮਲ ਹਨ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ਚੋਰੀ ਤੋਂ ਰੱਖਿਆ ਕਰਨ ਵਾਲੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਕੋਲ ਲਾਜ਼ਮੀ ਤੌਰ \'ਤੇ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਲਈ ਪਾਸਵਰਡ ਦੁਆਰਾ ਸੁਰੱਖਿਤ ਕੀਤਾ ਸਕ੍ਰੀਨ ਲੌਕ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਹਿਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
@@ -40,12 +40,12 @@
     <string name="terms" msgid="8295436105384703903">"ਮਦਾਂ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਜਾਣਕਾਰੀ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ਪ੍ਰਬੰਧਿਤ ਕੀਤੇ ਡੀਵਾਈਸ ਬਾਰੇ ਜਾਣਕਾਰੀ"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕੰਮ ਪ੍ਰੋਫਾਈਲ"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ਪ੍ਰਾਇਮਰੀ ਵਰਤੋਂਕਾਰ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ਕੀ ਮੌਜੂਦਾ ਪ੍ਰੋਫਾਈਲ ਮਿਟਾਉਣਾ ਹੈ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਹੈ। ਇਸਦਾ ਪ੍ਰਬੰਧਨ ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡੈਟੇ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸਥਾਪਤ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕੀਤੇ ਜਾਣ ਦੀ ਲੋੜ ਹੈ। ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"</string>
@@ -53,8 +53,8 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"ਡੀਵਾਈਸ ਇਨਕ੍ਰਿਪਟ ਕਰੀਏ?"</string>
     <string name="encrypt" msgid="1749320161747489212">"ਇਨਕ੍ਰਿਪਟ ਕਰੋ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ਇਨਕ੍ਰਿਪਸ਼ਨ ਪੂਰਾ"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ਆਪਣੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਦੀ ਸਥਾਪਨਾ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਟੈਪ ਕਰੋ"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ਆਪਣੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਸਥਾਪਨਾ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਟੈਪ ਕਰੋ"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟ ਅੱਪ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਬਦਲਿਆ ਜਾਂ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਕੋਈ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਈ ਸਵਾਲ ਹਨ, ਤਾਂ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
@@ -65,7 +65,7 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕਾਰਜ ਡੀਵਾਈਸ ਦਾ ਵਰਤੋਂਕਾਰ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ਕਾਰਜ ਡੀਵਾਈਸ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ ਡੈਟਾ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
+    <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ  ਡਾਟਾ  ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਕਰ ਰਿਹਾ ਹੈ..."</string>
@@ -97,7 +97,7 @@
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ਨਹੀਂ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ਹਾਂ"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"ਰੱਦ ਕਰ ਰਿਹਾ ਹੈ..."</string>
-    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ਕੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟਅਪ ਰੋਕਣਾ ਹੈ?"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ਕੀ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟਅੱਪ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"ਤੁਸੀਂ ਆਪਣੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਬਾਅਦ ਵਿੱਚ ਆਪਣੀ ਸੰਸਥਾ ਦੀ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਨ ਐਪ ਵਿੱਚ ਸਥਾਪਤ ਕਰ ਸਕਦੇ ਹੋ"</string>
     <string name="continue_button" msgid="7177918589510964446">"ਜਾਰੀ ਰੱਖੋ"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"ਰੋਕੋ"</string>
@@ -128,10 +128,10 @@
     <string name="provisioning" msgid="4512493827019163451">"ਪ੍ਰੋਵਿਜ਼ਨਿੰਗ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸੈਟ ਕਰ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_profile" msgid="5573950582159698549">"ਆਪਣਾ ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਕਰੋ"</string>
-    <string name="profile_benefits_description" msgid="758432985984252636">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਨਿੱਜੀ ਡੈਟੇ ਤੋਂ ਕਾਰਜ ਡੈਟੇ ਨੂੰ ਵੱਖ ਕਰ ਸਕਦੇ ਹੋ"</string>
+    <string name="profile_benefits_description" msgid="758432985984252636">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਨਿੱਜੀ ਡਾਟਾ ਤੋਂ ਕਾਰਜ ਡਾਟਾ ਨੂੰ ਵੱਖ ਕਰ ਸਕਦੇ ਹੋ"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ, ਤੁਸੀਂ ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਨੂੰ ਇੱਕੋ ਥਾਂ \'ਤੇ ਰੱਖ ਸਕਦੇ ਹੋ"</string>
-    <string name="setup_profile_encryption" msgid="5241291404536277038">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟ ਅਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟ ਅੱਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟ ਅੱਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="setup_device" msgid="6725265673245816366">"ਆਪਣਾ ਡੀਵਾਈਸ ਸਥਾਪਤ ਕਰੋ"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"ਆਪਣਾ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣਾ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
