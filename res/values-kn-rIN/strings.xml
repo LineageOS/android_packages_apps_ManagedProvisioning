@@ -88,7 +88,7 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ಪ್ರೊಫೈಲ್ ಸೆಟಪ್ ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"ನಿಮ್ಮ ಸಂಸ್ಥೆ ಬಳಸಿರುವ ಸಾಧನ ನಿರ್ವಾಹಕದಿಂದ ನಂತರದಲ್ಲಿ ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನೀವು ಹೊಂದಿಸಬಹುದು."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"ಮುಂದುವರಿಸು"</string>
-    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸು"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ನಿಲ್ಲಿಸಿ"</string>
     <string name="provisioning" msgid="4512493827019163451">"ಒದಗಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ ಹೊಂದಿಸಿ. ಸೆಟಪ್‌ ಪ್ರಾರಂಭಿಸಿ"</string>

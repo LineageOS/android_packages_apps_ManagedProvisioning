@@ -32,7 +32,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia, funkcie ochrany proti krádeži a dáta priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe zariadenia."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ak chcete používať funkcie ochrany proti krádeži, musíte mať na zariadení zámku obrazovky chránenú heslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) vám poskytne správca."</string>
-    <string name="learn_more_link" msgid="3012495805919550043">"Viac informácií"</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Ďalšie informácie"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Zrušiť"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Súhlasím"</string>
@@ -62,7 +62,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Používateľ pracovného zariadenia"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"Nastavenie pracovného zariadenia"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Spracovávajú sa údaje nastavenia…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi-Fi…"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi‑Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Sťahuje sa aplikácia na správu…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Inštaluje sa aplikácia na správu…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Nastavuje sa vlastník zariadenia…"</string>
@@ -73,7 +73,7 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Obnoviť"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nastavenie zariadenia sa nepodarilo. Kontaktujte oddelenie IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Toto zariadenie je už nastavené"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi-Fi"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi‑Fi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Toto zariadenie je uzamknuté ochranou proti obnoveniu továrenských nastavení. Kontaktujte oddelenie IT."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Prebieha vymazávanie"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Čakajte..."</string>

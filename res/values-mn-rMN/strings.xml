@@ -55,7 +55,7 @@
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Энэ хэрэглэгч ажлын профайлтай байх боломжгүй"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Ажлын профайлыг хяналттай төхөөрөмж дээр суулгаж болохгүй"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Таны төхөөрөмж дээрх хэрэглэгчдийн тоо дээд хязгаарт хүрсэн тул ажлын профайл үүсгэх боломжгүй байна. Та хамгийн багадаа 1 хэрэглэгч устгаад дахин оролдоно уу."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Таны ажлын профайл энэ эхлүүлэгч апп-аар дэмжигдээгүй байна. Таарах эхлүүлэгч апп-р солино уу."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Таны ажлын профайл энэ эхлүүлэгч аппаар дэмжигдээгүй байна. Таарах эхлүүлэгч апп-р солино уу."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Цуцлах"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ОК"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Хэрэглэгчийн Тохируулга Дуусаагүй"</string>

@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Za više informacija, uključujući pravila vaše organizacije o privatnosti, obratite se svom administratoru."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Otkaži"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"U redu"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"Uredu"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Pristajem"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Poslovni profil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Glavni korisnik"</string>
@@ -70,7 +70,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Želite li prekinuti postavljanje i izbrisati podatke na svom uređaju?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Otkaži"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Uredu"</string>
-    <string name="device_owner_error_reset" msgid="1609782972753569267">"Poništi"</string>
+    <string name="device_owner_error_reset" msgid="1609782972753569267">"Vrati na zadano"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Nije moguće podesiti uređaj. Obratite se odjelu za IT."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Ovaj uređaj je već postavljen."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na Wi-Fi"</string>

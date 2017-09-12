@@ -41,7 +41,7 @@
     <string name="delete_profile_title" msgid="3097803266123463699">"Laneko profila kendu nahi duzu?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Laneko profil hau badago lehendik, eta honek kudeatzen du:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"%s domeinuko laneko profil hau honen bidez kudeatzen da:"</string>
-    <string name="read_more_delete_profile" msgid="7789171620401666343">"Jarraitu aurretik, "<a href="#read_this_link">"irakurri hau"</a>"."</string>
+    <string name="read_more_delete_profile" msgid="7789171620401666343">"Aurrera egin aurretik, "<a href="#read_this_link">"irakurri hau"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Aurrera eginez gero, profileko aplikazio eta datu guztiak ezabatuko dira."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Ezabatu"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Utzi"</string>

@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"اتصل بالمشرف للحصول على مزيد من المعلومات، بما في ذلك سياسات الخصوصية المتبعة في مؤسستك."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"مزيد من المعلومات"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"إلغاء"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"موافق"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"حسنًا"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"أوافق"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"الملف الشخصي للعمل"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"المستخدم الأساسي"</string>
@@ -57,7 +57,7 @@
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"يتعذر إنشاء الملف الشخصي للعمل لأنك بلغت الحد الأقصى لعدد المستخدمين على جهازك. عليك إزالة حساب مستخدم واحد على الأقل وإعادة المحاولة."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"لا يتوافق الملف الشخصي للعمل مع تطبيق المشغّل هذا. يجب عليك التبديل إلى تطبيق مشغّل متوافق."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"إلغاء"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"موافق"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"حسنًا"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"إعداد حساب المستخدم غير مكتمل"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"مستخدم جهاز العمل"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"إعداد جهاز العمل"</string>
