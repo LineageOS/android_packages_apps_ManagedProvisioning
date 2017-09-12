@@ -79,6 +79,7 @@ import com.android.managedprovisioning.model.WifiInfo;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.IllformedLocaleException;
 import java.util.Set;
 
 /**
@@ -311,7 +312,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .build();
         }  catch (IllegalArgumentException e) {
             throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);
-        } catch (NullPointerException e) {
+        }  catch (IllformedLocaleException e) {
+            throw new IllegalProvisioningArgumentException("Invalid locale format!", e);
+        }  catch (NullPointerException e) {
             throw new IllegalProvisioningArgumentException("Compulsory parameter not found!", e);
         }
     }
