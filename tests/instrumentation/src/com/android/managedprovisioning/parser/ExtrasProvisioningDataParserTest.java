@@ -102,6 +102,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_DEVICE_ADMIN_PACKAGE_LABEL = "TestPackage";
     private static final String TEST_ORGANIZATION_NAME = "TestOrganizationName";
     private static final String TEST_SUPPORT_URL = "https://www.support.url/";
+    private static final String TEST_ILL_FORMED_LOCALE = "aaa_";
 
     // Wifi info
     private static final String TEST_SSID = "TestWifi";
@@ -517,6 +518,31 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         }
     }
 
+    public void testParse_illFormedLocaleThrowsException() throws Exception {
+        // GIVEN a managed device provisioning intent and other extras.
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+                // GIVEN a device admin package name and component name
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
+                // GIVEN a ill formed locale string.
+                .putExtras(getTestTimeTimeZoneAndLocaleExtras(TEST_ILL_FORMED_LOCALE))
+                .putExtras(getTestWifiInfoExtras())
+                .putExtras(getTestDeviceAdminDownloadExtras())
+                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
+                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
+                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
+                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
+
+        try {
+            // WHEN the intent is parsed by the parser.
+            ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+            fail("ExtrasProvisioningDataParser parsing an ill formed locale string. "
+                    + "IllegalProvisioningArgumentException should be thrown");
+        } catch (IllegalProvisioningArgumentException e) {
+            // THEN IllegalProvisioningArgumentException is thrown.
+        }
+    }
+
     private static Bundle getTestWifiInfoExtras() {
         Bundle wifiInfoExtras = new Bundle();
         wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_SSID, TEST_SSID);
@@ -531,11 +557,18 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     }
 
     private static Bundle getTestTimeTimeZoneAndLocaleExtras() {
+        return getTestTimeTimeZoneAndLocaleExtrasInternal(StoreUtils.localeToString(TEST_LOCALE));
+    }
+
+    private static Bundle getTestTimeTimeZoneAndLocaleExtras(String locale) {
+        return getTestTimeTimeZoneAndLocaleExtrasInternal(locale);
+    }
+
+    private static Bundle getTestTimeTimeZoneAndLocaleExtrasInternal(String locale){
         Bundle timeTimezoneAndLocaleExtras = new Bundle();
         timeTimezoneAndLocaleExtras.putLong(EXTRA_PROVISIONING_LOCAL_TIME, TEST_LOCAL_TIME);
         timeTimezoneAndLocaleExtras.putString(EXTRA_PROVISIONING_TIME_ZONE, TEST_TIME_ZONE);
-        timeTimezoneAndLocaleExtras.putString(
-                EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(TEST_LOCALE));
+        timeTimezoneAndLocaleExtras.putString(EXTRA_PROVISIONING_LOCALE, locale);
         return timeTimezoneAndLocaleExtras;
     }
 
