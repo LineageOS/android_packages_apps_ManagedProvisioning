@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Používateľ pracovného zariadenia"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Nastavuje sa pracovné zariadenie…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Spracovávajú sa údaje nastavenia…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi-Fi…"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi‑Fi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Sťahuje sa aplikácia na správu…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Inštaluje sa aplikácia na správu…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Odstraňujú sa nepotrebné systémové aplikácie…"</string>
@@ -85,7 +85,7 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Zariadenie sa nepodarilo nastaviť. Kontaktujte správcu a požiadajte ho o pomoc."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Kontaktujte správcu a požiadajte ho o pomoc"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Zariadenie je už nastavené"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi-Fi"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepodarilo sa pripojiť k sieti Wi‑Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Na zariadení je zapnutá ochrana proti obnoveniu. Kontaktujte správcu a požiadajte ho o pomoc."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Prebieha vymazávanie"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Čakajte..."</string>

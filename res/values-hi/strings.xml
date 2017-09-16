@@ -24,12 +24,12 @@
     <string name="setup_work_profile" msgid="1468934631731845267">"कार्यस्थल प्रोफ़ाइल सेट करें"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"आपका संगठन इस प्रोफ़ाइल को नियंत्रित करता है और उसे सुरक्षित रखता है. अपने डिवाइस पर सब कुछ आप नियंत्रित करते हैं."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"आपका संगठन इस डिवाइस को नियंत्रित करेगा और इसे सुरक्षित बनाए रखेगा."</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्नलिखित ऐप्स को इस प्रोफ़ाइल को एक्सेस करने की आवश्यकता होगी:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"नीचे दिए गए ऐप को इस प्रोफ़ाइल पर पहुंचने की ज़रुरत होगी:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्‍न ऐप आपके डिवाइस को प्रबंधित करेगा:"</string>
-    <string name="next" msgid="1004321437324424398">"अगला"</string>
+    <string name="next" msgid="1004321437324424398">"आगे बढ़ें"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफ़ाइल सेट अप की जा रही है…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"आपका एडमिन आपकी इंटरनेट से जुड़ी गतिविधि, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट पहुंच, ऐप्लिकेशन, अनुमतियों और इस प्रोफ़ाइल से जुड़े डेटा के साथ ही आपके डिवाइस के स्थान, कॉल इतिहास और संपर्क सर्च इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों सहित, और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"आपका एडमिन आपकी इंटरनेट से जुड़ी गतिविधि, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट पहुंच, ऐप्लिकेशन, अनुमतियों और इस प्रोफ़ाइल से जुड़े डेटा के साथ ही आपके डिवाइस के स्थान, कॉल इतिहास और संपर्क सर्च इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों के साथ-साथ और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"आपका एडमिन आपकी इंटरनेट से जुड़ी गतिविधि, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट पहुंच, ऐप्लिकेशन, अनुमतियों और इस प्रोफ़ाइल से जुड़े डेटा के साथ ही आपके डिवाइस के जगह, कॉल इतिहास और संपर्कों के इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों सहित, और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"आपका एडमिन आपकी इंटरनेट से जुड़ी गतिविधि, इस प्रोफ़ाइल से जुड़ी सेटिंग, कॉर्पोरेट पहुंच, ऐप्लिकेशन, अनुमतियों और इस प्रोफ़ाइल से जुड़े डेटा के साथ ही आपके डिवाइस के जगह, कॉल इतिहास और संपर्क सर्च इतिहास की निगरानी और उसका प्रबंधन कर सकता है.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>अपने संगठन की निजता नीतियों के साथ-साथ और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"चोरी से सुरक्षा संबंधी सुविधाओं का उपयोग करने के लिए, आपके पास अपने डिवाइस के लिए पासवर्ड द्वारा सुरक्षित स्क्रीन लॉक होना चाहिए."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"अपने संगठन की निजता नीतियों के साथ ही और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ज़्यादा जानें"</string>
@@ -46,7 +46,7 @@
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"आपकी एक कार्य प्रोफ़ाइल पहले से है. उसका प्रबंधन इस ऐप्लिकेशन के उपयोग से किया जाता है:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"आगे बढ़ने से पहले, "<a href="#read_this_link">"यह पढ़ें"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"यदि आप जारी रखते हैं, तो इस प्रोफ़ाइल के सभी ऐप्लिकेशन और डेटा को हटा दिया जाएगा."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"हटाएं"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"मिटाएं"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करें"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"अपनी कार्य प्रोफ़ाइल सेट अप करने के लिए, आपके डिवाइस को एन्क्रिप्ट करना ज़रूरी है. इसमें कुछ समय लग सकता है."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"यह डिवाइस सेट अप करने के लिए, सबसे पहले इसे एन्क्रिप्ट करना ज़रूरी है. इसमें कुछ समय लग सकता है."</string>
@@ -123,13 +123,13 @@
     <string name="set_up_your_device" msgid="1896651520959894681">"अपना डिवाइस सेट करें"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"अपने काम करने का तरीका बदलें"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"कार्य को व्यक्तिगत से अलग करें"</string>
-    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्य ऐप्लिकेशन के लिए एक स्थान"</string>
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"वर्क ऐप के लिए एक जगह"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"जब आपका काम हो जाए तो काम बंद कर दें"</string>
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान किया जा रहा है"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्र सेट किए जा रहे हैं"</string>
     <string name="setup_profile" msgid="5573950582159698549">"अपनी प्रोफ़ाइल सेट अप करें"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"कार्य प्रोफ़ाइल का उपयोग करके, आप कार्य डेटा को व्यक्तिगत डेटा से अलग कर सकते हैं"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कार्य प्रोफ़ाइल का उपयोग करके, आप अपने कार्य ऐप्लिकेशन एक ही स्थान पर रख सकते हैं"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"वर्क प्रोफ़ाइल का इस्तेमाल करके, आप अपने वर्क ऐप को एक ही जगह पर रख सकते हैं"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"अपनी प्रोफ़ाइल सेट करें. सुरक्षित करने का तरीका"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"अपनी प्रोफ़ाइल सेट करें. प्रगति दिखा रहा है"</string>
     <string name="setup_device" msgid="6725265673245816366">"अपना डिवाइस सेट करें"</string>
@@ -139,11 +139,11 @@
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आइकॉन"</string>
     <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> अनुभाग शीर्षक."</string>
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> अनुभाग सामग्री: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
-    <string name="expand" msgid="37188292156131304">"विस्तृत करें"</string>
-    <string name="collapse" msgid="7817530505064432580">"संक्षिप्त करें"</string>
-    <string name="access_list_of_links" msgid="7094123315959323372">"लिंक की सूची एक्सेस करें"</string>
-    <string name="access_links" msgid="7991363727326168600">"लिंक एक्सेस करें"</string>
-    <string name="access_terms" msgid="1982500872249763745">"शर्तें एक्सेस करें"</string>
+    <string name="expand" msgid="37188292156131304">"विस्तार करें"</string>
+    <string name="collapse" msgid="7817530505064432580">"छोटा करें"</string>
+    <string name="access_list_of_links" msgid="7094123315959323372">"लिंक की सूची पर पहुंचें"</string>
+    <string name="access_links" msgid="7991363727326168600">"लिंक पर पहुंचें"</string>
+    <string name="access_terms" msgid="1982500872249763745">"शर्तों पर पहुंचें"</string>
     <string name="read_terms" msgid="1745011123626640728">"शर्तें पढ़ें"</string>
     <string name="close_list" msgid="9053538299788717597">"सूची बंद करें"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप समाप्त करें और फ़ैक्टरी रीसेट करें?"</string>
