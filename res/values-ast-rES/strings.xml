@@ -20,7 +20,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
-  <string name="provisioning_error_title">¡Ups!</string>
   <!-- Work profile provisioning flow UI. -->
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
@@ -35,11 +34,8 @@
   <!-- Text in a pop-up that asks the user to confirm that theft protection will be disabled. [CHAR LIMIT=NONE]-->
   <!-- String telling the user how to get more information about their work profile-->
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
-  <string name="learn_more_link">Deprendi más </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
-  <string name="cancel_setup">ENCABOXAR</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
-  <string name="ok_setup">ACEUTAR</string>
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
@@ -53,11 +49,9 @@
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <!-- String on the button that triggers the deletion of a work profile.-->
   <!-- String on the button that cancels out of the deletion of a work profile.-->
-  <string name="cancel_delete_profile">ENCABOXAR</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <!-- String shown on button for user to cancel setup when asked to encrypt device. [CHAR LIMIT=20]-->
-  <string name="encrypt_device_cancel">ENCABOXAR</string>
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
@@ -68,9 +62,7 @@
   <!-- Error string displayed if maximum user limit is reached -->
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <!-- Button text for the button that cancels provisioning  -->
-  <string name="cancel_provisioning">ENCABOXAR</string>
   <!-- Button text for the button that opens the launcher picker  -->
-  <string name="pick_launcher">ACEUTAR</string>
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
@@ -81,9 +73,7 @@
   <!-- Progress text indicating that the device admin package is set as ownder. [CHAR LIMIT=45] -->
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_cancel_cancel">ENCABOXAR</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
-  <string name="device_owner_error_ok">ACEUTAR</string>
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
@@ -102,7 +92,6 @@
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
-  <string name="profile_owner_cancelling">Encaboxando\u2026</string>
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
