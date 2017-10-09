@@ -29,6 +29,7 @@ import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
 import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
+import static android.app.admin.DevicePolicyManager.CODE_USER_SETUP_COMPLETED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
@@ -738,6 +739,7 @@ public class PreProvisioningController {
     private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
         switch (provisioningPreCondition) {
             case CODE_HAS_DEVICE_OWNER:
+            case CODE_USER_SETUP_COMPLETED:
                 mUi.showErrorAndClose(R.string.device_already_set_up,
                         R.string.if_questions_contact_admin, "Device already provisioned.");
                 return;
