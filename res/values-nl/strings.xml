@@ -27,11 +27,9 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"De volgende app heeft toegang nodig tot dit profiel:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Je apparaat wordt beheerd met de volgende app:"</string>
     <string name="next" msgid="1004321437324424398">"Volgende"</string>
-    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
-    <skip />
+    <string name="setting_up_workspace" msgid="7862472373642601041">"Werkprofiel instellen…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"Je beheerder kan instellingen, zakelijke toegang, apps, machtigingen en gegevens die zijn gekoppeld aan dit profiel (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, oproepgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"Je beheerder kan instellingen, zakelijke toegang, apps, machtigingen en gegevens die zijn gekoppeld aan dit apparaat (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, oproepgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Als je diefstalbeveiligingsfuncties wilt gebruiken, moet je een met een wachtwoord beveiligde schermvergrendeling hebben ingesteld voor je apparaat."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Neem contact op met je beheerder voor meer informatie, waaronder het privacybeleid van je organisatie."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Meer informatie"</string>
@@ -45,8 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Werkprofiel"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primaire gebruiker"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Bestaand profiel verwijderen?"</string>
-    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
-    <skip />
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Je hebt al een werkprofiel. Dit wordt beheerd met de volgende app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees dit"</a>" voordat je doorgaat."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Als je doorgaat, worden alle apps en gegevens in dit profiel verwijderd."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Verwijderen"</string>
@@ -67,14 +64,13 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Instellen van gebruikers niet voltooid"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van zakelijk apparaat"</string>
-    <!-- no translation found for setup_work_device (6003988351437862369) -->
-    <skip />
+    <string name="setup_work_device" msgid="6003988351437862369">"Werkapparaat instellen…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Configuratiegegevens verwerken…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Verbinding maken met wifi…"</string>
     <string name="progress_download" msgid="3522436271691064624">"De beheer-app downloaden…"</string>
     <string name="progress_install" msgid="2258045670385866183">"De beheer-app installeren…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Niet-vereiste systeemapps verwijderen…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Nog even de laatste details…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"Nog even de puntjes op de i zetten…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"De eigenaar van het apparaat instellen…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Apparaat initialiseren…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"Op dit apparaat is versleuteling niet toegestaan, wat is vereist voor het instellen. Neem contact op met je beheerder voor hulp."</string>
@@ -155,8 +151,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Annuleren"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Apparaat opnieuw instellen"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> en <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
-    <!-- no translation found for join_many_items_last (7469666990442158802) -->
-    <skip />
+    <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> en <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
 </resources>
