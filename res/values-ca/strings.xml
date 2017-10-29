@@ -39,7 +39,7 @@
     <string name="url_error" msgid="5958494012986243186">"No es pot mostrar aquest enllaç."</string>
     <string name="terms" msgid="8295436105384703903">"Condicions"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Informació del perfil professional"</string>
-    <string name="managed_device_info" msgid="1529447646526616811">"Informació del dispositiu gestionat"</string>
+    <string name="managed_device_info" msgid="1529447646526616811">"Informació dels dispositius gestionat"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil professional"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuari principal"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Vols suprimir el perfil existent?"</string>
