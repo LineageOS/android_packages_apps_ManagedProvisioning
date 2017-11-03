@@ -20,6 +20,7 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
 
@@ -171,6 +172,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
 
     @Override
     public void onNetworkConnected() {
+        ProvisionLogger.logd("onNetworkConnected");
         if (isConnectedToSpecifiedWifi()) {
             ProvisionLogger.logd("Connected to the correct network");
             finishTask(true);
@@ -194,10 +196,22 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
     }
 
     private boolean isConnectedToSpecifiedWifi() {
-        return mUtils.isConnectedToWifi(mContext)
-                && mWifiManager.getConnectionInfo() != null
-                && mProvisioningParams.wifiInfo.ssid.equals(
-                        mWifiManager.getConnectionInfo().getSSID());
+        if (!mUtils.isConnectedToWifi(mContext)) {
+            ProvisionLogger.logd("Not connected to WIFI");
+            return false;
+        }
+        WifiInfo connectionInfo = mWifiManager.getConnectionInfo();
+        if (connectionInfo == null) {
+            ProvisionLogger.logd("connection info is null");
+            return false;
+        }
+        String connectedSSID = mWifiManager.getConnectionInfo().getSSID();
+        if (!mProvisioningParams.wifiInfo.ssid.equals(connectedSSID)) {
+            ProvisionLogger.logd("Wanted to connect SSID " + mProvisioningParams.wifiInfo.ssid
+                    + ", but it is now connected to " + connectedSSID);
+            return false;
+        }
+        return true;
     }
 
     @VisibleForTesting
