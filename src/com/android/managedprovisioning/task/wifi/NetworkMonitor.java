@@ -97,12 +97,18 @@ public class NetworkMonitor {
     private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            ProvisionLogger.logd("onReceive " + intent.toString());
-            if (FILTER.matchAction(intent.getAction())) {
-                synchronized (NetworkMonitor.this) {
-                    if (mUtils.isConnectedToWifi(context) && mCallback != null) {
-                        mCallback.onNetworkConnected();
-                    }
+            ProvisionLogger.logd("NetworkMonitor.onReceive: " + intent);
+            if (!FILTER.matchAction(intent.getAction())) {
+                return;
+            }
+            synchronized (NetworkMonitor.this) {
+                boolean isConnectedToWifi = mUtils.isConnectedToWifi(context);
+                if (!isConnectedToWifi) {
+                    ProvisionLogger.logd("NetworkMonitor: not connected to WIFI");
+                    return;
+                }
+                if (mCallback != null) {
+                    mCallback.onNetworkConnected();
                 }
             }
         }
