@@ -188,6 +188,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.android.managedprovisioning.manageduser.ManagedUserCreationListener">
+            <intent-filter>
+                <action android:name="android.app.action.MANAGED_USER_CREATED" />
+            </intent-filter>
+        </receiver>
+
         <!-- TODO: Add permission for setup-wizard to guard access? -->
         <activity android:name=".finalization.FinalizationActivity"
                 android:theme="@android:style/Theme.NoDisplay"

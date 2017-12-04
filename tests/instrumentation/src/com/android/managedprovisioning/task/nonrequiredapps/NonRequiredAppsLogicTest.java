@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.task.nonrequiredapps;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
@@ -24,21 +25,24 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.pm.IPackageManager;
-import android.content.pm.PackageManager;
 import android.support.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Unit tests for {@link NonRequiredAppsLogic}.
@@ -46,19 +50,24 @@ import org.mockito.MockitoAnnotations;
 @SmallTest
 public class NonRequiredAppsLogicTest {
     private static final String TEST_DPC_PACKAGE_NAME = "dpc.package.name";
-    private static final int TEST_USER_ID = 123;
-    private static final String[] APPS = {
-            "app.a", "app.b", "app.c", "app.d", "app.e", "app.f", "app.g", "app.h",
-    };
-    private static final int[] SNAPSHOT_APPS = {0, 1, 2, 3};
-    private static final int[] SYSTEM_APPS = {0, 1, 4, 5};
-    private static final int[] BLACKLIST_APPS = {0, 2, 4, 6};
+    private static final ComponentName TEST_MDM_COMPONENT_NAME = new ComponentName(
+            TEST_DPC_PACKAGE_NAME, "pc.package.name.DeviceAdmin");
 
-    @Mock private PackageManager mPackageManager;
-    @Mock private IPackageManager mIPackageManager;
-    @Mock private SystemAppsSnapshot mSnapshot;
-    @Mock private OverlayPackagesProvider mProvider;
-    @Mock private Utils mUtils;
+    private static final int TEST_USER_ID = 123;
+    private static final List<String> APPS = Arrays.asList("app.a", "app.b", "app.c", "app.d",
+            "app.e", "app.f", "app.g", "app.h");
+    private static final List<Integer> SNAPSHOT_APPS = Arrays.asList(0, 1, 2, 3);
+    private static final List<Integer> SYSTEM_APPS = Arrays.asList(0, 1, 4, 5);
+    private static final List<Integer> BLACKLIST_APPS = Arrays.asList(0, 2, 4, 6);
+
+    @Mock
+    private DevicePolicyManager mDevicePolicyManager;
+    @Mock
+    private IPackageManager mIPackageManager;
+    @Mock
+    private SystemAppsSnapshot mSnapshot;
+    @Mock
+    private Utils mUtils;
 
     @Before
     public void setUp() {
@@ -85,7 +94,7 @@ public class NonRequiredAppsLogicTest {
 
         // THEN getSystemAppsToRemove should return a non-empty list with the only app to removed
         // being the one that is a current system app and non required
-        assertEquals(getSetFromArray(new int[] { 0, 4 }),
+        assertEquals(getAppsSet(Arrays.asList(0, 4)),
                 logic.getSystemAppsToRemove(TEST_USER_ID));
     }
 
@@ -114,7 +123,7 @@ public class NonRequiredAppsLogicTest {
         // THEN getSystemAppsToRemove should return a non-empty list with the only app to removed
         // being the one that is a current system app, non required and not in the last
         // snapshot.
-        assertEquals(Collections.singleton(APPS[4]), logic.getSystemAppsToRemove(TEST_USER_ID));
+        assertEquals(Collections.singleton(APPS.get(4)), logic.getSystemAppsToRemove(TEST_USER_ID));
     }
 
     @Test
@@ -170,9 +179,9 @@ public class NonRequiredAppsLogicTest {
     }
 
     private void initializeApps() throws Exception {
-        setCurrentSystemApps(getSetFromArray(SYSTEM_APPS));
-        setLastSnapshot(getSetFromArray(SNAPSHOT_APPS));
-        setNonRequiredApps(getSetFromArray(BLACKLIST_APPS));
+        setCurrentSystemApps(getAppsSet(SYSTEM_APPS));
+        setLastSnapshot(getAppsSet(SNAPSHOT_APPS));
+        setNonRequiredApps(getAppsSet(BLACKLIST_APPS));
     }
 
     private void setCurrentSystemApps(Set<String> set) {
@@ -185,30 +194,26 @@ public class NonRequiredAppsLogicTest {
     }
 
     private void setNonRequiredApps(Set<String> set) {
-        when(mProvider.getNonRequiredApps(TEST_USER_ID)).thenReturn(set);
+        when(mDevicePolicyManager.getDisallowedSystemApps(TEST_MDM_COMPONENT_NAME, TEST_USER_ID,
+                ACTION_PROVISION_MANAGED_DEVICE)).thenReturn(set);
     }
 
-    private Set<String> getSetFromArray(int[] ids) {
-        Set<String> set = new HashSet<>(ids.length);
-        for (int id : ids) {
-            set.add(APPS[id]);
-        }
-        return set;
+    private Set<String> getAppsSet(List<Integer> ids) {
+        return ids.stream().map(APPS::get).collect(Collectors.toSet());
     }
 
     private NonRequiredAppsLogic createLogic(boolean newProfile, boolean leaveSystemAppsEnabled) {
         ProvisioningParams params = new ProvisioningParams.Builder()
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
-                .setDeviceAdminPackageName(TEST_DPC_PACKAGE_NAME)
+                .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
                 .setLeaveAllSystemAppsEnabled(leaveSystemAppsEnabled)
                 .build();
         return new NonRequiredAppsLogic(
-                mPackageManager,
                 mIPackageManager,
+                mDevicePolicyManager,
                 newProfile,
                 params,
                 mSnapshot,
-                mProvider,
                 mUtils);
     }
 }

@@ -18,12 +18,13 @@ package com.android.managedprovisioning.ota;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -82,6 +83,8 @@ public class OtaController {
         for (UserInfo userInfo : mUserManager.getUsers()) {
             if (userInfo.isManagedProfile()) {
                 addManagedProfileTasks(userInfo.id, mContext);
+            } else if (mDevicePolicyManager.getProfileOwnerAsUser(userInfo.id) != null) {
+                addManagedUserTasks(userInfo.id, mContext);
             } else {
                 // if this user has managed profiles, reset the cross-profile intent filters between
                 // this user and its managed profiles.
@@ -131,6 +134,23 @@ public class OtaController {
                 .build();
         mTaskExecutor.execute(userId,
                 new DisableInstallShortcutListenersTask(context, fakeParams, mTaskExecutor));
+        mTaskExecutor.execute(userId,
+                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
+    }
+
+    void addManagedUserTasks(final int userId, Context context) {
+        ComponentName profileOwner = mDevicePolicyManager.getProfileOwnerAsUser(userId);
+        if (profileOwner == null) {
+            // Shouldn't happen.
+            ProvisionLogger.loge("No profile owner on managed user " + userId);
+            return;
+        }
+
+        // Build a set of fake params to be able to run the tasks
+        ProvisioningParams fakeParams = new ProvisioningParams.Builder()
+                .setDeviceAdminComponentName(profileOwner)
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_USER)
+                .build();
         mTaskExecutor.execute(userId,
                 new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
     }
