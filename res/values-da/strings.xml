@@ -129,7 +129,7 @@
     <string name="copying_certs" msgid="5697938664953550881">"Konfigurerer CA-certifikater"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Konfigurer din profil"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"Ved at bruge en arbejdsprofil kan du adskille arbejdsdata fra personlige data"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"Du kan samle dine apps til arbejdsbrug ét sted via en arbejdsprofil"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"Du kan samle dine arbejdsapps ét sted via en arbejdsprofil"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Konfigurer din profil. Kryptering"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Konfigurer din profil. Viser fremskridt"</string>
     <string name="setup_device" msgid="6725265673245816366">"Konfigurer din enhed"</string>

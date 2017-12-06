@@ -50,6 +50,7 @@
 
     <uses-permission android:name="android.permission.PERFORM_CDMA_PROVISIONING" />
     <uses-permission android:name="android.permission.ACCESS_PDB_STATE" />
+    <uses-permission android:name="android.permission.PEERS_MAC_ADDRESS" />
 
     <application
         android:label="@string/app_label"
@@ -67,13 +68,16 @@
              android:name=".provisioning.ProvisioningActivity"
              android:excludeFromRecents="true"
              android:immersive="true"
-             android:launchMode="singleTop">
+             android:launchMode="singleTop"
+             android:theme="@style/SuwThemeGlif.Light">
         </activity>
+
         <activity
             android:name=".preprovisioning.PreProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:theme="@style/SuwThemeGlif.Light">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_USER" />
