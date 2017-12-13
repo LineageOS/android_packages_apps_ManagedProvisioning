@@ -18,10 +18,8 @@ package com.android.managedprovisioning.ota;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import android.app.admin.DevicePolicyManager;
@@ -58,6 +56,7 @@ import org.mockito.MockitoAnnotations;
 public class OtaControllerTest {
     private static final int DEVICE_OWNER_USER_ID = 12;
     private static final int MANAGED_PROFILE_USER_ID = 15;
+    private static final int MANAGED_USER_USER_ID = 18;
 
     private static final ComponentName ADMIN_COMPONENT = new ComponentName("com.test.admin",
             ".AdminReceiver");
@@ -156,6 +155,18 @@ public class OtaControllerTest {
                 UserHandle.of(MANAGED_PROFILE_USER_ID));
     }
 
+    @Test
+    public void testManagedUser() {
+        // GIVEN that there is a managed profile
+        addManagedUser(MANAGED_USER_USER_ID, ADMIN_COMPONENT);
+
+        // WHEN running the OtaController
+        mController.run();
+
+        // THEN the task list should contain DeleteNonRequiredAppsTask
+        assertTaskList(Pair.create(MANAGED_USER_USER_ID, DeleteNonRequiredAppsTask.class));
+    }
+
     private class FakeTaskExecutor extends TaskExecutor {
 
         public FakeTaskExecutor() {
@@ -185,6 +196,12 @@ public class OtaControllerTest {
         when(mDevicePolicyManager.getProfileOwnerAsUser(userId)).thenReturn(admin);
         when(mUserManager.getProfiles(userId)).thenReturn(Collections.singletonList(ui));
         mProfiles.add(ui);
+    }
+
+    private void addManagedUser(int userId, ComponentName admin) {
+        UserInfo ui = new UserInfo(userId, null, 0);
+        mUsers.add(ui);
+        when(mDevicePolicyManager.getProfileOwnerAsUser(userId)).thenReturn(admin);
     }
 
     private void addSystemUser() {
