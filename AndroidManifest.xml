@@ -18,6 +18,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.managedprovisioning" >
 
+    <permission
+        android:name="android.permission.PROVISION_MANAGED_DEVICE_SILENTLY"
+        android:protectionLevel="signature|preinstalled" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.MANAGE_USERS" />
@@ -141,6 +145,18 @@
             android:immersive="true"
             android:launchMode="singleTop">
         </activity>
+        <!--
+            Entry point for silent device owner provisioning.
+        -->
+        <service
+            android:name=".provisioning.SilentDeviceOwnerProvisioningService">
+        </service>
+        <receiver android:name=".provisioning.SilentDeviceOwnerProvisioningReceiver"
+            android:permission="android.permission.PROVISION_MANAGED_DEVICE_SILENTLY">
+            <intent-filter android:priority="10">
+                <action android:name="android.app.action.PROVISION_MANAGED_DEVICE_SILENTLY" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name=".preprovisioning.WebActivity"
