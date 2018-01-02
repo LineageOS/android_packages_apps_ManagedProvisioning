@@ -210,6 +210,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter$RestrictionChangedReceiver">
+            <intent-filter>
+                <action android:name="android.app.action.DATA_SHARING_RESTRICTION_CHANGED" />
+            </intent-filter>
+        </receiver>
+
         <!-- TODO: Add permission for setup-wizard to guard access? -->
         <activity android:name=".finalization.FinalizationActivity"
                 android:theme="@android:style/Theme.NoDisplay"
