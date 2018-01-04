@@ -54,6 +54,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static com.android.managedprovisioning.model.ProvisioningParams.inferStaticDeviceAdminPackageName;
 
@@ -97,7 +98,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     ACTION_PROVISION_MANAGED_DEVICE,
                     ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE,
                     ACTION_PROVISION_MANAGED_USER,
-                    ACTION_PROVISION_MANAGED_PROFILE));
+                    ACTION_PROVISION_MANAGED_PROFILE,
+                    ACTION_PROVISION_MANAGED_DEVICE_SILENTLY));
 
     private final Utils mUtils;
     private final Context mContext;

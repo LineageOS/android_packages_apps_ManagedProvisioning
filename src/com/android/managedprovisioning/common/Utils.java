@@ -23,6 +23,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHA
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -434,6 +435,11 @@ public class Utils {
             case ACTION_PROVISION_MANAGED_USER:
             case ACTION_PROVISION_MANAGED_PROFILE:
                 dpmProvisioningAction = intent.getAction();
+                break;
+
+            // Silent device owner is same as device owner.
+            case ACTION_PROVISION_MANAGED_DEVICE_SILENTLY:
+                dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
                 break;
 
             // NFC cases which need to take mime-type into account.
