@@ -42,7 +42,7 @@
     <string name="managed_device_info" msgid="1529447646526616811">"Informações do dispositivo gerenciado"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuário principal"</string>
-    <string name="delete_profile_title" msgid="2841349358380849525">"Deseja excluir o perfil já existente?"</string>
+    <string name="delete_profile_title" msgid="2841349358380849525">"Quer excluir o perfil já existente?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Você já tem um perfil de trabalho. Ele é gerenciado usando o seguinte app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Antes de prosseguir, "<a href="#read_this_link">"leia isso"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Se você continuar, todos os apps e dados deste perfil serão excluídos."</string>
