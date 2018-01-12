@@ -325,4 +325,8 @@
   <string name="join_many_items_first"><xliff:g id="first_item">%1$s</xliff:g>, <xliff:g id="all_but_first_and_last_item">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=NONE] Format to put the middle items together in a series of 4 or more items in a list -->
   <string name="join_many_items_middle"><xliff:g id="added_item">%1$s</xliff:g>, <xliff:g id="rest_of_items">%2$s</xliff:g></string>
+  <!-- [CHAR_LIMIT=40] String below a progress bar. This string lets users know that the setup process (which is referred to as "this" in this string) may take a few minutes. -->
+  <string name="take_a_few_minutes">This may take a few minutes</string>
+  <!-- [CHAR_LIMIT=NONE] Subtext below a full-screen title. This string explains that the user's work apps will be kept in a separate profile (called a "work profile") and managed by their employer (referred to generally as "organization").  -->
+  <string name="work_profile_description">Your work apps will be kept in this profile and managed by your organization</string>
 </resources>
