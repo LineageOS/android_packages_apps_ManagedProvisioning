@@ -20,26 +20,37 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
   <!-- App label displayed on the notification shown to indicate that the provisioning process was previously started but not completed. [CHAR LIMIT=45] -->
+  <string name="app_label">Gosod proffil gwaith</string>
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
   <!-- Work profile provisioning flow UI. -->
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
+  <string name="setup_work_profile">Gosod proffil gwaith</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
+  <string name="next">Nesaf</string>
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor_profile">Mae gan dy weinyddwr y gallu i fonitro a rheoli gosodiadau, mynediad corfforaethol, apiau, caniatâd, a data sy\'n gysylltiedig â\'r proffil hwn, gan gynnwys dy ddefnydd rhwydwaith, yn ogystal â lleoliad y ddyfais, hanes galwadau a hanes chwilio cysylltiadau.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor_device">Mae gan dy weinyddwr y gallu i fonitro a rheoli gosodiadau, mynediad corfforaethol, apiau, caniatâd, nodweddion atal lladrad, a data sy\'n gysylltiedig â\'r proffil hwn, gan gynnwys dy ddefnydd rhwydwaith a gwybodaeth lleoliad y ddyfais.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
+  <string name="theft_protection_disabled_warning">Er mwyn defnyddio nodweddion amddiffyn rhag lladrad, rhaid yn gyntaf gosod sgrin cloi gyda chyfrinair i ddiogelu dy ddyfais.</string>
   <!-- String telling the user how to get more information about their work profile-->
+  <string name="contact_your_admin_for_more_info">Cysyllta â dy weinyddwr am ragor o wybodaeth, gan gynnwys polisïau preifatrwydd y sefydliad.</string>
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="cancel_setup">Diddymu</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
+  <string name="ok_setup">Iawn</string>
   <!-- Text of the checkbox to consent to the mobile device management app taking control of the device. [CHAR LIMIT=NONE] -->
+  <string name="user_consent_msg">Rwy\'n rhoi caniatâd</string>
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <!-- Default name used for the creation of the first meat user on a device with system-user split. [CHAR LIMIT=NONE] -->
+  <string name="default_first_meat_user_name">Prif ddefnyddiwr</string>
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <!-- Opening string on the dialog that prompts the user to confirm that they really want to delete
        their existing work profile. The administration app icon and name appear after the final
@@ -50,35 +61,49 @@
          profile. [CHAR LIMIT=NONE] -->
   <!-- String on the dialog that links through to more information about the profile management application. -->
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
+  <string name="sure_you_want_to_delete_profile">Os wyt ti\'n cytuno, caiff holl apiau a data\'r proffil hwn eu dileu.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
+  <string name="delete_profile">Dileu</string>
   <!-- String on the button that cancels out of the deletion of a work profile.-->
+  <string name="cancel_delete_profile">Diddymu</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
+  <string name="encrypt_device_launch_settings">Amgryptio</string>
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
+  <string name="continue_provisioning_notify_text">Tara i barhau i osod dy broffil gwaith.</string>
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
   <!-- Error string displayed if this device doesn't support work profiles. -->
   <!-- Error string displayed if the user that initiated the provisioning is not the user owner. -->
+  <string name="user_cannot_have_work_profile">Ni all y defnyddiwr hwn cael proffil gwaith</string>
   <!-- Error string displayed if provisioning was initiated on a device with a Device Owner -->
   <!-- Error string displayed if maximum user limit is reached -->
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <!-- Button text for the button that cancels provisioning  -->
+  <string name="cancel_provisioning">Diddymu</string>
   <!-- Button text for the button that opens the launcher picker  -->
+  <string name="pick_launcher">Iawn</string>
   <!-- Managed user provisioning flow UI. -->
+  <string name="user_setup_incomplete">Gosod Defnyddiwr Heb ei Gwblhau</string>
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
+  <string name="setup_work_device">Sefydlu dyfais gwaith</string>
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
+  <string name="preprovisioning_error_encryption_not_supported">Dyw dy ddyfais ddim yn caniatáu amgryptio. Cysyllta â dy adran TG.</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_cancel_cancel">Diddymu</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_ok">Iawn</string>
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="device_owner_error_reset">Ailosod</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
@@ -91,12 +116,16 @@
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancel_cancel">Na</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancel_ok">Ie</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_continue">Parhau</string>
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_stop">Stopio</string>
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
@@ -112,7 +141,11 @@
   <!-- TODO: Following strings have to be updated. -->
   <!-- Strings used in the dialog asking for user confirmation to cancel the setup process and factory reset the device. -->
   <!-- Title shown in the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_title">Stopio gosod ac ailosod fel yr oedd o\'r ffatri?</string>
   <!-- Message shown in the dialog. [CHAR LIMIT=NONE] -->
+  <string name="cancel_setup_and_factory_reset_dialog_msg">Bydd gorffen y gosod yn ailosod dy ddyfais nôl i fel yr oedd yn gadael y ffatri ac yn dy gymryd nôl i\'r sgrin gyntaf.</string>
   <!-- Cancel button text of the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_cancel">Diddymu</string>
   <!-- OK button text of the dialog. [CHAR LIMIT=45] -->
+  <string name="cancel_setup_and_factory_reset_dialog_ok">Ailosod y ddyfais</string>
 </resources>
