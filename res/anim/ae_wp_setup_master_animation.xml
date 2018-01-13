@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <objectAnimator
+        android:duration="5333"
+        android:propertyXName="translateX"
+        android:propertyYName="translateY"
+        android:pathData="M 205.9998,196.62621 c 0.0,3.33333 0.0,16.66666 0.0,19.99999 l 0.0,0.0 l 0.0,6.3738 c 0.0,0.0 0.0,-19.96669 0.0,-28.0 c 0.0,-2.99014 0.0,2.81854 0.0,1.62621"
+        android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_1" />
+</set>

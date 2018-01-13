@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ae_wp_setup" >
+    <target
+        android:name="path_2"
+        android:animation="@anim/ae_wp_setup_path_2_animation" />
+    <target
+        android:name="group_2"
+        android:animation="@anim/ae_wp_setup_group_2_animation" />
+    <target
+        android:name="path_3"
+        android:animation="@anim/ae_wp_setup_path_3_animation" />
+    <target
+        android:name="group_4"
+        android:animation="@anim/ae_wp_setup_group_4_animation" />
+    <target
+        android:name="path_4"
+        android:animation="@anim/ae_wp_setup_path_4_animation" />
+    <target
+        android:name="master"
+        android:animation="@anim/ae_wp_setup_master_animation" />
+    <target
+        android:name="locks"
+        android:animation="@anim/ae_wp_setup_locks_animation" />
+    <target
+        android:name="path_9"
+        android:animation="@anim/ae_wp_setup_path_9_animation" />
+    <target
+        android:name="group_10"
+        android:animation="@anim/ae_wp_setup_group_10_animation" />
+    <target
+        android:name="path_10"
+        android:animation="@anim/ae_wp_setup_path_10_animation" />
+    <target
+        android:name="group_11"
+        android:animation="@anim/ae_wp_setup_group_11_animation" />
+    <target
+        android:name="path_11"
+        android:animation="@anim/ae_wp_setup_path_11_animation" />
+    <target
+        android:name="balamale"
+        android:animation="@anim/ae_wp_setup_balamale_animation" />
+    <target
+        android:name="path_14"
+        android:animation="@anim/ae_wp_setup_path_14_animation" />
+    <target
+        android:name="path_15"
+        android:animation="@anim/ae_wp_setup_path_15_animation" />
+    <target
+        android:name="path_16"
+        android:animation="@anim/ae_wp_setup_path_16_animation" />
+    <target
+        android:name="path_17"
+        android:animation="@anim/ae_wp_setup_path_17_animation" />
+    <target
+        android:name="path_18"
+        android:animation="@anim/ae_wp_setup_path_18_animation" />
+    <target
+        android:name="path_19"
+        android:animation="@anim/ae_wp_setup_path_19_animation" />
+    <target
+        android:name="path_20"
+        android:animation="@anim/ae_wp_setup_path_20_animation" />
+    <target
+        android:name="path_21"
+        android:animation="@anim/ae_wp_setup_path_21_animation" />
+    <target
+        android:name="path_22"
+        android:animation="@anim/ae_wp_setup_path_22_animation" />
+    <target
+        android:name="path_23"
+        android:animation="@anim/ae_wp_setup_path_23_animation" />
+    <target
+        android:name="path_24"
+        android:animation="@anim/ae_wp_setup_path_24_animation" />
+    <target
+        android:name="path_25"
+        android:animation="@anim/ae_wp_setup_path_25_animation" />
+    <target
+        android:name="path_26"
+        android:animation="@anim/ae_wp_setup_path_26_animation" />
+    <target
+        android:name="path_27"
+        android:animation="@anim/ae_wp_setup_path_27_animation" />
+    <target
+        android:name="path_28"
+        android:animation="@anim/ae_wp_setup_path_28_animation" />
+    <target
+        android:name="path_29"
+        android:animation="@anim/ae_wp_setup_path_29_animation" />
+    <target
+        android:name="path_30"
+        android:animation="@anim/ae_wp_setup_path_30_animation" />
+    <target
+        android:name="path_31"
+        android:animation="@anim/ae_wp_setup_path_31_animation" />
+    <target
+        android:name="path_32"
+        android:animation="@anim/ae_wp_setup_path_32_animation" />
+    <target
+        android:name="path_33"
+        android:animation="@anim/ae_wp_setup_path_33_animation" />
+    <target
+        android:name="path_34"
+        android:animation="@anim/ae_wp_setup_path_34_animation" />
+    <target
+        android:name="path_35"
+        android:animation="@anim/ae_wp_setup_path_35_animation" />
+    <target
+        android:name="path_36"
+        android:animation="@anim/ae_wp_setup_path_36_animation" />
+    <target
+        android:name="path_37"
+        android:animation="@anim/ae_wp_setup_path_37_animation" />
+    <target
+        android:name="path_38"
+        android:animation="@anim/ae_wp_setup_path_38_animation" />
+    <target
+        android:name="path_39"
+        android:animation="@anim/ae_wp_setup_path_39_animation" />
+    <target
+        android:name="path_40"
+        android:animation="@anim/ae_wp_setup_path_40_animation" />
+    <target
+        android:name="path_41"
+        android:animation="@anim/ae_wp_setup_path_41_animation" />
+    <target
+        android:name="path_42"
+        android:animation="@anim/ae_wp_setup_path_42_animation" />
+    <target
+        android:name="path_43"
+        android:animation="@anim/ae_wp_setup_path_43_animation" />
+    <target
+        android:name="path_44"
+        android:animation="@anim/ae_wp_setup_path_44_animation" />
+    <target
+        android:name="path_45"
+        android:animation="@anim/ae_wp_setup_path_45_animation" />
+    <target
+        android:name="path_46"
+        android:animation="@anim/ae_wp_setup_path_46_animation" />
+    <target
+        android:name="path_47"
+        android:animation="@anim/ae_wp_setup_path_47_animation" />
+    <target
+        android:name="path_48"
+        android:animation="@anim/ae_wp_setup_path_48_animation" />
+    <target
+        android:name="path_49"
+        android:animation="@anim/ae_wp_setup_path_49_animation" />
+    <target
+        android:name="path_50"
+        android:animation="@anim/ae_wp_setup_path_50_animation" />
+    <target
+        android:name="path_51"
+        android:animation="@anim/ae_wp_setup_path_51_animation" />
+    <target
+        android:name="path_52"
+        android:animation="@anim/ae_wp_setup_path_52_animation" />
+    <target
+        android:name="path_53"
+        android:animation="@anim/ae_wp_setup_path_53_animation" />
+    <target
+        android:name="path_54"
+        android:animation="@anim/ae_wp_setup_path_54_animation" />
+    <target
+        android:name="path_55"
+        android:animation="@anim/ae_wp_setup_path_55_animation" />
+    <target
+        android:name="path_56"
+        android:animation="@anim/ae_wp_setup_path_56_animation" />
+    <target
+        android:name="path_57"
+        android:animation="@anim/ae_wp_setup_path_57_animation" />
+    <target
+        android:name="path_58"
+        android:animation="@anim/ae_wp_setup_path_58_animation" />
+    <target
+        android:name="path_59"
+        android:animation="@anim/ae_wp_setup_path_59_animation" />
+    <target
+        android:name="path_60"
+        android:animation="@anim/ae_wp_setup_path_60_animation" />
+    <target
+        android:name="path_61"
+        android:animation="@anim/ae_wp_setup_path_61_animation" />
+    <target
+        android:name="path_62"
+        android:animation="@anim/ae_wp_setup_path_62_animation" />
+    <target
+        android:name="path_63"
+        android:animation="@anim/ae_wp_setup_path_63_animation" />
+    <target
+        android:name="path_64"
+        android:animation="@anim/ae_wp_setup_path_64_animation" />
+    <target
+        android:name="path_65"
+        android:animation="@anim/ae_wp_setup_path_65_animation" />
+    <target
+        android:name="path_66"
+        android:animation="@anim/ae_wp_setup_path_66_animation" />
+    <target
+        android:name="path_67"
+        android:animation="@anim/ae_wp_setup_path_67_animation" />
+    <target
+        android:name="path_68"
+        android:animation="@anim/ae_wp_setup_path_68_animation" />
+    <target
+        android:name="path_69"
+        android:animation="@anim/ae_wp_setup_path_69_animation" />
+    <target
+        android:name="path_70"
+        android:animation="@anim/ae_wp_setup_path_70_animation" />
+    <target
+        android:name="path_71"
+        android:animation="@anim/ae_wp_setup_path_71_animation" />
+    <target
+        android:name="path_72"
+        android:animation="@anim/ae_wp_setup_path_72_animation" />
+    <target
+        android:name="path_73"
+        android:animation="@anim/ae_wp_setup_path_73_animation" />
+    <target
+        android:name="path_74"
+        android:animation="@anim/ae_wp_setup_path_74_animation" />
+    <target
+        android:name="path_75"
+        android:animation="@anim/ae_wp_setup_path_75_animation" />
+    <target
+        android:name="path_76"
+        android:animation="@anim/ae_wp_setup_path_76_animation" />
+    <target
+        android:name="lock"
+        android:animation="@anim/ae_wp_setup_lock_animation" />
+    <target
+        android:name="group_78"
+        android:animation="@anim/ae_wp_setup_group_78_animation" />
+    <target
+        android:name="group_79"
+        android:animation="@anim/ae_wp_setup_group_79_animation" />
+</animated-vector>
