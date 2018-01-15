@@ -35,6 +35,7 @@ import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationL
 import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_DO;
 import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_MP;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -506,6 +507,9 @@ public class ProvisioningActivityTest {
         // THEN the profile owner description should be present
         onView(withId(R.id.description))
                 .check(matches(withText(R.string.work_profile_description)));
+
+        // THEN the animation is shown.
+        onView(withId(R.id.animation)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -515,6 +519,9 @@ public class ProvisioningActivityTest {
 
         // THEN the description should be empty
         onView(withId(R.id.description)).check(matches(withText("")));
+
+        // THEN the animation is not shown.
+        onView(withId(R.id.animation)).check(matches(not(isDisplayed())));
     }
 
     private void launchActivityAndWait(Intent intent) {

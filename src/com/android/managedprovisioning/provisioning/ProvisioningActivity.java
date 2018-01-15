@@ -28,8 +28,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.ColorStateList;
+import android.graphics.drawable.Animatable2;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.VisibleForTesting;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -64,6 +70,19 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
 
     private ProvisioningParams mParams;
     private ProvisioningManager mProvisioningManager;
+    private AnimatedVectorDrawable mAnimatedVectorDrawable;
+
+    private Handler mUiThreadHandler = new Handler();
+
+    /** Repeats the animation once it is done **/
+    private final Animatable2.AnimationCallback mAnimationCallback =
+            new Animatable2.AnimationCallback() {
+                @Override
+                public void onAnimationEnd(Drawable drawable) {
+                    super.onAnimationEnd(drawable);
+                    mUiThreadHandler.post(mAnimatedVectorDrawable::start);
+                }
+            };
 
     public ProvisioningActivity() {
         this(null, new Utils());
@@ -108,6 +127,11 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         if (!isAnyDialogAdded()) {
             getProvisioningManager().registerListener(this);
         }
+        if (mAnimatedVectorDrawable != null) {
+            mAnimatedVectorDrawable.registerAnimationCallback(mAnimationCallback);
+            mAnimatedVectorDrawable.reset();
+            mAnimatedVectorDrawable.start();
+        }
     }
 
     private boolean isAnyDialogAdded() {
@@ -120,6 +144,10 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
     @Override
     public void onPause() {
         getProvisioningManager().unregisterListener(this);
+        if (mAnimatedVectorDrawable != null) {
+            mAnimatedVectorDrawable.stop();
+            mAnimatedVectorDrawable.unregisterAnimationCallback(mAnimationCallback);
+        }
         super.onPause();
     }
 
@@ -292,6 +320,10 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         if (!isDoProvisioning) {
             TextView textView = layout.findViewById(R.id.description);
             textView.setText(R.string.work_profile_description);
+
+            ImageView imageView = layout.findViewById(R.id.animation);
+            imageView.setVisibility(View.VISIBLE);
+            mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         }
     }
 

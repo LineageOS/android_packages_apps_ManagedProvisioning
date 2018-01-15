@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <objectAnimator
+        android:duration="2000"
+        android:propertyXName="translateX"
+        android:propertyYName="translateY"
+        android:pathData="M 67.99987,29.322 c 0.0,-1.01914 0.0,3.68947 0.0,1.678 c 0.0,-7.85699 0.0,-24.69714 0.0,-28.678"
+        android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_14" />
+    <set
+        android:ordering="sequentially" >
+        <objectAnimator
+            android:duration="1783"
+            android:propertyName="scaleY"
+            android:valueFrom="1.0"
+            android:valueTo="1.0"
+            android:valueType="floatType"
+            android:interpolator="@android:interpolator/linear" />
+        <objectAnimator
+            android:duration="83"
+            android:propertyName="scaleY"
+            android:valueFrom="1.0"
+            android:valueTo="1.07"
+            android:valueType="floatType"
+            android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_18" />
+        <objectAnimator
+            android:duration="133"
+            android:propertyName="scaleY"
+            android:valueFrom="1.07"
+            android:valueTo="0.0"
+            android:valueType="floatType"
+            android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_25" />
+    </set>
+</set>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <objectAnimator
+        android:duration="4733"
+        android:propertyXName="translateX"
+        android:propertyYName="translateY"
+        android:pathData="M 64.1507,94.35889 c 0.0,-8.16667 0.0,-40.83333 0.0,-49.0 l 0.0,0.0 c 0.0,8.16667 0.0,40.83333 0.0,49.0"
+        android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_15" />
+    <set
+        android:ordering="sequentially" >
+        <objectAnimator
+            android:duration="2016"
+            android:propertyName="scaleY"
+            android:valueFrom="0.0"
+            android:valueTo="0.0"
+            android:valueType="floatType"
+            android:interpolator="@android:interpolator/linear" />
+        <objectAnimator
+            android:duration="233"
+            android:propertyName="scaleY"
+            android:valueFrom="0.0"
+            android:valueTo="1.0"
+            android:valueType="floatType"
+            android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_21" />
+        <objectAnimator
+            android:duration="2266"
+            android:propertyName="scaleY"
+            android:valueFrom="1.0"
+            android:valueTo="1.0"
+            android:valueType="floatType"
+            android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_5" />
+        <objectAnimator
+            android:duration="216"
+            android:propertyName="scaleY"
+            android:valueFrom="1.0"
+            android:valueTo="0.0"
+            android:valueType="floatType"
+            android:interpolator="@interpolator/ae_wp_setup_animation_interpolator_24" />
+    </set>
+</set>

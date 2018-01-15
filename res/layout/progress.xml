@@ -50,6 +50,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/take_a_few_minutes"/>
+            <ImageView
+                android:id="@+id/animation"
+                android:layout_width="412dp"
+                android:layout_height="412dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ae_wp_setup_animation"
+                android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>
 </com.android.setupwizardlib.GlifLayout>
