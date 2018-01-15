@@ -37,19 +37,15 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
     }
 
     protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-            boolean showProgressBar, int mainColor) {
+            int mainColor) {
         setContentView(layoutResourceId);
-        GlifLayout layout = (GlifLayout) findViewById(R.id.setup_wizard_layout);
+        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
         setMainColor(mainColor);
         layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
 
         if (headerResourceId != null) {
             layout.setHeaderText(headerResourceId);
-        }
-
-        if (showProgressBar) {
-            layout.setProgressBarShown(true);
         }
 
         layout.setIcon(LogoUtils.getOrganisationLogo(this, mainColor));

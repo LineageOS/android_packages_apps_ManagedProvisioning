@@ -18,8 +18,8 @@ package com.android.managedprovisioning.provisioning;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
-import android.Manifest;
 import android.Manifest.permission;
+import android.annotation.ColorRes;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
@@ -27,9 +27,10 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
-import android.view.accessibility.AccessibilityEvent;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
@@ -40,6 +41,8 @@ import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.setupwizardlib.GlifLayout;
+
 import java.util.List;
 
 /**
@@ -277,8 +280,24 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         final int titleResId = isDoProvisioning ? R.string.setup_device_progress
                 : R.string.setup_profile_progress;
 
-        initializeLayoutParams(R.layout.progress, headerResId, true,
-                CustomizationParams.createInstance(mParams, this, mUtils).statusBarColor);
+        int mainColor = CustomizationParams.createInstance(mParams, this,
+                mUtils).statusBarColor;
+
+        initializeLayoutParams(R.layout.progress, headerResId, mainColor);
         setTitle(titleResId);
+        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        ProgressBar progressBar = layout.findViewById(R.id.progress_bar);
+        tintProgressBar(progressBar, mainColor);
+
+        if (!isDoProvisioning) {
+            TextView textView = layout.findViewById(R.id.description);
+            textView.setText(R.string.work_profile_description);
+        }
+    }
+
+    private void tintProgressBar(ProgressBar progressBar, @ColorRes int color) {
+        ColorStateList colorStateList = ColorStateList.valueOf(color);
+        progressBar.setIndeterminateTintList(colorStateList);
+        progressBar.setProgressBackgroundTintList(colorStateList);
     }
 }
