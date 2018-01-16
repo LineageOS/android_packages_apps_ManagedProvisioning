@@ -21,6 +21,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 
+import android.annotation.LayoutRes;
 import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -75,9 +76,8 @@ public class CustomizationVerifier {
         assertThat(actual, equalTo(expected));
     }
 
-    public void assertProgressBarColorCorrect(int targetColor) {
-        ProgressBar progressBar = (ProgressBar) mActivity.findViewById(
-                com.android.setupwizardlib.R.id.suw_layout_progress);
+    public void assertProgressBarColorCorrect(@LayoutRes int progressBarLayoutId, int targetColor) {
+        ProgressBar progressBar = mActivity.findViewById(progressBarLayoutId);
 
         ColorStateList expected = ColorStateList.valueOf(targetColor);
         assertThat(progressBar.getIndeterminateTintList(), equalTo(expected));
