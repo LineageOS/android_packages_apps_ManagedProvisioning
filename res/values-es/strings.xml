@@ -74,7 +74,7 @@
     <string name="device_owner_error_general" msgid="5962462955470123776">"No se ha podido configurar el dispositivo. Ponte en contacto con el departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Este dispositivo ya está configurado."</string>
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"No se ha podido establecer conexión con la red Wi-Fi"</string>
-    <string name="device_owner_error_frp" msgid="7053630342416280252">"Este dispositivo está bloqueado con la protección para restablecer datos de fábrica. Ponte en contacto con el departamento de TI."</string>
+    <string name="device_owner_error_frp" msgid="7053630342416280252">"Este dispositivo está bloqueado con la protección para restablecer el estado de fábrica. Ponte en contacto con el departamento de TI."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"No se ha podido utilizar la aplicación de administración debido a un error de la suma de comprobación. Ponte en contacto con el departamento de TI."</string>
@@ -100,7 +100,7 @@
     <string name="learn_more_label" msgid="2723716758654655009">"Botón para obtener más información"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icono de <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"¿Cancelar configuración y restablecer datos?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Al finalizar esta configuración, se restablecerán los datos de fábrica de tu dispositivo y volverás a la primera pantalla."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Al finalizar esta configuración, se restablecerá el estado de fábrica de tu dispositivo y volverás a la primera pantalla."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Cancelar"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Restablecer dispositivo"</string>
 </resources>

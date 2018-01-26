@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफाइलको सेटअप"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
-    <string name="setup_work_profile" msgid="1468934631731845267">"कार्य प्रोफाइललाई सेट अप गर्नुहोस्"</string>
+    <string name="setup_work_profile" msgid="1468934631731845267">"कार्य प्रोफाइललाई सेटअप गर्नुहोस्"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"तपाईँको संगठनले यस यन्त्रलाई नियन्त्रण गर्ने छ र सुरक्षित राख्ने छ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न अनुप्रयोग यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
@@ -60,7 +60,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ठीक छ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"प्रयोगकर्ता सेटअप सम्पन्न भएन"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
-    <string name="setup_work_device" msgid="4243324420514896773">"कार्य प्रोफाइलको यन्त्रलाई सेट अप गर्नुहोस्"</string>
+    <string name="setup_work_device" msgid="4243324420514896773">"कार्य प्रोफाइलको यन्त्रलाई सेटअप गर्नुहोस्"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटा प्रशोधन गर्दै..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi मा जडान गर्दै..."</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासकीय अनुप्रयोग डाउनलोड गर्दै..."</string>
@@ -90,11 +90,11 @@
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"जारी राख्नुहोस्"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोक्नुहोस्"</string>
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान गरिँदै"</string>
-    <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रहरू सेट अप गरिँदै"</string>
-    <string name="setup_profile_start_setup" msgid="6793984532953528297">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। सेटअप सुरू गर्नुहोस्"</string>
+    <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रहरू सेटअप गरिँदै"</string>
+    <string name="setup_profile_start_setup" msgid="6793984532953528297">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। सेटअप सुरु गर्नुहोस्"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। इन्क्रिप्सन"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
-    <string name="setup_device_start_setup" msgid="4351340224000741826">"तपाईँको यन्त्र सेटअप गर्नुहोस्। सेटअप सुरू गर्नुहोस्"</string>
+    <string name="setup_device_start_setup" msgid="4351340224000741826">"तपाईँको यन्त्र सेटअप गर्नुहोस्। सेटअप सुरु गर्नुहोस्"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"तपाईँको यन्त्र सेटअप गर्नुहोस्। इन्क्रिप्सन"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"तपाईँको यन्त्र सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"थप जान्नुहोस् बटन"</string>

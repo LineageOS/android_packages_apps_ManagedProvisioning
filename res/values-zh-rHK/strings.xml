@@ -55,7 +55,7 @@
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"此使用者無法建立工作設定檔"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"受管理的裝置無法設定公司檔案"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"裝置使用者人數已滿，無法建立工作設定檔。請刪除至少一位使用者，然後重試。"</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"這個應用程式啟動器不支援您的公司檔案，請切換至相容的應用程式啟動器。"</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"這個啟動器應用程式不支援您的公司檔案，請改用相容的啟動器。"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"取消"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"確定"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"使用者設定未完成"</string>

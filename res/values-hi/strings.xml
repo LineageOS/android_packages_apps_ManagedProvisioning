@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"अपने संगठन की निजता नीतियों के साथ ही और जानकारी के लिए अपने एडमिन से संपर्क करें."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ज़्यादा जानें"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द करें"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"ठीक"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"ठीक है"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मैं सहमत हूं"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफ़ाइल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक उपयोगकर्ता"</string>
@@ -57,7 +57,7 @@
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"कार्य प्रोफ़ाइल नहीं बनाई जा सकती क्योंकि आप अपने डिवाइस पर उपयोगकर्ताओं की अधिकतम संख्या तक पहुंच गए हैं. कम से कम एक उपयोगकर्ता को निकालें और फिर से कोशिश करें."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"आपकी कार्य प्रोफ़ाइल इस लॉन्चर ऐप्स द्वारा समर्थित नहीं है. आपको किसी संगत लॉन्चर पर स्विच करना होगा."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द करें"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"ठीक"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ठीक है"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"उपयोगकर्ता सेटअप अधूरा है"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य डिवाइस का उपयोगकर्ता"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"कार्यस्थल डिवाइस सेट करें"</string>
@@ -69,7 +69,7 @@
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"आपके डिवाइस पर सुरक्षित करने का तरीका काम नहीं करता. अपने आईटी विभाग से संपर्क करें."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेट करना बंद करें और आपके डिवाइस का डेटा मिटाएं?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द करें"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"ठीक"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ठीक है"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"रीसेट करें"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"आपका डिवाइस सेट नहीं किया जा सका. अपने IT विभाग से संपर्क करें."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यह डिवाइस पहले से सेट किया गया है."</string>

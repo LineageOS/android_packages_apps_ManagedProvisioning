@@ -35,7 +35,7 @@
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Abbrechen"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
-    <string name="user_consent_msg" msgid="8820951802130353584">"Ich stimme zu."</string>
+    <string name="user_consent_msg" msgid="8820951802130353584">"Ich stimme zu"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbeitsprofil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hauptnutzer"</string>
     <string name="delete_profile_title" msgid="3097803266123463699">"Arbeitsprofil entfernen?"</string>

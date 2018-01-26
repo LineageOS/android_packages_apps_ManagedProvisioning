@@ -80,7 +80,7 @@
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"ਇੱਕ checksum ਅਸ਼ੁੱਧੀ ਦੇ ਕਾਰਨ ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ਐਡਮਿਨ ਐਪ ਨੂੰ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"ਐਡਮਿਨ ਐਪ ਨਹੀਂ ਵਰਤ ਸਕਿਆ। ਇਸਦੇ ਕੰਪੋਨੈਂਟ ਲੁਪਤ ਹਨ ਜਾਂ ਕਰਪਟ ਹਨ। ਆਪਣੇ IT ਵਿਭਾਗ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਸਥਾਪਤ ਨਹੀਂ ਕਰ ਸਕਿਆ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ਕੀ ਸੈਟ ਅਪ ਕਰਨਾ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ਨਹੀਂ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ਹਾਂ"</string>
@@ -98,7 +98,7 @@
     <string name="setup_device_encryption" msgid="7852944465414197103">"ਆਪਣਾ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕਰੋ। ਇਨਕ੍ਰਿਪਸ਼ਨ"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ਆਪਣਾ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕਰੋ। ਪ੍ਰਗਤੀ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"ਹੋਰ ਜਾਣੋ ਬਟਨ"</string>
-    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਆਈਕਨ"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ਪ੍ਰਤੀਕ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ਕੀ ਸਥਾਪਨਾ ਸਮਾਪਤ ਕਰਨੀ ਅਤੇ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ਇਸ ਸਥਾਪਨਾ ਨੂੰ ਸਮਾਪਤ ਕਰਨਾ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲੈ ਜਾਵੇਗਾ।"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ਰੱਦ ਕਰੋ"</string>
