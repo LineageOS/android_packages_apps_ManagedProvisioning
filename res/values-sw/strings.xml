@@ -53,7 +53,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Ungependa kusimba kifaa hiki kwa njia fiche?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Simba kwa njia fiche"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Usimbaji fiche umekamilika"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Gonga ili uendelee kuweka mipangilio ya wasifu wako wa kazini"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Gusa ili uendelee kuweka mipangilio ya wasifu wako wa kazini"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Haikuweza kusanidi wasifu wako wa kazi. Wasiliana na idara yako ya Teknolojia ya Habari au ujaribu tena baadaye."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Imeshindwa kuongeza wasifu wa kazini"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Huwezi kubadilisha au kuondoa wasifu wa kazini"</string>
