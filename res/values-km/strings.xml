@@ -154,4 +154,6 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> និង <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"វាអាចចំណាយពីរបីនាទី"</string>
+    <string name="work_profile_description" msgid="8524116010729569213">"កម្មវិធី​ការងាររបស់អ្នក​នឹងត្រូវបានរក្សាទុក​នៅក្នុង​កម្រងព័ត៌មាននេះ​ ហើយនឹងស្ថិតក្រោម​ការគ្រប់គ្រង​របស់ស្ថាប័ន​របស់អ្នក"</string>
 </resources>
