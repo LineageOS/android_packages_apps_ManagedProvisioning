@@ -317,11 +317,13 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         ProgressBar progressBar = layout.findViewById(R.id.progress_bar);
         tintProgressBar(progressBar, mainColor);
 
-        if (!isDoProvisioning) {
-            TextView textView = layout.findViewById(R.id.description);
+        TextView textView = layout.findViewById(R.id.description);
+        ImageView imageView = layout.findViewById(R.id.animation);
+        if (isDoProvisioning) {
+            textView.setText(R.string.device_owner_description);
+        } else {
             textView.setText(R.string.work_profile_description);
 
-            ImageView imageView = layout.findViewById(R.id.animation);
             imageView.setVisibility(View.VISIBLE);
             mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         }
