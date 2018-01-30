@@ -44,6 +44,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -683,5 +684,16 @@ public class Utils {
     public boolean isPackageDeviceOwner(DevicePolicyManager dpm, String packageName) {
         final ComponentName deviceOwner = dpm.getDeviceOwnerComponentOnCallingUser();
         return deviceOwner != null && deviceOwner.getPackageName().equals(packageName);
+    }
+
+    public int getAccentColor(Context context) {
+        return getAttrColor(context, android.R.attr.colorAccent);
+    }
+
+    private int getAttrColor(Context context, int attr) {
+        TypedArray ta = context.obtainStyledAttributes(new int[]{attr});
+        int attrColor = ta.getColor(0, 0);
+        ta.recycle();
+        return attrColor;
     }
 }

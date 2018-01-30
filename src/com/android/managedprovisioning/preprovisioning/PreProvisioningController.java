@@ -104,7 +104,6 @@ public class PreProvisioningController {
                 new MessageParser(context), new Utils(), new SettingsFacade(),
                 EncryptionController.getInstance(context));
     }
-
     @VisibleForTesting
     PreProvisioningController(
             @NonNull Context context,
@@ -274,7 +273,8 @@ public class PreProvisioningController {
             return;
         }
 
-        CustomizationParams customization = CustomizationParams.createInstance(mParams, mContext);
+        CustomizationParams customization =
+                CustomizationParams.createInstance(mParams, mContext, mUtils);
 
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
