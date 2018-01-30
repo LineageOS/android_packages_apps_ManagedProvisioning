@@ -32,8 +32,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationLogo;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_DO;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_MP;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_MAIN_COLOR;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.AllOf.allOf;
@@ -208,10 +208,16 @@ public class ProvisioningActivityTest {
         Context context = InstrumentationRegistry.getTargetContext();
 
         // default color Managed Profile (MP)
-        assertColorsCorrect(PROFILE_OWNER_INTENT, context.getColor(DEFAULT_COLOR_ID_MP));
+        assertColorsCorrect(
+                PROFILE_OWNER_INTENT,
+                context.getColor(DEFAULT_MAIN_COLOR),
+                context.getColor(DEFAULT_STATUS_BAR_COLOR));
 
         // default color Device Owner (DO)
-        assertColorsCorrect(DEVICE_OWNER_INTENT, context.getColor(DEFAULT_COLOR_ID_DO));
+        assertColorsCorrect(
+                DEVICE_OWNER_INTENT,
+                context.getColor(DEFAULT_MAIN_COLOR),
+                context.getColor(DEFAULT_STATUS_BAR_COLOR));
 
         // custom color for both cases (MP, DO)
         int targetColor = Color.parseColor("#d40000"); // any color (except default) would do
@@ -222,19 +228,21 @@ public class ProvisioningActivityTest {
                     .setDeviceAdminComponentName(ADMIN)
                     .setMainColor(targetColor)
                     .build();
-            assertColorsCorrect(new Intent().putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS,
-                    provisioningParams), targetColor);
+            Intent intent = new Intent();
+            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, provisioningParams);
+            assertColorsCorrect(intent, targetColor, targetColor);
         }
     }
 
-    private void assertColorsCorrect(Intent intent, int color) throws Throwable {
+    private void assertColorsCorrect(Intent intent, int mainColor, int statusBarColor)
+            throws Throwable {
         launchActivityAndWait(intent);
         Activity activity = mActivityRule.getActivity();
 
         CustomizationVerifier customizationVerifier = new CustomizationVerifier(activity);
-        customizationVerifier.assertStatusBarColorCorrect(color);
-        customizationVerifier.assertDefaultLogoCorrect(color);
-        customizationVerifier.assertProgressBarColorCorrect(R.id.progress_bar, color);
+        customizationVerifier.assertStatusBarColorCorrect(statusBarColor);
+        customizationVerifier.assertDefaultLogoCorrect(mainColor);
+        customizationVerifier.assertProgressBarColorCorrect(R.id.progress_bar, mainColor);
 
         finishAndWait();
     }

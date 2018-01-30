@@ -71,7 +71,7 @@ public class TermsActivity extends SetupLayoutActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.terms_screen);
         setTitle(R.string.terms);
-        setMainColor(Color.BLACK);
+        setStatusBarColor(Color.BLACK);
 
         ProvisioningParams params = checkNotNull(
                 getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS));

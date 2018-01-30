@@ -279,6 +279,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         initializeLayoutParams(
                 layoutId,
                 isProfileOwnerProvisioning ? null : R.string.set_up_your_device,
+                customization.mainColor,
                 customization.statusBarColor);
 
         // set up the 'accept and continue' button

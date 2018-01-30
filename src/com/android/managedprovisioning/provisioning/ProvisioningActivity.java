@@ -308,14 +308,13 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         final int titleResId = isDoProvisioning ? R.string.setup_device_progress
                 : R.string.setup_profile_progress;
 
-        int mainColor = CustomizationParams.createInstance(mParams, this,
-                mUtils).statusBarColor;
-
-        initializeLayoutParams(R.layout.progress, headerResId, mainColor);
+        CustomizationParams customizationParams = CustomizationParams.createInstance(mParams, this);
+        initializeLayoutParams(R.layout.progress, headerResId, customizationParams.mainColor,
+                customizationParams.statusBarColor);
         setTitle(titleResId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         ProgressBar progressBar = layout.findViewById(R.id.progress_bar);
-        tintProgressBar(progressBar, mainColor);
+        tintProgressBar(progressBar, customizationParams.mainColor);
 
         TextView textView = layout.findViewById(R.id.description);
         ImageView imageView = layout.findViewById(R.id.animation);
