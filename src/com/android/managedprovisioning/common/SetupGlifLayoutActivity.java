@@ -37,11 +37,11 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
     }
 
     protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-            int mainColor) {
+            int mainColor, int statusBarColor) {
         setContentView(layoutResourceId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
-        setMainColor(mainColor);
+        setStatusBarColor(statusBarColor);
         layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
 
         if (headerResourceId != null) {

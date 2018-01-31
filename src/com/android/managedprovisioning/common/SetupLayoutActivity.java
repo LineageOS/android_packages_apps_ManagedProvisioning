@@ -82,24 +82,24 @@ public abstract class SetupLayoutActivity extends Activity {
     }
 
     /**
-     * @param mainColor integer representing the color (i.e. not resource id)
+     * @param statusBarColor integer representing the color (i.e. not resource id)
      */
-    protected void setMainColor(int mainColor) {
-        mainColor = toSolidColor(mainColor);
+    protected void setStatusBarColor(int statusBarColor) {
+        statusBarColor = toSolidColor(statusBarColor);
 
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(mainColor);
+        window.setStatusBarColor(statusBarColor);
 
         // set status bar icon style
         View decorView = getWindow().getDecorView();
         int visibility = decorView.getSystemUiVisibility();
-        decorView.setSystemUiVisibility(getUtils().isBrightColor(mainColor)
+        decorView.setSystemUiVisibility(getUtils().isBrightColor(statusBarColor)
                 ? (visibility | SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
                 : (visibility & ~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR));
 
-        setTaskDescription(new TaskDescription(null /* label */, null /* icon */, mainColor));
+        setTaskDescription(new TaskDescription(null /* label */, null /* icon */, statusBarColor));
     }
 
     /**

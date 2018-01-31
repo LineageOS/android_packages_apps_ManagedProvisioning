@@ -23,18 +23,16 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLO
 
 import static com.android.managedprovisioning.e2eui.ManagedProfileAdminReceiver.COMPONENT_NAME;
 import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_BUTTON;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_DO;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_MP;
 import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_COLOR_ID_SWIPER;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_MAIN_COLOR;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR;
 
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.junit.Assert.assertThat;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
@@ -46,7 +44,6 @@ import com.android.managedprovisioning.common.UriBitmap;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -89,7 +86,7 @@ public class PreProvisioningActivityTest {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_PROFILE, null));
         CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_COLOR_ID_MP));
+        v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_STATUS_BAR_COLOR));
         v.assertSwiperColorCorrect(activity.getColor(DEFAULT_COLOR_ID_SWIPER));
         v.assertNextButtonColorCorrect(activity.getColor(DEFAULT_COLOR_ID_BUTTON));
     }
@@ -109,10 +106,9 @@ public class PreProvisioningActivityTest {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_DEVICE, null));
         CustomizationVerifier v = new CustomizationVerifier(activity);
-        int color = activity.getColor(DEFAULT_COLOR_ID_DO);
-        v.assertStatusBarColorCorrect(color);
-        v.assertDefaultLogoCorrect(color);
-        v.assertNextButtonColorCorrect(color);
+        v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_STATUS_BAR_COLOR));
+        v.assertDefaultLogoCorrect(activity.getColor(DEFAULT_MAIN_COLOR));
+        v.assertNextButtonColorCorrect(activity.getColor(DEFAULT_COLOR_ID_BUTTON));
     }
 
     @Test

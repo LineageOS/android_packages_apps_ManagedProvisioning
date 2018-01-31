@@ -274,8 +274,7 @@ public class PreProvisioningController {
             return;
         }
 
-        CustomizationParams customization = CustomizationParams.createInstance(mParams, mContext,
-                mUtils);
+        CustomizationParams customization = CustomizationParams.createInstance(mParams, mContext);
 
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
