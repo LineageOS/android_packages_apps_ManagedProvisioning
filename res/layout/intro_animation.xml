@@ -37,8 +37,7 @@
             android:id="@+id/animated_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:src="@drawable/topinfo_animation"/>
+            android:scaleType="fitCenter"/>
 
         <include layout="@layout/intro_animation_captions"/>
 

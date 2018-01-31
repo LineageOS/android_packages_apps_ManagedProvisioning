@@ -26,12 +26,14 @@ import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.model.CustomizationParams;
 
 import java.util.List;
 
@@ -72,7 +74,7 @@ public class BenefitsAnimation {
      * @param contentDescription for accessibility
      */
     public BenefitsAnimation(@NonNull Activity activity, @NonNull List<Integer> captions,
-            int contentDescription) {
+            int contentDescription, CustomizationParams customizationParams) {
         if (captions.size() != SLIDE_COUNT) {
             throw new IllegalArgumentException(
                     "Wrong number of slide captions. Expected: " + SLIDE_COUNT);
@@ -81,6 +83,9 @@ public class BenefitsAnimation {
         mTextAnimation = checkNotNull(assembleTextAnimation());
         applySlideCaptions(captions);
         applyContentDescription(contentDescription);
+
+        setTopInfoDrawable(customizationParams);
+
         mDotsAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_DOTS));
         mTopAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_GRAPHIC));
 
@@ -89,6 +94,19 @@ public class BenefitsAnimation {
 
         // once the screen is ready, adjust size
         mActivity.findViewById(android.R.id.content).post(this::adjustToScreenSize);
+    }
+
+    private void setTopInfoDrawable(CustomizationParams customizationParams) {
+        int swiperTheme = new SwiperThemeMatcher(mActivity, new ColorMatcher())
+                .findTheme(customizationParams.mainColor);
+
+        ContextThemeWrapper wrapper = new ContextThemeWrapper(mActivity, swiperTheme);
+        Drawable drawable =
+                mActivity.getResources().getDrawable(
+                        R.drawable.topinfo_animation,
+                        wrapper.getTheme());
+        ImageView imageView = mActivity.findViewById(ID_ANIMATED_GRAPHIC);
+        imageView.setImageDrawable(drawable);
     }
 
     /** Starts playing the animation in a loop. */

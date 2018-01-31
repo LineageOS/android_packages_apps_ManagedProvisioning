@@ -88,7 +88,7 @@
         <item name="android:colorAccent">@color/accent</item>
     </style>
 
-    <style name="Provisioning2Theme" parent="SuwThemeGlif.Light">
+    <style name="Provisioning2Theme" parent="SuwThemeGlifV3.Light">
         <item name="android:windowBackground">@color/white</item>
         <item name="android:colorBackground">@color/white</item>
         <item name="swiper_color">@color/teal2</item>
@@ -132,7 +132,7 @@
         <item name="android:lineSpacingExtra">8sp</item>
     </style>
 
-    <style name="Provisioning2Theme.Button" parent="SuwButtonItem">
+    <style name="Provisioning2Theme.Button" parent="SuwGlifButton.Primary">
         <item name="android:paddingStart">@dimen/spacer_12</item>
         <item name="android:paddingEnd">@dimen/spacer_12</item>
         <item name="android:paddingTop">0dp</item>

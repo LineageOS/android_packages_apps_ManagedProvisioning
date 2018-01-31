@@ -273,14 +273,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     public void initiateUi(int layoutId, int titleId, String packageLabel, Drawable packageIcon,
             boolean isProfileOwnerProvisioning, boolean isComp, List<String> termsHeaders,
             CustomizationParams customization) {
-        if (isProfileOwnerProvisioning) {
-            // setting a theme so that the animation swiper matches the mainColor
-            // needs to happen before {@link Activity#setContentView}
-            setTheme(new SwiperThemeMatcher(this,
-                    new ColorMatcher()) // TODO: introduce DI framework
-                    .findTheme(customization.mainColor));
-        }
-
         initializeLayoutParams(
                 layoutId,
                 isProfileOwnerProvisioning ? null : R.string.set_up_your_device,
@@ -306,13 +298,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
         // initiate UI for MP / DO
         if (isProfileOwnerProvisioning) {
-            initiateUIProfileOwner(headers, isComp);
+            initiateUIProfileOwner(headers, isComp, customization);
         } else {
             initiateUIDeviceOwner(packageLabel, packageIcon, headers, customization);
         }
     }
 
-    private void initiateUIProfileOwner(@NonNull String termsHeaders, boolean isComp) {
+    private void initiateUIProfileOwner(
+            @NonNull String termsHeaders, boolean isComp, CustomizationParams customizationParams) {
         // set up the cancel button
         Button cancelButton = (Button) findViewById(R.id.close_button);
         cancelButton.setOnClickListener(v -> {
@@ -343,7 +336,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         : SLIDE_CAPTIONS,
                 isComp
                         ? R.string.comp_profile_benefits_description
-                        : R.string.profile_benefits_description);
+                        : R.string.profile_benefits_description,
+                customizationParams);
     }
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
