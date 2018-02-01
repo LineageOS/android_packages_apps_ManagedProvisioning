@@ -139,8 +139,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/Provisioning2Theme">
-        </activity>
+            android:theme="@style/NonGlifTheme"/>
         <activity
             android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
@@ -163,6 +162,7 @@
             android:name=".preprovisioning.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
+            android:theme="@style/NonGlifTheme"
             android:process=":webview">
         </activity>
 
