@@ -329,6 +329,6 @@
   <string name="take_a_few_minutes">This may take a few minutes</string>
   <!-- [CHAR_LIMIT=NONE] Subtext below a full-screen title. This string explains that the user's work apps will be kept in a separate profile (called a "work profile") and managed by their employer (referred to generally as "organization").  -->
   <string name="work_profile_description">Your work apps will be kept in this profile and managed by your organization</string>
-  <!-- [CHAR_LIMIT=NONE] -->
+  <!-- [CHAR_LIMIT=NONE] Subtext below a full-screen title. This string explains that the user's work device will be kept secure and managed by their employer (referred to generally as "organization"). -->
   <string name="device_owner_description">This device will be kept secure and managed by your organization</string>
 </resources>
