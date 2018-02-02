@@ -111,7 +111,7 @@
         <item name="android:textSize">@dimen/info_text_title_size</item>
     </style>
 
-    <style name="Provisioning2Theme.Text.Primary.Title.InfoAnimation">
+    <style name="InfoAnimationTitle" parent="SuwBaseHeaderTitle">
         <item name="android:layout_width">@dimen/info_view_width</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:breakStrategy">balanced</item>
