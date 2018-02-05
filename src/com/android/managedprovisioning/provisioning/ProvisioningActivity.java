@@ -308,7 +308,8 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         final int titleResId = isDoProvisioning ? R.string.setup_device_progress
                 : R.string.setup_profile_progress;
 
-        CustomizationParams customizationParams = CustomizationParams.createInstance(mParams, this);
+        CustomizationParams customizationParams =
+                CustomizationParams.createInstance(mParams, this, mUtils);
         initializeLayoutParams(R.layout.progress, headerResId, customizationParams.mainColor,
                 customizationParams.statusBarColor);
         setTitle(titleResId);

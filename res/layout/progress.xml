@@ -48,7 +48,7 @@
                 style="@style/SuwItemSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="?attr/suwGlifHeaderGravity"
                 android:text="@string/take_a_few_minutes"/>
             <ImageView
                 android:id="@+id/animation"

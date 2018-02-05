@@ -39,4 +39,5 @@
     <color name="gray_status_bar">#BDBDBD</color>
     <color name="white">#FFF</color>
     <color name="teal2">#FF26A599</color>
+    <color name="term_status_bar">#E8EAED</color>
 </resources>

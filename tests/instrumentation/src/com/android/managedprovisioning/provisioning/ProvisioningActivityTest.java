@@ -17,7 +17,8 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
+import static android.app.admin.DevicePolicyManager
+        .ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_STATE_USER_SETUP_COMPLETE;
 import static android.support.test.espresso.Espresso.onView;
@@ -32,8 +33,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationLogo;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_MAIN_COLOR;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR;
+import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR_ID;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.AllOf.allOf;
@@ -80,9 +80,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.hamcrest.MockitoHamcrest;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,7 @@ import java.util.List;
  * Unit tests for {@link ProvisioningActivity}.
  */
 @SmallTest
+@RunWith(MockitoJUnitRunner.class)
 public class ProvisioningActivityTest {
     private static final String ADMIN_PACKAGE = "com.test.admin";
     private static final String TEST_PACKAGE = "com.android.managedprovisioning.tests";
@@ -117,6 +119,7 @@ public class ProvisioningActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, DEVICE_OWNER_PARAMS);
     private static final Intent NFC_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
+    private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
 
     private static class CustomIntentsTestRule extends IntentsTestRule<ProvisioningActivity> {
         private boolean mIsActivityRunning = false;
@@ -160,6 +163,11 @@ public class ProvisioningActivityTest {
                 Settings.System.ACCELEROMETER_ROTATION, 0);
     }
 
+    @Before
+    public void setup() {
+        when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_MAIN_COLOR);
+    }
+
     @AfterClass
     public static void tearDownClass() {
         // Reset the rotation value back to what it was before the test
@@ -171,8 +179,6 @@ public class ProvisioningActivityTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
-
         TestInstrumentationRunner.registerReplacedActivity(ProvisioningActivity.class,
                 (classLoader, className, intent) ->
                         new ProvisioningActivity(mProvisioningManager, mUtils) {
@@ -210,14 +216,14 @@ public class ProvisioningActivityTest {
         // default color Managed Profile (MP)
         assertColorsCorrect(
                 PROFILE_OWNER_INTENT,
-                context.getColor(DEFAULT_MAIN_COLOR),
-                context.getColor(DEFAULT_STATUS_BAR_COLOR));
+                DEFAULT_MAIN_COLOR,
+                context.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
 
         // default color Device Owner (DO)
         assertColorsCorrect(
                 DEVICE_OWNER_INTENT,
-                context.getColor(DEFAULT_MAIN_COLOR),
-                context.getColor(DEFAULT_STATUS_BAR_COLOR));
+                DEFAULT_MAIN_COLOR,
+                context.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
 
         // custom color for both cases (MP, DO)
         int targetColor = Color.parseColor("#d40000"); // any color (except default) would do

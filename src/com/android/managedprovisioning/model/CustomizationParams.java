@@ -20,29 +20,17 @@ import android.content.Context;
 import android.webkit.URLUtil;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 
 /**
  * Captures parameters related to brand customization (e.g. tint color).
  */
 public class CustomizationParams {
     @VisibleForTesting
-    public static final int DEFAULT_MAIN_COLOR = R.color.suw_color_accent_glif_v3;
-    @VisibleForTesting
-    public static final int DEFAULT_STATUS_BAR_COLOR = android.R.color.white;
-    @VisibleForTesting
-    public static final int DEFAULT_COLOR_ID_BUTTON = R.color.suw_color_accent_glif_v3;
-    @VisibleForTesting
-    public static final int DEFAULT_COLOR_ID_SWIPER = R.color.suw_color_accent_glif_v3;
+    public static final int DEFAULT_STATUS_BAR_COLOR_ID = android.R.color.white;
 
     /** Status bar color */
     public final int statusBarColor;
-
-    /** Animation swiper color */
-    public final int swiperColor;
-
-    /** 'Accept & Continue' button color */
-    public final int buttonColor;
 
     /** Color used in everywhere else */
     public final int mainColor;
@@ -58,29 +46,26 @@ public class CustomizationParams {
      * @param params {@link ProvisioningParams} instance to compute the values from
      * @param context {@link Context} instance to resolve color ids
      */
-    public static CustomizationParams createInstance(ProvisioningParams params, Context context) {
-        int statusBarColor, swiperColor, buttonColor, mainColor;
+    public static CustomizationParams createInstance(
+            ProvisioningParams params, Context context, Utils utils) {
+        int statusBarColor, mainColor;
         if (params.mainColor != null) {
-            statusBarColor = swiperColor = buttonColor = mainColor = params.mainColor;
+            statusBarColor = mainColor = params.mainColor;
         } else {
-            statusBarColor = context.getColor(DEFAULT_STATUS_BAR_COLOR);
-            swiperColor = context.getColor(DEFAULT_COLOR_ID_SWIPER);
-            buttonColor = context.getColor(DEFAULT_COLOR_ID_BUTTON);
-            mainColor = context.getColor(DEFAULT_MAIN_COLOR);
+            statusBarColor = context.getColor(DEFAULT_STATUS_BAR_COLOR_ID);
+            mainColor = utils.getAccentColor(context);
         }
 
         String supportUrl = URLUtil.isNetworkUrl(params.supportUrl) ? params.supportUrl : null;
 
-        return new CustomizationParams(mainColor, statusBarColor, swiperColor, buttonColor,
-                params.organizationName, supportUrl);
+        return new CustomizationParams(mainColor, statusBarColor, params.organizationName,
+                supportUrl);
     }
 
-    private CustomizationParams(int mainColor, int statusBarColor, int swiperColor, int buttonColor,
+    private CustomizationParams(int mainColor, int statusBarColor,
             String orgName, String supportUrl) {
         this.mainColor = mainColor;
         this.statusBarColor = statusBarColor;
-        this.swiperColor = swiperColor;
-        this.buttonColor = buttonColor;
         this.orgName = orgName;
         this.supportUrl = supportUrl;
     }
