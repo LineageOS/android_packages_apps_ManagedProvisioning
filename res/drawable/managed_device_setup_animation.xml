@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/managed_device_setup" >
+    <target
+        android:name="path_43"
+        android:animation="@anim/managed_device_path_43_animation" />
+    <target
+        android:name="path_48"
+        android:animation="@anim/managed_device_path_48_animation" />
+    <target
+        android:name="path_49"
+        android:animation="@anim/managed_device_path_49_animation" />
+    <target
+        android:name="rectangle_"
+        android:animation="@anim/managed_device_rectangle__animation" />
+    <target
+        android:name="path_50"
+        android:animation="@anim/managed_device_path_50_animation" />
+    <target
+        android:name="hole"
+        android:animation="@anim/managed_device_hole_animation" />
+    <target
+        android:name="path_51"
+        android:animation="@anim/managed_device_path_51_animation" />
+    <target
+        android:name="path_52"
+        android:animation="@anim/managed_device_path_52_animation" />
+</animated-vector>

@@ -54,9 +54,7 @@
                 android:id="@+id/animation"
                 android:layout_width="412dp"
                 android:layout_height="412dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/ae_wp_setup_animation"
-                android:visibility="gone"/>
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </LinearLayout>
 </com.android.setupwizardlib.GlifLayout>

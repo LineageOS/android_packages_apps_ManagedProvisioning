@@ -534,8 +534,9 @@ public class ProvisioningActivityTest {
         // THEN the description should be empty
         onView(withId(R.id.description))
                 .check(matches(withText(R.string.device_owner_description)));
-        // THEN the animation is not shown.
-        onView(withId(R.id.animation)).check(matches(not(isDisplayed())));
+
+        // THEN the animation is shown.
+        onView(withId(R.id.animation)).check(matches(isDisplayed()));
     }
 
     private void launchActivityAndWait(Intent intent) {
