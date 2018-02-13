@@ -42,6 +42,8 @@ import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import android.os.Process;
+import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
@@ -105,6 +107,8 @@ public class InstallPackageTaskTest extends AndroidTestCase {
         when(mMockContext.getSystemServiceName(eq(DevicePolicyManager.class)))
                 .thenReturn(Context.DEVICE_POLICY_SERVICE);
         when(mMockContext.getSystemService(eq(Context.DEVICE_POLICY_SERVICE))).thenReturn(mDpm);
+        when(mMockContext.getUser()).thenReturn(Process.myUserHandle());
+        when(mMockContext.getUserId()).thenReturn(UserHandle.myUserId());
 
         mTestPackageLocation = File.createTempFile("test", "apk").getPath();
         try (FileOutputStream out = new FileOutputStream(mTestPackageLocation)) {
