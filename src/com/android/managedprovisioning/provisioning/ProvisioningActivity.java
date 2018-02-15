@@ -321,12 +321,12 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         ImageView imageView = layout.findViewById(R.id.animation);
         if (isDoProvisioning) {
             textView.setText(R.string.device_owner_description);
+            imageView.setImageResource(R.drawable.managed_device_setup_animation);
         } else {
             textView.setText(R.string.work_profile_description);
-
-            imageView.setVisibility(View.VISIBLE);
-            mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
+            imageView.setImageResource(R.drawable.ae_wp_setup_animation);
         }
+        mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
     }
 
     private void tintProgressBar(ProgressBar progressBar, @ColorRes int color) {
