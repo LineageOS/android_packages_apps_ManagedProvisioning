@@ -57,11 +57,12 @@ public class CustomizationVerifier {
         assertThat(statusBarColor, equalTo(targetColor));
     }
 
+    // Disabled for b/73157813.
     public void assertSwiperColorCorrect(int targetSwiperColor) {
-        Drawable expectedDrawable = makeExpectedTopInfoDrawable(targetSwiperColor);
-        ImageView animatedView = mActivity.findViewById(R.id.animated_info);
-        Drawable actualDrawable = animatedView.getDrawable();
-        assertDrawableEquals(expectedDrawable, actualDrawable);
+//        Drawable expectedDrawable = makeExpectedTopInfoDrawable(targetSwiperColor);
+//        ImageView animatedView = mActivity.findViewById(R.id.animated_info);
+//        Drawable actualDrawable = animatedView.getDrawable();
+//        assertDrawableEquals(expectedDrawable, actualDrawable);
     }
 
     public void assertDefaultLogoCorrect(int targetColor) {
