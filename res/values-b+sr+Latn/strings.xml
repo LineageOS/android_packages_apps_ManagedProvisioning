@@ -156,4 +156,5 @@
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Ovo može da potraje nekoliko minuta"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Poslovne aplikacije će se čuvati na ovom profilu i njima će upravljati organizacija"</string>
+    <string name="device_owner_description" msgid="168013145812679664">"Organizacija će štititi ovaj uređaj i upravljaće njime"</string>
 </resources>
