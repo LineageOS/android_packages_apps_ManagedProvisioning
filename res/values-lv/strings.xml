@@ -156,4 +156,5 @@
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Tas var ilgt dažas minūtes."</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Jūsu darba lietotnes tiks glabātas šajā profilā, un tās pārvaldīs jūsu organizācija."</string>
+    <string name="device_owner_description" msgid="168013145812679664">"Jūsu organizācija gādās par šīs ierīces drošību un to pārvaldīs."</string>
 </resources>

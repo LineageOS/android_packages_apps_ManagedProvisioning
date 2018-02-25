@@ -156,4 +156,5 @@
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Tämä voi kestää muutaman minuutin."</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Työsovelluksesi pidetään tässä profiilissa ja organisaatiosi hallinnoi sitä"</string>
+    <string name="device_owner_description" msgid="168013145812679664">"Organisaatiosi vastaa laitteen turvallisuudesta ja hallinnoi sitä."</string>
 </resources>

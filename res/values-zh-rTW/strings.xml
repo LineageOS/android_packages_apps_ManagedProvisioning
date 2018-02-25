@@ -156,4 +156,5 @@
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>，<xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
     <string name="take_a_few_minutes" msgid="6282806501305322838">"請稍候片刻"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"你的辦公應用程式會保存在這個設定檔中，並由貴機構管理"</string>
+    <string name="device_owner_description" msgid="168013145812679664">"這個裝置將由貴機構負責管理，並確保其安全"</string>
 </resources>
