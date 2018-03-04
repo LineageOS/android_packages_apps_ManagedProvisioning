@@ -37,6 +37,7 @@ import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
+import com.android.managedprovisioning.task.MigrateSystemAppsSnapshotTask;
 
 /**
  * After a system update, this class resets the cross-profile intent filters and performs any
@@ -73,6 +74,9 @@ public class OtaController {
         if (mContext.getUserId() != UserHandle.USER_SYSTEM) {
             return;
         }
+        // Migrate snapshot files to use user serial number as file name.
+        mTaskExecutor.execute(
+                UserHandle.USER_SYSTEM, new MigrateSystemAppsSnapshotTask(mContext, mTaskExecutor));
 
         // Check for device owner.
         final int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();

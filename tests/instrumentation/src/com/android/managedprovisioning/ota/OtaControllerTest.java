@@ -39,15 +39,16 @@ import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.android.managedprovisioning.task.MigrateSystemAppsSnapshotTask;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Unit tests for {@link OtaController}.
@@ -70,8 +71,7 @@ public class OtaControllerTest {
     private TaskExecutor mTaskExecutor;
     private OtaController mController;
 
-    private List<Pair<Integer, AbstractProvisioningTask>> mTasks
-            = new ArrayList<>();
+    private List<Pair<Integer, AbstractProvisioningTask>> mTasks = new ArrayList<>();
     private List<UserInfo> mUsers = new ArrayList<>();
     private List<UserInfo> mProfiles = new ArrayList<>();
 
@@ -103,8 +103,9 @@ public class OtaControllerTest {
         // WHEN running the OtaController
         mController.run();
 
-        // THEN the task list should contain DeleteNonRequiredAppsTask and DisallowAddUserTask
+        // THEN the task list should contain these tasks.
         assertTaskList(
+                Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
                 Pair.create(UserHandle.USER_SYSTEM, DeleteNonRequiredAppsTask.class),
                 Pair.create(UserHandle.USER_SYSTEM, DisallowAddUserTask.class));
 
@@ -123,6 +124,7 @@ public class OtaControllerTest {
 
         // THEN the task list should contain DeleteNonRequiredAppsTask and DisallowAddUserTask
         assertTaskList(
+                Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
                 Pair.create(DEVICE_OWNER_USER_ID, DeleteNonRequiredAppsTask.class),
                 Pair.create(DEVICE_OWNER_USER_ID, DisallowAddUserTask.class));
 
@@ -139,9 +141,9 @@ public class OtaControllerTest {
         // WHEN running the OtaController
         mController.run();
 
-        // THEN the task list should contain InstallExistingPackageTask,
-        // DisableInstallShortcutListenersTask and DeleteNonRequiredAppsTask
+        // THEN the task list should contain these tasks.
         assertTaskList(
+                Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, InstallExistingPackageTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, DisableInstallShortcutListenersTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, DeleteNonRequiredAppsTask.class));
@@ -163,8 +165,10 @@ public class OtaControllerTest {
         // WHEN running the OtaController
         mController.run();
 
-        // THEN the task list should contain DeleteNonRequiredAppsTask
-        assertTaskList(Pair.create(MANAGED_USER_USER_ID, DeleteNonRequiredAppsTask.class));
+        // THEN the task list should contain these tasks.
+        assertTaskList(
+                Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
+                Pair.create(MANAGED_USER_USER_ID, DeleteNonRequiredAppsTask.class));
     }
 
     private class FakeTaskExecutor extends TaskExecutor {
