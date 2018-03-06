@@ -25,8 +25,7 @@
     <!-- no translation found for setup_work_profile (1468934631731845267) -->
     <skip />
     <string name="company_controls_workspace" msgid="2808025277267917221">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ପ୍ରୋଫାଇଲକୁ ନିୟନ୍ତ୍ରଣ କରେ ଏବଂ ଏହାକୁ ସୁରକ୍ଷିତ ରଖେ। ଡିଭାଇସ୍‌ରେ ବାକି ସବୁକିଛି ଆପଣ ନିଜେ ନିୟନ୍ତ୍ରଣ କରନ୍ତି।"</string>
-    <!-- no translation found for company_controls_device (8230957518758871390) -->
-    <skip />
+    <string name="company_controls_device" msgid="8230957518758871390">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରିବ ଏବଂ ଏହାକୁ ସୁରକ୍ଷିତ ରଖିବ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ନିମ୍ନ ଆପ୍‌ ଏହି ପ୍ରୋଫାଇଲକୁ ଆକ୍ସେସ୍‌ କରିବ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ନିମ୍ନ ଆପ୍‍ ଆପଣଙ୍କ ଡିଭାଇସକୁ ପରିଚାଳନା କରିବ:"</string>
     <!-- no translation found for next (1004321437324424398) -->
@@ -45,19 +44,16 @@
     <string name="cancel_setup" msgid="2949928239276274745">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
     <!-- no translation found for ok_setup (4593707675416137504) -->
     <skip />
-    <!-- no translation found for user_consent_msg (8820951802130353584) -->
-    <skip />
+    <string name="user_consent_msg" msgid="8820951802130353584">"ମୁଁ ସହମତି ଦେଉଛି"</string>
     <!-- no translation found for url_error (5958494012986243186) -->
     <skip />
-    <!-- no translation found for terms (8295436105384703903) -->
-    <skip />
+    <string name="terms" msgid="8295436105384703903">"ସର୍ତ୍ତାବଳୀ"</string>
     <!-- no translation found for work_profile_info (5433388376309583996) -->
     <skip />
     <!-- no translation found for managed_device_info (1529447646526616811) -->
     <skip />
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‌"</string>
-    <!-- no translation found for default_first_meat_user_name (7540515892748490540) -->
-    <skip />
+    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ପ୍ରାଥମିକ ୟୁଜର୍‍"</string>
     <!-- no translation found for delete_profile_title (2841349358380849525) -->
     <skip />
     <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
@@ -91,35 +87,25 @@
     <skip />
     <string name="cancel_provisioning" msgid="3408069559452653724">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ଠିକ୍‌ ଅଛି"</string>
-    <!-- no translation found for user_setup_incomplete (6494920045526591079) -->
-    <skip />
+    <string name="user_setup_incomplete" msgid="6494920045526591079">"ୟୁଜର୍‍ ସେଟ୍‌ ଅପ୍‍ ଅସମ୍ପୂର୍ଣ୍ଣ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ୱର୍କ ଡିଭାଇସ୍‌ର ୟୁଜର୍‍"</string>
     <!-- no translation found for setup_work_device (6003988351437862369) -->
     <skip />
-    <!-- no translation found for progress_data_process (1707745321954672971) -->
-    <skip />
-    <!-- no translation found for progress_connect_to_wifi (472251154628863539) -->
-    <skip />
-    <!-- no translation found for progress_download (3522436271691064624) -->
-    <skip />
-    <!-- no translation found for progress_install (2258045670385866183) -->
-    <skip />
-    <!-- no translation found for progress_delete_non_required_apps (7633458399262691256) -->
-    <skip />
-    <!-- no translation found for progress_finishing_touches (9037776404089697198) -->
-    <skip />
-    <!-- no translation found for progress_set_owner (8214062820093757961) -->
-    <skip />
-    <!-- no translation found for progress_initialize (1104643492713424939) -->
-    <skip />
+    <string name="progress_data_process" msgid="1707745321954672971">"ସେଟ୍‌ ଅପ୍‍ ଡାଟାକୁ ପ୍ରୋସେସ୍‍ କରାଯାଉଛି…"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ୱାଇ-ଫାଇ ସହ ସଂଯୋଗ କରାଯାଉଛି…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"ଆଡମିନ୍‍ ଆପ୍‍ ଡାଉନଲୋଡ୍‍ କରାଯାଉଛି…"</string>
+    <string name="progress_install" msgid="2258045670385866183">"ଆଡମିନ୍‍ ଆପ୍‍ ଇନଷ୍ଟଲ୍‍ କରାଯାଉଛି…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ଅନାବଶ୍ୟକ ସିଷ୍ଟମ୍‍ ଆପ୍‍ ବାହାର କରାଯାଉଛି…"</string>
+    <string name="progress_finishing_touches" msgid="9037776404089697198">"ଅନ୍ତିମ ସ୍ପର୍ଶ ଦିଆଯାଉଛି…"</string>
+    <string name="progress_set_owner" msgid="8214062820093757961">"ଡିଭାଇସ୍‍ ମାଲିକ ସେଟ୍ କରାଯାଉଛି…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"ଡିଭାଇସ୍‍ ଆରମ୍ଭ କରାଯାଉଛି…"</string>
     <!-- no translation found for device_doesnt_allow_encryption_contact_admin (8297141458771829628) -->
     <skip />
     <!-- no translation found for stop_setup_reset_device_question (7547191251522623210) -->
     <skip />
     <!-- no translation found for this_will_reset_take_back_first_screen (4623290347188404725) -->
     <skip />
-    <!-- no translation found for device_owner_cancel_message (2529288571742712065) -->
-    <skip />
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"ସେଟ୍‍ ଅପ୍‍ କରିବା ବନ୍ଦ କରି ଆପଣଙ୍କ ଡିଉଭାଇସ୍‌ର ଡାଟା ଲିଭାଇଦେବେ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ଠିକ୍‌ ଅଛି"</string>
     <!-- no translation found for reset (6467204151306265796) -->
@@ -137,24 +123,19 @@
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"ୱାଇ-ଫାଇ ସହ ସଂଯୋଗ ହୋଇପାରିଲା ନାହିଁ"</string>
     <!-- no translation found for device_has_reset_protection_contact_admin (1221351721899290155) -->
     <skip />
-    <!-- no translation found for frp_clear_progress_title (8628074089458234965) -->
-    <skip />
-    <!-- no translation found for frp_clear_progress_text (1740164332830598827) -->
-    <skip />
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"ଲିଭାଯାଉଛି"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ..."</string>
     <!-- no translation found for device_owner_error_hash_mismatch (7256273143549784838) -->
     <skip />
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ଆଡମିନ୍‍ ଆପ୍‌କୁ ଡାଉନଲୋଡ୍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
     <!-- no translation found for device_owner_error_package_invalid (1096901016820157695) -->
     <skip />
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ଆଡମିନ୍‍ ଆପ୍‌ ଇନ୍‍ଷ୍ଟଲ୍‍ କରାଯାଇପାରିଲା ନାହିଁ।"</string>
-    <!-- no translation found for profile_owner_cancel_message (6868736915633023477) -->
-    <skip />
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ସେଟ୍‌ ଅପ୍‍ କରିବା ବନ୍ଦ କରିବେ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ନା"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ହଁ"</string>
-    <!-- no translation found for profile_owner_cancelling (5679573829145112822) -->
-    <skip />
-    <!-- no translation found for work_profile_setup_later_title (9069148190226279892) -->
-    <skip />
+    <string name="profile_owner_cancelling" msgid="5679573829145112822">"କ୍ୟାନ୍ସଲ୍‍ କରାଯାଉଛି…"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‌ ଅପ୍‍ ବନ୍ଦ କରିବେ?"</string>
     <!-- no translation found for work_profile_setup_later_message (122069011117225292) -->
     <skip />
     <!-- no translation found for continue_button (7177918589510964446) -->
@@ -193,18 +174,13 @@
     <skip />
     <!-- no translation found for your_organization_middle (8288538158061644733) -->
     <skip />
-    <!-- no translation found for view_terms (7230493092383341605) -->
-    <skip />
+    <string name="view_terms" msgid="7230493092383341605">"ସର୍ତ୍ତାବଳୀ ଦେଖନ୍ତୁ"</string>
     <!-- no translation found for accept_and_continue (1632679734918410653) -->
     <skip />
-    <!-- no translation found for close (7208600934846389439) -->
-    <skip />
-    <!-- no translation found for set_up_your_device (1896651520959894681) -->
-    <skip />
-    <!-- no translation found for info_anim_title_0 (3285414600215959704) -->
-    <skip />
-    <!-- no translation found for info_anim_title_1 (2657512519467714760) -->
-    <skip />
+    <string name="close" msgid="7208600934846389439">"ବନ୍ଦ କରନ୍ତୁ"</string>
+    <string name="set_up_your_device" msgid="1896651520959894681">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରନ୍ତୁ"</string>
+    <string name="info_anim_title_0" msgid="3285414600215959704">"ଆପଣ କାମ କରିବା ପଦ୍ଧତି ବଦଳାନ୍ତୁ"</string>
+    <string name="info_anim_title_1" msgid="2657512519467714760">"ବ୍ୟକ୍ତିଗତଠାରୁ କାମକୁ ଅଲଗା କରନ୍ତୁ"</string>
     <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
     <skip />
     <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
@@ -217,19 +193,13 @@
     <skip />
     <!-- no translation found for comp_profile_benefits_description (379837075456998273) -->
     <skip />
-    <!-- no translation found for setup_profile_encryption (5241291404536277038) -->
-    <skip />
-    <!-- no translation found for setup_profile_progress (7742718527853325656) -->
-    <skip />
+    <string name="setup_profile_encryption" msgid="5241291404536277038">"ଆପଣଙ୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍ ଅପ୍ କରନ୍ତୁ। ଏନକ୍ରୀପ୍ସନ୍‍"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"ଆପଣଙ୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍ ଅପ୍ କରନ୍ତୁ। ପ୍ରଗତି ଦେଖାଉଛି"</string>
     <string name="setup_device" msgid="6725265673245816366">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରନ୍ତୁ"</string>
-    <!-- no translation found for setup_device_encryption (7852944465414197103) -->
-    <skip />
-    <!-- no translation found for setup_device_progress (7035335208571175393) -->
-    <skip />
-    <!-- no translation found for learn_more_label (2723716758654655009) -->
-    <skip />
-    <!-- no translation found for mdm_icon_label (3399134595549660561) -->
-    <skip />
+    <string name="setup_device_encryption" msgid="7852944465414197103">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରନ୍ତୁ। ଏନକ୍ରୀପ୍ସନ୍‍"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରନ୍ତୁ। ପ୍ରଗତି ଦେଖାଉଛି"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"ଅଧିକ ଜାଣନ୍ତୁ ବଟନ୍‍"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> ଆଇକନ୍‍"</string>
     <!-- no translation found for section_heading (3924666803774291908) -->
     <skip />
     <!-- no translation found for section_content (8875502515704374394) -->
