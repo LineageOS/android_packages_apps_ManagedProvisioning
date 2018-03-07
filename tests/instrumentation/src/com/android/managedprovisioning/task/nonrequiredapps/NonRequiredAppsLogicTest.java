@@ -20,13 +20,18 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.pm.IPackageManager;
 import android.support.test.filters.SmallTest;
 
@@ -68,16 +73,24 @@ public class NonRequiredAppsLogicTest {
     private SystemAppsSnapshot mSnapshot;
     @Mock
     private Utils mUtils;
+    @Mock
+    private Context mContext;
+
+    private ProvisioningParams.Builder mParamsBuilder;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
+        mParamsBuilder = createParamsBuilder();
+        when(mUtils.findDeviceAdmin(nullable(String.class), nullable(ComponentName.class),
+                eq(mContext))).thenReturn(TEST_MDM_COMPONENT_NAME);
     }
 
     @Test
     public void testGetSystemAppsToRemove_NewLeave() throws Exception {
         // GIVEN that a new profile is being created and that system apps should not be deleted
-        final NonRequiredAppsLogic logic = createLogic(true, true);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(true);
+        final NonRequiredAppsLogic logic = createLogic(true);
         // GIVEN that a combination of apps is present
         initializeApps();
 
@@ -88,7 +101,25 @@ public class NonRequiredAppsLogicTest {
     @Test
     public void testGetSystemAppsToRemove_NewDelete() throws Exception {
         // GIVEN that a new profile is being created and that system apps should be deleted
-        final NonRequiredAppsLogic logic = createLogic(true, false);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(true);
+        // GIVEN that a combination of apps is present
+        initializeApps();
+
+        // THEN getSystemAppsToRemove should return a non-empty list with the only app to removed
+        // being the one that is a current system app and non required
+        assertEquals(getAppsSet(Arrays.asList(0, 4)),
+                logic.getSystemAppsToRemove(TEST_USER_ID));
+    }
+
+    @Test
+    public void testGetSystemAppsToRemove_deviceAdminComponentIsNotGiven() throws Exception {
+        // GIVEN that only device admin package name is given.
+        mParamsBuilder.setDeviceAdminComponentName(null);
+        mParamsBuilder.setDeviceAdminPackageName(TEST_DPC_PACKAGE_NAME);
+        // GIVEN that a new profile is being created and that system apps should be deleted
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(true);
         // GIVEN that a combination of apps is present
         initializeApps();
 
@@ -102,7 +133,8 @@ public class NonRequiredAppsLogicTest {
     public void testGetSystemAppsToRemove_OtaLeave() throws Exception {
         // GIVEN that an OTA occurs and that system apps should not be deleted (indicated by the
         // fact that no snapshot currently exists)
-        final NonRequiredAppsLogic logic = createLogic(false, false);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(false);
         // GIVEN that a combination of apps is present
         initializeApps();
         // GIVEN that no snapshot currently exists
@@ -116,7 +148,8 @@ public class NonRequiredAppsLogicTest {
     public void testGetSystemAppsToRemove_OtaDelete() throws Exception {
         // GIVEN that an OTA occurs and that system apps should be deleted (indicated by the fact
         // that a snapshot currently exists)
-        final NonRequiredAppsLogic logic = createLogic(false, false);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(false);
         // GIVEN that a combination of apps is present
         initializeApps();
 
@@ -129,7 +162,8 @@ public class NonRequiredAppsLogicTest {
     @Test
     public void testMaybeTakeSnapshot_NewLeave() {
         // GIVEN that a new profile is being created and that system apps should not be deleted
-        final NonRequiredAppsLogic logic = createLogic(true, true);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(true);
+        final NonRequiredAppsLogic logic = createLogic(true);
 
         // WHEN calling maybeTakeSystemAppsSnapshot
         logic.maybeTakeSystemAppsSnapshot(TEST_USER_ID);
@@ -141,7 +175,8 @@ public class NonRequiredAppsLogicTest {
     @Test
     public void testMaybeTakeSnapshot_NewDelete() {
         // GIVEN that a new profile is being created and that system apps should be deleted
-        final NonRequiredAppsLogic logic = createLogic(true, false);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(true);
 
         // WHEN calling maybeTakeSystemAppsSnapshot
         logic.maybeTakeSystemAppsSnapshot(TEST_USER_ID);
@@ -154,7 +189,8 @@ public class NonRequiredAppsLogicTest {
     public void testMaybeTakeSnapshot_OtaLeave() {
         // GIVEN that an OTA occurs and that system apps should not be deleted (indicated by the
         // fact that no snapshot currently exists)
-        final NonRequiredAppsLogic logic = createLogic(false, false);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(false);
         when(mSnapshot.hasSnapshot(TEST_USER_ID)).thenReturn(false);
 
         // WHEN calling maybeTakeSystemAppsSnapshot
@@ -168,7 +204,8 @@ public class NonRequiredAppsLogicTest {
     public void testMaybeTakeSnapshot_OtaDelete() {
         // GIVEN that an OTA occurs and that system apps should be deleted (indicated by the fact
         // that a snapshot currently exists)
-        final NonRequiredAppsLogic logic = createLogic(false, false);
+        mParamsBuilder.setLeaveAllSystemAppsEnabled(false);
+        final NonRequiredAppsLogic logic = createLogic(false);
         when(mSnapshot.hasSnapshot(TEST_USER_ID)).thenReturn(true);
 
         // WHEN calling maybeTakeSystemAppsSnapshot
@@ -202,18 +239,20 @@ public class NonRequiredAppsLogicTest {
         return ids.stream().map(APPS::get).collect(Collectors.toSet());
     }
 
-    private NonRequiredAppsLogic createLogic(boolean newProfile, boolean leaveSystemAppsEnabled) {
-        ProvisioningParams params = new ProvisioningParams.Builder()
-                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
-                .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
-                .setLeaveAllSystemAppsEnabled(leaveSystemAppsEnabled)
-                .build();
+    private NonRequiredAppsLogic createLogic(boolean newProfile) {
         return new NonRequiredAppsLogic(
+                mContext,
                 mIPackageManager,
                 mDevicePolicyManager,
                 newProfile,
-                params,
+                mParamsBuilder.build(),
                 mSnapshot,
                 mUtils);
+    }
+
+    private ProvisioningParams.Builder createParamsBuilder() {
+        return new ProvisioningParams.Builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME);
     }
 }

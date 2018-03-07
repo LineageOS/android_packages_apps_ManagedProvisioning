@@ -21,10 +21,13 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import android.annotation.IntDef;
 import android.app.AppGlobals;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.IPackageManager;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -53,6 +56,7 @@ public class NonRequiredAppsLogic {
         int NEW_PROFILE_REMOVE_APPS = 3;
     }
 
+    private final Context mContext;
     private final IPackageManager mIPackageManager;
     private final DevicePolicyManager mDevicePolicyManager;
     private final boolean mNewProfile;
@@ -65,6 +69,7 @@ public class NonRequiredAppsLogic {
             boolean newProfile,
             ProvisioningParams params) {
         this(
+                context,
                 AppGlobals.getPackageManager(),
                 (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE),
                 newProfile,
@@ -75,12 +80,14 @@ public class NonRequiredAppsLogic {
 
     @VisibleForTesting
     NonRequiredAppsLogic(
+            Context context,
             IPackageManager iPackageManager,
             DevicePolicyManager devicePolicyManager,
             boolean newProfile,
             ProvisioningParams params,
             SystemAppsSnapshot snapshot,
             Utils utils) {
+        mContext = context;
         mIPackageManager = checkNotNull(iPackageManager);
         mDevicePolicyManager = checkNotNull(devicePolicyManager);
         mNewProfile = newProfile;
@@ -101,10 +108,17 @@ public class NonRequiredAppsLogic {
         if (!mNewProfile) {
             newSystemApps.removeAll(mSnapshot.getSnapshot(userId));
         }
-
+        ComponentName deviceAdminComponentName;
+        try {
+            deviceAdminComponentName = mUtils.findDeviceAdmin(
+                    mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, mContext);
+        } catch (IllegalProvisioningArgumentException ex) {
+            // Should not happen
+            throw new RuntimeException("Failed to infer device admin component name", ex);
+        }
         // Get the packages from the black/white lists
         Set<String> packagesToDelete = mDevicePolicyManager.getDisallowedSystemApps(
-                mParams.deviceAdminComponentName, userId, mParams.provisioningAction);
+                deviceAdminComponentName, userId, mParams.provisioningAction);
 
         // Retain only new system apps
         packagesToDelete.retainAll(newSystemApps);
