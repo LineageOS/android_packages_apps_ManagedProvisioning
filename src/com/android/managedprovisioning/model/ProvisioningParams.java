@@ -124,8 +124,12 @@ public final class ProvisioningParams extends PersistableBundlable {
      *
      * <p>At least one one of deviceAdminPackageName and deviceAdminComponentName should be
      * non-null.
+     * <p>
+     * In most cases, it is preferable to access the admin package name using
+     * {@link #inferDeviceAdminPackageName}.
      */
     @Deprecated
+    @Nullable
     public final String deviceAdminPackageName;
 
     /**
@@ -133,7 +137,11 @@ public final class ProvisioningParams extends PersistableBundlable {
      *
      * <p>At least one one of deviceAdminPackageName and deviceAdminComponentName should be
      * non-null.
+     * <p>
+     * In most cases, it is preferable to access the admin component name using
+     * {@link com.android.managedprovisioning.common.Utils#findDeviceAdmin(String, ComponentName, Context)}.
      */
+    @Nullable
     public final ComponentName deviceAdminComponentName;
 
     public final String deviceAdminLabel;
