@@ -34,6 +34,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+
 import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences.DEFAULT_PROVISIONING_ID;
@@ -53,20 +54,24 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.AtomicFile;
 import android.util.Xml;
+
 import com.android.internal.util.FastXmlSerializer;
-import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.PersistableBundlable;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.Utils;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Provisioning parameters for Device Owner and Profile Owner provisioning.
@@ -139,7 +144,7 @@ public final class ProvisioningParams extends PersistableBundlable {
      * non-null.
      * <p>
      * In most cases, it is preferable to access the admin component name using
-     * {@link com.android.managedprovisioning.common.Utils#findDeviceAdmin(String, ComponentName, Context)}.
+     * {@link #inferDeviceAdminComponentName(Utils, Context, int)} .
      */
     @Nullable
     public final ComponentName deviceAdminComponentName;
@@ -213,6 +218,24 @@ public final class ProvisioningParams extends PersistableBundlable {
 
     public String inferDeviceAdminPackageName() {
         return inferStaticDeviceAdminPackageName(deviceAdminComponentName, deviceAdminPackageName);
+    }
+
+    /**
+     * Due to legacy reason, DPC is allowed to provide either package name or the component name.
+     * If component name is not {@code null}, we will return it right away. Otherwise, we will
+     * infer the component name.
+     * <p>
+     * In most cases, it is preferable to access the admin component name using this method.
+     * But if the purpose is to verify the device admin component name, you should use
+     * {@link Utils#findDeviceAdmin(String, ComponentName, Context, int)} instead.
+     */
+    public ComponentName inferDeviceAdminComponentName(Utils utils, Context context, int userId)
+            throws IllegalProvisioningArgumentException {
+        if (deviceAdminComponentName != null) {
+            return deviceAdminComponentName;
+        }
+        return utils.findDeviceAdmin(
+                deviceAdminPackageName, deviceAdminComponentName, context, userId);
     }
 
     private ProvisioningParams(Builder builder) {
