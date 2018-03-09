@@ -23,6 +23,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHA
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 
 import android.accounts.Account;
@@ -176,7 +177,7 @@ public class Utils {
      */
     @NonNull
     public ComponentName findDeviceAdmin(String dpcPackageName, ComponentName dpcComponentName,
-            Context context) throws IllegalProvisioningArgumentException {
+            Context context, int userId) throws IllegalProvisioningArgumentException {
         if (dpcComponentName != null) {
             dpcPackageName = dpcComponentName.getPackageName();
         }
@@ -186,10 +187,11 @@ public class Utils {
         }
         PackageInfo pi;
         try {
-            pi = context.getPackageManager().getPackageInfo(dpcPackageName,
-                    PackageManager.GET_RECEIVERS | PackageManager.MATCH_DISABLED_COMPONENTS);
+            pi = context.getPackageManager().getPackageInfoAsUser(dpcPackageName,
+                    PackageManager.GET_RECEIVERS | PackageManager.MATCH_DISABLED_COMPONENTS,
+                    userId);
         } catch (NameNotFoundException e) {
-            throw new IllegalProvisioningArgumentException("Dpc "+ dpcPackageName
+            throw new IllegalProvisioningArgumentException("Dpc " + dpcPackageName
                     + " is not installed. ", e);
         }
 
