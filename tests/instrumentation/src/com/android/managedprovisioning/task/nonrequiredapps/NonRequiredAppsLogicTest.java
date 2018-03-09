@@ -83,7 +83,7 @@ public class NonRequiredAppsLogicTest {
         MockitoAnnotations.initMocks(this);
         mParamsBuilder = createParamsBuilder();
         when(mUtils.findDeviceAdmin(nullable(String.class), nullable(ComponentName.class),
-                eq(mContext))).thenReturn(TEST_MDM_COMPONENT_NAME);
+                eq(mContext), eq(TEST_USER_ID))).thenReturn(TEST_MDM_COMPONENT_NAME);
     }
 
     @Test

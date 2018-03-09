@@ -110,8 +110,8 @@ public class NonRequiredAppsLogic {
         }
         ComponentName deviceAdminComponentName;
         try {
-            deviceAdminComponentName = mUtils.findDeviceAdmin(
-                    mParams.deviceAdminPackageName, mParams.deviceAdminComponentName, mContext);
+            deviceAdminComponentName = mParams.inferDeviceAdminComponentName(
+                    mUtils, mContext, userId);
         } catch (IllegalProvisioningArgumentException ex) {
             // Should not happen
             throw new RuntimeException("Failed to infer device admin component name", ex);
