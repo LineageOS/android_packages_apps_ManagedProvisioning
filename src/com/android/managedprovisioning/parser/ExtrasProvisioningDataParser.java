@@ -65,6 +65,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.os.UserHandle;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
@@ -187,7 +188,10 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 // For profile owner, the device admin package should be installed. Verify the
                 // device admin package.
                 deviceAdminComponentName = mUtils.findDeviceAdmin(
-                        deviceAdminPackageName, deviceAdminComponentName, context);
+                        deviceAdminPackageName,
+                        deviceAdminComponentName,
+                        context,
+                        UserHandle.myUserId());
                 // Since the device admin package must be installed at this point and its component
                 // name has been obtained, it should be safe to set the deprecated package name
                 // value to null.
