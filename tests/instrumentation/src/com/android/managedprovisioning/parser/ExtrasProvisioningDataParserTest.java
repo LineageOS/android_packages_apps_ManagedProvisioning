@@ -60,6 +60,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
@@ -260,7 +261,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         // GIVEN the device admin is installed.
         doReturn(TEST_COMPONENT_NAME)
                 .when(mUtils)
-                .findDeviceAdmin(TEST_PACKAGE_NAME, TEST_COMPONENT_NAME, mContext);
+                .findDeviceAdmin(
+                        TEST_PACKAGE_NAME, TEST_COMPONENT_NAME, mContext, UserHandle.myUserId());
 
         // WHEN the intent is parsed by the parser.
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
@@ -310,7 +312,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         // GIVEN the device admin is installed.
         doReturn(TEST_COMPONENT_NAME)
                 .when(mUtils)
-                .findDeviceAdmin(TEST_PACKAGE_NAME, TEST_COMPONENT_NAME, mContext);
+                .findDeviceAdmin(
+                        TEST_PACKAGE_NAME, TEST_COMPONENT_NAME, mContext, UserHandle.myUserId());
 
         // GIVEN the device admin is also device owner in primary user.
         when(mDpm.getDeviceOwnerComponentOnCallingUser()).thenReturn(TEST_COMPONENT_NAME);
@@ -351,7 +354,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         // GIVEN the device admin is installed.
         doReturn(TEST_COMPONENT_NAME)
                 .when(mUtils)
-                .findDeviceAdmin(null, TEST_COMPONENT_NAME, mContext);
+                .findDeviceAdmin(null, TEST_COMPONENT_NAME, mContext, UserHandle.myUserId());
 
         // GIVEN a different device admin is a device owner in primary user.
         when(mDpm.getDeviceOwnerComponentOnCallingUser()).thenReturn(TEST_COMPONENT_NAME_2);
