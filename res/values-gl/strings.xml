@@ -85,7 +85,7 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Non se puido configurar o dispositivo. Contacta co administrador para obter axuda."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Contacta co administrador para obter axuda"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"O dispositivo xa está configurado"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Non se puido conectar coa wifi"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Non se puido conectar á wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"O teu dispositivo ten activada a protección contra o restablecemento de fábrica. Contacta co administrador para obter axuda."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Agarda..."</string>

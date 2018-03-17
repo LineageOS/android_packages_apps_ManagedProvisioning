@@ -67,8 +67,8 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Laneko gailua konfiguratzen…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Konfigurazio-datuak prozesatzen…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi sarera konektatzen…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Administrazio-aplikazioa deskargatzen…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Administrazio-aplikazioa instalatzen…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"Administratzeko aplikazioa deskargatzen…"</string>
+    <string name="progress_install" msgid="2258045670385866183">"Administratzeko aplikazioa instalatzen…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Behar ez diren aplikazioetatik kentzen…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Azken ukituak ematen…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Gailuaren jabea ezartzen…"</string>
@@ -90,9 +90,9 @@
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ezabatzen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Itxaron, mesedez…"</string>
     <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Ezin izan da erabili gailua administratzeko aplikazioa, errore bat gertatu delako batuketa egitean. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da administrazio-aplikazioa deskargatu"</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da deskargatu administratzeko aplikazioa"</string>
     <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Ezin da erabili gailua administratzeko aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Ezin izan da administrazio-aplikazioa instalatu"</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Ezin izan da instalatu administratzeko aplikazioa"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Konfiguratzeari utzi nahi diozu?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ez"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Bai"</string>

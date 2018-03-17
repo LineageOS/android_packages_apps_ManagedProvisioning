@@ -50,7 +50,7 @@
     <string name="cancel_delete_profile" msgid="5155447537894046036">"បោះបង់"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ដើម្បី​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់​អ្នក ឧបករណ៍​របស់​អ្នកត្រូវ​តែ​អ៊ិនគ្រីប។ វាអាច​ចំណាយ​ពេល​បន្តិច។"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ដើម្បី​រៀបចំ​ឧបករណ៍​នេះ វាត្រូវ​តែ​អ៊ិនគ្រីប​ជាមុនសិន។ វាអាច​ចំណាយពេល​បន្តិច។"</string>
-    <string name="encrypt_this_device_question" msgid="8719916619866892601">"អ៊ីនគ្រីប​ឧបករណ៍​នេះ?"</string>
+    <string name="encrypt_this_device_question" msgid="8719916619866892601">"អ៊ិនគ្រិប​ឧបករណ៍​នេះ?"</string>
     <string name="encrypt" msgid="1749320161747489212">"អ៊ិនគ្រីប"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ការ​ដាក់​លេខ​កូដ​បាន​បញ្ចប់"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ប៉ះដើម្បីបន្តការដំឡើងប្រវត្តិរូបការងាររបស់អ្នក"</string>
