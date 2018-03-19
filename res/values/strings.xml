@@ -219,9 +219,9 @@
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
   <string name="profile_owner_info_with_terms_headers_comp">A profile will be created for your work apps. This profile and the rest of your device will be managed and monitored by your organization. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%1$s</xliff:g> will apply.</string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
-  <string name="device_owner_info">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms will apply. <xliff:g id="view_terms" example="View Terms">%2$s</xliff:g></string>
+  <string name="device_owner_info">This device will be managed, monitored, and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms will apply. <xliff:g id="view_terms" example="View Terms">%2$s</xliff:g></string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
-  <string name="device_owner_info_with_terms_headers">This device will be managed and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> will apply. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
+  <string name="device_owner_info_with_terms_headers">This device will be managed, monitored, and kept secure by <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Terms from <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> will apply. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
   <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished">This link isn\'t secure and can\'t be opened until device setup is finished: <xliff:g id="link_raw_test" example="http://insecure-http-link.com/?p1=v1&amp;p2=v2">%1$s</xliff:g></string>
   <!-- Text with link to device's provider in case of more questions [CHAR LIMIT=NONE] -->
