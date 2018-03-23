@@ -106,8 +106,10 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Utworzysz profil służbowy, który będzie zarządzany i monitorowany przez Twoją organizację. Obowiązują warunki podane na stronach <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Utworzony profil będzie przeznaczony na aplikacje do pracy. Ten profil oraz reszta urządzenia będą zarządzane i monitorowane przez Twoją organizację. Obowiązują warunki."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Utworzony profil będzie przeznaczony na aplikacje do pracy. Ten profil oraz reszta urządzenia będą zarządzane i monitorowane przez Twoją organizację. Obowiązują warunki podane na stronach <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"Organizacja <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> będzie zarządzać tym urządzeniem i dbać o jego bezpieczeństwo. Obowiązują warunki. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Organizacja <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> będzie zarządzać tym urządzeniem i dbać o jego bezpieczeństwo. Obowiązują warunki podane na stronach <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <!-- no translation found for device_owner_info (3716661456037934467) -->
+    <skip />
+    <!-- no translation found for device_owner_info_with_terms_headers (1254243288669282977) -->
+    <skip />
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Ten link nie jest bezpieczny i nie można go otworzyć do czasu ukończenia konfiguracji urządzenia: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Jeśli masz pytania, skontaktuj się z: <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Jeśli masz pytania, skontaktuj się z administratorem organizacji"</string>
