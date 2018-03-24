@@ -106,8 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"您即將建立由您機構管理和監控的工作設定檔。受 <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> 的條款約束。"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"系統將會為您的工作應用程式建立設定檔。這個設定檔和裝置的其他設定將由您的機構管理和監控。受條款約束。"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"系統將會為您的工作應用程式建立設定檔。這個設定檔和裝置的其他設定將由您的機構管理和監控。受 <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> 的條款約束。"</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"此裝置將由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>負責管理並確保安全。受條款約束。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"此裝置將由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>負責管理並確保安全。受 <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> 的條款約束。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"此裝置將由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>負責管理及監控，並確保其安全。須遵守條款。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"此裝置將由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>負責管理及監控，並確保其安全。須遵守<xliff:g id="TERMS_HEADERS">%2$s</xliff:g>條款。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"此連結不安全。裝置完成設定前，連結將無法開啟：<xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"如有問題，請聯絡您的<xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>。"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"如有問題，請聯絡您的機構管理員"</string>
