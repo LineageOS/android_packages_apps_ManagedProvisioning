@@ -106,8 +106,10 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Du erstellst gerade ein Arbeitsprofil, das danach von deiner Organisation verwaltet und überwacht wird. Es gelten die Nutzungsbedingungen von <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Für deine Apps für die Arbeit wird ein Arbeitsprofil erstellt. Das Profil und dein Gerät werden von deiner Organisation verwaltet und überwacht. Es gelten die Nutzungsbedingungen."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Für deine Apps für die Arbeit wird ein Arbeitsprofil erstellt. Das Profil und dein Gerät werden von deiner Organisation verwaltet und überwacht. Es gelten die Nutzungsbedingungen von <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"Das Gerät wird von <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> verwaltet. Deine Organisation kümmert sich auch um den entsprechenden Schutz. Es gelten die Nutzungsbedingungen. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Das Gerät wird von <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> verwaltet. Deine Organisation kümmert sich auch um den entsprechenden Schutz. Es gelten die Nutzungsbedingungen von <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <!-- no translation found for device_owner_info (3716661456037934467) -->
+    <skip />
+    <!-- no translation found for device_owner_info_with_terms_headers (1254243288669282977) -->
+    <skip />
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Dieser Link ist nicht sicher und kann erst geöffnet werden, wenn die Einrichtung des Geräts abgeschlossen ist: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Bitte wende dich bei Fragen an den <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Bitte wende dich bei Fragen an den Administrator deiner Organisation"</string>
