@@ -56,14 +56,10 @@ public class BenefitsAnimation {
     /** Id of an {@link ImageView} containing the animated graphic */
     private static final int ID_ANIMATED_GRAPHIC = R.id.animated_info;
 
-    /** Id of an {@link ImageView} containing the animated pager dots */
-    private static final int ID_ANIMATED_DOTS = R.id.animated_dots;
-
     private static final int SLIDE_COUNT = 3;
     private static final int ANIMATION_ORIGINAL_WIDTH_PX = 1080;
 
     private final AnimatedVectorDrawable mTopAnimation;
-    private final AnimatedVectorDrawable mDotsAnimation;
     private final Animator mTextAnimation;
     private final Activity mActivity;
 
@@ -86,7 +82,6 @@ public class BenefitsAnimation {
 
         setTopInfoDrawable(customizationParams);
 
-        mDotsAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_DOTS));
         mTopAnimation = checkNotNull(extractAnimationFromImageView(ID_ANIMATED_GRAPHIC));
 
         // chain all animations together
@@ -178,7 +173,6 @@ public class BenefitsAnimation {
                 super.onAnimationStart(drawable);
 
                 // starting the other animations at the same time
-                mDotsAnimation.start();
                 mTextAnimation.start();
             }
 
@@ -187,7 +181,6 @@ public class BenefitsAnimation {
                 super.onAnimationEnd(drawable);
 
                 // without explicitly stopping them, sometimes they won't restart
-                mDotsAnimation.stop();
                 mTextAnimation.cancel();
 
                 // repeating the animation in loop
