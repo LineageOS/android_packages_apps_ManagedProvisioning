@@ -314,24 +314,16 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
                 customizationParams.statusBarColor);
         setTitle(titleResId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        ProgressBar progressBar = layout.findViewById(R.id.progress_bar);
-        tintProgressBar(progressBar, customizationParams.mainColor);
 
         TextView textView = layout.findViewById(R.id.description);
         ImageView imageView = layout.findViewById(R.id.animation);
         if (isDoProvisioning) {
             textView.setText(R.string.device_owner_description);
-            imageView.setImageResource(R.drawable.managed_device_setup_animation);
+            imageView.setImageResource(R.drawable.enterprise_do_animation);
         } else {
             textView.setText(R.string.work_profile_description);
-            imageView.setImageResource(R.drawable.ae_wp_setup_animation);
+            imageView.setImageResource(R.drawable.enterprise_wp_animation);
         }
         mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
-    }
-
-    private void tintProgressBar(ProgressBar progressBar, @ColorRes int color) {
-        ColorStateList colorStateList = ColorStateList.valueOf(color);
-        progressBar.setIndeterminateTintList(colorStateList);
-        progressBar.setProgressBackgroundTintList(colorStateList);
     }
 }
