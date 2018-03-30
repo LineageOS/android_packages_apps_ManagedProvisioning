@@ -37,13 +37,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="?attr/suwGlifHeaderGravity"/>
-            <include
-                android:id="@+id/progress_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/suw_glif_progress_bar_margin_vertical"
-                android:layout_marginTop="@dimen/suw_glif_progress_bar_margin_vertical"
-                layout="@layout/suw_progress_bar"/>
             <TextView
                 style="@style/SuwItemSummary"
                 android:layout_width="match_parent"

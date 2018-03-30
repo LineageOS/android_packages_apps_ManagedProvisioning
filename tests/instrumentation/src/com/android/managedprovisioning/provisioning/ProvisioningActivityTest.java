@@ -248,7 +248,6 @@ public class ProvisioningActivityTest {
         CustomizationVerifier customizationVerifier = new CustomizationVerifier(activity);
         customizationVerifier.assertStatusBarColorCorrect(statusBarColor);
         customizationVerifier.assertDefaultLogoCorrect(mainColor);
-        customizationVerifier.assertProgressBarColorCorrect(R.id.progress_bar, mainColor);
 
         finishAndWait();
     }
