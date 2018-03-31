@@ -106,10 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"آپ ایک دفتری پروفائل بنانے والے ہیں جس کا نظم اور اسے مانیٹر آپ کی تنظیم کرے گی۔ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> کی شرائط لاگو ہوں گی۔"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"آپ کی دفتری ایپس کیلئے ایک پروفائل بنایا جائے گا۔ آپ کی تنظیم اس پروفائل اور آپ کے باقی آلہ کا نظم اور انہیں مانیٹر کرے گي۔ شرائط لاگو ہوں گی۔"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"آپ کی دفتری ایپس کیلئے ایک پروفائل بنایا جائے گا۔ آپ کی تنظیم اس پروفائل اور آپ کے باقی آلے کا نظم اور انھیں مانیٹر کرے گي۔ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> کی شرائط لاگو ہوں گی۔"</string>
-    <!-- no translation found for device_owner_info (3716661456037934467) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (1254243288669282977) -->
-    <skip />
+    <string name="device_owner_info" msgid="3716661456037934467">"اس آلہ کا نظم، نگرانی اور تحفظ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> کے ذریعے کیا جائے گا۔ شرائط لاگو ہوں گی۔ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"اس آلہ کا نظم، نگرانی اور تحفظ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> کے ذریعے کیا جائے گا۔ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> کی شرائط لاگو ہوں گی۔ <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"یہ لنک محفوظ نہیں ہے اور آلے کا سیٹ اپ مکمل ہونے تک اسے نہیں کھولا جا سکتا: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"اگر آپ کے پاس سوالات ہیں تو آپ اپنے <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> سے رابطہ کریں۔"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"اگر آپ کے پاس سوالات ہیں، تو اپنی تنظیم کے منتظم سے رابطہ کریں"</string>
