@@ -19,44 +19,33 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2400883737290705700) -->
-    <skip />
+    <string name="app_label" msgid="2400883737290705700">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ଓହୋ!"</string>
-    <!-- no translation found for setup_work_profile (1468934631731845267) -->
-    <skip />
+    <string name="setup_work_profile" msgid="1468934631731845267">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ କରନ୍ତୁ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ପ୍ରୋଫାଇଲକୁ ନିୟନ୍ତ୍ରଣ କରେ ଏବଂ ଏହାକୁ ସୁରକ୍ଷିତ ରଖେ। ଡିଭାଇସ୍‌ରେ ବାକି ସବୁକିଛି ଆପଣ ନିଜେ ନିୟନ୍ତ୍ରଣ କରନ୍ତି।"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରିବ ଏବଂ ଏହାକୁ ସୁରକ୍ଷିତ ରଖିବ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"ନିମ୍ନ ଆପ୍‌ ଏହି ପ୍ରୋଫାଇଲକୁ ଆକ୍ସେସ୍‌ କରିବ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ନିମ୍ନ ଆପ୍‍ ଆପଣଙ୍କ ଡିଭାଇସକୁ ପରିଚାଳନା କରିବ:"</string>
-    <!-- no translation found for next (1004321437324424398) -->
-    <skip />
-    <!-- no translation found for setting_up_workspace (7862472373642601041) -->
-    <skip />
+    <string name="next" msgid="1004321437324424398">"ପରବର୍ତ୍ତୀ"</string>
+    <string name="setting_up_workspace" msgid="7862472373642601041">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‌ କରାଯାଉଛି…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"ଆପଣଙ୍କ ନେଟୱର୍କ କାର୍ଯ୍ୟକଳାପ ତଥା ଆପଣଙ୍କ ଡିଭାଇସର ଲୋକେଶନ୍‍, କଲ୍‍ ହିଷ୍ଟୋରୀ, ଏବଂ କଣ୍ଟେଣ୍ଟ ସର୍ଚ୍ଚ ହିଷ୍ଟୋରୀ ସମେତ ସେଟିଙ୍ଗ, କର୍ପୋରେଟ୍‌ ଆକ୍ସେସ୍‌, ଆପ୍‍ ଅନୁମତି, ଏବଂ ଏହି ପ୍ରୋଫାଇଲରେ ସମ୍ପୃକ୍ତ ଥିବା ଡାଟା ଆପଣଙ୍କ ଆଡମିନ୍‌ ନୀରିକ୍ଷଣ ତଥା ପରିଚାଳନା କରିପାରିବେ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନିୟତା ପଲିସୀ ସମେତ, ଅଧିକ ସୂଚନା ପାଇଁ, ନିଜ ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_device (8598573866079474861) -->
-    <skip />
-    <!-- no translation found for theft_protection_disabled_warning (3708092473574738478) -->
-    <skip />
-    <!-- no translation found for contact_your_admin_for_more_info (5959191345827902911) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ଆପଣଙ୍କ ନେଟ୍‌ୱର୍କ କାର୍ଯ୍ୟକଳାପ ତଥା ଆପଣଙ୍କ ଡିଭାଇସର ଲୋକେଶନ୍‍, କଲ୍‍ ହିଷ୍ଟୋରୀ ଏବଂ କଣ୍ଟେଣ୍ଟ ସର୍ଚ୍ଚ ହିଷ୍ଟୋରୀ ସମେତ ସେଟିଙ୍ଗ, କର୍ପୋରେଟ୍‌ ଆକ୍ସେସ୍‌, ଆପ୍‍ ଅନୁମତି ଏବଂ ଏହି ଡିଭାଇସରେ ସମ୍ପୃକ୍ତ ଥିବା ଡାଟା ଆପଣଙ୍କ ଆଡମିନ୍‌ ନିରୀକ୍ଷଣ ତଥା ପରିଚାଳନା କରିପାରିବ।<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନିୟତା ନୀତି ସମେତ, ଅଧିକ ସୂଚନା ପାଇଁ, ନିଜ ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ଚୋରି-ପ୍ରତିରକ୍ଷା ବିଶେଷତା ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଏକ ପାସ୍‌ୱର୍ଡ-ସୁରକ୍ଷିତ ସ୍କ୍ରୀନ୍‍ ଲକ୍‍ ଥିବା ଜରୁରୀ।"</string>
+    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନିୟତା ନୀତି ସମେତ ଅଧିକ ସୂଚନା ପାଇଁ ଆପଣଙ୍କ ଆଡମିନ୍‌ଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ଅଧିକ ଜାଣନ୍ତୁ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
-    <!-- no translation found for ok_setup (4593707675416137504) -->
-    <skip />
+    <string name="ok_setup" msgid="4593707675416137504">"ଠିକ୍‌ ଅଛି"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ମୁଁ ସହମତି ଦେଉଛି"</string>
-    <!-- no translation found for url_error (5958494012986243186) -->
-    <skip />
+    <string name="url_error" msgid="5958494012986243186">"ଏହି ଲିଙ୍କ ଡିସପ୍ଲେ କରାଯାଇପାରିବ ନାହିଁ।"</string>
     <string name="terms" msgid="8295436105384703903">"ସର୍ତ୍ତାବଳୀ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସୂଚନା"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ପରିଚାଳିତ ଡିଭାଇସ୍‌ ସୂଚନା"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‌"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ପ୍ରାଥମିକ ୟୁଜର୍‍"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ବର୍ତ୍ତମାନ ଥିବା ପ୍ରୋଫାଇଲ୍‍ ଡିଲିଟ କରିବେ?"</string>
-    <!-- no translation found for opening_paragraph_delete_profile (4913885310795775967) -->
-    <skip />
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ପୂର୍ବରୁ ଆପଣଙ୍କର ଏକ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ରହିଛି। ନିମ୍ନ ଆପ୍‍ ବ୍ୟବହାର କରି ଏହା ପରିଚାଳନା କରାଯାଇଥାଏ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ଆଗକୁ ବଢ଼ିବା ପୂର୍ବରୁ, "<a href="#read_this_link">"ଏହା ପଢ଼ନ୍ତୁ"</a>"।"</string>
-    <!-- no translation found for sure_you_want_to_delete_profile (6927697984573575564) -->
-    <skip />
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ଯଦି ଆପଣ ଜାରି ରଖନ୍ତି, ଏହି ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା ସମସ୍ତ ଆପ୍‍ ଓ ଡାଟା ଡିଲିଟ୍‍ ହୋଇଯିବ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ଡିଲିଟ୍‌ କରନ୍ତୁ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ କରିବାକୁ, ଆପଣଙ୍କ ଡିଭାଇସକୁ ପ୍ରଥମେ ଏନକ୍ରୀପ୍ଟ କରିବା ଆବଶ୍ୟକ। ଏହା କିଛି ସମୟ ନେଇପାରେ।"</string>
@@ -64,8 +53,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"ଏହି ଡିଭାଇସକୁ ଏନକ୍ରୀପ୍ଟ କରିବେ?"</string>
     <string name="encrypt" msgid="1749320161747489212">"ଏନ୍‌କ୍ରୀପ୍ଟ କରନ୍ତୁ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ଏନକ୍ରିପଶନ୍ ସମ୍ପୂର୍ଣ୍ଣ ହେଲା"</string>
-    <!-- no translation found for continue_provisioning_notify_text (1066841819786425980) -->
-    <skip />
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ ଜାରି ରଖିବା ପାଇଁ ଟାପ୍‍ କରନ୍ତୁ"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ ସେଟ୍ ଅପ୍ କରାଯାଇପାରିଲା ନାହିଁ। ଆପଣଙ୍କ IT ବିଭାଗ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ କିମ୍ୱା କିଛି ସମୟ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଯୋଡ଼ିପାରିବ ନାହିଁ"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ବଦଳାଇ ପାରିବ ନାହିଁ କିମ୍ବା ବାହାର କରିପାରିବ ନାହିଁ"</string>
@@ -76,8 +64,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ଠିକ୍‌ ଅଛି"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ୟୁଜର୍‍ ସେଟ୍‌ ଅପ୍‍ ଅସମ୍ପୂର୍ଣ୍ଣ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ୱର୍କ ଡିଭାଇସ୍‌ର ୟୁଜର୍‍"</string>
-    <!-- no translation found for setup_work_device (6003988351437862369) -->
-    <skip />
+    <string name="setup_work_device" msgid="6003988351437862369">"ୱର୍କ ଡିଭାଇସ୍‍ ସେଟଅପ୍‌ କରାଯାଉଛି…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ସେଟ୍‌ ଅପ୍‍ ଡାଟାକୁ ପ୍ରୋସେସ୍‍ କରାଯାଉଛି…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ୱାଇ-ଫାଇ ସହ ସଂଯୋଗ କରାଯାଉଛି…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ଆଡମିନ୍‍ ଆପ୍‍ ଡାଉନଲୋଡ୍‍ କରାଯାଉଛି…"</string>
@@ -113,15 +100,14 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‌ ଅପ୍‍ ବନ୍ଦ କରିବେ?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"ଆପଣଙ୍କ ସ6ସ୍ଥାର ଡିଭାଇସ ପରିଚାଳନା ଆପରେ ନିଜ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଆପଣ ପରେ ସେଟଅପ୍‍ କରିପାରିବେ।"</string>
     <string name="continue_button" msgid="7177918589510964446">"ଜାରି ରଖନ୍ତୁ"</string>
-    <!-- no translation found for work_profile_setup_stop (6772128629992514750) -->
-    <skip />
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"ବନ୍ଦ କରନ୍ତୁ"</string>
     <string name="dismiss" msgid="9009534756748565880">"ଖାରଜ କରନ୍ତୁ"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"ଆପଣ ଏକ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ତିଆରି କରିବାକୁ ଯାଉଛନ୍ତି ଯାହା ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ୱାରା ପରିଚାଳନା ତଥା ନୀରିକ୍ଷଣ କରାଯିବ। ସର୍ତ୍ତାବଳୀ ଲାଗୁ ହେବ।"</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"ଆପଣ ଏକ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ତିଆରି କରିବାକୁ ଯାଉଛନ୍ତି ଯାହା ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ୱାରା ପରିଚାଳନା ତଥା ନୀରିକ୍ଷଣ କରାଯିବ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>ଙ୍କ ସର୍ତ୍ତାବଳୀ ଲାଗୁ ହେବ।"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"ଆପଣଙ୍କ ୱର୍କ ଆପଗୁଡ଼ିକ ପାଇଁ ଏକ ପ୍ରୋଫାଇଲ୍‍ ତିଆରି କରାଯିବ। ଏହି ପ୍ରୋଫାଇଲ୍‍ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସର ଅବଶିଷ୍ଟ ସବୁକିଛି ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ୱାରା ପରିଚାଳନା ତଥା ନୀରିକ୍ଷଣ କରାଯିବ। ସର୍ତ୍ତାବଳୀ ଲାଗୁ ହେବ।"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"ଆପଣଙ୍କ ୱର୍କ ଆପଗୁଡ଼ିକ ପାଇଁ ଏକ ପ୍ରୋଫାଇଲ୍‍ ତିଆରି କରାଯିବ। ଏହି ପ୍ରୋଫାଇଲ୍‍ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସର ଅବଶିଷ୍ଟ ସବୁକିଛି ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ୱାରା ପରିଚାଳନା ତଥା ନୀରିକ୍ଷଣ କରାଯିବ। <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>ଙ୍କ ସର୍ତ୍ତାବଳୀ ଲାଗୁ ହେବ।"</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"ଏହି ଡିଭାଇସ୍‍ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ଦ୍ୱାରା ପରିଚାଳନା କରାଯିବ ତଥା ସୁରକ୍ଷିତ ରଖାଯିବ। ସର୍ତ୍ତାବଳୀ ଲାଗୁ ହେବ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"ଏହି ଡିଭାଇସ୍‍ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ଦ୍ୱାରା ପରିଚାଳନା କରାଯିବ ତଥା ସୁରକ୍ଷିତ ରଖାଯିବ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>ଙ୍କ ସର୍ତ୍ତାବଳୀ ଲାଗୁ ହେବ। <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"ଏହି ଡିଭାଇସ୍‌କୁ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>ଦ୍ଵାରା ପରିଚାଳିତ, ତଦାରଖ ଓ ସୁରକ୍ଷିତ କରାଯିବ। ସର୍ତ୍ତ ଲାଗୁ ହେବ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ଏହି ଡିଭାଇସ୍‌କୁ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>ଦ୍ଵାରା ପରିଚାଳିତ, ତଦାରଖ ଓ ସୁରକ୍ଷିତ କରାଯିବ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>ରୁ ସର୍ତ୍ତ ଲାଗୁ ହେବ। <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ଏହି ଲିଙ୍କ ସୁରକ୍ଷିତ ନୁହେଁ ଏବଂ ଡିଭାଇସ୍ ସେଟଅପ୍‍ ସମାପ୍ତ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଖୋଲାଯାଇ ପାରିବ ନାହିଁ: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"ଯଦି ଆପଣଙ୍କର ପ୍ରଶ୍ନ ରହିଛି, ଆପଣଙ୍କ <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"ଯଦି ଆପଣଙ୍କ ପ୍ରଶ୍ନ ରହିଥାଏ, ଆପଣଙ୍କ ସଂସ୍ଥାର ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ"</string>
@@ -129,21 +115,16 @@
     <string name="for_help_contact_admin" msgid="8687037236275184653">"ସହାୟତା ପାଇଁ ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ"</string>
     <string name="organization_admin" msgid="1595001081906025683">"ସଂସ୍ଥାର ଆଡମିନ୍‍"</string>
     <string name="your_org_app_used" msgid="5336414768293540831">"ନିମ୍ନ ଆପ୍‍ ବ୍ୟବହାର କରି <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ଏହି ଡିଭାଇସ୍‍ ପରିଚାଳନା ଓ ନୀରିକ୍ଷଣ କରିବ:"</string>
-    <!-- no translation found for your_organization_beginning (5952561489910967255) -->
-    <skip />
-    <!-- no translation found for your_organization_middle (8288538158061644733) -->
-    <skip />
+    <string name="your_organization_beginning" msgid="5952561489910967255">"ଆପଣଙ୍କ ସଂସ୍ଥା"</string>
+    <string name="your_organization_middle" msgid="8288538158061644733">"ଆପଣଙ୍କ ସଂସ୍ଥା"</string>
     <string name="view_terms" msgid="7230493092383341605">"ସର୍ତ୍ତାବଳୀ ଦେଖନ୍ତୁ"</string>
-    <!-- no translation found for accept_and_continue (1632679734918410653) -->
-    <skip />
+    <string name="accept_and_continue" msgid="1632679734918410653">"ସ୍ୱୀକାର କରନ୍ତୁ ଏବଂ ଜାରି ରଖନ୍ତୁ"</string>
     <string name="close" msgid="7208600934846389439">"ବନ୍ଦ କରନ୍ତୁ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରନ୍ତୁ"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"ଆପଣ କାମ କରିବା ପଦ୍ଧତି ବଦଳାନ୍ତୁ"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"ବ୍ୟକ୍ତିଗତଠାରୁ କାମକୁ ଅଲଗା କରନ୍ତୁ"</string>
-    <!-- no translation found for one_place_for_work_apps (2595597562302953960) -->
-    <skip />
-    <!-- no translation found for info_anim_title_2 (4629781398620470204) -->
-    <skip />
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"ୱର୍କ ଆପ୍‍ ପାଇଁ ଗୋଟିଏ ସ୍ଥାନ"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"ଆପଣ କରିସାରିବା ପରେ ୱର୍କ ଅଫ୍‍ କରିଦିଅନ୍ତୁ"</string>
     <string name="provisioning" msgid="4512493827019163451">"ପ୍ରାବଧାନ କରାଯାଉଛି"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA ସର୍ଟିଫିକେଟ୍‍ ସେଟ୍‍ କରାଯାଉଛି"</string>
     <string name="setup_profile" msgid="5573950582159698549">"ଆପଣଙ୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‍ କରନ୍ତୁ"</string>
@@ -165,26 +146,15 @@
     <string name="access_terms" msgid="1982500872249763745">"ସର୍ତ୍ତାବଳୀ ଆକ୍ସେସ୍‍ କରନ୍ତୁ"</string>
     <string name="read_terms" msgid="1745011123626640728">"ସର୍ତ୍ତାବଳୀ ପଢ଼ନ୍ତୁ"</string>
     <string name="close_list" msgid="9053538299788717597">"ବନ୍ଦ କରୁଥିବା ତାଲିକା"</string>
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_title (5416045931532004811) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_msg (808442439937994485) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_cancel (2810966091829264727) -->
-    <skip />
-    <!-- no translation found for cancel_setup_and_factory_reset_dialog_ok (7168008267496150529) -->
-    <skip />
-    <!-- no translation found for join_two_items (6110273439759895837) -->
-    <skip />
-    <!-- no translation found for join_many_items_last (7469666990442158802) -->
-    <skip />
-    <!-- no translation found for join_many_items_first (8365482726853276608) -->
-    <skip />
-    <!-- no translation found for join_many_items_middle (8569294838319639963) -->
-    <skip />
-    <!-- no translation found for take_a_few_minutes (6282806501305322838) -->
-    <skip />
-    <!-- no translation found for work_profile_description (8524116010729569213) -->
-    <skip />
-    <!-- no translation found for device_owner_description (168013145812679664) -->
-    <skip />
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ସେଟଅପ୍‍ ଶେଷ କରି ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ କରିବେ?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ଏହି ସେଟଅପ୍‍ ଶେଷ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍ ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ ହେବ ଏବଂ ଆପଣଙ୍କୁ ପ୍ରଥମ ସ୍କ୍ରୀନକୁ ନିଆଯିବ।"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"କ୍ୟାନ୍ସଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ଡିଭାଇସ୍‌ ରିସେଟ୍‍ କରନ୍ତୁ"</string>
+    <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
+    <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
+    <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
+    <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"ଏଥିପାଇଁ କିଛି ସମୟ ଲାଗିପାରେ"</string>
+    <string name="work_profile_description" msgid="8524116010729569213">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକାରୀ ଆପ୍‌ଗୁଡ଼ିକୁ ଏହି ପ୍ରୋଫାଇଲ୍ ମଧ୍ୟରେ ରଖିବା ସହିତ ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ଵାରା ପରିଚାଳିତ ହେବ"</string>
+    <string name="device_owner_description" msgid="168013145812679664">"ଏହି ଡିଭାଇସ୍‌କୁ ସୁରକ୍ଷିତ ରଖାଯିବ ଏବଂ ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ଵାରା ପରିଚାଳିତ ହେବ"</string>
 </resources>
