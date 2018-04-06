@@ -106,10 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Você está prestes a criar um perfil de trabalho que será gerenciado e monitorado pela sua organização. Os termos de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> são aplicáveis."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Será criado um perfil para seus apps de trabalho. Esse perfil e o restante do seu dispositivo serão gerenciados e monitorados pela sua organização. Alguns termos são aplicáveis."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Será criado um perfil para seus apps de trabalho. Esse perfil e o restante do seu dispositivo serão gerenciados e monitorados pela sua organização. Os termos de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> são aplicáveis."</string>
-    <!-- no translation found for device_owner_info (3716661456037934467) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (1254243288669282977) -->
-    <skip />
+    <string name="device_owner_info" msgid="3716661456037934467">"Este dispositivo será gerenciado, monitorado e protegido por <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Alguns termos são aplicáveis. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Este dispositivo será gerenciado, monitorado e protegido por <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Os termos de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> são aplicáveis. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Este link não é seguro e só pode ser aberto após o término da configuração do dispositivo: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Em caso de dúvidas, fale com o <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Em caso de dúvidas, entre em contato com o administrador da sua organização"</string>

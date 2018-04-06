@@ -106,10 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"നിങ്ങളുടെ സ്ഥാപനത്താൽ മാനേജുചെയ്യപ്പെടുകയും നിരീക്ഷിക്കപ്പെടുകയും ചെയ്യുന്ന ഒരു ഔദ്യോഗിക പ്രൊഫൈൽ നിങ്ങൾ സൃഷ്‌ടിക്കാൻ പോകുകയാണ്. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> എന്നതിൽ നിന്നുള്ള ‌നിബന്ധനകൾ ബാധകമാകും."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾക്കായി ഒരു പ്രൊഫൈൽ സൃഷ്‌ടിക്കപ്പെടും. ഈ ‌പ്രൊഫൈലും ബാക്കി ഉപകരണവും നിങ്ങളുടെ സ്ഥാപനം മാനേജുചെയ്യുകയും നിരീക്ഷിക്കുകയും ചെയ്യും. നിബന്ധനകൾ ബാധകമാണ്."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾക്കായി ഒരു പ്രൊഫൈൽ സൃഷ്‌ടിക്കപ്പെടും. ഈ ‌പ്രൊഫൈലും ബാക്കി ഉപകരണവും നിങ്ങളുടെ സ്ഥാപനം മാനേജുചെയ്യുകയും നിരീക്ഷിക്കുകയും ചെയ്യും. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> എന്നതിൽ നിന്നുള്ള ‌നിബന്ധനകൾ ബാധകമാകും."</string>
-    <!-- no translation found for device_owner_info (3716661456037934467) -->
-    <skip />
-    <!-- no translation found for device_owner_info_with_terms_headers (1254243288669282977) -->
-    <skip />
+    <string name="device_owner_info" msgid="3716661456037934467">"ഈ ഉപകരണം നിയന്ത്രിക്കുന്നതും ഭദ്രമാക്കി നിലനിർത്തുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. നിബന്ധനകൾ ബാധകമാവും. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ഈ ഉപകരണം നിയന്ത്രിക്കുന്നതും ഭദ്രമാക്കി നിലനിർത്തുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> എന്നതിലെ നിബന്ധനകൾ ബാധകമാവും. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ഈ ലിങ്ക് സുരക്ഷിതമല്ല, ഉപകരണ സജ്ജമാക്കൽ പൂർത്തിയാകുന്നത് വരെ തുറക്കാൻ കഴിയില്ല: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"നിങ്ങൾക്ക് ചോദ്യങ്ങൾ ഉണ്ടെങ്കിൽ, <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> എന്ന അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"നിങ്ങൾക്ക് ചോദ്യങ്ങൾ ഉണ്ടെങ്കിൽ, നിങ്ങളുടെ സ്ഥാപനത്തിന്റെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക"</string>
