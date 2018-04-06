@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0ab7494_33e776a7",
+        "filename": "res/values/vendor_required_apps_managed_profile.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2018-04-06T18:44:56Z",
+      "side": 1,
+      "message": "whitespace + use aosp package instead of google\u0027s",
+      "revId": "30f1b8998abf8da20ae1a70c4c8cc59db0cbc479",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b06e159d_3c3b6022",
+        "filename": "res/values/vendor_required_apps_managed_profile.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2018-04-06T18:44:56Z",
+      "side": 1,
+      "message": "use spaces",
+      "revId": "30f1b8998abf8da20ae1a70c4c8cc59db0cbc479",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
