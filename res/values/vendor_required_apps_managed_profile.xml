@@ -20,5 +20,8 @@
     <!-- A list of apps to be retained in the managed profile by a particular vendor.
             Takes precedence over the disallowed apps lists. -->
     <string-array name="vendor_required_apps_managed_profile">
+        <item>com.android.vending</item> <!-- Google Play -->
+        <item>com.google.android.gms</item> <!-- Required by Play -->
+        <item>com.android.contacts</item> <!-- AOSP Contacts -->
     </string-array>
 </resources>
