@@ -22,7 +22,7 @@
     <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफाईल सेटअप"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"कार्य प्रोफाईल सेट करा"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. आपण आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"आपली संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. तुम्ही आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"आपली संस्‍था या डिव्‍हाइसचे नियंत्रण करेल आणि त्यास सुरक्षित ठेवेल."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"खालील अ‍ॅपला या प्रोफाईलमध्‍ये प्रवेश करण्‍याची आवश्‍यकता असेल:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप तुमचे डिव्हाइस व्यवस्‍थापित करेल:"</string>
@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तुमची आधीपासून एक कार्य प्रोफाइल आहे. ती खालील अ‍ॅप वापरून व्यवस्थापित केली जाते:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"आपण सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तुम्ही सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"तुमचे कार्य प्रोफाइल सेट करण्यासाठी, तुमचे डिव्हाइस एंक्रिप्ट करणे आवश्यक आहे. यासाठी काही वेळ लागू शकतो."</string>
@@ -53,8 +53,8 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"हे डिव्हाइस एंक्रिप्ट करायचे?"</string>
     <string name="encrypt" msgid="1749320161747489212">"एंक्रिप्ट करा"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"एंक्रिप्शन पूर्ण"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"आपले कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी टॅप करा"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपले कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तुमचे कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी टॅप करा"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तुमचे कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफाइल जोडू शकत नाही"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"कामाची प्रोफाइल बदलू किंवा काढू शकत नाही"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"कामाची प्रोफाइल या डिव्हाइसशी जोडू शकत नाही. तुम्हाला काही प्रश्न असल्यास, तुमच्या प्रशासकाशी संपर्क साधा."</string>
@@ -102,8 +102,8 @@
     <string name="continue_button" msgid="7177918589510964446">"सुरू ठेवा"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"थांबा"</string>
     <string name="dismiss" msgid="9009534756748565880">"डिसमिस करा"</string>
-    <string name="profile_owner_info" msgid="8975319972303812298">"आपण अशी कार्य प्रोफाइल तयार करणार आहात जिचे आपल्या संस्थेद्वारे व्यवस्थापन आणि परीक्षण केले जाईल. अटी लागू होतील."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"आपण अशी कार्य प्रोफाइल तयार करणार आहात जिचे आपल्या संस्थेद्वारे व्यवस्थापन आणि परीक्षण केले जाईल. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> कडील अटी लागू होतील."</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"तुम्ही अशी कार्य प्रोफाइल तयार करणार आहात जिचे आपल्या संस्थेद्वारे व्यवस्थापन आणि परीक्षण केले जाईल. अटी लागू होतील."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"तुम्ही अशी कार्य प्रोफाइल तयार करणार आहात जिचे आपल्या संस्थेद्वारे व्यवस्थापन आणि परीक्षण केले जाईल. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> कडील अटी लागू होतील."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"आपल्या कार्य अ‍ॅप्ससाठी प्रोफाइल तयार केले जाईल. या प्रोफाइलचे आणि आपल्या उर्वरित डिव्हाइसचे आपल्या संस्थेद्वारे व्यवस्थापन आणि परीक्षण केले जाईल. अटी लागू होतील."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"आपल्या कार्य अ‍ॅप्ससाठी प्रोफाइल तयार केले जाईल. या प्रोफाइलचे आणि आपल्या उर्वरित डिव्हाइसचे आपल्या संस्थेद्वारे व्यवस्थापन आणि परीक्षण केले जाईल. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> कडील अटी लागू होतील."</string>
     <string name="device_owner_info" msgid="3716661456037934467">"हे डिव्हाइस <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> कडून व्यवस्थापित केले जाईल, त्याचे परीक्षण केले जाईल आणि ते सुरक्षित ठेवले जाईल. अटी लागू होतील. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
@@ -121,17 +121,17 @@
     <string name="accept_and_continue" msgid="1632679734918410653">"स्वीकारा व सुरू ठेवा"</string>
     <string name="close" msgid="7208600934846389439">"बंद करा"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"तुमचे डिव्हाइस सेट करा"</string>
-    <string name="info_anim_title_0" msgid="3285414600215959704">"आपण ज्या पद्धतीने कार्य करता ती पद्धत बदला"</string>
+    <string name="info_anim_title_0" msgid="3285414600215959704">"तुम्ही ज्या पद्धतीने कार्य करता ती पद्धत बदला"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"वैैयक्तिक मधून कार्य स्वतंत्र करा"</string>
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्यसंबंधित अॅप्ससाठी एक ठिकाण"</string>
-    <string name="info_anim_title_2" msgid="4629781398620470204">"आपले काम पूर्ण झाल्‍यानंतर बंद करा"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"तुमचे काम पूर्ण झाल्‍यानंतर बंद करा"</string>
     <string name="provisioning" msgid="4512493827019163451">"तरतूद"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करत आहे"</string>
     <string name="setup_profile" msgid="5573950582159698549">"आपली प्रोफाइल सेट करा"</string>
-    <string name="profile_benefits_description" msgid="758432985984252636">"कार्य प्रोफाइल वापरून, आपण वैयक्तिक डेटामधून कार्य डेटा वेगळा करू शकता"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कार्य प्रोफाइल वापरून, आपण आपले कार्य अॅप्स एका ठिकाणी ठेवू शकता"</string>
+    <string name="profile_benefits_description" msgid="758432985984252636">"कार्य प्रोफाइल वापरून, तुम्ही वैयक्तिक डेटामधून कार्य डेटा वेगळा करू शकता"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कार्य प्रोफाइल वापरून, तुम्ही तुमचे कार्य अॅप्स एका ठिकाणी ठेवू शकता"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"तुमचे प्रोफाईल सेट करा. एंक्रिप्शन"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"आपले प्रोफाईल सेट करा. प्रगती दाखवत आहे"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"तुमचे प्रोफाईल सेट करा. प्रगती दाखवत आहे"</string>
     <string name="setup_device" msgid="6725265673245816366">"तुमचे डिव्हाइस सेट अप करा"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"तुमचे डिव्हाइस सेट करा. एंक्रिप्शन"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"तुमचे डिव्हाइस सेट करा. प्रगती दाखवत आहे"</string>

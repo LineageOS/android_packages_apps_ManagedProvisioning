@@ -58,8 +58,8 @@
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Impossibile aggiungere il profilo di lavoro"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Impossibile sostituire o rimuovere il profilo di lavoro"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Impossibile aggiungere un profilo di lavoro a questo dispositivo. In caso di domande contatta il tuo amministratore."</string>
-    <string name="change_device_launcher" msgid="4523563368433637980">"Cambia Avvio applicazioni del dispositivo"</string>
-    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Questa app Avvio applicazioni non supporta il tuo profilo di lavoro"</string>
+    <string name="change_device_launcher" msgid="4523563368433637980">"Cambia Avvio app del dispositivo"</string>
+    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Questa app Avvio app non supporta il tuo profilo di lavoro"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annulla"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configurazione utenti incompleta"</string>
