@@ -140,7 +140,7 @@
     <string name="section_heading" msgid="3924666803774291908">"Zaglavlje odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
     <string name="section_content" msgid="8875502515704374394">"Sadržaj odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Proširi"</string>
-    <string name="collapse" msgid="7817530505064432580">"Skupi"</string>
+    <string name="collapse" msgid="7817530505064432580">"Suzi"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Pristupite spisku linkova"</string>
     <string name="access_links" msgid="7991363727326168600">"Pristupite linkovima"</string>
     <string name="access_terms" msgid="1982500872249763745">"Pristupite uslovima"</string>
