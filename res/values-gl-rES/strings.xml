@@ -73,7 +73,7 @@
     <string name="device_owner_error_reset" msgid="1609782972753569267">"Restablecer"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"Non se puido configurar o teu dispositivo. Ponte en contacto co departamento de TI."</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"Este dispositivo xa está configurado."</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Non se puido conectar coa wifi"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Non se puido conectar á wifi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Este dispositivo está bloqueado pola protección de restablecemento de fábrica. Contacta co teu departamento de TI."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Agarda..."</string>

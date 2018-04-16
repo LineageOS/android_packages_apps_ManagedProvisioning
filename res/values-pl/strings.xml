@@ -21,13 +21,13 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Konfiguracja profilu do pracy"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
-    <string name="setup_work_profile" msgid="1468934631731845267">"Skonfiguruj profil do pracy"</string>
+    <string name="setup_work_profile" msgid="1468934631731845267">"Skonfiguruj profil służbowy"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Twoja organizacja kontroluje i zabezpiecza ten profil. Cała pozostała zawartość urządzenia jest pod Twoją kontrolą."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Twoja organizacja będzie mieć kontrolę nad tym urządzeniem i będzie dbać o jego bezpieczeństwo."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Aplikacja, która będzie potrzebować dostępu do tego profilu:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ta aplikacja będzie zarządzać urządzeniem:"</string>
     <string name="next" msgid="1004321437324424398">"Dalej"</string>
-    <string name="setting_up_workspace" msgid="4517537806569988620">"Konfiguruję profil do pracy…"</string>
+    <string name="setting_up_workspace" msgid="4517537806569988620">"Konfiguruję profil służbowy…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4138671070145317359">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje, uprawnienia i dane powiązane z profilem, w tym aktywność w sieci, informacje o lokalizacji urządzenia, historię połączeń oraz historię wyszukiwania kontaktów, i nimi zarządzać."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7400390654083275019">"Administrator może monitorować ustawienia, firmowe uprawnienia dostępu, aplikacje, uprawnienia, funkcje ochrony przed kradzieżą i dane powiązane z tym urządzeniem (w tym aktywność w sieci i informacje o jego lokalizacji) oraz nimi zarządzać."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Aby korzystać z funkcji ochrony przed kradzieżą, musisz włączyć na urządzeniu blokadę ekranu zabezpieczoną hasłem."</string>
@@ -36,10 +36,10 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Anuluj"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Zgadzam się"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil do pracy"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil służbowy"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Główny użytkownik"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"Usunąć profil do pracy?"</string>
-    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Profil do pracy już istnieje i zarządza nim:"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"Usunąć profil służbowy?"</string>
+    <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Profil służbowy już istnieje i zarządza nim:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Tym profilem do pracy w %s zarządza:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Zanim przejdziesz dalej, "<a href="#read_this_link">"przeczytaj to"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Pamiętaj, że wszystkie aplikacje i dane w tym profilu zostaną usunięte."</string>
@@ -86,7 +86,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Tak"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Anuluję…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Zatrzymać konfigurowanie profilu?"</string>
-    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Profil do pracy możesz skonfigurować później w aplikacji do zarządzania urządzeniami używanej przez organizację."</string>
+    <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Profil służbowy możesz skonfigurować później w aplikacji do zarządzania urządzeniami używanej przez organizację."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Dalej"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Zatrzymaj"</string>
     <string name="provisioning" msgid="4512493827019163451">"Włączam obsługę administracyjną"</string>

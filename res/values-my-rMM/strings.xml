@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"သင့်အဖွဲ့အစည်း၏ ပုဂ္ဂိုလ်ရေးဆိုင်ရာ လုံခြုံရေးမူဝါဒများအပါအဝင်၊ နောက်ထပ်အချက်အလက်များအတွက် သင့်စီမံခန့်ခွဲသူကိုဆက်သွယ်ပါ။"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ပိုမိုသိလိုလျှင်"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"မလုပ်တော့"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"အိုကေ"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"သဘောတူခွင့်ပြုသည်"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"အလုပ် ပရိုဖိုင်"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"ပထမအသုံးပြုသူ"</string>
@@ -57,7 +57,7 @@
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"သင့်စက်ကိရိယာတွင် သုံးစွဲသူ အများဆုံးအရေအတွက်သို့ ရောက်ရှိပြီးဖြစ်သောကြောင့် အလုပ်ပရိုဖိုင်းအား မဖန်တီးနိုင်ပါ။ သုံးစွဲသူတစ်ယောက်အား အနည်းဆုံး ဖယ်ထုတ်ပြီး ထပ်မံကြိုးစားပါ။"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"သင့် အလုပ် ပရိုဖိုင်ကို ဒီဖွင့်တင်ရေး အက်ပ်မှ မပံ့ပိုးပါ။ သင်သည် လိုက်ဖက်သည့် ဖွင့်တင်ရေးစက်သို့ ပြောင်းရန် လိုသည်။"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"မလုပ်တော့"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"အိုကေ"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"အသုံးပြုသူ ပြင်ဆင်သတ်မှတ်မှု မပြီးစီးပါ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"အလုပ်စက်ပစ္စည်းကို စနစ်ထည့်သွင်းမှုပြုလုပ်ပါ"</string>
@@ -69,7 +69,7 @@
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"သင့်စက်ပစ္စည်းသည် အသွင်ဝှက်ခြင်းကို ပံ့ပိုးမှုမရှိပါ။ သင့်အိုင်တီဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"စဖွင့်စီစဉ်မှုအား ရပ်စဲကာ သင့် ကိရိယာ၏ဒေတာကို ဖျက်ပစ်မည်လား?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"မလုပ်တော့"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"အိုကေ"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"ပြန်သတ်မှတ်ရန်"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"သင်၏ ကိရိယာကို စဖွင့်စီစဉ် မပေးနိုင်ခဲ့ပါ။ သင်၏ IT ဌာနကို ဆက်သွယ်ပါ။"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"ဤစက်အား ပြင်ဆင်သတ်မှတ်ပြီး၏။"</string>

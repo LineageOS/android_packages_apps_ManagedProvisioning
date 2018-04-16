@@ -55,7 +55,7 @@
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Questo utente non può avere un profilo di lavoro"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"I profili di lavoro non possono essere configurati su un dispositivo gestito"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Impossibile creare il profilo di lavoro perché è stato raggiunto il numero massimo di utenti sul dispositivo. Rimuovi almeno un utente e riprova."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Il tuo profilo di lavoro non è supportato da questa app Avvio applicazioni. Devi passare a un\'app Avvio applicazioni compatibile."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Il tuo profilo di lavoro non è supportato da questa app Avvio app. Devi passare a un\'app Avvio app compatibile."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annulla"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configurazione utenti incompleta"</string>

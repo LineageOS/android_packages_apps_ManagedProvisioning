@@ -63,8 +63,8 @@
     <string name="setup_work_device" msgid="4243324420514896773">"Konfiguratu laneko gailua"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Konfigurazio-datuak prozesatzen…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi sarera konektatzen…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Administrazio-aplikazioa deskargatzen…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Administrazio-aplikazioa instalatzen…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"Administratzeko aplikazioa deskargatzen…"</string>
+    <string name="progress_install" msgid="2258045670385866183">"Administratzeko aplikazioa instalatzen…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Gailuaren jabea ezartzen…"</string>
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"Gailuak ez du enkriptatzeko aukera ematen. Jarri IKT sailarekin harremanetan."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Konfiguratzeari utzi nahi diozu eta gailuko datu guztiak ezabatu nahi dituzu?"</string>
@@ -77,10 +77,10 @@
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Jatorrizko datuen berrezartze-babesaren bidez dago blokeatuta gailua. Jarri IKT sailarekin harremanetan."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ezabatzen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Itxaron, mesedez…"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ezin izan da erabili administrazio-aplikazioa, batuketa egitean errore bat gertatu delako. Jarri informatika-sailarekin harremanetan."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da administrazio-aplikazioa deskargatu"</string>
-    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ezin da erabili administrazio-aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Jarri informatika-sailarekin harremanetan."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Ezin izan da administrazio-aplikazioa instalatu"</string>
+    <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Ezin izan da erabili administratzeko aplikazioa, batuketa egitean errore bat gertatu delako. Jarri informatika-sailarekin harremanetan."</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Ezin izan da deskargatu administratzeko aplikazioa"</string>
+    <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Ezin da erabili administratzeko aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Jarri informatika-sailarekin harremanetan."</string>
+    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Ezin izan da instalatu administratzeko aplikazioa"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Konfiguratzeari utzi nahi diozu?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ez"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Bai"</string>

@@ -38,7 +38,7 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Estoy de acuerdo"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabajo"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuario principal"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"¿Quitar perfil de trabajo?"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"¿Eliminar perfil de trabajo?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Ya existe un perfil de trabajo, que está administrado por:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Este perfil de trabajo está administrado para %s con:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Para continuar, "<a href="#read_this_link">"consulta esta información"</a>"."</string>
@@ -99,7 +99,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configura tu dispositivo. Mostrando progreso"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Botón para obtener más información"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icono de <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"¿Cancelar configuración y restablecer datos?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"¿Cancelar configuración y restablecer estado de fábrica?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Al finalizar esta configuración, se restablecerá el estado de fábrica de tu dispositivo y volverás a la primera pantalla."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Cancelar"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Restablecer dispositivo"</string>

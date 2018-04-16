@@ -83,7 +83,7 @@
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Die Admin-App konnte nicht installiert werden."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Einrichtung abbrechen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nein"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"\"Ja\""</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Vorgang wird abgebrochen…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profileinrichtung abbrechen?"</string>
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Du kannst dein Arbeitsprofil später über die von deiner Organisation verwendete Geräteverwaltungs-App einrichten."</string>
