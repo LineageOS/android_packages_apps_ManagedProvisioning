@@ -17,7 +17,7 @@ package com.android.managedprovisioning.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 public class ManagedProvisioningSharedPreferences {
     public static final long DEFAULT_PROVISIONING_ID = 0L;

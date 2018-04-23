@@ -16,7 +16,7 @@
 package com.android.managedprovisioning.testcommon;
 
 import android.app.Activity;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 import android.support.test.runner.lifecycle.ActivityLifecycleCallback;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitor;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;

@@ -20,7 +20,7 @@ import android.annotation.Nullable;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.SystemProperties;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.setupwizardlib.GlifLayout;
