@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik poslovnog uređaja"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Postavljanje radnog uređaja…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Obrađuju se podaci za postavljanje..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezuje se na Wi-Fi..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezuje se na WiFi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Preuzima se aplikacija za administratora..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalira se aplikacija za administratora..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Uklanjanje suvišnih sistemskih aplikacija…"</string>
@@ -85,7 +85,7 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Uređaj nije postavljen. Obratite se administratoru za pomoć."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Obratite se administratoru za pomoć"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Uređaj je već postavljen"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na Wi-Fi"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na WiFi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Na vašem uređaju je uključena opcija za ponovno postavljanje zaštite. Obratite se administratoru za pomoć."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Briše se"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Sačekajte..."</string>
