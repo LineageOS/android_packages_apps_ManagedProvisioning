@@ -53,7 +53,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Enkripsikan perangkat ini?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Enkripsikan"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripsi selesai"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Ketuk untuk melanjutkan penyiapan profil kerja"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tap untuk melanjutkan penyiapan profil kerja"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Tidak dapat menyiapkan profil kerja Anda. Hubungi departemen TI atau coba lagi nanti."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Tidak dapat menambahkan profil kerja"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Tidak dapat menggantikan atau menghapus profil kerja"</string>
