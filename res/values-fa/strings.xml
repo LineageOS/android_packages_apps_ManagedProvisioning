@@ -54,7 +54,7 @@
     <string name="encrypt" msgid="1749320161747489212">"رمزگذاری"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"رمزگذاری کامل شد"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"برای ادامه راه‌اندازی نمایه کاری‌تان، ضربه بزنید"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاریتان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاری‌تان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"نمی‌توان نمایه کاری اضافه کرد"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"نمی‌توان نمایه کاری را جایگزین کرد یا برداشت"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"نمی‌توان به این دستگاه نمایه کاری اضافه کرد. اگر سؤالی دارید، با سرپرست سیستم تماس بگیرید."</string>
