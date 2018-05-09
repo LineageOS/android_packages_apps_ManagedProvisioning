@@ -137,6 +137,8 @@
   <string name="progress_data_process">Processing setup data\u2026</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
   <string name="progress_connect_to_wifi">Connecting to Wi-Fi\u2026</string>
+  <!-- Progress text indicating that mobile network is being set up. [CHAR LIMIT=45] -->
+  <string name="progress_connect_to_mobile_network">Connecting to mobile network\u2026</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
   <string name="progress_download">Downloading the admin app\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->

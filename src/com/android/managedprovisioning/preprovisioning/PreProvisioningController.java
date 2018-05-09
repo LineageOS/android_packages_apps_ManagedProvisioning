@@ -239,7 +239,8 @@ public class PreProvisioningController {
             // TODO: make a general test based on deviceAdminDownloadInfo field
             // PO doesn't ever initialize that field, so OK as a general case
             if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null
-                    && mParams.deviceAdminDownloadInfo != null) {
+                    && mParams.deviceAdminDownloadInfo != null
+                    && !mParams.useMobileData) {
                 // Have the user pick a wifi network if necessary.
                 // It is not possible to ask the user to pick a wifi network if
                 // the screen is locked.
