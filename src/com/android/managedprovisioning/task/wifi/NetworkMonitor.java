@@ -102,9 +102,8 @@ public class NetworkMonitor {
                 return;
             }
             synchronized (NetworkMonitor.this) {
-                boolean isConnectedToWifi = mUtils.isConnectedToWifi(context);
-                if (!isConnectedToWifi) {
-                    ProvisionLogger.logd("NetworkMonitor: not connected to WIFI");
+                if (!mUtils.isConnectedToNetwork(context)) {
+                    ProvisionLogger.logd("NetworkMonitor: not connected to network");
                     return;
                 }
                 if (mCallback != null) {

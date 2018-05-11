@@ -45,6 +45,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
@@ -56,6 +57,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams
+        .DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static com.android.managedprovisioning.model.ProvisioningParams.inferStaticDeviceAdminPackageName;
 
 import android.app.admin.DevicePolicyManager;
@@ -304,6 +307,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                             ProvisioningParams.DEFAULT_LOCAL_TIME))
                     .setLocale(StoreUtils.stringToLocale(
                             intent.getStringExtra(EXTRA_PROVISIONING_LOCALE)))
+                    .setUseMobileData(intent.getBooleanExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA,
+                            DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA))
                     // Parse WiFi configuration.
                     .setWifiInfo(parseWifiInfoFromExtras(intent))
                     // Parse device admin package download info.
