@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"正在設定工作裝置…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"正在處理設定資料…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在連線至 Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"正在連線至流動網絡…"</string>
     <string name="progress_download" msgid="3522436271691064624">"正在下載管理員應用程式…"</string>
     <string name="progress_install" msgid="2258045670385866183">"正在安裝管理員應用程式…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"正在移除非必要的系統應用程式…"</string>

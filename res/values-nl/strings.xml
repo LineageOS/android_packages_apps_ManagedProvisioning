@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Werkapparaat instellen…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Configuratiegegevens verwerken…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Verbinding maken met wifi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Verbinding maken met mobiel netwerk…"</string>
     <string name="progress_download" msgid="3522436271691064624">"De beheer-app downloaden…"</string>
     <string name="progress_install" msgid="2258045670385866183">"De beheer-app installeren…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Niet-vereiste systeemapps verwijderen…"</string>

@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Жумуш түзмөгүңүз жөндөлүүдө…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Орнотуу дайындары иштетилүүдө…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi\'га туташууда…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Мобилдик тармакка туташууда…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Администратор колдонмосу жүктөлүп алынууда…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Администратор колдонмосу орнотулууда…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Керексиз тутум колдонмолорун алып салууда..."</string>

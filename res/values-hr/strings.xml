@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Postavljanje radnog uređaja…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Obrada podataka o postavljanju…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezivanje s Wi-Fi-jem…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezivanje s mobilnom mrežom…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Preuzimanje administratorske aplikacije…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Instaliranje administratorske aplikacije…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Brisanje aplikacija sustava koje nisu nužne…"</string>

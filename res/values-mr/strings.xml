@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तुमची आधीपासून एक कार्य प्रोफाइल आहे. ती खालील अ‍ॅप वापरून व्यवस्थापित केली जाते:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तुम्ही सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटविला जाईल."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तुम्ही सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटवला जाईल."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"तुमचे कार्य प्रोफाइल सेट करण्यासाठी, तुमचे डिव्हाइस एंक्रिप्ट करणे आवश्यक आहे. यासाठी काही वेळ लागू शकतो."</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"कार्य डिव्हाइस सेट अप करत आहे..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटावर प्रक्रिया करत आहे..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाय-फाय ला कनेक्ट करत आहे..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाईल नेटवर्कशी कनेक्ट करत आहे…"</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासन अॅप डाउनलोड करत आहे..."</string>
     <string name="progress_install" msgid="2258045670385866183">"प्रशासन अॅप इंस्टॉल करत आहे..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"आवश्यक-नसलेले सिस्टम अॅप्स काढत आहे..."</string>

@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"အလုပ်စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ်နေပါသည်…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ဖွဲ့စည်းပုံအချက်အလက်ကို စီမံဆောင်ရွက်နေသည်..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ကြိုးမဲ့အင်တာနက်သို့ ချိတ်ဆက်နေသည်..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"မိုဘိုင်းကွန်ရက်သို့ ချိတ်ဆက်နေသည်…"</string>
     <string name="progress_download" msgid="3522436271691064624">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ဒေါင်းလုဒ်လုပ်နေသည်..."</string>
     <string name="progress_install" msgid="2258045670385866183">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ထည့်သွင်းနေသည်..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"မလိုအပ်သည့် စနစ်အက်ပ်များကို ဖယ်ရှားနေသည်…"</string>

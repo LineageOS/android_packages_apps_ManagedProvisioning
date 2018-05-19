@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Setting up work device…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Processing setup data…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Connecting to Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Connecting to mobile network…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Downloading the admin app…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Installing the admin app…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Removing non-required system apps…"</string>

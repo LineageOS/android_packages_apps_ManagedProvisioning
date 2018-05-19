@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"ກຳລັງຕັ້ງຄ່າອຸປະກອນບ່ອນເຮັດວຽກ..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່​ກັ​ບ Wi-Fi..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ກຳລັງເຊື່ອມຕໍ່ຫາເຄືອຂ່າຍມືຖື…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ້ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ກຳ​ລັງ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ້​ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ກຳລັງລຶບແອັບລະບົບທີ່ບໍ່ຕ້ອງໃຊ້ອອກ…"</string>

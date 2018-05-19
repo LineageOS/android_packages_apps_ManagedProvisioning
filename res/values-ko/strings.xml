@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"직장 기기 설정 중…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"설정 데이터 처리 중..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi에 연결 중..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"모바일 네트워크에 연결 중…"</string>
     <string name="progress_download" msgid="3522436271691064624">"관리 앱 다운로드 중..."</string>
     <string name="progress_install" msgid="2258045670385866183">"관리 앱 설치 중..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"불필요한 시스템 앱 삭제 중…"</string>

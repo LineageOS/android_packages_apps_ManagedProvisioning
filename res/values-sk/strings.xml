@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Nastavuje sa pracovné zariadenie…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Spracovávajú sa údaje nastavenia…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Pripája sa k sieti Wi‑Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Prebieha pripájanie k mobilnej sieti…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Sťahuje sa aplikácia na správu…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Inštaluje sa aplikácia na správu…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Odstraňujú sa nepotrebné systémové aplikácie…"</string>
