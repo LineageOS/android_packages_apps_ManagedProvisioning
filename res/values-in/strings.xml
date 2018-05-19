@@ -49,7 +49,7 @@
     <string name="encrypt_device_text_for_device_owner_setup" msgid="9206667711446040692">"Untuk melanjutkan penyiapan perangkat, Anda perlu mengenkripsi perangkat. Tindakan ini mungkin sedikit memakan waktu."</string>
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Enkripsikan"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Enkripsi selesai"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Ketuk untuk melanjutkan penyiapan profil kerja"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tap untuk melanjutkan penyiapan profil kerja"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Tidak dapat menyiapkan profil kerja Anda. Hubungi departemen TI atau coba lagi nanti."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Perangkat Anda tidak mendukung profil kerja"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Pengguna ini tidak dapat memiliki profil kerja"</string>

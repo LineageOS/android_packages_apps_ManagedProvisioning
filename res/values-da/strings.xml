@@ -89,7 +89,7 @@
     <string name="work_profile_setup_later_message" msgid="2446733709871989895">"Du kan konfigurere din arbejdsprofil senere fra den app til enhedsadministration, der bruges i din organisation."</string>
     <string name="work_profile_setup_continue" msgid="6549708818974016509">"Fortsæt"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Stop"</string>
-    <string name="provisioning" msgid="4512493827019163451">"Leverer"</string>
+    <string name="provisioning" msgid="4512493827019163451">"Provisionerer"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Konfigurerer CA-certifikater"</string>
     <string name="setup_profile_start_setup" msgid="6793984532953528297">"Konfigurer din profil. Start konfiguration"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Konfigurer din profil. Kryptering"</string>

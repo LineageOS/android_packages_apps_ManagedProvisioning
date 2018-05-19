@@ -50,12 +50,12 @@
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"رمزگذاری"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"رمزگذاری کامل شد"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"برای ادامه راه‌اندازی نمایه کاری‌تان، ضربه بزنید"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاریتان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاری‌تان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"دستگاهتان از نمایه‌های کاری پشتیبانی نمی‌کند"</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"این کاربر نمی‌تواند نمایه کاری داشته باشد"</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"نمی‌توان نمایه‌های کاری را در دستگاه مدیریت شده تنظیم کرد"</string>
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"نمایه کاری ایجاد نمی‌شود زیرا به حداکثر تعداد کاربران در دستگاهتان رسیده‌اید. حداقل یک کاربر را پاک کنید و دوباره امتحان کنید."</string>
-    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"نمایه کاریتان از سوی این برنامه راه‌انداز پشتیبانی نمی‌شود. باید راه‌انداز خودتان را به راه‌اندازی تغییر دهید که سازگار است."</string>
+    <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"نمایه کاری‌تان از سوی این برنامه راه‌انداز پشتیبانی نمی‌شود. باید راه‌انداز خودتان را به راه‌اندازی تغییر دهید که سازگار است."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"لغو"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"تأیید"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"تنظیم کاربر کامل نیست"</string>

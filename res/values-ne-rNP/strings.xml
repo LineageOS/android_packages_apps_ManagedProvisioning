@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"आफ्नो संगठनका गोपनीयता नीतिहरू लगायत थप जानकारीको लागि आफ्नो प्रशासकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"थप जान्नुहोस्"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"रद्द गर्नुहोस्"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"ठीक छ"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"ठिक छ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"म स्वीकृति दिन्छु"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक प्रयोगकर्ता"</string>
@@ -57,7 +57,7 @@
     <string name="maximum_user_limit_reached" msgid="4821228722266114449">"कार्य प्रोफाइल बनाउनु सकिँदैन, किनकि तपाईँले यन्त्रको अधिकतम प्रयोगकर्ता संख्या पुगिसक्नु भएको छ। कम्तीमा एक प्रयोगकर्ता हटाई  पुन: प्रयास गर्नुहोस्।"</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"तपाईँको कार्य प्रोफाइल यस सुरुवातकर्ता अनुप्रयोग समर्थित छैन। तपाईँले यससँग उपयुक्त एउटा सुरुवातकर्तामा स्विच गर्न आवश्यक छ।"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द गर्नुहोस्"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"ठीक छ"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ठिक छ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"प्रयोगकर्ता सेटअप सम्पन्न भएन"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
     <string name="setup_work_device" msgid="4243324420514896773">"कार्य प्रोफाइलको यन्त्रलाई सेटअप गर्नुहोस्"</string>
@@ -69,7 +69,7 @@
     <string name="preprovisioning_error_encryption_not_supported" msgid="4633230675475838898">"तपाईँको यन्त्रले इन्क्रिप्सनलाई समर्थन गर्दैन। आफ्नो IT विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"सेटअप रोकी तपाईँको यन्त्रको डेटा मेटाउने हो?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"रद्द गर्नुहोस्"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"ठीक छ"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ठिक छ"</string>
     <string name="device_owner_error_reset" msgid="1609782972753569267">"रिसेट गर्नुहोस्"</string>
     <string name="device_owner_error_general" msgid="5962462955470123776">"तपाईँको उपकरण स्थापना गर्न सकिएन। तपाईँको आईटी विभागमा सम्पर्क गर्नुहोस्।"</string>
     <string name="device_owner_error_already_provisioned" msgid="49944866843771627">"यो यन्त्र पहिले नै स्थापना भएको छ"</string>
