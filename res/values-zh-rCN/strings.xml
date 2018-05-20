@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"正在设置工作设备…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"正在处理设置数据…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在连接到 WLAN 网络…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"正在连接到移动网络…"</string>
     <string name="progress_download" msgid="3522436271691064624">"正在下载管理应用…"</string>
     <string name="progress_install" msgid="2258045670385866183">"正在安装管理应用…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"正在移除不需要的系统应用…"</string>

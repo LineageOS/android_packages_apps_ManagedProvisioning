@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"A configurar o dispositivo de trabalho..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"A processar os dados de configuração..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"A ligar à rede Wi-Fi..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"A ligar à rede móvel…"</string>
     <string name="progress_download" msgid="3522436271691064624">"A transferir a aplicação de administração..."</string>
     <string name="progress_install" msgid="2258045670385866183">"A instalar a aplicação de administração..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"A remover aplic. do sistema não necessárias…"</string>

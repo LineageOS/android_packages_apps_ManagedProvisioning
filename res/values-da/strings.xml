@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Arbejdsenheden konfigureres..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Behandler konfigurationsdata…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Opretter forbindelse til Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Opretter forbindelse til netværk…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Downloader administrationsappen…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Installerer administrationsappen…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Fjerner systemapps, der ikke er påkrævede…"</string>
@@ -125,7 +126,7 @@
     <string name="info_anim_title_1" msgid="2657512519467714760">"Adskil arbejde og privatliv"</string>
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"Ét sted til arbejdsapps"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"Luk for arbejdet, når du er færdig"</string>
-    <string name="provisioning" msgid="4512493827019163451">"Leverer"</string>
+    <string name="provisioning" msgid="4512493827019163451">"Provisionerer"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Konfigurerer CA-certifikater"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Konfigurer din profil"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"Ved at bruge en arbejdsprofil kan du adskille arbejdsdata fra personlige data"</string>

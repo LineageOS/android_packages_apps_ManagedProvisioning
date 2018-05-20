@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"ਕਾਰਜ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ਸੈਟਅਪ  ਡਾਟਾ  ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ਐਡਮਿਨ ਐਪ ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ਐਡਮਿਨ ਐਪ ਇੰਸਟੌਲ ਕਰ ਰਿਹਾ ਹੈ..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ਗੈਰ-ਲੋੜੀਂਦੀਆਂ ਸਿਸਟਮ ਐਪਾਂ ਹਟਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…"</string>
