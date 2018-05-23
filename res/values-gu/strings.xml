@@ -46,7 +46,7 @@
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"તમે પહેલેથી કાર્યાલયની પ્રોફાઇલ ધરાવો છો. નિમ્નલિખિત ઍપ્લિકેશનના ઉપયોગ દ્વારા તેનું સંચાલન થાય છે:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"આગળ વધતા પહેલાં, "<a href="#read_this_link">"આ વાંચો"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"જો ચાલુ રાખો છો, તો આ પ્રોફાઇલમાંની તમામ ઍપ્લિકેશનો અને ડેટા કાઢી નાખવામાં આવશે."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"કાઢી નાખો"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"ડિલીટ કરો"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"રદ કરો"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"તમારી કાર્યાલયની પ્રોફાઇલ સેટ કરવા માટે, તમારા ઉપકરણને એન્ક્રિપ્ટ કરવાની જરૂર છે. આમાં થોડો સમય લાગી શકે છે."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"આ ઉપકરણ સેટ કરવા માટે, તેને પહેલાં એન્ક્રિપ્ટ કરવાની જરૂર છે. આમાં થોડો સમય લાગી શકે છે."</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"કાર્ય ઉપકરણ સેટ કરી રહ્યાં છીએ..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"સેટઅપ ડેટા પર પ્રક્રિયા કરી રહ્યું છે..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"વાઇ-ફાઇ સાથે કનેક્ટ કરી રહ્યું છે..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"મોબાઇલ નેટવર્કથી કનેક્ટ થઈ રહ્યાં છીએ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"વ્યવસ્થાપક ઍપ્લિકેશન ડાઉનલોડ કરી રહ્યું છે..."</string>
     <string name="progress_install" msgid="2258045670385866183">"વ્યવસ્થાપક ઍપ્લિકેશન ઇન્સ્ટોલ કરે છે..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"બિન-આવશ્યક સિસ્ટમ ઍપ્લિકેશનો દૂર કરે છે…"</string>

@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"ಕೆಲಸದ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ಸೆಟಪ್‌ ಡೇಟಾ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ವೈ-ಫೈಗೆ ಸಂಪರ್ಕಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ಮೊಬೈಲ್‌ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="progress_download" msgid="3522436271691064624">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ಸಿಸ್ಟಂ ಅಗತ್ಯವಿಲ್ಲದ ಆಪ್‌ ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ"</string>

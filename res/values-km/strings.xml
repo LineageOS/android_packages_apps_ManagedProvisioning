@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"កំពុង​រៀប​ចំ​ឧបករណ៍ការងារ…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"កំពុងដំណើរការទិន្នន័យដំឡើង…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"កំពុងភ្ជាប់ទៅ Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"កំពុង​ភ្ជាប់ទៅ​បណ្ដាញ​​ទូរសព្ទ​ចល័ត…"</string>
     <string name="progress_download" msgid="3522436271691064624">"កំពុងទាញយកកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_install" msgid="2258045670385866183">"កំពុងដំឡើងកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"កំពុងលុបកម្មវិធីប្រព័ន្ធដែលមិនចាំបាច់…"</string>

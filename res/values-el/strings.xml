@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Ρύθμιση συσκευής εργασίας..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Επεξεργασία δεδομένων ρύθμισης…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Σύνδεση με Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Σύνδεση σε δίκτυο κινητής τηλεφωνίας…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Λήψη εφαρμογής διαχείρισης…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Εγκατάσταση εφαρμογής διαχείρισης…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Κατάργηση μη απαιτούμενων εφαρμ. συστήματος…"</string>

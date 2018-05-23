@@ -67,9 +67,10 @@
     <string name="setup_work_device" msgid="6003988351437862369">"कार्य यन्त्र सेटअप गर्दै…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटा प्रशोधन गर्दै..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi मा जडान गर्दै..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाइल नेटवर्कमा जडान गर्दै…"</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासकीय अनुप्रयोग डाउनलोड गर्दै..."</string>
     <string name="progress_install" msgid="2258045670385866183">"प्रशासकीय अनुप्रयोग स्थापना गर्दै..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"प्रणाली सम्बन्धी अनावश्यक एप्स हटाउँदै…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"प्रणालीसम्बन्धी अनावश्यक एप्स हटाउँदै…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"अन्तिम रूप दिँदै…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"यन्त्र मालिक मिलाउँदै..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"यन्त्रलाई सुरुवात गर्दै…"</string>

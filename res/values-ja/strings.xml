@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"仕事用端末を設定中…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"セットアップデータを処理しています…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiに接続しています…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"モバイル ネットワークに接続しています…"</string>
     <string name="progress_download" msgid="3522436271691064624">"管理アプリをダウンロードしています…"</string>
     <string name="progress_install" msgid="2258045670385866183">"管理アプリをインストールしています…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"不要なシステムアプリを削除しています…"</string>

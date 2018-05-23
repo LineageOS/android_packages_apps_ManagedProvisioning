@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Служебното устройство се настройва…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Данните за настройването се обработват…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Установява се връзка с Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Установява се връзка с мобилната мрежа…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Приложението за администриране се изтегля…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Приложението за администриране се инсталира…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Незадълж. системни приложения се премахват…"</string>
