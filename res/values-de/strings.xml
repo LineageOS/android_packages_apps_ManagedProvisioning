@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Dienstgerät wird eingerichtet…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Einrichtungsdaten werden verarbeitet…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"WLAN-Verbindung wird hergestellt…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Verbindung mit Mobilfunknetz wird hergestellt…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Admin-App wird heruntergeladen…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Admin-App wird installiert…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Nicht benötigte System-Apps werden entfernt…"</string>

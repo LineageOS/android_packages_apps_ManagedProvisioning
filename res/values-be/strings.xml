@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Ідзе наладжванне працоўнай прылады…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Апрацоўка даных наладжвання..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Падлучэнне да Wi-Fi..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Ідзе падключэнне да мабільнага інтэрнэту…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Спампоўка праграмы для адміністравання..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Усталёўка праграмы для адміністравання..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Ідзе выдаленне непатрэбных сістэмных праграм…"</string>

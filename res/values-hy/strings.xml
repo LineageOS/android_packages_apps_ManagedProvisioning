@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Աշխատանքային սարքի կարգավորում…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Տեղադրման տվյալների մշակում…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Կապակցում Wi-Fi-ին..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Միացում բջջային ցանցին…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Ադմինիստրատոր հավելվածի ներբեռնում…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Ադմինիստրատոր հավելվածի տեղադրում…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Համակարգի ոչ անհրաժեշտ հավելվածները հեռացվում են…"</string>
