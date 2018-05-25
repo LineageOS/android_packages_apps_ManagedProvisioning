@@ -112,7 +112,7 @@
     </style>
 
     <style name="InfoAnimationTitle" parent="SuwBaseHeaderTitle">
-        <item name="android:layout_width">@dimen/info_view_width</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:breakStrategy">balanced</item>
         <item name="android:gravity">center</item>
