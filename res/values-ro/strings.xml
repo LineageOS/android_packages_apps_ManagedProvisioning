@@ -154,4 +154,7 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> și <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"Poate dura câteva minute"</string>
+    <string name="work_profile_description" msgid="8524116010729569213">"Aplicațiile dvs. de lucru vor fi păstrate în acest profil și vor fi gestionate de organizația dvs."</string>
+    <string name="device_owner_description" msgid="168013145812679664">"Acest dispozitiv va fi păstrat în siguranță și gestionat de organizația dvs."</string>
 </resources>

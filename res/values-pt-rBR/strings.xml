@@ -42,7 +42,7 @@
     <string name="managed_device_info" msgid="1529447646526616811">"Informações do dispositivo gerenciado"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabalho"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuário principal"</string>
-    <string name="delete_profile_title" msgid="2841349358380849525">"Deseja excluir o perfil já existente?"</string>
+    <string name="delete_profile_title" msgid="2841349358380849525">"Quer excluir o perfil já existente?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Você já tem um perfil de trabalho. Ele é gerenciado usando o seguinte app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Antes de prosseguir, "<a href="#read_this_link">"leia isso"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Se você continuar, todos os apps e dados deste perfil serão excluídos."</string>
@@ -154,4 +154,7 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> e <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"Isso pode levar alguns minutos"</string>
+    <string name="work_profile_description" msgid="8524116010729569213">"Seus apps de trabalho serão mantidos neste perfil e gerenciados pela sua organização"</string>
+    <string name="device_owner_description" msgid="168013145812679664">"Este dispositivo será mantido em segurança por sua organização"</string>
 </resources>
