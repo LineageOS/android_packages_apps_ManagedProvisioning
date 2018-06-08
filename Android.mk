@@ -15,6 +15,7 @@ LOCAL_PACKAGE_NAME := ManagedProvisioning
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 # Packages to be included in code coverage runs. This does not affect production builds.
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.managedprovisioning.*
