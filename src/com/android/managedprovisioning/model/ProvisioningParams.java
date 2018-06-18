@@ -604,6 +604,11 @@ public final class ProvisioningParams extends PersistableBundlable {
             return this;
         }
 
+        /**
+         * Builds the {@link ProvisioningParams} object. Note that {@link
+         * #setProvisioningAction(String)} and {@link #setDeviceAdminComponentName(ComponentName)}
+         * methods must be called with a non-null parameter before this is called.
+         */
         public ProvisioningParams build() {
             return new ProvisioningParams(this);
         }

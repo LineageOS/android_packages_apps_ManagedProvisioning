@@ -15,7 +15,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-test \
     mockito-target-minus-junit4 \
     espresso-core \
-    espresso-intents
+    espresso-intents \
+    truth-prebuilt
 
 LOCAL_INSTRUMENTATION_FOR := ManagedProvisioning
 LOCAL_COMPATIBILITY_SUITE := device-tests
