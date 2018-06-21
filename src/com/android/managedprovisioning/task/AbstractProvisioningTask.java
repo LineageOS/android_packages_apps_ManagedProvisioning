@@ -51,10 +51,18 @@ public abstract class AbstractProvisioningTask {
         mTimeLogger = new TimeLogger(context, getMetricsCategory());
     }
 
+    /**
+     * Calls {@link Callback#onSuccess(AbstractProvisioningTask)} on the callback given in the
+     * constructor.
+     */
     protected final void success() {
         mCallback.onSuccess(this);
     }
 
+    /**
+     * Calls {@link Callback#onError(AbstractProvisioningTask, int)} on the callback given in the
+     * constructor.
+     */
     protected final void error(int resultCode) {
         mCallback.onError(this, resultCode);
     }
