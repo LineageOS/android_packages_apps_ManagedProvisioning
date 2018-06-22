@@ -30,6 +30,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
@@ -39,6 +40,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
 
 import android.accounts.Account;
@@ -50,8 +52,8 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.PersistableBundle;
+import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -61,6 +63,7 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Properties;
 import org.mockito.Mock;
@@ -80,6 +83,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final boolean TEST_STARTED_BY_TRUSTED_SOURCE = true;
     private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
     private static final boolean TEST_SKIP_ENCRYPTION = true;
+    private static final boolean TEST_USE_MOBILE_DATA = false;
     private static final boolean TEST_SKIP_USER_SETUP = true;
     private static final long TEST_PROVISIONING_ID = 2000L;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
@@ -143,10 +147,11 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 new Utils(), mSharedPreferences);
     }
 
+    // TODO(alexkershaw): split this huge test into individual tests using
+    // buildNfcProvisioningProperties and buildNfcProvisioningIntent.
     public void testParse_nfcProvisioningIntent() throws Exception {
         // GIVEN a NFC provisioning intent with all supported data.
         Properties props = new Properties();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
         props.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME);
         props.setProperty(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
@@ -161,23 +166,14 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         // GIVEN main color is supplied even though it is not supported in NFC provisioning.
         props.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, Integer.toString(TEST_MAIN_COLOR));
 
-        props.store(stream, "NFC provisioning intent" /* data description */);
-
-        NdefRecord record = NdefRecord.createMime(
-                DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC,
-                stream.toByteArray());
-        NdefMessage ndfMsg = new NdefMessage(new NdefRecord[]{record});
-
-        Intent intent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED)
-                .setType(MIME_TYPE_PROVISIONING_NFC)
-                .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
+        Intent intent = buildNfcProvisioningIntent(props);
 
         // WHEN the intent is parsed by the parser.
         ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
 
 
         // THEN ProvisionParams is constructed as expected.
-        assertEquals(
+        assertThat(
                 ProvisioningParams.Builder.builder()
                         // THEN NFC provisioning is translated to ACTION_PROVISION_MANAGED_DEVICE
                         // action.
@@ -205,8 +201,34 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                         .setAdminExtrasBundle(getTestAdminExtrasPersistableBundle())
                         .setStartedByTrustedSource(true)
                         .setIsNfc(true)
-                        .build(),
-                params);
+                        .build())
+                .isEqualTo(params);
+    }
+
+    public void testParse_nfcProvisioningIntent_setUseMobileDataTrue()
+            throws Exception {
+        Properties properties = buildNfcProvisioningProperties();
+        properties.setProperty(EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(true));
+        Intent intent = buildNfcProvisioningIntent(properties);
+
+        assertThat(mPropertiesProvisioningDataParser.parse(intent).useMobileData).isTrue();
+    }
+
+    public void testParse_nfcProvisioningIntent_setUseMobileDataFalse()
+            throws Exception {
+        Properties properties = buildNfcProvisioningProperties();
+        properties.setProperty(EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(false));
+        Intent intent = buildNfcProvisioningIntent(properties);
+
+        assertThat(mPropertiesProvisioningDataParser.parse(intent).useMobileData).isFalse();
+    }
+
+    public void testParse_nfcProvisioningIntent_useMobileDataDefaultsToFalse() throws Exception {
+        Properties properties = buildNfcProvisioningProperties();
+        properties.remove(EXTRA_PROVISIONING_USE_MOBILE_DATA);
+        Intent intent = buildNfcProvisioningIntent(properties);
+
+        assertThat(mPropertiesProvisioningDataParser.parse(intent).useMobileData).isFalse();
     }
 
     public void testParse_OtherIntentsThrowsException() {
@@ -233,7 +255,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         Intent nfcIntent = new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED);
         // WHEN getting first ndef record
         // THEN it should return null
-        assertNull(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent));
+        assertThat(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent)).isNull();
     }
 
     public void testGetFirstNdefRecord_noNfcMimeType() {
@@ -246,7 +268,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
         // WHEN getting first ndef record
         // THEN it should return null
-        assertNull(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent));
+        assertThat(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent)).isNull();
     }
 
     public void testGetFirstNdefRecord() {
@@ -261,7 +283,8 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, new NdefMessage[]{ndfMsg});
         // WHEN getting first ndef record
         // THEN valid record should be returned
-        assertEquals(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent), record);
+        assertThat(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent))
+                .isEqualTo(record);
     }
 
     private static Properties setTestWifiInfo(Properties props) {
@@ -322,5 +345,45 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         bundle.putString("key2", "val2");
         bundle.putString("key3", "val3");
         return bundle;
+    }
+
+    private Properties buildNfcProvisioningProperties() throws Exception {
+        Properties properties = new Properties();
+        properties.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME);
+        properties.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                TEST_COMPONENT_NAME.flattenToString());
+        setTestWifiInfo(properties);
+        setTestTimeTimeZoneAndLocale(properties);
+        setTestDeviceAdminDownload(properties);
+        properties.setProperty(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, getTestAdminExtrasString());
+        properties.setProperty(
+                EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+                Boolean.toString(TEST_SKIP_ENCRYPTION));
+        properties.setProperty(
+                EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(TEST_USE_MOBILE_DATA));
+        properties.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, Integer.toString(TEST_MAIN_COLOR));
+        return properties;
+    }
+
+    private Intent buildNfcProvisioningIntent(Properties properties) throws IOException {
+        NdefMessage[] ndefMessages = new NdefMessage[] {
+            new NdefMessage(new NdefRecord[] {
+                NdefRecord.createMime(
+                        DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC,
+                        buildNfcProvisioningMimeData(properties))
+            })
+        };
+        return new Intent(NfcAdapter.ACTION_NDEF_DISCOVERED)
+                .setType(MIME_TYPE_PROVISIONING_NFC)
+                .putExtra(NfcAdapter.EXTRA_NDEF_MESSAGES, ndefMessages);
+
+    }
+
+    private byte[] buildNfcProvisioningMimeData(Properties properties)
+            throws IOException {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        properties.store(stream, /* comments= */ "NFC provisioning intent");
+        return stream.toByteArray();
     }
 }
