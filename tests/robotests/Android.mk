@@ -9,7 +9,9 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_JAVA_LIBRARIES := \
     junit \
     platform-robolectric-3.6.1-prebuilt \
-    telephony-common
+    telephony-common \
+    truth-prebuilt \
+    mockito-robolectric-prebuilt
 
 LOCAL_INSTRUMENTATION_FOR := ManagedProvisioning
 LOCAL_MODULE := ManagedProvisioningRoboTests
@@ -28,7 +30,9 @@ LOCAL_MODULE := RunManagedProvisioningRoboTests
 LOCAL_SDK_VERSION := current
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    ManagedProvisioningRoboTests
+    ManagedProvisioningRoboTests \
+    truth-prebuilt \
+    mockito-robolectric-prebuilt
 
 LOCAL_TEST_PACKAGE := ManagedProvisioning
 
