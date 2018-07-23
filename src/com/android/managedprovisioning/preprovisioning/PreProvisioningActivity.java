@@ -342,6 +342,15 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     private void initiateUIDeviceOwner(String packageName, Drawable packageIcon,
             @NonNull String termsHeaders, CustomizationParams customization) {
+        // set up the cancel button if it exists
+        View cancelView = findViewById(R.id.close_button);
+        if (cancelView != null) {
+            cancelView.setOnClickListener(v -> {
+                ProvisionLogger.logi("Close button (close_button) is clicked.");
+                PreProvisioningActivity.this.onBackPressed();
+            });
+        }
+
         // short terms info text with clickable 'view terms' link
         TextView shortInfoText = (TextView) findViewById(R.id.device_owner_terms_info);
         shortInfoText.setText(assembleDOTermsMessage(termsHeaders, customization.orgName));
