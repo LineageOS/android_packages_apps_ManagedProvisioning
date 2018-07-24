@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning.preprovisioning.terms;
+package com.android.managedprovisioning.preprovisioning.terms.adapters;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
+import android.annotation.ColorInt;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +29,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.HtmlToSpannedParser;
+import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import java.util.List;
 
@@ -37,24 +37,27 @@ import java.util.List;
  * Allows for displaying {@link TermsDocument} objects in an
  * {@link android.widget.ExpandableListView}.
  */
-class TermsListAdapter extends BaseExpandableListAdapter {
+public class TermsListAdapter extends BaseExpandableListAdapter {
     private final List<TermsDocument> mTermsDocuments;
     private final LayoutInflater mInflater;
-    private final HtmlToSpannedParser mHtmlToSpannedParser;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final GroupExpandedInfo mGroupExpandedInfo;
+    private final Context mContext;
+    private final int mStatusBarColor;
 
     /**
      * Creates a new instance of the class.
      */
-    TermsListAdapter(List<TermsDocument> termsDocuments, LayoutInflater layoutInflater,
-            AccessibilityContextMenuMaker contextMenuMaker, HtmlToSpannedParser htmlToSpannedParser,
-            GroupExpandedInfo groupExpandedInfo) {
+    public TermsListAdapter(Context context, List<TermsDocument> termsDocuments,
+            LayoutInflater layoutInflater, AccessibilityContextMenuMaker
+            contextMenuMaker, GroupExpandedInfo groupExpandedInfo,
+            @ColorInt int statusBarColor) {
         mTermsDocuments = checkNotNull(termsDocuments);
         mInflater = checkNotNull(layoutInflater);
-        mHtmlToSpannedParser = checkNotNull(htmlToSpannedParser);
         mGroupExpandedInfo = checkNotNull(groupExpandedInfo);
         mContextMenuMaker = checkNotNull(contextMenuMaker);
+        mContext = checkNotNull(context);
+        mStatusBarColor = statusBarColor;
     }
 
     @Override
@@ -141,12 +144,7 @@ class TermsListAdapter extends BaseExpandableListAdapter {
 
         TermsDocument disclaimer = getDisclaimer(groupPosition);
         TextView textView = view.findViewById(R.id.disclaimer_content);
-        Spanned content = mHtmlToSpannedParser.parseHtml(disclaimer.getContent());
-        textView.setText(content);
-        textView.setContentDescription(
-                parent.getResources().getString(R.string.section_content, disclaimer.getHeading(),
-                        content));
-        textView.setMovementMethod(LinkMovementMethod.getInstance()); // makes html links clickable
+        TermsAdapterUtils.populateContentTextView(mContext, textView, disclaimer, mStatusBarColor);
         mContextMenuMaker.registerWithActivity(textView);
         return view;
     }
@@ -160,7 +158,7 @@ class TermsListAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
-    interface GroupExpandedInfo {
+    public interface GroupExpandedInfo {
         boolean isGroupExpanded(int groupPosition);
     }
 }

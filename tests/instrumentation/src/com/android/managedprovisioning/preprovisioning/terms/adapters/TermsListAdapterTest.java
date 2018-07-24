@@ -13,20 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning.preprovisioning.terms;
+package com.android.managedprovisioning.preprovisioning.terms.adapters;
 
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
 
-import android.graphics.Color;
-import android.support.test.InstrumentationRegistry;
+import android.content.Context;
 import android.support.test.filters.SmallTest;
 import android.view.LayoutInflater;
 
-import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.HtmlToSpannedParser;
-import com.android.managedprovisioning.preprovisioning.WebActivity;
+import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,11 +35,11 @@ import java.util.List;
 
 @SmallTest
 public class TermsListAdapterTest {
-    private @Mock LayoutInflater mLayoutInflater;
-    private @Mock AccessibilityContextMenuMaker mContextMenuMaker;
+    @Mock private LayoutInflater mLayoutInflater;
+    @Mock private AccessibilityContextMenuMaker mContextMenuMaker;
+    @Mock private Context mContext;
 
     private List<TermsDocument> mDocs;
-    private HtmlToSpannedParser mHtmlToSpannedParser;
     private TermsListAdapter.GroupExpandedInfo mGroupInfoAlwaysCollapsed = i -> false;
 
     @Before
@@ -53,17 +50,13 @@ public class TermsListAdapterTest {
         TermsDocument doc2 = TermsDocument.createInstance("h2", "c2");
         TermsDocument doc3 = TermsDocument.createInstance("h3", "c3");
         mDocs = Arrays.asList(doc1, doc2, doc3);
-
-        mHtmlToSpannedParser = new HtmlToSpannedParser(new ClickableSpanFactory(Color.MAGENTA),
-                url -> WebActivity.createIntent(InstrumentationRegistry.getTargetContext(), url,
-                        Color.BLUE));
     }
 
     @Test
     public void returnsCorrectDocument() {
         // given: an adapter
-        TermsListAdapter adapter = new TermsListAdapter(mDocs, mLayoutInflater, mContextMenuMaker,
-                mHtmlToSpannedParser, mGroupInfoAlwaysCollapsed);
+        TermsListAdapter adapter = new TermsListAdapter(mContext, mDocs, mLayoutInflater,
+                mContextMenuMaker, mGroupInfoAlwaysCollapsed, /* statusBarColor= */ 1);
 
         // when: asked for a document from the initially passed-in list
         for (int i = 0; i < mDocs.size(); i++) {
