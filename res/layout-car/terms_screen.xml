@@ -29,6 +29,7 @@
         android:title="@string/terms"
         android:layout_width="match_parent"
         android:layout_height="@dimen/car_app_bar_height"
+        android:minHeight="@dimen/car_app_bar_height"
         style="@style/CarToolbar"/>
 
     <androidx.car.widget.PagedListView

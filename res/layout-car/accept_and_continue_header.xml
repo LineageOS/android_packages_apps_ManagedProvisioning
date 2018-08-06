@@ -23,10 +23,9 @@
         android:id="@+id/close_button"
         android:layout_width="@dimen/car_primary_icon_size"
         android:layout_height="@dimen/car_primary_icon_size"
-        android:src="@drawable/ic_nav_arrow_back"
+        android:src="@drawable/car_terms_back_button"
         android:layout_alignParentLeft="true"
         android:background="@drawable/car_button_ripple_background"
-        android:tint="@color/car_card_light"
         android:layout_marginStart="@dimen/car_padding_4"
         android:layout_marginTop="@dimen/car_padding_4"/>
 
