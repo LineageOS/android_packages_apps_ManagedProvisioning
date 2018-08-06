@@ -34,6 +34,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
+
 import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences.DEFAULT_PROVISIONING_ID;
@@ -53,20 +55,24 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.util.AtomicFile;
 import android.util.Xml;
+
 import com.android.internal.util.FastXmlSerializer;
-import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.PersistableBundlable;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.Utils;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlSerializer;
 
 /**
  * Provisioning parameters for Device Owner and Profile Owner provisioning.
@@ -81,6 +87,7 @@ public final class ProvisioningParams extends PersistableBundlable {
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED = false;
     public static final boolean DEFAULT_SKIP_USER_SETUP = true;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA = false;
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
@@ -119,13 +126,19 @@ public final class ProvisioningParams extends PersistableBundlable {
     @Nullable
     public final WifiInfo wifiInfo;
 
+    public final boolean useMobileData;
+
     /**
      * Package name of the device admin package.
      *
      * <p>At least one one of deviceAdminPackageName and deviceAdminComponentName should be
      * non-null.
+     * <p>
+     * In most cases, it is preferable to access the admin package name using
+     * {@link #inferDeviceAdminPackageName}.
      */
     @Deprecated
+    @Nullable
     public final String deviceAdminPackageName;
 
     /**
@@ -133,7 +146,11 @@ public final class ProvisioningParams extends PersistableBundlable {
      *
      * <p>At least one one of deviceAdminPackageName and deviceAdminComponentName should be
      * non-null.
+     * <p>
+     * In most cases, it is preferable to access the admin component name using
+     * {@link #inferDeviceAdminComponentName(Utils, Context, int)} .
      */
+    @Nullable
     public final ComponentName deviceAdminComponentName;
 
     public final String deviceAdminLabel;
@@ -207,6 +224,24 @@ public final class ProvisioningParams extends PersistableBundlable {
         return inferStaticDeviceAdminPackageName(deviceAdminComponentName, deviceAdminPackageName);
     }
 
+    /**
+     * Due to legacy reason, DPC is allowed to provide either package name or the component name.
+     * If component name is not {@code null}, we will return it right away. Otherwise, we will
+     * infer the component name.
+     * <p>
+     * In most cases, it is preferable to access the admin component name using this method.
+     * But if the purpose is to verify the device admin component name, you should use
+     * {@link Utils#findDeviceAdmin(String, ComponentName, Context, int)} instead.
+     */
+    public ComponentName inferDeviceAdminComponentName(Utils utils, Context context, int userId)
+            throws IllegalProvisioningArgumentException {
+        if (deviceAdminComponentName != null) {
+            return deviceAdminComponentName;
+        }
+        return utils.findDeviceAdmin(
+                deviceAdminPackageName, deviceAdminComponentName, context, userId);
+    }
+
     private ProvisioningParams(Builder builder) {
         provisioningId = builder.mProvisioningId;
         timeZone = builder.mTimeZone;
@@ -214,6 +249,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         locale = builder.mLocale;
 
         wifiInfo = builder.mWifiInfo;
+        useMobileData = builder.mUseMobileData;
 
         deviceAdminComponentName = builder.mDeviceAdminComponentName;
         deviceAdminPackageName = builder.mDeviceAdminPackageName;
@@ -259,6 +295,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putLong(EXTRA_PROVISIONING_LOCAL_TIME, localTime);
         bundle.putString(EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(locale));
         putPersistableBundlableIfNotNull(bundle, TAG_WIFI_INFO, wifiInfo);
+        bundle.putBoolean(EXTRA_PROVISIONING_USE_MOBILE_DATA, useMobileData);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, deviceAdminPackageName);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
                 StoreUtils.componentNameToString(deviceAdminComponentName));
@@ -297,6 +334,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         builder.setLocalTime(bundle.getLong(EXTRA_PROVISIONING_LOCAL_TIME));
         builder.setLocale(getStringAttrFromPersistableBundle(bundle,
                 EXTRA_PROVISIONING_LOCALE, StoreUtils::stringToLocale));
+        builder.setUseMobileData(bundle.getBoolean(EXTRA_PROVISIONING_USE_MOBILE_DATA));
         builder.setWifiInfo(getObjectAttrFromPersistableBundle(bundle,
                 TAG_WIFI_INFO, WifiInfo::fromPersistableBundle));
         builder.setDeviceAdminPackageName(bundle.getString(
@@ -437,6 +475,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mSkipUserConsent = DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT;
         private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
+        private boolean mUseMobileData = DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -557,6 +596,11 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setKeepAccountMigrated(boolean keepAccountMigrated) {
             mKeepAccountMigrated = keepAccountMigrated;
+            return this;
+        }
+
+        public Builder setUseMobileData(boolean useMobileData) {
+            mUseMobileData = useMobileData;
             return this;
         }
 
