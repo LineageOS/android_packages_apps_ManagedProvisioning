@@ -18,8 +18,8 @@
 -->
 <resources>
     <style name="CarToolbar">
-        <item name="android:subtitleTextAppearance">@style/TextAppearance.Car.Body2.Light</item>
-        <item name="android:titleTextAppearance">@style/TextAppearance.Car.Title2.Light</item>
+        <item name="android:subtitleTextAppearance">@style/TextAppearance.Car.Body3.Light</item>
+        <item name="android:titleTextAppearance">@style/TextAppearance.Car.Body1.Medium.Light</item>
         <item name="android:navigationIcon">@drawable/car_terms_back_button</item>
         <item name="android:navigationContentDescription">@*android:string/action_bar_up_description</item>
     </style>
