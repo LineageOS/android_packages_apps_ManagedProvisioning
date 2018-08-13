@@ -32,7 +32,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ผู้ดูแลระบบสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับอุปกรณ์นี้ ซึ่งรวมถึงกิจกรรมในเครือข่ายของคุณ ตลอดจนตำแหน่งของอุปกรณ์ ประวัติการโทร และประวัติการค้นหารายชื่อติดต่อ<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>โปรดติดต่อผู้ดูแลระบบเพื่อสอบถามข้อมูลเพิ่มเติม รวมทั้งนโยบายความเป็นส่วนตัวขององค์กร"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"หากต้องการใช้ฟีเจอร์การป้องกันขโมย อุปกรณ์ของคุณต้องมีการล็อกหน้าจอที่ป้องกันด้วยรหัสผ่าน"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายความเป็นส่วนตัวขององค์กร"</string>
-    <string name="learn_more_link" msgid="3012495805919550043">"ดูข้อมูลเพิ่มเติม"</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"เรียนรู้เพิ่มเติม"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ยกเลิก"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ตกลง"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ฉันยินยอม"</string>
@@ -67,7 +67,6 @@
     <string name="setup_work_device" msgid="6003988351437862369">"กำลังตั้งค่าอุปกรณ์ที่ทำงาน…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"กำลังดำเนินการกับข้อมูลการตั้งค่า…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"กำลังเชื่อมต่อ Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"กำลังเชื่อมต่อเครือข่ายมือถือ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"กำลังติดตั้งแอปผู้ดูแลระบบ…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"กำลังนำแอประบบที่ไม่จำเป็นออก…"</string>
@@ -107,8 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"คุณกำลังจะสร้างโปรไฟล์งานซึ่งจะมีองค์กรของคุณเป็นผู้จัดการและตรวจสอบ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"จะมีการสร้างโปรไฟล์สำหรับแอปงานของคุณ องค์กรของคุณจะเป็นผู้จัดการและตรวจสอบโปรไฟล์นี้และส่วนที่เหลือของอุปกรณ์ โดยจะเป็นไปตามข้อกำหนด"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"จะมีการสร้างโปรไฟล์สำหรับแอปงานของคุณ องค์กรของคุณจะเป็นผู้จัดการและตรวจสอบโปรไฟล์นี้และส่วนที่เหลือของอุปกรณ์ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>"</string>
-    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการ ตรวจสอบ และรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนด <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการ ตรวจสอบ และรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการและรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนด <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการและรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ลิงก์นี้ไม่ปลอดภัยและไม่สามารถเปิดได้จนกว่าจะตั้งค่าอุปกรณ์เสร็จสิ้น: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"โปรดติดต่อ<xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>หากมีคำถาม"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"โปรดติดต่อผู้ดูแลระบบขององค์กรหากมีคำถาม"</string>
@@ -136,7 +135,7 @@
     <string name="setup_device" msgid="6725265673245816366">"ตั้งค่าอุปกรณ์"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"ตั้งค่าอุปกรณ์ การเข้ารหัส"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ตั้งค่าอุปกรณ์ กำลังแสดงความคืบหน้า"</string>
-    <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มดูข้อมูลเพิ่มเติม"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มเรียนรู้เพิ่มเติม"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"ไอคอน <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"หัวข้อของส่วน <xliff:g id="SECTION_HEADING">%1$s</xliff:g>"</string>
     <string name="section_content" msgid="8875502515704374394">"เนื้อหาของส่วน <xliff:g id="SECTION_HEADING">%1$s</xliff:g> คือ <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
