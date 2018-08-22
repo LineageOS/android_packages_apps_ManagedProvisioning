@@ -160,11 +160,15 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case WIFI_REQUEST_CODE:
                 if (resultCode == RESULT_CANCELED) {
                     ProvisionLogger.loge("User canceled wifi picking.");
-                } else if (resultCode == RESULT_OK) {
-                    ProvisionLogger.logd("Wifi request result is OK");
+                    setResult(resultCode);
+                    finish();
+                } else {
+                    if (resultCode == RESULT_OK) {
+                        ProvisionLogger.logd("Wifi request result is OK");
+                    }
+                    mController.initiateProvisioning(getIntent(), null /* cached params */,
+                            getCallingPackage());
                 }
-                mController.initiateProvisioning(getIntent(), null /* cached params */,
-                        getCallingPackage());
                 break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
