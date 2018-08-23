@@ -23,12 +23,24 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
@@ -40,21 +52,60 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMERS_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMER_CONTENT_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMER_HEADER_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_HIDDEN_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PAC_URL_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_PORT_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SSID_SHORT;
+
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
 
-import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
 import android.util.Base64;
+
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.StoreUtils;
@@ -81,13 +132,12 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_TIME_ZONE = "GMT";
     private static final Integer TEST_MAIN_COLOR = 65280;
     private static final boolean TEST_STARTED_BY_TRUSTED_SOURCE = true;
-    private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
+    private static final String TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = "true";
     private static final boolean TEST_SKIP_ENCRYPTION = true;
     private static final boolean TEST_USE_MOBILE_DATA = false;
     private static final boolean TEST_SKIP_USER_SETUP = true;
     private static final long TEST_PROVISIONING_ID = 2000L;
-    private static final Account TEST_ACCOUNT_TO_MIGRATE =
-            new Account("user@gmail.com", "com.google");
+    private static final String TEST_ACCOUNT_TO_MIGRATE ="user@gmail.com";
     private static final String INVALID_MIME_TYPE = "invalid-mime-type";
 
     // Wifi info
@@ -126,6 +176,14 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                     .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
                     .setMinVersion(TEST_MIN_SUPPORT_VERSION)
                     .build();
+    private static final String TEST_KEEP_ACCOUNT_MIGRATED = "true";
+    private static final String TEST_ORGANIZATION_NAME = "TestOrganizationName";
+    private static final String TEST_SUPPORT_URL = "https://www.support.url/";
+    private static final String TEST_DEVICE_ADMIN_PACKAGE_LABEL = "TestPackage";
+    private static final String TEST_SKIP_USER_CONSENT = "true";
+    private static final Uri TEST_URI = Uri.parse("https://www.google.com/");
+    private static final String TEST_URI_STRING = "https://www.google.com/";
+    private static final String TEST_DISCLAMER_HEADER = "Google";
 
     @Mock
     private Context mContext;
@@ -203,6 +261,11 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                         .setIsNfc(true)
                         .build())
                 .isEqualTo(params);
+    }
+
+    public void testParse_shortExtras_sameAsLongExtras() throws Exception {
+        assertThat(mPropertiesProvisioningDataParser.parse(buildIntentWithAllLongExtras()))
+            .isEqualTo(mPropertiesProvisioningDataParser.parse(buildIntentWithAllShortExtras()));
     }
 
     public void testParse_nfcProvisioningIntent_setUseMobileDataTrue()
@@ -287,6 +350,100 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 .isEqualTo(record);
     }
 
+    private Intent buildIntentWithAllShortExtras() throws Exception {
+        Properties propsShort = new Properties();
+        Bundle bundleShort = new Bundle();
+        bundleShort.putString(
+                EXTRA_PROVISIONING_DISCLAIMER_HEADER_SHORT, TEST_DISCLAMER_HEADER);
+        bundleShort.putParcelable(EXTRA_PROVISIONING_DISCLAIMER_CONTENT_SHORT, TEST_URI);
+        Parcelable[] parcelablesShort = {bundleShort};
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME_SHORT, TEST_PACKAGE_NAME);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME_SHORT,
+                TEST_COMPONENT_NAME.flattenToString());
+        setShortTestWifiInfo(propsShort);
+        setShortTestTimeTimeZoneAndLocale(propsShort);
+        setShortTestDeviceAdminDownload(propsShort);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE_SHORT, getTestAdminExtrasString());
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT,
+                Boolean.toString(TEST_SKIP_ENCRYPTION));
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_MAIN_COLOR_SHORT, Integer.toString(TEST_MAIN_COLOR));
+        propsShort.setProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT,
+                TEST_LEAVE_ALL_SYSTEM_APP_ENABLED);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE_SHORT, TEST_ACCOUNT_TO_MIGRATE);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT,
+                TEST_KEEP_ACCOUNT_MIGRATED);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT, TEST_ORGANIZATION_NAME);
+        propsShort.setProperty(EXTRA_PROVISIONING_SUPPORT_URL_SHORT, TEST_SUPPORT_URL);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT,
+                TEST_DEVICE_ADMIN_PACKAGE_LABEL);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT, TEST_SKIP_USER_CONSENT);
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT,
+                Boolean.toString(TEST_USE_MOBILE_DATA));
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT,
+                Boolean.toString(TEST_SKIP_USER_SETUP));
+        propsShort.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT, TEST_URI_STRING);
+        propsShort.setProperty(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI_STRING);
+
+        Intent intentShort = buildNfcProvisioningIntent(propsShort);
+        intentShort.putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort);
+        return intentShort;
+    }
+
+    private Intent buildIntentWithAllLongExtras() throws Exception {
+        Properties propsLong = new Properties();
+        Bundle bundleLong = new Bundle();
+        bundleLong.putString(EXTRA_PROVISIONING_DISCLAIMER_HEADER, TEST_DISCLAMER_HEADER);
+        bundleLong.putParcelable(EXTRA_PROVISIONING_DISCLAIMER_CONTENT, TEST_URI);
+        Parcelable[] parcelablesLong = {bundleLong};
+        propsLong.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME);
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                TEST_COMPONENT_NAME.flattenToString());
+        setTestWifiInfo(propsLong);
+        setTestTimeTimeZoneAndLocale(propsLong);
+        setTestDeviceAdminDownload(propsLong);
+        propsLong.setProperty(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, getTestAdminExtrasString());
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_SKIP_ENCRYPTION,
+                Boolean.toString(TEST_SKIP_ENCRYPTION));
+        propsLong.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, Integer.toString(TEST_MAIN_COLOR));
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                TEST_LEAVE_ALL_SYSTEM_APP_ENABLED);
+        propsLong.setProperty(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
+
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED);
+        propsLong.setProperty(EXTRA_PROVISIONING_ORGANIZATION_NAME, TEST_ORGANIZATION_NAME);
+        propsLong.setProperty(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL);
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL, TEST_DEVICE_ADMIN_PACKAGE_LABEL);
+        propsLong.setProperty(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT);
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(TEST_USE_MOBILE_DATA));
+        propsLong.setProperty(
+                EXTRA_PROVISIONING_SKIP_USER_SETUP, Boolean.toString(TEST_SKIP_USER_SETUP));
+        propsLong.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI, TEST_URI_STRING);
+        propsLong.setProperty(EXTRA_PROVISIONING_LOGO_URI, TEST_URI_STRING);
+
+        Intent intentLong = buildNfcProvisioningIntent(propsLong);
+        intentLong.putExtra(EXTRA_PROVISIONING_DISCLAIMERS, parcelablesLong);
+        return intentLong;
+    }
+
     private static Properties setTestWifiInfo(Properties props) {
         props.setProperty(EXTRA_PROVISIONING_WIFI_SSID, TEST_SSID);
         props.setProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, TEST_SECURITY_TYPE);
@@ -299,10 +456,41 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         return props;
     }
 
+    private static Properties setShortTestWifiInfo(Properties props) {
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_SSID_SHORT, TEST_SSID);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT, TEST_SECURITY_TYPE);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT, TEST_PASSWORD);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT, TEST_PROXY_HOST);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_PROXY_BYPASS_SHORT, TEST_PROXY_BYPASS_HOSTS);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_PAC_URL_SHORT, TEST_PAC_URL);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_PROXY_PORT_SHORT,
+                Integer.toString(TEST_PROXY_PORT));
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_HIDDEN_SHORT, Boolean.toString(TEST_HIDDEN));
+        return props;
+    }
+
     private static Properties setTestTimeTimeZoneAndLocale(Properties props) {
         props.setProperty(EXTRA_PROVISIONING_LOCAL_TIME, Long.toString(TEST_LOCAL_TIME));
         props.setProperty(EXTRA_PROVISIONING_TIME_ZONE, TEST_TIME_ZONE);
         props.setProperty(EXTRA_PROVISIONING_LOCALE, StoreUtils.localeToString(TEST_LOCALE));
+        return props;
+    }
+
+    private static Properties setShortTestTimeTimeZoneAndLocale(Properties props) {
+        props.setProperty(
+                EXTRA_PROVISIONING_LOCAL_TIME_SHORT, Long.toString(TEST_LOCAL_TIME));
+        props.setProperty(
+                EXTRA_PROVISIONING_TIME_ZONE_SHORT, TEST_TIME_ZONE);
+        props.setProperty(
+                EXTRA_PROVISIONING_LOCALE_SHORT, StoreUtils.localeToString(TEST_LOCALE));
         return props;
     }
 
@@ -316,13 +504,27 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         props.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                 TEST_COOKIE_HEADER);
         props.setProperty(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
-                Base64.encodeToString(TEST_PACKAGE_CHECKSUM,
-                        Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP));
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM, buildTestPackageChecksum());
         props.setProperty(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
-                Base64.encodeToString(TEST_SIGNATURE_CHECKSUM,
-                        Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP));
+                EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM, buildTestSignatureChecksum());
+        return props;
+    }
+
+    private static Properties setShortTestDeviceAdminDownload(Properties props) {
+        props.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE_SHORT,
+                Integer.toString(TEST_MIN_SUPPORT_VERSION));
+        props.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION_SHORT,
+                TEST_DOWNLOAD_LOCATION);
+        props.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT,
+                TEST_COOKIE_HEADER);
+        props.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM_SHORT, buildTestPackageChecksum());
+        props.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM_SHORT,
+                buildTestSignatureChecksum());
         return props;
     }
 
@@ -385,5 +587,15 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         properties.store(stream, /* comments= */ "NFC provisioning intent");
         return stream.toByteArray();
+    }
+
+    private static String buildTestPackageChecksum() {
+        return Base64.encodeToString(TEST_PACKAGE_CHECKSUM,
+                Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+    }
+
+    private static String buildTestSignatureChecksum() {
+        return Base64.encodeToString(TEST_SIGNATURE_CHECKSUM,
+                Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
     }
 }

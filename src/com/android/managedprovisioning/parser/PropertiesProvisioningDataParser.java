@@ -61,6 +61,7 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.IllformedLocaleException;
@@ -96,6 +97,18 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
         mSharedPreferences = checkNotNull(sharedPreferences);
     }
 
+    @Nullable
+    private String getPropertyFromLongName(Properties properties, String longName) {
+        if (properties.containsKey(longName)) {
+            return properties.getProperty(longName);
+        }
+        String shortName = ExtrasProvisioningDataParser.getShortExtraNames(longName);
+        if (properties.containsKey(shortName)) {
+            return properties.getProperty(shortName);
+        }
+        return null;
+    }
+
     public ProvisioningParams parse(Intent nfcIntent)
             throws IllegalProvisioningArgumentException {
         if (!ACTION_NDEF_DISCOVERED.equals(nfcIntent.getAction())) {
@@ -118,18 +131,20 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                         .setStartedByTrustedSource(true)
                         .setIsNfc(true)
                         .setProvisioningAction(mUtils.mapIntentToDpmAction(nfcIntent))
-                        .setDeviceAdminPackageName(props.getProperty(
-                                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));
-                if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME))
+                        .setDeviceAdminPackageName(
+                                getPropertyFromLongName(
+                                        props, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));
+                if ((s = getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME))
                         != null) {
                     builder.setDeviceAdminComponentName(ComponentName.unflattenFromString(s));
                 }
 
                 // Parse time zone, locale and local time.
-                builder.setTimeZone(props.getProperty(EXTRA_PROVISIONING_TIME_ZONE))
+                builder.setTimeZone(getPropertyFromLongName(props, EXTRA_PROVISIONING_TIME_ZONE))
                         .setLocale(StoreUtils.stringToLocale(
-                                props.getProperty(EXTRA_PROVISIONING_LOCALE)));
-                if ((s = props.getProperty(EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
+                                getPropertyFromLongName(props, EXTRA_PROVISIONING_LOCALE)));
+                if ((s = getPropertyFromLongName(props, EXTRA_PROVISIONING_LOCAL_TIME)) != null) {
                     builder.setLocalTime(Long.parseLong(s));
                 }
 
@@ -143,14 +158,16 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                         // Properties.load() for more details. The property value is optional.
                         .setAdminExtrasBundle(deserializeExtrasBundle(props,
                                 EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE));
-                if ((s = props.getProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED))
-                        != null) {
+                if ((s = getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED)) != null) {
                     builder.setLeaveAllSystemAppsEnabled(Boolean.parseBoolean(s));
                 }
-                if ((s = props.getProperty(EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
+                if ((s = getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_SKIP_ENCRYPTION)) != null) {
                     builder.setSkipEncryption(Boolean.parseBoolean(s));
                 }
-                if ((s = props.getProperty(EXTRA_PROVISIONING_USE_MOBILE_DATA)) != null) {
+                if ((s = getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_USE_MOBILE_DATA)) != null) {
                     builder.setUseMobileData(Boolean.parseBoolean(s));
                 }
                 ProvisionLogger.logi("End processing Nfc Payload.");
@@ -178,22 +195,24 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
      */
     @Nullable
     private WifiInfo parseWifiInfoFromProperties(Properties props) {
-        if (props.getProperty(EXTRA_PROVISIONING_WIFI_SSID) == null) {
+        if (getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_SSID) == null) {
             return null;
         }
         WifiInfo.Builder builder = WifiInfo.Builder.builder()
-                .setSsid(props.getProperty(EXTRA_PROVISIONING_WIFI_SSID))
-                .setSecurityType(props.getProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
-                .setPassword(props.getProperty(EXTRA_PROVISIONING_WIFI_PASSWORD))
-                .setProxyHost(props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST))
-                .setProxyBypassHosts(props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS))
-                .setPacUrl(props.getProperty(EXTRA_PROVISIONING_WIFI_PAC_URL));
+                .setSsid(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_SSID))
+                .setSecurityType(getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
+                .setPassword(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PASSWORD))
+                .setProxyHost(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PROXY_HOST))
+                .setProxyBypassHosts(getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_WIFI_PROXY_BYPASS))
+                .setPacUrl(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PAC_URL));
         // For parsing non-string parameters.
         String s = null;
-        if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
+        if ((s = getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PROXY_PORT)) != null) {
             builder.setProxyPort(Integer.parseInt(s));
         }
-        if ((s = props.getProperty(EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
+        if ((s = getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_HIDDEN)) != null) {
             builder.setHidden(Boolean.parseBoolean(s));
         }
 
@@ -206,27 +225,30 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
      */
     @Nullable
     private PackageDownloadInfo parsePackageDownloadInfoFromProperties(Properties props) {
-        if (props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION) == null) {
+        if (getPropertyFromLongName(
+                props, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION) == null) {
             return null;
         }
         PackageDownloadInfo.Builder builder = PackageDownloadInfo.Builder.builder()
-                .setLocation(props.getProperty(
+                .setLocation(getPropertyFromLongName(props,
                         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION))
-                .setCookieHeader(props.getProperty(
+                .setCookieHeader(getPropertyFromLongName(props,
                         EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER));
         // For parsing non-string parameters.
         String s = null;
-        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE)) != null) {
+        if ((s = getPropertyFromLongName(
+                props, EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE)) != null) {
             builder.setMinVersion(Integer.parseInt(s));
         }
-        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
+        if ((s = getPropertyFromLongName(
+                props, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
             // Still support SHA-1 for device admin package hash if we are provisioned by a Nfc
             // programmer.
             // TODO: remove once SHA-1 is fully deprecated.
             builder.setPackageChecksum(StoreUtils.stringToByteArray(s))
                     .setPackageChecksumSupportsSha1(true);
         }
-        if ((s = props.getProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
+        if ((s = getPropertyFromLongName(props, EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
                 != null) {
             builder.setSignatureChecksum(StoreUtils.stringToByteArray(s));
         }
@@ -243,7 +265,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
     private PersistableBundle deserializeExtrasBundle(Properties props, String extraName)
             throws IOException {
         PersistableBundle extrasBundle = null;
-        String serializedExtras = props.getProperty(extraName);
+        String serializedExtras = getPropertyFromLongName(props, extraName);
         if (serializedExtras != null) {
             Properties extrasProp = new Properties();
             extrasProp.load(new StringReader(serializedExtras));
