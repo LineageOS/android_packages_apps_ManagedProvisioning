@@ -43,6 +43,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -120,6 +121,7 @@ public class ProvisioningActivityTest {
     private static final Intent NFC_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
     private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
+    private static final int BROADCAST_TIEMOUT = 1000;
 
     private static class CustomIntentsTestRule extends IntentsTestRule<ProvisioningActivity> {
         private boolean mIsActivityRunning = false;
@@ -354,7 +356,8 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN factory reset should be invoked
-        verify(mUtils).sendFactoryResetBroadcast(any(Context.class), anyString());
+        verify(mUtils, timeout(BROADCAST_TIEMOUT))
+                .sendFactoryResetBroadcast(any(Context.class), anyString());
     }
 
     @Test
@@ -469,7 +472,8 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN factory reset should be invoked
-        verify(mUtils).sendFactoryResetBroadcast(any(Context.class), anyString());
+        verify(mUtils, timeout(BROADCAST_TIEMOUT))
+                .sendFactoryResetBroadcast(any(Context.class), anyString());
     }
 
     @Test
