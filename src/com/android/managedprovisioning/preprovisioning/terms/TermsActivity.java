@@ -20,7 +20,7 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.os.Bundle;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.ArraySet;
 import android.view.ContextMenu;
 import android.view.MenuItem;
