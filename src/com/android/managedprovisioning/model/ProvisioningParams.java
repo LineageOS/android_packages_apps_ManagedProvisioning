@@ -52,7 +52,7 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AtomicFile;
 import android.util.Xml;
 

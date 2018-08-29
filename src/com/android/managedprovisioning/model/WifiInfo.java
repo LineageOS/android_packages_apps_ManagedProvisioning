@@ -30,7 +30,7 @@ import android.app.admin.DevicePolicyManager;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import com.android.internal.annotations.Immutable;
 import com.android.managedprovisioning.common.PersistableBundlable;
