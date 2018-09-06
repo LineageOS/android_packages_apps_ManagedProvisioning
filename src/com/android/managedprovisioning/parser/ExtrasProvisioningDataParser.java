@@ -48,14 +48,21 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_DOMAIN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_EAP_METHOD;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_IDENTITY;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PHASE2_AUTH;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
@@ -646,6 +653,14 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 .setProxyPort(getIntExtraFromLongName(
                         intent, EXTRA_PROVISIONING_WIFI_PROXY_PORT,
                         WifiInfo.DEFAULT_WIFI_PROXY_PORT))
+                .setEapMethod(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_EAP_METHOD))
+                .setPhase2Auth(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH))
+                .setCaCertificate(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE))
+                .setUserCertificate(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE))
+                .setIdentity(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_IDENTITY))
+                .setAnonymousIdentity(intent.getStringExtra(
+                        EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY))
+                .setDomain(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_DOMAIN))
                 .setHidden(getBooleanExtraFromLongName(
                         intent, EXTRA_PROVISIONING_WIFI_HIDDEN, WifiInfo.DEFAULT_WIFI_HIDDEN))
                 .build();
