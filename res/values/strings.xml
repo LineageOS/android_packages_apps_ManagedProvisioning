@@ -246,8 +246,8 @@
   <string name="view_terms">View terms</string>
   <!--Button initiating a profile/device owner setup process [CHAR LIMIT=20] -->
   <string name="accept_and_continue">Accept &amp; continue</string>
-  <!--Close button cancelling a profile/device owner setup process [CHAR LIMIT=20] -->
-  <string name="close">Close</string>
+  <!--Button to go back and exit a profile/device owner setup process [CHAR LIMIT=20] -->
+  <string name="back">Back</string>
   <!--Header for device owner provisioning setup screen [CHAR LIMIT=NONE] -->
   <string name="set_up_your_device">Set up your device</string>
 
