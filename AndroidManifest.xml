@@ -191,6 +191,7 @@
         </activity>
 
         <service android:name=".provisioning.ProvisioningService" />
+        <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />
 
         <receiver android:name="com.android.managedprovisioning.preprovisioning.BootReminder">

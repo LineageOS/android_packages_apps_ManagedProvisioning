@@ -40,25 +40,33 @@ import com.android.managedprovisioning.common.Utils;
  */
 public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
 
+    interface Callback {
+        void cleanup();
+    }
+
     private final Account mMigratedAccount;
     private final String mMdmPackageName;
     private final boolean mKeepAccountMigrated;
     private final Utils mUtils;
     private final UserHandle mManagedUserHandle;
+    private final Callback mCallback;
 
     public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount,
-            boolean keepAccountMigrated, UserHandle managedUserHandle, String mdmPackageName) {
-        this(migratedAccount, keepAccountMigrated, managedUserHandle, mdmPackageName, new Utils());
+            boolean keepAccountMigrated, UserHandle managedUserHandle, String mdmPackageName,
+            Callback callback) {
+        this(migratedAccount, keepAccountMigrated, managedUserHandle, mdmPackageName, new Utils(),
+                callback);
     }
 
     @VisibleForTesting
     DpcReceivedSuccessReceiver(Account migratedAccount, boolean keepAccountMigrated,
-        UserHandle managedUserHandle, String mdmPackageName, Utils utils) {
+        UserHandle managedUserHandle, String mdmPackageName, Utils utils, Callback callback) {
         mMigratedAccount = migratedAccount;
         mKeepAccountMigrated = keepAccountMigrated;
         mMdmPackageName = checkNotNull(mdmPackageName);
         mManagedUserHandle = checkNotNull(managedUserHandle);
         mUtils = checkNotNull(utils);
+        mCallback = callback;
     }
 
     @Override
@@ -79,6 +87,9 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
             // Note that we currently do not check if account migration worked
         } else {
             context.sendBroadcast(primaryProfileSuccessIntent);
+            if (mCallback != null) {
+                mCallback.cleanup();
+            }
         }
     }
 
@@ -92,6 +103,13 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
                 }
                 context.sendBroadcast(primaryProfileSuccessIntent);
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                if (mCallback != null) {
+                    mCallback.cleanup();
+                }
             }
         }.execute();
     }
