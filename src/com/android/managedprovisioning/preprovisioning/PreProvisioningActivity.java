@@ -310,10 +310,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     private void initiateUIProfileOwner(
             @NonNull String termsHeaders, boolean isComp, CustomizationParams customizationParams) {
-        // set up the cancel button
-        Button cancelButton = (Button) findViewById(R.id.close_button);
-        cancelButton.setOnClickListener(v -> {
-            ProvisionLogger.logi("Close button (close_button) is clicked.");
+        // set up the back button
+        Button backButton = (Button) findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            ProvisionLogger.logi("Back button (back_button) is clicked.");
             PreProvisioningActivity.this.onBackPressed();
         });
 
