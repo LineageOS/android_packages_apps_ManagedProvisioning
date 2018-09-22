@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"организацията ви"</string>
     <string name="view_terms" msgid="7230493092383341605">"Преглед на условията"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Приемам и продълж."</string>
-    <string name="close" msgid="7208600934846389439">"Затваряне"</string>
+    <string name="back" msgid="6455622465896147127">"Назад"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Настройване на устройството ви"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Променете начина, по който работите"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Отделяне на служебните данни от личните"</string>

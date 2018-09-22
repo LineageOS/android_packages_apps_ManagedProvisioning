@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"сиздин ишкана"</string>
     <string name="view_terms" msgid="7230493092383341605">"Шарттарды карап көрүңүз"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Кабыл алып, улантуу"</string>
-    <string name="close" msgid="7208600934846389439">"Жабуу"</string>
+    <string name="back" msgid="6455622465896147127">"Артка"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Түзмөгүңүздү жөндөп алыңыз"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Жаңыча иштеп баштаңыз"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Жумушка тиешелүү дайындарды жеке дайындардан ажыратыңыз"</string>

@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"조직"</string>
     <string name="view_terms" msgid="7230493092383341605">"약관 보기"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"동의 및 계속"</string>
-    <string name="close" msgid="7208600934846389439">"닫기"</string>
+    <string name="back" msgid="6455622465896147127">"뒤로"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"기기 설정"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"작업 방식의 변화"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"직장 및 개인 데이터 구분"</string>

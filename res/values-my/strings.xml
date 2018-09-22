@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"သင်၏အဖွဲ့အစည်း"</string>
     <string name="view_terms" msgid="7230493092383341605">"စည်းကမ်းချက်များ ကြည့်ရန်"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"လက်ခံပြီး ရှေ့ဆက်ရန်"</string>
-    <string name="close" msgid="7208600934846389439">"ပိတ်ရန်"</string>
+    <string name="back" msgid="6455622465896147127">"နောက်သို့"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"သင့်စက်ပစ္စည်းကို စနစ်ထည့်သွင်းပါ"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"သင်အလုပ်လုပ်နည်းကို ပြောင်းလဲစေပါသည်"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"အလုပ်နှင့် ကိုယ်ရေးကိုယ်တာကို ခွဲခြားပါ"</string>

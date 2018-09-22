@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"ұйымыңыз"</string>
     <string name="view_terms" msgid="7230493092383341605">"Шарттарды көру"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Қабылдау және жалғастыру"</string>
-    <string name="close" msgid="7208600934846389439">"Жабу"</string>
+    <string name="back" msgid="6455622465896147127">"Артқа"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Құрылғыны реттеу"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Басқаша жұмыс істеу"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Жұмыс және жеке деректерді бөлек ұстау"</string>

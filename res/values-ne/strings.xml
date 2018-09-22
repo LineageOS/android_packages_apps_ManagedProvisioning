@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"तपाईँको संगठन"</string>
     <string name="view_terms" msgid="7230493092383341605">"सर्तहरू हेर्नुहोस्"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"स्वीकार गरी जारी राख्नुहोस्"</string>
-    <string name="close" msgid="7208600934846389439">"बन्द गर्नुहोस्"</string>
+    <string name="back" msgid="6455622465896147127">"पछाडि"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"आफ्नो यन्त्रलाई सेटअप गर्नुहोस्"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"आफूले काम गर्ने तरीका बदल्नुहोस्"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"व्यक्तिगत भन्दा अलग कार्य"</string>

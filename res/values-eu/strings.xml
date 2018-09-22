@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"zure erakundea"</string>
     <string name="view_terms" msgid="7230493092383341605">"Ikusi baldintzak"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Onartu eta egin aurrera"</string>
-    <string name="close" msgid="7208600934846389439">"Itxi"</string>
+    <string name="back" msgid="6455622465896147127">"Atzera"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Konfiguratu gailua"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Aldatu lana egiteko modua"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Bereizi lana eta bizitza pertsonala"</string>

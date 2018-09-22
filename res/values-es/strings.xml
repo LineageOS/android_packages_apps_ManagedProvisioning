@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"tu organización"</string>
     <string name="view_terms" msgid="7230493092383341605">"Ver condiciones"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Aceptar y continuar"</string>
-    <string name="close" msgid="7208600934846389439">"Cerrar"</string>
+    <string name="back" msgid="6455622465896147127">"Atrás"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Configura el dispositivo"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Cambia tu forma de trabajar"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Separa tus datos del trabajo de tu información personal"</string>

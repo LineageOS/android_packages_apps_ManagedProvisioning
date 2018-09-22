@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"jūsu organizācija"</string>
     <string name="view_terms" msgid="7230493092383341605">"Skatīt noteikumus"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Piekrist un turpināt"</string>
-    <string name="close" msgid="7208600934846389439">"Aizvērt"</string>
+    <string name="back" msgid="6455622465896147127">"Atpakaļ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Ierīces iestatīšana"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Mainiet strādāšanas veidu"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Nodaliet darba datus no personīgajiem datiem"</string>

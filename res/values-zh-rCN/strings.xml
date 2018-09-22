@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"您的单位"</string>
     <string name="view_terms" msgid="7230493092383341605">"查看条款"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"接受并继续"</string>
-    <string name="close" msgid="7208600934846389439">"关闭"</string>
+    <string name="back" msgid="6455622465896147127">"返回"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"设置设备"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"改变您的工作方式"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"将工作数据与个人数据隔离开"</string>
