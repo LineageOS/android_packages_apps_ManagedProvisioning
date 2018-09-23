@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"təşkilatınız"</string>
     <string name="view_terms" msgid="7230493092383341605">"Şərtlərə baxın"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Qəbul və davam edin"</string>
-    <string name="close" msgid="7208600934846389439">"Qapadın"</string>
+    <string name="back" msgid="6455622465896147127">"Geri"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Cihazınızı quraşdırın"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"İşləmə üsulunuzu dəyişin"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"İşi şəxsidən ayırın"</string>

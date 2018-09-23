@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"fyrirtækið þitt"</string>
     <string name="view_terms" msgid="7230493092383341605">"Lesa skilmálana"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Samþykkja og áfram"</string>
-    <string name="close" msgid="7208600934846389439">"Loka"</string>
+    <string name="back" msgid="6455622465896147127">"Til baka"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Settu upp tækið"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Breyttu því hvernig þú vinnur"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Aðgreindu vinnu frá persónulegu"</string>

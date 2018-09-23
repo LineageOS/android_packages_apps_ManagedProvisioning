@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"ඔබගේ සංවිධානය"</string>
     <string name="view_terms" msgid="7230493092383341605">"නියම බලන්න"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"පිළිගෙන ඉදිරියට යන්න"</string>
-    <string name="close" msgid="7208600934846389439">"වසන්න"</string>
+    <string name="back" msgid="6455622465896147127">"ආපසු"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"ඔබගේ උපාංගය පිහිටුවන්න"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"ඔබ වැඩ කරන ආකාරය වෙනස් කරන්න"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"කාර්යාල සහ පුද්ගලික දේවල් වෙන් කරන්න"</string>

@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"আপনার প্রতিষ্ঠান"</string>
     <string name="view_terms" msgid="7230493092383341605">"শর্তাবলী দেখুন"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"মেনে নিয়ে এগিয়ে যান"</string>
-    <string name="close" msgid="7208600934846389439">"বন্ধ করুন"</string>
+    <string name="back" msgid="6455622465896147127">"ফিরে যান"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"আপনার ডিভাইস সেট আপ করুন"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"আপনার কাজের পদ্ধতি পাল্টান"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"ব্যক্তিগত থেকে কাজ আলাদা করুন"</string>

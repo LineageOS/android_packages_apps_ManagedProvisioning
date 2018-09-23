@@ -54,7 +54,7 @@
     <string name="encrypt" msgid="1749320161747489212">"Verschlüsseln"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Verschlüsselung abgeschlossen"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tippe, um die Einrichtung des Arbeitsprofils fortzusetzen"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später erneut."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später noch einmal."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Arbeitsprofil kann nicht hinzugefügt werden"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Arbeitsprofil kann nicht ersetzt oder entfernt werden"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Diesem Gerät kann kein Arbeitsprofil hinzugefügt werden. Wende dich bei Fragen an deinen Administrator."</string>
@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"meiner Organisation"</string>
     <string name="view_terms" msgid="7230493092383341605">"Nutzungsbedingungen ansehen"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Akzeptieren &amp; weiter"</string>
-    <string name="close" msgid="7208600934846389439">"Schließen"</string>
+    <string name="back" msgid="6455622465896147127">"Zurück"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Gerät einrichten"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Arbeitsweise ändern"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Geschäftliche und private Daten trennen"</string>

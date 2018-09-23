@@ -120,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"سازمان شما"</string>
     <string name="view_terms" msgid="7230493092383341605">"مشاهده شرایط"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"پذیرفتن و ادامه"</string>
-    <string name="close" msgid="7208600934846389439">"بستن"</string>
+    <string name="back" msgid="6455622465896147127">"برگشت"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"راه‌اندازی دستگاه"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"روش کارتان را تغییر دهید"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"جداسازی داده‌های کاری‌ از داده‌های شخصی"</string>
