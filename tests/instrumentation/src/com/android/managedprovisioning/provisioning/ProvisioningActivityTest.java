@@ -60,6 +60,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
@@ -88,6 +89,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Unit tests for {@link ProvisioningActivity}.
@@ -121,7 +123,7 @@ public class ProvisioningActivityTest {
     private static final Intent NFC_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
     private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
-    private static final int BROADCAST_TIEMOUT = 1000;
+    private static final int BROADCAST_TIMEOUT = 1000;
 
     private static class CustomIntentsTestRule extends IntentsTestRule<ProvisioningActivity> {
         private boolean mIsActivityRunning = false;
@@ -356,7 +358,7 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN factory reset should be invoked
-        verify(mUtils, timeout(BROADCAST_TIEMOUT))
+        verify(mUtils, timeout(BROADCAST_TIMEOUT))
                 .sendFactoryResetBroadcast(any(Context.class), anyString());
     }
 
@@ -472,7 +474,7 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN factory reset should be invoked
-        verify(mUtils, timeout(BROADCAST_TIEMOUT))
+        verify(mUtils, timeout(BROADCAST_TIMEOUT))
                 .sendFactoryResetBroadcast(any(Context.class), anyString());
     }
 
@@ -510,8 +512,14 @@ public class ProvisioningActivityTest {
 
         // WHEN preFinalization is completed
         mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().preFinalizationCompleted());
+
+        // TODO(http://b/117219451): Replace sleep with a more robust solution
+        // Sleep to allow time for the new activity to launch
+        SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
+
         // THEN verify starting TEST_ACTIVITY
         intended(allOf(hasComponent(TEST_ACTIVITY), hasAction(ACTION_STATE_USER_SETUP_COMPLETE)));
+
         // THEN the activity should finish
         assertTrue(mActivityRule.getActivity().isFinishing());
     }
