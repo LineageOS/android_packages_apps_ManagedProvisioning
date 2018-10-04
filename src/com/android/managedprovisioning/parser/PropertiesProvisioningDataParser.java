@@ -30,14 +30,21 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_DOMAIN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_EAP_METHOD;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_IDENTITY;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PHASE2_AUTH;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -203,6 +210,13 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                 .setSecurityType(getPropertyFromLongName(
                         props, EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
                 .setPassword(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PASSWORD))
+                .setEapMethod(props.getProperty(EXTRA_PROVISIONING_WIFI_EAP_METHOD))
+                .setPhase2Auth(props.getProperty(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH))
+                .setCaCertificate(props.getProperty(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE))
+                .setUserCertificate(props.getProperty(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE))
+                .setIdentity(props.getProperty(EXTRA_PROVISIONING_WIFI_IDENTITY))
+                .setAnonymousIdentity(props.getProperty(EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY))
+                .setDomain(props.getProperty(EXTRA_PROVISIONING_WIFI_DOMAIN))
                 .setProxyHost(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PROXY_HOST))
                 .setProxyBypassHosts(getPropertyFromLongName(
                         props, EXTRA_PROVISIONING_WIFI_PROXY_BYPASS))
