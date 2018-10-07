@@ -43,14 +43,21 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_DOMAIN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_EAP_METHOD;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_IDENTITY;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PHASE2_AUTH;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE_SHORT;
@@ -144,7 +151,15 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_SSID = "TestWifi";
     private static final boolean TEST_HIDDEN = true;
     private static final String TEST_SECURITY_TYPE = "WPA2";
+    private static final String TEST_SECURITY_TYPE_EAP = "EAP";
     private static final String TEST_PASSWORD = "GoogleRock";
+    private static final String TEST_EAP_METHOD = "TTLS";
+    private static final String TEST_PHASE2_AUTH = "PAP";
+    private static final String TEST_CA_CERT = "caCertificate";
+    private static final String TEST_USER_CERT = "userCertificate";
+    private static final String TEST_IDENTITY = "TestUser";
+    private static final String TEST_ANONYMOUS_IDENTITY = "TestAUser";
+    private static final String TEST_DOMAIN = "google.com";
     private static final String TEST_PROXY_HOST = "testhost.com";
     private static final int TEST_PROXY_PORT = 7689;
     private static final String TEST_PROXY_BYPASS_HOSTS = "http://host1.com;https://host2.com";
@@ -292,6 +307,60 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         Intent intent = buildNfcProvisioningIntent(properties);
 
         assertThat(mPropertiesProvisioningDataParser.parse(intent).useMobileData).isFalse();
+    }
+
+    public void testParse_nfcProvisioning_wifiWithCertificates() throws Exception {
+        Properties props = new Properties();
+        props.setProperty(
+                EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
+                TEST_COMPONENT_NAME.flattenToString());
+        props.setProperty(EXTRA_PROVISIONING_WIFI_SSID, TEST_SSID);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_HIDDEN, Boolean.toString(TEST_HIDDEN));
+        props.setProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, TEST_SECURITY_TYPE_EAP);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PASSWORD, TEST_PASSWORD);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_EAP_METHOD, TEST_EAP_METHOD);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH, TEST_PHASE2_AUTH);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE, TEST_CA_CERT);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE, TEST_USER_CERT);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_IDENTITY, TEST_IDENTITY);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY, TEST_ANONYMOUS_IDENTITY);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_DOMAIN, TEST_DOMAIN);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST, TEST_PROXY_HOST);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT, Integer.toString(TEST_PROXY_PORT));
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, TEST_PROXY_BYPASS_HOSTS);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PAC_URL, TEST_PAC_URL);
+        Intent intent = buildNfcProvisioningIntent(props);
+
+        ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
+
+        assertThat(params).isEqualTo(createTestProvisioningParamsBuilder()
+            .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
+            .setWifiInfo(WifiInfo.Builder.builder()
+                    .setSsid(TEST_SSID)
+                    .setHidden(TEST_HIDDEN)
+                    .setSecurityType(TEST_SECURITY_TYPE_EAP)
+                    .setPassword(TEST_PASSWORD)
+                    .setEapMethod(TEST_EAP_METHOD)
+                    .setPhase2Auth(TEST_PHASE2_AUTH)
+                    .setCaCertificate(TEST_CA_CERT)
+                    .setUserCertificate(TEST_USER_CERT)
+                    .setIdentity(TEST_IDENTITY)
+                    .setAnonymousIdentity(TEST_ANONYMOUS_IDENTITY)
+                    .setDomain(TEST_DOMAIN)
+                    .setProxyHost(TEST_PROXY_HOST)
+                    .setProxyPort(TEST_PROXY_PORT)
+                    .setProxyBypassHosts(TEST_PROXY_BYPASS_HOSTS)
+                    .setPacUrl(TEST_PAC_URL)
+                    .build())
+            .build());
+    }
+
+    private ProvisioningParams.Builder createTestProvisioningParamsBuilder() {
+        return ProvisioningParams.Builder.builder()
+                .setProvisioningId(TEST_PROVISIONING_ID)
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setStartedByTrustedSource(true)
+                .setIsNfc(true);
     }
 
     public void testParse_OtherIntentsThrowsException() {

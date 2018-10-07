@@ -48,14 +48,21 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_DOMAIN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_EAP_METHOD;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_HIDDEN;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_IDENTITY;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PAC_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PASSWORD;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PHASE2_AUTH;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_HOST;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROXY_PORT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE_SHORT;
@@ -156,11 +163,19 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_SSID = "TestWifi";
     private static final boolean TEST_HIDDEN = true;
     private static final String TEST_SECURITY_TYPE = "WPA2";
+    private static final String TEST_SECURITY_TYPE_EAP = "EAP";
     private static final String TEST_PASSWORD = "GoogleRock";
     private static final String TEST_PROXY_HOST = "testhost.com";
     private static final int TEST_PROXY_PORT = 7689;
     private static final String TEST_PROXY_BYPASS_HOSTS = "http://host1.com;https://host2.com";
     private static final String TEST_PAC_URL = "pac.test.com";
+    private static final String TEST_EAP_METHOD = "TTLS";
+    private static final String TEST_PHASE2_AUTH = "PAP";
+    private static final String TEST_CA_CERT = "certificate";
+    private static final String TEST_USER_CERT = "certificate";
+    private static final String TEST_IDENTITY = "TestUser";
+    private static final String TEST_ANONYMOUS_IDENTITY = "TestAUser";
+    private static final String TEST_DOMAIN = "google.com";
     private static final WifiInfo TEST_WIFI_INFO = WifiInfo.Builder.builder()
             .setSsid(TEST_SSID)
             .setHidden(TEST_HIDDEN)
@@ -613,6 +628,55 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         mockInstalledDeviceAdminForTestPackageName();
 
         assertThat(mExtrasProvisioningDataParser.parse(intent).useMobileData).isFalse();
+    }
+
+    public void testParse_WifiInfoWithCertificates() throws Exception {
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
+                .putExtra(EXTRA_PROVISIONING_WIFI_SSID, TEST_SSID)
+                .putExtra(EXTRA_PROVISIONING_WIFI_HIDDEN, TEST_HIDDEN)
+                .putExtra(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, TEST_SECURITY_TYPE_EAP)
+                .putExtra(EXTRA_PROVISIONING_WIFI_PASSWORD, TEST_PASSWORD)
+                .putExtra(EXTRA_PROVISIONING_WIFI_EAP_METHOD, TEST_EAP_METHOD)
+                .putExtra(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH, TEST_PHASE2_AUTH)
+                .putExtra(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE, TEST_CA_CERT)
+                .putExtra(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE, TEST_USER_CERT)
+                .putExtra(EXTRA_PROVISIONING_WIFI_IDENTITY, TEST_IDENTITY)
+                .putExtra(EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY, TEST_ANONYMOUS_IDENTITY)
+                .putExtra(EXTRA_PROVISIONING_WIFI_DOMAIN, TEST_DOMAIN)
+                .putExtra(EXTRA_PROVISIONING_WIFI_PROXY_HOST, TEST_PROXY_HOST)
+                .putExtra(EXTRA_PROVISIONING_WIFI_PROXY_PORT, TEST_PROXY_PORT)
+                .putExtra(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, TEST_PROXY_BYPASS_HOSTS)
+                .putExtra(EXTRA_PROVISIONING_WIFI_PAC_URL, TEST_PAC_URL);
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params).isEqualTo(createTestProvisioningParamsBuilder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setStartedByTrustedSource(true)
+                .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
+                .setWifiInfo(WifiInfo.Builder.builder()
+                        .setSsid(TEST_SSID)
+                        .setHidden(TEST_HIDDEN)
+                        .setSecurityType(TEST_SECURITY_TYPE_EAP)
+                        .setPassword(TEST_PASSWORD)
+                        .setEapMethod(TEST_EAP_METHOD)
+                        .setPhase2Auth(TEST_PHASE2_AUTH)
+                        .setCaCertificate(TEST_CA_CERT)
+                        .setUserCertificate(TEST_USER_CERT)
+                        .setIdentity(TEST_IDENTITY)
+                        .setAnonymousIdentity(TEST_ANONYMOUS_IDENTITY)
+                        .setDomain(TEST_DOMAIN)
+                        .setProxyHost(TEST_PROXY_HOST)
+                        .setProxyPort(TEST_PROXY_PORT)
+                        .setProxyBypassHosts(TEST_PROXY_BYPASS_HOSTS)
+                        .setPacUrl(TEST_PAC_URL)
+                        .build())
+                .build());
+    }
+
+    private ProvisioningParams.Builder createTestProvisioningParamsBuilder() {
+        return ProvisioningParams.Builder.builder().setProvisioningId(TEST_PROVISIONING_ID);
     }
 
     private Intent buildIntentWithAllShortExtras() {
