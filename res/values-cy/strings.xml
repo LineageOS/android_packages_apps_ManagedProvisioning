@@ -28,6 +28,7 @@
   <string name="setup_work_profile">Gosod proffil gwaith</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
+  <string name="company_controls_device">Bydd dy sefydliad yn rheoli\'r ddyfais hon a cyn ei chadw\'n ddiogel.</string>
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
