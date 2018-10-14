@@ -28,6 +28,7 @@
   <string name="setup_work_profile">Gosod proffil gwaith</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
+  <string name="company_controls_device">Bydd dy sefydliad yn rheoli\'r ddyfais hon a cyn ei chadw\'n ddiogel.</string>
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
@@ -107,6 +108,7 @@
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_wifi">Methwyd â chysylltu i\'r Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
   <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
@@ -122,6 +124,7 @@
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="work_profile_setup_later_message">Gellir gosod dy broffil gwaith yn hwyrach o\'r ap rheoli dyfais y\'i defnyddir gan dy sefydliad.</string>
   <!-- Cancel button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
   <string name="work_profile_setup_continue">Parhau</string>
   <!-- OK button text of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
