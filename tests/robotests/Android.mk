@@ -8,7 +8,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
 LOCAL_JAVA_LIBRARIES := \
     junit \
-    platform-robolectric-3.6.1-prebuilt \
+    platform-robolectric-3.6.2-prebuilt \
     telephony-common \
     truth-prebuilt \
     mockito-robolectric-prebuilt
@@ -36,4 +36,4 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 LOCAL_TEST_PACKAGE := ManagedProvisioning
 
-include prebuilts/misc/common/robolectric/3.6.1/run_robotests.mk
+include prebuilts/misc/common/robolectric/3.6.2/run_robotests.mk
