@@ -25,10 +25,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
-import org.robolectric.annotation.Config;
 import org.robolectric.shadow.api.Shadow;
 import org.robolectric.shadows.ShadowContextImpl;
-import org.robolectric.shadows.ShadowLog;
 import org.robolectric.shadows.ShadowLooper;
 
 import java.util.HashMap;
@@ -36,13 +34,12 @@ import java.util.Map;
 
 /** Tests {@link ConnectMobileNetworkTask}. */
 @RunWith(RobolectricTestRunner.class)
-@Config(manifest = "packages/apps/ManagedProvisioning/AndroidManifest.xml", sdk = 27)
 public class ConnectMobileNetworkTaskRoboTest {
     private final Context mContext = RuntimeEnvironment.application;
     private final ContentResolver mContentResolver = mContext.getContentResolver();
 
-    @Mock ConnectivityManager mMockConnectivityManager;
-    @Mock NetworkInfo mMockNetworkInfo;
+    @Mock private ConnectivityManager mMockConnectivityManager;
+    @Mock private NetworkInfo mMockNetworkInfo;
 
     @Before
     public void setUpMocks() {
