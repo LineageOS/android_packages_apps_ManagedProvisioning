@@ -23,7 +23,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.provider.Settings.Global;
 import android.text.TextUtils;
 import android.Manifest.permission;
 
@@ -51,7 +50,6 @@ public class InstallPackageTask {
     private final Callback mCallback;
 
     private PackageManager mPm;
-    private int mPackageVerifierEnable;
     private Set<InstallInfo> mPackagesToInstall;
 
     /**
@@ -98,11 +96,6 @@ public class InstallPackageTask {
                 installExistingPackage(info);
 
             } else if (packageContentIsCorrect(info.packageName, info.location)) {
-                // Temporarily turn off package verification.
-                mPackageVerifierEnable = Global.getInt(mContext.getContentResolver(),
-                        Global.PACKAGE_VERIFIER_ENABLE, 1);
-                Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE, 0);
-
                 // Allow for replacing an existing package.
                 // Needed in case this task is performed multiple times.
                 mPm.installPackage(Uri.parse("file://" + info.location),
@@ -185,9 +178,6 @@ public class InstallPackageTask {
                 return;
             }
         }
-        // Set package verification flag to its original value.
-        Global.putInt(mContext.getContentResolver(), Global.PACKAGE_VERIFIER_ENABLE,
-                mPackageVerifierEnable);
         mCallback.onSuccess();
     }
 
