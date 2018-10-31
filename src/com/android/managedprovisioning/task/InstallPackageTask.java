@@ -27,7 +27,6 @@ import android.text.TextUtils;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.io.File;
@@ -40,11 +39,9 @@ public class InstallPackageTask extends AbstractProvisioningTask {
     public static final int ERROR_PACKAGE_INVALID = 0;
     public static final int ERROR_INSTALLATION_FAILED = 1;
 
-    private final SettingsFacade mSettingsFacade;
     private final DownloadPackageTask mDownloadPackageTask;
 
     private PackageManager mPm;
-    private boolean mInitialPackageVerifierEnabled;
 
     /**
      * Create an InstallPackageTask. When run, this will attempt to install the device admin package
@@ -57,20 +54,9 @@ public class InstallPackageTask extends AbstractProvisioningTask {
             Context context,
             ProvisioningParams params,
             Callback callback) {
-        this(new SettingsFacade(), downloadPackageTask, context, params, callback);
-    }
-
-    @VisibleForTesting
-    InstallPackageTask(
-            SettingsFacade settingsFacade,
-            DownloadPackageTask downloadPackageTask,
-            Context context,
-            ProvisioningParams params,
-            Callback callback) {
         super(context, params, callback);
 
         mPm = context.getPackageManager();
-        mSettingsFacade = checkNotNull(settingsFacade);
         mDownloadPackageTask = checkNotNull(downloadPackageTask);
     }
 
@@ -94,15 +80,11 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         String packageName = mProvisioningParams.inferDeviceAdminPackageName();
 
         ProvisionLogger.logi("Installing package");
-        mInitialPackageVerifierEnabled = mSettingsFacade.isPackageVerifierEnabled(mContext);
         if (TextUtils.isEmpty(packageLocation)) {
             // Do not log time if not installing any package, as that isn't useful.
             success();
             return;
         }
-
-        // Temporarily turn off package verification.
-        mSettingsFacade.setPackageVerifierEnabled(mContext, false);
 
         // Allow for replacing an existing package.
         // Needed in case this task is performed multiple times.
@@ -128,7 +110,6 @@ public class InstallPackageTask extends AbstractProvisioningTask {
 
         @Override
         public void packageInstalled(String packageName, int returnCode) {
-            mSettingsFacade.setPackageVerifierEnabled(mContext, mInitialPackageVerifierEnabled);
             if (packageName != null && !packageName.equals(mPackageName))  {
                 ProvisionLogger.loge("Package doesn't have expected package name.");
                 error(ERROR_PACKAGE_INVALID);
