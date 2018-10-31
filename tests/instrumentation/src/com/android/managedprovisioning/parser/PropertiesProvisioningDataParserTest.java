@@ -86,14 +86,21 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_DOMAIN_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_EAP_METHOD_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_HIDDEN_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_IDENTITY_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PAC_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PHASE2_AUTH_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_PORT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SSID_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
@@ -431,7 +438,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         propsShort.setProperty(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME_SHORT,
                 TEST_COMPONENT_NAME.flattenToString());
-        setShortTestWifiInfo(propsShort);
+        setAllShortTestWifiInfo(propsShort);
         setShortTestTimeTimeZoneAndLocale(propsShort);
         setShortTestDeviceAdminDownload(propsShort);
         propsShort.setProperty(
@@ -481,7 +488,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         propsLong.setProperty(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
                 TEST_COMPONENT_NAME.flattenToString());
-        setTestWifiInfo(propsLong);
+        setAllTestWifiInfo(propsLong);
         setTestTimeTimeZoneAndLocale(propsLong);
         setTestDeviceAdminDownload(propsLong);
         propsLong.setProperty(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, getTestAdminExtrasString());
@@ -525,13 +532,42 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         return props;
     }
 
-    private static Properties setShortTestWifiInfo(Properties props) {
+    private static Properties setAllTestWifiInfo(Properties props) {
+        props.setProperty(EXTRA_PROVISIONING_WIFI_SSID, TEST_SSID);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, TEST_SECURITY_TYPE);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PASSWORD, TEST_PASSWORD);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_EAP_METHOD, TEST_EAP_METHOD);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH, TEST_PHASE2_AUTH);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE, TEST_CA_CERT);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE, TEST_USER_CERT);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_IDENTITY, TEST_IDENTITY);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY, TEST_ANONYMOUS_IDENTITY);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_DOMAIN, TEST_DOMAIN);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PROXY_HOST, TEST_PROXY_HOST);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, TEST_PROXY_BYPASS_HOSTS);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PAC_URL, TEST_PAC_URL);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PROXY_PORT, Integer.toString(TEST_PROXY_PORT));
+        props.setProperty(EXTRA_PROVISIONING_WIFI_HIDDEN, Boolean.toString(TEST_HIDDEN));
+        return props;
+    }
+
+    private static Properties setAllShortTestWifiInfo(Properties props) {
         props.setProperty(
                 EXTRA_PROVISIONING_WIFI_SSID_SHORT, TEST_SSID);
         props.setProperty(
                 EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT, TEST_SECURITY_TYPE);
         props.setProperty(
                 EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT, TEST_PASSWORD);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_EAP_METHOD_SHORT, TEST_EAP_METHOD);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH_SHORT, TEST_PHASE2_AUTH);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE_SHORT, TEST_CA_CERT);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT, TEST_USER_CERT);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_IDENTITY_SHORT, TEST_IDENTITY);
+        props.setProperty(
+                EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY_SHORT, TEST_ANONYMOUS_IDENTITY);
+        props.setProperty(EXTRA_PROVISIONING_WIFI_DOMAIN_SHORT, TEST_DOMAIN);
+
         props.setProperty(
                 EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT, TEST_PROXY_HOST);
         props.setProperty(

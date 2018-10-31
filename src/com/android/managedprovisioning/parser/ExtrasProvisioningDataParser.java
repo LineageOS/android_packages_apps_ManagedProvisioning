@@ -159,6 +159,27 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     static final String EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT = "a.a.e.PWP";
 
     @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_EAP_METHOD_SHORT = "a.a.e.PWEM";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_PHASE2_AUTH_SHORT = "a.a.e.PWPA";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE_SHORT = "a.a.e.PWCC";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT = "a.a.e.PWUC";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_IDENTITY_SHORT = "a.a.e.PWI";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY_SHORT = "a.a.e.PWAI";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_WIFI_DOMAIN_SHORT = "a.a.e.PWD";
+
+    @VisibleForTesting
     static final String EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT = "a.a.e.PWPH";
 
     @VisibleForTesting
@@ -260,6 +281,23 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_WIFI_PASSWORD, EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_EAP_METHOD, EXTRA_PROVISIONING_WIFI_EAP_METHOD_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_PHASE2_AUTH, EXTRA_PROVISIONING_WIFI_PHASE2_AUTH_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE,
+                EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE,
+                EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_IDENTITY, EXTRA_PROVISIONING_WIFI_IDENTITY_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY,
+                EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_WIFI_DOMAIN, EXTRA_PROVISIONING_WIFI_DOMAIN_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_WIFI_PROXY_HOST, EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT);
         shorterExtras.put(
@@ -653,14 +691,18 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 .setProxyPort(getIntExtraFromLongName(
                         intent, EXTRA_PROVISIONING_WIFI_PROXY_PORT,
                         WifiInfo.DEFAULT_WIFI_PROXY_PORT))
-                .setEapMethod(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_EAP_METHOD))
-                .setPhase2Auth(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH))
-                .setCaCertificate(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE))
-                .setUserCertificate(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE))
-                .setIdentity(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_IDENTITY))
-                .setAnonymousIdentity(intent.getStringExtra(
-                        EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY))
-                .setDomain(intent.getStringExtra(EXTRA_PROVISIONING_WIFI_DOMAIN))
+                .setEapMethod(getStringExtraFromLongName(
+                        intent, EXTRA_PROVISIONING_WIFI_EAP_METHOD))
+                .setPhase2Auth(getStringExtraFromLongName(
+                        intent, EXTRA_PROVISIONING_WIFI_PHASE2_AUTH))
+                .setCaCertificate(getStringExtraFromLongName(
+                        intent, EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE))
+                .setUserCertificate(getStringExtraFromLongName(
+                        intent, EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE))
+                .setIdentity(getStringExtraFromLongName(intent, EXTRA_PROVISIONING_WIFI_IDENTITY))
+                .setAnonymousIdentity(getStringExtraFromLongName(
+                        intent, EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY))
+                .setDomain(getStringExtraFromLongName(intent, EXTRA_PROVISIONING_WIFI_DOMAIN))
                 .setHidden(getBooleanExtraFromLongName(
                         intent, EXTRA_PROVISIONING_WIFI_HIDDEN, WifiInfo.DEFAULT_WIFI_HIDDEN))
                 .build();
