@@ -210,13 +210,16 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                 .setSecurityType(getPropertyFromLongName(
                         props, EXTRA_PROVISIONING_WIFI_SECURITY_TYPE))
                 .setPassword(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PASSWORD))
-                .setEapMethod(props.getProperty(EXTRA_PROVISIONING_WIFI_EAP_METHOD))
-                .setPhase2Auth(props.getProperty(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH))
-                .setCaCertificate(props.getProperty(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE))
-                .setUserCertificate(props.getProperty(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE))
-                .setIdentity(props.getProperty(EXTRA_PROVISIONING_WIFI_IDENTITY))
-                .setAnonymousIdentity(props.getProperty(EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY))
-                .setDomain(props.getProperty(EXTRA_PROVISIONING_WIFI_DOMAIN))
+                .setEapMethod(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_EAP_METHOD))
+                .setPhase2Auth(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PHASE2_AUTH))
+                .setCaCertificate(getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE))
+                .setUserCertificate(getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE))
+                .setIdentity(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_IDENTITY))
+                .setAnonymousIdentity(getPropertyFromLongName(
+                        props, EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY))
+                .setDomain(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_DOMAIN))
                 .setProxyHost(getPropertyFromLongName(props, EXTRA_PROVISIONING_WIFI_PROXY_HOST))
                 .setProxyBypassHosts(getPropertyFromLongName(
                         props, EXTRA_PROVISIONING_WIFI_PROXY_BYPASS))

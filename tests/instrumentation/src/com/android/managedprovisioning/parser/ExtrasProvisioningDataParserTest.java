@@ -92,14 +92,21 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_DOMAIN_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_EAP_METHOD_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_HIDDEN_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_IDENTITY_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PAC_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PHASE2_AUTH_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_BYPASS_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_PROXY_PORT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SSID_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.doReturn;
@@ -126,7 +133,12 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.Locale;
+import java.util.stream.Stream;
+
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -675,6 +687,17 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .build());
     }
 
+    public void testShortNamesOfExtrasAreUnique() {
+        assertEquals(buildAllShortExtras().distinct().count(), buildAllShortExtras().count());
+    }
+
+    private Stream<Field> buildAllShortExtras() {
+        Field[] fields = ExtrasProvisioningDataParser.class.getDeclaredFields();
+        return Arrays.stream(fields)
+                .filter(field -> field.getName().startsWith("EXTRA_")
+                        && field.getName().endsWith("_SHORT"));
+    }
+
     private ProvisioningParams.Builder createTestProvisioningParamsBuilder() {
         return ProvisioningParams.Builder.builder().setProvisioningId(TEST_PROVISIONING_ID);
     }
@@ -691,7 +714,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME_SHORT,
                         TEST_COMPONENT_NAME)
                 .putExtras(getShortTestTimeTimeZoneAndLocaleExtras())
-                .putExtras(getShortTestWifiInfoExtras())
+                .putExtras(getAllShortTestWifiInfoExtras())
                 .putExtras(getShortTestDeviceAdminDownloadExtras())
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE_SHORT,
                         createTestAdminExtras())
@@ -727,7 +750,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
                 .putExtras(getTestTimeTimeZoneAndLocaleExtras())
-                .putExtras(getTestWifiInfoExtras())
+                .putExtras(getAllTestWifiInfoExtras())
                 .putExtras(getTestDeviceAdminDownloadExtras())
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
@@ -800,12 +823,41 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         return wifiInfoExtras;
     }
 
-    private static Bundle getShortTestWifiInfoExtras() {
+    private static Bundle getAllTestWifiInfoExtras() {
+        Bundle wifiInfoExtras = new Bundle();
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_SSID, TEST_SSID);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_SECURITY_TYPE, TEST_SECURITY_TYPE);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PASSWORD, TEST_PASSWORD);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_EAP_METHOD, TEST_EAP_METHOD);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH, TEST_PHASE2_AUTH);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE, TEST_CA_CERT);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE, TEST_USER_CERT);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_IDENTITY, TEST_IDENTITY);
+        wifiInfoExtras.putString(
+                EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY, TEST_ANONYMOUS_IDENTITY);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_DOMAIN, TEST_DOMAIN);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST, TEST_PROXY_HOST);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_BYPASS, TEST_PROXY_BYPASS_HOSTS);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PAC_URL, TEST_PAC_URL);
+        wifiInfoExtras.putInt(EXTRA_PROVISIONING_WIFI_PROXY_PORT, TEST_PROXY_PORT);
+        wifiInfoExtras.putBoolean(EXTRA_PROVISIONING_WIFI_HIDDEN, TEST_HIDDEN);
+        return wifiInfoExtras;
+    }
+
+    private static Bundle getAllShortTestWifiInfoExtras() {
         Bundle wifiInfoExtras = new Bundle();
         wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_SSID_SHORT, TEST_SSID);
         wifiInfoExtras.putString(
                 EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT, TEST_SECURITY_TYPE);
         wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PASSWORD_SHORT, TEST_PASSWORD);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_EAP_METHOD_SHORT, TEST_EAP_METHOD);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PHASE2_AUTH_SHORT, TEST_PHASE2_AUTH);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE_SHORT, TEST_CA_CERT);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT, TEST_USER_CERT);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_IDENTITY_SHORT, TEST_IDENTITY);
+        wifiInfoExtras.putString(
+                EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY_SHORT, TEST_ANONYMOUS_IDENTITY);
+        wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_DOMAIN_SHORT, TEST_DOMAIN);
         wifiInfoExtras.putString(EXTRA_PROVISIONING_WIFI_PROXY_HOST_SHORT, TEST_PROXY_HOST);
         wifiInfoExtras.putString(
                 EXTRA_PROVISIONING_WIFI_PROXY_BYPASS_SHORT, TEST_PROXY_BYPASS_HOSTS);
