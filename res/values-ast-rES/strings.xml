@@ -44,7 +44,7 @@
   <string name="theft_protection_disabled_warning">Pa usar les carauterístiques anti-robu, has afitar una contraseña nel to preséu.</string>
   <!-- String telling the user how to get more information about their work profile-->
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
-  <string name="learn_more_link">Deprendi más </string>
+  <string name="learn_more_link">Deprendi más</string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
   <string name="cancel_setup">Encaboxar</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
