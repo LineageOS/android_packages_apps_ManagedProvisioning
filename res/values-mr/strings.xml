@@ -110,8 +110,8 @@
     <string name="device_owner_info" msgid="3716661456037934467">"हे डिव्हाइस <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> कडून व्यवस्थापित केले जाईल, त्याचे परीक्षण केले जाईल आणि ते सुरक्षित ठेवले जाईल. अटी लागू होतील. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"हे डिव्हाइस <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> कडून व्यवस्थापित केले जाईल, त्याचे निरीक्षण केले जाईल आणि ते सुरक्षित ठेवले जाईल. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> च्या अटी लागू होतील. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ही लिंक सुरक्षित नाही आणि डिव्हाइस सेटअप पूर्ण होईपर्यंत उघडली जाऊ शकत नाही: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="9100405424740726066">"आपल्याला प्रश्न असल्यास, आपल्या <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> शी संपर्क साधा."</string>
-    <string name="if_questions_contact_admin" msgid="6147462485780267795">"आपल्याला प्रश्न असल्यास, आपल्या संस्थेच्या प्रशासकाशी संपर्क साधा"</string>
+    <string name="contact_device_provider" msgid="9100405424740726066">"तुम्हाला प्रश्न असल्यास, आपल्या <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> शी संपर्क साधा."</string>
+    <string name="if_questions_contact_admin" msgid="6147462485780267795">"तुम्हाला प्रश्न असल्यास, आपल्या संस्थेच्या प्रशासकाशी संपर्क साधा"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="235011880559615998">"सेटअप पूर्ण झाला नाही. मदतीसाठी, आपल्या प्रशासकाशी संपर्क साधा."</string>
     <string name="for_help_contact_admin" msgid="8687037236275184653">"मदतीसाठी, आपल्या प्रशासकाशी संपर्क साधा"</string>
     <string name="organization_admin" msgid="1595001081906025683">"संस्थेचा प्रशासक"</string>
@@ -143,7 +143,7 @@
     <string name="expand" msgid="37188292156131304">"विस्तृत करा"</string>
     <string name="collapse" msgid="7817530505064432580">"संकुचित करा"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"दुव्यांच्या सूची अॅक्सेस करा"</string>
-    <string name="access_links" msgid="7991363727326168600">"प्रवेश दुवे"</string>
+    <string name="access_links" msgid="7991363727326168600">"प्रवेश लिंक"</string>
     <string name="access_terms" msgid="1982500872249763745">"अटी अॅक्सेस करा"</string>
     <string name="read_terms" msgid="1745011123626640728">"अटी वाचा"</string>
     <string name="close_list" msgid="9053538299788717597">"सूची बंद करा"</string>
