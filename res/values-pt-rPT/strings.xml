@@ -70,7 +70,7 @@
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"A ligar à rede móvel…"</string>
     <string name="progress_download" msgid="3522436271691064624">"A transferir a aplicação de administração..."</string>
     <string name="progress_install" msgid="2258045670385866183">"A instalar a aplicação de administração..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"A remover aplic. do sistema não necessárias…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"A remover app do sistema não necessárias…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"A dar os toques finais…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"A definir o proprietário do dispositivo..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"A inicializar o dispositivo…"</string>
