@@ -50,11 +50,11 @@
     <string name="encrypt_device_launch_settings" msgid="826115154646195837">"Verschlüsseln"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Verschlüsselung abgeschlossen"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tippe, um die Einrichtung des Arbeitsprofils fortzusetzen"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später erneut."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später noch einmal."</string>
     <string name="managed_provisioning_not_supported" msgid="6582227325719911795">"Dein Gerät unterstützt keine Arbeitsprofile."</string>
     <string name="user_cannot_have_work_profile" msgid="5694385275116701139">"Dieser Nutzer kann kein Arbeitsprofil haben."</string>
     <string name="device_owner_exists" msgid="8020080296133337023">"Auf verwalteten Geräten können keine Arbeitsprofile eingerichtet werden."</string>
-    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Das Arbeitsprofil kann nicht erstellt werden, da die maximale Nutzeranzahl auf diesem Gerät bereits erreicht wurde. Bitte entferne mindestens einen Nutzer und versuche es erneut."</string>
+    <string name="maximum_user_limit_reached" msgid="4821228722266114449">"Das Arbeitsprofil kann nicht erstellt werden, da die maximale Nutzeranzahl auf diesem Gerät bereits erreicht wurde. Bitte entferne mindestens einen Nutzer und versuche es noch einmal."</string>
     <string name="managed_provisioning_not_supported_by_launcher" msgid="8710138269807942163">"Dein Arbeitsprofil wird von dieser Launcher-App nicht unterstützt. Wechsle zu einem kompatiblen Launcher."</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Abbrechen"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>

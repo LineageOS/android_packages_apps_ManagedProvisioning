@@ -38,7 +38,7 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"Saya setuju"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Profil kerja"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Pengguna utama"</string>
-    <string name="delete_profile_title" msgid="3097803266123463699">"Buang profil kerja?"</string>
+    <string name="delete_profile_title" msgid="3097803266123463699">"Hapus profil kerja?"</string>
     <string name="opening_paragraph_delete_profile_unknown_company" msgid="2139238673477554356">"Profil kerja sudah ada dan dikelola oleh:"</string>
     <string name="opening_paragraph_delete_profile_known_company" msgid="3126629826260821264">"Profil kerja ini dikelola untuk %s menggunakan:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Sebelum melanjutkan, "<a href="#read_this_link">"baca ini"</a>"."</string>

@@ -76,7 +76,7 @@
     <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na WiFi"</string>
     <string name="device_owner_error_frp" msgid="7053630342416280252">"Ovaj uređaj je zaključan putem zaštite od vraćanja na tvorničke postavke. Kontaktirajte svoj odjel za IT."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Briše se"</string>
-    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Sačekajte..."</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Pričekajte..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="184518450016295596">"Nije moguće koristiti aplikaciju administratora zbog greške kod provjere. Obratite se odjelu za IT."</string>
     <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nije moguće preuzeti aplikaciju administratora"</string>
     <string name="device_owner_error_package_invalid" msgid="3816725179069202140">"Nije moguće koristiti aplikaciju administratora. Nedostaju neke komponente ili je neispravna. Obratite se odjelu za IT."</string>
