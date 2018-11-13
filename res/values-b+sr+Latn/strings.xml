@@ -48,7 +48,7 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ako nastavite, izbrisaćete sve aplikacije i podatke na ovom profilu."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Izbriši"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Otkaži"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Da biste podesili profil za Work, uređaj treba da se šifruje. To može da potraje."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Da biste podesili profil za posao, uređaj treba da se šifruje. To može da potraje."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Da biste podesili ovaj uređaj, prvo treba da se šifruje. To može da potraje."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Šifrovati ovaj uređaj?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Šifruj"</string>
@@ -99,7 +99,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Da"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Otkazuje se…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Želite li da zaustavite podešavanje profila?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Možete kasnije da podesite profil za Work u aplikaciji za upravljanje uređajem koju koristi organizacija."</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Možete kasnije da podesite profil za posao u aplikaciji za upravljanje uređajem koju koristi organizacija."</string>
     <string name="continue_button" msgid="7177918589510964446">"Nastavi"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Zaustavi"</string>
     <string name="dismiss" msgid="9009534756748565880">"Odbaci"</string>
