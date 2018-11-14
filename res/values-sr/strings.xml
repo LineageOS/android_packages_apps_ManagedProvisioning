@@ -48,7 +48,7 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ако наставите, избрисаћете све апликације и податке на овом профилу."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Избриши"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Откажи"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Да бисте подесили профил за Work, уређај треба да се шифрује. То може да потраје."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Да бисте подесили профил за посао, уређај треба да се шифрује. То може да потраје."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Да бисте подесили овај уређај, прво треба да се шифрује. То може да потраје."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Шифровати овај уређај?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Шифруј"</string>
@@ -99,7 +99,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Да"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Отказује се…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Желите ли да зауставите подешавање профила?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Можете касније да подесите профил за Work у апликацији за управљање уређајем коју користи организација."</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Можете касније да подесите профил за посао у апликацији за управљање уређајем коју користи организација."</string>
     <string name="continue_button" msgid="7177918589510964446">"Настави"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Заустави"</string>
     <string name="dismiss" msgid="9009534756748565880">"Одбаци"</string>
