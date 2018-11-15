@@ -113,7 +113,7 @@
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_wifi">Methwyd â chysylltu i\'r Wi-Fi</string>
+  <string name="device_owner_error_wifi">Methwyd â chysylltu â\'r Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
   <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
