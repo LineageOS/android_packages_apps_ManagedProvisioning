@@ -57,7 +57,7 @@
     <uses-permission android:name="android.permission.ACCESS_PDB_STATE" />
     <uses-permission android:name="android.permission.PEERS_MAC_ADDRESS" />
 
-    <uses-permission android:name="android.permission.NETWORK_SETTINGS" />
+    <uses-permission android:name="android.permission.NETWORK_MANAGED_PROVISIONING" />
 
     <application
         android:label="@string/app_label"
