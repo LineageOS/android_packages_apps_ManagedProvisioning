@@ -26,10 +26,11 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.analytics.AnalyticsUtils.CATEGORY_VIEW_UNKNOWN;
 
 import android.annotation.IntDef;
+import android.app.admin.DevicePolicyEventLogger;
 import android.content.Context;
-
 import com.android.internal.annotations.VisibleForTesting;
 
 /**
@@ -89,6 +90,14 @@ public class TimeLogger {
             // Clear stored start time, we shouldn't log total time twice for same start time.
             mStartTime = null;
             mMetricsLoggerWrapper.logAction(mContext, mCategory, time);
+            final int devicePolicyEvent =
+                    AnalyticsUtils.getDevicePolicyEventForCategory(mCategory);
+            if (devicePolicyEvent != CATEGORY_VIEW_UNKNOWN) {
+                DevicePolicyEventLogger
+                        .createEvent(devicePolicyEvent)
+                        .setTimePeriod(time)
+                        .write();
+            }
         }
     }
 }

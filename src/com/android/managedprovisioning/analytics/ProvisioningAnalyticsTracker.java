@@ -17,14 +17,19 @@
 package com.android.managedprovisioning.analytics;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-
+import static android.stats.devicepolicy.DevicePolicyEnums.PROVISIONING_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_CANCELLED;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_STATUS;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DPC_INSTALLED_BY_PACKAGE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DPC_PACKAGE_NAME;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_NFC;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_QR_CODE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ERROR;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_EXTRA;
@@ -34,12 +39,14 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_READ;
 
 import android.annotation.IntDef;
+import android.app.admin.DevicePolicyEventLogger;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-
+import android.stats.devicepolicy.DevicePolicyEnums;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
-
 import java.util.List;
 
 /**
@@ -95,6 +102,7 @@ public class ProvisioningAnalyticsTracker {
         logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
         logNetworkType(context);
         logProvisioningAction(context, params.provisioningAction);
+        maybeLogManagedProfileOnFullyManagedDevice(context, params.provisioningAction);
     }
 
     /**
@@ -116,6 +124,10 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logCopyAccountStatus(Context context, @CopyAccountStatus int status) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_COPY_ACCOUNT_STATUS, status);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_COPY_ACCOUNT_STATUS)
+                .setInt(status)
+                .write();
     }
 
     /**
@@ -126,6 +138,10 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logProvisioningCancelled(Context context, @CancelState int cancelState) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_CANCELLED, cancelState);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_CANCELLED)
+                .setInt(cancelState)
+                .write();
     }
 
     /**
@@ -139,6 +155,10 @@ public class ProvisioningAnalyticsTracker {
             int errorCode) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ERROR,
                 AnalyticsUtils.getErrorString(task, errorCode));
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_ERROR)
+                .setStrings(AnalyticsUtils.getErrorString(task, errorCode))
+                .write();
     }
 
     /**
@@ -149,6 +169,10 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logProvisioningNotAllowed(Context context, int provisioningErrorCode) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ERROR, provisioningErrorCode);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_ERROR)
+                .setStrings(String.valueOf(provisioningErrorCode))
+                .write();
     }
 
     /**
@@ -158,6 +182,9 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logProvisioningSessionStarted(Context context) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_SESSION_STARTED);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_SESSION_STARTED)
+                .write();
     }
 
     /**
@@ -167,6 +194,9 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logProvisioningSessionCompleted(Context context) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_SESSION_COMPLETED);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_SESSION_COMPLETED)
+                .write();
     }
 
     /**
@@ -177,6 +207,9 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logNumberOfTermsDisplayed(Context context, int count) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_TERMS_COUNT, count);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_TERMS_COUNT)
+                .write();
     }
 
     /**
@@ -187,6 +220,10 @@ public class ProvisioningAnalyticsTracker {
      */
     public void logNumberOfTermsRead(Context context, int count) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_TERMS_READ, count);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_TERMS_READ)
+                .setInt(count)
+                .write();
     }
 
     /**
@@ -200,6 +237,10 @@ public class ProvisioningAnalyticsTracker {
         for (String extra : provisioningExtras) {
             mMetricsLoggerWrapper.logAction(context, PROVISIONING_EXTRA, extra);
         }
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_EXTRAS)
+                .setStrings(provisioningExtras.toArray(new String[0]))
+                .write();
     }
 
     /**
@@ -215,11 +256,27 @@ public class ProvisioningAnalyticsTracker {
         switch (intent.getAction()) {
             case ACTION_NDEF_DISCOVERED:
                 mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_NFC);
+                DevicePolicyEventLogger
+                        .createEvent(DevicePolicyEnums.PROVISIONING_ENTRY_POINT_NFC)
+                        .write();
                 break;
             case ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE:
-                mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE);
+                logProvisionedFromTrustedSource(context, intent);
                 break;
         }
+    }
+
+    private void logProvisionedFromTrustedSource(Context context, Intent intent) {
+        mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE);
+        final int provisioningTrigger = intent.getIntExtra(EXTRA_PROVISIONING_TRIGGER,
+                PROVISIONING_TRIGGER_UNSPECIFIED);
+        if (provisioningTrigger == PROVISIONING_TRIGGER_QR_CODE) {
+            mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_QR_CODE);
+        }
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE)
+                .setInt(provisioningTrigger)
+                .write();
     }
 
     /**
@@ -231,12 +288,20 @@ public class ProvisioningAnalyticsTracker {
     private void logDpcPackageInformation(Context context, String dpcPackageName) {
         // Logs package name of the dpc.
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_DPC_PACKAGE_NAME, dpcPackageName);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_DPC_PACKAGE_NAME)
+                .setStrings(dpcPackageName)
+                .write();
 
         // Logs package name of the package which installed dpc.
         final String dpcInstallerPackage =
                 AnalyticsUtils.getInstallerPackageName(context, dpcPackageName);
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_DPC_INSTALLED_BY_PACKAGE,
                 dpcInstallerPackage);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_DPC_INSTALLED_BY_PACKAGE)
+                .setStrings(dpcInstallerPackage)
+                .write();
     }
 
     /**
@@ -257,5 +322,22 @@ public class ProvisioningAnalyticsTracker {
      */
     private void logProvisioningAction(Context context, String provisioningAction) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ACTION, provisioningAction);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_ACTION)
+                .setStrings(provisioningAction)
+                .write();
+    }
+
+    private void maybeLogManagedProfileOnFullyManagedDevice(Context context,
+            String provisioningAction) {
+        final DevicePolicyManager dpm =
+                (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        final ComponentName currentDeviceOwner = dpm.getDeviceOwnerComponentOnAnyUser();
+        if (currentDeviceOwner != null
+                && ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction)) {
+            DevicePolicyEventLogger
+                    .createEvent(PROVISIONING_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE)
+                    .write();
+        }
     }
 }
