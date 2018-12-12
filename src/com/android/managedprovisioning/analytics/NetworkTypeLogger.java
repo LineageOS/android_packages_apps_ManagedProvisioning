@@ -19,9 +19,10 @@ package com.android.managedprovisioning.analytics;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_NETWORK_TYPE;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.app.admin.DevicePolicyEventLogger;
 import android.content.Context;
 import android.net.NetworkInfo;
-
+import android.stats.devicepolicy.DevicePolicyEnums;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.Utils;
 
@@ -58,9 +59,17 @@ public class NetworkTypeLogger {
         if (mUtils.isConnectedToNetwork(mContext)) {
             final int networkType = networkInfo.getType();
             mMetricsLoggerWrapper.logAction(mContext, PROVISIONING_NETWORK_TYPE, networkType);
+            DevicePolicyEventLogger
+                    .createEvent(DevicePolicyEnums.PROVISIONING_NETWORK_TYPE)
+                    .setStrings(String.valueOf(networkType))
+                    .write();
         } else {
             mMetricsLoggerWrapper.logAction(mContext, PROVISIONING_NETWORK_TYPE,
                     NETWORK_TYPE_NOT_CONNECTED);
+            DevicePolicyEventLogger
+                    .createEvent(DevicePolicyEnums.PROVISIONING_NETWORK_TYPE)
+                    .setStrings(NETWORK_TYPE_NOT_CONNECTED)
+                    .write();
         }
     }
 }
