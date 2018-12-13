@@ -17,6 +17,18 @@
 package com.android.managedprovisioning.analytics;
 
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_CREATE_PROFILE_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_INSTALL_PACKAGE_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_START_PROFILE_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TOTAL_TASK_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_WEB_ACTIVITY_TIME_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -24,23 +36,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.nfc.NdefRecord;
 import android.os.SystemClock;
+import android.stats.devicepolicy.DevicePolicyEnums;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
+import com.android.managedprovisioning.analytics.TimeLogger.TimeCategory;
 import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
-
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.Properties;
+import java.util.Set;
 
 /**
  * Class containing various auxiliary methods used by provisioning analytics tracker.
  */
 public class AnalyticsUtils {
+
+    final static int CATEGORY_VIEW_UNKNOWN = -1;
 
     public AnalyticsUtils() {}
 
@@ -143,5 +157,39 @@ public class AnalyticsUtils {
         // Currently it verifies using the prefix. We should further change this to verify using the
         // actual DPM extras.
         return provisioningExtra != null && provisioningExtra.startsWith(PROVISIONING_EXTRA_PREFIX);
+    }
+
+    /**
+     * Converts from {@link MetricsEvent} constants to {@link DevicePolicyEnums} constants.
+     */
+    static int getDevicePolicyEventForCategory(@TimeCategory int metricsEvent) {
+        switch (metricsEvent) {
+            case PROVISIONING_COPY_ACCOUNT_TASK_MS:
+                return DevicePolicyEnums.PROVISIONING_COPY_ACCOUNT_TASK_MS;
+            case PROVISIONING_CREATE_PROFILE_TASK_MS:
+                return DevicePolicyEnums.PROVISIONING_CREATE_PROFILE_TASK_MS;
+            case PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS:
+                return DevicePolicyEnums.PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
+            case PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS:
+                return DevicePolicyEnums.PROVISIONING_ENCRYPT_DEVICE_ACTIVITY_TIME_MS;
+            case PROVISIONING_INSTALL_PACKAGE_TASK_MS:
+                return DevicePolicyEnums.PROVISIONING_INSTALL_PACKAGE_TASK_MS;
+            case PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS:
+                return DevicePolicyEnums.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
+            case PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS:
+                return DevicePolicyEnums.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+            case PROVISIONING_START_PROFILE_TASK_MS:
+                return DevicePolicyEnums.PROVISIONING_START_PROFILE_TASK_MS;
+            case PROVISIONING_WEB_ACTIVITY_TIME_MS:
+                return DevicePolicyEnums.PROVISIONING_WEB_ACTIVITY_TIME_MS;
+            case PROVISIONING_TERMS_ACTIVITY_TIME_MS:
+                return DevicePolicyEnums.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
+            case PROVISIONING_TOTAL_TASK_TIME_MS:
+                return DevicePolicyEnums.PROVISIONING_TOTAL_TASK_TIME_MS;
+            case VIEW_UNKNOWN:
+                return -1;
+            default:
+                throw new IllegalArgumentException("Unexpected metrics event.");
+        }
     }
 }
