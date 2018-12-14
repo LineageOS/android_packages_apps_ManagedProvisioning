@@ -15,30 +15,31 @@
  */
 package com.android.managedprovisioning.e2eui;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
 import android.content.Intent;
 import android.content.pm.UserInfo;
 import android.os.UserManager;
-import android.support.test.espresso.ViewInteraction;
-import android.support.test.espresso.base.DefaultFailureHandler;
-import android.support.test.filters.LargeTest;
-import android.support.test.rule.ActivityTestRule;
 import android.test.AndroidTestCase;
 import android.util.Log;
-
 import android.view.View;
+
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.base.DefaultFailureHandler;
+import androidx.test.filters.LargeTest;
+import androidx.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.BlockingBroadcastReceiver;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
+
 import org.hamcrest.Matcher;
 
 import java.util.List;
-
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.scrollTo;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @LargeTest
 public class ManagedProfileTest extends AndroidTestCase {

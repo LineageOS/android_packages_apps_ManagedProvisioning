@@ -53,8 +53,8 @@ import android.graphics.drawable.VectorDrawable;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.SmallTest;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.SmallTest;
 import android.test.AndroidTestCase;
 import android.text.TextUtils;
 

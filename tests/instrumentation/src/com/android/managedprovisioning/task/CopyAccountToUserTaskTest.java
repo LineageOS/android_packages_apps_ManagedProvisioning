@@ -35,9 +35,10 @@ import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.os.Handler;
 import android.os.UserHandle;
-import android.support.test.filters.FlakyTest;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
+
+import androidx.test.filters.FlakyTest;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
 
