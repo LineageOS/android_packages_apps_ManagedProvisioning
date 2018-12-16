@@ -59,6 +59,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECU
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME_SHORT;
@@ -73,12 +74,12 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMERS_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMER_CONTENT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMER_HEADER_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT;
@@ -101,8 +102,8 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SSID_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT;
-
 import static com.google.common.truth.Truth.assertThat;
+
 import static org.mockito.Mockito.when;
 
 import android.app.admin.DevicePolicyManager;
@@ -116,9 +117,10 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
-import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
 import android.util.Base64;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -127,12 +129,14 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Properties;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 /** Tests for {@link PropertiesProvisioningDataParser} */
 @SmallTest

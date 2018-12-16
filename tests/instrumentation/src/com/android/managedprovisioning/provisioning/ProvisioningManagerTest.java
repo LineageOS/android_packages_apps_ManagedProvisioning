@@ -32,8 +32,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.test.filters.SmallTest;
-import android.support.test.runner.AndroidJUnit4;
+
+import androidx.test.filters.SmallTest;
+import androidx.test.runner.AndroidJUnit4;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;

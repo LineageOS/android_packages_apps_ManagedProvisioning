@@ -19,12 +19,12 @@ package com.android.managedprovisioning.task.wifi;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import android.net.IpConfiguration;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiEnterpriseConfig;
-import android.support.test.filters.SmallTest;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.model.WifiInfo;
 

@@ -17,6 +17,7 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.managedprovisioning.preprovisioning.EncryptionController.CHANNEL_ID;
 import static com.android.managedprovisioning.preprovisioning.EncryptionController.NOTIFICATION_ID;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
@@ -26,11 +27,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.SmallTest;
+
+import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.SmallTest;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.preprovisioning.EncryptionController.ResumeNotificationHelper;
+
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;

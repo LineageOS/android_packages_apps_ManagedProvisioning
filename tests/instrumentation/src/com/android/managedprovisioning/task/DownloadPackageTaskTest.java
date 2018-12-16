@@ -23,9 +23,8 @@ import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_OTH
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Matchers.nullable;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -40,8 +39,9 @@ import android.content.IntentFilter;
 import android.database.MatrixCursor;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.test.filters.FlakyTest;
-import android.support.test.filters.SmallTest;
+
+import androidx.test.filters.FlakyTest;
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;

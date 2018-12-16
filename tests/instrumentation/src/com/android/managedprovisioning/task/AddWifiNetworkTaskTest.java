@@ -32,7 +32,8 @@ import android.net.ConnectivityManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Looper;
-import android.support.test.filters.SmallTest;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;

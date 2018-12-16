@@ -25,7 +25,8 @@ import android.content.Context;
 import android.os.FileUtils;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.support.test.InstrumentationRegistry;
+
+import androidx.test.InstrumentationRegistry;
 
 import com.android.managedprovisioning.task.nonrequiredapps.SystemAppsSnapshot;
 import com.android.managedprovisioning.tests.R;

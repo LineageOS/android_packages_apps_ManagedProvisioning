@@ -16,12 +16,12 @@
 package com.android.managedprovisioning.common;
 
 import static android.graphics.PorterDuff.Mode.SRC_ATOP;
-import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
+
+import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
 
 import static junit.framework.Assert.assertTrue;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.instanceOf;
 
 import android.annotation.LayoutRes;
 import android.app.Activity;
@@ -29,9 +29,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.ContextThemeWrapper;
 import android.widget.ImageView;

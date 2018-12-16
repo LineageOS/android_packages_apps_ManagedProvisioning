@@ -19,8 +19,9 @@ import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
 
 import android.content.Context;
-import android.support.test.filters.SmallTest;
 import android.view.LayoutInflater;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;

@@ -27,8 +27,9 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.os.Parcel;
 import android.os.UserHandle;
-import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.Utils;

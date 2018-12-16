@@ -29,9 +29,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.SmallTest;
 import android.util.Pair;
+
+import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter;

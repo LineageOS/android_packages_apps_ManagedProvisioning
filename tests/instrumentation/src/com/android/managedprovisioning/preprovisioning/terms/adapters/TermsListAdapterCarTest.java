@@ -21,10 +21,11 @@ import static org.mockito.Mockito.when;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.test.filters.SmallTest;
-import android.support.test.InstrumentationRegistry;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;

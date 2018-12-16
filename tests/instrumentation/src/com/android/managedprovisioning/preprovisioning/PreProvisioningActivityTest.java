@@ -32,9 +32,10 @@ import static org.mockito.Mockito.when;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.test.filters.SmallTest;
-import android.support.test.rule.ActivityTestRule;
 import android.view.View;
+
+import androidx.test.filters.SmallTest;
+import androidx.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
