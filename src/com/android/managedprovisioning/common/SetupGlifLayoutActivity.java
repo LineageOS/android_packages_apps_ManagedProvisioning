@@ -19,7 +19,8 @@ package com.android.managedprovisioning.common;
 import android.annotation.Nullable;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.os.SystemProperties;
+import android.sysprop.SetupWizardProperties;
+
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
@@ -63,7 +64,7 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
     private void setDefaultTheme() {
         // Take Glif light as default theme like
         // com.google.android.setupwizard.util.ThemeHelper.getDefaultTheme
-        setTheme(WizardManagerHelper.getThemeRes(SystemProperties.get("setupwizard.theme"),
+        setTheme(WizardManagerHelper.getThemeRes(SetupWizardProperties.theme().orElse(""),
                 R.style.SuwThemeGlif_Light));
     }
 
