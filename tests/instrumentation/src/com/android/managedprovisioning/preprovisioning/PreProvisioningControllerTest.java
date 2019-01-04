@@ -87,7 +87,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                     .setLocation("LOCATION")
                     .setMinVersion(1)
                     .setPackageChecksum(new byte[] {1})
-                    .setPackageChecksumSupportsSha1(false)
                     .setSignatureChecksum(new byte[] {1})
                     .build();
 

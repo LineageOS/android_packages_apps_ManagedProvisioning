@@ -98,7 +98,7 @@ public class VerifyPackageTaskTest {
         when(mDownloadPackageTask.getDownloadedPackageLocation()).thenReturn(null);
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY, false);
+        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY);
 
         // THEN success should be called
         verify(mCallback).onSuccess(mTask);
@@ -112,7 +112,7 @@ public class VerifyPackageTaskTest {
                 .thenReturn(null);
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY, false);
+        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY);
 
         // THEN an error should be reported
         verify(mCallback).onError(mTask, ERROR_DEVICE_ADMIN_MISSING);
@@ -126,38 +126,10 @@ public class VerifyPackageTaskTest {
                 .thenReturn(TEST_PACKAGE_CHECKSUM_HASH);
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY, false);
+        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY);
 
         // THEN success should be called
         verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @Test
-    public void testPackageChecksumSha1_success() throws Exception {
-        // GIVEN the hash of the downloaded file matches the parameter value in Sha1
-        when(mUtils.computeHashOfFile(TEST_LOCAL_FILENAME, Utils.SHA1_TYPE))
-                .thenReturn(TEST_PACKAGE_CHECKSUM_HASH);
-
-        // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY, true);
-
-        // THEN success should be called
-        verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @Test
-    public void testPackageChecksumSha1_failure() throws Exception {
-        // GIVEN the hash of the downloaded file does no match the parameter value in Sha1
-        when(mUtils.computeHashOfFile(TEST_LOCAL_FILENAME, Utils.SHA1_TYPE))
-                .thenReturn(TEST_BAD_HASH);
-
-        // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY, true);
-
-        // THEN hash mismatch error should be called
-        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -168,7 +140,7 @@ public class VerifyPackageTaskTest {
                 .thenReturn(TEST_SIGNATURE_HASH);
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH, true);
+        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN success should be called
         verify(mCallback).onSuccess(mTask);
@@ -182,7 +154,7 @@ public class VerifyPackageTaskTest {
                 .thenReturn(TEST_BAD_HASH);
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH, true);
+        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN hash mismatch error should be called
         verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
@@ -195,7 +167,7 @@ public class VerifyPackageTaskTest {
         mPackageInfo.signatures = null;
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH, true);
+        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN hash mismatch error should be called
         verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
@@ -208,20 +180,18 @@ public class VerifyPackageTaskTest {
         when(mUtils.computeHashOfByteArray(any(byte[].class))).thenReturn(null);
 
         // WHEN running the VerifyPackageTask
-        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH, true);
+        runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN hash mismatch error should be called
         verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
         verifyNoMoreInteractions(mCallback);
     }
 
-    private void runWithDownloadInfo(byte[] packageChecksum, byte[] signatureChecksum,
-            boolean supportsSha1) {
+    private void runWithDownloadInfo(byte[] packageChecksum, byte[] signatureChecksum) {
         PackageDownloadInfo downloadInfo = new PackageDownloadInfo.Builder()
                 .setLocation(TEST_PACKAGE_LOCATION)
                 .setPackageChecksum(packageChecksum)
                 .setSignatureChecksum(signatureChecksum)
-                .setPackageChecksumSupportsSha1(supportsSha1)
                 .build();
         ProvisioningParams params = new ProvisioningParams.Builder()
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)

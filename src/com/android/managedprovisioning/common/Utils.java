@@ -78,7 +78,6 @@ import java.util.Set;
  */
 public class Utils {
     public static final String SHA256_TYPE = "SHA-256";
-    public static final String SHA1_TYPE = "SHA-1";
 
     // value chosen to match UX designs; when updating check status bar icon colors
     private static final int THRESHOLD_BRIGHT_COLOR = 190;
