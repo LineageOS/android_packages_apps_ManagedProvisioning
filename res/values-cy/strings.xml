@@ -22,25 +22,32 @@
   <!-- App label displayed on the notification shown to indicate that the provisioning process was previously started but not completed. [CHAR LIMIT=45] -->
   <string name="app_label">Gosod proffil gwaith</string>
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
+  <string name="provisioning_error_title">Wps!</string>
   <!-- Work profile provisioning flow UI. -->
   <!-- User consent -->
   <!-- Title of all work profile setup screens. [CHAR LIMIT=NONE] -->
   <string name="setup_work_profile">Gosod proffil gwaith</string>
   <!-- The text that asks for user consent to create a work profile [CHAR LIMIT=NONE] -->
+  <string name="company_controls_workspace">Mae dy sefydliad yn rheoli\'r proffil hwn a\'i gadw\'n ddiogel. Rwyt ti\'n rheoli popeth arall ar dy ddyfais.</string>
   <!-- The text that asks for user consent to set up a work device [CHAR LIMIT=NONE] -->
   <string name="company_controls_device">Bydd dy sefydliad yn rheoli\'r ddyfais hon a cyn ei chadw\'n ddiogel.</string>
   <!-- String shown above the icon of the app that will control the work profile after it is set up. [CHAR LIMIT=NONE]-->
+  <string name="the_following_is_your_mdm">Bydd ar yr ap hwn angen mynediad i\'r proffil hwn:</string>
   <!-- String shown above the icon of the app that will control the work device after it is set up. [CHAR LIMIT=NONE]-->
+  <string name="the_following_is_your_mdm_for_device">Bydd yr ap canlynol yn rheoli dy ddyfais:</string>
   <!-- String for positive button on user consent dialog for creating a profile [CHAR LIMIT=NONE] -->
   <string name="next">Nesaf</string>
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the profile they are creating. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor_profile">Mae gan dy weinyddwr y gallu i fonitro a rheoli\'r gosodiadau, mynediad corfforaethol, apiau, caniatâd, a data yn gysylltiedig â\'r proffil hwn, gan gynnwys dy weithgaredd rhwydwaith, yn ogystal â lleoliad dy ddyfais, hanes galwadau, a hanes chwilio cysylltiadau. <xliff:g id="line_break">&lt;br&gt;&lt;br&gt;</xliff:g>Cysyllta â dy weinyddwr am ragor o wybodaeth, gan gynnwyd polisïau preifatrwydd dy sefydliad.</string>
   <!-- Text in a pop-up that asks the user to confirm that they allow the mobile device management app to take control of the device. [CHAR LIMIT=NONE]-->
+  <string name="admin_has_ability_to_monitor_device">Mae gan dy weinyddwr y gallu i fonitro a rheoli\'r gosodiadau, mynediad corfforaethol, apiau, caniatâd, a data yn gysylltiedig â\'r ddyfais hon, gan gynnwys dy weithgaredd rhwydwaith, yn ogystal â lleoliad dy ddyfais, hanes galwadau, a hanes chwilio cysylltiadau. <xliff:g id="line_break">&lt;br&gt;&lt;br&gt;</xliff:g>Cysyllta â dy weinyddwr am ragor o wybodaeth, gan gynnwyd polisïau preifatrwydd dy sefydliad.</string>
   <!-- Text in a pop-up that asks the user to confirm that theft protection will only be enabled after a password-protected screen lock was chosen. [CHAR LIMIT=NONE]-->
   <string name="theft_protection_disabled_warning">Er mwyn defnyddio nodweddion amddiffyn rhag lladrad, rhaid yn gyntaf gosod sgrin cloi gyda chyfrinair i ddiogelu dy ddyfais.</string>
   <!-- String telling the user how to get more information about their work profile-->
   <string name="contact_your_admin_for_more_info">Cysyllta â dy weinyddwr am ragor o wybodaeth, gan gynnwys polisïau preifatrwydd y sefydliad.</string>
   <!-- Text on the link that will forward the user to a website with more information about work profiles [CHAR LIMIT=30]-->
+  <string name="learn_more_link">Dysgu mwy </string>
   <!-- Text on negative button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
   <string name="cancel_setup">Diddymu</string>
   <!-- Text on positive button in a popup shown to the user to confirm that they want to start setting up a work profile [CHAR LIMIT=15]-->
@@ -50,9 +57,11 @@
   <!-- Error shown when WebView cannot be displayed using provided URL [CHAR LIMIT=40] -->
   <!-- 'Terms and conditions' screen -->
   <!--Toolbar header [CHAR LIMIT=NONE] -->
+  <string name="terms">Telerau</string>
   <!-- Work profile info terms section heading. [CHAR LIMIT=NONE] -->
   <!-- Work profile info terms section heading. [CHAR LIMIT=NONE] -->
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
+  <string name="default_managed_profile_name">Proffil gwaith</string>
   <!-- Default name used for the creation of the first meat user on a device with system-user split. [CHAR LIMIT=NONE] -->
   <string name="default_first_meat_user_name">Prif ddefnyddiwr</string>
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
@@ -60,6 +69,7 @@
        their existing work profile. The administration app icon and name appear after the final
        colon. [CHAR LIMIT=NONE] -->
   <!-- String on the dialog that links through to more information about the profile management application. -->
+  <string name="read_more_delete_profile">Cyn parhau, <a href="#read_this_link">darllena hwn</a>.</string>
   <!-- String on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <string name="sure_you_want_to_delete_profile">Os wyt ti\'n cytuno, caiff holl apiau a data\'r proffil hwn eu dileu.</string>
   <!-- String on the button that triggers the deletion of a work profile.-->
@@ -67,19 +77,27 @@
   <!-- String on the button that cancels out of the deletion of a work profile.-->
   <string name="cancel_delete_profile">Diddymu</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of profile setup [CHAR LIMIT=NONE]-->
+  <string name="encrypt_device_text_for_profile_owner_setup">I osod dy broffil gwaith, mae\'n rhaid amgryptio dy ddyfais. Gall hyn gymryd peth amser.</string>
   <!-- String shown on prompt for user to encrypt and reboot the device, in case of device setup [CHAR LIMIT=NONE]-->
+  <string name="encrypt_device_text_for_device_owner_setup">I osod y ddyfais hon, rhaid ei hamgryptio yn gyntaf. Gall hyn gymryd peth amser.</string>
   <!-- String title shown on encryption dialog. [CHAR LIMIT=20]-->
   <!-- String shown on button for user to continue to settings to encrypt the device. [CHAR LIMIT=20]-->
   <string name="encrypt">Amgryptio</string>
   <!-- Title for reminder notification to resume provisioning after encryption [CHAR LIMIT=30] -->
+  <string name="continue_provisioning_notify_title">Amgryptio wedi\'i gwblhau</string>
   <!-- Body for reminder notification to resume provisioning after encryption [CHAR LIMIT=NONE] -->
   <string name="continue_provisioning_notify_text">Tara i barhau i osod dy broffil gwaith.</string>
   <!-- Explains the failure and what to do to next. [CHAR LIMIT=NONE] -->
+  <string name="managed_provisioning_error_text">Methwyd â gosod dy broffil gwaith. Cysyllta â dy adran TGCh neu roi cynnig arall arni\'n hwyrach.</string>
   <!-- Error string displayed if this device doesn't support work profiles. -->
+  <string name="cant_add_work_profile">Methu ag ychwanegu proffil gwaith</string>
   <!-- Title of an error dialog that appears when a user tries to set up a work profile. In this case, the work profile can't be added because one already exists and can't be replaced, or it isn't supported by the device or the IT admin. -->
+  <string name="cant_replace_or_remove_work_profile">Methu â newid neu dynnu\'r proffil gwaith</string>
   <!-- Message of an error dialog that appears when a user tries to set up a work profile. In this case, the work profile can't be added because one already exists and can't be replaced, or it isn't supported by the device or the IT admin. -->
+  <string name="work_profile_cant_be_added_contact_admin">Ni ellir ychwanegu proffil gwaith i\'r ddyfais hon. Os oes gennyt gwestiynau, cysyllta â dy weinyddwr.</string>
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
   <!-- Error string displayed if the selected launcher doesn't support work profiles. -->
+  <string name="launcher_app_cant_be_used_by_work_profile">Ni ellir defnyddio\'r ap lansio hwn gan dy broffil gwaith</string>
   <!-- Button text for the button that cancels provisioning  -->
   <string name="cancel_provisioning">Diddymu</string>
   <!-- Button text for the button that opens the launcher picker  -->
@@ -88,19 +106,28 @@
   <string name="user_setup_incomplete">Gosod Defnyddiwr Heb ei Gwblhau</string>
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
+  <string name="default_owned_device_username">Defnyddiwr y ddyfais gwaith</string>
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
+  <string name="progress_data_process">Yn prosesu data gosod\u2026</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
+  <string name="progress_connect_to_wifi">Yn cysylltu i\'r Wi-Fi\u2026</string>
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
+  <string name="progress_download">Yn lawrlwytho\'r ap gweinyddu\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
+  <string name="progress_install">Yn gosod yr ap gweinyddu\u2026</string>
   <!-- TODO: Confirm this string with UX. Progress text indicating that non-required system apps are being deleted. [CHAR LIMIT=45] -->
   <!-- TODO: Confirm this string with UX. Progress text indicating that finishing touches are being put. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
+  <string name="progress_set_owner">Yn gosod perchennog y ddyfais\u2026</string>
   <!-- TODO: Confirm this string with UX. Progress text indicating that the progress is being initialized. [CHAR LIMIT=45] -->
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
   <!-- Title of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
+  <string name="stop_setup_reset_device_question">Stopio gosod ac ailosod y ddyfais?</string>
   <!-- Title of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
+  <string name="this_will_reset_take_back_first_screen">Bydd hyn yn ailosod dy ddyfais ac yn dy gymryd nôl i\'r sgrin gyntaf oll</string>
   <!-- Message of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_cancel_message">Stopio gosod a dileu holl ddata\'r ddyfais?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_cancel">Diddymu</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
@@ -108,26 +135,37 @@
   <!-- Reset button text of the error dialog. [CHAR LIMIT=45] -->
   <string name="reset">Ailosod</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
+  <string name="cant_set_up_profile">Methu â gosod proffil</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
+  <string name="cant_set_up_device">Methu â gosod y ddyfais</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
   <string name="device_owner_error_wifi">Methwyd â chysylltu â\'r Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
+  <string name="device_has_reset_protection_contact_admin">Mae dy ddyfais wedi ei gwarchod rhag cael ei ailosod. Cysyllta â dy weinyddwr am gymorth.</string>
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
+  <string name="frp_clear_progress_title">Yn dileu</string>
   <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
+  <string name="frp_clear_progress_text">Arhosa...</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_download_failed">Methwyd â lawrlwytho\'r ap gweinyddu</string>
   <!-- Message of the error dialog when package to install is invalid. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_package_invalid">Methu â defnyddio\'r ap gweinyddu. Mae rhai cydrannau ar goll neu\'n llygredig. Cysyllta â dy adran TGCh am gymorth.</string>
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_installation_failed">Methwyd â gosod yr ap gweinyddu</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_cancel_message">Stopio gosod?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancel_cancel">Na</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
   <string name="profile_owner_cancel_ok">Ie</string>
   <!-- Message of the cancel progress dialog. [CHAR LIMIT=45] -->
+  <string name="profile_owner_cancelling">Yn diddymu\u2026</string>
   <!-- Title of the work profile setup cancel dialog. [CHAR LIMIT=45] -->
+  <string name="work_profile_setup_later_title">Stopio gosod y proffil?</string>
   <!-- Message of the work profile setup cancel dialog. [CHAR LIMIT=NONE] -->
   <!-- Continue button text. [CHAR LIMIT=20] -->
   <string name="continue_button">Parhau</string>
@@ -139,9 +177,12 @@
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_info_comp">Caiff proffil ei greu ar gyfer dy apiau gwaith. Bydd y proffil hwn a gweddill dy ddyfais yn cael ei reoli a\'i monitro gan dy sefydliad. Bydd telerau yn berthnasol.</string>
   <!-- Short explanation of consequences of creating a work profile [CHAR LIMIT=NONE] -->
+  <string name="profile_owner_info_with_terms_headers_comp">Caiff proffil ei greu ar gyfer dy apiau gwaith. Bydd y proffil hwn a gweddill dy ddyfais yn cael ei reoli a\'i monitro gan dy sefydliad. Bydd telerau <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%1$s</xliff:g> yn berthnasol.</string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
+  <string name="device_owner_info_with_terms_headers">Caiff y ddyfais hon ei rheoli a\'i chadw\'n ddiogel gan <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Bydd telerau <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> yn berthnasol. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
   <!-- Short explanation of consequences of setting a device owner [CHAR LIMIT=NONE] -->
   <!-- Text with link to device's provider in case of more questions [CHAR LIMIT=NONE] -->
   <!-- Error message encouraging to contact admin [CHAR LIMIT=NONE] -->
@@ -149,12 +190,18 @@
   <!-- Error message encouraging to contact admin [CHAR LIMIT=NONE] -->
   <!-- Provider of the device (e.g. employer) [CHAR LIMIT=NONE] -->
   <!-- Information of the app used by your organization to manage the device -->
+  <string name="your_org_app_used">Bydd <xliff:g id="Your organization" example="Your organization">%1$s</xliff:g> yn rheoli a monitro\'r ddyfais hon gan ddefnyddio\'r ap hwn:</string>
   <!-- Your organization - beginning of a sentence [CHAR LIMIT=NONE] -->
+  <string name="your_organization_beginning">Dy sefydliad</string>
   <!-- Your organization - middle of the sentence [CHAR LIMIT=NONE] -->
+  <string name="your_organization_middle">dy sefydliad</string>
   <!--Button that lauches a screen showing terms and conditions [CHAR LIMIT=20] -->
   <!--Button initiating a profile/device owner setup process [CHAR LIMIT=20] -->
+  <string name="accept_and_continue">Derbyn a pharhau</string>
   <!--Close button cancelling a profile/device owner setup process [CHAR LIMIT=20] -->
+  <string name="close">Cau</string>
   <!--Header for device owner provisioning setup screen [CHAR LIMIT=NONE] -->
+  <string name="set_up_your_device">Gosod dy ddyfais</string>
   <!-- Animation informing a user about benefits of having a managed profile (http://go/anim-e1f256) -->
   <!-- Title 1/3 from slides [CHAR LIMIT=NONE]-->
   <!-- Title 2/3 from slides [CHAR LIMIT=NONE]-->
@@ -162,20 +209,34 @@
   <!-- Title 3/3 from slides [CHAR LIMIT=NONE]-->
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="provisioning">Darpariaethu</string>
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="copying_certs">Yn gosod tystysgrifau CA</string>
   <!-- Accessibility Descriptions -->
   <!-- Accessibility description for the profile setup screen. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile">Gosod dy broffil</string>
   <!-- Accessibility description for the profile benefits animation (shown on profile setup screen) [CHAR LIMIT=NONE] -->
+  <string name="profile_benefits_description">Gan ddefnyddio proffil gwaith gellir cadw data gwaith a data personol ar wahân</string>
   <!-- Accessibility description for the profile benefits animation (shown on profile setup screen) [CHAR LIMIT=NONE] -->
+  <string name="comp_profile_benefits_description">Gan ddefnyddio proffil gwaith gellir cadw dy apiau gwaith mewn un man</string>
   <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_encryption">Gosod dy broffil. Amgryptiad</string>
   <!-- Accessibility description for the profile setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_progress">Gosod dy broffil. Yn dangos cynnydd</string>
   <!-- Accessibility description for the device setup screen showing company info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device">Gosod dy ddyfais</string>
   <!-- Accessibility description for the device setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_encryption">Gosod dy ddyfais. Amryptiad</string>
   <!-- Accessibility description for the device setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_progress">Gosod dy ddyfais. Yn dangos cynnydd</string>
   <!-- Accessibility description for the learn more link in user consent dialog. [CHAR LIMIT=NONE] -->
+  <string name="learn_more_label">Botwm dysgu mwy</string>
   <!-- Accessibility description for the company icon. [CHAR LIMIT=NONE] -->
+  <string name="mdm_icon_label">Eicon <xliff:g id="icon_label" example="Test App">%1$s</xliff:g></string>
   <!-- Accessibility description for a section heading. [CHAR LIMIT=NONE] -->
+  <string name="section_heading">Pennawd adran <xliff:g id="section_heading" example="Early Renaissance">%1$s</xliff:g>.</string>
   <!-- Accessibility description for section content. Followed by actual content. [CHAR LIMIT=NONE] -->
+  <string name="section_content"><xliff:g id="section_heading" example="Early Renaissance">%1$s</xliff:g> cynnwys adran: <xliff:g id="section_content" example="Once upon a time [...]">%2$s</xliff:g></string>
   <!-- Accessibility description for triggering an expansion of a collapsed element. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description for triggering collapsing of an expanded element. [CHAR LIMIT=NONE] -->
   <!-- Accessibility description for opening a context menu with a list of links contained in the text element. [CHAR LIMIT=40] -->
@@ -195,7 +256,11 @@
   <string name="cancel_setup_and_factory_reset_dialog_ok">Ailosod y ddyfais</string>
   <!-- Concatenating lists of items -->
   <!-- [CHAR_LIMIT=NONE] Format to put together two items in a list. -->
+  <string name="join_two_items"><xliff:g id="first_item">%1$s</xliff:g> a <xliff:g id="second_item">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=NONE] Format to put the last item at the end of a series of 3 or more items in a list -->
+  <string name="join_many_items_last"><xliff:g id="all_but_last_item">%1$s</xliff:g>, a <xliff:g id="last_item">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=NONE] Format to put the first item at the start of a series of 3 or more items in a list -->
+  <string name="join_many_items_first"><xliff:g id="first_item">%1$s</xliff:g>, <xliff:g id="all_but_first_and_last_item">%2$s</xliff:g></string>
   <!-- [CHAR_LIMIT=NONE] Format to put the middle items together in a series of 4 or more items in a list -->
+  <string name="join_many_items_middle"><xliff:g id="added_item">%1$s</xliff:g>, <xliff:g id="rest_of_items">%2$s</xliff:g></string>
 </resources>
