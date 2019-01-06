@@ -272,8 +272,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                                         .setPackageChecksum(TEST_PACKAGE_CHECKSUM)
                                         .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
                                         .setMinVersion(TEST_MIN_SUPPORT_VERSION)
-                                        // THEN it supports SHA1 package checksum.
-                                        .setPackageChecksumSupportsSha1(true)
                                         .build())
                         .setLocalTime(TEST_LOCAL_TIME)
                         .setLocale(TEST_LOCALE)

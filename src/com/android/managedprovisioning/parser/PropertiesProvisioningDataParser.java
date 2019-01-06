@@ -259,11 +259,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
         }
         if ((s = getPropertyFromLongName(
                 props, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM)) != null) {
-            // Still support SHA-1 for device admin package hash if we are provisioned by a Nfc
-            // programmer.
-            // TODO: remove once SHA-1 is fully deprecated.
-            builder.setPackageChecksum(StoreUtils.stringToByteArray(s))
-                    .setPackageChecksumSupportsSha1(true);
+            builder.setPackageChecksum(StoreUtils.stringToByteArray(s));
         }
         if ((s = getPropertyFromLongName(props, EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM))
                 != null) {
