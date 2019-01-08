@@ -62,6 +62,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.util.Log;
+
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.filters.SmallTest;
@@ -293,12 +295,12 @@ public class ProvisioningActivityTest {
 
         // WHEN the activity is recreated with a saved instance state
         mActivityRule.runOnUiThread(() -> {
-                    Bundle bundle = new Bundle();
-                    InstrumentationRegistry.getInstrumentation()
-                            .callActivityOnSaveInstanceState(mActivityRule.getActivity(), bundle);
-                    InstrumentationRegistry.getInstrumentation()
-                            .callActivityOnCreate(mActivityRule.getActivity(), bundle);
-                });
+            Bundle bundle = new Bundle();
+            InstrumentationRegistry.getInstrumentation()
+                    .callActivityOnSaveInstanceState(mActivityRule.getActivity(), bundle);
+            InstrumentationRegistry.getInstrumentation()
+                    .callActivityOnCreate(mActivityRule.getActivity(), bundle);
+        });
 
         // THEN provisioning should not be initiated again
         verify(mProvisioningManager).maybeStartProvisioning(PROFILE_OWNER_PARAMS);
@@ -331,13 +333,17 @@ public class ProvisioningActivityTest {
         // THEN the UI should show an error dialog
         onView(withText(errorMsgId)).check(matches(isDisplayed()));
 
-        // WHEN clicking ok
-        onView(withId(android.R.id.button1))
-                .check(matches(withText(R.string.device_owner_error_ok)))
-                .perform(click());
+        // TODO(http://b/122511015): Replace retry with cleaner solution.
+        // Retry as the click action is unreliable
+        assertAndRetry(() -> {
+            // WHEN clicking ok
+            onView(withId(android.R.id.button1))
+                    .check(matches(withText(R.string.device_owner_error_ok)))
+                    .perform(click());
+            // THEN the activity should be finishing
+            assertTrue(mActivityRule.getActivity().isFinishing());
+        });
 
-        // THEN the activity should be finishing
-        assertTrue(mActivityRule.getActivity().isFinishing());
     }
 
     @Test
@@ -352,14 +358,37 @@ public class ProvisioningActivityTest {
         // THEN the UI should show an error dialog
         onView(withText(errorMsgId)).check(matches(isDisplayed()));
 
-        // WHEN clicking the ok button that says that factory reset is required
-        onView(withId(android.R.id.button1))
-                .check(matches(withText(R.string.reset)))
-                .perform(click());
+        // TODO(http://b/122511015): Replace retry with cleaner solution.
+        // Retry as the click action is unreliable
+        assertAndRetry(() -> {
+            // WHEN clicking the ok button that says that factory reset is required
+            onView(withId(android.R.id.button1))
+                    .check(matches(withText(R.string.reset)))
+                    .perform(click());
+            // THEN factory reset should be invoked
+            verify(mUtils, timeout(BROADCAST_TIMEOUT))
+                    .sendFactoryResetBroadcast(any(Context.class), anyString());
+        });
+    }
 
-        // THEN factory reset should be invoked
-        verify(mUtils, timeout(BROADCAST_TIMEOUT))
-                .sendFactoryResetBroadcast(any(Context.class), anyString());
+    private void assertAndRetry(int retries, Runnable runnable) throws Exception {
+        Exception exception = new IllegalArgumentException("Retries must be at least 1");
+        while (retries > 0) {
+            try {
+                runnable.run();
+                return;
+            } catch (Exception e) {
+                retries--;
+                Log.i("assertAndRetry",
+                        String.format("Assertion failed. %s retries remaining", retries), e);
+                exception = e;
+            }
+        }
+        throw exception;
+    }
+
+    private void assertAndRetry(Runnable runnable) throws Exception {
+        assertAndRetry(3, runnable);
     }
 
     @Test
