@@ -45,14 +45,14 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"আগৰে পৰা থকা প্ৰ\'ফাইলটো মচিবনে?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"আপোনাৰ ইতিমধ্যে এটা কৰ্মস্থানৰ প্ৰ\'ফাইল আছে। সেইটোক তলত উল্লেখ কৰা এপটোৱে পৰিচালনা কৰে:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"আৰম্ভ কৰাৰ আগতে, "<a href="#read_this_link">"এয়া পঢ়ক"</a>"।"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"আপুনি এই কার্য অব্য়াহত ৰাখিলে এই প্ৰ\'ফাইলৰ সকলো এপ্ আৰু ডেটা মচা হ\'ব।"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"আপুনি এই কার্য অব্যাহত ৰাখিলে এই প্ৰ\'ফাইলৰ সকলো এপ্ আৰু ডেটা মচা হ\'ব।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"মচক"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"বাতিল কৰক"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইলটো ছেট আপ কৰিবলৈ আপোনাৰ ডিভাইচটো এনক্ৰিপ্ট কৰিব লাগিব। এই কাম সম্পূৰ্ণ হ\'বলৈ কিছু সময়ৰ প্ৰয়োজন হ\'ব পাৰে।"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"এই ডিভাইচটো ছেট আপ কৰিবলৈ ইয়াক প্ৰথমে এনক্ৰিপ্ট কৰিব লাগিব। এই কাম সম্পূৰ্ণ হ\'বলৈ কিছু সময়ৰ প্ৰয়োজন হ\'ব পাৰে।"</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"এই ডিভাইচটো এনক্ৰিপ্ট কৰিবনে?"</string>
     <string name="encrypt" msgid="1749320161747489212">"এনক্ৰিপ্ট কৰক"</string>
-    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"এনক্ৰিপশ্বন সম্পূৰ্ণ হ\'ল"</string>
+    <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"এনক্ৰিপশ্বন সম্পূৰ্ণ হ’ল"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইলৰ ছেটিং কাৰ্য অব্যাহত ৰাখিবলৈ ইয়াত টিপক"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"কৰ্মস্থানৰ প্ৰ\'ফাইল ছেটআপ কৰিব পৰা নগ\'ল। আপোনাৰ আইটি বিভাগৰ সৈতে যোগাযোগ কৰক বা পিছত পুনৰ চেষ্টা কৰক।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"কৰ্মস্থানৰ প্ৰ\'ফাইল যোগ কৰিব নোৱাৰি"</string>
@@ -67,8 +67,8 @@
     <string name="setup_work_device" msgid="6003988351437862369">"কৰ্মস্থানৰ ডিভাইচ ছেট আপ কৰি থকা হৈছে…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ডেটা ছেট আপ প্ৰক্ৰিয়া চলি আছে…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ৱাই-ফাইৰ লগত সংযোগ কৰি থকা হৈছে…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ম\'বাইল নেটৱৰ্কৰ সৈতে সংযোগ কৰি থকা হৈছে…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"প্ৰশাসক এপ্ ডাউনল\'ড কৰি থকা হৈছে…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ম’বাইল নেটৱৰ্কৰ সৈতে সংযোগ কৰি থকা হৈছে…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"প্ৰশাসক এপ্ ডাউনল’ড কৰি থকা হৈছে…"</string>
     <string name="progress_install" msgid="2258045670385866183">"প্ৰশাসক এপ্ ইনষ্টল কৰি থকা হৈছে…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"অপ্ৰয়োজনীয় ছিষ্টেম এপসমূহ আঁতৰাই থকা হৈছে…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"অন্তিম পৰ্যায়ৰ কামবোৰ কৰি থকা হৈছে…"</string>
@@ -91,7 +91,7 @@
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"মচি থকা হৈছে"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"অনুগ্রহ কৰি অপেক্ষা কৰক..."</string>
     <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"চ্চেকছাম আসোঁৱাহৰ বাবে প্ৰশাসক এপটো ব্যৱহাৰ কৰিব পৰা নগ\'ল। সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"এডমিন এপটো ডাউনল\'ড কৰিব পৰা নগ\'ল"</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"এডমিন এপটো ডাউনল’ড কৰিব পৰা নগ\'ল"</string>
     <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"প্ৰশাসক এপটো ব্যৱহাৰ কৰিব নোৱাৰি। এপটোত থাকিবলগীয়া কোনো উপাদান নাই বা ই ব্যৱহাৰযোগ্য হৈ থকা নাই। সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"এডমিন এপটো ইনষ্টল কৰিব পৰা নগ\'ল"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ছেট আপ কার্য বন্ধ কৰিবনে?"</string>
