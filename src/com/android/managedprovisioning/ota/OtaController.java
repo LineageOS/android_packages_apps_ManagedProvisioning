@@ -25,9 +25,15 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.util.ArraySet;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodSystemProperty;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -38,6 +44,9 @@ import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.MigrateSystemAppsSnapshotTask;
+
+import java.util.List;
+import java.util.function.IntFunction;
 
 /**
  * After a system update, this class resets the cross-profile intent filters and performs any
@@ -54,13 +63,19 @@ public class OtaController {
     private final UserManager mUserManager;
     private final DevicePolicyManager mDevicePolicyManager;
 
+    private final IntFunction<ArraySet<String>> mMissingSystemImeProvider;
+
     public OtaController(Context context) {
-        this(context, new TaskExecutor(), new CrossProfileIntentFiltersSetter(context));
+        this(context, new TaskExecutor(), new CrossProfileIntentFiltersSetter(context),
+                InputMethodSystemProperty.PER_PROFILE_IME_ENABLED
+                        ? userId -> getMissingSystemImePackages(context, UserHandle.of(userId))
+                        : userId -> new ArraySet<>());
     }
 
     @VisibleForTesting
     OtaController(Context context, TaskExecutor taskExecutor,
-            CrossProfileIntentFiltersSetter crossProfileIntentFiltersSetter) {
+            CrossProfileIntentFiltersSetter crossProfileIntentFiltersSetter,
+            IntFunction<ArraySet<String>> missingSystemImeProvider) {
         mContext = checkNotNull(context);
         mTaskExecutor = checkNotNull(taskExecutor);
         mCrossProfileIntentFiltersSetter = checkNotNull(crossProfileIntentFiltersSetter);
@@ -68,6 +83,8 @@ public class OtaController {
         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
         mDevicePolicyManager = (DevicePolicyManager) context.getSystemService(
                 Context.DEVICE_POLICY_SERVICE);
+
+        mMissingSystemImeProvider = missingSystemImeProvider;
     }
 
     public void run() {
@@ -140,6 +157,10 @@ public class OtaController {
                 new DisableInstallShortcutListenersTask(context, fakeParams, mTaskExecutor));
         mTaskExecutor.execute(userId,
                 new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
+
+        // Copying missing system IMEs if necessary.
+        mMissingSystemImeProvider.apply(userId).forEach(packageName -> mTaskExecutor.execute(userId,
+                new InstallExistingPackageTask(packageName, context, fakeParams, mTaskExecutor)));
     }
 
     void addManagedUserTasks(final int userId, Context context) {
@@ -157,5 +178,48 @@ public class OtaController {
                 .build();
         mTaskExecutor.execute(userId,
                 new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
+    }
+
+    /**
+     * Returns IME packages that can be installed from the profile parent user.
+     *
+     * @param context {@link Context} of the caller.
+     * @param userHandle {@link UserHandle} that specifies the user.
+     * @return A set of IME package names that can be installed from the profile parent user.
+     */
+    private static ArraySet<String> getMissingSystemImePackages(Context context,
+            UserHandle userHandle) {
+        ArraySet<String> profileParentSystemImes = getInstalledSystemImePackages(context,
+                context.getSystemService(UserManager.class).getProfileParent(userHandle));
+        ArraySet<String> installedSystemImes = getInstalledSystemImePackages(context, userHandle);
+        profileParentSystemImes.removeAll(installedSystemImes);
+        return profileParentSystemImes;
+    }
+
+    /**
+     * Returns a set of the installed IME package names for the given user.
+     *
+     * @param context {@link Context} of the caller.
+     * @param userHandle {@link UserHandle} that specifies the user.
+     * @return A set of IME package names.
+     */
+    private static ArraySet<String> getInstalledSystemImePackages(Context context,
+            UserHandle userHandle) {
+        PackageManager packageManager;
+        try {
+            packageManager = context
+                    .createPackageContextAsUser("android", 0, userHandle)
+                    .getPackageManager();
+        } catch (PackageManager.NameNotFoundException e) {
+            return new ArraySet<>();
+        }
+        List<ResolveInfo> resolveInfoList = packageManager.queryIntentServices(
+                new Intent(InputMethod.SERVICE_INTERFACE),
+                PackageManager.MATCH_SYSTEM_ONLY | PackageManager.MATCH_DISABLED_COMPONENTS);
+        ArraySet<String> result = new ArraySet<>();
+        for (ResolveInfo resolveInfo : resolveInfoList) {
+            result.add(resolveInfo.serviceInfo.packageName);
+        }
+        return result;
     }
 }
