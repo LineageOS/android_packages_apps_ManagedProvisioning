@@ -21,6 +21,7 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -44,6 +45,11 @@ public class InstallExistingPackageTask extends AbstractProvisioningTask {
 
     public int getStatusMsgId() {
         return R.string.progress_install;
+    }
+
+    @VisibleForTesting
+    public String getPackageName() {
+        return mPackageName;
     }
 
     @Override
