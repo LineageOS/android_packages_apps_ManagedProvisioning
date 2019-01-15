@@ -47,7 +47,9 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
 import static com.android.internal.util.Preconditions.checkNotNull;
+
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.content.ComponentName;
@@ -58,11 +60,13 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
@@ -177,6 +181,8 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                         props, EXTRA_PROVISIONING_USE_MOBILE_DATA)) != null) {
                     builder.setUseMobileData(Boolean.parseBoolean(s));
                 }
+                builder.setIsOrganizationOwnedProvisioning(
+                        mUtils.isOrganizationOwnedProvisioning(nfcIntent));
                 ProvisionLogger.logi("End processing Nfc Payload.");
                 return builder.build();
             } catch (IOException e) {

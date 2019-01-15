@@ -63,11 +63,11 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
+
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
-import static com.android.managedprovisioning.model.ProvisioningParams
-        .DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static com.android.managedprovisioning.model.ProvisioningParams.inferStaticDeviceAdminPackageName;
 
 import android.app.admin.DevicePolicyManager;
@@ -78,8 +78,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.UserHandle;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -90,6 +92,7 @@ import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -616,7 +619,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setDeviceAdminLabel(deviceAdminLabel)
                     .setOrganizationName(organizationName)
                     .setSupportUrl(supportUrl)
-                    .setDeviceAdminIconFilePath(deviceAdminIconFilePath);
+                    .setDeviceAdminIconFilePath(deviceAdminIconFilePath)
+                    .setIsOrganizationOwnedProvisioning(
+                            mUtils.isOrganizationOwnedProvisioning(intent));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {

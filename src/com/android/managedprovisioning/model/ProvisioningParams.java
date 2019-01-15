@@ -47,14 +47,16 @@ import static com.android.managedprovisioning.common.StoreUtils.putIntegerIfNotN
 import static com.android.managedprovisioning.common.StoreUtils.putPersistableBundlableIfNotNull;
 
 import android.accounts.Account;
+import android.annotation.IntDef;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PersistableBundle;
-import androidx.annotation.Nullable;
 import android.util.AtomicFile;
 import android.util.Xml;
+
+import androidx.annotation.Nullable;
 
 import com.android.internal.util.FastXmlSerializer;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
@@ -71,6 +73,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
@@ -91,6 +95,23 @@ public final class ProvisioningParams extends PersistableBundlable {
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
+    // Possible provisioning modes for organization owned provisioning.
+    public static final int PROVISIONING_MODE_UNDECIDED = 0;
+    public static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 1;
+    public static final int PROVISIONING_MODE_MANAGED_PROFILE = 2;
+    public static final int PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE = 3;
+    public static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY = 4;
+
+    @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
+            PROVISIONING_MODE_UNDECIDED,
+            PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+            PROVISIONING_MODE_MANAGED_PROFILE,
+            PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE,
+            PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface ProvisioningMode {}
+
     private static final String TAG_PROVISIONING_ID = "provisioning-id";
     private static final String TAG_PROVISIONING_PARAMS = "provisioning-params";
     private static final String TAG_WIFI_INFO = "wifi-info";
@@ -98,6 +119,9 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_STARTED_BY_TRUSTED_SOURCE = "started-by-trusted-source";
     private static final String TAG_IS_NFC = "started-is-nfc";
     private static final String TAG_PROVISIONING_ACTION = "provisioning-action";
+    private static final String TAG_IS_ORGANIZATION_OWNED_PROVISIONING =
+            "is-organization-owned-provisioning";
+    private static final String TAG_PROVISIONING_MODE = "provisioning-mode";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
             = new Parcelable.Creator<ProvisioningParams>() {
@@ -212,6 +236,15 @@ public final class ProvisioningParams extends PersistableBundlable {
     /** True if user consent page in pre-provisioning can be skipped. */
     public final boolean skipUserConsent;
 
+    /** True if the provisioning is done on a device owned by the organization. */
+    public final boolean isOrganizationOwnedProvisioning;
+
+    /**
+     * The provisioning mode for organization owned provisioning. This is only used for
+     * admin integrated flow.
+     */
+    public final @ProvisioningMode int provisioningMode;
+
     public static String inferStaticDeviceAdminPackageName(ComponentName deviceAdminComponentName,
             String deviceAdminPackageName) {
         if (deviceAdminComponentName != null) {
@@ -274,6 +307,9 @@ public final class ProvisioningParams extends PersistableBundlable {
         skipUserSetup = builder.mSkipUserSetup;
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
+        isOrganizationOwnedProvisioning = builder.mIsOrganizationOwnedProvisioning;
+        provisioningMode = builder.mProvisioningMode;
+
         validateFields();
     }
 
@@ -320,6 +356,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP, skipUserSetup);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT, skipUserConsent);
         bundle.putBoolean(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, keepAccountMigrated);
+        bundle.putBoolean(TAG_IS_ORGANIZATION_OWNED_PROVISIONING, isOrganizationOwnedProvisioning);
+        bundle.putInt(TAG_PROVISIONING_MODE, provisioningMode);
         return bundle;
     }
 
@@ -367,7 +405,14 @@ public final class ProvisioningParams extends PersistableBundlable {
         builder.setSkipUserConsent(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT));
         builder.setKeepAccountMigrated(bundle.getBoolean(
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
+        builder.setIsOrganizationOwnedProvisioning(bundle.getBoolean(
+                TAG_IS_ORGANIZATION_OWNED_PROVISIONING));
+        builder.setProvisioningMode(bundle.getInt(TAG_PROVISIONING_MODE));
         return builder;
+    }
+
+    public Builder toBuilder() {
+        return createBuilderFromPersistableBundle(toPersistableBundle());
     }
 
     @Override
@@ -476,6 +521,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
         private boolean mUseMobileData = DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
+        private boolean mIsOrganizationOwnedProvisioning = false;
+        private @ProvisioningMode int mProvisioningMode = PROVISIONING_MODE_UNDECIDED;
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -601,6 +648,16 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setUseMobileData(boolean useMobileData) {
             mUseMobileData = useMobileData;
+            return this;
+        }
+
+        public Builder setIsOrganizationOwnedProvisioning(boolean isOrganizationOwnedProvisioning) {
+            mIsOrganizationOwnedProvisioning = isOrganizationOwnedProvisioning;
+            return this;
+        }
+
+        public Builder setProvisioningMode(@ProvisioningMode int provisioningMode) {
+            mProvisioningMode = provisioningMode;
             return this;
         }
 

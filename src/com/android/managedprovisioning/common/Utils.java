@@ -22,9 +22,15 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -63,6 +69,7 @@ import android.text.TextUtils;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -473,6 +480,42 @@ public class Utils {
                         + intent.getAction());
         }
         return dpmProvisioningAction;
+    }
+
+    /**
+     * Returns if the given intent for a organization owned provisioning.
+     * Only QR, cloud enrollment and NFC are owned by organization.
+     */
+    public boolean isOrganizationOwnedProvisioning(Intent intent) {
+        if (intent.getAction() == ACTION_NDEF_DISCOVERED) {
+            return true;
+        }
+        if (intent.getAction() != ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE) {
+            return false;
+        }
+        //  Do additional check under ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE
+        // in order to exclude force DO.
+        switch (intent.getIntExtra(DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
+                PROVISIONING_TRIGGER_UNSPECIFIED)) {
+            case PROVISIONING_TRIGGER_CLOUD_ENROLLMENT:
+            case PROVISIONING_TRIGGER_QR_CODE:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    /**
+     * Returns if the given parameter is for provisioning the admin integrated flow.
+     */
+    public boolean isAdminIntegratedFlow(ProvisioningParams params) {
+        if (!params.isOrganizationOwnedProvisioning) {
+            return false;
+        }
+        return params.provisioningMode == PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                || params.provisioningMode == PROVISIONING_MODE_MANAGED_PROFILE
+                || params.provisioningMode
+                    == PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
     }
 
     /**
