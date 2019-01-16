@@ -1,5 +1,5 @@
 /*
- * Copyright 2016, The Android Open Source Project
+ * Copyright 2019, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 package com.android.managedprovisioning.provisioning;
 
 import android.content.Context;
-import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
@@ -26,21 +25,17 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.ConnectMobileNetworkTask;
-import com.android.managedprovisioning.task.CopyAccountToUserTask;
-import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
-import com.android.managedprovisioning.task.DeviceOwnerInitializeProvisioningTask;
-import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
-import com.android.managedprovisioning.task.SetDevicePolicyTask;
 import com.android.managedprovisioning.task.VerifyPackageTask;
 
 /**
- * Controller for Device Owner provisioning.
+ * Controller for preparing admin integrated flow. This includes connecting to wi-fi and
+ * mobile network, downloading, verifying and installing the admin app.
  */
-public class DeviceOwnerProvisioningController extends AbstractProvisioningController {
+public class AdminIntegratedFlowPrepareController extends AbstractProvisioningController {
 
-    public DeviceOwnerProvisioningController(
+    public AdminIntegratedFlowPrepareController(
             Context context,
             ProvisioningParams params,
             int userId,
@@ -49,7 +44,7 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
     }
 
     @VisibleForTesting
-    DeviceOwnerProvisioningController(
+    AdminIntegratedFlowPrepareController(
             Context context,
             ProvisioningParams params,
             int userId,
@@ -58,9 +53,8 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
         super(context, params, userId, callback, finalizationController);
     }
 
+    @Override
     protected void setUpTasks() {
-        addTasks(new DeviceOwnerInitializeProvisioningTask(mContext, mParams, this));
-
         if (mParams.wifiInfo != null) {
             addTasks(new AddWifiNetworkTask(mContext, mParams, this));
         } else if (mParams.useMobileData) {
@@ -73,19 +67,10 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
                     new VerifyPackageTask(downloadTask, mContext, mParams, this),
                     new InstallPackageTask(downloadTask, mContext, mParams, this));
         }
-
-        addTasks(
-                new DeleteNonRequiredAppsTask(true /* new profile */, mContext, mParams, this),
-                new SetDevicePolicyTask(mContext, mParams, this),
-                new DisallowAddUserTask(mContext, mParams, this)
-        );
-
-        if (mParams.accountToMigrate != null) {
-            addTasks(new CopyAccountToUserTask(UserHandle.USER_SYSTEM, mContext, mParams, this));
-        }
     }
 
-    @Override protected int getErrorTitle() {
+    @Override
+    protected int getErrorTitle() {
         return R.string.cant_set_up_device;
     }
 
@@ -121,8 +106,7 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
 
     @Override
     protected boolean getRequireFactoryReset(AbstractProvisioningTask task, int errorCode) {
-        return !((task instanceof AddWifiNetworkTask)
-                || (task instanceof DeviceOwnerInitializeProvisioningTask));
+        return !(task instanceof AddWifiNetworkTask);
     }
 
     @Override
