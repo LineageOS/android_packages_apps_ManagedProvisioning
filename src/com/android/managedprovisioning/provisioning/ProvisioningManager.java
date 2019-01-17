@@ -52,8 +52,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
 
     private static final int CALLBACK_NONE = 0;
     private static final int CALLBACK_ERROR = 1;
-    private static final int CALLBACK_PROGRESS = 2;
-    private static final int CALLBACK_PRE_FINALIZED = 3;
+    private static final int CALLBACK_PRE_FINALIZED = 2;
 
     private final Context mContext;
     private final ProvisioningControllerFactory mFactory;
@@ -68,7 +67,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     private final TimeLogger mTimeLogger;
     private int mLastCallback = CALLBACK_NONE;
     private Pair<Pair<Integer, Integer>, Boolean> mLastError; // TODO: refactor
-    private int mLastProgressMsgId;
     private HandlerThread mHandlerThread;
 
     public static ProvisioningManager getInstance(Context context) {
@@ -127,7 +125,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
         }
         mLastCallback = CALLBACK_NONE;
         mLastError = null;
-        mLastProgressMsgId = 0;
 
         mController = mFactory.createProvisioningController(mContext, params, this);
         mController.start(mHandlerThread.getLooper());
@@ -193,17 +190,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
     }
 
     @Override
-    public void progressUpdate(int progressMsgId) {
-        synchronized (this) {
-            for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(() -> callback.progressUpdate(progressMsgId));
-            }
-            mLastCallback = CALLBACK_PROGRESS;
-            mLastProgressMsgId = progressMsgId;
-        }
-    }
-
-    @Override
     public void provisioningTasksCompleted() {
         synchronized (this) {
             mTimeLogger.stop();
@@ -234,10 +220,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback {
                 final Pair<Pair<Integer, Integer>, Boolean> error = mLastError;
                 mUiHandler.post(
                         () -> callback.error(error.first.first, error.first.second, error.second));
-                break;
-            case CALLBACK_PROGRESS:
-                final int progressMsg = mLastProgressMsgId;
-                mUiHandler.post(() -> callback.progressUpdate(progressMsg));
                 break;
             case CALLBACK_PRE_FINALIZED:
                 mUiHandler.post(callback::preFinalizationCompleted);
