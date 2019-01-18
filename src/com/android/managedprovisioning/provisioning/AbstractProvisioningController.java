@@ -158,7 +158,6 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         Message msg = mWorkerHandler.obtainMessage(MSG_RUN_TASK, mUserId, 0 /* arg2 not used */,
                 nextTask);
         mWorkerHandler.sendMessage(msg);
-        mCallback.progressUpdate(nextTask.getStatusMsgId());
     }
 
     private void tasksCompleted() {
