@@ -126,40 +126,6 @@ public class ProvisioningManagerTest {
     }
 
     @Test
-    public void testRegisterListener_noProgress() {
-        // GIVEN no progress has previously been achieved
-        // WHEN a listener is registered
-        mManager.registerListener(mCallback);
-
-        // THEN no callback should be given
-        verifyZeroInteractions(mCallback);
-
-        // WHEN a progress callback was made
-        mManager.progressUpdate(TEST_PROGRESS_ID);
-
-        // THEN the listener should receive a callback
-        verify(mCallback).progressUpdate(TEST_PROGRESS_ID);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @Test
-    public void testListener_progress() {
-        // GIVEN a listener is registered
-        mManager.registerListener(mCallback);
-        // WHEN some progress has occurred previously
-        mManager.progressUpdate(TEST_PROGRESS_ID);
-        // THEN the listener should receive a callback
-        verify(mCallback).progressUpdate(TEST_PROGRESS_ID);
-
-        // WHEN the listener is unregistered and registered again
-        mManager.unregisterListener(mCallback);
-        mManager.registerListener(mCallback);
-        // THEN the listener should receive a callback again
-        verify(mCallback, times(2)).progressUpdate(TEST_PROGRESS_ID);
-        verifyNoMoreInteractions(mCallback);
-    }
-
-    @Test
     public void testListener_error() {
         // GIVEN a listener is registered
         mManager.registerListener(mCallback);
@@ -216,18 +182,5 @@ public class ProvisioningManagerTest {
         // THEN the listener should receive a callback again
         verify(mCallback, times(2)).preFinalizationCompleted();
         verifyNoMoreInteractions(mCallback);
-    }
-
-    @Test
-    public void testUnregisterListener() {
-        // GIVEN a register had previously been registered and then unregistered
-        mManager.registerListener(mCallback);
-        mManager.unregisterListener(mCallback);
-
-        // WHEN a progress callback was made
-        mManager.progressUpdate(TEST_PROGRESS_ID);
-
-        // THEN the listener should not receive a callback
-        verifyZeroInteractions(mCallback);
     }
 }

@@ -209,10 +209,6 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void progressUpdate(int progressMessage) {
-    }
-
-    @Override
     public void error(int titleId, int messageId, boolean resetRequired) {
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(titleId)
