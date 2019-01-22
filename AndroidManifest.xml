@@ -80,6 +80,14 @@
         </activity>
 
         <activity
+            android:name=".provisioning.AdminIntegratedFlowPrepareActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SuwThemeGlif.Light">
+        </activity>
+
+        <activity
             android:name=".preprovisioning.PreProvisioningActivity"
             android:excludeFromRecents="true"
             android:immersive="true"

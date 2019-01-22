@@ -17,32 +17,27 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
 import android.Manifest.permission;
 import android.annotation.IntDef;
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.UserHandle;
-import androidx.annotation.VisibleForTesting;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.VisibleForTesting;
+
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
-import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -60,13 +55,8 @@ import java.util.List;
  * {@link ProvisioningManager}. It shows progress updates as provisioning progresses and handles
  * showing of cancel and error dialogs.</p>
  */
-public class ProvisioningActivity extends SetupGlifLayoutActivity
-        implements SimpleDialog.SimpleDialogListener, ProvisioningManagerCallback {
+public class ProvisioningActivity extends AbstractProvisioningActivity {
 
-    private static final String ERROR_DIALOG_OK = "ErrorDialogOk";
-    private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
-    private static final String CANCEL_PROVISIONING_DIALOG_OK = "CancelProvisioningDialogOk";
-    private static final String CANCEL_PROVISIONING_DIALOG_RESET = "CancelProvisioningDialogReset";
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
@@ -78,35 +68,6 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
      * or managed profile. Remove this when the rest of the admin integrated flow is implemented.
      */
     private static final boolean FLAG_ADD_PERSONAL_ACCOUNT = true;
-    private static final String KEY_ACTIVITY_STATE = "activity-state";
-
-    private ProvisioningParams mParams;
-    private ProvisioningManager mProvisioningManager;
-    private AnimatedVectorDrawable mAnimatedVectorDrawable;
-
-    private Handler mUiThreadHandler = new Handler();
-
-    private static final int STATE_PROVISIONING_INTIIALIZING = 1;
-    private static final int STATE_PROVISIONING_STARTED = 2;
-    private static final int STATE_PROVISIONING_FINALIZED = 3;
-
-    @Retention(RetentionPolicy.SOURCE)
-    @IntDef({STATE_PROVISIONING_INTIIALIZING,
-            STATE_PROVISIONING_STARTED,
-            STATE_PROVISIONING_FINALIZED})
-    private @interface ProvisioningState {}
-
-    private @ProvisioningState int mState;
-
-    /** Repeats the animation once it is done **/
-    private final Animatable2.AnimationCallback mAnimationCallback =
-            new Animatable2.AnimationCallback() {
-                @Override
-                public void onAnimationEnd(Drawable drawable) {
-                    super.onAnimationEnd(drawable);
-                    mUiThreadHandler.post(mAnimatedVectorDrawable::start);
-                }
-            };
 
     public ProvisioningActivity() {
         this(null, new Utils());
@@ -118,78 +79,12 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         mProvisioningManager = provisioningManager;
     }
 
-    // Lazily initialize ProvisioningManager, since we can't call in ProvisioningManager.getInstance
-    // in constructor as base context is not available in constructor
-    private ProvisioningManager getProvisioningManager() {
+    @Override
+    protected ProvisioningManagerInterface getProvisioningManager() {
         if (mProvisioningManager == null) {
             mProvisioningManager = ProvisioningManager.getInstance(this);
         }
         return mProvisioningManager;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        initializeUi(mParams);
-
-        if (savedInstanceState != null) {
-            mState = savedInstanceState.getInt(KEY_ACTIVITY_STATE,
-                STATE_PROVISIONING_INTIIALIZING);
-        } else {
-            mState = STATE_PROVISIONING_INTIIALIZING;
-        }
-
-        if (mState == STATE_PROVISIONING_INTIIALIZING) {
-            getProvisioningManager().maybeStartProvisioning(mParams);
-            mState = STATE_PROVISIONING_STARTED;
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(KEY_ACTIVITY_STATE, mState);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (!isAnyDialogAdded()) {
-            getProvisioningManager().registerListener(this);
-        }
-        if (mAnimatedVectorDrawable != null) {
-            mAnimatedVectorDrawable.registerAnimationCallback(mAnimationCallback);
-            mAnimatedVectorDrawable.reset();
-            mAnimatedVectorDrawable.start();
-        }
-    }
-
-    private boolean isAnyDialogAdded() {
-        return isDialogAdded(ERROR_DIALOG_OK)
-                || isDialogAdded(ERROR_DIALOG_RESET)
-                || isDialogAdded(CANCEL_PROVISIONING_DIALOG_OK)
-                || isDialogAdded(CANCEL_PROVISIONING_DIALOG_RESET);
-    }
-
-    @Override
-    public void onPause() {
-        getProvisioningManager().unregisterListener(this);
-        if (mAnimatedVectorDrawable != null) {
-            mAnimatedVectorDrawable.stop();
-            mAnimatedVectorDrawable.unregisterAnimationCallback(mAnimationCallback);
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onBackPressed() {
-        // if EXTRA_PROVISIONING_SKIP_USER_CONSENT is specified, don't allow user to cancel
-        if (mParams.skipUserConsent) {
-            return;
-        }
-
-        showCancelProvisioningDialog();
     }
 
     @Override
@@ -235,13 +130,23 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
             policyComplianceIntent, POLICY_COMPLIANCE_REQUEST_CODE, userHandle);
     }
 
+    boolean shouldShowTransitionScreen() {
+        return mParams.isOrganizationOwnedProvisioning
+                && mParams.provisioningMode == ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case POLICY_COMPLIANCE_REQUEST_CODE:
-                Intent intent = new Intent(this, TransitionActivity.class);
-                intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
-                startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
+                if (shouldShowTransitionScreen()) {
+                    Intent intent = new Intent(this, TransitionActivity.class);
+                    intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
+                    startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
+                } else {
+                    setResult(Activity.RESULT_OK);
+                    finish();
+                }
                 break;
             case TRANSITION_ACTIVITY_REQUEST_CODE:
                 setResult(FLAG_ADD_PERSONAL_ACCOUNT
@@ -291,95 +196,22 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
     }
 
     @Override
-    public void error(int titleId, int messageId, boolean resetRequired) {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
-                .setTitle(titleId)
-                .setMessage(messageId)
-                .setCancelable(false)
-                .setPositiveButtonMessage(resetRequired
-                        ? R.string.reset : R.string.device_owner_error_ok);
-
-        showDialog(dialogBuilder, resetRequired ? ERROR_DIALOG_RESET : ERROR_DIALOG_OK);
-    }
-
-    @Override
-    protected void showDialog(DialogBuilder builder, String tag) {
-        // Whenever a dialog is shown, stop listening for further updates
-        getProvisioningManager().unregisterListener(this);
-        super.showDialog(builder, tag);
-    }
-
-    @Override
     protected int getMetricsCategory() {
         return PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
     }
 
-    private void showCancelProvisioningDialog() {
-        final boolean isDoProvisioning = getUtils().isDeviceOwnerAction(mParams.provisioningAction);
-        final String dialogTag = isDoProvisioning ? CANCEL_PROVISIONING_DIALOG_RESET
-                : CANCEL_PROVISIONING_DIALOG_OK;
-        final int positiveResId = isDoProvisioning ? R.string.reset
-                : R.string.profile_owner_cancel_ok;
-        final int negativeResId = isDoProvisioning ? R.string.device_owner_cancel_cancel
-                : R.string.profile_owner_cancel_cancel;
-        final int dialogMsgResId = isDoProvisioning
-                ? R.string.this_will_reset_take_back_first_screen
-                : R.string.profile_owner_cancel_message;
-
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
-                .setCancelable(false)
-                .setMessage(dialogMsgResId)
-                .setNegativeButtonMessage(negativeResId)
-                .setPositiveButtonMessage(positiveResId);
-        if (isDoProvisioning) {
-            dialogBuilder.setTitle(R.string.stop_setup_reset_device_question);
+    @Override
+    protected void decideCancelProvisioningDialog() {
+        if (getUtils().isDeviceOwnerAction(mParams.provisioningAction)
+                || mParams.isOrganizationOwnedProvisioning) {
+            showCancelProvisioningDialog(/* resetRequired = */true);
+        } else {
+            showCancelProvisioningDialog(/* resetRequired = */false);
         }
-
-        showDialog(dialogBuilder, dialogTag);
-    }
-
-    private void onProvisioningAborted() {
-        setResult(Activity.RESULT_CANCELED);
-        finish();
     }
 
     @Override
-    public void onNegativeButtonClick(DialogFragment dialog) {
-        switch (dialog.getTag()) {
-            case CANCEL_PROVISIONING_DIALOG_OK:
-            case CANCEL_PROVISIONING_DIALOG_RESET:
-                dialog.dismiss();
-                break;
-            default:
-                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
-        }
-        getProvisioningManager().registerListener(this);
-    }
-
-    @Override
-    public void onPositiveButtonClick(DialogFragment dialog) {
-        switch (dialog.getTag()) {
-            case CANCEL_PROVISIONING_DIALOG_OK:
-                getProvisioningManager().cancelProvisioning();
-                onProvisioningAborted();
-                break;
-            case CANCEL_PROVISIONING_DIALOG_RESET:
-                getUtils().sendFactoryResetBroadcast(this, "DO provisioning cancelled by user");
-                onProvisioningAborted();
-                break;
-            case ERROR_DIALOG_OK:
-                onProvisioningAborted();
-                break;
-            case ERROR_DIALOG_RESET:
-                getUtils().sendFactoryResetBroadcast(this, "Error during DO provisioning");
-                onProvisioningAborted();
-                break;
-            default:
-                SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
-        }
-    }
-
-    private void initializeUi(ProvisioningParams params) {
+    protected void initializeUi(ProvisioningParams params) {
         final boolean isDoProvisioning = getUtils().isDeviceOwnerAction(params.provisioningAction);
         final int headerResId = isDoProvisioning ? R.string.setup_work_device
                 : R.string.setting_up_workspace;
