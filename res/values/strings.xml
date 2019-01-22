@@ -336,4 +336,8 @@
 
   <string name="setup_provisioning_header">Preparing to set up work device\u2026</string>
   <string name="setup_provisioning_header_description">Make sure admin app is set up</string>
+
+  <!-- Transition screen strings -->
+  <string name="set_up_everything_else">Set up everything else</string>
+  <string name="now_lets_set_up_everything_else">Now, let\'s set up everything else</string>
 </resources>

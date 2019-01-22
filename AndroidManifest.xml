@@ -192,6 +192,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".transition.TransitionActivity"
+            android:theme="@style/SuwThemeGlif.Light" />
+
         <service android:name=".provisioning.ProvisioningService" />
         <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />

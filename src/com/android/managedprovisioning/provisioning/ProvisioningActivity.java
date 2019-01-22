@@ -16,10 +16,11 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
 import android.Manifest.permission;
-import android.annotation.ColorRes;
+import android.annotation.IntDef;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
@@ -27,16 +28,14 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.ColorStateList;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import androidx.annotation.VisibleForTesting;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
@@ -47,8 +46,11 @@ import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.transition.TransitionActivity;
 import com.android.setupwizardlib.GlifLayout;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 /**
@@ -61,18 +63,40 @@ import java.util.List;
 public class ProvisioningActivity extends SetupGlifLayoutActivity
         implements SimpleDialog.SimpleDialogListener, ProvisioningManagerCallback {
 
-    private static final String KEY_PROVISIONING_STARTED = "ProvisioningStarted";
-
     private static final String ERROR_DIALOG_OK = "ErrorDialogOk";
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
     private static final String CANCEL_PROVISIONING_DIALOG_OK = "CancelProvisioningDialogOk";
     private static final String CANCEL_PROVISIONING_DIALOG_RESET = "CancelProvisioningDialogReset";
+    private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
+    private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
+    private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
+
+    /**
+     * Temporary flag to determine whether to add a personal account at the end of the flow.
+     * <p>
+     * Will be determined by whether we are provisioning into fully managed device
+     * or managed profile. Remove this when the rest of the admin integrated flow is implemented.
+     */
+    private static final boolean FLAG_ADD_PERSONAL_ACCOUNT = true;
+    private static final String KEY_ACTIVITY_STATE = "activity-state";
 
     private ProvisioningParams mParams;
     private ProvisioningManager mProvisioningManager;
     private AnimatedVectorDrawable mAnimatedVectorDrawable;
 
     private Handler mUiThreadHandler = new Handler();
+
+    private static final int STATE_PROVISIONING_INTIIALIZING = 1;
+    private static final int STATE_PROVISIONING_STARTED = 2;
+    private static final int STATE_PROVISIONING_FINALIZED = 3;
+
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef({STATE_PROVISIONING_INTIIALIZING,
+            STATE_PROVISIONING_STARTED,
+            STATE_PROVISIONING_FINALIZED})
+    private @interface ProvisioningState {}
+
+    private @ProvisioningState int mState;
 
     /** Repeats the animation once it is done **/
     private final Animatable2.AnimationCallback mAnimationCallback =
@@ -109,16 +133,23 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         initializeUi(mParams);
 
-        if (savedInstanceState == null
-                || !savedInstanceState.getBoolean(KEY_PROVISIONING_STARTED)) {
+        if (savedInstanceState != null) {
+            mState = savedInstanceState.getInt(KEY_ACTIVITY_STATE,
+                STATE_PROVISIONING_INTIIALIZING);
+        } else {
+            mState = STATE_PROVISIONING_INTIIALIZING;
+        }
+
+        if (mState == STATE_PROVISIONING_INTIIALIZING) {
             getProvisioningManager().maybeStartProvisioning(mParams);
+            mState = STATE_PROVISIONING_STARTED;
         }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(KEY_PROVISIONING_STARTED, true);
+        outState.putInt(KEY_ACTIVITY_STATE, mState);
     }
 
     @Override
@@ -163,10 +194,61 @@ public class ProvisioningActivity extends SetupGlifLayoutActivity
 
     @Override
     public void preFinalizationCompleted() {
+        if (mState == STATE_PROVISIONING_FINALIZED) {
+            return;
+        }
+
         ProvisionLogger.logi("ProvisioningActivity pre-finalization completed");
+
+        // TODO: call this for the new flow after new NFC flow has been added
+        // maybeLaunchNfcUserSetupCompleteIntent();
+
+        // TODO: Instead of a flag, use the proper logic as the rest of
+        // the admin integrated flow is implemented.
+        if (mUtils.isAdminIntegratedFlow(mParams)) {
+            showPolicyComplianceScreen();
+        } else {
+            finishProvisioning();
+        }
+        mState = STATE_PROVISIONING_FINALIZED;
+    }
+
+    private void finishProvisioning() {
         setResult(Activity.RESULT_OK);
         maybeLaunchNfcUserSetupCompleteIntent();
         finish();
+    }
+
+    private void showPolicyComplianceScreen() {
+        final String adminPackage = mParams.inferDeviceAdminPackageName();
+        UserHandle userHandle;
+        if (mParams.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+          userHandle = mUtils.getManagedProfile(getApplicationContext());
+        } else {
+          userHandle = UserHandle.of(UserHandle.myUserId());
+        }
+
+        final Intent policyComplianceIntent =
+            new Intent(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
+        policyComplianceIntent.setPackage(adminPackage);
+        startActivityForResultAsUser(
+            policyComplianceIntent, POLICY_COMPLIANCE_REQUEST_CODE, userHandle);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case POLICY_COMPLIANCE_REQUEST_CODE:
+                Intent intent = new Intent(this, TransitionActivity.class);
+                intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
+                startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
+                break;
+            case TRANSITION_ACTIVITY_REQUEST_CODE:
+                setResult(FLAG_ADD_PERSONAL_ACCOUNT
+                    ? RESULT_CODE_ADD_PERSONAL_ACCOUNT : RESULT_OK);
+                finish();
+                break;
+        }
     }
 
     private void maybeLaunchNfcUserSetupCompleteIntent() {
