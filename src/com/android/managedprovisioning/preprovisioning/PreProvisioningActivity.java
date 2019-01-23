@@ -16,12 +16,18 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE;
+import static android.app.admin.DevicePolicyManager.ACTION_GET_PROVISIONING_MODE;
+
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY;
+
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;
 
 import android.annotation.NonNull;
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -29,7 +35,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
-import androidx.annotation.VisibleForTesting;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -42,6 +47,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
@@ -56,9 +63,8 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.anim.BenefitsAnimation;
-import com.android.managedprovisioning.preprovisioning.anim.ColorMatcher;
-import com.android.managedprovisioning.preprovisioning.anim.SwiperThemeMatcher;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
+import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
 import java.util.ArrayList;
@@ -66,6 +72,7 @@ import java.util.List;
 
 public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         SimpleDialog.SimpleDialogListener, PreProvisioningController.Ui {
+
     private static final List<Integer> SLIDE_CAPTIONS = createImmutableList(
             R.string.info_anim_title_0,
             R.string.info_anim_title_1,
@@ -80,6 +87,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     protected static final int PROVISIONING_REQUEST_CODE = 2;
     private static final int WIFI_REQUEST_CODE = 3;
     private static final int CHANGE_LAUNCHER_REQUEST_CODE = 4;
+    private static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 5;
+    private static final int GET_PROVISIONING_MODE_REQUEST_CODE = 6;
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
@@ -97,6 +106,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private BenefitsAnimation mBenefitsAnimation;
     private ClickableSpanFactory mClickableSpanFactory;
     private TouchTargetEnforcer mTouchTargetEnforcer;
+
+    private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
 
     public PreProvisioningActivity() {
         this(activity -> new PreProvisioningController(activity, activity), null, new Utils());
@@ -170,9 +181,55 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                             getCallingPackage());
                 }
                 break;
+            case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    maybeShowAdminGetProvisioningModeScreen();
+                } else {
+                    setResult(resultCode);
+                    finish();
+                }
+                break;
+            case GET_PROVISIONING_MODE_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    if(updateProvisioningModeFromIntent(data)) {
+                        mController.showUserConsentScreen();
+                    } else {
+                        showFactoryResetDialog(R.string.cant_set_up_device,
+                                R.string.cant_set_up_device);
+                    }
+                } else {
+                    showFactoryResetDialog(R.string.cant_set_up_device,
+                            R.string.cant_set_up_device);
+                    setResult(resultCode);
+                    finish();
+                }
+                break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
                 break;
+        }
+    }
+
+    private boolean updateProvisioningModeFromIntent(Intent resultIntent) {
+        final int provisioningMode = resultIntent.getIntExtra(
+                DevicePolicyManager.EXTRA_PROVISIONING_MODE, 0);
+        switch (provisioningMode) {
+            case DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
+                mController.setProvisioningMode(
+                        ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
+                mController.setProvisioningAction(
+                        DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE);
+                return true;
+            case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
+                mController.setProvisioningMode(
+                        ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE);
+                mController.setProvisioningAction(
+                        DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE);
+                return true;
+            default:
+                ProvisionLogger.logw("Unknown returned provisioning mode:"
+                        + provisioningMode);
+                return false;
         }
     }
 
@@ -231,6 +288,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 // Check if we are in the middle of silent provisioning and were got blocked by an
                 // existing user profile. If so, we can now resume.
                 mController.checkResumeSilentProvisioning();
+                break;
+            case ERROR_DIALOG_RESET:
+                getUtils().sendFactoryResetBroadcast(this, "Error during preprovisioning");
+                setResult(Activity.RESULT_CANCELED);
+                finish();
                 break;
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
@@ -306,6 +368,47 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         } else {
             initiateUIDeviceOwner(packageLabel, packageIcon, headers, customization);
         }
+    }
+
+    private void maybeShowAdminGetProvisioningModeScreen() {
+        final String adminPackage = mController.getParams().inferDeviceAdminPackageName();
+        final Intent intentGetMode = new Intent(ACTION_GET_PROVISIONING_MODE);
+        intentGetMode.setPackage(adminPackage);
+        final Intent intentPolicy = new Intent(ACTION_ADMIN_POLICY_COMPLIANCE);
+        intentPolicy.setPackage(adminPackage);
+        if (intentGetMode.resolveActivity(getPackageManager()) != null
+                && intentPolicy.resolveActivity(getPackageManager()) != null) {
+            // TODO(b/122948382): Put other extras into intentGetMode.
+            intentGetMode.putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                    mController.getParams().adminExtrasBundle);
+            startActivityForResult(intentGetMode, GET_PROVISIONING_MODE_REQUEST_CODE);
+        } else {
+            startManagedDeviceLegacyFlow();
+        }
+    }
+
+    private void startManagedDeviceLegacyFlow() {
+        mController.setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY);
+        mController.showUserConsentScreen();
+    }
+
+    @Override
+    public void showFactoryResetDialog(Integer titleId, int messageId) {
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
+                .setTitle(titleId)
+                .setMessage(messageId)
+                .setCancelable(false)
+                .setPositiveButtonMessage(R.string.reset);
+
+        showDialog(dialogBuilder, ERROR_DIALOG_RESET);
+    }
+
+    @Override
+    public void prepareAdminIntegratedFlow(ProvisioningParams params) {
+        Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
+        startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     private void initiateUIProfileOwner(

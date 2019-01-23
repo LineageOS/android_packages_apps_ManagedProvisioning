@@ -154,6 +154,10 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     }
 
     private void runTask(int index) {
+        if (mTasks.isEmpty()) {
+            tasksCompleted();
+            return;
+        }
         AbstractProvisioningTask nextTask = mTasks.get(index);
         Message msg = mWorkerHandler.obtainMessage(MSG_RUN_TASK, mUserId, 0 /* arg2 not used */,
                 nextTask);

@@ -61,17 +61,20 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
     protected void setUpTasks() {
         addTasks(new DeviceOwnerInitializeProvisioningTask(mContext, mParams, this));
 
-        if (mParams.wifiInfo != null) {
-            addTasks(new AddWifiNetworkTask(mContext, mParams, this));
-        } else if (mParams.useMobileData) {
-            addTasks(new ConnectMobileNetworkTask(mContext, mParams, this));
-        }
+        // If new flow is not supported then we should still download the package.
+        if (!mParams.isOrganizationOwnedProvisioning) {
+            if (mParams.wifiInfo != null) {
+                addTasks(new AddWifiNetworkTask(mContext, mParams, this));
+            } else if (mParams.useMobileData) {
+                addTasks(new ConnectMobileNetworkTask(mContext, mParams, this));
+            }
 
-        if (mParams.deviceAdminDownloadInfo != null) {
-            DownloadPackageTask downloadTask = new DownloadPackageTask(mContext, mParams, this);
-            addTasks(downloadTask,
-                    new VerifyPackageTask(downloadTask, mContext, mParams, this),
-                    new InstallPackageTask(downloadTask, mContext, mParams, this));
+            if (mParams.deviceAdminDownloadInfo != null) {
+                DownloadPackageTask downloadTask = new DownloadPackageTask(mContext, mParams, this);
+                addTasks(downloadTask,
+                        new VerifyPackageTask(downloadTask, mContext, mParams, this),
+                        new InstallPackageTask(downloadTask, mContext, mParams, this));
+            }
         }
 
         addTasks(

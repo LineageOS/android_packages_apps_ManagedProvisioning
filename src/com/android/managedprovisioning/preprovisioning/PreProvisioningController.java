@@ -189,6 +189,10 @@ public class PreProvisioningController {
          * profiles and ask the user to choose a different one.
          */
         void showCurrentLauncherInvalid();
+
+        void prepareAdminIntegratedFlow(ProvisioningParams params);
+
+        void showFactoryResetDialog(Integer titleId, int messageId);
     }
 
     /**
@@ -213,11 +217,6 @@ public class PreProvisioningController {
             return;
         }
 
-        // Check whether provisioning is allowed for the current action
-        if (!checkDevicePolicyPreconditions()) {
-            return;
-        }
-
         // PO preconditions
         boolean waitForUserDelete = false;
         if (isProfileOwnerProvisioning()) {
@@ -234,8 +233,7 @@ public class PreProvisioningController {
             }
         }
 
-        // DO preconditions
-        if (!isProfileOwnerProvisioning()) {
+        if (isDeviceOwnerProvisioning()) {
             // TODO: make a general test based on deviceAdminDownloadInfo field
             // PO doesn't ever initialize that field, so OK as a general case
             if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null
@@ -265,7 +263,7 @@ public class PreProvisioningController {
         mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
 
         // as of now this is only true for COMP provisioning, where we already have a user consent
-        // since the DPC is DO already
+        // since the DPC is DO already.
         if (mParams.skipUserConsent || isSilentProvisioningForTestingDeviceOwner()
                 || isSilentProvisioningForTestingManagedProfile()) {
             if (!waitForUserDelete) {
@@ -274,15 +272,37 @@ public class PreProvisioningController {
             return;
         }
 
+        if (mParams.isOrganizationOwnedProvisioning) {
+            mUi.prepareAdminIntegratedFlow(mParams);
+        } else {
+            showUserConsentScreen();
+        }
+    }
+
+    void showUserConsentScreen() {
+        // Check whether provisioning is allowed for the current action
+        if (!checkDevicePolicyPreconditions()) {
+            if (mParams.isOrganizationOwnedProvisioning) {
+                mUi.showFactoryResetDialog(R.string.cant_set_up_device,
+                        R.string.cant_set_up_device);
+            } else {
+                return;
+            }
+        }
+
+        ProvisionLogger.logd("Sending user consent:" + mParams.provisioningAction);
+
         CustomizationParams customization =
                 CustomizationParams.createInstance(mParams, mContext, mUtils);
+
+        ProvisionLogger.logd("Provisioning action for user consent:" + mParams.provisioningAction);
 
         // show UI so we can get user's consent to continue
         if (isProfileOwnerProvisioning()) {
             boolean isComp = mDevicePolicyManager.isDeviceManaged();
             mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile, null, null, true,
                     isComp, getDisclaimerHeadings(), customization);
-        } else {
+        } else if (isDeviceOwnerProvisioning()) {
             String packageName = mParams.inferDeviceAdminPackageName();
             MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
                     packageName);
@@ -300,6 +320,14 @@ public class PreProvisioningController {
                     getDisclaimerHeadings(),
                     customization);
         }
+    }
+
+    public void setProvisioningMode(int provisioningMode) {
+        mParams = mParams.toBuilder().setProvisioningMode(provisioningMode).build();
+    }
+
+    public void setProvisioningAction(String action) {
+        mParams = mParams.toBuilder().setProvisioningAction(action).build();
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {
@@ -597,6 +625,14 @@ public class PreProvisioningController {
     public boolean isProfileOwnerProvisioning() {
         return mUtils.isProfileOwnerAction(mParams.provisioningAction);
     }
+
+    /**
+     * Returns whether the provisioning process is a device owner provisioning process.
+     */
+    public boolean isDeviceOwnerProvisioning() {
+        return mUtils.isDeviceOwnerAction(mParams.provisioningAction);
+    }
+
 
     @Nullable
     public ProvisioningParams getParams() {
