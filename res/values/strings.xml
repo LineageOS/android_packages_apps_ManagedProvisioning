@@ -177,7 +177,7 @@
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_already_set_up">Device is already set up</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_wifi">Couldn\'t connect to Wi-Fi</string>
+  <string name="error_wifi">Couldn\'t connect to Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
   <string name="device_has_reset_protection_contact_admin">Your device has reset protection turned on. For help, contact your admin.</string>
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
@@ -185,13 +185,13 @@
   <!-- Progress screen text shown while erasing the factory reset protection partition [CHAR LIMIT=75] -->
   <string name="frp_clear_progress_text">Please wait...</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_hash_mismatch">Couldn\'t use the admin app due to a checksum error. For help, contact your admin.</string>
+  <string name="error_hash_mismatch">Couldn\'t use the admin app due to a checksum error. For help, contact your admin.</string>
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_download_failed">Couldn\'t download the admin app</string>
+  <string name="error_download_failed">Couldn\'t download the admin app</string>
   <!-- Message of the error dialog when package to install is invalid. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_package_invalid">Can\'t use the admin app. It\'s missing components or corrupted. For help, contact your admin.</string>
+  <string name="error_package_invalid">Can\'t use the admin app. It\'s missing components or corrupted. For help, contact your admin.</string>
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
-  <string name="device_owner_error_installation_failed">Couldn\'t install the admin app</string>
+  <string name="error_installation_failed">Couldn\'t install the admin app</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <string name="profile_owner_cancel_message">Stop setting up?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
@@ -333,4 +333,7 @@
   <string name="work_profile_description">Your work apps will be kept in this profile and managed by your organization</string>
   <!-- [CHAR_LIMIT=NONE] Subtext below a full-screen title. This string explains that the user's work device will be kept secure and managed by their employer (referred to generally as "organization"). -->
   <string name="device_owner_description">This device will be kept secure and managed by your organization</string>
+
+  <string name="setup_provisioning_header">Preparing to set up work device\u2026</string>
+  <string name="setup_provisioning_header_description">Make sure admin app is set up</string>
 </resources>
