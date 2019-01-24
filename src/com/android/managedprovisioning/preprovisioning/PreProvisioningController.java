@@ -30,13 +30,19 @@ import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
 import static android.app.admin.DevicePolicyManager.CODE_USER_SETUP_COMPLETED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
+import android.accounts.Account;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
@@ -53,6 +59,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.PersistableBundle;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.text.TextUtils;
@@ -322,12 +329,40 @@ public class PreProvisioningController {
         }
     }
 
-    public void setProvisioningMode(int provisioningMode) {
-        mParams = mParams.toBuilder().setProvisioningMode(provisioningMode).build();
+    boolean updateProvisioningParamsFromIntent(Intent resultIntent) {
+        final int provisioningMode = resultIntent.getIntExtra(
+                DevicePolicyManager.EXTRA_PROVISIONING_MODE, 0);
+        final ProvisioningParams.Builder builder = mParams.toBuilder();
+        switch (provisioningMode) {
+            case DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
+                builder.setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
+                builder.setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE);
+                mParams = builder.build();
+                return true;
+            case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
+                builder.setProvisioningMode(PROVISIONING_MODE_MANAGED_PROFILE);
+                builder.setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE);
+                maybeUpdateAccountToMigrate(builder, resultIntent);
+                mParams = builder.build();
+                return true;
+            default:
+                ProvisionLogger.logw("Unknown returned provisioning mode:"
+                        + provisioningMode);
+                return false;
+        }
     }
 
-    public void setProvisioningAction(String action) {
-        mParams = mParams.toBuilder().setProvisioningAction(action).build();
+    private void maybeUpdateAccountToMigrate(ProvisioningParams.Builder builder,
+            Intent resultIntent) {
+        if (resultIntent.hasExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE)) {
+            final Account account = resultIntent.getParcelableExtra(
+                    EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
+            builder.setAccountToMigrate(account);
+        }
+    }
+
+    void setProvisioningMode(int provisioningMode) {
+        mParams = mParams.toBuilder().setProvisioningMode(provisioningMode).build();
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {
