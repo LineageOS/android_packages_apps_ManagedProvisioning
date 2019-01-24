@@ -35,6 +35,10 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  */
 class ProvisioningIntentProvider {
     void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context) {
+        if (utils.isAdminIntegratedFlow(params)) {
+            ProvisionLogger.logd("Dpc launch skipped for user: " + userId);
+            return;
+        }
         final Intent dpcLaunchIntent = createDpcLaunchIntent(params);
         if (utils.canResolveIntentAsUser(context, dpcLaunchIntent, userId)) {
             context.startActivityAsUser(createDpcLaunchIntent(params), UserHandle.of(userId));
