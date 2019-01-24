@@ -340,4 +340,35 @@
   <!-- Transition screen strings -->
   <string name="set_up_everything_else">Set up everything else</string>
   <string name="now_lets_set_up_everything_else">Now, let\'s set up everything else</string>
+
+  <!-- Organization brand screen -->
+  <string name="brand_screen_header">Your organization will manage this phone</string>
+  <string name="brand_screen_subheader">The following app will be used to manage and monitor this phone</string>
+
+  <!-- Downloading screen -->
+  <string name="downloading_administrator_header">Downloading administrator application\u2026</string>
+
+  <!-- Work profile setup screens -->
+  <string name="work_profile_provisioning_accept_header">First, let\'s set up your work profile</string>
+  <string name="work_profile_provisioning_step_1_header">Use one phone for everything</string>
+  <string name="work_profile_provisioning_step_1_subheader">Don\'t worry about carrying two phones</string>
+  <string name="work_profile_provisioning_step_2_header">Separate work &amp; personal data</string>
+  <string name="work_profile_provisioning_step_2_subheader">Your personal data stays private</string>
+  <string name="work_profile_provisioning_step_3_header">Switch off when you\'re done</string>
+  <string name="work_profile_provisioning_step_3_subheader">Pause your work apps when you\'re done for the day</string>
+  <string name="work_profile_provisioning_progress_label">Creating profile</string>
+
+  <!-- Fully managed device setup screens -->
+  <string name="fully_managed_device_provisioning_accept_header">Let\'s set up your work phone</string>
+  <string name="fully_managed_device_provisioning_step_1_header">Connect on the go</string>
+  <string name="fully_managed_device_provisioning_step_2_header">Data is safe if your device is lost</string>
+  <string name="fully_managed_device_provisioning_step_3_header">This phone isn\'t private</string>
+  <string name="fully_managed_device_provisioning_step_3_subheader">Your IT admin can see your data, internet activity and location for all accounts on this phone</string>
+  <string name="fully_managed_device_provisioning_step_4_header">Apps that make work easier</string>
+  <string name="fully_managed_device_provisioning_step_4_subheader">Find approved work apps in the Play Store</string>
+  <string name="fully_managed_device_provisioning_progress_label">Setting up your managed device\u2026</string>
+
+  <!-- Common to both work profile and fully managed device setup screens -->
+  <string name="device_provisioning_finished">Your phone is ready to go!</string>
+
 </resources>
