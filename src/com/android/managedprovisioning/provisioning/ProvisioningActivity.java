@@ -122,7 +122,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
 
     boolean shouldShowTransitionScreen() {
         return mParams.isOrganizationOwnedProvisioning
-                && mParams.provisioningMode == ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
+                && mParams.provisioningMode == ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE
+                && mUtils.isConnectedToNetwork(getApplicationContext());
     }
 
     @Override
