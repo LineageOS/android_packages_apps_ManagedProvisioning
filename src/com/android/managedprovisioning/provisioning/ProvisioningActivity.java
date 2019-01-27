@@ -61,14 +61,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
 
-    /**
-     * Temporary flag to determine whether to add a personal account at the end of the flow.
-     * <p>
-     * Will be determined by whether we are provisioning into fully managed device
-     * or managed profile. Remove this when the rest of the admin integrated flow is implemented.
-     */
-    private static final boolean FLAG_ADD_PERSONAL_ACCOUNT = true;
-
     public ProvisioningActivity() {
         this(null, new Utils());
     }
@@ -98,8 +90,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         // TODO: call this for the new flow after new NFC flow has been added
         // maybeLaunchNfcUserSetupCompleteIntent();
 
-        // TODO: Instead of a flag, use the proper logic as the rest of
-        // the admin integrated flow is implemented.
         if (mUtils.isAdminIntegratedFlow(mParams)) {
             showPolicyComplianceScreen();
         } else {
@@ -132,7 +122,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
 
     boolean shouldShowTransitionScreen() {
         return mParams.isOrganizationOwnedProvisioning
-                && mParams.provisioningMode == ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
+                && mParams.provisioningMode == ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE
+                && mUtils.isConnectedToNetwork(getApplicationContext());
     }
 
     @Override
@@ -149,8 +140,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
                 }
                 break;
             case TRANSITION_ACTIVITY_REQUEST_CODE:
-                setResult(FLAG_ADD_PERSONAL_ACCOUNT
-                    ? RESULT_CODE_ADD_PERSONAL_ACCOUNT : RESULT_OK);
+                setResult(RESULT_CODE_ADD_PERSONAL_ACCOUNT);
                 finish();
                 break;
         }

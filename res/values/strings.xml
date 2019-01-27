@@ -335,9 +335,35 @@
   <string name="device_owner_description">This device will be kept secure and managed by your organization</string>
 
   <string name="setup_provisioning_header">Preparing to set up work device\u2026</string>
-  <string name="setup_provisioning_header_description">Make sure admin app is set up</string>
+  <string name="setup_provisioning_header_description">Setting up admin app</string>
 
   <!-- Transition screen strings -->
   <string name="set_up_everything_else">Set up everything else</string>
   <string name="now_lets_set_up_everything_else">Now, let\'s set up everything else</string>
+
+  <!-- Organization brand screen -->
+  <string name="brand_screen_header">Your organization will manage this phone</string>
+  <string name="brand_screen_subheader">The following app will be used to manage and monitor this phone</string>
+
+  <!-- Downloading screen -->
+  <string name="downloading_administrator_header">Downloading administrator application\u2026</string>
+
+  <!-- Work profile setup screens -->
+  <string name="work_profile_provisioning_accept_header">First, let\'s set up your work profile</string>
+  <string name="work_profile_provisioning_step_1_header">Use one phone for work &amp; play</string>
+  <string name="work_profile_provisioning_step_2_header">Your personal data stays private</string>
+  <string name="work_profile_provisioning_step_3_header">Switch off when you\'re done</string>
+  <string name="work_profile_provisioning_progress_label">Creating work profile\u2026</string>
+
+  <!-- Fully managed device setup screens -->
+  <string name="fully_managed_device_provisioning_accept_header">Let\'s set up your work phone</string>
+  <string name="fully_managed_device_provisioning_step_1_header">Connect on the go</string>
+  <string name="fully_managed_device_provisioning_step_2_header">Data is safe if your phone is lost</string>
+  <string name="fully_managed_device_provisioning_step_3_header">Your organization will manage this phone</string>
+  <string name="fully_managed_device_provisioning_step_4_header">Find apps just for your organization</string>
+  <string name="fully_managed_device_provisioning_progress_label">Setting up your managed device\u2026</string>
+
+  <!-- Common to both work profile and fully managed device setup screens -->
+  <string name="device_provisioning_finished">Your phone is ready to go!</string>
+
 </resources>

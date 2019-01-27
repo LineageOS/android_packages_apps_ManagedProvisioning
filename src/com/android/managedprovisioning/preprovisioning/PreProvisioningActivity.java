@@ -200,8 +200,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 } else {
                     showFactoryResetDialog(R.string.cant_set_up_device,
                             R.string.cant_set_up_device);
-                    setResult(resultCode);
-                    finish();
                 }
                 break;
             default:
