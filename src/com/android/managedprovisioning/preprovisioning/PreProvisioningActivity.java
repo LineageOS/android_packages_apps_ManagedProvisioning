@@ -18,7 +18,6 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.ACTION_GET_PROVISIONING_MODE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY;
 
@@ -353,9 +352,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         intentPolicy.setPackage(adminPackage);
         if (intentGetMode.resolveActivity(getPackageManager()) != null
                 && intentPolicy.resolveActivity(getPackageManager()) != null) {
-            // TODO(b/122948382): Put other extras into intentGetMode.
-            intentGetMode.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mController.getParams().adminExtrasBundle);
+            mController.putExtrasIntoGetModeIntent(intentGetMode);
             startActivityForResult(intentGetMode, GET_PROVISIONING_MODE_REQUEST_CODE);
         } else {
             startManagedDeviceLegacyFlow();
