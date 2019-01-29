@@ -351,14 +351,14 @@
   <!-- Work profile setup screens -->
   <string name="work_profile_provisioning_accept_header">First, let\'s set up your work profile</string>
   <string name="work_profile_provisioning_step_1_header">Use one phone for work &amp; play</string>
-  <string name="work_profile_provisioning_step_2_header">Your personal data stays private</string>
+  <string name="work_profile_provisioning_step_2_header">Separate work &amp; personal data</string>
   <string name="work_profile_provisioning_step_3_header">Switch off when you\'re done</string>
   <string name="work_profile_provisioning_progress_label">Creating work profile\u2026</string>
 
   <!-- Fully managed device setup screens -->
   <string name="fully_managed_device_provisioning_accept_header">Let\'s set up your work phone</string>
   <string name="fully_managed_device_provisioning_step_1_header">Connect on the go</string>
-  <string name="fully_managed_device_provisioning_step_2_header">Data is safe if your phone is lost</string>
+  <string name="fully_managed_device_provisioning_step_2_header">Work data is safe &amp; secure</string>
   <string name="fully_managed_device_provisioning_step_3_header">Your organization will manage this phone</string>
   <string name="fully_managed_device_provisioning_step_4_header">Find apps just for your organization</string>
   <string name="fully_managed_device_provisioning_progress_label">Setting up your managed device\u2026</string>
