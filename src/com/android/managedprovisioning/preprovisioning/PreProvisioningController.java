@@ -79,7 +79,9 @@ import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.model.ProvisioningParams.ProvisioningMode;
 import com.android.managedprovisioning.parser.MessageParser;
+import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 import com.android.managedprovisioning.preprovisioning.terms.TermsProvider;
 
@@ -164,21 +166,6 @@ public class PreProvisioningController {
         void requestWifiPick();
 
         /**
-         * Initialize the pre provisioning UI
-         * @param layoutRes resource id for the layout
-         * @param titleRes resource id for the title text
-         * @param packageLabel package label
-         * @param packageIcon package icon
-         * @param isProfileOwnerProvisioning false for Device Owner provisioning
-         * @param isComp true if in COMP provisioning mode
-         * @param termsHeaders list of terms headers
-         * @param customization customization parameters
-         */
-        void initiateUi(int layoutRes, int titleRes, @Nullable String packageLabel,
-                @Nullable Drawable packageIcon, boolean isProfileOwnerProvisioning, boolean isComp,
-                @NonNull List<String> termsHeaders, @NonNull CustomizationParams customization);
-
-        /**
          * Start provisioning.
          * @param userId the id of the user we want to start provisioning on
          * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
@@ -203,6 +190,54 @@ public class PreProvisioningController {
         void prepareAdminIntegratedFlow(ProvisioningParams params);
 
         void showFactoryResetDialog(Integer titleId, int messageId);
+
+        void initiateUi(UiParams uiParams);
+    }
+
+    /**
+     * Wrapper which holds information related to the consent screen.
+     * <p>Does not implement {@link Object#equals(Object)}, {@link Object#hashCode()}
+     * or {@link Object#toString()}.
+     */
+    public static class UiParams {
+        /**
+         * The desired provisioning mode - values are defined in {@link ProvisioningMode}.
+         */
+        public @ProvisioningMode int provisioningMode;
+        /**
+         * Admin-related package information, e.g. icon, app label.
+         * <p>These are inferred from the installed admin application.
+         */
+        public MdmPackageInfo packageInfo;
+        /**
+         * Defined by the organization in the provisioning trigger (e.g. QR code).
+         */
+        public String deviceAdminIconFilePath;
+        /**
+         * Defined by the organization in the provisioning trigger (e.g. QR code).
+         */
+        public String deviceAdminLabel;
+        /**
+         * Admin application package name.
+         */
+        public String packageName;
+        /**
+         * Various organization-defined customizations, e.g. colors, organization name.
+         */
+        public CustomizationParams customization;
+        /**
+         * List of headings for the organization-provided terms and conditions.
+         */
+        public List<String> disclaimerHeadings;
+        public boolean isDeviceManaged;
+        /**
+         * The original provisioning action, kept for backwards compatibility.
+         */
+        public String provisioningAction;
+        /**
+         * {@link Intent} to launch the view terms screen.
+         */
+        public Intent viewTermsIntent;
     }
 
     /**
@@ -308,28 +343,22 @@ public class PreProvisioningController {
         ProvisionLogger.logd("Provisioning action for user consent:" + mParams.provisioningAction);
 
         // show UI so we can get user's consent to continue
-        if (isProfileOwnerProvisioning()) {
-            boolean isComp = mDevicePolicyManager.isDeviceManaged();
-            mUi.initiateUi(R.layout.intro_profile_owner, R.string.setup_profile, null, null, true,
-                    isComp, getDisclaimerHeadings(), customization);
-        } else if (isDeviceOwnerProvisioning()) {
-            String packageName = mParams.inferDeviceAdminPackageName();
-            MdmPackageInfo packageInfo = MdmPackageInfo.createFromPackageName(mContext,
-                    packageName);
-            // Always take packageInfo first for installed app since PackageManager is more reliable
-            String packageLabel = packageInfo != null ? packageInfo.appLabel
-                    : mParams.deviceAdminLabel != null ? mParams.deviceAdminLabel : packageName;
-            Drawable packageIcon = packageInfo != null ? packageInfo.packageIcon
-                    : getDeviceAdminIconDrawable(mParams.deviceAdminIconFilePath);
-            mUi.initiateUi(R.layout.intro_device_owner,
-                    R.string.setup_device,
-                    packageLabel,
-                    packageIcon,
-                    false  /* isProfileOwnerProvisioning */,
-                    false, /* isComp */
-                    getDisclaimerHeadings(),
-                    customization);
-        }
+        final String packageName = mParams.inferDeviceAdminPackageName();
+        final MdmPackageInfo packageInfo =
+            MdmPackageInfo.createFromPackageName(mContext, packageName);
+        final UiParams uiParams = new UiParams();
+        uiParams.customization = customization;
+        uiParams.deviceAdminIconFilePath = mParams.deviceAdminIconFilePath;
+        uiParams.deviceAdminLabel = mParams.deviceAdminLabel;
+        uiParams.disclaimerHeadings = getDisclaimerHeadings();
+        uiParams.provisioningMode = mParams.provisioningMode;
+        uiParams.provisioningAction = mParams.provisioningAction;
+        uiParams.packageName = packageName;
+        uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
+        uiParams.packageInfo = packageInfo;
+        uiParams.viewTermsIntent = createViewTermsIntent();
+
+        mUi.initiateUi(uiParams);
     }
 
     boolean updateProvisioningParamsFromIntent(Intent resultIntent) {
@@ -395,16 +424,9 @@ public class PreProvisioningController {
                 .collect(Collectors.toList());
     }
 
-    private Drawable getDeviceAdminIconDrawable(String deviceAdminIconFilePath) {
-        if (deviceAdminIconFilePath == null) {
-            return null;
-        }
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mParams.deviceAdminIconFilePath);
-        if (bitmap == null) {
-            return null;
-        }
-        return new BitmapDrawable(mContext.getResources(), bitmap);
+    private Intent createViewTermsIntent() {
+        return new Intent(mContext, TermsActivity.class).putExtra(
+            ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
     }
 
     /**
