@@ -61,6 +61,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.PersistableBundle;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.telephony.TelephonyManager;
@@ -339,12 +340,14 @@ public class PreProvisioningController {
             case DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
                 builder.setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
                 builder.setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE);
+                maybeUpdateAdminExtrasBundle(builder, resultIntent);
                 mParams = builder.build();
                 return true;
             case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
                 builder.setProvisioningMode(PROVISIONING_MODE_MANAGED_PROFILE);
                 builder.setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE);
                 maybeUpdateAccountToMigrate(builder, resultIntent);
+                maybeUpdateAdminExtrasBundle(builder, resultIntent);
                 mParams = builder.build();
                 return true;
             default:
@@ -360,6 +363,15 @@ public class PreProvisioningController {
             final Account account = resultIntent.getParcelableExtra(
                     EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE);
             builder.setAccountToMigrate(account);
+        }
+    }
+
+    private void maybeUpdateAdminExtrasBundle(ProvisioningParams.Builder builder,
+            Intent resultIntent) {
+        if (resultIntent.hasExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE)) {
+            final PersistableBundle bundle = resultIntent.getParcelableExtra(
+                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+            builder.setAdminExtrasBundle(bundle);
         }
     }
 

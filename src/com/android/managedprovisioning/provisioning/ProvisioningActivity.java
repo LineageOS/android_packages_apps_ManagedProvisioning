@@ -115,6 +115,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
 
         final Intent policyComplianceIntent =
             new Intent(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
+        policyComplianceIntent.putExtra(
+                DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
+                mParams.adminExtrasBundle);
         policyComplianceIntent.setPackage(adminPackage);
         startActivityForResultAsUser(
             policyComplianceIntent, POLICY_COMPLIANCE_REQUEST_CODE, userHandle);
