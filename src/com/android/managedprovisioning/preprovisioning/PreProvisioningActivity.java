@@ -27,7 +27,6 @@ import static java.util.Collections.unmodifiableList;
 import android.annotation.NonNull;
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -191,7 +190,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 break;
             case GET_PROVISIONING_MODE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
-                    if(updateProvisioningModeFromIntent(data)) {
+                    if(data != null && mController.updateProvisioningParamsFromIntent(data)) {
                         mController.showUserConsentScreen();
                     } else {
                         showFactoryResetDialog(R.string.cant_set_up_device,
@@ -205,29 +204,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
                 break;
-        }
-    }
-
-    private boolean updateProvisioningModeFromIntent(Intent resultIntent) {
-        final int provisioningMode = resultIntent.getIntExtra(
-                DevicePolicyManager.EXTRA_PROVISIONING_MODE, 0);
-        switch (provisioningMode) {
-            case DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
-                mController.setProvisioningMode(
-                        ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
-                mController.setProvisioningAction(
-                        DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE);
-                return true;
-            case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
-                mController.setProvisioningMode(
-                        ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE);
-                mController.setProvisioningAction(
-                        DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE);
-                return true;
-            default:
-                ProvisionLogger.logw("Unknown returned provisioning mode:"
-                        + provisioningMode);
-                return false;
         }
     }
 
@@ -376,9 +352,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         intentPolicy.setPackage(adminPackage);
         if (intentGetMode.resolveActivity(getPackageManager()) != null
                 && intentPolicy.resolveActivity(getPackageManager()) != null) {
-            // TODO(b/122948382): Put other extras into intentGetMode.
-            intentGetMode.putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                    mController.getParams().adminExtrasBundle);
+            mController.putExtrasIntoGetModeIntent(intentGetMode);
             startActivityForResult(intentGetMode, GET_PROVISIONING_MODE_REQUEST_CODE);
         } else {
             startManagedDeviceLegacyFlow();
