@@ -32,15 +32,16 @@ import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVIC
 import static android.app.admin.DevicePolicyManager.CODE_USER_SETUP_COMPLETED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 
 import android.accounts.Account;
 import android.annotation.NonNull;
@@ -59,9 +60,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.PersistableBundle;
+import android.os.Build;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -363,6 +365,13 @@ public class PreProvisioningController {
 
     void setProvisioningMode(int provisioningMode) {
         mParams = mParams.toBuilder().setProvisioningMode(provisioningMode).build();
+    }
+
+    void putExtrasIntoGetModeIntent(Intent intentGetMode) {
+        final TelephonyManager telephonyManager = mContext.getSystemService(TelephonyManager.class);
+        intentGetMode.putExtra(EXTRA_PROVISIONING_IMEI, telephonyManager.getImei());
+        intentGetMode.putExtra(EXTRA_PROVISIONING_SERIAL_NUMBER, Build.getSerial());
+        intentGetMode.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mParams.adminExtrasBundle);
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {
