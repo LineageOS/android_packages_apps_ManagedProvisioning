@@ -86,14 +86,19 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"डिव्हाइस सेट करता आले नाही. मदतीसाठी, तुमच्या प्रशासकाशी संपर्क साधा."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"मदतीसाठी आपल्या प्रशासकाशी संपर्क साधा"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"डिव्हाइस आधीच सेट केले आहे"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"वाय-फाय ला कनेक्ट करू शकलो नाही"</string>
+    <!-- no translation found for error_wifi (1850288843966836571) -->
+    <skip />
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"आपल्या डिव्हाइसचे रीसेट संरक्षण चालू आहे. मदतीसाठी, आपल्या प्रशासकाशी संपर्क साधा."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"मिटवत आहे"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा करा..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"चेकसम एररमुळे प्रशासक अ‍ॅप वापरता आले नाही. मदतीसाठी, आपल्या प्रशासकाशी संपर्क साधा."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"प्रशासक अ‍ॅप डाउनलोड करणे शक्य झाले नाही"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"प्रशासक अ‍ॅप वापरू शकत नाही. त्याचे घटक गहाळ आहेत किंवा करप्ट झालेले आहेत. मदतीसाठी, आपल्या प्रशासकाशी संपर्क साधा."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"प्रशासक अ‍ॅप इंस्टॉल करणे शक्य झाले नाही"</string>
+    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
+    <skip />
+    <!-- no translation found for error_download_failed (3274283629837019452) -->
+    <skip />
+    <!-- no translation found for error_package_invalid (5915763557848599459) -->
+    <skip />
+    <!-- no translation found for error_installation_failed (2282903750318407285) -->
+    <skip />
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"सेट करणे थांबवायचे?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"नाही"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"होय"</string>
@@ -158,4 +163,42 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"याला काही मिनिटे लागू शकतात"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"तुमची कामाची अ‍ॅप्स या प्रोफाइलमध्ये ठेवली जातील आणि तुमच्या संस्थेकडून व्यवस्थापित केली जातील"</string>
     <string name="device_owner_description" msgid="168013145812679664">"हे डिव्‍हाइस सुरक्षित ठेवले जाईल आणि तुमच्‍या संस्‍थेद्वारे व्‍यवस्‍थापित केले जाईल"</string>
+    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
+    <skip />
+    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
+    <skip />
+    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
+    <skip />
+    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
+    <skip />
+    <!-- no translation found for brand_screen_header (2285274890167238955) -->
+    <skip />
+    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
+    <skip />
+    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
+    <skip />
+    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
+    <skip />
 </resources>
