@@ -86,14 +86,19 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ഉപകരണം ഇതിനകം തന്നെ സജ്ജീകരിച്ചിരിക്കുന്നു"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"വൈഫൈ ലേക്ക് കണക്‌റ്റുചെയ്യാനായില്ല"</string>
+    <!-- no translation found for error_wifi (1850288843966836571) -->
+    <skip />
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ഈ ഉപകരണത്തിൽ റീസെറ്റ് ചെയ്യാതിരിക്കാനുള്ള പരിരക്ഷ ഓണാക്കിയിട്ടുണ്ട്. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"മായ്‌ക്കുന്നു"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"കാത്തിരിക്കുക..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"ഒരു ചെക്ക്‌സം പിശക് കാരണം അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഡൗൺലോഡുചെയ്യാനായില്ല"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനാവില്ല. അതിന്റെ ഘടകഭാഗങ്ങൾ നഷ്‌ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കിൽ അത് കേടായിരിക്കുന്നു. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഇൻസ്റ്റാളുചെയ്യാനായില്ല"</string>
+    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
+    <skip />
+    <!-- no translation found for error_download_failed (3274283629837019452) -->
+    <skip />
+    <!-- no translation found for error_package_invalid (5915763557848599459) -->
+    <skip />
+    <!-- no translation found for error_installation_failed (2282903750318407285) -->
+    <skip />
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"സജ്ജീകരിക്കൽ നിർത്തണോ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"അല്ല"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"അതെ"</string>
@@ -158,4 +163,42 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ഇതിന് കുറച്ച് സമയമെടുത്തേക്കാം"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ഔദ്യോഗിക ആപ്പുകൾ ഈ പ്രൊഫൈലിൽ സൂക്ഷിക്കപ്പെടും, നിങ്ങളുടെ സ്ഥാപനം അത് മാനേജ് ചെയ്യും"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ഈ ഉപകരണം സുരക്ഷിതമായി സൂക്ഷിക്കപ്പെടും, ഒപ്പം നിങ്ങളുടെ ഓര്‍ഗനൈസേഷന്‍ അത് മാനേജും ചെയ്യും"</string>
+    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
+    <skip />
+    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
+    <skip />
+    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
+    <skip />
+    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
+    <skip />
+    <!-- no translation found for brand_screen_header (2285274890167238955) -->
+    <skip />
+    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
+    <skip />
+    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
+    <skip />
+    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
+    <skip />
 </resources>
