@@ -17,17 +17,22 @@
 package com.android.managedprovisioning.finalization;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.finalization.SendDpcBroadcastService.EXTRA_PROVISIONING_PARAMS;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
+
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.io.File;
 
 /**
@@ -91,11 +96,22 @@ public class FinalizationController {
         mHelper.markUserProvisioningStateInitiallyDone(params);
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)
                 && mSettingsFacade.isUserSetupCompleted(mContext)) {
-            // If a managed profile was provisioned after SUW, notify the DPC straight away
+            setProfileOwnerCanAccessDeviceIds();
+            // If a managed profile was provisioned after SUW, notify the DPC straight away.
             notifyDpcManagedProfile(params);
         } else {
             // Otherwise store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
+        }
+    }
+
+    private void setProfileOwnerCanAccessDeviceIds() {
+        final DevicePolicyManager dpm = mContext.getSystemService(DevicePolicyManager.class);
+        final int managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
+        final ComponentName admin = dpm.getProfileOwnerAsUser(managedProfileUserId);
+        if (admin != null) {
+            dpm.setProfileOwnerCanAccessDeviceIdsForUser(
+                    admin, UserHandle.of(managedProfileUserId));
         }
     }
 
