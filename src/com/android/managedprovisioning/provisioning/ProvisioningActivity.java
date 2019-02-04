@@ -26,8 +26,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.UserHandle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
@@ -48,10 +48,10 @@ import java.util.List;
  * showing of cancel and error dialogs.</p>
  */
 public class ProvisioningActivity extends AbstractProvisioningActivity {
-
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
+    private TransitionAnimationHelper mTransitionAnimationHelper;
 
     public ProvisioningActivity() {
         this(null, new Utils());
@@ -82,12 +82,21 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         // TODO: call this for the new flow after new NFC flow has been added
         // maybeLaunchNfcUserSetupCompleteIntent();
 
-        if (mUtils.isAdminIntegratedFlow(mParams)) {
-            showPolicyComplianceScreen();
-        } else {
-            finishProvisioning();
-        }
+        updateProvisioningFinalizedScreen();
         mState = STATE_PROVISIONING_FINALIZED;
+    }
+
+    private void updateProvisioningFinalizedScreen() {
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        layout.findViewById(R.id.footer).setVisibility(View.VISIBLE);
+        layout.findViewById(R.id.done_button).setOnClickListener(v -> {
+            if (mUtils.isAdminIntegratedFlow(mParams)) {
+                showPolicyComplianceScreen();
+            } else {
+                finishProvisioning();
+            }
+        });
+        layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
     }
 
     private void finishProvisioning() {
@@ -202,29 +211,54 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        startTransitionAnimation();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        endTransitionAnimation();
+    }
+
+    private void startTransitionAnimation() {
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        final TextView header = layout.findViewById(R.id.suw_layout_title);
+        final ImageView drawable = layout.findViewById(R.id.provisioning_progress_suw_layout_image);
+        final boolean isProfileOwnerAction =
+                mUtils.isProfileOwnerAction(mParams.provisioningAction);
+        mTransitionAnimationHelper =
+            new TransitionAnimationHelper(isProfileOwnerAction, header, drawable);
+        mTransitionAnimationHelper.start();
+    }
+
+    private void endTransitionAnimation() {
+        mTransitionAnimationHelper.clean();
+        mTransitionAnimationHelper = null;
+    }
+
+    @Override
     protected void initializeUi(ProvisioningParams params) {
-        final boolean isDoProvisioning = getUtils().isDeviceOwnerAction(params.provisioningAction);
-        final int headerResId = isDoProvisioning ? R.string.setup_work_device
-                : R.string.setting_up_workspace;
-        final int titleResId = isDoProvisioning ? R.string.setup_device_progress
-                : R.string.setup_profile_progress;
+        final boolean isPoProvisioning = mUtils.isProfileOwnerAction(params.provisioningAction);
+        final int titleResId =
+            isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
 
         CustomizationParams customizationParams =
                 CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(R.layout.progress, headerResId, customizationParams.mainColor,
-                customizationParams.statusBarColor);
+        initializeLayoutParams(R.layout.provisioning_progress, null,
+                customizationParams.mainColor, customizationParams.statusBarColor);
         setTitle(titleResId);
-        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
-        TextView textView = layout.findViewById(R.id.description);
-        ImageView imageView = layout.findViewById(R.id.animation);
-        if (isDoProvisioning) {
-            textView.setText(R.string.device_owner_description);
-            imageView.setImageResource(R.drawable.enterprise_do_animation);
-        } else {
-            textView.setText(R.string.work_profile_description);
-            imageView.setImageResource(R.drawable.enterprise_wp_animation);
-        }
-        mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        layout.findViewById(R.id.footer).setVisibility(View.GONE);
+
+        final int progressLabelResId = isPoProvisioning
+                ? R.string.work_profile_provisioning_progress_label
+                : R.string.fully_managed_device_provisioning_progress_label;
+        final TextView progressLabel = layout.findViewById(R.id.provisioning_progress_label);
+        progressLabel.setText(progressLabelResId);
+
+        layout.findViewById(R.id.provisioning_progress).setVisibility(View.VISIBLE);
     }
 }
