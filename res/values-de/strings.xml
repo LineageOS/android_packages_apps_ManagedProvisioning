@@ -54,7 +54,7 @@
     <string name="encrypt" msgid="1749320161747489212">"Verschlüsseln"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Verschlüsselung abgeschlossen"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tippe, um die Einrichtung des Arbeitsprofils fortzusetzen"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später erneut."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Dein Arbeitsprofil konnte nicht eingerichtet werden. Bitte wende dich an deine IT-Abteilung oder versuche es später noch einmal."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Arbeitsprofil kann nicht hinzugefügt werden"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Arbeitsprofil kann nicht ersetzt oder entfernt werden"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Diesem Gerät kann kein Arbeitsprofil hinzugefügt werden. Wende dich bei Fragen an deinen Administrator."</string>
