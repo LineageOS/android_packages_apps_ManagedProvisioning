@@ -28,10 +28,14 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+/**
+ * Set the default PO policies and restrictions and mark user setup as completed.
+ */
 public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
 
     @VisibleForTesting
     static final boolean DEFAULT_CONTACT_REMOTE_SEARCH = true;
+    static final boolean DEFAULT_CROSS_PROFILE_CALENDAR_ENABLED = true;
 
     private final SettingsFacade mSettingsFacade;
     private final CrossProfileIntentFiltersSetter mCrossProfileIntentFiltersSetter;
@@ -61,6 +65,9 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
         // Turn on managed profile contacts remote search.
         mSettingsFacade.setProfileContactRemoteSearch(mContext, DEFAULT_CONTACT_REMOTE_SEARCH,
                 userId);
+        // Turn on cross-profile calendar.
+        mSettingsFacade.setCrossProfileCalendarEnabled(mContext,
+                DEFAULT_CROSS_PROFILE_CALENDAR_ENABLED, userId);
 
         // Disable managed profile wallpaper access
         UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
