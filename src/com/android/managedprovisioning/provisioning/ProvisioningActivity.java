@@ -17,11 +17,9 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
 import android.Manifest.permission;
-import android.annotation.IntDef;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -29,13 +27,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.AnimatedVectorDrawable;
-import android.os.Bundle;
 import android.os.UserHandle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.VisibleForTesting;
-
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
@@ -43,9 +38,6 @@ import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.transition.TransitionActivity;
 import com.android.setupwizardlib.GlifLayout;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 /**
@@ -130,13 +122,19 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case POLICY_COMPLIANCE_REQUEST_CODE:
-                if (shouldShowTransitionScreen()) {
-                    Intent intent = new Intent(this, TransitionActivity.class);
-                    intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
-                    startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
+                if (resultCode == RESULT_OK) {
+                    if (shouldShowTransitionScreen()) {
+                        Intent intent = new Intent(this, TransitionActivity.class);
+                        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
+                        startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
+                    } else {
+                        setResult(Activity.RESULT_OK);
+                        finish();
+                    }
                 } else {
-                    setResult(Activity.RESULT_OK);
-                    finish();
+                    error(/* titleId */ R.string.cant_set_up_device,
+                            /* messageId */ R.string.cant_set_up_device,
+                            /* resetRequired = */ true);
                 }
                 break;
             case TRANSITION_ACTIVITY_REQUEST_CODE:
