@@ -19,12 +19,10 @@ package com.android.managedprovisioning.provisioning;
 import android.app.Activity;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.annotation.VisibleForTesting;
-
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -40,6 +38,8 @@ import com.android.setupwizardlib.GlifLayout;
  */
 public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActivity {
 
+    private RepeatingVectorAnimation mRepeatingVectorAnimation;
+
     public AdminIntegratedFlowPrepareActivity() {
         this(new Utils());
     }
@@ -47,6 +47,22 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     @VisibleForTesting
     protected AdminIntegratedFlowPrepareActivity(Utils utils) {
         super(utils);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mRepeatingVectorAnimation != null) {
+            mRepeatingVectorAnimation.start();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mRepeatingVectorAnimation != null) {
+            mRepeatingVectorAnimation.stop();
+        }
     }
 
     @Override
@@ -71,22 +87,19 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
 
     @Override
     protected void initializeUi(ProvisioningParams params) {
-        final int headerResId = R.string.setup_provisioning_header;
+        final int headerResId = R.string.downloading_administrator_header;
         final int titleResId = R.string.setup_device_progress;
-
-        CustomizationParams customizationParams =
+        final CustomizationParams customizationParams =
                 CustomizationParams.createInstance(mParams, this, mUtils);
         initializeLayoutParams(R.layout.prepare_progress, headerResId,
                 customizationParams.mainColor, customizationParams.statusBarColor);
         setTitle(titleResId);
-        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
-        TextView textView = layout.findViewById(R.id.description);
-        ImageView imageView = layout.findViewById(R.id.animation);
-
-        textView.setText(R.string.setup_provisioning_header_description);
-        imageView.setImageResource(R.drawable.enterprise_do_animation);
-
-        mAnimatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        final ImageView imageView = layout.findViewById(R.id.animation);
+        final AnimatedVectorDrawable animatedVectorDrawable =
+                (AnimatedVectorDrawable) imageView.getDrawable();
+        mRepeatingVectorAnimation = new RepeatingVectorAnimation(animatedVectorDrawable);
+        mRepeatingVectorAnimation.start();
     }
 }

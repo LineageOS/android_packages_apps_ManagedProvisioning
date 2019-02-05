@@ -246,5 +246,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".provisioning.LandingActivity"
+            android:theme="@style/SuwThemeGlifV3.Light" />
     </application>
 </manifest>

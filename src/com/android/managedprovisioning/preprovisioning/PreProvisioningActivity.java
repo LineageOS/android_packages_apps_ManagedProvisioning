@@ -48,7 +48,7 @@ import com.android.managedprovisioning.preprovisioning.PreProvisioningController
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperFactory;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelper;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperCallback;
-import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
+import com.android.managedprovisioning.provisioning.LandingActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
 public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
@@ -318,10 +318,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void prepareAdminIntegratedFlow(ProvisioningParams params) {
-        Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
+        Intent intent = new Intent(this, LandingActivity.class);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override

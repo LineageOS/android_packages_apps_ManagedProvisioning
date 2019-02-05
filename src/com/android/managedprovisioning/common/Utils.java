@@ -39,6 +39,7 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -64,13 +65,22 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import android.widget.TextView;
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TrampolineActivity;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import com.android.managedprovisioning.preprovisioning.WebActivity;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -739,5 +749,28 @@ public class Utils {
         int attrColor = ta.getColor(0, 0);
         ta.recycle();
         return attrColor;
+    }
+
+    public void handleSupportUrl(Context context, CustomizationParams customizationParams,
+                ClickableSpanFactory clickableSpanFactory,
+                AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
+                String deviceProvider, String contactDeviceProvider) {
+        if (customizationParams.supportUrl == null) {
+            return;
+        }
+        final SpannableString spannableString = new SpannableString(contactDeviceProvider);
+        final Intent intent = WebActivity.createIntent(
+                context, customizationParams.supportUrl, customizationParams.statusBarColor);
+        if (intent != null) {
+            final ClickableSpan span = clickableSpanFactory.create(intent);
+            final int startIx = contactDeviceProvider.indexOf(deviceProvider);
+            final int endIx = startIx + deviceProvider.length();
+            spannableString.setSpan(span, startIx, endIx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            textView.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+        }
+
+        textView.setVisibility(View.VISIBLE);
+        textView.setText(spannableString);
+        contextMenuMaker.registerWithActivity(textView);
     }
 }
