@@ -80,6 +80,8 @@ public class FinalizationController {
      * SUW, this method notifies the DPC about the completed provisioning; otherwise, it stores the
      * provisioning params for later digestion.</p>
      *
+     * <p>Note that fully managed device provisioning is only possible during SUW.
+     *
      * @param params the provisioning params
      */
     public void provisioningInitiallyDone(ProvisioningParams params) {
@@ -98,14 +100,20 @@ public class FinalizationController {
             if (params.isOrganizationOwnedProvisioning) {
                 setProfileOwnerCanAccessDeviceIds();
             }
-            if (mSettingsFacade.isUserSetupCompleted(mContext)) {
+            if (!isDuringSetupWizard()) {
                 // If a managed profile was provisioned after SUW, notify the DPC straight away.
                 notifyDpcManagedProfile(params);
             }
-        } else {
-            // Otherwise store the information and wait for provisioningFinalized to be called
+        }
+        if (isDuringSetupWizard()) {
+            // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
         }
+    }
+
+    private boolean isDuringSetupWizard() {
+        // If the flow is running in SUW, the primary user is not set up at this point
+        return !mSettingsFacade.isUserSetupCompleted(mContext);
     }
 
     private void setProfileOwnerCanAccessDeviceIds() {
@@ -139,6 +147,7 @@ public class FinalizationController {
             return;
         }
 
+        final boolean isAdminIntegratedFlow = mUtils.isAdminIntegratedFlow(params);
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             notifyDpcManagedProfile(params);
         } else {
@@ -153,7 +162,13 @@ public class FinalizationController {
             }
             mContext.sendBroadcast(provisioningCompleteIntent);
 
-            mProvisioningIntentProvider.maybeLaunchDpc(params, userId, mUtils, mContext);
+            if (!isAdminIntegratedFlow) {
+                mProvisioningIntentProvider.maybeLaunchDpc(params, userId, mUtils, mContext);
+            }
+        }
+
+        if (isAdminIntegratedFlow) {
+            mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
         }
 
         mHelper.markUserProvisioningStateFinalized(params);

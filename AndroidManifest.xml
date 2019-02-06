@@ -250,5 +250,9 @@
         <activity
             android:name=".provisioning.LandingActivity"
             android:theme="@style/SuwThemeGlifV3.Light" />
+
+        <activity
+            android:name=".finalization.FinalScreenActivity"
+            android:theme="@style/SuwThemeGlifV3.Light" />
     </application>
 </manifest>
