@@ -94,11 +94,14 @@ public class FinalizationController {
         }
 
         mHelper.markUserProvisioningStateInitiallyDone(params);
-        if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)
-                && mSettingsFacade.isUserSetupCompleted(mContext)) {
-            setProfileOwnerCanAccessDeviceIds();
-            // If a managed profile was provisioned after SUW, notify the DPC straight away.
-            notifyDpcManagedProfile(params);
+        if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)) {
+            if (params.isOrganizationOwnedProvisioning) {
+                setProfileOwnerCanAccessDeviceIds();
+            }
+            if (mSettingsFacade.isUserSetupCompleted(mContext)) {
+                // If a managed profile was provisioned after SUW, notify the DPC straight away.
+                notifyDpcManagedProfile(params);
+            }
         } else {
             // Otherwise store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
