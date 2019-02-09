@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"មិនអាច​រៀបចំ​ឧបករណ៍បានទេ។ សូម​ទាក់ទង​ទៅអ្នក​គ្រប់គ្រង​របស់អ្នក​ ដើម្បី​ទទួល​បានជំនួយ។"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"សូមទាក់ទង​ទៅអ្នក​គ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ឧបករណ៍​ត្រូវបាន​រៀបចំ​រួចហើយ"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"មិនអាច​ភ្ជាប់ Wi-Fi បានទេ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ឧបករណ៍​របស់អ្នក​បានបើក​ការ​ការពារ​ការកំណត់​ឡើងវិញ។ សូមទាក់ទងទៅ​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួលបាន​ជំនួយ។"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"លុប"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"សូម​រង់ចាំ..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"មិនអាច​ប្រើ​កម្មវិធី​អ្នក​គ្រប់គ្រង​បានទេ ដោយសារ​មាន​បញ្ហា​លេខត្រួតពិនិត្យ។ សូមទាក់ទង​ទៅ​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ។"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"មិនអាច​ទាញយក​កម្មវិធី​អ្នកគ្រប់គ្រង​បានទេ"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"មិនអាច​ប្រើ​កម្មវិធី​អ្នក​គ្រប់គ្រង​បានទេ។ កម្មវិធីនេះ​បាត់​សមាសភាគ ឬ​ខូចហើយ។ សូម​ទាក់ទង​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួលបាន​ជំនួយ។"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"មិន​អាច​ដំឡើង​កម្មវិធី​អ្នកគ្រប់គ្រង​បានទេ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"បញ្ឈប់ការដំឡើង?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ទេ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"បាទ/ចាស"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"វាអាចចំណាយពីរបីនាទី"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"កម្មវិធី​ការងាររបស់អ្នក​នឹងត្រូវបានរក្សាទុក​នៅក្នុង​កម្រងព័ត៌មាននេះ​ ហើយនឹងស្ថិតក្រោម​ការគ្រប់គ្រង​របស់ស្ថាប័ន​របស់អ្នក"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ឧបករណ៍​នេះនឹង​ត្រូវបាន​រក្សា​សុវត្ថិភាព និង​​គ្រប់គ្រង​ដោយ​​ស្ថាប័នរបស់​​អ្នក"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"កំពុង​ត្រៀម​រៀបចំ​ឧបករណ៍​នៅកន្លែង​ធ្វើការ…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"កំពុង​រៀបចំ​កម្មវិធី​អ្នកគ្រប់គ្រង"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"រៀបចំ​អ្វីៗ​ផ្សេងទៀត"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ឥឡូវនេះ សូម​រៀបចំ​អ្វីៗ​ផ្សេងទៀត"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ស្ថាប័ន​របស់អ្នក​នឹង​គ្រប់គ្រង​ទូរសព្ទ​នេះ"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"កម្មវិធី​ខាងក្រោម​នឹងត្រូវ​បានប្រើប្រាស់​ដើម្បី​គ្រប់គ្រង និង​ត្រួតពិនិត្យ​ទូរសព្ទនេះ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"កំពុង​ទាញយក​កម្មវិធី​គ្រប់គ្រង…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"សូម​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក​ជាមុនសិន"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ប្រើ​ទូរសព្ទមួយ​សម្រាប់​ការងារ និង​សម្រាប់​លេង"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"បែងចែក​ទិន្នន័យ​ការងារ និង​ទិន្នន័យ​ផ្ទាល់ខ្លួន​ដោយឡែក​ពីគ្នា"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"បិទ​នៅពេល​ដែលអ្នក​រួចរាល់"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"កំពុងបង្កើត​កម្រងព័ត៌មាន​ការងារ…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"សូម​រៀបចំ​ទូរសព្ទ​សម្រាប់​ការងារ​របស់អ្នក"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ភ្ជាប់បាន​យ៉ាងស្រួល"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ទិន្នន័យ​ការងារ​មាន​សុវត្ថិភាព"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ស្ថាប័ន​របស់អ្នក​នឹង​គ្រប់គ្រង​ទូរសព្ទ​នេះ"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ស្វែងរក​កម្មវិធី​ដែលបាន​អភិវឌ្ឍ​ឡើងសម្រាប់​ស្ថាប័ន​របស់អ្នក​តែប៉ុណ្ណោះ"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"កំពុង​រៀបចំ​ឧបករណ៍​របស់អ្នក ដែល​ស្ថិតក្រោម​ការគ្រប់គ្រង…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ទូរសព្ទ​របស់អ្នក​អាច​ដំណើរការ​បានហើយ!"</string>
 </resources>

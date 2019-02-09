@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Kunne ikke konfigurere enheten. Ta kontakt med administratoren din for å få hjelp."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Ta kontakt med administratoren din for å få hjelp"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Enheten er allerede konfigurert"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Kunne ikke koble til Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Beskyttelse mot tilbakestilling er slått på for enheten din. Ta kontakt med administratoren din for å få hjelp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent litt …"</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Kunne ikke bruke administartorappen på grunn av en sjekksumfeil. Ta kontakt med administratoren din for å få hjelp."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Kunne ikke laste ned administratorappen"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Kan ikke bruke admin-appen. Den mangler komponenter eller er skadet. Ta kontakt med administratoren din for å få hjelp."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Kan ikke installere administratorappen"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Vil du stoppe konfigureringen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nei"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Dette kan ta noen minutter"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Jobbappene dine oppbevares i denne profilen og administreres av organisasjonen din"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Denne enheten holdes sikker og administreres av organisasjonen din"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Forbereder konfigurering av jobbenheten …"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurerer administratorapp"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Konfigurer alt annet"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Nå kan vi konfigurere alt annet"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Organisasjonen din kommer til å administrere denne telefonen"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app brukes til å administrere og overvåke denne telefonen"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Laster ned administratorapp …"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"La oss konfigurere jobbprofilen din først"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Bruk én telefon til både jobb og fritid"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Skill mellom jobbdata og personlige data"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Slå av når du er ferdig"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Oppretter jobbprofil …"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"La oss konfigurere jobbtelefonen din"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Koble til uansett hvor du er"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Jobbdataene beskyttes"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Organisasjonen din kommer til å administrere denne telefonen"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Finn apper for organisasjonen din"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Konfigurerer den administrerte enheten din …"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Telefonen din er klar til bruk!"</string>
 </resources>

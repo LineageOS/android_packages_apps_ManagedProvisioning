@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"No s\'ha pogut configurar el dispositiu. Contacta amb l\'administrador per obtenir ajuda."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Contacta amb l\'administrador per obtenir ajuda"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"El dispositiu ja està configurat"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"No s\'ha pogut connectar a la Wi‑Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"El teu dispositiu té activada la protecció per recuperar les dades de fàbrica. Contacta amb l\'administrador per obtenir ajuda."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"S\'està esborrant"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Espera…"</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"No s\'ha pogut fer servir l\'aplicació d\'administració a causa d\'un error de suma de comprovació. Contacta amb l\'administrador per obtenir ajuda."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"No s\'ha pogut baixar l\'aplicació d\'administració"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"No s\'ha pogut fer servir l\'aplicació d\'administració perquè està malmesa o hi falten components. Contacta amb l\'administrador per obtenir ajuda."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"No s\'ha pogut instal·lar l\'aplicació d\'administració"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Vols aturar la configuració?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"No"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Sí"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Aquest procés pot tardar uns minuts"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Les teves aplicacions per a la feina es desaran en aquest perfil i les gestionarà la teva organització"</string>
     <string name="device_owner_description" msgid="168013145812679664">"La teva organització gestionarà i protegirà aquest dispositiu"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"S\'està preparant per configurar el dispositiu de la feina…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"S\'està configurant l\'aplicació d\'administració"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Configura la resta d\'elements"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Ara ja podem configurar la resta d\'elements"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"La teva organització gestionarà aquest telèfon"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"S\'utilitzarà l\'aplicació següent per gestionar i supervisar aquest telèfon"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"S\'està baixant l\'aplicació de l\'administrador…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Primer, configurem el teu perfil professional"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Utilitza un sol telèfon per a la feina i per al teu ús personal"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Separa les dades professionals de les personals"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Apaga-ho quan hagis acabat"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"S\'està creant el perfil professional…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Configurem el teu telèfon de la feina"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Connecta\'t siguis on siguis"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Les dades professionals estan protegides"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"La teva organització gestionarà aquest telèfon"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Cerca aplicacions exclusives per a la teva organització"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"S\'està configurant el teu dispositiu gestionat…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"El telèfon ja està a punt."</string>
 </resources>

@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"சாதனத்தை அமைக்க முடியவில்லை. உதவிக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"உதவிக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"சாதனம் ஏற்கனவே அமைக்கப்பட்டுள்ளது"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"வைஃபையுடன் இணைக்க முடியவில்லை"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"சாதனத்தில் மீட்டமைவுப் பாதுகாப்பு இயக்கப்பட்டுள்ளது. உதவிக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"அழிக்கிறது"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"காத்திருக்கவும்..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"செக்-சம் பிழை ஏற்பட்டதால், நிர்வாகி ஆப்ஸைப் பயன்படுத்த முடியவில்லை. உதவிக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"நிர்வாகி ஆப்ஸைப் பதிவிறக்க முடியவில்லை"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"நிர்வாகி ஆப்ஸைப் பயன்படுத்த முடியவில்லை. இதில் உறுப்புகள் இல்லை அல்லது சிதைந்துள்ளன. உதவிக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"நிர்வாகி ஆப்ஸை நிறுவ முடியவில்லை"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"அமைப்பதை நிறுத்தவா?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"வேண்டாம்"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ஆம்"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"இதற்குச் சில நிமிடங்கள் ஆகலாம்"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"இந்தச் சுயவிவரத்தில் பணி தொடர்பான ஆப்ஸ் சேர்க்கப்பட்டு, உங்கள் நிறுவனத்தால் நிர்வகிக்கப்படும்"</string>
     <string name="device_owner_description" msgid="168013145812679664">"இந்தச் சாதனம் பாதுகாப்பாக வைக்கப்பட்டு, உங்கள் நிறுவனத்தால் நிர்வகிக்கப்படும்"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"பணி மொபைலை அமைக்கத் தயார்படுத்துகிறது…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"நிர்வாக ஆப்ஸை அமைக்கிறது"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"எல்லாவற்றையும் அமைக்கவும்"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"இப்போது, எல்லாவற்றையும் அமைப்போம்"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"உங்கள் நிர்வாகம் இந்த மொபைலை நிர்வகிக்கும்"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"இந்த மொபைலை நிர்வகிக்கவும் கண்காணிக்கவும் பின்வரும் ஆப்ஸ் பயன்படும்"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"நிர்வாகி ஆப்ஸைப் பதிவிறக்குகிறது…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"முதலில், உங்கள் பணிக் கணக்கை அமைக்கவும்"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"பணி செய்ய &amp; விளையாட மொபைலைப் பயன்படுத்தவும்"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"பணி &amp; தனிப்பட்ட தரவைப் பிரித்தல்"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"முடித்ததும், முடக்கவும்"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"பணிக் கணக்கை உருவாக்குகிறது…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"பணி மொபைலை அமைப்போம்"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"எங்கிருந்தும் இணைப்பில் இருக்கலாம்"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"பணி தரவு பத்திரமாகவும் பாதுகாப்பாகவும் உள்ளது"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"உங்கள் நிறுவனம் இந்த மொபைலை நிர்வகிக்கும்"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"உங்கள் நிறுவனத்திற்கான ஆப்ஸைக் கண்டறியவும்"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"நிர்வகிக்கப்படும் உங்கள் சாதனத்தை அமைக்கிறது…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"உங்கள் மொபைல் பயன்படுத்தத் தயாராக உள்ளது!"</string>
 </resources>

@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରାଯାଇପାରିଲା ନାହିଁ। ସହାୟତା ପାଇଁ, ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ସହାୟତା ପାଇଁ ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ଡିଭାଇସ୍‍ ପୂର୍ବରୁ ସେଟଅପ୍‌ କରାଯାଇଛି"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"ୱାଇ-ଫାଇ ସହ ସଂଯୋଗ ହୋଇପାରିଲା ନାହିଁ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ଆପଣଙ୍କ ଡିଭାଇସରେ ରିସେଟ୍‍ ସୁରକ୍ଷା ଅନ୍‍ କରାଯାଇଛି। ସହାୟତା ପାଇଁ ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ଲିଭାଯାଉଛି"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ଏକ ଚେକସମ୍‍ ତ୍ରୁଟି ହେତୁ ବ୍ୟବସ୍ଥାପକ ଆପ୍‍ ବ୍ୟବହାର ହୋଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌କୁ ଡାଉନଲୋଡ୍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‍ ବ୍ୟବହାର କରିପାରିବ ନାହିଁ। ଏହାର କିଛି ଉପାଦାନ ନାହିଁ କିମ୍ବା ଖରାପ ହୋଇଯାଇଛି। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌ ଇନ୍‍ଷ୍ଟଲ୍‍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ସେଟ୍‌ ଅପ୍‍ କରିବା ବନ୍ଦ କରିବେ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ନା"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ହଁ"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ଏଥିପାଇଁ କିଛି ସମୟ ଲାଗିପାରେ"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକାରୀ ଆପ୍‌ଗୁଡ଼ିକୁ ଏହି ପ୍ରୋଫାଇଲ୍ ମଧ୍ୟରେ ରଖିବା ସହିତ ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ଵାରା ପରିଚାଳିତ ହେବ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ଏହି ଡିଭାଇସ୍‌କୁ ସୁରକ୍ଷିତ ରଖାଯିବ ଏବଂ ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ଵାରା ପରିଚାଳିତ ହେବ"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ୱର୍କ ଡିଭାଇସ୍ ସେଟ୍ ଅପ୍ କରିବାକୁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ବ୍ୟବସ୍ଥାପକ ଆପ୍ ସେଟ‍୍‌ ଅପ୍ କରାଯାଉଛି"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"ବାକି ସବୁକିଛି ସେଟ୍‌ଅପ୍ କରନ୍ତୁ"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ବର୍ତ୍ତମାନ, ବାକି ସବୁକିଛି ସେଟ୍ କରନ୍ତୁ"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ଫୋନ୍‌କୁ ପରିଚାଳନା କରିବ"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"ଏହି ଫୋନ୍‌କୁ ପରିଚଳନା ଏବଂ ମନିଟର୍ କରିବାକୁ ନିମ୍ନୋକ୍ତ ଆପ୍‌ର ବ୍ୟବହାର ହେବ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"ବ୍ୟବସ୍ଥାପକ ଆପ୍ଲିକେସନ୍‌ ଡାଉନ୍‌ଲୋଡ୍ ହେଉଛି…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ପ୍ରଥମେ, ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"କାର୍ଯ୍ୟ କରିବା ପାଇଁ ଏବଂ ଖେଳିବା ପାଇଁ ଗୋଟିଏ ଫୋନ୍ ବ୍ୟବହାର କରନ୍ତୁ"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"କାର୍ଯ୍ୟ ଏବଂ ବ୍ୟକ୍ତିଗତ ଡାଟା ପୃଥକ କରନ୍ତୁ"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ଆପଣ କରିସାରିବା ପରେ ବନ୍ଦ କରିଦିଅନ୍ତୁ"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ ତିଆରି କରାଯାଉଛି…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ଫୋନ୍‌କୁ ସେଟ୍ ଅପ୍ କରିବା"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ଅନ୍ୟ କାର୍ଯ୍ୟ କରୁଥିବା ସମୟରେ ସଂଯୋଗ କରନ୍ତୁ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"କାର୍ଯ୍ୟ ଡାଟା ନିରାପଦ ଏବଂ ସୁରକ୍ଷିତ ଅଟେ"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ଫୋନ୍‌କୁ ପରିଚାଳନା କରିବ"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"କେବଳ ଆପଣଙ୍କ ସଂସ୍ଥା ପାଇଁ ଆପ୍ସ ଖୋଜନ୍ତୁ"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ଆପଣଙ୍କ ପରିଚାଳିତ ଡିଭାଇସ୍‌ର ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ଆପଣଙ୍କ ଫୋନ୍ ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ ଅଛି!"</string>
 </resources>

@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Ezin izan da konfiguratu gailua. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Laguntza lortzeko, jarri administratzailearekin harremanetan"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Konfiguratuta dago gailua"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Ezin izan da konektatu wifi sarera"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Jatorrizko datuak berrezartzearen aurkako babesa aktibatuta du gailuak. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ezabatzen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Itxaron, mesedez…"</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Ezin izan da erabili administratzeko aplikazioa, errore bat gertatu delako batuketa egitean. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Ezin izan da deskargatu administratzeko aplikazioa"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Ezin da erabili gailua administratzeko aplikazioa. Osagaiak falta zaizkio edo hondatuta dago. Laguntza lortzeko, jarri administratzailearekin harremanetan."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Ezin izan da instalatu administratzeko aplikazioa"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Konfiguratzeari utzi nahi diozu?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ez"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Bai"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Minutu batzuk behar izan daitezke"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Laneko aplikazioak profil honetan gordeko dira eta zure erakundeak kudeatuko ditu"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Erakundeak babestu eta kudeatuko du gailu hau"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Laneko gailuaren konfigurazioa prestatzen…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administratzeko aplikazioa konfiguratzen"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Konfiguratu gainerakoa"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Konfiguratu gainerakoa"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Zure erakundeak kudeatuko du telefono hau"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Telefono hau kudeatzeko eta kontrolatzeko erabiliko da aplikazioa"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Administratzeko aplikazioa deskargatzen…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Hasteko, konfiguratu laneko profila"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Telefono bakarra lanerako eta jolasteko"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Bereizi laneko datuak datu pertsonaletatik"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Desaktibatu amaitzean"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Laneko profila sortzen…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Konfiguratu laneko telefonoa"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Konektatu edonoiz eta edonon"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Laneko datuak babestuta eta seguru daude"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Zure erakundeak kudeatuko du telefono hau"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Bilatu zure erakunderako soilik diren aplikazioak"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Kudeatutako gailua konfiguratzen…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Prest duzu telefonoa!"</string>
 </resources>

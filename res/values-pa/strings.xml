@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ਡੀਵਾਈਸ ਨੂੰ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ਮਦਦ ਲਈ ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ਡੀਵਾਈਸ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਥਾਪਤ ਕੀਤਾ ਹੋਇਆ ਹੈ"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"ਵਾਈ-ਫਾਈ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਵਿੱਚ \'ਰੀਸੈੱਟ ਕਰਨ ਸਬੰਧੀ ਸੁਰੱਖਿਆ\' ਨੂੰ ਚਾਲੂ ਕੀਤਾ ਹੋਇਆ ਹੈ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ਮਿਟਾ ਰਿਹਾ ਹੈ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ਕਿਰਪਾ ਕਰਕੇ ਠਹਿਰੋ..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ਕਿਸੇ ਜੋੜ-ਜਾਂਚ ਕਾਰਨ ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਨੂੰ ਵਰਤਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਵਰਤੀ ਨਹੀਂ ਜਾ ਸਕਦੀ। ਇਸ ਵਿੱਚ ਕੁਝ ਹਿੱਸੇ ਮੌਜੂਦ ਨਹੀਂ ਹਨ ਜਾਂ ਖਰਾਬ ਹਨ। ਮਦਦ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ਕੀ ਸੈਟ ਅਪ ਕਰਨਾ ਰੋਕਣਾ ਹੈ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ਨਹੀਂ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ਹਾਂ"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ਇਸ ਵਿੱਚ ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ਤੁਹਾਡੀਆਂ ਕਾਰਜ-ਸਥਾਨ ਐਪਾਂ ਨੂੰ ਇਸ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖਿਆ ਜਾਵੇਗਾ ਅਤੇ ਇਹਨਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਤੁਹਾਡੀ ਸੰਸਥਾ ਵੱਲੋਂ ਕੀਤਾ ਜਾਵੇਗਾ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ਤੁਹਾਡੀ ਸੰਸਥਾ ਵੱਲੋਂ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ ਅਤੇ ਇਸਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਾਲੇ ਡੀਵਾਈਸ ਦੇ ਸੈੱਟਅੱਪ ਦੀ ਤਿਆਰੀ ਹੋ ਰਹੀ ਹੈ…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਸੈੱਟਅੱਪ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"ਬਾਕੀ ਸਭ ਚੀਜ਼ਾਂ ਦਾ ਸੈੱਟਅੱਪ ਕਰੋ"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ਹੁਣ, ਚਲੋ ਬਾਕੀ ਸਭ ਚੀਜ਼ਾਂ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ਤੁਹਾਡੀ ਸੰਸਥਾ ਇਸ ਫ਼ੋਨ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੇਗੀ"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਇਸ ਫ਼ੋਨ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਕਰਨ ਲਈ ਕੀਤੀ ਜਾਵੇਗੀ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"ਪ੍ਰਸ਼ਾਸਕ ਐਪਲੀਕੇਸ਼ਨ ਨੂੰ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ਪਹਿਲਾਂ, ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ਕੰਮ ਕਰਨ ਅਤੇ ਖੇਡਣ ਲਈ ਇੱਕੋ ਫ਼ੋਨ ਵਰਤੋ"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"ਕਾਰਜ-ਸਥਾਨ ਦੇ ਡਾਟੇ ਅਤੇ ਨਿੱਜੀ ਡਾਟੇ ਨੂੰ ਵੱਖ ਕਰੋ"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ਕੰਮ ਪੂਰਾ ਹੋਣ \'ਤੇ ਬੰਦ ਕਰੋ"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਬਣ ਰਿਹਾ ਹੈ…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਾਲਾ ਫ਼ੋਨ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ਤੁਰਦੇ-ਫਿਰਦੇ ਕਨੈਕਟ ਕਰੋ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ਕਾਰਜੀ ਡਾਟਾ ਸਲਾਮਤ ਅਤੇ ਸੁਰੱਖਿਅਤ ਹੈ"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ਤੁਹਾਡੀ ਸੰਸਥਾ ਇਸ ਫ਼ੋਨ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੇਗੀ"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ਉਹ ਐਪਾਂ ਲੱਭੋ, ਜੋ ਤੁਹਾਡੀ ਸੰਸਥਾ ਲਈ ਹਨ"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ਤੁਹਾਡੇ ਪ੍ਰਬੰਧਿਤ ਕੀਤੇ ਡੀਵਾਈਸ ਦਾ ਸੈੱਟਅੱਪ ਹੋ ਰਿਹਾ ਹੈ…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ਤੁਹਾਡਾ ਫ਼ੋਨ ਵਰਤਣ ਲਈ ਤਿਆਰ ਹੈ!"</string>
 </resources>
