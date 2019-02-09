@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ಸಾಧನವನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ಸಹಾಯಕ್ಕಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ಸಾಧನವನ್ನು ಈಗಾಗಲೇ ಹೊಂದಿಸಲಾಗಿದೆ"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"ವೈ-ಫೈಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಮರುಹೊಂದಿಸುವಿಕೆ ಸಂರಕ್ಷಣೆ ಆನ್ ಆಗಿದೆ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ಅಳಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ಚೆಕ್‌ಸಮ್ ದೋಷ ಎದುರಾಗಿರುವ ಕಾರಣ ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಇದರ ಘಟಕಗಳು ಕಾಣೆಯಾಗಿವೆ ಅಥವಾ ದೋಷಪೂರಿತವಾಗಿವೆ. ಸಹಾಯಕ್ಕಾಗಿ ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ಹೊಂದಿಸುವುದನ್ನು ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ಇಲ್ಲ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ಹೌದು"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ಕೆಲವು ನಿಮಿಷಗಳ ಕಾಲಾವಕಾಶ ತೆಗೆದುಕೊಳ್ಳಬಹುದು"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ನಿಮ್ಮ ಕೆಲಸದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ಇರಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಮೂಲಕ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ಈ ಸಾಧನವನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಮೂಲಕ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ಕೆಲಸದ ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡಲು ಸಿದ್ಧಗೊಳ್ಳುತ್ತಿದೆ ..."</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"ಎಲ್ಲವನ್ನೂ ಹೊಂದಿಸಿ"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ಈಗ, ನಾವು ಎಲ್ಲವನ್ನೂ ಹೊಂದಿಸೋಣ"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ನಿಮ್ಮ ಸಂಸ್ಥೆ ಈ ಫೋನ್ ಅನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"ಈ ಫೋನ್ ಅನ್ನು ನಿರ್ವಹಿಸಲು ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಕೆಳಗಿನ ಆ್ಯಪ್‌ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಡೌನ್ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ಮೊದಲು, ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಅನ್ನು ನಾವು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ಕೆಲಸಕ್ಕಾಗಿ ಮತ್ತು ಆಡಲು ಒಂದು ಫೋನ್ ಬಳಸಿ"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"ಕೆಲಸ ಮತ್ತು ವೈಯಕ್ತಿಕ ಡೇಟಾವನ್ನು ಪ್ರತ್ಯೇಕಿಸಿ"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ನೀವು ಮುಗಿಸಿದಾಗ ಆಫ್ ಮಾಡಿ"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ರಚಿಸಲಾಗುತ್ತಿದೆ…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"ನಿಮ್ಮ ಕೆಲಸದ ಫೋನ್ ಅನ್ನು ಹೊಂದಿಸೋಣ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ಪ್ರಯಾಣಿಸುವಾಗ ಸಂಪರ್ಕಿಸಿ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ಕೆಲಸದ ಡೇಟಾ ಸುರಕ್ಷಿತವಾಗಿದೆ ಮತ್ತು ಭದ್ರವಾಗಿದೆ"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ನಿಮ್ಮ ಸಂಸ್ಥೆ ಈ ಫೋನ್ ಅನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ನಿಮ್ಮ ಸಂಸ್ಥೆಗಾಗಿ ಕೇವಲ ಆ್ಯಪ್‌ಗಳನ್ನು ಹುಡುಕಿ"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ನಿಮ್ಮ ನಿರ್ವಹಿಸಲಾದ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ಬಳಸಲು ನಿಮ್ಮ ಫೋನ್ ಸುರಕ್ಷಿತವಾಗಿದೆ!"</string>
 </resources>

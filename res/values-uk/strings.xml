@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Не вдалося налаштувати пристрій. Щоб отримати допомогу, зв’яжіться з адміністратором."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Щоб отримати допомогу, зв’яжіться з адміністратором"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Пристрій налаштовано"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Не вдалося підключитися до мережі Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"На вашому пристрої ввімкнено захист від скидання даних. Щоб отримати допомогу, зв’яжіться з адміністратором."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Стирання"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Зачекайте…"</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Не вдалося скористатися додатком адміністратора через помилку перевірки контрольної суми. Щоб отримати допомогу, зв’яжіться з адміністратором."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Не вдалося завантажити додаток адміністратора"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Не вдається скористатися додатком адміністратора. У ньому немає певних компонентів або його пошкоджено. Щоб отримати допомогу, зв’яжіться з адміністратором."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Не вдалося встановити додаток адміністратора"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Припинити налаштування?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ні"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Так"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Це може зайняти кілька хвилин"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Ваші робочі додатки зберігатимуться у цьому профілі; ними керуватиме організація"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Організація керуватиме цим пристроєм і дбатиме про його безпеку"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Підготовка до налаштування робочого пристрою…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Налаштування додатка адміністратора"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Налаштуйте решту параметрів"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Тепер налаштуймо решту параметрів"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Цим телефоном керуватиме ваша організація"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"За допомогою цього додатка ви зможете керувати телефоном і відстежувати його"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Завантаження додатка адміністратора…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Спершу налаштуймо ваш робочий профіль"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Користуйтесь одним телефоном для роботи й відпочинку"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Розділіть робочі й особисті дані"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Вимкніть, коли завершите"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Створення робочого профілю…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Налаштуймо ваш робочий телефон"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Підключайтесь у дорозі"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Робочі дані надійно захищено"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Цим телефоном керуватиме ваша організація"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Знайдіть додатки для своєї організації"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Налаштування керованого пристрою…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Ваш телефон готовий!"</string>
 </resources>

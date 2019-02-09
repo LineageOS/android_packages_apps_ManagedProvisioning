@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"无法设置设备。如需帮助，请与您的管理员联系。"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"如需帮助，请与您的管理员联系"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"设备已经过设置"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"无法连接到 WLAN"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"您的设备已开启恢复出厂设置保护功能。如需帮助，请与您的管理员联系。"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"正在清除"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"请稍候…"</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"由于校验和错误，无法使用此管理应用。如需帮助，请与您的管理员联系。"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"无法下载管理应用"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"无法使用此管理应用，因为此应用缺少组件或已损坏。如需帮助，请与您的管理员联系。"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"无法安装管理应用"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"要停止设置吗？"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"否"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"是"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"这可能需要几分钟的时间"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"您的工作应用将保存在此工作资料中，并由贵单位管理"</string>
     <string name="device_owner_description" msgid="168013145812679664">"此设备将由贵单位确保其安全并负责管理"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"正在准备设置工作设备…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"设置管理应用"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"设置所有其他内容"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"现在，请设置所有其他内容"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"贵单位将管理此手机"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"正在下载管理应用…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"首先，请设置您的工作资料"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"使用同一部手机工作和玩乐"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"将工作数据与个人数据分开"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"完成后关闭"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"正在创建工作资料…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"请设置您的工作用手机"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"随时随地保持连接"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"工作数据安全无虞"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"贵单位将管理此手机"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"查找适用于贵单位的应用"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"正在设置您的受管理设备…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"您的手机已准备就绪！"</string>
 </resources>

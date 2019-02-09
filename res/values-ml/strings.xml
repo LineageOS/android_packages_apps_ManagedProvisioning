@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ഉപകരണം ഇതിനകം തന്നെ സജ്ജീകരിച്ചിരിക്കുന്നു"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"വൈഫൈയിലേക്ക് കണക്റ്റ് ചെയ്യാനായില്ല"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ഈ ഉപകരണത്തിൽ റീസെറ്റ് ചെയ്യാതിരിക്കാനുള്ള പരിരക്ഷ ഓണാക്കിയിട്ടുണ്ട്. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"മായ്‌ക്കുന്നു"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"കാത്തിരിക്കുക..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ചെക്ക്‌സം പിശക് കാരണം അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"അഡ്‌മിൻ ആപ്പ് ഡൗൺ‌ലോഡ് ചെയ്യാനായില്ല"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനാവില്ല. അതിൻ്റെ ഘടകഭാഗങ്ങൾ നഷ്‌ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കിൽ അത് കേടായിരിക്കുന്നു. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"അഡ്‌മിൻ ആപ്പ് ഇൻസ്‌റ്റാൾ ചെയ്യാനായില്ല"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"സജ്ജീകരിക്കൽ നിർത്തണോ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"അല്ല"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"അതെ"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ഇതിന് കുറച്ച് സമയമെടുത്തേക്കാം"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ഔദ്യോഗിക ആപ്പുകൾ ഈ പ്രൊഫൈലിൽ സൂക്ഷിക്കപ്പെടും, നിങ്ങളുടെ സ്ഥാപനം അത് മാനേജ് ചെയ്യും"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ഈ ഉപകരണം സുരക്ഷിതമായി സൂക്ഷിക്കപ്പെടും, ഒപ്പം നിങ്ങളുടെ ഓര്‍ഗനൈസേഷന്‍ അത് മാനേജും ചെയ്യും"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാൻ തയ്യാറെടുക്കുന്നു…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"അഡ്‌മിൻ ആപ്പ്, സജ്ജീകരിക്കുന്നു"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"മറ്റുള്ളവയെല്ലാം സജ്ജീകരിക്കുക"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ഇപ്പോൾ മറ്റുള്ളവയെല്ലാം സജ്ജീകരിക്കാം"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"നിങ്ങളുടെ സ്ഥാപനമായിരിക്കും ഈ ഫോൺ മാനേജ് ചെയ്യുന്നത്"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"ഈ ഫോൺ മാനേജ് ചെയ്യാനും നിരീക്ഷിക്കാനുമായി ഇനിപ്പറയുന്ന ആപ്പ് ഉപയോഗിക്കും"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"അഡ്‌മിൻ ആപ്പ്, ഡൗൺലോഡ് ചെയ്യുന്നു…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ആദ്യം നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കാം"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ജോലി ചെയ്യാനും കളിക്കാനുമായി ഒരു ഫോൺ ഉപയോഗിക്കുക"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"ഔദ്യോഗിക ഡാറ്റയും &amp; വ്യക്തിപരമായ ഡാറ്റയും വേർപെടുത്തുക"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"പൂർത്തിയായി കഴിയുമ്പോൾ സ്വിച്ച് ഓഫാക്കുക"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"ഔദ്യോഗിക പ്രൊഫൈൽ സൃഷ്‌ടിക്കുന്നു…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"നിങ്ങളുടെ ഔദ്യോഗിക ഫോൺ സജ്ജീകരിക്കാം"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"എവിടെയായിരുന്നാലും കണക്‌റ്റ് ചെയ്യൂ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ഔദ്യോഗിക ഡാറ്റ സുരക്ഷിതവും &amp; പരിരക്ഷിതവുമാണ്"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"നിങ്ങളുടെ സ്ഥാപനമായിരിക്കും ഈ ഫോൺ മാനേജ് ചെയ്യുന്നത്"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"നിങ്ങളുടെ സ്ഥാപനത്തിന് വേണ്ടി മാത്രമുള്ള ആപ്പുകൾ കണ്ടെത്തുക"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"നിങ്ങളുടെ മാനേജ് ചെയ്യപ്പെടുന്ന ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"നിങ്ങളുടെ ഫോൺ ഉപയോഗിക്കാൻ തയ്യാറാണ്!"</string>
 </resources>

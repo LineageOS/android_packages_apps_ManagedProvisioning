@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"기기를 설정할 수 없습니다. 도움이 필요하면 관리자에게 문의하세요."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"관리자에게 문의하여 지원을 받으세요."</string>
     <string name="device_already_set_up" msgid="507881934487140294">"기기가 이미 설정되었습니다."</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi에 연결할 수 없음"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"기기에서 초기화 방지가 설정되어 있습니다. 도움이 필요하면 관리자에게 문의하세요."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"지우는 중"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"잠시 기다려 주세요..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"체크섬 오류로 인해 관리자 앱을 사용할 수 없습니다. 도움이 필요하면 관리자에게 문의하세요."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"관리자 앱을 다운로드할 수 없습니다."</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"관리자 앱을 사용할 수 없습니다. 구성요소가 없거나 손상되었습니다. 도움이 필요하면 관리자에게 문의하세요."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"관리 앱을 설치할 수 없습니다."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"설정을 중지하시겠습니까?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"아니요"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"예"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"몇 분 정도 소요될 수 있습니다"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"업무용 앱은 이 프로필에 보관되며 조직에서 관리합니다"</string>
     <string name="device_owner_description" msgid="168013145812679664">"이 기기는 조직에서 안전하게 보호 및 관리합니다."</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"직장 기기 설정 준비 중..."</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"관리자 앱 설정"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"나머지 설정하기"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"이제 나머지 설정을 완료하겠습니다."</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"내 조직에서 이 휴대전화를 관리합니다."</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"다음 앱이 이 휴대전화를 관리하고 모니터링하는 데 사용됩니다."</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"관리자 애플리케이션 다운로드 중..."</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"먼저 직장 프로필을 설정하겠습니다."</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"하나의 휴대전화를 업무와 여가에 모두 사용"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"직장 데이터와 개인 데이터를 따로 보관하기"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"완료 후 꺼짐"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"직장 프로필을 만드는 중..."</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"직장 휴대전화 설정하기"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"이동 중에 연결하기"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"직장 데이터가 안전한 상태입니다."</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"내 조직에서 이 휴대전화를 관리합니다."</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"조직 전용으로 개발된 앱 찾기"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"관리 기기 설정 중..."</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"휴대전화를 사용할 준비가 되었습니다."</string>
 </resources>

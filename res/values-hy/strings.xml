@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Չհաջողվեց կարգավորել սարքը: Օգնություն ստանալու համար դիմեք ձեր ադմինիստրատորին։"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Օգնություն ստանալու համար դիմեք ձեր ադմինիստրատորին"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Սարքն արդեն կարգավորված է"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Չհաջողվեց միանալ Wi-Fi ցանցին"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Ձեր սարքում միացված է վերակայումից պաշտպանությունը։ Օգնություն ստանալու համար դիմեք ձեր ադմինիստրատորին։"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ջնջում"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Խնդրում ենք սպասել..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Հնարավոր չէ օգտագործել ադմինիստրատորի հավելվածը ստուգիչ գումարի սխալի պատճառով: Օգնություն ստանալու համար դիմեք ձեր ադմինիստրատորին։"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Չհաջողվեց ներբեռնել ադմինիստրատորի հավելվածը"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Հնարավոր չէ օգտագործել ադմինիստրատորի հավելվածը: Հավելվածում բացակայում են բաղադրիչներ կամ այն վնասված է: Օգնություն ստանալու համար դիմեք ձեր ադմինիստրատորին։"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Չհաջողվեց տեղադրել ադմինիստրատորի հավելվածը"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Դադարեցնե՞լ կարգավորումը:"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ոչ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Այո"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Դա կարող է տևել մի քանի րոպե"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Ձեր աշխատանքային հավելվածները կպահվեն այս պրոֆիլում և կկառավարվեն ձեր կազմակերության կողմից"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Ձեր կազմակերպությունը կկառավարի այս սարքն ու կապահովի դրա անվտանգությունը"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Սարքի կարգավորման նախապատրաստում…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ադմինիստրատորի հավելվածի կարգավորում"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Այլ պարամետրերի կարգավորում"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Այժմ կարգավորեք մնացածը"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Այս հեռախոսը կկառավարի ձեր կազմակերպությունը"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Հետևյալ հավելվածը կօգտագործվի այս հեռախոսը կառավարելու և վերահսկելու համար"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Ադմինիստրատորի հավելվածը ներբեռնվում է…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Նախ կարգավորեք ձեր աշխատանքային պրոֆիլը"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Օգտագործեք ձեր հեռախոսը՝ աշխատելու և խաղալու համար"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Առանձնացրեք անձնական և աշխատանքային տվյալները"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Ավարտելուց հետո անջատեք"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Աշխատանքային պրոֆիլը ստեղծվում է…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Կարգավորեք աշխատանքային հեռախոսը"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Միացեք ցանկացած պահի"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Աշխատանքային տվյալներն անվտանգ են և ապահով"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Այս հեռախոսը կկառավարի ձեր կազմակերպությունը"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Գտեք հավելվածներ ձեր կազմակերպության համար"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Կառավարվող սարքի կագավորում…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Ձեր հեռախոսը պատրաստ է"</string>
 </resources>

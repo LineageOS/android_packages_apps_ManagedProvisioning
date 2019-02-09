@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"यन्त्रलाई सेटअप गर्न सकिएन। मद्दतका लागि, आफ्ना प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"मद्दतका लागि आफ्ना प्रशासकलाई सम्पर्क गर्नुहोस्"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"यो यन्त्रलाई पहिला नै सेटअप गरिसकिएको छ"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi मा जोडिन सकिएन"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"तपाईंको यन्त्रमा सुरक्षा सम्बन्धी सुविधालाई रिसेट गर्ने विकल्प सक्रिय छ। मद्दतका लागि, आफ्ना प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"मेटाउँदै"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा गर्नुहोला..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"चेकसम त्रुटिले गर्दा प्रशासक अनुप्रयोग प्रयोग गर्न सकिएन। मद्दतका लागि, आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"प्रशासक अनुप्रयोग डाउनलोड गर्न सकिएन"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"प्रशासक अनुप्रयोग प्रयोग गर्न सकिएन। यसका कम्पोनेन्टहरू पूर्ण छैनन् वा बिग्रेका छन्। मद्दतका लागि, आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"प्रशासक अनुप्रयोग स्थापना गर्न सकिएन"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"सेटअप रोक्ने हो?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"होइन"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"हो"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"यस कार्यमा केही मिनेट लाग्न सक्छ"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"तपाईंका कार्यसम्बन्धी अनुप्रयोगहरू यो प्रोफाइलमा राखिने छन् र तिनको व्यवस्थापन तपाईंको संगठनले गर्छ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"यो यन्त्रलाई तपाईंको संगठनले सुरक्षित र व्यवस्थित राख्ने छ"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"कार्यस्थलको यन्त्र सेटअप गर्ने तयारी गर्दै…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"प्रशासक अनुप्रयोग सेटअप गर्दै"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"अन्य सबै कुराहरू सेटअप गर्नुहोस्"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"अब, अन्य सबै कुराहरू सेटअप गरौँ"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"तपाईंको सङ्गठनले यो फोनको व्यवस्थापन गर्ने छ"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"यो फोनको व्यवस्थापन तथा अनुगमन गर्न निम्न अनुप्रयोगको उपयोग गरिने छ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"प्रशासक अनुप्रयोग डाउनलोड गर्दै…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"सर्वप्रथम, तपाईंको कार्य प्रोफाइल सेटअप गरौँ"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"कार्य तथा मनोरञ्जनका लागि एउटै फोन प्रयोग गर्नुहोस्"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"कार्यस्थलको डेटा र व्यक्तिगत डेटा छुट्ट्याउनुहोस्"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"आफ्नो काम पूरा भएपछि स्विच अफ गर्नुहोस्"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"कार्य प्रोफाइल सिर्जना गर्दै…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"तपाईंको कार्यस्थलको फोन सेटअप गरौँ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"अरू काम गर्दा गर्दै जोडिनुहोस्"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"कार्यस्थलको डेटा सुरक्षित छ"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"तपाईंको सङ्गठनले यो फोनको व्यवस्थापन गर्ने छ"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"तपाईंको सङ्गठनका लागि उपयुक्त अनुप्रयोगहरू फेला पार्नुहोस्"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"तपाईंको व्यवस्थापन गरिएको यन्त्र सेटअप गर्दै…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"तपाईंको फोन प्रयोगका लागि तयार छ!"</string>
 </resources>

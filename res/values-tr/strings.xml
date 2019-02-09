@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Cihaz kurulumu yapılamadı. Yardım için yöneticinize başvurun."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Yardım için yöneticinize başvurun"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Cihaz zaten kuruldu"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Kablosuz ağa bağlanılamadı"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Cihazınızda sıfırlama koruması açık. Yardım için yöneticinize başvurun."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Siliniyor"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Lütfen bekleyin..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Bir sağlama toplamı hatası nedeniyle yönetici uygulaması kullanılamadı. Yardım için yöneticinize başvurun."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Yönetici uygulaması indirilemedi"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Yönetim uygulaması kullanılamıyor. Bileşenleri eksik veya bozuk. Yardım için yöneticinize başvurun."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Yönetici uygulaması yüklenemedi"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Kurulum durdurulsun mu?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Hayır"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Evet"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Bu işlem birkaç dakika sürebilir"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"İş uygulamalarınız bu profilde saklanır ve kuruluşunuz tarafından yönetilir"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Bu cihazın güvende kalması sağlanacak ve kuruluşunuz tarafından yönetilecektir"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"İş cihazı kuruluma hazırlanıyor…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Yönetici uygulamasını kurma"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Diğer kurulumları yapma"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Şimdi diğer kurulumları yapalım"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Kuruluşunuz bu telefonu yönetecektir"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdaki uygulama bu telefonu yönetmek ve izlemek için kullanılacaktır"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Yönetici uygulaması indiriliyor…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Öncelikle iş profilinizi oluşturalım"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"İş ve eğlence için tek bir telefon kullanın"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"İş verilerini ve kişisel verileri ayırın"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"İşiniz bittiğinde kapatın"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"İş profili oluşturuluyor…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"İş telefonunuzun kurulumunu yapalım"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Hareket halindeyken bağlanın"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"İş verileri güvenli ve korunaklı"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Kuruluşunuz bu telefonu yönetecektir"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Sadece kuruluşunuza özel uygulamaları bulun"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Yönetilen cihazınızın kurulumu yapılıyor…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Telefonunuz kullanıma hazır."</string>
 </resources>

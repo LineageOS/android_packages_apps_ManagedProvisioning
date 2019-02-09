@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ไม่สามารถตั้งค่าอุปกรณ์ โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ตั้งค่าอุปกรณ์แล้ว"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"เชื่อมต่อ Wi-Fi ไม่ได้"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"อุปกรณ์เปิดการป้องกันการรีเซ็ตไว้ โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"กำลังลบ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"โปรดรอสักครู่..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ใช้แอปผู้ดูแลระบบไม่ได้เนื่องจากเกิดข้อผิดพลาดเกี่ยวกับ Checksum โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ดาวน์โหลดแอปผู้ดูแลระบบไม่ได้"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"ใช้แอปผู้ดูแลระบบไม่ได้เนื่องจากองค์ประกอบไม่ครบหรือแอปเสียหาย โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ติดตั้งแอปผู้ดูแลระบบไม่ได้"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"หยุดการตั้งค่าใช่ไหม"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ไม่"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ใช่"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"อาจใช้เวลาสักครู่"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"แอปงานจะเก็บอยู่ในโปรไฟล์นี้และจัดการโดยองค์กรของคุณ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"อุปกรณ์นี้จะได้รับการรักษาความปลอดภัยและจัดการโดยองค์กรของคุณ"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"กำลังเตรียมตั้งค่าอุปกรณ์สำหรับการทำงาน…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"กำลังตั้งค่าแอปผู้ดูแลระบบ"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"ตั้งค่าอื่นๆ"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"คราวนี้มาตั้งค่าอื่นๆ กัน"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"องค์กรของคุณจะจัดการโทรศัพท์เครื่องนี้"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"แอปต่อไปนี้จะใช้เพื่อจัดการและตรวจสอบโทรศัพท์เครื่องนี้"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"กำลังดาวน์โหลดแอปพลิเคชันผู้ดูแลระบบ…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ก่อนอื่นมาตั้งค่าโปรไฟล์งานกัน"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ใช้โทรศัพท์เครื่องเดียวสำหรับเรื่องงานและเรื่องส่วนตัว"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"แยกข้อมูลงานและข้อมูลส่วนตัวออกจากกัน"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ปิดเมื่อใช้เสร็จแล้ว"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"กำลังสร้างโปรไฟล์งาน…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"มาตั้งค่าโทรศัพท์สำหรับการทำงานกัน"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"เชื่อมต่อทุกที่ทุกเวลา"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ข้อมูลงานปลอดภัยอย่างมั่นใจได้"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"องค์กรของคุณจะจัดการโทรศัพท์เครื่องนี้"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"หาแอปสำหรับองค์กรของคุณเท่านั้น"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"กำลังตั้งค่าอุปกรณ์ที่มีการจัดการของคุณ…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"โทรศัพท์พร้อมใช้งานแล้ว"</string>
 </resources>

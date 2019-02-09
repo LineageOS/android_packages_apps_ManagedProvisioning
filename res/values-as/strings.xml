@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ডিভাইচ ছেট আপ কৰিব পৰা নগ\'ল। সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ডিভাইচটো ইতিমধ্যে ছেট আপ কৰি ৰখা হৈছে"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"ৱাই-ফাইৰ লগত সংযোগ কৰিব পৰা নগ’ল"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"আপোনাৰ ডিভাইচটোত ৰিছেট সুৰক্ষা সুবিধা অন হৈ আছে। সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"মচি থকা হৈছে"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"অনুগ্রহ কৰি অপেক্ষা কৰক..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"চ্চেকছাম আসোঁৱাহৰ বাবে প্ৰশাসক এপ্‌টো ব্যৱহাৰ কৰিব পৰা নগ’ল। সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"প্ৰশাসক এপ্‌টো ডাউনল’ড কৰিব পৰা নগ’ল"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"প্ৰশাসক এপ্‌টো ব্যৱহাৰ কৰিব নোৱাৰি। এপ্‌টোত থাকিবলগীয়া কোনো উপাদান নাই বা ই ব্যৱহাৰযোগ্য হৈ থকা নাই। সহায়ৰ বাবে আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"প্ৰশাসক এপ্‌টো ইনষ্টল কৰিব পৰা নগ’ল"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ছেট আপ কার্য বন্ধ কৰিবনে?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"নহয়"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"হয়"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"এই কামত কেইবামিনিটও সময় লাগিব পাৰে"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"আপোনাৰ কৰ্মস্থানৰ এপসমূহ এই প্ৰ\'ফাইলত ৰখা হ\'ব আপোনাৰ প্ৰতিষ্ঠানে ইয়াক পৰিচালনা কৰিব"</string>
     <string name="device_owner_description" msgid="168013145812679664">"আপোনাৰ প্ৰতিষ্ঠানে এই ডিভাইচটো পৰিচালনা কৰিব আৰু সুৰক্ষিত কৰি ৰাখিব।"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"কৰ্মস্থানৰ ডিভাইচ ছেট আপ কৰিবলৈ প্ৰস্তুত কৰা হৈছে…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"প্ৰশাসক এপ্ ছেট আপ কৰি থকা হৈছে"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"বাকী সকলো ছেট আপ কৰক"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"এতিয়া বাকী সকলো ছেট আপ কৰোঁ আহক"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"আপোনাৰ সংস্থাই এই ডিভাইচটো পৰিচালনা কৰিব"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফ’নটো পৰিচালনা আৰি নিৰীক্ষণ কৰিবলৈ তলৰ এপ্‌টো ব্যৱহাৰ কৰা হ’ব"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"প্ৰশাসক এপ্লিকেশ্বন ডাউনল’ড কৰি থকা হৈছে…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"প্ৰথমে আমি আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলটো ছেট আপ কৰোঁ আহক"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"একেটা ফ’নকে কৰ্মস্থান আৰু অইন কামৰ বাবে ব্যৱহাৰ কৰক"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"কৰ্মস্থানৰ আৰু ব্যক্তিগত ডেটা বেলেগে ৰাখক"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"আপোনাৰ কাম শেষ হ’লে অফ কৰক"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"কৰ্মস্থানৰ প্ৰ’ফাইল সৃষ্টি কৰি থকা হৈছে…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"আপোনাৰ কৰ্মস্থানৰ ফ’নটো ছেট আপ কৰোঁ আহক"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ব্যস্ততাৰ মাজতো সংযোগ কৰক"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"কৰ্মস্থানৰ ডেটা নিৰাপদ আৰু সুৰক্ষিত"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"আপোনাৰ সংস্থাই এই ডিভাইচটো পৰিচালনা কৰিব"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"আপোনাৰ প্ৰতিষ্ঠানৰ বাব উপযোগী এপ্ বিচাৰি পাওক"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"আপোনাৰ পৰিচালিত ডিভাইচটো ছেট আপ কৰি থকা হৈছে…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"আপোনাৰ ফ’নটো ব্যৱহাৰৰ কাৰণে সাজু হৈ আছে"</string>
 </resources>
