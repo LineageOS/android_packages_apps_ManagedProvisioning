@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Nu s-a putut configura dispozitivul. Pentru ajutor, contactați administratorul."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Pentru ajutor, contactați administratorul"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Dispozitivul este deja configurat"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Nu s-a putut conecta la Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Pe dispozitivul dvs. este activată protecția împotriva resetării. Pentru ajutor, contactați administratorul."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Se șterge"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Așteptați..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Nu s-a putut folosi aplicația pentru administratori din cauza unei erori de sumă de control. Pentru ajutor, contactați administratorul."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Nu s-a putut descărca aplicația pentru administratori"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Nu se poate folosi aplicația pentru administratori. Lipsesc componente sau este deteriorată. Pentru ajutor, contactați administratorul."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Eroare la instalarea aplicației pentru administratori"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Opriți configurarea?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nu"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Da"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Poate dura câteva minute"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Aplicațiile dvs. de lucru vor fi păstrate în acest profil și vor fi gestionate de organizația dvs."</string>
     <string name="device_owner_description" msgid="168013145812679664">"Acest dispozitiv va fi păstrat în siguranță și gestionat de organizația dvs."</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Se pregătește configurarea dispozitivului de serviciu…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Se configurează aplicația pentru administratori"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Configurați restul"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Acum să configurăm restul"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Organizația dvs. va gestiona acest telefon"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Următoarea aplicație va fi folosită pentru a gestiona și monitoriza acest telefon"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Se descarcă aplicația pentru administratori…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Mai întâi să configurăm profilul de serviciu"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Folosiți un singur telefon pentru muncă și distracție"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Separați datele de serviciu de cele personale"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Închideți când terminați"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Se creează profilul de serviciu…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Să configurăm telefonul de serviciu"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Conectați-vă din mers"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Datele de serviciu sunt sigure și securizate"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Organizația dvs. va gestiona acest telefon"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Căutați aplicații doar pentru organizația dvs."</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Se configurează dispozitivul gestionat…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Telefonul este gata de utilizare!"</string>
 </resources>

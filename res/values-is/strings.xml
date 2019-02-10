@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Ekki var hægt að setja upp tækið. Leitaðu aðstoðar hjá kerfisstjóra."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Kerfisstjóri getur veitt aðstoð"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Tæki er nú þegar sett upp"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Ekki var hægt að tengjast Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Kveikt er á endurstillingarvörn tækisins. Leitaðu aðstoðar hjá kerfisstjóra."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Þurrkað út"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Augnablik..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Ekki var hægt að nota stjórnunarforritið vegna villu í þversummu. Leitaðu aðstoðar hjá kerfisstjóra."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Ekki tókst að sækja stjórnunarforritið"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Ekki er hægt að nota stjórnunarforritið. Eitthvað vantar í það eða það er bilað. Leitaðu aðstoðar hjá kerfisstjóra."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Ekki var hægt að setja upp stjórnunarforritið"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Hætta uppsetningu?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nei"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Já"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Þetta gæti tekið nokkrar mínútur"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Vinnuforritin þín verða geymd á þessu sniði og þeim er stjórnað af fyrirtækinu þínu"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Fyrirtækið þitt mun stjórna þessu tæki og halda því öruggu"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Undirbýr uppsetningu vinnutækis…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Setur upp stjórnunarforritið"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Setja upp allt annað"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Nú skulum við setja upp allt annað"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Fyrirtækið þitt mun hafa umsjón með þessum síma"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Eftirfarandi forrit verður notað til að hafa umsjón með þessum síma og fylgjast með honum"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Sækir stjórnunarforritið…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Fyrst skulum við setja upp vinnusniðið þitt"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Notaðu einn síma fyrir vinnu og leik"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Aðskilja vinnugögn frá persónulegum gögnum"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Slökktu þegar þú ert búin(n)"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Býr til vinnusnið…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Setjum upp vinnusímann þinn"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Tengjast á ferðinni"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Vinnugögn eru örugg"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Fyrirtækið þitt mun hafa umsjón með þessum síma"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Finndu forrit fyrir fyrirtækið þitt"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Setur upp stýrt tæki…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Síminn þinn er tilbúinn!"</string>
 </resources>

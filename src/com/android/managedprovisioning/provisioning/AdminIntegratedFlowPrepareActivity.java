@@ -76,8 +76,8 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
 
         CustomizationParams customizationParams =
                 CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(R.layout.progress, headerResId, customizationParams.mainColor,
-                customizationParams.statusBarColor);
+        initializeLayoutParams(R.layout.prepare_progress, headerResId,
+                customizationParams.mainColor, customizationParams.statusBarColor);
         setTitle(titleResId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 

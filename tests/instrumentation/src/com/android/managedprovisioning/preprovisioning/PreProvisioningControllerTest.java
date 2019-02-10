@@ -764,15 +764,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     private void verifyInitiateProfileOwnerUi() {
-        verify(mUi).initiateUi(eq(R.layout.intro_profile_owner),
-                eq(R.string.setup_profile), any(), any(), eq(true),
-                eq(false), eq(emptyList()), any());
+        verify(mUi).initiateUi(any());
     }
 
     private void verifyInitiateDeviceOwnerUi() {
-        verify(mUi).initiateUi(eq(R.layout.intro_device_owner),
-                eq(R.string.setup_device), eq(TEST_MDM_PACKAGE_LABEL), any(), eq(false),
-                eq(false), eq(emptyList()), any());
+        verify(mUi).initiateUi(any());
     }
 
     private ProvisioningParams.Builder createProvisioningParamsBuilder() {

@@ -65,7 +65,7 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         // Take Glif light as default theme like
         // com.google.android.setupwizard.util.ThemeHelper.getDefaultTheme
         setTheme(WizardManagerHelper.getThemeRes(SetupWizardProperties.theme().orElse(""),
-                R.style.SuwThemeGlif_Light));
+                R.style.SuwThemeGlifV3_Light));
     }
 
 }

@@ -79,7 +79,7 @@
              android:excludeFromRecents="true"
              android:immersive="true"
              android:launchMode="singleTop"
-             android:theme="@style/SuwThemeGlif.Light">
+             android:theme="@style/SuwThemeGlifV3.Light">
         </activity>
 
         <activity
@@ -87,7 +87,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SuwThemeGlif.Light">
+            android:theme="@style/SuwThemeGlifV3.Light">
         </activity>
 
         <activity
@@ -95,7 +95,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SuwThemeGlif.Light">
+            android:theme="@style/SuwThemeGlifV3.Light">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_USER" />
@@ -205,7 +205,7 @@
 
         <activity
             android:name=".transition.TransitionActivity"
-            android:theme="@style/SuwThemeGlif.Light" />
+            android:theme="@style/SuwThemeGlifV3.Light" />
 
         <service android:name=".provisioning.ProvisioningService" />
         <service android:name=".finalization.SendDpcBroadcastService" />

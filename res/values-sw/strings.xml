@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Imeshindwa kuweka mipangilio ya kifaa. Wasiliana na msimamizi wako ili upate usaidizi."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Wasiliana na msimamizi wako ili upate usaidizi"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Tayari umeweka mipangilio ya kifaa"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Imeshindwa kuunganisha kwenye Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Kipengele cha kuweka upya mipangilio kimewashwa katika kifaa chako. Wasiliana na msimamizi wako ili upate usaidizi."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Inafuta"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Tafadhali subiri..."</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Imeshindwa kutumia programu ya msimamizi kutokana na hitilafu ya kuangalia hesabu. Wasiliana na msimamizi wako ili upate usaidizi."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Imeshindwa kupakua programu ya msimamizi"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Imeshindwa kutumia programu ya msimamizi. Vipengele havipo au vina hitilafu. Wasiliana na msimamizi kwa maelezo zaidi."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Imeshindwa kusakinisha programu ya msimamizi"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Ungependa kuacha kusanidi?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Hapana"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ndiyo"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Hatua hii inaweza kuchukua dakika kadhaa"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Programu zako za kazini zitahifadhiwa katika wasifu huu na kusimamiwa na shirika lako"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Kifaa hiki kitawekwa salama na kusimamiwa na shirika lako"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Inajiandaa kuweka mipangilio kwenye kifaa cha kazini…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Inaweka mipangilio ya programu ya msimamizi"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Weka mipangilio ya kila kitu"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Sasa, acha tuweke mipangilio ya kila kitu"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Shirika lako litadhibiti simu hii"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Programu ifuatayo itatumika kudhiiti na kufuatilia simu hii"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Inapakua programu ya msimamizi…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Kwanza, acha tuweke wasifu wako wa kazini"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Tumia simu moja kwa ajili ya kazi na michezo"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Tenganisha data ya binafsi na ya kazini"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Zima baada ya kukamilisha"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Inatengeneza wasifu wa kazini…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Turuhusu tuweke mipangilio kwenye simu yako ya kazini"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Unganisha popote ulipo"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Data ya kazini ni salama"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Shirika lako litadhibiti simu hii"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Pata programu zinazofaa shirika lako"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Inaweka mipangilio kwenye kifaa chako kinachosimamiwa…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Simu yako iko tayari kutumika!"</string>
 </resources>

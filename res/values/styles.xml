@@ -179,4 +179,8 @@
         <item name="android:navigationIcon">@drawable/ic_arrow_back_24dp</item>
         <item name="android:navigationContentDescription">@*android:string/action_bar_up_description</item>
     </style>
+
+    <style name="ProvisioningProgressText">
+        <item name="android:textColor">@color/accent</item>
+    </style>
 </resources>

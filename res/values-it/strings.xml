@@ -86,19 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Impossibile configurare il dispositivo. Per assistenza, contatta l\'amministratore."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Contatta l\'amministratore per ricevere assistenza"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Il dispositivo è già configurato"</string>
-    <!-- no translation found for error_wifi (1850288843966836571) -->
-    <skip />
+    <string name="error_wifi" msgid="1850288843966836571">"Impossibile collegarsi alla rete Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Sul dispositivo è attiva la protezione dal ripristino. Per assistenza, contatta l\'amministratore."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Cancellazione in corso"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Attendere prego…"</string>
-    <!-- no translation found for error_hash_mismatch (5899334454632791946) -->
-    <skip />
-    <!-- no translation found for error_download_failed (3274283629837019452) -->
-    <skip />
-    <!-- no translation found for error_package_invalid (5915763557848599459) -->
-    <skip />
-    <!-- no translation found for error_installation_failed (2282903750318407285) -->
-    <skip />
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Impossibile utilizzare l\'app di amministrazione a causa di un errore di checksum. Per assistenza, contatta l\'amministratore."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Impossibile scaricare l\'app di amministrazione"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Impossibile utilizzare l\'app di amministrazione perché è danneggiata o mancano dei componenti. Per assistenza, contatta l\'amministratore."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Impossibile installare l\'app di amministrazione"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Interrompere la configurazione?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"No"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Sì"</string>
@@ -163,42 +158,23 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"L\'operazione può impiegare dei minuti"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Le tue app di lavoro verranno mantenute in questo profilo e saranno gestite dalla tua organizzazione"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Questo dispositivo verrà gestito e mantenuto protetto dalla tua organizzazione"</string>
-    <!-- no translation found for setup_provisioning_header (4282483198266806271) -->
-    <skip />
-    <!-- no translation found for setup_provisioning_header_description (2567041263563823566) -->
-    <skip />
-    <!-- no translation found for set_up_everything_else (4407706086957916501) -->
-    <skip />
-    <!-- no translation found for now_lets_set_up_everything_else (2905102208584231894) -->
-    <skip />
-    <!-- no translation found for brand_screen_header (2285274890167238955) -->
-    <skip />
-    <!-- no translation found for brand_screen_subheader (7664792208784456436) -->
-    <skip />
-    <!-- no translation found for downloading_administrator_header (170628239085849025) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_accept_header (462916780311392444) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_1_header (7467365813079527467) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_2_header (4859040856387342855) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_step_3_header (8882448650237847724) -->
-    <skip />
-    <!-- no translation found for work_profile_provisioning_progress_label (1231406704277277662) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_accept_header (2295398352177393658) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_1_header (2757690609176001237) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_2_header (8132844082647382385) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_3_header (902047332190766019) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_step_4_header (5352443284257832617) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_progress_label (8748941226481336777) -->
-    <skip />
-    <!-- no translation found for device_provisioning_finished (4611825455360297074) -->
-    <skip />
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparazione per la configurazione del dispositivo di lavoro…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurazione dell\'app di amministrazione"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Configura tutto il resto"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Ora configura tutto il resto"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Questo telefono verrà gestito dalla tua organizzazione"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'app seguente verrà usata per gestire e monitorare questo telefono"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Download dell\'app di amministrazione…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Innanzitutto configura il tuo profilo di lavoro"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Usa un solo telefono per lavoro e tempo libero"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Separa dati di lavoro e personali"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Una volta finito, disattiva il profilo."</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Creazione del profilo di lavoro…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Configura il tuo telefono per il lavoro"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Connettiti ovunque ti trovi"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"I dati di lavoro sono protetti"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Questo telefono verrà gestito dalla tua organizzazione"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Trova app riservate alla tua organizzazione"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Configurazione del dispositivo gestito…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Il tuo telefono è pronto."</string>
 </resources>

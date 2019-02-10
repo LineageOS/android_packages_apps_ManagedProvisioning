@@ -365,5 +365,6 @@
 
   <!-- Common to both work profile and fully managed device setup screens -->
   <string name="device_provisioning_finished">Your phone is ready to go!</string>
+  <string name="done">Done</string>
 
 </resources>
