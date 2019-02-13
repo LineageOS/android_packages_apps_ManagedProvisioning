@@ -38,7 +38,6 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
@@ -76,7 +75,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private PreProvisioningController mController;
     private ControllerProvider mControllerProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
-    private ClickableSpanFactory mClickableSpanFactory;
     private ConsentUiHelper mConsentUiHelper;
 
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
@@ -87,8 +85,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @VisibleForTesting
     public PreProvisioningActivity(ControllerProvider controllerProvider,
-            AccessibilityContextMenuMaker contextMenuMaker,
-            Utils utils) {
+            AccessibilityContextMenuMaker contextMenuMaker, Utils utils) {
         super(utils);
         mControllerProvider = controllerProvider;
         mContextMenuMaker =
@@ -99,14 +96,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mClickableSpanFactory = new ClickableSpanFactory(getColor(R.color.blue));
         mController = mControllerProvider.getInstance(this);
         ProvisioningParams params = savedInstanceState == null ? null
                 : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
-        mController.initiateProvisioning(getIntent(), params, getCallingPackage());
         mConsentUiHelper = ConsentUiHelperFactory.getInstance(
                 /* activity */ this, /* contextMenuMaker */ mContextMenuMaker, /* callback */ this,
                 /* utils */ mUtils);
+        mController.initiateProvisioning(getIntent(), params, getCallingPackage());
     }
 
     @Override
