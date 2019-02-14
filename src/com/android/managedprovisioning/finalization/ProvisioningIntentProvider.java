@@ -35,10 +35,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  */
 class ProvisioningIntentProvider {
     void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context) {
-        if (utils.isAdminIntegratedFlow(params)) {
-            ProvisionLogger.logd("Dpc launch skipped for user: " + userId);
-            return;
-        }
         final Intent dpcLaunchIntent = createDpcLaunchIntent(params);
         if (utils.canResolveIntentAsUser(context, dpcLaunchIntent, userId)) {
             context.startActivityAsUser(createDpcLaunchIntent(params), UserHandle.of(userId));
@@ -75,5 +71,11 @@ class ProvisioningIntentProvider {
 
     private void addExtrasToIntent(Intent intent, ProvisioningParams params) {
         intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
+    }
+
+    void launchFinalizationScreen(Context context, ProvisioningParams params) {
+        final Intent finalizationScreen = new Intent(context, FinalScreenActivity.class);
+        finalizationScreen.putExtra(FinalScreenActivity.EXTRA_PROVISIONING_PARAMS, params);
+        context.startActivity(finalizationScreen);
     }
 }

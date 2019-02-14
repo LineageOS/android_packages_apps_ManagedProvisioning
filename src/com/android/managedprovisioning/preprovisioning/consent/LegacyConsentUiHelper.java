@@ -270,34 +270,22 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
         shortInfoText.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
         mContextMenuMaker.registerWithActivity(shortInfoText);
 
-        // if you have any questions, contact your device's provider
-        //
-        // TODO: refactor complex localized string assembly to an abstraction http://b/34288292
-        // there is a bit of copy-paste, and some details easy to forget (e.g. setMovementMethod)
-        if (customization.supportUrl != null) {
-            TextView info = mActivity.findViewById(R.id.device_owner_provider_info);
-            info.setVisibility(View.VISIBLE);
-            String deviceProvider = mActivity.getString(R.string.organization_admin);
-            String contactDeviceProvider = mActivity.getString(R.string.contact_device_provider,
-                deviceProvider);
-            SpannableString spannableString = new SpannableString(contactDeviceProvider);
-
-            Intent intent = WebActivity.createIntent(mActivity, customization.supportUrl,
-                customization.statusBarColor);
-            if (intent != null) {
-                ClickableSpan span = mClickableSpanFactory.create(intent);
-                int startIx = contactDeviceProvider.indexOf(deviceProvider);
-                int endIx = startIx + deviceProvider.length();
-                spannableString.setSpan(span, startIx, endIx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                info.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
-            }
-
-            info.setText(spannableString);
-            mContextMenuMaker.registerWithActivity(info);
-        }
+        handleSupportUrl(customization);
 
         // set up DPC icon and label
         setDpcIconAndLabel(packageName, packageIcon, customization.orgName);
+    }
+
+    private void handleSupportUrl(CustomizationParams customization) {
+        if (customization.supportUrl == null) {
+            return;
+        }
+        final TextView info = mActivity.findViewById(R.id.device_owner_provider_info);
+        final String deviceProvider = mActivity.getString(R.string.organization_admin);
+        final String contactDeviceProvider =
+                mActivity.getString(R.string.contact_device_provider, deviceProvider);
+        mUtils.handleSupportUrl(mActivity, customization, mClickableSpanFactory,
+                mContextMenuMaker, info, deviceProvider, contactDeviceProvider);
     }
 
     private Drawable getDeviceAdminIconDrawable(@Nullable String deviceAdminIconFilePath) {

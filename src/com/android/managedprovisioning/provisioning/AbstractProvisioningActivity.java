@@ -19,21 +19,14 @@ package com.android.managedprovisioning.provisioning;
 import android.annotation.IntDef;
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.graphics.drawable.Animatable2;
-import android.graphics.drawable.AnimatedVectorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
-
 import androidx.annotation.VisibleForTesting;
-
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -50,9 +43,9 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     private static final String KEY_ACTIVITY_STATE = "activity-state";
 
-    protected static final int STATE_PROVISIONING_INTIIALIZING = 1;
-    protected static final int STATE_PROVISIONING_STARTED = 2;
-    protected static final int STATE_PROVISIONING_FINALIZED = 3;
+    static final int STATE_PROVISIONING_INTIIALIZING = 1;
+    static final int STATE_PROVISIONING_STARTED = 2;
+    static final int STATE_PROVISIONING_FINALIZED = 3;
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PROVISIONING_INTIIALIZING,
@@ -60,28 +53,15 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
             STATE_PROVISIONING_FINALIZED})
     private @interface ProvisioningState {}
 
-    protected static final String ERROR_DIALOG_OK = "ErrorDialogOk";
-    protected static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
-    protected static final String CANCEL_PROVISIONING_DIALOG_OK = "CancelProvisioningDialogOk";
-    protected static final String CANCEL_PROVISIONING_DIALOG_RESET =
+    private static final String ERROR_DIALOG_OK = "ErrorDialogOk";
+    private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
+    private static final String CANCEL_PROVISIONING_DIALOG_OK = "CancelProvisioningDialogOk";
+    private static final String CANCEL_PROVISIONING_DIALOG_RESET =
             "CancelProvisioningDialogReset";
 
     protected ProvisioningManagerInterface mProvisioningManager;
     protected ProvisioningParams mParams;
-    protected AnimatedVectorDrawable mAnimatedVectorDrawable;
     protected @ProvisioningState int mState;
-
-    private Handler mUiThreadHandler = new Handler();
-
-    /** Repeats the animation once it is done **/
-    private final Animatable2.AnimationCallback mAnimationCallback =
-            new Animatable2.AnimationCallback() {
-                @Override
-                public void onAnimationEnd(Drawable drawable) {
-                    super.onAnimationEnd(drawable);
-                    mUiThreadHandler.post(mAnimatedVectorDrawable::start);
-                }
-            };
 
     @VisibleForTesting
     protected AbstractProvisioningActivity(Utils utils) {
@@ -127,11 +107,6 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
         if (!isAnyDialogAdded()) {
             getProvisioningManager().registerListener(this);
         }
-        if (mAnimatedVectorDrawable != null) {
-            mAnimatedVectorDrawable.registerAnimationCallback(mAnimationCallback);
-            mAnimatedVectorDrawable.reset();
-            mAnimatedVectorDrawable.start();
-        }
     }
 
     private boolean isAnyDialogAdded() {
@@ -144,10 +119,6 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     @Override
     public void onPause() {
         getProvisioningManager().unregisterListener(this);
-        if (mAnimatedVectorDrawable != null) {
-            mAnimatedVectorDrawable.stop();
-            mAnimatedVectorDrawable.unregisterAnimationCallback(mAnimationCallback);
-        }
         super.onPause();
     }
 

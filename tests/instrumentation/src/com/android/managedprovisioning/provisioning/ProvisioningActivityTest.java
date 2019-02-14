@@ -559,8 +559,8 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
         // THEN the profile owner description should be present
-        onView(withId(R.id.description))
-                .check(matches(withText(R.string.work_profile_description)));
+        onView(withId(R.id.provisioning_progress_label))
+                .check(matches(withText(R.string.work_profile_provisioning_progress_label)));
 
         // THEN the animation is shown.
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
@@ -572,8 +572,8 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(DEVICE_OWNER_INTENT);
 
         // THEN the description should be empty
-        onView(withId(R.id.description))
-                .check(matches(withText(R.string.device_owner_description)));
+        onView(withId(R.id.provisioning_progress_label)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
 
         // THEN the animation is shown.
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
