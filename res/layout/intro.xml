@@ -35,6 +35,7 @@
             style="@style/Provisioning2Theme.Button.Transparent"/>
         <ImageView
             android:id="@+id/animation"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacer_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
