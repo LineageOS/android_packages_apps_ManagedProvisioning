@@ -143,16 +143,6 @@ public class ProvisioningManagerTest {
     }
 
     @Test
-    public void testProvisioningTasksCompleted() {
-        // GIVEN provisioning has been started
-        mManager.maybeStartProvisioning(TEST_PARAMS);
-        // WHEN all tasks are completed.
-        mManager.provisioningTasksCompleted();
-        // THEN the controller should be prefinalized
-        verify(mController).preFinalize();
-    }
-
-    @Test
     public void testListener_cleanupCompleted() {
         // GIVEN provisioning has been started
         mManager.maybeStartProvisioning(TEST_PARAMS);

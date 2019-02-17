@@ -59,14 +59,12 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     private static final int STATUS_RUNNING = 1;
     // Provisioning tasks have completed
     private static final int STATUS_TASKS_COMPLETED = 2;
-    // Prefinalization has completed
-    private static final int STATUS_DONE = 3;
     // An error occurred during provisioning
-    private static final int STATUS_ERROR = 4;
+    private static final int STATUS_ERROR = 3;
     // Provisioning is being cancelled
-    private static final int STATUS_CANCELLING = 5;
+    private static final int STATUS_CANCELLING = 4;
     // Cleanup has completed. This happens after STATUS_ERROR or STATUS_CANCELLING
-    private static final int STATUS_CLEANED_UP = 6;
+    private static final int STATUS_CLEANED_UP = 5;
 
     private int mStatus = STATUS_NOT_STARTED;
     private List<AbstractProvisioningTask> mTasks = new ArrayList<>();
@@ -128,29 +126,9 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
      */
     @MainThread
     public synchronized void cancel() {
-        if (mStatus != STATUS_RUNNING
-                && mStatus != STATUS_TASKS_COMPLETED
-                && mStatus != STATUS_CANCELLING
-                && mStatus != STATUS_CLEANED_UP
-                && mStatus != STATUS_ERROR) {
-            ProvisionLogger.logd("Cancel called, but status is " + mStatus);
-            return;
-        }
-
-        ProvisionLogger.logd("ProvisioningController: cancelled");
+        ProvisionLogger.logd("Cancel called, current status is " + mStatus);
         mStatus = STATUS_CANCELLING;
         cleanup(STATUS_CLEANED_UP);
-    }
-
-    @MainThread
-    public synchronized void preFinalize() {
-        if (mStatus != STATUS_TASKS_COMPLETED) {
-            return;
-        }
-
-        mStatus = STATUS_DONE;
-        mFinalizationController.provisioningInitiallyDone(mParams);
-        mCallback.preFinalizationCompleted();
     }
 
     private void runTask(int index) {

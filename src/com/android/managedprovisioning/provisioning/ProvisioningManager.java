@@ -118,11 +118,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
     public void provisioningTasksCompleted() {
         synchronized (this) {
             mTimeLogger.stop();
-            if (mController != null) {
-                mHelper.postToUiThread(mController::preFinalize);
-            } else {
-                ProvisionLogger.loge("Trying to pre-finalize provisioning, but controller is null");
-            }
+            preFinalizationCompleted();
         }
     }
 
