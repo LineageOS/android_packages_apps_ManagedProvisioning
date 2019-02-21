@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.setupwizardlib.GlifLayout;
@@ -77,6 +78,16 @@ public class FinalScreenActivity extends SetupGlifLayoutActivity {
         final AnimatedVectorDrawable animatedVectorDrawable =
                 (AnimatedVectorDrawable) imageView.getDrawable();
         mRepeatingVectorAnimation = new RepeatingVectorAnimation(animatedVectorDrawable);
-        layout.findViewById(R.id.done_button).setOnClickListener(v -> finish());
+        layout.findViewById(R.id.done_button).setOnClickListener(v -> onDoneButtonPressed());
+
+        if (Utils.isSilentProvisioning(this, params)) {
+            onDoneButtonPressed();
+        }
     }
+
+    private void onDoneButtonPressed() {
+        finish();
+    }
+
+
 }

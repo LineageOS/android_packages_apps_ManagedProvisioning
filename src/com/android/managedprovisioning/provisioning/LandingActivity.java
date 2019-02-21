@@ -68,11 +68,17 @@ public class LandingActivity extends SetupGlifLayoutActivity {
 
         handleSupportUrl(customizationParams);
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.findViewById(R.id.next_button).setOnClickListener(v -> {
-            final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
-            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-            startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
-        });
+        layout.findViewById(R.id.next_button).setOnClickListener(v -> onNextButtonClicked(params));
+
+        if (Utils.isSilentProvisioning(this, params)) {
+            onNextButtonClicked(params);
+        }
+    }
+
+    private void onNextButtonClicked(ProvisioningParams params) {
+        final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
+        startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
     }
 
     private void handleSupportUrl(CustomizationParams customizationParams) {

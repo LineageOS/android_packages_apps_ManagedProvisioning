@@ -293,7 +293,7 @@ public class Utils {
      *
      * @see DevicePolicyManagerService#isPackageTestOnly for more info
      */
-    public boolean isPackageTestOnly(PackageManager pm, String packageName, int userHandle) {
+    public static boolean isPackageTestOnly(PackageManager pm, String packageName, int userHandle) {
         if (TextUtils.isEmpty(packageName)) {
             return false;
         }
@@ -772,5 +772,40 @@ public class Utils {
         textView.setVisibility(View.VISIBLE);
         textView.setText(spannableString);
         contextMenuMaker.registerWithActivity(textView);
+    }
+
+    public static boolean isSilentProvisioningForTestingDeviceOwner(
+                Context context, ProvisioningParams params) {
+        final DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        final ComponentName currentDeviceOwner =
+                dpm.getDeviceOwnerComponentOnCallingUser();
+        final ComponentName targetDeviceAdmin = params.deviceAdminComponentName;
+
+        switch (params.provisioningAction) {
+            case DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE:
+                return isPackageTestOnly(context, params)
+                        && currentDeviceOwner != null
+                        && targetDeviceAdmin != null
+                        && currentDeviceOwner.equals(targetDeviceAdmin);
+            default:
+                return false;
+        }
+    }
+
+    private static boolean isSilentProvisioningForTestingManagedProfile(
+        Context context, ProvisioningParams params) {
+        return DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE.equals(
+                params.provisioningAction) && isPackageTestOnly(context, params);
+    }
+
+    public static boolean isSilentProvisioning(Context context, ProvisioningParams params) {
+        return isSilentProvisioningForTestingManagedProfile(context, params)
+                || isSilentProvisioningForTestingDeviceOwner(context, params);
+    }
+
+    private static boolean isPackageTestOnly(Context context, ProvisioningParams params) {
+        final UserManager userManager = context.getSystemService(UserManager.class);
+        return isPackageTestOnly(context.getPackageManager(),
+                params.inferDeviceAdminPackageName(), userManager.getUserHandle());
     }
 }

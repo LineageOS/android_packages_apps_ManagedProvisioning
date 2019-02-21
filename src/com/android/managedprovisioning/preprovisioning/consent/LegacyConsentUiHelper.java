@@ -188,7 +188,7 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
                 customization.mainColor,
                 customization.statusBarColor);
 
-        setupAcceptAndContinueButton(customization);
+        setupAcceptAndContinueButton(customization, uiParams.isSilentProvisioning);
 
         mActivity.setTitle(titleResId);
 
@@ -203,16 +203,22 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
         }
     }
 
-    private void setupAcceptAndContinueButton(CustomizationParams customization) {
+    private void setupAcceptAndContinueButton(CustomizationParams customization,
+            boolean isSilentProvisioning) {
         final Button nextButton = mActivity.findViewById(R.id.next_button);
-        nextButton.setOnClickListener(v -> {
-            ProvisionLogger.logi("Next button (next_button) is clicked.");
-            mCallback.nextAfterUserConsent();
-        });
+        nextButton.setOnClickListener(v -> onNextButtonClicked());
         nextButton.setBackgroundTintList(ColorStateList.valueOf(customization.mainColor));
         if (mUtils.isBrightColor(customization.mainColor)) {
             nextButton.setTextColor(mActivity.getColor(R.color.gray_button_text));
         }
+        if (isSilentProvisioning) {
+            onNextButtonClicked();
+        }
+    }
+
+    private void onNextButtonClicked() {
+        ProvisionLogger.logi("Next button (next_button) is clicked.");
+        mCallback.nextAfterUserConsent();
     }
 
     private void initiateUIProfileOwner(String termsHeaders, boolean isComp,
