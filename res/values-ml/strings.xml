@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"നിങ്ങളുടെ സ്ഥാപനത്തിന് വേണ്ടി മാത്രമുള്ള ആപ്പുകൾ കണ്ടെത്തുക"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"നിങ്ങളുടെ മാനേജ് ചെയ്യപ്പെടുന്ന ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"നിങ്ങളുടെ ഫോൺ ഉപയോഗിക്കാൻ തയ്യാറാണ്!"</string>
+    <string name="done" msgid="7755227776955952318">"പൂർത്തിയായി"</string>
 </resources>
