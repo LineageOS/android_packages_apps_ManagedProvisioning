@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"尋找專為您的機構而設的應用程式"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"正在設定您的受管理裝置…"</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"您的手機已完成設定！"</string>
+    <string name="done" msgid="7755227776955952318">"完成"</string>
 </resources>

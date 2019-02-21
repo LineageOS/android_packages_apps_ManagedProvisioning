@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"କେବଳ ଆପଣଙ୍କ ସଂସ୍ଥା ପାଇଁ ଆପ୍ସ ଖୋଜନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ଆପଣଙ୍କ ପରିଚାଳିତ ଡିଭାଇସ୍‌ର ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"ଆପଣଙ୍କ ଫୋନ୍ ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ ଅଛି!"</string>
+    <string name="done" msgid="7755227776955952318">"ହୋଇଗଲା"</string>
 </resources>
