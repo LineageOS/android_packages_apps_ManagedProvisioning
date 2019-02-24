@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Pata programu zinazofaa shirika lako"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Inaweka mipangilio kwenye kifaa chako kinachosimamiwa…"</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"Simu yako iko tayari kutumika!"</string>
+    <string name="done" msgid="7755227776955952318">"Nimemaliza"</string>
 </resources>

@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"조직 전용으로 개발된 앱 찾기"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"관리 기기 설정 중..."</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"휴대전화를 사용할 준비가 되었습니다."</string>
+    <string name="done" msgid="7755227776955952318">"완료"</string>
 </resources>

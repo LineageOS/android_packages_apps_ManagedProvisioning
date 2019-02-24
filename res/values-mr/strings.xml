@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"खास तुमच्या संस्थेसाठी तयार केलेली अ‍ॅप्स शोधा"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"तुमचे व्यवस्थापित केलेले डिव्हाइस सेट करत आहे…"</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"तुमचा फोन वापरण्यासाठी तयार आहे!"</string>
+    <string name="done" msgid="7755227776955952318">"पूर्ण झाले"</string>
 </resources>

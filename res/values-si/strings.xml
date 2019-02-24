@@ -177,4 +177,5 @@
     <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ඔබේ සංවිධානය සඳහාම යෙදුම් සොයා ගන්න"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ඔබේ කළමනා කෙරෙන උපාංගය සැකසීම…"</string>
     <string name="device_provisioning_finished" msgid="4611825455360297074">"ඔබේ දුරකථනය භාවිතයට සූදානම්!"</string>
+    <string name="done" msgid="7755227776955952318">"කළා"</string>
 </resources>
