@@ -229,10 +229,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case DELETE_MANAGED_PROFILE_DIALOG:
                 DeleteManagedProfileDialog d = (DeleteManagedProfileDialog) dialog;
                 mController.removeUser(d.getUserId());
-                // TODO: refactor as evil - logic should be less spread out
-                // Check if we are in the middle of silent provisioning and were got blocked by an
-                // existing user profile. If so, we can now resume.
-                mController.checkResumeSilentProvisioning();
+                mController.initiateProvisioning(getIntent(), /* cached params */ null,
+                        getCallingPackage());
                 break;
             case ERROR_DIALOG_RESET:
                 getUtils().sendFactoryResetBroadcast(this, "Error during preprovisioning");

@@ -88,7 +88,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
                 customization.statusBarColor);
 
         setupAnimation();
-        setupAcceptAndContinueButton(customization);
+        setupAcceptAndContinueButton(customization, uiParams.isSilentProvisioning);
 
         // set the activity title
         mActivity.setTitle(titleResId);
@@ -106,16 +106,22 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mRepeatingVectorAnimation.start();
     }
 
-    private void setupAcceptAndContinueButton(CustomizationParams customization) {
+    private void setupAcceptAndContinueButton(CustomizationParams customization,
+            boolean isSilentProvisioning) {
         Button nextButton = mActivity.findViewById(R.id.next_button);
-        nextButton.setOnClickListener(v -> {
-            ProvisionLogger.logi("Next button (next_button) is clicked.");
-            mCallback.nextAfterUserConsent();
-        });
+        nextButton.setOnClickListener(v -> onNextButtonClicked());
         nextButton.setBackgroundTintList(ColorStateList.valueOf(customization.mainColor));
         if (mUtils.isBrightColor(customization.mainColor)) {
             nextButton.setTextColor(mActivity.getColor(R.color.gray_button_text));
         }
+        if (isSilentProvisioning) {
+            onNextButtonClicked();
+        }
+    }
+
+    private void onNextButtonClicked() {
+        ProvisionLogger.logi("Next button (next_button) is clicked.");
+        mCallback.nextAfterUserConsent();
     }
 
     private void setupViewTermsButton(Intent showTermsIntent,
