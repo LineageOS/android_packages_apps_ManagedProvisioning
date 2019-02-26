@@ -90,8 +90,8 @@
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Na vašem uređaju je uključena opcija za ponovno postavljanje zaštite. Obratite se administratoru za pomoć."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Briše se"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Pričekajte..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Aplikacija administratora nije korištena zbog greške prilikom kontrolne provjere. Obratite se administratoru za pomoć."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nije moguće preuzeti aplikaciju administratora"</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Korištenje aplikacije administratora nije uspjelo zbog greške u kontrolnom zbiru. Obratite se administratoru za pomoć."</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Preuzimanje aplikacije administratora nije uspjelo"</string>
     <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Nije moguće koristiti aplikaciju administratora. Nedostaju joj komponente ili je neispravna. Obratite se administratoru za pomoć."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nije moguće instalirati aplikaciju administratora"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Želite li zaustaviti postavljanje?"</string>
