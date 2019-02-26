@@ -94,20 +94,27 @@
   <!-- Managed user provisioning flow UI. -->
   <!-- Device owner provisioning flow UI. -->
   <!-- Default username for the user of the owned device. [CHAR LIMIT=45] -->
+  <string name="default_owned_device_username">Usuariu del perfil de trabayu</string>
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
   <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
+  <string name="progress_data_process">Procesando datos de configuración\u2026</string>
   <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
+  <string name="progress_connect_to_wifi">Coneutando cola Wi-Fi\u2026</string>
   <!-- Progress text indicating that mobile network is being set up. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
+  <string name="progress_download">Descargando l\'aplicación d\'alministración\u2026</string>
   <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
+  <string name="progress_install">Instalando l\'aplicación d\'alministración\u2026</string>
   <!-- TODO: Confirm this string with UX. Progress text indicating that non-required system apps are being deleted. [CHAR LIMIT=45] -->
   <!-- TODO: Confirm this string with UX. Progress text indicating that finishing touches are being put. [CHAR LIMIT=45] -->
   <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
+  <string name="progress_set_owner">Afitando\'l dueñu\'l preséu\u2026</string>
   <!-- TODO: Confirm this string with UX. Progress text indicating that the progress is being initialized. [CHAR LIMIT=45] -->
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
   <!-- Title of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
   <!-- Title of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
   <!-- Message of the cancel device owner provisioning dialog. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_cancel_message">¿Para la configuración y desaniciar los datos del to preséu?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
   <string name="device_owner_cancel_cancel">Encaboxar</string>
   <!-- OK button text of the error dialog. [CHAR LIMIT=45] -->
@@ -119,6 +126,7 @@
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_wifi">Nun pudo coneutase cola Wi-Fi</string>
   <!-- Message of the error dialog when passing factory reset protection fails. [CHAR LIMIT=NONE] -->
   <!-- Message informing the user that the factory reset protection partition is being erased [CHAR LIMIT=30] -->
   <string name="frp_clear_progress_title">Desaniciando</string>
@@ -126,8 +134,10 @@
   <string name="frp_clear_progress_text">Por favor, espera...</string>
   <!-- Message of the error dialog when data integrity check fails. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when device owner apk could not be downloaded. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_download_failed">Nun pudo descargase l\'aplicación d\'alministración</string>
   <!-- Message of the error dialog when package to install is invalid. [CHAR LIMIT=NONE] -->
   <!-- Message of the error dialog when package could not be installed. [CHAR LIMIT=NONE] -->
+  <string name="device_owner_error_installation_failed">Nun pudo instalase l\'aplicación d\'alministración</string>
   <!-- Message of the cancel dialog. [CHAR LIMIT=NONE] -->
   <string name="profile_owner_cancel_message">¿Dexar de configurar?</string>
   <!-- Cancel button text of the cancel dialog. [CHAR LIMIT=45] -->
@@ -164,6 +174,7 @@
   <!--Button initiating a profile/device owner setup process [CHAR LIMIT=20] -->
   <!--Close button cancelling a profile/device owner setup process [CHAR LIMIT=20] -->
   <!--Header for device owner provisioning setup screen [CHAR LIMIT=NONE] -->
+  <string name="set_up_your_device">Configura\'l to preséu</string>
   <!-- Animation informing a user about benefits of having a managed profile (http://go/anim-e1f256) -->
   <!-- Title 1/3 from slides [CHAR LIMIT=NONE]-->
   <!-- Title 2/3 from slides [CHAR LIMIT=NONE]-->
@@ -171,17 +182,24 @@
   <!-- Title 3/3 from slides [CHAR LIMIT=NONE]-->
   <!-- CertService -->
   <!-- Title of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="provisioning">Aprovisionamientu</string>
   <!-- Content of a status bar notification for a service which installs CA certificates to secondary users. [CHAR LIMIT=45] -->
+  <string name="copying_certs">Configurando certificaos CA</string>
   <!-- Accessibility Descriptions -->
   <!-- Accessibility description for the profile setup screen. [CHAR LIMIT=NONE] -->
   <string name="setup_profile">Configura\'l perfil</string>
   <!-- Accessibility description for the profile benefits animation (shown on profile setup screen) [CHAR LIMIT=NONE] -->
   <!-- Accessibility description for the profile benefits animation (shown on profile setup screen) [CHAR LIMIT=NONE] -->
   <!-- Accessibility description for the profile setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_encryption">Configura\'l to perfil. Cifráu</string>
   <!-- Accessibility description for the profile setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_profile_progress">Configura\'l to perfil. Amosando progresu</string>
   <!-- Accessibility description for the device setup screen showing company info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device">Configura\'l to preséu</string>
   <!-- Accessibility description for the device setup screen showing encryption info. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_encryption">Configura\'l to preséu. Cifráu</string>
   <!-- Accessibility description for the device setup screen showing progress. [CHAR LIMIT=NONE] -->
+  <string name="setup_device_progress">Configura\'l to preséu. Amosando progresu</string>
   <!-- Accessibility description for the learn more link in user consent dialog. [CHAR LIMIT=NONE] -->
   <string name="learn_more_label">Botón de deprendi más</string>
   <!-- Accessibility description for the company icon. [CHAR LIMIT=NONE] -->
