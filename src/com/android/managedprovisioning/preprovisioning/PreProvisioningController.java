@@ -134,9 +134,8 @@ public class PreProvisioningController {
         mEncryptionController = checkNotNull(encryptionController,
                 "EncryptionController must not be null");
 
-        mDevicePolicyManager = (DevicePolicyManager) mContext.getSystemService(
-                Context.DEVICE_POLICY_SERVICE);
-        mUserManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+        mDevicePolicyManager = mContext.getSystemService(DevicePolicyManager.class);
+        mUserManager = mContext.getSystemService(UserManager.class);
         mPackageManager = mContext.getPackageManager();
         mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
