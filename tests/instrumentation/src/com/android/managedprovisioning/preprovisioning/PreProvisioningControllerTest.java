@@ -132,9 +132,16 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
-        when(mContext.getSystemService(Context.DEVICE_POLICY_SERVICE))
+        when(mContext.getSystemServiceName(DevicePolicyManager.class))
+                .thenReturn(Context.DEVICE_POLICY_SERVICE);
+        when(mContext.getSystemService(DevicePolicyManager.class))
                 .thenReturn(mDevicePolicyManager);
-        when(mContext.getSystemService(Context.USER_SERVICE)).thenReturn(mUserManager);
+
+        when(mContext.getSystemServiceName(UserManager.class))
+                .thenReturn(Context.USER_SERVICE);
+        when(mContext.getSystemService(UserManager.class))
+                .thenReturn(mUserManager);
+
         when(mContext.getPackageManager()).thenReturn(mPackageManager);
         when(mContext.getSystemService(Context.ACTIVITY_SERVICE)).thenReturn(mActivityManager);
         when(mContext.getSystemService(Context.KEYGUARD_SERVICE)).thenReturn(mKeyguardManager);
