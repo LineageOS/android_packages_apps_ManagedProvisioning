@@ -39,7 +39,6 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -68,19 +67,18 @@ import android.os.storage.StorageManager;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
-
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
+
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
-
 import com.android.managedprovisioning.preprovisioning.WebActivity;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

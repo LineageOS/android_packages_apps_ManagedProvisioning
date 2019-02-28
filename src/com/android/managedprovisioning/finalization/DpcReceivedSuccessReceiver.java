@@ -44,11 +44,7 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
         void cleanup();
     }
 
-    private final Account mMigratedAccount;
-    private final String mMdmPackageName;
-    private final boolean mKeepAccountMigrated;
-    private final Utils mUtils;
-    private final UserHandle mManagedUserHandle;
+    private final PrimaryProfileFinalizationHelper mHelper;
     private final Callback mCallback;
 
     public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount,
@@ -61,56 +57,14 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
     @VisibleForTesting
     DpcReceivedSuccessReceiver(Account migratedAccount, boolean keepAccountMigrated,
         UserHandle managedUserHandle, String mdmPackageName, Utils utils, Callback callback) {
-        mMigratedAccount = migratedAccount;
-        mKeepAccountMigrated = keepAccountMigrated;
-        mMdmPackageName = checkNotNull(mdmPackageName);
-        mManagedUserHandle = checkNotNull(managedUserHandle);
-        mUtils = checkNotNull(utils);
         mCallback = callback;
+        mHelper = new PrimaryProfileFinalizationHelper(migratedAccount, keepAccountMigrated,
+                managedUserHandle, mdmPackageName, utils);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         ProvisionLogger.logd("ACTION_PROFILE_PROVISIONING_COMPLETE broadcast received by mdm");
-
-        final Intent primaryProfileSuccessIntent = new Intent(ACTION_MANAGED_PROFILE_PROVISIONED);
-        primaryProfileSuccessIntent.setPackage(mMdmPackageName);
-        primaryProfileSuccessIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        primaryProfileSuccessIntent.putExtra(Intent.EXTRA_USER, mManagedUserHandle);
-
-        // Now cleanup the primary profile if necessary
-        if (mMigratedAccount != null) {
-            primaryProfileSuccessIntent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE,
-                    mMigratedAccount);
-            finishAccountMigration(context, primaryProfileSuccessIntent);
-            // Note that we currently do not check if account migration worked
-        } else {
-            context.sendBroadcast(primaryProfileSuccessIntent);
-            if (mCallback != null) {
-                mCallback.cleanup();
-            }
-        }
-    }
-
-    private void finishAccountMigration(final Context context,
-            final Intent primaryProfileSuccessIntent) {
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                if (!mKeepAccountMigrated) {
-                    mUtils.removeAccount(context, mMigratedAccount);
-                }
-                context.sendBroadcast(primaryProfileSuccessIntent);
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void result) {
-                if (mCallback != null) {
-                    mCallback.cleanup();
-                }
-            }
-        }.execute();
+        mHelper.finalizeProvisioningInPrimaryProfile(context, mCallback);
     }
 }

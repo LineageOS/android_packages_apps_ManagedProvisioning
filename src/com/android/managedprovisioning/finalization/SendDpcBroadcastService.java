@@ -59,10 +59,8 @@ public class SendDpcBroadcastService extends Service implements Callback {
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "
                 + managedProfileUserIdentifier);
 
-        if (!utils.isAdminIntegratedFlow(params)) {
-            helper.maybeLaunchDpc(
-                   params, managedProfileUserIdentifier, utils, getApplicationContext());
-        }
+        helper.maybeLaunchDpc(
+                params, managedProfileUserIdentifier, utils, getApplicationContext());
 
         return START_STICKY;
     }

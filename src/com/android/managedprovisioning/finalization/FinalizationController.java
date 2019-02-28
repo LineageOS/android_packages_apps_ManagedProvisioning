@@ -49,7 +49,7 @@ public class FinalizationController {
     private final Context mContext;
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
-    private final UserProvisioningStateHelper mHelper;
+    private final UserProvisioningStateHelper mUserProvisioningStateHelper;
     private final ProvisioningIntentProvider mProvisioningIntentProvider;
 
     public FinalizationController(Context context) {
@@ -68,7 +68,7 @@ public class FinalizationController {
         mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
         mSettingsFacade = checkNotNull(settingsFacade);
-        mHelper = checkNotNull(helper);
+        mUserProvisioningStateHelper = checkNotNull(helper);
         mProvisioningIntentProvider = new ProvisioningIntentProvider();
     }
 
@@ -85,7 +85,7 @@ public class FinalizationController {
      * @param params the provisioning params
      */
     public void provisioningInitiallyDone(ProvisioningParams params) {
-        if (!mHelper.isStateUnmanagedOrFinalized()) {
+        if (!mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
             // In any other state than STATE_USER_UNMANAGED and STATE_USER_SETUP_FINALIZED, we've
             // already run this method, so don't do anything.
             // STATE_USER_SETUP_FINALIZED can occur here if a managed profile is provisioned on a
@@ -95,7 +95,7 @@ public class FinalizationController {
             return;
         }
 
-        mHelper.markUserProvisioningStateInitiallyDone(params);
+        mUserProvisioningStateHelper.markUserProvisioningStateInitiallyDone(params);
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)) {
             if (params.isOrganizationOwnedProvisioning) {
                 setProfileOwnerCanAccessDeviceIds();
@@ -126,6 +126,14 @@ public class FinalizationController {
         }
     }
 
+    @VisibleForTesting
+    PrimaryProfileFinalizationHelper getPrimaryProfileFinalizationHelper(
+            ProvisioningParams params) {
+        return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
+                params.keepAccountMigrated, mUtils.getManagedProfile(mContext),
+                params.inferDeviceAdminPackageName(), mUtils);
+    }
+
     /**
      * This method is invoked when provisioning is finalized.
      *
@@ -135,7 +143,7 @@ public class FinalizationController {
      * provisioning and sets the right user provisioning states.</p>
      */
     void provisioningFinalized() {
-        if (mHelper.isStateUnmanagedOrFinalized()) {
+        if (mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
             ProvisionLogger.logw("provisioningInitiallyDone called, but state is finalized or "
                     + "unmanaged");
             return;
@@ -147,31 +155,33 @@ public class FinalizationController {
             return;
         }
 
-        final boolean isAdminIntegratedFlow = mUtils.isAdminIntegratedFlow(params);
-        if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            notifyDpcManagedProfile(params);
-        } else {
-            // For managed user and device owner, we send the provisioning complete intent and maybe
-            // launch the DPC.
-            int userId = UserHandle.myUserId();
-            Intent provisioningCompleteIntent =
-                    mProvisioningIntentProvider.createProvisioningCompleteIntent(params, userId,
-                            mUtils, mContext);
-            if (provisioningCompleteIntent == null) {
-                return;
+        if (mUtils.isAdminIntegratedFlow(params)) {
+            // Don't send ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to DPC or launch DPC by
+            // ACTION_PROVISIONING_SUCCESSFUL intent if it's admin integrated flow.
+            if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+                getPrimaryProfileFinalizationHelper(params)
+                        .finalizeProvisioningInPrimaryProfile(mContext, null);
             }
-            mContext.sendBroadcast(provisioningCompleteIntent);
+            mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
+        } else {
+            if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+                notifyDpcManagedProfile(params);
+            } else {
+                // For managed user and device owner, we send the provisioning complete intent and
+                // maybe launch the DPC.
+                final int userId = UserHandle.myUserId();
+                final Intent provisioningCompleteIntent = mProvisioningIntentProvider
+                        .createProvisioningCompleteIntent(params, userId, mUtils, mContext);
+                if (provisioningCompleteIntent == null) {
+                    return;
+                }
+                mContext.sendBroadcast(provisioningCompleteIntent);
 
-            if (!isAdminIntegratedFlow) {
                 mProvisioningIntentProvider.maybeLaunchDpc(params, userId, mUtils, mContext);
             }
         }
 
-        if (isAdminIntegratedFlow) {
-            mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
-        }
-
-        mHelper.markUserProvisioningStateFinalized(params);
+        mUserProvisioningStateHelper.markUserProvisioningStateFinalized(params);
     }
 
     /**
