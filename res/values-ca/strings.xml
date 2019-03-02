@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2400883737290705700">"Configuració del perfil professional"</string>
-    <string name="provisioning_error_title" msgid="6320515739861578118">"Error"</string>
+    <string name="provisioning_error_title" msgid="6320515739861578118">"Vaja..."</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Configura el perfil professional"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"La teva organització controla aquest perfil i el manté protegit. L\'usuari controla la resta d\'elements del dispositiu."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"La teva organització controlarà aquest dispositiu i el mantindrà protegit."</string>
