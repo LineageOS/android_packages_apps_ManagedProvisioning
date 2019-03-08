@@ -33,6 +33,7 @@ import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.CustomizationParams;
@@ -101,10 +102,17 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private void onDoneButtonClicked() {
         new FinalizationController(getApplicationContext()).provisioningInitiallyDone(mParams);
         if (mUtils.isAdminIntegratedFlow(mParams)) {
+            enableGlobalFlags();
             showPolicyComplianceScreen();
         } else {
             finishProvisioning();
         }
+    }
+
+    private void enableGlobalFlags() {
+        final SettingsFacade settingsFacade = new SettingsFacade();
+        settingsFacade.setUserSetupCompleted(this, UserHandle.USER_SYSTEM);
+        settingsFacade.setDeviceProvisioned(this);
     }
 
     private void finishProvisioning() {
