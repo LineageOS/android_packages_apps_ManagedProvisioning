@@ -100,7 +100,7 @@
   <string name="work_profile_setup_later_message">Gellir gosod dy broffil gwaith yn hwyrach yn ap rheolaeth dyfais dy sefydliad</string>
   <string name="continue_button">Parhau</string>
   <string name="work_profile_setup_stop">Stopio</string>
-  <string name="dismiss">Diysytyru</string>
+  <string name="dismiss">Diystyru</string>
   <string name="profile_owner_info">Rwyt ar fin creu proffil gwaith caiff ei reoli a\'i fonitro gan dy sefydliad. Bydd telerau yn berthnasol.</string>
   <string name="profile_owner_info_with_terms_headers">Rwyt ar fin creu proffil gwaith caiff ei reoli a\'i fonitro gan dy sefydliad. Bydd telerau <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%1$s</xliff:g> yn berthnasol.</string>
   <string name="profile_owner_info_comp">Caiff proffil ei greu ar gyfer dy apiau gwaith. Bydd y proffil hwn a gweddill dy ddyfais yn cael ei reoli a\'i monitro gan dy sefydliad. Bydd telerau yn berthnasol.</string>
