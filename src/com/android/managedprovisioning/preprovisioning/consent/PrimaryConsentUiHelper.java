@@ -21,7 +21,6 @@ import static android.view.View.VISIBLE;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.view.View;
 import android.widget.Button;
@@ -108,12 +107,9 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
 
     private void setupAcceptAndContinueButton(CustomizationParams customization,
             boolean isSilentProvisioning) {
-        Button nextButton = mActivity.findViewById(R.id.next_button);
+        final Button nextButton = mActivity.findViewById(R.id.next_button);
         nextButton.setOnClickListener(v -> onNextButtonClicked());
-        nextButton.setBackgroundTintList(ColorStateList.valueOf(customization.mainColor));
-        if (mUtils.isBrightColor(customization.mainColor)) {
-            nextButton.setTextColor(mActivity.getColor(R.color.gray_button_text));
-        }
+        mUtils.customizeButtonColors(nextButton, customization.mainColor);
         if (isSilentProvisioning) {
             onNextButtonClicked();
         }
