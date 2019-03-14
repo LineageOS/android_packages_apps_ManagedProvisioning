@@ -25,6 +25,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -121,8 +122,16 @@ public class FinalizationController {
         final int managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
         final ComponentName admin = dpm.getProfileOwnerAsUser(managedProfileUserId);
         if (admin != null) {
-            dpm.setProfileOwnerCanAccessDeviceIdsForUser(
-                    admin, UserHandle.of(managedProfileUserId));
+            try {
+                final Context profileContext = mContext.createPackageContextAsUser(
+                        mContext.getPackageName(), 0 /* flags */,
+                        UserHandle.of(managedProfileUserId));
+                final DevicePolicyManager profileDpm =
+                        profileContext.getSystemService(DevicePolicyManager.class);
+                profileDpm.setProfileOwnerCanAccessDeviceIds(admin);
+            } catch (NameNotFoundException e) {
+                ProvisionLogger.logw("Error setting access to Device IDs: " + e.getMessage());
+            }
         }
     }
 
