@@ -53,6 +53,13 @@ public class SettingsFacade {
     }
 
     /**
+     * Sets DEVICE_PROVISIONED.
+     */
+    public void setDeviceProvisioned(Context context) {
+        Global.putInt(context.getContentResolver(), DEVICE_PROVISIONED, 1);
+    }
+
+    /**
      * Sets whether package verification is enabled or not.
      */
     public void setPackageVerifierEnabled(Context context, boolean packageVerifierEnabled) {

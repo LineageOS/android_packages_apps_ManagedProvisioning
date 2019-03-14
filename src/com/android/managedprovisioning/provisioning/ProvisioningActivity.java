@@ -28,11 +28,13 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.CustomizationParams;
@@ -90,7 +92,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private void updateProvisioningFinalizedScreen() {
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         layout.findViewById(R.id.footer).setVisibility(View.VISIBLE);
-        layout.findViewById(R.id.done_button).setOnClickListener(v -> onDoneButtonClicked());
         layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
 
         if (Utils.isSilentProvisioning(this, mParams)) {
@@ -101,10 +102,17 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private void onDoneButtonClicked() {
         new FinalizationController(getApplicationContext()).provisioningInitiallyDone(mParams);
         if (mUtils.isAdminIntegratedFlow(mParams)) {
+            enableGlobalFlags();
             showPolicyComplianceScreen();
         } else {
             finishProvisioning();
         }
+    }
+
+    private void enableGlobalFlags() {
+        final SettingsFacade settingsFacade = new SettingsFacade();
+        settingsFacade.setUserSetupCompleted(this, UserHandle.USER_SYSTEM);
+        settingsFacade.setDeviceProvisioned(this);
     }
 
     private void finishProvisioning() {
@@ -266,6 +274,10 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
                 : R.string.fully_managed_device_provisioning_progress_label;
         final TextView progressLabel = layout.findViewById(R.id.provisioning_progress_label);
         progressLabel.setText(progressLabelResId);
+
+        final Button doneButton = layout.findViewById(R.id.done_button);
+        doneButton.setOnClickListener(v -> onDoneButtonClicked());
+        mUtils.customizeButtonColors(doneButton, customizationParams.mainColor);
 
         layout.findViewById(R.id.provisioning_progress).setVisibility(View.VISIBLE);
     }

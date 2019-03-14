@@ -51,6 +51,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -70,6 +71,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -723,6 +725,14 @@ public class Utils {
         // Y = .299 * R + .587 * G + .114 * B
         return Color.red(color) * 299 + Color.green(color) * 587 + Color.blue(color) * 114
                 >= 1000 * THRESHOLD_BRIGHT_COLOR;
+    }
+
+    public void customizeButtonColors(Button button, int color) {
+        button.setBackgroundTintList(ColorStateList.valueOf(color));
+        if (isBrightColor(color)) {
+            button.setTextColor(button.getContext()
+                    .getColor(com.android.managedprovisioning.R.color.gray_button_text));
+        }
     }
 
     /**
