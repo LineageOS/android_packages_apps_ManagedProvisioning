@@ -81,7 +81,7 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
         mCallback = callback;
         mTouchTargetEnforcer =
             new TouchTargetEnforcer(activity.getResources().getDisplayMetrics().density);
-        mClickableSpanFactory = new ClickableSpanFactory(mActivity.getColor(R.color.blue));
+        mClickableSpanFactory = new ClickableSpanFactory(mActivity.getColor(R.color.blue_text));
         mUtils = utils;
     }
 
