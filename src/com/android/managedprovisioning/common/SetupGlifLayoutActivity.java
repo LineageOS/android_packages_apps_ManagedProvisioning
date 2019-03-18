@@ -24,8 +24,9 @@ import android.sysprop.SetupWizardProperties;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
-import com.android.setupwizardlib.GlifLayout;
-import com.android.setupwizardlib.util.WizardManagerHelper;
+import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.ThemeResolver;
+
 
 /**
  * Base class for setting up the layout.
@@ -62,10 +63,11 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
     }
 
     private void setDefaultTheme() {
-        // Take Glif light as default theme like
-        // com.google.android.setupwizard.util.ThemeHelper.getDefaultTheme
-        setTheme(WizardManagerHelper.getThemeRes(SetupWizardProperties.theme().orElse(""),
-                R.style.SuwThemeGlifV3_Light));
+        setTheme(new ThemeResolver.Builder(ThemeResolver.getDefault())
+            .setDefaultTheme(R.style.SudThemeGlifV3_Light)
+            .setUseDayNight(false)
+            .build()
+            .resolve(SetupWizardProperties.theme().orElse("")));
     }
 
 }

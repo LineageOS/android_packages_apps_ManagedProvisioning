@@ -158,7 +158,7 @@ public class PreProvisioningActivityTest {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_PROFILE, null));
         View content = activity.findViewById(R.id.intro_po_content);
-        View viewport = activity.findViewById(R.id.suw_layout_content);
+        View viewport = activity.findViewById(R.id.suc_layout_content);
         assertThat("Width", content.getWidth(), lessThanOrEqualTo(viewport.getWidth()));
 
         int animationHeight = activity.findViewById(R.id.animated_info).getHeight();

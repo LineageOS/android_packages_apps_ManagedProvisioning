@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 -->
-<com.android.setupwizardlib.GlifLayout
+<com.google.android.setupdesign.GlifLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout="@layout/car_managed_provisioning"
-    app:suwStickyHeader="@layout/accept_and_continue_header"
-    app:suwLayoutFullscreen="false">
+    app:sudStickyHeader="@layout/accept_and_continue_header"
+    app:sucLayoutFullscreen="false">
 
-</com.android.setupwizardlib.GlifLayout>
+</com.google.android.setupdesign.GlifLayout>

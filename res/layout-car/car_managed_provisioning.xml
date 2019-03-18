@@ -23,13 +23,13 @@
 
     <!-- Attribute StickyHeader is defined by the GlifLayout.  Added from the parent GlifLayout. -->
     <ViewStub
-        android:id="@+id/suw_layout_sticky_header"
+        android:id="@+id/suc_layout_sticky_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <!-- Ids are referenced in code, do not change. -->
     <LinearLayout
-        android:id="@+id/suw_layout_content"
+        android:id="@+id/suc_layout_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -38,7 +38,7 @@
         android:layout_marginEnd="@dimen/car_margin">
 
         <ImageView
-            android:id="@+id/suw_layout_icon"
+            android:id="@+id/suc_layout_icon"
             android:layout_width="@dimen/car_primary_icon_size"
             android:layout_height="@dimen/car_primary_icon_size"
             android:scaleType="fitCenter"
@@ -46,7 +46,7 @@
             android:layout_marginTop="@dimen/car_padding_4"/>
 
         <TextView
-            android:id="@+id/suw_layout_title"
+            android:id="@+id/suc_layout_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

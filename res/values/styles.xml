@@ -88,11 +88,11 @@
         <item name="android:colorAccent">@color/accent</item>
     </style>
 
-    <style name="Provisioning2Theme" parent="SuwThemeGlifV3.Light">
+    <style name="Provisioning2Theme" parent="SudThemeGlifV3.Light">
         <item name="android:windowBackground">@color/white</item>
         <item name="android:colorBackground">@color/white</item>
         <item name="swiper_color">@color/teal2</item>
-        <item name="suwMarginSides">@dimen/intro_margin</item>
+        <item name="sudMarginSides">@dimen/intro_margin</item>
     </style>
 
     <style name="Provisioning2Theme.Text">
@@ -111,7 +111,7 @@
         <item name="android:textSize">@dimen/info_text_title_size</item>
     </style>
 
-    <style name="InfoAnimationTitle" parent="SuwBaseHeaderTitle">
+    <style name="InfoAnimationTitle" parent="SudBaseHeaderTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:breakStrategy">balanced</item>
@@ -132,7 +132,7 @@
         <item name="android:lineSpacingExtra">8sp</item>
     </style>
 
-    <style name="Provisioning2Theme.Button" parent="SuwGlifButton.Primary">
+    <style name="Provisioning2Theme.Button" parent="SudGlifButton.Primary">
         <item name="android:paddingStart">@dimen/spacer_12</item>
         <item name="android:paddingEnd">@dimen/spacer_12</item>
         <item name="android:paddingTop">0dp</item>
@@ -168,7 +168,7 @@
     </style>
 
     <style name="NonGlifTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
-        <item name="android:windowAnimationStyle">@style/Animation.SuwWindowAnimation</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SudWindowAnimation</item>
         <item name="actionBarTheme">@style/NonGlifToolbarTheme</item>
     </style>
 

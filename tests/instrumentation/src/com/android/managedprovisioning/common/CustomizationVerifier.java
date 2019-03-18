@@ -117,8 +117,7 @@ public class CustomizationVerifier {
     }
 
     private Drawable extractLogo() {
-        return ((ImageView) mActivity.findViewById(
-                com.android.setupwizardlib.R.id.suw_layout_icon)).getDrawable();
+        return ((ImageView) mActivity.findViewById(R.id.sud_layout_icon)).getDrawable();
     }
 
     private Bitmap drawableToBitmap(Drawable drawable) {

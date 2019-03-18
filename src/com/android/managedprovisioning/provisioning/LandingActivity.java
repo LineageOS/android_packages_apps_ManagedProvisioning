@@ -26,7 +26,7 @@ import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.setupwizardlib.GlifLayout;
+import com.google.android.setupdesign.GlifLayout;
 
 /**
  * The first activity shown during provisioning.
@@ -68,7 +68,7 @@ public class LandingActivity extends SetupGlifLayoutActivity {
 
         handleSupportUrl(customizationParams);
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.findViewById(R.id.next_button).setOnClickListener(v -> onNextButtonClicked(params));
+        Utils.addNextButton(layout, v -> onNextButtonClicked(params));
 
         if (Utils.isSilentProvisioning(this, params)) {
             onNextButtonClicked(params);

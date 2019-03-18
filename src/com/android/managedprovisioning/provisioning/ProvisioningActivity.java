@@ -28,7 +28,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
@@ -40,7 +39,8 @@ import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.transition.TransitionActivity;
-import com.android.setupwizardlib.GlifLayout;
+import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupcompat.template.FooterButton;
 import java.util.List;
 
 /**
@@ -55,6 +55,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
     private TransitionAnimationHelper mTransitionAnimationHelper;
+    private FooterButton mDoneButton;
 
     public ProvisioningActivity() {
         this(null, new Utils());
@@ -91,8 +92,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
 
     private void updateProvisioningFinalizedScreen() {
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.findViewById(R.id.footer).setVisibility(View.VISIBLE);
         layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
+        mDoneButton.setVisibility(View.VISIBLE);
 
         if (Utils.isSilentProvisioning(this, mParams)) {
             onDoneButtonClicked();
@@ -240,7 +241,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
 
     private void startTransitionAnimation() {
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final TextView header = layout.findViewById(R.id.suw_layout_title);
+        final TextView header = layout.findViewById(R.id.suc_layout_title);
         final ImageView drawable = layout.findViewById(R.id.provisioning_progress_suw_layout_image);
         final boolean isProfileOwnerAction =
                 mUtils.isProfileOwnerAction(mParams.provisioningAction);
@@ -267,17 +268,14 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.findViewById(R.id.footer).setVisibility(View.GONE);
-
         final int progressLabelResId = isPoProvisioning
                 ? R.string.work_profile_provisioning_progress_label
                 : R.string.fully_managed_device_provisioning_progress_label;
         final TextView progressLabel = layout.findViewById(R.id.provisioning_progress_label);
         progressLabel.setText(progressLabelResId);
 
-        final Button doneButton = layout.findViewById(R.id.done_button);
-        doneButton.setOnClickListener(v -> onDoneButtonClicked());
-        mUtils.customizeButtonColors(doneButton, customizationParams.mainColor);
+        mDoneButton = Utils.addDoneButton(layout, v -> onDoneButtonClicked());
+        mDoneButton.setVisibility(View.GONE);
 
         layout.findViewById(R.id.provisioning_progress).setVisibility(View.VISIBLE);
     }
