@@ -32,6 +32,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
@@ -55,7 +57,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
     private TransitionAnimationHelper mTransitionAnimationHelper;
-    private FooterButton mDoneButton;
+    private FooterButton mNextButton;
 
     public ProvisioningActivity() {
         this(null, new Utils());
@@ -93,14 +95,14 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     private void updateProvisioningFinalizedScreen() {
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
-        mDoneButton.setVisibility(View.VISIBLE);
+        mNextButton.setVisibility(View.VISIBLE);
 
         if (Utils.isSilentProvisioning(this, mParams)) {
-            onDoneButtonClicked();
+            onNextButtonClicked();
         }
     }
 
-    private void onDoneButtonClicked() {
+    private void onNextButtonClicked() {
         new FinalizationController(getApplicationContext()).provisioningInitiallyDone(mParams);
         if (mUtils.isAdminIntegratedFlow(mParams)) {
             enableGlobalFlags();
@@ -162,7 +164,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
                     }
                 } else {
                     error(/* titleId */ R.string.cant_set_up_device,
-                            /* messageId */ R.string.cant_set_up_device,
+                            /* messageId */ R.string.contact_your_admin_for_help,
                             /* resetRequired = */ true);
                 }
                 break;
@@ -240,13 +242,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     }
 
     private void startTransitionAnimation() {
-        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final TextView header = layout.findViewById(R.id.suc_layout_title);
-        final ImageView drawable = layout.findViewById(R.id.provisioning_progress_suw_layout_image);
-        final boolean isProfileOwnerAction =
-                mUtils.isProfileOwnerAction(mParams.provisioningAction);
-        mTransitionAnimationHelper =
-            new TransitionAnimationHelper(isProfileOwnerAction, header, drawable);
         mTransitionAnimationHelper.start();
     }
 
@@ -274,9 +269,38 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         final TextView progressLabel = layout.findViewById(R.id.provisioning_progress_label);
         progressLabel.setText(progressLabelResId);
 
-        mDoneButton = Utils.addDoneButton(layout, v -> onDoneButtonClicked());
-        mDoneButton.setVisibility(View.GONE);
+        mNextButton = Utils.addNextButton(layout, v -> onNextButtonClicked());
+        mNextButton.setVisibility(View.GONE);
+
+        final TextView header = layout.findViewById(R.id.suc_layout_title);
+        header.setTextColor(getColorStateList(R.color.header_text_color));
+
+        setupTransitionAnimationHelper(layout);
 
         layout.findViewById(R.id.provisioning_progress).setVisibility(View.VISIBLE);
+        handleSupportUrl(layout, customizationParams);
+    }
+
+    private void setupTransitionAnimationHelper(GlifLayout layout) {
+        final TextView header = layout.findViewById(R.id.suc_layout_title);
+        final TextView subHeader = layout.findViewById(R.id.subheader);
+        final ImageView drawable = layout.findViewById(R.id.provisioning_progress_suw_layout_image);
+        final TextView providerInfo = layout.findViewById(R.id.provider_info);
+        final boolean isProfileOwnerAction =
+                mUtils.isProfileOwnerAction(mParams.provisioningAction);
+        mTransitionAnimationHelper = new TransitionAnimationHelper(isProfileOwnerAction, header,
+                subHeader, drawable, providerInfo);
+    }
+
+    private void handleSupportUrl(GlifLayout layout, CustomizationParams customization) {
+        final TextView info = layout.findViewById(R.id.provider_info);
+        final String deviceProvider = getString(R.string.organization_admin);
+        final String contactDeviceProvider =
+                getString(R.string.contact_device_provider, deviceProvider);
+        final ClickableSpanFactory spanFactory =
+                new ClickableSpanFactory(getColor(R.color.blue_text));
+        mUtils.handleSupportUrl(this, customization, spanFactory,
+                new AccessibilityContextMenuMaker(this), info, deviceProvider,
+                contactDeviceProvider);
     }
 }

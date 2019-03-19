@@ -22,6 +22,7 @@ import android.annotation.StringRes;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.managedprovisioning.R;
@@ -37,22 +38,20 @@ import java.util.Arrays;
 class TransitionAnimationHelper {
 
     private static final TransitionScreenWrapper[] MANAGED_PROFILE_SETUP_TRANSITIONS = {
-        new TransitionScreenWrapper(
-            R.string.work_profile_provisioning_step_1_header, R.drawable.enterprise_wp_animation),
-        new TransitionScreenWrapper(
-            R.string.work_profile_provisioning_step_2_header, R.drawable.enterprise_do_animation),
-        new TransitionScreenWrapper(
-            R.string.work_profile_provisioning_step_3_header, R.drawable.enterprise_wp_animation)
+        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_1_header,
+                R.drawable.enterprise_wp_animation),
+        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_2_header,
+                R.drawable.enterprise_do_animation),
+        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_3_header,
+                R.drawable.enterprise_wp_animation)
     };
     private static final TransitionScreenWrapper[] FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS = {
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_1_header,
                 R.drawable.enterprise_do_animation),
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_2_header,
-                R.drawable.enterprise_wp_animation),
-        new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_3_header,
-                R.drawable.enterprise_do_animation),
-        new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_4_header,
-                R.drawable.enterprise_wp_animation)
+                R.drawable.enterprise_wp_animation,
+                R.string.fully_managed_device_provisioning_step_2_subheader,
+                /* showContactAdmin */ true)
     };
     private static final int TRANSITION_TIME_MILLIS = 5000;
     private static final int CROSSFADE_ANIMATION_DURATION_MILLIS = 500;
@@ -60,19 +59,25 @@ class TransitionAnimationHelper {
     private final boolean mIsManagedProfileProvisioning;
     private final CrossFadeHelper mCrossFadeHelper;
     private final TextView mHeader;
+    private final TextView mSubHeader;
     private final ImageView mImage;
+    private final TextView mProviderInfo;
     private final Runnable mStartNextTransitionRunnable = this::startNextAnimation;
 
     private Handler mUiThreadHandler = new Handler(Looper.getMainLooper());
     private int mCurrentTransitionIndex;
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
 
-    TransitionAnimationHelper(
-            boolean isWorkProfileProvisioning, TextView header, ImageView image) {
+    TransitionAnimationHelper(boolean isWorkProfileProvisioning, TextView header,
+            TextView subHeader, ImageView image, TextView providerInfo) {
         mIsManagedProfileProvisioning = isWorkProfileProvisioning;
         mHeader = checkNotNull(header);
+        mSubHeader = checkNotNull(subHeader);
         mImage = checkNotNull(image);
+        mProviderInfo = checkNotNull(providerInfo);
         mCrossFadeHelper = getCrossFadeHelper();
+
+        updateUiValues(mCurrentTransitionIndex);
     }
 
     void start() {
@@ -90,7 +95,7 @@ class TransitionAnimationHelper {
 
     private CrossFadeHelper getCrossFadeHelper() {
         return new CrossFadeHelper(
-            Arrays.asList(mHeader, mImage),
+            Arrays.asList(mHeader, mImage, mSubHeader, mProviderInfo),
             CROSSFADE_ANIMATION_DURATION_MILLIS,
             new Callback() {
                 @Override
@@ -103,8 +108,10 @@ class TransitionAnimationHelper {
 
                 @Override
                 public void fadeInCompleted() {
-                    mUiThreadHandler.postDelayed(
+                    if (mCurrentTransitionIndex < getTransitions().length-1) {
+                        mUiThreadHandler.postDelayed(
                             mStartNextTransitionRunnable, TRANSITION_TIME_MILLIS);
+                    }
                 }
             });
     }
@@ -131,21 +138,45 @@ class TransitionAnimationHelper {
     }
 
     private void updateUiValues(int currentTransitionIndex) {
-        final TransitionScreenWrapper[] transitions = mIsManagedProfileProvisioning
-                ? MANAGED_PROFILE_SETUP_TRANSITIONS : FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS;
+        final TransitionScreenWrapper[] transitions = getTransitions();
         final TransitionScreenWrapper transition =
             transitions[currentTransitionIndex % transitions.length];
         mHeader.setText(transition.header);
         mImage.setImageResource(transition.drawable);
+        if (transition.subHeader != 0) {
+            mSubHeader.setVisibility(View.VISIBLE);
+            mSubHeader.setText(transition.subHeader);
+        } else {
+            mSubHeader.setVisibility(View.INVISIBLE);
+        }
+        if (transition.showContactAdmin) {
+            mProviderInfo.setVisibility(View.VISIBLE);
+        } else {
+            mProviderInfo.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private TransitionScreenWrapper[] getTransitions() {
+        return mIsManagedProfileProvisioning
+                    ? MANAGED_PROFILE_SETUP_TRANSITIONS : FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS;
     }
 
     private static final class TransitionScreenWrapper {
         final @StringRes int header;
         final @DrawableRes int drawable;
+        final @StringRes int subHeader;
+        final boolean showContactAdmin;
 
         TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable) {
+            this(header, drawable, /* subHeader */ 0, /* showContactAdmin */ false);
+        }
+
+        TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable,
+                @StringRes int subHeader, boolean showContactAdmin) {
             this.header = header;
             this.drawable = drawable;
+            this.subHeader = subHeader;
+            this.showContactAdmin = showContactAdmin;
         }
     }
 }

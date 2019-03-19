@@ -41,4 +41,5 @@
     <color name="white">#FFF</color>
     <color name="teal2">#FF26A599</color>
     <color name="term_status_bar">#E8EAED</color>
+    <color name="header_text_color">#000000</color>
 </resources>
