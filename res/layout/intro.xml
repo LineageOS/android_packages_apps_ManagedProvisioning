@@ -28,9 +28,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <Button
-            android:layout_marginTop="@dimen/spacer_16"
+            android:layout_marginTop="@dimen/spacer_8"
             android:id="@+id/show_terms_button"
             android:text="@string/view_terms"
+            android:paddingStart="@dimen/spacer_16"
+            android:paddingEnd="@dimen/spacer_16"
+            android:paddingTop="@dimen/spacer_16"
+            android:paddingBottom="@dimen/spacer_16"
             android:contentDescription="@string/read_terms"
             style="@style/Provisioning2Theme.Button.Transparent"/>
         <ImageView

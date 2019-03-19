@@ -90,7 +90,7 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         final String contactDeviceProvider =
                 getString(R.string.contact_device_provider, deviceProvider);
         final ClickableSpanFactory clickableSpanFactory =
-                new ClickableSpanFactory(getColor(R.color.blue));
+                new ClickableSpanFactory(getColor(R.color.blue_text));
         mUtils.handleSupportUrl(this, customizationParams, clickableSpanFactory,
             mContextMenuMaker, info, deviceProvider, contactDeviceProvider);
     }
