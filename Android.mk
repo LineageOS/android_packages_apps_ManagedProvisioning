@@ -8,6 +8,8 @@ LOCAL_JAVA_LIBRARIES += android.car
 LOCAL_STATIC_ANDROID_LIBRARIES += \
         androidx.legacy_legacy-support-v4 \
         androidx.car_car \
+        setupcompat \
+        setupdesign
 
 LOCAL_STATIC_LIBRARIES := devicepolicyprotosnano
 
@@ -25,8 +27,6 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 # Packages to be included in code coverage runs. This does not affect production builds.
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.managedprovisioning.*
-
-include frameworks/opt/setupwizard/library/common-gingerbread.mk
 
 include $(BUILD_PACKAGE)
 

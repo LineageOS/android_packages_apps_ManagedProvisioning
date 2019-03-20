@@ -26,7 +26,7 @@ import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.setupwizardlib.GlifLayout;
+import com.google.android.setupdesign.GlifLayout;
 
 /**
  * Progress activity shown whilst network setup, downloading, verifying and installing the

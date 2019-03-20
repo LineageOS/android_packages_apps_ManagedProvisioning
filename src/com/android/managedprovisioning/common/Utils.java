@@ -31,6 +31,7 @@ import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MA
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
+import com.android.managedprovisioning.R;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -39,6 +40,7 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.annotation.StringRes;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -51,7 +53,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -71,6 +72,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -89,6 +91,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupcompat.template.FooterBarMixin;
+import com.google.android.setupcompat.template.FooterButton;
+import com.google.android.setupcompat.template.FooterButton.ButtonType;
 
 /**
  * Class containing various auxiliary methods.
@@ -727,14 +734,6 @@ public class Utils {
                 >= 1000 * THRESHOLD_BRIGHT_COLOR;
     }
 
-    public void customizeButtonColors(Button button, int color) {
-        button.setBackgroundTintList(ColorStateList.valueOf(color));
-        if (isBrightColor(color)) {
-            button.setTextColor(button.getContext()
-                    .getColor(com.android.managedprovisioning.R.color.gray_button_text));
-        }
-    }
-
     /**
      * Returns whether given intent can be resolved for the user.
      */
@@ -815,5 +814,31 @@ public class Utils {
         final UserManager userManager = context.getSystemService(UserManager.class);
         return isPackageTestOnly(context.getPackageManager(),
                 params.inferDeviceAdminPackageName(), userManager.getUserHandle());
+    }
+
+    public static FooterButton addNextButton(GlifLayout layout, @NonNull OnClickListener listener) {
+        return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.next);
+    }
+
+    public static FooterButton addDoneButton(GlifLayout layout, @NonNull OnClickListener listener) {
+        return setPrimaryButton(layout, listener, ButtonType.DONE, R.string.done);
+    }
+
+    public static FooterButton addAcceptAndContinueButton(GlifLayout layout,
+        @NonNull OnClickListener listener) {
+        return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.accept_and_continue);
+    }
+
+    private static FooterButton setPrimaryButton(GlifLayout layout, OnClickListener listener,
+        @ButtonType int buttonType, @StringRes int label) {
+        final FooterBarMixin mixin = layout.getMixin(FooterBarMixin.class);
+        final FooterButton primaryButton = new FooterButton.Builder(layout.getContext())
+            .setText(label)
+            .setListener(listener)
+            .setButtonType(buttonType)
+            .setTheme(R.style.SudGlifButton_Primary)
+            .build();
+        mixin.setPrimaryButton(primaryButton);
+        return primaryButton;
     }
 }

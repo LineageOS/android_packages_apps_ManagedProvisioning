@@ -24,7 +24,7 @@ import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.setupwizardlib.GlifLayout;
+import com.google.android.setupdesign.GlifLayout;
 
 /**
  * This activity shows the final screen of the admin integrated flow.
@@ -73,12 +73,12 @@ public class FinalScreenActivity extends SetupGlifLayoutActivity {
             customizationParams.mainColor, customizationParams.statusBarColor);
         setTitle(titleResId);
 
-        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         final ImageView imageView = layout.findViewById(R.id.animation);
         final AnimatedVectorDrawable animatedVectorDrawable =
                 (AnimatedVectorDrawable) imageView.getDrawable();
         mRepeatingVectorAnimation = new RepeatingVectorAnimation(animatedVectorDrawable);
-        layout.findViewById(R.id.done_button).setOnClickListener(v -> onDoneButtonPressed());
+        Utils.addDoneButton(layout, v -> onDoneButtonPressed());
 
         if (Utils.isSilentProvisioning(this, params)) {
             onDoneButtonPressed();

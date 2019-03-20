@@ -32,7 +32,7 @@ import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
-import com.android.setupwizardlib.GlifLayout;
+import com.google.android.setupdesign.GlifLayout;
 import java.util.List;
 
 /**
@@ -87,7 +87,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
                 customization.statusBarColor);
 
         setupAnimation();
-        setupAcceptAndContinueButton(customization, uiParams.isSilentProvisioning);
+        setupAcceptAndContinueButton(uiParams.isSilentProvisioning);
 
         // set the activity title
         mActivity.setTitle(titleResId);
@@ -105,11 +105,9 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mRepeatingVectorAnimation.start();
     }
 
-    private void setupAcceptAndContinueButton(CustomizationParams customization,
-            boolean isSilentProvisioning) {
-        final Button nextButton = mActivity.findViewById(R.id.next_button);
-        nextButton.setOnClickListener(v -> onNextButtonClicked());
-        mUtils.customizeButtonColors(nextButton, customization.mainColor);
+    private void setupAcceptAndContinueButton(boolean isSilentProvisioning) {
+        final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
+        Utils.addAcceptAndContinueButton(layout, v -> onNextButtonClicked());
         if (isSilentProvisioning) {
             onNextButtonClicked();
         }

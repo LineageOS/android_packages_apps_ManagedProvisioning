@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 -->
-<com.android.setupwizardlib.GlifLayout
+<com.google.android.setupdesign.GlifLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/setup_wizard_layout"
@@ -40,4 +40,4 @@
                 android:paddingTop="@dimen/button_padding_top"/>
         </LinearLayout>
     </LinearLayout>
-</com.android.setupwizardlib.GlifLayout>
+</com.google.android.setupdesign.GlifLayout>

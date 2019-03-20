@@ -153,7 +153,7 @@ public class BenefitsAnimation {
         // if the content is bigger than the screen, try to shrink just the animation
         int offset = adjustedHeight - originalHeight;
         int contentHeight = mActivity.findViewById(R.id.intro_po_content).getHeight() + offset;
-        int viewportHeight = mActivity.findViewById(R.id.suw_layout_content).getHeight();
+        int viewportHeight = mActivity.findViewById(R.id.suc_layout_content).getHeight();
         if (contentHeight > viewportHeight) {
             int targetHeight = layoutParams.height - (contentHeight - viewportHeight);
             int minHeight = mActivity.getResources().getDimensionPixelSize(

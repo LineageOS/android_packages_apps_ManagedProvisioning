@@ -23,7 +23,6 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -47,8 +46,8 @@ import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
-import com.android.managedprovisioning.preprovisioning.WebActivity;
 import com.android.managedprovisioning.preprovisioning.anim.BenefitsAnimation;
+import com.google.android.setupdesign.GlifLayout;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -188,7 +187,7 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
                 customization.mainColor,
                 customization.statusBarColor);
 
-        setupAcceptAndContinueButton(customization, uiParams.isSilentProvisioning);
+        setupAcceptAndContinueButton(uiParams.isSilentProvisioning);
 
         mActivity.setTitle(titleResId);
 
@@ -203,14 +202,9 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
         }
     }
 
-    private void setupAcceptAndContinueButton(CustomizationParams customization,
-            boolean isSilentProvisioning) {
-        final Button nextButton = mActivity.findViewById(R.id.next_button);
-        nextButton.setOnClickListener(v -> onNextButtonClicked());
-        nextButton.setBackgroundTintList(ColorStateList.valueOf(customization.mainColor));
-        if (mUtils.isBrightColor(customization.mainColor)) {
-            nextButton.setTextColor(mActivity.getColor(R.color.gray_button_text));
-        }
+    private void setupAcceptAndContinueButton(boolean isSilentProvisioning) {
+        final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
+        Utils.addAcceptAndContinueButton(layout, v -> onNextButtonClicked());
         if (isSilentProvisioning) {
             onNextButtonClicked();
         }

@@ -19,8 +19,11 @@ import android.os.Bundle;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
+import com.google.android.setupdesign.GlifLayout;
 
 /**
  * Activity which informs the user that they are about to set up their personal profile.
@@ -49,7 +52,9 @@ public class TransitionActivity extends SetupGlifLayoutActivity {
                 R.layout.transition_screen, R.string.now_lets_set_up_everything_else,
                 customizationParams.mainColor, customizationParams.statusBarColor);
         setTitle(R.string.set_up_everything_else);
-        findViewById(R.id.next_button).setOnClickListener(v -> finish());
+
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        Utils.addNextButton(layout, v -> finish());
     }
 
     @Override
