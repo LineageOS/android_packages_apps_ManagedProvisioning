@@ -57,6 +57,8 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
 
         if (headerResourceId != null) {
             layout.setHeaderText(headerResourceId);
+            layout.setHeaderColor(
+                    getResources().getColorStateList(R.color.header_text_color, getTheme()));
         }
 
         layout.setIcon(LogoUtils.getOrganisationLogo(this, mainColor));

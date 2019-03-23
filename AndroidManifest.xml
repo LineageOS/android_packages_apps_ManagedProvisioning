@@ -205,7 +205,8 @@
 
         <activity
             android:name=".transition.TransitionActivity"
-            android:theme="@style/SudThemeGlifV3.Light" />
+            android:theme="@style/SudThemeGlifV3.Light"
+            android:immersive="true"/>
 
         <service android:name=".provisioning.ProvisioningService" />
         <service android:name=".finalization.SendDpcBroadcastService" />
@@ -240,7 +241,8 @@
                 android:theme="@android:style/Theme.NoDisplay"
                 android:noHistory="true"
                 android:excludeFromRecents="true"
-                android:exported="true">
+                android:exported="true"
+                android:immersive="true">
             <intent-filter>
                 <action android:name="android.app.action.PROVISION_FINALIZATION" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -249,10 +251,12 @@
 
         <activity
             android:name=".provisioning.LandingActivity"
-            android:theme="@style/SudThemeGlifV3.Light" />
+            android:theme="@style/SudThemeGlifV3.Light"
+            android:immersive="true" />
 
         <activity
             android:name=".finalization.FinalScreenActivity"
-            android:theme="@style/SudThemeGlifV3.Light" />
+            android:theme="@style/SudThemeGlifV3.Light"
+            android:immersive="true" />
     </application>
 </manifest>

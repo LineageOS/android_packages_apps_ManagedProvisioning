@@ -165,11 +165,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         mController.showUserConsentScreen();
                     } else {
                         showFactoryResetDialog(R.string.cant_set_up_device,
-                                R.string.cant_set_up_device);
+                                R.string.contact_your_admin_for_help);
                     }
                 } else {
                     showFactoryResetDialog(R.string.cant_set_up_device,
-                            R.string.cant_set_up_device);
+                            R.string.contact_your_admin_for_help);
                 }
                 break;
             default:
