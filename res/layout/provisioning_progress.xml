@@ -31,12 +31,14 @@
         android:id="@+id/subheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
         style="@style/SudDescription.Glif"/>
     <TextView
         android:id="@+id/provider_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacer_24"
+        android:importantForAccessibility="no"
         style="@style/SudDescription.Glif"/>
     <ImageView
         android:id="@+id/animation"

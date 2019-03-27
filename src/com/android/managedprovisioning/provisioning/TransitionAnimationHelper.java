@@ -49,44 +49,46 @@ class TransitionAnimationHelper {
     }
 
     @VisibleForTesting
-    static final TransitionScreenWrapper[] WORK_PROFILE_SETUP_TRANSITIONS = {
+    static final ProvisioningModeWrapper WORK_PROFILE_WRAPPER
+            = new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
         new TransitionScreenWrapper(R.string.work_profile_provisioning_step_1_header,
                 R.drawable.separate_work_and_personal_animation),
         new TransitionScreenWrapper(R.string.work_profile_provisioning_step_2_header,
                 R.drawable.pause_work_apps_animation),
         new TransitionScreenWrapper(R.string.work_profile_provisioning_step_3_header,
                 R.drawable.not_private_animation)
-    };
+    }, R.string.work_profile_provisioning_summary);
 
     @VisibleForTesting
-    static final TransitionScreenWrapper[] FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS = {
+    static final ProvisioningModeWrapper FULLY_MANAGED_DEVICE_WRAPPER
+            = new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_1_header,
                 R.drawable.connect_on_the_go_animation),
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_2_header,
                 R.drawable.not_private_animation,
                 R.string.fully_managed_device_provisioning_step_2_subheader,
                 /* showContactAdmin */ true)
-    };
+    }, R.string.fully_managed_device_provisioning_summary);
 
     @VisibleForTesting
-    static final TransitionScreenWrapper[]
-        WORK_PROFILE_ON_FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS = {
+    static final ProvisioningModeWrapper WORK_PROFILE_ON_FULLY_MANAGED_DEVICE_WRAPPER
+            = new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_1_header,
-            R.drawable.separate_work_and_personal_animation),
+                R.drawable.separate_work_and_personal_animation),
         new TransitionScreenWrapper(R.string.work_profile_provisioning_step_2_header,
-            R.drawable.pause_work_apps_animation),
+                R.drawable.pause_work_apps_animation),
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_2_header,
-            R.drawable.not_private_animation,
-            R.string.fully_managed_device_provisioning_step_2_subheader,
-            /* showContactAdmin */ true)
-    };
+                R.drawable.not_private_animation,
+                R.string.fully_managed_device_provisioning_step_2_subheader,
+                /* showContactAdmin */ true)
+    }, R.string.work_profile_on_fully_managed_device_provisioning_summary);
+
     private static final int TRANSITION_TIME_MILLIS = 5000;
     private static final int CROSSFADE_ANIMATION_DURATION_MILLIS = 500;
 
     static final int PROVISIONING_MODE_WORK_PROFILE = 1;
     static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 2;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
-    private final TransitionScreenWrapper[] mTransitions;
 
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
         PROVISIONING_MODE_WORK_PROFILE,
@@ -100,8 +102,8 @@ class TransitionAnimationHelper {
     private final AnimationComponents mAnimationComponents;
     private final Runnable mStartNextTransitionRunnable = this::startNextAnimation;
     private final boolean mShowAnimations;
-    private final @ProvisioningMode int mProvisioningMode;
     private TransitionAnimationCallback mCallback;
+    private final ProvisioningModeWrapper mProvisioningModeWrapper;
 
     private Handler mUiThreadHandler = new Handler(Looper.getMainLooper());
     private int mCurrentTransitionIndex;
@@ -109,18 +111,18 @@ class TransitionAnimationHelper {
 
     TransitionAnimationHelper(@ProvisioningMode int provisioningMode,
             AnimationComponents animationComponents, TransitionAnimationCallback callback) {
-        mProvisioningMode = provisioningMode;
-        mTransitions = getTransitions();
         mAnimationComponents = checkNotNull(animationComponents);
         mCallback = checkNotNull(callback);
+        mProvisioningModeWrapper = getProvisioningModeWrapper(provisioningMode);
         mCrossFadeHelper = getCrossFadeHelper();
         mShowAnimations = shouldShowAnimations();
 
+        applyContentDescription();
         updateUiValues(mCurrentTransitionIndex);
     }
 
     boolean areAllTransitionsShown() {
-        return mCurrentTransitionIndex == mTransitions.length - 1;
+        return mCurrentTransitionIndex == mProvisioningModeWrapper.transitions.length - 1;
     }
 
     void start() {
@@ -161,7 +163,7 @@ class TransitionAnimationHelper {
 
     @VisibleForTesting
     void startNextAnimation() {
-        if (mCurrentTransitionIndex >= mTransitions.length - 1) {
+        if (mCurrentTransitionIndex >= mProvisioningModeWrapper.transitions.length-1) {
             if (mCallback != null) {
                 mCallback.onAllTransitionsShown();
             }
@@ -197,8 +199,10 @@ class TransitionAnimationHelper {
 
     @VisibleForTesting
     void updateUiValues(int currentTransitionIndex) {
+        final TransitionScreenWrapper[] transitions = mProvisioningModeWrapper.transitions;
         final TransitionScreenWrapper transition =
-                mTransitions[currentTransitionIndex % mTransitions.length];
+                transitions[currentTransitionIndex % transitions.length];
+
         mAnimationComponents.header.setText(transition.header);
 
         final ImageView image = mAnimationComponents.image;
@@ -224,22 +228,29 @@ class TransitionAnimationHelper {
         }
     }
 
+    @VisibleForTesting
+    ProvisioningModeWrapper getProvisioningModeWrapper(
+            @ProvisioningMode int provisioningMode) {
+        switch (provisioningMode) {
+            case PROVISIONING_MODE_WORK_PROFILE:
+                return WORK_PROFILE_WRAPPER;
+            case PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
+                return FULLY_MANAGED_DEVICE_WRAPPER;
+            case PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE:
+                return WORK_PROFILE_ON_FULLY_MANAGED_DEVICE_WRAPPER;
+        }
+        throw new IllegalStateException("Unexpected provisioning mode " + provisioningMode);
+    }
+
     private boolean shouldShowAnimations() {
         final Context context = mAnimationComponents.header.getContext();
         return context.getResources().getBoolean(R.bool.show_edu_animations);
     }
 
-    @VisibleForTesting
-    TransitionScreenWrapper[] getTransitions() {
-        switch (mProvisioningMode) {
-            case PROVISIONING_MODE_WORK_PROFILE:
-                return WORK_PROFILE_SETUP_TRANSITIONS;
-            case PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
-                return FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS;
-            case PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE:
-                return WORK_PROFILE_ON_FULLY_MANAGED_DEVICE_SETUP_TRANSITIONS;
-        }
-        throw new IllegalStateException("Unexpected provisioning mode " + mProvisioningMode);
+    private void applyContentDescription() {
+        final TextView header = mAnimationComponents.header;
+        final Context context = header.getContext();
+        header.setContentDescription(context.getString(mProvisioningModeWrapper.summary));
     }
 
     private static final class TransitionScreenWrapper {
@@ -260,6 +271,16 @@ class TransitionAnimationHelper {
                     "Drawable resource id must be a positive number.");
             this.subHeader = subHeader;
             this.showContactAdmin = showContactAdmin;
+        }
+    }
+
+    private static final class ProvisioningModeWrapper {
+        final TransitionScreenWrapper[] transitions;
+        final @StringRes int summary;
+
+        ProvisioningModeWrapper(TransitionScreenWrapper[] transitions, @StringRes int summary) {
+            this.transitions = checkNotNull(transitions);
+            this.summary = summary;
         }
     }
 
