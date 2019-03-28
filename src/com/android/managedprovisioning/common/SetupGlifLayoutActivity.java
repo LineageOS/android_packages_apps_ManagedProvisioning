@@ -18,6 +18,7 @@ package com.android.managedprovisioning.common;
 
 import android.annotation.Nullable;
 import android.content.res.ColorStateList;
+import android.content.res.Resources.Theme;
 import android.os.Bundle;
 import android.sysprop.SetupWizardProperties;
 
@@ -47,7 +48,13 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         super(utils);
     }
 
-    protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
+    @Override
+    protected void onApplyThemeResource(Theme theme, int resid, boolean first) {
+        theme.applyStyle(R.style.SetupWizardPartnerResource, true);
+        super.onApplyThemeResource(theme, resid, first);
+    }
+
+        protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
             int mainColor, int statusBarColor) {
         setContentView(layoutResourceId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
