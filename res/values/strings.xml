@@ -381,6 +381,10 @@
   <!-- Spoken text for screen readers. This is summarizing the key features of their work device while it's being set up. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_summary">Use this device to easily access your work apps. This device isn\'t private, so your IT admin may be able to see your data and activity. To learn more, contact your IT admin.</string>
 
+  <!-- Work profile on fully managed device setup screens -->
+  <!-- Spoken text for screen readers. This is summarizing the key features of their work device while it's being set up. [CHAR LIMIT=NONE]-->
+  <string name="work_profile_on_fully_managed_device_provisioning_summary">Use this device to easily access your work apps. You can pause your work apps when you\'re done for the day. This device isn\'t private, so your IT admin may be able to see your data and activity. To learn more, contact your IT admin.</string>
+
   <!-- Fully managed device privacy notification -->
   <!-- Notification title. This text is letting the user know about a privacy reminder before they start using their new work device. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_privacy_title">Privacy reminder</string>

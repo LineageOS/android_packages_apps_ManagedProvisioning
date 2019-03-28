@@ -21,26 +21,28 @@
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+    <Button
+        android:layout_marginTop="@dimen/spacer_8"
+        android:id="@+id/show_terms_button"
+        android:text="@string/view_terms"
+        android:paddingStart="@dimen/spacer_16"
+        android:paddingEnd="@dimen/spacer_16"
+        android:paddingTop="@dimen/spacer_16"
+        android:paddingBottom="@dimen/spacer_16"
+        android:contentDescription="@string/read_terms"
+        style="@style/Provisioning2Theme.Button.Transparent"/>
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <Button
-            android:layout_marginTop="@dimen/spacer_8"
-            android:id="@+id/show_terms_button"
-            android:text="@string/view_terms"
-            android:paddingStart="@dimen/spacer_16"
-            android:paddingEnd="@dimen/spacer_16"
-            android:paddingTop="@dimen/spacer_16"
-            android:paddingBottom="@dimen/spacer_16"
-            android:contentDescription="@string/read_terms"
-            style="@style/Provisioning2Theme.Button.Transparent"/>
-        <ImageView
-            android:id="@+id/animation"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/spacer_16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/enterprise_wp_animation" />
-    </LinearLayout>
+        android:layout_height="match_parent">
+      <ImageView
+          android:id="@+id/animation"
+          android:layout_centerInParent="true"
+          android:layout_width="wrap_content"
+          android:layout_height="@dimen/animation_height"/>
+    </RelativeLayout>
+  </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>

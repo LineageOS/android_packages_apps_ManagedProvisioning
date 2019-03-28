@@ -21,4 +21,16 @@
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+  <RelativeLayout
+      style="@style/SudContentFrame"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/animation"
+        android:src="@drawable/everything_else_animation_intro"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/animation_height"
+        android:scaleType="centerCrop"/>
+  </RelativeLayout>
 </com.google.android.setupdesign.GlifLayout>
