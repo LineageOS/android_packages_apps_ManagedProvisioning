@@ -74,14 +74,12 @@ class TransitionAnimationHelper {
     static final ProvisioningModeWrapper WORK_PROFILE_ON_FULLY_MANAGED_DEVICE_WRAPPER
             = new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_1_header,
-                R.drawable.separate_work_and_personal_animation),
-        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_2_header,
-                R.drawable.pause_work_apps_animation),
+                R.drawable.connect_on_the_go_animation),
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_2_header,
                 R.drawable.not_private_animation,
                 R.string.fully_managed_device_provisioning_step_2_subheader,
                 /* showContactAdmin */ true)
-    }, R.string.work_profile_on_fully_managed_device_provisioning_summary);
+    }, R.string.fully_managed_device_provisioning_summary);
 
     private static final int TRANSITION_TIME_MILLIS = 5000;
     private static final int CROSSFADE_ANIMATION_DURATION_MILLIS = 500;

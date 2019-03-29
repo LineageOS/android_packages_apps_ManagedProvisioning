@@ -49,7 +49,10 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.Tr
 import com.android.managedprovisioning.transition.TransitionActivity;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupcompat.template.FooterButton;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Progress activity shown whilst provisioning is ongoing.
@@ -63,6 +66,17 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
+
+    private static final Map<Integer, Integer> PROVISIONING_MODE_TO_PROGRESS_LABEL =
+            Collections.unmodifiableMap(new HashMap<Integer, Integer>() {{
+                put(PROVISIONING_MODE_WORK_PROFILE,
+                        R.string.work_profile_provisioning_progress_label);
+                put(PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+                        R.string.fully_managed_device_provisioning_progress_label);
+                put(PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
+                        R.string.fully_managed_device_provisioning_progress_label);
+            }});
+
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private FooterButton mNextButton;
 
@@ -274,9 +288,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final int progressLabelResId = isPoProvisioning
-                ? R.string.work_profile_provisioning_progress_label
-                : R.string.fully_managed_device_provisioning_progress_label;
+        final int progressLabelResId =
+                PROVISIONING_MODE_TO_PROGRESS_LABEL.get(getProvisioningMode());
         final TextView progressLabel = layout.findViewById(R.id.provisioning_progress);
         progressLabel.setText(progressLabelResId);
         progressLabel.setVisibility(View.VISIBLE);
