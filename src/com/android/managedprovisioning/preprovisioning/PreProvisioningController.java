@@ -323,7 +323,7 @@ public class PreProvisioningController {
         if (!checkDevicePolicyPreconditions()) {
             if (mParams.isOrganizationOwnedProvisioning) {
                 mUi.showFactoryResetDialog(R.string.cant_set_up_device,
-                        R.string.cant_set_up_device);
+                        R.string.contact_your_admin_for_help);
             } else {
                 return;
             }

@@ -763,6 +763,7 @@ public class Utils {
                 AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
                 String deviceProvider, String contactDeviceProvider) {
         if (customizationParams.supportUrl == null) {
+            textView.setText(contactDeviceProvider);
             return;
         }
         final SpannableString spannableString = new SpannableString(contactDeviceProvider);
@@ -776,7 +777,6 @@ public class Utils {
             textView.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
         }
 
-        textView.setVisibility(View.VISIBLE);
         textView.setText(spannableString);
         contextMenuMaker.registerWithActivity(textView);
     }

@@ -82,9 +82,6 @@ public class LandingActivity extends SetupGlifLayoutActivity {
     }
 
     private void handleSupportUrl(CustomizationParams customizationParams) {
-        if (customizationParams.supportUrl == null) {
-            return;
-        }
         final TextView info = findViewById(R.id.provider_info);
         final String deviceProvider = getString(R.string.organization_admin);
         final String contactDeviceProvider =
@@ -92,7 +89,7 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         final ClickableSpanFactory clickableSpanFactory =
                 new ClickableSpanFactory(getColor(R.color.blue_text));
         mUtils.handleSupportUrl(this, customizationParams, clickableSpanFactory,
-            mContextMenuMaker, info, deviceProvider, contactDeviceProvider);
+                mContextMenuMaker, info, deviceProvider, contactDeviceProvider);
     }
 
     @Override
