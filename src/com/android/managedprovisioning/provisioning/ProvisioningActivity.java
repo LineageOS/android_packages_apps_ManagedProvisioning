@@ -18,6 +18,9 @@ package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.managedprovisioning.provisioning.TransitionAnimationHelper.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static com.android.managedprovisioning.provisioning.TransitionAnimationHelper.PROVISIONING_MODE_WORK_PROFILE;
+import static com.android.managedprovisioning.provisioning.TransitionAnimationHelper.PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE;
 
 import android.Manifest.permission;
 import android.app.Activity;
@@ -40,10 +43,16 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
+import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.ProvisioningMode;
+import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
 import com.android.managedprovisioning.transition.TransitionActivity;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupcompat.template.FooterButton;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Progress activity shown whilst provisioning is ongoing.
@@ -52,10 +61,22 @@ import java.util.List;
  * {@link ProvisioningManager}. It shows progress updates as provisioning progresses and handles
  * showing of cancel and error dialogs.</p>
  */
-public class ProvisioningActivity extends AbstractProvisioningActivity {
+public class ProvisioningActivity extends AbstractProvisioningActivity
+        implements TransitionAnimationCallback {
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
+
+    private static final Map<Integer, Integer> PROVISIONING_MODE_TO_PROGRESS_LABEL =
+            Collections.unmodifiableMap(new HashMap<Integer, Integer>() {{
+                put(PROVISIONING_MODE_WORK_PROFILE,
+                        R.string.work_profile_provisioning_progress_label);
+                put(PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+                        R.string.fully_managed_device_provisioning_progress_label);
+                put(PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
+                        R.string.fully_managed_device_provisioning_progress_label);
+            }});
+
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private FooterButton mNextButton;
 
@@ -88,7 +109,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         // TODO: call this for the new flow after new NFC flow has been added
         // maybeLaunchNfcUserSetupCompleteIntent();
 
-        updateProvisioningFinalizedScreen();
+        if (mTransitionAnimationHelper.areAllTransitionsShown()) {
+            updateProvisioningFinalizedScreen();
+        }
         mState = STATE_PROVISIONING_FINALIZED;
     }
 
@@ -242,6 +265,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
     }
 
     private void startTransitionAnimation() {
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        setupTransitionAnimationHelper(layout);
         mTransitionAnimationHelper.start();
     }
 
@@ -263,33 +288,47 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final int progressLabelResId = isPoProvisioning
-                ? R.string.work_profile_provisioning_progress_label
-                : R.string.fully_managed_device_provisioning_progress_label;
-        final TextView progressLabel = layout.findViewById(R.id.provisioning_progress_label);
+        final int progressLabelResId =
+                PROVISIONING_MODE_TO_PROGRESS_LABEL.get(getProvisioningMode());
+        final TextView progressLabel = layout.findViewById(R.id.provisioning_progress);
         progressLabel.setText(progressLabelResId);
+        progressLabel.setVisibility(View.VISIBLE);
 
         mNextButton = Utils.addNextButton(layout, v -> onNextButtonClicked());
-        mNextButton.setVisibility(View.GONE);
+        mNextButton.setVisibility(View.INVISIBLE);
 
         final TextView header = layout.findViewById(R.id.suc_layout_title);
         header.setTextColor(getColorStateList(R.color.header_text_color));
 
-        setupTransitionAnimationHelper(layout);
-
-        layout.findViewById(R.id.provisioning_progress).setVisibility(View.VISIBLE);
         handleSupportUrl(layout, customizationParams);
     }
 
     private void setupTransitionAnimationHelper(GlifLayout layout) {
         final TextView header = layout.findViewById(R.id.suc_layout_title);
         final TextView subHeader = layout.findViewById(R.id.subheader);
-        final ImageView drawable = layout.findViewById(R.id.provisioning_progress_suw_layout_image);
+        final ImageView drawable = layout.findViewById(R.id.animation);
         final TextView providerInfo = layout.findViewById(R.id.provider_info);
+        final int provisioningMode = getProvisioningMode();
+        final AnimationComponents animationComponents =
+                new AnimationComponents(header, subHeader, drawable, providerInfo);
+        mTransitionAnimationHelper =
+                new TransitionAnimationHelper(provisioningMode, animationComponents, this);
+    }
+
+    private @ProvisioningMode int getProvisioningMode() {
+        int provisioningMode = 0;
         final boolean isProfileOwnerAction =
                 mUtils.isProfileOwnerAction(mParams.provisioningAction);
-        mTransitionAnimationHelper = new TransitionAnimationHelper(isProfileOwnerAction, header,
-                subHeader, drawable, providerInfo);
+        if (isProfileOwnerAction) {
+            if (getSystemService(DevicePolicyManager.class).isDeviceManaged()) {
+                provisioningMode = PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE;
+            } else {
+                provisioningMode = PROVISIONING_MODE_WORK_PROFILE;
+            }
+        } else if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+            provisioningMode = PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+        }
+        return provisioningMode;
     }
 
     private void handleSupportUrl(GlifLayout layout, CustomizationParams customization) {
@@ -302,5 +341,12 @@ public class ProvisioningActivity extends AbstractProvisioningActivity {
         mUtils.handleSupportUrl(this, customization, spanFactory,
                 new AccessibilityContextMenuMaker(this), info, deviceProvider,
                 contactDeviceProvider);
+    }
+
+    @Override
+    public void onAllTransitionsShown() {
+        if (mState == STATE_PROVISIONING_FINALIZED) {
+            updateProvisioningFinalizedScreen();
+        }
     }
 }
