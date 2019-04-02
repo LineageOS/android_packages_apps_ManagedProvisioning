@@ -79,4 +79,7 @@
 
     <dimen name="terms_screen_margin">@dimen/spacer_0</dimen>
     <dimen name="terms_screen_padding">@dimen/spacer_0</dimen>
+
+    <!-- Provisioning -->
+    <dimen name="animation_height">162dp</dimen>
 </resources>

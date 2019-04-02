@@ -21,16 +21,16 @@
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         style="@style/SudContentFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
         <ImageView
-            android:src="@drawable/enterprise_do_animation"
             android:id="@+id/animation"
-            android:layout_width="412dp"
-            android:layout_height="412dp"
-            android:layout_gravity="center_horizontal"/>
-    </LinearLayout>
+            android:src="@drawable/all_done_animation"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/animation_height"
+            android:scaleType="centerCrop"/>
+    </RelativeLayout>
 </com.google.android.setupdesign.GlifLayout>

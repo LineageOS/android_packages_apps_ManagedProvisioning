@@ -18,6 +18,7 @@ package com.android.managedprovisioning.preprovisioning.consent;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.annotation.DrawableRes;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.content.Intent;
@@ -71,12 +72,15 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
     public void initiateUi(UiParams uiParams) {
         int titleResId = 0;
         int headerResId = 0;
+        int animationResId = 0;
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_profile;
             headerResId = R.string.work_profile_provisioning_accept_header;
+            animationResId = R.drawable.consent_animation_po;
         } else if (mUtils.isDeviceOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_device;
             headerResId = R.string.fully_managed_device_provisioning_accept_header;
+            animationResId = R.drawable.consent_animation_do;
         }
 
         final CustomizationParams customization = uiParams.customization;
@@ -86,7 +90,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
                 customization.mainColor,
                 customization.statusBarColor);
 
-        setupAnimation();
+        setupAnimation(animationResId);
         setupAcceptAndContinueButton(uiParams.isSilentProvisioning);
 
         // set the activity title
@@ -96,9 +100,10 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         setupViewTermsButton(uiParams.viewTermsIntent, uiParams.disclaimerHeadings);
     }
 
-    private void setupAnimation() {
+    private void setupAnimation(@DrawableRes int animationResId) {
         final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
         final ImageView imageView = layout.findViewById(R.id.animation);
+        imageView.setImageResource(animationResId);
         final AnimatedVectorDrawable animatedVectorDrawable =
                 (AnimatedVectorDrawable) imageView.getDrawable();
         mRepeatingVectorAnimation = new RepeatingVectorAnimation(animatedVectorDrawable);

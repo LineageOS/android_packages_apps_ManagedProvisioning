@@ -183,4 +183,10 @@
     <style name="ProvisioningProgressText">
         <item name="android:textColor">@color/accent</item>
     </style>
+
+    <style name="SetupWizardPartnerResource">
+        <!-- Disable to use partner overlay theme for outside setupwizard flow. -->
+        <item name="sucUsePartnerResource">false</item>
+    </style>
 </resources>
+
