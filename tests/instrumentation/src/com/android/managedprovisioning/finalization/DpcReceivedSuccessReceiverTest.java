@@ -64,8 +64,10 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
     @SmallTest
     public void testNoAccountMigration() {
         // GIVEN that no account migration occurred during provisioning
-        final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(null, false,
-                MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME, mUtils, null);
+        final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(
+                /* migratedAccount */ null, /* keepAccountMigrated */ false,
+                MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME, mUtils, /* callback */ null,
+                /* isAdminIntegratedFlow */ false);
 
         // WHEN the profile provisioning complete intent was received by the DPC
         receiver.onReceive(mContext, TEST_INTENT);
@@ -89,28 +91,28 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
     public void testAccountMigration() throws Exception {
         // GIVEN that account migration occurred during provisioning
         final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
-                false /* keepAccountMigrated */, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
-                mUtils, null);
+                /* keepAccountMigrated */ false, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
+                mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
 
         // WHEN receiver.onReceive is called
         invokeOnReceiveAndVerifyIntent(receiver);
 
         // THEN the account should have been removed from the primary user
-        verify(mUtils).removeAccount(mContext, TEST_ACCOUNT);
+        verify(mUtils).removeAccountAsync(mContext, TEST_ACCOUNT, any());
     }
 
     @SmallTest
     public void testAccountCopy() throws Exception {
         // GIVEN that account copy occurred during provisioning
         final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
-                true /* keepAccountMigrated */, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
-                mUtils, null);
+                /* keepAccountMigrated */ true, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
+                mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
 
         // WHEN receiver.onReceive is called
         invokeOnReceiveAndVerifyIntent(receiver);
 
         // THEN the account is not removed from the primary user
-        verify(mUtils, never()).removeAccount(mContext, TEST_ACCOUNT);
+        verify(mUtils, never()).removeAccountAsync(mContext, TEST_ACCOUNT, any());
     }
 
     private void invokeOnReceiveAndVerifyIntent(final DpcReceivedSuccessReceiver receiver)
