@@ -277,9 +277,6 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
     }
 
     private void handleSupportUrl(CustomizationParams customization) {
-        if (customization.supportUrl == null) {
-            return;
-        }
         final TextView info = mActivity.findViewById(R.id.device_owner_provider_info);
         final String deviceProvider = mActivity.getString(R.string.organization_admin);
         final String contactDeviceProvider =

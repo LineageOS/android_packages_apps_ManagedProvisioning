@@ -15,9 +15,14 @@
  */
 package com.android.managedprovisioning.transition;
 
+import android.graphics.drawable.Animatable2.AnimationCallback;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.widget.ImageView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
@@ -31,6 +36,8 @@ import com.google.android.setupdesign.GlifLayout;
 public class TransitionActivity extends SetupGlifLayoutActivity {
 
     private ProvisioningParams mParams;
+    private AnimatedVectorDrawable mIntroAnimation;
+    private RepeatingVectorAnimation mRepeatingVectorAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,27 @@ public class TransitionActivity extends SetupGlifLayoutActivity {
         initializeUi();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mRepeatingVectorAnimation != null) {
+            mRepeatingVectorAnimation.start();
+        } else {
+            mIntroAnimation.start();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mRepeatingVectorAnimation != null) {
+            mRepeatingVectorAnimation.stop();
+        }
+        if (mIntroAnimation != null) {
+            mIntroAnimation.stop();
+        }
+    }
+
     private void initializeUi() {
         CustomizationParams customizationParams =
             CustomizationParams.createInstance(mParams, this, mUtils);
@@ -54,7 +82,26 @@ public class TransitionActivity extends SetupGlifLayoutActivity {
         setTitle(R.string.set_up_everything_else);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        setupAnimation(layout);
         Utils.addNextButton(layout, v -> finish());
+    }
+
+    private void setupAnimation(GlifLayout layout) {
+        final ImageView animationHolder = layout.findViewById(R.id.animation);
+        final Drawable drawable = animationHolder.getDrawable();
+        mIntroAnimation = (AnimatedVectorDrawable) drawable;
+        mIntroAnimation.registerAnimationCallback(new AnimationCallback() {
+            @Override
+            public void onAnimationEnd(Drawable drawable) {
+                animationHolder.setImageResource(R.drawable.everything_else_animation_repeating);
+                final AnimatedVectorDrawable repeatingAnimation =
+                        (AnimatedVectorDrawable) animationHolder.getDrawable();
+                mRepeatingVectorAnimation = new RepeatingVectorAnimation(repeatingAnimation);
+                mRepeatingVectorAnimation.start();
+                mIntroAnimation = null;
+            }
+        });
+        mIntroAnimation.start();
     }
 
     @Override

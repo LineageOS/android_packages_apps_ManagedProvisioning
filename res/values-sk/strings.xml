@@ -28,10 +28,13 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="next" msgid="1004321437324424398">"Ďalej"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Nastavuje sa pracovný profil…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a dáta priradené k tomuto profilu vrátane aktivity v sieti a informácií o polohe zariadenia, histórii hovorov a histórii vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) získate od správcu."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"Správca môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a dáta priradené k tomuto zariadeniu vrátane aktivity v sieti a informácií o polohe zariadenia, histórie hovorov a histórie vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) získate od správcu."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7051310668406162979) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (6303112630697870695) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ak chcete používať funkcie ochrany proti krádeži, musíte mať na zariadení zámku obrazovky chránenú heslom."</string>
-    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) vám poskytne správca."</string>
+    <!-- no translation found for contact_your_admin_for_more_info (9209568156969966347) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"Ďalšie informácie"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Zrušiť"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
@@ -57,7 +60,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nastavenie pracovného profilu sa nepodarilo. Kontaktujte oddelenie IT alebo to skúste znova neskôr."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Pracovný profil sa nedá pridať"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Pracovný profil nie je možné nahradiť ani odstrániť"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"Do tohto zariadenia nie je možné pridať pracovný profil. V prípade otázok kontaktujte správcu."</string>
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (5393019630297157418) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"Zmeňte spúšťač zariadenia"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Váš pracovný profil nemôže používať túto aplikáciu spúšťača"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Zrušiť"</string>
@@ -74,7 +78,8 @@
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Pridávajú sa konečné úpravy…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Nastavuje sa vlastník zariadenia…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Zariadenie sa inicializuje…"</string>
-    <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"Toto zariadenie nepovoľuje šifrovanie. Kontaktujte správcu a požiadajte ho o pomoc."</string>
+    <!-- no translation found for device_doesnt_allow_encryption_contact_admin (5124643338424539794) -->
+    <skip />
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Zastaviť nastavovanie a obnoviť zariadenie?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Týmto obnovíte zariadenie a prejdete na prvú obrazovku"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ukončiť nastavovanie a odstrániť údaje zariadenia?"</string>
@@ -83,16 +88,21 @@
     <string name="reset" msgid="6467204151306265796">"Obnoviť"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profil sa nedá zriadiť"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Zariadenie sa nedá nastaviť"</string>
-    <string name="couldnt_set_up_device" msgid="60699158233724802">"Zariadenie sa nepodarilo nastaviť. Kontaktujte správcu a požiadajte ho o pomoc."</string>
-    <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Kontaktujte správcu a požiadajte ho o pomoc"</string>
+    <!-- no translation found for couldnt_set_up_device (5137950404283642302) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_help (2009904021552323731) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"Zariadenie je už nastavené"</string>
     <string name="error_wifi" msgid="1850288843966836571">"K sieti Wi-Fi sa nepodarilo pripojiť"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Na zariadení je zapnutá ochrana proti obnoveniu. Kontaktujte správcu a požiadajte ho o pomoc."</string>
+    <!-- no translation found for device_has_reset_protection_contact_admin (2662050020376475656) -->
+    <skip />
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Prebieha vymazávanie"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Čakajte..."</string>
-    <string name="error_hash_mismatch" msgid="5899334454632791946">"Správcovskú aplikáciu sa nepodarilo použiť pre chybu kontrolného súčtu. Kontaktujte správcu a požiadajte ho o pomoc."</string>
+    <!-- no translation found for error_hash_mismatch (1145488923243178454) -->
+    <skip />
     <string name="error_download_failed" msgid="3274283629837019452">"Správcovskú aplikáciu sa nepodarilo stiahnuť"</string>
-    <string name="error_package_invalid" msgid="5915763557848599459">"Správcovská aplikácia sa nedá použiť. Chýbajú jej komponenty alebo je poškodená. Kontaktujte správcu a požiadajte ho o pomoc."</string>
+    <!-- no translation found for error_package_invalid (555402554502033988) -->
+    <skip />
     <string name="error_installation_failed" msgid="2282903750318407285">"Správcovskú aplikáciu sa nepodarilo nainštalovať"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Zastaviť nastavovanie?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nie"</string>
@@ -110,11 +120,16 @@
     <string name="device_owner_info" msgid="3716661456037934467">"Toto zariadenie bude spravované, sledované a zabezpečené spoločnosťou <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>, pričom budú platiť zmluvné podmienky. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Toto zariadenie bude spravované, sledované a zabezpečené spoločnosťou <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>, pričom budú platiť zmluvné podmienky <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Tento odkaz nie je zabezpečený a nedá sa otvoriť, kým sa nedokončí nastavenie zariadenia: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="9100405424740726066">"V prípade otázok kontaktujte správcu <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
-    <string name="if_questions_contact_admin" msgid="6147462485780267795">"V prípade otázok kontaktujte správcu svojej organizácie"</string>
-    <string name="setup_isnt_finished_contact_admin" msgid="235011880559615998">"Nastavenie nie je dokončené. Kontaktujte správcu a požiadajte ho o pomoc."</string>
-    <string name="for_help_contact_admin" msgid="8687037236275184653">"Kontaktujte správcu a požiadajte ho o pomoc"</string>
-    <string name="organization_admin" msgid="1595001081906025683">"správca organizácie"</string>
+    <!-- no translation found for contact_device_provider (2843488903902493030) -->
+    <skip />
+    <!-- no translation found for if_questions_contact_admin (3509427015901582047) -->
+    <skip />
+    <!-- no translation found for setup_isnt_finished_contact_admin (8849644190723875952) -->
+    <skip />
+    <!-- no translation found for for_help_contact_admin (5922538077702487859) -->
+    <skip />
+    <!-- no translation found for organization_admin (5975914478148511290) -->
+    <skip />
     <string name="your_org_app_used" msgid="5336414768293540831">"Organizácia <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> bude spravovať a sledovať toto zariadenie pomocou nasledujúcej aplikácie:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"Vaša organizácia"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"vaša organizácia"</string>
@@ -162,20 +177,39 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Nastavuje sa správcovská aplikácia"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Nastavte všetko ostatné"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Teraz poďme nastaviť všetko ostatné"</string>
-    <string name="brand_screen_header" msgid="2285274890167238955">"Tento telefón bude spravovať vaša organizácia"</string>
+    <!-- no translation found for brand_screen_header (5415267581015331233) -->
+    <skip />
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Na spravovanie a sledovanie tohto telefónu sa použije nasledujúca aplikácia"</string>
-    <string name="downloading_administrator_header" msgid="170628239085849025">"Sťahuje sa správcovská aplikácia…"</string>
+    <!-- no translation found for downloading_administrator_header (8660294318893902915) -->
+    <skip />
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Najprv nastavte pracovný profil"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Používajte jeden telefón na prácu aj hry"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Oddelené pracovné a osobné údaje"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Vypínanie po dokončení"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Vytvára sa pracovný profil…"</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Poďme nastaviť váš pracovný telefón"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Pripojte sa na cestách"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Pracovné údaje sú zabezpečené"</string>
-    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Tento telefón bude spravovať vaša organizácia"</string>
-    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Nájdite aplikácie iba pre svoju organizáciu"</string>
-    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Nastavuje sa spravované zariadenie…"</string>
-    <string name="device_provisioning_finished" msgid="4611825455360297074">"Telefón je pripravený."</string>
+    <!-- no translation found for work_profile_provisioning_step_1_header (7914961694921466366) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_2_header (6001172190404670248) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_3_header (7495564624887776704) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_progress_label (2627905308998389193) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_summary (3917907344897144246) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_accept_header (2944032660440403130) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_1_header (6396274703116708592) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_header (7165472083121590030) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader (2848998570491578119) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_progress_label (3925516135130021966) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_summary (1176062866187662479) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_privacy_title (4017627906103556021) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_privacy_body (2219074604343348608) -->
+    <skip />
+    <!-- no translation found for device_provisioning_finished (3981783240592092906) -->
+    <skip />
     <string name="done" msgid="7755227776955952318">"Hotovo"</string>
 </resources>

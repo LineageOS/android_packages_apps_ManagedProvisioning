@@ -62,7 +62,6 @@
             android:id="@+id/device_owner_provider_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:textAppearance="@style/TextAppearance.Car.Body2.Light"/>
 
         <RelativeLayout

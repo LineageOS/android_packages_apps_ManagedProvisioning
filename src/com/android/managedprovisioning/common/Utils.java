@@ -31,6 +31,10 @@ import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MA
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
+
+import android.annotation.WorkerThread;
+import android.os.Handler;
+import android.os.Looper;
 import com.android.managedprovisioning.R;
 
 import android.accounts.Account;
@@ -71,13 +75,12 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.TrampolineActivity;
+import com.android.managedprovisioning.common.RemoveAccountAsyncTask.RemoveAccountListener;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -391,7 +394,19 @@ public class Utils {
     }
 
     /**
-     * Removes an account.
+     * Removes an account asynchronously.
+     *
+     * @see #removeAccount(Context, Account)
+     */
+    public void removeAccountAsync(Context context, Account accountToRemove,
+            RemoveAccountListener callback) {
+        new RemoveAccountAsyncTask(context, accountToRemove, this, callback).execute();
+    }
+
+    /**
+     * Removes an account synchronously.
+     *
+     * This method is blocking and must never be called from the main thread.
      *
      * <p>This removes the given account from the calling user's list of accounts.
      *
@@ -399,21 +414,24 @@ public class Utils {
      * @param account the account to be removed
      */
     // TODO: Add unit tests
-    public void removeAccount(Context context, Account account) {
+    @WorkerThread
+    void removeAccount(Context context, Account account) {
+        final AccountManager accountManager =
+                (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+        final AccountManagerFuture<Bundle> bundle = accountManager.removeAccount(account,
+                null, null /* callback */, null /* handler */);
+        // Block to get the result of the removeAccount operation
         try {
-            AccountManager accountManager =
-                    (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
-            AccountManagerFuture<Bundle> bundle = accountManager.removeAccount(account,
-                    null, null /* callback */, null /* handler */);
-            // Block to get the result of the removeAccount operation
-            if (bundle.getResult().getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
+            final Bundle result = bundle.getResult();
+            if (result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT, /* default */ false)) {
                 ProvisionLogger.logw("Account removed from the primary user.");
             } else {
-                Intent removeIntent = (Intent) bundle.getResult().getParcelable(
-                        AccountManager.KEY_INTENT);
+                final Intent removeIntent = result.getParcelable(AccountManager.KEY_INTENT);
                 if (removeIntent != null) {
                     ProvisionLogger.logi("Starting activity to remove account");
-                    TrampolineActivity.startActivity(context, removeIntent);
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        TrampolineActivity.startActivity(context, removeIntent);
+                    });
                 } else {
                     ProvisionLogger.logw("Could not remove account from the primary user.");
                 }
@@ -763,6 +781,7 @@ public class Utils {
                 AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
                 String deviceProvider, String contactDeviceProvider) {
         if (customizationParams.supportUrl == null) {
+            textView.setText(contactDeviceProvider);
             return;
         }
         final SpannableString spannableString = new SpannableString(contactDeviceProvider);
@@ -776,7 +795,6 @@ public class Utils {
             textView.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
         }
 
-        textView.setVisibility(View.VISIBLE);
         textView.setText(spannableString);
         contextMenuMaker.registerWithActivity(textView);
     }

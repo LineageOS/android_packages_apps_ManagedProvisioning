@@ -53,7 +53,8 @@ public class SendDpcBroadcastService extends Service implements Callback {
         BroadcastReceiver dpcReceivedSuccessReceiver =
                 new DpcReceivedSuccessReceiver(params.accountToMigrate,
                         params.keepAccountMigrated, managedProfileUserHandle,
-                        params.inferDeviceAdminPackageName(), this);
+                        params.inferDeviceAdminPackageName(), this,
+                        utils.isAdminIntegratedFlow(params));
         sendOrderedBroadcastAsUser(completeIntent, managedProfileUserHandle, null,
                 dpcReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "

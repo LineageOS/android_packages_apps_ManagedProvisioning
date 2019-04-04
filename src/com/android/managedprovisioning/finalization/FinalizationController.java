@@ -140,7 +140,8 @@ public class FinalizationController {
             ProvisioningParams params) {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
                 params.keepAccountMigrated, mUtils.getManagedProfile(mContext),
-                params.inferDeviceAdminPackageName(), mUtils);
+                params.inferDeviceAdminPackageName(), mUtils,
+                params.isOrganizationOwnedProvisioning);
     }
 
     /**
@@ -170,8 +171,8 @@ public class FinalizationController {
             if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
                 getPrimaryProfileFinalizationHelper(params)
                         .finalizeProvisioningInPrimaryProfile(mContext, null);
+                mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
             }
-            mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
         } else {
             if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
                 notifyDpcManagedProfile(params);
