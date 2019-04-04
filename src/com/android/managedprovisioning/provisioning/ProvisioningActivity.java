@@ -128,11 +128,20 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private void onNextButtonClicked() {
         new FinalizationController(getApplicationContext()).provisioningInitiallyDone(mParams);
         if (mUtils.isAdminIntegratedFlow(mParams)) {
-            enableGlobalFlags();
-            showPolicyComplianceScreen();
+            if (mParams.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)
+                    && mParams.accountToMigrate != null && !mParams.keepAccountMigrated) {
+                mUtils.removeAccountAsync(this, mParams.accountToMigrate, this::postAccountRemove);
+            } else {
+                postAccountRemove();
+            }
         } else {
             finishProvisioning();
         }
+    }
+
+    private void postAccountRemove() {
+        enableGlobalFlags();
+        showPolicyComplianceScreen();
     }
 
     private void enableGlobalFlags() {

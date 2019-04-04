@@ -16,15 +16,12 @@
 
 package com.android.managedprovisioning.finalization;
 
-import static android.app.admin.DevicePolicyManager.ACTION_MANAGED_PROFILE_PROVISIONED;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.accounts.Account;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.UserHandle;
 import androidx.annotation.Nullable;
 
@@ -34,7 +31,7 @@ import com.android.managedprovisioning.common.Utils;
 
 /**
  * Class that acts as the final receiver of the intent ACTION_PROFILE_PROVISIONING_COMPLETE
- * which is broadcasted using
+ * which is broadcast using
  * {@link Context#sendOrderedBroadcast(Intent, String, BroadcastReceiver, android.os.Handler, int, String, android.os.Bundle)}
  * after profile owner or device owner provisioning is completed.
  */
@@ -49,17 +46,18 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
 
     public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount,
             boolean keepAccountMigrated, UserHandle managedUserHandle, String mdmPackageName,
-            Callback callback) {
+            Callback callback, boolean isAdminIntegratedFlow) {
         this(migratedAccount, keepAccountMigrated, managedUserHandle, mdmPackageName, new Utils(),
-                callback);
+                callback, isAdminIntegratedFlow);
     }
 
     @VisibleForTesting
     DpcReceivedSuccessReceiver(Account migratedAccount, boolean keepAccountMigrated,
-        UserHandle managedUserHandle, String mdmPackageName, Utils utils, Callback callback) {
+            UserHandle managedUserHandle, String mdmPackageName, Utils utils, Callback callback,
+            boolean isAdminIntegratedFlow) {
         mCallback = callback;
         mHelper = new PrimaryProfileFinalizationHelper(migratedAccount, keepAccountMigrated,
-                managedUserHandle, mdmPackageName, utils);
+                managedUserHandle, mdmPackageName, utils, isAdminIntegratedFlow);
     }
 
     @Override

@@ -80,6 +80,7 @@ import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.TrampolineActivity;
+import com.android.managedprovisioning.common.RemoveAccountAsyncTask.RemoveAccountListener;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -393,7 +394,17 @@ public class Utils {
     }
 
     /**
-     * Removes an account.
+     * Removes an account asynchronously.
+     *
+     * @see #removeAccount(Context, Account)
+     */
+    public void removeAccountAsync(Context context, Account accountToRemove,
+            RemoveAccountListener callback) {
+        new RemoveAccountAsyncTask(context, accountToRemove, this, callback).execute();
+    }
+
+    /**
+     * Removes an account synchronously.
      *
      * This method is blocking and must never be called from the main thread.
      *
@@ -404,7 +415,7 @@ public class Utils {
      */
     // TODO: Add unit tests
     @WorkerThread
-    public void removeAccount(Context context, Account account) {
+    void removeAccount(Context context, Account account) {
         final AccountManager accountManager =
                 (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
         final AccountManagerFuture<Bundle> bundle = accountManager.removeAccount(account,
@@ -412,7 +423,7 @@ public class Utils {
         // Block to get the result of the removeAccount operation
         try {
             final Bundle result = bundle.getResult();
-            if (result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)) {
+            if (result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT, /* default */ false)) {
                 ProvisionLogger.logw("Account removed from the primary user.");
             } else {
                 final Intent removeIntent = result.getParcelable(AccountManager.KEY_INTENT);

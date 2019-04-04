@@ -140,7 +140,8 @@ public class FinalizationController {
             ProvisioningParams params) {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
                 params.keepAccountMigrated, mUtils.getManagedProfile(mContext),
-                params.inferDeviceAdminPackageName(), mUtils);
+                params.inferDeviceAdminPackageName(), mUtils,
+                params.isOrganizationOwnedProvisioning);
     }
 
     /**
