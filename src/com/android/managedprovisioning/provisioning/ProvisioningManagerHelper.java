@@ -120,8 +120,7 @@ public class ProvisioningManagerHelper {
                 controller.cancel();
                 return true;
             } else {
-                ProvisionLogger.loge(String.format("Trying to cancel %s, but controller is null",
-                        controller.getClass().getName()));
+                ProvisionLogger.loge("Trying to cancel provisioning, but controller is null");
                 return false;
             }
         }
