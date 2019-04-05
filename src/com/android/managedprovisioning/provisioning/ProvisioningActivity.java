@@ -253,6 +253,10 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     @Override
     protected void decideCancelProvisioningDialog() {
+        if (mState == STATE_PROVISIONING_FINALIZED && !mParams.isOrganizationOwnedProvisioning) {
+            return;
+        }
+
         if (getUtils().isDeviceOwnerAction(mParams.provisioningAction)
                 || mParams.isOrganizationOwnedProvisioning) {
             showCancelProvisioningDialog(/* resetRequired = */true);
