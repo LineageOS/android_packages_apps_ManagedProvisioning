@@ -23,6 +23,7 @@ import static com.android.managedprovisioning.model.ProvisioningParams.PROVISION
 
 import android.annotation.Nullable;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -284,7 +285,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         intentGetMode.setPackage(adminPackage);
         final Intent intentPolicy = new Intent(ACTION_ADMIN_POLICY_COMPLIANCE);
         intentPolicy.setPackage(adminPackage);
-        if (intentGetMode.resolveActivity(getPackageManager()) != null
+        final ActivityManager activityManager = getSystemService(ActivityManager.class);
+        if (!activityManager.isLowRamDevice()
+                && intentGetMode.resolveActivity(getPackageManager()) != null
                 && intentPolicy.resolveActivity(getPackageManager()) != null) {
             mController.putExtrasIntoGetModeIntent(intentGetMode);
             startActivityForResult(intentGetMode, GET_PROVISIONING_MODE_REQUEST_CODE);
