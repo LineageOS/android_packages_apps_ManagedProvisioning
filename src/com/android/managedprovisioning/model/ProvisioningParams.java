@@ -31,6 +31,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -89,6 +90,7 @@ public final class ProvisioningParams extends PersistableBundlable {
     public static final boolean DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT = false;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED = false;
     public static final boolean DEFAULT_SKIP_USER_SETUP = true;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA = false;
@@ -233,6 +235,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     /** True if user setup can be skipped. */
     public final boolean skipUserSetup;
 
+    public final boolean skipEducationScreens;
+
     /** True if user consent page in pre-provisioning can be skipped. */
     public final boolean skipUserConsent;
 
@@ -305,6 +309,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         mainColor = builder.mMainColor;
         skipUserConsent = builder.mSkipUserConsent;
         skipUserSetup = builder.mSkipUserSetup;
+        skipEducationScreens = builder.mSkipEducationScreens;
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
         isOrganizationOwnedProvisioning = builder.mIsOrganizationOwnedProvisioning;
@@ -355,6 +360,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, skipEncryption);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP, skipUserSetup);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT, skipUserConsent);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, skipEducationScreens);
         bundle.putBoolean(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, keepAccountMigrated);
         bundle.putBoolean(TAG_IS_ORGANIZATION_OWNED_PROVISIONING, isOrganizationOwnedProvisioning);
         bundle.putInt(TAG_PROVISIONING_MODE, provisioningMode);
@@ -403,6 +409,7 @@ public final class ProvisioningParams extends PersistableBundlable {
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED));
         builder.setSkipUserSetup(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP));
         builder.setSkipUserConsent(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT));
+        builder.setSkipEducationScreens(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS));
         builder.setKeepAccountMigrated(bundle.getBoolean(
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
         builder.setIsOrganizationOwnedProvisioning(bundle.getBoolean(
@@ -518,6 +525,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mLeaveAllSystemAppsEnabled = DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
         private boolean mSkipEncryption = DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
         private boolean mSkipUserConsent = DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT;
+        private boolean mSkipEducationScreens = DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
         private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
         private boolean mUseMobileData = DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
@@ -633,6 +641,11 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setSkipUserConsent(boolean skipUserConsent) {
             mSkipUserConsent = skipUserConsent;
+            return this;
+        }
+
+        public Builder setSkipEducationScreens(boolean skipEducationScreens) {
+            mSkipEducationScreens = skipEducationScreens;
             return this;
         }
 

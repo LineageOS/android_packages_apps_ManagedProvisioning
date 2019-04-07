@@ -44,6 +44,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -67,6 +68,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static com.android.managedprovisioning.model.ProvisioningParams.inferStaticDeviceAdminPackageName;
 
@@ -245,6 +247,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     static final String EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT = "a.a.e.PSUC";
 
     @VisibleForTesting
+    static final String EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS_SHORT = "a.a.e.PSES";
+
+    @VisibleForTesting
     static final String EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT = "a.a.e.PUMD";
 
     private static final Map<String, String> SHORTER_EXTRAS = buildShorterExtrasMap();
@@ -348,6 +353,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_SKIP_USER_SETUP, EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_SKIP_USER_CONSENT, EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS,
+                EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_USE_MOBILE_DATA, EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT);
         return shorterExtras;
@@ -553,6 +561,10 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                             && mUtils.isPackageDeviceOwner(dpm, inferStaticDeviceAdminPackageName(
                                     deviceAdminComponentName, deviceAdminPackageName));
 
+            final boolean skipEducationScreens = getBooleanExtraFromLongName(intent,
+                    EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS,
+                    DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS);
+
             // Only when provisioning PO with ACTION_PROVISION_MANAGED_PROFILE
             final boolean keepAccountMigrated = isManagedProfileAction
                             && getBooleanExtraFromLongName(
@@ -614,6 +626,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setSkipUserConsent(skipUserConsent)
                     .setKeepAccountMigrated(keepAccountMigrated)
                     .setSkipUserSetup(skipUserSetup)
+                    .setSkipEducationScreens(skipEducationScreens)
                     .setAccountToMigrate(getParcelableExtraFromLongName(
                             intent, EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE))
                     .setDeviceAdminLabel(deviceAdminLabel)
