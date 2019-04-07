@@ -15,11 +15,12 @@
  */
 package com.android.managedprovisioning.provisioning;
 
-import static com.android.internal.util.Preconditions.checkArgumentPositive;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
+import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE;
 
 import android.annotation.DrawableRes;
-import android.annotation.IntDef;
 import android.annotation.StringRes;
 import android.content.Context;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -33,8 +34,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.CrossFadeHelper;
 import com.android.managedprovisioning.common.CrossFadeHelper.Callback;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
 import java.util.Arrays;
 import java.util.List;
 
@@ -83,18 +83,6 @@ class TransitionAnimationHelper {
 
     private static final int TRANSITION_TIME_MILLIS = 5000;
     private static final int CROSSFADE_ANIMATION_DURATION_MILLIS = 500;
-
-    static final int PROVISIONING_MODE_WORK_PROFILE = 1;
-    static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 2;
-    static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
-
-    @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
-        PROVISIONING_MODE_WORK_PROFILE,
-        PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
-        PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE
-    })
-    @Retention(RetentionPolicy.SOURCE)
-    @interface ProvisioningMode {}
 
     private final CrossFadeHelper mCrossFadeHelper;
     private final AnimationComponents mAnimationComponents;
