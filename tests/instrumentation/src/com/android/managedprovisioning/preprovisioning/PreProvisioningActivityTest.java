@@ -74,6 +74,7 @@ public class PreProvisioningActivityTest {
     @Before
     public void setup() {
         when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_MAIN_COLOR);
+        when(mUtils.alreadyHasManagedProfile(any())).thenReturn(-1);
 
         TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
                 (classLoader, className, intent) -> new PreProvisioningActivity(
@@ -109,17 +110,16 @@ public class PreProvisioningActivityTest {
         CustomizationVerifier v = new CustomizationVerifier(activity);
         v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
         v.assertSwiperColorCorrect(DEFAULT_MAIN_COLOR);
-        v.assertNextButtonColorCorrect(DEFAULT_MAIN_COLOR);
     }
 
     @Test
     public void profileOwnerCustomColors() {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_PROFILE, SAMPLE_COLOR));
+
         CustomizationVerifier v = new CustomizationVerifier(activity);
         v.assertStatusBarColorCorrect(SAMPLE_COLOR);
         v.assertSwiperColorCorrect(SAMPLE_COLOR);
-        v.assertNextButtonColorCorrect(SAMPLE_COLOR);
     }
 
     @Test
@@ -129,7 +129,6 @@ public class PreProvisioningActivityTest {
         CustomizationVerifier v = new CustomizationVerifier(activity);
         v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
         v.assertDefaultLogoCorrect(DEFAULT_MAIN_COLOR);
-        v.assertNextButtonColorCorrect(DEFAULT_MAIN_COLOR);
     }
 
     @Test
@@ -139,7 +138,6 @@ public class PreProvisioningActivityTest {
         CustomizationVerifier v = new CustomizationVerifier(activity);
         v.assertStatusBarColorCorrect(SAMPLE_COLOR);
         v.assertDefaultLogoCorrect(SAMPLE_COLOR);
-        v.assertNextButtonColorCorrect(SAMPLE_COLOR);
     }
 
     @Test
@@ -151,23 +149,6 @@ public class PreProvisioningActivityTest {
                         EXTRA_PROVISIONING_LOGO_URI, expectedLogo.getUri()));
         CustomizationVerifier v = new CustomizationVerifier(activity);
         v.assertCustomLogoCorrect(expectedLogo.getBitmap());
-    }
-
-    @Test
-    public void profileOwnerWholeLayoutIsAdjusted() {
-        Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_PROFILE, null));
-        View content = activity.findViewById(R.id.intro_po_content);
-        View viewport = activity.findViewById(R.id.suc_layout_content);
-        assertThat("Width", content.getWidth(), lessThanOrEqualTo(viewport.getWidth()));
-
-        int animationHeight = activity.findViewById(R.id.animated_info).getHeight();
-        int minHeight = activity.getResources().getDimensionPixelSize(
-                R.dimen.intro_animation_min_height);
-
-        if (animationHeight >= minHeight) {
-            assertThat("Height", content.getHeight(), lessThanOrEqualTo(viewport.getHeight()));
-        }
     }
 
     private Intent createIntent(String provisioningAction, Integer mainColor) {
