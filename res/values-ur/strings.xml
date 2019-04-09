@@ -28,10 +28,13 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"مندرجہ ذیل ایپ آپ کے آلہ کا نظم کرے گی:"</string>
     <string name="next" msgid="1004321437324424398">"اگلا"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"دفتری پروفائل ترتیب دیا جا رہا ہے…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"آپ کا منتظم آپ کے نیٹ ورک کی سرگرمی اور اس کے ساتھ ساتھ آپ کے آلے کے مقام، کال کی سرگزشت اور رابطے کی تلاش کی سرگزشت سمیت ترتیبات، کارپوریٹ رسائی، ایپس، اجازتوں اور اس پروفائل کے ساتھ وابستہ ڈیٹا کو مانیٹر کرنے اور ان کا نظم کرنے کا اہل ہے۔<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>اپنی تنظیم کی رازداری پالیسی سمیت مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"آپ کا منتظم آپ کے نیٹ ورک کی سرگرمی اور اس کے ساتھ ساتھ آپ کے آلے کے مقام، کال کی سرگزشت اور رابطے کی تلاش کی سرگزشت سمیت ترتیبات، کارپوریٹ رسائی، ایپس، اجازتوں اور اس آلے کے ساتھ وابستہ ڈیٹا کو مانیٹر کرنے اور ان کا نظم کرنے کا اہل ہے۔<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>اپنی تنظیم کی رازداری پالیسی سمیت مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (7051310668406162979) -->
+    <skip />
+    <!-- no translation found for admin_has_ability_to_monitor_device (6303112630697870695) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"چوری سے تحٖفظ کی خصوصیات استعمال کرنے کیلئے آپ کے پاس آپ کے آلہ کیلئے پاسورڈ کے ذریعے تحفظ یافتہ ایک اسکرین قفل ہونا چاہیئیے۔"</string>
-    <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"اپنی تنظیم کی رازداری کی پالیسیوں سمیت مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for contact_your_admin_for_more_info (9209568156969966347) -->
+    <skip />
     <string name="learn_more_link" msgid="3012495805919550043">"مزید جانیں"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"منسوخ کریں"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ٹھیک ہے"</string>
@@ -57,7 +60,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏آپ کے دفتر کے پروفائل کو ترتیب نہیں دیا جا سکا۔ اپنے IT ڈیپارٹمنٹ سے رابطہ کریں یا بعد میں دوبارہ کوشش کریں۔"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"دفتری پروفائل شامل نہیں کر سکتا"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"دفتری پروفائل کو بدلا یا ہٹایا نہیں جا سکتا"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"دفتری پروفائل اس آلہ میں شامل نہیں کیا جا سکتا۔ اگر آپ کے پاس سوالات ہیں، تو اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (5393019630297157418) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"آلہ لانچر تبدیل کریں"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"یہ لانچر ایپ آپ کے دفتری پروفائل کے ذریعے استعمال نہیں کی جا سکتی"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"منسوخ کریں"</string>
@@ -74,7 +78,8 @@
     <string name="progress_finishing_touches" msgid="9037776404089697198">"حتمی شکل دی جا رہی ہے…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"آلہ کا مالک سیٹ کیا جا رہا ہے…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"آلہ شروع ہو رہا ہے…"</string>
-    <string name="device_doesnt_allow_encryption_contact_admin" msgid="8297141458771829628">"یہ آلہ سیٹ اپ کیلئے درکار مرموز کاری کی اجازت نہیں دیتا ہے۔ مدد کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for device_doesnt_allow_encryption_contact_admin (5124643338424539794) -->
+    <skip />
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"سیٹ اپ روکیں اور آلہ کو ری سیٹ کریں؟"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"یہ آپ کے آلے کو ری سیٹ کر دے گا اور آپ واپس پہلی اسکرین پر چلے جائیں گے"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"سیٹ اپ کرنا روک دیں اور آپ کے آلہ کا ڈیٹا مٹا دیں؟"</string>
@@ -83,16 +88,21 @@
     <string name="reset" msgid="6467204151306265796">"ری سیٹ کریں"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"پروفائل سیٹ اپ نہیں ہو سکتا"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"آلہ سیٹ اپ نہیں ہو سکتا"</string>
-    <string name="couldnt_set_up_device" msgid="60699158233724802">"آلہ کو ترتیب نہیں دیا جا سکا۔ مدد کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
-    <string name="contact_your_admin_for_help" msgid="8045606258802719235">"مدد کیلئے اپنے منتظم سے رابطہ کریں"</string>
+    <!-- no translation found for couldnt_set_up_device (5137950404283642302) -->
+    <skip />
+    <!-- no translation found for contact_your_admin_for_help (2009904021552323731) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"آلہ پہلے ہی ترتیب دیا جا چکا ہے"</string>
     <string name="error_wifi" msgid="1850288843966836571">"‏Wi-Fi سے منسلک نہیں کیا جا سکا"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"آپ کے آلہ پر ری سیٹ کا تحفظ آن ہو گیا ہے۔ مدد کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for device_has_reset_protection_contact_admin (2662050020376475656) -->
+    <skip />
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"صاف کیا جا رہا ہے"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"براہ کرم انتظار کریں…"</string>
-    <string name="error_hash_mismatch" msgid="5899334454632791946">"‏checksum کی خرابی کی وجہ سے منتظم کی ایپ کا استعمال نہیں کیا جا سکا۔ مدد کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for error_hash_mismatch (1145488923243178454) -->
+    <skip />
     <string name="error_download_failed" msgid="3274283629837019452">"منتظم کی ایپ کو ڈاؤن لوڈ نہیں کیا جا سکا"</string>
-    <string name="error_package_invalid" msgid="5915763557848599459">"منتظم کی ایپ کا استعمال نہیں کیا جا سکتا۔ اس میں اجزاء غائب ہیں یا یہ خراب ہو گئی ہے۔ مدد کیلئے، اپنے منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for error_package_invalid (555402554502033988) -->
+    <skip />
     <string name="error_installation_failed" msgid="2282903750318407285">"منتظم کی ایپ کو انسٹال نہیں کیا جا سکا"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ترتیب دینا بند کریں؟"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"نہیں"</string>
@@ -110,11 +120,16 @@
     <string name="device_owner_info" msgid="3716661456037934467">"اس آلہ کا نظم، نگرانی اور تحفظ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> کے ذریعے کیا جائے گا۔ شرائط لاگو ہوں گی۔ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"اس آلہ کا نظم، نگرانی اور تحفظ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> کے ذریعے کیا جائے گا۔ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> کی شرائط لاگو ہوں گی۔ <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"یہ لنک محفوظ نہیں ہے اور آلے کا سیٹ اپ مکمل ہونے تک اسے نہیں کھولا جا سکتا: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="9100405424740726066">"اگر آپ کے پاس سوالات ہیں تو آپ اپنے <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> سے رابطہ کریں۔"</string>
-    <string name="if_questions_contact_admin" msgid="6147462485780267795">"اگر آپ کے پاس سوالات ہیں، تو اپنی تنظیم کے منتظم سے رابطہ کریں"</string>
-    <string name="setup_isnt_finished_contact_admin" msgid="235011880559615998">"سیٹ اپ ختم نہیں ہوا۔ مدد کیلئے اپنے منتظم سے رابطہ کریں۔"</string>
-    <string name="for_help_contact_admin" msgid="8687037236275184653">"مدد کیلئے، اپنے منتظم سے رابطہ کریں"</string>
-    <string name="organization_admin" msgid="1595001081906025683">"تنظیم کا منتظم"</string>
+    <!-- no translation found for contact_device_provider (2843488903902493030) -->
+    <skip />
+    <!-- no translation found for if_questions_contact_admin (3509427015901582047) -->
+    <skip />
+    <!-- no translation found for setup_isnt_finished_contact_admin (8849644190723875952) -->
+    <skip />
+    <!-- no translation found for for_help_contact_admin (5922538077702487859) -->
+    <skip />
+    <!-- no translation found for organization_admin (5975914478148511290) -->
+    <skip />
     <string name="your_org_app_used" msgid="5336414768293540831">"درج ذیل ایپ کا استعمال کرکے <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> اس آلہ کا نظم اور اسے مانیٹر کرے گی:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"آپ کی تنظیم"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"آپ کی تنظیم"</string>
@@ -162,20 +177,39 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ڈومین ایپ ترتیب دی جا رہی ہے"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"باقی تمام چیزیں ترتیب دیں"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"اب، آئیے باقی تمام چیزیں ترتیب دیں"</string>
-    <string name="brand_screen_header" msgid="2285274890167238955">"آپ کی تنظیم اس فون کا نظم کرے گی"</string>
+    <!-- no translation found for brand_screen_header (5415267581015331233) -->
+    <skip />
     <string name="brand_screen_subheader" msgid="7664792208784456436">"اس فون کا نظم اور نگرانی کرنے کیلئے مندرجہ ذیل ایپ کا استعمال کیا جائے گا"</string>
-    <string name="downloading_administrator_header" msgid="170628239085849025">"منتظم ایپلیکیشن ڈاؤن لوڈ کی جا رہی ہے…"</string>
+    <!-- no translation found for downloading_administrator_header (8660294318893902915) -->
+    <skip />
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"پہلے، آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"کام اور کھیل کیلئے ایک فون استعمال کریں"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"دفتری اور ذاتی ڈیٹا کو علیحدہ کریں"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"کام مکمل ہونے پر سوئچ آف کریں"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"دفتری پروفائل بنایا جا رہا ہے…"</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"آئیے، آپ کا دفتری فون سیٹ اپ کریں"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"چلتے پھرتے منسلک ہوں"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"دفتری ڈیٹا مامون و محفوظ ہے"</string>
-    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"آپ کی تنظیم اس فون کا نظم کرے گی"</string>
-    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"صرف اپنی تنظیم کیلئے ایپس تلاش کریں"</string>
-    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"آپ کا نظم کردہ آلہ ترتیب دیا جا رہا ہے…"</string>
-    <string name="device_provisioning_finished" msgid="4611825455360297074">"آپ کا فون شروع ہونے کیلئے تیار ہے!"</string>
+    <!-- no translation found for work_profile_provisioning_step_1_header (7914961694921466366) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_2_header (6001172190404670248) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_step_3_header (7495564624887776704) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_progress_label (2627905308998389193) -->
+    <skip />
+    <!-- no translation found for work_profile_provisioning_summary (3917907344897144246) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_accept_header (2944032660440403130) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_1_header (6396274703116708592) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_header (7165472083121590030) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader (2848998570491578119) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_progress_label (3925516135130021966) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_summary (1176062866187662479) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_privacy_title (4017627906103556021) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_privacy_body (2219074604343348608) -->
+    <skip />
+    <!-- no translation found for device_provisioning_finished (3981783240592092906) -->
+    <skip />
     <string name="done" msgid="7755227776955952318">"ہو گیا"</string>
 </resources>
