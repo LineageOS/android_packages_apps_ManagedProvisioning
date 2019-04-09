@@ -257,15 +257,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        // THEN the UI elements should be updated accordingly and a dialog to remove the existing
-        // profile should be shown
-        verifyInitiateProfileOwnerUi();
         verify(mUi).showDeleteManagedProfileDialog(any(), any(), eq(TEST_USER_ID));
-        // WHEN the user consents
-        mController.continueProvisioningAfterUserConsent();
-        // THEN start profile provisioning
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
-        verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
 
