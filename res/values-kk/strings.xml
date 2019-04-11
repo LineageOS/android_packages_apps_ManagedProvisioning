@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Келесі қолданба құрылғыңызды басқарады:"</string>
     <string name="next" msgid="1004321437324424398">"Келесі"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Жұмыс профилі реттелуде…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Әкімші параметрлерді, корпоративтік ресурстарды пайдалануды, қолданбаларды, рұқсаттарды және осы профильмен байланысты деректерді, соның ішінде желідегі белсенділікті, әрі құрылғының орналасқан жерін, қоңыраулар тарихы мен контактілерді іздеу тарихын бақылай және басқара алады.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Қосымша ақпарат, соның ішінде ұйымның құпиялылық саясаттары туралы ақпарат алу үшін әкімшіге хабарласыңыз."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Әкімші параметрлерді, корпоративтік ресурстарды пайдалануды, қолданбаларды, рұқсаттарды және осы профильмен байланысты деректерді, соның ішінде желідегі белсенділікті, құрылғының орналасқан жерін, қоңыраулар тарихы мен контактілерді іздеу тарихын бақылай және басқара алады.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Қосымша ақпарат, соның ішінде ұйымның құпиялылық саясаттары туралы ақпарат алу үшін әкімшіге хабарласыңыз."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Әкімші параметрлерді, корпоративтік ресурстарды пайдалануды, қолданбаларды, рұқсаттарды және осы құрылғымен байланысты деректерді, соның ішінде желідегі белсенділікті әрі құрылғының орналасқан жерін, қоңыраулар тарихын және контактілерді іздеу тарихын бақылай және басқара алады.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Қосымша ақпаратты, соның ішінде ұйымның құпиялылық саясаттары туралы мәліметті алу үшін әкімшіге хабарласыңыз."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ұрлықтан қорғау функцияларын пайдалану үшін, құрылғыда құпия сөзбен қорғалған экран құлпы болуы тиіс."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Қосымша ақпаратты, соның ішінде ұйымның құпиялылық саясаттары туралы мәліметтер алу үшін әкімшіге хабарласыңыз."</string>
@@ -162,21 +162,21 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Әкімші қолданбасының параметрлері орнатылуда"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Қалған параметрлерді орнату"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Енді басқа параметрлерді орнатайық"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Бұл құрылғыны ұйымыңыз басқаратын болады."</string>
+    <string name="brand_screen_header" msgid="5415267581015331233">"Бұл құрылғыны ұйымыңыз басқаратын болады"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Бұл телефонды басқару және бақылау үшін мына қолданба пайдаланылатын болады."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Жұмысқа реттеуге дайындалуда…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Алдымен жұмыс профиліңіздің параметрлерін орнатып алайық."</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жұмыс қолданбалары жұмыс профилінде сақталады."</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жұмыс қолданбалары жұмыс профилінде сақталады"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Күннің соңында жұмыс қолданбаларын тоқтатып қою"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Әкімші тек жұмыс профиліндегі деректерді көре алады."</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Жұмыс профиліңіз реттелуде…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Жұмыс қолданбалары жұмыс профилінде сақталады. Күннің соңында жұмыс қолданбаларын тоқтатып қоя аласыз. Әкімші тек жұмыс профиліндегі деректерді көре алады."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Жұмыс құрылғыңызды реттейік."</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Жұмыс қолданбаларын оңай пайдаланыңыз."</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Жұмыс қолданбаларын оңай пайдаланыңыз"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Бұл құрылғы жеке емес."</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Әкімші осы құрылғыдағы деректеріңізді және әрекеттеріңізді көруі мүмкін."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Құрылғы реттелуде…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Жұмыс қолданбаларына оңай кіру үшін осы құрылғыны пайдаланыңыз. Бұл – жеке құрылғы емес, сондықтан деректеріңіз бен әрекеттеріңізді әкімші көруі мүмкін. Толығырақ ақпарат үшін әкімшімен хабарласыңыз."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Жұмыс қолданбаларына оңай кіру үшін осы құрылғыны пайдаланыңыз. Бұл жеке құрылғы емес, сондықтан деректеріңіз бен әрекеттеріңізді әкімші көруі мүмкін. Толығырақ ақпарат үшін әкімшімен хабарласыңыз."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Құпиялылық туралы еске салғыш"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Әкімші осы құрылғыдағы деректеріңізді және әрекеттеріңізді көруі мүмкін."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Құрылғыңыз пайдалануға дайын!"</string>
