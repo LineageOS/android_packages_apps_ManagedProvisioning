@@ -92,7 +92,7 @@
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"దయచేసి వేచి ఉండండి..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"చెక్‌సమ్ ఎర్రర్ కారణంగా ఈ నిర్వాహక యాప్‌ను ఉపయోగించడం సాధ్యపడలేదు. సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"నిర్వాహక యాప్‌ని డౌన్‌లోడ్ చేయడం సాధ్యపడలేదు"</string>
-    <string name="error_package_invalid" msgid="555402554502033988">"నిర్వాహక యాప్‌ను ఉపయోగించలేరు. ఇందులో కొన్ని భాగాలు లేవు లేదా పాడైంది. సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
+    <string name="error_package_invalid" msgid="555402554502033988">"నిర్వాహక యాప్‌ను ఉపయోగించలేరు. ఇందులో కొన్ని భాగాలు లేవు లేదా ఈ యాప్ పాడైంది. సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"నిర్వాహక యాప్‌ని ఇన్‌స్టాల్ చేయడం సాధ్యపడలేదు"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"సెటప్ చేయడం ఆపివేయాలా?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"కాదు"</string>

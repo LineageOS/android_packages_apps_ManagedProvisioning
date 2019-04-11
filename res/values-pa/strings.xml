@@ -110,9 +110,9 @@
     <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ, ਇਸਦੀ ਨਿਗਰਾਨੀ ਕੀਤੀ ਜਾਵੇਗੀ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ। ਨਿਯਮ ਲਾਗੂ ਹੋਣਗੇ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਵੱਲੋਂ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇਗਾ, ਇਸਦੀ ਨਿਗਰਾਨੀ ਕੀਤੀ ਜਾਵੇਗੀ ਅਤੇ ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਿਆ ਜਾਵੇਗਾ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ਦੇ ਨਿਯਮ ਲਾਗੂ ਹੋਣਗੇ। <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ਇਹ ਲਿੰਕ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਹੈ ਅਤੇ ਇਸਨੂੰ ਡੀਵਾਈਸ ਦੀ ਸਥਾਪਨਾ ਪੂਰੀ ਹੋਣ ਤੱਕ ਖੋਲ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="2843488903902493030">"ਹੋਰ ਜਾਣਨ ਲਈ, ਆਪਣੇ <xliff:g id="IT_ADMIN">%1$s</xliff:g>.ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="contact_device_provider" msgid="2843488903902493030">"ਹੋਰ ਜਾਣਨ ਲਈ, ਆਪਣੇ <xliff:g id="IT_ADMIN">%1$s</xliff:g> ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="if_questions_contact_admin" msgid="3509427015901582047">"ਜੇ ਤੁਹਾਡੇ ਕੋਈ ਸਵਾਲ ਹਨ, ਤਾਂ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"</string>
-    <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"ਸੈੱਟਅੱਪ ਪੂਰਾ ਨਹੀਂ ਹੋਇਆ। ਮਦਦ ਲਈ, ਆਪਣੇ IT ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"ਸੈੱਟਅੱਪ ਪੂਰਾ ਨਹੀਂ ਹੋਇਆ। ਮਦਦ ਲਈ, ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"ਮਦਦ ਲਈ, ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"</string>
     <string name="organization_admin" msgid="5975914478148511290">"ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ"</string>
     <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਨਾਲ ਇਸ ਡੀਵਾਈਸ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਕਰੇਗੀ:"</string>
@@ -166,11 +166,11 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਇਸ ਫ਼ੋਨ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਕਰਨ ਲਈ ਕੀਤੀ ਜਾਵੇਗੀ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ਕਾਰਜ ਸੈੱਟਅੱਪ ਲਈ ਤਿਆਰੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ਪਹਿਲਾਂ, ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ਕਾਰਜ-ਸਥਾਨ ਐਪਾਂ ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ਕਾਰਜ-ਸਥਾਨ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ਕੰਮ ਪੂਰਾ ਹੋਣ \'ਤੇ ਕਾਰਜ ਐਪਾਂ ਇੱਕ ਦਿਨ ਲਈ ਰੋਕੋ"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਸਿਰਫ਼ ਡਾਟਾ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਦਿਸੇਗਾ"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟਅੱਪ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"ਕਾਰਜ-ਸਥਾਨ ਐਪਾਂ ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਦਿਨ ਦਾ ਕੰਮ ਪੂਰਾ ਹੋਣ \'ਤੇ ਤੁਸੀਂ ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹੋ। ਤੁਹਾਡੀ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਸਿਰਫ਼ ਡਾਟਾ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਦਿਸੇਗਾ।"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਸਿਰਫ਼ ਡਾਟਾ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਦਿਸੇਗਾ"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
+    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"ਕਾਰਜ-ਸਥਾਨ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਦਿਨ ਦਾ ਕੰਮ ਪੂਰਾ ਹੋਣ \'ਤੇ ਤੁਸੀਂ ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹੋ। ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਸਿਰਫ਼ ਡਾਟਾ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਦਿਸੇਗਾ।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਾਲਾ ਡੀਵਾਈਸ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਆਪਣੇ ਕੋਲ ਰੱਖੋ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ਇਹ ਡੀਵਾਈਸ ਨਿੱਜੀ ਨਹੀਂ ਹੈ"</string>
