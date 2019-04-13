@@ -102,7 +102,7 @@
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Puedes configurar tu perfil de trabajo más tarde con la aplicación de administración de dispositivos de tu organización"</string>
     <string name="continue_button" msgid="7177918589510964446">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Detener"</string>
-    <string name="dismiss" msgid="9009534756748565880">"Descartar"</string>
+    <string name="dismiss" msgid="9009534756748565880">"Cerrar"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"Estás a punto de crear un perfil de trabajo que gestionará y supervisará tu organización. Se aplicarán condiciones."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Estás a punto de crear un perfil de trabajo que gestionará y supervisará tu organización. Se aplicarán las condiciones de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Se creará un perfil para tus aplicaciones de trabajo. Tu organización gestionará y supervisará este perfil y el resto de tu dispositivo. Se aplicarán condiciones."</string>

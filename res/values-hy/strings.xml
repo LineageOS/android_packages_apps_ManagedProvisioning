@@ -147,8 +147,8 @@
     <string name="access_terms" msgid="1982500872249763745">"Բացել տերմինները"</string>
     <string name="read_terms" msgid="1745011123626640728">"Կարդալ պայմանները"</string>
     <string name="close_list" msgid="9053538299788717597">"Փակել ցուցակը"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ավարտե՞լ կարգավորումը և կատարել գործարանային վերակայում:"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Կարգավորման ավարտից հետո կկատարվի գործարանային վերակայում և վերադարձ առաջին էկրանին:"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ավարտե՞լ կարգավորումը և կատարել գործարանային կարգավորումների վերականգնում:"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Կարգավորման ավարտից հետո կկատարվի գործարանային կարգավորումների վերականգնում և վերադարձ առաջին էկրանին:"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Չեղարկել"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Վերակայել սարքը"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> և <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>

@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Weitere Informationen, auch zur Datenschutzerklärung Ihres Unternehmens, erhältst du bei deinem Administrator."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Abbrechen"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Ich stimme zu"</string>
     <string name="url_error" msgid="5958494012986243186">"Anzeige nicht möglich."</string>
     <string name="terms" msgid="8295436105384703903">"Nutzungsbedingungen"</string>
@@ -61,7 +61,7 @@
     <string name="change_device_launcher" msgid="4523563368433637980">"Geräte-Launcher ändern"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Dein Arbeitsprofil wird von dieser Launcher-App nicht unterstützt"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Abbrechen"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Ok"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nutzerverwaltungskonfiguration unvollständig"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Nutzer des Dienstgeräts"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Dienstgerät wird eingerichtet…"</string>
@@ -79,7 +79,7 @@
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Dein Gerät wird zurückgesetzt und der erste Bildschirm wird wieder angezeigt"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Einrichtung abbrechen und Daten von deinem Gerät löschen?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Abbrechen"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Ok"</string>
     <string name="reset" msgid="6467204151306265796">"Zurücksetzen"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profil kann nicht eingerichtet werden"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Gerät kann nicht eingerichtet werden"</string>

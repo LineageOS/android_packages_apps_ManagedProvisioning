@@ -80,7 +80,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Спыніць наладжванне і сцерці даныя прылады?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Скасаваць"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ОК"</string>
-    <string name="reset" msgid="6467204151306265796">"Выканаць скід"</string>
+    <string name="reset" msgid="6467204151306265796">"Скінуць"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Немагчыма наладзіць профіль"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Немагчыма наладзіць прыладу"</string>
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Не атрымалася наладзіць прыладу. Звярніцеся да адміністратара па дапамогу."</string>

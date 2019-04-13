@@ -99,7 +99,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Si"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Cancelando…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Queres deter a configuración do perfil?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Podes configurar o perfil de traballo máis tarde na aplicación de xestión de dispositivos da túa organización"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Podes configurar o perfil de traballo máis tarde na aplicación de administración de dispositivos da túa organización"</string>
     <string name="continue_button" msgid="7177918589510964446">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Deter"</string>
     <string name="dismiss" msgid="9009534756748565880">"Ignorar"</string>
