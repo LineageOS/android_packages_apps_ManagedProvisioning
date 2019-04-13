@@ -48,7 +48,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"मौजूदा प्रोफ़ाइल हटाना चाहते हैं?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"आपकी एक कार्य प्रोफ़ाइल पहले से है. उसका प्रबंधन इस ऐप्लिकेशन के उपयोग से किया जाता है:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"आगे बढ़ने से पहले, "<a href="#read_this_link">"यह पढ़ें"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"यदि आप जारी रखते हैं, तो इस प्रोफ़ाइल के सभी ऐप्लिकेशन और डेटा को हटा दिया जाएगा."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"अगर आप जारी रखते हैं, तो इस प्रोफ़ाइल के सभी ऐप्लिकेशन और डेटा को हटा दिया जाएगा."</string>
     <string name="delete_profile" msgid="2299218578684663459">"मिटाएं"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करें"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"अपनी कार्य प्रोफ़ाइल सेट अप करने के लिए, आपके डिवाइस को एन्क्रिप्ट करना ज़रूरी है. इसमें कुछ समय लग सकता है."</string>
@@ -57,7 +57,7 @@
     <string name="encrypt" msgid="1749320161747489212">"सुरक्षित करें"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"सुरक्षित करने का काम पूरा हुआ"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"अपनी कार्य प्रोफ़ाइल सेट करना जारी रखने के लिए टैप करें"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपकी कार्य प्रोफ़ाइल सेट नहीं की जा सकी. अपने IT विभाग से संपर्क करें या बाद में पुन: प्रयास करें."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"आपकी कार्य प्रोफ़ाइल सेट नहीं की जा सकी. अपने IT विभाग से संपर्क करें या बाद में फिर से प्रयास करें."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफ़ाइल जोड़ी नहीं जा सकती"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"काम से संबंधित प्रोफ़ाइल को बदला या निकाला नहीं जा सकता"</string>
     <!-- no translation found for work_profile_cant_be_added_contact_admin (5393019630297157418) -->
@@ -162,8 +162,8 @@
     <string name="access_terms" msgid="1982500872249763745">"शर्तों पर पहुंचें"</string>
     <string name="read_terms" msgid="1745011123626640728">"शर्तें पढ़ें"</string>
     <string name="close_list" msgid="9053538299788717597">"सूची बंद करें"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप समाप्त करें और फ़ैक्टरी रीसेट करें?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"इस सेटअप को समाप्त करने से आपका डिवाइस फ़ैक्टरी रीसेट हो जाएगा और आपको वापस पहली स्क्रीन पर ले जाया जाएगा."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप खत्म करें और फ़ैक्टरी रीसेट करें?"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"इस सेटअप को खत्म करने से आपका डिवाइस फ़ैक्टरी रीसेट हो जाएगा और आपको वापस पहली स्क्रीन पर ले जाया जाएगा."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द करें"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"डिवाइस रीसेट करें"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> और <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
