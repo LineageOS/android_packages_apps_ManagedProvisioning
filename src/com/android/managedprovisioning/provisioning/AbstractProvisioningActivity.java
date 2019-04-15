@@ -133,26 +133,13 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     }
 
     protected void showCancelProvisioningDialog(boolean resetRequired) {
-        final String dialogTag = resetRequired ? CANCEL_PROVISIONING_DIALOG_RESET
-                : CANCEL_PROVISIONING_DIALOG_OK;
-        final int positiveResId = resetRequired ? R.string.reset
-                : R.string.profile_owner_cancel_ok;
-        final int negativeResId = resetRequired ? R.string.device_owner_cancel_cancel
-                : R.string.profile_owner_cancel_cancel;
-        final int dialogMsgResId = resetRequired
-                ? R.string.this_will_reset_take_back_first_screen
-                : R.string.profile_owner_cancel_message;
-
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
-                .setCancelable(false)
-                .setMessage(dialogMsgResId)
-                .setNegativeButtonMessage(negativeResId)
-                .setPositiveButtonMessage(positiveResId);
         if (resetRequired) {
-            dialogBuilder.setTitle(R.string.stop_setup_reset_device_question);
+            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(),
+                    CANCEL_PROVISIONING_DIALOG_RESET);
+        } else {
+            showDialog(mUtils.createCancelProvisioningDialogBuilder(),
+                   CANCEL_PROVISIONING_DIALOG_OK);
         }
-
-        showDialog(dialogBuilder, dialogTag);
     }
 
     @Override
