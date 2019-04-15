@@ -16,10 +16,17 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static android.stats.devicepolicy.DevicePolicyEnums.PROVISIONING_PREPARE_TOTAL_TIME_MS;
+import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_DURING_PROVISIONING_PREPARE;
+
 import android.content.Context;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.GuardedBy;
+import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -35,14 +42,11 @@ class AdminIntegratedFlowPrepareManager implements ProvisioningControllerCallbac
 
     private final Context mContext;
     private final ProvisioningManagerHelper mHelper;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    private final TimeLogger mTimeLogger;
 
     @GuardedBy("this")
     private AbstractProvisioningController mController;
-
-    private AdminIntegratedFlowPrepareManager(Context context) {
-        mContext = context;
-        mHelper = new ProvisioningManagerHelper(context);
-    }
 
     static AdminIntegratedFlowPrepareManager getInstance(Context context) {
         if (sInstance == null) {
@@ -51,12 +55,34 @@ class AdminIntegratedFlowPrepareManager implements ProvisioningControllerCallbac
         return sInstance;
     }
 
+    private AdminIntegratedFlowPrepareManager(Context context) {
+        this(
+                context,
+                new ProvisioningManagerHelper(context),
+                ProvisioningAnalyticsTracker.getInstance(),
+                new TimeLogger(context, PROVISIONING_PREPARE_TOTAL_TIME_MS));
+    }
+
+    @VisibleForTesting
+    AdminIntegratedFlowPrepareManager(
+            Context context,
+            ProvisioningManagerHelper helper,
+            ProvisioningAnalyticsTracker analyticsTracker,
+            TimeLogger timeLogger) {
+        mContext = checkNotNull(context);
+        mHelper = checkNotNull(helper);
+        mProvisioningAnalyticsTracker = checkNotNull(analyticsTracker);
+        mTimeLogger = checkNotNull(timeLogger);
+    }
+
     @Override
     public void maybeStartProvisioning(ProvisioningParams params) {
         synchronized (this) {
             if (mController == null) {
                 mController = getController(params);
                 mHelper.startNewProvisioningLocked(mController);
+                mTimeLogger.start();
+                mProvisioningAnalyticsTracker.logProvisioningPrepareStarted();
             } else {
                 ProvisionLogger.loge("Trying to start admin integrated flow preparing, "
                         + "but it's already running");
@@ -76,11 +102,16 @@ class AdminIntegratedFlowPrepareManager implements ProvisioningControllerCallbac
 
     @Override
     public void cancelProvisioning() {
-        mHelper.cancelProvisioning(mController);
+        final boolean prepareCancelled = mHelper.cancelProvisioning(mController);
+        if (prepareCancelled) {
+            mProvisioningAnalyticsTracker.logProvisioningCancelled(mContext,
+                    CANCELLED_DURING_PROVISIONING_PREPARE);
+        }
     }
 
     @Override
     public void provisioningTasksCompleted() {
+        mTimeLogger.stop();
         preFinalizationCompleted();
     }
 
@@ -88,6 +119,7 @@ class AdminIntegratedFlowPrepareManager implements ProvisioningControllerCallbac
     public void preFinalizationCompleted() {
         synchronized (this) {
             mHelper.notifyPreFinalizationCompleted();
+            mProvisioningAnalyticsTracker.logProvisioningPrepareCompleted();
             clearControllerLocked();
             ProvisionLogger.logi("AdminIntegratedFlowPrepareManager pre-finalization completed");
         }

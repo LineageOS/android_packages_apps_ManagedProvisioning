@@ -68,8 +68,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private static final String SAVED_PROVISIONING_PARAMS = "saved_provisioning_params";
 
     private static final String ERROR_AND_CLOSE_DIALOG = "PreProvErrorAndCloseDialog";
-    private static final String BACK_PRESSED_DIALOG = "PreProvBackPressedDialog";
-    private static final String CANCELLED_CONSENT_DIALOG = "PreProvCancelledConsentDialog";
+    private static final String BACK_PRESSED_DIALOG_RESET = "PreProvBackPressedDialogReset";
+    private static final String BACK_PRESSED_DIALOG_CLOSE_ACTIVITY =
+            "PreProvBackPressedDialogCloseActivity";
     private static final String LAUNCHER_INVALID_DIALOG = "PreProvCurrentLauncherInvalidDialog";
     private static final String DELETE_MANAGED_PROFILE_DIALOG = "PreProvDeleteManagedProfileDialog";
 
@@ -194,8 +195,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     public void onNegativeButtonClick(DialogFragment dialog) {
         switch (dialog.getTag()) {
-            case CANCELLED_CONSENT_DIALOG:
-            case BACK_PRESSED_DIALOG:
+            case BACK_PRESSED_DIALOG_CLOSE_ACTIVITY:
+            case BACK_PRESSED_DIALOG_RESET:
                 // user chose to continue. Do nothing
                 break;
             case LAUNCHER_INVALID_DIALOG:
@@ -214,15 +215,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     public void onPositiveButtonClick(DialogFragment dialog) {
         switch (dialog.getTag()) {
             case ERROR_AND_CLOSE_DIALOG:
-            case BACK_PRESSED_DIALOG:
-                // Close activity
-                setResult(Activity.RESULT_CANCELED);
-                // TODO: Move logging to close button, if we finish provisioning there.
-                mController.logPreProvisioningCancelled();
-                finish();
+            case BACK_PRESSED_DIALOG_CLOSE_ACTIVITY:
+                onProvisioningAborted();
                 break;
-            case CANCELLED_CONSENT_DIALOG:
-                mUtils.sendFactoryResetBroadcast(this, "Device owner setup cancelled");
+            case BACK_PRESSED_DIALOG_RESET:
+                mUtils.sendFactoryResetBroadcast(this,
+                        "Provisioning cancelled by user on consent screen");
+                onProvisioningAborted();
                 break;
             case LAUNCHER_INVALID_DIALOG:
                 requestLauncherPick();
@@ -241,6 +240,12 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
         }
+    }
+
+    private void onProvisioningAborted() {
+        setResult(Activity.RESULT_CANCELED);
+        mController.logPreProvisioningCancelled();
+        finish();
     }
 
     @Override
@@ -341,8 +346,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void onBackPressed() {
-        mController.logPreProvisioningCancelled();
-        super.onBackPressed();
+        if (mController.getParams().isOrganizationOwnedProvisioning) {
+            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(),
+                    BACK_PRESSED_DIALOG_RESET);
+        } else {
+            showDialog(mUtils.createCancelProvisioningDialogBuilder(),
+                    BACK_PRESSED_DIALOG_CLOSE_ACTIVITY);
+        }
     }
 
     @Override

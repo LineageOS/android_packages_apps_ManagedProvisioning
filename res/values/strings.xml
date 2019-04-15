@@ -344,8 +344,8 @@
   <string name="now_lets_set_up_everything_else">Now, let\'s set up everything else</string>
 
   <!-- Organization brand screen -->
-  <!-- Screen title. This is letting the user know that their organization (e.g. company) will manage their device. [CHAR LIMIT=NONE]-->
-  <string name="brand_screen_header">Your organization will manage this device</string>
+  <!-- Screen title. This is letting the user know that their organization (e.g. company) owns the device. [CHAR LIMIT=NONE]-->
+  <string name="brand_screen_header">This device belongs to your organization</string>
   <!-- Subtext on a screen. This is letting the user know that their organization (e.g. company) will manage their device, and it's introducing the management app that their IT admin will use. [CHAR LIMIT=NONE]-->
   <string name="brand_screen_subheader">The following app will be used to manage and monitor this phone</string>
 
