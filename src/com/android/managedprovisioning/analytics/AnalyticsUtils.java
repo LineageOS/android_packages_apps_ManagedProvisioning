@@ -161,6 +161,8 @@ public class AnalyticsUtils {
 
     /**
      * Converts from {@link MetricsEvent} constants to {@link DevicePolicyEnums} constants.
+     * <p>If such a {@link MetricsEvent} does not exist, the metric is assumed
+     * to belong to {@link DevicePolicyEnums}.
      */
     static int getDevicePolicyEventForCategory(@TimeCategory int metricsEvent) {
         switch (metricsEvent) {
@@ -189,7 +191,7 @@ public class AnalyticsUtils {
             case VIEW_UNKNOWN:
                 return -1;
             default:
-                throw new IllegalArgumentException("Unexpected metrics event.");
+                return metricsEvent;
         }
     }
 }
