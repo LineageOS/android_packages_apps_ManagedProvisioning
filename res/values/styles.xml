@@ -181,7 +181,7 @@
     </style>
 
     <style name="ProvisioningProgressText">
-        <item name="android:textColor">@color/accent</item>
+        <item name="android:textColor">@color/blue_text</item>
     </style>
 
     <style name="SetupWizardPartnerResource">

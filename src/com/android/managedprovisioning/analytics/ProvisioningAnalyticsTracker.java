@@ -23,6 +23,8 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static android.stats.devicepolicy.DevicePolicyEnums.PROVISIONING_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE;
+import static android.stats.devicepolicy.DevicePolicyEnums.PROVISIONING_PREPARE_COMPLETED;
+import static android.stats.devicepolicy.DevicePolicyEnums.PROVISIONING_PREPARE_STARTED;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_ACTION;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_CANCELLED;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_COPY_ACCOUNT_STATUS;
@@ -45,6 +47,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.stats.devicepolicy.DevicePolicyEnums;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import java.util.List;
@@ -53,6 +56,7 @@ import java.util.List;
  * Utility class to log metrics.
  */
 public class ProvisioningAnalyticsTracker {
+
     private static final ProvisioningAnalyticsTracker sInstance =
             new ProvisioningAnalyticsTracker();
 
@@ -63,10 +67,12 @@ public class ProvisioningAnalyticsTracker {
     // integers.
     public static final int CANCELLED_BEFORE_PROVISIONING = 1;
     public static final int CANCELLED_DURING_PROVISIONING = 2;
+    public static final int CANCELLED_DURING_PROVISIONING_PREPARE = 3;
 
     @IntDef({
         CANCELLED_BEFORE_PROVISIONING,
-        CANCELLED_DURING_PROVISIONING})
+        CANCELLED_DURING_PROVISIONING,
+        CANCELLED_DURING_PROVISIONING_PREPARE})
     public @interface CancelState {}
 
     // Only add to the end of the list. Do not change or rearrange these values, that will break
@@ -83,6 +89,9 @@ public class ProvisioningAnalyticsTracker {
         COPY_ACCOUNT_TIMED_OUT,
         COPY_ACCOUNT_EXCEPTION})
     public @interface CopyAccountStatus {}
+
+    private static final int PROVISIONING_FLOW_TYPE_ADMIN_INTEGRATED = 1;
+    private static final int PROVISIONING_FLOW_TYPE_LEGACY = 2;
 
     public static ProvisioningAnalyticsTracker getInstance() {
         return sInstance;
@@ -102,6 +111,7 @@ public class ProvisioningAnalyticsTracker {
         logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
         logNetworkType(context);
         logProvisioningAction(context, params.provisioningAction);
+        maybeLogProvisioningFlowType(params);
         maybeLogManagedProfileOnFullyManagedDevice(context, params.provisioningAction);
     }
 
@@ -223,6 +233,47 @@ public class ProvisioningAnalyticsTracker {
         DevicePolicyEventLogger
                 .createEvent(DevicePolicyEnums.PROVISIONING_TERMS_READ)
                 .setInt(count)
+                .write();
+    }
+
+    /**
+     * Logs when the provisioning preparation has started.
+     * <p>The preparation includes network setup, downloading, verifying and installing the
+     * admin app.
+     */
+    public void logProvisioningPrepareStarted() {
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_PREPARE_STARTED)
+                .write();
+    }
+
+    /**
+     * Logs when the provisioning preparation has completed.
+     * <p>The preparation includes network setup, downloading, verifying and installing the
+     * admin app.
+     */
+    public void logProvisioningPrepareCompleted() {
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_PREPARE_COMPLETED)
+                .write();
+    }
+
+    /**
+     * Logs the type of provisioning flow if this is organization owned provisioning.
+     * <p>It would be either admin integrated flow or legacy.
+     *
+     * @param params Used to extract whether this is the admin integrated flow
+     */
+    private void maybeLogProvisioningFlowType(ProvisioningParams params) {
+        if (!params.isOrganizationOwnedProvisioning) {
+            return;
+        }
+        final boolean isAdminIntegratedFlow = new Utils().isAdminIntegratedFlow(params);
+        DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_FLOW_TYPE)
+                .setInt(isAdminIntegratedFlow
+                        ? PROVISIONING_FLOW_TYPE_ADMIN_INTEGRATED
+                        : PROVISIONING_FLOW_TYPE_LEGACY)
                 .write();
     }
 
