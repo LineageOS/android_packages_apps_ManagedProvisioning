@@ -68,29 +68,28 @@ class PrimaryProfileFinalizationHelper {
             finishAccountMigration(context, primaryProfileSuccessIntent, callback);
             // Note that we currently do not check if account migration worked
         } else {
-            context.sendBroadcast(primaryProfileSuccessIntent);
-            if (callback != null) {
-                callback.cleanup();
-            }
+            handleFinalization(context, callback, primaryProfileSuccessIntent);
+        }
+    }
+
+    private void handleFinalization(Context context, DpcReceivedSuccessReceiver.Callback callback,
+            Intent primaryProfileSuccessIntent) {
+        context.sendBroadcast(primaryProfileSuccessIntent);
+        if (callback != null) {
+            callback.cleanup();
         }
     }
 
     private void finishAccountMigration(final Context context,
             final Intent primaryProfileSuccessIntent,
             DpcReceivedSuccessReceiver.Callback callback) {
-        if (mIsAdminIntegratedFlow) {
-            // For admin integrated flow, account is removed earlier in the flow.
-            context.sendBroadcast(primaryProfileSuccessIntent);
-            if (callback != null) {
-                callback.cleanup();
-            }
-        } else if (!mKeepAccountMigrated) {
+        // For admin integrated flow, account is removed earlier in the flow.
+        if (!mIsAdminIntegratedFlow && !mKeepAccountMigrated) {
             mUtils.removeAccountAsync(context, mMigratedAccount, () -> {
-                context.sendBroadcast(primaryProfileSuccessIntent);
-                if (callback != null) {
-                    callback.cleanup();
-                }
+                handleFinalization(context, callback, primaryProfileSuccessIntent);
             });
+        } else {
+            handleFinalization(context, callback, primaryProfileSuccessIntent);
         }
     }
 }
