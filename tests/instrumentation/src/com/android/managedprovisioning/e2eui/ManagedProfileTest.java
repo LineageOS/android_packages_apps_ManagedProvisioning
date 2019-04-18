@@ -17,8 +17,13 @@ package com.android.managedprovisioning.e2eui;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 
 import android.content.Intent;
 import android.content.pm.UserInfo;
@@ -46,6 +51,7 @@ public class ManagedProfileTest extends AndroidTestCase {
     private static final String TAG = "ManagedProfileTest";
 
     private static final long TIMEOUT_SECONDS = 120L;
+    private static final long WAIT_EDU_SCREENS_MILLIS = 60000L;
 
     public ActivityTestRule mActivityRule;
     private ProvisioningResultListener mResultListener;
@@ -111,13 +117,24 @@ public class ManagedProfileTest extends AndroidTestCase {
     public void testManagedProfile() throws Exception {
         mActivityRule.launchActivity(ManagedProfileAdminReceiver.INTENT_PROVISION_MANAGED_PROFILE);
 
-        mResultListener.register();
-
-        // Retry the sequence of 2 actions 3 times to avoid flakiness of the test
-        new EspressoClickRetryActions(3) {
+        // Retry pressing the "Accept & continue" button twice to reduce flakiness
+        new EspressoClickRetryActions(2) {
             @Override
             public ViewInteraction newViewInteraction1() {
-                return onView(withId(R.id.next_button));
+                return onView(allOf(withClassName(containsString("FooterActionButton")),
+                        withText(R.string.accept_and_continue)));
+            }
+        }.run();
+
+        Thread.sleep(WAIT_EDU_SCREENS_MILLIS);
+        mResultListener.register();
+
+        // Retry pressing the "Next" button twice to reduce flakiness
+        new EspressoClickRetryActions(2) {
+            @Override
+            public ViewInteraction newViewInteraction1() {
+                return onView(allOf(withClassName(containsString("FooterActionButton")),
+                        withText(R.string.next)));
             }
         }.run();
 
@@ -142,7 +159,7 @@ public class ManagedProfileTest extends AndroidTestCase {
             i++;
             newViewInteraction1()
                     .withFailureHandler(this::handleFailure)
-                    .perform(scrollTo(), click());
+                    .perform(click());
             Log.i(TAG, "newViewInteraction1 succeeds.");
         }
 
