@@ -32,7 +32,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT yöneticiniz cihazınızın konumu, çağrı geçmişi ve kişi arama geçmişinin yanı sıra ağ etkinliğinizi de içerecek şekilde bu cihazla ilişkilendirilen ayarları, şirket erişimini, uygulamaları, izinleri ve verileri izleyebilir ve yönetebilir.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kuruluşunuzun gizlilik politikalarını da içeren daha fazla bilgi için IT yöneticinizle iletişime geçin."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hırsızlığa karşı koruma özelliklerini kullanmak için cihazınızda şifre korumalı bir ekran kilidinizin olması gerekir."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Kuruluşunuzun gizlilik politikaları da dahil olmak üzere daha fazla bilgi için IT yöneticinizle iletişime geçin."</string>
-    <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi edinin"</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"Daha fazla bilgi"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"İptal"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Tamam"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Kabul ediyorum"</string>
@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Yönetici uygulamasını kurma"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Diğer kurulumları yapma"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Şimdi diğer kurulumları yapalım"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Bu cihazı kuruluşunuz yönetecek"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Bu cihaz, kuruluşunuza ait"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdaki uygulama bu telefonu yönetmek ve izlemek için kullanılacaktır"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"İş kurulumu için hazırlanıyor…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Öncelikle iş profilinizi oluşturalım"</string>

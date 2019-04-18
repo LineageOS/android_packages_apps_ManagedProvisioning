@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Приложението за администриране се настройва"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Настройване на всичко останало"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Сега нека да настроим всичко останало"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Това устройство ще се управлява от организацията ви"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Това устройство принадлежи на организацията ви"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следното приложение ще се използва за управление и наблюдение на този телефон"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Настройването на служебен профил се подготвя…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Първо, нека да настроим служебния ви потребителски профил"</string>

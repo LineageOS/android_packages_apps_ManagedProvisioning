@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"កំពុង​រៀបចំ​កម្មវិធី​អ្នកគ្រប់គ្រង"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"រៀបចំ​អ្វីៗ​ផ្សេងទៀត"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ឥឡូវនេះ សូម​រៀបចំ​អ្វីៗ​ផ្សេងទៀត"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"ស្ថាប័ន​របស់អ្នក​នឹង​គ្រប់គ្រង​ឧបករណ៍​នេះ"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"ឧបករណ៍​នេះគឺជា​កម្មសិទ្ធិរបស់​ស្ថាប័ន​អ្នក"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"កម្មវិធី​ខាងក្រោម​នឹងត្រូវ​បានប្រើប្រាស់​ដើម្បី​គ្រប់គ្រង និង​ត្រួតពិនិត្យ​ទូរសព្ទនេះ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"កំពុងត្រៀមរៀបចំការងារ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"សូម​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក​ជាមុនសិន"</string>

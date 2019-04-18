@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Идет настройка приложения для администрирования."</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Настройка остальных параметров"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Настройте остальные параметры"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Этим устройством управляет ваша организация"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Это устройство принадлежит вашей организации"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Для управления телефоном и отслеживания действий на нем будет использоваться следующее приложение:"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка к настройке рабочего профиля…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Настройте рабочий профиль"</string>
