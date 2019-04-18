@@ -110,20 +110,15 @@ public class FinalizationController {
             if (params.isOrganizationOwnedProvisioning) {
                 setProfileOwnerCanAccessDeviceIds();
             }
-            if (!isDuringSetupWizard()) {
+            if (!mSettingsFacade.isDuringSetupWizard(mContext)) {
                 // If a managed profile was provisioned after SUW, notify the DPC straight away.
                 notifyDpcManagedProfile(params);
             }
         }
-        if (isDuringSetupWizard()) {
+        if (mSettingsFacade.isDuringSetupWizard(mContext)) {
             // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
         }
-    }
-
-    private boolean isDuringSetupWizard() {
-        // If the flow is running in SUW, the primary user is not set up at this point
-        return !mSettingsFacade.isUserSetupCompleted(mContext);
     }
 
     private void setProfileOwnerCanAccessDeviceIds() {

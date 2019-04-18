@@ -356,6 +356,8 @@
   <!-- Work profile setup screens -->
   <!-- Screen title. This is letting the user know that they'll first set up their work profile before setting up the rest of their device. [CHAR LIMIT=NONE]-->
   <string name="work_profile_provisioning_accept_header">First, let\'s set up your work profile</string>
+  <!-- Screen title in the new phone setup flow. This text is letting the user know that they're about to set up a work profile on their new phone. [CHAR LIMIT=NONE]-->
+  <string name="work_profile_provisioning_accept_header_post_suw">Let\'s set up your work profile</string>
   <!-- Screen title. This is letting the user know what the work profile is for, and that they can find all of their work apps in this profile. [CHAR LIMIT=NONE]-->
   <string name="work_profile_provisioning_step_1_header">Work apps are kept in your work profile</string>
   <!-- Screen title. This is letting the user know that they have to option to pause their work apps when they're done with work for the day or want to take a break. "Pausing" the apps means that they won't get any notifications or interruptions from those apps. [CHAR LIMIT=NONE]-->
