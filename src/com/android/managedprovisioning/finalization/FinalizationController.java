@@ -53,6 +53,15 @@ public class FinalizationController {
     private final UserProvisioningStateHelper mUserProvisioningStateHelper;
     private final ProvisioningIntentProvider mProvisioningIntentProvider;
 
+    public FinalizationController(Context context,
+          UserProvisioningStateHelper userProvisioningStateHelper) {
+        this(
+                context,
+                new Utils(),
+                new SettingsFacade(),
+                userProvisioningStateHelper);
+    }
+
     public FinalizationController(Context context) {
         this(
                 context,

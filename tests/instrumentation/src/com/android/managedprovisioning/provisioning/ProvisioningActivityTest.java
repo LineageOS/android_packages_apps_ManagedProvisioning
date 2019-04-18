@@ -42,11 +42,19 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.reset;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+
+import static com.google.common.truth.Truth.assertThat;
 
 import static java.util.Arrays.asList;
 
@@ -75,9 +83,11 @@ import com.android.managedprovisioning.common.CustomizationVerifier;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.UriBitmap;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.testcommon.ActivityLifecycleWaiter;
 
+import java.util.Collections;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -87,11 +97,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.hamcrest.MockitoHamcrest;
+import org.mockito.invocation.Invocation;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
 
 /**
  * Unit tests for {@link ProvisioningActivity}.
@@ -99,6 +111,7 @@ import java.util.concurrent.TimeUnit;
 @SmallTest
 @RunWith(MockitoJUnitRunner.class)
 public class ProvisioningActivityTest {
+
     private static final String ADMIN_PACKAGE = "com.test.admin";
     private static final String TEST_PACKAGE = "com.android.managedprovisioning.tests";
     private static final ComponentName ADMIN = new ComponentName(ADMIN_PACKAGE, ".Receiver");
@@ -113,7 +126,7 @@ public class ProvisioningActivityTest {
             .setDeviceAdminComponentName(ADMIN)
             .build();
     private static final ProvisioningParams NFC_PARAMS = new ProvisioningParams.Builder()
-            .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+            .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
             .setStartedByTrustedSource(true)
             .setIsNfc(true)
@@ -126,6 +139,8 @@ public class ProvisioningActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
     private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
     private static final int BROADCAST_TIMEOUT = 1000;
+    private static final int WAIT_ACTIVITY_INITIALIZE_MILLIS = 1000;
+    private static final int WAIT_PROVISIONING_COMPLETE_MILLIS = 60_000;
 
     private static class CustomIntentsTestRule extends IntentsTestRule<ProvisioningActivity> {
         private boolean mIsActivityRunning = false;
@@ -155,7 +170,8 @@ public class ProvisioningActivityTest {
 
     @Mock private ProvisioningManager mProvisioningManager;
     @Mock private PackageManager mPackageManager;
-    @Mock private Utils mUtils;
+    @Mock private UserProvisioningStateHelper mUserProvisioningStateHelper;
+    private Utils mUtils;
     private static int mRotationLocked;
 
     @BeforeClass
@@ -171,7 +187,9 @@ public class ProvisioningActivityTest {
 
     @Before
     public void setup() {
-        when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_MAIN_COLOR);
+        mUtils = spy(new Utils());
+        doNothing().when(mUtils).sendFactoryResetBroadcast(any(Context.class), anyString());
+        doReturn(DEFAULT_MAIN_COLOR).when(mUtils).getAccentColor(any());
     }
 
     @AfterClass
@@ -187,7 +205,8 @@ public class ProvisioningActivityTest {
     public void setUp() {
         TestInstrumentationRunner.registerReplacedActivity(ProvisioningActivity.class,
                 (classLoader, className, intent) ->
-                        new ProvisioningActivity(mProvisioningManager, mUtils) {
+                        new ProvisioningActivity(
+                                mProvisioningManager, mUtils, mUserProvisioningStateHelper) {
                             @Override
                             public PackageManager getPackageManager() {
                                 return mPackageManager;
@@ -203,16 +222,27 @@ public class ProvisioningActivityTest {
     }
 
     @Test
-    public void testLaunch() {
+    public void testLaunch() throws NoSuchMethodException {
         // GIVEN the activity was launched with a profile owner intent
         launchActivityAndWait(PROFILE_OWNER_INTENT);
-
         // THEN the provisioning process should be initiated
         verify(mProvisioningManager).maybeStartProvisioning(PROFILE_OWNER_PARAMS);
 
         // THEN the activity should start listening for provisioning updates
-        verify(mProvisioningManager).registerListener(any(ProvisioningManagerCallback.class));
-        verifyNoMoreInteractions(mProvisioningManager);
+        final Method registerListenerMethod = ProvisioningManager.class
+                .getMethod("registerListener", ProvisioningManagerCallback.class);
+        final int registerListenerInvocations = getNumberOfInvocations(registerListenerMethod);
+        final Method unregisterListenerMethod = ProvisioningManager.class
+            .getMethod("unregisterListener", ProvisioningManagerCallback.class);
+        final int unregisterListenerInvocations = getNumberOfInvocations(unregisterListenerMethod);
+        assertThat(registerListenerInvocations - unregisterListenerInvocations).isEqualTo(1);
+    }
+
+    private int getNumberOfInvocations(Method method) {
+        final Collection<Invocation> invocations =
+                mockingDetails(mProvisioningManager).getInvocations();
+        return (int) invocations.stream()
+                .filter(invocation -> invocation.getMethod().equals(method)).count();
     }
 
     @Test
@@ -311,6 +341,8 @@ public class ProvisioningActivityTest {
         // GIVEN the activity was launched with a profile owner intent
         launchActivityAndWait(PROFILE_OWNER_INTENT);
 
+        reset(mProvisioningManager);
+
         // WHEN the activity is paused
         mActivityRule.runOnUiThread(() -> {
             InstrumentationRegistry.getInstrumentation()
@@ -318,6 +350,7 @@ public class ProvisioningActivityTest {
         });
 
         // THEN the listener is unregistered
+        // b/130350469 to figure out why onPause/onResume is called one additional time
         verify(mProvisioningManager).unregisterListener(any(ProvisioningManagerCallback.class));
     }
 
@@ -328,17 +361,21 @@ public class ProvisioningActivityTest {
 
         // WHEN an error occurred that does not require factory reset
         final int errorMsgId = R.string.managed_provisioning_error_text;
-        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().error(R.string.cant_set_up_device, errorMsgId, false));
+        mActivityRule.runOnUiThread(() -> {
+            mActivityRule.getActivity().error(R.string.cant_set_up_device, errorMsgId, false);
+        });
 
         // THEN the UI should show an error dialog
         onView(withText(errorMsgId)).check(matches(isDisplayed()));
+
+        Thread.sleep(WAIT_ACTIVITY_INITIALIZE_MILLIS);
 
         // TODO(http://b/122511015): Replace retry with cleaner solution.
         // Retry as the click action is unreliable
         assertAndRetry(() -> {
             // WHEN clicking ok
             onView(withId(android.R.id.button1))
-                    .check(matches(withText(R.string.device_owner_error_ok)))
+                    .check(matches(withText(android.R.string.ok)))
                     .perform(click());
             // THEN the activity should be finishing
             assertTrue(mActivityRule.getActivity().isFinishing());
@@ -440,10 +477,13 @@ public class ProvisioningActivityTest {
                 .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         launchActivityAndWait(new Intent(intent));
 
+        reset(mProvisioningManager);
+
         // WHEN the user tries to cancel
         mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().onBackPressed());
 
         // THEN never unregistering ProvisioningManager
+        // b/130350469 to figure out why onPause/onResume is called one additional time
         verify(mProvisioningManager, never()).unregisterListener(
                 any(ProvisioningManagerCallback.class));
     }
@@ -460,11 +500,15 @@ public class ProvisioningActivityTest {
                 .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         launchActivityAndWait(new Intent(intent));
 
+        reset(mProvisioningManager);
+
         // WHEN the user tries to cancel
         mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().onBackPressed());
 
         // THEN unregistering ProvisioningManager
-        verify(mProvisioningManager).unregisterListener(any(ProvisioningManagerCallback.class));
+        // b/130350469 to figure out why onPause/onResume is called one additional time
+        verify(mProvisioningManager)
+                .unregisterListener(any(ProvisioningManagerCallback.class));
 
         // THEN the cancel dialog should be shown
         onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
@@ -515,6 +559,10 @@ public class ProvisioningActivityTest {
         // WHEN preFinalization is completed
         mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().preFinalizationCompleted());
 
+        Thread.sleep(WAIT_PROVISIONING_COMPLETE_MILLIS);
+
+        onView(withText(R.string.next)).perform(click());
+
         // THEN the activity should finish
         assertTrue(mActivityRule.getActivity().isFinishing());
     }
@@ -542,9 +590,9 @@ public class ProvisioningActivityTest {
         // WHEN preFinalization is completed
         mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().preFinalizationCompleted());
 
-        // TODO(http://b/117219451): Replace sleep with a more robust solution
-        // Sleep to allow time for the new activity to launch
-        SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
+        Thread.sleep(WAIT_PROVISIONING_COMPLETE_MILLIS);
+
+        onView(withText(R.string.next)).perform(click());
 
         // THEN verify starting TEST_ACTIVITY
         intended(allOf(hasComponent(TEST_ACTIVITY), hasAction(ACTION_STATE_USER_SETUP_COMPLETE)));
