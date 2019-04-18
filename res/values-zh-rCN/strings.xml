@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"设置管理应用"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"设置所有其他内容"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"现在，请设置所有其他内容"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"贵组织将管理此设备"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"此设备归贵单位所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在准备工作设置…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"首先，请设置您的工作资料"</string>

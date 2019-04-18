@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Админ аппыг тохируулж байна"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Бусад зүйлсийг тохируулцгаая"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Одоо бусад зүйлсийг тохируулцгаая"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Энэ төхөөрөмжийг танай байгууллага удирдана"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Энэ төхөөрөмжийг танай байгууллага эзэмшдэг"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Энэ утсыг удирдаж, хянахын тулд дараах аппыг ашиглана"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ажлын тохируулгад бэлтгэж байна…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Эхлээд таны ажлын профайлыг тохируулцгаая"</string>

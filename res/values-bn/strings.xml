@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"অ্যাডমিন অ্যাপ সেট-আপ করা হচ্ছে"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"বাকি সব কিছু সেট-আপ করুন"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"এখন বাকি সব কিছু সেট-আপ করুন"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"আপনার সংস্থা এই ডিভাইস ম্যানেজ করবে"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"এই ডিভাইসটি আপনার প্রতিষ্ঠানের"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফোন ম্যানেজ এবং মনিটর করতে এই অ্যাপ ব্যবহার করা হবে"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"অফিসের জন্য ডিভাইসের সেট-আপ শুরু করা হচ্ছে…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"প্রথমে, আপনার অফিসের প্রোফাইল সেট-আপ করুন"</string>

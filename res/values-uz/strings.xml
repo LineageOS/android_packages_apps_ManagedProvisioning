@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administrator ilovasi sozlanmoqda"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Hammasini sozlash"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Endi qolgan hammasini sozlaymiz"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Tashkilotingiz bu qurilmani boshqaradi"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Bu qurilma tashkilotingizga tegishli"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Bu telefonni boshqarish va nazorat qilish uchun quyidagi ilovadan foydalaniladi"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Sozlash uchun tayyorlanmoqda…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Avval ishchi profilingizni sozlaymiz"</string>

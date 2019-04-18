@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administraatorirakenduse seadistamine"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Seadistage kõik muu"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Seadistame nüüd kõik muu"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Seda seadet haldab teie organisatsioon"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"See seade kuulub teie organisatsioonile"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Selle telefoni haldamiseks ja jälgimiseks kasutatakse järgmist rakendust"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Tööks seadistamise ettevalmistamine …"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Seadistame esmalt teie tööprofiili"</string>
