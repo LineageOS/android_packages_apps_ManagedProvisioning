@@ -97,7 +97,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mActivity.setTitle(titleResId);
 
         // set up terms headers
-        setupViewTermsButton(uiParams.viewTermsIntent, uiParams.disclaimerHeadings);
+        setupViewTermsButton(uiParams.viewTermsIntent);
     }
 
     private void setupAnimation(@DrawableRes int animationResId) {
@@ -123,15 +123,9 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mCallback.nextAfterUserConsent();
     }
 
-    private void setupViewTermsButton(Intent showTermsIntent,
-            List<String> disclaimerHeadings) {
+    private void setupViewTermsButton(Intent showTermsIntent) {
         final View viewTermsButton = mActivity.findViewById(R.id.show_terms_button);
-        if (disclaimerHeadings.isEmpty()) {
-            viewTermsButton.setVisibility(INVISIBLE);
-        } else {
-            viewTermsButton.setVisibility(VISIBLE);
-            viewTermsButton.setOnClickListener(v -> mActivity.startActivity(showTermsIntent));
-            mTouchTargetEnforcer.enforce(viewTermsButton, (View) viewTermsButton.getParent());
-        }
+        viewTermsButton.setOnClickListener(v -> mActivity.startActivity(showTermsIntent));
+        mTouchTargetEnforcer.enforce(viewTermsButton, (View) viewTermsButton.getParent());
     }
 }
