@@ -19,6 +19,8 @@ package com.android.managedprovisioning.finalization;
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.ACTION_MANAGED_PROFILE_PROVISIONED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.never;
@@ -31,6 +33,7 @@ import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.RemoveAccountListener;
 import com.android.managedprovisioning.common.Utils;
 
 import org.mockito.ArgumentCaptor;
@@ -40,6 +43,7 @@ import org.mockito.invocation.InvocationOnMock;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 /**
  * Unit tests for {@link DpcReceivedSuccessReceiver}.
@@ -95,10 +99,15 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
                 mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
 
         // WHEN receiver.onReceive is called
-        invokeOnReceiveAndVerifyIntent(receiver);
+        invokeOnReceiveAndVerifyIntent(receiver, /* postOnReceive */ aVoid -> {
+            // THEN the account should have been removed from the primary user
+            ArgumentCaptor<RemoveAccountListener> captor =
+                    ArgumentCaptor.forClass(RemoveAccountListener.class);
+            verify(mUtils).removeAccountAsync(eq(mContext), eq(TEST_ACCOUNT), captor.capture());
+            captor.getValue().onAccountRemoved();
+            return null;
+        });
 
-        // THEN the account should have been removed from the primary user
-        verify(mUtils).removeAccountAsync(mContext, TEST_ACCOUNT, any());
     }
 
     @SmallTest
@@ -109,14 +118,15 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
                 mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
 
         // WHEN receiver.onReceive is called
-        invokeOnReceiveAndVerifyIntent(receiver);
-
-        // THEN the account is not removed from the primary user
-        verify(mUtils, never()).removeAccountAsync(mContext, TEST_ACCOUNT, any());
+        invokeOnReceiveAndVerifyIntent(receiver, /* postOnReceive */ aVoid -> {
+            // THEN the account is not removed from the primary user
+            verify(mUtils, never()).removeAccountAsync(eq(mContext), eq(TEST_ACCOUNT), any());
+            return null;
+        });
     }
 
-    private void invokeOnReceiveAndVerifyIntent(final DpcReceivedSuccessReceiver receiver)
-            throws InterruptedException {
+    private void invokeOnReceiveAndVerifyIntent(final DpcReceivedSuccessReceiver receiver,
+            Function<Void, Void> postOnReceive) throws InterruptedException {
         // prepare a semaphore to handle AsyncTask usage
         final Semaphore semaphore = new Semaphore(0);
         doAnswer((InvocationOnMock invocation) -> {
@@ -126,6 +136,8 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
 
         // WHEN the profile provisioning complete intent was received by the DPC
         receiver.onReceive(mContext, TEST_INTENT);
+
+        postOnReceive.apply(null);
 
         assertTrue(semaphore.tryAcquire(SEND_BROADCAST_TIMEOUT_SECONDS, TimeUnit.SECONDS));
 
