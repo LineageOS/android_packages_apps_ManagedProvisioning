@@ -130,15 +130,13 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void updateProvisioningFinalizedScreen() {
-        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
-        mNextButton.setVisibility(View.VISIBLE);
-
-        if (mParams.skipEducationScreens) {
-            endSpinnerAnimation();
-            layout.findViewById(R.id.animation).setVisibility(View.INVISIBLE);
+        if (!mParams.skipEducationScreens) {
+            final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+            layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
+            mNextButton.setVisibility(View.VISIBLE);
         }
-        if (Utils.isSilentProvisioning(this, mParams)) {
+
+        if (mParams.skipEducationScreens || Utils.isSilentProvisioning(this, mParams)) {
             onNextButtonClicked();
         }
     }
