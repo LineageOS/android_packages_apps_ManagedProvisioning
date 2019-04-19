@@ -21,6 +21,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -29,6 +30,7 @@ import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -48,6 +50,9 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
+
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Unit tests for {@link ProvisioningManager}.
@@ -156,13 +161,26 @@ public class ProvisioningManagerTest {
     }
 
     @Test
-    public void testListener_preFinalizationCompleted() {
+    public void testListener_preFinalizationCompleted() throws InterruptedException {
         // GIVEN provisioning has been started
         mManager.maybeStartProvisioning(TEST_PARAMS);
         // GIVEN a listener is registered
         mManager.registerListener(mCallback);
+
+        // prepare a semaphore to handle AsyncTask usage
+        final Semaphore semaphore = new Semaphore(0);
+        doAnswer((InvocationOnMock invocation) -> {
+            semaphore.release(1);
+            return null;
+        }).when(mCallback).preFinalizationCompleted();
+
         // WHEN some progress has occurred previously
         mManager.preFinalizationCompleted();
+
+
+        assertTrue(semaphore.tryAcquire(1, TimeUnit.SECONDS));
+
+
         // THEN the listener should receive a callback
         verify(mCallback).preFinalizationCompleted();
 
@@ -170,7 +188,7 @@ public class ProvisioningManagerTest {
         mManager.unregisterListener(mCallback);
         mManager.registerListener(mCallback);
         // THEN the listener should receive a callback again
-        verify(mCallback, times(2)).preFinalizationCompleted();
+        verify(mCallback).preFinalizationCompleted();
         verifyNoMoreInteractions(mCallback);
     }
 }

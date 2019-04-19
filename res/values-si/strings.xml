@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"පරිපාලක යෙදුම සැකසීම"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"අනෙකුත් සියල්ල සකසන්න"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"දැන්, අනෙකුත් සියල්ල සකසමු"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"ඔබේ සංවිධානය මෙම උපාංගය කළමනා කරයි"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"මෙම උපාංගය ඔබේ සංවිධානයට අයත් වේ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"මෙම දුරකථනය කළමනා කිරීමටත් නිරීක්‍ෂණ කිරීමටත් පහත සඳහන් යෙදුම භාවිත කෙරේ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"කාර්යාල සැකසීම සඳහා සූදානම් වේ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"පළමුව, ඔබේ වැඩ පැතිකඩ සකසමු"</string>

@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Hallintasovellusta määritetään"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Määritä kaikki muu"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Määritetään nyt kaikki muu"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Organisaatiosi ylläpitää tätä laitetta"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Tämä on organisaatiosi laite"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Tätä puhelinta ylläpidetään ja valvotaan seuraavalla sovelluksella"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Valmistellaan työprofiilin määritystä…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Määritetään ensin työprofiilisi"</string>

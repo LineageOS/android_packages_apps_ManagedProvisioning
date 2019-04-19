@@ -177,8 +177,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"एडमिन ऐप्लिकेशन सेट अप किया जा रहा है"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"बाकी सब कुछ सेट अप करें"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"चलिए अब बाकी सारी चीज़ें सेट अप करते हैं"</string>
-    <!-- no translation found for brand_screen_header (5415267581015331233) -->
-    <skip />
+    <string name="brand_screen_header" msgid="8865808542690116648">"यह डिवाइस आपके संगठन का है"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"आगे बताए गए ऐप्लिकेशन का इस्तेमाल इस फ़ोन को प्रबंधित करने और इसकी निगरानी करने के लिए किया जाएगा"</string>
     <!-- no translation found for downloading_administrator_header (8660294318893902915) -->
     <skip />

@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Menyediakan apl pentadbir"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Sediakan semua perkara lain"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Sekarang mari sediakan semua perkara lain"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Organisasi anda akan mengurus peranti ini"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Peranti ini milik organisasi anda"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Apl berikut akan digunakan untuk mengurus dan memantau telefon ini"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Bersedia untuk persediaan kerja…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Mula-mula, mari sediakan profil kerja anda"</string>

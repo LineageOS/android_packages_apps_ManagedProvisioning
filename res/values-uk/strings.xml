@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Налаштування додатка адміністратора"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Налаштуйте решту параметрів"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Тепер налаштуймо решту параметрів"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Цим пристроєм керуватиме ваша організація"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Цей пристрій належить вашій організації"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"За допомогою цього додатка ви зможете керувати телефоном і відстежувати його"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Підготовка до налаштування для роботи…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Спершу налаштуймо ваш робочий профіль"</string>

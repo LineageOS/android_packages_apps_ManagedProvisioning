@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Aplikacija za administratore se podešava"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Podesite sve ostalo"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Hajde da podesimo sve ostalo"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Organizacija će upravljati ovim uređajem"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Ovaj uređaj pripada organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Sledeća aplikacija će se koristiti za praćenje ovog telefona i upravljanje njime"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Podešavanje za posao se priprema…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Hajde da prvo podesimo profil za Work"</string>

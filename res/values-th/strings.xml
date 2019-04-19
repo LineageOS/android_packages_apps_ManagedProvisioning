@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"กำลังตั้งค่าแอปผู้ดูแลระบบ"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"ตั้งค่าอื่นๆ"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"คราวนี้มาตั้งค่าอื่นๆ กัน"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"องค์กรของคุณจะจัดการอุปกรณ์เครื่องนี้"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"องค์กรของคุณเป็นเจ้าของอุปกรณ์นี้"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"แอปต่อไปนี้จะใช้เพื่อจัดการและตรวจสอบโทรศัพท์เครื่องนี้"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"กำลังเตรียมอุปกรณ์เพื่อตั้งค่าสำหรับการทำงาน…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ก่อนอื่นมาตั้งค่าโปรไฟล์งานกัน"</string>
