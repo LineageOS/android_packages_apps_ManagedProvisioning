@@ -147,8 +147,8 @@
     <string name="access_terms" msgid="1982500872249763745">"Բացել տերմինները"</string>
     <string name="read_terms" msgid="1745011123626640728">"Կարդալ պայմանները"</string>
     <string name="close_list" msgid="9053538299788717597">"Փակել ցուցակը"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ավարտե՞լ կարգավորումը և կատարել գործարանային վերակայում:"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Կարգավորման ավարտից հետո կկատարվի գործարանային վերակայում և վերադարձ առաջին էկրանին:"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ավարտե՞լ կարգավորումը և կատարել գործարանային կարգավորումների վերականգնում:"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Կարգավորման ավարտից հետո կկատարվի գործարանային կարգավորումների վերականգնում և վերադարձ առաջին էկրանին:"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Չեղարկել"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Վերակայել սարքը"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> և <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ադմինիստրատորի հավելվածի կարգավորում"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Այլ պարամետրերի կարգավորում"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Այժմ կարգավորեք մնացածը"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Այս սարքը կկառավարի ձեր կազմակերպությունը"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Այս սարքը պատկանում է ձեր կազմակերպությանը"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Հետևյալ հավելվածը կօգտագործվի այս հեռախոսը կառավարելու և վերահսկելու համար"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Սարքի կարգավորման նախապատրաստում…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Նախ կարգավորեք ձեր աշխատանքային պրոֆիլը"</string>

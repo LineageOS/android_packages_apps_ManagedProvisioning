@@ -86,7 +86,7 @@
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Uređaj nije postavljen. Obratite se IT administratoru za pomoć."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Obratite se IT administratoru za pomoć"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Uređaj je već postavljen"</string>
-    <string name="error_wifi" msgid="1850288843966836571">"Povezivanje na Wi-Fi mrežu nije uspjelo"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Povezivanje na WiFi mrežu nije uspjelo"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Na vašem uređaju je uključena opcija za ponovno postavljanje zaštite. Obratite se IT administratoru za pomoć."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Briše se"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Pričekajte..."</string>
@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Postavljanje aplikacije administratora"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Postavite sve ostalo"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Idemo sada postaviti sve ostalo"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Ovim uređajem će upravljati vaša organizacija"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Ovaj uređaj pripada vašoj organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Sljedeća aplikacija će se koristiti za upravljanje telefonom i njegovo praćenje"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Pripremanje za postavljanje poslovnog profila…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Postavimo najprije vaš radni profil"</string>

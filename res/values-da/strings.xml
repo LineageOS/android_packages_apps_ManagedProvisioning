@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurerer administrationsappen"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Konfigurer resten"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Lad os konfigurere resten"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Din organisation administrerer denne enhed"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Denne enhed tilhører din organisation"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app bruges til at administrere eller overvåge denne telefon"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Forbereder konfiguration til arbejde…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Lad os starte med at konfigurere din arbejdsprofil"</string>

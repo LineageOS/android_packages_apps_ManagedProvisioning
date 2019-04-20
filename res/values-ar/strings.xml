@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"إعداد تطبيق المشرف"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"إعداد بقية التطبيقات"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"حان الآن وقت إعداد بقية التطبيقات."</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"ستدير مؤسستك هذا الجهاز."</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"هذا الجهاز يخص مؤسستك."</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"سيتمّ استخدام التطبيق التالي لإدارة هذا الهاتف ومراقبته."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"جارٍ إعداد الجهاز للاستخدام في العمل…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"يحين أولاً إعداد الملف الشخصي للعمل."</string>
