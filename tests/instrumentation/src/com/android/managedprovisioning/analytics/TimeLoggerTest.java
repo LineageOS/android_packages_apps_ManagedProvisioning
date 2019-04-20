@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.analytics;
 
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -34,7 +36,7 @@ import org.mockito.MockitoAnnotations;
 @SmallTest
 public class TimeLoggerTest extends AndroidTestCase {
 
-    private static final int CATEGORY = 1;
+    private static final int CATEGORY = PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
     private static final long START_TIME_MS = 1500;
     private static final long STOP_TIME_MS = 2500;
 

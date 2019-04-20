@@ -283,6 +283,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                         .setAdminExtrasBundle(getTestAdminExtrasPersistableBundle())
                         .setStartedByTrustedSource(true)
                         .setIsNfc(true)
+                        .setIsOrganizationOwnedProvisioning(true)
                         .build())
                 .isEqualTo(params);
     }
@@ -369,7 +370,8 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 .setProvisioningId(TEST_PROVISIONING_ID)
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
                 .setStartedByTrustedSource(true)
-                .setIsNfc(true);
+                .setIsNfc(true)
+                .setIsOrganizationOwnedProvisioning(true);
     }
 
     public void testParse_OtherIntentsThrowsException() {

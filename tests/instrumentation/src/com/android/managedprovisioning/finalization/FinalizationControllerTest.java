@@ -22,6 +22,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
+import static com.android.managedprovisioning.finalization.SendDpcBroadcastService.EXTRA_PROVISIONING_PARAMS;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
@@ -47,6 +49,8 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import static com.google.common.truth.Truth.assertThat;
 
 /**
  * Unit tests for {@link FinalizationController}.
@@ -144,11 +148,8 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // THEN the user provisioning state should be marked as initially done
         verify(mHelper).markUserProvisioningStateInitiallyDone(params);
 
-        // THEN provisioning successful intent should be sent to the dpc.
-        verifyDpcLaunchedForUser(MANAGED_PROFILE_USER_HANDLE);
-
-        // THEN an ordered broadcast should be sent to the DPC
-        verifyOrderedBroadcast();
+        // THEN the service which starts the DPC is started.
+        verifySendDpcServiceStarted();
     }
 
     @SmallTest
@@ -178,11 +179,8 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // THEN the user provisioning state is finalized
         verify(mHelper).markUserProvisioningStateFinalized(params);
 
-        // THEN provisioning successful intent should be sent to the dpc.
-        verifyDpcLaunchedForUser(MANAGED_PROFILE_USER_HANDLE);
-
-        // THEN an ordered broadcast should be sent to the DPC
-        verifyOrderedBroadcast();
+        // THEN the service which starts the DPC, is be started.
+        verifySendDpcServiceStarted();
     }
 
     @SmallTest
@@ -225,26 +223,6 @@ public class FinalizationControllerTest extends AndroidTestCase {
         assertExtras(intentCaptor.getValue());
     }
 
-    private void verifyOrderedBroadcast() {
-        // THEN an ordered broadcast should be sent to the DPC
-        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mContext).sendOrderedBroadcastAsUser(
-                intentCaptor.capture(),
-                eq(MANAGED_PROFILE_USER_HANDLE),
-                eq(null),
-                any(BroadcastReceiver.class),
-                eq(null),
-                eq(Activity.RESULT_OK),
-                eq(null),
-                eq(null));
-        // THEN the intent should be ACTION_PROFILE_PROVISIONING_COMPLETE
-        assertEquals(ACTION_PROFILE_PROVISIONING_COMPLETE, intentCaptor.getValue().getAction());
-        // THEN the intent should be sent to the admin receiver
-        assertEquals(TEST_MDM_ADMIN, intentCaptor.getValue().getComponent());
-        // THEN the admin extras bundle should contain mdm extras
-        assertExtras(intentCaptor.getValue());
-    }
-
     private void verifyDpcLaunchedForUser(UserHandle userHandle) {
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivityAsUser(intentCaptor.capture(), eq(userHandle));
@@ -256,9 +234,27 @@ public class FinalizationControllerTest extends AndroidTestCase {
         assertExtras(intentCaptor.getValue());
     }
 
+    private void verifySendDpcServiceStarted() {
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mContext).startService(intentCaptor.capture());
+        // THEN the intent should launch the SendDpcBroadcastService
+        assertEquals(SendDpcBroadcastService.class.getName(),
+                intentCaptor.getValue().getComponent().getClassName());
+        // THEN the service extras should contain mdm extras
+        assertSendDpcBroadcastServiceParams(intentCaptor.getValue());
+    }
+
     private void assertExtras(Intent intent) {
-        TestUtils.bundleEquals(TEST_MDM_EXTRA_BUNDLE,
-                (PersistableBundle) intent.getExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE));
+        assertTrue(TestUtils.bundleEquals(TEST_MDM_EXTRA_BUNDLE,
+                (PersistableBundle) intent.getExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE)));
+    }
+
+    private void assertSendDpcBroadcastServiceParams(Intent intent) {
+        final ProvisioningParams expectedParams =
+                createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
+        final ProvisioningParams actualParams =
+                intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
+        assertThat(actualParams).isEqualTo(expectedParams);
     }
 
     private ProvisioningParams createProvisioningParams(String action) {

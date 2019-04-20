@@ -19,6 +19,7 @@ import android.accounts.Account;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.os.AsyncTask;
+
 import java.lang.ref.WeakReference;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -56,9 +57,5 @@ class RemoveAccountAsyncTask extends AsyncTask<Void, Void, Void> {
         if (mCallback != null) {
             mCallback.onAccountRemoved();
         }
-    }
-
-    public interface RemoveAccountListener {
-        void onAccountRemoved();
     }
 }
