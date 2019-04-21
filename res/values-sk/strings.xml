@@ -80,7 +80,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ukončiť nastavovanie a odstrániť údaje zariadenia?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Zrušiť"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
-    <string name="reset" msgid="6467204151306265796">"Obnoviť"</string>
+    <string name="reset" msgid="6467204151306265796">"Resetovať"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profil sa nedá zriadiť"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Zariadenie sa nedá nastaviť"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Zariadenie sa nepodarilo nastaviť. Kontaktujte správcu IT a požiadajte ho o pomoc."</string>
