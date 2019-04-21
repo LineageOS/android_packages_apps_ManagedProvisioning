@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Thiết lập ứng dụng quản trị"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Thiết lập các tính năng khác"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Bây giờ, chúng ta hãy cùng thiết lập các tính năng khác"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Tổ chức của bạn sẽ quản lý thiết bị này"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Thiết bị này thuộc sở hữu của tổ chức bạn"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Ứng dụng sau đây sẽ được dùng để quản lý và giám sát điện thoại này"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Đang chuẩn bị thiết lập thiết bị làm việc…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Trước hết, chúng ta hãy cùng thiết lập hồ sơ công việc của bạn"</string>

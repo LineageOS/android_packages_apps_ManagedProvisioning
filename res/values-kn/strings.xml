@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"ಎಲ್ಲವನ್ನೂ ಹೊಂದಿಸಿ"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ಈಗ, ನಾವು ಎಲ್ಲವನ್ನೂ ಹೊಂದಿಸೋಣ"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"ನಿಮ್ಮ ಸಂಸ್ಥೆ ಈ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"ಈ ಸಾಧನವು ನಿಮ್ಮ ಸಂಸ್ಥೆಗೆ ಸೇರಿರುತ್ತದೆ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ಈ ಫೋನ್ ಅನ್ನು ನಿರ್ವಹಿಸಲು ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಕೆಳಗಿನ ಆ್ಯಪ್‌ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ಕೆಲಸದ ಸಾಧನ ಸೆಟಪ್ ಮಾಡಲು ಸಿದ್ಧವಾಗುತ್ತಿದೆ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ಮೊದಲು, ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಅನ್ನು ನಾವು ಸೆಟಪ್ ಮಾಡೋಣ"</string>

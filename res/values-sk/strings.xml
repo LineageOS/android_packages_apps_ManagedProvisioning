@@ -80,7 +80,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Ukončiť nastavovanie a odstrániť údaje zariadenia?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Zrušiť"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
-    <string name="reset" msgid="6467204151306265796">"Obnoviť"</string>
+    <string name="reset" msgid="6467204151306265796">"Resetovať"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profil sa nedá zriadiť"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Zariadenie sa nedá nastaviť"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Zariadenie sa nepodarilo nastaviť. Kontaktujte správcu IT a požiadajte ho o pomoc."</string>
@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Nastavuje sa správcovská aplikácia"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Nastavte všetko ostatné"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Teraz poďme nastaviť všetko ostatné"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Toto zariadenie bude spravovať vaša organizácia"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Toto zariadenie patrí vašej organizácii"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Na spravovanie a sledovanie tohto telefónu sa použije nasledujúca aplikácia"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Pripravuje sa na pracovné nastavenie…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Najprv nastavte pracovný profil"</string>

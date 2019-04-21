@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administratora lietotnes iestatīšana"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Iestatīt visas pārējās iespējas"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Tagad iestatīsim visas pārējās iespējas"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Jūsu organizācija pārvaldīs šo ierīci"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Šī ierīce pieder jūsu organizācijai"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Tālāk norādītā lietotne tiks izmantota šī tālruņa pārvaldībai un uzraudzībai"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Notiek sagatavošana darba iestatīšanai…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Vispirms iestatīsim jūsu darba profilu"</string>

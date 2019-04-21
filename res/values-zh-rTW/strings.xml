@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"設定管理員應用程式"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"進行其他設定"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"現在我們來進行其他設定吧"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"貴機構將管理這個裝置"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"這個裝置為貴機構所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下應用程式將用於管理及監控這支手機"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在準備工作設定…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"請先設定工作資料夾"</string>
