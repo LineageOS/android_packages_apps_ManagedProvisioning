@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"నిర్వాహక యాప్‌ని సెటప్ చేయడం"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"మొత్తం సెటప్ చేసుకోండి"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ఇప్పుడే మొత్తం సెటప్ చేసుకోండి"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"మీ సంస్థ ఈ పరికరాన్ని నిర్వహించగలుగుతుంది"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"ఇది మీ సంస్థకు చెందిన పరికరం"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ఈ ఫోన్‌ని నిర్వహించేందుకు మరియు పర్యవేక్షించడానికి ఈ యాప్‌ ఉపయోగపడుతుంది"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"కార్యాలయ సెటప్ కోసం సిద్ధం చేయబడుతోంది…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ముందుగా, మీ ఆఫీసు ప్రొఫైల్‌ని సెటప్ చేసుకోండి"</string>

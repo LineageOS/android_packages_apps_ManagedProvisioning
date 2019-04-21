@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando app de administração"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Configurar o restante"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Agora, vamos configurar o restante"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"Sua organização gerenciará este dispositivo"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertence à sua organização"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"O app a seguir será usado para gerenciar e monitorar este smartphone"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando para configuração de trabalho…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Primeiro, vamos configurar seu perfil de trabalho"</string>

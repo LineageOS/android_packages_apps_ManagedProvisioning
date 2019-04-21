@@ -162,7 +162,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"စီမံခန့်ခွဲသူအက်ပ် စနစ်ထည့်သွင်းနေသည်"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"အားလုံးကို စနစ်ထည့်သွင်းရန်"</string>
     <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"အားလုံးကို စနစ်ထည့်သွင်းလိုက်ရအောင်"</string>
-    <string name="brand_screen_header" msgid="5415267581015331233">"သင့်အဖွဲ့အစည်းက ဤစက်ပစ္စည်းကို စီမံခန့်ခွဲပါမည်"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"ဤစက်ကို သင့်အဖွဲ့အစည်းက ပိုင်ဆိုင်သည်"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"အောက်ပါအက်ပ် အသုံးပြု၍ ဤဖုန်းကို စီမံခန့်ခွဲခြင်း၊ စောင့်ကြည့်ခြင်းတို့ ပြုလုပ်ပါမည်"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"အလုပ်ဆိုင်ရာ စနစ်ထည့်သွင်းမှုအတွက် အသင့်ပြင်နေသည်…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"သင့်အလုပ်ပရိုဖိုင်ကို အရင် စနစ်ထည့်သွင်းရအောင်"</string>
