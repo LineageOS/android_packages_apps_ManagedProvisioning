@@ -139,6 +139,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_PROFILE);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
+        when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(false);
         when(mUtils.getManagedProfile(mContext))
                 .thenReturn(MANAGED_PROFILE_USER_HANDLE);
 
@@ -160,6 +161,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_PROFILE);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(true);
         when(mUtils.getManagedProfile(mContext))
                 .thenReturn(MANAGED_PROFILE_USER_HANDLE);
 
@@ -191,6 +193,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_DEVICE);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(true);
 
         // WHEN calling provisioningInitiallyDone
         mController.provisioningInitiallyDone(params);

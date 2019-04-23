@@ -42,6 +42,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
@@ -124,7 +125,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mController = mControllerProvider.getInstance(this);
         mConsentUiHelper = ConsentUiHelperFactory.getInstance(
                 /* activity */ this, /* contextMenuMaker */ mContextMenuMaker,
-                /* callback */ this, /* utils */ mUtils);
+                /* callback */ this, /* utils */ mUtils, mController.getSettingsFacade());
         if (mState == STATE_PREPROVISIONING_INTIIALIZING) {
             ProvisioningParams params = savedInstanceState == null ? null
                     : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
