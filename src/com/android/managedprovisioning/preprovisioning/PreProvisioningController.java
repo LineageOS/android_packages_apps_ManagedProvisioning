@@ -714,6 +714,10 @@ public class PreProvisioningController {
         mUserManager.removeUserEvenWhenDisallowed(userProfileId);
     }
 
+    SettingsFacade getSettingsFacade() {
+        return mSettingsFacade;
+    }
+
     // TODO: review the use of async task for the case where the activity might have got killed
     private class CreatePrimaryUserTask extends AsyncTask<Void, Void, UserInfo> {
         @Override
