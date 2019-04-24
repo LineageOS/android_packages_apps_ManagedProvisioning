@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.preprovisioning.consent;
 
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
@@ -29,6 +31,7 @@ import android.widget.ImageView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
@@ -44,14 +47,17 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
     private final TouchTargetEnforcer mTouchTargetEnforcer;
     private final ConsentUiHelperCallback mCallback;
     private final Utils mUtils;
+    private final SettingsFacade mSettingsFacade;
     private @Nullable RepeatingVectorAnimation mRepeatingVectorAnimation;
 
-    PrimaryConsentUiHelper(Activity activity, ConsentUiHelperCallback callback, Utils utils) {
+    PrimaryConsentUiHelper(Activity activity, ConsentUiHelperCallback callback, Utils utils,
+            SettingsFacade settingsFacade) {
         mActivity = activity;
         mCallback = callback;
         mTouchTargetEnforcer =
             new TouchTargetEnforcer(activity.getResources().getDisplayMetrics().density);
         mUtils = utils;
+        mSettingsFacade = checkNotNull(settingsFacade);
     }
 
     @Override
@@ -75,7 +81,9 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         int animationResId = 0;
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_profile;
-            headerResId = R.string.work_profile_provisioning_accept_header;
+            headerResId = mSettingsFacade.isDuringSetupWizard(mActivity)
+                    ? R.string.work_profile_provisioning_accept_header
+                    : R.string.work_profile_provisioning_accept_header_post_suw;
             animationResId = R.drawable.consent_animation_po;
         } else if (mUtils.isDeviceOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_device;

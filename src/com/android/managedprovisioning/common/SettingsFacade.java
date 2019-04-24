@@ -89,4 +89,12 @@ public class SettingsFacade {
         Secure.putIntForUser(context.getContentResolver(),
                 CROSS_PROFILE_CALENDAR_ENABLED, allowed ? 1 : 0, userId);
     }
+
+    /**
+     * Returns whether we are running during the setup wizard flow.
+     */
+    public boolean isDuringSetupWizard(Context context) {
+        // If the flow is running in SUW, the primary user is not set up at this point
+        return !isUserSetupCompleted(context);
+    }
 }
