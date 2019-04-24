@@ -62,6 +62,9 @@
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.GRANT_PROFILE_OWNER_DEVICE_IDS_ACCESS" />
 
+    <!-- To set the bg color of the deferred setup notification (without a foreground service) -->
+    <uses-permission android:name="android.permission.USE_COLORIZED_NOTIFICATIONS" />
+
     <application
         android:label="@string/app_label"
         android:allowClearUserData="false"
