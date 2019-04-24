@@ -321,6 +321,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         intentPolicy.setPackage(adminPackage);
         final ActivityManager activityManager = getSystemService(ActivityManager.class);
         if (!activityManager.isLowRamDevice()
+                && !mController.getParams().isNfc
                 && intentGetMode.resolveActivity(getPackageManager()) != null
                 && intentPolicy.resolveActivity(getPackageManager()) != null) {
             mController.putExtrasIntoGetModeIntent(intentGetMode);
