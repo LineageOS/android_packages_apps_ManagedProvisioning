@@ -175,8 +175,8 @@ public class FinalizationController {
             if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
                 getPrimaryProfileFinalizationHelper(params)
                         .finalizeProvisioningInPrimaryProfile(mContext, null);
-                mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
             }
+            mProvisioningIntentProvider.launchFinalizationScreen(mContext, params);
         } else {
             if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
                 notifyDpcManagedProfile(params);
