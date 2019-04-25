@@ -32,7 +32,7 @@ public class ConsentUiHelperFactory {
         if (shouldShowLegacyUi(activity)) {
             return new LegacyConsentUiHelper(activity, contextMenuMaker, callback, utils);
         } else {
-            return new PrimaryConsentUiHelper(activity, callback, utils, settingsFacade);
+            return new PrimaryConsentUiHelper(activity, callback, utils);
         }
     }
 
