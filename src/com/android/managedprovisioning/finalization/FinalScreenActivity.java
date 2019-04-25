@@ -68,13 +68,16 @@ public class FinalScreenActivity extends SetupGlifLayoutActivity {
         final int titleResId = R.string.device_provisioning_finished;
 
         final CustomizationParams customizationParams =
-            CustomizationParams.createInstance(params, this, mUtils);
+                CustomizationParams.createInstance(params, this, mUtils);
         initializeLayoutParams(R.layout.final_screen, headerResId,
-            customizationParams.mainColor, customizationParams.statusBarColor);
+                customizationParams.mainColor, customizationParams.statusBarColor);
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         final ImageView imageView = layout.findViewById(R.id.animation);
+        imageView.setImageResource(mUtils.isProfileOwnerAction(params.provisioningAction)
+                ? R.drawable.all_done_animation_wp
+                : R.drawable.all_done_animation_do);
         mAnimation = (AnimatedVectorDrawable) imageView.getDrawable();
         Utils.addDoneButton(layout, v -> onDoneButtonPressed());
 
