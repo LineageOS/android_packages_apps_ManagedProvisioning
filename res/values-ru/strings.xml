@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Настройка рабочего профиля"</string>
+    <string name="app_label" msgid="1527793174155125990">"Рабочий профиль"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ошибка"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Настройка рабочего профиля"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ваша организация управляет этим профилем и обеспечивает его защиту. Ко всем остальным данным, приложениям и настройкам на устройстве есть доступ только у вас."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Для управления телефоном и отслеживания действий на нем будет использоваться следующее приложение:"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка к настройке рабочего профиля…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Настройте рабочий профиль"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Настройте рабочий профиль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Приложения для работы хранятся в рабочем профиле"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"В конце дня можно приостановить уведомления от рабочих приложений"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Ваш администратор может получить доступ к данным только из рабочего профиля"</string>

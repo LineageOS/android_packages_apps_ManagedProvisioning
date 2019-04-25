@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Työprofiilin määritys"</string>
+    <string name="app_label" msgid="1527793174155125990">"Työmääritys"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hups!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Määritä työprofiili"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisaatiosi hallinnoi tätä profiilia ja suojaa sen tiedot. Voit itse hallinnoida laitteen muita ominaisuuksia."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Tätä puhelinta ylläpidetään ja valvotaan seuraavalla sovelluksella"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Valmistellaan työprofiilin määritystä…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Määritetään ensin työprofiilisi"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Määritetään työprofiilisi"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Työsovelluksia säilytetään työprofiilissa"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Keskeytä työsovellukset, kun päivä on pulkassa"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT-järjestelmänvalvoja näkee vain työprofiilin datan"</string>

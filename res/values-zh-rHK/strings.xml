@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"工作設定檔設定"</string>
+    <string name="app_label" msgid="1527793174155125990">"工作設定"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕！"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"設定工作設定檔"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"貴機構可控制這個設定檔並確保其安全；裝置上的其他所有內容則由您自行管理。"</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"下列應用程式將用於管理和監控這部手機"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"準備進行工作設定…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"首先，現在開始設定您的工作設定檔"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"現在開始設定您的工作設定檔"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作應用程式均儲存在工作設定檔中"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"完成當日工作後停用工作應用程式"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT 管理員只能看到工作設定檔中的資料"</string>

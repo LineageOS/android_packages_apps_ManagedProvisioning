@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"工作资料设置"</string>
+    <string name="app_label" msgid="1527793174155125990">"工作设置"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"糟糕，出错了！"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"设置工作资料"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"您的单位可控制此资料，并确保其安全。您可以控制设备上的所有其他内容。"</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在准备工作设置…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"首先，请设置您的工作资料"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"请设置您的工作资料"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作应用位于您的工作资料中"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"完成一天的工作后暂停工作应用"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"您的 IT 管理员只能查看您工作资料内的数据"</string>

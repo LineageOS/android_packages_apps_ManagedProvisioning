@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Werkprofielconfiguratie"</string>
+    <string name="app_label" msgid="1527793174155125990">"Werkinstelling"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oeps!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Werkprofiel instellen"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Je organisatie beheert je profiel en beveiligt dit. Je beheert alle andere gegevens op je apparaat."</string>
@@ -28,8 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Je apparaat wordt beheerd met de volgende app:"</string>
     <string name="next" msgid="1004321437324424398">"Volgende"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Werkprofiel instellen…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, machtigingen en gegevens die zijn gekoppeld aan dit profiel (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, machtigingen en gegevens die zijn gekoppeld aan dit apparaat (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens die zijn gekoppeld aan dit profiel (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens die zijn gekoppeld aan dit apparaat (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Als je diefstalbeveiligingsfuncties wilt gebruiken, moet je een met een wachtwoord beveiligde schermvergrendeling hebben ingesteld voor je apparaat."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Neem contact op met je IT-beheerder voor meer informatie, waaronder het privacybeleid van je organisatie."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Meer informatie"</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"De volgende app wordt gebruikt om deze telefoon te beheren en te controleren"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Instellingen klaarmaken voor werk…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Laten we eerst je werkprofiel instellen"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Laten we eerst je werkprofiel instellen"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werk-apps worden bewaard in je werkprofiel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzeer je werk-apps wanneer je werkdag erop zit"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Je IT-beheerder kan alleen de gegevens in je werkprofiel bekijken"</string>

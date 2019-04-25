@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Աշխատանքային պրոֆիլը կարգավորում"</string>
+    <!-- no translation found for app_label (1527793174155125990) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"Վա՜յ:"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Աշխատանքային պրոֆիլի կարգավորում"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ձեր կազմակերպությունը վերահսկում է այս պրոֆիլը և պաշտպանում է այն: Ձեր սարքի մնացած ամեն ինչը վերահսկում եք ինքներդ:"</string>
@@ -166,6 +167,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Հետևյալ հավելվածը կօգտագործվի այս հեռախոսը կառավարելու և վերահսկելու համար"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Սարքի կարգավորման նախապատրաստում…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Նախ կարգավորեք ձեր աշխատանքային պրոֆիլը"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Կարգավորեք ձեր աշխատանքային պրոֆիլը"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Դադարեցրեք աշխատանքային հավելվածները օրվա ավարտին"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ՏՏ ադմինիստրատորը կարող է տեսնել միայն ձեր աշխատանքային պրոֆիլի տվյալները"</string>

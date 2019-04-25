@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"راه‌اندازی نمایه کاری"</string>
+    <!-- no translation found for app_label (1527793174155125990) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"وای!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"تنظیم نمایه کاری"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"سازمان شما این نمایه را کنترل می‌کند و آن را ایمن نگه می‌دارد. کنترل همه چیزهای دیگر در دستگاهتان در دست شماست."</string>
@@ -166,6 +167,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"از برنامه زیر برای مدیریت و نظارت بر این تلفن استفاده می‌شود"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"درحال آماده شدن برای راه‌اندازی دستگاه برای کار…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ابتدا بیایید نمایه کاری‌تان را راه‌اندازی کنیم"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ابتدا بیایید نمایه کاری‌تان را راه‌اندازی کنیم"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"برنامه‌های کاری در نمایه کاری‌تان حفظ می‌شوند"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"توقف موقت برنامه‌های کاری وقتی کار روزانه‌تان تمام شد"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"‏فقط داده‌های موجود در نمایه کاری‌تان برای سرپرست IT نمایان است"</string>

@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Configuració del perfil professional"</string>
+    <string name="app_label" msgid="1527793174155125990">"Configuració de feina"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vaja..."</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Configura el perfil professional"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"La teva organització controla aquest perfil i el manté protegit. L\'usuari controla la resta d\'elements del dispositiu."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"S\'utilitzarà l\'aplicació següent per gestionar i supervisar aquest telèfon"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"S\'està preparant per a la configuració professional…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Primer, configurem el teu perfil professional"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurem el teu perfil professional"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les aplicacions per a la feina es desaran al teu perfil professional"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Posa en pausa les aplicacions per a la feina quan hagis acabat la jornada"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"L\'administrador de TI només pot veure les dades del teu perfil professional"</string>

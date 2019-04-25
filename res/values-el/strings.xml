@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Ρύθμιση προφίλ εργασίας"</string>
+    <string name="app_label" msgid="1527793174155125990">"Ρύθμιση εργασίας"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ωχ!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Ρύθμιση προφίλ εργασίας"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ο οργανισμός σας ελέγχει αυτό το προφίλ και το διατηρεί ασφαλές. Εσείς ελέγχετε όλα τα υπόλοιπα στοιχεία στη συσκευή σας."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Η παρακάτω εφαρμογή θα χρησιμοποιηθεί για τη διαχείριση και την παρακολούθηση αυτού του τηλεφώνου"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Προετοιμασία για ρύθμιση προφίλ εργασίας…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Αρχικά, ας ρυθμίσουμε το προφίλ εργασίας σας"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Αρχικά, ας ρυθμίσουμε το προφίλ εργασίας σας"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Οι εφαρμογές εργασίας διατηρούνται στο προφίλ εργασίας σας"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Παύση εφαρμογών εργασίας όταν ολοκληρώνετε την εργασία σας"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Μόνο τα δεδομένα στο προφίλ εργασίας σας θα είναι ορατά στον διαχειριστή IT σας"</string>

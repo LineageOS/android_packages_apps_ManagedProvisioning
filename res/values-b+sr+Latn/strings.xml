@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Podešavanje profila za Work"</string>
+    <string name="app_label" msgid="1527793174155125990">"Podešavanje profila za Work"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Podesite profil za Work"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organizacija kontroliše i štiti ovaj profil. Vi kontrolišete sve ostalo na uređaju."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Sledeća aplikacija će se koristiti za praćenje ovog telefona i upravljanje njime"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Podešavanje za posao se priprema…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Hajde da prvo podesimo profil za Work"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Hajde da podesimo profil za Work"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Poslovne aplikacije se čuvaju na profilu za Work"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzirajte poslovne aplikacije kada završite radni dan"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Samo su podaci sa profila za Work vidljivi IT administratoru"</string>
