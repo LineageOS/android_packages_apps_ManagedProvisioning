@@ -154,7 +154,7 @@ public class FinalizationController {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
                 params.keepAccountMigrated, mUtils.getManagedProfile(mContext),
                 params.inferDeviceAdminPackageName(), mUtils,
-                params.isOrganizationOwnedProvisioning);
+                mUtils.isAdminIntegratedFlow(params));
     }
 
     /**
