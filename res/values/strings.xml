@@ -19,8 +19,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General provisioning strings used for both device owner and work profile provisioning -->
 
-  <!-- App label displayed on the notification shown to indicate that the provisioning process was previously started but not completed. [CHAR LIMIT=45] -->
-  <string name="app_label">Work profile setup</string>
+  <!-- App label displayed in the corner of a notification. This label lets the user know which app or system setting the notifications are coming from. It's not tappable, and it's meant as additional information for the user. [CHAR LIMIT=45] -->
+  <string name="app_label">Work Setup</string>
 
   <!-- Title of the provisioning error dialog. [CHAR LIMIT=45] -->
   <string name="provisioning_error_title">Oops!</string>
