@@ -238,6 +238,7 @@ public class PreProvisioningController {
          */
         public Intent viewTermsIntent;
         public boolean isSilentProvisioning;
+        public boolean isOrganizationOwnedProvisioning;
     }
 
     /**
@@ -352,6 +353,7 @@ public class PreProvisioningController {
         uiParams.packageInfo = packageInfo;
         uiParams.viewTermsIntent = createViewTermsIntent();
         uiParams.isSilentProvisioning = Utils.isSilentProvisioning(mContext, mParams);
+        uiParams.isOrganizationOwnedProvisioning = mParams.isOrganizationOwnedProvisioning;
 
         mUi.initiateUi(uiParams);
     }
