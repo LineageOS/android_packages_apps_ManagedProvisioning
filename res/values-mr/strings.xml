@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"कार्य प्रोफाईल सेटअप"</string>
+    <!-- no translation found for app_label (1527793174155125990) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"अरेरे!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"कार्य प्रोफाईल सेट करा"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तुमची संस्था हे प्रोफाईल नियंत्रित करते आणि ते सुरक्षित ठेवते. तुम्ही आपल्या डिव्हाइसवरील अन्य प्रत्येकगोष्ट नियंत्रित करता."</string>
@@ -166,6 +167,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"हा फोन व्यवस्थापित आणि मॉनिटर करण्यासाठी पुढील अ‍ॅप वापरले जाईल"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कार्य सेटअपसाठी तयार करत आहे…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"पहिल्यांदा, तुमचे कार्य प्रोफाईल सेट करूया"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चला, तुमची कार्य प्रोफाइल सेट करू या"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाइलमध्ये ठेवली जातात"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"तुमचे काम संपल्यावर कार्य अ‍ॅप्स थांबवा"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"तुमच्या IT अ‍ॅडमिनला तुमच्या कार्य प्रोफाइलमधील फक्त डेटा दिसतो"</string>

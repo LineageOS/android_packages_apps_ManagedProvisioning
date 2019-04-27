@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"إعداد ملف شخصي للعمل"</string>
+    <!-- no translation found for app_label (1527793174155125990) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"عفوًا!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"إعداد الملف الشخصي للعمل"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"تتحكم منظمتك في هذا الملف الشخصي وتحافظ على أمانه. بينما تتحكم أنت في كل شيء آخر على جهازك."</string>
@@ -154,7 +155,7 @@
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> و<xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> و<xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>، <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
-    <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>، <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
+    <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g> و<xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
     <string name="take_a_few_minutes" msgid="6282806501305322838">"قد يستغرق ذلك بضع دقائق."</string>
     <string name="work_profile_description" msgid="8524116010729569213">"سيتم الاحتفاظ بتطبيقات عملك في هذا الملف الشخصي وستديرها مؤسستك."</string>
     <string name="device_owner_description" msgid="168013145812679664">"سيظل هذا الجهاز محميًا وتحت إدارة مؤسستك."</string>
@@ -166,6 +167,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"سيتمّ استخدام التطبيق التالي لإدارة هذا الهاتف ومراقبته."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"جارٍ إعداد الجهاز للاستخدام في العمل…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"يحين أولاً إعداد الملف الشخصي للعمل."</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"لنبدأ في إعداد الملف الشخصي للعمل."</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل."</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"لن يظهر لمشرف تكنولوجيا المعلومات سوى بيانات ملفك الشخصي للعمل."</string>

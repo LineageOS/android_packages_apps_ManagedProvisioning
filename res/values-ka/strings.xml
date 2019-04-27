@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"სამსახურის პროფილის დაყენება"</string>
+    <string name="app_label" msgid="1527793174155125990">"სამსახურის პარამეტრები"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"უკაცრავად!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"სამსახურის პროფილის დაყენება"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"თქვენი ორგანიზაცია აკონტროლებს ამ პროფილს და მის უსაფრთხოებას. ყველაფერ დანარჩენს კი თქვენ აკონტროლებთ თქვენს მოწყობილობაზე."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ქვემოთ მითითებული აპი გამოყენებული იქნება ამ ტელეფონის სამართავად და მონიტორინგისთვის"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"მზადება სამსახურისთვის დასაყენებლად…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"პირველ რიგში საჭიროა თქვენი სამსახურის პროფილის დაყენება"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"მოდით, გავმართოთ თქვენი სამსახურის პროფილი"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"დააპაუზეთ სამსახურის აპები, როდესაც მოცემულ დღეს მუშაობას დაასრულებთ"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"თქვენი IT ადმინისტრატორი მხოლოდ თქვენს სამსახურის პროფილში არსებულ მონაცემებს ხედავს"</string>

@@ -19,7 +19,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍"</string>
+    <!-- no translation found for app_label (1527793174155125990) -->
+    <skip />
     <string name="provisioning_error_title" msgid="6320515739861578118">"ଓହୋ!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ କରନ୍ତୁ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ପ୍ରୋଫାଇଲକୁ ନିୟନ୍ତ୍ରଣ କରେ ଏବଂ ଏହାକୁ ସୁରକ୍ଷିତ ରଖେ। ଡିଭାଇସ୍‌ରେ ବାକି ସବୁକିଛି ଆପଣ ନିଜେ ନିୟନ୍ତ୍ରଣ କରନ୍ତି।"</string>
@@ -166,6 +167,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ଏହି ଫୋନ୍‌କୁ ପରିଚଳନା ଏବଂ ମନିଟର୍ କରିବାକୁ ନିମ୍ନୋକ୍ତ ଆପ୍‌ର ବ୍ୟବହାର ହେବ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ୱର୍କ ସେଟ୍‌ଅପ୍ ପାଇଁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ପ୍ରଥମେ, ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ଚାଲନ୍ତୁ ଆପଣଙ୍କର ୱାର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ୱର୍କ ଆପ୍ସ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ରଖାଯାଇଛି"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ଆପଣଙ୍କର ପୁରା ଦିନର କାମ ଶେଷ ହୋଇଗଲା ପରେ ୱର୍କ ଆପ୍ସକୁ ବିରତି କରନ୍ତୁ"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକ କେବଳ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା ଡାଟା ଦେଖିପାରିବେ"</string>

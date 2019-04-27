@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"İş profili qurması"</string>
+    <string name="app_label" msgid="1527793174155125990">"İş ayarlaması"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Vay!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"İş profili quraşdırın"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Təşkilatınız profilə nəzarət edir və onu güvənli saxlayır. Qalan hər şeyə Siz nəzarət edirsiniz."</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdakı tətbiqdən bu telefonu idarə etmək və nəzarət etmək üçün istifadə ediləcək"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Cihaz iş quraşdırması üçün hazırlanır…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Əvvəlcə iş profili quraşdırın"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"İş profili quraşdırın"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"İş tətbiqləri iş profilinizdə saxlanılır"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"İşiniz bitdikdə iş tətbiqlərini dayandırın"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"İş profilindəki datanı yalnız IT admini görə bilər"</string>
