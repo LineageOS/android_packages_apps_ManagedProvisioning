@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.managedprovisioning.preprovisioning;
+package com.android.managedprovisioning.common;
 
-import static com.android.managedprovisioning.preprovisioning.EncryptionController.CHANNEL_ID;
-import static com.android.managedprovisioning.preprovisioning.EncryptionController.NOTIFICATION_ID;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertEquals;
+import static com.android.managedprovisioning.common.NotificationHelper.CHANNEL_ID;
+import static com.android.managedprovisioning.common.NotificationHelper.ENCRYPTION_NOTIFICATION_ID;
+import static com.android.managedprovisioning.common.NotificationHelper.PRIVACY_REMINDER_NOTIFICATION_ID;
+import static com.google.common.truth.Truth.assertThat;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -32,27 +32,24 @@ import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.Globals;
-import com.android.managedprovisioning.preprovisioning.EncryptionController.ResumeNotificationHelper;
 
-import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 @SmallTest
-public class ResumeNotificationHelperTest {
+public class NotificationHelperTest {
 
     private static final int NOTIFICATION_TIMEOUT_MS = 5000;
 
-    private ResumeNotificationHelper mResumeNotificationHelper;
+    private NotificationHelper mNotificationHelper;
     private NotificationManager mNotificationManager;
     private Context mContext;
 
     @Before
     public void setUp() {
         mContext = InstrumentationRegistry.getTargetContext();
-        mResumeNotificationHelper = new ResumeNotificationHelper(mContext);
+        mNotificationHelper = new NotificationHelper(mContext);
         mNotificationManager = mContext.getSystemService(NotificationManager.class);
         removeAllNotifications();
     }
@@ -64,20 +61,37 @@ public class ResumeNotificationHelperTest {
 
     @Test
     public void testShowResumeNotification() throws Exception {
-        MatcherAssert.assertThat(mNotificationManager.getActiveNotifications().length,
-                equalTo(0));
+        assertThat(mNotificationManager.getActiveNotifications().length).isEqualTo(0);
 
         Intent intent = new Intent(Globals.ACTION_RESUME_PROVISIONING);
-        mResumeNotificationHelper.showResumeNotification(intent);
+        mNotificationHelper.showResumeNotification(intent);
 
         waitForNotification();
         StatusBarNotification[] notifications = mNotificationManager.getActiveNotifications();
-        MatcherAssert.assertThat(notifications.length, equalTo(1));
+        assertThat(notifications.length).isEqualTo(1);
         StatusBarNotification notification = notifications[0];
-        assertEquals(notification.getId(), NOTIFICATION_ID);
-        assertEquals(notification.getNotification().getChannel(), CHANNEL_ID);
-        assertEquals(notification.getNotification().extras.getString(Notification.EXTRA_TITLE),
-                mContext.getString(R.string.continue_provisioning_notify_title));
+        assertThat(notification.getId()).isEqualTo(ENCRYPTION_NOTIFICATION_ID);
+        assertThat(notification.getNotification().getChannel()).isEqualTo(CHANNEL_ID);
+        assertThat(notification.getNotification().extras.getString(Notification.EXTRA_TITLE))
+                .isEqualTo(mContext.getString(R.string.continue_provisioning_notify_title));
+    }
+
+    @Test
+    public void testShowPrivacyReminderNotification() throws Exception {
+        assertThat(mNotificationManager.getActiveNotifications().length).isEqualTo(0);
+
+        mNotificationHelper.showPrivacyReminderNotification(
+                mContext, NotificationManager.IMPORTANCE_DEFAULT);
+
+        waitForNotification();
+        StatusBarNotification[] notifications = mNotificationManager.getActiveNotifications();
+        assertThat(notifications.length).isEqualTo(1);
+        StatusBarNotification notification = notifications[0];
+        assertThat(notification.getId()).isEqualTo(PRIVACY_REMINDER_NOTIFICATION_ID);
+        assertThat(notification.getNotification().getChannel()).isEqualTo(CHANNEL_ID);
+        assertThat(notification.getNotification().extras.getString(Notification.EXTRA_TITLE))
+                .isEqualTo(mContext.getString(
+                        R.string.fully_managed_device_provisioning_privacy_title));
     }
 
     private void waitForNotification() throws InterruptedException {

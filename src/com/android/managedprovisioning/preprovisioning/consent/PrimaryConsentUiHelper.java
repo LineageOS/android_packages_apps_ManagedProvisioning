@@ -17,27 +17,21 @@ package com.android.managedprovisioning.preprovisioning.consent;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import static android.view.View.INVISIBLE;
-import static android.view.View.VISIBLE;
-
 import android.annotation.DrawableRes;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
-import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
 import com.google.android.setupdesign.GlifLayout;
-import java.util.List;
 
 /**
  * Implements functionality for the consent screen.
@@ -47,17 +41,14 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
     private final TouchTargetEnforcer mTouchTargetEnforcer;
     private final ConsentUiHelperCallback mCallback;
     private final Utils mUtils;
-    private final SettingsFacade mSettingsFacade;
     private @Nullable RepeatingVectorAnimation mRepeatingVectorAnimation;
 
-    PrimaryConsentUiHelper(Activity activity, ConsentUiHelperCallback callback, Utils utils,
-            SettingsFacade settingsFacade) {
+    PrimaryConsentUiHelper(Activity activity, ConsentUiHelperCallback callback, Utils utils) {
         mActivity = activity;
         mCallback = callback;
         mTouchTargetEnforcer =
             new TouchTargetEnforcer(activity.getResources().getDisplayMetrics().density);
         mUtils = utils;
-        mSettingsFacade = checkNotNull(settingsFacade);
     }
 
     @Override
@@ -81,7 +72,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         int animationResId = 0;
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_profile;
-            headerResId = mSettingsFacade.isDuringSetupWizard(mActivity)
+            headerResId = uiParams.isOrganizationOwnedProvisioning
                     ? R.string.work_profile_provisioning_accept_header
                     : R.string.work_profile_provisioning_accept_header_post_suw;
             animationResId = R.drawable.consent_animation_po;

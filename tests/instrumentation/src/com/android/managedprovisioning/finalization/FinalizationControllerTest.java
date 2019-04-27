@@ -42,6 +42,7 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.TestUtils;
+import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -67,6 +68,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
     @Mock private Utils mUtils;
     @Mock private SettingsFacade mSettingsFacade;
     @Mock private UserProvisioningStateHelper mHelper;
+    @Mock private NotificationHelper mNotificationHelper;
 
     private FinalizationController mController;
 
@@ -79,7 +81,8 @@ public class FinalizationControllerTest extends AndroidTestCase {
                 .thenReturn(true);
         when(mContext.getFilesDir()).thenReturn(getContext().getFilesDir());
 
-        mController = new FinalizationController(mContext, mUtils, mSettingsFacade, mHelper);
+        mController = new FinalizationController(
+                mContext, mUtils, mSettingsFacade, mHelper, mNotificationHelper);
     }
 
     @Override
@@ -217,6 +220,8 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // THEN a broadcast was sent to the primary user
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).sendBroadcast(intentCaptor.capture());
+
+        verify(mNotificationHelper).showPrivacyReminderNotification(eq(mContext), anyInt());
 
         // THEN the intent should be ACTION_PROFILE_PROVISIONING_COMPLETE
         assertEquals(ACTION_PROFILE_PROVISIONING_COMPLETE, intentCaptor.getValue().getAction());
