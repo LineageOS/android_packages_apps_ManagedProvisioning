@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (1527793174155125990) -->
-    <skip />
+    <string name="app_label" msgid="1527793174155125990">"Աշխատանքային պրոֆիլի կարգավորում"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Վա՜յ:"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Աշխատանքային պրոֆիլի կարգավորում"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Ձեր կազմակերպությունը վերահսկում է այս պրոֆիլը և պաշտպանում է այն: Ձեր սարքի մնացած ամեն ինչը վերահսկում եք ինքներդ:"</string>
