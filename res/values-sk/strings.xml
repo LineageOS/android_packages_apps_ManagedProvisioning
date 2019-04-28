@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Na spravovanie a sledovanie tohto telefónu sa použije nasledujúca aplikácia"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Pripravuje sa na pracovné nastavenie…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Najprv nastavte pracovný profil"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Poďme nastaviť váš pracovný profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pracovné aplikácie sú uložené vo vašom pracovnom profile"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pozastavte pracovné aplikácie na konci pracovného dňa"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Správca IT vidí iba údaje vo vašom pracovnom profile"</string>

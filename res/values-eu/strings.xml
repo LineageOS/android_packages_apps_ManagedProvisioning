@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Telefono hau kudeatzeko eta kontrolatzeko erabiliko da aplikazioa"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Laneko konfigurazioa gauzatzeko prestatzen…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Hasteko, konfiguratu laneko profila"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfiguratu laneko profila"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Laneko profilean gordetzen dira laneko aplikazioak"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laneguna amaitzean, pausatu laneko aplikazioak"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Laneko profilean dituzun datuak soilik ikus ditzake IKT saileko administratzaileak"</string>

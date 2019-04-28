@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Uhlelo lokusebenza olulandelayo luzosetshenziselwa ukuphatha nokuqaphela le foni"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ukusethwa kokulungela umsebenzi…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Okokuqala, asisethe iphrofayela yakho yomsebenzi"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Asisethe iphrofayela yakho yomsebenzi"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Izinhlelo zakho zokusebenza zigcinwa kuphrofayela yakho yohlelo lokusebenza"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Phumuza izinhlelo zokusebenza uma usuqedile osukwini"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Idatha ekuphrofayela yakho yomsebenzi kuphela ebonakala kumphathi wakho we-IT"</string>

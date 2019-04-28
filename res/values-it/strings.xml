@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'app seguente verrà usata per gestire e monitorare questo telefono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparazione per la configurazione del profilo di lavoro…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Innanzitutto configura il tuo profilo di lavoro"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configura il tuo profilo di lavoro"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Quando hai finito le tue mansioni quotidiane, metti in pausa le app di lavoro"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Solo i dati del tuo profilo di lavoro sono visibili all\'amministratore IT"</string>

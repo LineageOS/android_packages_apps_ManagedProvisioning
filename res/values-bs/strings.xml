@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Sljedeća aplikacija će se koristiti za upravljanje telefonom i njegovo praćenje"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Pripremanje za postavljanje poslovnog profila…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Postavimo najprije vaš radni profil"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Postavimo vaš radni profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Poslovne aplikacije se čuvaju u vašem poslovnom profilu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzirajte poslovne aplikacije kada završite za taj dan"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT administrator može vidjeti isključivo podatke na vašem poslovnom profilu"</string>

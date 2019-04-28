@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Selle telefoni haldamiseks ja jälgimiseks kasutatakse järgmist rakendust"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Tööks seadistamise ettevalmistamine …"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Seadistame esmalt teie tööprofiili"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Seadistame teie tööprofiili"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Töörakendusi hoitakse teie tööprofiilil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Tööpäeva lõpus peatage töörakendused"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT-administraator näeb ainult tööprofiilil olevaid andmeid"</string>

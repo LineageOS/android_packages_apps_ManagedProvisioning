@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফোন ম্যানেজ এবং মনিটর করতে এই অ্যাপ ব্যবহার করা হবে"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"অফিসের জন্য ডিভাইসের সেট-আপ শুরু করা হচ্ছে…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"প্রথমে, আপনার অফিসের প্রোফাইল সেট-আপ করুন"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"প্রথমে, আপনার অফিসের প্রোফাইল সেট-আপ করুন"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"অফিসের অ্যাপ আপনার অফিসের প্রোফাইলে রাখা হয়েছে"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"দিনের কাজ শেষ হয়ে গেলে, আপনার অফিসের অ্যাপ আপনি পজ করে দিতে পারেন"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"আইটি অ্যাডমিন শুধু আপনার অফিসের প্রোফাইলের ডেটা দেখতে পান"</string>

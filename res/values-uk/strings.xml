@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"За допомогою цього додатка ви зможете керувати телефоном і відстежувати його"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Підготовка до налаштування для роботи…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Спершу налаштуймо ваш робочий профіль"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Спершу налаштуймо ваш робочий профіль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Робочі додатки зберігаються в робочому профілі"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Призупиняйте робочі додатки, коли потрібно"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ІТ-адміністратор бачить лише дані у вашому робочому профілі"</string>

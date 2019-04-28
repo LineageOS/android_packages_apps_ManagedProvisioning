@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Ta aplikacija bo uporabljena za upravljanje in nadziranje tega telefona"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Priprava za nastavitev za delo …"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Najprej nastavimo vaš delovni profil"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Nastavimo vaš delovni profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Delovne aplikacije se hranijo v vašem delovnem profilu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ko za danes končate z delom, začasno zaustavite delovne aplikacije"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Skrbniku za IT so vidni samo podatki v delovnem profilu"</string>

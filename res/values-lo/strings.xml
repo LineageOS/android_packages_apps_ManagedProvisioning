@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ແອັບຕໍ່ໄປນີ້ຈະຖືກໃຊ້ເພື່ອຈັດການ ແລະ ຕິດຕາມໂທລະສັບໜ່ວຍນີ້"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ກຳລັງກຽມພ້ອມສຳລັບການຕັ້ງຄ່າວຽກ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ທຳອິດ, ໃຫ້ຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານກ່ອນ"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ມາຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານກັນ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ແອັບວຽກແມ່ນຖືກເກັບໄວ້ໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ຢຸດແອັບວຽກໄວ້ຊົ່ວຄາວໃນເວລາທີ່ທ່ານເຊົາເຮັດວຽກແລ້ວ"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ມີພຽງຂໍ້ມູນໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານທີ່ຈະສະແດງໃຫ້ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານເຫັນໄດ້"</string>
