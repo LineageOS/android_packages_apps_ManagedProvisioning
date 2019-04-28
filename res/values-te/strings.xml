@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (1527793174155125990) -->
-    <skip />
+    <string name="app_label" msgid="1527793174155125990">"కార్యాలయ సెటప్"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"అయ్యో!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
@@ -167,8 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ఈ ఫోన్‌ని నిర్వహించేందుకు మరియు పర్యవేక్షించడానికి ఈ యాప్‌ ఉపయోగపడుతుంది"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"కార్యాలయ సెటప్ కోసం సిద్ధం చేయబడుతోంది…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ముందుగా, మీ ఆఫీసు ప్రొఫైల్‌ని సెటప్ చేసుకోండి"</string>
-    <!-- no translation found for work_profile_provisioning_accept_header_post_suw (1353127953275291089) -->
-    <skip />
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"మీ రోజువారీ పని పూర్తయినప్పుడు కార్యాలయ యాప్‌లను పాజ్ చేయండి"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మాత్రమే మీ IT నిర్వాహకులకు కనిపిస్తుంది"</string>

@@ -19,8 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (1527793174155125990) -->
-    <skip />
+    <string name="app_label" msgid="1527793174155125990">"कार्यस्थलको सेटअप"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ओहो!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"कार्य प्रोफाइललाई सेटअप गर्नुहोस्"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
