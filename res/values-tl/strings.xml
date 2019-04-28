@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Gagamitin ang sumusunod na app para pamahalaan at subaybayan ang teleponong ito"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Naghahanda para sa pag-set up ng trabaho…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Una, i-set up natin ang iyong profile sa trabaho"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"I-set up natin ang iyong profile sa trabaho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"I-pause ang mga app para sa trabaho kapag tapos ka na sa araw na ito"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Ang data lang sa iyong profile sa trabaho ang makikita ng IT admin mo"</string>

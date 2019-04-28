@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Apl berikut akan digunakan untuk mengurus dan memantau telefon ini"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Bersedia untuk persediaan kerja…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Mula-mula, mari sediakan profil kerja anda"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Mari sediakan profil kerja anda"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Apl kerja disimpan dalam profil kerja anda"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Jeda apl kerja setelah anda selesai bekerja untuk hari itu"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Hanya data dalam profil kerja anda yang kelihatan kepada pentadbir IT anda"</string>

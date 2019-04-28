@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Mobilen hanteras och övervakas med hjälp av följande app"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Jobbkonfigurationen förbereds …"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Börja med att konfigurera jobbprofilen"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfigurera jobbprofilen"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Jobbappar lagras i din jobbprofil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pausa dina jobbappar när du har jobbat klart för dagen"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Det är bara data i din jobbprofil som är synlig för IT-administratören"</string>

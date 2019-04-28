@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"यो फोनको व्यवस्थापन तथा अनुगमन गर्न निम्न अनुप्रयोगको उपयोग गरिने छ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कार्यस्थल सेटअप गर्न तयारी गर्दै…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"सर्वप्रथम, तपाईंको कार्य प्रोफाइल सेटअप गरौँ"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"सर्वप्रथम आफ्नो कार्य प्रोफाइल सेटअप गरौँ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्यस्थलसम्बन्धी अनुप्रयोगहरू तपाईंको कार्यसम्बन्धी प्रोफाइलमा राखिन्छन्"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि कार्यस्थलसम्बन्धी अनुप्रयोग पज गर्नुहोस्"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"तपाईंको कार्यसम्बन्धी प्रोफाइलमा रहेको डेटा मात्र तपाईंका IT व्यवस्थापकले देख्न सक्छन्"</string>

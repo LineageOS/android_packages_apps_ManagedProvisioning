@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Наступная праграма будзе выкарыстоўвацца для кіравання гэтым тэлефонам і яго кантролю"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ідзе падрыхтоўка для працоўных налад…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Па-першае, давайце наладзім працоўны профіль"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Давайце наладзім працоўны профіль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Працоўныя праграмы захоўваюцца ў вашым працоўным профілі"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Прыпыненне працоўных праграм на перыяд, калі вы не будзеце імі карыстацца"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Ваш IT-адміністратар можа бачыць даныя толькі ў працоўным профілі."</string>

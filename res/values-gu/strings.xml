@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"આ ફોન મેનેજ અને મૉનિટર કરવા માટે નીચેની ઍપનો ઉપયોગ થશે"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"કાર્યાલયના સેટઅપ માટે તૈયારી કરી રહ્યાં છીએ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"પહેલા, તમારી કાર્યાલયની પ્રોફાઇલનું સેટઅપ કરીએ"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ચાલો, તમારી કાર્યાલયની પ્રોફાઇલને સેટઅપ કરીએ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"કાર્ય સંબંધી ઍપ તમારા કાર્યાલયના પ્રોફાઇલમાં રાખવામાં આવે છે"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે કાર્ય સંબંધી ઍપ થોભાવો"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"તમારા IT વ્યવસ્થાપક માત્ર તમારા કાર્યાલયના પ્રોફાઇલમાંનો ડેટા જોઈ શકશે"</string>

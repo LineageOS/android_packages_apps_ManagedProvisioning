@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下應用程式將用於管理及監控這支手機"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在準備工作設定…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"請先設定工作資料夾"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"設定你的工作資料夾"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作應用程式會儲存在你的工作資料夾中"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"完成當日事項時暫停工作應用程式"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT 管理員只能查看你工作資料夾中的資料"</string>
