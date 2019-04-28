@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следнава апликација ќе се користи за управување и следење на телефонов"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка за поставување работен профил…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Прво, ајде да го поставиме вашиот работен профил"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Ајде да го поставиме вашиот работен профил"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Работните апликации се чуваат во вашиот работен профил"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Паузирајте ги работните апликации кога ќе завршите за тој ден"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Единствено податоците од работниот профил се видливи за вашиот IT-администратор"</string>

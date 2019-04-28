@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"A seguinte aplicación utilizarase para xestionar e supervisar este teléfono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando dispositivo para a configuración do traballo…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"En primeiro lugar, configuremos o teu perfil de traballo"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configuremos o teu perfil de traballo"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"As aplicacións do traballo gárdanse no teu perfil de traballo"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pon en pausa as aplicacións do traballo cando remates a túa xornada laboral"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Só se mostran os datos do teu perfil de traballo ao teu administrador de TI"</string>

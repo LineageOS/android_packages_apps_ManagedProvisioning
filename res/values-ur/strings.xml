@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"اس فون کا نظم اور نگرانی کرنے کیلئے مندرجہ ذیل ایپ کا استعمال کیا جائے گا"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"آلہ برائے دفتر کے سیٹ اپ کے لیے تیاری ہو رہی ہے…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"پہلے، آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"دن کا کام مکمل کر لینے کے بعد دفتری ایپس کو موقوف کریں"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"‏صرف آپ کے دفتری پروفائل میں دستیاب ڈیٹا آپ کے IT منتظم کو دکھائی دے سکتا ہے"</string>

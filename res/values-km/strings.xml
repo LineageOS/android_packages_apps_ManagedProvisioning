@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"កម្មវិធី​ខាងក្រោម​នឹងត្រូវ​បានប្រើប្រាស់​ដើម្បី​គ្រប់គ្រង និង​ត្រួតពិនិត្យ​ទូរសព្ទនេះ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"កំពុងត្រៀមរៀបចំការងារ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"សូម​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក​ជាមុនសិន"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"សូម​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"កម្មវិធី​ការងារ​ត្រូវបាន​រក្សាទុក​នៅក្នុងកម្រង​ព័ត៌មាន​ការងារ​របស់អ្នក"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ផ្អាកកម្មវិធី​ការងារ នៅពេលអ្នក​បញ្ចប់​ការងារ​ប្រចាំថ្ងៃ"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"មានតែទិន្នន័យ​នៅក្នុងកម្រងព័ត៌មានការងាររបស់អ្នក​ប៉ុណ្ណោះដែលអាចមើលឃើញដោយ​​អ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក"</string>

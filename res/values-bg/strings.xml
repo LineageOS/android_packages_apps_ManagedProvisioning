@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следното приложение ще се използва за управление и наблюдение на този телефон"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Настройването на служебен профил се подготвя…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Първо, нека да настроим служебния ви потребителски профил"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Да настроим служебния ви потребителски профил"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Служебните приложения се съхраняват в служебния ви потребителски профил"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Поставяйте служебните приложения на пауза, когато приключите работата за деня"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Само данните в служебния ви потребителски профил са видими за системния ви администратор"</string>

@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdakı tətbiqdən bu telefonu idarə etmək və nəzarət etmək üçün istifadə ediləcək"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Cihaz iş quraşdırması üçün hazırlanır…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Əvvəlcə iş profili quraşdırın"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"İş profili quraşdırın"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"İş tətbiqləri iş profilinizdə saxlanılır"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"İşiniz bitdikdə iş tətbiqlərini dayandırın"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"İş profilindəki datanı yalnız IT admini görə bilər"</string>

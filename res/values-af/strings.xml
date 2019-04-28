@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Die volgende program sal gebruik word om hierdie foon te bestuur en te monitor"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Maak tans gereed vir werkopstelling …"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Kom ons stel eers jou werkprofiel op"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Kom ons stel eers jou werkprofiel op"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werkprogramme word in jou werkprofiel gehou"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laat werkprogramme wag wanneer jy klaar is vir die dag."</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Net die data in jou werkprofiel is sigbaar vir jou IT-administrateur"</string>

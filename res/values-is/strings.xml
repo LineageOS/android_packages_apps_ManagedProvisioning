@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Eftirfarandi forrit verður notað til að hafa umsjón með þessum síma og fylgjast með honum"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Undirbýr uppsetningu fyrir vinnu…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Fyrst skulum við setja upp vinnusniðið þitt"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Setjum upp vinnusniðið þitt"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Vinnuforrit eru geymd á vinnusniðinu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Gerðu hlé á vinnuforritum í lok vinnudags"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Kerfisstjórinn þinn getur aðeins séð gögn sem eru á vinnusniðinu"</string>

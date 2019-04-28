@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Bu telefonni boshqarish va nazorat qilish uchun quyidagi ilovadan foydalaniladi"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Sozlash uchun tayyorlanmoqda…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Avval ishchi profilingizni sozlaymiz"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishchi ilovalar ishchi profilda saqlanadi"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Ishchi profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi"</string>

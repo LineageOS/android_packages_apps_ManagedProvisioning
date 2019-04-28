@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Programu ifuatayo itatumika kudhiiti na kufuatilia simu hii"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Inajiandaa ili kuweka mipangilio ya kazini…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Kwanza, acha tuweke wasifu wako wa kazini"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Turuhusu tuweke wasifu wako wa kazini"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Simamisha programu za kazini unapoondoka kazini"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Data iliyo kwenye wasifu wako wa kazini pekee ndiyo inayoonekana na msimamizi wako wa TEHAMA"</string>

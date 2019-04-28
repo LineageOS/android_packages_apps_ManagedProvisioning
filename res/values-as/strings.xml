@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফ’নটো পৰিচালনা আৰি নিৰীক্ষণ কৰিবলৈ তলৰ এপ্‌টো ব্যৱহাৰ কৰা হ’ব"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"কৰ্মস্থানৰ বাবে ছেট আপ কৰিবলৈ সাজু কৰি থকা হৈছে…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"প্ৰথমে আমি আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলটো ছেট আপ কৰোঁ আহক"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"প্ৰথমে আমি আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলটো ছেট আপ কৰোঁ আহক"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলত থকা কৰ্মস্থানৰ এপ্‌সমূহ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"আপোনাৰ কাম সম্পন্ন হ’লে কৰ্মস্থানৰ এপ্‌সমূহ পজ কৰক"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"আইটি প্ৰশাসকে কেৱল আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলত থকা ডেটাহে দেখা পাব"</string>

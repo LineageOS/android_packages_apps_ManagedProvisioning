@@ -24,8 +24,8 @@
     <string name="setup_work_profile" msgid="1468934631731845267">"பணிச் சுயவிவரத்தை அமை"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"உங்கள் நிறுவனம், இந்தச் சுயவிவரத்தைக் கட்டுப்படுத்தி, அதைப் பாதுகாப்பாக வைக்கிறது. உங்கள் சாதனத்தில் இருந்து எல்லாவற்றையும் கட்டுப்படுத்தலாம்."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"உங்கள் நிறுவனம் இந்தச் சாதனத்தைக் கட்டுப்படுத்துவதோடு, அதைப் பாதுகாப்பாகவும் வைக்கும்."</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"பின்வரும் பயன்பாடு இந்தச் சுயவிவரத்தை அணுக வேண்டும்:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"பின்வரும் பயன்பாடு உங்கள் சாதனத்தை நிர்வகிக்கும்:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"பின்வரும் ஆப்ஸ் இந்தச் சுயவிவரத்தை அணுக வேண்டும்:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"பின்வரும் ஆப்ஸ் உங்கள் சாதனத்தை நிர்வகிக்கும்:"</string>
     <string name="next" msgid="1004321437324424398">"அடுத்து"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"பணிக் கணக்கை அமைக்கிறது…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"அமைப்புகள், கார்ப்பரேட் அணுகல், ஆப்ஸ், அனுமதிகள், இந்தச் சுயவிவரத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு வரலாறு, தொடர்புத் தேடல் வரலாறு ஆகியவையும் இதில் அடங்கும்) ஆகியவற்றை உங்கள் IT நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் முடியும்.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட கூடுதல் தகவலுக்கு IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
@@ -43,7 +43,7 @@
     <string name="default_managed_profile_name" msgid="5370257687074907055">"பணிக் கணக்கு"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"முதன்மை பயனர்"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ஏற்கனவே உள்ள சுயவிவரத்தை நீக்கவா?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ஏற்கனவே பணிக் கணக்கு உள்ளது. அதைப் பின்வரும் பயன்பாடு நிர்வகிக்கிறது:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ஏற்கனவே பணிக் கணக்கு உள்ளது. அதைப் பின்வரும் ஆப்ஸ் நிர்வகிக்கிறது:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"தொடர்வதற்கு முன், "<a href="#read_this_link">"இதைப் படிக்கவும்"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"தொடர்ந்தால், இந்தச் சுயவிவரத்தின் எல்லா பயன்பாடுகளும் தரவும் நீக்கப்படும்."</string>
     <string name="delete_profile" msgid="2299218578684663459">"நீக்கு"</string>
@@ -68,8 +68,8 @@
     <string name="progress_data_process" msgid="1707745321954672971">"அமைவு தரவைச் செயல்படுத்துகிறது…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"வைஃபையுடன் இணைக்கிறது…"</string>
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"மொபைல் நெட்வொர்க்குடன் இணைக்கிறது…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"நிர்வாகி பயன்பாட்டை இறக்குகிறது…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"நிர்வாகி பயன்பாட்டை நிறுவுகிறது…"</string>
+    <string name="progress_download" msgid="3522436271691064624">"நிர்வாகி ஆப்ஸை இறக்குகிறது…"</string>
+    <string name="progress_install" msgid="2258045670385866183">"நிர்வாகி ஆப்ஸை நிறுவுகிறது…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"தேவையற்ற சாதனப் பயன்பாடுகளை அகற்றுகிறது…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"இறுதியாகச் சில விஷயங்களைச் சேர்க்கிறது…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"சாதன உரிமையாளரை அமைக்கிறது…"</string>
@@ -166,6 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"இந்த மொபைலை நிர்வகிக்கவும் கண்காணிக்கவும் பின்வரும் ஆப்ஸ் பயன்படும்"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"பணி அமைவிற்குத் தயாராகிறது…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"முதலில், உங்கள் பணிக் கணக்கை அமைக்கவும்"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"உங்கள் பணிக் கணக்கை அமைப்போம்"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"பணிக்கான ஆப்ஸ் உங்கள் பணிக் கணக்கில் இருக்கும்"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ஒரு நாளின் வேலை நேரம் முடிந்ததும் பணிக்கான ஆப்ஸை இடைநிறுத்தலாம்"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"உங்கள் பணிக் கணக்கில் உள்ள தரவை மட்டுமே IT நிர்வாகியால் பார்க்க இயலும்"</string>
