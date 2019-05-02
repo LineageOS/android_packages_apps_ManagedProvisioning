@@ -65,6 +65,8 @@
     <!-- To set the bg color of the deferred setup notification (without a foreground service) -->
     <uses-permission android:name="android.permission.USE_COLORIZED_NOTIFICATIONS" />
 
+    <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" />
+
     <application
         android:label="@string/app_label"
         android:allowClearUserData="false"
