@@ -83,8 +83,7 @@ class PrimaryProfileFinalizationHelper {
     private void finishAccountMigration(final Context context,
             final Intent primaryProfileSuccessIntent,
             DpcReceivedSuccessReceiver.Callback callback) {
-        // For admin integrated flow, account is removed earlier in the flow.
-        if (!mIsAdminIntegratedFlow && !mKeepAccountMigrated) {
+        if (!mKeepAccountMigrated) {
             mUtils.removeAccountAsync(context, mMigratedAccount, () -> {
                 handleFinalization(context, callback, primaryProfileSuccessIntent);
             });
