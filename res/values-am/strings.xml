@@ -166,8 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"የሚከተለው መተግበሪያ ይህን ስልክ ለማቀናበር እና ለመከታተል ስራ ላይ ይውላል"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ለሥራ ቅንብር በመዘጋጀት ላይ…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"መጀመሪያ የስራ መገለጫዎን እናቀናብረው"</string>
-    <!-- no translation found for work_profile_provisioning_accept_header_post_suw (1353127953275291089) -->
-    <skip />
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"መጀመሪያ የስራ መገለጫዎን እናቀናብረው"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"የሥራ መተግበሪያዎች በእርስዎ የሥራ መገለጫ ውስጥ ይቀመጣሉ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ለቀኑ የሚበቃዎትን ያክል ከሠሩ በኋላ የሥራ መተግበሪያዎችን ላፍታ ያስቁሙ"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"በእርስዎ የሥራ መገለጫ ውስጥ ያለ ውሂብ ብቻ ለእርስዎ የአይቲ አስተዳዳሪ የሚታይ ይሆናል"</string>

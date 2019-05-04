@@ -74,6 +74,7 @@ import android.util.Log;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.filters.FlakyTest;
 import androidx.test.filters.SmallTest;
 import androidx.test.runner.lifecycle.Stage;
 
@@ -383,6 +384,7 @@ public class ProvisioningActivityTest {
 
     }
 
+    @FlakyTest(bugId = 131866915)
     @Test
     public void testErrorFactoryReset() throws Throwable {
         // GIVEN the activity was launched with a device owner intent

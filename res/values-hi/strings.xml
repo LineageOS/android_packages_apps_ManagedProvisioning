@@ -166,7 +166,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"आगे बताए गए ऐप्लिकेशन का इस्तेमाल इस फ़ोन को प्रबंधित करने और इसकी निगरानी करने के लिए किया जाएगा"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"काम के लिए सेटअप किया जा रहा है…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"चलिए, सबसे पहले आपकी काम की प्रोफ़ाइल सेट अप करते हैं"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपका कार्य प्रोफ़ाइल सेट अप करते हैं"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपकी कार्य प्रोफ़ाइल सेट अप करते हैं"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"काम से जुड़े ऐप्लिकेशन, आपके काम से जुड़ी प्रोफ़ाइल में रखे जाते हैं"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"दिनभर के काम खत्म हो जाने के बाद इन काम के लिए इस्तेमाल होने वाले ऐप्लिकेशन बंद करें"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"सिर्फ़ आपके काम से जुड़ी प्रोफ़ाइल आपके आईटी एडमिन को दिखाई देगी"</string>
