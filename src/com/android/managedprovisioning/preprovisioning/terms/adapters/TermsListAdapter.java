@@ -105,16 +105,6 @@ public class TermsListAdapter extends BaseExpandableListAdapter {
                 R.layout.terms_disclaimer_header, parent, false);
         groupView.setContentDescription(
                 parent.getResources().getString(R.string.section_heading, heading));
-        groupView.setAccessibilityDelegate(new View.AccessibilityDelegate() {
-            @Override public void onInitializeAccessibilityNodeInfo(View host,
-                    AccessibilityNodeInfo info) {
-                super.onInitializeAccessibilityNodeInfo(host, info);
-                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(
-                        AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK.getId(),
-                        parent.getResources().getString(
-                                isExpanded ? R.string.collapse : R.string.expand)));
-            }
-        });
 
         TextView textView = groupView.findViewById(R.id.header_text);
         textView.setText(heading);
