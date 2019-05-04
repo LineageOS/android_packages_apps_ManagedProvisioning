@@ -35,6 +35,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
+import androidx.test.filters.FlakyTest;
 import androidx.test.filters.SmallTest;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -130,6 +131,7 @@ public class ProvisioningManagerTest {
         verify(mController).cancel();
     }
 
+    @FlakyTest(bugId = 131866915)
     @Test
     public void testListener_error() {
         // GIVEN a listener is registered
@@ -160,6 +162,7 @@ public class ProvisioningManagerTest {
         verifyZeroInteractions(mCallback);
     }
 
+    @FlakyTest(bugId = 131866915)
     @Test
     public void testListener_preFinalizationCompleted() throws InterruptedException {
         // GIVEN provisioning has been started
