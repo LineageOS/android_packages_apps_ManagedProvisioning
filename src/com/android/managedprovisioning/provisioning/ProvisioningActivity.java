@@ -323,8 +323,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
         CustomizationParams customizationParams =
                 CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(R.layout.provisioning_progress, null,
-                customizationParams.mainColor, customizationParams.statusBarColor);
+        initializeLayoutParams(R.layout.provisioning_progress, null, customizationParams);
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);

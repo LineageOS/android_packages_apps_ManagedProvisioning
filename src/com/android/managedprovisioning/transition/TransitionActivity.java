@@ -78,7 +78,7 @@ public class TransitionActivity extends SetupGlifLayoutActivity {
             CustomizationParams.createInstance(mParams, this, mUtils);
         initializeLayoutParams(
                 R.layout.transition_screen, R.string.now_lets_set_up_everything_else,
-                customizationParams.mainColor, customizationParams.statusBarColor);
+                customizationParams);
         setTitle(R.string.set_up_everything_else);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
