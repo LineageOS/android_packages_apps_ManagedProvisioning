@@ -27,7 +27,7 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"பின்வரும் பயன்பாடு இந்தச் சுயவிவரத்தை அணுக வேண்டும்:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"பின்வரும் பயன்பாடு உங்கள் சாதனத்தை நிர்வகிக்கும்:"</string>
     <string name="next" msgid="1004321437324424398">"அடுத்து"</string>
-    <string name="setting_up_workspace" msgid="7862472373642601041">"பணி விவரத்தை அமைக்கிறது…"</string>
+    <string name="setting_up_workspace" msgid="7862472373642601041">"பணிக் கணக்கை அமைக்கிறது…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"அமைப்புகள், கார்ப்பரேட் அணுகல், பயன்பாடுகள், அனுமதிகள், இந்தச் சுயவிவரத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு வரலாறு, தொடர்புத் தேடல் வரலாறு ஆகியவை அடங்கும்) ஆகியவற்றை உங்கள் நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் முடியும்.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட கூடுதல் தகவலுக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"அமைப்புகள், கார்ப்பரேட் அணுகல், பயன்பாடுகள், அனுமதிகள், இந்தச் சாதனத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு வரலாறு, தொடர்புத் தேடல் வரலாறு ஆகியவை அடங்கும்) ஆகியவற்றை உங்கள் நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் முடியும்.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட கூடுதல் தகவலுக்கு, நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"திருட்டிற்கு எதிரான பாதுகாப்பு அம்சங்களைப் பயன்படுத்த, சாதனத்தில் கடவுச்சொல் பாதுகாப்புள்ள திரைப் பூட்டு இருக்க வேண்டும்."</string>
@@ -38,28 +38,28 @@
     <string name="user_consent_msg" msgid="8820951802130353584">"ஏற்கிறேன்"</string>
     <string name="url_error" msgid="5958494012986243186">"இந்த இணைப்பைக் காட்ட முடியவில்லை."</string>
     <string name="terms" msgid="8295436105384703903">"விதிமுறைகள்"</string>
-    <string name="work_profile_info" msgid="5433388376309583996">"பணி விவரத் தகவல்"</string>
+    <string name="work_profile_info" msgid="5433388376309583996">"பணிக் கணக்குச் தகவல்"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"நிர்வகிக்கப்படும் சாதனத் தகவல்"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"பணி சுயவிவரம்"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"பணிக் கணக்கு"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"முதன்மை பயனர்"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ஏற்கனவே உள்ள சுயவிவரத்தை நீக்கவா?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ஏற்கனவே பணி விவரம் உள்ளது. அதைப் பின்வரும் பயன்பாடு நிர்வகிக்கிறது:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ஏற்கனவே பணிக் கணக்கு உள்ளது. அதைப் பின்வரும் பயன்பாடு நிர்வகிக்கிறது:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"தொடர்வதற்கு முன், "<a href="#read_this_link">"இதைப் படிக்கவும்"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"தொடர்ந்தால், இந்தச் சுயவிவரத்தின் எல்லா பயன்பாடுகளும் தரவும் நீக்கப்படும்."</string>
     <string name="delete_profile" msgid="2299218578684663459">"நீக்கு"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ரத்துசெய்"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"பணி விவரத்தை அமைக்க, சாதனத்தை என்கிரிப்ட் செய்ய வேண்டும். இதற்குச் சிறிது நேரம் ஆகலாம்."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"பணிக் கணக்கை அமைக்க, சாதனத்தை என்கிரிப்ட் செய்ய வேண்டும். இதற்குச் சிறிது நேரம் ஆகலாம்."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"சாதனத்தை அமைக்க, முதலில் அதை என்கிரிப்ட் செய்ய வேண்டும். இதற்குச் சிறிது நேரம் ஆகலாம்."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"என்கிரிப்ட் செய்யவா?"</string>
     <string name="encrypt" msgid="1749320161747489212">"என்கிரிப்ட் செய்"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"குறியாக்கம் முடிந்தது"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"பணி சுயவிவரத்தை அமைப்பதைத் தொடர, தட்டவும்"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணி சுயவிவரத்தை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
-    <string name="cant_add_work_profile" msgid="9217268909964154934">"பணி விவரத்தைச் சேர்க்க முடியாது"</string>
-    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"பணி விவரத்தை மாற்றியமைக்கவோ அகற்றவோ முடியாது"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"இந்தச் சாதனத்தில் பணி விவரத்தைச் சேர்க்க முடியாது. ஏதேனும் கேள்விகள் இருந்தால், உங்கள் நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"பணிக் கணக்கை அமைப்பதைத் தொடர, தட்டவும்"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"பணிக் கணக்கை அமைக்க முடியவில்லை. IT துறையைத் தொடர்புகொள்ளவும் அல்லது பிறகு முயலவும்."</string>
+    <string name="cant_add_work_profile" msgid="9217268909964154934">"பணிக் கணக்கைச் சேர்க்க முடியாது"</string>
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"பணிக் கணக்கை மாற்றியமைக்கவோ அகற்றவோ முடியாது"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"இந்தச் சாதனத்தில் பணிக் கணக்கைச் சேர்க்க முடியாது. ஏதேனும் கேள்விகள் இருந்தால், உங்கள் நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"சாதனத் துவக்கியை மாற்றவும்"</string>
-    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"உங்கள் பணி விவரத்தில் இந்தத் துவக்கிப் பயன்பாட்டைப் பயன்படுத்த முடியாது"</string>
+    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"உங்கள் பணிக் கணக்கில் இந்தத் துவக்கிப் பயன்பாட்டைப் பயன்படுத்த முடியாது"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ரத்துசெய்"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"சரி"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"பயனர் அமைவு முழுமையடையவில்லை"</string>
@@ -103,8 +103,8 @@
     <string name="continue_button" msgid="7177918589510964446">"தொடர்க"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"நிறுத்து"</string>
     <string name="dismiss" msgid="9009534756748565880">"நிராகரி"</string>
-    <string name="profile_owner_info" msgid="8975319972303812298">"பணி விவரத்தை உருவாக்க உள்ளீர்கள், அதை உங்கள் நிறுவனம் நிர்வகித்து, கண்காணிக்கும். விதிமுறைகள் பொருந்தும்."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"பணி விவரத்தை உருவாக்க உள்ளீர்கள், அதை உங்கள் நிறுவனம் நிர்வகித்து, கண்காணிக்கும். <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> இன் விதிமுறைகள் பொருந்தும்."</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"பணிக் கணக்கை உருவாக்க உள்ளீர்கள், அதை உங்கள் நிறுவனம் நிர்வகித்து, கண்காணிக்கும். விதிமுறைகள் பொருந்தும்."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"பணிக் கணக்கை உருவாக்க உள்ளீர்கள், அதை உங்கள் நிறுவனம் நிர்வகித்து, கண்காணிக்கும். <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> இன் விதிமுறைகள் பொருந்தும்."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"பணி தொடர்பான பயன்பாடுகளுக்கு, சுயவிவரம் உருவாக்கப்படும். இந்தச் சுயவிவரத்தையும் சாதனத்திலுள்ள பிற விஷயங்களையும் உங்கள் நிறுவனம் நிர்வகித்து, கண்காணிக்கும். விதிமுறைகள் பொருந்தும்."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"பணி தொடர்பான பயன்பாடுகளுக்கு, சுயவிவரம் உருவாக்கப்படும். இந்தச் சுயவிவரத்தையும் சாதனத்திலுள்ள பிற விஷயங்களையும் உங்கள் நிறுவனம் நிர்வகித்து, கண்காணிக்கும். <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> இன் விதிமுறைகள் பொருந்தும்."</string>
     <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> நிறுவனம், இந்தச் சாதனத்தை நிர்வகித்து, கண்காணித்து, பாதுகாப்பாக வைத்திருக்கும். விதிமுறைகள் பொருந்தும். <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
