@@ -67,7 +67,6 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Աշխատանքային սարքի կարգավորում…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Տեղադրման տվյալների մշակում…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Կապակցում Wi-Fi-ին..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Միացում բջջային ցանցին…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Ադմինիստրատոր հավելվածի ներբեռնում…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Ադմինիստրատոր հավելվածի տեղադրում…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Համակարգի ոչ անհրաժեշտ հավելվածները հեռացվում են…"</string>
@@ -107,8 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Դուք պատրաստվում եք ստեղծել աշխատանքային պրոֆիլ, որը կկառավարվի և կվերահսկվի ձեր կազմակերպության կողմից: Կիրառվում են <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> պայմանները։"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Ձեր աշխատանքային հավելվածների համար կստեղծվի պրոֆիլ: Այդ պրոֆիլը, ինչպես նաև ձեր սարքն ամբողջությամբ կկառավարվեն և կվերահսկվեն ձեր կազմակերպության կողմից: Կիրառվում են հատուկ պայմաններ։"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Ձեր աշխատանքային հավելվածների համար կստեղծվի պրոֆիլ: Այդ պրոֆիլը, ինչպես նաև ձեր սարքն ամբողջությամբ կկառավարվեն և կվերահսկվեն ձեր կազմակերպության կողմից: Կիրառվում են <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> պայմանները։"</string>
-    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> կազմակերպությունը կկառավարի և կվերահսկի այս սարքը, ինչպես նաև կապահովի վերջինիս անվտանգությունը: Կկիրառվեն հետևյալ պայմանները՝ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>:"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> կազմակերպությունը կկառավարի և կվերահսկի այս սարքը, ինչպես նաև կապահովի վերջինիս անվտանգությունը: Կկիրառվեն հետևյալ գործընկերոջ կամ ընկերության պայմանները՝ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>: <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="2883639372446424007">"Այս սարքը կկառավարվի <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> կազմակերպության կողմից, որը կապահովի նրա անվտանգությունը: Կիրառվում են հատուկ պայմաններ։ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Այս սարքը կկառավարվի <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> կազմակերպության կողմից, որը կապահովի նրա անվտանգությունը: Կիրառվում են <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> պայմանները։ <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Այս հղումն ապահով չէ և չի կարող բացվել մինչև սարքի կարգավորման ավարտը՝ <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Եթե հարցեր ունեք, դիմեք ձեր <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>-ին։"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Եթե հարցեր ունեք, դիմեք ձեր կազմակերպության ադմինիստրատորին"</string>
@@ -147,8 +146,8 @@
     <string name="access_terms" msgid="1982500872249763745">"Բացել տերմինները"</string>
     <string name="read_terms" msgid="1745011123626640728">"Կարդալ պայմանները"</string>
     <string name="close_list" msgid="9053538299788717597">"Փակել ցուցակը"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ավարտե՞լ կարգավորումը և կատարել գործարանային կարգավորումների վերականգնում:"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Կարգավորման ավարտից հետո կկատարվի գործարանային կարգավորումների վերականգնում և վերադարձ առաջին էկրանին:"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Ավարտե՞լ կարգավորումը և կատարել գործարանային վերակայում:"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Կարգավորման ավարտից հետո կկատարվի գործարանային վերակայում և վերադարձ առաջին էկրանին:"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Չեղարկել"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Վերակայել սարքը"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> և <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>

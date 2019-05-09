@@ -66,8 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik poslovnog uređaja"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Postavljanje radnog uređaja…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Obrađuju se podaci za postavljanje..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezuje se na WiFi..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezivanje na mobilnu mrežu…"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezuje se na Wi-Fi..."</string>
     <string name="progress_download" msgid="3522436271691064624">"Preuzima se aplikacija za administratora..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalira se aplikacija za administratora..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Uklanjanje suvišnih sistemskih aplikacija…"</string>
@@ -86,12 +85,12 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Uređaj nije postavljen. Obratite se administratoru za pomoć."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Obratite se administratoru za pomoć"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Uređaj je već postavljen"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na WiFi"</string>
+    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nije moguće povezivanje na Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Na vašem uređaju je uključena opcija za ponovno postavljanje zaštite. Obratite se administratoru za pomoć."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Briše se"</string>
-    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Pričekajte..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Korištenje aplikacije administratora nije uspjelo zbog greške u kontrolnom zbiru. Obratite se administratoru za pomoć."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Preuzimanje aplikacije administratora nije uspjelo"</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"Sačekajte..."</string>
+    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Aplikacija administratora nije korištena zbog greške prilikom kontrolne provjere. Obratite se administratoru za pomoć."</string>
+    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nije moguće preuzeti aplikaciju administratora"</string>
     <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Nije moguće koristiti aplikaciju administratora. Nedostaju joj komponente ili je neispravna. Obratite se administratoru za pomoć."</string>
     <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nije moguće instalirati aplikaciju administratora"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Želite li zaustaviti postavljanje?"</string>
@@ -107,8 +106,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Kreirat ćete novi radni profil kojim će upravljati i kojeg će pratiti vaša organizacija. Važit će uslovi iz: <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Kreirat će se profil za vaše radne aplikacije. Tim profilom i ostatkom uređaja upravljat će i pratit će vaša organizacija. Važit će uslovi."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Kreirat će se profil za vaše radne aplikacije. Tim profilom i ostatkom uređaja upravljat će vaša organizacija. Važit će uslovi iz: <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="3716661456037934467">"Ovim uređajem će upravljati, nadzirati i sigurnost mu održavati  <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Važit će uslovi. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Ovim uređajem će upravljati, nadzirati i sigurnost mu održavati  <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Važit će uslovi iz <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="2883639372446424007">"Ovim uređajem će upravljati i sigurnost mu održavati <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Važit će uslovi. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Ovim uređajem će upravljati i sigurnost mu održavati <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Važit će uslovi iz: <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Ovaj link nije siguran i ne može se otvoriti dok se ne završi postavljanje uređaja: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Ako imate pitanja, kontaktirajte: <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Ako imate pitanja, obratite se administratoru organizacije."</string>
@@ -141,7 +140,7 @@
     <string name="section_heading" msgid="3924666803774291908">"Zaglavlje odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
     <string name="section_content" msgid="8875502515704374394">"Sadržaj odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Proširi"</string>
-    <string name="collapse" msgid="7817530505064432580">"Suzi"</string>
+    <string name="collapse" msgid="7817530505064432580">"Skupi"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Pristupite spisku linkova"</string>
     <string name="access_links" msgid="7991363727326168600">"Pristupite linkovima"</string>
     <string name="access_terms" msgid="1982500872249763745">"Pristupite uslovima"</string>
