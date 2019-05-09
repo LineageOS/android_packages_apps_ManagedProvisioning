@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജമാക്കൽ"</string>
+    <string name="app_label" msgid="1527793174155125990">"ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരണം"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ക്ഷമിക്കണം!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കുക"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ, ഈ പ്രൊഫൈൽ നിയന്ത്രിച്ച് അവ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു. ഉപകരണത്തിലെ മറ്റുള്ളവയെല്ലാം നിങ്ങൾക്ക് നിയന്ത്രിക്കാനാവും."</string>

@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Ukusetha iphrofayela yomsebenzi"</string>
+    <string name="app_label" msgid="1527793174155125990">"Ukusethwa komsebenzi"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hawu!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Setha iphrofayela yomsebenzi"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Inhlangano yakho ilawula le phrofayela iphinde iyigcine ivikelekile. Ulawule konke okunye kudivayisi yakho."</string>

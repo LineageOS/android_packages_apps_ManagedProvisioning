@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Podešavanje profila za Work"</string>
+    <string name="app_label" msgid="1527793174155125990">"Podešavanje profila za Work"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Podesite profil za Work"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organizacija kontroliše i štiti ovaj profil. Vi kontrolišete sve ostalo na uređaju."</string>

@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Työprofiilin määritys"</string>
+    <string name="app_label" msgid="1527793174155125990">"Työmääritys"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hups!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Määritä työprofiili"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Organisaatiosi hallinnoi tätä profiilia ja suojaa sen tiedot. Voit itse hallinnoida laitteen muita ominaisuuksia."</string>

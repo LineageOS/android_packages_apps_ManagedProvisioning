@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Radni je profil postavljen"</string>
+    <string name="app_label" msgid="1527793174155125990">"Postavka za posao"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ups!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Postavljanje radnog profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija kontrolira i štiti ovaj profil. Vi kontrolirate sve ostalo na svojem uređaju."</string>
@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik radnog uređaja"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Postavljanje radnog uređaja…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Obrada podataka o postavljanju…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezivanje s Wi-Fi-jem…"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezivanje s Wi-Fijem…"</string>
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezivanje s mobilnom mrežom…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Preuzimanje administratorske aplikacije…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Instaliranje administratorske aplikacije…"</string>

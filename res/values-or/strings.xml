@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍"</string>
+    <string name="app_label" msgid="1527793174155125990">"କାର୍ଯ୍ୟ ସେଟ୍ ଅପ୍"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ଓହୋ!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ କରନ୍ତୁ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ଆପଣଙ୍କ ସଂସ୍ଥା ଏହି ପ୍ରୋଫାଇଲକୁ ନିୟନ୍ତ୍ରଣ କରେ ଏବଂ ଏହାକୁ ସୁରକ୍ଷିତ ରଖେ। ଡିଭାଇସ୍‌ରେ ବାକି ସବୁକିଛି ଆପଣ ନିଜେ ନିୟନ୍ତ୍ରଣ କରନ୍ତି।"</string>

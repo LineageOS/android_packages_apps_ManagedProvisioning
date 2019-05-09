@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಾಣಿಕೆ"</string>
+    <string name="app_label" msgid="1527793174155125990">"ಕೆಲಸದ ಸೆಟಪ್"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ಓಹ್!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ಈ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ನಿಯಂತ್ರಿಸುತ್ತದೆ ಹಾಗೂ ಅದನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಕಾಪಾಡುತ್ತದೆ. ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದನ್ನೂ ನೀವು ನಿಯಂತ್ರಿಸಬಹುದು."</string>

@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Configuración del perfil de trabajo"</string>
+    <string name="app_label" msgid="1527793174155125990">"Configuración de trabajo"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"¡Vaya!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Configura el perfil de trabajo"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Tu organización controla este perfil y mantiene su seguridad. Tú controlas el resto del contenido del dispositivo."</string>
@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"¿Eliminar el perfil?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Ya tienes un perfil de trabajo administrado a través de la siguiente aplicación:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Para continuar, "<a href="#read_this_link">"consulta esta información"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Si continuas, se eliminarán las aplicaciones y los datos de este perfil."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Si continuas, se eliminarán todas las aplicaciones y datos de este perfil."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Eliminar"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Para configurar el perfil de trabajo, hay que cifrar el dispositivo. Este proceso puede tardar un poco."</string>
