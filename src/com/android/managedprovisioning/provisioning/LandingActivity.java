@@ -15,9 +15,11 @@
  */
 package com.android.managedprovisioning.provisioning;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
@@ -32,7 +34,6 @@ import com.google.android.setupdesign.GlifLayout;
  * The first activity shown during provisioning.
  */
 public class LandingActivity extends SetupGlifLayoutActivity {
-
     private static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 1;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
 
@@ -76,9 +77,14 @@ public class LandingActivity extends SetupGlifLayoutActivity {
     }
 
     private void onNextButtonClicked(ProvisioningParams params) {
-        final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
-        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
+        if (AdminIntegratedFlowPrepareActivity.shouldRunPrepareActivity(mUtils, this, params)) {
+            final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
+            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
+            startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
+        } else {
+            setResult(Activity.RESULT_OK);
+            finish();
+        }
     }
 
     private void handleSupportUrl(CustomizationParams customizationParams) {

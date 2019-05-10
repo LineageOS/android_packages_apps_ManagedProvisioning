@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.provisioning;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.widget.ImageView;
 import androidx.annotation.VisibleForTesting;
@@ -42,6 +43,26 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
 
     public AdminIntegratedFlowPrepareActivity() {
         this(new Utils());
+    }
+
+    public static boolean shouldRunPrepareActivity(
+            Utils utils, Context context, ProvisioningParams params) {
+        if (params.wifiInfo != null) {
+            return true;
+        }
+        if (params.useMobileData) {
+            return true;
+        }
+        if (params.deviceAdminDownloadInfo != null) {
+            // Only prepare if a download is actually required
+            if (utils.packageRequiresUpdate(
+                    params.inferDeviceAdminPackageName(),
+                    params.deviceAdminDownloadInfo.minVersion,
+                    context)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @VisibleForTesting
