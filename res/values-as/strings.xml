@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"কৰ্মস্থানৰ প্ৰ’ফাইলৰ ছেট আপ"</string>
+    <string name="app_label" msgid="1527793174155125990">"কামৰ প্ৰ\'ফাইল ছেটআপ কৰক"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"ওঁহ!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"কৰ্মস্থানৰ প্ৰ’ফাইল ছেট আপ কৰক"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"আপোনাৰ সংস্থাই এই প্ৰ\'ফাইলটো নিয়ন্ত্ৰণ কৰে আৰু সুৰক্ষিত কৰি ৰাখে। আপুনি আপোনাৰ ডিভাইচত ইয়াৰ বাহিৰে অন্যবিলাক নিয়ন্ত্ৰণ কৰিব পাৰে।"</string>

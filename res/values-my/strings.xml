@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"အလုပ်ပရိုဖိုင် စနစ်ထည့်သွင်းမှု"</string>
+    <string name="app_label" msgid="1527793174155125990">"အလုပ် စီစဉ်သတ်မှတ်ခြင်း"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"အူးပ်စ်!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"အလုပ်ပရိုဖိုင်ကို စနစ်ထည့်သွင်းမှုပြုလုပ်ပါ"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"သင်၏ အဖွဲ့အစည်းက ဒီပရိုဖိုင်ကို ထိန်းချုပ်လျက် လုံခြုံအောင် ထားရှိပါသည်။ သင်သည် သင့် ကိရိယာ ထဲက ကျန်အရာများကို ထိန်းချုပ်ပါသည်။"</string>

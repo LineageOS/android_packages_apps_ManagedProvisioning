@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"කාර්යාල පැතිකඩ පිහිටුවීම"</string>
+    <string name="app_label" msgid="1527793174155125990">"කාර්යාල සැකසීම"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"අපොයි!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"කාර්යාල පැතිකඩ පිහිටුවන්න"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"ඔබගේ සංවිධානය මෙම පැතිකඩ පාලනය කරයි සහ එය ආරක්ෂිතව තබයි. ඔබගේ උපාංගයේ අනෙක් සියලු ඔබ පාලනය කරයි."</string>

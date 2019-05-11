@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Configurazione del profilo di lavoro"</string>
+    <string name="app_label" msgid="1527793174155125990">"Configurazione per il lavoro"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ops!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Configura il profilo di lavoro"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"La tua organizzazione controlla questo profilo e lo tiene protetto, mentre tu controlli tutto il resto sul dispositivo."</string>

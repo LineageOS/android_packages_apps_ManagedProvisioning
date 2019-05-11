@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Work profile setup"</string>
+    <string name="app_label" msgid="1527793174155125990">"Work Setup"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Oops!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Set up work profile"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Your organisation controls this profile and keeps it secure. You control everything else on your device."</string>

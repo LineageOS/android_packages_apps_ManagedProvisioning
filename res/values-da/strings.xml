@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Konfiguration af arbejdsprofil"</string>
+    <string name="app_label" msgid="1527793174155125990">"Konfiguration af arbejdsprofil"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Hovsa!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Konfigurer arbejdsprofil"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Din organisation styrer denne profil og sørger for, at den er sikker. Du styrer alt andet på din enhed."</string>

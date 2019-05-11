@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2400883737290705700">"Nastavitev delovnega profila"</string>
+    <string name="app_label" msgid="1527793174155125990">"Nastavitev delovnega profila"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ojoj!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Nastavitev delovnega profila"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Vaša organizacija nadzira ta profil in skrbi za njegovo varnost. Vi nadzirate vse drugo v napravi."</string>
