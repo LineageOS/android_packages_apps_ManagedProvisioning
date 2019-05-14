@@ -21,6 +21,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISIONING_SUCCESSF
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
 import android.annotation.NonNull;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
@@ -29,6 +30,7 @@ import com.android.managedprovisioning.common.IllegalProvisioningArgumentExcepti
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 
 /**
  * Helper class for creating intents in finalization controller.
@@ -75,6 +77,12 @@ class ProvisioningIntentProvider {
 
     void launchFinalizationScreen(Context context, ProvisioningParams params) {
         final Intent finalizationScreen = new Intent(context, FinalScreenActivity.class);
+        if (context instanceof Activity) {
+            final Intent intent = ((Activity) context).getIntent();
+            if (intent != null) {
+                WizardManagerHelper.copyWizardManagerExtras(intent, finalizationScreen);
+            }
+        }
         finalizationScreen.putExtra(FinalScreenActivity.EXTRA_PROVISIONING_PARAMS, params);
         context.startActivity(finalizationScreen);
     }
