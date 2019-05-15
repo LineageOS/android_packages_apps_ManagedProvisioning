@@ -50,6 +50,7 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.Tr
 import com.android.managedprovisioning.transition.TransitionActivity;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupcompat.template.FooterButton;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
@@ -209,6 +210,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 if (resultCode == RESULT_OK) {
                     if (shouldShowTransitionScreen()) {
                         Intent intent = new Intent(this, TransitionActivity.class);
+                        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
                         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
                         startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
                     } else {
