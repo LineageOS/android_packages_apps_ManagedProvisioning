@@ -16,8 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_DURING_PROVISIONING;
-
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +28,6 @@ import android.util.Pair;
 import com.android.internal.annotations.GuardedBy;
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +90,9 @@ public class ProvisioningManagerHelper {
     public void error(int titleId, int messageId, boolean factoryResetRequired) {
         synchronized (this) {
             for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(() -> callback.error(titleId, messageId, factoryResetRequired));
+                postCallbackToUiHandler(callback, () -> {
+                    callback.error(titleId, messageId, factoryResetRequired);
+                });
             }
             mLastCallback = CALLBACK_ERROR;
             mLastError = Pair.create(Pair.create(titleId, messageId), factoryResetRequired);
@@ -103,11 +103,12 @@ public class ProvisioningManagerHelper {
         switch (mLastCallback) {
             case CALLBACK_ERROR:
                 final Pair<Pair<Integer, Integer>, Boolean> error = mLastError;
-                mUiHandler.post(
-                        () -> callback.error(error.first.first, error.first.second, error.second));
+                postCallbackToUiHandler(callback, () -> {
+                    callback.error(error.first.first, error.first.second, error.second);
+                });
                 break;
             case CALLBACK_PRE_FINALIZED:
-                mUiHandler.post(callback::preFinalizationCompleted);
+                postCallbackToUiHandler(callback, callback::preFinalizationCompleted);
                 break;
             default:
                 ProvisionLogger.logd("No previous callback");
@@ -126,16 +127,10 @@ public class ProvisioningManagerHelper {
         }
     }
 
-    public void postToUiThread(Runnable r) {
-        synchronized (this) {
-            mUiHandler.post(r);
-        }
-    }
-
     public void notifyPreFinalizationCompleted() {
         synchronized (this) {
             for (ProvisioningManagerCallback callback : mCallbacks) {
-                mUiHandler.post(callback::preFinalizationCompleted);
+                postCallbackToUiHandler(callback, callback::preFinalizationCompleted);
             }
             mLastCallback = CALLBACK_PRE_FINALIZED;
         }
@@ -147,5 +142,29 @@ public class ProvisioningManagerHelper {
             mHandlerThread = null;
             mContext.stopService(SERVICE_INTENT);
         }
+    }
+
+    /**
+     * Executes the callback method on the main thread.
+     *
+     * <p>Inside the main thread, we have to first verify the callback is still present on the
+     * callbacks list. This is because when a config change happens (e.g. a different locale was
+     * specified), {@link ProvisioningActivity} is recreated and the old
+     * {@link ProvisioningActivity} instance is left in a bad state. Any callbacks posted before
+     * this happens will still be executed. Fixes b/131719633.
+     */
+    private void postCallbackToUiHandler(ProvisioningManagerCallback callback,
+            Runnable callbackRunnable) {
+        mUiHandler.post(() -> {
+            synchronized (ProvisioningManagerHelper.this) {
+                if (isCallbackStillRequired(callback)) {
+                    callbackRunnable.run();
+                }
+            }
+        });
+    }
+
+    private boolean isCallbackStillRequired(ProvisioningManagerCallback callback) {
+        return mCallbacks.contains(callback);
     }
 }
