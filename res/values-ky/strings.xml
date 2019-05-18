@@ -137,7 +137,7 @@
     <string name="setup_device_encryption" msgid="7852944465414197103">"Түзмөгүңүздү жөндөңүз. Шифрлөө"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"Түзмөгүңүздү жөндөңүз. Иштин илгерилөөсү көрсөтүлүүдө"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Көбүрөөк билүү баскычы"</string>
-    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> сөлөкөтү"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> сүрөтчөсү"</string>
     <string name="section_heading" msgid="3924666803774291908">"Бөлүмдүн аталышы: <xliff:g id="SECTION_HEADING">%1$s</xliff:g>"</string>
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> бөлүмүнүн мазмуну: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Жайып көрсөтүү"</string>

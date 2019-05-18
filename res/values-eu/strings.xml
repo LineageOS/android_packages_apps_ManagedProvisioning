@@ -148,7 +148,7 @@
     <string name="read_terms" msgid="1745011123626640728">"Irakurri baldintzak"</string>
     <string name="close_list" msgid="9053538299788717597">"Itxi zerrenda"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Konfigurazioa amaitu eta jatorrizko datuak berrezarri?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Konfigurazioa amaitzen baduzu, gailuaren jatorrizko ezarpenak berrezarriko dira eta lehenengo pantailara joango zara."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Konfigurazioa amaitzen baduzu, gailuaren jatorrizko datuak berrezarriko dira eta lehenengo pantailara joango zara."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Utzi"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Berrezarri gailua"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> eta <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
