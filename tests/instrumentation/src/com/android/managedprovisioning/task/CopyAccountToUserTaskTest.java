@@ -22,6 +22,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.nullable;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -40,6 +41,10 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import androidx.test.filters.FlakyTest;
 
+import com.android.managedprovisioning.analytics.MetricsWriter;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.mockito.Mock;
@@ -61,6 +66,8 @@ public class CopyAccountToUserTaskTest extends AndroidTestCase {
     @Mock private AccountManager mAccountManager;
     @Mock private AccountManagerFuture mAccountManagerFuture;
     @Mock private AbstractProvisioningTask.Callback mCallback;
+    @Mock private MetricsWriter mMetricsWriter;
+    @Mock private ManagedProvisioningSharedPreferences mSharedPreferences;
     private CopyAccountToUserTask mTask;
 
     public void setUp() {
@@ -204,6 +211,7 @@ public class CopyAccountToUserTaskTest extends AndroidTestCase {
                 .setDeviceAdminPackageName(TEST_MDM_PACKAGE_NAME)
                 .setAccountToMigrate(account)
                 .build();
-        mTask = new CopyAccountToUserTask(sourceUserId, mContext, params, mCallback);
+        mTask = new CopyAccountToUserTask(sourceUserId, mContext, params, mCallback,
+                mock(ProvisioningAnalyticsTracker.class));
     }
 }

@@ -25,6 +25,9 @@ import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -45,7 +48,9 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
             ProvisioningParams params,
             Callback callback) {
         this(new SettingsFacade(), new CrossProfileIntentFiltersSetter(context), context, params,
-                callback);
+                callback, new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(context)));
     }
 
     @VisibleForTesting
@@ -54,8 +59,9 @@ public class ManagedProfileSettingsTask extends AbstractProvisioningTask {
             CrossProfileIntentFiltersSetter crossProfileIntentFiltersSetter,
             Context context,
             ProvisioningParams params,
-            Callback callback) {
-        super(context, params, callback);
+            Callback callback,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+        super(context, params, callback, provisioningAnalyticsTracker);
         mSettingsFacade = checkNotNull(settingsFacade);
         mCrossProfileIntentFiltersSetter = checkNotNull(crossProfileIntentFiltersSetter);
     }
