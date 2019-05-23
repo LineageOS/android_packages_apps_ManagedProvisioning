@@ -97,6 +97,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private FooterButton mNextButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
+    private DevicePolicyManager mDevicePolicyManager;
 
     public ProvisioningActivity() {
         super(new Utils());
@@ -116,6 +117,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (mUserProvisioningStateHelper == null) {
             mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
         }
+        mDevicePolicyManager = getSystemService(DevicePolicyManager.class);
     }
 
     @Override
@@ -167,6 +169,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void enableGlobalFlags() {
+        mDevicePolicyManager.setDeviceProvisioningConfigApplied();
         final SettingsFacade settingsFacade = new SettingsFacade();
         settingsFacade.setUserSetupCompleted(this, UserHandle.USER_SYSTEM);
         settingsFacade.setDeviceProvisioned(this);
