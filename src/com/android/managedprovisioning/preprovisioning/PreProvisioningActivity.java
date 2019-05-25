@@ -45,6 +45,7 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperFactory;
@@ -409,8 +410,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-            int mainColor, int statusBarColor) {
-        super.initializeLayoutParams(layoutResourceId, headerResourceId, mainColor, statusBarColor);
+            CustomizationParams params) {
+        super.initializeLayoutParams(layoutResourceId, headerResourceId, params);
     }
 
     /**

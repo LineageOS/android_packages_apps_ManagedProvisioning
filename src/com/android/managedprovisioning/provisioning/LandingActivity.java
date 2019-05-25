@@ -64,8 +64,7 @@ public class LandingActivity extends SetupGlifLayoutActivity {
 
         final CustomizationParams customizationParams =
                 CustomizationParams.createInstance(params, this, mUtils);
-        initializeLayoutParams(R.layout.landing_screen, headerResId,
-                customizationParams.mainColor, customizationParams.statusBarColor);
+        initializeLayoutParams(R.layout.landing_screen, headerResId, customizationParams);
         setTitle(titleResId);
 
         handleSupportUrl(customizationParams);
