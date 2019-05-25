@@ -17,6 +17,8 @@ package com.android.managedprovisioning.preprovisioning.consent;
 
 import android.annotation.Nullable;
 
+import com.android.managedprovisioning.model.CustomizationParams;
+
 /**
  * A callback that handles consent screen UI changes.
  */
@@ -24,5 +26,5 @@ public interface ConsentUiHelperCallback {
     void nextAfterUserConsent();
 
     void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-        int mainColor, int statusBarColor);
+            CustomizationParams params);
 }
