@@ -33,9 +33,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationLogo;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR_ID;
 
-import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -49,9 +47,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.timeout;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -68,7 +64,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -88,7 +83,6 @@ import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.testcommon.ActivityLifecycleWaiter;
 
-import java.util.Collections;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -248,19 +242,17 @@ public class ProvisioningActivityTest {
 
     @Test
     public void testColors() throws Throwable {
-        Context context = InstrumentationRegistry.getTargetContext();
-
         // default color Managed Profile (MP)
         assertColorsCorrect(
                 PROFILE_OWNER_INTENT,
                 DEFAULT_MAIN_COLOR,
-                context.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
+                Color.TRANSPARENT);
 
         // default color Device Owner (DO)
         assertColorsCorrect(
                 DEVICE_OWNER_INTENT,
                 DEFAULT_MAIN_COLOR,
-                context.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
+                Color.TRANSPARENT);
 
         // custom color for both cases (MP, DO)
         int targetColor = Color.parseColor("#d40000"); // any color (except default) would do
