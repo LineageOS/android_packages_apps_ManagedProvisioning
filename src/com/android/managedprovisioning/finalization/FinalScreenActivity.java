@@ -69,8 +69,7 @@ public class FinalScreenActivity extends SetupGlifLayoutActivity {
 
         final CustomizationParams customizationParams =
                 CustomizationParams.createInstance(params, this, mUtils);
-        initializeLayoutParams(R.layout.final_screen, headerResId,
-                customizationParams.mainColor, customizationParams.statusBarColor);
+        initializeLayoutParams(R.layout.final_screen, headerResId, customizationParams);
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
