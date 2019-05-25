@@ -25,6 +25,7 @@ import android.sysprop.SetupWizardProperties;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.model.CustomizationParams;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.ThemeResolver;
 
@@ -54,13 +55,18 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         super.onApplyThemeResource(theme, resid, first);
     }
 
-        protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-            int mainColor, int statusBarColor) {
+    protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
+            CustomizationParams params) {
         setContentView(layoutResourceId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
-        setStatusBarColor(statusBarColor);
-        layout.setPrimaryColor(ColorStateList.valueOf(mainColor));
+        // ManagedProvisioning's customization has prioritization than stencil theme currently. If
+        // there is no status bar color customized by ManagedProvisioning, it can apply status bar
+        // color from stencil theme.
+        if (!params.useSetupStatusBarColor) {
+            setStatusBarColor(params.statusBarColor);
+        }
+        layout.setPrimaryColor(ColorStateList.valueOf(params.mainColor));
 
         if (headerResourceId != null) {
             layout.setHeaderText(headerResourceId);
@@ -68,7 +74,7 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
                     getResources().getColorStateList(R.color.header_text_color, getTheme()));
         }
 
-        layout.setIcon(LogoUtils.getOrganisationLogo(this, mainColor));
+        layout.setIcon(LogoUtils.getOrganisationLogo(this, params.mainColor));
     }
 
     private void setDefaultTheme() {

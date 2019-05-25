@@ -22,22 +22,17 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 
 import static com.android.managedprovisioning.e2eui.ManagedProfileAdminReceiver.COMPONENT_NAME;
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR_ID;
 
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
-import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.view.View;
 
 import androidx.test.filters.SmallTest;
 import androidx.test.rule.ActivityTestRule;
 
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.CustomizationVerifier;
@@ -108,7 +103,7 @@ public class PreProvisioningActivityTest {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_PROFILE, null));
         CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
+        v.assertStatusBarColorCorrect(Color.TRANSPARENT);
         v.assertSwiperColorCorrect(DEFAULT_MAIN_COLOR);
     }
 
@@ -127,7 +122,7 @@ public class PreProvisioningActivityTest {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_DEVICE, null));
         CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(activity.getColor(DEFAULT_STATUS_BAR_COLOR_ID));
+        v.assertStatusBarColorCorrect(Color.TRANSPARENT);
         v.assertDefaultLogoCorrect(DEFAULT_MAIN_COLOR);
     }
 

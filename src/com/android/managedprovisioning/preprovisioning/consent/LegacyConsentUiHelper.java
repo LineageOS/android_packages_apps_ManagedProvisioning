@@ -184,8 +184,7 @@ class LegacyConsentUiHelper implements ConsentUiHelper {
         mCallback.initializeLayoutParams(
                 layoutResId,
                 headerResId,
-                customization.mainColor,
-                customization.statusBarColor);
+                customization);
 
         setupAcceptAndContinueButton(uiParams.isSilentProvisioning);
 
