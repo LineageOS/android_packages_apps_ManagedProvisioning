@@ -86,8 +86,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mCallback.initializeLayoutParams(
                 R.layout.intro,
                 headerResId,
-                customization.mainColor,
-                customization.statusBarColor);
+                customization);
 
         setupAnimation(animationResId);
         setupAcceptAndContinueButton(uiParams.isSilentProvisioning);
