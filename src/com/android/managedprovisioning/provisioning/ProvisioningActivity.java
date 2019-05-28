@@ -169,7 +169,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void enableGlobalFlags() {
-        mDevicePolicyManager.setDeviceProvisioningConfigApplied();
+        if (mParams.isCloudEnrollment) {
+            mDevicePolicyManager.setDeviceProvisioningConfigApplied();
+        }
         final SettingsFacade settingsFacade = new SettingsFacade();
         settingsFacade.setUserSetupCompleted(this, UserHandle.USER_SYSTEM);
         settingsFacade.setDeviceProvisioned(this);
