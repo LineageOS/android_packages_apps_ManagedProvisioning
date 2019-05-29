@@ -516,6 +516,13 @@ public class Utils {
         return dpmProvisioningAction;
     }
 
+    public boolean isCloudEnrollment(Intent intent) {
+        return PROVISIONING_TRIGGER_CLOUD_ENROLLMENT ==
+                intent.getIntExtra(
+                        DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
+                        /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
+    }
+
     /**
      * Returns if the given intent for a organization owned provisioning.
      * Only QR, cloud enrollment and NFC are owned by organization.
