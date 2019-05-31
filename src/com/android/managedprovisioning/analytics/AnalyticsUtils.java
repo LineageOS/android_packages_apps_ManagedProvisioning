@@ -34,20 +34,28 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.TimeUnit;
 import android.nfc.NdefRecord;
 import android.os.SystemClock;
 import android.stats.devicepolicy.DevicePolicyEnums;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.TimeLogger.TimeCategory;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.parser.PropertiesProvisioningDataParser;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
+
 import java.io.IOException;
 import java.io.StringReader;
+import java.time.Clock;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.function.LongSupplier;
 
 /**
  * Class containing various auxiliary methods used by provisioning analytics tracker.
@@ -193,5 +201,23 @@ public class AnalyticsUtils {
             default:
                 return metricsEvent;
         }
+    }
+
+    /**
+     * Returns the time passed since provisioning started, in milliseconds.
+     * Returns <code>-1</code> if the provisioning start time was not specified via
+     * {@link ManagedProvisioningSharedPreferences#writeProvisioningStartedTimestamp(long)}.
+     */
+    static long getProvisioningTime(ManagedProvisioningSharedPreferences sharedPreferences) {
+        return getProvisioningTime(sharedPreferences, SystemClock::elapsedRealtime);
+    }
+
+    @VisibleForTesting
+    static long getProvisioningTime(ManagedProvisioningSharedPreferences sharedPreferences,
+            LongSupplier getTimeFunction) {
+        if (sharedPreferences.getProvisioningStartedTimestamp() == 0) {
+            return -1;
+        }
+        return getTimeFunction.getAsLong() - sharedPreferences.getProvisioningStartedTimestamp();
     }
 }

@@ -1,4 +1,12 @@
 LOCAL_PATH:= $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := managedprovisioning_protoslite
+LOCAL_SRC_FILES := $(call all-proto-files-under, proto)
+LOCAL_PROTOC_OPTIMIZE_TYPE := lite
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_STATIC_JAVA_LIBRARY)
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
@@ -12,6 +20,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES += \
         setupdesign
 
 LOCAL_STATIC_LIBRARIES := devicepolicyprotosnano
+LOCAL_STATIC_JAVA_LIBRARIES := managedprovisioning_protoslite
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
