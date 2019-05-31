@@ -20,6 +20,8 @@ LOCAL_JAVA_LIBRARIES := \
     mockito-robolectric-prebuilt \
     truth-prebuilt
 
+LOCAL_STATIC_JAVA_LIBRARIES := managedprovisioning_protoslite
+
 LOCAL_INSTRUMENTATION_FOR := ManagedProvisioning
 
 LOCAL_MODULE_TAGS := optional

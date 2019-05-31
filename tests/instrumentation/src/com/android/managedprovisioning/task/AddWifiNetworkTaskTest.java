@@ -35,6 +35,7 @@ import android.os.Looper;
 
 import androidx.test.filters.SmallTest;
 
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
@@ -76,6 +77,7 @@ public class AddWifiNetworkTaskTest {
     @Mock private Utils mUtils;
     @Mock private android.net.wifi.WifiInfo mWifiInfo;
     @Mock private AddWifiNetworkTask.Injector mTestInjector;
+    @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private AddWifiNetworkTask mTask;
 
@@ -93,7 +95,8 @@ public class AddWifiNetworkTaskTest {
     public void testNoWifiInfo() {
         // GIVEN that no wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                NO_WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                NO_WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector,
+                mProvisioningAnalyticsTracker);
 
         // WHEN running the task
         runTask();
@@ -106,7 +109,7 @@ public class AddWifiNetworkTaskTest {
     public void testWifiManagerNull() {
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that mWifiManager is null
         when(mContext.getSystemService(Context.WIFI_SERVICE)).thenReturn(null);
@@ -122,7 +125,7 @@ public class AddWifiNetworkTaskTest {
     public void testFailToEnableWifi() {
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that wifi is not enabled
         when(mWifiManager.isWifiEnabled()).thenReturn(false);
@@ -141,7 +144,7 @@ public class AddWifiNetworkTaskTest {
     public void testIsConnectedToSpecifiedWifiTrue() {
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that wifi is enabled
         when(mWifiManager.isWifiEnabled()).thenReturn(true);
@@ -164,7 +167,7 @@ public class AddWifiNetworkTaskTest {
     public void testNoWifiInfoInProvider() {
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that wifi is enabled
         when(mWifiManager.isWifiEnabled()).thenReturn(true);
@@ -192,7 +195,7 @@ public class AddWifiNetworkTaskTest {
 
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that wifi is enabled
         when(mWifiManager.isWifiEnabled()).thenReturn(true);
@@ -222,7 +225,7 @@ public class AddWifiNetworkTaskTest {
     public void testFailingToReconnectAfterAddingNetwork() {
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that wifi is enabled
         when(mWifiManager.isWifiEnabled()).thenReturn(true);
@@ -258,7 +261,7 @@ public class AddWifiNetworkTaskTest {
     public void testReconnectAfterAddingNetworkSuccess() {
         // GIVEN that wifi info was passed in the parameter
         mTask = new AddWifiNetworkTask(mNetworkMonitor, mWifiConfigurationProvider, mContext,
-                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector);
+                WIFI_INFO_PARAMS, mCallback, mUtils, mTestInjector, mProvisioningAnalyticsTracker);
 
         // GIVEN that wifi is enabled
         when(mWifiManager.isWifiEnabled()).thenReturn(true);
