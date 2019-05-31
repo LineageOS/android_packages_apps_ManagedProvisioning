@@ -34,8 +34,11 @@ import android.widget.Toolbar;
 import androidx.car.widget.PagedListView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
@@ -52,22 +55,23 @@ import java.util.Set;
 public class TermsActivity extends SetupLayoutActivity {
     private final TermsProvider mTermsProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
-    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private final Set<Integer> mExpandedGroupsPosition = new ArraySet<>();
+    private final SettingsFacade mSettingsFacade;
+    private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     @SuppressWarnings("unused")
     public TermsActivity() {
-        this(StoreUtils::readString, null);
+        this(StoreUtils::readString, null,  new SettingsFacade());
     }
 
     @VisibleForTesting TermsActivity(StoreUtils.TextFileReader textFileReader,
-            AccessibilityContextMenuMaker contextMenuMaker) {
+            AccessibilityContextMenuMaker contextMenuMaker, SettingsFacade settingsFacade) {
         super(new Utils());
         mTermsProvider = new TermsProvider(this, textFileReader, mUtils);
-        mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
         mContextMenuMaker =
                 contextMenuMaker != null ? contextMenuMaker : new AccessibilityContextMenuMaker(
                         this);
+        mSettingsFacade = settingsFacade;
     }
 
     @Override
@@ -87,6 +91,9 @@ public class TermsActivity extends SetupLayoutActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
 
+        mProvisioningAnalyticsTracker = new ProvisioningAnalyticsTracker(
+                MetricsWriterFactory.getMetricsWriter(this, mSettingsFacade),
+                new ManagedProvisioningSharedPreferences(getApplicationContext()));
         mProvisioningAnalyticsTracker.logNumberOfTermsDisplayed(this, terms.size());
     }
 
