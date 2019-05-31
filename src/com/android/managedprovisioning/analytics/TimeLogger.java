@@ -32,6 +32,8 @@ import android.annotation.IntDef;
 import android.app.admin.DevicePolicyEventLogger;
 import android.content.Context;
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
 
 /**
  * Utility class to log time.
@@ -42,6 +44,7 @@ public class TimeLogger {
     private final Context mContext;
     private final MetricsLoggerWrapper mMetricsLoggerWrapper;
     private final AnalyticsUtils mAnalyticsUtils;
+    private final ProvisioningAnalyticsTracker mProvisioningTracker;
     private Long mStartTime;
 
     @IntDef({
@@ -57,19 +60,24 @@ public class TimeLogger {
     public @interface TimeCategory {}
 
     public TimeLogger(Context context, @TimeCategory int category) {
-        this(context, category, new MetricsLoggerWrapper(), new AnalyticsUtils());
+        this(context, category, new MetricsLoggerWrapper(), new AnalyticsUtils(),
+                new ProvisioningAnalyticsTracker(
+                    MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
+                    new ManagedProvisioningSharedPreferences(context)));
     }
 
     @VisibleForTesting
-    TimeLogger(
+    public TimeLogger(
             Context context,
             int category,
             MetricsLoggerWrapper metricsLoggerWrapper,
-            AnalyticsUtils analyticsUtils) {
+            AnalyticsUtils analyticsUtils,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         mContext = checkNotNull(context);
         mCategory = checkNotNull(category);
         mMetricsLoggerWrapper = checkNotNull(metricsLoggerWrapper);
         mAnalyticsUtils = checkNotNull(analyticsUtils);
+        mProvisioningTracker = checkNotNull(provisioningAnalyticsTracker);
     }
 
     /**
@@ -93,10 +101,7 @@ public class TimeLogger {
             final int devicePolicyEvent =
                     AnalyticsUtils.getDevicePolicyEventForCategory(mCategory);
             if (devicePolicyEvent != CATEGORY_VIEW_UNKNOWN) {
-                DevicePolicyEventLogger
-                        .createEvent(devicePolicyEvent)
-                        .setTimePeriod(time)
-                        .write();
+                mProvisioningTracker.logTimeLoggerEvent(devicePolicyEvent, time);
             }
         }
     }

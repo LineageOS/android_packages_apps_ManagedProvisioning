@@ -22,6 +22,7 @@ import static com.android.managedprovisioning.task.VerifyPackageTask.ERROR_DEVIC
 import static com.android.managedprovisioning.task.VerifyPackageTask.ERROR_HASH_MISMATCH;
 
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -35,6 +36,7 @@ import android.content.pm.Signature;
 import androidx.test.filters.SmallTest;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -198,7 +200,8 @@ public class VerifyPackageTaskTest {
                 .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
                 .setDeviceAdminDownloadInfo(downloadInfo)
                 .build();
-        mTask = new VerifyPackageTask(mUtils, mDownloadPackageTask, mContext, params, mCallback);
+        mTask = new VerifyPackageTask(mUtils, mDownloadPackageTask, mContext, params, mCallback,
+                mock(ProvisioningAnalyticsTracker.class));
         mTask.run(TEST_USER_ID);
     }
 }

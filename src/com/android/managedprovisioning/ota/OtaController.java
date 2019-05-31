@@ -36,7 +36,11 @@ import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodSystemProperty;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
@@ -64,21 +68,27 @@ public class OtaController {
     private final DevicePolicyManager mDevicePolicyManager;
 
     private final IntFunction<ArraySet<String>> mMissingSystemImeProvider;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     public OtaController(Context context) {
         this(context, new TaskExecutor(), new CrossProfileIntentFiltersSetter(context),
                 InputMethodSystemProperty.PER_PROFILE_IME_ENABLED
                         ? userId -> getMissingSystemImePackages(context, UserHandle.of(userId))
-                        : userId -> new ArraySet<>());
+                        : userId -> new ArraySet<>(),
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(context)));
     }
 
     @VisibleForTesting
     OtaController(Context context, TaskExecutor taskExecutor,
             CrossProfileIntentFiltersSetter crossProfileIntentFiltersSetter,
-            IntFunction<ArraySet<String>> missingSystemImeProvider) {
+            IntFunction<ArraySet<String>> missingSystemImeProvider,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         mContext = checkNotNull(context);
         mTaskExecutor = checkNotNull(taskExecutor);
         mCrossProfileIntentFiltersSetter = checkNotNull(crossProfileIntentFiltersSetter);
+        mProvisioningAnalyticsTracker = checkNotNull(provisioningAnalyticsTracker);
 
         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
         mDevicePolicyManager = (DevicePolicyManager) context.getSystemService(
@@ -93,7 +103,8 @@ public class OtaController {
         }
         // Migrate snapshot files to use user serial number as file name.
         mTaskExecutor.execute(
-                UserHandle.USER_SYSTEM, new MigrateSystemAppsSnapshotTask(mContext, mTaskExecutor));
+                UserHandle.USER_SYSTEM, new MigrateSystemAppsSnapshotTask(
+                        mContext, mTaskExecutor, mProvisioningAnalyticsTracker));
 
         // Check for device owner.
         final int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();
@@ -129,9 +140,11 @@ public class OtaController {
                 .build();
 
         mTaskExecutor.execute(userId,
-                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
+                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor,
+                        mProvisioningAnalyticsTracker));
         mTaskExecutor.execute(userId,
-                new DisallowAddUserTask(context, fakeParams, mTaskExecutor));
+                new DisallowAddUserTask(UserManager.isSplitSystemUser(), context, fakeParams,
+                        mTaskExecutor, mProvisioningAnalyticsTracker));
     }
 
     void addManagedProfileTasks(final int userId, Context context) {
@@ -139,7 +152,8 @@ public class OtaController {
                 UserHandle.of(userId));
         // Enabling telecom package as it supports managed profiles from N.
         mTaskExecutor.execute(userId,
-                new InstallExistingPackageTask(TELECOM_PACKAGE, context, null, mTaskExecutor));
+                new InstallExistingPackageTask(TELECOM_PACKAGE, context, null, mTaskExecutor,
+                        mProvisioningAnalyticsTracker));
 
         ComponentName profileOwner = mDevicePolicyManager.getProfileOwnerAsUser(userId);
         if (profileOwner == null) {
@@ -154,13 +168,16 @@ public class OtaController {
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
                 .build();
         mTaskExecutor.execute(userId,
-                new DisableInstallShortcutListenersTask(context, fakeParams, mTaskExecutor));
+                new DisableInstallShortcutListenersTask(context, fakeParams, mTaskExecutor,
+                        mProvisioningAnalyticsTracker));
         mTaskExecutor.execute(userId,
-                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
+                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor,
+                        mProvisioningAnalyticsTracker));
 
         // Copying missing system IMEs if necessary.
         mMissingSystemImeProvider.apply(userId).forEach(packageName -> mTaskExecutor.execute(userId,
-                new InstallExistingPackageTask(packageName, context, fakeParams, mTaskExecutor)));
+                new InstallExistingPackageTask(packageName, context, fakeParams, mTaskExecutor,
+                        mProvisioningAnalyticsTracker)));
     }
 
     void addManagedUserTasks(final int userId, Context context) {
@@ -177,7 +194,8 @@ public class OtaController {
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_USER)
                 .build();
         mTaskExecutor.execute(userId,
-                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor));
+                new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor,
+                        mProvisioningAnalyticsTracker));
     }
 
     /**
