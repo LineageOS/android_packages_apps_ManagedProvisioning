@@ -17,6 +17,8 @@ package com.android.managedprovisioning.common;
 
 import static com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences.SHARED_PREFERENCE;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.when;
@@ -40,10 +42,9 @@ public class ManagedProvisioningSharedPreferencesTest {
             "ManagedProvisioningSharedPreferencesTest";
 
     @Mock
-    Context mContext;
-    SharedPreferences mSharedPreferences;
-
-    ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences;
+    private Context mContext;
+    private SharedPreferences mSharedPreferences;
+    private ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences;
 
     @Before
     public void setUp() {
@@ -74,5 +75,13 @@ public class ManagedProvisioningSharedPreferencesTest {
 
         assertEquals(mManagedProvisioningSharedPreferences.incrementAndGetProvisioningId(), 2L);
         assertEquals(mManagedProvisioningSharedPreferences.getProvisioningId(), 2L);
+    }
+
+    @Test
+    public void testProvisioningStartedTimestamp() {
+        mManagedProvisioningSharedPreferences.writeProvisioningStartedTimestamp(1234);
+
+        assertThat(mManagedProvisioningSharedPreferences.getProvisioningStartedTimestamp())
+                .isEqualTo(1234);
     }
 }

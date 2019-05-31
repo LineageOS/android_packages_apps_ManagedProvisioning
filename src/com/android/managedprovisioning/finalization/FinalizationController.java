@@ -32,13 +32,19 @@ import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.DeferredMetricsReader;
+import com.android.managedprovisioning.analytics.InstantMetricsWriter;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.Constants;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 /**
  * Controller for the finalization of managed provisioning.
@@ -57,6 +63,7 @@ public class FinalizationController {
     private final UserProvisioningStateHelper mUserProvisioningStateHelper;
     private final ProvisioningIntentProvider mProvisioningIntentProvider;
     private final NotificationHelper mNotificationHelper;
+    private final DeferredMetricsReader mDeferredMetricsReader;
 
     public FinalizationController(Context context,
           UserProvisioningStateHelper userProvisioningStateHelper) {
@@ -65,7 +72,10 @@ public class FinalizationController {
                 new Utils(),
                 new SettingsFacade(),
                 userProvisioningStateHelper,
-                new NotificationHelper(context));
+                new NotificationHelper(context),
+                new DeferredMetricsReader(
+                        Constants.getDeferredMetricsFile(context),
+                        new InstantMetricsWriter()));
     }
 
     public FinalizationController(Context context) {
@@ -74,7 +84,10 @@ public class FinalizationController {
                 new Utils(),
                 new SettingsFacade(),
                 new UserProvisioningStateHelper(context),
-                new NotificationHelper(context));
+                new NotificationHelper(context),
+                new DeferredMetricsReader(
+                        Constants.getDeferredMetricsFile(context),
+                        new InstantMetricsWriter()));
     }
 
     @VisibleForTesting
@@ -82,13 +95,15 @@ public class FinalizationController {
             Utils utils,
             SettingsFacade settingsFacade,
             UserProvisioningStateHelper helper,
-            NotificationHelper notificationHelper) {
+            NotificationHelper notificationHelper,
+            DeferredMetricsReader deferredMetricsReader) {
         mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
         mSettingsFacade = checkNotNull(settingsFacade);
         mUserProvisioningStateHelper = checkNotNull(helper);
         mProvisioningIntentProvider = new ProvisioningIntentProvider();
         mNotificationHelper = checkNotNull(notificationHelper);
+        mDeferredMetricsReader = checkNotNull(deferredMetricsReader);
     }
 
     /**
@@ -166,6 +181,8 @@ public class FinalizationController {
      * provisioning and sets the right user provisioning states.</p>
      */
     void provisioningFinalized() {
+        mDeferredMetricsReader.dumpMetricsAndClearFile();
+
         if (mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
             ProvisionLogger.logw("provisioningInitiallyDone called, but state is finalized or "
                     + "unmanaged");
