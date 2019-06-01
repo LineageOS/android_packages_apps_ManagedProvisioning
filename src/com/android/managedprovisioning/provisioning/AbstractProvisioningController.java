@@ -26,8 +26,11 @@ import android.os.Looper;
 import android.os.Message;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
@@ -82,7 +85,9 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         mUserId = userId;
         mCallback = checkNotNull(callback);
         mFinalizationController = checkNotNull(finalizationController);
-        mProvisioningAnalyticsTracker = ProvisioningAnalyticsTracker.getInstance();
+        mProvisioningAnalyticsTracker = new ProvisioningAnalyticsTracker(
+                MetricsWriterFactory.getMetricsWriter(mContext, new SettingsFacade()),
+                new ManagedProvisioningSharedPreferences(context));
 
         setUpTasks();
     }

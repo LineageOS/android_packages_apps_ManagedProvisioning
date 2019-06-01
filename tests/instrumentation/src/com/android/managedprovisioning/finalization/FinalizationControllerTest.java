@@ -29,6 +29,8 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import android.app.Activity;
@@ -42,6 +44,7 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.TestUtils;
+import com.android.managedprovisioning.analytics.DeferredMetricsReader;
 import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
@@ -69,6 +72,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
     @Mock private SettingsFacade mSettingsFacade;
     @Mock private UserProvisioningStateHelper mHelper;
     @Mock private NotificationHelper mNotificationHelper;
+    @Mock private DeferredMetricsReader mDeferredMetricsReader;
 
     private FinalizationController mController;
 
@@ -82,7 +86,8 @@ public class FinalizationControllerTest extends AndroidTestCase {
         when(mContext.getFilesDir()).thenReturn(getContext().getFilesDir());
 
         mController = new FinalizationController(
-                mContext, mUtils, mSettingsFacade, mHelper, mNotificationHelper);
+                mContext, mUtils, mSettingsFacade, mHelper, mNotificationHelper,
+                mDeferredMetricsReader);
     }
 
     @Override
@@ -103,6 +108,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         // THEN nothing should happen
         verify(mHelper, never()).markUserProvisioningStateInitiallyDone(params);
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+        verifyZeroInteractions(mDeferredMetricsReader);
     }
 
     @SmallTest
@@ -114,6 +120,10 @@ public class FinalizationControllerTest extends AndroidTestCase {
 
         // WHEN calling provisioningFinalized
         mController.provisioningFinalized();
+
+        // THEN deferred metrics are written
+        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN nothing should happen
         verify(mHelper, never()).markUserProvisioningStateInitiallyDone(params);
@@ -127,6 +137,10 @@ public class FinalizationControllerTest extends AndroidTestCase {
 
         // WHEN calling provisioningFinalized
         mController.provisioningFinalized();
+
+        // THEN deferred metrics are written
+        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN nothing should happen
         verify(mHelper, never())
@@ -154,6 +168,8 @@ public class FinalizationControllerTest extends AndroidTestCase {
 
         // THEN the service which starts the DPC is started.
         verifySendDpcServiceStarted();
+
+        verifyZeroInteractions(mDeferredMetricsReader);
     }
 
     @SmallTest
@@ -180,6 +196,10 @@ public class FinalizationControllerTest extends AndroidTestCase {
 
         // WHEN calling provisioningFinalized
         mController.provisioningFinalized();
+
+        // THEN deferred metrics are written
+        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN the user provisioning state is finalized
         verify(mHelper).markUserProvisioningStateFinalized(params);
@@ -210,6 +230,10 @@ public class FinalizationControllerTest extends AndroidTestCase {
 
         // WHEN calling provisioningFinalized
         mController.provisioningFinalized();
+
+        // THEN deferred metrics are written
+        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN the user provisioning state is finalized
         verify(mHelper).markUserProvisioningStateFinalized(params);
