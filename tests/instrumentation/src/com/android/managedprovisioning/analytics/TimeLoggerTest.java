@@ -27,6 +27,8 @@ import android.content.Context;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -45,6 +47,8 @@ public class TimeLoggerTest extends AndroidTestCase {
     @Mock private Context mContext;
     @Mock private MetricsLoggerWrapper mMetricsLoggerWrapper;
     @Mock private AnalyticsUtils mAnalyticsUtils;
+    @Mock private MetricsWriter mMetricsWriter;
+    @Mock private ManagedProvisioningSharedPreferences mSharedPreferences;
 
     @Override
     public void setUp() {
@@ -53,7 +57,8 @@ public class TimeLoggerTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
 
-        mTimeLogger = new TimeLogger(mContext, CATEGORY, mMetricsLoggerWrapper, mAnalyticsUtils);
+        mTimeLogger = new TimeLogger(mContext, CATEGORY, mMetricsLoggerWrapper, mAnalyticsUtils,
+                new ProvisioningAnalyticsTracker(mMetricsWriter, mSharedPreferences));
     }
 
     @SmallTest

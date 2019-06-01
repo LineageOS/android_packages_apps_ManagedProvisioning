@@ -25,8 +25,12 @@ import android.content.pm.Signature;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
@@ -61,7 +65,10 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
             Context context,
             ProvisioningParams params,
             Callback callback) {
-        this(new Utils(), downloadPackageTask, context, params, callback);
+        this(new Utils(), downloadPackageTask, context, params, callback,
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(context)));
     }
 
     @VisibleForTesting
@@ -70,8 +77,9 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
             DownloadPackageTask downloadPackageTask,
             Context context,
             ProvisioningParams params,
-            Callback callback) {
-        super(context, params, callback);
+            Callback callback,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+        super(context, params, callback, provisioningAnalyticsTracker);
 
         mUtils = checkNotNull(utils);
         mDownloadPackageTask = checkNotNull(downloadPackageTask);

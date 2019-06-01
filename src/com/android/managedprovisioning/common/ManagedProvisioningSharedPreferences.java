@@ -17,6 +17,8 @@ package com.android.managedprovisioning.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.TimeUtils;
+
 import androidx.annotation.VisibleForTesting;
 
 public class ManagedProvisioningSharedPreferences {
@@ -24,6 +26,9 @@ public class ManagedProvisioningSharedPreferences {
 
     @VisibleForTesting
     static final String KEY_PROVISIONING_ID = "provisioning_id";
+
+    @VisibleForTesting
+    static final String KEY_PROVISIONING_START_TIMESTAMP = "provisioning_start_timestamp";
 
     @VisibleForTesting
     static final String SHARED_PREFERENCE = "managed_profile_shared_preferences";
@@ -56,5 +61,21 @@ public class ManagedProvisioningSharedPreferences {
             mSharedPreferences.edit().putLong(KEY_PROVISIONING_ID, provisioningId).commit();
             return provisioningId;
         }
+    }
+
+    /**
+     * @param time the provisioning started timestamp, in milliseconds
+     */
+    public void writeProvisioningStartedTimestamp(long time) {
+        mSharedPreferences.edit()
+                .putLong(KEY_PROVISIONING_START_TIMESTAMP, time)
+                .apply();
+    }
+
+    /**
+     * @return the provisioning started timestamp, in milliseconds
+     */
+    public long getProvisioningStartedTimestamp() {
+        return mSharedPreferences.getLong(KEY_PROVISIONING_START_TIMESTAMP, 0L);
     }
 }
