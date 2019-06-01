@@ -26,9 +26,12 @@ import android.os.Looper;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -61,7 +64,9 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
                 context,
                 new Handler(Looper.getMainLooper()),
                 new ProvisioningControllerFactory(),
-                ProvisioningAnalyticsTracker.getInstance(),
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(context)),
                 new TimeLogger(context, PROVISIONING_TOTAL_TASK_TIME_MS));
     }
 

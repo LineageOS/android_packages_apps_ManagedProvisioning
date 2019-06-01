@@ -22,6 +22,7 @@ import static com.android.managedprovisioning.task.ManagedProfileSettingsTask.DE
 
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -36,6 +37,7 @@ import android.os.UserManager;
 
 import androidx.test.filters.SmallTest;
 
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -87,7 +89,7 @@ public class ManagedProfileSettingsTaskTest {
     public void testNoMainColor() {
         // GIVEN that no main color was passed in the parameter
         mTask = new ManagedProfileSettingsTask(mSettingsFacade, mCrossProfileIntentFiltersSetter,
-                mContext, NO_COLOR_PARAMS, mCallback);
+                mContext, NO_COLOR_PARAMS, mCallback, mock(ProvisioningAnalyticsTracker.class));
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
@@ -113,7 +115,7 @@ public class ManagedProfileSettingsTaskTest {
     public void testMainColor() {
         // GIVEN that a main color was passed in the parameter
         mTask = new ManagedProfileSettingsTask(mSettingsFacade, mCrossProfileIntentFiltersSetter,
-                mContext, COLOR_PARAMS, mCallback);
+                mContext, COLOR_PARAMS, mCallback, mock(ProvisioningAnalyticsTracker.class));
 
         // WHEN running the task
         mTask.run(TEST_USER_ID);
