@@ -34,6 +34,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_T
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
@@ -373,6 +374,7 @@ public class PreProvisioningController {
                 builder.setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
                 builder.setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE);
                 maybeUpdateAdminExtrasBundle(builder, resultIntent);
+                maybeUpdateSkipEducationScreens(builder, resultIntent);
                 mParams = builder.build();
                 return true;
             case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
@@ -380,12 +382,21 @@ public class PreProvisioningController {
                 builder.setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE);
                 maybeUpdateAccountToMigrate(builder, resultIntent);
                 maybeUpdateAdminExtrasBundle(builder, resultIntent);
+                maybeUpdateSkipEducationScreens(builder, resultIntent);
                 mParams = builder.build();
                 return true;
             default:
                 ProvisionLogger.logw("Unknown returned provisioning mode:"
                         + provisioningMode);
                 return false;
+        }
+    }
+
+    private void maybeUpdateSkipEducationScreens(ProvisioningParams.Builder builder,
+            Intent resultIntent) {
+        if (resultIntent.hasExtra(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS)) {
+            builder.setSkipEducationScreens(resultIntent.getBooleanExtra(
+                    EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, /* defaultValue */ false));
         }
     }
 
