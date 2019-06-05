@@ -29,6 +29,7 @@ import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
 
 import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.FlakyTest;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
@@ -60,6 +61,7 @@ public class NotificationHelperTest {
     }
 
     @Test
+    @FlakyTest(bugId=134577299)
     public void testShowResumeNotification() throws Exception {
         assertThat(mNotificationManager.getActiveNotifications().length).isEqualTo(0);
 

@@ -35,6 +35,7 @@ import android.view.View;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.base.DefaultFailureHandler;
 import androidx.test.filters.LargeTest;
+import androidx.test.filters.FlakyTest;
 import androidx.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
@@ -114,6 +115,7 @@ public class ManagedProfileTest extends AndroidTestCase {
         }
     }
 
+    @FlakyTest(bugId=121307452)
     public void testManagedProfile() throws Exception {
         mActivityRule.launchActivity(ManagedProfileAdminReceiver.INTENT_PROVISION_MANAGED_PROFILE);
 
