@@ -241,6 +241,7 @@ public class ProvisioningActivityTest {
     }
 
     @Test
+    @FlakyTest(bugId=134580166)
     public void testColors() throws Throwable {
         // default color Managed Profile (MP)
         assertColorsCorrect(
@@ -290,11 +291,13 @@ public class ProvisioningActivityTest {
     }
 
     @Test
+    @FlakyTest(bugId=134577931)
     public void testCustomLogo_profileOwner() throws Throwable {
         assertCustomLogoCorrect(PROFILE_OWNER_INTENT);
     }
 
     @Test
+    @FlakyTest(bugId=134577931)
     public void testCustomLogo_deviceOwner() throws Throwable {
         assertCustomLogoCorrect(PROFILE_OWNER_INTENT);
     }
@@ -376,7 +379,7 @@ public class ProvisioningActivityTest {
 
     }
 
-    @FlakyTest(bugId = 131866915)
+    @FlakyTest(bugId=121308447)
     @Test
     public void testErrorFactoryReset() throws Throwable {
         // GIVEN the activity was launched with a device owner intent
@@ -423,6 +426,7 @@ public class ProvisioningActivityTest {
     }
 
     @Test
+    @FlakyTest(bugId=134576321)
     public void testCancelProfileOwner() throws Throwable {
         // GIVEN the activity was launched with a profile owner intent
         launchActivityAndWait(PROFILE_OWNER_INTENT);
