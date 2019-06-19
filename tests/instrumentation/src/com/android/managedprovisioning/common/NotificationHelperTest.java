@@ -73,7 +73,7 @@ public class NotificationHelperTest {
         assertThat(notifications.length).isEqualTo(1);
         StatusBarNotification notification = notifications[0];
         assertThat(notification.getId()).isEqualTo(ENCRYPTION_NOTIFICATION_ID);
-        assertThat(notification.getNotification().getChannel()).isEqualTo(CHANNEL_ID);
+        assertThat(notification.getNotification().getChannelId()).isEqualTo(CHANNEL_ID);
         assertThat(notification.getNotification().extras.getString(Notification.EXTRA_TITLE))
                 .isEqualTo(mContext.getString(R.string.continue_provisioning_notify_title));
     }
@@ -90,7 +90,7 @@ public class NotificationHelperTest {
         assertThat(notifications.length).isEqualTo(1);
         StatusBarNotification notification = notifications[0];
         assertThat(notification.getId()).isEqualTo(PRIVACY_REMINDER_NOTIFICATION_ID);
-        assertThat(notification.getNotification().getChannel()).isEqualTo(CHANNEL_ID);
+        assertThat(notification.getNotification().getChannelId()).isEqualTo(CHANNEL_ID);
         assertThat(notification.getNotification().extras.getString(Notification.EXTRA_TITLE))
                 .isEqualTo(mContext.getString(
                         R.string.fully_managed_device_provisioning_privacy_title));
