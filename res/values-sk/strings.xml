@@ -102,7 +102,7 @@
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Pracovný profil si môžete nastaviť neskôr v aplikácii na správu zariadenia vašej organizácie."</string>
     <string name="continue_button" msgid="7177918589510964446">"Pokračovať"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Zastaviť"</string>
-    <string name="dismiss" msgid="9009534756748565880">"Odmietnuť"</string>
+    <string name="dismiss" msgid="9009534756748565880">"Zavrieť"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"Chystáte sa vytvoriť pracovný profil, ktorý bude spravovať a sledovať vaša organizácia v súlade so zmluvnými podmienkami."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Chystáte sa vytvoriť pracovný profil, ktorý bude spravovať a sledovať vaša organizácia v súlade so zmluvnými podmienkami <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Pre pracovné aplikácie bude vytvorený profil, pričom bude spolu s ostatným obsahom daného zariadenia spravovaný a sledovaný vašou organizáciou v súlade so zmluvnými podmienkami."</string>
