@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.task;
 
+import static android.provider.Settings.Secure.MANAGED_PROVISIONING_DPC_DOWNLOADED;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
@@ -29,6 +31,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -102,6 +105,9 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
             error(ERROR_OTHER);
             return;
         }
+
+        setDpcDownloadedSetting(mContext);
+
         mReceiver = createDownloadReceiver();
         // register the receiver on the worker thread to avoid threading issues with respect to
         // the location variable
@@ -132,6 +138,16 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
             }
         }
         mDownloadId = mDownloadManager.enqueue(request);
+    }
+
+    /**
+     * Set MANAGED_PROVISIONING_DPC_DOWNLOADED to 1, which will prevent restarting setup-wizard.
+     *
+     * <p>See b/132261064.
+     */
+    private static void setDpcDownloadedSetting(Context context) {
+        Settings.Secure.putInt(
+                context.getContentResolver(), MANAGED_PROVISIONING_DPC_DOWNLOADED, 1);
     }
 
     @Override
