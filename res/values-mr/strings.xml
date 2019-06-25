@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तुमची आधीपासून एक कार्य प्रोफाइल आहे. ती खालील अ‍ॅप वापरून व्यवस्थापित केली जाते:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तुम्ही सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अॅप्स आणि डेटा हटवला जाईल."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तुम्ही सुरू ठेवल्यास, या प्रोफाईल मधील सर्व अ‍ॅप्स आणि डेटा हटवला जाईल."</string>
     <string name="delete_profile" msgid="2299218578684663459">"हटवा"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द करा"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"तुमचे कार्य प्रोफाइल सेट करण्यासाठी, तुमचे डिव्हाइस एंक्रिप्ट करणे आवश्यक आहे. यासाठी काही वेळ लागू शकतो."</string>
@@ -70,7 +70,7 @@
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाईल नेटवर्कशी कनेक्ट करत आहे…"</string>
     <string name="progress_download" msgid="3522436271691064624">"प्रशासन अ‍ॅप डाउनलोड करत आहे..."</string>
     <string name="progress_install" msgid="2258045670385866183">"प्रशासन अ‍ॅप इंस्टॉल करत आहे..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"आवश्यक-नसलेले सिस्टम अॅप्स काढत आहे..."</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"आवश्यक-नसलेले सिस्टम अ‍ॅप्स काढत आहे..."</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"अखेरच्या सुधारणा करत आहे..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"डिव्हाइस मालक सेट करत आहे..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"डिव्हाइस सुरू करत आहे..."</string>
@@ -130,7 +130,7 @@
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करत आहे"</string>
     <string name="setup_profile" msgid="5573950582159698549">"तुमची प्रोफाइल सेट करा"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"कार्य प्रोफाइल वापरून, तुम्ही वैयक्तिक डेटामधून कार्य डेटा वेगळा करू शकता"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कार्य प्रोफाइल वापरून, तुम्ही तुमचे कार्य अॅप्स एका ठिकाणी ठेवू शकता"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कार्य प्रोफाइल वापरून, तुम्ही तुमचे कार्य अ‍ॅप्स एका ठिकाणी ठेवू शकता"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"तुमचे प्रोफाईल सेट करा. एंक्रिप्शन"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"तुमचे प्रोफाईल सेट करा. प्रगती दाखवत आहे"</string>
     <string name="setup_device" msgid="6725265673245816366">"तुमचे डिव्हाइस सेट अप करा"</string>
@@ -142,9 +142,9 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग सामग्री: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"विस्तृत करा"</string>
     <string name="collapse" msgid="7817530505064432580">"संकुचित करा"</string>
-    <string name="access_list_of_links" msgid="7094123315959323372">"दुव्यांच्या सूची अॅक्सेस करा"</string>
+    <string name="access_list_of_links" msgid="7094123315959323372">"दुव्यांच्या सूची अ‍ॅक्सेस करा"</string>
     <string name="access_links" msgid="7991363727326168600">"प्रवेश लिंक"</string>
-    <string name="access_terms" msgid="1982500872249763745">"अटी अॅक्सेस करा"</string>
+    <string name="access_terms" msgid="1982500872249763745">"अटी अ‍ॅक्सेस करा"</string>
     <string name="read_terms" msgid="1745011123626640728">"अटी वाचा"</string>
     <string name="close_list" msgid="9053538299788717597">"सूची बंद करा"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप रद्द करून फॅक्टरी रीसेट करायचे?"</string>
