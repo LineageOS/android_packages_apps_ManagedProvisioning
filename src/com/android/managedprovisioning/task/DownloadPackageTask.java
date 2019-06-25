@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.task;
 
+import static android.provider.Settings.Secure.MANAGED_PROVISIONING_DPC_DOWNLOADED;
+
 import android.app.DownloadManager;
 import android.app.DownloadManager.Query;
 import android.app.DownloadManager.Request;
@@ -29,6 +31,7 @@ import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.provider.Settings;
 
 import com.android.managedprovisioning.NetworkMonitor;
 import com.android.managedprovisioning.ProvisionLogger;
@@ -100,6 +103,9 @@ public class DownloadPackageTask {
                     + " the package");
             mCallback.onError(ERROR_OTHER);
         }
+
+        setDpcDownloadedSetting(mContext);
+
         mReceiver = createDownloadReceiver();
         mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
@@ -131,6 +137,16 @@ public class DownloadPackageTask {
             }
             info.mDownloadId = dm.enqueue(request);
         }
+    }
+
+    /**
+     * Set MANAGED_PROVISIONING_DPC_DOWNLOADED to 1, which will prevent restarting setup-wizard.
+     *
+     * <p>See b/132261064.
+     */
+    private static void setDpcDownloadedSetting(Context context) {
+        Settings.Secure.putInt(
+                context.getContentResolver(), MANAGED_PROVISIONING_DPC_DOWNLOADED, 1);
     }
 
     private BroadcastReceiver createDownloadReceiver() {
