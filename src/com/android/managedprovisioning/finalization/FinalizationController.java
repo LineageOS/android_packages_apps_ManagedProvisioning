@@ -31,10 +31,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.DeferredMetricsReader;
-import com.android.managedprovisioning.analytics.InstantMetricsWriter;
-import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -43,8 +40,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.Constants;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 /**
  * Controller for the finalization of managed provisioning.
@@ -74,8 +69,7 @@ public class FinalizationController {
                 userProvisioningStateHelper,
                 new NotificationHelper(context),
                 new DeferredMetricsReader(
-                        Constants.getDeferredMetricsFile(context),
-                        new InstantMetricsWriter()));
+                        Constants.getDeferredMetricsFile(context)));
     }
 
     public FinalizationController(Context context) {
@@ -86,8 +80,7 @@ public class FinalizationController {
                 new UserProvisioningStateHelper(context),
                 new NotificationHelper(context),
                 new DeferredMetricsReader(
-                        Constants.getDeferredMetricsFile(context),
-                        new InstantMetricsWriter()));
+                        Constants.getDeferredMetricsFile(context)));
     }
 
     @VisibleForTesting
@@ -181,7 +174,7 @@ public class FinalizationController {
      * provisioning and sets the right user provisioning states.</p>
      */
     void provisioningFinalized() {
-        mDeferredMetricsReader.dumpMetricsAndClearFile();
+        mDeferredMetricsReader.scheduleDumpMetrics(mContext);
 
         if (mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
             ProvisionLogger.logw("provisioningInitiallyDone called, but state is finalized or "
