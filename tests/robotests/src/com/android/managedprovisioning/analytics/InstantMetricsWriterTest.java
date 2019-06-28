@@ -36,7 +36,7 @@ public class InstantMetricsWriterTest {
         final MetricsWriter writer = new InstantMetricsWriter();
         final DevicePolicyEventLogger devicePolicyEventLogger = mock(DevicePolicyEventLogger.class);
 
-        writer.write();
+        writer.write(devicePolicyEventLogger);
 
         verify(devicePolicyEventLogger).write();
         verifyNoMoreInteractions(devicePolicyEventLogger);
