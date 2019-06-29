@@ -20,26 +20,25 @@ import com.android.managedprovisioning.DevicePolicyProtos.DevicePolicyEvent;
 import com.android.managedprovisioning.common.ProvisionLogger;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static com.android.managedprovisioning.analytics.ProcessMetricsJobService.EXTRA_FILE_PATH;
 
-import android.annotation.Nullable;
-import android.app.admin.DevicePolicyEventLogger;
-import android.os.AsyncTask;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
+import android.os.PersistableBundle;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
- * Reads the logs from the {@link InputStream} written to by {@link DeferredMetricsWriter}
- * and writes them to another {@link MetricsWriter}.
- *
- * @see DeferredMetricsWriter
+ * Schedules the reading of the metrics written by {@link DeferredMetricsWriter}.
  */
 public class DeferredMetricsReader {
 
-    private final MetricsWriter mMetricsWriter;
+    private static final ComponentName PROCESS_METRICS_SERVICE_COMPONENT = new ComponentName(
+            "com.android.managedprovisioning", ProcessMetricsJobService.class.getName());
+    private static final int JOB_ID = 1;
+    private static final long MINIMUM_LATENCY = 10 * 60 * 1000;
     private final File mFile;
 
     /**
@@ -47,58 +46,22 @@ public class DeferredMetricsReader {
      *
      * <p>The specified {@link File} is deleted after everything has been read from it.
      */
-    public DeferredMetricsReader(File file, MetricsWriter metricsWriter) {
-        mMetricsWriter = checkNotNull(metricsWriter);
+    public DeferredMetricsReader(File file) {
         mFile = checkNotNull(file);
     }
 
-    /**
-     * Asynchronously reads the logs from the {@link File} specified in the constructor
-     * and writes them to the specified {@link MetricsWriter}.
-     *
-     * <p>The {@link File} will be deleted after they are written to the {@link MetricsWriter}.
-     */
-    public void dumpMetricsAndClearFile() {
-        new ReadDeferredMetricsAsyncTask(mFile, mMetricsWriter).execute();
-    }
-
-    private static class ReadDeferredMetricsAsyncTask extends AsyncTask<Void, Void, Void> {
-        private final MetricsWriter mMetricsWriter;
-        private final File mFile;
-
-        ReadDeferredMetricsAsyncTask(File file,
-                MetricsWriter metricsWriter) {
-            mFile = checkNotNull(file);
-            mMetricsWriter = checkNotNull(metricsWriter);
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try (InputStream inputStream =  new FileInputStream(mFile)) {
-                DevicePolicyEvent event;
-                while ((event = DevicePolicyEvent.parseDelimitedFrom(inputStream)) != null) {
-                    mMetricsWriter.write(devicePolicyEventToLogger(event));
-                }
-            } catch (IOException e) {
-                ProvisionLogger.loge(
-                        "Could not parse DevicePolicyEvent while reading from stream.", e);
-            } finally {
-                mFile.delete();
-            }
-            return null;
-        }
-
-        private DevicePolicyEventLogger devicePolicyEventToLogger(DevicePolicyEvent event) {
-            final DevicePolicyEventLogger eventLogger = DevicePolicyEventLogger
-                    .createEvent(event.getEventId())
-                    .setAdmin(event.getAdminPackageName())
-                    .setInt(event.getIntegerValue())
-                    .setBoolean(event.getBooleanValue())
-                    .setTimePeriod(event.getTimePeriodMillis());
-            if (event.getStringListValueCount() > 0) {
-                eventLogger.setStrings(event.getStringListValueList().toArray(new String[0]));
-            }
-            return eventLogger;
+    public void scheduleDumpMetrics(Context context) {
+        final JobInfo jobInfo = new JobInfo.Builder(JOB_ID, PROCESS_METRICS_SERVICE_COMPONENT)
+                .setExtras(PersistableBundle.forPair(EXTRA_FILE_PATH, mFile.getAbsolutePath()))
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setMinimumLatency(MINIMUM_LATENCY)
+                .setPersisted(true)
+                .build();
+        final JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
+        if (jobScheduler != null) {
+            jobScheduler.schedule(jobInfo);
+        } else {
+            ProvisionLogger.logv("JobScheduler is null.");
         }
     }
 }
