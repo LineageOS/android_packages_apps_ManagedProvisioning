@@ -20,17 +20,12 @@ import static com.android.managedprovisioning.analytics.AnalyticsRoboTestUtils.a
 
 import android.app.admin.DevicePolicyEventLogger;
 
-import com.android.managedprovisioning.DevicePolicyProtos.DevicePolicyEvent;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -71,9 +66,9 @@ public class DeferredMetricsWriteReadRoboTest {
 
     private DevicePolicyEventLogger[] readMetricsFromFile(File file) {
         final List<DevicePolicyEventLogger> eventsList = new ArrayList<>();
-        final DeferredMetricsReader reader = new DeferredMetricsReader(file,
+        final ProcessMetricsJobService processMetricsJobService = new ProcessMetricsJobService(
                 loggers -> eventsList.addAll(Arrays.asList(loggers)));
-        reader.dumpMetricsAndClearFile();
+        processMetricsJobService.executeReadDeferredMetrics(/* params */ null, file);
         Robolectric.flushBackgroundThreadScheduler();
         return eventsList.toArray(new DevicePolicyEventLogger[0]);
     }
