@@ -33,8 +33,6 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -122,7 +120,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         mController.provisioningFinalized();
 
         // THEN deferred metrics are written
-        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verify(mDeferredMetricsReader).scheduleDumpMetrics(any(Context.class));
         verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN nothing should happen
@@ -139,7 +137,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         mController.provisioningFinalized();
 
         // THEN deferred metrics are written
-        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verify(mDeferredMetricsReader).scheduleDumpMetrics(any(Context.class));
         verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN nothing should happen
@@ -198,7 +196,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         mController.provisioningFinalized();
 
         // THEN deferred metrics are written
-        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verify(mDeferredMetricsReader).scheduleDumpMetrics(any(Context.class));
         verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN the user provisioning state is finalized
@@ -232,7 +230,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         mController.provisioningFinalized();
 
         // THEN deferred metrics are written
-        verify(mDeferredMetricsReader).dumpMetricsAndClearFile();
+        verify(mDeferredMetricsReader).scheduleDumpMetrics(any(Context.class));
         verifyNoMoreInteractions(mDeferredMetricsReader);
 
         // THEN the user provisioning state is finalized
