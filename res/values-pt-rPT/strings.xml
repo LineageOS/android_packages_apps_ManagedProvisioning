@@ -175,11 +175,11 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos configurar o seu dispositivo de trabalho"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Mantenha as aplicações de trabalho na ponta dos seus dedos"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo não é privado"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode conseguir ver os seus dados e a atividade neste dispositivo."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode ter acesso aos seus dados e atividade neste dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"A configurar o seu dispositivo…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilize este dispositivo para aceder facilmente às suas aplicações de trabalho. Este dispositivo não é privado, pelo que o administrador de TI pode conseguir ver os seus dados e atividade. Para saber mais, contacte o administrador de TI."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilize este dispositivo para aceder facilmente às suas aplicações de trabalho. Este dispositivo não é privado, pelo que o administrador de TI pode ter acesso aos seus dados e atividade. Para saber mais, contacte o administrador de TI."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lembrete de privacidade"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O administrador de TI pode conseguir ver os seus dados e a atividade neste dispositivo."</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O administrador de TI pode ter acesso aos seus dados e atividade neste dispositivo."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"O dispositivo está pronto a utilizar!"</string>
     <string name="done" msgid="7755227776955952318">"Concluído"</string>
 </resources>
