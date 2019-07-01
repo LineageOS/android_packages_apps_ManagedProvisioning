@@ -20,11 +20,14 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
 import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationLogo;
+import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.CANCEL_PROVISIONING_DIALOG_OK;
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.ERROR_DIALOG_OK;
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.ERROR_DIALOG_RESET;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
@@ -48,6 +51,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
@@ -82,6 +86,7 @@ public class ProvisioningActivityRoboTest {
     private static final int CUSTOM_COLOR = Color.parseColor("#d40000");
     private static final Uri LOGO_URI = Uri.parse("http://logo");
 
+    private ProvisioningManager mMockProvisioningManager = Mockito.mock(ProvisioningManager.class);
     private Application mContext = RuntimeEnvironment.application;
 
     @Test
@@ -102,7 +107,7 @@ public class ProvisioningActivityRoboTest {
         activity.error(R.string.cant_set_up_device, ERROR_MESSAGE_ID, /* resetRequired= */ false);
 
         final Fragment dialog = activity.getFragmentManager().findFragmentByTag(ERROR_DIALOG_OK);
-        clickOnOkButton(activity, (DialogFragment) dialog);
+        clickOnPositiveButton(activity, (DialogFragment) dialog);
 
         final List<Intent> intents = shadowOf(mContext).getBroadcastIntents();
         assertThat(intentsContainsAction(intents, Intent.ACTION_FACTORY_RESET)).isFalse();
@@ -126,7 +131,7 @@ public class ProvisioningActivityRoboTest {
         activity.error(R.string.cant_set_up_device, ERROR_MESSAGE_ID, /* resetRequired= */ true);
 
         final Fragment dialog = activity.getFragmentManager().findFragmentByTag(ERROR_DIALOG_RESET);
-        clickOnOkButton(activity, (DialogFragment) dialog);
+        clickOnPositiveButton(activity, (DialogFragment) dialog);
 
         final List<Intent> intents = shadowOf(mContext).getBroadcastIntents();
         assertThat(intentsContainsAction(intents, Intent.ACTION_FACTORY_RESET)).isTrue();
@@ -204,6 +209,77 @@ public class ProvisioningActivityRoboTest {
                 /* statusBarColor= */ CUSTOM_COLOR);
     }
 
+    @Test
+    public void activity_profileOwner_backPressed_showsCancelDialog() throws Throwable {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
+                        .setup().get();
+
+        activity.onBackPressed();
+
+        final Fragment dialog =
+                activity.getFragmentManager().findFragmentByTag(CANCEL_PROVISIONING_DIALOG_OK);
+        assertThat(dialog).isNotNull();
+    }
+
+    @Test
+    public void activity_profileOwner_backPressed_doNotCancel_doesNotFinishActivity() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
+                        .setup().get();
+
+        activity.onBackPressed();
+        final Fragment dialog =
+                activity.getFragmentManager().findFragmentByTag(CANCEL_PROVISIONING_DIALOG_OK);
+        clickOnNegativeButton(activity, (DialogFragment) dialog);
+
+        assertThat(activity.isFinishing()).isFalse();
+    }
+
+    @Test
+    public void activity_profileOwner_backPressed_doNotCancel_doesNotCancelProvisioning() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
+                        .setup().get();
+        activity.mProvisioningManager = mMockProvisioningManager;
+
+        activity.onBackPressed();
+        final Fragment dialog =
+                activity.getFragmentManager().findFragmentByTag(CANCEL_PROVISIONING_DIALOG_OK);
+        clickOnNegativeButton(activity, (DialogFragment) dialog);
+
+        verify(mMockProvisioningManager, never()).cancelProvisioning();
+    }
+
+    @Test
+    public void activity_profileOwner_backPressed_cancel_doesFinishActivity() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
+                        .setup().get();
+
+        activity.onBackPressed();
+        final Fragment dialog =
+                activity.getFragmentManager().findFragmentByTag(CANCEL_PROVISIONING_DIALOG_OK);
+        clickOnPositiveButton(activity, (DialogFragment) dialog);
+
+        assertThat(activity.isFinishing()).isTrue();
+    }
+
+    @Test
+    public void activity_profileOwner_backPressed_cancel_doesCancelProvisioning() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
+                        .setup().get();
+        activity.mProvisioningManager = mMockProvisioningManager;
+
+        activity.onBackPressed();
+        final Fragment dialog =
+                activity.getFragmentManager().findFragmentByTag(CANCEL_PROVISIONING_DIALOG_OK);
+        clickOnPositiveButton(activity, (DialogFragment) dialog);
+
+        verify(mMockProvisioningManager).cancelProvisioning();
+    }
+
     private Intent createProvisioningIntent(String action, int mainColor) {
         final ProvisioningParams provisioningParams = new ProvisioningParams.Builder()
                 .setProvisioningAction(action)
@@ -272,5 +348,18 @@ public class ProvisioningActivityRoboTest {
         final ImageView imageView = activity.findViewById(R.id.sud_layout_icon);
         // The custom logo we have set is a bitmap
         assertThat(imageView.getDrawable()).isInstanceOf(BitmapDrawable.class);
+    }
+
+    private void clickOnPositiveButton(ProvisioningActivity activity, DialogFragment dialog) {
+        // TODO(135181317): This should be replaced by
+        //  activity.findViewById(android.R.id.button1).performClick();
+
+        activity.onPositiveButtonClick(dialog);
+    }
+
+    private void clickOnNegativeButton(ProvisioningActivity activity, DialogFragment dialog) {
+        // TODO(135181317): This should be replaced by
+        //  activity.findViewById(android.R.id.button2).performClick();
+        activity.onNegativeButtonClick(dialog);
     }
 }
