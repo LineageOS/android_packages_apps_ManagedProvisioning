@@ -35,7 +35,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.widget.ImageView;
@@ -75,6 +78,8 @@ public class ProvisioningActivityRoboTest {
     private static final Intent DEVICE_OWNER_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, DEVICE_OWNER_PARAMS);
     private static final int ERROR_MESSAGE_ID = R.string.managed_provisioning_error_text;
+    private static final int DEFAULT_MAIN_COLOR = -15043608;
+    private static final int CUSTOM_COLOR = Color.parseColor("#d40000");
     private static final Uri LOGO_URI = Uri.parse("http://logo");
 
     private Application mContext = RuntimeEnvironment.application;
@@ -165,6 +170,72 @@ public class ProvisioningActivityRoboTest {
                         .setup().get();
 
         assertUsesCustomLogo(activity);
+    }
+
+    @Test
+    public void managedProfileIntent_defaultColor_colorCorrect() {
+        assertColorsCorrect(
+                PROFILE_OWNER_INTENT,
+                DEFAULT_MAIN_COLOR,
+                /* statusBarColor= */ Color.TRANSPARENT);
+    }
+
+    @Test
+    public void deviceOwnerIntent_defaultColor_colorCorrect() {
+        assertColorsCorrect(
+                DEVICE_OWNER_INTENT,
+                DEFAULT_MAIN_COLOR,
+                /* statusBarColor= */ Color.TRANSPARENT);
+    }
+
+    @Test
+    public void managedProfileIntent_customColor_colorCorrect() {
+        assertColorsCorrect(
+                createProvisioningIntent(ACTION_PROVISION_MANAGED_PROFILE, CUSTOM_COLOR),
+                /* mainColor= */ CUSTOM_COLOR,
+                /* statusBarColor= */ CUSTOM_COLOR);
+    }
+
+    @Test
+    public void deviceOwnerIntent_customColor_colorCorrect() {
+        assertColorsCorrect(
+                createProvisioningIntent(ACTION_PROVISION_MANAGED_DEVICE, CUSTOM_COLOR),
+                /* mainColor= */ CUSTOM_COLOR,
+                /* statusBarColor= */ CUSTOM_COLOR);
+    }
+
+    private Intent createProvisioningIntent(String action, int mainColor) {
+        final ProvisioningParams provisioningParams = new ProvisioningParams.Builder()
+                .setProvisioningAction(action)
+                .setDeviceAdminComponentName(ADMIN)
+                .setMainColor(mainColor)
+                .build();
+
+        final Intent intent = new Intent();
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, provisioningParams);
+        return intent;
+    }
+
+    private void assertColorsCorrect(Intent intent, int mainColor, int statusBarColor) {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class, intent)
+                        .setup().get();
+
+        assertDefaultLogoColorCorrect(activity, mainColor);
+        assertStatusBarColorCorrect(activity, statusBarColor);
+    }
+
+    private void assertDefaultLogoColorCorrect(Activity activity, int targetColor) {
+        Drawable actualLogo =
+                ((ImageView) activity.findViewById(R.id.sud_layout_icon)).getDrawable();
+        PorterDuffColorFilter colorFilter = (PorterDuffColorFilter) actualLogo.getColorFilter();
+
+        assertThat(colorFilter.getColor()).isEqualTo(targetColor);
+    }
+
+    private void assertStatusBarColorCorrect(Activity activity, int targetColor) {
+        final int statusBarColor = activity.getWindow().getStatusBarColor();
+        assertThat(statusBarColor).isEqualTo(targetColor);
     }
 
     private static boolean intentsContainsAction(List<Intent> intents, String action) {
