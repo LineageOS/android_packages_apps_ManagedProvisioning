@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Nustatomas darbo įrenginys…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Apdorojami sąrankos duomenys..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Prisijungiama prie „Wi-Fi“..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Prisijungiama prie mobiliojo ryšio tinklo…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Atsisiunčiama administratoriaus programa..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Diegiama administratoriaus programa..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Šalinamos nebūtinos sistemos programos…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Nepavyko nustatyti įrenginio. Jei reikia pagalbos, susisiekite su administratoriumi."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Jei reikia pagalbos, susisiekite su administratoriumi"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Įrenginys jau nustatytas"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nepavyko prisijungti prie „Wi-Fi“"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Nepavyko prisijungti prie „Wi-Fi“"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Įrenginyje išjungta gamyklinių duomenų atkūrimo apsauga. Jei reikia pagalbos, susisiekite su administratoriumi."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ištrinama"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Palaukite..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Nepavyko naudoti administratoriaus programos dėl kontrolinės sumos klaidos. Jei reikia pagalbos, susisiekite su administratoriumi."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Nepavyko atsisiųsti administratoriaus programos"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Negalima naudoti administratoriaus programos. Trūksta jos komponentų arba ji sugadinta. Jei reikia pagalbos, susisiekite su administratoriumi."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Nepavyko įdiegti administratoriaus programos"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Nepavyko naudoti administratoriaus programos dėl kontrolinės sumos klaidos. Jei reikia pagalbos, susisiekite su administratoriumi."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Nepavyko atsisiųsti administratoriaus programos"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Nepavyksta naudoti administratoriaus programos. Trūksta jos komponentų arba ji sugadinta. Jei reikia pagalbos, susisiekite su administratoriumi."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Nepavyko įdiegti administratoriaus programos"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Stabdyti sąranką?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ne"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Taip"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Ketinate sukurti darbo profilį, kurį tvarkys ir stebės jūsų organizacija. Bus taikomos <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> sąlygos."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Bus sukurtas jūsų darbo programoms skirtas profilis. Šį profilį ir kitus įrenginio nustatymus tvarkys ir stebės jūsų organizacija. Bus taikomos sąlygos."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Bus sukurtas jūsų darbo programoms skirtas profilis. Šį profilį ir kitus įrenginio nustatymus tvarkys ir stebės jūsų organizacija. Bus taikomos <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> sąlygos."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tvarkys šį įrenginį ir rūpinsis jo sauga. Bus taikomos sąlygos. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tvarkys šį įrenginį ir rūpinsis jo sauga. Bus taikomos <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> sąlygos. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tvarkys ir stebės šį įrenginį bei rūpinsis jo sauga. Bus taikomos sąlygos. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tvarkys ir stebės šį įrenginį bei rūpinsis jo sauga. Bus taikomos „<xliff:g id="TERMS_HEADERS">%2$s</xliff:g>“ sąlygos. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Ši nuoroda nėra saugi ir jos negalima atidaryti, kol įrenginio sąranka nebus baigta: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Jei kyla klausimų, susisiekite su <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Jei kyla klausimų, susisiekite su organizacijos administratoriumi"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"jūsų organizacija"</string>
     <string name="view_terms" msgid="7230493092383341605">"Peržiūrėti sąlygas"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Sutikti ir tęsti"</string>
-    <string name="close" msgid="7208600934846389439">"Uždaryti"</string>
+    <string name="back" msgid="6455622465896147127">"Atgal"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Įrenginio sąranka"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Pakeiskite darbo būdą"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Atskirkite darbo duomenis nuo asmeninių"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Tai gali užtrukti kelias minutes"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Darbo programos bus saugomos šiame profilyje ir jas tvarkys jūsų organizacija"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Šį įrenginį saugos ir tvarkys jūsų organizacija"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Ruošiamasi nustatyti darbo įrenginį…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administratoriaus programos nustatymas"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Nustatykite visa kita"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Dabar nustatykime visa kita"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Jūsų organizacija tvarkys šį telefoną"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Toliau nurodyta programa bus naudojama šiam telefonui tvarkyti ir stebėti"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Atsisiunčiama administratoriaus programa…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Pirmiausia nustatykime jūsų darbo profilį"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Naudokite vieną telefoną darbui ir žaidimams"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Darbo ir asmens duomenų atskyrimas"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Baigus bus išjungta"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Kuriamas darbo profilis…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Nustatykime jūsų darbo profilį"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Prisijungimas keliaujant"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Darbo duomenys yra saugūs"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Jūsų organizacija tvarkys šį telefoną"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Raskite specialiai jūsų organizacijai sukurtų programų"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Nustatomas jūsų tvarkomas įrenginys…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Telefonas paruoštas!"</string>
+    <string name="done" msgid="7755227776955952318">"Atlikta"</string>
 </resources>

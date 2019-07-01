@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Configurando o dispositivo de traballo..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Procesando datos de configuración..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Conectando coa wifi..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Conectando coa rede de telefonía móbil…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Descargando a aplicación de administración..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalando a aplicación de administración..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Eliminando aplicacións non obrigatorias…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Non se puido configurar o dispositivo. Contacta co administrador para obter axuda."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Contacta co administrador para obter axuda"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"O dispositivo xa está configurado"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Non se puido conectar coa wifi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Non se puido establecer conexión coa wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"O teu dispositivo ten activada a protección contra o restablecemento de fábrica. Contacta co administrador para obter axuda."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Agarda..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Non se puido utilizar a aplicación de administración debido a un erro da suma de verificación. Contacta co administrador para obter axuda."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Non se puido descargar a aplicación de administración"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Produciuse un erro ao utilizar a aplicación de administración. Fáltanlle compoñentes ou está danada. Contacta co administrador para obter axuda."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Non se puido instalar a aplicación de administración"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Non se puido usar a aplicación do administrador debido a un erro na suma de verificación. Se queres obter axuda, contacta co teu administrador."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Non se puido descargar a aplicación de administración"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Non se pode usar a aplicación do administrador. Faltan algúns compoñentes ou están danados. Para obter axuda, contacta co teu administrador."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Non se puido instalar a aplicación de administración"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Queres deter a configuración?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Non"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Si"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Estás a punto de crear un perfil de traballo que a túa organización xestionará e controlará. Aplicaranse as condicións de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Crearase un perfil para as aplicacións que utilizas para traballar. A túa organización xestionará e controlará este perfil e o resto do dispositivo. Aplicaranse as condicións pertinentes."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Crearase un perfil para as aplicacións que utilizas para traballar. A túa organización xestionará e controlará este perfil e o resto do dispositivo. Aplicaranse as condicións de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará e protexerá este dispositivo. Aplicaranse as condicións pertinentes. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará e protexerá este dispositivo. Aplícanse as condicións de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará, controlará e protexerá este dispositivo. Aplicaranse as condicións pertinentes. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> xestionará, controlará e protexerá este dispositivo. Aplícanse as condicións pertinentes de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Esta ligazón non é segura e non se pode abrir ata que se remate de configurar o dispositivo: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Se tes algunha dúbida, contacta co <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Se tes algunha pregunta, contacta co administrador da túa organización"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"a túa organización"</string>
     <string name="view_terms" msgid="7230493092383341605">"Consultar condicións"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Aceptar e continuar"</string>
-    <string name="close" msgid="7208600934846389439">"Pechar"</string>
+    <string name="back" msgid="6455622465896147127">"Volver"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Configurar o teu dispositivo"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Cambia a forma de traballar"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Separar o perfil do traballo do persoal"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Esta acción pode tardar uns minutos"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"As túas aplicacións do traballo permanecerán neste perfil e xestionaraas a túa organización"</string>
     <string name="device_owner_description" msgid="168013145812679664">"A túa organización xestionará este dispositivo e manterao protexido"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparándose para configurar o dispositivo do traballo…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando a aplicación do administrador"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Configurar todo o demais"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Agora configuremos todo o demais"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"A túa organización xestionará este teléfono"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"A seguinte aplicación utilizarase para xestionar e supervisar este teléfono"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Descargando a aplicación do administrador…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"En primeiro lugar, configuremos o teu perfil de traballo"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Utiliza un teléfono para traballar e xogar"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Separa os datos persoais dos do traballo"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Apaga o teléfono cando remates"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Creando un perfil de traballo…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Configuremos o teléfono do traballo"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Conéctate esteas onde esteas"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Os datos do traballo están protexidos"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"A túa organización xestionará este teléfono"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Busca aplicacións exclusivas para a túa organización"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Configurando o teu dispositivo xestionado…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Xa podes usar o teléfono."</string>
+    <string name="done" msgid="7755227776955952318">"Feito"</string>
 </resources>

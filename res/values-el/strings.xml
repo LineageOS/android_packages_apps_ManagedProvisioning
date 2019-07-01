@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Ρύθμιση συσκευής εργασίας..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Επεξεργασία δεδομένων ρύθμισης…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Σύνδεση με Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Σύνδεση σε δίκτυο κινητής τηλεφωνίας…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Λήψη εφαρμογής διαχείρισης…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Εγκατάσταση εφαρμογής διαχείρισης…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Κατάργηση μη απαιτούμενων εφαρμ. συστήματος…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Η ρύθμιση της συσκευής δεν είναι δυνατή. Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Η συσκευή έχει ήδη ρυθμιστεί"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Δεν είναι δυνατή η σύνδεση στο Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Δεν ήταν δυνατή η σύνδεση στο Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Η προστασία επαναφοράς έχει ενεργοποιηθεί στη συσκευή σας. Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Διαγραφή"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Περιμένετε…"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Δεν ήταν δυνατή η χρήση της εφαρμογής διαχείρισης λόγω ενός σφάλματος αθροίσματος ελέγχου. Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Δεν ήταν δυνατή η λήψη της εφαρμογής διαχείρισης"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Δεν είναι δυνατή η χρήση της εφαρμογής διαχείρισης λόγω καταστροφής ή έλλειψης στοιχείων. Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής διαχείρισης"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Δεν ήταν δυνατή η χρήση της εφαρμογής διαχειριστή λόγω ενός σφάλματος αθροίσματος ελέγχου. Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Δεν ήταν δυνατή η λήψη της εφαρμογής διαχειριστή"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Δεν είναι δυνατή η χρήση της εφαρμογής διαχειριστή. Λείπουν στοιχεία ή είναι κατεστραμμένα. Για βοήθεια, επικοινωνήστε με τον διαχειριστή σας."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής διαχειριστή"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Διακοπή ρύθμισης;"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Όχι"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ναι"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Πρόκειται να δημιουργήσετε ένα προφίλ εργασίας που θα διαχειρίζεται και θα παρακολουθεί ο οργανισμός σας. Ισχύουν οι όροι από <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Θα δημιουργηθεί ένα προφίλ για τις εφαρμογές εργασίας σας. Ο οργανισμός σας θα διαχειρίζεται και θα παρακολουθεί αυτό το προφίλ και την υπόλοιπη συσκευή σας. Ισχύουν όροι."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Θα δημιουργηθεί ένα προφίλ για τις εφαρμογές εργασίας σας. Ο οργανισμός σας θα διαχειρίζεται και θα παρακολουθεί αυτό το προφίλ και την υπόλοιπη συσκευή σας. Ισχύουν οι όροι από <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται και θα διατηρεί ασφαλή αυτήν τη συσκευή. Ισχύουν όροι. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται και θα διατηρεί ασφαλή αυτήν τη συσκευή. Ισχύουν οι όροι από <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται, θα παρακολουθεί και θα διατηρεί ασφαλή αυτήν τη συσκευή. Ισχύουν όροι. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται, θα παρακολουθεί και θα διατηρεί ασφαλή αυτήν τη συσκευή. Ισχύουν οι όροι από <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Αυτός ο σύνδεσμος δεν είναι ασφαλής και δεν μπορεί να ανοιχθεί μέχρι να ολοκληρωθεί η ρύθμιση της συσκευής: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Εάν έχετε ερωτήσεις, επικοινωνήστε με τον διαχειριστή <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Εάν έχετε ερωτήσεις, επικοινωνήστε με τον διαχειριστή του οργανισμού σας"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"ο οργανισμός σας"</string>
     <string name="view_terms" msgid="7230493092383341605">"Προβολή όρων"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Αποδοχή και συνέχεια"</string>
-    <string name="close" msgid="7208600934846389439">"Κλείσιμο"</string>
+    <string name="back" msgid="6455622465896147127">"Πίσω"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Ρύθμιση της συσκευής"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Αλλάξτε τον τρόπο που εργάζεστε"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Διαχωρίστε την εργασία από τα προσωπικά"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"H διαδικασία ίσως διαρκέσει μερικά λεπτά"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Οι εφαρμογές εργασίας σας θα διατηρούνται σε αυτό το προφίλ και η διαχείρισή τους θα γίνεται από τον οργανισμό σας"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Αυτή η συσκευή θα παραμείνει ασφαλής και διαχειριζόμενη από τον οργανισμό σας"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Προετοιμασία για ρύθμιση συσκευής εργασίας…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ρύθμιση εφαρμογής διαχειριστή"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Ρυθμίστε όλα τα υπόλοιπα"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Στη συνέχεια, ας ρυθμίσουμε τα υπόλοιπα"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Ο οργανισμός σας θα διαχειρίζεται αυτό το τηλέφωνο"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Η παρακάτω εφαρμογή θα χρησιμοποιηθεί για τη διαχείριση και την παρακολούθηση αυτού του τηλεφώνου"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Λήψη εφαρμογής διαχειριστή…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Αρχικά, ας ρυθμίσουμε το προφίλ εργασίας σας"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Χρησιμοποιήστε ένα τηλέφωνο για εργασία &amp; παιχνίδι"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Διαχωρισμός δεδομένων εργασίας και προσωπικών δεδομένων"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Απενεργοποίηση όταν τελειώσετε"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Δημιουργία προφίλ εργασίας…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Ας ρυθμίσουμε το τηλέφωνο εργασίας σας"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Σύνδεση εκ κινήσει"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Τα δεδομένα εργασίας είναι ασφαλή και προστατευμένα"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Ο οργανισμός σας θα διαχειρίζεται αυτό το τηλέφωνο"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Βρείτε εφαρμογές ειδικά για τον οργανισμό σας"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Ρύθμιση της διαχειριζόμενης συσκευής σας…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Το τηλέφωνό σας είναι έτοιμο!"</string>
+    <string name="done" msgid="7755227776955952318">"Τέλος"</string>
 </resources>

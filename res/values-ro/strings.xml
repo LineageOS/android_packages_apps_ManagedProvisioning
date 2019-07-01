@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Se configurează dispozitivul..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Se procesează datele de configurare..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Se conectează la Wi-Fi..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Se conectează la rețeaua mobilă…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Se descarcă aplicația de administrare..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Se instalează aplicația de administrare..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Se elimină aplicațiile de sistem nenecesare…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Nu s-a putut configura dispozitivul. Pentru ajutor, contactați administratorul."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Pentru ajutor, contactați administratorul"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Dispozitivul este deja configurat"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Nu se poate conecta la Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Nu s-a putut conecta la Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Pe dispozitivul dvs. este activată protecția împotriva resetării. Pentru ajutor, contactați administratorul."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Se șterge"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Așteptați..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Nu s-a putut utiliza aplicația de administrare din cauza unei erori de sumă de control. Pentru ajutor, contactați administratorul."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Eroare la descărcarea aplicației de administrare"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Nu se poate utiliza aplicația de administrare deoarece este deteriorată sau lipsesc componente. Pentru ajutor, contactați administratorul."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Eroare la instalarea aplicației de administrare"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Nu s-a putut folosi aplicația pentru administratori din cauza unei erori de sumă de control. Pentru ajutor, contactați administratorul."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Nu s-a putut descărca aplicația pentru administratori"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Nu se poate folosi aplicația pentru administratori. Lipsesc componente sau este deteriorată. Pentru ajutor, contactați administratorul."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Eroare la instalarea aplicației pentru administratori"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Opriți configurarea?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nu"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Da"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Sunteți pe punctul de a crea un profil de serviciu care va fi gestionat și monitorizat de organizația dvs. Trebuie respectate condiții impuse de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Va fi creat un profil pentru aplicațiile dvs. de serviciu. Acest profil și restul dispozitivului vor fi gestionate și monitorizate de organizația dvs. Se impun condiții."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Va fi creat un profil pentru aplicațiile dvs. de serviciu. Acest profil și restul dispozitivului vor fi gestionate și monitorizate de organizația dvs. Trebuie respectate condiții impuse de <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"Acest dispozitiv va fi gestionat și păstrat în siguranță de <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Se impun condiții. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Acest dispozitiv va fi gestionat și păstrat în siguranță de <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Trebuie respectate condiții impuse de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"Acest dispozitiv va fi gestionat, monitorizat și păstrat în siguranță de <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Se aplică termeni. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Acest dispozitiv va fi gestionat, monitorizat și păstrat în siguranță de <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Se aplică termenii din <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Acest link nu este sigur și nu poate fi deschis până când nu se încheie configurarea dispozitivului: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Dacă aveți întrebări, contactați <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Dacă aveți întrebări, contactați administratorul organizației"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"organizația dvs."</string>
     <string name="view_terms" msgid="7230493092383341605">"Consultați condițiile"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Acceptați și cont."</string>
-    <string name="close" msgid="7208600934846389439">"Închideți"</string>
+    <string name="back" msgid="6455622465896147127">"Înapoi"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Configurați dispozitivul"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Schimbați modul în care lucrați"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Separați datele de serviciu de cele personale"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Poate dura câteva minute"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Aplicațiile dvs. de lucru vor fi păstrate în acest profil și vor fi gestionate de organizația dvs."</string>
     <string name="device_owner_description" msgid="168013145812679664">"Acest dispozitiv va fi păstrat în siguranță și gestionat de organizația dvs."</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Se pregătește configurarea dispozitivului de serviciu…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Se configurează aplicația pentru administratori"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Configurați restul"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Acum să configurăm restul"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Organizația dvs. va gestiona acest telefon"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Următoarea aplicație va fi folosită pentru a gestiona și monitoriza acest telefon"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Se descarcă aplicația pentru administratori…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Mai întâi să configurăm profilul de serviciu"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Folosiți un singur telefon pentru muncă și distracție"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Separați datele de serviciu de cele personale"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Închideți când terminați"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Se creează profilul de serviciu…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Să configurăm telefonul de serviciu"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Conectați-vă din mers"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Datele de serviciu sunt sigure și securizate"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Organizația dvs. va gestiona acest telefon"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Căutați aplicații doar pentru organizația dvs."</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Se configurează dispozitivul gestionat…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Telefonul este gata de utilizare!"</string>
+    <string name="done" msgid="7755227776955952318">"Gata"</string>
 </resources>

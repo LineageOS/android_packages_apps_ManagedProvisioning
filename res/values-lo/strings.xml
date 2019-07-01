@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"ກຳລັງຕັ້ງຄ່າອຸປະກອນບ່ອນເຮັດວຽກ..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່​ກັ​ບ Wi-Fi..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ກຳລັງເຊື່ອມຕໍ່ຫາເຄືອຂ່າຍມືຖື…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ້ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ກຳ​ລັງ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ້​ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ກຳລັງລຶບແອັບລະບົບທີ່ບໍ່ຕ້ອງໃຊ້ອອກ…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ບໍ່ສາມາດຕັ້ງຄ່າອຸປະກອນໄດ້. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງລະບົບຂອງທ່ານ."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"ຕິດຕໍ່ຜູ້ເບິ່ງແຍງລະບົບຂອງທ່ານສຳລັບຄວາມຊ່ວຍເຫຼືອ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ອຸປະກອນຖືກຕັ້ງຄ່າມາກ່ອນແລ້ວ."</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"ບໍ່​ສາ​ມາດ​ເຊື່ອມ​ຕໍ່ Wi-Fi ໄດ້"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Wi-Fi ໄດ້"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ອຸປະກອນຂອງທ່ານມີການເປີດໃຊ້ການປ້ອງກັນການຣີເຊັດ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງຂອງທ່ານ."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ກຳລັງລຶບ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ກະລຸນາລໍຖ້າ..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"ບໍ່ສາມາດໃຊ້ແອັບຜູ້ເບິ່ງແຍງລະບົບເນື່ອງຈາກ checksum ຜິດພາດ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງຂອງທ່ານ."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ບໍ່​ສາ​ມາດ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"ບໍ່ສາມາດໃຊ້ແອັບຜູ້ເບິ່ງແຍງລະບົບເນື່ອງຈາກມັນບໍ່ມີອົງປະກອບບາງຢ່າງ ຫຼື ອົງປະກອບເສຍຫາຍ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງຂອງທ່ານ."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ບໍ່​ສາ​ມາດ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ່​ເບິ່ງ​ແຍງ​ລະ​ບົບ​ໄດ້"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ບໍ່ສາມາດໃຊ້ແອັບຜູ້ເບິ່ງແຍງລະບົບເນື່ອງຈາກ checksum ຜິດພາດ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງຂອງທ່ານ."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ບໍ່ສາມາດດາວໂຫລດແອັບຜູ້ເບິ່ງແຍງລະບົບໄດ້"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"ບໍ່ສາມາດໃຊ້ແອັບຜູ້ເບິ່ງແຍງລະບົບໄດ້ເນື່ອງຈາກມັນບໍ່ມີອົງປະກອບບາງຢ່າງ ຫຼື ອົງປະກອບເສຍຫາຍ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ກະລຸນາຕິດຕໍ່ຜູ້ເບິ່ງແຍງຂອງທ່ານ."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ບໍ່ສາມາດຕິດຕັ້ງແອັບຜູ້ເບິ່ງແຍງລະບົບໄດ້"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ຢຸດ​ການ​ຕິດ​ຕັ້ງ​ຫຼື​ບໍ່?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ບໍ່"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"​ແມ່ນ​ແລ້ວ"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"ທ່ານກຳລັງຈະສ້າງໂປຣໄຟລ໌ບ່ອນເຮັດວຽກທີ່ຖືກຈັດການ ແລະ ຕິດຕາມໂດຍອົງກອນຂອງທ່ານ. ມີການນຳໃຊ້ຂໍ້ກຳນົດຈາກ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"ລະບົບຈະສ້າງໂປຣໄຟລ໌ສຳລັບແອັບບ່ອນເຮັດວຽກຂອງທ່ານ. ໂປຣໄຟລ໌ນີ້ ແລະ ສ່ວນທີ່ເຫຼືອຂອງອຸປະກອນທ່ານຈະຖືກຈັດການ ແລະ ຕິດຕາມໂດຍອົງກອນຂອງທ່ານ. ມີຂໍ້ກຳນົດຕ່າງໆ."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"ລະບົບຈະສ້າງໂປຣໄຟລ໌ສຳລັບແອັບບ່ອນເຮັດວຽກຂອງທ່ານ. ໂປຣໄຟລ໌ນີ້ ແລະ ສ່ວນທີ່ເຫຼືອຂອງອຸປະກອນທ່ານຈະຖືກຈັດການ ແລະ ຕິດຕາມໂດຍອົງກອນຂອງທ່ານ. ມີການນຳໃຊ້ຂໍ້ກຳນົດຈາກ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"ອຸປະກອນນີ້ຈະຖືກຈັດການ ແລະ ຮັກສາຄວາມປອດໄພໂດຍ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. ມີຂໍ້ກຳນົດນຳໃຊ້. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"ອຸປະກອນນີ້ຈະຖືກຈັດການ ແລະ ຮັກສາຄວາມປອດໄພໂດຍ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. ມີຂໍ້ກຳນົດຈາກ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ນຳ. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"ອຸປະກອນນີ້ຈະຖືກຈັດການ, ຕິດຕາມ ແລະ ເກັບຮັກສາໃຫ້ປອດໄພໂດຍ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. ມີຂໍ້ກຳນົດຕ່າງໆ. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ອຸປະກອນນີ້ຈະຖືກຈັດການ, ຕິດຕາມ ແລະ ເກັບຮັກສາໃຫ້ປອດໄພໂດຍ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. ມີຂໍ້ກຳນົດຕ່າງໆຈາກ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> ຈະຖືກນຳໃຊ້. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ລິ້ງນີ້ບໍ່ປອດໄພ ແລະ ບໍ່ສາມາດເປີດໄດ້ຈົນກວ່າຈະຕັ້ງຄ່າອຸປະກອນແລ້ວໆ: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"ຫາກທ່ານມີຄຳຖາມ, ໃຫ້ຕິດຕໍ່ <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> ຂອງທ່ານ."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"ຫາກທ່ານມີຄຳຖາມ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງລະບົບອົງກອນຂອງທ່ານ"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"ອົງກອນຂອງທ່ານ"</string>
     <string name="view_terms" msgid="7230493092383341605">"ເບິ່ງຂໍ້ກຳນົດ"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"ຍອມຮັບ ແລະ ດຳເນີນການຕໍ່"</string>
-    <string name="close" msgid="7208600934846389439">"ປິດ"</string>
+    <string name="back" msgid="6455622465896147127">"ກັບຄືນ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"ຕັ້ງຄ່າອຸປະກອນຂອງທ່ານ"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Change the way you work"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Separate work from personal"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ຂັ້ນຕອນນີ້ອາດໃຊ້ເວລາສອງສາມນາທີ"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ແອັບວຽກຂອງທ່ານຈະຖືກເກັບຮັກສາໄວ້ໃນໂປຣໄຟລ໌ນີ້ ແລະ ຈັດການໂດຍອົງກອນຂອງທ່ານ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ອຸປະກອນນີ້ຈະຖືກເກັບຮັກສາໄວ້ຢ່າງປອດໄພ ແລະ ຖືກຈັດການໂດຍອົງກອນຂອງທ່ານ"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ກຳລັງກະກຽມຕັ້ງຄ່າອຸປະກອນບ່ອນເຮັດວຽກ…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ກຳລັງຕັ້ງຄ່າແອັບຜູ້ເບິ່ງແຍງລະບົບ"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"ຕັ້ງຄ່າທຸກຢ່າງທີ່ເຫຼືອ"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ຕອນນີ້, ມາຕັ້ງຄ່າທຸກຢ່າງນຳກັນ"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ອົງກອນຂອງທ່ານຈະຈັດການໂທລະສັບໜ່ວຍນີ້"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"ແອັບຕໍ່ໄປນີ້ຈະຖືກໃຊ້ເພື່ອຈັດການ ແລະ ຕິດຕາມໂທລະສັບໜ່ວຍນີ້"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"ກຳລັງດາວໂຫລດແອັບພລິເຄຊັນຜູ້ເບິ່ງແຍງລະບົບ…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ທຳອິດ, ໃຫ້ຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານກ່ອນ"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ໃຊ້ໂທລະສັບສຳລັບເຮັດວຽກ ແລະ ຫຼິ້ນ"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"ແຍກຂໍ້ມູນບ່ອນເຮັດວຽກ ແລະ ຂໍ້ມູນສ່ວນຕົວ"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ປິດໄວ້ເມື່ອທ່ານເຮັດແລ້ວໆ"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"ກຳລັງສ້າງໂປຣໄຟລ໌ບ່ອນເຮັດວຽກ…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"ມາຕັ້ງຄ່າໂທລະສັບບ່ອນເຮັດວຽກຂອງທ່ານກັນ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ເຊື່ອມຕໍ່ໃນມືຖື"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ຂໍ້ມູນບ່ອນເຮັດວຽກຈະປອດໄພ ແລະ ເຂົ້າລະຫັດໄວ້"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ອົງກອນຂອງທ່ານຈະຈັດການໂທລະສັບໜ່ວຍນີ້"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ຊອກຫາແອັບສະເພາະສຳລັບອົງກອນຂອງທ່ານ"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ກຳລັງຕັ້ງຄ່າອຸປະກອນທີ່ມີການຈັດການຂອງທ່ານ…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ໂທລະສັບຂອງທ່ານພ້ອມໃຊ້ແລ້ວ!"</string>
+    <string name="done" msgid="7755227776955952318">"ແລ້ວໆ"</string>
 </resources>

@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"ഔദ്യോഗിക ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"സജ്ജീകരണ ഡാറ്റ പ്രോസസ്സുചെയ്യുന്നു…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi-യിലേക്ക് ബന്ധിപ്പിക്കുന്നു…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"മൊബൈൽ നെറ്റ്‌വർക്കിലേക്ക് കണക്‌റ്റ് ചെയ്യുന്നു…"</string>
     <string name="progress_download" msgid="3522436271691064624">"അഡ്‌മിൻ ആപ്പ് ഡൗൺലോഡുചെയ്യുന്നു…"</string>
     <string name="progress_install" msgid="2258045670385866183">"അഡ്‌മിൻ ആപ്പ് ഇൻസ്റ്റാളുചെയ്യുന്നു…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ആവശ്യമില്ലാത്ത സിസ്റ്റം ആപ്‌സ് നീക്കംചെയ്യുന്നു…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ഉപകരണം ഇതിനകം തന്നെ സജ്ജീകരിച്ചിരിക്കുന്നു"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"വൈഫൈ ലേക്ക് കണക്‌റ്റുചെയ്യാനായില്ല"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"വൈഫൈയിലേക്ക് കണക്റ്റ് ചെയ്യാനായില്ല"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ഈ ഉപകരണത്തിൽ റീസെറ്റ് ചെയ്യാതിരിക്കാനുള്ള പരിരക്ഷ ഓണാക്കിയിട്ടുണ്ട്. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"മായ്‌ക്കുന്നു"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"കാത്തിരിക്കുക..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"ഒരു ചെക്ക്‌സം പിശക് കാരണം അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഡൗൺലോഡുചെയ്യാനായില്ല"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനാവില്ല. അതിന്റെ ഘടകഭാഗങ്ങൾ നഷ്‌ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കിൽ അത് കേടായിരിക്കുന്നു. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"അഡ്‌മിൻ അപ്ലിക്കേഷൻ ഇൻസ്റ്റാളുചെയ്യാനായില്ല"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ചെക്ക്‌സം പിശക് കാരണം അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"അഡ്‌മിൻ ആപ്പ് ഡൗൺ‌ലോഡ് ചെയ്യാനായില്ല"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"അഡ്‌മിൻ ആപ്പ് ഉപയോഗിക്കാനാവില്ല. അതിൻ്റെ ഘടകഭാഗങ്ങൾ നഷ്‌ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കിൽ അത് കേടായിരിക്കുന്നു. സഹായത്തിന് നിങ്ങളുടെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"അഡ്‌മിൻ ആപ്പ് ഇൻസ്‌റ്റാൾ ചെയ്യാനായില്ല"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"സജ്ജീകരിക്കൽ നിർത്തണോ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"അല്ല"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"അതെ"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"നിങ്ങളുടെ സ്ഥാപനത്താൽ മാനേജുചെയ്യപ്പെടുകയും നിരീക്ഷിക്കപ്പെടുകയും ചെയ്യുന്ന ഒരു ഔദ്യോഗിക പ്രൊഫൈൽ നിങ്ങൾ സൃഷ്‌ടിക്കാൻ പോകുകയാണ്. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> എന്നതിൽ നിന്നുള്ള ‌നിബന്ധനകൾ ബാധകമാകും."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾക്കായി ഒരു പ്രൊഫൈൽ സൃഷ്‌ടിക്കപ്പെടും. ഈ ‌പ്രൊഫൈലും ബാക്കി ഉപകരണവും നിങ്ങളുടെ സ്ഥാപനം മാനേജുചെയ്യുകയും നിരീക്ഷിക്കുകയും ചെയ്യും. നിബന്ധനകൾ ബാധകമാണ്."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾക്കായി ഒരു പ്രൊഫൈൽ സൃഷ്‌ടിക്കപ്പെടും. ഈ ‌പ്രൊഫൈലും ബാക്കി ഉപകരണവും നിങ്ങളുടെ സ്ഥാപനം മാനേജുചെയ്യുകയും നിരീക്ഷിക്കുകയും ചെയ്യും. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> എന്നതിൽ നിന്നുള്ള ‌നിബന്ധനകൾ ബാധകമാകും."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"ഈ ഉപകരണം മാനേജുചെയ്യുന്നതും സുരക്ഷിതമായി സൂക്ഷിക്കുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. നിബന്ധനകൾ ബാധകമാവും. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"ഈ ഉപകരണം മാനേജുചെയ്യുന്നതും സുരക്ഷിതമായി സൂക്ഷിക്കുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> എന്നതിലെ നിബന്ധനകൾ ബാധകമാവും.<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"ഈ ഉപകരണം നിയന്ത്രിക്കുന്നതും ഭദ്രമാക്കി നിലനിർത്തുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. നിബന്ധനകൾ ബാധകമാവും. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ഈ ഉപകരണം നിയന്ത്രിക്കുന്നതും ഭദ്രമാക്കി നിലനിർത്തുന്നതും <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ആണ്. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> എന്നതിലെ നിബന്ധനകൾ ബാധകമാവും. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ഈ ലിങ്ക് സുരക്ഷിതമല്ല, ഉപകരണ സജ്ജമാക്കൽ പൂർത്തിയാകുന്നത് വരെ തുറക്കാൻ കഴിയില്ല: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"നിങ്ങൾക്ക് ചോദ്യങ്ങൾ ഉണ്ടെങ്കിൽ, <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> എന്ന അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"നിങ്ങൾക്ക് ചോദ്യങ്ങൾ ഉണ്ടെങ്കിൽ, നിങ്ങളുടെ സ്ഥാപനത്തിന്റെ അഡ്‌മിനുമായി ബന്ധപ്പെടുക"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"നിങ്ങളുടെ ഓർഗനൈസേഷൻ"</string>
     <string name="view_terms" msgid="7230493092383341605">"നിബന്ധനകൾ കാണുക"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"സ്വീകരിക്കൂ, തുടരൂ"</string>
-    <string name="close" msgid="7208600934846389439">"അവസാനിപ്പിക്കുക"</string>
+    <string name="back" msgid="6455622465896147127">"തിരികെ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുക"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"നിങ്ങൾ ജോലി ചെയ്യുന്ന രീതി തന്നെ മാറ്റുക"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"ഔദ്യോഗിക വിവരങ്ങളും വ്യക്തിഗത വിവരങ്ങളും വെവ്വേറെയാക്കുക"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ഇതിന് കുറച്ച് സമയമെടുത്തേക്കാം"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ഔദ്യോഗിക ആപ്പുകൾ ഈ പ്രൊഫൈലിൽ സൂക്ഷിക്കപ്പെടും, നിങ്ങളുടെ സ്ഥാപനം അത് മാനേജ് ചെയ്യും"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ഈ ഉപകരണം സുരക്ഷിതമായി സൂക്ഷിക്കപ്പെടും, ഒപ്പം നിങ്ങളുടെ ഓര്‍ഗനൈസേഷന്‍ അത് മാനേജും ചെയ്യും"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാൻ തയ്യാറെടുക്കുന്നു…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"അഡ്‌മിൻ ആപ്പ്, സജ്ജീകരിക്കുന്നു"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"മറ്റുള്ളവയെല്ലാം സജ്ജീകരിക്കുക"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ഇപ്പോൾ മറ്റുള്ളവയെല്ലാം സജ്ജീകരിക്കാം"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"നിങ്ങളുടെ സ്ഥാപനമായിരിക്കും ഈ ഫോൺ മാനേജ് ചെയ്യുന്നത്"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"ഈ ഫോൺ മാനേജ് ചെയ്യാനും നിരീക്ഷിക്കാനുമായി ഇനിപ്പറയുന്ന ആപ്പ് ഉപയോഗിക്കും"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"അഡ്‌മിൻ ആപ്പ്, ഡൗൺലോഡ് ചെയ്യുന്നു…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ആദ്യം നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കാം"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ജോലി ചെയ്യാനും കളിക്കാനുമായി ഒരു ഫോൺ ഉപയോഗിക്കുക"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"ഔദ്യോഗിക ഡാറ്റയും &amp; വ്യക്തിപരമായ ഡാറ്റയും വേർപെടുത്തുക"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"പൂർത്തിയായി കഴിയുമ്പോൾ സ്വിച്ച് ഓഫാക്കുക"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"ഔദ്യോഗിക പ്രൊഫൈൽ സൃഷ്‌ടിക്കുന്നു…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"നിങ്ങളുടെ ഔദ്യോഗിക ഫോൺ സജ്ജീകരിക്കാം"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"എവിടെയായിരുന്നാലും കണക്‌റ്റ് ചെയ്യൂ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ഔദ്യോഗിക ഡാറ്റ സുരക്ഷിതവും &amp; പരിരക്ഷിതവുമാണ്"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"നിങ്ങളുടെ സ്ഥാപനമായിരിക്കും ഈ ഫോൺ മാനേജ് ചെയ്യുന്നത്"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"നിങ്ങളുടെ സ്ഥാപനത്തിന് വേണ്ടി മാത്രമുള്ള ആപ്പുകൾ കണ്ടെത്തുക"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"നിങ്ങളുടെ മാനേജ് ചെയ്യപ്പെടുന്ന ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"നിങ്ങളുടെ ഫോൺ ഉപയോഗിക്കാൻ തയ്യാറാണ്!"</string>
+    <string name="done" msgid="7755227776955952318">"പൂർത്തിയായി"</string>
 </resources>

@@ -48,7 +48,7 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ако наставите, избрисаћете све апликације и податке на овом профилу."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Избриши"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Откажи"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Да бисте подесили профил за Work, уређај треба да се шифрује. То може да потраје."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Да бисте подесили профил за посао, уређај треба да се шифрује. То може да потраје."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Да бисте подесили овај уређај, прво треба да се шифрује. То може да потраје."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Шифровати овај уређај?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Шифруј"</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Подешава се уређај за Work..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Обрађују се подаци подешавања..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Повезујете се са Wi-Fi-јем..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Повезујемо се са мобилном мрежом…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Преузима се апликација за администраторе..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Инсталира се апликација за администраторе..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Уклањамо непотребне системске апликације…"</string>
@@ -85,20 +86,20 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Подешавање уређаја није успело. Потражите помоћ од администратора."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Потражите помоћ од администратора"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Уређај је већ подешен"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Повезивање са Wi-Fi мрежом није успело"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Повезивање на Wi-Fi мрежу није успело"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Заштита ресетовања је укључена за уређај. Потражите помоћ од администратора."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Брисање"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Сачекајте..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Коришћење апликације за администраторе није успело због грешке у контролном збиру. Потражите помоћ од администратора."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Преузимање апликације за администраторе није успело"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Коришћење апликације за администраторе није успело. Недостају јој компоненте или је оштећена. Потражите помоћ од администратора."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Инсталирање апликације за администраторе није успело"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Коришћење апликације за администраторе није успело због грешке у контролном збиру. Потражите помоћ од администратора."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Преузимање апликације за администраторе није успело"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Коришћење апликације за администраторе није успело. Недостају јој компоненте или је оштећена. Потражите помоћ од администратора."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Инсталирање апликације за администраторе није успело"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Желите ли да прекинете подешавање?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Не"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Да"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Отказује се…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Желите ли да зауставите подешавање профила?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Можете касније да подесите профил за Work у апликацији за управљање уређајем коју користи организација."</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Можете касније да подесите профил за посао у апликацији за управљање уређајем коју користи организација."</string>
     <string name="continue_button" msgid="7177918589510964446">"Настави"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Заустави"</string>
     <string name="dismiss" msgid="9009534756748565880">"Одбаци"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Направићете профил за Work. Организација ће управљати њим и надгледати га. Примењиваће се <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> услови."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Направићете профил за апликације за Work. Организација ће управљати овим профилом и остатком уређаја и надгледати их. Примењиваће се услови."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Направићете профил за апликације за Work. Организација ће управљати овим профилом и остатком уређаја и надгледати их. Примењиваће се <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> услови."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ће управљати овим уређајем и штитити га. Примењиваће се услови. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ће управљати овим уређајем и штитити га. Примењиваће се <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> услови. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ће управљати овим уређајем, пратити га и штитити. Примењиваће се услови. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ће управљати овим уређајем, пратити га и штитити. Примењиваће се <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> услови. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Овај линк није поуздан и не може да се отвори док се не доврши подешавање уређаја: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Ако имате питања, контактирајте: <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Ако имате питања, контактирајте администратора организације"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"Организација"</string>
     <string name="view_terms" msgid="7230493092383341605">"Прикажи услове"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Прихвати и настави"</string>
-    <string name="close" msgid="7208600934846389439">"Затвори"</string>
+    <string name="back" msgid="6455622465896147127">"Назад"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Подесите уређај"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Промените начин рада"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Одвојите пословне податке од личних"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Ово може да потраје неколико минута"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Пословне апликације ће се чувати на овом профилу и њима ће управљати организација"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Организација ће штитити овај уређај и управљаће њиме"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Припрема се подешавање уређаја за посао…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Апликација за администраторе се подешава"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Подесите све остало"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Хајде да подесимо све остало"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Организација ће управљати овим телефоном"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Следећа апликација ће се користити за праћење овог телефона и управљање њимe"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Апликација за администраторе се преузима…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Хајде да прво подесимо профил за Work"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Користите један телефон за посао и игру"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Раздвојите пословне и личне податке"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Искључите када завршите"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Прави се профил за Work…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Хајде да подесимо пословни телефон"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Повежите се у покрету"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Пословни подаци су безбедни и сигурни"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Организација ће управљати овим телефоном"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Пронађите апликације прилагођене вашој организацији"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Уређај којим се управља се подешава…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Телефон је спреман за коришћење!"</string>
+    <string name="done" msgid="7755227776955952318">"Готово"</string>
 </resources>
