@@ -128,7 +128,6 @@ public class ProvisioningActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
     private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
     private static final int BROADCAST_TIMEOUT = 1000;
-    private static final int WAIT_ACTIVITY_INITIALIZE_MILLIS = 1000;
     private static final int WAIT_PROVISIONING_COMPLETE_MILLIS = 60_000;
 
     private static class CustomIntentsTestRule extends IntentsTestRule<ProvisioningActivity> {
@@ -232,56 +231,6 @@ public class ProvisioningActivityTest {
                 mockingDetails(mProvisioningManager).getInvocations();
         return (int) invocations.stream()
                 .filter(invocation -> invocation.getMethod().equals(method)).count();
-    }
-
-    @Test
-    @FlakyTest(bugId=134580166)
-    public void testColors() throws Throwable {
-        // default color Managed Profile (MP)
-        assertColorsCorrect(
-                PROFILE_OWNER_INTENT,
-                DEFAULT_MAIN_COLOR,
-                Color.TRANSPARENT);
-
-        // default color Device Owner (DO)
-        assertColorsCorrect(
-                DEVICE_OWNER_INTENT,
-                DEFAULT_MAIN_COLOR,
-                Color.TRANSPARENT);
-
-        // custom color for both cases (MP, DO)
-        int targetColor = Color.parseColor("#d40000"); // any color (except default) would do
-        for (String action : asList(ACTION_PROVISION_MANAGED_PROFILE,
-                ACTION_PROVISION_MANAGED_DEVICE)) {
-            ProvisioningParams provisioningParams = new ProvisioningParams.Builder()
-                    .setProvisioningAction(action)
-                    .setDeviceAdminComponentName(ADMIN)
-                    .setMainColor(targetColor)
-                    .build();
-            Intent intent = new Intent();
-            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, provisioningParams);
-            assertColorsCorrect(intent, targetColor, targetColor);
-        }
-    }
-
-    private void assertColorsCorrect(Intent intent, int mainColor, int statusBarColor)
-            throws Throwable {
-        launchActivityAndWait(intent);
-        Activity activity = mActivityRule.getActivity();
-
-        CustomizationVerifier customizationVerifier = new CustomizationVerifier(activity);
-        customizationVerifier.assertStatusBarColorCorrect(statusBarColor);
-        customizationVerifier.assertDefaultLogoCorrect(mainColor);
-
-        finishAndWait();
-    }
-
-    private void finishAndWait() throws Throwable {
-        Activity activity = mActivityRule.getActivity();
-        ActivityLifecycleWaiter waiter = new ActivityLifecycleWaiter(activity, Stage.DESTROYED);
-        mActivityRule.runOnUiThread(() -> activity.finish());
-        waiter.waitForStage();
-        mActivityRule.afterActivityFinished();
     }
 
     @Test
