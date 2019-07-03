@@ -17,8 +17,6 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager
-        .ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_STATE_USER_SETUP_COMPLETE;
 import static androidx.test.espresso.Espresso.onView;
@@ -31,8 +29,6 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-
-import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationLogo;
 
 import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.assertFalse;
@@ -65,7 +61,6 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -77,7 +72,6 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.CustomizationVerifier;
 import com.android.managedprovisioning.common.LogoUtils;
-import com.android.managedprovisioning.common.UriBitmap;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -134,7 +128,6 @@ public class ProvisioningActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
     private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
     private static final int BROADCAST_TIMEOUT = 1000;
-    private static final int WAIT_ACTIVITY_INITIALIZE_MILLIS = 1000;
     private static final int WAIT_PROVISIONING_COMPLETE_MILLIS = 60_000;
 
     private static class CustomIntentsTestRule extends IntentsTestRule<ProvisioningActivity> {
@@ -238,77 +231,6 @@ public class ProvisioningActivityTest {
                 mockingDetails(mProvisioningManager).getInvocations();
         return (int) invocations.stream()
                 .filter(invocation -> invocation.getMethod().equals(method)).count();
-    }
-
-    @Test
-    @FlakyTest(bugId=134580166)
-    public void testColors() throws Throwable {
-        // default color Managed Profile (MP)
-        assertColorsCorrect(
-                PROFILE_OWNER_INTENT,
-                DEFAULT_MAIN_COLOR,
-                Color.TRANSPARENT);
-
-        // default color Device Owner (DO)
-        assertColorsCorrect(
-                DEVICE_OWNER_INTENT,
-                DEFAULT_MAIN_COLOR,
-                Color.TRANSPARENT);
-
-        // custom color for both cases (MP, DO)
-        int targetColor = Color.parseColor("#d40000"); // any color (except default) would do
-        for (String action : asList(ACTION_PROVISION_MANAGED_PROFILE,
-                ACTION_PROVISION_MANAGED_DEVICE)) {
-            ProvisioningParams provisioningParams = new ProvisioningParams.Builder()
-                    .setProvisioningAction(action)
-                    .setDeviceAdminComponentName(ADMIN)
-                    .setMainColor(targetColor)
-                    .build();
-            Intent intent = new Intent();
-            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, provisioningParams);
-            assertColorsCorrect(intent, targetColor, targetColor);
-        }
-    }
-
-    private void assertColorsCorrect(Intent intent, int mainColor, int statusBarColor)
-            throws Throwable {
-        launchActivityAndWait(intent);
-        Activity activity = mActivityRule.getActivity();
-
-        CustomizationVerifier customizationVerifier = new CustomizationVerifier(activity);
-        customizationVerifier.assertStatusBarColorCorrect(statusBarColor);
-        customizationVerifier.assertDefaultLogoCorrect(mainColor);
-
-        finishAndWait();
-    }
-
-    private void finishAndWait() throws Throwable {
-        Activity activity = mActivityRule.getActivity();
-        ActivityLifecycleWaiter waiter = new ActivityLifecycleWaiter(activity, Stage.DESTROYED);
-        mActivityRule.runOnUiThread(() -> activity.finish());
-        waiter.waitForStage();
-        mActivityRule.afterActivityFinished();
-    }
-
-    @Test
-    @FlakyTest(bugId=134577931)
-    public void testCustomLogo_profileOwner() throws Throwable {
-        assertCustomLogoCorrect(PROFILE_OWNER_INTENT);
-    }
-
-    @Test
-    @FlakyTest(bugId=134577931)
-    public void testCustomLogo_deviceOwner() throws Throwable {
-        assertCustomLogoCorrect(PROFILE_OWNER_INTENT);
-    }
-
-    private void assertCustomLogoCorrect(Intent intent) throws Throwable {
-        UriBitmap targetLogo = UriBitmap.createSimpleInstance();
-        saveOrganisationLogo(InstrumentationRegistry.getTargetContext(), targetLogo.getUri());
-        launchActivityAndWait(intent);
-        ProvisioningActivity activity = mActivityRule.getActivity();
-        new CustomizationVerifier(activity).assertCustomLogoCorrect(targetLogo.getBitmap());
-        finishAndWait();
     }
 
     @Test
