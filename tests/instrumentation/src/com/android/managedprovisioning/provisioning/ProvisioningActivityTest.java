@@ -273,44 +273,6 @@ public class ProvisioningActivityTest {
     }
 
     @Test
-    @FlakyTest(bugId=134576321)
-    public void testCancelProfileOwner() throws Throwable {
-        // GIVEN the activity was launched with a profile owner intent
-        launchActivityAndWait(PROFILE_OWNER_INTENT);
-
-        // WHEN the user tries to cancel
-        pressBack();
-
-        // THEN the cancel dialog should be shown
-        onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
-
-        // WHEN deciding not to cancel
-        onView(withId(android.R.id.button2))
-                .check(matches(withText(R.string.profile_owner_cancel_cancel)))
-                .perform(click());
-
-        // THEN the activity should not be finished
-        assertFalse(mActivityRule.getActivity().isFinishing());
-
-        // WHEN the user tries to cancel
-        pressBack();
-
-        // THEN the cancel dialog should be shown
-        onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
-
-        // WHEN deciding to cancel
-        onView(withId(android.R.id.button1))
-                .check(matches(withText(R.string.profile_owner_cancel_ok)))
-                .perform(click());
-
-        // THEN the manager should be informed
-        verify(mProvisioningManager).cancelProvisioning();
-
-        // THEN the activity should be finished
-        assertTrue(mActivityRule.getActivity().isFinishing());
-    }
-
-    @Test
     public void testCancelProfileOwner_CompProvisioningWithSkipConsent() throws Throwable {
         // GIVEN launching profile intent with skipping user consent
         ProvisioningParams params = new ProvisioningParams.Builder()
