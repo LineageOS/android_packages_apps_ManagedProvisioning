@@ -18,15 +18,14 @@ package com.android.managedprovisioning.e2eui;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 
 import android.content.Intent;
 import android.content.pm.UserInfo;
+import android.os.SystemClock;
 import android.os.UserManager;
 import android.test.AndroidTestCase;
 import android.util.Log;
@@ -35,7 +34,6 @@ import android.view.View;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.base.DefaultFailureHandler;
 import androidx.test.filters.LargeTest;
-import androidx.test.filters.FlakyTest;
 import androidx.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.R;
@@ -51,8 +49,8 @@ import java.util.List;
 public class ManagedProfileTest extends AndroidTestCase {
     private static final String TAG = "ManagedProfileTest";
 
-    private static final long TIMEOUT_SECONDS = 120L;
-    private static final long WAIT_EDU_SCREENS_MILLIS = 60000L;
+    private static final long PROVISIONING_RESULT_TIMEOUT_SECONDS = 120L;
+    private static final long FIVE_SECONDS_MILLIS = 5000;
 
     public ActivityTestRule mActivityRule;
     private ProvisioningResultListener mResultListener;
@@ -103,7 +101,7 @@ public class ManagedProfileTest extends AndroidTestCase {
             receiver.register();
             userManager.removeUserEvenWhenDisallowed(userId);
 
-            long timeoutMillis = TIMEOUT_SECONDS * 1000;
+            long timeoutMillis = PROVISIONING_RESULT_TIMEOUT_SECONDS * 1000;
             Intent confirmation = receiver.awaitForBroadcast(timeoutMillis);
 
             if (confirmation == null) {
@@ -115,12 +113,11 @@ public class ManagedProfileTest extends AndroidTestCase {
         }
     }
 
-    @FlakyTest(bugId=121307452)
     public void testManagedProfile() throws Exception {
         mActivityRule.launchActivity(ManagedProfileAdminReceiver.INTENT_PROVISION_MANAGED_PROFILE);
 
-        // Retry pressing the "Accept & continue" button twice to reduce flakiness
-        new EspressoClickRetryActions(2) {
+        // Try pressing "Accept & continue" for 1 minute (12 * 5 seconds)
+        new EspressoClickRetryActions(/* retries= */ 12, /* delayMillis= */ FIVE_SECONDS_MILLIS) {
             @Override
             public ViewInteraction newViewInteraction1() {
                 return onView(allOf(withClassName(containsString("FooterActionButton")),
@@ -128,11 +125,11 @@ public class ManagedProfileTest extends AndroidTestCase {
             }
         }.run();
 
-        Thread.sleep(WAIT_EDU_SCREENS_MILLIS);
         mResultListener.register();
 
-        // Retry pressing the "Next" button twice to reduce flakiness
-        new EspressoClickRetryActions(2) {
+        // Try pressing "Next" for 10 minutes (120 * 5 seconds). This must be long enough for
+        // DPC download/installation to happen, and education screens to complete.
+        new EspressoClickRetryActions(/* retries= */ 120, /* delayMillis= */ FIVE_SECONDS_MILLIS) {
             @Override
             public ViewInteraction newViewInteraction1() {
                 return onView(allOf(withClassName(containsString("FooterActionButton")),
@@ -140,19 +137,21 @@ public class ManagedProfileTest extends AndroidTestCase {
             }
         }.run();
 
-        if (mResultListener.await(TIMEOUT_SECONDS)) {
+        if (mResultListener.await(PROVISIONING_RESULT_TIMEOUT_SECONDS)) {
             assertTrue(mResultListener.getResult());
         } else {
-            fail("timeout: " + TIMEOUT_SECONDS + " seconds");
+            fail("timeout: " + PROVISIONING_RESULT_TIMEOUT_SECONDS + " seconds");
         }
     }
 
     private abstract class EspressoClickRetryActions {
         private final int mRetries;
+        private final long mDelayMillis;
         private int i = 0;
 
-        EspressoClickRetryActions(int retries) {
+        EspressoClickRetryActions(int retries, long delayMillis) {
             mRetries = retries;
+            mDelayMillis = delayMillis;
         }
 
         public abstract ViewInteraction newViewInteraction1();
@@ -168,6 +167,7 @@ public class ManagedProfileTest extends AndroidTestCase {
         private void handleFailure(Throwable e, Matcher<View> matcher) {
             Log.i(TAG, "espresso handleFailure count: " + i, e);
             if (i < mRetries) {
+                SystemClock.sleep(mDelayMillis);
                 run();
             } else {
                 new DefaultFailureHandler(getContext()).handle(e, matcher);
