@@ -21,6 +21,7 @@ LOCAL_JAVA_LIBRARIES := \
 LOCAL_STATIC_JAVA_LIBRARIES := managedprovisioning_protoslite
 
 LOCAL_INSTRUMENTATION_FOR := ManagedProvisioning
+LOCAL_COMPATIBILITY_SUITE := general-tests
 
 LOCAL_MODULE_TAGS := optional
 
