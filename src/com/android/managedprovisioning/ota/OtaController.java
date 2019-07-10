@@ -33,7 +33,6 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArraySet;
 import android.view.inputmethod.InputMethod;
-import android.view.inputmethod.InputMethodSystemProperty;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
@@ -72,9 +71,7 @@ public class OtaController {
 
     public OtaController(Context context) {
         this(context, new TaskExecutor(), new CrossProfileIntentFiltersSetter(context),
-                InputMethodSystemProperty.PER_PROFILE_IME_ENABLED
-                        ? userId -> getMissingSystemImePackages(context, UserHandle.of(userId))
-                        : userId -> new ArraySet<>(),
+                userId -> getMissingSystemImePackages(context, UserHandle.of(userId)),
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
                         new ManagedProvisioningSharedPreferences(context)));
