@@ -60,21 +60,6 @@ public class SettingsFacade {
     }
 
     /**
-     * Sets whether package verification is enabled or not.
-     */
-    public void setPackageVerifierEnabled(Context context, boolean packageVerifierEnabled) {
-        Global.putInt(context.getContentResolver(), PACKAGE_VERIFIER_ENABLE,
-                packageVerifierEnabled ? 1 : 0);
-    }
-
-    /**
-     * Returns whether package verification is enabled or not.
-     */
-    public boolean isPackageVerifierEnabled(Context context) {
-        return Global.getInt(context.getContentResolver(), PACKAGE_VERIFIER_ENABLE, 0) != 0;
-    }
-
-    /**
      * Sets whether profile contact remote search is enabled.
      */
     public void setProfileContactRemoteSearch(Context context, boolean allowed, int userId) {
