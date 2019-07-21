@@ -217,6 +217,7 @@ public class ProvisioningAnalyticsTracker {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_TERMS_COUNT, count);
         mMetricsWriter.write(DevicePolicyEventLogger
                 .createEvent(DevicePolicyEnums.PROVISIONING_TERMS_COUNT)
+                .setInt(count)
                 .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
     }
 
