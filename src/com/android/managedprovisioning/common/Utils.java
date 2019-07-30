@@ -27,6 +27,9 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
 import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
+import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
@@ -35,6 +38,7 @@ import static com.android.managedprovisioning.model.ProvisioningParams.PROVISION
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
 
 import android.annotation.WorkerThread;
+import android.net.NetworkCapabilities;
 import android.os.Handler;
 import android.os.Looper;
 import com.android.managedprovisioning.R;
@@ -92,8 +96,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import com.google.android.setupdesign.GlifLayout;
@@ -599,6 +605,27 @@ public class Utils {
     public boolean isConnectedToNetwork(Context context) {
         NetworkInfo info = getActiveNetworkInfo(context);
         return info != null && info.isConnected();
+    }
+
+    public boolean isMobileNetworkConnectedToInternet(Context context) {
+        final ConnectivityManager connectivityManager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return Arrays.stream(connectivityManager.getAllNetworks())
+                .filter(network -> {
+                    return Objects.nonNull(connectivityManager.getNetworkCapabilities(network));
+                })
+                .map(connectivityManager::getNetworkCapabilities)
+                .filter(this::isCellularNetwork)
+                .anyMatch(this::isConnectedToInternet);
+    }
+
+    private boolean isConnectedToInternet(NetworkCapabilities capabilities) {
+        return capabilities.hasCapability(NET_CAPABILITY_INTERNET)
+                && capabilities.hasCapability(NET_CAPABILITY_VALIDATED);
+    }
+
+    private boolean isCellularNetwork(NetworkCapabilities capabilities) {
+        return capabilities.hasTransport(TRANSPORT_CELLULAR);
     }
 
     /**
