@@ -30,6 +30,7 @@
   <string name="admin_has_ability_to_monitor_profile">El to alministrador tien l\'habilidá de monitorizar y xestionar los axustes, accesu corporativu, aplicaciones, permisos y datos asociaos con esti perfil, incluyendo la to actividá de rede, amás del allugamientu\'l preséu, historial de llamaes y gueta de contautos.</string>
   <string name="admin_has_ability_to_monitor_device">El to alministrador tien l\'habilidá de monitorizar y xestionar los axustes, accesu corporativu, aplicaciones, permisos, proteición anti-robu y datos asociaos con esti perfil, incluyendo la to actividá de rede y la información d\'allugamientu del preséu.</string>
   <string name="theft_protection_disabled_warning">Pa usar les carauterístiques anti-robu, has afitar una contraseña nel to preséu.</string>
+  <string name="contact_your_admin_for_more_info">Contauta col to alministrador pa más información, incluyendo les polítiques de privacidá de la to organización.</string>
   <string name="learn_more_link">Deprendi más </string>
   <string name="cancel_setup">Encaboxar</string>
   <string name="ok_setup">Aceutar</string>
@@ -40,6 +41,7 @@
   <string name="opening_paragraph_delete_profile_unknown_company">Yá esiste un perfil de trabayu y ta xestionáu por:</string>
   <string name="opening_paragraph_delete_profile_known_company">Esti perfil de trabayu xestiónalu %s usando:</string>
   <string name="read_more_delete_profile">Enantes de siguir, <a href="#read_this_link">llei esto</a>.</string>
+  <string name="sure_you_want_to_delete_profile">Si sigues, desaniciaránse toles aplicaciones y datos nesti perfil.</string>
   <string name="delete_profile">Desaniciar</string>
   <string name="cancel_delete_profile">Encaboxar</string>
   <string name="encrypt_device_text_for_profile_owner_setup">Pa siguir configurando\'l perfil de trabayu, vas precisar cifrar el preséu. Esto pue entardar daqué.</string>
@@ -55,7 +57,9 @@
   <string name="managed_provisioning_not_supported_by_launcher">El perfil de trabayu nun ta sofitáu por esti llanzador. Vas precisarás camudar a otru que seya compatible.</string>
   <string name="cancel_provisioning">Encaboxar</string>
   <string name="pick_launcher">Aceutar</string>
+  <string name="user_setup_incomplete">Configuración d\'usuariu incompleta</string>
   <string name="default_owned_device_username">Usuariu del perfil de trabayu</string>
+  <string name="setup_work_device">Configurar preséu de rede</string>
   <string name="progress_data_process">Procesando datos de configuración\u2026</string>
   <string name="progress_connect_to_wifi">Coneutando cola Wi-Fi\u2026</string>
   <string name="progress_download">Descargando l\'aplicación d\'alministración\u2026</string>
@@ -65,6 +69,7 @@
   <string name="device_owner_cancel_message">¿Para la configuración y desaniciar los datos del to preséu?</string>
   <string name="device_owner_cancel_cancel">Encaboxar</string>
   <string name="device_owner_error_ok">Aceutar</string>
+  <string name="device_owner_error_reset">Reaniciar</string>
   <string name="device_owner_error_general">Nun pudo configurase\'l to preséu. Contauta col to departamentu informáticu. </string>
   <string name="device_owner_error_already_provisioned">Esti preséu yá ta configuráu.</string>
   <string name="device_owner_error_wifi">Nun pudo coneutase cola Wi-Fi</string>
@@ -93,6 +98,8 @@
   <string name="setup_device_progress">Configura\'l to preséu. Amosando progresu</string>
   <string name="learn_more_label">Botón de deprendi más</string>
   <string name="mdm_icon_label">Iconu de <xliff:g id="icon_label" example="Test App">%1$s</xliff:g></string>
+  <string name="cancel_setup_and_factory_reset_dialog_title">¿Finar configuración y reafitamientu?</string>
+  <string name="cancel_setup_and_factory_reset_dialog_msg">Finar esta configuración reafitará\'l to preséu y volveráte a la primer pantalla.</string>
   <string name="cancel_setup_and_factory_reset_dialog_cancel">Encaboxar</string>
   <string name="cancel_setup_and_factory_reset_dialog_ok">Reafitar preséu</string>
 </resources>
