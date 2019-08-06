@@ -25,6 +25,8 @@ import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
+import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
@@ -124,7 +126,8 @@ public class Utils {
         List<ApplicationInfo> aInfos = null;
         try {
             aInfos = ipm.getInstalledApplications(
-                    PackageManager.MATCH_UNINSTALLED_PACKAGES, userId).getList();
+                    MATCH_UNINSTALLED_PACKAGES | MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS, userId)
+                    .getList();
         } catch (RemoteException neverThrown) {
             ProvisionLogger.loge("This should not happen.", neverThrown);
         }
