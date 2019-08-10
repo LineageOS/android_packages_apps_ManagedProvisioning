@@ -167,7 +167,7 @@
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Préparation pour la configuration professionnelle…"</string>
     <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Commencez par configurer votre profil professionnel"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurer votre profil professionnel"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les applications professionnelles sont conservées dans votre profil professionnel"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les applis professionnelles sont dans votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Mettez vos applis professionnelles en pause quand vous avez fini de travailler"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Votre administrateur informatique n\'a accès qu\'aux données du profil professionnel"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configuration de votre profil professionnel…"</string>
