@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"වැඩ උපාංගය පිහිටුවමින්..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"පිහිටුවීම් දත්ත සකසමින්..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi වෙත සම්බන්ධ වෙමින්..."</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ජංගම ජාලයට සම්බන්ධ වෙමින්..."</string>
     <string name="progress_download" msgid="3522436271691064624">"පරිපාලක යෙදුම බාගනිමින්..."</string>
     <string name="progress_install" msgid="2258045670385866183">"පරිපාලක යෙදුම ස්ථාපනය කරමින්..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"අවශ්‍ය නොවන පද්ධති යෙදුම් ඉවත් කරමින්..."</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ඔබගේ උපාංගය පිහිටුවීමට නොහැකි විය. උදව් සඳහා ඔබේ පරිපාලක සම්බන්ධ කරගන්න."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"උදව් සඳහා ඔබේ පරිපාලක සම්බන්ධ කරගන්න"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"උපාංගය දැනටමත් පිහිටුවා තිබේ"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi වෙත සම්බන්ධ විය නොහැක"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi වෙත සම්බන්ධ වීමට නොහැකි විය"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ඔබගේ උපාංගයේ යළි සැකසීමේ ආරක්ෂාව සක්‍රිය කර තිබේ. උදව් සඳහා ඔබේ පරිපාලක සම්බන්ධ කරගන්න."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"මකමින්"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"කරුණාකර රැඳී සිටින්න..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"චෙක්සම් දෝෂය හේතුවෙන් පරිපාලක යෙදුම භාවිතා කළ නොහැක. උදව් සඳහා ඔබේ පරිපාලක සම්බන්ධ කරගන්න."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"පරිපාලක යෙදුම බාගැනීම කළ නොහැක."</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"පරිපාලක යෙදුම භාවිතා කළ නොහැක. එහි අංශ නැත හෝ විකෘති වී ඇත. උදව් සඳහා ඔබේ පරිපාලක සම්බන්ධ කරගන්න"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"පරිපාලක යෙදුම ස්ථාපනය කළ නොහැක."</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"චෙක්සම් දෝෂයක් හේතුවෙන් පරිපාලක යෙදුම භාවිත කළ නොහැකි විය. උදවු සඳහා, ඔබේ පරිපාලක සම්බන්ධ කර ගන්න."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"පරිපාලක යෙදුම බාගැනීම කළ නොහැක."</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"පරිපාලක යෙදුම භාවිත කළ නොහැක. කොටස් මඟ හැරී හෝ විකෘති වී ඇත. උදවු සඳහා, ඔබේ පරිපාලක සම්බන්ධ කර ගන්න."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"පරිපාලක යෙදුම ස්ථාපනය කළ නොහැක."</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"පිහිටුවීම නවත්වන්නද?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"නැත"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ඔව්"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"ඔබ ඔබේ සංවිධානය මගින් කළමනාකරණය සහ නිරීක්ෂණය කරන කාර්යාල පැතිකඩක් සෑදීමට සූදානම්ය. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> වෙතින් වන කොන්දේසි අදාළ වේ."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"ඔබේ කාර්යාල යෙදුම් සඳහා පැතිකඩක් සාදනු ඇත. මෙම පැතිකඩ සහ ඔබේ උපාංගයෙහි ඉතිරි දේවල් ඔබේ සංවිධානය මගින් කළමනාකරණය සහ නිරීක්ෂණය කරනු ඇත. කොන්දේසි වලට යටත් වේ."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"ඔබේ කාර්යාල යෙදුම් සඳහා පැතිකඩක් සාදනු ඇත. මෙම පැතිකඩ සහ ඔබේ උපාංගයෙහි ඉතිරි දේවල් ඔබේ සංවිධානය මගින් කළමනාකරණය සහ නිරීක්ෂණය කරනු ඇත. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> වෙතින් වන කොන්දේසි අදාළ වේ."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"මෙම උපාංගය <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> විසින් කළමනාකරණය කිරීම සහ ආරක්ෂිතව තබා ගැනීම සිදු කරනු ඇත. කොන්දේසි වලට යටත් වේ. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"මෙම උපාංගය <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> විසින් කළමනාකරණය කිරීම සහ ආරක්ෂිතව තබා ගැනීම සිදු කරනු ඇත. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> වෙතින් වන කොන්දේසි අදාළ වේ. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"මෙම උපාංගය පාලනය, නිරික්ෂණය සහ ආරක්ෂිතව තබා ගැනීම <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> මගින් කරනු ලැබේ. නියම අදාළ වේ. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"මෙම උපාංගය පාලනය, නිරික්ෂණය සහ ආරක්ෂිතව තබා ගැනීම <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> මගින් කරනු ලැබේ. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>වෙතින් වන නියම අදාළ වේ. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"මෙම සබැඳිය ආරක්‍ෂිත නැති අතර උපාංග ස්ථාපනය අවසන් වන තෙක් එය විවෘත කිරීමට නොහැක: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"ඔබට ප්‍රශ්න තිබේ නම්, ඔබේ <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> අමතන්න."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"ඔබට ප්‍රශ්න තිබේ නම්, ඔබේ සංවිධානයේ පරිපාලකයා අමතන්න."</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"ඔබගේ සංවිධානය"</string>
     <string name="view_terms" msgid="7230493092383341605">"නියම බලන්න"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"පිළිගෙන ඉදිරියට යන්න"</string>
-    <string name="close" msgid="7208600934846389439">"වසන්න"</string>
+    <string name="back" msgid="6455622465896147127">"ආපසු"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"ඔබගේ උපාංගය පිහිටුවන්න"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"ඔබ වැඩ කරන ආකාරය වෙනස් කරන්න"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"කාර්යාල සහ පුද්ගලික දේවල් වෙන් කරන්න"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"මේ සඳහා මිනිත්තු කිහිපයක් ගත විය හැකිය"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"ඔබගේ කාර්ය යෙදුම් මෙම පැතිකඩෙහි තබනු ඇති අතර ඔබේ සංවිධානය විසින් කළමනාකරණය කරනු ඇත"</string>
     <string name="device_owner_description" msgid="168013145812679664">"මෙම උපාංගය ඔබේ සංවිධානය විසින් සුරක්ෂිතව තබා ගැනීම සහ කළමනාකරණය කිරිම කරනු ලැබේ"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"වැඩ උපාංගය සැකසීමට සූදානම් වෙමින්…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"පරිපාලක යෙදුම සැකසීම"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"අනෙකුත් සියල්ල සකසන්න"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"දැන්, අනෙකුත් සියල්ල සකසමු"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ඔබේ සංවිධානය මෙම දුරකථනය කළමනා කරයි"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"මෙම දුරකථනය කළමනා කිරීමටත් නිරීක්‍ෂණ කිරීමටත් පහත සඳහන් යෙදුම භාවිත කෙරේ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"පරිපාලක යෙදුම බාගනිමින්…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"පළමුව, ඔබේ වැඩ පැතිකඩ සකසමු"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"වැඩ සහ ක්‍රීඩාව සඳහා එකම දුරකථනය භාවිත කරන්න"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"වෙනම කාර්යය සහ පුද්ගලික දත්ත"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ඔබ අවසන් කළ විට වසා දමන්න"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"කාර්යාල පැතිකඩක් සාදමින්…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"ඔබේ කාර්යාල දුරකථනය සකසමු"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ඉක්මනින් සම්බන්ධ කරන්න"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"වැඩ දත්ත ආරක්ෂිතයි සහ සුරක්ෂිතයි"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ඔබේ සංවිධානය මෙම දුරකථනය කළමනා කරයි"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ඔබේ සංවිධානය සඳහාම යෙදුම් සොයා ගන්න"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"ඔබේ කළමනා කෙරෙන උපාංගය සැකසීම…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ඔබේ දුරකථනය භාවිතයට සූදානම්!"</string>
+    <string name="done" msgid="7755227776955952318">"කළා"</string>
 </resources>

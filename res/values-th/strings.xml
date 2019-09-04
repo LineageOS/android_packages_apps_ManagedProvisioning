@@ -32,7 +32,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"ผู้ดูแลระบบสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับอุปกรณ์นี้ ซึ่งรวมถึงกิจกรรมในเครือข่ายของคุณ ตลอดจนตำแหน่งของอุปกรณ์ ประวัติการโทร และประวัติการค้นหารายชื่อติดต่อ<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>โปรดติดต่อผู้ดูแลระบบเพื่อสอบถามข้อมูลเพิ่มเติม รวมทั้งนโยบายความเป็นส่วนตัวขององค์กร"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"หากต้องการใช้ฟีเจอร์การป้องกันขโมย อุปกรณ์ของคุณต้องมีการล็อกหน้าจอที่ป้องกันด้วยรหัสผ่าน"</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"ติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม รวมถึงนโยบายความเป็นส่วนตัวขององค์กร"</string>
-    <string name="learn_more_link" msgid="3012495805919550043">"เรียนรู้เพิ่มเติม"</string>
+    <string name="learn_more_link" msgid="3012495805919550043">"ดูข้อมูลเพิ่มเติม"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ยกเลิก"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ตกลง"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ฉันยินยอม"</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"กำลังตั้งค่าอุปกรณ์ที่ทำงาน…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"กำลังดำเนินการกับข้อมูลการตั้งค่า…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"กำลังเชื่อมต่อ Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"กำลังเชื่อมต่อเครือข่ายมือถือ…"</string>
     <string name="progress_download" msgid="3522436271691064624">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"กำลังติดตั้งแอปผู้ดูแลระบบ…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"กำลังนำแอประบบที่ไม่จำเป็นออก…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"ไม่สามารถตั้งค่าอุปกรณ์ โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ตั้งค่าอุปกรณ์แล้ว"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"ไม่สามารถเชื่อมต่อ Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"เชื่อมต่อ Wi-Fi ไม่ได้"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"อุปกรณ์เปิดการป้องกันการรีเซ็ตไว้ โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"กำลังลบ"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"โปรดรอสักครู่..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"ไม่สามารถใช้แอปผู้ดูแลระบบเนื่องจากเกิดข้อผิดพลาดเกี่ยวกับ Checksum โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"ไม่สามารถดาวน์โหลดแอปผู้ดูแลระบบได้"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"ไม่สามารถใช้แอปผู้ดูแลระบบเนื่องจากองค์ประกอบไม่ครบหรือแอปเสียหาย โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"ไม่สามารถติดตั้งแอปผู้ดูแลระบบได้"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"ใช้แอปผู้ดูแลระบบไม่ได้เนื่องจากเกิดข้อผิดพลาดเกี่ยวกับ Checksum โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ดาวน์โหลดแอปผู้ดูแลระบบไม่ได้"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"ใช้แอปผู้ดูแลระบบไม่ได้เนื่องจากองค์ประกอบไม่ครบหรือแอปเสียหาย โปรดติดต่อผู้ดูแลระบบเพื่อรับความช่วยเหลือ"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ติดตั้งแอปผู้ดูแลระบบไม่ได้"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"หยุดการตั้งค่าใช่ไหม"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ไม่"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ใช่"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"คุณกำลังจะสร้างโปรไฟล์งานซึ่งจะมีองค์กรของคุณเป็นผู้จัดการและตรวจสอบ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"จะมีการสร้างโปรไฟล์สำหรับแอปงานของคุณ องค์กรของคุณจะเป็นผู้จัดการและตรวจสอบโปรไฟล์นี้และส่วนที่เหลือของอุปกรณ์ โดยจะเป็นไปตามข้อกำหนด"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"จะมีการสร้างโปรไฟล์สำหรับแอปงานของคุณ องค์กรของคุณจะเป็นผู้จัดการและตรวจสอบโปรไฟล์นี้และส่วนที่เหลือของอุปกรณ์ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>"</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการและรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนด <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการและรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการ ตรวจสอบ และรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนด <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>จะเป็นผู้จัดการ ตรวจสอบ และรักษาความปลอดภัยให้อุปกรณ์นี้ โดยจะเป็นไปตามข้อกำหนดของ <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ลิงก์นี้ไม่ปลอดภัยและไม่สามารถเปิดได้จนกว่าจะตั้งค่าอุปกรณ์เสร็จสิ้น: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"โปรดติดต่อ<xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>หากมีคำถาม"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"โปรดติดต่อผู้ดูแลระบบขององค์กรหากมีคำถาม"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"องค์กรของคุณ"</string>
     <string name="view_terms" msgid="7230493092383341605">"ดูข้อกำหนด"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"ยอมรับและดำเนินการต่อ"</string>
-    <string name="close" msgid="7208600934846389439">"ปิด"</string>
+    <string name="back" msgid="6455622465896147127">"กลับ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"ตั้งค่าอุปกรณ์"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"เปลี่ยนวิธีการทำงานของคุณ"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"แยกงานออกจากเรื่องส่วนตัว"</string>
@@ -135,7 +136,7 @@
     <string name="setup_device" msgid="6725265673245816366">"ตั้งค่าอุปกรณ์"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"ตั้งค่าอุปกรณ์ การเข้ารหัส"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"ตั้งค่าอุปกรณ์ กำลังแสดงความคืบหน้า"</string>
-    <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มเรียนรู้เพิ่มเติม"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"ปุ่มดูข้อมูลเพิ่มเติม"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"ไอคอน <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"หัวข้อของส่วน <xliff:g id="SECTION_HEADING">%1$s</xliff:g>"</string>
     <string name="section_content" msgid="8875502515704374394">"เนื้อหาของส่วน <xliff:g id="SECTION_HEADING">%1$s</xliff:g> คือ <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"อาจใช้เวลาสักครู่"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"แอปงานจะเก็บอยู่ในโปรไฟล์นี้และจัดการโดยองค์กรของคุณ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"อุปกรณ์นี้จะได้รับการรักษาความปลอดภัยและจัดการโดยองค์กรของคุณ"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"กำลังเตรียมตั้งค่าอุปกรณ์สำหรับการทำงาน…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"กำลังตั้งค่าแอปผู้ดูแลระบบ"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"ตั้งค่าอื่นๆ"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"คราวนี้มาตั้งค่าอื่นๆ กัน"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"องค์กรของคุณจะจัดการโทรศัพท์เครื่องนี้"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"แอปต่อไปนี้จะใช้เพื่อจัดการและตรวจสอบโทรศัพท์เครื่องนี้"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"กำลังดาวน์โหลดแอปพลิเคชันผู้ดูแลระบบ…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ก่อนอื่นมาตั้งค่าโปรไฟล์งานกัน"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ใช้โทรศัพท์เครื่องเดียวสำหรับเรื่องงานและเรื่องส่วนตัว"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"แยกข้อมูลงานและข้อมูลส่วนตัวออกจากกัน"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"ปิดเมื่อใช้เสร็จแล้ว"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"กำลังสร้างโปรไฟล์งาน…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"มาตั้งค่าโทรศัพท์สำหรับการทำงานกัน"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"เชื่อมต่อทุกที่ทุกเวลา"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ข้อมูลงานปลอดภัยอย่างมั่นใจได้"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"องค์กรของคุณจะจัดการโทรศัพท์เครื่องนี้"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"หาแอปสำหรับองค์กรของคุณเท่านั้น"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"กำลังตั้งค่าอุปกรณ์ที่มีการจัดการของคุณ…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"โทรศัพท์พร้อมใช้งานแล้ว"</string>
+    <string name="done" msgid="7755227776955952318">"เสร็จสิ้น"</string>
 </resources>

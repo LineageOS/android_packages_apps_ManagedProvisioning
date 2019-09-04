@@ -28,8 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Den følgende app vil styre din enhed:"</string>
     <string name="next" msgid="1004321437324424398">"Næste"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Arbejdsprofilen konfigureres..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne profil, herunder din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontaktpersoner. <xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakt din administrator for at få flere oplysninger, herunder om din organisations privatlivspolitik."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontaktpersoner.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakt din administrator for at få flere oplysninger, f.eks. om din organisations privatlivspolitik."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="4552308842716093826">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne profil, herunder din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakt din administrator for at få flere oplysninger, herunder om din organisations privatlivspolitik."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="8598573866079474861">"Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakt din administrator for at få flere oplysninger, f.eks. om din organisations privatlivspolitik."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hvis du vil bruge funktionen, der beskytter mod tyveri, skal din enhed have en skærmlås med en tilhørende adgangskode."</string>
     <string name="contact_your_admin_for_more_info" msgid="5959191345827902911">"Kontakt din administrator for at få flere oplysninger, herunder om din organisations privatlivspolitik."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Få flere oplysninger"</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Arbejdsenheden konfigureres..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Behandler konfigurationsdata…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Opretter forbindelse til Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Opretter forbindelse til netværk…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Downloader administrationsappen…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Installerer administrationsappen…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Fjerner systemapps, der ikke er påkrævede…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Enheden kunne ikke konfigureres. Kontakt din administrator for at få hjælp."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Kontakt din administrator for at få hjælp"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Enheden er allerede konfigureret"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Der kunne ikke oprettes forbindelse til Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Der kunne ikke oprettes Wi-Fi-forbindelse"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Din enhed har aktiveret beskyttelse mod nulstilling. Kontakt din administrator for at få hjælp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter…"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent et øjeblik…"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Administrationsappen kunne ikke bruges på grund af en fejl i kontrolsummen. Kontakt din administrator for at få hjælp."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Administrationsappen kunne ikke hentes"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Administrationsappen kan ikke bruges. Den mangler komponenter eller er beskadiget. Kontakt din administrator for at få hjælp."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Administrationsappen kunne ikke installeres"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Administrationsappen kunne ikke bruges på grund af en fejl i kontrolsummen. Kontakt din administrator for at få hjælp."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Administrationsappen kunne ikke downloades"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Administrationsappen kan ikke bruges. Den mangler komponenter eller er beskadiget. Kontakt din administrator for at få hjælp."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Administrationsappen kunne ikke installeres"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Vil du standse konfigurationen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nej"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Du er ved at oprette en arbejdsprofil, som administreres og overvåges af din organisation. Vilkår fra <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> er gældende."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Der oprettes en profil til dine arbejdsapps. Denne profil og resten af din enhed administreres og overvåges af din organisation. Vilkår er gældende."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Der oprettes en profil til dine arbejdsapps. Denne profil og resten af din enhed administreres og overvåges af din organisation. Vilkår fra <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> er gældende."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"Denne enhed administreres og beskyttes af <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Vilkår er gældende. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Denne enhed administreres og beskyttes af <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Vilkår fra <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> er gældende. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"Denne enhed administreres, overvåges og beskyttes af <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Vilkår er gældende. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Denne enhed administreres, overvåges og beskyttes af <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Vilkår fra <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> er gældende. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Dette link er ikke sikkert og kan ikke åbnes, før konfigurationen er gennemført: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Kontakt <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>, hvis du har nogen spørgsmål."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Kontakt din organisations administrator, hvis du har nogen spørgsmål"</string>
@@ -119,13 +120,13 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"din organisation"</string>
     <string name="view_terms" msgid="7230493092383341605">"Se vilkår"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Acceptér og fortsæt"</string>
-    <string name="close" msgid="7208600934846389439">"Luk"</string>
+    <string name="back" msgid="6455622465896147127">"Tilbage"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Konfigurer din enhed"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"En ny måde at arbejde på"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Adskil arbejde og privatliv"</string>
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"Ét sted til arbejdsapps"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"Luk for arbejdet, når du er færdig"</string>
-    <string name="provisioning" msgid="4512493827019163451">"Leverer"</string>
+    <string name="provisioning" msgid="4512493827019163451">"Provisionerer"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Konfigurerer CA-certifikater"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Konfigurer din profil"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"Ved at bruge en arbejdsprofil kan du adskille arbejdsdata fra personlige data"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Dette kan tage et par minutter"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Dine arbejdsapps bliver i denne profil og administreres af din organisation"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Denne enhed beskyttes og administreres af din organisation"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Forbereder konfigurationen af arbejdsenheden…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurerer administrationsappen"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Konfigurer resten"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Lad os konfigurere resten"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Din organisation administrerer denne telefon"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app bruges til at administrere eller overvåge denne telefon"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Downloader administratorapp…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Lad os starte med at konfigurere din arbejdsprofil"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Brug én telefon til arbejde og fritid"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Hold dine arbejdsdata og private oplysninger adskilt"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Sluk, når du er færdig"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Opretter arbejdsprofil…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Lad os konfigurere din arbejdstelefon"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Opret forbindelse på farten"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Arbejdsdata opbevares trygt og sikkert"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Din organisation administrerer denne telefon"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Find apps specifikt til din organisation"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Konfigurerer din administrerede enhed…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Din telefon er klar til brug"</string>
+    <string name="done" msgid="7755227776955952318">"Udfør"</string>
 </resources>

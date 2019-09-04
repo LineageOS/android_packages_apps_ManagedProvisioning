@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Жумуш түзмөгүңүз жөндөлүүдө…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Орнотуу дайындары иштетилүүдө…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi\'га туташууда…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Мобилдик тармакка туташууда…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Администратор колдонмосу жүктөлүп алынууда…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Администратор колдонмосу орнотулууда…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Керексиз тутум колдонмолорун алып салууда..."</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"Түзмөк жөндөлбөй койду. Жардам алуу үчүн администраторуңузга кайрылыңыз."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"Жардам алуу үчүн администраторуңузга кайрылыңыз"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Түзмөк мурда жөндөлгөн"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fi\'га туташкан жок"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi\'га туташкан жок"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"Түзмөгүңүздө баштапкы абалга келтирүүдөн коргоо функциясы иштетилген. Жардам алуу үчүн администраторуңузга кайрылыңыз."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Өчүрүүдө"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Күтө туруңуз…"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"Жыйынтыктоочу сумма катасынан улам, администратордун колдонмосу иштеген жок. Жардам алуу үчүн администраторуңузга кайрылыңыз."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"Администратор колдонмосу жүктөлүп алынган жок"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"Администратор колдонмосу иштебей жатат. Анын айрым курамдык бөлүктөрү жок же бузук. Жардам алуу үчүн администраторуңузга кайрылыңыз."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"Администратор колдонмосу орнотулган жок"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"Жыйынтыктоочу сумма катасынан улам администратор колдонмосу иштеген жок. Жардам алуу үчүн администраторуңузга кайрылыңыз."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Администратор колдонмосу жүктөлүп алынган жок"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"Администратор колдонмосу иштебей жатат. Анын айрым курамдык бөлүктөрү жок же бузук. Жардам алуу үчүн администраторуңузга кайрылыңыз."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Администратор колдонмосу орнотулган жок"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Орнотуу токтотулсунбу?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Жок"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ооба"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Жумуш профилин түзгөнү жатасыз. Аны ишканаңыз көзөмөлдөп, башкарат. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> шарттары колдонулат."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Профиль жумушка керектүү колдонмолоруңуз үчүн түзүлөт. Бул профилди жана түзмөгүңүздүн башка бөлүгүн ишканаңыз көзөмөлдөп, башкарат. Шарттар колдонулат."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Профиль жумушка керектүү колдонмолоруңуз үчүн түзүлөт. Бул профилди жана түзмөгүңүздүн башка бөлүгүн ишканаңыз көзөмөлдөп, башкарат. <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> шарттары колдонулат."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"Бул түзмөк <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> тарабынан башкарылып, коопсуздугу сакталат. Шарттар колдонулат. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"Бул түзмөк <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> тарабынан башкарылып, коопсуздугу сакталат. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> шарттары колдонулат. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"Бул түзмөк <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> тарабынан башкарылып, көзөмөлдөнүп, коопсуздугу сакталат. Шарттар колдонулат. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Бул түзмөк <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> тарабынан башкарылып, көзөмөлдөнүп, коопсуздугу сакталат. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> шарттары колдонулат. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Бул шилтеме кооптуу жана түзмөк жөндөлмөйүнчө аны ачууга болбойт: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"Суроолоруңуз болсо, <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> менен байланышыңыз."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"Суроолоруңуз болсо, ишканаңыздын администраторуна кайрылыңыз."</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"сиздин ишкана"</string>
     <string name="view_terms" msgid="7230493092383341605">"Шарттарды карап көрүңүз"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Кабыл алып, улантуу"</string>
-    <string name="close" msgid="7208600934846389439">"Жабуу"</string>
+    <string name="back" msgid="6455622465896147127">"Артка"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Түзмөгүңүздү жөндөп алыңыз"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"Жаңыча иштеп баштаңыз"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Жумушка тиешелүү дайындарды жеке дайындардан ажыратыңыз"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"Бул бир нече мүнөткө созулушу мүмкүн"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Жумуш колдонмолоруңуз бул профилде сакталып, уюмуңуз тарабынан башкарылат"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Бул түзмөктүн коопсуздугу корголуп, уюмуңуз тарабынан башкарылат"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"Жумуш түзмөгү жөндөөгө даярдалууда…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Администратор колдонмосун жөндөө"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"Башка параметрлерди жөндөө"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Эми, башка параметрлерди да жөндөп алалы"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"Бул түзмөктү уюмуңуз башкарат"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Бул телефон төмөнкү колдонмо аркылуу башкарылып, көзөмөлдөнөт"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"Администратор колдонмосу жүктөлүп алынууда…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Биринчи, жумуш профилиңизди жөндөп алалы"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"Жумуш менен оюн-зоок үчүн бир телефонду колдонуңуз"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"Жумуш жана жеке дайындарды ажыратуу"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"Иштеп бүткөнүңүздөн кийин өчүрүп коюңуз"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"Жумуш профили түзүлүүдө…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"Келиңиз, жумуш телефонуңузду жөндөп алалы"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"Жолдо баратып туташуу"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"Жумуш дайындары коопсуз жана сак"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"Бул түзмөктү уюмуңуз башкарат"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"Уюмуңузга арналган колдонмолорду табыңыз"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"Башкарылган түзмөгүңүз жөндөлүүдө…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"Телефонуңуз даяр!"</string>
+    <string name="done" msgid="7755227776955952318">"Бүттү"</string>
 </resources>

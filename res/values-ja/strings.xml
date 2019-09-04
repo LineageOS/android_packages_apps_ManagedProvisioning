@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"仕事用端末を設定中…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"セットアップデータを処理しています…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiに接続しています…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"モバイル ネットワークに接続しています…"</string>
     <string name="progress_download" msgid="3522436271691064624">"管理アプリをダウンロードしています…"</string>
     <string name="progress_install" msgid="2258045670385866183">"管理アプリをインストールしています…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"不要なシステムアプリを削除しています…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"端末をセットアップできませんでした。詳しくは管理者にお問い合わせください。"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"詳しくは管理者にお問い合わせください"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"端末はすでにセットアップされています"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"Wi-Fiに接続できませんでした"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi に接続できませんでした"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"この端末では出荷時設定へのリセット保護が有効になっています。詳しくは管理者にお問い合わせください。"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"消去中"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"お待ちください..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"チェックサムエラーのため管理アプリを使用できませんでした。詳しくは管理者にお問い合わせください。"</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"管理アプリをダウンロードできませんでした"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"管理アプリを使用できません。このアプリはコンポーネントがないか、破損しています。詳しくは管理者にお問い合わせください。"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"管理アプリをインストールできませんでした"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"チェックサム エラーのため管理アプリを使用できませんでした。詳しくは、管理者にお問い合わせください。"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"管理アプリをダウンロードできませんでした"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"管理アプリを使用できません。このアプリはコンポーネントがないか、破損しています。詳しくは管理者にお問い合わせください。"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"管理アプリをインストールできませんでした"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"セットアップを中止しますか？"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"いいえ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"はい"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"仕事用プロファイルを作成しようとしています。このプロファイルは組織によって管理および監視されます。<xliff:g id="TERMS_HEADERS">%1$s</xliff:g> の利用規約が適用されます。"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"仕事用アプリのプロファイルが作成されます。このプロファイルと端末の残りの設定は組織によって管理および監視されます。利用規約が適用されます。"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"仕事用アプリのプロファイルが作成されます。このプロファイルと端末の残りの設定は組織によって管理および監視されます。<xliff:g id="TERMS_HEADERS">%1$s</xliff:g> の利用規約が適用されます。"</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"この端末は<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>によって管理され、安全に保護されます。利用規約が適用されます。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"この端末は<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>によって管理され、安全に保護されます。<xliff:g id="TERMS_HEADERS">%2$s</xliff:g> の利用規約が適用されます。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"この端末は<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>によって管理され、安全に保護されます。利用規約が適用されます。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"この端末は<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>によって管理され、安全に保護されます。<xliff:g id="TERMS_HEADERS">%2$s</xliff:g> の利用規約が適用されます。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"このリンク（<xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>）は安全ではないため、端末のセットアップが完了するまで開けません。"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"ご不明な点がある場合は、<xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>にお問い合わせください。"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"ご不明な点がある場合は、組織の管理者にお問い合わせください"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"あなたの組織"</string>
     <string name="view_terms" msgid="7230493092383341605">"規約を表示"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"同意して続行"</string>
-    <string name="close" msgid="7208600934846389439">"閉じる"</string>
+    <string name="back" msgid="6455622465896147127">"戻る"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"端末を設定してください"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"効率よく仕事できるようになります"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"仕事とプライベートを区別"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"この処理には数分かかることがあります"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"仕事用アプリはこのプロファイルに保存され、組織によって保護されます"</string>
     <string name="device_owner_description" msgid="168013145812679664">"この端末は組織によって管理され、安全に保護されます"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"仕事用デバイスのセットアップを準備しています…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"管理アプリをセットアップしています"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"他の項目をすべて設定する"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"他の項目をすべて設定しましょう"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"このスマートフォンは組織で管理されます"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"このスマートフォンの管理には以下のアプリを使用します"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"管理アプリをダウンロードしています…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"まず、仕事用プロファイルをセットアップしましょう"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"1 台のスマートフォンを仕事とプライベートに使用する"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"仕事用データと個人データは分けて保存される"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"仕事を終えたら OFF に切り替える"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"仕事用プロファイルを作成しています…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"仕事用のスマートフォンをセットアップしましょう"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"外出中に接続"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"仕事用のデータは安全で、保護されています"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"このスマートフォンは組織で管理されます"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"組織専用のアプリを探す"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"管理対象デバイスをセットアップしています…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"スマートフォンのセットアップが完了しました"</string>
+    <string name="done" msgid="7755227776955952318">"完了"</string>
 </resources>

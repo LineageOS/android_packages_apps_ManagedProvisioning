@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"正在设置工作设备…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"正在处理设置数据…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在连接到 WLAN 网络…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"正在连接到移动网络…"</string>
     <string name="progress_download" msgid="3522436271691064624">"正在下载管理应用…"</string>
     <string name="progress_install" msgid="2258045670385866183">"正在安装管理应用…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"正在移除不需要的系统应用…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"无法设置设备。如需帮助，请与您的管理员联系。"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"如需帮助，请与您的管理员联系"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"设备已经过设置"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"无法连接到WLAN"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"无法连接到 WLAN"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"您的设备已开启恢复出厂设置保护功能。如需帮助，请与您的管理员联系。"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"正在清除"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"请稍候…"</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"由于校验和错误，无法使用此管理应用。如需帮助，请与您的管理员联系。"</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"无法下载管理应用"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"由于缺少组件或软件包已损坏，无法使用此管理应用。如需帮助，请与您的管理员联系。"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"无法安装管理应用"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"由于校验和错误，无法使用此管理应用。如需帮助，请与您的管理员联系。"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"无法下载管理应用"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"无法使用此管理应用，因为此应用缺少组件或已损坏。如需帮助，请与您的管理员联系。"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"无法安装管理应用"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"要停止设置吗？"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"否"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"是"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"您即将创建工作资料，该工作资料将由您所在的单位管理和监控。相应行为受“<xliff:g id="TERMS_HEADERS">%1$s</xliff:g>”的相关条款约束。"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"系统将为您的工作应用创建工作资料。该工作资料和您设备的其他内容将由您所在的单位管理和监控。相应行为受相关条款约束。"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"系统将为您的工作应用创建工作资料。此工作资料和您设备的其他内容将由您所在的单位管理和监控。相应行为受“<xliff:g id="TERMS_HEADERS">%1$s</xliff:g>”的相关条款约束。"</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理，并确保其安全。相应行为受相关条款约束。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理，并确保其安全。相应行为受“<xliff:g id="TERMS_HEADERS">%2$s</xliff:g>”的相关条款约束。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理、监控，并确保其安全。相应行为受相关条款约束。<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"此设备将由<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>负责管理、监控，并确保其安全。相应行为受<xliff:g id="TERMS_HEADERS">%2$s</xliff:g>的相关条款约束。<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"下面这个链接不安全，在设备设置完成之前都无法打开：<xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"如有疑问，请与您的<xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g>联系。"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"如有疑问，请与您所在单位的管理员联系"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"您的单位"</string>
     <string name="view_terms" msgid="7230493092383341605">"查看条款"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"接受并继续"</string>
-    <string name="close" msgid="7208600934846389439">"关闭"</string>
+    <string name="back" msgid="6455622465896147127">"返回"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"设置设备"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"改变您的工作方式"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"将工作数据与个人数据隔离开"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"这可能需要几分钟的时间"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"您的工作应用将保存在此工作资料中，并由贵单位管理"</string>
     <string name="device_owner_description" msgid="168013145812679664">"此设备将由贵单位确保其安全并负责管理"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"正在准备设置工作设备…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"设置管理应用"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"设置所有其他内容"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"现在，请设置所有其他内容"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"贵单位将管理此手机"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"正在下载管理应用…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"首先，请设置您的工作资料"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"使用同一部手机工作和玩乐"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"将工作数据与个人数据分开"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"完成后关闭"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"正在创建工作资料…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"请设置您的工作用手机"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"随时随地保持连接"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"工作数据安全无虞"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"贵单位将管理此手机"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"查找适用于贵单位的应用"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"正在设置您的受管理设备…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"您的手机已准备就绪！"</string>
+    <string name="done" msgid="7755227776955952318">"完成"</string>
 </resources>

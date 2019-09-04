@@ -54,7 +54,7 @@
     <string name="encrypt" msgid="1749320161747489212">"رمزگذاری"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"رمزگذاری کامل شد"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"برای ادامه راه‌اندازی نمایه کاری‌تان، ضربه بزنید"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاریتان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"نمایه کاری‌تان تنظیم نشد. با بخش فناوری اطلاعات مربوط به خودتان تماس بگیرید یا دوباره بعداً امتحان کنید."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"نمی‌توان نمایه کاری اضافه کرد"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"نمی‌توان نمایه کاری را جایگزین کرد یا برداشت"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4740182491195894659">"نمی‌توان به این دستگاه نمایه کاری اضافه کرد. اگر سؤالی دارید، با سرپرست سیستم تماس بگیرید."</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"درحال راه‌اندازی دستگاه کاری…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"درحال پردازش داده‌های تنظیم…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏در حال برقراری اتصال به Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"درحال اتصال به شبکه تلفن همراه…"</string>
     <string name="progress_download" msgid="3522436271691064624">"در حال بارگیری برنامه سرپرست…"</string>
     <string name="progress_install" msgid="2258045670385866183">"در حال نصب برنامه سرپرست…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"درحال حذف برنامه‌های غیرلازم سیستم…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"دستگاه راه‌اندازی نشد. برای دریافت راهنمایی با سرپرست سیستم تماس بگیرید."</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"برای دریافت راهنمایی با سرپرست سیستم تماس بگیرید"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"دستگاه قبلاً راه‌اندازی شده است"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"‏اتصال به Wi-Fi ممکن نیست"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"‏به Wi-Fi متصل نشد"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"محافظت در برابر بازنشانی، در دستگاه شما روشن است. برای دریافت راهنمایی با سرپرست سیستم تماس بگیرید."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"در حال پاک کردن"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"لطفاً صبر کنید..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"به دلیل خطای سرجمع (چک‌سام) نمی‌توان از برنامه سرپرست استفاده کرد. برای دریافت راهنمایی با سرپرست سیستم تماس بگیرید."</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"برنامه سرپرستی بارگیری نشد"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"نمی‌توان از برنامه سرپرست استفاده کرد. بعضی از مؤلفه‌ها در آن وجود ندارد یا خراب است. برای دریافت راهنمایی با سرپرست سیستم تماس بگیرید."</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"برنامه سرپرستی نصب نشد"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"به دلیل خطای سرجمع (چک‌سام) نمی‌توان از برنامه سرپرست استفاده کرد. برای دریافت راهنمایی، با سرپرست سیستم تماس بگیرید."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"برنامه سرپرست بارگیری نشد"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"نمی‌توان از برنامه سرپرست استفاده کرد. بعضی از مؤلفه‌ها در آن وجود ندارد یا خراب است. برای دریافت راهنمایی، با سرپرست سیستم تماس بگیرید."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"برنامه سرپرست نصب نشد"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"راه‌اندازی متوقف شود؟"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"نه"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"بله"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"می‌خواهید یک نمایه کاری ایجاد کنید که توسط سازمان شما مدیریت و پایش خواهد شد. شرایط <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> اعمال می‌شود."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"نمایه‌ای برای برنامه‌های کاری‌تان ایجاد می‌شود. این نمایه و مابقی دستگاهتان توسط سازمان شما مدیریت و پایش خواهد شد. شرایط اعمال می‌شود."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"نمایه‌ای برای برنامه‌های کاری‌تان ایجاد می‌شود. این نمایه و مابقی دستگاهتان توسط سازمان شما مدیریت و پایش خواهد شد. شرایط <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> اعمال می‌شود."</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> این دستگاه را مدیریت می‌کند و ایمن نگه می‌دارد. شرایط اعمال می‌شود. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> این دستگاه را مدیریت می‌کند و ایمن نگه می‌دارد. شرایط <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> اعمال می‌شود. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> بر این دستگاه نظارت می‌کند، آن را مدیرت می‌کند و ایمن نگه می‌دارد. شرایط اعمال می‌شوند. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> بر این دستگاه نظارت می‌کند، آن را مدیرت می‌کند و ایمن نگه می‌دارد. شرایط <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> اعمال می‌شوند. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"این پیوند ایمن نیست و تا وقتی راه‌اندازی دستگاه تمام نشود نمی‌تواند باز شود: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"اگر سؤالی دارید، با <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> خود تماس بگیرید."</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"اگر سؤالی دارید، با سرپرست سیستم سازمانتان تماس بگیرید"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"سازمان شما"</string>
     <string name="view_terms" msgid="7230493092383341605">"مشاهده شرایط"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"پذیرفتن و ادامه"</string>
-    <string name="close" msgid="7208600934846389439">"بستن"</string>
+    <string name="back" msgid="6455622465896147127">"برگشت"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"راه‌اندازی دستگاه"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"روش کارتان را تغییر دهید"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"جداسازی داده‌های کاری‌ از داده‌های شخصی"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"ممکن است چند دقیقه طول بکشد"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"برنامه‌های کاری شما در این نمایه نگه داشته می‌شوند و توسط سازمانتان مدیریت می‌شوند"</string>
     <string name="device_owner_description" msgid="168013145812679664">"سازمانتان این دستگاه را به‌طور امن نگه‌می‌دارد و آن را مدیریت می‌کند"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"درحال راه‌اندازی دستگاه کاری…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"درحال راه‌اندازی برنامه سرپرست"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"همه‌ چیزهای دیگر را راه‌اندازی کنید"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"اکنون، بیایید همه چیزهای دیگر را راه‌اندازی کنید"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"سازمانتان این تلفن را مدیریت خواهد کرد"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"از برنامه زیر برای مدیریت و نظارت بر این تلفن استفاده می‌شود"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"درحال بارگیری برنامه سرپرست…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ابتدا بیایید نمایه کاری‌تان را راه‌اندازی کنیم"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"برای بازی و کار از یک تلفن استفاده کنید"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"جداسازی داده‌های شخصی و کاری"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"وقتی کارتان تمام شد،‌ خاموش کنید"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"درحال ایجاد نمایه کاری…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"بیایید تلفن محل کارتان را راه‌اندازی کنیم"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"اتصال درحال حرکت"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"داده‌های کاری ایمن و مصون هستند"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"سازمانتان این تلفن را مدیریت خواهد کرد"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"برنامه‌هایی را که فقط مناسب سازمانتان هستند پیدا کنید"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"درحال راه‌اندازی دستگاه مدیریت‌شده شما…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"تلفنتان آماده استفاده است!"</string>
+    <string name="done" msgid="7755227776955952318">"تمام"</string>
 </resources>

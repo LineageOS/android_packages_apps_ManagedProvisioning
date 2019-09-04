@@ -28,6 +28,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
@@ -47,6 +48,7 @@ import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.mockito.ArgumentCaptor;
@@ -113,7 +115,8 @@ public class InstallPackageTaskTest extends AndroidTestCase {
             out.write(APK_CONTENT);
         }
 
-        mTask = new InstallPackageTask(mDownloadPackageTask, mMockContext, TEST_PARAMS, mCallback);
+        mTask = new InstallPackageTask(mDownloadPackageTask, mMockContext, TEST_PARAMS, mCallback,
+                mock(ProvisioningAnalyticsTracker.class));
     }
 
     @SmallTest

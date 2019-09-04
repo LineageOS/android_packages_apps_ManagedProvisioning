@@ -50,7 +50,7 @@
     <string name="cancel_delete_profile" msgid="5155447537894046036">"បោះបង់"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ដើម្បី​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់​អ្នក ឧបករណ៍​របស់​អ្នកត្រូវ​តែ​អ៊ិនគ្រីប។ វាអាច​ចំណាយ​ពេល​បន្តិច។"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ដើម្បី​រៀបចំ​ឧបករណ៍​នេះ វាត្រូវ​តែ​អ៊ិនគ្រីប​ជាមុនសិន។ វាអាច​ចំណាយពេល​បន្តិច។"</string>
-    <string name="encrypt_this_device_question" msgid="8719916619866892601">"អ៊ីនគ្រីប​ឧបករណ៍​នេះ?"</string>
+    <string name="encrypt_this_device_question" msgid="8719916619866892601">"អ៊ិនគ្រិប​ឧបករណ៍​នេះ?"</string>
     <string name="encrypt" msgid="1749320161747489212">"អ៊ិនគ្រីប"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ការ​ដាក់​លេខ​កូដ​បាន​បញ្ចប់"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ប៉ះដើម្បីបន្តការដំឡើងប្រវត្តិរូបការងាររបស់អ្នក"</string>
@@ -67,6 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"កំពុង​រៀប​ចំ​ឧបករណ៍ការងារ…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"កំពុងដំណើរការទិន្នន័យដំឡើង…"</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"កំពុងភ្ជាប់ទៅ Wi-Fi…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"កំពុង​ភ្ជាប់ទៅ​បណ្ដាញ​​ទូរសព្ទ​ចល័ត…"</string>
     <string name="progress_download" msgid="3522436271691064624">"កំពុងទាញយកកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_install" msgid="2258045670385866183">"កំពុងដំឡើងកម្មវិធីគ្រប់គ្រង…"</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"កំពុងលុបកម្មវិធីប្រព័ន្ធដែលមិនចាំបាច់…"</string>
@@ -85,14 +86,14 @@
     <string name="couldnt_set_up_device" msgid="60699158233724802">"មិនអាច​រៀបចំ​ឧបករណ៍បានទេ។ សូម​ទាក់ទង​ទៅអ្នក​គ្រប់គ្រង​របស់អ្នក​ ដើម្បី​ទទួល​បានជំនួយ។"</string>
     <string name="contact_your_admin_for_help" msgid="8045606258802719235">"សូមទាក់ទង​ទៅអ្នក​គ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ឧបករណ៍​ត្រូវបាន​រៀបចំ​រួចហើយ"</string>
-    <string name="device_owner_error_wifi" msgid="4256310285761332378">"មិន​​អាច​តភ្ជាប់​វ៉ាយហ្វាយ"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"មិនអាច​ភ្ជាប់ Wi-Fi បានទេ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="1221351721899290155">"ឧបករណ៍​របស់អ្នក​បានបើក​ការ​ការពារ​ការកំណត់​ឡើងវិញ។ សូមទាក់ទងទៅ​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួលបាន​ជំនួយ។"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"លុប"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"សូម​រង់ចាំ..."</string>
-    <string name="device_owner_error_hash_mismatch" msgid="7256273143549784838">"មិនអាច​ប្រើ​កម្មវិធី​អ្នក​គ្រប់គ្រង​បានទេ ដោយសារ​មាន​បញ្ហា​លេខត្រូតពិនិត្យ។ សូមទាក់ទង​ទៅ​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ។"</string>
-    <string name="device_owner_error_download_failed" msgid="4520111971592657116">"មិន​អាច​ទាញ​យក​កម្មវិធី​គ្រប់គ្រង"</string>
-    <string name="device_owner_error_package_invalid" msgid="1096901016820157695">"មិនអាច​ប្រើ​កម្មវិធី​អ្នក​គ្រប់គ្រង​បានទេ។ ធាតុមួយ​ចំនួន​បានបាត់ ឬ​ខូច។ សូម​ទាក់ទង​ទៅអ្នក​គ្រប់គ្រង​របស់​អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ។"</string>
-    <string name="device_owner_error_installation_failed" msgid="684566845601079360">"មិន​អាច​ដំឡើង​កម្មវិធី​គ្រប់គ្រង"</string>
+    <string name="error_hash_mismatch" msgid="5899334454632791946">"មិនអាច​ប្រើ​កម្មវិធី​អ្នក​គ្រប់គ្រង​បានទេ ដោយសារ​មាន​បញ្ហា​លេខត្រួតពិនិត្យ។ សូមទាក់ទង​ទៅ​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ។"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"មិនអាច​ទាញយក​កម្មវិធី​អ្នកគ្រប់គ្រង​បានទេ"</string>
+    <string name="error_package_invalid" msgid="5915763557848599459">"មិនអាច​ប្រើ​កម្មវិធី​អ្នក​គ្រប់គ្រង​បានទេ។ កម្មវិធីនេះ​បាត់​សមាសភាគ ឬ​ខូចហើយ។ សូម​ទាក់ទង​អ្នកគ្រប់គ្រង​របស់អ្នក ដើម្បី​ទទួលបាន​ជំនួយ។"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"មិន​អាច​ដំឡើង​កម្មវិធី​អ្នកគ្រប់គ្រង​បានទេ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"បញ្ឈប់ការដំឡើង?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ទេ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"បាទ/ចាស"</string>
@@ -106,8 +107,8 @@
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"អ្នក​ត្រៀម​នឹង​បង្កើត​កម្រង​ព័ត៌មាន​ការងារ ដែលស្ថិត​ក្រោម​ការគ្រប់គ្រង និង​តាមដាន​ដោយស្ថាប័ន​របស់​អ្នក។ លក្ខខណ្ឌ​របស់ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> នឹងត្រូវបានអនុវត្ត។"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"កម្រង​ព័ត៌មាន​នឹងត្រូវ​បានបង្កើតឡើង​សម្រាប់​កម្មវិធី​ការងារ​របស់​អ្នក។ កម្រង​ព័ត៌មាន​នេះ និង​ផ្នែក​ផ្សេង​ទៀត​នៃ​ឧបករណ៍​របស់អ្នក​នឹង​ស្ថិត​ក្រោម​ការគ្រប់គ្រង និង​តាមដាន​ដោយ​ស្ថាប័ន​របស់​អ្នក។ លក្ខខណ្ឌ​នឹង​ត្រូវបាន​អនុវត្ត។"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"កម្រង​ព័ត៌មាន​នឹងត្រូវ​បានបង្កើតឡើង​សម្រាប់​កម្មវិធី​ការងារ​របស់​អ្នក។ កម្រង​ព័ត៌មាន​នេះ និង​ផ្នែក​ផ្សេង​ទៀត​នៃ​ឧបករណ៍​របស់អ្នក​នឹង​ស្ថិត​ក្រោម​ការគ្រប់គ្រង និង​តាមដាន​ដោយ​ស្ថាប័ន​របស់​អ្នក។ លក្ខខណ្ឌ​របស់ <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> នឹងត្រូវបានអនុវត្ត។"</string>
-    <string name="device_owner_info" msgid="2883639372446424007">"ឧបករណ៍នេះ​នឹង​ស្ថិតក្រោម​ការ​គ្រប់គ្រង និង​រក្សា​ឲ្យ​មាន​សុវត្ថិភាព​ដោយ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>។ លក្ខខណ្ឌ​នឹង​ត្រូវបាន​អនុវត្ត។ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
-    <string name="device_owner_info_with_terms_headers" msgid="7333703548160002079">"ឧបករណ៍នេះ​នឹង​ស្ថិតក្រោម​ការ​គ្រប់គ្រង និង​រក្សា​ឲ្យ​មាន​សុវត្ថិភាព​ដោយ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ។ លក្ខណ្ឌដែលបានពី <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> នឹង​ត្រូវបាន​អនុវត្ត។ <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
+    <string name="device_owner_info" msgid="3716661456037934467">"ឧបករណ៍​នេះ​នឹងត្រូវបាន​គ្រប់គ្រង​ ត្រួតពិនិត្យ និង​រក្សាសុវត្ថិភាព​ដោយ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ។ លក្ខខណ្ឌ​នឹងត្រូវ​អនុវត្ត។ <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
+    <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ឧបករណ៍​នេះ​នឹងត្រូវបាន​គ្រប់គ្រង​ ត្រួតពិនិត្យ និង​រក្សាសុវត្ថិភាព​ដោយ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ។ លក្ខខណ្ឌពី <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> នឹងត្រូវ​អនុវត្ត។ <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"តំណនេះ​មិនមាន​សុវត្ថិភាពទេ និង​មិនអាច​បើក​បានទេ រហូតដល់​ការរៀបចំ​ឧបករណ៍​ត្រូវបាន​បញ្ចប់៖ <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="9100405424740726066">"ប្រសិន​បើអ្នក​មាន​សំណួរ សូម​ទាក់ទង​ទៅ <xliff:g id="ORGANIZATIONS_ADMIN">%1$s</xliff:g> របស់អ្នក។"</string>
     <string name="if_questions_contact_admin" msgid="6147462485780267795">"ប្រសិន​បើអ្នក​មាន​សំណួរ សូម​ទាក់ទង​ទៅ​អ្នកគ្រប់គ្រង​របស់ស្ថាប័ន​របស់អ្នក"</string>
@@ -119,7 +120,7 @@
     <string name="your_organization_middle" msgid="8288538158061644733">"ស្ថាប័ន​របស់​អ្នក"</string>
     <string name="view_terms" msgid="7230493092383341605">"មើលលក្ខខណ្ឌ"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"ព្រមទទួល និង​បន្ត"</string>
-    <string name="close" msgid="7208600934846389439">"បិទ"</string>
+    <string name="back" msgid="6455622465896147127">"ថយក្រោយ"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"រៀបចំឧបករណ៍របស់អ្នក"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"ផ្លាស់ប្តូររបៀបធ្វើការងាររបស់អ្នក"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"បែងចែកទិន្នន័យការងារពីទិន្នន័យផ្ទាល់ខ្លួន"</string>
@@ -157,4 +158,24 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"វាអាចចំណាយពីរបីនាទី"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"កម្មវិធី​ការងាររបស់អ្នក​នឹងត្រូវបានរក្សាទុក​នៅក្នុង​កម្រងព័ត៌មាននេះ​ ហើយនឹងស្ថិតក្រោម​ការគ្រប់គ្រង​របស់ស្ថាប័ន​របស់អ្នក"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ឧបករណ៍​នេះនឹង​ត្រូវបាន​រក្សា​សុវត្ថិភាព និង​​គ្រប់គ្រង​ដោយ​​ស្ថាប័នរបស់​​អ្នក"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"កំពុង​ត្រៀម​រៀបចំ​ឧបករណ៍​នៅកន្លែង​ធ្វើការ…"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"កំពុង​រៀបចំ​កម្មវិធី​អ្នកគ្រប់គ្រង"</string>
+    <string name="set_up_everything_else" msgid="4407706086957916501">"រៀបចំ​អ្វីៗ​ផ្សេងទៀត"</string>
+    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"ឥឡូវនេះ សូម​រៀបចំ​អ្វីៗ​ផ្សេងទៀត"</string>
+    <string name="brand_screen_header" msgid="2285274890167238955">"ស្ថាប័ន​របស់អ្នក​នឹង​គ្រប់គ្រង​ទូរសព្ទ​នេះ"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"កម្មវិធី​ខាងក្រោម​នឹងត្រូវ​បានប្រើប្រាស់​ដើម្បី​គ្រប់គ្រង និង​ត្រួតពិនិត្យ​ទូរសព្ទនេះ"</string>
+    <string name="downloading_administrator_header" msgid="170628239085849025">"កំពុង​ទាញយក​កម្មវិធី​គ្រប់គ្រង…"</string>
+    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"សូម​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក​ជាមុនសិន"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7467365813079527467">"ប្រើ​ទូរសព្ទមួយ​សម្រាប់​ការងារ និង​សម្រាប់​លេង"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="4924804885513620947">"បែងចែក​ទិន្នន័យ​ការងារ និង​ទិន្នន័យ​ផ្ទាល់ខ្លួន​ដោយឡែក​ពីគ្នា"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="8882448650237847724">"បិទ​នៅពេល​ដែលអ្នក​រួចរាល់"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="1231406704277277662">"កំពុងបង្កើត​កម្រងព័ត៌មាន​ការងារ…"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2295398352177393658">"សូម​រៀបចំ​ទូរសព្ទ​សម្រាប់​ការងារ​របស់អ្នក"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="2757690609176001237">"ភ្ជាប់បាន​យ៉ាងស្រួល"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="6458057940777972531">"ទិន្នន័យ​ការងារ​មាន​សុវត្ថិភាព"</string>
+    <string name="fully_managed_device_provisioning_step_3_header" msgid="902047332190766019">"ស្ថាប័ន​របស់អ្នក​នឹង​គ្រប់គ្រង​ទូរសព្ទ​នេះ"</string>
+    <string name="fully_managed_device_provisioning_step_4_header" msgid="5352443284257832617">"ស្វែងរក​កម្មវិធី​ដែលបាន​អភិវឌ្ឍ​ឡើងសម្រាប់​ស្ថាប័ន​របស់អ្នក​តែប៉ុណ្ណោះ"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="8748941226481336777">"កំពុង​រៀបចំ​ឧបករណ៍​របស់អ្នក ដែល​ស្ថិតក្រោម​ការគ្រប់គ្រង…"</string>
+    <string name="device_provisioning_finished" msgid="4611825455360297074">"ទូរសព្ទ​របស់អ្នក​អាច​ដំណើរការ​បានហើយ!"</string>
+    <string name="done" msgid="7755227776955952318">"រួចរាល់"</string>
 </resources>
