@@ -44,6 +44,11 @@ class ProvisioningIntentProvider {
         }
     }
 
+    boolean canLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context) {
+        final Intent dpcLaunchIntent = createDpcLaunchIntent(params);
+        return utils.canResolveIntentAsUser(context, dpcLaunchIntent, userId);
+    }
+
     Intent createProvisioningCompleteIntent(
             @NonNull ProvisioningParams params, int userId, Utils utils, Context context) {
         Intent intent = new Intent(ACTION_PROFILE_PROVISIONING_COMPLETE);

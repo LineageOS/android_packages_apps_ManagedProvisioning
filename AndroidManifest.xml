@@ -246,7 +246,7 @@
 
         <!-- TODO: Add permission for setup-wizard to guard access? -->
         <activity android:name=".finalization.FinalizationActivity"
-                android:theme="@android:style/Theme.NoDisplay"
+                android:theme="@style/SudThemeGlifV3.Light"
                 android:noHistory="true"
                 android:excludeFromRecents="true"
                 android:exported="true"
