@@ -70,7 +70,7 @@
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"மொபைல் நெட்வொர்க்குடன் இணைக்கிறது…"</string>
     <string name="progress_download" msgid="3522436271691064624">"நிர்வாகி ஆப்ஸை இறக்குகிறது…"</string>
     <string name="progress_install" msgid="2258045670385866183">"நிர்வாகி ஆப்ஸை நிறுவுகிறது…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"தேவையற்ற சாதனப் பயன்பாடுகளை அகற்றுகிறது…"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"தேவையற்ற சாதன ஆப்ஸை அகற்றுகிறது…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"இறுதியாகச் சில விஷயங்களைச் சேர்க்கிறது…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"சாதன உரிமையாளரை அமைக்கிறது…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"சாதனத்தைத் தொடங்குகிறது…"</string>
@@ -130,7 +130,7 @@
     <string name="copying_certs" msgid="5697938664953550881">"CA சான்றிதழ்களை அமைக்கிறது"</string>
     <string name="setup_profile" msgid="5573950582159698549">"சுயவிவரத்தை அமைக்கவும்"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"பணி விவரத்தைப் பயன்படுத்துவதன் மூலம், பணித் தரவையும் தனிப்பட்ட தரவையும் தனித்தனியாகப் பிரிக்கலாம்"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"பணி விவரத்தைப் பயன்படுத்துவதன் மூலம், பணி தொடர்பான பயன்பாடுகளை ஒரே இடத்தில் வைத்திருக்கலாம்"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"பணி விவரத்தைப் பயன்படுத்துவதன் மூலம், பணி தொடர்பான ஆப்ஸை ஒரே இடத்தில் வைத்திருக்கலாம்"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"சுயவிவரத்தை அமைக்கவும். என்க்ரிப்ட்"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"சுயவிவரத்தை அமைக்கவும். செயல்நிலையைக் காட்டுகிறது"</string>
     <string name="setup_device" msgid="6725265673245816366">"சாதனத்தை அமை"</string>
