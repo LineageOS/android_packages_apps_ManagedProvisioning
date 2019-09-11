@@ -22,6 +22,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.finalization.SendDpcBroadcastService.EXTRA_PROVISIONING_PARAMS;
 
+import android.annotation.IntDef;
 import android.app.NotificationManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -51,6 +52,14 @@ import java.io.File;
 public class FinalizationController {
     private static final String PROVISIONING_PARAMS_FILE_NAME =
             "finalization_activity_provisioning_params.xml";
+    static final int PROVISIONING_FINALIZED_RESULT_DEFAULT = 1;
+    static final int PROVISIONING_FINALIZED_RESULT_ADMIN_WILL_LAUNCH = 2;
+    static final int PROVISIONING_FINALIZED_RESULT_EARLY_EXIT = 3;
+    @IntDef({
+            PROVISIONING_FINALIZED_RESULT_DEFAULT,
+            PROVISIONING_FINALIZED_RESULT_ADMIN_WILL_LAUNCH,
+            PROVISIONING_FINALIZED_RESULT_EARLY_EXIT})
+    @interface ProvisioningFinalizedResult {}
 
     private final Context mContext;
     private final Utils mUtils;
@@ -59,6 +68,7 @@ public class FinalizationController {
     private final ProvisioningIntentProvider mProvisioningIntentProvider;
     private final NotificationHelper mNotificationHelper;
     private final DeferredMetricsReader mDeferredMetricsReader;
+    private @ProvisioningFinalizedResult int mProvisioningFinalizedResult;
 
     public FinalizationController(Context context,
           UserProvisioningStateHelper userProvisioningStateHelper) {
@@ -171,9 +181,13 @@ public class FinalizationController {
      * <p>This method has to be invoked after {@link #provisioningInitiallyDone(ProvisioningParams)}
      * was called. It is commonly invoked at the end of SUW if provisioning occurs during SUW. It
      * loads the provisioning params from the storage, notifies the DPC about the completed
-     * provisioning and sets the right user provisioning states.</p>
+     * provisioning and sets the right user provisioning states.
+     *
+     * <p>To retrieve the resulting state of this method, use
+     * {@link #getProvisioningFinalizedResult()}
      */
     void provisioningFinalized() {
+        mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_EARLY_EXIT;
         mDeferredMetricsReader.scheduleDumpMetrics(mContext);
 
         if (mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
@@ -188,6 +202,7 @@ public class FinalizationController {
             return;
         }
 
+        mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_DEFAULT;
         if (mUtils.isAdminIntegratedFlow(params)) {
             // Don't send ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to DPC or launch DPC by
             // ACTION_PROVISIONING_SUCCESSFUL intent if it's admin integrated flow.
@@ -202,6 +217,12 @@ public class FinalizationController {
         } else {
             if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
                 notifyDpcManagedProfile(params);
+                final UserHandle managedProfileUserHandle = mUtils.getManagedProfile(mContext);
+                final int userId = managedProfileUserHandle.getIdentifier();
+                mProvisioningFinalizedResult =
+                        mProvisioningIntentProvider.canLaunchDpc(params, userId, mUtils, mContext)
+                        ? PROVISIONING_FINALIZED_RESULT_ADMIN_WILL_LAUNCH
+                        : PROVISIONING_FINALIZED_RESULT_DEFAULT;
             } else {
                 // For managed user and device owner, we send the provisioning complete intent and
                 // maybe launch the DPC.
@@ -223,6 +244,16 @@ public class FinalizationController {
         }
 
         mUserProvisioningStateHelper.markUserProvisioningStateFinalized(params);
+    }
+
+    /**
+     * @throws IllegalStateException if {@link #provisioningFinalized()} was not called before.
+     */
+    @ProvisioningFinalizedResult int getProvisioningFinalizedResult() {
+        if (mProvisioningFinalizedResult == 0) {
+            throw new IllegalStateException("provisioningFinalized() has not been called.");
+        }
+        return mProvisioningFinalizedResult;
     }
 
     /**

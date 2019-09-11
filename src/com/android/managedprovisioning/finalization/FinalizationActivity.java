@@ -36,7 +36,13 @@ public class FinalizationActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        new FinalizationController(this).provisioningFinalized();
-        finish();
+        // To prevent b/131315856, we finish this activity now only if we do not expect to launch
+        // the admin app. Otherwise let android:noHistory automatically finish it.
+        final FinalizationController finalizationController = new FinalizationController(this);
+        finalizationController.provisioningFinalized();
+        final int result = finalizationController.getProvisioningFinalizedResult();
+        if (result != FinalizationController.PROVISIONING_FINALIZED_RESULT_ADMIN_WILL_LAUNCH) {
+            finish();
+        }
     }
 }
