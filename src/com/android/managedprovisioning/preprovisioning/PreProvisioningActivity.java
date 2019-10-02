@@ -310,6 +310,12 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     public void startProvisioning(int userId, ProvisioningParams params) {
+        final ProvisioningParams.Builder builder = params.toBuilder();
+        builder.setIsTransitioningFromRegularToChild(false);
+        launchProvisioningActivity(userId, builder.build());
+    }
+
+    protected void launchProvisioningActivity(int userId, ProvisioningParams params) {
         mState = STATE_PROVISIONING_STARTED;
         Intent intent = new Intent(this, ProvisioningActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
