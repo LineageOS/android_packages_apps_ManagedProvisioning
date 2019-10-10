@@ -139,20 +139,20 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         // TODO: call this for the new flow after new NFC flow has been added
         // maybeLaunchNfcUserSetupCompleteIntent();
 
-        if (mParams.skipEducationScreens || mTransitionAnimationHelper.areAllTransitionsShown()) {
+        if (shouldSkipEducationScreens() || mTransitionAnimationHelper.areAllTransitionsShown()) {
             updateProvisioningFinalizedScreen();
         }
         mState = STATE_PROVISIONING_FINALIZED;
     }
 
     private void updateProvisioningFinalizedScreen() {
-        if (!mParams.skipEducationScreens) {
+        if (!shouldSkipEducationScreens()) {
             final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
             layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
             mNextButton.setVisibility(View.VISIBLE);
         }
 
-        if (mParams.skipEducationScreens || Utils.isSilentProvisioning(this, mParams)) {
+        if (shouldSkipEducationScreens() || Utils.isSilentProvisioning(this, mParams)) {
             onNextButtonClicked();
         }
     }
@@ -296,7 +296,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void onStart() {
         super.onStart();
-        if (mParams.skipEducationScreens) {
+        if (shouldSkipEducationScreens()) {
             startSpinnerAnimation();
         } else {
             startTransitionAnimation();
@@ -306,7 +306,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void onStop() {
         super.onStop();
-        if (mParams.skipEducationScreens) {
+        if (shouldSkipEducationScreens()) {
             endSpinnerAnimation();
         } else {
             endTransitionAnimation();
@@ -347,7 +347,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         final int progressLabelResId =
                 PROVISIONING_MODE_TO_PROGRESS_LABEL.get(getProvisioningMode());
         final TextView progressLabel = layout.findViewById(R.id.provisioning_progress);
-        if (mParams.skipEducationScreens) {
+        if (shouldSkipEducationScreens()) {
             header.setText(progressLabelResId);
             progressLabel.setVisibility(View.INVISIBLE);
             layout.findViewById(R.id.subheader).setVisibility(View.INVISIBLE);
@@ -428,5 +428,10 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         }
         mRepeatingVectorAnimation.stop();
         mRepeatingVectorAnimation = null;
+    }
+
+    private boolean shouldSkipEducationScreens() {
+        return mParams.skipEducationScreens
+                || getProvisioningMode() == PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE;
     }
 }
