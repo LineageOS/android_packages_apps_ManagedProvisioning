@@ -80,7 +80,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"¿Quieres detener la configuración y borrar los datos del dispositivo?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Cancelar"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Aceptar"</string>
-    <string name="reset" msgid="6467204151306265796">"Recuperar"</string>
+    <string name="reset" msgid="6467204151306265796">"Restablecer"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"No se ha podido configurar el perfil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"No se ha podido configurar el dispositivo"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"No se ha podido configurar el dispositivo. Para obtener ayuda, ponte en contacto con tu administrador de TI."</string>
