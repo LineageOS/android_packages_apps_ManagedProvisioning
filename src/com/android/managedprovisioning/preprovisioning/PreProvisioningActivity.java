@@ -195,10 +195,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     if(data != null && mController.updateProvisioningParamsFromIntent(data)) {
                         mController.showUserConsentScreen();
                     } else {
+                        ProvisionLogger.loge(
+                                "Invalid data object returned from GET_PROVISIONING_MODE.");
                         showFactoryResetDialog(R.string.cant_set_up_device,
                                 R.string.contact_your_admin_for_help);
                     }
                 } else {
+                    ProvisionLogger.loge("Invalid result code from GET_PROVISIONING_MODE. Expected "
+                            + RESULT_OK + " but got " + resultCode + ".");
                     showFactoryResetDialog(R.string.cant_set_up_device,
                             R.string.contact_your_admin_for_help);
                 }
