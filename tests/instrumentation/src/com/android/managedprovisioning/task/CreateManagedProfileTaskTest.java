@@ -79,7 +79,7 @@ public class CreateManagedProfileTaskTest {
     public void testSuccess() {
         // GIVEN that a new profile can be created
         when(mUserManager.createProfileForUserEvenWhenDisallowed(
-                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID),
+                        anyString(), anyString(), anyInt(), eq(TEST_PARENT_USER_ID),
                         aryEq(SYSTEM_APPS_TO_DELETE)))
                 .thenReturn(new UserInfo(TEST_USER_ID, null, 0));
 
@@ -99,7 +99,7 @@ public class CreateManagedProfileTaskTest {
     public void testError() {
         // GIVEN that a new profile can't be created
         when(mUserManager.createProfileForUserEvenWhenDisallowed(
-                        anyString(), anyInt(), eq(TEST_PARENT_USER_ID),
+                        anyString(), anyString(), anyInt(), eq(TEST_PARENT_USER_ID),
                         aryEq(SYSTEM_APPS_TO_DELETE)))
                 .thenReturn(null);
 
