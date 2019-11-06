@@ -30,6 +30,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.UserHandle;
+import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.DeferredMetricsReader;
@@ -136,6 +137,7 @@ public class FinalizationController {
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)) {
             if (params.isOrganizationOwnedProvisioning) {
                 setProfileOwnerCanAccessDeviceIds();
+                restrictRemovalOfManagedProfile();
             }
             if (!mSettingsFacade.isDuringSetupWizard(mContext)) {
                 // If a managed profile was provisioned after SUW, notify the DPC straight away.
@@ -146,6 +148,11 @@ public class FinalizationController {
             // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
         }
+    }
+
+    private void restrictRemovalOfManagedProfile() {
+        final UserManager userManager = UserManager.get(mContext);
+        userManager.setUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE, true);
     }
 
     private void setProfileOwnerCanAccessDeviceIds() {
