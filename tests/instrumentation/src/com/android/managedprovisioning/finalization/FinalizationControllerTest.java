@@ -27,17 +27,21 @@ import static com.android.managedprovisioning.finalization.SendDpcBroadcastServi
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
@@ -207,6 +211,59 @@ public class FinalizationControllerTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testCorpOwnedManagedProfileDuringSuw() throws PackageManager.NameNotFoundException {
+        // GIVEN that provisioningInitiallyDone has never been called
+        when(mHelper.isStateUnmanagedOrFinalized()).thenReturn(true);
+        // GIVEN that we're provisioning a corp-owned managed profile DURING SUW
+        final ProvisioningParams params =
+                createProvisioningParamsBuilder(ACTION_PROVISION_MANAGED_PROFILE)
+                        .setIsOrganizationOwnedProvisioning(true)
+                        .build();
+
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
+        when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(true);
+        when(mUtils.getManagedProfile(mContext))
+                .thenReturn(MANAGED_PROFILE_USER_HANDLE);
+
+        // Mock DPM for testing access to device IDs is granted.
+        final DevicePolicyManager mockDpm = mock(DevicePolicyManager.class);
+        when(mContext.getSystemServiceName(DevicePolicyManager.class))
+                .thenReturn(Context.DEVICE_POLICY_SERVICE);
+        when(mContext.getSystemService(DevicePolicyManager.class)).thenReturn(mockDpm);
+        final int managedProfileUserId = MANAGED_PROFILE_USER_HANDLE.getIdentifier();
+        when(mockDpm.getProfileOwnerAsUser(managedProfileUserId)).thenReturn(TEST_MDM_ADMIN);
+
+        // Actual Device IDs access is  granted to the DPM of the managed profile, in the context
+        // of the managed profile.
+        final Context profileContext = mock(Context.class);
+        when(mContext.createPackageContextAsUser(mContext.getPackageName(), /*flags=*/ 0,
+                MANAGED_PROFILE_USER_HANDLE)).thenReturn(profileContext);
+        when(profileContext.getSystemServiceName(DevicePolicyManager.class))
+                .thenReturn(Context.DEVICE_POLICY_SERVICE);
+        final DevicePolicyManager mockProfileDpm = mock(DevicePolicyManager.class);
+        when(profileContext.getSystemService(DevicePolicyManager.class)).thenReturn(mockProfileDpm);
+
+        // Mock UserManager for testing user restriction.
+        final UserManager mockUserManager = mock(UserManager.class);
+        when(mContext.getSystemServiceName(UserManager.class))
+                .thenReturn(Context.USER_SERVICE);
+        when(mContext.getSystemService(Context.USER_SERVICE)).thenReturn(mockUserManager);
+
+        // WHEN calling provisioningInitiallyDone
+        mController.provisioningInitiallyDone(params);
+
+        // THEN the user provisioning state should be marked as initially done
+        verify(mHelper).markUserProvisioningStateInitiallyDone(params);
+
+        // THEN the managed profile DPC has been granted access to device IDs.
+        verify(mockProfileDpm).setProfileOwnerCanAccessDeviceIds(TEST_MDM_ADMIN);
+
+        // THEN the user restriction for removing a managed profile has been applied.
+        verify(mockUserManager).setUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE,
+                true);
+    }
+
+    @SmallTest
     public void testDeviceOwner() {
         // GIVEN that provisioningInitiallyDone has never been called
         when(mHelper.isStateUnmanagedOrFinalized()).thenReturn(true);
@@ -288,10 +345,13 @@ public class FinalizationControllerTest extends AndroidTestCase {
     }
 
     private ProvisioningParams createProvisioningParams(String action) {
+        return createProvisioningParamsBuilder(action).build();
+    }
+
+    private ProvisioningParams.Builder createProvisioningParamsBuilder(String action) {
         return new ProvisioningParams.Builder()
                 .setDeviceAdminComponentName(TEST_MDM_ADMIN)
                 .setProvisioningAction(action)
-                .setAdminExtrasBundle(TEST_MDM_EXTRA_BUNDLE)
-                .build();
+                .setAdminExtrasBundle(TEST_MDM_EXTRA_BUNDLE);
     }
 }
