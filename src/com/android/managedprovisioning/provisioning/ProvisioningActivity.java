@@ -210,6 +210,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                         finish();
                     }
                 } else {
+                    ProvisionLogger.loge("Invalid POLICY_COMPLIANCE result code. Expected "
+                            + RESULT_OK + " but got " + resultCode + ".");
                     error(/* titleId */ R.string.cant_set_up_device,
                             /* messageId */ R.string.contact_your_admin_for_help,
                             /* resetRequired = */ true);
