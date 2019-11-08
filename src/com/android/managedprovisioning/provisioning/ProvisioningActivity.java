@@ -39,7 +39,6 @@ import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
-import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.FinalizationController;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
@@ -97,7 +96,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private FooterButton mNextButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
-    private DevicePolicyManager mDevicePolicyManager;
 
     public ProvisioningActivity() {
         super(new Utils());
@@ -117,7 +115,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (mUserProvisioningStateHelper == null) {
             mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
         }
-        mDevicePolicyManager = getSystemService(DevicePolicyManager.class);
     }
 
     @Override
@@ -161,20 +158,10 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         new FinalizationController(getApplicationContext(), mUserProvisioningStateHelper)
                 .provisioningInitiallyDone(mParams);
         if (mUtils.isAdminIntegratedFlow(mParams)) {
-            enableGlobalFlags();
             showPolicyComplianceScreen();
         } else {
             finishProvisioning();
         }
-    }
-
-    private void enableGlobalFlags() {
-        if (mParams.isCloudEnrollment) {
-            mDevicePolicyManager.setDeviceProvisioningConfigApplied();
-        }
-        final SettingsFacade settingsFacade = new SettingsFacade();
-        settingsFacade.setUserSetupCompleted(this, UserHandle.USER_SYSTEM);
-        settingsFacade.setDeviceProvisioned(this);
     }
 
     private void finishProvisioning() {

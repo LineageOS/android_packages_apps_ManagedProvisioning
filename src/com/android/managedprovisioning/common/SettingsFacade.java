@@ -53,13 +53,6 @@ public class SettingsFacade {
     }
 
     /**
-     * Sets DEVICE_PROVISIONED.
-     */
-    public void setDeviceProvisioned(Context context) {
-        Global.putInt(context.getContentResolver(), DEVICE_PROVISIONED, 1);
-    }
-
-    /**
      * Sets whether profile contact remote search is enabled.
      */
     public void setProfileContactRemoteSearch(Context context, boolean allowed, int userId) {
