@@ -344,6 +344,8 @@ public class PreProvisioningController {
         // Check whether provisioning is allowed for the current action
         if (!checkDevicePolicyPreconditions()) {
             if (mParams.isOrganizationOwnedProvisioning) {
+                ProvisionLogger.loge(
+                        "Provisioning preconditions failed for organization-owned provisioning.");
                 mUi.showFactoryResetDialog(R.string.cant_set_up_device,
                         R.string.contact_your_admin_for_help);
             } else {
