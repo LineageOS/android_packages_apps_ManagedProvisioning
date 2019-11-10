@@ -84,7 +84,7 @@
     <string name="cant_set_up_profile" msgid="4341825293970158436">"प्रोफाइल सेट करू शकत नाही"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"डिव्हाइस सेट करू शकत नाही"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"डिव्हाइस सेट करता आले नाही. मदतीसाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
-    <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मदतीसाठी तुमच्या IT अॅडमिनशी संपर्क साधा"</string>
+    <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मदतीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"डिव्हाइस आधीच सेट केले आहे"</string>
     <string name="error_wifi" msgid="1850288843966836571">"वाय-फाय शी कनेक्ट करता आले नाही"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"तुमच्या डिव्हाइसचे रीसेट संरक्षण सुरू केलेले आहे. मदतीसाठी, तुमच्या IT अ‍ॅडमिनशी संपर्क साधा."</string>
@@ -124,7 +124,7 @@
     <string name="set_up_your_device" msgid="1896651520959894681">"तुमचे डिव्हाइस सेट करा"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"तुम्ही ज्या पद्धतीने कार्य करता ती पद्धत बदला"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"वैैयक्तिक मधून कार्य स्वतंत्र करा"</string>
-    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्यसंबंधित अॅप्ससाठी एक ठिकाण"</string>
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्यसंबंधित ॲप्ससाठी एक ठिकाण"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"तुमचे काम पूर्ण झाल्‍यानंतर बंद करा"</string>
     <string name="provisioning" msgid="4512493827019163451">"तरतूद"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA प्रमाणपत्रे सेट करत आहे"</string>
