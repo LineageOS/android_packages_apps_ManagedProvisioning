@@ -72,6 +72,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.CustomizationVerifier;
 import com.android.managedprovisioning.common.LogoUtils;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -194,7 +195,8 @@ public class ProvisioningActivityTest {
         TestInstrumentationRunner.registerReplacedActivity(ProvisioningActivity.class,
                 (classLoader, className, intent) ->
                         new ProvisioningActivity(
-                                mProvisioningManager, mUtils, mUserProvisioningStateHelper) {
+                                mProvisioningManager, mUtils, mUserProvisioningStateHelper,
+                                new PolicyComplianceUtils()) {
                             @Override
                             public PackageManager getPackageManager() {
                                 return mPackageManager;
