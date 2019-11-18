@@ -136,7 +136,7 @@ public class FinalizationController {
         mUserProvisioningStateHelper.markUserProvisioningStateInitiallyDone(params);
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)) {
             if (params.isOrganizationOwnedProvisioning) {
-                setProfileOwnerCanAccessDeviceIds();
+                markIsProfileOwnerOnOrganizationOwnedDevice();
                 restrictRemovalOfManagedProfile();
             }
             if (!mSettingsFacade.isDuringSetupWizard(mContext)) {
@@ -155,7 +155,7 @@ public class FinalizationController {
         userManager.setUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE, true);
     }
 
-    private void setProfileOwnerCanAccessDeviceIds() {
+    private void markIsProfileOwnerOnOrganizationOwnedDevice() {
         final DevicePolicyManager dpm = mContext.getSystemService(DevicePolicyManager.class);
         final int managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
         final ComponentName admin = dpm.getProfileOwnerAsUser(managedProfileUserId);
@@ -166,7 +166,7 @@ public class FinalizationController {
                         UserHandle.of(managedProfileUserId));
                 final DevicePolicyManager profileDpm =
                         profileContext.getSystemService(DevicePolicyManager.class);
-                profileDpm.setProfileOwnerCanAccessDeviceIds(admin);
+                profileDpm.markProfileOwnerOnOrganizationOwnedDevice(admin);
             } catch (NameNotFoundException e) {
                 ProvisionLogger.logw("Error setting access to Device IDs: " + e.getMessage());
             }

@@ -256,7 +256,7 @@ public class FinalizationControllerTest extends AndroidTestCase {
         verify(mHelper).markUserProvisioningStateInitiallyDone(params);
 
         // THEN the managed profile DPC has been granted access to device IDs.
-        verify(mockProfileDpm).setProfileOwnerCanAccessDeviceIds(TEST_MDM_ADMIN);
+        verify(mockProfileDpm).markProfileOwnerOnOrganizationOwnedDevice(TEST_MDM_ADMIN);
 
         // THEN the user restriction for removing a managed profile has been applied.
         verify(mockUserManager).setUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE,
