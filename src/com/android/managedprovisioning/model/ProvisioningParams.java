@@ -125,8 +125,6 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_PROVISIONING_ACTION = "provisioning-action";
     private static final String TAG_IS_ORGANIZATION_OWNED_PROVISIONING =
             "is-organization-owned-provisioning";
-    private static final String TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD =
-            "is-transitioning-from-regular-to-child";
     private static final String TAG_PROVISIONING_MODE = "provisioning-mode";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
@@ -249,9 +247,6 @@ public final class ProvisioningParams extends PersistableBundlable {
     /** True if the provisioning is done on a device owned by the organization. */
     public final boolean isOrganizationOwnedProvisioning;
 
-    /** True if the device is transitioning from regular to child user. */
-    public final boolean isTransitioningFromRegularToChild;
-
     /**
      * The provisioning mode for organization owned provisioning. This is only used for
      * admin integrated flow.
@@ -323,7 +318,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
         isOrganizationOwnedProvisioning = builder.mIsOrganizationOwnedProvisioning;
-        isTransitioningFromRegularToChild = builder.mIsTransitioningFromRegularToChild;
         provisioningMode = builder.mProvisioningMode;
 
         validateFields();
@@ -375,8 +369,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, skipEducationScreens);
         bundle.putBoolean(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, keepAccountMigrated);
         bundle.putBoolean(TAG_IS_ORGANIZATION_OWNED_PROVISIONING, isOrganizationOwnedProvisioning);
-        bundle.putBoolean(TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD,
-                 isTransitioningFromRegularToChild);
         bundle.putInt(TAG_PROVISIONING_MODE, provisioningMode);
         return bundle;
     }
@@ -429,8 +421,6 @@ public final class ProvisioningParams extends PersistableBundlable {
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
         builder.setIsOrganizationOwnedProvisioning(bundle.getBoolean(
                 TAG_IS_ORGANIZATION_OWNED_PROVISIONING));
-        builder.setIsTransitioningFromRegularToChild(bundle.getBoolean(
-                TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD));
         builder.setProvisioningMode(bundle.getInt(TAG_PROVISIONING_MODE));
         return builder;
     }
@@ -548,7 +538,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
         private boolean mUseMobileData = DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
         private boolean mIsOrganizationOwnedProvisioning = false;
-        private boolean mIsTransitioningFromRegularToChild = false;
         private @ProvisioningMode int mProvisioningMode = PROVISIONING_MODE_UNDECIDED;
 
         public Builder setProvisioningId(long provisioningId) {
@@ -689,12 +678,6 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setIsOrganizationOwnedProvisioning(boolean isOrganizationOwnedProvisioning) {
             mIsOrganizationOwnedProvisioning = isOrganizationOwnedProvisioning;
-            return this;
-        }
-
-        public Builder setIsTransitioningFromRegularToChild(
-                boolean isTransitioningFromRegularToChild) {
-            mIsTransitioningFromRegularToChild = isTransitioningFromRegularToChild;
             return this;
         }
 
