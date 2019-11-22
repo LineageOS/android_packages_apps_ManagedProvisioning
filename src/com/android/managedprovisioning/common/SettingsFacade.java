@@ -17,7 +17,6 @@
 package com.android.managedprovisioning.common;
 
 import static android.provider.Settings.Global.DEVICE_PROVISIONED;
-import static android.provider.Settings.Global.PACKAGE_VERIFIER_ENABLE;
 import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
 import static android.provider.Settings.Secure.CROSS_PROFILE_CALENDAR_ENABLED;
 import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
