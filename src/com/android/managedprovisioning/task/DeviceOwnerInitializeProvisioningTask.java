@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.task;
 
 import android.app.AlarmManager;
+import android.app.timedetector.ManualTimeSuggestion;
+import android.app.timedetector.TimeDetector;
 import android.content.Context;
 
 import com.android.internal.app.LocalePicker;
@@ -56,10 +58,14 @@ public class DeviceOwnerInitializeProvisioningTask extends AbstractProvisioningT
                 alarmManager.setTimeZone(timeZone);
             }
             if (localTime > 0) {
-                alarmManager.setTime(localTime);
+                TimeDetector timeDetector = (TimeDetector)
+                        mContext.getSystemService(Context.TIME_DETECTOR_SERVICE);
+                ManualTimeSuggestion manualTimeSuggestion = TimeDetector.createManualTimeSuggestion(
+                        localTime, "ManagedProvisioning: Set clock");
+                timeDetector.suggestManualTime(manualTimeSuggestion);
             }
         } catch (Exception e) {
-            ProvisionLogger.loge("Alarm manager failed to set the system time/timezone.", e);
+            ProvisionLogger.loge("Failed to set the system time/timezone.", e);
             // Do not stop provisioning process, but ignore this error.
         }
     }
