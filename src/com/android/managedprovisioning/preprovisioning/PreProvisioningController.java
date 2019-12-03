@@ -288,9 +288,7 @@ public class PreProvisioningController {
         if (isDeviceOwnerProvisioning()) {
             // TODO: make a general test based on deviceAdminDownloadInfo field
             // PO doesn't ever initialize that field, so OK as a general case
-            if (!mUtils.isConnectedToNetwork(mContext) && mParams.wifiInfo == null
-                    && mParams.deviceAdminDownloadInfo != null
-                    && !mParams.useMobileData) {
+            if (shouldShowWifiPicker()) {
                 // Have the user pick a wifi network if necessary.
                 // It is not possible to ask the user to pick a wifi network if
                 // the screen is locked.
@@ -324,6 +322,22 @@ public class PreProvisioningController {
                 showUserConsentScreen();
             }
         }
+    }
+
+    private boolean shouldShowWifiPicker() {
+        if (mParams.wifiInfo != null) {
+            return false;
+        }
+        if (mParams.deviceAdminDownloadInfo == null) {
+            return false;
+        }
+        if (mUtils.isConnectedToWifi(mContext)) {
+            return false;
+        }
+        if (mParams.useMobileData) {
+            return !mUtils.isMobileNetworkConnectedToInternet(mContext);
+        }
+        return true;
     }
 
     void showUserConsentScreen() {
