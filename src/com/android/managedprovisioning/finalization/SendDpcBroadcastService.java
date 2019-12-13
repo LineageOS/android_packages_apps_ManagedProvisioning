@@ -35,7 +35,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  */
 public class SendDpcBroadcastService extends Service implements Callback {
 
-    static String EXTRA_PROVISIONING_PARAMS =
+    public static String EXTRA_PROVISIONING_PARAMS =
             "com.android.managedprovisioning.PROVISIONING_PARAMS";
 
     @Override

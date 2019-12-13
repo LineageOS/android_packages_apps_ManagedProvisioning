@@ -80,15 +80,16 @@ class ProvisioningIntentProvider {
         intent.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, params.adminExtrasBundle);
     }
 
-    void launchFinalizationScreen(Context context, ProvisioningParams params) {
-        final Intent finalizationScreen = new Intent(context, FinalScreenActivity.class);
-        if (context instanceof Activity) {
-            final Intent intent = ((Activity) context).getIntent();
-            if (intent != null) {
-                WizardManagerHelper.copyWizardManagerExtras(intent, finalizationScreen);
-            }
+    void launchFinalizationScreenForResult(Activity parentActivity, ProvisioningParams params,
+            int requestCode) {
+        final Intent finalizationScreen = new Intent(parentActivity, FinalScreenActivity.class);
+
+        final Intent intent = parentActivity.getIntent();
+        if (intent != null) {
+            WizardManagerHelper.copyWizardManagerExtras(intent, finalizationScreen);
         }
+
         finalizationScreen.putExtra(FinalScreenActivity.EXTRA_PROVISIONING_PARAMS, params);
-        context.startActivity(finalizationScreen);
+        parentActivity.startActivityForResult(finalizationScreen, requestCode);
     }
 }
