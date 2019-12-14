@@ -16,7 +16,6 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
 import android.Manifest.permission;
@@ -29,7 +28,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,7 +38,8 @@ import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.finalization.FinalizationController;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
+import com.android.managedprovisioning.finalization.PreFinalizationController;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -96,17 +95,21 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private FooterButton mNextButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
+    private PolicyComplianceUtils mPolicyComplianceUtils;
 
     public ProvisioningActivity() {
         super(new Utils());
+        mPolicyComplianceUtils = new PolicyComplianceUtils();
     }
 
     @VisibleForTesting
     public ProvisioningActivity(ProvisioningManager provisioningManager, Utils utils,
-                UserProvisioningStateHelper userProvisioningStateHelper) {
+            UserProvisioningStateHelper userProvisioningStateHelper,
+            PolicyComplianceUtils policyComplianceUtils) {
         super(utils);
         mProvisioningManager = provisioningManager;
         mUserProvisioningStateHelper = userProvisioningStateHelper;
+        mPolicyComplianceUtils = policyComplianceUtils;
     }
 
     @Override
@@ -155,10 +158,11 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void onNextButtonClicked() {
-        new FinalizationController(getApplicationContext(), mUserProvisioningStateHelper)
-                .provisioningInitiallyDone(mParams);
+        new PreFinalizationController(this, mUserProvisioningStateHelper)
+                .deviceManagementEstablished(mParams);
         if (mUtils.isAdminIntegratedFlow(mParams)) {
-            showPolicyComplianceScreen();
+            mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
+                    this, mParams, null, POLICY_COMPLIANCE_REQUEST_CODE, mUtils);
         } else {
             finishProvisioning();
         }
@@ -168,25 +172,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         setResult(Activity.RESULT_OK);
         maybeLaunchNfcUserSetupCompleteIntent();
         finish();
-    }
-
-    private void showPolicyComplianceScreen() {
-        final String adminPackage = mParams.inferDeviceAdminPackageName();
-        UserHandle userHandle;
-        if (mParams.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-          userHandle = mUtils.getManagedProfile(getApplicationContext());
-        } else {
-          userHandle = UserHandle.of(UserHandle.myUserId());
-        }
-
-        final Intent policyComplianceIntent =
-            new Intent(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
-        policyComplianceIntent.putExtra(
-                DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
-                mParams.adminExtrasBundle);
-        policyComplianceIntent.setPackage(adminPackage);
-        startActivityForResultAsUser(
-            policyComplianceIntent, POLICY_COMPLIANCE_REQUEST_CODE, userHandle);
     }
 
     boolean shouldShowTransitionScreen() {

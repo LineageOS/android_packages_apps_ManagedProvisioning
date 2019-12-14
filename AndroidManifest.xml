@@ -243,8 +243,8 @@
             </intent-filter>
         </receiver>
 
-        <!-- TODO: Add permission for setup-wizard to guard access? -->
-        <activity android:name=".finalization.FinalizationActivity"
+        <!-- TODO (b/146135268): Add permission for setup-wizard to guard access? -->
+        <activity android:name=".finalization.FinalizationPostSuwActivity"
                 android:theme="@style/SudThemeGlifV3.Light"
                 android:noHistory="true"
                 android:excludeFromRecents="true"
@@ -252,6 +252,19 @@
                 android:immersive="true">
             <intent-filter>
                 <action android:name="android.app.action.PROVISION_FINALIZATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- TODO (b/146135268): Add permission for setup-wizard to guard access? -->
+        <activity android:name=".finalization.FinalizationInsideSuwActivity"
+                  android:excludeFromRecents="true"
+                  android:exported="true"
+                  android:immersive="true"
+                  android:launchMode="singleTop"
+                  android:theme="@style/SudThemeGlifV3.Light">
+            <intent-filter>
+                <action android:name="android.app.action.PROVISION_FINALIZATION_INSIDE_SUW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
