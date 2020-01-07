@@ -139,6 +139,9 @@
                 <action
                     android:name="android.app.action.PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE"
                 />
+                <action
+                    android:name="android.app.action.PROVISION_FINANCED_DEVICE"
+                />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>

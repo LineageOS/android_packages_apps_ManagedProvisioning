@@ -487,6 +487,7 @@ public class Utils {
             case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
             case ACTION_PROVISION_MANAGED_USER:
             case ACTION_PROVISION_MANAGED_PROFILE:
+            case ACTION_PROVISION_FINANCED_DEVICE:
                 dpmProvisioningAction = intent.getAction();
                 break;
 
