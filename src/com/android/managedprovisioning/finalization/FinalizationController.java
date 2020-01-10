@@ -24,6 +24,7 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 import android.annotation.IntDef;
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.os.Bundle;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.DeferredMetricsReader;
@@ -238,5 +239,29 @@ public final class FinalizationController {
         } else {
             commitFinalizedState(loadProvisioningParams());
         }
+    }
+
+    /**
+     * This method is called when onSaveInstanceState() executes on the finalization activity.
+     */
+    final void saveInstanceState(Bundle outState) {
+        mFinalizationControllerLogic.saveInstanceState(outState);
+    }
+
+    /**
+     * When saved instance state is passed to the finalization activity in its onCreate() method,
+     * that state is passed to the FinalizationControllerLogic object here so it can be restored.
+     */
+    final void restoreInstanceState(Bundle savedInstanceState) {
+        mFinalizationControllerLogic.restoreInstanceState(savedInstanceState,
+                loadProvisioningParams());
+    }
+
+    /**
+     * Cleanup that must happen when the finalization activity is destroyed, even if we haven't yet
+     * called {@link #commitFinalizedState()} to finalize the system's provisioning state.
+     */
+    final void activityDestroyed(boolean isFinishing) {
+        mFinalizationControllerLogic.activityDestroyed(isFinishing);
     }
 }

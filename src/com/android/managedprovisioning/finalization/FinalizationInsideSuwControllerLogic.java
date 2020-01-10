@@ -27,6 +27,7 @@ import android.os.Bundle;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.StartDpcInsideSuwServiceConnection;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -37,9 +38,16 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
     @VisibleForTesting
     static final String EXTRA_DPC_INTENT_CATEGORY = "android.intent.extra.dpc_intent_category";
 
+    private static final String START_DPC_SERVICE_STATE_KEY = "start_dpc_service_state";
+    private static final String LAST_DPC_INTENT_CATEGORY_KEY = "last_dpc_intent_category";
+    private static final String LAST_REQUEST_CODE_KEY = "last_request_code";
+
     private final Activity mActivity;
     private final Utils mUtils;
     private final PolicyComplianceUtils mPolicyComplianceUtils;
+    private StartDpcInsideSuwServiceConnection mStartDpcInsideSuwServiceConnection;
+    private String mLastDpcIntentCategory = null;
+    private int mLastRequestCode = 0;
 
     public FinalizationInsideSuwControllerLogic(Activity activity) {
         this(activity, new Utils(), new PolicyComplianceUtils());
@@ -94,6 +102,49 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
         return true;
     }
 
+    @Override
+    public void saveInstanceState(Bundle outState) {
+        outState.putString(LAST_DPC_INTENT_CATEGORY_KEY, mLastDpcIntentCategory);
+        outState.putInt(LAST_REQUEST_CODE_KEY, mLastRequestCode);
+
+        if (mStartDpcInsideSuwServiceConnection != null) {
+            final Bundle startDpcServiceState = new Bundle();
+            outState.putBundle(START_DPC_SERVICE_STATE_KEY, startDpcServiceState);
+            mStartDpcInsideSuwServiceConnection.saveInstanceState(startDpcServiceState);
+        }
+    }
+
+    @Override
+    public void restoreInstanceState(Bundle savedInstanceState, ProvisioningParams params) {
+        mLastDpcIntentCategory = savedInstanceState.getString(LAST_DPC_INTENT_CATEGORY_KEY);
+        mLastRequestCode = savedInstanceState.getInt(LAST_REQUEST_CODE_KEY);
+
+        final Bundle startDpcServiceState =
+                savedInstanceState.getBundle(START_DPC_SERVICE_STATE_KEY);
+
+        if (startDpcServiceState != null) {
+            mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection(
+                    mActivity,
+                    startDpcServiceState,
+                    getDpcIntentSender(params, mLastDpcIntentCategory, mLastRequestCode));
+        }
+    }
+
+    @Override
+    public void activityDestroyed(boolean isFinishing) {
+        if (mStartDpcInsideSuwServiceConnection != null) {
+            if (isFinishing) {
+                mStartDpcInsideSuwServiceConnection.dpcFinished();
+            }
+
+            mStartDpcInsideSuwServiceConnection.unbind(mActivity);
+
+            if (isFinishing) {
+                mStartDpcInsideSuwServiceConnection = null;
+            }
+        }
+    }
+
     private String getDpcIntentCategory() {
         final Intent activityIntent = mActivity.getIntent();
         final Bundle extras = activityIntent != null ? activityIntent.getExtras() : null;
@@ -104,12 +155,31 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
 
     private @ProvisioningFinalizedResult int startPolicyComplianceActivityForResultIfResolved(
             ProvisioningParams params, String dpcIntentCategory, int requestCode) {
-        boolean isActivityStarted =
+        if (!mPolicyComplianceUtils.isPolicyComplianceActivityResolvable(mActivity, params,
+                dpcIntentCategory, mUtils)) {
+            return PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
+        }
+
+        if (mStartDpcInsideSuwServiceConnection != null) {
+            ProvisionLogger.logw("Attempted to start DPC again before result received - ignoring");
+            return PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
+        }
+
+        // Connect to a SUW service to disable network intent interception before starting the DPC.
+        mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection();
+        mStartDpcInsideSuwServiceConnection.triggerDpcStart(mActivity,
+                getDpcIntentSender(params, dpcIntentCategory, requestCode));
+
+        mLastDpcIntentCategory = dpcIntentCategory;
+        mLastRequestCode = requestCode;
+
+        return PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED;
+    }
+
+    private Runnable getDpcIntentSender(ProvisioningParams params, String dpcIntentCategory,
+            int requestCode) {
+        return () ->
                 mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
                         mActivity, params, dpcIntentCategory, requestCode, mUtils);
-
-        return isActivityStarted
-                ? PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED
-                : PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
     }
 }

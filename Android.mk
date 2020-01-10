@@ -23,6 +23,7 @@ LOCAL_STATIC_LIBRARIES := devicepolicyprotosnano
 LOCAL_STATIC_JAVA_LIBRARIES := managedprovisioning_protoslite
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES += $(call all-Iaidl-files-under, src)
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 

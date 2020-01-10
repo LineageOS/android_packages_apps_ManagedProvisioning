@@ -22,6 +22,7 @@ import static com.android.managedprovisioning.finalization.FinalizationControlle
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.UserHandle;
 
 import com.android.managedprovisioning.common.Utils;
@@ -90,4 +91,13 @@ public class FinalizationPostSuwControllerLogic implements FinalizationControlle
         // PrimaryProfileFinalizationHelper, so we don't invoke it again in commitFinalizedState().
         return mUtils.isAdminIntegratedFlow(params);
     }
+
+    @Override
+    public void saveInstanceState(Bundle outState) {}
+
+    @Override
+    public void restoreInstanceState(Bundle savedInstanceState, ProvisioningParams params) {}
+
+    @Override
+    public void activityDestroyed(boolean isFinishing) {}
 }
