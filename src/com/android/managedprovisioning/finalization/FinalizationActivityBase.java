@@ -44,6 +44,14 @@ public abstract class FinalizationActivityBase extends Activity {
         super.onCreate(savedInstanceState);
 
         mFinalizationController = createFinalizationController();
+
+        // If savedInstanceState is not null, we already executed the logic below, so don't do it
+        // again now.  We likely just need to wait for a child activity to complete, so we can
+        // execute an onActivityResult() callback before finishing this activity.
+        if (savedInstanceState != null) {
+            return;
+        }
+
         mFinalizationController.provisioningFinalized();
         final int result = mFinalizationController.getProvisioningFinalizedResult();
         if (FinalizationController.PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED ==
