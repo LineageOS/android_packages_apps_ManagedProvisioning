@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Աշխատանքային սարքի օգտագործող"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Աշխատանքային սարքի կարգավորում…"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Տեղադրման տվյալների մշակում…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Կապակցում Wi-Fi-ին..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Միացում Wi-Fi-ին..."</string>
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Միացում բջջային ցանցին…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Ադմինիստրատոր հավելվածի ներբեռնում…"</string>
     <string name="progress_install" msgid="2258045670385866183">"Ադմինիստրատոր հավելվածի տեղադրում…"</string>

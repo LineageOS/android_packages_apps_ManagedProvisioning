@@ -147,8 +147,8 @@
     <string name="access_terms" msgid="1982500872249763745">"الوصول إلى البنود"</string>
     <string name="read_terms" msgid="1745011123626640728">"قراءة البنود"</string>
     <string name="close_list" msgid="9053538299788717597">"إغلاق القائمة"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"أتريد إنهاء الإعداد وإعادة تعيين بيانات المصنع؟"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"سيؤدي إنهاء هذا الإعداد إلى إعادة تعيين بيانات المصنع لجهازك ونقلك إلى الشاشة الأولى مرة أخرى."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"أتريد إنهاء الإعداد وإعادة الضبط على الإعدادت الأصليّة؟"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"سيؤدي إنهاء هذا الإعداد إلى إعادة ضبط جهازك على الإعدادات الأصليّة ونقلك إلى الشاشة الأولى مرة أخرى."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"إلغاء"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"إعادة ضبط الجهاز"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> و<xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
