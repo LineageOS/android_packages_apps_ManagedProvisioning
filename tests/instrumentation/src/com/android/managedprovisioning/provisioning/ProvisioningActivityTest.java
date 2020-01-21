@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_STATE_USER_SETUP_COMPLETE;
@@ -115,6 +116,11 @@ public class ProvisioningActivityTest {
             .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
             .setDeviceAdminComponentName(ADMIN)
             .build();
+    private static final ProvisioningParams FINANCED_DEVICE_PARAMS = new ProvisioningParams
+            .Builder()
+            .setProvisioningAction(ACTION_PROVISION_FINANCED_DEVICE)
+            .setDeviceAdminComponentName(ADMIN)
+            .build();
     private static final ProvisioningParams NFC_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
@@ -125,6 +131,8 @@ public class ProvisioningActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, PROFILE_OWNER_PARAMS);
     private static final Intent DEVICE_OWNER_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, DEVICE_OWNER_PARAMS);
+    private static final Intent FINANCED_DEVICE_INTENT = new Intent()
+            .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, FINANCED_DEVICE_PARAMS);
     private static final Intent NFC_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
     private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
@@ -429,6 +437,20 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(DEVICE_OWNER_INTENT);
 
         // THEN the description should be empty
+        onView(withId(R.id.provisioning_progress)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
+
+        // THEN the animation is shown.
+        onView(withId(R.id.animation)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testInitializeUi_financedDevice() throws Throwable {
+        // GIVEN the activity was launched with a financed device intent
+        launchActivityAndWait(FINANCED_DEVICE_INTENT);
+
+        // THEN the description should be empty
+        // TODO: b/147399319 update test string once UX is updated
         onView(withId(R.id.provisioning_progress)).check(
                 matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
 

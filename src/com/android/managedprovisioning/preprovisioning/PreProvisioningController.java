@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
@@ -193,6 +194,8 @@ public class PreProvisioningController {
 
         void prepareAdminIntegratedFlow(ProvisioningParams params);
 
+        void prepareFinancedDeviceFlow(ProvisioningParams params);
+
         void showFactoryResetDialog(Integer titleId, int messageId);
 
         void initiateUi(UiParams uiParams);
@@ -313,6 +316,8 @@ public class PreProvisioningController {
 
         if (mParams.isOrganizationOwnedProvisioning) {
             mUi.prepareAdminIntegratedFlow(mParams);
+        } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
+            mUi.prepareFinancedDeviceFlow(mParams);
         } else {
             // skipUserConsent can only be set from a device owner provisioning to a work profile.
             if (mParams.skipUserConsent || Utils.isSilentProvisioning(mContext, mParams)) {
@@ -603,7 +608,8 @@ public class PreProvisioningController {
             return verifyActivityAlias(intent, "PreProvisioningActivityAfterEncryption");
         } else if (ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
             return verifyActivityAlias(intent, "PreProvisioningActivityViaNfc");
-        } else if (ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())) {
+        } else if (ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())
+                || ACTION_PROVISION_FINANCED_DEVICE.equals(intent.getAction())) {
             return verifyActivityAlias(intent, "PreProvisioningActivityViaTrustedApp");
         } else {
             return verifyCaller(callingPackage);

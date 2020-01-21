@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 
 import android.Manifest.permission;
@@ -68,15 +69,18 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
+    private static final int RESULT_CODE_COMPLETE_DEVICE_FINANCE = 121;
 
     static final int PROVISIONING_MODE_WORK_PROFILE = 1;
     static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 2;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
+    static final int PROVISIONING_MODE_FINANCED_DEVICE = 4;
 
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
         PROVISIONING_MODE_WORK_PROFILE,
         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
-        PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE
+        PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
+        PROVISIONING_MODE_FINANCED_DEVICE
     })
     @Retention(RetentionPolicy.SOURCE)
     @interface ProvisioningMode {}
@@ -88,6 +92,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 put(PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
                         R.string.fully_managed_device_provisioning_progress_label);
                 put(PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
+                        R.string.fully_managed_device_provisioning_progress_label);
+                put(PROVISIONING_MODE_FINANCED_DEVICE,
+                        // TODO: b/147399319 update string showing provisioning progress
                         R.string.fully_managed_device_provisioning_progress_label);
             }});
 
@@ -169,7 +176,11 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void finishProvisioning() {
-        setResult(Activity.RESULT_OK);
+        if (mParams.provisioningAction.equals(ACTION_PROVISION_FINANCED_DEVICE)) {
+            setResult(RESULT_CODE_COMPLETE_DEVICE_FINANCE);
+        } else {
+            setResult(Activity.RESULT_OK);
+        }
         maybeLaunchNfcUserSetupCompleteIntent();
         finish();
     }
@@ -356,6 +367,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             }
         } else if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
             provisioningMode = PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+        } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
+            provisioningMode = PROVISIONING_MODE_FINANCED_DEVICE;
         }
         return provisioningMode;
     }
