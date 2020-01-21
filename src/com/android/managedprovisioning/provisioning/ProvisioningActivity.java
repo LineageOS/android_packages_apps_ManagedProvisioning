@@ -308,6 +308,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void initializeUi(ProvisioningParams params) {
         final boolean isPoProvisioning = mUtils.isProfileOwnerAction(params.provisioningAction);
+        // TODO: b/147399319, accessibility description string for financed device provisioning
         final int titleResId =
             isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
 
@@ -318,7 +319,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         setupEducationViews(layout);
-
+        if (mUtils.isFinancedDeviceAction(params.provisioningAction)) {
+            layout.setIcon(null);
+        }
         mNextButton = Utils.addNextButton(layout, v -> onNextButtonClicked());
         mNextButton.setVisibility(View.INVISIBLE);
 
