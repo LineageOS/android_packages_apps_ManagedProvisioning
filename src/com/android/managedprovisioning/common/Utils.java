@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.common;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
@@ -486,6 +487,7 @@ public class Utils {
             case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
             case ACTION_PROVISION_MANAGED_USER:
             case ACTION_PROVISION_MANAGED_PROFILE:
+            case ACTION_PROVISION_FINANCED_DEVICE:
                 dpmProvisioningAction = intent.getAction();
                 break;
 
@@ -590,6 +592,13 @@ public class Utils {
     public final boolean isDeviceOwnerAction(String action) {
         return ACTION_PROVISION_MANAGED_DEVICE.equals(action)
                 || ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE.equals(action);
+    }
+
+    /**
+     * Returns whether the given provisioning action is a financed device action.
+     */
+    public final boolean isFinancedDeviceAction(String action) {
+        return ACTION_PROVISION_FINANCED_DEVICE.equals(action);
     }
 
     /**

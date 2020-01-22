@@ -139,6 +139,9 @@
                 <action
                     android:name="android.app.action.PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE"
                 />
+                <action
+                    android:name="android.app.action.PROVISION_FINANCED_DEVICE"
+                />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
@@ -271,6 +274,11 @@
 
         <activity
             android:name=".provisioning.LandingActivity"
+            android:theme="@style/SudThemeGlifV3.Light"
+            android:immersive="true" />
+
+        <activity
+            android:name=".provisioning.FinancedDeviceLandingActivity"
             android:theme="@style/SudThemeGlifV3.Light"
             android:immersive="true" />
 
