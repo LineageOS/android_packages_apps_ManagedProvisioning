@@ -822,19 +822,39 @@ public class Utils {
             textView.setText(contactDeviceProvider);
             return;
         }
-        final SpannableString spannableString = new SpannableString(contactDeviceProvider);
         final Intent intent = WebActivity.createIntent(
                 context, customizationParams.supportUrl, customizationParams.statusBarColor);
+
+        handlePartialClickableTextView(textView, contactDeviceProvider, deviceProvider, intent,
+                clickableSpanFactory);
+
+        contextMenuMaker.registerWithActivity(textView);
+    }
+
+    /**
+     * Utility function to make a TextView partial clickable. It also associates the TextView with
+     * an Intent. The intent will be triggered when the clickable part is clicked.
+     *
+     * @param textView The TextView which hosts the clickable string.
+     * @param content The content of the TextView.
+     * @param clickableString The substring which is clickable.
+     * @param intent The Intent that will be launched.
+     * @param clickableSpanFactory The factory which is used to create ClickableSpan to decorate
+     *                             clickable string.
+     */
+    public void handlePartialClickableTextView(TextView textView, String content,
+            String clickableString, Intent intent, ClickableSpanFactory clickableSpanFactory) {
+        final SpannableString spannableString = new SpannableString(content);
         if (intent != null) {
             final ClickableSpan span = clickableSpanFactory.create(intent);
-            final int startIx = contactDeviceProvider.indexOf(deviceProvider);
-            final int endIx = startIx + deviceProvider.length();
-            spannableString.setSpan(span, startIx, endIx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            textView.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+            final int startIdx = content.indexOf(clickableString);
+            final int endIdx = startIdx + clickableString.length();
+
+            spannableString.setSpan(span, startIdx, endIdx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
 
         textView.setText(spannableString);
-        contextMenuMaker.registerWithActivity(textView);
     }
 
     public static boolean isSilentProvisioningForTestingDeviceOwner(

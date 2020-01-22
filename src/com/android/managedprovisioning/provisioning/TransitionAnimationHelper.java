@@ -76,7 +76,7 @@ class TransitionAnimationHelper {
     static final ProvisioningModeWrapper FINANCED_DEVICE_WRAPPER
             = new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
                     new TransitionScreenWrapper(
-                            R.string.fully_managed_device_provisioning_step_1_header,
+                            R.string.just_a_sec,
                             R.drawable.connect_on_the_go_animation)
     }, R.string.fully_managed_device_provisioning_summary);
 

@@ -53,13 +53,13 @@ public class FinancedDeviceLandingActivityTest {
             new IntentsTestRule(FinancedDeviceLandingActivity.class, true, false);
 
     @Test
-    public void onNextButtonClicked() {
+    public void onAcceptAndContinueButtonClicked() {
         // GIVEN the activity launched
         ProvisioningParams params = generateProvisioningParams();
         launchActivityWithParams(params);
 
-        // WHEN the user clicks next
-        onView(withText(R.string.next)).perform(click());
+        // WHEN the user clicks Accept & continue
+        onView(withText(R.string.accept_and_continue)).perform(click());
 
         // THEN the activity should finish
         assertTrue(mActivityRule.getActivity().isFinishing());
