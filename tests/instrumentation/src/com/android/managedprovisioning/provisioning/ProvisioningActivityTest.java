@@ -305,6 +305,7 @@ public class ProvisioningActivityTest {
                 any(ProvisioningManagerCallback.class));
     }
 
+    @FlakyTest
     @Test
     public void testCancelProfileOwner_CompProvisioningWithoutSkipConsent() throws Throwable {
         // GIVEN launching profile intent without skipping user consent
@@ -378,6 +379,10 @@ public class ProvisioningActivityTest {
 
         Thread.sleep(WAIT_PROVISIONING_COMPLETE_MILLIS);
 
+        // Press next button on provisioning complete
+        onView(withText(R.string.next)).perform(click());
+
+        // Press next button on cross profile apps whitelisting
         onView(withText(R.string.next)).perform(click());
 
         // THEN the activity should finish
@@ -409,6 +414,10 @@ public class ProvisioningActivityTest {
 
         Thread.sleep(WAIT_PROVISIONING_COMPLETE_MILLIS);
 
+        // Press next button on provisioning complete
+        onView(withText(R.string.next)).perform(click());
+
+        // Press next button on cross profile apps whitelisting
         onView(withText(R.string.next)).perform(click());
 
         // THEN verify starting TEST_ACTIVITY

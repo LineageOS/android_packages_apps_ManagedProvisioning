@@ -41,6 +41,8 @@ import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.BlockingBroadcastReceiver;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 
+import com.google.android.setupcompat.template.FooterButton;
+
 import org.hamcrest.Matcher;
 
 import java.util.List;
@@ -130,6 +132,16 @@ public class ManagedProfileTest extends AndroidTestCase {
         // Try pressing "Next" for 10 minutes (120 * 5 seconds). This must be long enough for
         // DPC download/installation to happen, and education screens to complete.
         new EspressoClickRetryActions(/* retries= */ 120, /* delayMillis= */ FIVE_SECONDS_MILLIS) {
+            @Override
+            public ViewInteraction newViewInteraction1() {
+                return onView(allOf(withClassName(containsString("FooterActionButton")),
+                        withText(R.string.next)));
+            }
+        }.run();
+
+        // Try pressing "Next" for 10 minutes (5 * 5 seconds). This must be long enough to show the
+        // cross profile consent screen.
+        new EspressoClickRetryActions(/* retries= */ 5, /* delayMillis= */ FIVE_SECONDS_MILLIS) {
             @Override
             public ViewInteraction newViewInteraction1() {
                 return onView(allOf(withClassName(containsString("FooterActionButton")),

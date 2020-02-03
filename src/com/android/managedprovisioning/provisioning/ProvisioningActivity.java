@@ -46,6 +46,7 @@ import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
+import com.android.managedprovisioning.provisioning.crossprofile.CrossProfileConsentActivity;
 import com.android.managedprovisioning.transition.TransitionActivity;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupcompat.template.FooterButton;
@@ -68,6 +69,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         implements TransitionAnimationCallback {
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
     private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
+    private static final int CROSS_PROFILE_PACKAGES_CONSENT_REQUEST_CODE = 3;
     private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
     private static final int RESULT_CODE_COMPLETE_DEVICE_FINANCE = 121;
 
@@ -165,14 +167,15 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void onNextButtonClicked() {
-        new PreFinalizationController(this, mUserProvisioningStateHelper)
-                .deviceManagementEstablished(mParams);
-        if (mUtils.isAdminIntegratedFlow(mParams)) {
-            mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                    this, mParams, null, POLICY_COMPLIANCE_REQUEST_CODE, mUtils);
+        if (getProvisioningMode() == PROVISIONING_MODE_WORK_PROFILE) {
+            Intent intent = new Intent(this, CrossProfileConsentActivity.class);
+            WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
+            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
+            startActivityForResult(intent, CROSS_PROFILE_PACKAGES_CONSENT_REQUEST_CODE);
         } else {
-            finishProvisioning();
+            finalizeProvisioning();
         }
+
     }
 
     private void finishProvisioning() {
@@ -217,6 +220,27 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 setResult(RESULT_CODE_ADD_PERSONAL_ACCOUNT);
                 finish();
                 break;
+            case CROSS_PROFILE_PACKAGES_CONSENT_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    finalizeProvisioning();
+                }
+                break;
+        }
+    }
+
+    private void finalizeProvisioning(){
+        new PreFinalizationController(this, mUserProvisioningStateHelper)
+                .deviceManagementEstablished(mParams);
+
+        if (mUtils.isAdminIntegratedFlow(mParams)) {
+            mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
+                    /* parentActivity= */ this,
+                    mParams,
+                    /* category= */ null,
+                    POLICY_COMPLIANCE_REQUEST_CODE,
+                    mUtils);
+        } else {
+            finishProvisioning();
         }
     }
 
