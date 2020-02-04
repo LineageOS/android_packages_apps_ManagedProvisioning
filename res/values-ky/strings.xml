@@ -22,7 +22,7 @@
     <string name="app_label" msgid="1527793174155125990">"Жумуш аккаунтун жөндөө"</string>
     <string name="provisioning_error_title" msgid="6320515739861578118">"Ой!"</string>
     <string name="setup_work_profile" msgid="1468934631731845267">"Жумуш профилин жөндөө"</string>
-    <string name="company_controls_workspace" msgid="2808025277267917221">"Ишканаңыз бул профилди көзөмөлдөп, коопсуздугун камсыз кылып турат. Түзмөгүңүздөгү калган нерсенин бардыгын өзүңүз көзөмөлдөйсүз."</string>
+    <string name="company_controls_workspace" msgid="2808025277267917221">"Ишканаңыз бул профилди көзөмөлдөп, коопсуздугун камсыз кылып турат. Түзмөгүңүздөгү калган нерсенин баарын өзүңүз көзөмөлдөйсүз."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Ишканаңыз бул түзмөктү көзөмөлдөп, коопсуздугун камсыз кылат."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Төмөнкү колдонмо бул профилди колдонушу керек."</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Төмөнкү колдонмо түзмөгүңүздү башкармакчы:"</string>
