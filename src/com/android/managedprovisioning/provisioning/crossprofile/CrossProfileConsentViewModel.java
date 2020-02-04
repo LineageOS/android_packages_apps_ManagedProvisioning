@@ -16,6 +16,9 @@
 
 package com.android.managedprovisioning.provisioning.crossprofile;
 
+import static android.app.AppOpsManager.MODE_ALLOWED;
+import static android.app.AppOpsManager.MODE_IGNORED;
+
 import static androidx.core.util.Preconditions.checkNotNull;
 
 import static com.android.managedprovisioning.common.ProvisionLogger.loge;
@@ -26,6 +29,7 @@ import android.app.Application;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.CrossProfileApps;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -37,27 +41,34 @@ import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import androidx.savedstate.SavedStateRegistryOwner;
 
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 // Class must be public to avoid "Cannot create an instance of..." compiler errors.
 /** Stores state and responds to UI interactions for the cross-profile consent screen. */
 public class CrossProfileConsentViewModel extends ViewModel {
     private static final String ITEMS_KEY = "items";
+    private static final String ITEM_PACKAGE_NAMES_KEY = "itemPackageNames";
 
     private static final String APP_NOT_FOUND_MESSAGE =
             "Application not found for cross-profile consent screen";
 
     private final Context mApplicationContext;
     private final SavedStateHandle mState;
+    private final ManagedProvisioningSharedPreferences mSharedPreferences;
 
     // Constructor must be public to avoid "Cannot create an instance of..." compiler errors.
     public CrossProfileConsentViewModel(Application application, SavedStateHandle state) {
         super();
         mApplicationContext = checkNotNull(application).getApplicationContext();
         mState = checkNotNull(state);
+        mSharedPreferences = new ManagedProvisioningSharedPreferences(mApplicationContext);
     }
 
     /** Returns the list of cross-profile consent items. */
@@ -70,6 +81,7 @@ public class CrossProfileConsentViewModel extends ViewModel {
                 mApplicationContext.getSystemService(DevicePolicyManager.class)
                         .getDefaultCrossProfilePackages();
         final List<CrossProfileItem> crossProfileItems = new ArrayList<>();
+        final Map<CrossProfileItem, String> crossProfileItemPackageNames = new HashMap<>();
         for (String crossProfilePackage : crossProfilePackages) {
             CrossProfileItem crossProfileItem = buildCrossProfileItem(crossProfilePackage);
             if (crossProfileItem == null) {
@@ -77,8 +89,10 @@ public class CrossProfileConsentViewModel extends ViewModel {
                 continue;
             }
             crossProfileItems.add(crossProfileItem);
+            crossProfileItemPackageNames.put(crossProfileItem, crossProfilePackage);
         }
         mState.set(ITEMS_KEY, crossProfileItems);
+        mState.set(ITEM_PACKAGE_NAMES_KEY, crossProfileItemPackageNames);
     }
 
     /**
@@ -141,7 +155,34 @@ public class CrossProfileConsentViewModel extends ViewModel {
         return metaData.getString(CROSS_PROFILE_SUMMARY_META_DATA);
     }
 
-    void onButtonClicked() {}
+    /**
+     * Responds to the button being pressed to leave the screen, given the state of the toggle for
+     * each cross-profile item. Before calling this method, check that each {@link CrossProfileItem}
+     * provided is accounted for in {@link #getItems()} first, in case of an unexpected race
+     * condition.
+     */
+    void onButtonClicked(Map<CrossProfileItem, Boolean> toggleStates) {
+        setInteractAcrossProfilesAppOps(toggleStates);
+        maybeSetSharedPreference();
+    }
+
+    private void setInteractAcrossProfilesAppOps(Map<CrossProfileItem, Boolean> toggleStates) {
+        final CrossProfileApps crossProfileApps =
+                mApplicationContext.getSystemService(CrossProfileApps.class);
+        final Map<CrossProfileItem, String> crossProfileItemPackageNames =
+                mState.get(ITEM_PACKAGE_NAMES_KEY);
+        for (CrossProfileItem crossProfileItem : toggleStates.keySet()) {
+            crossProfileApps.setInteractAcrossProfilesAppOp(
+                    crossProfileItemPackageNames.get(crossProfileItem),
+                    toggleStates.get(crossProfileItem) ? MODE_ALLOWED : MODE_IGNORED);
+        }
+    }
+
+    private void maybeSetSharedPreference() {
+        if (!mSharedPreferences.getCrossProfileConsentDone()) {
+            mSharedPreferences.writeCrossProfileConsentDone(true);
+        }
+    }
 
     // Create a custom factory due to http://b/148841619. The default AndroidViewModel stores the
     // Application statically and reuses the factory instance so does not work with Robolectric

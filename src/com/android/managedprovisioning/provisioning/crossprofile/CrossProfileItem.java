@@ -32,7 +32,7 @@ class CrossProfileItem {
     private CrossProfileItem(Builder builder) {
         this.appTitle = checkNotNull(builder.appTitle);
         this.summary = checkNotNull(builder.summary);
-        this.icon = builder.icon;
+        this.icon = checkNotNull(builder.icon);
     }
 
     String appTitle() {

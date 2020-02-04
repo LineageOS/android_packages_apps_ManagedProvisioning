@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.provisioning.crossprofile;
 
+import static com.android.managedprovisioning.common.ProvisionLogger.loge;
 import static com.android.managedprovisioning.common.ProvisionLogger.logw;
 
 import android.annotation.Nullable;
@@ -35,10 +36,13 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
+import com.android.managedprovisioning.provisioning.crossprofile.CrossProfileAdapter.CrossProfileViewHolder;
 
 import com.google.android.setupdesign.GlifLayout;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Stand-alone activity that presents the user with the default OEM cross-profile apps for them to
@@ -62,6 +66,9 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
 
     private RecyclerView mCrossProfileItems;
     private CrossProfileConsentViewModel mModel;
+    private boolean mAddedButton = false;
+
+    @Nullable private CrossProfileAdapter mCrossProfileAdapter;
 
     /**
      * Flag to determine whether the UI should stop responding to clicks. Required since Android
@@ -74,7 +81,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initializeLayoutParams();
         initializeCrossProfileItems();
-        addButton();
+        mAddedButton = false;
         mModel = findViewModel();
         observeItems();
         if (savedInstanceState == null) {
@@ -99,22 +106,6 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     private void initializeCrossProfileItems() {
         mCrossProfileItems = findViewById(R.id.cross_profile_items);
         mCrossProfileItems.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private void addButton() {
-        if (isFinalScreen()) {
-            Utils.addDoneButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
-        } else {
-            Utils.addNextButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
-        }
-    }
-
-    private boolean isFinalScreen() {
-        final Intent intent = getIntent();
-        if (intent == null) {
-            return false;
-        }
-        return intent.getBooleanExtra(EXTRA_FINAL_SCREEN, /* defValue= */ false);
     }
 
     private void observeItems() {
@@ -143,16 +134,77 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         if (crossProfileItems == null) {
             return;
         }
-        mCrossProfileItems.setAdapter(new CrossProfileAdapter(crossProfileItems));
+        if (crossProfileItems.isEmpty()) {
+            logw("No provisioning cross-profile consent apps. Skipping.");
+            finishWithResult();
+            return;
+        }
+        mCrossProfileAdapter = new CrossProfileAdapter(crossProfileItems);
+        mCrossProfileItems.setAdapter(mCrossProfileAdapter);
+        maybeAddButton();
+    }
+
+    private void maybeAddButton() {
+        if (mAddedButton) {
+            return;
+        }
+        mAddedButton = true;
+        if (isFinalScreen()) {
+            Utils.addDoneButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
+        } else {
+            Utils.addNextButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
+        }
+    }
+
+    private boolean isFinalScreen() {
+        final Intent intent = getIntent();
+        if (intent == null) {
+            return false;
+        }
+        return intent.getBooleanExtra(EXTRA_FINAL_SCREEN, /* defValue= */ false);
     }
 
     private void onButtonClicked() {
         if (mSuppressClicks) {
-            logw("Double-click detected on button.");
+            logw("Double-click detected on button");
             return;
         }
+        if (mCrossProfileAdapter == null) {
+            loge("Button clicked before items found");
+            return;
+        }
+        final List<CrossProfileItem> crossProfileItems = mModel.getItems().getValue();
+        if (crossProfileItems == null) {
+            loge("Button clicked before items found");
+            return;
+        }
+        final Map<CrossProfileItem, Boolean> toggleStates = findToggleStates();
+        for (CrossProfileItem crossProfileItem : toggleStates.keySet()) {
+            if (!crossProfileItems.contains(crossProfileItem)) {
+                loge("Unexpected race condition: unknown cross-profile item selected from UI: "
+                        + crossProfileItem);
+                return;
+            }
+        }
         mSuppressClicks = true;
-        mModel.onButtonClicked();
+        mModel.onButtonClicked(toggleStates);
+        finishWithResult();
+    }
+
+    /** Assumes {@link #mCrossProfileAdapter} is non-null. */
+    private Map<CrossProfileItem, Boolean> findToggleStates() {
+        final Map<CrossProfileItem, Boolean> toggleStates = new HashMap<>();
+        final List<CrossProfileItem> crossProfileItems =
+                mCrossProfileAdapter.getCrossProfileItems();
+        for (int i = 0; i < crossProfileItems.size(); i++) {
+            final CrossProfileViewHolder viewHolder =
+                    (CrossProfileViewHolder) mCrossProfileItems.findViewHolderForAdapterPosition(i);
+            toggleStates.put(crossProfileItems.get(i), viewHolder.toggle().isChecked());
+        }
+        return toggleStates;
+    }
+
+    private void finishWithResult() {
         setResult(RESULT_OK);
         finish();
     }
