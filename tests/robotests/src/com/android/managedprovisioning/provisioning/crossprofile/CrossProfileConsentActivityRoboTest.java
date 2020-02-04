@@ -43,6 +43,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.android.controller.ActivityController;
 import org.robolectric.shadows.ShadowLooper;
 
 /** Robolectric unit tests for {@link CrossProfileConsentActivity}. */
@@ -115,6 +116,54 @@ public class CrossProfileConsentActivityRoboTest {
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
 
+        CrossProfileConsentActivity activity =
+                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+
+        assertThat(findCrossProfileItemsNum(activity)).isEqualTo(2);
+    }
+
+    @Test
+    public void restartActivity_stillHasItems() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+
+        ActivityController<CrossProfileConsentActivity> activityController =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class);
+        activityController.setup();
+        activityController.restart();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(findCrossProfileItemsNum(activityController.get())).isEqualTo(2);
+    }
+
+    @Test
+    public void activityConfigurationChange_stillHasItems() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+
+        ActivityController<CrossProfileConsentActivity> activityController =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class);
+        activityController.setup();
+        activityController.configurationChange();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(findCrossProfileItemsNum(activityController.get())).isEqualTo(2);
+    }
+
+    @Test
+    public void recreateActivity_stillHasItems() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+
+        Robolectric.buildActivity(CrossProfileConsentActivity.class).setup().destroy();
+        ShadowLooper.idleMainLooper();
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();

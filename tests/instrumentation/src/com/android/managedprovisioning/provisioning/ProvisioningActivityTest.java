@@ -305,6 +305,7 @@ public class ProvisioningActivityTest {
                 any(ProvisioningManagerCallback.class));
     }
 
+    @FlakyTest
     @Test
     public void testCancelProfileOwner_CompProvisioningWithoutSkipConsent() throws Throwable {
         // GIVEN launching profile intent without skipping user consent
