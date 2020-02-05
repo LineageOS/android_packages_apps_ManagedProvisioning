@@ -52,7 +52,7 @@ public class CustomizationParams {
     public static CustomizationParams createInstance(
             ProvisioningParams params, Context context, Utils utils) {
         return createInstance(
-                params.mainColor, params.supportUrl, params.organizationName, context, utils);
+                params.mainColor, params.organizationName, params.supportUrl, context, utils);
     }
 
     public static CustomizationParams createInstance(Context context, Utils utils) {

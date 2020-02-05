@@ -143,15 +143,6 @@ public class CustomizationParamsTest {
     }
 
     @Test
-    public void respectsOrgName_noParams() {
-        // when
-        CustomizationParams instance = createInstance();
-
-        // then
-        assertThat(instance.orgName, equalTo(SAMPLE_ORG_NAME));
-    }
-
-    @Test
     public void respectsUrl() {
         // given
         ProvisioningParams params = createParams(null, null, SAMPLE_URL, null);
