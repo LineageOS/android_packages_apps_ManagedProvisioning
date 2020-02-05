@@ -22,6 +22,7 @@ import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PRO
 
 import android.annotation.Nullable;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -56,15 +57,10 @@ import java.util.stream.Collectors;
  * their cross-profile preferences.
  *
  * <p>Accepts provisioning parameters provided via the {@link ProvisioningParams
- * #EXTRA_PROVISIONING_PARAMS} extra.
+ * #EXTRA_PROVISIONING_PARAMS} extra. If these are not provided, it is assumed that the screen is
+ * being displayed outside of provisioning.
  */
 public class CrossProfileConsentActivity extends AppCompatActivity {
-
-    /**
-     * Boolean extra used internally within this application to specify that this activity is the
-     * final screen, not part of a setup flow.
-     */
-    public static final String EXTRA_FINAL_SCREEN = "android.app.extra.CROSS_PROFILE_FINAL_SCREEN";
 
     @VisibleForTesting
     static final String CROSS_PROFILE_SUMMARY_META_DATA = "android.app.cross_profile_summary";
@@ -92,6 +88,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         maybeInitializeProvisioningParams();
         initializeLayoutParams();
+        maybeForceOrientation();
         initializeCrossProfileItems();
         mAddedButton = false;
         mModel = findViewModel();
@@ -121,6 +118,17 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         final CustomizationParams params = createCustomizationParams();
         layout.setPrimaryColor(ColorStateList.valueOf(params.mainColor));
         layout.setIcon(LogoUtils.getOrganisationLogo(this, params.mainColor));
+    }
+
+    private void maybeForceOrientation() {
+        if (!isDuringProvisioning() || !getResources().getBoolean(R.bool.lock_to_portrait)) {
+            return;
+        }
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    private boolean isDuringProvisioning() {
+        return mProvisioningParams != null;
     }
 
     private CustomizationParams createCustomizationParams() {
@@ -194,11 +202,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     }
 
     private boolean isFinalScreen() {
-        final Intent intent = getIntent();
-        if (intent == null) {
-            return false;
-        }
-        return intent.getBooleanExtra(EXTRA_FINAL_SCREEN, /* defValue= */ false);
+        return mProvisioningParams == null;
     }
 
     /**
