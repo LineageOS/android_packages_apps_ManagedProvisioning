@@ -47,6 +47,7 @@ import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.MigrateSystemAppsSnapshotTask;
+import com.android.managedprovisioning.task.UpdateInteractAcrossProfilesAppOpTask;
 
 import java.util.List;
 import java.util.function.IntFunction;
@@ -120,6 +121,12 @@ public class OtaController {
                 mCrossProfileIntentFiltersSetter.resetFilters(userInfo.id);
             }
         }
+
+        mTaskExecutor.execute(mContext.getUserId(), new UpdateInteractAcrossProfilesAppOpTask(
+                mContext,
+                /* params= */ null,
+                mTaskExecutor
+        ));
     }
 
     void addDeviceOwnerTasks(final int userId, Context context) {
