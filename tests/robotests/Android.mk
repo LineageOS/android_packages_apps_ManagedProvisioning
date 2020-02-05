@@ -16,7 +16,10 @@ LOCAL_JAVA_LIBRARIES := \
     robolectric_android-all-stub \
     Robolectric_all-target \
     mockito-robolectric-prebuilt \
-    truth-prebuilt
+    truth-prebuilt \
+    androidx.test.core \
+    androidx.test.rules \
+    androidx.core_core
 
 LOCAL_STATIC_JAVA_LIBRARIES := managedprovisioning_protoslite
 
@@ -42,7 +45,10 @@ LOCAL_JAVA_LIBRARIES := \
     robolectric_android-all-stub \
     Robolectric_all-target \
     mockito-robolectric-prebuilt \
-    truth-prebuilt
+    truth-prebuilt \
+    androidx.test.core \
+    androidx.test.rules \
+    androidx.core_core
 
 LOCAL_TEST_PACKAGE := ManagedProvisioning
 
