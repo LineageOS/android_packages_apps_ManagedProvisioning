@@ -19,7 +19,10 @@ package com.android.managedprovisioning.provisioning.crossprofile;
 import static android.app.Activity.RESULT_OK;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_IGNORED;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.content.pm.ApplicationInfo.FLAG_TEST_ONLY;
 
+import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 import static com.android.managedprovisioning.provisioning.crossprofile.CrossProfileConsentActivity.CROSS_PROFILE_SUMMARY_META_DATA;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -28,7 +31,9 @@ import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.CrossProfileApps;
 import android.content.pm.PackageInfo;
@@ -47,6 +52,7 @@ import androidx.test.core.app.ApplicationProvider;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupdesign.GlifLayout;
@@ -366,8 +372,7 @@ public class CrossProfileConsentActivityRoboTest {
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
 
-        final CrossProfileConsentActivity activity =
-                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();
 
         assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
@@ -398,6 +403,55 @@ public class CrossProfileConsentActivityRoboTest {
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();
         findButton(activity).performClick();
+        ShadowLooper.idleMainLooper();
+
+        assertActivityFinishedWithOkResult(activity);
+    }
+
+    @Test
+    public void setupActivity_silentProvisioningParams_setsInteractAcrossProfileAppOpsToEnabled() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        final PackageInfo profileOwnerPackageInfo = setSilentProvisioningFlags(mTestPackageInfo2);
+        shadowOf(mPackageManager).installPackage(profileOwnerPackageInfo);
+        final Intent intent =
+                buildSilentProvisioningParamsIntent(profileOwnerPackageInfo.packageName);
+
+        Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        final int mode = shadowOf(mCrossProfileApps)
+                .getInteractAcrossProfilesAppOp(mTestPackageInfo.packageName);
+        assertThat(mode).isEqualTo(MODE_ALLOWED);
+    }
+
+    @Test
+    public void setupActivity_silentProvisioningParams_setsSharedPreference() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        final PackageInfo profileOwnerPackageInfo = setSilentProvisioningFlags(mTestPackageInfo2);
+        shadowOf(mPackageManager).installPackage(profileOwnerPackageInfo);
+        final Intent intent =
+                buildSilentProvisioningParamsIntent(profileOwnerPackageInfo.packageName);
+
+        Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
+                .isTrue();
+    }
+
+    @Test
+    public void setupActivity_silentProvisioningParams_finishesActivityWithOkResult() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        final PackageInfo profileOwnerPackageInfo = setSilentProvisioningFlags(mTestPackageInfo2);
+        shadowOf(mPackageManager).installPackage(profileOwnerPackageInfo);
+        final Intent intent =
+                buildSilentProvisioningParamsIntent(profileOwnerPackageInfo.packageName);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
         ShadowLooper.idleMainLooper();
 
         assertActivityFinishedWithOkResult(activity);
@@ -451,5 +505,24 @@ public class CrossProfileConsentActivityRoboTest {
     private void assertActivityFinishedWithOkResult(Activity activity) {
         assertThat(activity.isFinishing()).isTrue();
         assertThat(shadowOf(activity).getResultCode()).isEqualTo(RESULT_OK);
+    }
+
+    /**
+     * Mutates the given package profile-owner package info to be considered suitable for silent
+     * provisioning.
+     */
+    private PackageInfo setSilentProvisioningFlags(PackageInfo profileOwnerPackageInfo) {
+        profileOwnerPackageInfo.applicationInfo.flags = FLAG_TEST_ONLY;
+        return profileOwnerPackageInfo;
+    }
+
+    private Intent buildSilentProvisioningParamsIntent(String profileOwnerPackageName) {
+        final ProvisioningParams provisioningParams =
+                new ProvisioningParams.Builder()
+                        .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                        .setDeviceAdminComponentName(
+                                new ComponentName(profileOwnerPackageName, "NonexistentDummyClass"))
+                        .build();
+        return new Intent().putExtra(EXTRA_PROVISIONING_PARAMS, provisioningParams);
     }
 }

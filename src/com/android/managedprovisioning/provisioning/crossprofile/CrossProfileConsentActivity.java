@@ -18,6 +18,7 @@ package com.android.managedprovisioning.provisioning.crossprofile;
 
 import static com.android.managedprovisioning.common.ProvisionLogger.loge;
 import static com.android.managedprovisioning.common.ProvisionLogger.logw;
+import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 
 import android.annotation.Nullable;
 import android.content.Intent;
@@ -36,6 +37,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
+import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.crossprofile.CrossProfileAdapter.CrossProfileViewHolder;
 
 import com.google.android.setupdesign.GlifLayout;
@@ -43,6 +45,8 @@ import com.google.android.setupdesign.GlifLayout;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Stand-alone activity that presents the user with the default OEM cross-profile apps for them to
@@ -50,6 +54,9 @@ import java.util.Map;
  *
  * <p>Sets the result code to {@link AppCompatActivity#RESULT_OK} if the user successfully sets
  * their cross-profile preferences.
+ *
+ * <p>Accepts provisioning parameters provided via the {@link ProvisioningParams
+ * #EXTRA_PROVISIONING_PARAMS} extra.
  */
 public class CrossProfileConsentActivity extends AppCompatActivity {
 
@@ -68,6 +75,10 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     private CrossProfileConsentViewModel mModel;
     private boolean mAddedButton = false;
 
+    // Provisioning state can be stored here since it is activity-scoped. If the activity is
+    // recreated, this state will be retrieved from the intent again in the same way.
+    @Nullable private ProvisioningParams mProvisioningParams;
+
     @Nullable private CrossProfileAdapter mCrossProfileAdapter;
 
     /**
@@ -79,6 +90,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        maybeInitializeProvisioningParams();
         initializeLayoutParams();
         initializeCrossProfileItems();
         mAddedButton = false;
@@ -89,23 +101,45 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         }
     }
 
-    private CrossProfileConsentViewModel findViewModel() {
-        final CrossProfileConsentViewModel.Factory factory =
-                new CrossProfileConsentViewModel.Factory(this, getApplication());
-        return new ViewModelProvider(this, factory).get(CrossProfileConsentViewModel.class);
+    @Nullable
+    private void maybeInitializeProvisioningParams() {
+        final Intent intent = getIntent();
+        if (intent == null) {
+            mProvisioningParams = null;
+            return;
+        }
+        if (!intent.hasExtra(EXTRA_PROVISIONING_PARAMS)) {
+            mProvisioningParams = null;
+            return;
+        }
+        mProvisioningParams = intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
     }
 
     protected void initializeLayoutParams() {
         setContentView(R.layout.cross_profile_consent_activity);
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final CustomizationParams params = CustomizationParams.createInstance(this, new Utils());
+        final CustomizationParams params = createCustomizationParams();
         layout.setPrimaryColor(ColorStateList.valueOf(params.mainColor));
         layout.setIcon(LogoUtils.getOrganisationLogo(this, params.mainColor));
+    }
+
+    private CustomizationParams createCustomizationParams() {
+        if (mProvisioningParams == null) {
+            return CustomizationParams.createInstance(this, new Utils());
+        } else {
+            return CustomizationParams.createInstance(mProvisioningParams, this, new Utils());
+        }
     }
 
     private void initializeCrossProfileItems() {
         mCrossProfileItems = findViewById(R.id.cross_profile_items);
         mCrossProfileItems.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private CrossProfileConsentViewModel findViewModel() {
+        final CrossProfileConsentViewModel.Factory factory =
+                new CrossProfileConsentViewModel.Factory(this, getApplication());
+        return new ViewModelProvider(this, factory).get(CrossProfileConsentViewModel.class);
     }
 
     private void observeItems() {
@@ -142,6 +176,9 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         mCrossProfileAdapter = new CrossProfileAdapter(crossProfileItems);
         mCrossProfileItems.setAdapter(mCrossProfileAdapter);
         maybeAddButton();
+        if (isSilentProvisioning()) {
+            onButtonClicked();
+        }
     }
 
     private void maybeAddButton() {
@@ -164,6 +201,10 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         return intent.getBooleanExtra(EXTRA_FINAL_SCREEN, /* defValue= */ false);
     }
 
+    /**
+     * Handles all logic from the click of the 'next' or 'done' button. Since this could have
+     * multiple entry points, click listeners should call this directly without preceding logic.
+     */
     private void onButtonClicked() {
         if (mSuppressClicks) {
             logw("Double-click detected on button");
@@ -193,6 +234,9 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
 
     /** Assumes {@link #mCrossProfileAdapter} is non-null. */
     private Map<CrossProfileItem, Boolean> findToggleStates() {
+        if (isSilentProvisioning()) {
+            return findSilentProvisioningToggleStates();
+        }
         final Map<CrossProfileItem, Boolean> toggleStates = new HashMap<>();
         final List<CrossProfileItem> crossProfileItems =
                 mCrossProfileAdapter.getCrossProfileItems();
@@ -204,8 +248,19 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         return toggleStates;
     }
 
+    private Map<CrossProfileItem, Boolean> findSilentProvisioningToggleStates() {
+        return mModel.getItems()
+                .getValue()
+                .stream()
+                .collect(Collectors.toMap(Function.identity(), c -> true));
+    }
+
     private void finishWithResult() {
         setResult(RESULT_OK);
         finish();
+    }
+
+    private boolean isSilentProvisioning() {
+        return mProvisioningParams != null && Utils.isSilentProvisioning(this, mProvisioningParams);
     }
 }
