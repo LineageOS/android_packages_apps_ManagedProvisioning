@@ -87,6 +87,16 @@ public class CustomizationParamsTest {
     }
 
     @Test
+    public void defaultColorNoParams() {
+        // when
+        CustomizationParams instance = createInstance();
+
+        // then
+        assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_STATUS_BAR_COLOR_ID)));
+        assertThat(instance.mainColor, equalTo(DEFAULT_MAIN_COLOR));
+    }
+
+    @Test
     public void respectsMainColor() {
         // given
         ProvisioningParams params = createParams(null, SAMPLE_COLOR, null, null);
@@ -106,6 +116,15 @@ public class CustomizationParamsTest {
 
         // when
         CustomizationParams instance = createInstance(params);
+
+        // then
+        assertThat(instance.orgName, nullValue());
+    }
+
+    @Test
+    public void orgNameDefaultsToNull_noParams() {
+        // when
+        CustomizationParams instance = createInstance();
 
         // then
         assertThat(instance.orgName, nullValue());
@@ -148,6 +167,15 @@ public class CustomizationParamsTest {
     }
 
     @Test
+    public void urlDefaultsToNull_noParams() {
+        // when
+        CustomizationParams instance = createInstance();
+
+        // then
+        assertThat(instance.supportUrl, nullValue());
+    }
+
+    @Test
     public void ignoresInvalidUrl() {
         // given
         ProvisioningParams params = createParams(null, null, "not a valid web url", null);
@@ -157,6 +185,10 @@ public class CustomizationParamsTest {
 
         // then
         assertThat(instance.supportUrl, nullValue());
+    }
+
+    private CustomizationParams createInstance() {
+        return CustomizationParams.createInstance(mContext, mUtils);
     }
 
     private CustomizationParams createInstance(ProvisioningParams params) {
