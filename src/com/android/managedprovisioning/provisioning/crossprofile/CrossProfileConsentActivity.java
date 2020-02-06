@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.provisioning.crossprofile;
 
+import static com.android.managedprovisioning.common.ProvisionLogger.logw;
+
 import android.annotation.Nullable;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -61,6 +63,12 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     private RecyclerView mCrossProfileItems;
     private CrossProfileConsentViewModel mModel;
 
+    /**
+     * Flag to determine whether the UI should stop responding to clicks. Required since Android
+     * does not effectively handle 'spam clicking'; each click gets registered and acted upon.
+     */
+    private boolean mSuppressClicks = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,12 +77,14 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         addButton();
         mModel = findViewModel();
         observeItems();
-        mModel.findItems();
+        if (savedInstanceState == null) {
+            onFirstCreate();
+        }
     }
 
     private CrossProfileConsentViewModel findViewModel() {
         final CrossProfileConsentViewModel.Factory factory =
-                CrossProfileConsentViewModel.Factory.getInstance(getApplication());
+                new CrossProfileConsentViewModel.Factory(this, getApplication());
         return new ViewModelProvider(this, factory).get(CrossProfileConsentViewModel.class);
     }
 
@@ -113,6 +123,16 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         mModel.getItems().observe(this, mItemsObserver);
     }
 
+    private void onFirstCreate() {
+        mModel.findItems();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mSuppressClicks = false;
+    }
+
     @Override
     protected void onApplyThemeResource(Resources.Theme theme, int resId, boolean first) {
         theme.applyStyle(R.style.SetupWizardPartnerResource, /* force= */ true);
@@ -127,6 +147,11 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     }
 
     private void onButtonClicked() {
+        if (mSuppressClicks) {
+            logw("Double-click detected on button.");
+            return;
+        }
+        mSuppressClicks = true;
         mModel.onButtonClicked();
         setResult(RESULT_OK);
         finish();
