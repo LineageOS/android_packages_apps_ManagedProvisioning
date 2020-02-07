@@ -31,11 +31,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.AbstractSavedStateViewModelFactory;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.savedstate.SavedStateRegistryOwner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -44,22 +44,25 @@ import java.util.Set;
 
 // Class must be public to avoid "Cannot create an instance of..." compiler errors.
 /** Stores state and responds to UI interactions for the cross-profile consent screen. */
-public class CrossProfileConsentViewModel extends AndroidViewModel {
+public class CrossProfileConsentViewModel extends ViewModel {
+    private static final String ITEMS_KEY = "items";
+
     private static final String APP_NOT_FOUND_MESSAGE =
             "Application not found for cross-profile consent screen";
 
-    private final MutableLiveData<List<CrossProfileItem>> mItems = new MutableLiveData<>();
     private final Context mApplicationContext;
+    private final SavedStateHandle mState;
 
     // Constructor must be public to avoid "Cannot create an instance of..." compiler errors.
-    public CrossProfileConsentViewModel(@NonNull Application application) {
-        super(application);
+    public CrossProfileConsentViewModel(Application application, SavedStateHandle state) {
+        super();
         mApplicationContext = checkNotNull(application).getApplicationContext();
+        mState = checkNotNull(state);
     }
 
     /** Returns the list of cross-profile consent items. */
     LiveData<List<CrossProfileItem>> getItems() {
-        return mItems;
+        return mState.getLiveData(ITEMS_KEY);
     }
 
     void findItems() {
@@ -75,7 +78,7 @@ public class CrossProfileConsentViewModel extends AndroidViewModel {
             }
             crossProfileItems.add(crossProfileItem);
         }
-        mItems.setValue(crossProfileItems);
+        mState.set(ITEMS_KEY, crossProfileItems);
     }
 
     /**
@@ -142,46 +145,31 @@ public class CrossProfileConsentViewModel extends AndroidViewModel {
 
     // Create a custom factory due to http://b/148841619. The default AndroidViewModel stores the
     // Application statically and reuses the factory instance so does not work with Robolectric
-    // tests, which creates a new Application every time. We fix this here by checking that the
-    // application is the same before reusing the instance.
-    static class Factory implements ViewModelProvider.Factory {
+    // tests, which creates a new Application every time. We could fix it here by only using a
+    // cached instance when the Application is equal, but caching also breaks support with
+    // AbstractSavedStateViewModelFactory.
+    static class Factory extends AbstractSavedStateViewModelFactory {
         private static final String INVALID_CLASS_ERROR_PREFIX =
                 "Invalid class for creating a CrossProfileConsentViewModel: ";
 
-        private static Factory sInstance;
-
         private final Application mApplication;
 
-        static Factory getInstance(Application application) {
-            if (sInstance != null && sInstance.hasSameApplication(application)) {
-                return sInstance;
-            }
-            sInstance = new Factory(application);
-            return sInstance;
-        }
-
-        private Factory(Application application) {
+        Factory(SavedStateRegistryOwner owner, Application application) {
+            super(owner, /* defaultArgs= */ null);
             mApplication = checkNotNull(application);
-        }
-
-        boolean hasSameApplication(Application application) {
-            return application.equals(mApplication);
         }
 
         @NonNull
         @Override
-        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+        protected <T extends ViewModel> T create(
+                @NonNull String key,
+                @NonNull Class<T> modelClass,
+                @NonNull SavedStateHandle savedStateHandle) {
+            // The key is unused as this is not a keyed factory.
             if (!CrossProfileConsentViewModel.class.isAssignableFrom(modelClass)) {
                 throw new IllegalArgumentException(INVALID_CLASS_ERROR_PREFIX + modelClass);
             }
-            try {
-                return modelClass.getConstructor(Application.class).newInstance(mApplication);
-            } catch (InstantiationException
-                    | InvocationTargetException
-                    | NoSuchMethodException
-                    | IllegalAccessException e) {
-                throw new IllegalArgumentException(INVALID_CLASS_ERROR_PREFIX + modelClass, e);
-            }
+            return (T) new CrossProfileConsentViewModel(mApplication, savedStateHandle);
         }
     }
 }
