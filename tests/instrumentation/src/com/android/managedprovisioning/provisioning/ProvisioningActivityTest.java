@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_STATE_USER_SETUP_COMPLETE;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -30,6 +31,8 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
+import static com.google.common.truth.Truth.assertThat;
 
 import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.assertFalse;
@@ -47,12 +50,7 @@ import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import static com.google.common.truth.Truth.assertThat;
-
-import static java.util.Arrays.asList;
-
 import android.Manifest.permission;
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -67,17 +65,14 @@ import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.filters.FlakyTest;
 import androidx.test.filters.SmallTest;
-import androidx.test.runner.lifecycle.Stage;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
-import com.android.managedprovisioning.common.CustomizationVerifier;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.testcommon.ActivityLifecycleWaiter;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -91,10 +86,10 @@ import org.mockito.hamcrest.MockitoHamcrest;
 import org.mockito.invocation.Invocation;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.lang.reflect.Method;
 
 /**
  * Unit tests for {@link ProvisioningActivity}.
@@ -382,10 +377,15 @@ public class ProvisioningActivityTest {
         // Press next button on provisioning complete
         onView(withText(R.string.next)).perform(click());
 
-        // Press next button on cross profile apps whitelisting
-        onView(withText(R.string.next)).perform(click());
-
+        // The next screen might be the cross profile apps whitelisting if the whitelist is not
+        // empty.
+        if (!mActivityRule.getActivity().isFinishing()) {
+            // Press next button on cross profile apps whitelisting
+            onView(withText(R.string.cross_profile_consent_summary));
+            onView(withText(R.string.next)).perform(click());
+        }
         // THEN the activity should finish
+        onView(withId(R.id.provisioning_progress));
         assertTrue(mActivityRule.getActivity().isFinishing());
     }
 
@@ -417,13 +417,19 @@ public class ProvisioningActivityTest {
         // Press next button on provisioning complete
         onView(withText(R.string.next)).perform(click());
 
-        // Press next button on cross profile apps whitelisting
-        onView(withText(R.string.next)).perform(click());
+        // The next screen might be the cross profile apps whitelisting if the whitelist is not
+        // empty.
+        if (!mActivityRule.getActivity().isFinishing()) {
+            // Press next button on cross profile apps whitelisting
+            onView(withText(R.string.cross_profile_consent_summary));
+            onView(withText(R.string.next)).perform(click());
+        }
 
         // THEN verify starting TEST_ACTIVITY
         intended(allOf(hasComponent(TEST_ACTIVITY), hasAction(ACTION_STATE_USER_SETUP_COMPLETE)));
 
         // THEN the activity should finish
+        onView(withId(R.id.provisioning_progress));
         assertTrue(mActivityRule.getActivity().isFinishing());
     }
 
