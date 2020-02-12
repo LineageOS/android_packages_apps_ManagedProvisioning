@@ -20,6 +20,8 @@ import static android.app.Activity.RESULT_OK;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_IGNORED;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
 import static android.content.pm.ApplicationInfo.FLAG_TEST_ONLY;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
@@ -63,6 +65,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLooper;
 
 /** Robolectric unit tests for {@link CrossProfileConsentActivity}. */
@@ -78,6 +81,8 @@ public class CrossProfileConsentActivityRoboTest {
             buildTestPackageInfo("com.android.managedprovisioning.test1", "Test1");
     private final PackageInfo mTestPackageInfo2 =
             buildTestPackageInfo("com.android.managedprovisioning.test2", "Test2");
+    private final PackageInfo mProfileOwnerPackageInfo =
+            buildTestPackageInfo("com.android.managedprovisioning.profileowner", "ProfileOwner");
 
     @Before
     public void fixRobolectricLooping() {
@@ -412,10 +417,9 @@ public class CrossProfileConsentActivityRoboTest {
     public void setupActivity_silentProvisioningParams_setsInteractAcrossProfileAppOpsToEnabled() {
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        final PackageInfo profileOwnerPackageInfo = setSilentProvisioningFlags(mTestPackageInfo2);
-        shadowOf(mPackageManager).installPackage(profileOwnerPackageInfo);
-        final Intent intent =
-                buildSilentProvisioningParamsIntent(profileOwnerPackageInfo.packageName);
+        setSilentProvisioningFlags(mProfileOwnerPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
 
         Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
         ShadowLooper.idleMainLooper();
@@ -429,10 +433,9 @@ public class CrossProfileConsentActivityRoboTest {
     public void setupActivity_silentProvisioningParams_setsSharedPreference() {
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        final PackageInfo profileOwnerPackageInfo = setSilentProvisioningFlags(mTestPackageInfo2);
-        shadowOf(mPackageManager).installPackage(profileOwnerPackageInfo);
-        final Intent intent =
-                buildSilentProvisioningParamsIntent(profileOwnerPackageInfo.packageName);
+        setSilentProvisioningFlags(mProfileOwnerPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
 
         Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
         ShadowLooper.idleMainLooper();
@@ -445,16 +448,56 @@ public class CrossProfileConsentActivityRoboTest {
     public void setupActivity_silentProvisioningParams_finishesActivityWithOkResult() {
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        final PackageInfo profileOwnerPackageInfo = setSilentProvisioningFlags(mTestPackageInfo2);
-        shadowOf(mPackageManager).installPackage(profileOwnerPackageInfo);
-        final Intent intent =
-                buildSilentProvisioningParamsIntent(profileOwnerPackageInfo.packageName);
+        setSilentProvisioningFlags(mProfileOwnerPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
         ShadowLooper.idleMainLooper();
 
         assertActivityFinishedWithOkResult(activity);
+    }
+
+    @Test
+    public void setupActivity_duringProvisioning_normalPhoneDimensions_locksToPortrait() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(activity.getRequestedOrientation()).isEqualTo(SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    @Test
+    public void setupActivity_notDuringProvisioning_normalPhoneDimensions_doesNotLockToPortrait() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+
+        assertThat(activity.getRequestedOrientation()).isEqualTo(SCREEN_ORIENTATION_UNSPECIFIED);
+    }
+
+    @Test
+    @Config(qualifiers ="sw600dp")
+    public void setupActivity_duringProvisioning_sw600dp_doesNotLockToPortrait() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(activity.getRequestedOrientation()).isEqualTo(SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     private Drawable buildTestIcon() {
@@ -511,12 +554,11 @@ public class CrossProfileConsentActivityRoboTest {
      * Mutates the given package profile-owner package info to be considered suitable for silent
      * provisioning.
      */
-    private PackageInfo setSilentProvisioningFlags(PackageInfo profileOwnerPackageInfo) {
+    private void setSilentProvisioningFlags(PackageInfo profileOwnerPackageInfo) {
         profileOwnerPackageInfo.applicationInfo.flags = FLAG_TEST_ONLY;
-        return profileOwnerPackageInfo;
     }
 
-    private Intent buildSilentProvisioningParamsIntent(String profileOwnerPackageName) {
+    private Intent buildProvisioningParamsIntent(String profileOwnerPackageName) {
         final ProvisioningParams provisioningParams =
                 new ProvisioningParams.Builder()
                         .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
