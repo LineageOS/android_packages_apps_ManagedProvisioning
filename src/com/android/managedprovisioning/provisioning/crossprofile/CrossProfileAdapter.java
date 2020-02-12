@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,11 +34,11 @@ import java.util.List;
 
 /** The recycler adapter for the default OEM cross-profile apps for the user to accept or deny. */
 class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
-    private final List<CrossProfileItem> crossProfileItems = new ArrayList<>();
+    private final List<CrossProfileItem> mCrossProfileItems = new ArrayList<>();
 
     CrossProfileAdapter(List<CrossProfileItem> newCrossProfileItems) {
-        crossProfileItems.clear();
-        crossProfileItems.addAll(newCrossProfileItems);
+        mCrossProfileItems.clear();
+        mCrossProfileItems.addAll(newCrossProfileItems);
     }
 
     @Override
@@ -49,18 +50,22 @@ class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
 
     @Override
     public void onBindViewHolder(CrossProfileViewHolder holder, int position) {
-        final CrossProfileItem item = crossProfileItems.get(position);
+        final CrossProfileItem item = mCrossProfileItems.get(position);
         holder.title().setText(item.appTitle());
         holder.summary().setText(item.summary());
         holder.icon().setImageDrawable(item.icon());
-        if (position == crossProfileItems.size() - 1) {
+        if (position == mCrossProfileItems.size() - 1) {
             holder.horizontalDivider().setVisibility(View.GONE);
         }
     }
 
     @Override
     public int getItemCount() {
-        return crossProfileItems.size();
+        return mCrossProfileItems.size();
+    }
+
+    List<CrossProfileItem> getCrossProfileItems() {
+        return mCrossProfileItems;
     }
 
     /**
@@ -68,33 +73,39 @@ class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
      * two different instances will not be considered equal, even if constructed with the same view.
      */
     static class CrossProfileViewHolder extends RecyclerView.ViewHolder {
-        private final TextView title;
-        private final TextView summary;
-        private final ImageView icon;
-        private final View horizontalDivider;
+        private final TextView mTitle;
+        private final TextView mSummary;
+        private final ImageView mIcon;
+        private final View mHorizontalDivider;
+        private final Switch mToggle;
 
         CrossProfileViewHolder(@NonNull View view) {
             super(view);
-            this.title = view.findViewById(R.id.cross_profile_item_title);
-            this.summary = view.findViewById(R.id.cross_profile_item_summary);
-            this.icon = view.findViewById(R.id.cross_profile_item_icon);
-            this.horizontalDivider = view.findViewById(R.id.cross_profile_item_horizontal_divider);
+            mTitle = view.findViewById(R.id.cross_profile_item_title);
+            mSummary = view.findViewById(R.id.cross_profile_item_summary);
+            mIcon = view.findViewById(R.id.cross_profile_item_icon);
+            mHorizontalDivider = view.findViewById(R.id.cross_profile_item_horizontal_divider);
+            mToggle = view.findViewById(R.id.cross_profile_item_toggle);
         }
 
         TextView title() {
-            return title;
+            return mTitle;
         }
 
         TextView summary() {
-            return summary;
+            return mSummary;
         }
 
         ImageView icon() {
-            return icon;
+            return mIcon;
         }
 
         View horizontalDivider() {
-            return horizontalDivider;
+            return mHorizontalDivider;
+        }
+
+        Switch toggle() {
+            return mToggle;
         }
     }
 }

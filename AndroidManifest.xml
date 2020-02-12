@@ -69,6 +69,8 @@
     <!-- Required by setup design library -->
     <uses-permission android:name="com.google.android.setupwizard.SETUP_COMPAT_SERVICE" />
 
+    <uses-permission android:name="android.permission.CONFIGURE_INTERACT_ACROSS_PROFILES" />
+
     <application
         android:label="@string/app_label"
         android:allowClearUserData="false"

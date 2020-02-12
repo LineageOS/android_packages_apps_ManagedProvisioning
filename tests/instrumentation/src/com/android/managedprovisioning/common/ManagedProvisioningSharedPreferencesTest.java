@@ -84,4 +84,15 @@ public class ManagedProvisioningSharedPreferencesTest {
         assertThat(mManagedProvisioningSharedPreferences.getProvisioningStartedTimestamp())
                 .isEqualTo(1234);
     }
+
+    @Test
+    public void testGetCrossProfileConsentDone_defaultsToFalse() {
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isFalse();
+    }
+
+    @Test
+    public void testGetCrossProfileConsentDone_returnsWrittenValue() {
+        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(true);
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
+    }
 }

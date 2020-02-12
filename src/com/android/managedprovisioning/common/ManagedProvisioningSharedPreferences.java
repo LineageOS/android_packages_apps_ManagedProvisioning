@@ -31,6 +31,9 @@ public class ManagedProvisioningSharedPreferences {
     static final String KEY_PROVISIONING_START_TIMESTAMP = "provisioning_start_timestamp";
 
     @VisibleForTesting
+    static final String KEY_CROSS_PROFILE_CONSENT_DONE = "cross_profile_consent_done";
+
+    @VisibleForTesting
     static final String SHARED_PREFERENCE = "managed_profile_shared_preferences";
 
     /**
@@ -77,5 +80,14 @@ public class ManagedProvisioningSharedPreferences {
      */
     public long getProvisioningStartedTimestamp() {
         return mSharedPreferences.getLong(KEY_PROVISIONING_START_TIMESTAMP, 0L);
+    }
+
+    public void writeCrossProfileConsentDone(boolean done) {
+        mSharedPreferences.edit().putBoolean(KEY_CROSS_PROFILE_CONSENT_DONE, done).apply();
+    }
+
+    public boolean getCrossProfileConsentDone() {
+        return mSharedPreferences.getBoolean(
+                KEY_CROSS_PROFILE_CONSENT_DONE, /* defValue= */ false);
     }
 }
