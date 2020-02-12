@@ -18,6 +18,8 @@ package com.android.managedprovisioning.finalization;
 
 import static com.android.managedprovisioning.finalization.FinalizationController.ProvisioningFinalizedResult;
 
+import android.os.Bundle;
+
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -59,4 +61,21 @@ public interface FinalizationControllerLogic {
      * invoked prior to reaching this point.
      */
     boolean shouldFinalizePrimaryProfile(ProvisioningParams params);
+
+    /**
+     * This method is called when onSaveInstanceState() executes on the finalization activity.
+     */
+    void saveInstanceState(Bundle outState);
+
+    /**
+     * When saved instance state is passed to the finalization activity in its onCreate() method,
+     * that state is passed to the FinalizationControllerLogic object here so it can be restored.
+     */
+    void restoreInstanceState(Bundle savedInstanceState, ProvisioningParams params);
+
+    /**
+     * Execute cleanup actions that need to be performed when the finalization activity is
+     * destroyed, even if the system's provisioning state has not yet been finalized.
+     */
+    void activityDestroyed(boolean isFinishing);
 }
