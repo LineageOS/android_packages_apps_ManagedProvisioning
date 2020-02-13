@@ -24,6 +24,8 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.UserHandle;
 
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
@@ -45,7 +47,8 @@ public class PolicyComplianceUtils {
      * activity was started.
      */
     public boolean startPolicyComplianceActivityForResultIfResolved(Activity parentActivity,
-            ProvisioningParams params, @Nullable String category, int requestCode, Utils utils) {
+            ProvisioningParams params, @Nullable String category, int requestCode, Utils utils,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         final UserHandle userHandle = getPolicyComplianceUserHandle(parentActivity, params, utils);
         final Intent policyComplianceIntent = getPolicyComplianceIntentIfResolvable(
                 parentActivity, params, category, utils);
@@ -53,6 +56,8 @@ public class PolicyComplianceUtils {
         if (policyComplianceIntent != null) {
             parentActivity.startActivityForResultAsUser(
                     policyComplianceIntent, requestCode, userHandle);
+            provisioningAnalyticsTracker.logDpcSetupStarted(parentActivity,
+                    policyComplianceIntent.getAction());
             return true;
         }
 

@@ -41,6 +41,7 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.TestUtils;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.mockito.ArgumentCaptor;
@@ -63,6 +64,7 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
     @Mock private Activity mActivity;
     @Mock private Activity mRestoredActivity;
     @Mock private Utils mUtils;
+    @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private StartDpcInsideSuwServiceConnection mStartDpcInsideSuwServiceConnection;
     private Runnable mDpcIntentSender;
@@ -85,7 +87,8 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection();
         mDpcIntentSender = () ->
                 policyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                        mActivity, mParams, TEST_DPC_INTENT_CATEGORY, TEST_REQUEST_CODE, mUtils);
+                        mActivity, mParams, TEST_DPC_INTENT_CATEGORY, TEST_REQUEST_CODE, mUtils,
+                        mProvisioningAnalyticsTracker);
     }
 
     @SmallTest
@@ -552,14 +555,17 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(activity).startActivityForResultAsUser(intentCaptor.capture(), anyInt(),
                 any(UserHandle.class));
+        final String intentAction = intentCaptor.getValue().getAction();
         // THEN the intent should be ACTION_PROVISIONING_SUCCESSFUL
-        assertEquals(ACTION_ADMIN_POLICY_COMPLIANCE, intentCaptor.getValue().getAction());
+        assertEquals(ACTION_ADMIN_POLICY_COMPLIANCE, intentAction);
         // THEN the intent should only be sent to the dpc
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
         // THEN the admin extras bundle should contain mdm extras
         assertExtras(intentCaptor.getValue());
         // THEN the intent should have the category that was passed into the parent activity
         assertTrue(intentCaptor.getValue().hasCategory(TEST_DPC_INTENT_CATEGORY));
+        // THEN a metric should be logged
+        verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(eq(activity), eq(intentAction));
     }
 
     private void verifyBindServiceCalled(Activity activity,
@@ -585,7 +591,7 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         final Runnable dpcIntentSenderForRestoredActivity = () ->
                 policyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
                         mRestoredActivity, mParams, TEST_DPC_INTENT_CATEGORY, TEST_REQUEST_CODE,
-                        mUtils);
+                        mUtils, mProvisioningAnalyticsTracker);
 
         return new StartDpcInsideSuwServiceConnection(mRestoredActivity, savedInstanceState,
                 dpcIntentSenderForRestoredActivity);

@@ -25,8 +25,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StartDpcInsideSuwServiceConnection;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -45,19 +49,25 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
     private final Activity mActivity;
     private final Utils mUtils;
     private final PolicyComplianceUtils mPolicyComplianceUtils;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private StartDpcInsideSuwServiceConnection mStartDpcInsideSuwServiceConnection;
     private String mLastDpcIntentCategory = null;
     private int mLastRequestCode = 0;
 
     public FinalizationInsideSuwControllerLogic(Activity activity) {
-        this(activity, new Utils(), new PolicyComplianceUtils());
+        this(activity, new Utils(), new PolicyComplianceUtils(),
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(activity, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(activity)));
     }
 
     public FinalizationInsideSuwControllerLogic(Activity activity, Utils utils,
-            PolicyComplianceUtils policyComplianceUtils) {
+            PolicyComplianceUtils policyComplianceUtils,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         mActivity = activity;
         mUtils = utils;
         mPolicyComplianceUtils = policyComplianceUtils;
+        mProvisioningAnalyticsTracker = provisioningAnalyticsTracker;
     }
 
     @Override
@@ -180,6 +190,7 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
             int requestCode) {
         return () ->
                 mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                        mActivity, params, dpcIntentCategory, requestCode, mUtils);
+                        mActivity, params, dpcIntentCategory, requestCode, mUtils,
+                        mProvisioningAnalyticsTracker);
     }
 }
