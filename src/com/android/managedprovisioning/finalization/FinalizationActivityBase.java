@@ -32,6 +32,8 @@ import android.os.StrictMode;
  */
 public abstract class FinalizationActivityBase extends Activity {
 
+    private static final String CONTROLLER_STATE_KEY = "controller_state";
+
     private FinalizationController mFinalizationController;
 
     @Override
@@ -45,10 +47,15 @@ public abstract class FinalizationActivityBase extends Activity {
 
         mFinalizationController = createFinalizationController();
 
-        // If savedInstanceState is not null, we already executed the logic below, so don't do it
-        // again now.  We likely just need to wait for a child activity to complete, so we can
-        // execute an onActivityResult() callback before finishing this activity.
         if (savedInstanceState != null) {
+            final Bundle controllerState = savedInstanceState.getBundle(CONTROLLER_STATE_KEY);
+            if (controllerState != null) {
+                mFinalizationController.restoreInstanceState(controllerState);
+            }
+
+            // If savedInstanceState is not null, we already executed the logic below, so don't do
+            // it again now.  We likely just need to wait for a child activity to complete, so we
+            // can execute an onActivityResult() callback before finishing this activity.
             return;
         }
 
@@ -64,6 +71,21 @@ public abstract class FinalizationActivityBase extends Activity {
             setResult(RESULT_OK);
             finish();
         }
+    }
+
+    @Override
+    protected final void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        final Bundle controllerState = new Bundle();
+        outState.putBundle(CONTROLLER_STATE_KEY, controllerState);
+        mFinalizationController.saveInstanceState(controllerState);
+    }
+
+    @Override
+    public final void onDestroy() {
+        mFinalizationController.activityDestroyed(isFinishing());
+        super.onDestroy();
     }
 
     /**

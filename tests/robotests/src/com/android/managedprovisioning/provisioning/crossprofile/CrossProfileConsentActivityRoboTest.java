@@ -19,7 +19,12 @@ package com.android.managedprovisioning.provisioning.crossprofile;
 import static android.app.Activity.RESULT_OK;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 import static android.app.AppOpsManager.MODE_IGNORED;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
+import static android.content.pm.ApplicationInfo.FLAG_TEST_ONLY;
 
+import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 import static com.android.managedprovisioning.provisioning.crossprofile.CrossProfileConsentActivity.CROSS_PROFILE_SUMMARY_META_DATA;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -28,7 +33,9 @@ import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.CrossProfileApps;
 import android.content.pm.PackageInfo;
@@ -47,6 +54,7 @@ import androidx.test.core.app.ApplicationProvider;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupdesign.GlifLayout;
@@ -57,6 +65,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLooper;
 
 /** Robolectric unit tests for {@link CrossProfileConsentActivity}. */
@@ -72,6 +81,8 @@ public class CrossProfileConsentActivityRoboTest {
             buildTestPackageInfo("com.android.managedprovisioning.test1", "Test1");
     private final PackageInfo mTestPackageInfo2 =
             buildTestPackageInfo("com.android.managedprovisioning.test2", "Test2");
+    private final PackageInfo mProfileOwnerPackageInfo =
+            buildTestPackageInfo("com.android.managedprovisioning.profileowner", "ProfileOwner");
 
     @Before
     public void fixRobolectricLooping() {
@@ -98,8 +109,7 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void setupActivity_setsCrossProfileItemTitleToAppName() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -112,10 +122,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void setupActivity_secondItem_setsCrossProfileItemTitleToAppName() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -129,10 +137,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void setupActivity_setsCorrectNumberOfCrossProfileItems() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -143,10 +149,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void restartActivity_stillHasItems() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         ActivityController<CrossProfileConsentActivity> activityController =
                 Robolectric.buildActivity(CrossProfileConsentActivity.class);
@@ -159,10 +163,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void activityConfigurationChange_stillHasItems() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         ActivityController<CrossProfileConsentActivity> activityController =
                 Robolectric.buildActivity(CrossProfileConsentActivity.class);
@@ -175,10 +177,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void recreateActivity_stillHasItems() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         Robolectric.buildActivity(CrossProfileConsentActivity.class).setup().destroy();
         ShadowLooper.idleMainLooper();
@@ -191,11 +191,13 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void setupActivity_noApplicationInfo_crossProfileItemExcluded() {
-        mTestPackageInfo2.applicationInfo = null;
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo.packageName);
+        mTestPackageInfo2.applicationInfo = null;
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
         shadowOf(mPackageManager).addPackageNoDefaults(mTestPackageInfo2);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo2.packageName);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -211,7 +213,9 @@ public class CrossProfileConsentActivityRoboTest {
     public void setupActivity_packageNotADefaultCrossProfilePackage_crossProfileItemExcluded() {
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo2.packageName);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -226,8 +230,28 @@ public class CrossProfileConsentActivityRoboTest {
     @Test
     public void setupActivity_packageNotInstalled_crossProfileItemExcluded() {
         shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
         shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo2.packageName);
+
+        CrossProfileConsentActivity activity =
+                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+
+        assertThat(findCrossProfileItemsNum(activity)).isEqualTo(1);
+        TextView titleView =
+                findCrossProfileItem(activity).findViewById(R.id.cross_profile_item_title);
+        assertThat(titleView.getText()).isEqualTo(mTestPackageInfo.applicationInfo.name);
+    }
+
+    @Test
+    public void setupActivity_packageNotCrossProfileConfigurable_crossProfileItemExcluded() {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(mTestPackageInfo.packageName);
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
+        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -243,8 +267,7 @@ public class CrossProfileConsentActivityRoboTest {
     public void setupActivity_setsCrossProfileItemIconToAppIcon() {
         final Drawable icon = buildTestIcon();
         shadowOf(mPackageManager).setApplicationIcon(mTestPackageInfo.packageName, icon);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -261,8 +284,7 @@ public class CrossProfileConsentActivityRoboTest {
         mTestPackageInfo.applicationInfo.metaData = new Bundle();
         mTestPackageInfo.applicationInfo.metaData.putString(
                 CROSS_PROFILE_SUMMARY_META_DATA, summary);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -276,8 +298,7 @@ public class CrossProfileConsentActivityRoboTest {
     @Test
     public void setupActivity_noMetaData_emptySummary() {
         mTestPackageInfo.applicationInfo.metaData = null;
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -293,8 +314,7 @@ public class CrossProfileConsentActivityRoboTest {
         mTestPackageInfo.applicationInfo.metaData = new Bundle();
         mTestPackageInfo.applicationInfo.metaData.putString(
                 "irrelevant_key", "irrelevant_value");
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -307,10 +327,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void setupActivity_setsOnlyFinalHorizontalDividerToGoneVisibility() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -324,10 +342,8 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void buttonClick_setsInteractAcrossProfileAppOp() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo2.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo2);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -347,8 +363,7 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void buttonClick_noToggleClicks_setsInteractAcrossProfileAppOpsToEnabledByDefault() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -363,11 +378,9 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void noButtonClick_sharedPreferenceNotSet() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
-        final CrossProfileConsentActivity activity =
-                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();
 
         assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
@@ -376,8 +389,7 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void buttonClick_setsSharedPreference() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -391,8 +403,7 @@ public class CrossProfileConsentActivityRoboTest {
 
     @Test
     public void buttonClick_finishesActivityWithOkResult() {
-        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(mTestPackageInfo.packageName);
-        shadowOf(mPackageManager).installPackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo);
 
         final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
@@ -401,6 +412,87 @@ public class CrossProfileConsentActivityRoboTest {
         ShadowLooper.idleMainLooper();
 
         assertActivityFinishedWithOkResult(activity);
+    }
+
+    @Test
+    public void setupActivity_silentProvisioningParams_setsInteractAcrossProfileAppOpsToEnabled() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        setSilentProvisioningFlags(mProfileOwnerPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        final int mode = shadowOf(mCrossProfileApps)
+                .getInteractAcrossProfilesAppOp(mTestPackageInfo.packageName);
+        assertThat(mode).isEqualTo(MODE_ALLOWED);
+    }
+
+    @Test
+    public void setupActivity_silentProvisioningParams_setsSharedPreference() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        setSilentProvisioningFlags(mProfileOwnerPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
+                .isTrue();
+    }
+
+    @Test
+    public void setupActivity_silentProvisioningParams_finishesActivityWithOkResult() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        setSilentProvisioningFlags(mProfileOwnerPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertActivityFinishedWithOkResult(activity);
+    }
+
+    @Test
+    public void setupActivity_duringProvisioning_normalPhoneDimensions_locksToPortrait() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(activity.getRequestedOrientation()).isEqualTo(SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    @Test
+    public void setupActivity_notDuringProvisioning_normalPhoneDimensions_doesNotLockToPortrait() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+
+        assertThat(activity.getRequestedOrientation()).isEqualTo(SCREEN_ORIENTATION_UNSPECIFIED);
+    }
+
+    @Test
+    @Config(qualifiers ="sw600dp")
+    public void setupActivity_duringProvisioning_sw600dp_doesNotLockToPortrait() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
+        final Intent intent = buildProvisioningParamsIntent(mProfileOwnerPackageInfo.packageName);
+
+        final CrossProfileConsentActivity activity =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
+        ShadowLooper.idleMainLooper();
+
+        assertThat(activity.getRequestedOrientation()).isEqualTo(SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     private Drawable buildTestIcon() {
@@ -414,6 +506,12 @@ public class CrossProfileConsentActivityRoboTest {
         packageInfo.applicationInfo.packageName = packageName;
         packageInfo.applicationInfo.name = appName;
         return packageInfo;
+    }
+
+    private void installDefaultCrossProfilePackage(PackageInfo packageInfo) {
+        shadowOf(mDevicePolicyManager).addDefaultCrossProfilePackage(packageInfo.packageName);
+        shadowOf(mPackageManager).installPackage(packageInfo);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(packageInfo.packageName);
     }
 
     private RecyclerView findCrossProfileItems(CrossProfileConsentActivity activity) {
@@ -451,5 +549,23 @@ public class CrossProfileConsentActivityRoboTest {
     private void assertActivityFinishedWithOkResult(Activity activity) {
         assertThat(activity.isFinishing()).isTrue();
         assertThat(shadowOf(activity).getResultCode()).isEqualTo(RESULT_OK);
+    }
+
+    /**
+     * Mutates the given package profile-owner package info to be considered suitable for silent
+     * provisioning.
+     */
+    private void setSilentProvisioningFlags(PackageInfo profileOwnerPackageInfo) {
+        profileOwnerPackageInfo.applicationInfo.flags = FLAG_TEST_ONLY;
+    }
+
+    private Intent buildProvisioningParamsIntent(String profileOwnerPackageName) {
+        final ProvisioningParams provisioningParams =
+                new ProvisioningParams.Builder()
+                        .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                        .setDeviceAdminComponentName(
+                                new ComponentName(profileOwnerPackageName, "NonexistentDummyClass"))
+                        .build();
+        return new Intent().putExtra(EXTRA_PROVISIONING_PARAMS, provisioningParams);
     }
 }

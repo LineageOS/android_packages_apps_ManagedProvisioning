@@ -101,6 +101,13 @@ public class CrossProfileConsentViewModel extends ViewModel {
      */
     @Nullable
     private CrossProfileItem buildCrossProfileItem(String crossProfilePackage) {
+        final CrossProfileApps crossProfileApps =
+                mApplicationContext.getSystemService(CrossProfileApps.class);
+        if (!crossProfileApps.canConfigureInteractAcrossProfiles(crossProfilePackage)) {
+            loge("Package whitelisted for cross-profile consent during provisioning is not valid"
+                    + " for user configuration: " + crossProfilePackage);
+            return null;
+        }
         final ApplicationInfo applicationInfo = findApplicationInfo(crossProfilePackage);
         if (applicationInfo == null) {
             // Error should have already been logged before it returned null.
