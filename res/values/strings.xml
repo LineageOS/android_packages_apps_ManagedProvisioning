@@ -411,8 +411,15 @@
   <string name="google_terms" translatable="false">The Google Terms of Service and Privacy Policy also apply. For more details, visit\n<xliff:g id="policies_url" example="https://www.abc.com">%1$s</xliff:g>.</string>
   <!-- Google terms and policies url. This is letting the user know the URL for Google's policies. [CHAR LIMIT=NONE]-->
   <string name="google_policies_url" translatable="false">https://www.google.com/policies</string>
-  <!-- The title of the cross-profile consent screen to the user. It should convey the core concept. [CHAR LIMIT=NONE]-->
-  <string name="cross_profile_consent_title" translatable="false">Connect work &amp; personal apps</string>
-  <!-- The summary explaining the cross-profile consent screen to the user. It should carefully cover that the apps will access both personal and work data, as well as the reason for enabling them. [CHAR LIMIT=NONE]-->
-  <string name="cross_profile_consent_summary" translatable="false">These apps can be set to access work and personal data together. You can make changes anytime in Settings.</string>
+  <!-- Title of a full-screen message. This screen lets users connect certain apps in their work and personal profiles so they can access work and personal data together. [CHAR LIMIT=NONE]-->
+  <string name="cross_profile_consent_title">Connect work &amp; personal apps</string>
+  <!-- Subtext on a screen. This text lets users know what will happen if they turn on the toggles next to the apps on this screen. Each app's toggle will let the user access both work and personal data. [CHAR LIMIT=NONE]-->
+  <string name="cross_profile_consent_summary">These apps can be set to access work and personal data together. You can make changes anytime in Settings.</string>
+
+  <!-- Notification title. This notification lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
+  <string name="cross_profile_notification_title">Connect work &amp; personal apps</string>
+  <!-- Text in a notification. This notification lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
+  <string name="cross_profile_notification_text">Access work and personal data together. Tap to set up.</string>
+  <!-- Notification channel name. This channel lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
+  <string name="cross_profile_notification_channel_name">Connect work &amp; personal apps</string>
 </resources>

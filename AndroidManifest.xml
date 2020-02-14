@@ -226,7 +226,7 @@
         <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />
 
-        <receiver android:name="com.android.managedprovisioning.preprovisioning.BootReminder">
+        <receiver android:name="com.android.managedprovisioning.BootReminder">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
