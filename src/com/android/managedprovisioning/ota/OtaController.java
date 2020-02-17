@@ -125,7 +125,8 @@ public class OtaController {
         mTaskExecutor.execute(mContext.getUserId(), new UpdateInteractAcrossProfilesAppOpTask(
                 mContext,
                 /* params= */ null,
-                mTaskExecutor
+                mTaskExecutor,
+                mProvisioningAnalyticsTracker
         ));
     }
 
