@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.pm.CrossProfileApps;
 import android.util.ArraySet;
 
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
 
@@ -32,13 +34,16 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
 
     private final CrossProfileAppsSnapshot mCrossProfileAppsSnapshot;
     private final CrossProfileApps mCrossProfileApps;
+    private final ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences;
 
     public UpdateInteractAcrossProfilesAppOpTask(Context context,
             ProvisioningParams provisioningParams,
-            Callback callback) {
-        super(context, provisioningParams, callback);
+            Callback callback,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+        super(context, provisioningParams, callback, provisioningAnalyticsTracker);
         mCrossProfileAppsSnapshot = new CrossProfileAppsSnapshot(context);
         mCrossProfileApps = context.getSystemService(CrossProfileApps.class);
+        mManagedProvisioningSharedPreferences = new ManagedProvisioningSharedPreferences(context);
     }
 
     @Override
@@ -56,8 +61,22 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
 
         mCrossProfileApps.resetInteractAcrossProfilesAppOps(
                 previousCrossProfileApps, currentCrossProfileApps);
+
+        maybeResetCrossProfileConsentDone(currentCrossProfileApps, previousCrossProfileApps);
     }
 
+    private void maybeResetCrossProfileConsentDone(
+            Set<String> currentCrossProfileApps, Set<String> previousCrossProfileApps) {
+        Set<String> newCrossProfileApps = new ArraySet<>(currentCrossProfileApps);
+        newCrossProfileApps.removeAll(previousCrossProfileApps);
+
+        for (String newCrossProfileApp : newCrossProfileApps) {
+            if (mCrossProfileApps.canConfigureInteractAcrossProfiles(newCrossProfileApp)) {
+                mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(false);
+                return;
+            }
+        }
+    }
     @Override
     public int getStatusMsgId() {
         return 0;

@@ -30,6 +30,7 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
 import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
 import java.util.Set;
@@ -41,6 +42,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
 
     private int mProfileUserId;
     private final NonRequiredAppsLogic mNonRequiredAppsLogic;
+    private final CrossProfileAppsSnapshot mCrossProfileAppsSnapshot;
     private final UserManager mUserManager;
 
     public CreateManagedProfileTask(Context context, ProvisioningParams params, Callback callback) {
@@ -50,6 +52,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
                 callback,
                 context.getSystemService(UserManager.class),
                 new NonRequiredAppsLogic(context, true, params),
+                new CrossProfileAppsSnapshot(context),
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
                         new ManagedProvisioningSharedPreferences(context)));
@@ -62,10 +65,12 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
             Callback callback,
             UserManager userManager,
             NonRequiredAppsLogic logic,
+            CrossProfileAppsSnapshot crossProfileAppsSnapshot,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         super(context, params, callback, provisioningAnalyticsTracker);
         mNonRequiredAppsLogic = checkNotNull(logic);
         mUserManager = checkNotNull(userManager);
+        mCrossProfileAppsSnapshot = checkNotNull(crossProfileAppsSnapshot);
     }
 
     @Override
@@ -82,6 +87,7 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
         }
         mProfileUserId = userInfo.id;
         mNonRequiredAppsLogic.maybeTakeSystemAppsSnapshot(userInfo.id);
+        mCrossProfileAppsSnapshot.takeNewSnapshot(mContext.getUserId());
         stopTaskTimer();
         success();
     }

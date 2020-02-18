@@ -28,6 +28,11 @@ import android.content.Context;
 import android.content.pm.CrossProfileApps;
 import android.os.UserManager;
 
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.robolectric.RobolectricTestRunner;
@@ -52,10 +57,17 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
     private final DevicePolicyManager mDevicePolicyManager =
             mContext.getSystemService(DevicePolicyManager.class);
     private final TestTaskCallback mCallback = new TestTaskCallback();
-    private final UpdateInteractAcrossProfilesAppOpTask task =
-            new UpdateInteractAcrossProfilesAppOpTask(mContext, /* params= */ null, mCallback);
     private final CrossProfileApps mCrossProfileApps =
             mContext.getSystemService(CrossProfileApps.class);
+    private final ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences
+            = new ManagedProvisioningSharedPreferences(mContext);
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker =
+            new ProvisioningAnalyticsTracker(
+                    MetricsWriterFactory.getMetricsWriter(mContext, new SettingsFacade()),
+                    mManagedProvisioningSharedPreferences);
+    private final UpdateInteractAcrossProfilesAppOpTask task =
+            new UpdateInteractAcrossProfilesAppOpTask(
+                    mContext, /* params= */ null, mCallback, mProvisioningAnalyticsTracker);
 
     @Before
     public void setUp() {
@@ -97,6 +109,48 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
 
         assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
                 .isEqualTo(MODE_ALLOWED);
+    }
+    @Test
+    public void run_firstRun_sharedPreferenceNotReset() {
+        addConfigurableCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(true);
+
+        task.run(TEST_USER_ID);
+
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
+    }
+
+    @Test
+    public void run_packageIsAdded_sharedPreferenceIsReset() {
+        addConfigurableCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1);
+        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(true);
+        task.run(TEST_USER_ID);
+
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        task.run(TEST_USER_ID);
+
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isFalse();
+    }
+
+    @Test
+    public void run_packageIsNotAdded_sharedPreferenceIsNotReset() {
+        addConfigurableCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(true);
+        task.run(TEST_USER_ID);
+
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_2);
+        task.run(TEST_USER_ID);
+
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
+    }
+
+    private void addConfigurableCrossProfilePackages(String... configurableCrossProfilePackages) {
+        for (String pkg : configurableCrossProfilePackages) {
+            shadowOf(mCrossProfileApps).addCrossProfilePackage(pkg);
+        }
     }
 
     private void setDefaultCrossProfilePackages(String... defaultCrossProfilePackages) {
