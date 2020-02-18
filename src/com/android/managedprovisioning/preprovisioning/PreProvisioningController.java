@@ -489,6 +489,9 @@ public class PreProvisioningController {
         }
 
         if (isProfileOwnerProvisioning()) { // PO case
+            if (mParams.isOrganizationOwnedProvisioning) {
+                mProvisioningAnalyticsTracker.logOrganizationOwnedManagedProfileProvisioning();
+            }
             // Check whether the current launcher supports managed profiles.
             if (!mUtils.currentLauncherSupportsManagedProfiles(mContext)) {
                 mUi.showCurrentLauncherInvalid();

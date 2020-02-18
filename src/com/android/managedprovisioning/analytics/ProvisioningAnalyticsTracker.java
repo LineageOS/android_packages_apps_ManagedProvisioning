@@ -279,6 +279,15 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
+     * Logs organization owned managed profile provisioning.
+     */
+    public void logOrganizationOwnedManagedProfileProvisioning() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_ORGANIZATION_OWNED_MANAGED_PROFILE)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    /**
      * Logs the type of provisioning flow if this is organization owned provisioning.
      * <p>It would be either admin integrated flow or legacy.
      *
