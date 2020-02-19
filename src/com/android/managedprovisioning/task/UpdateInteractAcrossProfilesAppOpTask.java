@@ -55,18 +55,27 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
         mCrossProfileAppsSnapshot.takeNewSnapshot(userId);
         Set<String> currentCrossProfileApps = mCrossProfileAppsSnapshot.getSnapshot(userId);
 
+        if (!hasConfigurableApps(currentCrossProfileApps)) {
+            mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(true);
+        }
+
         if (previousCrossProfileApps.isEmpty()) {
             return;
         }
 
+        updateAfterOtaChanges(previousCrossProfileApps, currentCrossProfileApps);
+    }
+
+    private void updateAfterOtaChanges(
+            Set<String> previousCrossProfileApps, Set<String> currentCrossProfileApps) {
         mCrossProfileApps.resetInteractAcrossProfilesAppOps(
                 previousCrossProfileApps, currentCrossProfileApps);
 
-        maybeResetCrossProfileConsentDone(currentCrossProfileApps, previousCrossProfileApps);
+        maybeResetCrossProfileConsentDone(previousCrossProfileApps, currentCrossProfileApps);
     }
 
     private void maybeResetCrossProfileConsentDone(
-            Set<String> currentCrossProfileApps, Set<String> previousCrossProfileApps) {
+            Set<String> previousCrossProfileApps, Set<String> currentCrossProfileApps) {
         Set<String> newCrossProfileApps = new ArraySet<>(currentCrossProfileApps);
         newCrossProfileApps.removeAll(previousCrossProfileApps);
 
@@ -77,6 +86,16 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
             }
         }
     }
+
+    private boolean hasConfigurableApps(Set<String> crossProfileApps) {
+        for (String crossProfileApp : crossProfileApps) {
+            if (mCrossProfileApps.canConfigureInteractAcrossProfiles(crossProfileApp)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int getStatusMsgId() {
         return 0;

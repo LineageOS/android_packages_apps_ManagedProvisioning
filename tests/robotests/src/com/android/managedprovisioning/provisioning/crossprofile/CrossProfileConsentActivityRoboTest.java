@@ -108,6 +108,15 @@ public class CrossProfileConsentActivityRoboTest {
     }
 
     @Test
+    public void setupActivity_noDefaultCrossProfilePackages_setsSharedPreference() {
+        Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+
+        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
+                .isTrue();
+    }
+
+    @Test
     public void setupActivity_setsCrossProfileItemTitleToAppName() {
         installDefaultCrossProfilePackage(mTestPackageInfo);
 

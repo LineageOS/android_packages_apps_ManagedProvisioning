@@ -163,12 +163,12 @@ public class CrossProfileConsentViewModel extends ViewModel {
     }
 
     /**
-     * Responds to the button being pressed to leave the screen, given the state of the toggle for
+     * Responds to the completion of the consent screen, given the state of the toggle for
      * each cross-profile item. Before calling this method, check that each {@link CrossProfileItem}
      * provided is accounted for in {@link #getItems()} first, in case of an unexpected race
      * condition.
      */
-    void onButtonClicked(Map<CrossProfileItem, Boolean> toggleStates) {
+    void onConsentComplete(Map<CrossProfileItem, Boolean> toggleStates) {
         setInteractAcrossProfilesAppOps(toggleStates);
         maybeSetSharedPreference();
     }

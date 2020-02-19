@@ -178,6 +178,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         }
         if (crossProfileItems.isEmpty()) {
             logw("No provisioning cross-profile consent apps. Skipping.");
+            mModel.onConsentComplete(new HashMap<>());
             finishWithResult();
             return;
         }
@@ -232,7 +233,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
             }
         }
         mSuppressClicks = true;
-        mModel.onButtonClicked(toggleStates);
+        mModel.onConsentComplete(toggleStates);
         finishWithResult();
     }
 
