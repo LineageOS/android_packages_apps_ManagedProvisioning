@@ -34,10 +34,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StartDpcInsideSuwServiceConnection;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
@@ -216,8 +220,10 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     private Runnable getDpcIntentSender() {
         return () -> mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                this, mParams, null, POLICY_COMPLIANCE_REQUEST_CODE, mUtils);
+                this, mParams, null, POLICY_COMPLIANCE_REQUEST_CODE, mUtils,
+                getProvisioningAnalyticsTracker());
     }
+
     private void finishActivity() {
         if (mParams.provisioningAction.equals(ACTION_PROVISION_FINANCED_DEVICE)) {
             setResult(RESULT_CODE_COMPLETE_DEVICE_FINANCE);
@@ -243,6 +249,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                     mStartDpcInsideSuwServiceConnection.unbind(this);
                     mStartDpcInsideSuwServiceConnection = null;
                 }
+
+                getProvisioningAnalyticsTracker().logDpcSetupCompleted(this, resultCode);
 
                 if (resultCode == RESULT_OK) {
                     if (shouldShowTransitionScreen()) {
@@ -493,5 +501,11 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private boolean shouldSkipEducationScreens() {
         return mParams.skipEducationScreens
                 || getProvisioningMode() == PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE;
+    }
+
+    private ProvisioningAnalyticsTracker getProvisioningAnalyticsTracker() {
+        return new ProvisioningAnalyticsTracker(
+                MetricsWriterFactory.getMetricsWriter(this, new SettingsFacade()),
+                new ManagedProvisioningSharedPreferences(this));
     }
 }
