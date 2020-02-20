@@ -52,6 +52,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.DeferredMetricsReader;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
@@ -81,6 +82,7 @@ public class FinalizationPostSuwControllerTest extends AndroidTestCase {
     @Mock private UserProvisioningStateHelper mHelper;
     @Mock private NotificationHelper mNotificationHelper;
     @Mock private DeferredMetricsReader mDeferredMetricsReader;
+    @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private PreFinalizationController mPreFinalizationController;
     private FinalizationController mFinalizationController;
@@ -101,7 +103,8 @@ public class FinalizationPostSuwControllerTest extends AndroidTestCase {
         mFinalizationController = new FinalizationController(
                 mActivity,
                 new FinalizationPostSuwControllerLogic(
-                        mActivity, mUtils, new SendDpcBroadcastServiceUtils()),
+                        mActivity, mUtils, new SendDpcBroadcastServiceUtils(),
+                        mProvisioningAnalyticsTracker),
                 mUtils, mSettingsFacade, mHelper, mNotificationHelper, mDeferredMetricsReader,
                 provisioningParamsUtils);
     }
@@ -369,12 +372,15 @@ public class FinalizationPostSuwControllerTest extends AndroidTestCase {
     private void verifyDpcLaunchedForUser(UserHandle userHandle) {
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mActivity).startActivityAsUser(intentCaptor.capture(), eq(userHandle));
+        final String intentAction = intentCaptor.getValue().getAction();
         // THEN the intent should be ACTION_PROVISIONING_SUCCESSFUL
-        assertEquals(ACTION_PROVISIONING_SUCCESSFUL, intentCaptor.getValue().getAction());
+        assertEquals(ACTION_PROVISIONING_SUCCESSFUL, intentAction);
         // THEN the intent should only be sent to the dpc
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
         // THEN the admin extras bundle should contain mdm extras
         assertExtras(intentCaptor.getValue());
+        // THEN a metric should be logged
+        verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(eq(mActivity), eq(intentAction));
     }
 
     private void verifySendDpcServiceStarted(boolean migrateAccount) {

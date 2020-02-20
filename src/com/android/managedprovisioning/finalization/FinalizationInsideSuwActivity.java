@@ -20,7 +20,11 @@ import static com.google.android.setupcompat.util.ResultCodes.RESULT_SKIP;
 
 import android.content.Intent;
 
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 
 /**
  * This class is used to start the Device Policy Controller app while the Setup Wizard is still
@@ -50,6 +54,8 @@ public class FinalizationInsideSuwActivity extends FinalizationActivityBase {
             // a generic UI indicating that provisioning is done.  In other flows, we start up the
             // DPC during finalization, using DPC_SETUP_REQUEST_CODE.
             case DPC_SETUP_REQUEST_CODE:
+                logDpcSetupCompleted(resultCode);
+                // Fall through; code below this applies to both request codes
             case FINAL_SCREEN_REQUEST_CODE:
                 ProvisionLogger.logi("onActivityResult: received "
                         + "requestCode = " + requestCode + ", resultCode = " + resultCode);
@@ -73,5 +79,13 @@ public class FinalizationInsideSuwActivity extends FinalizationActivityBase {
                 ProvisionLogger.logw("onActivityResult: Unknown request code: " + requestCode);
                 break;
         }
+    }
+
+    private void logDpcSetupCompleted(int resultCode) {
+        final ProvisioningAnalyticsTracker provisioningAnalyticsTracker =
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(this, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(this));
+        provisioningAnalyticsTracker.logDpcSetupCompleted(this, resultCode);
     }
 }

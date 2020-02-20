@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
 
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
@@ -36,11 +37,13 @@ import com.google.android.setupcompat.util.WizardManagerHelper;
  * Helper class for creating intents in finalization controller.
  */
 class ProvisioningIntentProvider {
-    void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context) {
+    void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         final Intent dpcLaunchIntent = createDpcLaunchIntent(params);
         if (utils.canResolveIntentAsUser(context, dpcLaunchIntent, userId)) {
             context.startActivityAsUser(createDpcLaunchIntent(params), UserHandle.of(userId));
             ProvisionLogger.logd("Dpc was launched for user: " + userId);
+            provisioningAnalyticsTracker.logDpcSetupStarted(context, dpcLaunchIntent.getAction());
         }
     }
 

@@ -147,6 +147,29 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
         assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
     }
 
+    @Test
+    public void run_noConfigurablePackages_firstRun_sharedPreferenceIsSet() {
+        // No configurable packages added
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(false);
+
+        task.run(TEST_USER_ID);
+
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
+    }
+
+    @Test
+    public void run_noConfigurablePackages_laterRun_sharedPreferenceIsSet() {
+        // No configurable packages added
+        setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
+        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(false);
+        task.run(TEST_USER_ID);
+
+        task.run(TEST_USER_ID);
+
+        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
+    }
+
     private void addConfigurableCrossProfilePackages(String... configurableCrossProfilePackages) {
         for (String pkg : configurableCrossProfilePackages) {
             shadowOf(mCrossProfileApps).addCrossProfilePackage(pkg);
