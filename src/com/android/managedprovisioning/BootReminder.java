@@ -28,7 +28,8 @@ import com.android.managedprovisioning.preprovisioning.EncryptionController;
 public class BootReminder extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        new CrossProfileAppsNotificationController(context).maybeShowPermissionsNotification();
+        // TODO(149990377): Re-enable this once INTERACT_ACROSS_USERS is removed from AGSA
+        // new CrossProfileAppsNotificationController(context).maybeShowPermissionsNotification();
 
         // For encryption flows during setup wizard, this acts as a backup to
         // PostEncryptionActivity in case the PackageManager has not yet written the package state

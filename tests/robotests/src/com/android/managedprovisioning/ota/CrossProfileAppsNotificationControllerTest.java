@@ -89,7 +89,7 @@ public class CrossProfileAppsNotificationControllerTest {
         mNotificationController.maybeShowPermissionsNotification();
 
         Notification notification = shadowOf(mNotificationManager).getNotification(/* id= */ 0);
-        assertThat(shadowOf(notification).getContentTitle()).isEqualTo("New apps to review");
+        assertThat(shadowOf(notification).getContentTitle()).isEqualTo("Connect work & personal apps");
 
     }
 
