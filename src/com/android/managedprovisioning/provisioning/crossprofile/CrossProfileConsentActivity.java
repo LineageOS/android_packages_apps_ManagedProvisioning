@@ -182,7 +182,7 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
             finishWithResult();
             return;
         }
-        mCrossProfileAdapter = new CrossProfileAdapter(crossProfileItems);
+        mCrossProfileAdapter = new CrossProfileAdapter(this, crossProfileItems);
         mCrossProfileItems.setAdapter(mCrossProfileAdapter);
         maybeAddButton();
         if (isSilentProvisioning()) {

@@ -31,7 +31,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.CrossProfileApps;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,7 +42,6 @@ import androidx.savedstate.SavedStateRegistryOwner;
 
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -117,11 +115,10 @@ public class CrossProfileConsentViewModel extends ViewModel {
                 (String) mApplicationContext.getPackageManager()
                         .getApplicationLabel(applicationInfo);
         String summary = findCrossProfileSummary(applicationInfo);
-        Drawable icon = mApplicationContext.getPackageManager().getApplicationIcon(applicationInfo);
         return CrossProfileItem.builder()
                 .setAppTitle(appTitle)
                 .setSummary(summary)
-                .setIcon(icon)
+                .setAppInfo(applicationInfo)
                 .build();
     }
 
