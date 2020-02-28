@@ -134,7 +134,7 @@ public class CrossProfileConsentViewModel extends ViewModel {
         final ApplicationInfo applicationInfo;
         try {
             applicationInfo = mApplicationContext.getPackageManager()
-                    .getApplicationInfo(crossProfilePackage, /* flags= */ 0);
+                    .getApplicationInfo(crossProfilePackage, PackageManager.GET_META_DATA);
         } catch (PackageManager.NameNotFoundException e) {
             loge(APP_NOT_FOUND_MESSAGE, e);
             return null;
