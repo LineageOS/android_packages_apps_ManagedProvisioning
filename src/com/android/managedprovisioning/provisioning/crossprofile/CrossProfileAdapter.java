@@ -16,7 +16,10 @@
 
 package com.android.managedprovisioning.provisioning.crossprofile;
 
+import static com.android.internal.util.Preconditions.checkNotNull;
+
 import android.annotation.NonNull;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +37,11 @@ import java.util.List;
 
 /** The recycler adapter for the default OEM cross-profile apps for the user to accept or deny. */
 class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
+    private final Context mContext;
     private final List<CrossProfileItem> mCrossProfileItems = new ArrayList<>();
 
-    CrossProfileAdapter(List<CrossProfileItem> newCrossProfileItems) {
+    CrossProfileAdapter(Context context, List<CrossProfileItem> newCrossProfileItems) {
+        mContext = checkNotNull(context);
         mCrossProfileItems.clear();
         mCrossProfileItems.addAll(newCrossProfileItems);
     }
@@ -53,7 +58,8 @@ class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
         final CrossProfileItem item = mCrossProfileItems.get(position);
         holder.title().setText(item.appTitle());
         holder.summary().setText(item.summary());
-        holder.icon().setImageDrawable(item.icon());
+        holder.icon().setImageDrawable(
+                mContext.getPackageManager().getApplicationIcon(item.appInfo()));
         if (position == mCrossProfileItems.size() - 1) {
             holder.horizontalDivider().setVisibility(View.GONE);
         }

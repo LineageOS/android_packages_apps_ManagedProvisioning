@@ -19,20 +19,28 @@ package com.android.managedprovisioning.provisioning.crossprofile;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.annotation.Nullable;
-import android.graphics.drawable.Drawable;
+import android.content.pm.ApplicationInfo;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.Objects;
 
 /** A single item in the list of default OEM cross-profile apps for the user to accept or deny. */
-class CrossProfileItem {
+class CrossProfileItem implements Parcelable {
     private final String appTitle;
     private final String summary;
-    private final Drawable icon;
+    private final ApplicationInfo appInfo;
 
     private CrossProfileItem(Builder builder) {
         this.appTitle = checkNotNull(builder.appTitle);
         this.summary = checkNotNull(builder.summary);
-        this.icon = checkNotNull(builder.icon);
+        this.appInfo = checkNotNull(builder.appInfo);
+    }
+
+    private CrossProfileItem(Parcel source) {
+        this.appTitle = source.readString();
+        this.summary = source.readString();
+        this.appInfo = source.readTypedObject(ApplicationInfo.CREATOR);
     }
 
     String appTitle() {
@@ -43,8 +51,8 @@ class CrossProfileItem {
         return summary;
     }
 
-    Drawable icon() {
-        return icon;
+    ApplicationInfo appInfo() {
+        return appInfo;
     }
 
     @Override
@@ -53,24 +61,47 @@ class CrossProfileItem {
             CrossProfileItem that = (CrossProfileItem) object;
             return this.appTitle.equals(that.appTitle)
                     && this.summary.equals(that.summary)
-                    && this.icon.equals(that.icon);
+                    && this.appInfo.equals(that.appInfo);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appTitle, summary, icon);
+        return Objects.hash(appTitle, summary, appInfo);
     }
 
     static Builder builder() {
         return new Builder();
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(appTitle);
+        dest.writeString(summary);
+        dest.writeTypedObject(appInfo, flags);
+    }
+
+    public static final Parcelable.Creator<CrossProfileItem> CREATOR =
+            new Parcelable.Creator<CrossProfileItem>() {
+                public CrossProfileItem createFromParcel(Parcel source) {
+                    return new CrossProfileItem(source);
+                }
+
+                public CrossProfileItem[] newArray(int size) {
+                    return new CrossProfileItem[size];
+                }
+            };
+
     static class Builder {
         private String appTitle;
         private String summary;
-        private Drawable icon;
+        private ApplicationInfo appInfo;
 
         Builder setAppTitle(String appTitle) {
             this.appTitle = appTitle;
@@ -82,8 +113,8 @@ class CrossProfileItem {
             return this;
         }
 
-        Builder setIcon(Drawable icon) {
-            this.icon = icon;
+        Builder setAppInfo(ApplicationInfo appInfo) {
+            this.appInfo = appInfo;
             return this;
         }
 
