@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"이제 기기를 사용할 수 있습니다."</string>
     <string name="done" msgid="7755227776955952318">"완료"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"직장 앱과 개인 앱 연결"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"앱이 직장 및 개인 데이터에 함께 액세스하도록 설정할 수 있습니다. 설정에서 언제든지 옵션을 변경하세요."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"직장 앱과 개인 앱 연결"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"직장 및 개인 데이터에 함께 액세스합니다. 설정하려면 탭하세요."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"직장 앱과 개인 앱 연결"</string>
 </resources>

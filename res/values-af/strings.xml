@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Jou IT-administrateur kan dalk jou data en aktiwiteit op hierdie toestel sien"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Jou toestel is gereed vir gebruik!"</string>
     <string name="done" msgid="7755227776955952318">"Klaar"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Koppel werk- en persoonlike programme"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Hierdie programme kan gestel word dat hulle toegang tot werk- en persoonlike data saam kan kry. Jy kan enige tyd veranderinge in Instellings aanbring."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Koppel werk- en persoonlike programme"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Kry toegang tot werk- en persoonlike data saam. Tik om op te stel."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Koppel werk- en persoonlike programme"</string>
 </resources>

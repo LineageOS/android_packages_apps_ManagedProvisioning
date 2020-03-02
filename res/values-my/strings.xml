@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"သင့်စက်ပစ္စည်းကို စတင်အသုံးပြုနိုင်ပါပြီ။"</string>
     <string name="done" msgid="7755227776955952318">"ပြီးပြီ"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေးအက်ပ်များကို ချိတ်ဆက်ပါ"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေး အချက်အလက်များကို အတူတကွ အသုံးပြုနိုင်စေရန် ဤအက်ပ်များကို သတ်မှတ်ထားနိုင်သည်။ ဆက်တင်များတွင် အချိန်မရွေး ပြောင်းလဲနိုင်သည်။"</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေးအက်ပ်များကို ချိတ်ဆက်ပါ"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေး အချက်အလက်များ အတူတကွ အသုံးပြုပါ။ စနစ်ထည့်သွင်းရန် တို့ပါ။"</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေးအက်ပ်များကို ချိတ်ဆက်ပါ"</string>
 </resources>

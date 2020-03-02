@@ -48,10 +48,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"سيتم حذف جميع التطبيقات والبيانات في هذا الملف الشخصي عند المتابعة."</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"إلغاء"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"لإعداد الملف الشخصي للعمل، يحتاج جهازك إلى تشفير، وقد يستغرق هذا بعض الوقت."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"لإعداد الملف الشخصي للعمل، يحتاج جهازك إلى ترميز، وقد يستغرق هذا بعض الوقت."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"لإعداد هذا الجهاز، يلزم تشفيره أولاً، وقد يستغرق هذا بعض الوقت."</string>
-    <string name="encrypt_this_device_question" msgid="8719916619866892601">"هل تريد تشفير هذا الجهاز؟"</string>
-    <string name="encrypt" msgid="1749320161747489212">"تشفير"</string>
+    <string name="encrypt_this_device_question" msgid="8719916619866892601">"هل تريد ترميز هذا الجهاز؟"</string>
+    <string name="encrypt" msgid="1749320161747489212">"ترميز"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"اكتمل التشفير"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"انقر لمتابعة إعداد الملف الشخصي للعمل"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"تعذر إعداد ملف العمل. يمكنك الاتصال بقسم تكنولوجيا المعلومات أو إعادة المحاولة لاحقًا."</string>
@@ -79,7 +79,7 @@
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"سيؤدي هذا إلى إعادة ضبط جهازك ورجوعك إلى الشاشة الأولى"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"هل تريد إيقاف الإعداد ومحو بيانات جهازك؟"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"إلغاء"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"موافق"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"حسنًا"</string>
     <string name="reset" msgid="6467204151306265796">"إعادة الضبط"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"يتعذر إعداد الملف الشخصي"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"يتعذر إعداد الجهاز"</string>
@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"تطبيقك جاهز."</string>
     <string name="done" msgid="7755227776955952318">"تمّ"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"ربط تطبيقات العمل والتطبيقات الشخصية"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"يمكن ضبط هذه التطبيقات للوصول إلى كل من بيانات العمل والبيانات الشخصية. يمكنك إجراء تغييرات في أي وقت من \"الإعدادات\"."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"ربط تطبيقات العمل والتطبيقات الشخصية"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"يمكنك الوصول إلى كل من بيانات العمل والبيانات الشخصية. انقر للإعداد."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ربط تطبيقات العمل والتطبيقات الشخصية"</string>
 </resources>

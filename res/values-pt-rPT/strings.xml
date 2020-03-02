@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O administrador de TI pode ter acesso aos seus dados e atividade neste dispositivo."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"O dispositivo está pronto a utilizar!"</string>
     <string name="done" msgid="7755227776955952318">"Concluído"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Associe apps de trabalho e pessoais"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"É possível definir estas apps para acederem aos dados de trabalho e pessoais em conjunto. Pode efetuar alterações em qualquer altura nas Definições."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Associe apps de trabalho e pessoais"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Aceda aos dados de trabalho e pessoais em conjunto. Toque para configurar."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Associe apps de trabalho e pessoais"</string>
 </resources>
