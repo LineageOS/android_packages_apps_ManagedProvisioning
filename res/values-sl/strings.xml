@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Skrbnik za IT bo morda lahko videl podatke in dejavnost v tej napravi"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Vaša naprava je pripravljena za uporabo!"</string>
     <string name="done" msgid="7755227776955952318">"Končano"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povežite delovne in osebne aplikacije"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Te aplikacije je mogoče nastaviti za hkraten dostop do službenih in osebnih podatkov. Spremembe lahko kadar koli izvedete v nastavitvah."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povežite delovne in osebne aplikacije"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Hkrati dostopajte do službenih in osebnih podatkov. Dotaknite se, če želite nastaviti."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Povezava delovnih in osebnih aplikacij"</string>
 </resources>

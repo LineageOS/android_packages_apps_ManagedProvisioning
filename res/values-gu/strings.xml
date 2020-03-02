@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"તમારું ડિવાઇસ ઉપયોગમાં લેવા માટે તૈયાર છે!"</string>
     <string name="done" msgid="7755227776955952318">"થઈ ગયું"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેની ઍપને કનેક્ટ કરો"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"આ ઍપ કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેના ડેટાનો એકસાથે ઍક્સેસ કરી શકે તેવી રીતે સેટ કરી શકાય છે. તમે સેટિંગમાં કોઈપણ સમયે ફેરફારો કરી શકો છો."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેની ઍપને કનેક્ટ કરો"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેના ડેટાનો એકસાથે ઍક્સેસ કરો. સેટઅપ કરવા માટે ટૅપ કરો."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેની ઍપને કનેક્ટ કરો"</string>
 </resources>

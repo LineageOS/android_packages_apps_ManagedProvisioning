@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"อุปกรณ์พร้อมใช้งานแล้ว"</string>
     <string name="done" msgid="7755227776955952318">"เสร็จสิ้น"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"เชื่อมโยงแอปงานและแอปส่วนตัว"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"แอปเหล่านี้ตั้งค่าให้เข้าถึงข้อมูลงานและข้อมูลส่วนตัวพร้อมกันได้ ซึ่งคุณเปลี่ยนแปลงได้ทุกเมื่อในการตั้งค่า"</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"เชื่อมโยงแอปงานและแอปส่วนตัว"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"เข้าถึงข้อมูลงานและข้อมูลส่วนตัวได้พร้อมกัน แตะเพื่อตั้งค่า"</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"เชื่อมโยงแอปงานและแอปส่วนตัว"</string>
 </resources>

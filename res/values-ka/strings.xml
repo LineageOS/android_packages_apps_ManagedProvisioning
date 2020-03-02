@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"თქვენი IT ადმინისტრატორი შეიძლება ხედავდეს თქვენს მონაცემებს და აქტივობას ამ მოწყობილობაზე"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"თქვენი მოწყობილობა გამოსაყენებლად მზად არის!"</string>
     <string name="done" msgid="7755227776955952318">"მზადაა"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"დააკავშირეთ სამსახურის და პირადი მონაცემები"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"ეს აპები შეიძლება დაყენდეს ისე, რომ ერთდროულად ჰქონდეთ წვდომა სამსახურის და პირად მონაცემებზე. შეცვლა შეგიძლიათ ნებისმიერ დროს პარამეტრებიდან."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"დააკავშირეთ სამსახურის და პირადი მონაცემები"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"იქონიეთ წვდომა ერთდროულად სამსახურის და პირად მონაცემებზე. შეეხეთ დასაყენებლად."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"დააკავშირეთ სამსახურის და პირადი მონაცემები"</string>
 </resources>
