@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Umphathi wakho we-IT angakwazi ukubona idatha yakho nomsebenzi kule divayisi"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Idivayisi yakho ilungele ukuhamba!"</string>
     <string name="done" msgid="7755227776955952318">"Kwenziwe"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Xhuma izinhlelo zokusebenza zomsebenzi nezomuntu siqu"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Lezi zinhlelo zokusebenza zingasethwa ukuze zifinyelele kudatha yomsebenzi neyomuntu siqu ngokuhlangene. Ungenza izinguquko noma kunini Kuzilungiselelo."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Xhuma izinhlelo zokusebenza zomsebenzi nezomuntu siqu"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Finyelela umsebenzi nedatha yomuntu siqu ngokuhlangene. Thepha ukuze usethe."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Xhuma izinhlelo zokusebenza zomsebenzi nezomuntu siqu"</string>
 </resources>

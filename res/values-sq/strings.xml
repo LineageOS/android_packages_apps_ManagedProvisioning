@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Administratori i teknologjisë së informacionit mund të arrijë t\'i shikojë të dhënat e tua dhe aktivitetin tënd në këtë pajisje"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Pajisja jote është gati për të vazhduar!"</string>
     <string name="done" msgid="7755227776955952318">"U krye"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Të lidhin aplikacionet e punës dhe ato personale"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Këto aplikacione mund të caktohen që të kenë qasje në të dhënat e punës dhe ato personale së bashku. Mund të bësh ndryshime në çdo kohë te \"Cilësimet\"."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Të lidhin aplikacionet e punës dhe ato personale"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Të qasen në të dhënat e punës dhe ato personale së bashku. Trokit për ta konfiguruar."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Të lidhin aplikacionet e punës dhe ato personale"</string>
 </resources>

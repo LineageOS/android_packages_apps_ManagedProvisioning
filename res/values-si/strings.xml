@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට මෙම උපාංගය මත ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලිය හැකි වීමට ඉඩ ඇත"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ඔබේ උපාංගය භාවිතයට සූදානම්!"</string>
     <string name="done" msgid="7755227776955952318">"කළා"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"කාර්යාල &amp; පෞද්ගලික යෙදුම් සම්බන්ධ කරන්න"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"මෙම යෙදුම් කාර්යාල සහ පෞද්ගලික දත්තවලට එකට ප්‍රවේශ වීමට සැකසිය හැකිය. ඔබට සැකසීම් තුළ ඕනෑම වේලාවක වෙනස් කිරීම් කළ හැකිය."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"කාර්යාල &amp; පෞද්ගලික යෙදුම් සම්බන්ධ කරන්න"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"කාර්යාල සහ පෞද්ගලික දත්ත එකට ප්‍රවේශ වන්න. පිහිටුවීමට තට්ටු කරන්න."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"කාර්යාල &amp; පෞද්ගලික යෙදුම් සම්බන්ධ කරන්න"</string>
 </resources>

@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Urządzenie gotowe"</string>
     <string name="done" msgid="7755227776955952318">"Gotowe"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Połącz aplikacje do pracy i osobiste"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Te aplikacje można skonfigurować tak, by miały dostęp zarówno do danych służbowych, jak i osobistych. W każdej chwili możesz wprowadzić zmiany w Ustawieniach."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Połącz aplikacje do pracy i osobiste"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Uzyskuj dostęp zarówno do danych służbowych, jak i osobistych. Kliknij, by skonfigurować."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Połącz aplikacje do pracy i osobiste"</string>
 </resources>

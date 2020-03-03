@@ -182,4 +182,9 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ձեր սարքը պատրաստ է"</string>
     <string name="done" msgid="7755227776955952318">"Փակել"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Միացրեք աշխատանքային և անձնական հավելվածները"</string>
+    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Այս հավելվածները հնարավոր է կարգավորել այնպես, որ միասին կարողանան օգտագործել աշխատանքային և անձնական տվյալները։ Դուք ցանկացած պահի կարող եք կարգավորումներում փոփոխություններ անել։"</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Միացրեք աշխատանքային և անձնական հավելվածները"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Օգտագործեք անձնական և աշխատանքային տվյալները միասին։ Հպեք՝ կարգավորելու համար։"</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Միացրեք աշխատանքային և անձնական հավելվածները"</string>
 </resources>
