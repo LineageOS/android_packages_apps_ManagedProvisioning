@@ -44,6 +44,7 @@ import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferenc
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -75,12 +76,11 @@ public class CrossProfileConsentViewModel extends ViewModel {
     }
 
     void findItems() {
-        final Set<String> crossProfilePackages =
-                mApplicationContext.getSystemService(DevicePolicyManager.class)
-                        .getDefaultCrossProfilePackages();
+        final Set<String> configurableCrossProfilePackages =
+                getConfigurableDefaultCrossProfilePackages();
         final List<CrossProfileItem> crossProfileItems = new ArrayList<>();
         final Map<CrossProfileItem, String> crossProfileItemPackageNames = new HashMap<>();
-        for (String crossProfilePackage : crossProfilePackages) {
+        for (String crossProfilePackage : configurableCrossProfilePackages) {
             CrossProfileItem crossProfileItem = buildCrossProfileItem(crossProfilePackage);
             if (crossProfileItem == null) {
                 // Error should have already been logged before it returned null.
@@ -93,17 +93,33 @@ public class CrossProfileConsentViewModel extends ViewModel {
         mState.set(ITEM_PACKAGE_NAMES_KEY, crossProfileItemPackageNames);
     }
 
+    private Set<String> getConfigurableDefaultCrossProfilePackages() {
+        final CrossProfileApps crossProfileApps =
+                mApplicationContext.getSystemService(CrossProfileApps.class);
+        final Set<String> crossProfilePackages =
+                mApplicationContext.getSystemService(DevicePolicyManager.class)
+                        .getDefaultCrossProfilePackages();
+        final Set<String> configurablePackages = new HashSet<>();
+        for (String crossProfilePackage : crossProfilePackages) {
+            if (crossProfileApps.canConfigureInteractAcrossProfiles(crossProfilePackage)) {
+                configurablePackages.add(crossProfilePackage);
+            } else {
+                loge("Package whitelisted for cross-profile consent during provisioning is not "
+                        + "valid for user configuration: " + crossProfilePackage);
+            }
+        }
+        return configurablePackages;
+    }
+
     /**
      * Returns the {@link CrossProfileItem} associated with the given package name, or {@code null}
      * if it cannot be found. Logs the error if it cannot be found.
      */
     @Nullable
     private CrossProfileItem buildCrossProfileItem(String crossProfilePackage) {
-        final CrossProfileApps crossProfileApps =
-                mApplicationContext.getSystemService(CrossProfileApps.class);
-        if (!crossProfileApps.canConfigureInteractAcrossProfiles(crossProfilePackage)) {
-            loge("Package whitelisted for cross-profile consent during provisioning is not valid"
-                    + " for user configuration: " + crossProfilePackage);
+        final Set<String> consentedPackages =
+                mSharedPreferences.getConsentedCrossProfilePackages();
+        if (consentedPackages.contains(crossProfilePackage)) {
             return null;
         }
         final ApplicationInfo applicationInfo = findApplicationInfo(crossProfilePackage);
@@ -167,7 +183,7 @@ public class CrossProfileConsentViewModel extends ViewModel {
      */
     void onConsentComplete(Map<CrossProfileItem, Boolean> toggleStates) {
         setInteractAcrossProfilesAppOps(toggleStates);
-        maybeSetSharedPreference();
+        setConsentedPackagesSharedPreference();
     }
 
     private void setInteractAcrossProfilesAppOps(Map<CrossProfileItem, Boolean> toggleStates) {
@@ -182,10 +198,11 @@ public class CrossProfileConsentViewModel extends ViewModel {
         }
     }
 
-    private void maybeSetSharedPreference() {
-        if (!mSharedPreferences.getCrossProfileConsentDone()) {
-            mSharedPreferences.writeCrossProfileConsentDone(true);
-        }
+    private void setConsentedPackagesSharedPreference() {
+        // The user has either consented to all configurable whitelisted packages now or in the
+        // past.
+        mSharedPreferences.writeConsentedCrossProfilePackages(
+                getConfigurableDefaultCrossProfilePackages());
     }
 
     // Create a custom factory due to http://b/148841619. The default AndroidViewModel stores the
