@@ -68,6 +68,8 @@ import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLooper;
 
+import java.util.Set;
+
 /** Robolectric unit tests for {@link CrossProfileConsentActivity}. */
 @RunWith(RobolectricTestRunner.class)
 public class CrossProfileConsentActivityRoboTest {
@@ -77,12 +79,15 @@ public class CrossProfileConsentActivityRoboTest {
     private final PackageManager mPackageManager = mContext.getPackageManager();
     private final CrossProfileApps mCrossProfileApps =
             mContext.getSystemService(CrossProfileApps.class);
+    private final ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences =
+            new ManagedProvisioningSharedPreferences(mContext);
     private final PackageInfo mTestPackageInfo =
             buildTestPackageInfo("com.android.managedprovisioning.test1", "Test1");
     private final PackageInfo mTestPackageInfo2 =
             buildTestPackageInfo("com.android.managedprovisioning.test2", "Test2");
     private final PackageInfo mProfileOwnerPackageInfo =
             buildTestPackageInfo("com.android.managedprovisioning.profileowner", "ProfileOwner");
+
 
     @Before
     public void fixRobolectricLooping() {
@@ -108,12 +113,12 @@ public class CrossProfileConsentActivityRoboTest {
     }
 
     @Test
-    public void setupActivity_noDefaultCrossProfilePackages_setsSharedPreference() {
+    public void setupActivity_noDefaultCrossProfilePackages_setsNoPackagesSharedPreference() {
         Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();
 
-        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
-                .isTrue();
+        assertThat(mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages())
+                .isEmpty();
     }
 
     @Test
@@ -273,6 +278,23 @@ public class CrossProfileConsentActivityRoboTest {
     }
 
     @Test
+    public void setupActivity_packagePreviouslyConsented_crossProfileItemExcluded() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
+        mManagedProvisioningSharedPreferences.writeConsentedCrossProfilePackages(
+                Set.of(mTestPackageInfo2.packageName));
+
+        CrossProfileConsentActivity activity =
+                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+
+        assertThat(findCrossProfileItemsNum(activity)).isEqualTo(1);
+        TextView titleView =
+                findCrossProfileItem(activity).findViewById(R.id.cross_profile_item_title);
+        assertThat(titleView.getText()).isEqualTo(mTestPackageInfo.applicationInfo.name);
+    }
+
+    @Test
     public void setupActivity_setsCrossProfileItemIconToAppIcon() {
         final Drawable icon = buildTestIcon();
         shadowOf(mPackageManager).setApplicationIcon(mTestPackageInfo.packageName, icon);
@@ -386,18 +408,18 @@ public class CrossProfileConsentActivityRoboTest {
     }
 
     @Test
-    public void noButtonClick_sharedPreferenceNotSet() {
+    public void noButtonClick_noPackagesInSharedPreference() {
         installDefaultCrossProfilePackage(mTestPackageInfo);
 
         Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();
 
-        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
-                .isFalse();
+        assertThat(mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages())
+                .isEmpty();
     }
 
     @Test
-    public void buttonClick_setsSharedPreference() {
+    public void buttonClick_setsConsentedPackagesInSharedPreference() {
         installDefaultCrossProfilePackage(mTestPackageInfo);
 
         CrossProfileConsentActivity activity =
@@ -406,8 +428,30 @@ public class CrossProfileConsentActivityRoboTest {
         findButton(activity).performClick();
         ShadowLooper.idleMainLooper();
 
-        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
-                .isTrue();
+        Set<String> consentedPackages =
+                mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages();
+        assertThat(consentedPackages).hasSize(1);
+        assertThat(consentedPackages.iterator().next()).isEqualTo(mTestPackageInfo.packageName);
+    }
+
+    @Test
+    public void buttonClick_packagePreviouslyConsented_setsAllConsentedPackagesInSharedPreference() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
+        mManagedProvisioningSharedPreferences.writeConsentedCrossProfilePackages(
+                Set.of(mTestPackageInfo2.packageName));
+
+        CrossProfileConsentActivity activity =
+                Robolectric.setupActivity(CrossProfileConsentActivity.class);
+        ShadowLooper.idleMainLooper();
+        findButton(activity).performClick();
+        ShadowLooper.idleMainLooper();
+
+        Set<String> consentedPackages =
+                mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages();
+        assertThat(consentedPackages).hasSize(2);
+        assertThat(consentedPackages).contains(mTestPackageInfo.packageName);
+        assertThat(consentedPackages).contains(mTestPackageInfo2.packageName);
     }
 
     @Test
@@ -439,7 +483,7 @@ public class CrossProfileConsentActivityRoboTest {
     }
 
     @Test
-    public void setupActivity_silentProvisioningParams_setsSharedPreference() {
+    public void setupActivity_silentProvisioningParams_setsConsentedPackagesInSharedPreference() {
         installDefaultCrossProfilePackage(mTestPackageInfo);
         setSilentProvisioningFlags(mProfileOwnerPackageInfo);
         shadowOf(mPackageManager).installPackage(mProfileOwnerPackageInfo);
@@ -448,8 +492,10 @@ public class CrossProfileConsentActivityRoboTest {
         Robolectric.buildActivity(CrossProfileConsentActivity.class, intent).setup().get();
         ShadowLooper.idleMainLooper();
 
-        assertThat(new ManagedProvisioningSharedPreferences(mContext).getCrossProfileConsentDone())
-                .isTrue();
+        Set<String> consentedPackages =
+                mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages();
+        assertThat(consentedPackages).hasSize(1);
+        assertThat(consentedPackages.iterator().next()).isEqualTo(mTestPackageInfo.packageName);
     }
 
     @Test
