@@ -35,6 +35,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Set;
+
 @SmallTest
 public class ManagedProvisioningSharedPreferencesTest {
 
@@ -86,13 +88,19 @@ public class ManagedProvisioningSharedPreferencesTest {
     }
 
     @Test
-    public void testGetCrossProfileConsentDone_defaultsToFalse() {
-        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isFalse();
+    public void testGetConsentedCrossProfilePackages_defaultsToEmptySet() {
+        assertThat(
+                mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages())
+                .hasSize(0);
     }
 
     @Test
-    public void testGetCrossProfileConsentDone_returnsWrittenValue() {
-        mManagedProvisioningSharedPreferences.writeCrossProfileConsentDone(true);
-        assertThat(mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()).isTrue();
+    public void testGetConsentedCrossProfilePackages_returnsWrittenValue() {
+        Set<String> set = Set.of("package1", "package2");
+
+        mManagedProvisioningSharedPreferences.writeConsentedCrossProfilePackages(set);
+
+        assertThat(mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages())
+                .containsExactlyElementsIn(set);
     }
 }
