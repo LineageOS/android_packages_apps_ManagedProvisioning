@@ -22,8 +22,10 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.CrossProfileApps;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -34,6 +36,9 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.provisioning.crossprofile.CrossProfileConsentActivity;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 /**
  * Controller for notification which is shown on boot if the user has not given consent for cross
  * profile apps.
@@ -43,6 +48,8 @@ public class CrossProfileAppsNotificationController {
     private final UserManager mUserManager;
     private final NotificationManager mNotificationManager;
     private final ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences;
+    private final DevicePolicyManager mDevicePolicyManager;
+    private final CrossProfileApps mCrossProfileApps;
 
     private static final String CHANNEL_ID = "CrossProfileAppPermissions";
 
@@ -51,13 +58,15 @@ public class CrossProfileAppsNotificationController {
         mUserManager = mContext.getSystemService(UserManager.class);
         mManagedProvisioningSharedPreferences = new ManagedProvisioningSharedPreferences(context);
         mNotificationManager = mContext.getSystemService(NotificationManager.class);
+        mDevicePolicyManager = mContext.getSystemService(DevicePolicyManager.class);
+        mCrossProfileApps = mContext.getSystemService(CrossProfileApps.class);
     }
 
     public void maybeShowPermissionsNotification() {
         if (!isParentProfileOfManagedProfile()) {
             return;
         }
-        if (mManagedProvisioningSharedPreferences.getCrossProfileConsentDone()) {
+        if (hasConsentedToAllPackages()) {
             return;
         }
         createNotificationChannel();
@@ -79,6 +88,22 @@ public class CrossProfileAppsNotificationController {
                 .build();
 
         mNotificationManager.notify(/* notificationId= */ 0, notification);
+    }
+
+    private boolean hasConsentedToAllPackages() {
+        Set<String> consentedPackages =
+                mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages();
+
+        Set<String> unconsentedPackages = getConfigurableDefaultCrossProfilePackages();
+        unconsentedPackages.removeAll(consentedPackages);
+
+        return unconsentedPackages.isEmpty();
+    }
+
+    private Set<String> getConfigurableDefaultCrossProfilePackages() {
+        Set<String> defaultPackages = mDevicePolicyManager.getDefaultCrossProfilePackages();
+        return defaultPackages.stream().filter(
+                mCrossProfileApps::canConfigureInteractAcrossProfiles).collect(Collectors.toSet());
     }
 
     private boolean isParentProfileOfManagedProfile() {
