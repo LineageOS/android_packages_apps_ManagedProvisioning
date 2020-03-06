@@ -17,9 +17,12 @@ package com.android.managedprovisioning.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.TimeUtils;
 
+import androidx.annotation.Keep;
 import androidx.annotation.VisibleForTesting;
+
+import java.util.Collections;
+import java.util.Set;
 
 public class ManagedProvisioningSharedPreferences {
     public static final long DEFAULT_PROVISIONING_ID = 0L;
@@ -31,7 +34,8 @@ public class ManagedProvisioningSharedPreferences {
     static final String KEY_PROVISIONING_START_TIMESTAMP = "provisioning_start_timestamp";
 
     @VisibleForTesting
-    static final String KEY_CROSS_PROFILE_CONSENT_DONE = "cross_profile_consent_done";
+    static final String KEY_CONSENTED_CROSS_PROFILE_PACKAGES =
+            "consented_cross_profile_packages";
 
     @VisibleForTesting
     static final String SHARED_PREFERENCE = "managed_profile_shared_preferences";
@@ -82,12 +86,15 @@ public class ManagedProvisioningSharedPreferences {
         return mSharedPreferences.getLong(KEY_PROVISIONING_START_TIMESTAMP, 0L);
     }
 
-    public void writeCrossProfileConsentDone(boolean done) {
-        mSharedPreferences.edit().putBoolean(KEY_CROSS_PROFILE_CONSENT_DONE, done).apply();
+    public void writeConsentedCrossProfilePackages(Set<String> consentedPackages) {
+        mSharedPreferences.edit().putStringSet(
+                KEY_CONSENTED_CROSS_PROFILE_PACKAGES, consentedPackages).apply();
     }
 
-    public boolean getCrossProfileConsentDone() {
-        return mSharedPreferences.getBoolean(
-                KEY_CROSS_PROFILE_CONSENT_DONE, /* defValue= */ false);
+    // TODO(149990377): Remove @Keep annotation once the notification is re-enabled
+    @Keep
+    public Set<String> getConsentedCrossProfilePackages() {
+        return mSharedPreferences.getStringSet(
+                KEY_CONSENTED_CROSS_PROFILE_PACKAGES, /* defValue= */ Collections.emptySet());
     }
 }
