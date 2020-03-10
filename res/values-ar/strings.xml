@@ -102,7 +102,7 @@
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"يمكنك إعداد الملف الشخصي للعمل لاحقًا في تطبيق إدارة أجهزة مؤسستك"</string>
     <string name="continue_button" msgid="7177918589510964446">"متابعة"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"إيقاف"</string>
-    <string name="dismiss" msgid="9009534756748565880">"إلغاء"</string>
+    <string name="dismiss" msgid="9009534756748565880">"إغلاق"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"أنت بصدد إنشاء ملف شخصي للعمل تتم إدارته ومراقبته بواسطة مؤسستك. تسري البنود."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"أنت بصدد إنشاء ملف شخصي للعمل يخضع لإدارة ومراقبة مؤسستك. تسري البنود المتبعة في <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"سيتم إنشاء ملف شخصي لتطبيقات العمل، وسيخضع هذا الملف الشخصي وباقي محتوى الجهاز لإدارة ومراقبة مؤسستك. تسري البنود."</string>
