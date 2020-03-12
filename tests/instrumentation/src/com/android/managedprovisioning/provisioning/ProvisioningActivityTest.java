@@ -35,6 +35,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -464,10 +465,11 @@ public class ProvisioningActivityTest {
         // GIVEN the activity was launched with a financed device intent
         launchActivityAndWait(FINANCED_DEVICE_INTENT);
 
-        // THEN the description should be empty
-        // TODO: b/147399319 update test string once UX is updated
-        onView(withId(R.id.provisioning_progress)).check(
-                matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
+        // THEN the header will be set
+        onView(withId(R.id.suc_layout_title)).check(matches(withText(R.string.just_a_sec)));
+
+        // THEN the icon will be invisible
+        onView(withId(R.id.sud_layout_icon)).check(matches(not(isDisplayed())));
 
         // THEN the animation is shown.
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
