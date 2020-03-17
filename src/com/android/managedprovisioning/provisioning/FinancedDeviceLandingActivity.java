@@ -24,13 +24,11 @@ import android.widget.TextView;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.ClickableSpanFactory;
 
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.preprovisioning.WebActivity;
 import com.google.android.setupdesign.GlifLayout;
 
 /**
@@ -89,27 +87,10 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
         final String installCreditorAppString = getString(R.string.install_creditor_app_description,
                 params.organizationName);
         installCreditorAppTextView.setText(installCreditorAppString);
-
-        handlePoliciesUrl(customizationParams);
     }
 
     private void onNextButtonClicked() {
         setResult(RESULT_OK);
         finish();
-    }
-
-    private void handlePoliciesUrl(CustomizationParams customizationParams) {
-        final TextView termsTextView = findViewById(R.id.google_terms);
-        final String googlePoliciesUrl = getString(R.string.google_policies_url);
-        final String termsString = getString(R.string.google_terms, googlePoliciesUrl);
-        final ClickableSpanFactory clickableSpanFactory =
-                new ClickableSpanFactory(getColor(R.color.blue_text));
-
-        final Intent intent = WebActivity.createIntent(this, googlePoliciesUrl,
-                customizationParams.statusBarColor);
-        mUtils.handlePartialClickableTextView(termsTextView, termsString, googlePoliciesUrl, intent,
-                clickableSpanFactory);
-
-        mContextMenuMaker.registerWithActivity(termsTextView);
     }
 }
