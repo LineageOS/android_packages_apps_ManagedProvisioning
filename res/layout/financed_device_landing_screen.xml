@@ -33,13 +33,14 @@
         android:id="@+id/creditor_capabilities_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacer_32"
-        style="@style/Provisioning2Theme.Text.Secondary.Grey"/>
+        android:layout_marginTop="@dimen/spacer_8"
+        android:gravity="center_horizontal"
+        style="@style/Provisioning2Theme.Text.Secondary.SmallerLineSpacing"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacer_16"
+        android:layout_marginTop="@dimen/spacer_36"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -54,13 +55,13 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacer_16"
           android:text="@string/install_creditor_app_description"
-          style="@style/Provisioning2Theme.Text.Secondary.LargerLineSpacing"/>
+          style="@style/Provisioning2Theme.Text.Secondary.SmallerLineSpacing"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacer_16"
+        android:layout_marginTop="@dimen/spacer_12"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -74,16 +75,8 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacer_16"
           android:text="@string/lock_device_description"
-          style="@style/Provisioning2Theme.Text.Secondary.LargerLineSpacing"/>
+          style="@style/Provisioning2Theme.Text.Secondary.SmallerLineSpacing"/>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/google_terms"
-        android:text="@string/google_terms"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacer_24"
-        style="@style/Provisioning2Theme.Text.Secondary.Grey"/>
 
   </LinearLayout>
 
