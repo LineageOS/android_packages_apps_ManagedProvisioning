@@ -62,6 +62,7 @@
     <dimen name="spacer_20">20dp</dimen>
     <dimen name="spacer_24">24dp</dimen>
     <dimen name="spacer_32">32dp</dimen>
+    <dimen name="spacer_36">36dp</dimen>
     <dimen name="spacer_40">40dp</dimen>
     <dimen name="spacer_60">60dp</dimen>
     <dimen name="spacer_64">64dp</dimen>
