@@ -126,17 +126,8 @@
         <item name="android:lineSpacingExtra">6sp</item>
     </style>
 
-    <style name="Provisioning2Theme.Text.Secondary.LargerLineSpacing">
-        <item name="android:textColor">@color/black_text_secondary</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:letterSpacing">0.01</item>
-    </style>
-
-    <style name="Provisioning2Theme.Text.Secondary.Grey">
-        <item name="android:textColor">@color/grey_text</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
+    <style name="Provisioning2Theme.Text.Secondary.SmallerLineSpacing" parent="Provisioning2Theme.Text.Secondary">
+        <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:letterSpacing">0.01</item>
     </style>
 
