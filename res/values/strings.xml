@@ -411,7 +411,7 @@
   <!-- Title of a full-screen message. This screen lets users connect certain apps in their work and personal profiles so they can access work and personal data together. [CHAR LIMIT=NONE]-->
   <string name="cross_profile_consent_title">Connect work &amp; personal apps</string>
   <!-- Subtext on a screen. This text lets users know what will happen if they turn on the toggles next to the apps on this screen. Each app's toggle will let the user access both work and personal data. [CHAR LIMIT=NONE]-->
-  <string name="cross_profile_consent_summary">These apps can be set to access work and personal data together. You can make changes anytime in Settings.</string>
+  <string name="cross_profile_consent_summary">Connected apps let you access work and personal data together. You can make changes anytime in Settings.</string>
 
   <!-- Notification title. This notification lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
   <string name="cross_profile_notification_title">Connect work &amp; personal apps</string>
