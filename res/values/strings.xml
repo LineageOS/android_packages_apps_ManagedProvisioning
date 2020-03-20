@@ -171,9 +171,13 @@
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <string name="cant_set_up_device">Can\'t set up device</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
+  <string name="something_went_wrong">Something went wrong</string>
+  <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <string name="couldnt_set_up_device">Couldn\'t set up device. For help, contact your IT admin.</string>
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <string name="contact_your_admin_for_help">Contact your IT admin for help</string>
+  <!-- Message of the error dialog in case of an unspecified error in financed device provisioning scenario. [CHAR LIMIT=NONE]. -->
+  <string name="reset_device">Reset this device and try setting it up again</string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_already_set_up">Device is already set up</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
