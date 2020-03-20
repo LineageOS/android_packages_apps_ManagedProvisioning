@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"আপোনাৰ ডিভাইচটো ব্যৱহাৰৰ কাৰণে সাজু!"</string>
     <string name="done" msgid="7755227776955952318">"কৰা হ’ল"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"কৰ্মস্থানৰ আৰু ব্যক্তিগত এপ্‌সমূহ সংযোগ কৰক"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"এই এপ্‌সমূহক কৰ্মস্থানৰ আৰু ব্যক্তিগত ডেটা একেলগে এক্সেছ কৰিবলৈ ছেট কৰিব পৰা যায়। আপুনি ছেটিংসমূহত যিকোনো সময়তে সালসলনি কৰিব পাৰে।"</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"কৰ্মস্থানৰ আৰু ব্যক্তিগত এপ্‌সমূহ সংযোগ কৰক"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"কৰ্মস্থানৰ আৰু ব্যক্তিগত ডেটালৈ একেলগে এক্সেছ পাওক। ছেট আপ কৰিবলৈ টিপক।"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"কৰ্মস্থানৰ আৰু ব্যক্তিগত এপ্‌সমূহ সংযোগ কৰক"</string>

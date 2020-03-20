@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Η συσκευή σας είναι έτοιμη!"</string>
     <string name="done" msgid="7755227776955952318">"Τέλος"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Σύνδεση προσωπικών εφαρμογών και εφαρμογών εργασίας"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Αυτές οι εφαρμογές μπορούν να ρυθμιστούν έτσι ώστε να έχουν πρόσβαση σε δεδομένα εργασίας και σε προσωπικά δεδομένα. Μπορείτε να κάνετε αλλαγές ανά πάσα στιγμή στις Ρυθμίσεις."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Σύνδεση προσωπικών εφαρμογών και εφαρμογών εργασίας"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Αποκτήστε πρόσβαση τόσο σε δεδομένα εργασίας όσο και σε προσωπικά δεδομένα. Πατήστε για ρύθμιση."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Σύνδεση προσωπικών εφαρμογών και εφαρμογών εργασίας"</string>

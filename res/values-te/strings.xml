@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"మీ పరికరం ఉపయోగించేందుకు సిద్ధంగా ఉంది!"</string>
     <string name="done" msgid="7755227776955952318">"పూర్తయింది"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"పనిని, వ్యక్తిగత డేటాను కలిపి యాక్సెస్ చేసే విధంగా మీరు ఈ యాప్‌లను సెట్ చేయవచ్చు. సెట్టింగ్‌లలో మీరు ఏ సమయంలోనైనా మార్పులు చేయవచ్చు."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"పని, వ్యక్తిగత డేటాలను కలిపి యాక్సెస్ చేయండి. సెటప్ చేయడానికి ట్యాప్ చేయండి."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
