@@ -63,14 +63,12 @@ public final class FinancedDeviceProvisioningController extends AbstractProvisio
 
     @Override
     protected int getErrorTitle() {
-        // TODO: b/147399319, update error title
-        return R.string.cant_set_up_device;
+        return R.string.something_went_wrong;
     }
 
     @Override
     protected int getErrorMsgId(AbstractProvisioningTask task, int errorCode) {
-        // TODO: b/147399319, more detailed error messages
-        return R.string.cant_set_up_device;
+        return R.string.reset_device;
     }
 
     @Override
