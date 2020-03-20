@@ -385,7 +385,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void initializeUi(ProvisioningParams params) {
         final boolean isPoProvisioning = mUtils.isProfileOwnerAction(params.provisioningAction);
-        // TODO: b/147399319, accessibility description string for financed device provisioning
         final int titleResId =
             isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
 
