@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Уредот е спремен за користење."</string>
     <string name="done" msgid="7755227776955952318">"Готово"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Поврзете ги работните и личните апликации"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Апликацииве може да се постават за истовремено пристапување до работните и личните податоци. Во секое време може да извршите промени во „Поставки“."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Поврзете ги работните и личните апликации"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Пристапувајте до работните и личните податоци истовремено. Допрете за поставување."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Поврзете ги работните и личните апликации"</string>

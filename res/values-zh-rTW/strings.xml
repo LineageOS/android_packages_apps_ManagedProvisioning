@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"你的裝置已準備就緒！"</string>
     <string name="done" msgid="7755227776955952318">"完成"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"連結工作和個人應用程式"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"這些應用程式可設為同時存取工作和個人資料。你隨時可以前往「設定」進行變更。"</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"連結工作和個人應用程式"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"同時存取工作和個人資料。輕觸即可進行設定。"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"連結工作和個人應用程式"</string>

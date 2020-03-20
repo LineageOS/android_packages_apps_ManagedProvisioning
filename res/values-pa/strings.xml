@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਵਰਤਣ ਲਈ ਤਿਆਰ ਹੈ!"</string>
     <string name="done" msgid="7755227776955952318">"ਹੋ ਗਿਆ"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"ਕੰਮ ਸੰਬੰਧੀ ਅਤੇ ਨਿੱਜੀ ਐਪਾਂ ਕਨੈਕਟ ਕਰੋ"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"ਇਹਨਾਂ ਐਪਾਂ ਨੂੰ ਕੰਮ ਸੰਬੰਧੀ ਅਤੇ ਨਿੱਜੀ ਡਾਟੇ ਤੱਕ ਦੋਵਾਂ \'ਤੇ ਇੱਕੋ ਸਮੇਂ ਪਹੁੰਚ ਕਰਨ ਲਈ ਸੈੱਟ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਤੁਸੀਂ ਕਿਸੇ ਵੇਲੇ ਵੀ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਤਬਦੀਲੀਆਂ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"ਕੰਮ ਸੰਬੰਧੀ ਅਤੇ ਨਿੱਜੀ ਐਪਾਂ ਕਨੈਕਟ ਕਰੋ"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"ਕੰਮ ਸੰਬੰਧੀ ਅਤੇ ਨਿੱਜੀ ਡਾਟੇ ਤੱਕ ਦੋਵਾਂ \'ਤੇ ਇੱਕੋ ਸਮੇਂ ਪਹੁੰਚ ਕਰੋ। ਸੈੱਟਅੱਪ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ।"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ਕੰਮ ਸੰਬੰਧੀ ਅਤੇ ਨਿੱਜੀ ਐਪਾਂ ਕਨੈਕਟ ਕਰੋ"</string>

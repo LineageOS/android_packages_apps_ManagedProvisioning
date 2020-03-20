@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"आपका डिवाइस इस्तेमाल के लिए तैयार है!"</string>
     <string name="done" msgid="7755227776955952318">"हो गया"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"इसे चालू करके, ऐप्लिकेशन को एक साथ निजी और काम से जुड़े डेटा का ऐक्सेस दिया जा सकता है. आप जब चाहें, सेटिंग में जाकर इसे बदल सकते हैं."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"निजी और काम से जुड़े डेटा को एक साथ ऐक्सेस करें. सेट अप करने के लिए टैप करें."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>

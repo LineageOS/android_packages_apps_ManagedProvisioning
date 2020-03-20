@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तपाईंको यन्त्र प्रयोग गर्नुभए हुन्छ!"</string>
     <string name="done" msgid="7755227776955952318">"सम्पन्न भयो"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"कामसम्बन्धी अनुप्रयोग र व्यक्तिगत अनुप्रयोगहरूलाई जोड्नुहोस्"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"यी अनुप्रयोगहरूलाई कार्यस्थलको डेटा र व्यक्तिगत डेटामाथि सँगसँगै पहुँच राख्न मिल्ने गरी सेट गर्न सकिन्छ। तपाईं सेटिङहरूमा गई जुनसुकै बेला यो सेटिङ परिवर्तन गर्न सक्नुहुन्छ।"</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"कामसम्बन्धी अनुप्रयोग र व्यक्तिगत अनुप्रयोगहरूलाई जोड्नुहोस्"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"कार्यस्थलको डेटा र व्यक्तिगत डेटामाथि सँगसँगै पहुँच राख्नुहोस्। सेटअप गर्न ट्याप गर्नुहोस्।"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"कामसम्बन्धी अनुप्रयोग र व्यक्तिगत अनुप्रयोगहरूलाई जोड्नुहोस्"</string>

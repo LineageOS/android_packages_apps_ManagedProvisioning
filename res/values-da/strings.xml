@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Din enhed er klar til brug"</string>
     <string name="done" msgid="7755227776955952318">"Udfør"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Tilknyt personlige og arbejdsrelaterede apps"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Disse apps kan få adgang til både arbejdsrelaterede og personlige data. Du kan altid ændre dette i Indstillinger."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Tilknyt personlige og arbejdsrelaterede apps"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Få adgang til både arbejdsrelaterede og personlige data. Tryk for at konfigurere"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Tilknyt personlige og arbejdsrelaterede apps"</string>

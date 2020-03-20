@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तुमचे डिव्हाइस वापरण्यासाठी तयार आहे!"</string>
     <string name="done" msgid="7755227776955952318">"पूर्ण झाले"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"ही ॲप्स ऑफिस आणि वैयक्तिक डेटा एकत्रितपणे अ‍ॅक्सेस करण्यासाठी सेट केली जाऊ शकतात. तुम्ही सेटिंग्जमधून कधीही बदलू शकता."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"ऑफिस आणि वैयक्तिक डेटा एकत्र अ‍ॅक्सेस करा. सेट करण्यासाठी टॅप करा."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>

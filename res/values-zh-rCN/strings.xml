@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"您的设备已准备就绪！"</string>
     <string name="done" msgid="7755227776955952318">"完成"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"关联工作应用和个人应用"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"可将这些应用设置成能同时访问工作数据和个人数据。您随时可以在“设置”中进行更改。"</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"关联工作应用和个人应用"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"同时访问工作数据和个人数据。点按即可设置。"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"关联工作应用和个人应用"</string>

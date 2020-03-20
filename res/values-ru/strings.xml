@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Все готово!"</string>
     <string name="done" msgid="7755227776955952318">"Готово"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Подключение рабочих и личных приложений"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Этим приложениям можно предоставить доступ одновременно к рабочим и личным данным. Изменить параметры можно в любое время в настройках."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Подключение рабочих и личных приложений"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Получите доступ одновременно к рабочим и личным данным. Нажмите, чтобы настроить."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Подключение рабочих и личных приложений"</string>

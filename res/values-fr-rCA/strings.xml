@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Votre appareil est prêt à être utilisé!"</string>
     <string name="done" msgid="7755227776955952318">"Terminé"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Connecter les applications professionnelles et personnelles"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Ces applications peuvent être configurées de manière à accéder aux données professionnelles et personnelles, simultanément. Vous pouvez modifier cela en tout temps dans le menu Paramètres."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Connecter les applications professionnelles et personnelles"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Accéder aux données professionnelles et personnelles, simultanément. Touchez pour configurer."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Connecter les applications professionnelles et personnelles"</string>
