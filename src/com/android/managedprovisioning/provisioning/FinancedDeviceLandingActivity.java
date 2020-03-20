@@ -63,9 +63,6 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
                 CustomizationParams.createInstance(params, this, mUtils);
         setContentView(R.layout.financed_device_landing_screen);
 
-        // TODO: b/147399319, update title string
-        final int titleResId = R.string.setup_device_progress;
-        setTitle(titleResId);
         if (!customizationParams.useSetupStatusBarColor) {
             setStatusBarColor(customizationParams.statusBarColor);
         }
