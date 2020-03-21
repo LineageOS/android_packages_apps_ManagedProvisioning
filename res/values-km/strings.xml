@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ឧបករណ៍​របស់អ្នក​អាចប្រើបានហើយ!"</string>
     <string name="done" msgid="7755227776955952318">"រួចរាល់"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"ភ្ជាប់​កម្មវិធី​ផ្ទាល់ខ្លួន និងការងារ"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"អាច​កំណត់​កម្មវិធី​ទាំងនេះឱ្យ​​ចូលប្រើ​ទិន្នន័យ​ផ្ទាល់ខ្លួន និងការងារ​រួមគ្នា។ អ្នក​អាច​ធ្វើការផ្លាស់ប្ដូរ​នៅក្នុង​ការកំណត់​បានគ្រប់ពេល។"</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"ភ្ជាប់​កម្មវិធី​ផ្ទាល់ខ្លួន និងការងារ"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"ចូលប្រើ​ទិន្នន័យ​ផ្ទាល់ខ្លួន និងការងារ​រួមគ្នា។ ចុច​ដើម្បី​រៀបចំ។"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ភ្ជាប់​កម្មវិធី​ផ្ទាល់ខ្លួន និងការងារ"</string>

@@ -183,7 +183,8 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Seade on kasutamiseks valmis."</string>
     <string name="done" msgid="7755227776955952318">"Valmis"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Töö- ja isiklike rakenduste ühendamine"</string>
-    <string name="cross_profile_consent_summary" msgid="813482602442294662">"Nendele rakendustele saab anda loa pääseda juurde nii teie töö- kui ka isiklikele andmetele. Muudatusi saate alati teha menüüs Seaded."</string>
+    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
+    <skip />
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Töö- ja isiklike rakenduste ühendamine"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Pääsete juurde nii töö- kui ka isiklikele andmetele. Puudutage seadistamiseks."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Töö- ja isiklike rakenduste ühendamine"</string>
