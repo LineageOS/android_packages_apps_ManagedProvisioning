@@ -83,12 +83,14 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 2;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
     static final int PROVISIONING_MODE_FINANCED_DEVICE = 4;
+    static final int PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE = 5;
 
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
         PROVISIONING_MODE_WORK_PROFILE,
         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
         PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
-        PROVISIONING_MODE_FINANCED_DEVICE
+        PROVISIONING_MODE_FINANCED_DEVICE,
+        PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE
     })
     @Retention(RetentionPolicy.SOURCE)
     @interface ProvisioningMode {}
@@ -102,6 +104,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 put(PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
                         R.string.fully_managed_device_provisioning_progress_label);
                 put(PROVISIONING_MODE_FINANCED_DEVICE, R.string.just_a_sec);
+                put(PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE,
+                        R.string.work_profile_provisioning_progress_label);
             }});
 
     private static final String START_DPC_SERVICE_STATE_KEY = "start_dpc_service_state";
@@ -206,7 +210,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void onNextButtonClicked() {
-        if (getProvisioningMode() == PROVISIONING_MODE_WORK_PROFILE) {
+        int provisioningMode = getProvisioningMode();
+        if (provisioningMode == PROVISIONING_MODE_WORK_PROFILE
+                || provisioningMode == PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE) {
             Intent intent = new Intent(this, CrossProfileConsentActivity.class);
             WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
             intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
@@ -385,7 +391,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void initializeUi(ProvisioningParams params) {
         final boolean isPoProvisioning = mUtils.isProfileOwnerAction(params.provisioningAction);
-        // TODO: b/147399319, accessibility description string for financed device provisioning
         final int titleResId =
             isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
 
@@ -443,6 +448,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (isProfileOwnerAction) {
             if (getSystemService(DevicePolicyManager.class).isDeviceManaged()) {
                 provisioningMode = PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE;
+            } else if (mParams.isOrganizationOwnedProvisioning) {
+                provisioningMode = PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE;
             } else {
                 provisioningMode = PROVISIONING_MODE_WORK_PROFILE;
             }
