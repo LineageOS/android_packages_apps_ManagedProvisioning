@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
@@ -132,7 +133,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
 
         // Note that the apk may not actually be downloaded to this path. This could happen if
         // this file already exists.
-        String path = mContext.getExternalFilesDir(null)
+        String path = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOWNLOADS).getPath()
                 + "/download_cache/managed_provisioning_downloaded_app.apk";
         File downloadedFile = new File(path);
         downloadedFile.getParentFile().mkdirs(); // If the folder doesn't exists it is created
