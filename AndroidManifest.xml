@@ -106,6 +106,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
+            android:exported="true"
             android:theme="@style/SudThemeGlifV3.Light">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
@@ -179,6 +180,7 @@
             android:name=".provisioning.SilentDeviceOwnerProvisioningService">
         </service>
         <receiver android:name=".provisioning.SilentDeviceOwnerProvisioningReceiver"
+            android:exported="true"
             android:permission="android.permission.PROVISION_MANAGED_DEVICE_SILENTLY">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE_SILENTLY" />
@@ -209,6 +211,7 @@
             android:noHistory="true"
             android:excludeFromRecents="true"
             android:enabled="false"
+            android:exported="true"
             android:taskAffinity=":PostEncryptionActivity">
             <intent-filter android:priority="10">
                 <action android:name="android.intent.action.MAIN" />
@@ -226,25 +229,29 @@
         <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />
 
-        <receiver android:name="com.android.managedprovisioning.BootReminder">
+        <receiver android:name="com.android.managedprovisioning.BootReminder"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.ota.PreBootListener">
+        <receiver android:name="com.android.managedprovisioning.ota.PreBootListener"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.manageduser.ManagedUserCreationListener">
+        <receiver android:name="com.android.managedprovisioning.manageduser.ManagedUserCreationListener"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.app.action.MANAGED_USER_CREATED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter$RestrictionChangedReceiver">
+        <receiver android:name="com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter$RestrictionChangedReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.app.action.DATA_SHARING_RESTRICTION_CHANGED" />
             </intent-filter>
