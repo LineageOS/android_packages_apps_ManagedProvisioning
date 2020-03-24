@@ -83,8 +83,12 @@
     <string name="reset" msgid="6467204151306265796">"ری سیٹ کریں"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"پروفائل سیٹ اپ نہیں ہو سکتا"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"آلہ سیٹ اپ نہیں ہو سکتا"</string>
+    <!-- no translation found for something_went_wrong (3593223774041784329) -->
+    <skip />
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"‏آلہ کو سیٹ اپ نہیں کیا جا سکا۔ مدد کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"‏مدد کے لیے اپنے IT منتظم سے رابطہ کریں"</string>
+    <!-- no translation found for reset_device (5483853913241939262) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"آلہ پہلے ہی ترتیب دیا جا چکا ہے"</string>
     <string name="error_wifi" msgid="1850288843966836571">"‏Wi-Fi سے منسلک نہیں کیا جا سکا"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"‏آپ کے آلہ میں ری سیٹ کا تحفظ آن ہو گیا ہے۔ مدد کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
@@ -169,15 +173,25 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"دن کا کام مکمل کر لینے کے بعد دفتری ایپس کو موقوف کریں"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"‏صرف آپ کے دفتری پروفائل میں دستیاب ڈیٹا آپ کے IT منتظم کو دکھائی دے سکتا ہے"</string>
+    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
+    <skip />
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"آپ کے دفتری پروفائل کو سیٹ اپ کیا جا رہا ہے…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"‏دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے۔ دن کا اپنا کام مکمل کرنے کے بعد آپ اپنی دفتری ایپس کو موقوف کر سکتے ہیں۔ آپ کا IT منتظم صرف آپ کے دفتری پروفائل میں دستیاب ڈیٹا ہی دیکھ سکتا ہے۔"</string>
+    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
+    <skip />
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"آئیے آپ کا دفتری آلہ سیٹ اپ کریں"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"اپنی دفتری ایپس کو اپنے لیے بآسانی قابل رسائی بنائيں"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"یہ آلہ نجی نہیں ہے"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"آپ کا آلہ سیٹ اپ کیا جا رہا ہے…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏اپنی دفتری ایپس تک آسانی سے رسائی حاصل کرنے کے لیے یہ آلہ استعمال کریں۔ یہ آلہ نجی نہیں ہے، اس لیے آپ کا IT منتظم آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔ مزید جاننے کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
+    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"رازداری کی یاد دہانی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"آپ کا آلہ استعمال کرنے کے لیے تیار ہے!"</string>

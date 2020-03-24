@@ -83,8 +83,12 @@
     <string name="reset" msgid="6467204151306265796">"ରିସେଟ୍‍ କରନ୍ତୁ"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‍ ଅପ୍‍ କରିପାରିବ ନାହିଁ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରିପାରିବ ନାହିଁ"</string>
+    <!-- no translation found for something_went_wrong (3593223774041784329) -->
+    <skip />
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରାଯାଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କର ଆଇଟି ଆଡମିନ୍‍ଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ"</string>
+    <!-- no translation found for reset_device (5483853913241939262) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"ଡିଭାଇସ୍‍ ପୂର୍ବରୁ ସେଟଅପ୍‌ କରାଯାଇଛି"</string>
     <string name="error_wifi" msgid="1850288843966836571">"ୱାଇ-ଫାଇ ସହ ସଂଯୋଗ ହୋଇପାରିଲା ନାହିଁ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"ଆପଣଙ୍କ ଡିଭାଇସରେ ରିସେଟ୍‍ ସୁରକ୍ଷା ଚାଲୁ କରାଯାଇଛି। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
@@ -169,15 +173,25 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ଚାଲନ୍ତୁ ଆପଣଙ୍କର ୱାର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ୱର୍କ ଆପ୍ସ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ରଖାଯାଇଛି"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ଆପଣଙ୍କର ପୁରା ଦିନର କାମ ଶେଷ ହୋଇଗଲା ପରେ ୱର୍କ ଆପ୍ସକୁ ବିରତି କରନ୍ତୁ"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକ କେବଳ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା ଡାଟା ଦେଖିପାରିବେ"</string>
+    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
+    <skip />
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‌ ଅପ୍‍ କରାଯାଉଛି…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"ୱର୍କ ଆପ୍ସ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ରଖାଯାଇଛି। ଆପଣଙ୍କର ପୁରା ଦିନର କାମ ଶେଷ ହେବା ପରେ ଆପଣ ନିଜର ୱର୍କ ଆପ୍ସକୁ ବିରତି କରିପାରିବେ। ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକଙ୍କୁ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା କେବଳ ଡାଟା ଦେଖାଯିବ।"</string>
+    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
+    <skip />
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ଆପଣଙ୍କର ଆଙ୍ଗୁଠି ଟିପରେ ନିଜର ୱର୍କ ଆପ୍ସ ରଖନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ଆପଣଙ୍କ ୱର୍କ ଆପ୍ସକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବାକୁ ଏହି ଡିଭାଇସ୍ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ବୋଧହୁଏ ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ। ଅଧିକ ଜାଣିବାକୁ, ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ଗୋପନୀୟତା ରିମାଇଣ୍ଡର୍‍"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ଆପଣଙ୍କ ଡିଭାଇସ୍ ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ ଅଛି!"</string>
