@@ -83,8 +83,12 @@
     <string name="reset" msgid="6467204151306265796">"Atiestatīt"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Neizdevās iestatīt profilu"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Neizdevās iestatīt ierīci"</string>
+    <!-- no translation found for something_went_wrong (3593223774041784329) -->
+    <skip />
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Neizdevās iestatīt ierīci. Lai saņemtu palīdzību, sazinieties ar IT administratoru."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Sazinieties ar savu IT administratoru, lai saņemtu palīdzību"</string>
+    <!-- no translation found for reset_device (5483853913241939262) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"Ierīce jau ir iestatīta."</string>
     <string name="error_wifi" msgid="1850288843966836571">"Nevarēja izveidot savienojumu ar Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Jūsu ierīcē ir iespējota atiestatīšanas aizsardzība. Lai saņemtu palīdzību, sazinieties ar IT administratoru."</string>
@@ -169,22 +173,31 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Darba profila iestatīšana"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Darba profilā tiek glabātas darba lietotnes"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Darba dienas beigās varat pārtraukt darba lietotņu darbību"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT administrators var skatīt tikai darba profilā esošos datus"</string>
+    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
+    <skip />
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Notiek darba profila iestatīšana…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Darba profilā tiek glabātas darba lietotnes. Darba dienas beigās varat pārtraukt darbu ar darba lietotnēm. IT administrators var skatīt tikai darba profilā esošos datus."</string>
+    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
+    <skip />
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Darba ierīces iestatīšana"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ērti piekļūstiet darba lietotnēm"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Šī ierīce nav privāta"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Iespējams, jūsu IT administrators varēs skatīt jūsu datus un darbības šajā ierīcē."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Notiek jūsu ierīces iestatīšana…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Izmantojot šo ierīci, varat ērti piekļūt darba lietotnēm. Šī ierīce nav privāta, tāpēc IT administrators varbūt varēs skatīt jūsu datus un darbības. Lai uzzinātu vairāk, sazinieties ar organizācijas IT administratoru."</string>
+    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Atgādinājums par konfidencialitāti"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Iespējams, jūsu IT administrators varēs skatīt jūsu datus un darbības šajā ierīcē"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ierīce ir gatava darbam."</string>
     <string name="done" msgid="7755227776955952318">"Gatavs"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Darba un personīgo lietotņu saistīšana"</string>
-    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
-    <skip />
+    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Izmantojot pievienotās lietotnes, varat piekļūt darba un personas datiem vienlaikus. Varat jebkurā brīdī veikt izmaiņas sadaļā Iestatījumi."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Darba un personīgo lietotņu saistīšana"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"Piekļūstiet darba un personīgajiem datiem vienlaikus. Pieskarieties, lai to iestatītu."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Darba un personīgo lietotņu saistīšana"</string>

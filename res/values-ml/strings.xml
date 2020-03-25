@@ -83,8 +83,12 @@
     <string name="reset" msgid="6467204151306265796">"പുനഃസജ്ജമാക്കുക"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"പ്രൊഫൈൽ സജ്ജമാക്കാൻ കഴിയില്ല"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ഉപകരണം സജ്ജമാക്കാൻ കഴിയില്ല"</string>
+    <!-- no translation found for something_went_wrong (3593223774041784329) -->
+    <skip />
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കാനായില്ല. സഹായത്തിന് നിങ്ങളുടെ ഐടി അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"സഹായത്തിന് നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുക"</string>
+    <!-- no translation found for reset_device (5483853913241939262) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"ഉപകരണം ഇതിനകം തന്നെ സജ്ജീകരിച്ചിരിക്കുന്നു"</string>
     <string name="error_wifi" msgid="1850288843966836571">"വൈഫൈയിലേക്ക് കണക്റ്റ് ചെയ്യാനായില്ല"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"നിങ്ങളുടെ ഉപകരണത്തിൽ റീസെറ്റ് ചെയ്യാതിരിക്കാനുള്ള പരിരക്ഷ ഓണാക്കിയിട്ടുണ്ട്. സഹായത്തിന് ഐടി അഡ്‌മിനുമായി ബന്ധപ്പെടുക."</string>
@@ -169,22 +173,31 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കാം"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ഔദ്യോഗിക ആപ്പുകൾ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിൽ സൂക്ഷിച്ചിരിക്കുന്നു"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ജോലി പൂർത്തിയായാൽ ഔദ്യോഗിക ആപ്പുകൾ തൽക്കാലം നിർത്തുക"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിലുള്ള ഡാറ്റ മാത്രമേ ഐടി അഡ്‌മിന് ദൃശ്യമാവൂ"</string>
+    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
+    <skip />
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കുന്നു…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"ഔദ്യോഗിക ആപ്പുകൾ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിൽ സൂക്ഷിച്ചിരിക്കുന്നു. ജോലി പൂർത്തിയായാൽ ഔദ്യോഗിക ആപ്പുകൾ നിങ്ങൾക്ക് തൽക്കാലം നിർത്താം. നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിലുള്ള ഡാറ്റ മാത്രമേ ഐടി അഡ്‌മിന് ദൃശ്യമാവൂ."</string>
+    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
+    <skip />
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"നിങ്ങളുടെ ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാം"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ വിരൽത്തുമ്പിൽ നിലനിർത്തുക"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ഈ ഉപകരണം സ്വകാര്യമല്ല"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ എളുപ്പത്തിൽ ആക്‌സസ് ചെയ്യാൻ ഈ ഉപകരണം ഉപയോഗിക്കുക. ഈ ഉപകരണം സ്വകാര്യമല്ലാത്തതിനാൽ, നിങ്ങളുടെ ഡാറ്റയും ആക്റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം. കൂടുതലറിയാൻ, നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുക."</string>
+    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"സ്വകാര്യതാ റിമൈൻഡർ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"നിങ്ങളുടെ ഉപകരണം ഉപയോഗിക്കാൻ തയ്യാറാണ്!"</string>
     <string name="done" msgid="7755227776955952318">"പൂർത്തിയായി"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"ഔദ്യോഗിക ഡാറ്റയും വ്യക്തിപരമായ ഡാറ്റയും കണക്റ്റ് ചെയ്യുക"</string>
-    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
-    <skip />
+    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ജോലി, വ്യക്തിപരമായ ഡാറ്റ എന്നിവ ഒപ്പം ആക്‌സസ് ചെയ്യാൻ ക‌ണക്‌റ്റ് ചെയ്‌തിട്ടുള്ള ആപ്പുകൾ നിങ്ങളെ അനുവദിക്കുന്നു. ക്രമീകരണത്തിൽ ഏത് സമയത്തും നിങ്ങൾക്ക് മാറ്റങ്ങൾ വരുത്താം."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"ഔദ്യോഗിക ഡാറ്റയും വ്യക്തിപരമായ ഡാറ്റയും കണക്റ്റ് ചെയ്യുക"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"ഔദ്യോഗിക ഡാറ്റയും വ്യക്തിപരമായ ഡാറ്റയും ഒരുമിച്ച് ആക്സസ് ചെയ്യുക. സജ്ജീകരിക്കാൻ ടാപ്പ് ചെയ്യുക."</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ഔദ്യോഗിക ഡാറ്റയും വ്യക്തിപരമായ ഡാറ്റയും കണക്റ്റ് ചെയ്യുക"</string>

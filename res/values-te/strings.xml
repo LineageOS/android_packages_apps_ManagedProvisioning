@@ -83,8 +83,12 @@
     <string name="reset" msgid="6467204151306265796">"రీసెట్ చేయి"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ప్రొఫైల్‌ని సెటప్ చేయడం సాధ్యపడదు"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"పరికరాన్ని సెటప్ చేయడం సాధ్యపడదు"</string>
+    <!-- no translation found for something_went_wrong (3593223774041784329) -->
+    <skip />
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"పరికరాన్ని సెటప్ చేయలేకపోయింది. సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"సహాయం కోసం మీ IT నిర్వాహకులను సంప్రదించండి"</string>
+    <!-- no translation found for reset_device (5483853913241939262) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"పరికరం ఇప్పటికే సెటప్ చేయబడింది"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fiకి కనెక్ట్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"మీ పరికరంలో రీసెట్ రక్షణ ఆన్ చేయబడింది. సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
@@ -169,15 +173,25 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"మీ రోజువారీ పని పూర్తయినప్పుడు కార్యాలయ యాప్‌లను పాజ్ చేయండి"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మాత్రమే మీ IT నిర్వాహకులకు కనిపిస్తుంది"</string>
+    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
+    <skip />
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి. మీ రోజువారీ పని పూర్తయినప్పుడు మీ కార్యాలయ యాప్‌లను మీరు పాజ్ చేయవచ్చు. మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మాత్రమే మీ IT నిర్వాహకులకు కనిపిస్తుంది."</string>
+    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
+    <skip />
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"మీ కార్యాలయ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"మీ కార్యాలయ యాప్‌లు సత్వరం యాక్సెస్ చేయగలిగేలా అందుబాటులో ఉంచుకోండి"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ఈ పరికరం వ్యక్తిగతమైనది కాదు"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"మీ పరికరాన్ని సెటప్ చేస్తోంది…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"మీ కార్యాలయ యాప్‌లను సులభంగా యాక్సెస్ చేయడానికి ఈ పరికరాన్ని ఉపయోగించండి. ఈ పరికరం వ్యక్తిగతమైనది కాదు, కనుక మీ IT నిర్వాహకులు మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది. మరింత తెలుసుకోవడానికి, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
+    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"మీ పరికరం ఉపయోగించేందుకు సిద్ధంగా ఉంది!"</string>

@@ -83,8 +83,12 @@
     <string name="reset" msgid="6467204151306265796">"Tetapkan semula"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Tidak dapat menyediakan profil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Tidak dapat menyediakan peranti"</string>
+    <!-- no translation found for something_went_wrong (3593223774041784329) -->
+    <skip />
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Tidak dapat menyediakan peranti. Untuk mendapatkan bantuan, hubungi pentadbir IT anda."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Hubungi pentadbir IT anda untuk mendapatkan bantuan"</string>
+    <!-- no translation found for reset_device (5483853913241939262) -->
+    <skip />
     <string name="device_already_set_up" msgid="507881934487140294">"Peranti sudah disediakan"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Tidak dapat menyambung ke Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Perlindungan tetapan semula peranti anda dihidupkan. Untuk mendapatkan bantuan, hubungi pentadbir IT anda."</string>
@@ -169,15 +173,25 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Mari sediakan profil kerja anda"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Apl kerja disimpan dalam profil kerja anda"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Jeda apl kerja setelah anda selesai bekerja untuk hari itu"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Hanya data dalam profil kerja anda yang kelihatan kepada pentadbir IT anda"</string>
+    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
+    <skip />
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Menyediakan profil kerja anda…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Apl kerja disimpan dalam profil kerja anda. Ada boleh menjeda apl kerja setelah anda selesai bekerja pada hari itu. Hanya data dalam profil kerja anda yang kelihatan kepada pentadbir IT anda."</string>
+    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
+    <skip />
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Mari sediakan peranti kerja anda"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Pastikan apl kerja di hujung jari anda"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Peranti ini bukan peribadi"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Pentadbir IT anda mungkin dapat melihat data dan aktiviti anda pada peranti ini."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Menyediakan peranti anda…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gunakan peranti ini untuk mengakses apl kerja anda dengan mudah. Peranti ini bukan peribadi, maka pentadbir IT anda mungkin dapat melihat data dan aktiviti anda. Untuk mengetahui lebih lanjut, hubungi pentadbir IT anda."</string>
+    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
+    <skip />
+    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Peringatan privasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Pentadbir IT anda mungkin dapat melihat data dan aktiviti anda pada peranti ini"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Peranti anda sudah sedia untuk digunakan!"</string>
