@@ -20,6 +20,7 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
+import android.content.pm.CrossProfileApps;
 import android.content.pm.UserInfo;
 import android.os.UserManager;
 
@@ -33,7 +34,10 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
 import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Task to create a managed profile.
@@ -88,8 +92,15 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
         mProfileUserId = userInfo.id;
         mNonRequiredAppsLogic.maybeTakeSystemAppsSnapshot(userInfo.id);
         mCrossProfileAppsSnapshot.takeNewSnapshot(mContext.getUserId());
+        resetInteractAcrossProfilesAppOps();
         stopTaskTimer();
         success();
+    }
+
+    private void resetInteractAcrossProfilesAppOps() {
+        new ManagedProvisioningSharedPreferences(mContext)
+                .writeConsentedCrossProfilePackages(new HashSet<>());
+        mContext.getSystemService(CrossProfileApps.class).clearInteractAcrossProfilesAppOps();
     }
 
     @Override
