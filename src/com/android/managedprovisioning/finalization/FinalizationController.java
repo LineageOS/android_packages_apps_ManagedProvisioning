@@ -166,9 +166,12 @@ public final class FinalizationController {
         if (mUtils.isAdminIntegratedFlow(params)) {
             // Don't send ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to DPC or launch DPC by
             // ACTION_PROVISIONING_SUCCESSFUL intent if it's admin integrated flow.
-            mProvisioningIntentProvider.launchFinalizationScreenForResult(mActivity, params,
-                    FINAL_SCREEN_REQUEST_CODE);
-            mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED;
+            if (mUtils.isDeviceOwnerAction(params.provisioningAction)) {
+                mProvisioningIntentProvider.launchFinalizationScreenForResult(mActivity, params,
+                        FINAL_SCREEN_REQUEST_CODE);
+                mProvisioningFinalizedResult =
+                        PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED;
+            }
         } else {
             if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
                 mProvisioningFinalizedResult =
