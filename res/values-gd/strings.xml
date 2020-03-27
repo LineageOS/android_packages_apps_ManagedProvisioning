@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="provisioning_error_title">Oich!</string>
+  <string name="next">Air adhart</string>
+  <string name="learn_more_link">Barrachd fiosrachaidh </string>
+  <string name="default_managed_profile_name">Pròifil na h-obrach</string>
+  <string name="encrypt">Crioptaich</string>
+  <string name="progress_connect_to_mobile_network">’Ga cheangal ri lìonra mobile\u2026</string>
+  <string name="reset">Ath-shuidhich</string>
+  <string name="frp_clear_progress_text">Fuirich ort…</string>
+  <string name="device_owner_info">Thèid an t-uidheam seo a stiùireadh, chumail sùil air ’s a chumail tèarainte le <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Bidh teirmichean an sàs. <xliff:g id="view_terms" example="View Terms">%2$s</xliff:g></string>
+  <string name="device_owner_info_with_terms_headers">Thèid an t-uidheam seo a stiùireadh, chumail sùil air ’s a chumail tèarainte le <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Bidh teirmichean aig <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> an sàs. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
+  <string name="cancel_setup_and_factory_reset_dialog_ok">Ath-shuidhich an t-uidheam</string>
+  <string name="take_a_few_minutes">Faodaidh gum feum seo greiseag</string>
+  <string name="work_profile_description">Thèid aplacaidean na h-obrach agad a chumail sa phròifil seo ’s fo stiùireadh a’ bhuidhinn agad</string>
+  <string name="device_owner_description">Thèid an t-uidheam seo a chumail tèarainte ’s fo stiùireadh a’ bhuidhinn agad</string>
+</resources>
