@@ -165,10 +165,10 @@ public class CrossProfileConsentActivityRoboTest {
     public void restartActivity_stillHasItems() {
         installDefaultCrossProfilePackage(mTestPackageInfo);
         installDefaultCrossProfilePackage(mTestPackageInfo2);
-
-        ActivityController<CrossProfileConsentActivity> activityController =
+        final ActivityController<CrossProfileConsentActivity> activityController =
                 Robolectric.buildActivity(CrossProfileConsentActivity.class);
         activityController.setup();
+
         activityController.restart();
         ShadowLooper.idleMainLooper();
 
@@ -176,17 +176,57 @@ public class CrossProfileConsentActivityRoboTest {
     }
 
     @Test
+    public void restartActivity_restoresToggleStates() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
+        final ActivityController<CrossProfileConsentActivity> activityController =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class);
+        activityController.setup();
+        ShadowLooper.idleMainLooper();
+        final CrossProfileConsentActivity activity = activityController.get();
+        findToggle(activity, /* index= */ 0).setChecked(true);
+        findToggle(activity, /* index= */ 1).setChecked(false);
+
+        activityController.restart();
+        ShadowLooper.idleMainLooper();
+
+        final CrossProfileConsentActivity restoredActivity = activityController.get();
+        assertThat(findToggle(restoredActivity, /* index= */ 0).isChecked()).isTrue();
+        assertThat(findToggle(restoredActivity, /* index= */ 1).isChecked()).isFalse();
+    }
+
+    @Test
     public void activityConfigurationChange_stillHasItems() {
         installDefaultCrossProfilePackage(mTestPackageInfo);
         installDefaultCrossProfilePackage(mTestPackageInfo2);
-
-        ActivityController<CrossProfileConsentActivity> activityController =
+        final ActivityController<CrossProfileConsentActivity> activityController =
                 Robolectric.buildActivity(CrossProfileConsentActivity.class);
         activityController.setup();
+
         activityController.configurationChange();
         ShadowLooper.idleMainLooper();
 
         assertThat(findCrossProfileItemsNum(activityController.get())).isEqualTo(2);
+    }
+
+    @Test
+    public void activityConfigurationChange_restoresToggleStates() {
+        installDefaultCrossProfilePackage(mTestPackageInfo);
+        installDefaultCrossProfilePackage(mTestPackageInfo2);
+        final ActivityController<CrossProfileConsentActivity> activityController =
+                Robolectric.buildActivity(CrossProfileConsentActivity.class);
+        activityController.setup();
+        ShadowLooper.idleMainLooper();
+        final CrossProfileConsentActivity activity = activityController.get();
+        findToggle(activity, /* index= */ 0).setChecked(true);
+        findToggle(activity, /* index= */ 1).setChecked(false);
+
+        activityController.configurationChange();
+        ShadowLooper.idleMainLooper();
+
+        final CrossProfileConsentActivity restoredActivity = activityController.get();
+        assertThat(findToggle(restoredActivity, /* index= */ 0).isChecked()).isTrue();
+        assertThat(findToggle(restoredActivity, /* index= */ 1).isChecked()).isFalse();
     }
 
     @Test
@@ -196,7 +236,7 @@ public class CrossProfileConsentActivityRoboTest {
 
         Robolectric.buildActivity(CrossProfileConsentActivity.class).setup().destroy();
         ShadowLooper.idleMainLooper();
-        CrossProfileConsentActivity activity =
+        final CrossProfileConsentActivity activity =
                 Robolectric.setupActivity(CrossProfileConsentActivity.class);
         ShadowLooper.idleMainLooper();
 
