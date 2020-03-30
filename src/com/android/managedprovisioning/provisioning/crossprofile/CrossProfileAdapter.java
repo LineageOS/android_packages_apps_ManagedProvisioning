@@ -18,6 +18,8 @@ package com.android.managedprovisioning.provisioning.crossprofile;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static java.util.Objects.requireNonNull;
+
 import android.annotation.NonNull;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -33,17 +35,28 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.provisioning.crossprofile.CrossProfileAdapter.CrossProfileViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /** The recycler adapter for the default OEM cross-profile apps for the user to accept or deny. */
 class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
     private final Context mContext;
     private final List<CrossProfileItem> mCrossProfileItems = new ArrayList<>();
+    private final Map<CrossProfileItem, Boolean> mStartingToggleStates;
 
     CrossProfileAdapter(Context context, List<CrossProfileItem> newCrossProfileItems) {
-        mContext = checkNotNull(context);
+        this(context, newCrossProfileItems, /* startingToggleStates= */ new HashMap<>());
+    }
+
+    CrossProfileAdapter(
+            Context context,
+            List<CrossProfileItem> newCrossProfileItems,
+            Map<CrossProfileItem, Boolean> startingToggleStates) {
+        mContext = requireNonNull(context);
         mCrossProfileItems.clear();
         mCrossProfileItems.addAll(newCrossProfileItems);
+        mStartingToggleStates = requireNonNull(startingToggleStates);
     }
 
     @Override
@@ -60,6 +73,9 @@ class CrossProfileAdapter extends RecyclerView.Adapter<CrossProfileViewHolder> {
         holder.summary().setText(item.summary());
         holder.icon().setImageDrawable(
                 mContext.getPackageManager().getApplicationIcon(item.appInfo()));
+        if (mStartingToggleStates.containsKey(item)) {
+            holder.toggle().setChecked(mStartingToggleStates.get(item));
+        }
         if (position == mCrossProfileItems.size() - 1) {
             holder.horizontalDivider().setVisibility(View.GONE);
         }
