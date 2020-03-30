@@ -27,6 +27,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -65,11 +66,19 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     @VisibleForTesting
     static final String CROSS_PROFILE_SUMMARY_META_DATA = "android.app.cross_profile_summary";
 
+    private static final String TOGGLE_STATES_KEY = "TOGGLE_STATES";
+
     private final Observer<List<CrossProfileItem>> mItemsObserver = this::onItemsChanged;
 
     private RecyclerView mCrossProfileItems;
     private CrossProfileConsentViewModel mModel;
     private boolean mAddedButton = false;
+
+    /**
+     * The restored toggle states from inside the {@link RecyclerView} prior to the activity being
+     * recreated. Reset back to null after being used.
+     */
+    @Nullable private Map<CrossProfileItem, Boolean> mRestoredToggleStates;
 
     // Provisioning state can be stored here since it is activity-scoped. If the activity is
     // recreated, this state will be retrieved from the intent again in the same way.
@@ -95,6 +104,8 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         observeItems();
         if (savedInstanceState == null) {
             onFirstCreate();
+        } else {
+            restoreInstanceState(savedInstanceState);
         }
     }
 
@@ -160,6 +171,15 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         mModel.findItems();
     }
 
+    @SuppressWarnings("unchecked")
+    private void restoreInstanceState(Bundle savedInstanceState) {
+        if (savedInstanceState.containsKey(TOGGLE_STATES_KEY)) {
+            mRestoredToggleStates =
+                    (Map<CrossProfileItem, Boolean>)
+                            savedInstanceState.getSerializable(TOGGLE_STATES_KEY);
+        }
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -172,6 +192,27 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         super.onApplyThemeResource(theme, resId, first);
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        saveToggleInstanceState(savedInstanceState);
+    }
+
+    /**
+     * Saved the toggle states into the given instance state bundle. Required since the toggles in
+     * the {@link RecyclerView} are not restoring themselves.
+     */
+    private void saveToggleInstanceState(Bundle savedInstanceState) {
+        if (mCrossProfileAdapter == null) {
+            return;
+        }
+        final Map<CrossProfileItem, Boolean> toggleStates = findToggleStates();
+        if (toggleStates.isEmpty()) {
+            return;
+        }
+        // Wrap in a HashMap since it is serializable.
+        savedInstanceState.putSerializable(TOGGLE_STATES_KEY, new HashMap<>(toggleStates));
+    }
+
     private void onItemsChanged(@Nullable List<CrossProfileItem> crossProfileItems) {
         if (crossProfileItems == null) {
             return;
@@ -182,7 +223,13 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
             finishWithResult();
             return;
         }
-        mCrossProfileAdapter = new CrossProfileAdapter(this, crossProfileItems);
+        if (mRestoredToggleStates != null) {
+            mCrossProfileAdapter =
+                    new CrossProfileAdapter(this, crossProfileItems, mRestoredToggleStates);
+            mRestoredToggleStates = null;
+        } else {
+            mCrossProfileAdapter = new CrossProfileAdapter(this, crossProfileItems);
+        }
         mCrossProfileItems.setAdapter(mCrossProfileAdapter);
         maybeAddButton();
         if (isSilentProvisioning()) {
