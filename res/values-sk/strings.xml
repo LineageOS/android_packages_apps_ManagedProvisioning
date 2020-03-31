@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Resetovať"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profil sa nedá zriadiť"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Zariadenie sa nedá nastaviť"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Vyskytol sa problém"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Zariadenie sa nepodarilo nastaviť. Kontaktujte správcu IT a požiadajte ho o pomoc."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Požiadajte o pomoc správcu IT"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Resetujte toto zariadenie a skúste ho znova nastaviť"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Zariadenie je už nastavené"</string>
     <string name="error_wifi" msgid="1850288843966836571">"K sieti Wi-Fi sa nepodarilo pripojiť"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"V zariadení je zapnutá ochrana proti resetovaniu. Kontaktujte správcu a požiadajte ho o pomoc."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Poďme nastaviť váš pracovný profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pracovné aplikácie sú uložené vo vašom pracovnom profile"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pozastavte pracovné aplikácie na konci pracovného dňa"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Váš správca IT vidí údaje vo vašom pracovnom profile"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Nastavuje sa pracovný profil…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile. Na konci pracovného dňa môžete pracovné aplikácie pozastaviť. Váš správca IT vidí iba údaje vo vašom pracovnom profile."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Poďme nastaviť vaše pracovné zariadenie"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Majte svoje pracovné aplikácie poruke"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Toto zariadenie nie je súkromné"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Zariadenie sa nastavuje…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Toto zariadenie vám poskytuje jednoduchý prístup k pracovným aplikáciám. Nie je súkromné, takže správa IT si môže zobraziť vaše údaje a aktivitu. Ďalšie informácie vám poskytne správca IT."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile a ovládané vaším správcom IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Váš správca IT môže ovládať toto zariadenie a blokovať určité aplikácie"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile a ovládané vaším správcom IT. Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť. Váš správca IT môže ovládať toto zariadenie a blokovať určité aplikácie."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie týkajúce sa ochrany súkromia"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Zariadenie je pripravené."</string>

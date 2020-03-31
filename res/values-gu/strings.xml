@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"ફરીથી સેટ કરો"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"પ્રોફાઇલ સેટ કરી શકતા નથી"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ઉપકરણ સેટ કરી શકતા નથી"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"કંઈક ભૂલ થઈ છે"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"ડિવાઇસ સેટ કરી શક્યા નહીં. સહાય માટે, તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"સહાય માટે તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"આ ડિવાઇસને રીસેટ કરો અને તેને ફરીથી સેટઅપ કરી જુઓ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ઉપકરણ પહેલેથી જ સેટ કરેલું છે"</string>
     <string name="error_wifi" msgid="1850288843966836571">"વાઇ-ફાઇ સાથે કનેક્ટ કરી શકાયું નથી"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"તમારા ઉપકરણે સુરક્ષા રીસેટ કરવાનું ચાલુ કર્યું છે. સહાય માટે, તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ચાલો, તમારી કાર્યાલયની પ્રોફાઇલને સેટઅપ કરીએ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"કાર્ય સંબંધી ઍપ તમારા કાર્યાલયના પ્રોફાઇલમાં રાખવામાં આવે છે"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે કાર્ય સંબંધી ઍપ થોભાવો"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"તમારા કાર્યાલયની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT વ્યવસ્થાપકને દેખાય છે"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"તમારું કાર્યાલયનું પ્રોફાઇલ સેટ કરી રહ્યાં છીએ…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ઑફિસ માટેની ઍપ તમારા કાર્યાલયની પ્રોફાઇલમાં રાખવામાં આવે છે. જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે તમે ઑફિસ માટેની ઍપ થોભાવી શકો છો. તમારા કાર્યાલયની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT વ્યવસ્થાપકને દેખાય છે."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારો કાર્યાલયનો ફોન સેટ કરીએ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"તમારી કાર્ય સંબંધી ઍપને તમારી આંગળીના ટેરવે રાખો"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"આ ડિવાઇસ ખાનગી નથી"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"તમારું ઉપકરણ સેટ થઈ રહ્યું છે…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"તમારી કાર્ય સંબંધી ઍપ સરળતાથી ઍક્સેસ કરવા માટે આ ડિવાઇસનો ઉપયોગ કરો. આ ડિવાઇસ ખાનગી નથી, તેથી તમારા IT વ્યવસ્થાપક તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે. વધુ જાણવા માટે તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ઑફિસ માટેની ઍપ તમારા કાર્યાલયની પ્રોફાઇલમાં રાખવામાં આવે છે અને તમારા IT વ્યવસ્થાપક દ્વારા મેનેજ કરવામાં આવે છે"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસ માટેની ઍપથી છુપાયેલી હોય છે"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસને નિયંત્રિત કરી શકે છે અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"ઑફિસ માટેની ઍપ તમારા કાર્યાલયની પ્રોફાઇલમાં રાખવામાં આવે છે અને તમારા IT વ્યવસ્થાપક દ્વારા મેનેજ કરવામાં આવે છે. વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસ માટેની ઍપથી છુપાયેલી હોય છે. તમારા IT વ્યવસ્થાપક આ ડિવાઇસને નિયંત્રિત કરી શકે છે અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"પ્રાઇવસી રિમાઇન્ડર"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"તમારું ડિવાઇસ ઉપયોગમાં લેવા માટે તૈયાર છે!"</string>

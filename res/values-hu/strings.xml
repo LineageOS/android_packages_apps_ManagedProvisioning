@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Visszaállítás"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Nem sikerült a profil beállítása"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Nem sikerült az eszköz beállítása"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Hiba történt"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Nem sikerült az eszköz beállítása. Segítségért forduljon a rendszergazdához."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kérjen segítséget a rendszergazdától."</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Állítsa vissza az eszközt, és próbálja meg újra beállítani"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Az eszköz beállítása már megtörtént"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Nem sikerült csatlakozni a Wi-Fi-hálózathoz"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Az eszközön be van kapcsolva a gyárialapérték-visszaállítási védelem. Segítségért forduljon a rendszergazdához."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Munkaprofil beállítása"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"A munkahelyi alkalmazásokat a munkaprofil tárolja"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Munkahelyi alkalmazások szüneteltetése a munkanap végén"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"A munkaprofilban lévő adatok láthatók a rendszergazda számára"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Munkaprofil beállítása…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"A munkahelyi alkalmazásokat a munkaprofil tárolja. A munkanap végén szüneteltetheti ezeket az alkalmazásokat. A munkaprofilban lévő adatok láthatók a rendszergazda számára."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"A munkahelyi eszköz beállításának megkezdése"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Munkahelyi alkalmazások karnyújtásnyira"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Ez az eszköz nem privát"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Rendszergazdája láthatja az eszközön végzett tevékenységeit és a rajta tárolt adatait."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Az eszköz beállítása folyamatban van…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ezzel az eszközzel könnyen hozzáférhet munkahelyi alkalmazásaihoz. Az eszköz nem privát, így a rendszergazdája láthatja az Ön adatait és tevékenységeit. További információért forduljon rendszergazdájához."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi alkalmazások a munkaprofiljában találhatók, és a rendszergazdája kezeli őket"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"A személyes alkalmazások elkülönítve találhatók, és el vannak rejtve a munkahelyi alkalmazások elől"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Rendszergazdája vezérelheti ezt az eszközt, és letilthat bizonyos alkalmazásokat"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"A munkahelyi alkalmazások a munkaprofiljában találhatók, és a rendszergazdája kezeli őket. A személyes alkalmazások elkülönítve találhatók, és el vannak rejtve a munkahelyi alkalmazások elől Rendszergazdája vezérelheti ezt az eszközt, és letilthat bizonyos alkalmazásokat"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Adatvédelmi emlékeztető"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Rendszergazdája láthatja az eszközön végzett tevékenységeit és a rajta tárolt adatait"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Eszköze használatra kész!"</string>

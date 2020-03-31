@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Resetten"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Kan profiel niet instellen"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Kan apparaat niet instellen"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Er is iets misgegaan"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Kan apparaat niet instellen. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Neem voor hulp contact op met je IT-beheerder"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Reset dit apparaat en probeer het opnieuw in te stellen"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Apparaat is al ingesteld"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Kan geen verbinding maken met wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Bescherming tegen resetten is ingeschakeld voor je apparaat. Neem contact op met je beheerder voor hulp."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Laten we eerst je werkprofiel instellen"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werk-apps worden bewaard in je werkprofiel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzeer je werk-apps wanneer je werkdag erop zit"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"De gegevens in je werkprofiel zijn zichtbaar voor je IT-beheerder"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Je werkprofiel instellen…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Werk-apps worden bewaard in je werkprofiel. Je kunt werk-apps pauzeren als je werkdag erop zit. De gegevens in je werkprofiel zijn zichtbaar voor je IT-beheerder."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Laten we je werkapparaat instellen"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Houd je werk-apps binnen handbereik"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Dit is geen privéapparaat"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Je apparaat instellen…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gebruik dit apparaat voor eenvoudige toegang tot je werk-apps. Dit is geen privéapparaat, dus je IT-beheerder kan mogelijk je gegevens en activiteit bekijken. Neem voor meer informatie contact op met je IT-beheerder."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werk-apps worden in je werkprofiel bewaard en worden beheerd door je IT-beheerder"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlijke apps zijn afgescheiden en verborgen voor werk-apps"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Je IT-beheerder kan dit apparaat beheren en bepaalde apps blokkeren"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Werk-apps worden in je werkprofiel bewaard en worden beheerd door je IT-beheerder. Persoonlijke apps zijn afgescheiden en verborgen voor werk-apps. Je IT-beheerder kan dit apparaat beheren en bepaalde apps blokkeren."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privacyherinnering"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Je kunt je apparaat nu gebruiken."</string>

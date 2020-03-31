@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Lähtesta"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profiili ei saa seadistada"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Seadet ei saa seadistada"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Midagi läks valesti"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Seadet ei õnnestunud seadistada. Abi saamiseks võtke ühendust IT-administraatoriga."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Võtke abi saamiseks ühendust oma IT-administraatoriga"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Lähtestage seade ja proovige see uuesti seadistada"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Seade on juba seadistatud"</string>
     <string name="error_wifi" msgid="1850288843966836571">"WiFi-ga ei saanud ühendust luua"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Teie seadmes on lähtestamiskaitse sisse lülitatud. Abi saamiseks võtke ühendust IT-administraatoriga."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Seadistame teie tööprofiili"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Töörakendusi hoitakse teie tööprofiilil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Tööpäeva lõpus peatage töörakendused"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT-administraator näeb teie tööprofiilil olevaid andmeid"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Tööprofiili seadistamine …"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Töörakendusi hoitakse teie tööprofiilil. Tööpäeva lõpus võite töörakendused peatada. IT-administraator näeb ainult tööprofiilil olevaid andmeid."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Seadistame teie tööseadme"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hoidke töörakendused käeulatuses"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Seade ei ole privaatne"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Teie seadme seadistamine …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie andmeid ja tegevusi näha. Lisateabe saamiseks võtke ühendust IT-administraatoriga."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendusi hoitakse teie tööprofiilil ja neid haldab teie IT-administraator"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Isiklikke rakendusi hoitakse töörakendustest eraldi."</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Teie IT-administraator saab seda seadet juhtida ja teatud rakendused blokeerida"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Töörakendusi hoitakse teie tööprofiilil ja neid haldab teie IT-administraator. Isiklikke rakendusi hoitakse töörakendustest eraldi. Teie IT-administraator saab seda seadet juhtida ja teatud rakendused blokeerida."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatsuse meeldetuletus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Seade on kasutamiseks valmis."</string>
