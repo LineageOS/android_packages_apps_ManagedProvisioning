@@ -38,6 +38,7 @@
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:fontFamily="sans-serif-medium"
+            android:textColor="@color/black_text_secondary"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/cross_profile_item_icon"
             android:layout_toStartOf="@+id/cross_profile_item_vertical_divider"/>
@@ -47,17 +48,10 @@
             android:layout_height="match_parent"
             android:textSize="14sp"
             android:fontFamily="sans-serif-medium"
+            android:textColor="@color/grey_text"
             android:layout_below="@+id/cross_profile_item_title"
             android:layout_toEndOf="@+id/cross_profile_item_icon"
-            android:layout_toStartOf="@+id/cross_profile_item_vertical_divider"/>
-        <View
-            android:id="@+id/cross_profile_item_vertical_divider"
-            android:layout_width="1dp"
-            android:layout_height="28dp"
-            android:background="@android:color/darker_gray"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/cross_profile_item_toggle"
-            android:layout_marginStart="8dp"/>
+            android:layout_toStartOf="@+id/cross_profile_item_toggle"/>
         <Switch
             android:id="@+id/cross_profile_item_toggle"
             android:layout_width="wrap_content"
