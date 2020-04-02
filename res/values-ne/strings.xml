@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"रिसेट गर्नुहोस्"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"प्रोफाइललाई सेटअप गर्न सकिँदैन"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"यन्त्रलाई सेटअप गर्न सकिँदैन"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"केही चिज गडबड भयो"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"यन्त्र सेट अप गर्न सकिएन। मद्दतका लागि, आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मद्दतका लागि आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"यो यन्त्र रिसेट गरेर यसलाई फेरि सेटअप गरी हेर्नुहोस्"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"यो यन्त्रलाई पहिला नै सेटअप गरिसकिएको छ"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi मा जोडिन सकिएन"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"तपाईंको यन्त्रमा सुरक्षासम्बन्धी सुविधा रिसेट गर्ने विकल्प सक्रिय छ। मद्दतका लागि, आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोला।"</string>
@@ -173,32 +171,25 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"सर्वप्रथम आफ्नो कार्य प्रोफाइल सेटअप गरौँ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्यस्थलसम्बन्धी अनुप्रयोगहरू तपाईंको कार्यसम्बन्धी प्रोफाइलमा राखिन्छन्"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि कार्यस्थलसम्बन्धी अनुप्रयोग पज गर्नुहोस्"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तपाईंका IT प्रशासकले तपाईंको कार्य प्रोफाइलमा भएका डेटा हेर्न सक्छन्"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कामसम्बन्धी अनुप्रयोगहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन्। तपाईंले दिनभरिको काम सकेपछि तपाईं आफ्ना कामसम्बन्धी अनुप्रयोगहरू पज गर्न सक्नुहुन्छ। तपाईंका IT प्रशासकले तपाईंको कार्य प्रोफाइलमा भएका डेटा हेर्न सक्छन्।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको यन्त्र सेट अप गरौँ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कार्यस्थलसम्बन्धी अनुप्रयोगहरू सजिलै प्राप्त गर्नुहोस्"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"यो यन्त्र निजी होइन"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तपाईंका IT व्यवस्थापकले तपाईंको यस यन्त्रका डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तपाईंको यन्त्र सेटअप गर्दै…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तपाईंका कार्यस्थलका अनुप्रयोगहरूमाथि सजिलै पहुँच गर्न यो यन्त्र प्रयोग गर्नुहोस्। यो यन्त्र निजी होइन त्यसैले तपाईंका IT व्यवस्थापक तपाईंको डेटा र क्रियाकलाप हेर्न सक्छन्। थप जानकारी प्राप्त गर्न आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कामसम्बन्धी अनुप्रयोगहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन् र तपाईंका IT प्रशासकले तिनको व्यवस्थापन गर्छन्"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत अनुप्रयोगहरू छुट्टै राखिन्छन् र ती अनुप्रयोगहरू कामसम्बन्धी अनुप्रयोगसँगै देखिँदैनन्"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"तपाईंका IT प्रशासकले यो यन्त्रमाथि नियन्त्रण राख्न तथा केही निश्चित अनुप्रयोगहरूमाथि रोक लगाउन सक्छन्"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"कामसम्बन्धी अनुप्रयोगहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन् र तपाईंका IT प्रशासकले तिनको व्यवस्थापन गर्छन्। व्यक्तिगत अनुप्रयोगहरू छुट्टै राखिन्छन् र ती अनुप्रयोगहरू कामसम्बन्धी अनुप्रयोगसँगै देखिँदैनन्। तपाईंका IT प्रशासकले यो यन्त्रमाथि नियन्त्रण राख्न तथा केही निश्चित अनुप्रयोगहरूमाथि रोक लगाउन सक्छन्।"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयतासम्बन्धी रिमाइन्डर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तपाईंका IT व्यवस्थापकले यस यन्त्रको तपाईंको डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तपाईंको यन्त्र प्रयोग गर्नुभए हुन्छ!"</string>
     <string name="done" msgid="7755227776955952318">"सम्पन्न भयो"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"कामसम्बन्धी अनुप्रयोग र व्यक्तिगत अनुप्रयोगहरूलाई जोड्नुहोस्"</string>
-    <!-- no translation found for cross_profile_consent_summary (2334089765948376631) -->
-    <skip />
+    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"जोडिएका अनुप्रयोगहरूले तपाईंलाई कामसम्बन्धी र व्यक्तिगत दुवै किसिमका डेटा प्रयोग गर्न दिन्छ। तपाईं सेटिङमा गई जुनसुकै बेला यसलाई परिवर्तन गर्न सक्नुहुन्छ।"</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"कामसम्बन्धी अनुप्रयोग र व्यक्तिगत अनुप्रयोगहरूलाई जोड्नुहोस्"</string>
     <string name="cross_profile_notification_text" msgid="735572491868902064">"कार्यस्थलको डेटा र व्यक्तिगत डेटामाथि सँगसँगै पहुँच राख्नुहोस्। सेटअप गर्न ट्याप गर्नुहोस्।"</string>
     <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"कामसम्बन्धी अनुप्रयोग र व्यक्तिगत अनुप्रयोगहरूलाई जोड्नुहोस्"</string>

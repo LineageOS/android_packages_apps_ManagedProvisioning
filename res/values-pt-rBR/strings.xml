@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Redefinir"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Não é possível configurar o perfil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Não é possível configurar o dispositivo"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Algo deu errado"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Não foi possível configurar o dispositivo. Entre em contato com o administrador de TI para receber ajuda."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Entre em contato com seu administrador de TI se precisar de ajuda"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Redefina o dispositivo e tente configurar novamente"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"O dispositivo já foi configurado"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Não foi possível conectar ao Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Seu dispositivo está com a proteção contra redefinição ativada. Entre em contato com o administrador de TI para receber ajuda."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos configurar seu perfil de trabalho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Os apps de trabalho ficam no seu perfil de trabalho"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pause os apps de trabalho ao final do dia"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Os dados do perfil de trabalho podem ser vistos pelo seu administrador de TI"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurando seu perfil de trabalho…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Os apps de trabalho ficam no seu perfil de trabalho. É possível pausar esses apps ao final do dia. Os dados do perfil de trabalho podem ser vistos pelo administrador de TI."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos configurar seu dispositivo de trabalho"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tenha os apps de trabalho na palma da sua mão"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo não é privado"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode ver seus dados e atividade neste dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando seu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Use este dispositivo para acessar seus apps de trabalho com facilidade. Ele não é privado e, portanto, o administrador de TI pode ver seus dados e atividade. Para saber mais, entre em contato com o administrador de TI."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Os apps de trabalho são mantidos no perfil de trabalho e gerenciados pelo seu administrador de TI"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Os apps pessoais ficam separados e ocultos dos apps de trabalho"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Seu administrador de TI pode controlar este dispositivo e bloquear determinados apps"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Os apps de trabalho são mantidos no perfil de trabalho e gerenciados pelo administrador de TI. Os apps pessoais ficam separados e ocultos dos apps de trabalho. O administrador de TI pode controlar este dispositivo e bloquear determinados apps."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lembrete de privacidade"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O administrador de TI pode ver seus dados e atividade neste dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Seu dispositivo já pode ser usado!"</string>

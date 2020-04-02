@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Setel ulang"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Tidak dapat menyiapkan profil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Tidak dapat menyiapkan perangkat"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Terjadi masalah"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Tidak dapat menyiapkan perangkat. Hubungi admin IT Anda untuk mendapatkan bantuan."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Hubungi admin IT Anda untuk mendapatkan bantuan"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Reset perangkat ini dan coba setel kembali"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Perangkat sudah disiapkan"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Tidak dapat terhubung ke Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Perangkat telah mengaktifkan perlindungan penyetelan ulang. Hubungi admin IT untuk meminta bantuan."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Mari siapkan profil kerja Anda"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Aplikasi kerja disimpan dalam profil kerja Anda"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Jeda aplikasi kerja saat Anda selesai bekerja untuk hari itu"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data dalam profil kerja Anda dapat dilihat oleh admin IT Anda"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Menyiapkan profil kerja…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Aplikasi kerja disimpan dalam profil kerja Anda. Aplikasi kerja dapat dijeda setelah Anda selesai bekerja untuk hari itu. Data dalam profil kerja Anda dapat dilihat oleh admin IT Anda."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Mari siapkan perangkat kerja Anda"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Simpan aplikasi kerja di tempat yang mudah Anda akses"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Perangkat ini tidak bersifat pribadi"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Admin IT mungkin dapat melihat data dan aktivitas Anda di perangkat ini."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Menyiapkan perangkat…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gunakan perangkat ini untuk mengakses aplikasi kerja Anda dengan mudah. Perangkat ini tidak bersifat pribadi, jadi admin IT mungkin dapat melihat data dan aktivitas Anda. Untuk mempelajari lebih lanjut, hubungi admin IT Anda."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikasi kerja disimpan dalam profil kerja Anda &amp; dikelola oleh admin IT Anda"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikasi pribadi terpisah &amp; disembunyikan dari aplikasi kerja"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin IT Anda dapat mengontrol perangkat ini &amp; memblokir aplikasi tertentu"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Aplikasi kerja disimpan dalam profil kerja Anda dan dikelola oleh admin IT Anda. Aplikasi pribadi terpisah dan disembunyikan dari aplikasi kerja. Admin IT Anda dapat mengontrol perangkat ini dan memblokir aplikasi tertentu."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pengingat privasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Admin IT mungkin dapat melihat data dan aktivitas Anda di perangkat ini"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Perangkat Anda siap digunakan!"</string>

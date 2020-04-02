@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Tiklash"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profilni sozlab bo‘lmadi"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Qurilmani sozlab bo‘lmadi"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Xatolik yuz berdi"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Qurilma sozlanmadi. Yordam olish uchun AT administratoringizga murojaat qiling."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Yordam uchun AT administratoringizga murojaat qiling"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Bu qurilmani tiklang va yana sozlash uchun urining"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Qurilma allaqachon sozlangan"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi tarmoqqa ulanmadi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Qurilmangizda zavod sozlamalarini tiklashga qarshi himoya yoqilgan. Yordam olish uchun AT administratoringizga murojaat qiling."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishchi ilovalar ishchi profilda saqlanadi"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Ishchi profilingiz sozlanmoqda…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Ishga oid ilovalar ish profilida saqlanadi. Ishni tugatganingizdan keyin ishga oid ilovalarni pauza qilishingiz mumkin. Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Keling, ishchi qurilmangizni sozlaymiz"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ishchi ilovalarni osongina ishlating"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu qurilma maxfiy emas"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Qurilma sozlanmoqda…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ishchi ilovalardan osongina foydalanish uchun bu qurilmadan foydalaning. Bu qurilma maxfiy emas, AT administratoringiz maʼlumotlaringiz va harakatlaringizni koʻra oladi. Batafsil axborot olish uchun AT administratoringizga murojaat qiling."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi. Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan. AT administratoringiz bu qurilmani boshqa oladi va ayrim ilovalarni bloklay oladi"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Qurilmangiz ishga shay!"</string>

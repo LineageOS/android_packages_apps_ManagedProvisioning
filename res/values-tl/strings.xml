@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"I-reset"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Hindi ma-set up ang profile"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Hindi ma-set up ang device"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Nagkaproblema"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Hindi ma-set up ang device. Para sa tulong, makipag-ugnayan sa iyong IT admin."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Makipag-ugnayan sa iyong IT admin para sa tulong"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"I-reset ang device na ito at subukan itong i-set up ulit"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Naka-set up na ang device"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Hindi makakonekta sa Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Naka-on ang proteksyon sa pag-reset sa iyong device. Para sa tulong, makipag-ugnayan sa iyong IT admin."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"I-set up natin ang iyong profile sa trabaho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"I-pause ang mga app para sa trabaho kapag tapos ka na sa araw na ito"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Nakikita ng iyong IT admin ang data sa profile mo sa trabaho"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Sine-set up ang iyong profile sa trabaho…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho. Puwede mong i-pause ang iyong mga app para sa trabaho kapag tapos ka na sa araw na ito. Nakikita ng iyong IT admin ang data sa profile mo sa trabaho."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"I-set up natin ang iyong device sa trabaho"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Panatilihing abot-kamay mo ang iyong mga app para sa trabaho"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Hindi pribado ang device na ito"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Baka makita ng iyong IT admin ang data at aktibidad mo sa device na ito."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Sine-set up ang iyong device…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gamitin ang device na ito para madaling ma-access ang iyong mga app para sa trabaho. Hindi pribado ang device na ito, kaya baka makita ng iyong IT admin ang data at aktibidad mo. Para matuto pa, makipag-ugnayan sa iyong IT admin."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho at pinapamahalaan ng IT admin mo ang mga ito"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang mga personal na app at nakatago ang mga ito mula sa mga app para sa trabaho"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang partikular na app"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho at pinapamahalaan ng IT admin mo ang mga ito. Nakahiwalay ang mga personal na app at nakatago ang mga ito mula sa mga app para sa trabaho. Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang partikular na app."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Paalala sa privacy"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Baka makita ng iyong IT admin ang data at aktibidad mo sa device na ito"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Handa na ang iyong device!"</string>

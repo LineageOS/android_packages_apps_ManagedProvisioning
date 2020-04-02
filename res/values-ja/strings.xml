@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"リセット"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"プロファイルをセットアップできません"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"デバイスをセットアップできません"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"エラーが発生しました"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"デバイスをセットアップできませんでした。詳しくは、IT 管理者にお問い合わせください。"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"詳しくは、IT 管理者にお問い合わせください"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"このデバイスをリセットして、もう一度設定をお試しください"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"デバイスはすでにセットアップされています"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi に接続できませんでした"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"このデバイスでは出荷時設定へのリセット保護が有効になっています。詳しくは、IT 管理者にお問い合わせください。"</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"仕事用プロファイルを設定しましょう"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"仕事用アプリは仕事用プロファイルに保存されます"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"1 日の仕事を終えたら仕事用アプリを一時停止する"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"仕事用プロファイル内のデータは IT 管理者に公開されます"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"仕事用プロファイルをセットアップしています…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"仕事用アプリは仕事用プロファイルに保存されます。1 日の仕事を終えたら仕事用アプリを一時停止できます。仕事用プロファイル内のデータは IT 管理者に公開されます。"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"仕事用のデバイスをセットアップしましょう"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"簡単に仕事用アプリにアクセス"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"このデバイスは非公開ではありません"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"デバイスをセットアップしています…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"このデバイスを使用して仕事用アプリに簡単にアクセスできます。このデバイスは非公開ではないため、IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。詳しくは、IT 管理者にお問い合わせください。"</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者によって管理されています"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用アプリは仕事用アプリとは別個に保存され、一緒に表示されません"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理者はこのデバイスを管理し、特定のアプリをブロックすることができます"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者によって管理されています。個人用アプリは仕事用アプリとは別個に保存され、一緒に表示されません。IT 管理者はこのデバイスを管理し、特定のアプリをブロックすることができます。"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"プライバシーに関するお知らせ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"デバイス準備完了"</string>

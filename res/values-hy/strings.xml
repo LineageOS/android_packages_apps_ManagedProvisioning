@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Վերակայել"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Հնարավոր չէ կարգավորել պրոֆիլը"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Հնարավոր չէ կարգավորել սարքը"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Սխալ առաջացավ"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Չհաջողվեց կարգավորել սարքը: Օգնություն ստանալու համար դիմեք ՏՏ ադմինիստրատորին։"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Օգնության համար դիմեք ձեր ՏՏ ադմինիստրատորին"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Վերակայեք սարքը և նորից փորձեք կարգավորել"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Սարքն արդեն կարգավորված է"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Չհաջողվեց միանալ Wi-Fi ցանցին"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Սարքում արգելված է գործարանային կարգավորումների վերականգնումը։ Օգնություն ստանալու համար դիմեք ձեր ՏՏ ադմինիստրատորին։"</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Կարգավորեք ձեր աշխատանքային պրոֆիլը"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Դադարեցրեք աշխատանքային հավելվածները օրվա ավարտին"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ձեր աշխատանքային պրոֆիլի տվյալները տեսանելի են ձեր ՏՏ ադմինիստրատորին"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Աշխատանքային պրոֆիլը կարգավորվում է…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում։ Դրանք կարող եք դադարեցնել աշխատանքային օրվա ավարտին։ Ձեր աշխատանքային պրոֆիլի տվյալները տեսանելի են ձեր ՏՏ ադմինիստրատորին։"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Կարգավորեք աշխատանքային սարքը"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Աշխատանքային հավելվածները՝ ձեր գրպանում"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Այս սարքն անձնական չէ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում։"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Սարքը կարգավորվում է…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Այս սարքի միջոցով կարող եք արագ բացել աշխատանքային հավելվածները։ Այս սարքն անձնական չէ, այնպես որ ձեր ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողությունները։ Մանրամասների համար դիմեք ՏՏ ադմինիստրատորին։"</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում և կառավարվում են ձեր ՏՏ ադմինիստրատորի կողմից"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Անձնական հավելվածները առանձնացված են և թաքցված աշխատանքային հավելվածներից"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ձեր ՏՏ ադմինիստրատորը կարող է վերահսկել այս սարքը և արգելափակել որոշակի հավելվածներ"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում և կառավարվում են ձեր ՏՏ ադմինիստրատորի կողմից։ Անձնական հավելվածները առանձնացված են և թաքցված աշխատանքային հավելվածներից։ Ձեր ՏՏ ադմինիստրատորը կարող է վերահսկել այս սարքը և արգելափակել որոշակի հավելվածներ։"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Գաղտնիության վերաբերյալ հիշեցում"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ձեր սարքը պատրաստ է"</string>

@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"ပြန်သတ်မှတ်ရန်"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ပရိုဖိုင်ကို စနစ်ထည့်သွင်း၍ မရပါ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်း၍ မရပါ"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"တစ်ခုခု မှားသွားသည်"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်း၍ မရပါ။ အကူအညီရယူရန် သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"အကူအညီအတွက် သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"ဤစက်ကို ပြင်ဆင်သတ်မှတ်ပြီး ထပ်မံ စနစ်ထည့်သွင်းကြည့်ပါ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"စက်ပစ္စည်းကို စနစ်ထည့်သွင်းပြီးသား ဖြစ်သည်"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi သို့ ချိတ်ဆက်၍ မရပါ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"သင်၏ စက်ပစ္စည်းတွင် ပြင်ဆင်သတ်မှတ်မှုအား ကာကွယ်ခြင်းစနစ်ကို ဖွင့်ထားပါသည်။ အကူအညီရယူရန် သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"သင့်အလုပ်ပရိုဖိုင်ကို စနစ်ထည့်သွင်းကြပါစို့"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားသည်"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"တစ်နေ့တာအပြီးတွင် အလုပ်သုံးအက်ပ်များကို ခဏရပ်နိုင်သည်"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"သင့်အလုပ်ပရိုဖိုင်ရှိ ဒေတာများကို သင်၏ IT စီမံခန့်ခွဲသူက မြင်ရပါသည်"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"သင်၏အလုပ်ပရိုဖိုင်ကို ထည့်သွင်းနေသည်…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားသည်။ တစ်နေ့တာအပြီးတွင် သင့်အလုပ်သုံးအက်ပ်များကို ခဏရပ်နိုင်သည်။ သင့်အလုပ်ပရိုဖိုင်ရှိ ဒေတာများကို သင်၏ IT စီမံခန့်ခွဲသူက မြင်ရပါသည်။"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"သင့်အလုပ်သုံး စက်ပစ္စည်းကို စနစ်ထည့်သွင်းရအောင်"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူသုံးနိုင်အောင် ပြုလုပ်ပါ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်ပါ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"သင့်စက်ပစ္စည်း စနစ်ထည့်သွင်းနေသည်…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။ ပိုမိုလေ့လာရန် သင့် IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားပြီး သင်၏ IT စီမံခန့်ခွဲသူက ထိန်းချုပ်ပါသည်"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ကိုယ်ပိုင်အက်ပ်များသည် သီးသန့်ဖြစ်ပြီး အလုပ်အက်ပ်များမှ ဖျောက်ထားသည်"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ကို ထိန်းချုပ်ပြီး အချို့သောအက်ပ်များကို ပိတ်ထားနိုင်သည်"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"အလုပ်အက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားပြီး သင်၏ IT စီမံခန့်ခွဲသူက ထိန်းချုပ်ပါသည်။ ကိုယ်ပိုင်အက်ပ်များသည် သီးသန့်ဖြစ်ပြီး အလုပ်အက်ပ်များမှ ဖျောက်ထားသည်။ သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ကို ထိန်းချုပ်ပြီး အချို့သောအက်ပ်များကို ပိတ်ထားနိုင်သည်။"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ပုဂ္ဂိုလ်ရေးလုံခြုံမှု သတိပေးချက်"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"သင့်စက်ပစ္စည်းကို စတင်အသုံးပြုနိုင်ပါပြီ။"</string>

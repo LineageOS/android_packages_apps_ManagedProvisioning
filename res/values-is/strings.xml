@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Endurstilla"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Ekki er hægt að setja upp snið"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Ekki er hægt að setja tæki upp"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"Eitthvað fór úrskeiðis"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Ekki var hægt að setja upp tækið. Leitaðu aðstoðar hjá kerfisstjóra."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Hafðu samband við kerfisstjóra til að fá hjálp"</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"Endurstilla þetta tæki og reyna uppsetningu þess aftur"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Tæki er nú þegar sett upp"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Ekki var hægt að tengjast Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Kveikt er á endurstillingarvörn tækisins. Leitaðu aðstoðar hjá kerfisstjóra."</string>
@@ -173,25 +171,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Setjum upp vinnusniðið þitt"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Vinnuforrit eru geymd á vinnusniðinu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Gerðu hlé á vinnuforritum í lok vinnudags"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Gögn á vinnusniðinu þínu eru sýnileg kerfisstjóranum þínum"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Setur upp vinnusniðið…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Vinnuforrit eru geymd á vinnusniðinu þínu. Þú getur gert hlé á vinnuforritunum þegar þú hættir að nota þau í lok vinnudags. Kerfisstjórinn þinn getur séð gögn sem eru á vinnusniðinu þínu."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Setjum upp vinnutækið þitt"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hafðu vinnuforritin innan handar"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Þetta er ekki einkatæki"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Kerfisstjórinn þinn kann að geta séð gögn og virkni í þessu tæki."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Setur tækið upp…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Notaðu þetta tæki til að hafa greiðan aðgang að vinnuforritunum þínum. Þetta tæki er ekki einkatæki og því gæti kerfisstjóri séð gögn og virkni þína. Hafðu samband við kerfisstjórann til að fá frekari upplýsingar."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Vinnuforrit eru geymd á vinnusniðinu þínu og þeim er stjórnað af kerfisstjóranum"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Forrit til einkanota eru aðskilin og falin fyrir vinnuforritum"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Kerfisstjórinn þinn getur stjórnað þessu tæki og lokað á tiltekin forrit"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Vinnuforrit eru geymd á vinnusniðinu þínu og stjórnað af kerfisstjóranum. Forrit til einkanota eru aðskilin og falin fyrir vinnuforritum. Kerfisstjórinn þinn getur stjórnað þessu tæki og lokað á tiltekin forrit."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Áminning um persónuvernd"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Kerfisstjórinn þinn kann að geta séð gögn og virkni í þessu tæki"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Tækið þitt er tilbúið!"</string>
