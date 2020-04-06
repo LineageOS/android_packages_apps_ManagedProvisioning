@@ -36,9 +36,7 @@
             android:id="@+id/cross_profile_item_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/black_text_secondary"
+            style="@style/SudItemTitle"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/cross_profile_item_icon"
             android:layout_toStartOf="@+id/cross_profile_item_vertical_divider"/>
@@ -46,9 +44,7 @@
             android:id="@+id/cross_profile_item_summary"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/grey_text"
+            style="@style/SudItemSummary"
             android:layout_below="@+id/cross_profile_item_title"
             android:layout_toEndOf="@+id/cross_profile_item_icon"
             android:layout_toStartOf="@+id/cross_profile_item_toggle"/>
@@ -65,7 +61,7 @@
         android:id="@+id/cross_profile_item_horizontal_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/sud_glif_v3_nav_bar_divider_color_light"
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
