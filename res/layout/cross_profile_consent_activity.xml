@@ -37,9 +37,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="32dp"
             android:gravity="center"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/black_text_secondary"
+            style="@style/SudDescription.Glif"
             android:text="@string/cross_profile_consent_summary"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cross_profile_items"
