@@ -56,6 +56,8 @@ public class PolicyComplianceUtils {
         if (policyComplianceIntent != null) {
             parentActivity.startActivityForResultAsUser(
                     policyComplianceIntent, requestCode, userHandle);
+            // Override the animation to avoid the transition jumping back and forth (b/149463287).
+            parentActivity.overridePendingTransition(/* enterAnim = */ 0, /* exitAnim= */ 0);
             provisioningAnalyticsTracker.logDpcSetupStarted(parentActivity,
                     policyComplianceIntent.getAction());
             return true;
