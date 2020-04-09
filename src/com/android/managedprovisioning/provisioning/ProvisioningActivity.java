@@ -287,7 +287,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         }
     }
 
-    private void markDeviceManagementEstablishedAndGoToNextStep(){
+    private void markDeviceManagementEstablishedAndGoToNextStep() {
         new PreFinalizationController(this, mUserProvisioningStateHelper)
                 .deviceManagementEstablished(mParams);
 
@@ -297,6 +297,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 // the DPC.
                 mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection();
             }
+            // Prevent the UI from flashing on the screen while the service connection starts the
+            // DPC (b/149463287).
+            findViewById(R.id.setup_wizard_layout).setVisibility(View.INVISIBLE);
             mStartDpcInsideSuwServiceConnection.triggerDpcStart(this, getDpcIntentSender());
         } else {
             finishActivity();
