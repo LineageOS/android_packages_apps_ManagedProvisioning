@@ -310,6 +310,8 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     private void finishWithResult() {
         setResult(RESULT_OK);
         finish();
+        // Override the animation to avoid the transition jumping back and forth (b/149463287).
+        overridePendingTransition(/* enterAnim= */ 0, /* exitAnim= */ 0);
     }
 
     private boolean isSilentProvisioning() {
