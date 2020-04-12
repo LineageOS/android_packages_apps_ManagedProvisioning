@@ -83,8 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"रीसेट करा"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"प्रोफाइल सेट करू शकत नाही"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"डिव्हाइस सेट करू शकत नाही"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"काहीतरी चूक झाली"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"डिव्हाइस सेट करता आले नाही. मदतीसाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मदतीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा"</string>
+    <string name="reset_device" msgid="5483853913241939262">"हे डिव्हाइस रीसेट करा आणि पुन्हा सेट करण्याचा प्रयत्न करा"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"डिव्हाइस आधीच सेट केले आहे"</string>
     <string name="error_wifi" msgid="1850288843966836571">"वाय-फाय शी कनेक्ट करता आले नाही"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"तुमच्या डिव्हाइसचे रीसेट संरक्षण सुरू केलेले आहे. मदतीसाठी, तुमच्या IT अ‍ॅडमिनशी संपर्क साधा."</string>
@@ -161,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"तुमचे ऑफिसचे डिव्हाइस सेट करण्यासाठी तयार होत आहे…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ॲडमिन अ‍ॅप सेट करत आहे"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"बाकीचे सर्व सेट करा"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"आता, बाकीचे सर्व सेट करूया"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"तुमच्या डिव्हाइसमधून आणखी सेवा मिळवण्यासाठी एखादे वैयक्तिक खाते जोडा"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"तुमची कार्य प्रोफाइल आता तयार झाल्यामुळे तुम्ही तुमची ॲप्स आणि आशय अ‍ॅक्सेस करण्यासाठी एखादे वैयक्तिक Google खाते सुद्धा जोडू शकता."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"हे डिव्हाइस तुमच्या संस्थेचे आहे"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"हा फोन व्यवस्थापित आणि मॉनिटर करण्यासाठी पुढील अ‍ॅप वापरले जाईल"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कार्य सेटअपसाठी तयार करत आहे…"</string>
@@ -169,17 +172,26 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चला, तुमची कार्य प्रोफाइल सेट करू या"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाइलमध्ये ठेवली जातात"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"तुमचे काम संपल्यावर कार्य अ‍ॅप्स थांबवा"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"तुमच्या IT अ‍ॅडमिनला तुमच्या कार्य प्रोफाइलमधील फक्त डेटा दिसतो"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तुमच्या आयटी अ‍ॅडमिनला तुमच्या कार्य प्रोफाइलमधील डेटा दिसतो"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तुमचे कार्य प्रोफाइल सेट करत आहे…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाइलमध्ये ठेवली जातात. तुमचे काम संपल्यावर तुम्ही तुमची कार्य अ‍ॅप्स थांबवू शकता. तुमच्या IT अ‍ॅडमिनला तुमच्या कार्य प्रोफाइलमधील फक्त डेटा दिसतो."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाइलमध्ये ठेवली जातात. तुमचे काम संपल्यावर तुम्ही तुमची कार्य अ‍ॅप्स थांबवू शकता. तुमच्या आयटी अ‍ॅडमिनला तुमच्या कार्य प्रोफाइलमधील डेटा दिसतो."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चला तुमचे कार्य डिव्हाइस सेट करू या"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"तुमची कार्य अ‍ॅप्स तुमच्या हाताशी ठेवा"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"हे डिव्हाइस खाजगी नाही"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तुमचे डिव्हाइस सेट करत आहे…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तुमची ऑफिस अ‍ॅप्स सहजपणे अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल. अधिक जाणून घेण्यासाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाईलमध्ये ठेवली जातात आणि तुमच्या आयटी ॲडमिनद्वारे व्यवस्थापित केली जातात"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"वैयक्तिक अ‍ॅप्स कार्य अ‍ॅप्सपासून वेगळे आणि लपवलेले असतात"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित आणि विशिष्ट ॲप्स ब्लॉक करू शकतो"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाईलमध्ये ठेवली जातात आणि तुमच्या आयटी ॲडमिनद्वारे व्यवस्थापित केली जातात. वैयक्तिक अ‍ॅप्स कार्य अ‍ॅप्सपासून वेगळे आणि लपवलेले असतात. तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित आणि विशिष्ट ॲप्स ब्लॉक करू शकतो."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तुमचे डिव्हाइस वापरण्यासाठी तयार आहे!"</string>
     <string name="done" msgid="7755227776955952318">"पूर्ण झाले"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>
+    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"कनेक्ट केलेली अ‍ॅप्स तुम्हाला ऑफिस आणि वैयक्तिक डेटा एकत्रितपणे अ‍ॅक्सेस करू देतात. तुम्ही सेटिंग्जमध्ये कधीही बदल करू शकता."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"ऑफिस आणि वैयक्तिक डेटा एकत्र अ‍ॅक्सेस करा. सेट करण्यासाठी टॅप करा."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>
 </resources>

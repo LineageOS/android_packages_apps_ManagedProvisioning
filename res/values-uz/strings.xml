@@ -83,8 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"Tiklash"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profilni sozlab bo‘lmadi"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Qurilmani sozlab bo‘lmadi"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"Xatolik yuz berdi"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Qurilma sozlanmadi. Yordam olish uchun AT administratoringizga murojaat qiling."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Yordam uchun AT administratoringizga murojaat qiling"</string>
+    <string name="reset_device" msgid="5483853913241939262">"Bu qurilmani tiklang va yana sozlash uchun urining"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Qurilma allaqachon sozlangan"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi tarmoqqa ulanmadi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Qurilmangizda zavod sozlamalarini tiklashga qarshi himoya yoqilgan. Yordam olish uchun AT administratoringizga murojaat qiling."</string>
@@ -161,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Ishchi profil sozlash uchun tayyorlanmoqda…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administrator ilovasi sozlanmoqda"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Hammasini sozlash"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Endi qolgan hammasini sozlaymiz"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Qurilmadagi boshqa imkoniyatlardan foydalanish uchun shaxsiy hisobingizni kiriting"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ish profilingiz tayyor, endi ilova va maʼlumotlardan foydalanish uchun shaxsiy Google hisobingizni kiritishingiz mumkin."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu qurilma tashkilotingizga tegishli"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Bu telefonni boshqarish va nazorat qilish uchun quyidagi ilovadan foydalaniladi"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Sozlash uchun tayyorlanmoqda…"</string>
@@ -169,17 +172,26 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishchi ilovalar ishchi profilda saqlanadi"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Ishchi profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Ishchi profilingiz sozlanmoqda…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Ishchi ilovalar ishchi profilda saqlanadi. Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilishingiz mumkin. Ishchi profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Ishga oid ilovalar ish profilida saqlanadi. Ishni tugatganingizdan keyin ishga oid ilovalarni pauza qilishingiz mumkin. Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Keling, ishchi qurilmangizni sozlaymiz"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ishchi ilovalarni osongina ishlating"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu qurilma maxfiy emas"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Qurilma sozlanmoqda…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ishchi ilovalardan osongina foydalanish uchun bu qurilmadan foydalaning. Bu qurilma maxfiy emas, AT administratoringiz maʼlumotlaringiz va harakatlaringizni koʻra oladi. Batafsil axborot olish uchun AT administratoringizga murojaat qiling."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi. Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan. AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Qurilmangiz ishga shay!"</string>
     <string name="done" msgid="7755227776955952318">"Tayyor"</string>
+    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Shaxsiy va ishga oid ilovalarga ulanish"</string>
+    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Ulangan ilovalar yordamida ishga oid va shaxsiy maʼlumotlar bilan ishlash mumkin. Istalgan vaqtda Sozlamalar orqali oʻzgartirish mumkin."</string>
+    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Shaxsiy va ishga oid ilovalarga ulanish"</string>
+    <string name="cross_profile_notification_text" msgid="735572491868902064">"Birdaniga shaxsiy va ishga aloqador maʼlumotlardan foydalaning. Sozlash uchun bosing."</string>
+    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Shaxsiy va ishga oid ilovalarga ulanish"</string>
 </resources>
