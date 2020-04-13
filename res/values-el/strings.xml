@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Προετοιμασία για ρύθμιση συσκευής εργασίας…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ρύθμιση εφαρμογής διαχειριστή"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Ρυθμίστε όλα τα υπόλοιπα"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Στη συνέχεια, ας ρυθμίσουμε τα υπόλοιπα"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Προσθέστε έναν προσωπικό λογαριασμό για να αξιοποιήσετε περισσότερο τη συσκευή σας"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Τώρα που το προφίλ εργασίας σας είναι έτοιμο, μπορείτε επίσης να προσθέσετε έναν προσωπικό Λογαριασμό Google για να αποκτήσετε πρόσβαση στις εφαρμογές και το περιεχόμενό σας."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Αυτή η συσκευή ανήκει στον οργανισμό σας"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Η παρακάτω εφαρμογή θα χρησιμοποιηθεί για τη διαχείριση και την παρακολούθηση αυτού του τηλεφώνου"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Προετοιμασία για ρύθμιση προφίλ εργασίας…"</string>

@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"İş cihazı kuruluma hazırlanıyor…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Yönetici uygulamasını kurma"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Diğer kurulumları yapma"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Şimdi diğer kurulumları yapalım"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Cihazınızı en verimli şekilde kullanmak için kişisel hesap ekleyin"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"İş profiliniz hazır olduğuna göre uygulamalarınıza ve içeriğe erişmek için kişisel Google Hesabı da ekleyebilirsiniz."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu cihaz, kuruluşunuza ait"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdaki uygulama bu telefonu yönetmek ve izlemek için kullanılacaktır"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"İş kurulumu için hazırlanıyor…"</string>
