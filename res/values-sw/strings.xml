@@ -86,7 +86,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Hitilafu fulani imetokea"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Imeshindwa kuweka mipangilio ya kifaa. Ili upate usaidizi, wasiliana na msimamizi wako wa TEHAMA."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Wasiliana na msimamizi wako wa TEHAMA ili upate usaidizi"</string>
-    <string name="reset_device" msgid="5483853913241939262">"Badilisha mipangilio ya kifaa hiki na ujaribu kuweka mipangilio tena."</string>
+    <string name="reset_device" msgid="5483853913241939262">"Badilisha mipangilio ya kifaa hiki na ujaribu kuiweka tena."</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Tayari umeweka mipangilio ya kifaa"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Imeshindwa kuunganisha kwenye Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Kipengele cha kuweka upya mipangilio kimewashwa katika kifaa chako. Wasiliana na msimamizi wako wa TEHAMA ili upate usaidizi."</string>
@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Inajiandaa kuweka mipangilio kwenye kifaa cha kazini…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Inaweka mipangilio ya programu ya msimamizi"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Weka mipangilio ya kila kitu"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Sasa, acha tuweke mipangilio ya kila kitu"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Weka akaunti ya binafsi ili unufaike zaidi na kifaa chako"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Kwa kuwa sasa wasifu wako wa kazini uko tayari, unaweza pia kuweka Akaunti ya binafsi ya Google ili ufikie programu na maudhui yako."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Kifaa hiki kinamilikiwa na shirika lako"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Programu ifuatayo itatumika kudhiiti na kufuatilia simu hii"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Inajiandaa ili kuweka mipangilio ya kazini…"</string>

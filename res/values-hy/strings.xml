@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Սարքի կարգավորման նախապատրաստում…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ադմինիստրատորի հավելվածի կարգավորում"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Այլ պարամետրերի կարգավորում"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Այժմ կարգավորեք մնացածը"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Ավելացրեք անձնական հաշիվ՝ ձեր սարքից ավելին ստանալու համար"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Այժմ, երբ ձեր աշխատանքային պրոֆիլը պատրաստ է, դուք կարող եք նաև անձնական Google հաշիվ ավելացնել՝ ձեր հավելվածներն ու բովանդակությունը օգտագործելու համար։"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Այս սարքը պատկանում է ձեր կազմակերպությանը"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Հետևյալ հավելվածը կօգտագործվի այս հեռախոսը կառավարելու և վերահսկելու համար"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Սարքի կարգավորման նախապատրաստում…"</string>

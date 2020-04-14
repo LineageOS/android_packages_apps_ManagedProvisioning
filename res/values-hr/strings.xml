@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Priprema za postavljanje poslovnog uređaja…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Postavljanje administratorske aplikacije"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Postavljanje svega ostalog"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Postavimo sada sve ostalo"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Dodavanje osobnog računa da biste bolje iskoristili prednosti uređaja"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Sad kad je vaš poslovni profil spreman, možete dodati i osobni Google račun kako biste pristupili svojim aplikacijama i sadržaju."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Ovaj uređaj pripada vašoj organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Za upravljanje telefonom i njegovo praćenje koristit će se sljedeća aplikacija"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Priprema za postavljanje radnog profila…"</string>

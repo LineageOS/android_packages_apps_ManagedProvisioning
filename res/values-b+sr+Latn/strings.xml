@@ -68,8 +68,8 @@
     <string name="progress_data_process" msgid="1707745321954672971">"Obrađuju se podaci podešavanja..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezujete se sa Wi-Fi-jem..."</string>
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezujemo se sa mobilnom mrežom…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Preuzima se aplikacija za administratore..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"Instalira se aplikacija za administratore..."</string>
+    <string name="progress_download" msgid="3522436271691064624">"Preuzima se aplikacija za administratora..."</string>
+    <string name="progress_install" msgid="2258045670385866183">"Instalira se aplikacija za administratora..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Uklanjamo nepotrebne sistemske aplikacije…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"Obavljamo završna podešavanja…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"Podešava se vlasnik uređaja..."</string>
@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Priprema se podešavanje uređaja za posao…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Aplikacija za administratore se podešava"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Podesite sve ostalo"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Hajde da podesimo sve ostalo"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Dodajte lični nalog da biste iskoristili dodatne pogodnosti uređaja"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Profil za Work je spreman, pa možete da dodate i lični Google nalog da biste pristupali aplikacijama i sadržaju."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Ovaj uređaj pripada organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Sledeća aplikacija će se koristiti za praćenje ovog telefona i upravljanje njime"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Podešavanje za posao se priprema…"</string>
@@ -181,9 +182,9 @@
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Uređaj se podešava…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Koristite ovaj uređaj da biste jednostavno pristupali poslovnim aplikacijama. Ovaj uređaj nije privatan, pa će ID administrator moći da vidi vaše podatke i aktivnosti. Kontaktirajte IT administratora da biste saznali više."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikacije za posao se čuvaju na profilu za Work i njima upravlja IT administrator"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene od aplikacija za posao"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene kada se prikazuju aplikacije za posao"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Poslovne aplikacije se čuvaju na profilu za Work i njima upravlja IT administrator. Lične aplikacije su odvojene i skrivene od aplikacija za posao. IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije."</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Poslovne aplikacije se čuvaju na profilu za Work i njima upravlja IT administrator. Lične aplikacije su odvojene i skrivene kada se prikazuju aplikacije za posao. IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsetnik o privatnosti"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT administrator možda može da vidi podatke ili aktivnosti na ovom uređaju"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Uređaj je spreman za korišćenje!"</string>
