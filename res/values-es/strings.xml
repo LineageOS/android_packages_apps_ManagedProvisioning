@@ -83,7 +83,7 @@
     <string name="reset" msgid="6467204151306265796">"Restablecer"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"No se ha podido configurar el perfil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"No se ha podido configurar el dispositivo"</string>
-    <string name="something_went_wrong" msgid="3593223774041784329">"Algo no va bien"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"Se ha producido un error"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"No se ha podido configurar el dispositivo. Para obtener ayuda, ponte en contacto con tu administrador de TI."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Ponte en contacto con tu administrador de TI para solicitar ayuda"</string>
     <string name="reset_device" msgid="5483853913241939262">"Borrar este dispositivo y probar a configurarlo de nuevo"</string>
@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparando la configuración de tu dispositivo de trabajo…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando aplicación de administración"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Configurar el resto de opciones"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Vamos a configurar el resto de opciones"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Añade una cuenta personal para aprovechar mejor tu dispositivo"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ahora que tu perfil de trabajo ya está listo, puedes añadir tu cuenta de Google personal para acceder a tus aplicaciones y contenido."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertenece a tu organización"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"La siguiente aplicación se utilizará para gestionar y supervisar este teléfono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando la configuración del dispositivo de trabajo…"</string>

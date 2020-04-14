@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Undirbýr uppsetningu vinnutækis…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Setur upp stjórnunarforritið"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Setja upp allt annað"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Nú skulum við setja upp allt annað"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Bættu við persónulegum reikningi til að fá meira út úr tækinu"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Nú þegar vinnusniðið þitt er tilbúið geturðu einnig bætt við persónulegum Google reikningi til að fá aðgang að forritunum þínum og efni."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Þetta tæki tilheyrir fyrirtækinu þínu"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Eftirfarandi forrit verður notað til að hafa umsjón með þessum síma og fylgjast með honum"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Undirbýr uppsetningu fyrir vinnu…"</string>

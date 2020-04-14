@@ -113,7 +113,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Peranti ini akan diurus, dipantau dan dilindungi oleh <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Syarat daripada <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> akan dikenakan. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Pautan ini tidak selamat dan tidak dapat dibuka sehingga persediaan peranti selesai. <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"Untuk mengetahui lebih lanjut, hubungi <xliff:g id="IT_ADMIN">%1$s</xliff:g> anda."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Jika anda ingin mengemukakan soalan, hubungi pentadbir IT anda"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Jika anda ingin mengemukakan pertanyaan, hubungi pentadbir IT anda"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Persediaan belum selesai. Untuk mendapatkan bantuan, hubungi pentadbir IT anda."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Untuk mendapatkan bantuan, hubungi pentadbir IT anda"</string>
     <string name="organization_admin" msgid="5975914478148511290">"Pentadbir IT"</string>
@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Bersedia untuk menyediakan peranti kerja…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Menyediakan apl pentadbir"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Sediakan semua perkara lain"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Sekarang mari sediakan semua perkara lain"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Tambahkan akaun peribadi untuk mendapatkan lebih banyak manfaat daripada peranti anda"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Kini, setelah profil kerja anda sudah sedia, anda juga boleh menambahkan Akaun Google peribadi untuk mengakses apl dan kandungan anda."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Peranti ini milik organisasi anda"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Apl berikut akan digunakan untuk mengurus dan memantau telefon ini"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Bersedia untuk persediaan kerja…"</string>
@@ -173,7 +174,7 @@
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Jeda apl kerja setelah anda selesai bekerja untuk hari itu"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data dalam profil kerja anda kelihatan kepada pentadbir IT anda"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Menyediakan profil kerja anda…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Apl kerja disimpan dalam profil kerja anda. Ada boleh menjeda apl kerja setelah anda selesai bekerja pada hari itu. Data dalam profil kerja anda kelihatan kepada pentadbir IT anda."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Apl kerja disimpan dalam profil kerja anda. Anda boleh menjeda apl kerja setelah anda selesai bekerja pada hari itu. Data dalam profil kerja anda kelihatan kepada pentadbir IT anda."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Mari sediakan peranti kerja anda"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Pastikan apl kerja di hujung jari anda"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Peranti ini bukan peribadi"</string>

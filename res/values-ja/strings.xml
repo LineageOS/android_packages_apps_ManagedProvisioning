@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"仕事用デバイスのセットアップを準備しています…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"管理アプリをセットアップしています"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"他の項目をすべて設定する"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"他の項目をすべて設定しましょう"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"個人用アカウントを追加して、デバイスを最大限に活用しましょう"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"仕事用プロファイルの設定が完了しました。自分のアプリやコンテンツにアクセスできるよう、個人の Google アカウントを追加することもできます。"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"これは組織が所有するデバイスです"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"このスマートフォンの管理には以下のアプリを使用します"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"仕事用のセットアップを準備しています…"</string>

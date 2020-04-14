@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Ishchi profil sozlash uchun tayyorlanmoqda…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administrator ilovasi sozlanmoqda"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Hammasini sozlash"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Endi qolgan hammasini sozlaymiz"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Qurilmadagi boshqa imkoniyatlardan foydalanish uchun shaxsiy hisobingizni kiriting"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ish profilingiz tayyor, endi ilova va maʼlumotlardan foydalanish uchun shaxsiy Google hisobingizni kiritishingiz mumkin."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu qurilma tashkilotingizga tegishli"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Bu telefonni boshqarish va nazorat qilish uchun quyidagi ilovadan foydalaniladi"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Sozlash uchun tayyorlanmoqda…"</string>
@@ -183,7 +184,7 @@
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi. Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan. AT administratoringiz bu qurilmani boshqa oladi va ayrim ilovalarni bloklay oladi"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi. Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan. AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Qurilmangiz ishga shay!"</string>

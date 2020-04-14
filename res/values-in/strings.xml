@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Bersiap menyiapkan perangkat kerja…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Menyiapkan aplikasi admin"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Menyiapkan lainnya"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Sekarang, mari siapkan lainnya"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Tambahkan akun pribadi untuk mendapatkan lebih banyak manfaat dari perangkat"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Setelah profil kerja siap, Anda juga dapat menambahkan Akun Google pribadi untuk mengakses aplikasi dan konten."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Perangkat ini milik organisasi"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aplikasi berikut akan digunakan untuk mengelola dan memantau ponsel ini"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Menyiapkan perangkat untuk kerja…"</string>
