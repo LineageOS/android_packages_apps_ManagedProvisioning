@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Се подготвува поставувањето на работниот уред…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Се поставува апликацијата за администратор"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Поставете сѐ останато"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Сега, ајде да поставиме сѐ останато"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Додајте лична сметка за да добиете повеќе од вашиот уред"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Сега кога вашиот работен профил е спремен, може да додадете и лична сметка на Google за да пристапувате до апликациите и содржините."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Уредов е во сопственост на организацијата"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следнава апликација ќе се користи за управување и следење на телефонов"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка за поставување работен профил…"</string>
