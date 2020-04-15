@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Voorbereiden om werkapparaat in te stellen…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Beheer-app instellen"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"De rest instellen"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Laten we nu de rest instellen"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Voeg een persoonlijk account toe om meer uit je apparaat te halen"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Nu je werkprofiel gereed is, kun je ook een persoonlijk Google-account toevoegen voor toegang tot je apps en content."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Dit apparaat is eigendom van je organisatie"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"De volgende app wordt gebruikt om deze telefoon te beheren en te controleren"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Instellingen klaarmaken voor werk…"</string>

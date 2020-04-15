@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Ажлын төхөөрөмжийг тохируулахаар бэлтгэж байна…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Админ аппыг тохируулж байна"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Бусад зүйлсийг тохируулцгаая"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Одоо бусад зүйлсийг тохируулцгаая"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Төхөөрөмжөөсөө илүү ихийг авахын тулд хувийн бүртгэл нэмээрэй"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Одоо таны ажлын профайл бэлэн болсон тул та апп болон контентдоо хандахын тулд хувийн Google Бүртгэл мөн нэмэх боломжтой."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Энэ төхөөрөмжийг танай байгууллага эзэмшдэг"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Энэ утсыг удирдаж, хянахын тулд дараах аппыг ашиглана"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ажлын тохируулгад бэлтгэж байна…"</string>

@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Forbereder konfigurering av jobbenheten …"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurerer administratorapp"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Konfigurer alt annet"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Nå kan vi konfigurere alt annet"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Legg til en personlig konto for å få mer ut av enheten din"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Nå som jobbprofilen din er klar, kan du også legge til en personlig Google-konto for å få tilgang til appene dine og innholdet ditt."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Denne enheten tilhører organisasjonen din"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app brukes til å administrere og overvåke denne telefonen"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Forbereder til jobbkonfigurering …"</string>

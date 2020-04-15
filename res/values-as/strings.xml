@@ -163,7 +163,8 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"কৰ্মস্থানৰ ডিভাইচ ছেট আপ কৰিবলৈ প্ৰস্তুত কৰা হৈছে…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"প্ৰশাসক এপ্ ছেট আপ কৰি থকা হৈছে"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"বাকী সকলো ছেট আপ কৰক"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"এতিয়া বাকী সকলো ছেট আপ কৰোঁ আহক"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"আপোনাৰ ডিভাইচটোৰ পৰা অধিক সুবিধা পাবলৈ এটা ব্যক্তিগত একাউণ্ট যোগ দিয়ক"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"এতিয়া যিহেতু আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলটো সাজু হৈছে, আপুনি নিজৰ এপ্‌সমূহ আৰু সমল এক্সেছ কৰিবলৈ এটা ব্যক্তিগত Google একাউণ্টো যোগ দিব পাৰে।"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"এইটো আপোনাৰ প্ৰতিষ্ঠানৰ ডিভাইচ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফ’নটো পৰিচালনা আৰি নিৰীক্ষণ কৰিবলৈ তলৰ এপ্‌টো ব্যৱহাৰ কৰা হ’ব"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"কৰ্মস্থানৰ বাবে ছেট আপ কৰিবলৈ সাজু কৰি থকা হৈছে…"</string>
