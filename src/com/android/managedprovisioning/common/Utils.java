@@ -38,12 +38,6 @@ import static com.android.managedprovisioning.model.ProvisioningParams.PROVISION
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
 
-import android.annotation.WorkerThread;
-import android.net.NetworkCapabilities;
-import android.os.Handler;
-import android.os.Looper;
-import com.android.managedprovisioning.R;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
@@ -52,6 +46,7 @@ import android.accounts.OperationCanceledException;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.StringRes;
+import android.annotation.WorkerThread;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -67,10 +62,13 @@ import android.content.pm.UserInfo;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
@@ -86,11 +84,17 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
+
+import com.google.android.setupcompat.template.FooterBarMixin;
+import com.google.android.setupcompat.template.FooterButton;
+import com.google.android.setupcompat.template.FooterButton.ButtonType;
+import com.google.android.setupdesign.GlifLayout;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -102,11 +106,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-
-import com.google.android.setupdesign.GlifLayout;
-import com.google.android.setupcompat.template.FooterBarMixin;
-import com.google.android.setupcompat.template.FooterButton;
-import com.google.android.setupcompat.template.FooterButton.ButtonType;
 
 /**
  * Class containing various auxiliary methods.
@@ -631,13 +630,22 @@ public class Utils {
     }
 
     /**
-     * Returns whether the device is currently connected to a wifi.
+     * Returns whether the device is currently connected to specific network type, such as {@link
+     * ConnectivityManager.TYPE_WIFI} or {@link ConnectivityManager.TYPE_ETHERNET}
+     *
+     * {@see ConnectivityManager}
      */
-    public boolean isConnectedToWifi(Context context) {
-        NetworkInfo info = getActiveNetworkInfo(context);
-        return info != null
-                && info.isConnected()
-                && info.getType() == ConnectivityManager.TYPE_WIFI;
+    public boolean isNetworkTypeConnected(Context context, int... types) {
+        final NetworkInfo networkInfo = getActiveNetworkInfo(context);
+        if (networkInfo != null && networkInfo.isConnected()) {
+            final int activeNetworkType = networkInfo.getType();
+            for (int type : types) {
+                if (activeNetworkType == type) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
