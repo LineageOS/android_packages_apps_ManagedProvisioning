@@ -35,6 +35,9 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXT
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
@@ -288,7 +291,7 @@ public class PreProvisioningController {
         if (isDeviceOwnerProvisioning()) {
             // TODO: make a general test based on deviceAdminDownloadInfo field
             // PO doesn't ever initialize that field, so OK as a general case
-            if (shouldShowWifiPicker()) {
+            if (shouldShowWifiPicker(intent)) {
                 // Have the user pick a wifi network if necessary.
                 // It is not possible to ask the user to pick a wifi network if
                 // the screen is locked.
@@ -324,7 +327,20 @@ public class PreProvisioningController {
         }
     }
 
-    private boolean shouldShowWifiPicker() {
+    private boolean isNfcProvisioning(Intent intent) {
+        return ACTION_NDEF_DISCOVERED.equals(intent.getAction());
+    }
+
+    private boolean isQrCodeProvisioning(Intent intent) {
+        if (!ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())) {
+            return false;
+        }
+        final int provisioningTrigger = intent.getIntExtra(EXTRA_PROVISIONING_TRIGGER,
+                PROVISIONING_TRIGGER_UNSPECIFIED);
+        return provisioningTrigger == PROVISIONING_TRIGGER_QR_CODE;
+    }
+
+    private boolean shouldShowWifiPicker(Intent intent) {
         if (mParams.wifiInfo != null) {
             return false;
         }
@@ -332,6 +348,9 @@ public class PreProvisioningController {
             return false;
         }
         if (mUtils.isConnectedToWifi(mContext)) {
+            return false;
+        }
+        if (mParams.useMobileData && (isQrCodeProvisioning(intent) || isNfcProvisioning(intent))) {
             return false;
         }
         if (mParams.useMobileData) {
