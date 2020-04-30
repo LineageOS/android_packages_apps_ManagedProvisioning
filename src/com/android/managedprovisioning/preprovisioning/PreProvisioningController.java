@@ -56,6 +56,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.PersistableBundle;
@@ -335,7 +336,8 @@ public class PreProvisioningController {
         if (mParams.deviceAdminDownloadInfo == null) {
             return false;
         }
-        if (mUtils.isConnectedToWifi(mContext)) {
+        if (mUtils.isNetworkTypeConnected(mContext, ConnectivityManager.TYPE_WIFI,
+                ConnectivityManager.TYPE_ETHERNET)) {
             return false;
         }
         if (mParams.useMobileData) {
