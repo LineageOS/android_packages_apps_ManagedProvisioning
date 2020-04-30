@@ -532,6 +532,13 @@ public class Utils {
                         /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
     }
 
+    public boolean isQrProvisioning(Intent intent) {
+        return PROVISIONING_TRIGGER_QR_CODE ==
+                intent.getIntExtra(
+                        DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
+                        /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
+    }
+
     /**
      * Returns if the given intent for a organization owned provisioning.
      * Only QR, cloud enrollment and NFC are owned by organization.
