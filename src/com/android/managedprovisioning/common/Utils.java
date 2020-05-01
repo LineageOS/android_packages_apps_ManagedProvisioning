@@ -631,13 +631,22 @@ public class Utils {
     }
 
     /**
-     * Returns whether the device is currently connected to a wifi.
+     * Returns whether the device is currently connected to specific network type, such as {@link
+     * ConnectivityManager.TYPE_WIFI} or {@link ConnectivityManager.TYPE_ETHERNET}
+     *
+     * {@see ConnectivityManager}
      */
-    public boolean isConnectedToWifi(Context context) {
-        NetworkInfo info = getActiveNetworkInfo(context);
-        return info != null
-                && info.isConnected()
-                && info.getType() == ConnectivityManager.TYPE_WIFI;
+    public boolean isNetworkTypeConnected(Context context, int... types) {
+        final NetworkInfo networkInfo = getActiveNetworkInfo(context);
+        if (networkInfo != null && networkInfo.isConnected()) {
+            final int activeNetworkType = networkInfo.getType();
+            for (int type : types) {
+                if (activeNetworkType == type) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
