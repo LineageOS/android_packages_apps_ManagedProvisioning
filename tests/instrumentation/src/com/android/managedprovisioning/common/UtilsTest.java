@@ -184,24 +184,44 @@ public class UtilsTest extends AndroidTestCase {
         assertFalse(mUtils.isConnectedToNetwork(mockContext));
     }
 
-    public void testIsConnectedToWifi() throws Exception {
+    public void testIsNetworkTypeWifiConnected() throws Exception {
         // GIVEN the device is currently connected to mobile network
         setCurrentNetworkMock(ConnectivityManager.TYPE_MOBILE, true);
         // WHEN checking whether connected to wifi
         // THEN utils should return false
-        assertFalse(mUtils.isConnectedToWifi(mockContext));
+        assertFalse(mUtils.isNetworkTypeConnected(mockContext, ConnectivityManager.TYPE_WIFI));
 
         // GIVEN the device is currently connected to wifi
         setCurrentNetworkMock(ConnectivityManager.TYPE_WIFI, true);
         // WHEN checking whether connected to wifi
         // THEN utils should return true
-        assertTrue(mUtils.isConnectedToWifi(mockContext));
+        assertTrue(mUtils.isNetworkTypeConnected(mockContext, ConnectivityManager.TYPE_WIFI));
 
         // GIVEN the device is currently disconnected on wifi
         setCurrentNetworkMock(ConnectivityManager.TYPE_WIFI, false);
         // WHEN checking whether connected to wifi
         // THEN utils should return false
-        assertFalse(mUtils.isConnectedToWifi(mockContext));
+        assertFalse(mUtils.isNetworkTypeConnected(mockContext, ConnectivityManager.TYPE_WIFI));
+    }
+
+    public void testIsNetworkTypeEthernetConnected() throws Exception {
+        // GIVEN the device is currently connected to mobile network
+        setCurrentNetworkMock(ConnectivityManager.TYPE_MOBILE, true);
+        // WHEN checking whether connected to wifi
+        // THEN utils should return false
+        assertFalse(mUtils.isNetworkTypeConnected(mockContext, ConnectivityManager.TYPE_ETHERNET));
+
+        // GIVEN the device is currently connected to wifi
+        setCurrentNetworkMock(ConnectivityManager.TYPE_ETHERNET, true);
+        // WHEN checking whether connected to wifi
+        // THEN utils should return true
+        assertTrue(mUtils.isNetworkTypeConnected(mockContext, ConnectivityManager.TYPE_ETHERNET));
+
+        // GIVEN the device is currently disconnected on wifi
+        setCurrentNetworkMock(ConnectivityManager.TYPE_ETHERNET, false);
+        // WHEN checking whether connected to wifi
+        // THEN utils should return false
+        assertFalse(mUtils.isNetworkTypeConnected(mockContext, ConnectivityManager.TYPE_ETHERNET));
     }
 
     public void testGetActiveNetworkInfo() throws Exception {
