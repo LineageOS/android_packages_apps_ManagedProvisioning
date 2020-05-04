@@ -636,6 +636,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setOrganizationName(organizationName)
                     .setSupportUrl(supportUrl)
                     .setDeviceAdminIconFilePath(deviceAdminIconFilePath)
+                    .setIsQrProvisioning(mUtils.isQrProvisioning(intent))
                     .setIsOrganizationOwnedProvisioning(
                             mUtils.isOrganizationOwnedProvisioning(intent));
         } catch (ClassCastException e) {
