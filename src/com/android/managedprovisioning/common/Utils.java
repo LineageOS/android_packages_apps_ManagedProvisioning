@@ -550,6 +550,13 @@ public class Utils {
         }
     }
 
+    public boolean isQrProvisioning(Intent intent) {
+        return PROVISIONING_TRIGGER_QR_CODE ==
+                intent.getIntExtra(
+                        DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
+                        /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
+    }
+
     /**
      * Returns if the given parameter is for provisioning the admin integrated flow.
      */
