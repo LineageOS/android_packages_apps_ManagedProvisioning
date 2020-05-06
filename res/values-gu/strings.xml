@@ -40,7 +40,7 @@
     <string name="terms" msgid="8295436105384703903">"શરતો"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"કાર્ય પ્રોફાઇલની માહિતી"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"સંચાલિત ઉપકરણની માહિતી"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"કાર્યાલયની પ્રોફાઇલ"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"ઑફિસની પ્રોફાઇલ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"પ્રાથમિક વપરાશકર્તા"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"વર્તમાન પ્રોફાઇલ કાઢી નાખીએ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"તમે પહેલેથી કાર્યાલયની પ્રોફાઇલ ધરાવો છો. નિમ્નલિખિત ઍપ્લિકેશનના ઉપયોગ દ્વારા તેનું સંચાલન થાય છે:"</string>
@@ -172,7 +172,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ચાલો, તમારી કાર્યાલયની પ્રોફાઇલને સેટઅપ કરીએ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"કાર્ય સંબંધી ઍપ તમારા કાર્યાલયના પ્રોફાઇલમાં રાખવામાં આવે છે"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે કાર્ય સંબંધી ઍપ થોભાવો"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"તમારા કાર્યાલયની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT વ્યવસ્થાપકને દેખાય છે"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"તમારા ઑફિસ માટેની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT વ્યવસ્થાપકને દેખાય છે"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"તમારું કાર્યાલયનું પ્રોફાઇલ સેટ કરી રહ્યાં છીએ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ઑફિસ માટેની ઍપ તમારા કાર્યાલયની પ્રોફાઇલમાં રાખવામાં આવે છે. જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે તમે ઑફિસ માટેની ઍપ થોભાવી શકો છો. તમારા કાર્યાલયની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT વ્યવસ્થાપકને દેખાય છે."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારો કાર્યાલયનો ફોન સેટ કરીએ"</string>
