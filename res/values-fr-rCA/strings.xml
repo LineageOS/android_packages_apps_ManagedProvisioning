@@ -132,7 +132,7 @@
     <string name="copying_certs" msgid="5697938664953550881">"Configuration des certificats CA en cours…"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Configurer votre profil"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"En utilisant un profil professionnel, vous pouvez séparer vos données professionnelles de vos données personnelles"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"En utilisant un profil professionnel, vous pouvez garder vos applications de bureau en un seul endroit"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"En utilisant un profil professionnel, vous pouvez garder vos applications de travail en un seul endroit"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Configurer votre profil. Chiffrement."</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Configurer votre profil. Affichage de la progression."</string>
     <string name="setup_device" msgid="6725265673245816366">"Configurer l\'appareil"</string>

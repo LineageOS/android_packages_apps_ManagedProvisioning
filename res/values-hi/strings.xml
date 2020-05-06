@@ -113,7 +113,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"इस डिवाइस का प्रबंधन, निगरानी और सुरक्षा <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> करेगा. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> की शर्तें लागू होंगी. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"यह लिंक सुरक्षित नहीं है और इसे डिवाइस सेटअप पूरा हो जाने तक नहीं खोला जा सकता: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"ज़्यादा जानने के लिए अपने <xliff:g id="IT_ADMIN">%1$s</xliff:g>. से संपर्क करें."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"अगर आपके कोई सवाल हैं तो, अपने आईटी एडमिन से संपर्क करें"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"अगर आपके कोई सवाल हैं, तो अपने आईटी एडमिन से संपर्क करें"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"सेटअप पूरा नहीं हुआ है. मदद के लिए अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"मदद के लिए अपने आईटी एडमिन से संपर्क करें"</string>
     <string name="organization_admin" msgid="5975914478148511290">"आईटी एडमिन"</string>
@@ -172,7 +172,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपकी वर्क प्रोफ़ाइल सेट अप करते हैं"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"काम से जुड़े ऐप्लिकेशन, आपके काम से जुड़ी प्रोफ़ाइल में रखे जाते हैं"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"दिनभर के काम खत्म हो जाने के बाद इन काम के लिए इस्तेमाल होने वाले ऐप्लिकेशन बंद करें"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ऑफ़िस के काम से जुड़ी प्रोफ़ाइल में सेव डेटा आपके आईटी एडमिन को दिखता है"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"आपके आईटी एडमिन को ऑफ़िस के काम से जुड़ी प्रोफ़ाइल में सेव डेटा दिखता है"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"काम से जुड़ी आपकी प्रोफ़ाइल सेट की जा रही है…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ऑफ़िस के काम से जुड़े ऐप्लिकेशन, काम से जुड़ी आपकी प्रोफ़ाइल में रखे जाते हैं. दिन भर का काम खत्म हो जाने के बाद आप काम से जुड़े अपने ऐप्लिकेशन को रोक सकते हैं. काम से जुड़ी आपकी प्रोफ़ाइल में सेव डेटा आपके आईटी एडमिन को दिखता है."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चलिए आपके काम से जुड़ा फ़ोन सेट अप करते हैं"</string>

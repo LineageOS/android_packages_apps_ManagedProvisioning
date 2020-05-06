@@ -37,7 +37,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"Aceptar"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Estoy de acuerdo"</string>
     <string name="url_error" msgid="5958494012986243186">"No se puede mostrar el enlace."</string>
-    <string name="terms" msgid="8295436105384703903">"Condiciones"</string>
+    <string name="terms" msgid="8295436105384703903">"Términos"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Información sobre el perfil de trabajo"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Información sobre el dispositivo administrado"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabajo"</string>
@@ -172,9 +172,9 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos a configurar tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pausa las aplicaciones de trabajo cuando haya acabado tu jornada laboral"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"El administrador de TI puede ver los datos que hay en tu perfil de trabajo"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Tu administrador de TI puede ver los datos que hay en tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurando tu perfil de trabajo…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo. Puedes pausar tus aplicaciones de trabajo cuando termine tu jornada laboral. El administrador de TI puede ver los datos que hay en tu perfil de trabajo."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo. Puedes pausar tus aplicaciones de trabajo cuando termine tu jornada laboral. Tu administrador de TI puede ver los datos que hay en tu perfil de trabajo."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos a configurar tu dispositivo de trabajo"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tener las aplicaciones de trabajo a tu alcance"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo no es privado"</string>
