@@ -182,7 +182,7 @@
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"درحال راه‌اندازی دستگاه…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏Use this device to easily access your work apps (برای دسترسی آسان به برنامه‌های کاری، از این دستگاه استفاده کنید). This device isn\'t private, so your IT admin may be able to see your data and activity (این دستگاه خصوصی نیست و بنابراین ممکن است سرپرست IT بتواند داده‌ها و فعالیتتان را ببیند). To learn more, contact your IT admin (برای آشنایی بیشتر، با سرپرست IT تماس بگیرید)."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"برنامه‌های کاری در نمایه کاری نگه داشته می‌شوند و سرپرست فناوری اطلاعات آن‌ها را مدیریت می‌کند"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"برنامه‌های شخصی مجزا هستند و از دسترس برنامه‌های کاری پنهان هستند"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"برنامه‌های شخصی از برنامه‌های کاری جدا است و از آن پنهان است"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل کند و برخی از برنامه‌ها را مسدود کند"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"برنامه‌های کاری در نمایه کاری نگه داشته می‌شوند و سرپرست فناوری اطلاعات می‌تواند آن‌ها را مدیریت کند. برنامه‌های شخصی مجزا هستند و از دسترس برنامه‌های کاری پنهان هستند. سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل کند و برخی از برنامه‌ها را مسدود کند."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"یادآوری حریم خصوصی"</string>
