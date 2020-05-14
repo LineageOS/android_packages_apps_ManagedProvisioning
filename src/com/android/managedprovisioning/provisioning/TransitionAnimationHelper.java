@@ -67,7 +67,8 @@ class TransitionAnimationHelper {
         new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_2_header,
                 R.drawable.not_private_animation,
                 R.string.fully_managed_device_provisioning_step_2_subheader,
-                /* showContactAdmin */ true)
+                /* showContactAdmin */ true,
+                /* shouldLoop */ true)
     }, R.string.fully_managed_device_provisioning_summary);
 
     @VisibleForTesting
@@ -76,9 +77,12 @@ class TransitionAnimationHelper {
         new TransitionScreenWrapper(R.string.cope_provisioning_step_1_header,
                 R.drawable.separate_work_and_personal_animation),
         new TransitionScreenWrapper(R.string.cope_provisioning_step_2_header,
-                R.drawable.pause_work_apps_animation),
+                R.drawable.personal_apps_separate_hidden_from_work_animation,
+                /* subHeader */ 0,
+                /* showContactAdmin */ false,
+                /* shouldLoop */ false),
         new TransitionScreenWrapper(R.string.cope_provisioning_step_3_header,
-                R.drawable.not_private_animation)
+                R.drawable.it_admin_control_device_block_apps_animation)
     }, R.string.cope_provisioning_summary);
 
     private static final int TRANSITION_TIME_MILLIS = 5000;
@@ -168,7 +172,8 @@ class TransitionAnimationHelper {
         }
         final AnimatedVectorDrawable vectorDrawable =
             (AnimatedVectorDrawable) mAnimationComponents.image.getDrawable();
-        mRepeatingVectorAnimation = new RepeatingVectorAnimation(vectorDrawable);
+        boolean shouldLoop = getTransitionForIndex(mCurrentTransitionIndex).shouldLoop;
+        mRepeatingVectorAnimation = new RepeatingVectorAnimation(vectorDrawable, shouldLoop);
         mRepeatingVectorAnimation.start();
     }
 
@@ -185,9 +190,8 @@ class TransitionAnimationHelper {
 
     @VisibleForTesting
     void updateUiValues(int currentTransitionIndex) {
-        final TransitionScreenWrapper[] transitions = mProvisioningModeWrapper.transitions;
         final TransitionScreenWrapper transition =
-                transitions[currentTransitionIndex % transitions.length];
+                getTransitionForIndex(currentTransitionIndex);
 
         mAnimationComponents.header.setText(transition.header);
 
@@ -212,6 +216,11 @@ class TransitionAnimationHelper {
         } else {
             providerInfo.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private TransitionScreenWrapper getTransitionForIndex(int currentTransitionIndex) {
+        TransitionScreenWrapper[] transitions = mProvisioningModeWrapper.transitions;
+        return transitions[currentTransitionIndex % transitions.length];
     }
 
     @VisibleForTesting
@@ -244,19 +253,22 @@ class TransitionAnimationHelper {
         final @DrawableRes int drawable;
         final @StringRes int subHeader;
         final boolean showContactAdmin;
+        final boolean shouldLoop;
 
         TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable) {
-            this(header, drawable, /* subHeader */ 0, /* showContactAdmin */ false);
+            this(header, drawable, /* subHeader */ 0, /* showContactAdmin */ false,
+                    /* shouldLoop */ true);
         }
 
         TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable,
-                @StringRes int subHeader, boolean showContactAdmin) {
+                @StringRes int subHeader, boolean showContactAdmin, boolean shouldLoop) {
             this.header = checkNotNull(header,
                     "Header resource id must be a positive number.");
             this.drawable = checkNotNull(drawable,
                     "Drawable resource id must be a positive number.");
             this.subHeader = subHeader;
             this.showContactAdmin = showContactAdmin;
+            this.shouldLoop = shouldLoop;
         }
     }
 
