@@ -172,9 +172,9 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Turuhusu tuweke wasifu wako wa kazini"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Simamisha programu za kazini unapoondoka kazini"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Msimamizi wako wa TEHAMA anaona Data iliyo kwenye wasifu wako wa kazini"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Inaweka mipangilio ya wasifu wako wa kazi…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini. Unaweza kusimamisha programu zako za kazini unapoondoka kazini. Msimamizi wako wa TEHAMA anaona Data iliyo kwenye wasifu wako wa kazini."</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Msimamizi wako wa TEHAMA anaona data iliyo kwenye wasifu wako wa kazini"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Wasifu wako wa kazi unawekwa…"</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini. Unaweza kusimamisha programu zako za kazini unapoondoka kazini. Msimamizi wako wa TEHAMA anaona data iliyo kwenye wasifu wako wa kazini."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Tuweke mipangilio kwenye kifaa chako cha kazini"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tumia programu zako za kazini popote ulipo"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Kifaa hiki si cha faragha"</string>
