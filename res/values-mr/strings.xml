@@ -53,7 +53,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"हे डिव्हाइस एंक्रिप्ट करायचे?"</string>
     <string name="encrypt" msgid="1749320161747489212">"एंक्रिप्ट करा"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"एंक्रिप्शन पूर्ण"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तुमचे कार्य प्रोफाईल सेट करणे सुरु ठेवण्यासाठी टॅप करा"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तुमचे कार्य प्रोफाईल सेट करणे सुरू ठेवण्यासाठी टॅप करा"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तुमचे कार्य प्रोफाईल सेट करणे शक्य झाले नाही. आपल्या IT विभागाशी संपर्क साधा किंवा नंतर पुन्हा प्रयत्न करा."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफाइल जोडू शकत नाही"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"कामाची प्रोफाइल बदलू किंवा काढू शकत नाही"</string>
