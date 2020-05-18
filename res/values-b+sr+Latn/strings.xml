@@ -48,13 +48,13 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ako nastavite, izbrisaćete sve aplikacije i podatke na ovom profilu."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Izbriši"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Otkaži"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Da biste podesili profil za posao, uređaj treba da se šifruje. To može da potraje."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Da biste podesili poslovni profil, uređaj treba da se šifruje. To može da potraje."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Da biste podesili ovaj uređaj, prvo treba da se šifruje. To može da potraje."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Šifrovati ovaj uređaj?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Šifruj"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Šifrovanje je dovršeno"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Dodirnite da biste nastavili sa podešavanjem poslovnog profila"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nije moguće podesiti profil za posao. Kontaktirajte IT sektor ili pokušajte ponovo kasnije."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Nije moguće podesiti poslovni profil. Kontaktirajte IT sektor ili pokušajte ponovo kasnije."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Dodavanje poslovnog profila nije uspelo"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Zamena ili uklanjanje poslovnog profila nisu uspeli"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Dodavanje poslovnog profila na ovaj uređaj nije uspelo. Ako imate pitanja, kontaktirajte IT administratora."</string>
@@ -101,7 +101,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Da"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Otkazuje se…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Želite li da zaustavite podešavanje profila?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Možete kasnije da podesite profil za posao u aplikaciji za upravljanje uređajem koju koristi organizacija."</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"Možete kasnije da podesite poslovni profil u aplikaciji za upravljanje uređajem koju koristi organizacija."</string>
     <string name="continue_button" msgid="7177918589510964446">"Nastavi"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Zaustavi"</string>
     <string name="dismiss" msgid="9009534756748565880">"Odbaci"</string>
@@ -127,7 +127,7 @@
     <string name="info_anim_title_0" msgid="3285414600215959704">"Promenite način rada"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Odvojite poslovne podatke od ličnih"</string>
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"Jedno mesto za poslovne aplikacije"</string>
-    <string name="info_anim_title_2" msgid="4629781398620470204">"Isključite Work kada završite"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"Isključite posao kada završite"</string>
     <string name="provisioning" msgid="4512493827019163451">"Dodeljuje se"</string>
     <string name="copying_certs" msgid="5697938664953550881">"Podešava se CA sertifikat"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Podesite profil"</string>

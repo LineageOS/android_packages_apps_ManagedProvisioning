@@ -173,7 +173,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Quando hai finito le tue mansioni quotidiane, metti in pausa le app di lavoro"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"I dati del tuo profilo di lavoro sono visibili all\'amministratore IT"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Impostazione di un profilo di lavoro…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurazione del profilo di lavoro…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro. Quando hai finito le tue mansioni quotidiane, puoi mettere in pausa le app di lavoro. I dati del tuo profilo di lavoro sono visibili all\'amministratore IT."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Configura il tuo dispositivo di lavoro"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Mantieni a portata di mano le app di lavoro"</string>
