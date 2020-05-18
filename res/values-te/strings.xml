@@ -113,7 +113,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ఈ పరికరం <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ద్వారా నిర్వహించబడుతుంది, పర్యవేక్షించబడుతుంది మరియు సురక్షితంగా ఉంచబడుతుంది. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> యొక్క నిబంధనలు వర్తిస్తాయి. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ఈ లింక్ సురక్షితం కాదు మరియు పరికరం సెటప్ పూర్తి అయ్యేంతవరకు దాన్ని తెరవడం సాధ్యపడదు: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"మరింత తెలుసుకోవడానికి, మీ <xliff:g id="IT_ADMIN">%1$s</xliff:g>ను సంప్రదించండి."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"మీకు ఏవైనా ప్రశ్నలు ఉంటే, మీ IT నిర్వాహకులను సంప్రదించండి"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"మీకు ఏవైనా సందేహాలు ఉంటే, మీ IT అడ్మిన్‌ను సంప్రదించండి"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"సెటప్ పూర్తి కాలేదు. సహాయం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి"</string>
     <string name="organization_admin" msgid="5975914478148511290">"IT నిర్వాహకులు"</string>
@@ -172,8 +172,8 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"మీ రోజువారీ పని పూర్తయినప్పుడు కార్యాలయ యాప్‌లను పాజ్ చేయండి"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌లకు కనిపిస్తుంది"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది…"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"మీ ఆఫీస్ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌లకు కనిపిస్తుంది"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"మీ ఆఫీస్ ప్రొఫైల్‌ను సెటప్ చేస్తోంది…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి. మీ రోజువారీ పని పూర్తయినప్పుడు మీ కార్యాలయ యాప్‌లను మీరు పాజ్ చేయవచ్చు. మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌లకు కనిపిస్తుంది"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"మీ కార్యాలయ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"మీ కార్యాలయ యాప్‌లు సత్వరం యాక్సెస్ చేయగలిగేలా అందుబాటులో ఉంచుకోండి"</string>
