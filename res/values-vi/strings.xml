@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Quản trị viên CNTT có thể xem được dữ liệu và hoạt động của bạn trên thiết bị này."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Đang thiết lập thiết bị của bạn..."</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Hãy sử dụng thiết bị này để dễ dàng truy cập vào ứng dụng công việc của bạn. Đây không phải là thiết bị riêng tư nên quản trị viên CNTT có thể xem được dữ liệu và hoạt động của bạn. Hãy liên hệ với quản trị viên CNTT để tìm hiểu thêm."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc của bạn và do quản trị viên CNTT quản lý"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Những ứng dụng cá nhân được lưu giữ riêng biệt và ẩn khỏi các ứng dụng công việc"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Quản trị viên CNTT có thể kiểm soát thiết bị này và chặn một số ứng dụng"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ứng dụng c.việc lưu trong hồ sơ c.việc &amp; do q.trị CNTT q.lý"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Ứng dụng cá nhân được lưu riêng &amp; ẩn khỏi ứng dụng công việc"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Q.trị CNTT có thể k.soát thiết bị này &amp; chặn một số ứng dụng"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc của bạn và do quản trị viên CNTT quản lý. Những ứng dụng cá nhân được lưu giữ riêng biệt và ẩn khỏi các ứng dụng công việc. Quản trị viên CNTT có thể kiểm soát thiết bị này và chặn một số ứng dụng."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lời nhắc về quyền riêng tư"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Quản trị viên CNTT có thể sẽ xem được dữ liệu và hoạt động của bạn trên thiết bị này"</string>
