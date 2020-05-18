@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Simamisha programu za kazini unapoondoka kazini"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Data iliyo kwenye wasifu wako wa kazini pekee ndiyo inayoonekana na msimamizi wako wa TEHAMA"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Inaweka mipangilio ya wasifu wako wa kazi…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Wasifu wako wa kazi unawekwa…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini. Unaweza kusimamisha programu zako za kazini unapoondoka kazini. Data iliyo kwenye wasifu wako wa kazini pekee ndiyo inayoonekana na msimamizi wako wa TEHAMA."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Tuweke mipangilio kwenye kifaa chako cha kazini"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tumia programu zako za kazini popote ulipo"</string>

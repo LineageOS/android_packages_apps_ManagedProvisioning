@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"دن کا کام مکمل کر لینے کے بعد دفتری ایپس کو موقوف کریں"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"‏صرف آپ کے دفتری پروفائل میں دستیاب ڈیٹا آپ کے IT منتظم کو دکھائی دے سکتا ہے"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"آپ کے دفتری پروفائل کو سیٹ اپ کیا جا رہا ہے…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"آپ کی دفتری پروفائل کو سیٹ اپ کیا جا رہا ہے…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"‏دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے۔ دن کا اپنا کام مکمل کرنے کے بعد آپ اپنی دفتری ایپس کو موقوف کر سکتے ہیں۔ آپ کا IT منتظم صرف آپ کے دفتری پروفائل میں دستیاب ڈیٹا ہی دیکھ سکتا ہے۔"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"آئیے آپ کا دفتری آلہ سیٹ اپ کریں"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"اپنی دفتری ایپس کو اپنے لیے بآسانی قابل رسائی بنائيں"</string>

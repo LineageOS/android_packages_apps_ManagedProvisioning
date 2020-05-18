@@ -40,7 +40,7 @@
     <string name="terms" msgid="8295436105384703903">"Villkor"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Information om jobbprofil"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Information om hanterad enhet"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"Arbetsprofil"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"Jobbprofil"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primär användare"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Vill du radera den nuvarande profilen?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Du har redan en jobbprofil. Den hanteras med följande app:"</string>
@@ -54,7 +54,7 @@
     <string name="encrypt" msgid="1749320161747489212">"Kryptera"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Krypteringen är klar"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Tryck här om du vill fortsätta konfigurera din jobbprofil"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Det gick inte att konfigurera arbetsprofilen. Kontakta IT-avdelningen eller försök igen senare."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Det gick inte att konfigurera jobbprofilen. Kontakta IT-avdelningen eller försök igen senare."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Det går inte att lägga till jobbprofiler"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Det gick inte att ersätta eller ta bort jobbprofilen"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Det gick inte att lägga till jobbprofilen på den här enheten. Kontakta IT-administratören om du har frågor."</string>
@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Jobbappar lagras i din jobbprofil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pausa dina jobbappar när du har jobbat klart för dagen"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Det är bara data i din jobbprofil som är synlig för IT-administratören"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Konfigurerar arbetsprofilen …"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Konfigurerar jobbprofilen …"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Jobbappar lagras i din jobbprofil. Du kan pausa dina jobbappar när du har jobbat klart för dagen. Det är bara data i din jobbprofil som är synlig för IT-administratören."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Sätt igång att konfigurera jobbenheten"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ha jobbapparna nära till hands"</string>

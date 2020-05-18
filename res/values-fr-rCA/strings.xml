@@ -111,7 +111,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Cet appareil sera géré, suivi et sécurisé par <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Certaines conditions de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> s\'appliquent. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Ce lien n\'est pas sécurisé. Impossible de l\'ouvrir tant que la configuration de l\'appareil n\'est pas terminée : <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"Pour en savoir plus, communiquez avec votre <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Si vous avez des questions, veuillez communiquer avec votre administrateur informatique"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Si vous avez des questions, communiquez avec votre administrateur informatique"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"La configuration n\'est pas terminée. Pour obtenir de l\'aide, communiquez avec votre administrateur informatique."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Pour obtenir de l\'aide, communiquez avec votre administrateur informatique"</string>
     <string name="organization_admin" msgid="5975914478148511290">"Administrateur informatique"</string>
@@ -130,7 +130,7 @@
     <string name="copying_certs" msgid="5697938664953550881">"Configuration des certificats CA en cours…"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Configurer votre profil"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"En utilisant un profil professionnel, vous pouvez séparer vos données professionnelles de vos données personnelles"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"En utilisant un profil professionnel, vous pouvez garder vos applications de bureau en un seul endroit"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"En utilisant un profil professionnel, vous pouvez garder vos applications de travail en un seul endroit"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Configurer votre profil. Chiffrement."</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Configurer votre profil. Affichage de la progression."</string>
     <string name="setup_device" msgid="6725265673245816366">"Configurer l\'appareil"</string>

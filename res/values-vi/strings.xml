@@ -169,7 +169,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Hãy cùng thiết lập hồ sơ công việc của bạn"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc của bạn"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Tạm dừng ứng dụng công việc khi bạn hoàn thành mọi việc trong ngày"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Quản trị viên CNTT chỉ có thể xem dữ liệu trong hồ sơ công việc của bạn"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Quản trị viên CNTT của bạn chỉ có thể xem dữ liệu trong hồ sơ công việc của bạn"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Đang thiết lập hồ sơ công việc…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc của bạn. Bạn có thể tạm dừng ứng dụng công việc khi hoàn thành mọi việc trong ngày. Quản trị viên CNTT chỉ có thể xem dữ liệu trong hồ sơ công việc của bạn."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Hãy cùng thiết lập thiết bị công việc của bạn"</string>

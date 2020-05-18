@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"অফিসের অ্যাপ আপনার অফিসের প্রোফাইলে রাখা হয়েছে"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"দিনের কাজ শেষ হয়ে গেলে, আপনার অফিসের অ্যাপ আপনি পজ করে দিতে পারেন"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"আইটি অ্যাডমিন শুধু আপনার অফিসের প্রোফাইলের ডেটা দেখতে পান"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"আপনার অফিসের প্রোফাইল সেট-আপ করা হচ্ছে…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"আপনার অফিস প্রোফাইল সেট আপ করা হচ্ছে…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"অফিসের অ্যাপ আপনার অফিসের প্রোফাইলে রাখা হয়েছে। দিনের কাজ শেষ হয়ে গেলে, আপনার অফিসের অ্যাপ আপনি পজ করে দিতে পারেন। আইটি অ্যাডমিন শুধু আপনার অফিসের প্রোফাইলের ডেটা দেখতে পান।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"আপনার অফিসের ডিভাইস সেট-আপ করা যাক"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"অফিসের অ্যাপ আপনার হাতের কাছে রাখুন"</string>

@@ -40,7 +40,7 @@
     <string name="terms" msgid="8295436105384703903">"શરતો"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"કાર્ય પ્રોફાઇલની માહિતી"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"સંચાલિત ઉપકરણની માહિતી"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"કાર્યાલયની પ્રોફાઇલ"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"ઑફિસની પ્રોફાઇલ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"પ્રાથમિક વપરાશકર્તા"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"વર્તમાન પ્રોફાઇલ કાઢી નાખીએ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"તમે પહેલેથી કાર્યાલયની પ્રોફાઇલ ધરાવો છો. નિમ્નલિખિત ઍપ્લિકેશનના ઉપયોગ દ્વારા તેનું સંચાલન થાય છે:"</string>
@@ -53,7 +53,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"આને એન્ક્રિપ્ટ કરીએ?"</string>
     <string name="encrypt" msgid="1749320161747489212">"એન્ક્રિપ્ટ કરો"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"એન્ક્રિપ્શન પૂર્ણ"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"તમારી કાર્યાલયની પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે ટૅપ કરો"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"તમારી ઑફિસની પ્રોફાઇલ સેટ કરવાનું ચાલુ રાખવા માટે ટૅપ કરો"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"તમારી કાર્યાલયની પ્રોફાઇલ સેટ કરી શકાઈ નથી. તમારા આઇટી વિભાગનો સંપર્ક કરો અથવા પછી ફરીથી પ્રયાસ કરો."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"કાર્યાલયની પ્રોફાઇલ ઉમેરી શકતા નથી"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"કાર્ય પ્રોફાઇલને બદલી અથવા દૂર કરી શકાતી નથી"</string>
@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"કાર્ય સંબંધી ઍપ તમારા કાર્યાલયના પ્રોફાઇલમાં રાખવામાં આવે છે"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે કાર્ય સંબંધી ઍપ થોભાવો"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"તમારા IT વ્યવસ્થાપક માત્ર તમારા કાર્યાલયના પ્રોફાઇલમાંનો ડેટા જોઈ શકશે"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"તમારું કાર્યાલયનું પ્રોફાઇલ સેટ કરી રહ્યાં છીએ…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"તમારી ઑફિસની પ્રોફાઇલ સેટ કરી રહ્યાં છીએ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"કાર્ય સંબંધી ઍપ તમારા કાર્યાલયના પ્રોફાઇલમાં રાખવામાં આવે છે. જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે તમે કાર્ય સંબંધી ઍપ થોભાવી શકો છો. તમારા IT વ્યવસ્થાપક માત્ર તમારા કાર્યાલયના પ્રોફાઇલમાંનો ડેટા જોઈ શકશે."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારો કાર્યાલયનો ફોન સેટ કરીએ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"તમારી કાર્ય સંબંધી ઍપને તમારી આંગળીના ટેરવે રાખો"</string>

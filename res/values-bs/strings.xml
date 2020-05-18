@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Poslovne aplikacije se čuvaju u vašem poslovnom profilu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzirajte poslovne aplikacije kada završite za taj dan"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"IT administrator može vidjeti isključivo podatke na vašem poslovnom profilu"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Postavljanje vašeg poslovnog profila…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Postavljanje vašeg radnog profila…"</string>
     <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Poslovne aplikacije se čuvaju u vašem poslovnom profilu. Poslovne aplikacije možete pauzirati kada završite za taj dan. IT administrator može vidjeti isključivo podatke na vašem poslovnom profilu."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Postavimo vaš poslovni uređaj"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Držite svoje poslovne aplikacije nadohvat ruke"</string>

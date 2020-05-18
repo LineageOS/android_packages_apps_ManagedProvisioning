@@ -37,7 +37,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"Aceptar"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Estoy de acuerdo"</string>
     <string name="url_error" msgid="5958494012986243186">"No se puede mostrar el enlace."</string>
-    <string name="terms" msgid="8295436105384703903">"Condiciones"</string>
+    <string name="terms" msgid="8295436105384703903">"Términos"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Información sobre el perfil de trabajo"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Información sobre el dispositivo administrado"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil de trabajo"</string>
