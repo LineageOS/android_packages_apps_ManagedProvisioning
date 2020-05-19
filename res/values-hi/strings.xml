@@ -172,8 +172,8 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपकी वर्क प्रोफ़ाइल सेट अप करते हैं"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"काम से जुड़े ऐप्लिकेशन, आपके काम से जुड़ी प्रोफ़ाइल में रखे जाते हैं"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"दिनभर के काम खत्म हो जाने के बाद इन काम के लिए इस्तेमाल होने वाले ऐप्लिकेशन बंद करें"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"आपके आईटी एडमिन को ऑफ़िस के काम से जुड़ी प्रोफ़ाइल में सेव डेटा दिखता है"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"काम से जुड़ी आपकी प्रोफ़ाइल सेट की जा रही है…"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"आपके आईटी एडमिन को आपकी वर्क प्रोफ़ाइल में सेव डेटा दिखता है"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"वर्क प्रोफ़ाइल सेट की जा रही है…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ऑफ़िस के काम से जुड़े ऐप्लिकेशन, काम से जुड़ी आपकी प्रोफ़ाइल में रखे जाते हैं. दिन भर का काम खत्म हो जाने के बाद आप काम से जुड़े अपने ऐप्लिकेशन को रोक सकते हैं. काम से जुड़ी आपकी प्रोफ़ाइल में सेव डेटा आपके आईटी एडमिन को दिखता है."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चलिए आपके काम से जुड़ा फ़ोन सेट अप करते हैं"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"काम के लिए इस्तेमाल किए जाने वाले ऐप्लिकेशन अपनी उंगली की नोक पर रखें"</string>
