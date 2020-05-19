@@ -113,7 +113,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Cet appareil sera géré, suivi et sécurisé par <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Certaines conditions de <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> s\'appliquent. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Ce lien n\'est pas sécurisé. Impossible de l\'ouvrir tant que la configuration de l\'appareil n\'est pas terminée : <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"Pour en savoir plus, communiquez avec votre <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Si vous avez des questions, veuillez communiquer avec votre administrateur informatique"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Si vous avez des questions, communiquez avec votre administrateur informatique"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"La configuration n\'est pas terminée. Pour obtenir de l\'aide, communiquez avec votre administrateur informatique."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Pour obtenir de l\'aide, communiquez avec votre administrateur informatique"</string>
     <string name="organization_admin" msgid="5975914478148511290">"Administrateur informatique"</string>
@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Il se peut que votre administrateur informatique puisse voir vos données et votre activité sur cet appareil."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil en cours…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utiliser cet appareil pour accéder facilement à vos applications professionnelles. Cet appareil n\'est pas privé, alors il se peut que votre administrateur informatique puisse voir vos données et votre activité. Communiquez avec votre administrateur informatique pour en savoir plus."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis sont conservées dans votre profil professionnel"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Il se peut que votre administrateur informatique puisse voir vos données et votre activité sur cet appareil"</string>

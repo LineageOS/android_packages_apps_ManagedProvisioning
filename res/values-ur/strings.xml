@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"آپ کا آلہ سیٹ اپ کیا جا رہا ہے…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏اپنی دفتری ایپس تک آسانی سے رسائی حاصل کرنے کے لیے یہ آلہ استعمال کریں۔ یہ آلہ نجی نہیں ہے، اس لیے آپ کا IT منتظم آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔ مزید جاننے کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏دفتری ایپس کو آپ کی دفتری پروفائل میں رکھا گیا ہے اور آپ کے IT منتظم کے زیر انتظام ہے"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ذاتی ایپس دفتری ایپس سے چپھی ہوئی اور علیحدہ ہوتی ہیں"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏آپ کا IT منتظم اس آلہ کو کنٹرول کر سکتا ہے اور کچھ ایپس کو مسدود کر سکتا ہے"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏دفتری ایپس آپکی دفتری پروفائل میں IT منتظم کے زیر انتظام ہوتی ہیں"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ذاتی ایپس دفتری ایپس سے پوشیدہ اور علیحدہ ہوتی ہیں"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏آپکا IT منتظم یہ آلہ کنٹرول اور کچھ ایپس مسدود کرسکتا ہے"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"‏دفتری ایپس کو آپ کی دفتری پروفائل میں رکھا گیا ہے اور آپ کے IT منتظم کے زیر انتظام ہیں۔ ذاتی ایپس دفتری ایپس سے چھپی ہوئی اور علیحدہ ہوتی ہیں۔ آپ کا IT منتظم اس آلہ کو کنٹرول کر سکتا ہے اور کچھ ایپس کو مسدود کر سکتا ہے۔"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"رازداری کی یاد دہانی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے"</string>
