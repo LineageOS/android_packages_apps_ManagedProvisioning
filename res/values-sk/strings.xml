@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Zariadenie sa nastavuje…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Toto zariadenie vám poskytuje jednoduchý prístup k pracovným aplikáciám. Nie je súkromné, takže správa IT si môže zobraziť vaše údaje a aktivitu. Ďalšie informácie vám poskytne správca IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile a ovládané vaším správcom IT"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Váš správca IT môže ovládať toto zariadenie a blokovať určité aplikácie"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Prac. ap. sú uložené v prac. profile a ovláda ich správca IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobné aplikácie sú od pracovných oddelené a nevidno ich"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Toto zariadenie ovláda správca IT (môže blokovať aplikácie)"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile a ovládané vaším správcom IT. Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť. Váš správca IT môže ovládať toto zariadenie a blokovať určité aplikácie."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie týkajúce sa ochrany súkromia"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení"</string>

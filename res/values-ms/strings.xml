@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Pentadbir IT anda mungkin dapat melihat data dan aktiviti anda pada peranti ini."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Menyediakan peranti anda…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gunakan peranti ini untuk mengakses apl kerja anda dengan mudah. Peranti ini bukan peribadi, maka pentadbir IT anda mungkin dapat melihat data dan aktiviti anda. Untuk mengetahui lebih lanjut, hubungi pentadbir IT anda."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl kerja disimpan dalam profil kerja anda &amp; diurus oleh pentadbir IT anda"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl peribadi adalah berasingan &amp; disembunyikan daripada apl kerja"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Pentadbir IT anda boleh mengawal peranti ini &amp; menyekat apl tertentu"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl kerja disimpan dlm profil kerja &amp; diurus pentadbir IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl peribadi diasingkan &amp; disembunyikan daripada apl kerja"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Pentadbir IT boleh mengawal peranti &amp; menyekat apl tertentu"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Apl kerja disimpan dalam profil kerja anda dan diurus oleh pentadbir IT anda. Apl peribadi adalah berasingan dan disembunyikan daripada apl kerja. Pentadbir IT anda boleh mengawal peranti ini dan menyekat apl tertentu."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Peringatan privasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Pentadbir IT anda mungkin dapat melihat data dan aktiviti anda pada peranti ini"</string>

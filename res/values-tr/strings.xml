@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Cihazınız ayarlanıyor…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"İş uygulamalarınıza kolayca erişmek için bu cihazı kullanın. Bu cihaz gizli olmadığından IT yöneticiniz verilerinizi ve etkinliklerinizi görebilir. Daha fazla bilgi edinmek için IT yöneticinizle iletişime geçin."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizdedir ve BT yöneticinizin kontrolündedir"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Yöneticiniz bu cihazı kontrol edebilir, uygulamaları engelleyebilir"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir. Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir. BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Gizlilik hatırlatıcısı"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir"</string>

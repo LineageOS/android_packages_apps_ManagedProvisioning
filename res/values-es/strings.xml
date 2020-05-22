@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Tu administrador de TI puede ver los datos y la actividad de este dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando el dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utiliza este dispositivo para acceder fácilmente a las aplicaciones de trabajo. Este dispositivo no es privado, por lo que tu administrador de TI puede ver tus datos y actividad. Para obtener más información, ponte en contacto con tu administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo y las gestiona el administrador de TI"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las aplicaciones personales se mantienen separadas y ocultas de las aplicaciones de trabajo"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"El administrador de TI puede controlar este dispositivo y bloquear algunas aplicaciones"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Las apps de trabajo las gestiona el administrador de TI"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales se mantienen ocultas de las de trabajo"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu admin. de TI puede controlar el disp. y bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo y las gestiona el administrador de TI. Las aplicaciones personales se mantienen separadas y ocultas de las aplicaciones de trabajo. El administrador de TI puede controlar este dispositivo y bloquear algunas aplicaciones."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidad"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Tu administrador de TI puede ver los datos y actividad de este dispositivo"</string>
