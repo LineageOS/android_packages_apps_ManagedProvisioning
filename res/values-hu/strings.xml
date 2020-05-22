@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Rendszergazdája láthatja az eszközön végzett tevékenységeit és a rajta tárolt adatait."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Az eszköz beállítása folyamatban van…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ezzel az eszközzel könnyen hozzáférhet munkahelyi alkalmazásaihoz. Az eszköz nem privát, így a rendszergazdája láthatja az Ön adatait és tevékenységeit. További információért forduljon rendszergazdájához."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi alkalmazások a munkaprofiljában találhatók, és a rendszergazdája kezeli őket"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"A személyes alkalmazások elkülönítve találhatók, és el vannak rejtve a munkahelyi alkalmazások elől"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Rendszergazdája vezérelheti ezt az eszközt, és letilthat bizonyos alkalmazásokat"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi appok a munkaprofilban vannak, rendszergazda kezeli őket"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"A személyes appok külön vannak a munkahelyi alkalmazásoktól"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"A rendszergazda kezeli ezt az eszközt, és letilthat appokat"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"A munkahelyi alkalmazások a munkaprofiljában találhatók, és a rendszergazdája kezeli őket. A személyes alkalmazások elkülönítve találhatók, és el vannak rejtve a munkahelyi alkalmazások elől Rendszergazdája vezérelheti ezt az eszközt, és letilthat bizonyos alkalmazásokat"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Adatvédelmi emlékeztető"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Rendszergazdája láthatja az eszközön végzett tevékenységeit és a rajta tárolt adatait"</string>
