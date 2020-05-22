@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"L\'administrador de TI podrà veure les teves dades i la teva activitat en aquest dispositiu."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"S\'està configurant el dispositiu…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilitza aquest dispositiu per accedir fàcilment a les aplicacions de treball. Aquest dispositiu no és privat i, per tant, l\'administrador de TI podrà veure les teves dades i la teva activitat. Per obtenir més informació, contacta amb l\'administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"L\'administrador de TI gestiona les teves aplicacions de treball, que es desen al teu perfil de treball"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les aplicacions personals s\'oculten i se separen de les aplicacions de treball"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'administrador de TI pot controlar aquest dispositiu i bloquejar aplicacions determinades"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"L\'admin. de TI gestiona apps de treball al perfil de treball"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les apps personals es mantenen ocultes de les de treball"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'admin. de TI pot controlar el dispositiu i bloquejar apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"L\'administrador de TI gestiona les teves aplicacions de treball, que es desen al teu perfil de treball. Les aplicacions personals s\'oculten i se separen de les aplicacions de treball. L\'administrador de TI pot controlar aquest dispositiu i bloquejar aplicacions determinades."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatori de privadesa"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"L\'administrador de TI podrà veure les teves dades i la teva activitat en aquest dispositiu"</string>
