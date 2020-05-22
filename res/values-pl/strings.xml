@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfiguruję urządzenie…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Użyj tego urządzenia, by łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc Twój administrator IT może mieć podgląd Twoich danych i aktywności. Aby dowiedzieć się więcej, skontaktuj się z administratorem IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikacje do pracy znajdują się w profilu do pracy, a zarządza nimi administrator IT"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikacje osobiste znajdują się w innym miejscu i są niewidoczne dla aplikacji do pracy"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator IT może zarządzać tym urządzeniem i blokować niektóre aplikacje"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikacje służbowe są w profilu służbowym i zarządza nimi administrator"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikacje osobiste są osobno, niewidoczne dla aplikacji służbowych"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator może zarządzać tym urządzeniem i blokować aplikacje"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Aplikacje do pracy znajdują się w profilu do pracy, a zarządza nimi administrator IT. Aplikacje osobiste znajdują się w innym miejscu i są niewidoczne dla aplikacji do pracy. Administrator IT może zarządzać tym urządzeniem i blokować niektóre aplikacje."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Przypomnienie o prywatności"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu"</string>

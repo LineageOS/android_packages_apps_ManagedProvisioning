@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilisez cet appareil pour accéder facilement à vos applications professionnelles. Cet appareil n\'est pas privé. De ce fait, votre administrateur informatique peut voir vos données et votre activité. Pour en savoir plus, contactez ce dernier."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte."</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis pros sont conservées dans votre profil pro"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique contrôle cet appareil"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel concernant les règles de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil"</string>

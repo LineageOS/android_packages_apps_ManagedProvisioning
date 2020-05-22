@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode ter acesso aos seus dados e atividade neste dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"A configurar o seu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilize este dispositivo para aceder facilmente às suas aplicações de trabalho. Este dispositivo não é privado, pelo que o administrador de TI pode ter acesso aos seus dados e atividade. Para saber mais, contacte o administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"As apps de trabalho são mantidas no seu perfil de trabalho e geridas pelo seu administrador de TI"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As apps pessoais são separadas e ocultas das apps de trabalho"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O seu administrador de TI pode controlar este dispositivo e bloquear determinadas apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apps de trab. são do perfil de trab. e geridas pelo administrador"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As apps pessoais são separadas e ocultas das de trabalho"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador pode controlar o dispositivo e bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"As apps de trabalho são mantidas no seu perfil de trabalho e geridas pelo seu administrador de TI. As apps pessoais são separadas e ocultas das apps de trabalho. O seu administrador de TI pode controlar este dispositivo e bloquear determinadas apps."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lembrete de privacidade"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O administrador de TI pode ter acesso aos seus dados e atividade neste dispositivo."</string>
