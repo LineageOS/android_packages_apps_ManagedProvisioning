@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Qurilma sozlanmoqda…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ishchi ilovalardan osongina foydalanish uchun bu qurilmadan foydalaning. Bu qurilma maxfiy emas, AT administratoringiz maʼlumotlaringiz va harakatlaringizni koʻra oladi. Batafsil axborot olish uchun AT administratoringizga murojaat qiling."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ishga oid ilovalar – ish profilida, admin boshqaradi"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Shaxsiy ilovalar – ishga oid ilovalardan alohida"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin bu qurilmani boshqarishi va ilovalarni bloklashi mumkin"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi. Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan. AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>

@@ -181,8 +181,8 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"מגדיר את המכשיר שלך…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏אפשר להשתמש במכשיר הזה כדי לגשת בקלות אל אפליקציות העבודה. המכשיר הזה אינו פרטי, כך שייתכן כי מנהל ה-IT יכול לראות את הנתונים והפעילות שלך. כדי לקבל מידע נוסף יש לפנות אל מנהל ה-IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות לעבודה מאוחסנות בפרופיל העבודה שלך ומנוהלות על ידי מנהל ה-IT"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"אפליקציות לשימוש אישי מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות עבודה מאוחסנות בפרופיל שלך ומנוהלות בידי מנהל ה-IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"אפליקציות אישיות מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏מנהל ה-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"‏אפליקציות לעבודה נשמרות בפרופיל העבודה ומנוהלות על ידי מנהל ה-IT. אפליקציות לשימוש אישי מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה. מנהל ה-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"תזכורת פרטיות"</string>

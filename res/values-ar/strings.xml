@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"جارٍ إعداد جهازك…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"يمكنك استخدام هذا الجهاز للوصول سريعًا إلى تطبيقات العمل. هذا الجهاز ليس خاصًا، ولذلك قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك. لمعرفة مزيد من المعلومات، يمكنك التواصل مع مشرف تكنولوجيا المعلومات."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"يتم الاحتفاظ بملفات العمل في الملف الشخصي للعمل ويديرها مشرف تكنولوجيا المعلومات في مؤسستك."</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"تكون التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"يستطيع مشرف تكنولوجيا المعلومات التحكّم في هذا الجهاز وحظر بعض التطبيقات"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"يُحتفظ بتطبيقات العمل بالملف الشخصي للعمل ويُديرها مشرف تقنية المعلومات"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"يستطيع مشرف تقنية المعلومات التحكم بالجهاز وحظر التطبيقات"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل ويديرها مشرف تكنولوجيا المعلومات في مؤسستك. تكون التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها. يستطيع مشرف تكنولوجيا المعلومات التحكّم في هذا الجهاز وحظر بعض التطبيقات."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"تذكير الخصوصية"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
