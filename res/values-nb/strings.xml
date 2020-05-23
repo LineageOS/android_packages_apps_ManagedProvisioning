@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-administratoren din kan se dataene dine og aktiviteten din på denne enheten."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerer enheten din …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Bruk denne enheten for å få tilgang til jobbappene dine. Denne enheten er ikke privat, så IT-administratoren din kan se dataene dine og aktiviteten din. For å finne ut mer, kontakt IT-administratoren din."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Jobbappene oppbevares i jobbprofilen din og administreres av IT-administratoren"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apper i jobbprofilen din administreres av IT-administratoren"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personlige apper er atskilte og skjules fra jobbapper"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administratoren din kan kontrollere denne enheten og blokkere visse apper"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administratoren kan sjekke enheten og blokkere noen apper"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Jobbappene oppbevares i jobbprofilen din og administreres av IT-administratoren. Personlige apper er atskilte og skjules fra jobbapper. IT-administratoren din kan kontrollere denne enheten og blokkere visse apper."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Personvernpåminnelse"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT-administratoren din kan se dataene dine og aktiviteten din på denne enheten"</string>

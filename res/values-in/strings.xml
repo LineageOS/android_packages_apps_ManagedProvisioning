@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Admin IT mungkin dapat melihat data dan aktivitas Anda di perangkat ini."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Menyiapkan perangkat…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gunakan perangkat ini untuk mengakses aplikasi kerja Anda dengan mudah. Perangkat ini tidak bersifat pribadi, jadi admin IT mungkin dapat melihat data dan aktivitas Anda. Untuk mempelajari lebih lanjut, hubungi admin IT Anda."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikasi kerja disimpan dalam profil kerja Anda &amp; dikelola oleh admin IT Anda"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikasi pribadi terpisah &amp; disembunyikan dari aplikasi kerja"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin IT Anda dapat mengontrol perangkat ini &amp; memblokir aplikasi tertentu"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl kerja disimpan di profil kerja &amp; dikelola admin IT Anda"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl pribadi terpisah &amp; disembunyikan dari aplikasi kerja"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin IT bisa mengontrol perangkat ini &amp; memblokir apl tertentu"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Aplikasi kerja disimpan dalam profil kerja Anda dan dikelola oleh admin IT Anda. Aplikasi pribadi terpisah dan disembunyikan dari aplikasi kerja. Admin IT Anda dapat mengontrol perangkat ini dan memblokir aplikasi tertentu."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pengingat privasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Admin IT mungkin dapat melihat data dan aktivitas Anda di perangkat ini"</string>

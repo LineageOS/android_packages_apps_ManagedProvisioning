@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Din it-administrator kan muligvis se dine data og din aktivitet på denne enhed."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerer din enhed…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Brug denne enhed til nemt at få adgang til dine arbejdsapps. Denne enhed er ikke privat, så din it-administrator kan muligvis se dine data og din aktivitet. Kontakt din it-administrator for at få flere oplysninger."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Arbejdsapps gemmes på din arbejdsprofil og administreres af din it-administrator"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Arbejdsapps gemmes på arbejdsprofilen &amp; administreres af it-admin"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personlige apps holdes adskilt og skjult fra arbejdsapps"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Din it-administrator kan styre denne enhed og blokere bestemte apps"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Din it-admin kan styre denne enhed og blokere bestemte apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Arbejdsapps gemmes på din arbejdsprofil og administreres af din it-administrator. Personlige apps holdes adskilt og skjult fra arbejdsapps. Din it-administrator kan styre denne enhed og blokere bestemte apps."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privatlivspåmindelse"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Din it-administrator kan muligvis se dine data og din aktivitet på denne enhed"</string>

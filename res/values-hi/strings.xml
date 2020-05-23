@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"आपका आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकता है."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"आपका डिवाइस सेट किया जा रहा है…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"इस डिवाइस का इस्तेमाल अपने काम से जुड़े ऐप्लिकेशन आसानी से ऐक्सेस करने के लिए करें. यह डिवाइस निजी नहीं है इसलिए आपके आईटी एडमिन आपका डेटा और गतिविधि देख सकते हैं. ज़्यादा जानने के लिए अपने आईटी एडमिन से संपर्क करें."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ऑफ़िस के काम से जुड़े ऐप्लिकेशन, काम से जुड़ी आपकी प्रोफ़ाइल में रखे जाते हैं. साथ ही, इन्हें आपका आईटी एडमिन प्रबंधित करता है"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"निजी ऐप्लिकेशन अलग होते हैं और ऑफ़िस के काम से जुड़े ऐप्लिकेशन से छिपे होते हैं"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आपका आईटी एडमिन इस डिवाइस को कंट्रोल कर सकता है और कुछ ऐप्लिकेशन को ब्लॉक कर सकता है"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ऑफ़िस के काम के ऐप वर्क प्रोफ़ाइल में रखे जाते हैं. इन्हें आईटी एडमिन प्रबंधित करता है"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"निजी ऐप अलग होते हैं और ऑफ़िस के काम से जुड़े ऐप से छिपे होते हैं"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आईटी एडमिन इस डिवाइस को कंट्रोल और कुछ ऐप ब्लॉक कर सकता है"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"ऑफिस के काम से जुड़े ऐप्लिकेशन, काम से जुड़ी आपकी प्रोफ़ाइल में रखे जाते हैं. इन्हें आपका आईटी एडमिन प्रबंधित करता है. निजी ऐप्लिकेशन अलग होते हैं और ऑफ़िस के काम से जुड़े ऐप्लिकेशन से छिपे होते हैं. आपका आईटी एडमिन इस डिवाइस को कंट्रोल कर सकता है और कुछ ऐप्लिकेशन को ब्लॉक कर सकता है."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"निजता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"आपके आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकते हैं"</string>

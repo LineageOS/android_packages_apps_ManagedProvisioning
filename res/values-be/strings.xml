@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ваш IT-адміністратар можа праглядаць вашы даныя і дзеянні на гэтай прыладзе."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ваша прылада наладжваецца…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Карыстайцеся гэтай прыладай, каб мець хуткі доступ да працоўных праграм. Гэта прылада не прыватная, таму ваш IT-адміністратар можа праглядаць на ёй даныя і дзеянні Каб даведацца больш, звярніцеся да IT-адміністратара."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Працоўныя праграмы захоўваюцца ў працоўным профілі і знаходзяцца пад кіраваннем ІТ-адміністратара"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Асабістыя праграмы схаваны і паказваюцца адасоблена ад працоўных праграм"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ваш ІТ-адміністратар можа кіраваць прыладай і блакіраваць пэўныя праграмы"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Працоўныя праграмы захаваны ў працоўным профілі і кіруюцца адміністратарам"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Асабістыя праграмы схаваны і адасоблены ад працоўных"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ваш ІТ-адміністратар можа кіраваць прыладай і праграмамі"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Працоўныя праграмы захоўваюцца ў працоўным профілі і знаходзяцца пад кіраваннем ІТ-адміністратара. Асабістыя праграмы схаваны і паказваюцца адасоблена ад працоўных праграм. Ваш ІТ-адміністратар можа кіраваць гэтай прыладай і блакіраваць пэўныя праграмы."</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напамін аб прыватнасці"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Ваш IT-адміністратар можа праглядаць вашы даныя і дзеянні на гэтай прыладзе"</string>
