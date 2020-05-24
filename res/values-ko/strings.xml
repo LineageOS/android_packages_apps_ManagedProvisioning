@@ -181,7 +181,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"기기 설정 중…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"이 기기를 사용하여 업무용 앱에 간편하게 액세스하세요. 이 기기는 비공개 기기가 아니므로 IT 관리자가 내 데이터와 활동을 볼 수 있습니다. 자세히 알아보려면 IT 관리자에게 문의하세요."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"직장 앱은 직장 프로필에 보관되며 IT 관리자에 의해 관리됩니다"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"직장 앱은 직장 프로필에 보관되며 IT 관리자가 관리합니다"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"개인 앱은 직장 앱과 분리되어 숨겨집니다"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 관리자가 이 기기를 제어하고 특정 앱을 차단할 수 있습니다"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"직장 앱은 직장 프로필에 보관되며 IT 관리자에 의해 관리됩니다. 개인 앱은 직장 앱에서 분리되어 숨겨집니다. IT 관리자가 이 기기를 제어하고 특정 앱을 차단할 수 있습니다."</string>
