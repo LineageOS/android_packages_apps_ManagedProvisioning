@@ -400,8 +400,8 @@
   <string name="cope_provisioning_summary">Work apps are kept in your work profile and managed by your IT admin. Personal apps are separate and hidden from work apps. Your IT admin can control this device and block certain apps.</string>
 
   <!-- Financed device setup screens -->
-  <!-- Screen title. This is displayed when a device admin app is set as the device owner. [CHAR LIMIT=NONE]-->
-  <string name="just_a_sec" translatable="false">Just a sec\u2026</string>
+  <!-- Screen title. This is displayed when a user needs to wait for a moment during the device setup process. [CHAR LIMIT=NONE]-->
+  <string name="just_a_sec">Just a sec\u2026</string>
 
   <!-- Fully managed device privacy notification -->
   <!-- Notification title. This text is letting the user know about a privacy reminder before they start using their new work device. [CHAR LIMIT=NONE]-->
@@ -415,14 +415,14 @@
   <string name="done">Done</string>
 
   <!-- Financed device provisioning landing screen -->
-  <!-- Screen title. This is letting the user know that this device is provided by a creditor. This means the creditor can control the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
-  <string name="financed_device_screen_header" translatable="false">This device is provided by <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g></string>
-  <!-- Creditor capabilities header. This is letting the user know that the creditor may have some capabilities to control the device. [CHAR LIMIT=NONE]-->
-  <string name="creditor_capabilities_header" translatable="false"><xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> can:</string>
-  <!-- Creditor capabilities content. This is letting the user know that the creditor can install the creditor app. [CHAR LIMIT=NONE]-->
-  <string name="install_creditor_app_description" translatable="false">Install the <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> app on this device</string>
-  <!-- Creditor capabilities content. This is letting the user know that the creditor is able to lock the device. [CHAR LIMIT=NONE]-->
-  <string name="lock_device_description" translatable="false">Lock this device if you don\'t make payments</string>
+  <!-- Screen title in the device setup process. This is reminding the user that this device is provided by a creditor. This means the creditor can control the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
+  <string name="financed_device_screen_header">This device was purchased on credit from <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g></string>
+  <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
+  <string name="creditor_capabilities_header"><xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> can:</string>
+  <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as installing their app so the user can make payments. [CHAR LIMIT=NONE]-->
+  <string name="install_creditor_app_description">Install the <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> app so you can make payments for this device</string>
+  <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as restricting access if the user doesn't make payments. [CHAR LIMIT=NONE]-->
+  <string name="lock_device_description">Restrict access to this device if you don\'t make payments</string>
 
   <!-- Title of a full-screen message. This screen lets users connect certain apps in their work and personal profiles so they can access work and personal data together. [CHAR LIMIT=NONE]-->
   <string name="cross_profile_consent_title">Connect work &amp; personal apps</string>
