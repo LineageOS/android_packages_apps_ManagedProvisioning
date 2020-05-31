@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales se mantienen ocultas de las de trabajo"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu admin. de TI puede controlar el disp. y bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo y las gestiona el administrador de TI. Las aplicaciones personales se mantienen separadas y ocultas de las aplicaciones de trabajo. El administrador de TI puede controlar este dispositivo y bloquear algunas aplicaciones."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidad"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Tu administrador de TI puede ver los datos y actividad de este dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ya puedes usar tu dispositivo."</string>
     <string name="done" msgid="7755227776955952318">"Listo"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Conectar aplicaciones de trabajo y personales"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Las aplicaciones conectadas te permiten acceder tanto a datos de trabajo como a datos personales. Puedes hacer cambios en cualquier momento en Ajustes."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Conectar aplicaciones de trabajo y personales"</string>

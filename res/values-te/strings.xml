@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి&amp;ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT అడ్మిన్ డివైజ్‌ను నియంత్రించి&amp;యాప్‌లను బ్లాక్ చేయగలరు"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి, అలాగే మీ IT అడ్మిన్ ద్వారా నిర్వహించబడతాయి. వ్యక్తిగత యాప్‌లు అన్నవి విడిగా ఉంటాయి, అలాగే కార్యాలయ యాప్‌లలో కనిపించవు మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించవచ్చు మరియు కొన్ని యాప్‌లను నిరోధించవచ్చు"</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"మీ పరికరం ఉపయోగించేందుకు సిద్ధంగా ఉంది!"</string>
     <string name="done" msgid="7755227776955952318">"పూర్తయింది"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"కనెక్ట్ అయిన యాప్‌లు అనేవి కార్యాలయ డేటాను, వ్యక్తిగత డేటాను కలిపి యాక్సెస్ చేయడానికి మిమ్మల్ని అనుమతిస్తాయి. సెట్టింగ్‌లలో మీరు ఏ సమయంలోనైనా మార్పులు చేయవచ్చు."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>

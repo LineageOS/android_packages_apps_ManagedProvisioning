@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Forrit til einkanota eru aðskilin og falin fyrir vinnuforritum"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Kerfisstjóri getur stjórnað tækinu og lokað á tiltekin forrit"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Vinnuforrit eru geymd á vinnusniðinu þínu og stjórnað af kerfisstjóranum. Forrit til einkanota eru aðskilin og falin fyrir vinnuforritum. Kerfisstjórinn þinn getur stjórnað þessu tæki og lokað á tiltekin forrit."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Áminning um persónuvernd"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Kerfisstjórinn þinn kann að geta séð gögn og virkni í þessu tæki"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Tækið þitt er tilbúið!"</string>
     <string name="done" msgid="7755227776955952318">"Lokið"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Tengja vinnugögn og persónuleg gögn"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Tengd forrit gera þér kleift að nota bæði vinnugögn og persónuleg gögn. Þú getur gert breytingar hvenær sem er í stillingunum."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Tengja vinnugögn og persónuleg gögn"</string>

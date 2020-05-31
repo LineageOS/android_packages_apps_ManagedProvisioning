@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personlige apps holdes adskilt og skjult fra arbejdsapps"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Din it-admin kan styre denne enhed og blokere bestemte apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Arbejdsapps gemmes på din arbejdsprofil og administreres af din it-administrator. Personlige apps holdes adskilt og skjult fra arbejdsapps. Din it-administrator kan styre denne enhed og blokere bestemte apps."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privatlivspåmindelse"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Din it-administrator kan muligvis se dine data og din aktivitet på denne enhed"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Din enhed er klar til brug"</string>
     <string name="done" msgid="7755227776955952318">"Udfør"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Tilknyt personlige og arbejdsrelaterede apps"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Tilknyttede apps giver dig mulighed for at få adgang til både arbejdsdata og personlige data. Du kan altid ændre dette i Indstillinger."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Tilknyt personlige og arbejdsrelaterede apps"</string>
