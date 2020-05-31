@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"वैयक्तिक अ‍ॅप्स कामासंबंधी अ‍ॅप्सहून वेगळी व लपवलेली असतात"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाईलमध्ये ठेवली जातात आणि तुमच्या आयटी ॲडमिनद्वारे व्यवस्थापित केली जातात. वैयक्तिक अ‍ॅप्स कार्य अ‍ॅप्सपासून वेगळे आणि लपवलेले असतात. तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित आणि विशिष्ट ॲप्स ब्लॉक करू शकतो."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तुमचे डिव्हाइस वापरण्यासाठी तयार आहे!"</string>
     <string name="done" msgid="7755227776955952318">"पूर्ण झाले"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"कनेक्ट केलेली अ‍ॅप्स तुम्हाला ऑफिस आणि वैयक्तिक डेटा एकत्रितपणे अ‍ॅक्सेस करू देतात. तुम्ही सेटिंग्जमध्ये कधीही बदल करू शकता."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"ऑफिस &amp; वैयक्तिक ॲप्स कनेक्ट करा"</string>

@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Le app personali sono separate e nascoste dalle app di lavoro"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'amm IT può controllare il dispositivo e bloccare alcune app"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro e gestite dall\'amministratore IT. Le app personali sono separate e vengono nascoste dalle app di lavoro. L\'amministratore IT può controllare questo dispositivo e bloccare alcune app."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Promemoria sulla privacy"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Il tuo amministratore IT potrebbe visualizzare i tuoi dati e la tua attività su questo dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Tutto è pronto sul tuo dispositivo."</string>
     <string name="done" msgid="7755227776955952318">"Fine"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Collega app di lavoro e personali"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Le app connesse ti consentono di accedere sia ai dati di lavoro sia ai dati personali. Puoi apportare modifiche in qualsiasi momento nelle Impostazioni."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Collega app di lavoro e personali"</string>

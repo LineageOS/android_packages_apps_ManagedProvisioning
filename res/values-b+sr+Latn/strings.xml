@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene od poslovnih"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT admin. može da kontroliše ovaj uređaj i blokira aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Poslovne aplikacije se čuvaju na poslovnom profilu i njima upravlja IT administrator. Lične aplikacije su odvojene i skrivene kada se prikazuju poslovne aplikacije. IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsetnik o privatnosti"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT administrator možda može da vidi podatke ili aktivnosti na ovom uređaju"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Uređaj je spreman za korišćenje!"</string>
     <string name="done" msgid="7755227776955952318">"Gotovo"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povežite poslovne aplikacije i lične aplikacije"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Povezane aplikacije vam omogućavaju da pristupate poslovnim i ličnim podacima zajedno. Možete da unesete promene u bilo kom trenutku u Podešavanjima."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povežite poslovne aplikacije i lične aplikacije"</string>

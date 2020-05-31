@@ -185,10 +185,20 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications."</string>
+    <!-- no translation found for just_a_sec (6244676028626237220) -->
+    <skip />
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Il se peut que votre administrateur informatique puisse voir vos données et votre activité sur cet appareil"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Votre appareil est prêt à être utilisé!"</string>
     <string name="done" msgid="7755227776955952318">"Terminé"</string>
+    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
+    <skip />
+    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
+    <skip />
+    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
+    <skip />
+    <!-- no translation found for lock_device_description (2940362560732989166) -->
+    <skip />
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Connecter les applications professionnelles et personnelles"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Les applications connectées vous permettent d\'accéder aux données professionnelles et personnelles, simultanément. Vous pouvez modifier cela en tout temps dans le menu Paramètres."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Connecter les applications professionnelles et personnelles"</string>
