@@ -318,6 +318,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         showDialog(dialogBuilder, LAUNCHER_INVALID_DIALOG);
     }
 
+    @Override
+    public void abortProvisioning() {
+        onProvisioningAborted();
+    }
+
     private void requestLauncherPick() {
         Intent changeLauncherIntent = new Intent(Settings.ACTION_HOME_SETTINGS);
         changeLauncherIntent.putExtra(EXTRA_SUPPORT_MANAGED_PROFILES, true);

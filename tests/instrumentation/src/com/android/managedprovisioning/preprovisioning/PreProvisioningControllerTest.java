@@ -170,6 +170,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(false);
         mController = new PreProvisioningController(mContext, mUi, mTimeLogger, mMessageParser,
                 mUtils, mSettingsFacade, mEncryptionController, mSharedPreferences);
+        when(mSettingsFacade.isDeveloperMode(mContext)).thenReturn(true);
     }
 
     public void testManagedProfile() throws Exception {
