@@ -64,7 +64,9 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.PersistableBundle;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -203,6 +205,11 @@ public class PreProvisioningController {
         void showFactoryResetDialog(Integer titleId, int messageId);
 
         void initiateUi(UiParams uiParams);
+
+        /**
+         *  Abort provisioning and close app
+         */
+        void abortProvisioning();
     }
 
     /**
@@ -263,6 +270,10 @@ public class PreProvisioningController {
             String callingPackage) {
         mSharedPreferences.writeProvisioningStartedTimestamp(SystemClock.elapsedRealtime());
         mProvisioningAnalyticsTracker.logProvisioningSessionStarted(mContext);
+
+        if (!isProvisioningAllowed()) {
+            return;
+        }
 
         if (!tryParseParameters(intent, params)) {
             return;
@@ -899,5 +910,20 @@ public class PreProvisioningController {
         }
         mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,
                 "Device Owner provisioning not allowed for an unknown reason.");
+    }
+
+    /**
+     *  Checks if provisioning is allowed while regular usage (non-developer/CTS) if device
+     *   has overlayed config value (default is true)
+     */
+    private boolean isProvisioningAllowed() {
+        boolean isDeveloperMode = mSettingsFacade.isDeveloperMode(mContext);
+        boolean isProvisioningAllowedForNormalUsers = SystemProperties.getBoolean("ro.config.allowuserprovisioning", true);
+
+        if (!isDeveloperMode && !isProvisioningAllowedForNormalUsers) {
+            mUi.abortProvisioning();
+            return false;
+        }
+        return true;
     }
 }
