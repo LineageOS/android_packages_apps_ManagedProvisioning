@@ -74,4 +74,11 @@ public class SettingsFacade {
         // If the flow is running in SUW, the primary user is not set up at this point
         return !isUserSetupCompleted(context);
     }
+
+    /**
+     * Returns whether ADB is enabled (developer mode)
+     */
+    public boolean isDeveloperMode(Context context) {
+        return Global.getInt(context.getContentResolver(), Global.ADB_ENABLED, 0) > 0;
+    }
 }
