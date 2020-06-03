@@ -163,12 +163,11 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparando la configuración de tu dispositivo de trabajo…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando aplicación de administración"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Configurar el resto de opciones"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Añade una cuenta personal para aprovechar mejor tu dispositivo"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Añade una cuenta personal para aprovechar más tu dispositivo"</string>
     <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ahora que tu perfil de trabajo ya está listo, puedes añadir tu cuenta de Google personal para acceder a tus aplicaciones y contenido."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertenece a tu organización"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"La siguiente aplicación se utilizará para gestionar y supervisar este teléfono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando la configuración del dispositivo de trabajo…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"En primer lugar, vamos a configurar tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos a configurar tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pausa las aplicaciones de trabajo cuando haya acabado tu jornada laboral"</string>
@@ -181,14 +180,19 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Tu administrador de TI puede ver los datos y la actividad de este dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando el dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utiliza este dispositivo para acceder fácilmente a las aplicaciones de trabajo. Este dispositivo no es privado, por lo que tu administrador de TI puede ver tus datos y actividad. Para obtener más información, ponte en contacto con tu administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Las apps de trabajo las gestiona el administrador de TI"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales se mantienen ocultas de las de trabajo"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu admin. de TI puede controlar el disp. y bloquear apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Las apps de trabajo las gestiona tu administrador de TI"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales están separadas de las de trabajo"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu admin. de TI puede controlar el dispositivo y bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo y las gestiona el administrador de TI. Las aplicaciones personales se mantienen separadas y ocultas de las aplicaciones de trabajo. El administrador de TI puede controlar este dispositivo y bloquear algunas aplicaciones."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Un segundo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidad"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Tu administrador de TI puede ver los datos y actividad de este dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ya puedes usar tu dispositivo."</string>
     <string name="done" msgid="7755227776955952318">"Listo"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Este dispositivo se compró con crédito de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> puede:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instala la aplicación <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> para que puedas hacer pagos por este dispositivo"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Restringir el acceso a este dispositivo si no hace ningún pago"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Conectar aplicaciones de trabajo y personales"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Las aplicaciones conectadas te permiten acceder tanto a datos de trabajo como a datos personales. Puedes hacer cambios en cualquier momento en Ajustes."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Conectar aplicaciones de trabajo y personales"</string>

@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Цей пристрій належить вашій організації"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"За допомогою цього додатка ви зможете керувати телефоном і відстежувати його"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Підготовка до налаштування для роботи…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Спершу налаштуймо ваш робочий профіль"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Спершу налаштуймо ваш робочий профіль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Робочі додатки зберігаються в робочому профілі"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Призупиняйте робочі додатки, коли потрібно"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Особисті додатки зберігаються окремо від робочих"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-адміністратор керує цим пристроєм і може щось блокувати"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Робочі додатки зберігаються в робочому профілі. Ними керує ваш IT-адмністратор. Особисті додатки зберігаються окремо, вони недоступні для робочих додатків. Ваш IT-адміністратор може керувати цим пристроєм і блокувати певні додатки."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Зачекайте…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Нагадування про конфіденційність"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ІТ-адміністратор може бачити ваші дані й активність на цьому пристрої"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ваш пристрій готовий!"</string>
     <string name="done" msgid="7755227776955952318">"Готово"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Пристрій придбано в кредит у компанії \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\""</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Установіть додаток від компанії \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", щоб вносити платежі за пристрій"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Якщо ви не вноситимете платежі, доступ до пристрою буде обмежено"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Об\'єднайте робочі й особисті додатки"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Через підключені додатки ви можете мати доступ до робочих і особистих даних. Ви зможете будь-коли змінити це в налаштуваннях."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Об\'єднайте робочі й особисті додатки"</string>
