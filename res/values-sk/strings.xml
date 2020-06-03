@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Toto zariadenie patrí vašej organizácii"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Na spravovanie a sledovanie tohto telefónu sa použije nasledujúca aplikácia"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Pripravuje sa na pracovné nastavenie…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Najprv nastavte pracovný profil"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Poďme nastaviť váš pracovný profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pracovné aplikácie sú uložené vo vašom pracovnom profile"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pozastavte pracovné aplikácie na konci pracovného dňa"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobné aplikácie sú od pracovných oddelené a nevidno ich"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Toto zariadenie ovláda správca IT (môže blokovať aplikácie)"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile a ovládané vaším správcom IT. Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť. Váš správca IT môže ovládať toto zariadenie a blokovať určité aplikácie."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Moment…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie týkajúce sa ochrany súkromia"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Zariadenie je pripravené."</string>
     <string name="done" msgid="7755227776955952318">"Hotovo"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Toto zariadenie bolo zakúpené na splátky od veriteľa <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> môže:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Nainštalujte si aplikáciu <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, aby ste mohli splácať toto zariadenie"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Obmedzte prístup k tomuto zariadeniu používateľom, ktorí neuskutočňujú platby"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Pripojenie pracovných a osobných aplikácií"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Prepojené aplikácie vám poskytujú súčasný prístup k pracovným aj osobným údajom. Môžete to kedykoľvek zmeniť v Nastaveniach."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Pripojenie pracovných a osobných aplikácií"</string>

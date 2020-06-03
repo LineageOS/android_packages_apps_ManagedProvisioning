@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Gailua erakundearena da"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Telefono hau kudeatzeko eta kontrolatzeko erabiliko da aplikazioa"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Laneko konfigurazioa gauzatzeko prestatzen…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Hasteko, konfiguratu laneko profila"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfiguratu laneko profila"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Laneko profilean gordetzen dira laneko aplikazioak"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laneguna amaitzean, pausatu laneko aplikazioak"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplik. pertsonalak bananduta daude eta ez daude lanekoen artean ikusgai"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IKT saileko admin. gailu hau kontrola dezake, baita zenbait aplik. blokeatu ere"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Laneko aplikazioak laneko profilean gordetzen dira, eta IKT saileko administratzaileak kudeatzen ditu. Aplikazio pertsonalak bananduta daude eta ez daude laneko aplikazioen artean ikusgai. IKT saileko administratzaileak gailu hau kontrola dezake, baita zenbait aplikazio blokeatu ere."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Itxaron unetxo batean…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pribatutasun-abisua"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Baliteke IKT saileko administratzaileak gailu honetan dituzun datuak eta egiten dituzun jarduerak ikusi ahal izatea"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Prest duzu gailua!"</string>
     <string name="done" msgid="7755227776955952318">"Eginda"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen maileguarekin erosi da gailu hau"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"Hauek egiteko gai da <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalatu <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen aplikazioa gailuari dagozkion ordainketak egin ahal izan ditzazun"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Ordainketaren bat egiten ez baduzu gailurako sarbidea mugatu."</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Konektatu laneko aplikazioak eta aplikazio pertsonalak"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Konektatutako aplikazioek laneko profileko eta profil pertsonaleko datuak aldi berean atzitzen utziko dizute. Ezarpenak atalean alda daiteke aukera hori."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Konektatu laneko aplikazioak eta aplikazio pertsonalak"</string>

@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Гэта прылада належыць вашай арганізацыі"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Наступная праграма будзе выкарыстоўвацца для кіравання гэтым тэлефонам і яго кантролю"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ідзе падрыхтоўка для працоўных налад…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Па-першае, давайце наладзім працоўны профіль"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Давайце наладзім працоўны профіль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Працоўныя праграмы захоўваюцца ў вашым працоўным профілі"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Прыпыненне працоўных праграм на перыяд, калі вы не будзеце імі карыстацца"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Асабістыя праграмы схаваны і адасоблены ад працоўных"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ваш ІТ-адміністратар можа кіраваць прыладай і праграмамі"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Працоўныя праграмы захоўваюцца ў працоўным профілі і знаходзяцца пад кіраваннем ІТ-адміністратара. Асабістыя праграмы схаваны і паказваюцца адасоблена ад працоўных праграм. Ваш ІТ-адміністратар можа кіраваць гэтай прыладай і блакіраваць пэўныя праграмы."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Секунду…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напамін аб прыватнасці"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Ваш IT-адміністратар можа праглядаць вашы даныя і дзеянні на гэтай прыладзе"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Прылада гатовая да працы!"</string>
     <string name="done" msgid="7755227776955952318">"Гатова"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Гэта прылада куплена ў крэдыт у крэдытора \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\""</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"Крэдытор \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\" можа:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Усталюйце праграму крэдытора \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", і тады вы зможаце ажыццяўляць плацяжы за гэту прыладу"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Калі вы не робіце плацяжоў, абмяжуйце доступ да гэтай прылады"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Падключэнне працоўных і прыватных праграм"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Падключаныя праграмы дазваляюць вам мець доступ і да працоўных, і да асабістых даных. Гэты параметр можна ў любы час змяніць у Наладах."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Падключэнне працоўных і прыватных праграм"</string>

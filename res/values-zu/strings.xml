@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Le divayisi eyenhlangano yakho"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Uhlelo lokusebenza olulandelayo luzosetshenziselwa ukuphatha nokuqaphela le foni"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ukusethwa kokulungela umsebenzi…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Okokuqala, asisethe iphrofayela yakho yomsebenzi"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Asisethe iphrofayela yakho yomsebenzi"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Izinhlelo zakho zokusebenza zigcinwa kuphrofayela yakho yohlelo lokusebenza"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Phumuza izinhlelo zokusebenza uma usuqedile osukwini"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Ama-App akho ngqo afihliwe kuma-App omsebenzi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Umphathi we-IT angalawula le divayisi avimbe amanye ama-App"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Izinhlelo zokusebenza zomsebenzi zigcinwe kwiphrofayela yakho yomsebenzi futhi ziphathwa ngumphathi wakho we-IT. Izinhlelo zokusebenza zomuntu siqu zihlukanisiwe futhi zifihliwe ezinhlelweni zokusebenza zomsebenzi Umphathi wakho we-IT angalawula le divayisi futhi avimbe izinhlelo zokusebenza ezithile."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Linda kancane…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Isikhumbuzi sobumfihlo"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Umphathi wakho we-IT angakwazi ukubona idatha yakho nomsebenzi kule divayisi"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Idivayisi yakho ilungele ukuhamba!"</string>
     <string name="done" msgid="7755227776955952318">"Kwenziwe"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Le divayisi ithengwe ngesikweletu kusuka ku-<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ingakwazi:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Faka uhlelo lokusebenza le-<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ukuze ukwazi ukukhokhela le divayisi"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Beka umkhawulo ekufinyeleleni kule divayisi uma ungenzi izinkokhelo"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Xhuma izinhlelo zokusebenza zomsebenzi nezomuntu siqu"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Izinhlelo zokusebenza ezixhunyiwe zikuvumela ukuthi ufinyelele kudatha yomsebenzi neyomuntu siqu ndawonye. Ungenza izinguquko noma kunini Kuzilungiselelo."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Xhuma izinhlelo zokusebenza zomsebenzi nezomuntu siqu"</string>

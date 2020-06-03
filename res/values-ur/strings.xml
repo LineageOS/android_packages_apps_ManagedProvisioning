@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"یہ آلہ آپ کی تنظیم کا ہے"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"اس فون کا نظم اور نگرانی کرنے کیلئے مندرجہ ذیل ایپ کا استعمال کیا جائے گا"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"آلہ برائے دفتر کے سیٹ اپ کے لیے تیاری ہو رہی ہے…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"پہلے، آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"دن کا کام مکمل کر لینے کے بعد دفتری ایپس کو موقوف کریں"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ذاتی ایپس دفتری ایپس سے پوشیدہ اور علیحدہ ہوتی ہیں"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏آپکا IT منتظم یہ آلہ کنٹرول اور کچھ ایپس مسدود کرسکتا ہے"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"‏دفتری ایپس کو آپ کی دفتری پروفائل میں رکھا گیا ہے اور آپ کے IT منتظم کے زیر انتظام ہیں۔ ذاتی ایپس دفتری ایپس سے چھپی ہوئی اور علیحدہ ہوتی ہیں۔ آپ کا IT منتظم اس آلہ کو کنٹرول کر سکتا ہے اور کچھ ایپس کو مسدود کر سکتا ہے۔"</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"بس ایک سیکنڈ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"رازداری کی یاد دہانی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"آپ کا آلہ استعمال کرنے کے لیے تیار ہے!"</string>
     <string name="done" msgid="7755227776955952318">"ہو گیا"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"یہ آلہ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> سے کریڈٹ پر خریدا گیا تھا"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> کر سکتا ہے:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ایپ انسٹال کریں تاکہ آپ اس آلہ کے لیے ادائیگی کر سکیں"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"اگر آپ ادائیگی نہیں کرتے ہیں تو اس آلے تک رسائی کو محدود کریں"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"کام اور ذاتی ایپس کو منسلک کریں"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"منسلک ایپس آپ کو دفتری اور ذاتی ڈیٹا کو ایک ساتھ رسائی حاصل کرنے دیتی ہیں۔ آپ کسی بھی وقت ترتیبات میں تبدیلیاں کر سکتے ہیں۔"</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"کام اور ذاتی ایپس کو منسلک کریں"</string>

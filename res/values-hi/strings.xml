@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"यह डिवाइस आपके संगठन का है"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"आगे बताए गए ऐप्लिकेशन का इस्तेमाल इस फ़ोन को प्रबंधित करने और इसकी निगरानी करने के लिए किया जाएगा"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"काम के लिए सेटअप किया जा रहा है…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"चलिए, सबसे पहले आपकी काम की प्रोफ़ाइल सेट अप करते हैं"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपकी वर्क प्रोफ़ाइल सेट अप करते हैं"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"काम से जुड़े ऐप्लिकेशन, आपके काम से जुड़ी प्रोफ़ाइल में रखे जाते हैं"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"दिनभर के काम खत्म हो जाने के बाद इन काम के लिए इस्तेमाल होने वाले ऐप्लिकेशन बंद करें"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"निजी ऐप अलग होते हैं और ऑफ़िस के काम से जुड़े ऐप से छिपे होते हैं"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आईटी एडमिन इस डिवाइस को कंट्रोल और कुछ ऐप ब्लॉक कर सकता है"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"ऑफिस के काम से जुड़े ऐप्लिकेशन, काम से जुड़ी आपकी प्रोफ़ाइल में रखे जाते हैं. इन्हें आपका आईटी एडमिन प्रबंधित करता है. निजी ऐप्लिकेशन अलग होते हैं और ऑफ़िस के काम से जुड़े ऐप्लिकेशन से छिपे होते हैं. आपका आईटी एडमिन इस डिवाइस को कंट्रोल कर सकता है और कुछ ऐप्लिकेशन को ब्लॉक कर सकता है."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"बस एक सेकंड…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"निजता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"आपके आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकते हैं"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"आपका डिवाइस इस्तेमाल के लिए तैयार है!"</string>
     <string name="done" msgid="7755227776955952318">"हो गया"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"इस डिवाइस को <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> से क्रेडिट पर खरीदा गया है"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> यह कर सकता है:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ऐप्लिकेशन इंस्टॉल करें, ताकि आप इस डिवाइस के लिए पैसे चुका सकें"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"अगर आप पैसे नहीं चुकाते, तो डिवाइस के ऐक्सेस पर रोक लगा दी जाएगी"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"कनेक्ट किए गए ऐप्लिकेशन से, आपको निजी और काम से जुड़े डेटा को एक साथ ऐक्सेस करने की सुविधा मिलती है. आप जब चाहें, सेटिंग में जाकर इसे बदल सकते हैं."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
