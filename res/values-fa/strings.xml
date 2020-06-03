@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"این دستگاه به سازمان شما تعلق دارد"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"از برنامه زیر برای مدیریت و نظارت بر این تلفن استفاده می‌شود"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"درحال آماده شدن برای راه‌اندازی دستگاه برای کار…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ابتدا بیایید نمایه کاری‌تان را راه‌اندازی کنیم"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ابتدا بیایید نمایه کاری‌تان را راه‌اندازی کنیم"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"برنامه‌های کاری در نمایه کاری‌تان حفظ می‌شوند"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"توقف موقت برنامه‌های کاری وقتی کار روزانه‌تان تمام شد"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"برنامه‌های شخصی از برنامه‌های کاری جدا است و از آن پنهان است"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل و برنامه‌هایی را مسدود کند"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"برنامه‌های کاری در نمایه کاری نگه داشته می‌شوند و سرپرست فناوری اطلاعات می‌تواند آن‌ها را مدیریت کند. برنامه‌های شخصی مجزا هستند و از دسترس برنامه‌های کاری پنهان هستند. سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل کند و برخی از برنامه‌ها را مسدود کند."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"لحظه‌ای صبر کنید…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"یادآوری حریم خصوصی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏ممکن است سرپرست IT بتواند داده‌ها و فعالیت شما را در این دستگاه ببیند"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"دستگاهتان آماده استفاده است!"</string>
     <string name="done" msgid="7755227776955952318">"تمام"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"این دستگاه به‌صورت اعتباری از <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> خریداری شده است"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> می‌تواند:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"برنامه <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> را نصب کنید تا بتوانید اقساط این دستگاه را پرداخت کنید"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"اگر اقساط را پرداخت نکنید، دسترسی به این دستگاه محدود می‌شود"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"مرتبط کردن برنامه‌های کاری و شخصی"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"برنامه‌های متصل امکان می‌دهند به داده‌های شخصی و کاری به‌طور هم‌زمان دسترسی داشته باشید. هرزمان خواستید می‌توانید در تنظیمات تغییر ایجاد کنید."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"مرتبط کردن برنامه‌های کاری و شخصی"</string>

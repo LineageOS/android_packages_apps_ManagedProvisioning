@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Šis įrenginys priklauso jūsų organizacijai"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Toliau nurodyta programa bus naudojama šiam telefonui tvarkyti ir stebėti"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ruošiama atlikti darbo programų sąranką…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Pirmiausia nustatykime jūsų darbo profilį"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Pirmiausia nustatykime jūsų darbo profilį"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Darbo programos saugomos darbo profilyje"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Baigę dienos darbus pristabdykite darbo programas"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Asmeninės programos laikomos atskirai ir paslėptos nuo darbo programų"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administratorius gali valdyti šį įrenginį ir blokuoti tam tikras programas"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Darbo programos saugomos darbo profilyje ir jas tvarko IT administratorius. Asmeninės programos laikomos atskirai ir paslėptos nuo darbo programų. IT administratorius gali valdyti šį įrenginį ir blokuoti tam tikras programas."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Šiek tiek palaukite…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privatumo priminimas"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Jūsų IT administratorius gali peržiūrėti jūsų duomenis ir veiklą šiame įrenginyje"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Įrenginys paruoštas!"</string>
     <string name="done" msgid="7755227776955952318">"Atlikta"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Šis įrenginys buvo įsigytas pasinaudojus „<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>“ suteiktu kreditu"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"„<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>“ gali atlikti toliau nurodytus veiksmus."</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Įdiegti „<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>“ programą, kad galėtumėte atlikti mokėjimus šiame įrenginyje"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Apriboti prieigą prie šio įrenginio, jei neatliekate mokėjimų"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Darbo ir asmeninių programų susiejimas"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Naudodami prijungtas programas galite pasiekti kartu pateiktus darbo ir asmens duomenis. Tai galite bet kada pakeisti skiltyje „Nustatymai“."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Darbo ir asmeninių programų susiejimas"</string>

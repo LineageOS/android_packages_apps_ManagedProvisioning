@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Это устройство принадлежит вашей организации"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Для управления телефоном и отслеживания действий на нем будет использоваться следующее приложение:"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка к настройке рабочего профиля…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Настройте рабочий профиль"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Настройте рабочий профиль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Приложения для работы хранятся в рабочем профиле"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"В конце дня можно приостановить уведомления от рабочих приложений"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личные приложения скрыты и находятся отдельно от рабочих."</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Администратор может управлять устройством и блокировать приложения"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Рабочие приложения находятся в рабочем профиле и управляются администратором. Личные приложения скрыты и находятся отдельно от рабочих. Системный администратор может управлять этим устройством и блокировать некоторые приложения."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Подождите…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напоминание о конфиденциальности"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системный администратор может получить доступ к вашим действиям и данным на этом устройстве."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Все готово!"</string>
     <string name="done" msgid="7755227776955952318">"Готово"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Это устройство куплено в кредит (<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>)"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"Кредитор \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\" может:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Установить приложение \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", чтобы вы могли вносить платежи."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Заблокировать устройство, если платежи по кредиту не внесены."</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Подключение рабочих и личных приложений"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Подключенные приложения позволяют получать доступ как к рабочим, так и к личным данным. Изменить параметры можно в любое время в настройках."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Подключение рабочих и личных приложений"</string>

@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"ອຸປະກອນນີ້ເປັນຂອງອົງການທ່ານ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ແອັບຕໍ່ໄປນີ້ຈະຖືກໃຊ້ເພື່ອຈັດການ ແລະ ຕິດຕາມໂທລະສັບໜ່ວຍນີ້"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ກຳລັງກຽມພ້ອມສຳລັບການຕັ້ງຄ່າວຽກ…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ທຳອິດ, ໃຫ້ຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານກ່ອນ"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ມາຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານກັນ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ແອັບວຽກແມ່ນຖືກເກັບໄວ້ໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ຢຸດແອັບວຽກໄວ້ຊົ່ວຄາວໃນເວລາທີ່ທ່ານເຊົາເຮັດວຽກແລ້ວ"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ແອັບສ່ວນຕົວແມ່ນແຍກກັນ ແລະ ຖືກເຊື່ອງໄວ້ຈາກແອັບວຽກ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານສາມາດຄວບຄຸມອຸປະກອນນີ້ ແລະ ລັອກບາງແອັບໄດ້"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"ແອັບວຽກແມ່ນເກັບໄວ້ໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານ ແລະ ຈັດການໂດຍຜູ້ເບິ່ງແຍງໄອທີທ່ານ. ແອັບສ່ວນຕົວແມ່ນແຍກກັນ ແລະ ເຊື່ອງໄວ້ຈາກແອັບວຽກ. ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານສາມາດຄວບຄຸມອຸປະກອນຂອງທ່ານ ແລະ ບລັອກບາງແອັບໄດ້."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"ກະລຸນາລໍຖ້າ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ການເຕືອນຄວາມເປັນສ່ວນຕົວ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ມີພຽງຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານທີ່ສາມາດເບິ່ງເຫັນຂໍ້ມູນ ແລະ ການເຄື່ອນໄຫວຂອງທ່ານຢູ່ອຸປະກອນນີ້ໄດ້"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ອຸປະກອນຂອງທ່ານພ້ອມແລ້ວ!"</string>
     <string name="done" msgid="7755227776955952318">"ແລ້ວໆ"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"ອຸປະກອນນີ້ຖືກຊື້ໂດຍໃຊ້ເຄຣດິດຈາກ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ສາມາດ:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"ກະລຸນາຕິດຕັ້ງແອັບ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ເພື່ອໃຫ້ທ່ານສາມາດຈ່າຍເງິນສຳລັບອຸປະກອນນີ້ໄດ້"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"ກະລຸນາຈຳກັດສິດເຂົ້າເຖິງຫາອຸປະກອນນີ້ຫາກທ່ານບໍ່ຕ້ອງການຈ່າຍເງິນ"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"ເຊື່ອມຕໍ່ແອັບວຽກ ແລະ ແອັບສ່ວນຕົວ"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ແອັບທີ່ເຊື່ອມຕໍ່ແລ້ວຈະເຮັດໃຫ້ທ່ານສາມາດເຂົ້າເຖິງຂໍ້ມູນວຽກ ແລະ ຂໍ້ມູນສ່ວນຕົວພ້ອມກັນໄດ້. ທ່ານສາມາດປ່ຽນແປງໄດ້ຕະຫຼອດເວລາໃນການຕັ້ງຄ່າ."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"ເຊື່ອມຕໍ່ແອັບວຽກ ແລະ ແອັບສ່ວນຕົວ"</string>

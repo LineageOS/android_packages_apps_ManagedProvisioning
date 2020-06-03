@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Enheten ägs av din organisation"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Mobilen hanteras och övervakas med hjälp av följande app"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Jobbkonfigurationen förbereds …"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Börja med att konfigurera jobbprofilen"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfigurera jobbprofilen"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Jobbappar lagras i din jobbprofil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pausa dina jobbappar när du har jobbat klart för dagen"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Privata appar lagras för sig och syns inte bland jobbapparna"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administratören kan styra denna enhet och blockera appar"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Jobbappar lagras i jobbprofilen och hanteras av IT-administratören. Privata appar lagras för sig och är inte synliga för jobbapparna. IT-administratören kan styra den här enheten och blockera vissa appar."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Ett ögonblick …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Sekretesspåminnelse"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT-administratören kanske kan se din aktivitet och data på enheten"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Enheten är klar att användas."</string>
     <string name="done" msgid="7755227776955952318">"Klart"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Den här enheten köptes från <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> på avbetalning"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan göra följande:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"installera <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-appen så att du kan göra betalningar för enheten"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"begränsa åtkomsten till enheten om du inte gör betalningar."</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Anslut jobbappar och personliga appar"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Med hjälp av anslutna appar kan du komma åt både jobbdata och privat data samtidigt. Du kan ändra detta när du vill i inställningarna."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Anslut jobbappar och personliga appar"</string>
