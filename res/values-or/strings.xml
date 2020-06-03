@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"ଏହି ଡିଭାଇସ୍ ଆପଣଙ୍କ ସଂସ୍ଥାର ଅନ୍ତର୍ଗତ ଅଟେ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ଏହି ଫୋନ୍‌କୁ ପରିଚଳନା ଏବଂ ମନିଟର୍ କରିବାକୁ ନିମ୍ନୋକ୍ତ ଆପ୍‌ର ବ୍ୟବହାର ହେବ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ୱର୍କ ସେଟ୍‌ଅପ୍ ପାଇଁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"ପ୍ରଥମେ, ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ଚାଲନ୍ତୁ ଆପଣଙ୍କର ୱାର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ୱର୍କ ଆପ୍ସ ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ରେ ରଖାଯାଇଛି"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ଆପଣଙ୍କର ପୁରା ଦିନର କାମ ଶେଷ ହୋଇଗଲା ପରେ ୱର୍କ ଆପ୍ସକୁ ବିରତି କରନ୍ତୁ"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ବ୍ୟକ୍ତିଗତ ଆପ୍ସ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପ୍ସରୁ ଅଲଗା ଓ ଏହା ଲୁକ୍କାୟିତ ଅଛି"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT ଆଡମିନ ଡିଭାଇସଟି ନିୟନ୍ତ୍ରଣ କରି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପକୁ ବ୍ଲକ କରିପାରିବେ"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଇଛି ଓ ଏଗୁଡ଼ିକ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହେଉଛି। ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଠାରୁ ପୃଥକ୍ ଓ ଲୁକ୍କାୟିତ ଅଟେ। ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପଗୁଡ଼ିକୁ ବ୍ଲକ୍ କରିପାରିବେ।"</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"ଟିକେ ରୁହନ୍ତୁ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ଗୋପନୀୟତା ରିମାଇଣ୍ଡର୍‍"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ଆପଣଙ୍କ ଡିଭାଇସ୍ ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ ଅଛି!"</string>
     <string name="done" msgid="7755227776955952318">"ହୋଇଗଲା"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"ଏହି ଡିଭାଇସ୍ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>ରୁ କ୍ରେଡିଟରେ କିଣା ଯାଇଥିଲା"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହା କରିପାରିବ:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରନ୍ତୁ, ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟଗୁଡ଼ିକ କରିପାରିବେ"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"ଯଦି ଆପଣ କୌଣସି ପେମେଣ୍ଟ କରି ନାହାଁନ୍ତି, ତେବେ ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରନ୍ତୁ"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଓ ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକୁ ସଂଯୋଗ କରନ୍ତୁ"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ସଂଯୁକ୍ତ ହୋଇଥିବା ଆପଗୁଡ଼ିକ ଆପଣଙ୍କୁ କାର୍ଯ୍ୟସ୍ଥଳୀ କିମ୍ବା ବ୍ୟକ୍ତିଗତ ଡାଟା ଏକାଠି ଆକ୍ସେସ୍ କରିବାକୁ ଦେଇଥାଏ। ଆପଣ ସେଟିଂସରେ ଯେ କୌଣସି ସମୟରେ ପରିବର୍ତ୍ତନଗୁଡ଼ିକ କରିପାରିବେ।"</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଓ ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକୁ ସଂଯୋଗ କରନ୍ତୁ"</string>

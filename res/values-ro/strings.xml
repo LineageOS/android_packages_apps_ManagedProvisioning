@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Dispozitivul aparține organizației dvs."</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Următoarea aplicație va fi folosită pentru a gestiona și monitoriza acest telefon"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Se pregătește pentru configurarea pentru serviciu…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Mai întâi să configurăm profilul de serviciu"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Să configurăm profilul de serviciu"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Aplicațiile de serviciu sunt păstrate în profilul de serviciu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Întrerupeți aplicațiile de serviciu când încheiați ziua"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplicațiile personale sunt izolate, ascunse de cele de lucru"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Adminul IT poate controla dispozitivul și bloca aplicații"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Aplicațiile pentru lucru se păstrează în profilul de serviciu și sunt gestionate de administratorul IT. Aplicațiile personale sunt separate și ascunse de cele pentru lucru. Administratorul IT poate să controleze acest dispozitiv și să blocheze anumite aplicații."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"O secundă…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Memento privind confidențialitatea"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Administratorul IT vă poate vedea datele și activitatea pe acest dispozitiv"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Dispozitivul este gata de utilizare!"</string>
     <string name="done" msgid="7755227776955952318">"Gata"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Acest dispozitiv a fost cumpărat folosind credit de la <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> poate să:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalați aplicația <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ca să puteți face plăți pentru acest dispozitiv"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Restricționați accesul la acest dispozitiv dacă nu faceți plăți"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Conectați aplicațiile de serviciu și cele personale"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Cu ajutorul aplicațiilor conectate puteți să accesați împreună datele de serviciu și datele cu caracter personal. Puteți face oricând modificări în Setări."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Conectați aplicațiile de serviciu și cele personale"</string>

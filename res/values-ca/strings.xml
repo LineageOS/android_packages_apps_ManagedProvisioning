@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Aquest dispositiu pertany a la teva organització"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"S\'utilitzarà l\'aplicació següent per gestionar i supervisar aquest telèfon"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"S\'està preparant per a la configuració professional…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Primer, configurem el teu perfil de treball"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurem el teu perfil de treball"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les aplicacions de treball es desaran al teu perfil de treball"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Posa en pausa les aplicacions de treball quan hagis acabat la jornada"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les apps personals es mantenen ocultes de les de treball"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'admin. de TI pot controlar el dispositiu i bloquejar apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"L\'administrador de TI gestiona les teves aplicacions de treball, que es desen al teu perfil de treball. Les aplicacions personals s\'oculten i se separen de les aplicacions de treball. L\'administrador de TI pot controlar aquest dispositiu i bloquejar aplicacions determinades."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Un moment…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatori de privadesa"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"L\'administrador de TI podrà veure les teves dades i la teva activitat en aquest dispositiu"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"El teu dispositiu ja està a punt."</string>
     <string name="done" msgid="7755227776955952318">"Fet"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Aquest dispositiu s\'ha comprat a crèdit a <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pot fer el següent:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instal·la l\'aplicació <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> per poder fer pagaments per a aquest dispositiu"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Restringir l\'accés a aquest dispositiu si no fas cap pagament"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Connecta les aplicacions de feina i les personals"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Les aplicacions connectades et permeten accedir tant a les dades de treball com a les personals. Pots fer canvis en qualsevol moment a Configuració."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Connecta les aplicacions de feina i les personals"</string>
