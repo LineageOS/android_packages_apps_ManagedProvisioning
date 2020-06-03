@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Ta naprava pripada vaši organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Ta aplikacija bo uporabljena za upravljanje in nadziranje tega telefona"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Priprava za nastavitev za delo …"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Najprej nastavimo vaš delovni profil"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Nastavimo vaš delovni profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Delovne aplikacije se hranijo v vašem delovnem profilu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ko za danes končate z delom, začasno zaustavite delovne aplikacije"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osebne aplikacije so ločene in skrite pred delovnimi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT skrbnik lahko upravlja to napravo in blokira aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Delovne aplikacije so shranjene v delovnem profilu, upravlja pa jih skrbnik za IT. Osebne aplikacije so ločene in skrite pred delovnimi aplikacijami. Skrbnik za IT lahko upravlja to napravo in blokira nekatere aplikacije."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Samo trenutek …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Opomnik glede zasebnosti"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Skrbnik za IT bo morda lahko videl podatke in dejavnost v tej napravi"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Vaša naprava je pripravljena za uporabo!"</string>
     <string name="done" msgid="7755227776955952318">"Končano"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Ta naprava je bila kupljena na obroke od posojilodajalca <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> lahko:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Namesti aplikacijo posojilodajalca <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, da boste lahko plačevali obroke za to napravo."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Omeji dostop do te naprave, če ne plačujete obrokov."</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povežite delovne in osebne aplikacije"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Povezane aplikacije omogočajo hkraten dostop do službenih in osebnih podatkov. Spremembe lahko kadar koli izvedete v nastavitvah."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povežite delovne in osebne aplikacije"</string>
