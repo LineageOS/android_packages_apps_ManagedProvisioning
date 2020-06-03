@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"此设备归贵单位所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在准备工作设置…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"首先，请设置您的工作资料"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"请设置您的工作资料"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作应用位于您的工作资料中"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"完成一天的工作后暂停工作应用"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"个人应用与工作应用相互独立，两者不会同时显示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"您的 IT 管理员可以控制此设备并屏蔽特定应用"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"工作应用会保存在您的工作资料中，并由您的 IT 管理员管理。个人应用与工作应用相互独立，两者不会同时显示。您的 IT 管理员可以控制此设备并屏蔽特定应用。"</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"请稍候…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"隐私权提醒"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"您的 IT 管理员或许可以查看您在此设备上的数据和活动"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"您的设备已准备就绪！"</string>
     <string name="done" msgid="7755227776955952318">"完成"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"此设备是您使用抵用金向<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>购买的"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>可以执行以下操作："</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"在此设备上安装<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>应用，以便您付款"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"限制您对此设备的访问权限（如果您不付款）"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"关联工作应用和个人应用"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"关联的应用可让您同时访问工作数据和个人数据。您随时可以在“设置”中进行更改。"</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"关联工作应用和个人应用"</string>

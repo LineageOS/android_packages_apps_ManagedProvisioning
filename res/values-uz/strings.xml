@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu qurilma tashkilotingizga tegishli"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Bu telefonni boshqarish va nazorat qilish uchun quyidagi ilovadan foydalaniladi"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Sozlash uchun tayyorlanmoqda…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Avval ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishga oid ilovalar ishchi profilda saqlanadi"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Shaxsiy ilovalar – ishga oid ilovalardan alohida"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin bu qurilmani boshqarishi va ilovalarni bloklashi mumkin"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Ishga oid ilovalar ish profilida saqlanadi va AT administratoringiz tomonidan boshqariladi. Shaxsiy ilovalar ishga oid ilovalardan ajratilgan va yashirilgan. AT administratoringiz bu qurilmani boshqara oladi va ayrim ilovalarni bloklay oladi"</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Bir soniya…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Qurilmangiz ishga shay!"</string>
     <string name="done" msgid="7755227776955952318">"Tayyor"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu qurilma <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> doʻkonidan kreditga olingan"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> quyidagilarni bajara oladi:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu qurilma uchun toʻlovlarni amalga oshirish uchun <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ilovasini oʻrnating"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Toʻlovlar vaqtida bajarilmasa, qurilmaga ruxsatni yopish"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Shaxsiy va ishga oid ilovalarga ulanish"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Ulangan ilovalar yordamida ishga oid va shaxsiy maʼlumotlar bilan ishlash mumkin. Istalgan vaqtda Sozlamalar orqali oʻzgartirish mumkin."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Shaxsiy va ishga oid ilovalarga ulanish"</string>
