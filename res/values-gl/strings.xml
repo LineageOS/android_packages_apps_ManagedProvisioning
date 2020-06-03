@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertence á túa organización"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"A seguinte aplicación utilizarase para xestionar e supervisar este teléfono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando dispositivo para a configuración do traballo…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"En primeiro lugar, configuremos o teu perfil de traballo"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configuremos o teu perfil de traballo"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"As aplicacións do traballo gárdanse no teu perfil de traballo"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pon en pausa as aplicacións do traballo cando remates a túa xornada laboral"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As apps persoais están separadas das do traballo e ocultas"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador pode controlar o dispositivo e bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"As aplicacións gárdanse no teu perfil de traballo e xestiónaas o teu administrador de TI. As aplicacións persoais están separadas das aplicacións do traballo e non se mostran nelas. O teu administrador de TI pode controlar este dispositivo e bloquear determinadas aplicacións."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Un segundo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidade"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Xa podes utilizar o dispositivo"</string>
     <string name="done" msgid="7755227776955952318">"Feito"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Este dispositivo comprouse baixo crédito de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pode facer o seguinte:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalar a aplicación de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> para que poidas facer pagos con este dispositivo"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Restrinxir o acceso a este dispositivo se non fas pagos"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Conectar as aplicacións do traballo e persoais"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"As aplicacións conectadas permítenche acceder tanto aos datos persoais como aos do traballo. Podes realizar cambios cando queiras en Configuración."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Conectar as aplicacións do traballo e persoais"</string>

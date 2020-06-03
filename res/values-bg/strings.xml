@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Това устройство принадлежи на организацията ви"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следното приложение ще се използва за управление и наблюдение на този телефон"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Настройването на служебен профил се подготвя…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Първо, нека да настроим служебния ви потребителски профил"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Да настроим служебния ви потребителски профил"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Служебните приложения се съхраняват в служебния ви потребителски профил"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Поставяйте служебните приложения на пауза, когато приключите работата за деня"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните прилож. се съхран. отделно и са скрити от служебните"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Системният ви администратор може да управлява това у-во и да блокира определени прилож."</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Служебните приложения се съхраняват в служебния ви потребителски профил и се управляват от системния администратор. Личните приложения се съхраняват отделно и са скрити от служебните. Системният ви администратор може да управлява това устройство и да блокира определени приложения."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Една секунда…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напомняне за поверителността"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системният ви администратор може да преглежда данните и активността ви на това устройство"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Устройството ви е готово за работа!"</string>
     <string name="done" msgid="7755227776955952318">"Готово"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Това устройство бе купено на кредит от <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може да:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Инсталира приложението на <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, за да можете да извършвате плащания за това устройство."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Ограничи достъпа до това устройство, ако не извършвате плащания."</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Свързване на служебните и личните приложения"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Свързаните приложения ви дават достъп едновременно до служебните и личните данни. Можете да променяте настройките по всяко време."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Свързване на служебните и личните приложения"</string>

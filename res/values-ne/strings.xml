@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"यो यन्त्र तपाईंको सङ्गठनको स्वामित्वमा छ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"यो फोनको व्यवस्थापन तथा अनुगमन गर्न निम्न एपको उपयोग गरिने छ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कार्यस्थल सेटअप गर्न तयारी गर्दै…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"सर्वप्रथम, तपाईंको कार्य प्रोफाइल सेटअप गरौँ"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"सर्वप्रथम आफ्नो कार्य प्रोफाइल सेटअप गरौँ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्यस्थलसम्बन्धी एपहरू तपाईंको कार्यसम्बन्धी प्रोफाइलमा राखिन्छन्"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि कार्यस्थलसम्बन्धी एप पज गर्नुहोस्"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"छुट्टै राखिने व्यक्तिगत एप कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT एडमिन यो यन्त्र र यसका केही एपहरू नियन्त्रण गर्न सक्छन्"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन् र तपाईंका IT एडमिनले तिनको व्यवस्थापन गर्छन्। व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एपहरू कामसम्बन्धी अनुप्रयोगसँगै देखिँदैनन्। तपाईंका IT एडमिनले यो यन्त्रलाई नियन्त्रण गर्न तथा यसमा चल्ने केही निश्चित एपहरूमाथि रोक लगाउन सक्छन्।"</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"एकै छिन पर्खनुहोस्…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयतासम्बन्धी रिमाइन्डर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तपाईंका IT व्यवस्थापकले यस यन्त्रको तपाईंको डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तपाईंको यन्त्र प्रयोग गर्नुभए हुन्छ!"</string>
     <string name="done" msgid="7755227776955952318">"सम्पन्न भयो"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"यो <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> बाट किस्ताबन्दीमा लिइएको यन्त्र हो"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> निम्न कुराहरू गर्न सक्नुहुन्छ:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"तपाईं यो यन्त्रको किस्ता रकम तिर्न सक्नुहोस् भन्नाका खातिर <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> एप इन्स्टल गर्नुहोस्"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"तपाईंले यो यन्त्रको किस्ता रकम नतिर्नुभएका खण्डमा यो यन्त्रका सबै सुविधा प्रयोग गर्न पाउनुहुन्न"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"कामसम्बन्धी एप र व्यक्तिगत एपहरूलाई जोड्नुहोस्"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"जोडिएका एपहरूले तपाईंलाई कामसम्बन्धी र व्यक्तिगत दुवै किसिमका डेटा प्रयोग गर्न दिन्छ। तपाईं सेटिङमा गई जुनसुकै बेला यसलाई परिवर्तन गर्न सक्नुहुन्छ।"</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"कामसम्बन्धी एप र व्यक्तिगत एपहरूलाई जोड्नुहोस्"</string>

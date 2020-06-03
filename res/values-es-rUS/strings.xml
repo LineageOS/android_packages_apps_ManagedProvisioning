@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertenece a tu organización"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"La siguiente app se usará para administrar y supervisar este teléfono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando la configuración de trabajo…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Primero, configuremos tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configuremos tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Las apps de trabajo se almacenan en tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Detén las apps de trabajo cuando finalice tu horario laboral"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales están separadas de las de trabajo"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu admnr. de TI puede controlar el dispositivo y bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"El administrador de TI administra las apps de trabajo, que se almacenan en tu perfil de trabajo. Las apps personales se mantienen separadas y ocultas de las apps de trabajo. Tu administrador de TI puede controlar este dispositivo y bloquear determinadas apps."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Un momento…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidad"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Es posible que el administrador de TI pueda ver tus datos y tu actividad en este dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"¡Tu dispositivo está listo!"</string>
     <string name="done" msgid="7755227776955952318">"Listo"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Este dispositivo se compró con crédito de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> puede hace lo siguiente:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instala la app de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> para realizar los pagos de este dispositivo"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Restringe el acceso a este dispositivo si no quieres realizar pagos"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Conecta apps personales y de trabajo"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Las apps conectadas te permiten acceder a datos de trabajo y personales en el mismo lugar. Realiza cambios cuando quieras en la Configuración."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Conecta apps personales y de trabajo"</string>

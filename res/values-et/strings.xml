@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"See seade kuulub teie organisatsioonile"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Selle telefoni haldamiseks ja jälgimiseks kasutatakse järgmist rakendust"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Tööks seadistamise ettevalmistamine …"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Seadistame esmalt teie tööprofiili"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Seadistame teie tööprofiili"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Töörakendusi hoitakse teie tööprofiilil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Tööpäeva lõpus peatage töörakendused"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Isiklikke rakendusi hoitakse töörakendustest eraldi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-admin. saab seda seadet juhtida ja rakendusi blokeerida"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Töörakendusi hoitakse teie tööprofiilil ja neid haldab teie IT-administraator. Isiklikke rakendusi hoitakse töörakendustest eraldi. Teie IT-administraator saab seda seadet juhtida ja teatud rakendused blokeerida."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Üks hetk …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatsuse meeldetuletus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Seade on kasutamiseks valmis."</string>
     <string name="done" msgid="7755227776955952318">"Valmis"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"See seade osteti krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> antud krediidiga"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> saab teha järgmist:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installige krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> rakendus, et saaksite selle seadme eest makseid teha"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Piirake juurdepääsu sellele seadmele, kui te makseid ei tee"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Töö- ja isiklike rakenduste ühendamine"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Ühendatud rakendused võimaldavad teil korraga juurde pääseda nii töö- kui ka isiklikele andmetele. Muudatusi saate alati teha menüüs Seaded."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Töö- ja isiklike rakenduste ühendamine"</string>
