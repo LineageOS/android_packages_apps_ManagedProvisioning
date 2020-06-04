@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Cet appareil appartient à votre organisation"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'application suivante sera utilisée pour gérer et surveiller ce téléphone"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Préparation pour la configuration professionnelle…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Commencez par configurer votre profil professionnel"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurer votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les applis professionnelles sont dans votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Mettez vos applis professionnelles en pause quand vous avez fini de travailler"</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique contrôle cet appareil"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Un instant…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel concernant les règles de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Votre appareil est prêt !"</string>
     <string name="done" msgid="7755227776955952318">"OK"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Cet appareil a été acheté à crédit auprès de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> peut prendre les mesures suivantes :"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installer l\'application <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> afin que vous puissiez effectuer les paiements requis"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Restreindre l\'accès à cet appareil si vous n\'effectuez pas les paiements requis"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Associer les données professionnelles et personnelles"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Les applications connectées vous permettent d\'accéder à la fois à vos données personnelles et à vos données professionnelles. Vous pouvez à tout moment apporter des modifications dans les paramètres."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Associer les données professionnelles et personnelles"</string>

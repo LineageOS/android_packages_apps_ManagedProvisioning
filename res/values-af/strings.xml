@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Hierdie toestel behoort aan jou organisasie"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Die volgende program sal gebruik word om hierdie foon te bestuur en te monitor"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Maak tans gereed vir werkopstelling …"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Kom ons stel eers jou werkprofiel op"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Kom ons stel eers jou werkprofiel op"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werkprogramme word in jou werkprofiel gehou"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laat werkprogramme wag wanneer jy klaar is vir die dag."</string>
@@ -185,10 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlike programme is apart en versteek van werkprogramme"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Jou IT-admin kan dié toestel beheer en programme blokkeer"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Werkprogramme word in jou werkprofiel gehou en deur jou IT-administrateur bestuur. Persoonlike programme is apart en van werkprogramme versteek. Jou IT-administrateur kan hierdie toestel beheer en sekere programme blokkeer."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Net \'n oomblik …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatheidonthounota"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Jou IT-administrateur kan dalk jou data en aktiwiteit op hierdie toestel sien"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Jou toestel is gereed vir gebruik!"</string>
     <string name="done" msgid="7755227776955952318">"Klaar"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Hierdie toestel is by <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> op krediet gekoop"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Die <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-program installeer sodat jy betalings vir hierdie toestel kan doen"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Toegang tot hierdie toestel beperk as jy nie betalings doen nie"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Koppel werk- en persoonlike programme"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"As programme gekoppel is, kan hulle toegang tot werk- en persoonlike data saam kry. Jy kan enige tyd veranderinge in Instellings aanbring."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Koppel werk- en persoonlike programme"</string>
