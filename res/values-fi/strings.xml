@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Tämä on organisaatiosi laite"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Tätä puhelinta ylläpidetään ja valvotaan seuraavalla sovelluksella"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Valmistellaan työprofiilin määritystä…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Määritetään ensin työprofiilisi"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Määritetään työprofiilisi"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Työsovelluksia säilytetään työprofiilissa"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Keskeytä työsovellukset, kun päivä on pulkassa"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Omat sovellukset ovat erillisiä ja piilossa työsovelluksilta"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-valvoja voi käyttää tätä laitetta &amp; estää sovelluksia"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Työsovelluksia säilytetään työprofiilissa ja IT-järjestelmänvalvoja ylläpitää niitä. Henkilökohtaiset sovellukset ovat erillisiä ja piilotettu työsovelluksilta. IT-järjestelmänvalvoja ei voi kontrolloida tätä laitetta tai estää tiettyjä sovelluksia."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Hetki vain…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Tietosuojamuistutus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Laite on valmiina käyttöön."</string>
     <string name="done" msgid="7755227776955952318">"Valmis"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Tämä laite ostettiin luottosopimuksella: <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> voi"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Asenna sovellus (<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>), niin voit tehdä tämän laitteen maksuja"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"rajoittaa pääsyä tälle laitteelle, jos et suorita maksuja"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Yhdistä työ- ja henkilökohtaisia sovelluksia"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Liitettyjen sovellusten avulla sinulla on pääsy sekä työ- että henkilökohtaiseen dataan yhtä aikaa. Voit tehdä muutoksia milloin tahansa asetuksissa."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Yhdistä työ- ja henkilökohtaisia sovelluksia"</string>

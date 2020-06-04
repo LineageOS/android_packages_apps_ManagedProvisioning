@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Pagmamay-ari ng iyong organisasyon ang device na ito"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Gagamitin ang sumusunod na app para pamahalaan at subaybayan ang teleponong ito"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Naghahanda para sa pag-set up ng trabaho…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Una, i-set up natin ang iyong profile sa trabaho"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"I-set up natin ang iyong profile sa trabaho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"I-pause ang mga app para sa trabaho kapag tapos ka na sa araw na ito"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang personal apps at nakatago mula sa work apps"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng IT admin mo itong device at makakapag-block ng ilang app"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho at pinapamahalaan ng IT admin mo ang mga ito. Nakahiwalay ang mga personal na app at nakatago ang mga ito mula sa mga app para sa trabaho. Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang partikular na app."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Sandali lang…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Paalala sa privacy"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Baka makita ng iyong IT admin ang data at aktibidad mo sa device na ito"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Handa na ang iyong device!"</string>
     <string name="done" msgid="7755227776955952318">"Tapos na"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Binili ang device na ito sa <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> sa pamamagitan ng credit"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"Magagawa ng <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> na:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"I-install ang <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> app para makapagbayad ka para sa device na ito"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Paghigpitan ang access sa device na ito kung hindi ka magbabayad"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Ikonekta ang mga app para sa trabaho at personal na app"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Pinapayagan ka ng mga nakakonektang app na ma-access nang sabay ang data sa trabaho at ang personal na data. Puwede kang gumawa ng mga pagbabago anumang oras sa Mga Setting."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Ikonekta ang mga app para sa trabaho at personal na app"</string>

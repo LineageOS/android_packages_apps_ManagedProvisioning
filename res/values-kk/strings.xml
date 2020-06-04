@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Бұл құрылғы ұйымға тиесілі."</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Бұл телефонды басқару және бақылау үшін мына қолданба пайдаланылатын болады."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Жұмысқа реттеуге дайындалуда…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Алдымен жұмыс профиліңіздің параметрлерін орнатып алайық."</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Алдымен жұмыс профиліңізді реттеп алайық."</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жұмыс қолданбалары жұмыс профилінде сақталады"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Күннің соңында жұмыс қолданбаларын тоқтатып қою"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Жеке қолданбалар жұмыстікінен бөлек және жасырын орналасқан"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Әкімші құрылғыны басқарып, кейбір қолданбаларды бөгей алады"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Жұмыс қолданбалары жұмыс профилінде сақталады және оларды әкімші басқарады. Жеке қолданбалар жасырылған және жұмыс қолданбаларынан бөлек орналасқан. Әкімші осы құрылғыны басқара алады және кейбір қолданбаларды бөгей алады."</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"Сәл күтіңіз…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Құпиялылық туралы еске салғыш"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Әкімші осы құрылғыдағы деректеріңізді және әрекеттеріңізді көруі мүмкін."</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Құрылғыңыз пайдалануға дайын!"</string>
     <string name="done" msgid="7755227776955952318">"Дайын"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Бұл құрылғы <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> дүкенінен несиеге алынған"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> мүмкіндіктері:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Құрылғының ақшасын төлеу үшін <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> қолданбасын орнатыңыз."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Егер ақша төлемесеңіз, құрылғыны пайдалану шектеледі."</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"Жұмыс және жеке қолданбаларды жалғау"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Байланыстырылған қолданбалар жұмыс және жеке деректерді бірге пайдалануға мүмкіндік береді. Өзгерістерді кез келген уақытта \"Параметрлер\" бөлімінен енгізе аласыз."</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"Жұмыс және жеке қолданбаларды жалғау"</string>

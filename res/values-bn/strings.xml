@@ -168,7 +168,6 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"এই ডিভাইসটি আপনার প্রতিষ্ঠানের"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফোন ম্যানেজ এবং মনিটর করতে এই অ্যাপ ব্যবহার করা হবে"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"অফিসের জন্য ডিভাইসের সেট-আপ শুরু করা হচ্ছে…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"প্রথমে, আপনার অফিসের প্রোফাইল সেট-আপ করুন"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"প্রথমে, আপনার অফিসের প্রোফাইল সেট-আপ করুন"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"অফিসের অ্যাপ আপনার অফিসের প্রোফাইলে রাখা হয়েছে"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"দিনের কাজ শেষ হয়ে গেলে, আপনার অফিসের অ্যাপ আপনি পজ করে দিতে পারেন"</string>
@@ -185,20 +184,15 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"অফিস অ্যাপের থেকে ব্যক্তিগত অ্যাপ আলাদা করে লুকিয়ে রাখা হয়"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আইটি অ্যাডমিন এই ডিভাইস নিয়ন্ত্রণ করতে ও নির্দিষ্ট অ্যাপ ব্লক করতে পারেন"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"আপনার অফিসে প্রোফাইলে অফিসের অ্যাপ থাকে এবং সেটি আইটি অ্যাডমিন ম্যানেজ করে। অফিসের অ্যাপের থেকে ব্যক্তিগত অ্যাপ আলাদা করে লুকিয়ে রাখা হয়। আপনার আইটি অ্যাডমিন এই ডিভাইস নিয়ন্ত্রণ করতে ও নির্দিষ্ট অ্যাপ ব্লক করতে পারেন।"</string>
-    <!-- no translation found for just_a_sec (6244676028626237220) -->
-    <skip />
+    <string name="just_a_sec" msgid="6244676028626237220">"একটু অপেক্ষা করুন…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"গোপনীয়তা সংক্রান্ত রিমাইন্ডার"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"আপনার ডিভাইস এখন ব্যবহার করার জন্য প্রস্তুত!"</string>
     <string name="done" msgid="7755227776955952318">"হয়ে গেছে"</string>
-    <!-- no translation found for financed_device_screen_header (7890706080917322376) -->
-    <skip />
-    <!-- no translation found for creditor_capabilities_header (6217362648469323253) -->
-    <skip />
-    <!-- no translation found for install_creditor_app_description (6159751782301108878) -->
-    <skip />
-    <!-- no translation found for lock_device_description (2940362560732989166) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"এই ডিভাইসটি <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-এর কাছ থেকে ক্রেডিটে কেনা হয়েছিল"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> করতে পারবেন:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"এই ডিভাইসের জন্য পেমেন্ট করতে <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ইনস্টল করুন"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"আপনি পেমেন্ট না করে থাকলে এই ডিভাইসে অ্যাক্সেস সীমাবদ্ধ করুন"</string>
     <string name="cross_profile_consent_title" msgid="2780947113502387039">"অফিস এবং ব্যক্তিগত অ্যাপ কানেক্ট করুন"</string>
     <string name="cross_profile_consent_summary" msgid="2334089765948376631">"কানেক্ট করা অ্যাপ আপনাকে অফিস এবং ব্যক্তিগত ডেটা একসাথে অ্যাক্সেস করার সুবিধা দেয়। আপনি যেকোনও সময় সেটিংস থেকে পরিবর্তন করতে পারবেন।"</string>
     <string name="cross_profile_notification_title" msgid="1583188168823827262">"অফিস এবং ব্যক্তিগত অ্যাপ কানেক্ট করুন"</string>
