@@ -86,21 +86,4 @@ public class ManagedProvisioningSharedPreferencesTest {
         assertThat(mManagedProvisioningSharedPreferences.getProvisioningStartedTimestamp())
                 .isEqualTo(1234);
     }
-
-    @Test
-    public void testGetConsentedCrossProfilePackages_defaultsToEmptySet() {
-        assertThat(
-                mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages())
-                .hasSize(0);
-    }
-
-    @Test
-    public void testGetConsentedCrossProfilePackages_returnsWrittenValue() {
-        Set<String> set = Set.of("package1", "package2");
-
-        mManagedProvisioningSharedPreferences.writeConsentedCrossProfilePackages(set);
-
-        assertThat(mManagedProvisioningSharedPreferences.getConsentedCrossProfilePackages())
-                .containsExactlyElementsIn(set);
-    }
 }
