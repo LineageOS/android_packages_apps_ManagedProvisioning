@@ -16,11 +16,17 @@
 
 package com.android.managedprovisioning.task;
 
+import static android.app.AppOpsManager.MODE_ALLOWED;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_CREATE_PROFILE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import android.Manifest;
+import android.app.AppOpsManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.CrossProfileApps;
+import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.UserManager;
 
@@ -34,8 +40,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
 import com.android.managedprovisioning.task.nonrequiredapps.NonRequiredAppsLogic;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -48,6 +52,10 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
     private final NonRequiredAppsLogic mNonRequiredAppsLogic;
     private final CrossProfileAppsSnapshot mCrossProfileAppsSnapshot;
     private final UserManager mUserManager;
+    private final CrossProfileApps mCrossProfileApps;
+    private final DevicePolicyManager mDevicePolicyManager;
+    private final PackageManager mPackageManager;
+    private final AppOpsManager mAppOpsManager;
 
     public CreateManagedProfileTask(Context context, ProvisioningParams params, Callback callback) {
         this(
@@ -75,6 +83,10 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
         mNonRequiredAppsLogic = checkNotNull(logic);
         mUserManager = checkNotNull(userManager);
         mCrossProfileAppsSnapshot = checkNotNull(crossProfileAppsSnapshot);
+        mCrossProfileApps = context.getSystemService(CrossProfileApps.class);
+        mDevicePolicyManager = context.getSystemService(DevicePolicyManager.class);
+        mPackageManager = context.getPackageManager();
+        mAppOpsManager = context.getSystemService(AppOpsManager.class);
     }
 
     @Override
@@ -98,9 +110,35 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
     }
 
     private void resetInteractAcrossProfilesAppOps() {
-        new ManagedProvisioningSharedPreferences(mContext)
-                .writeConsentedCrossProfilePackages(new HashSet<>());
-        mContext.getSystemService(CrossProfileApps.class).clearInteractAcrossProfilesAppOps();
+        mCrossProfileApps.clearInteractAcrossProfilesAppOps();
+        pregrantDefaultInteractAcrossProfilesAppOps();
+    }
+
+    private void pregrantDefaultInteractAcrossProfilesAppOps() {
+        final String op =
+                AppOpsManager.permissionToOp(Manifest.permission.INTERACT_ACROSS_PROFILES);
+        for (String packageName : getConfigurableDefaultCrossProfilePackages()) {
+            if (appOpIsChangedFromDefault(op, packageName)) {
+                continue;
+            }
+            mCrossProfileApps.setInteractAcrossProfilesAppOp(packageName, MODE_ALLOWED);
+        }
+    }
+
+    private Set<String> getConfigurableDefaultCrossProfilePackages() {
+        Set<String> defaultPackages = mDevicePolicyManager.getDefaultCrossProfilePackages();
+        return defaultPackages.stream().filter(
+                mCrossProfileApps::canConfigureInteractAcrossProfiles).collect(Collectors.toSet());
+    }
+
+    private boolean appOpIsChangedFromDefault(String op, String packageName) {
+        try {
+            final int uid = mPackageManager.getPackageUid(packageName, /* flags= */ 0);
+            return mAppOpsManager.unsafeCheckOpNoThrow(op, uid, packageName)
+                    != AppOpsManager.MODE_DEFAULT;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
