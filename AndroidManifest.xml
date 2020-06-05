@@ -294,11 +294,5 @@
         <service
             android:name=".analytics.ProcessMetricsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
-
-        <activity
-            android:name=".provisioning.crossprofile.CrossProfileConsentActivity"
-            android:exported="true"
-            android:theme="@style/SudThemeGlifV3.Light">
-        </activity>
     </application>
 </manifest>
