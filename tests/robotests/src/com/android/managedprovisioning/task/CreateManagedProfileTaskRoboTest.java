@@ -117,7 +117,7 @@ public class CreateManagedProfileTaskRoboTest {
         shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(packages);
 
         new CreateManagedProfileTask(mContext, TEST_PARAMS, mCallback).run(TEST_USER_ID);
-        
+
         assertThat(shadowOf(mCrossProfileApps)
                 .getInteractAcrossProfilesAppOp(nonCrossProfilePackage))
                 .isEqualTo(MODE_DEFAULT);
