@@ -34,10 +34,6 @@ public class ManagedProvisioningSharedPreferences {
     static final String KEY_PROVISIONING_START_TIMESTAMP = "provisioning_start_timestamp";
 
     @VisibleForTesting
-    static final String KEY_CONSENTED_CROSS_PROFILE_PACKAGES =
-            "consented_cross_profile_packages";
-
-    @VisibleForTesting
     static final String SHARED_PREFERENCE = "managed_profile_shared_preferences";
 
     /**
@@ -84,17 +80,5 @@ public class ManagedProvisioningSharedPreferences {
      */
     public long getProvisioningStartedTimestamp() {
         return mSharedPreferences.getLong(KEY_PROVISIONING_START_TIMESTAMP, 0L);
-    }
-
-    public void writeConsentedCrossProfilePackages(Set<String> consentedPackages) {
-        mSharedPreferences.edit().putStringSet(
-                KEY_CONSENTED_CROSS_PROFILE_PACKAGES, consentedPackages).apply();
-    }
-
-    // TODO(149990377): Remove @Keep annotation once the notification is re-enabled
-    @Keep
-    public Set<String> getConsentedCrossProfilePackages() {
-        return mSharedPreferences.getStringSet(
-                KEY_CONSENTED_CROSS_PROFILE_PACKAGES, /* defValue= */ Collections.emptySet());
     }
 }

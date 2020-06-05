@@ -16,15 +16,19 @@
 
 package com.android.managedprovisioning.task;
 
+import android.Manifest;
+import android.app.AppOpsManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.CrossProfileApps;
+import android.content.pm.PackageManager;
 import android.util.ArraySet;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
-import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -34,7 +38,9 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
 
     private final CrossProfileAppsSnapshot mCrossProfileAppsSnapshot;
     private final CrossProfileApps mCrossProfileApps;
-    private final ManagedProvisioningSharedPreferences mManagedProvisioningSharedPreferences;
+    private final DevicePolicyManager mDevicePolicyManager;
+    private final AppOpsManager mAppOpsManager;
+    private final PackageManager mPackageManager;
 
     public UpdateInteractAcrossProfilesAppOpTask(Context context,
             ProvisioningParams provisioningParams,
@@ -43,7 +49,9 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
         super(context, provisioningParams, callback, provisioningAnalyticsTracker);
         mCrossProfileAppsSnapshot = new CrossProfileAppsSnapshot(context);
         mCrossProfileApps = context.getSystemService(CrossProfileApps.class);
-        mManagedProvisioningSharedPreferences = new ManagedProvisioningSharedPreferences(context);
+        mDevicePolicyManager = context.getSystemService(DevicePolicyManager.class);
+        mAppOpsManager = context.getSystemService(AppOpsManager.class);
+        mPackageManager = context.getPackageManager();
     }
 
     @Override
@@ -55,17 +63,44 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
         mCrossProfileAppsSnapshot.takeNewSnapshot(userId);
         Set<String> currentCrossProfileApps = mCrossProfileAppsSnapshot.getSnapshot(userId);
 
-        if (previousCrossProfileApps.isEmpty()) {
-            return;
-        }
-
         updateAfterOtaChanges(previousCrossProfileApps, currentCrossProfileApps);
     }
 
     private void updateAfterOtaChanges(
-            Set<String> previousCrossProfileApps, Set<String> currentCrossProfileApps) {
+            Set<String> previousCrossProfilePackages, Set<String> currentCrossProfilePackages) {
         mCrossProfileApps.resetInteractAcrossProfilesAppOps(
-                previousCrossProfileApps, currentCrossProfileApps);
+                previousCrossProfilePackages, currentCrossProfilePackages);
+        Set<String> newCrossProfilePackages = new HashSet<>(currentCrossProfilePackages);
+        newCrossProfilePackages.removeAll(previousCrossProfilePackages);
+
+        grantNewConfigurableDefaultCrossProfilePackages(newCrossProfilePackages);
+    }
+
+    private void grantNewConfigurableDefaultCrossProfilePackages(
+            Set<String> newCrossProfilePackages) {
+        final String op =
+                AppOpsManager.permissionToOp(Manifest.permission.INTERACT_ACROSS_PROFILES);
+        for (String crossProfilePackageName : newCrossProfilePackages) {
+            if (!mCrossProfileApps.canConfigureInteractAcrossProfiles(crossProfilePackageName)) {
+                continue;
+            }
+            if (appOpIsChangedFromDefault(op, crossProfilePackageName)) {
+                continue;
+            }
+
+            mCrossProfileApps.setInteractAcrossProfilesAppOp(crossProfilePackageName,
+                    AppOpsManager.MODE_ALLOWED);
+        }
+    }
+
+    private boolean appOpIsChangedFromDefault(String op, String packageName) {
+        try {
+            final int uid = mPackageManager.getPackageUid(packageName, /* flags= */ 0);
+            return mAppOpsManager.unsafeCheckOpNoThrow(op, uid, packageName)
+                    != AppOpsManager.MODE_DEFAULT;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
