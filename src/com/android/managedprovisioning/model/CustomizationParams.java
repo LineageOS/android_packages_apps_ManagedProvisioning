@@ -55,15 +55,6 @@ public class CustomizationParams {
                 params.mainColor, params.organizationName, params.supportUrl, context, utils);
     }
 
-    public static CustomizationParams createInstance(Context context, Utils utils) {
-        return createInstance(
-                /* mainColor= */ null,
-                /* orgName= */ null,
-                /* supportUrl= */ null,
-                context,
-                utils);
-    }
-
     private static CustomizationParams createInstance(
             @Nullable Integer mainColor,
             @Nullable String orgName,

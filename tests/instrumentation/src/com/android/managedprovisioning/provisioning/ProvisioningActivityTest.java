@@ -378,13 +378,6 @@ public class ProvisioningActivityTest {
         // Press next button on provisioning complete
         onView(withText(R.string.next)).perform(click());
 
-        // The next screen might be the cross profile apps whitelisting if the whitelist is not
-        // empty.
-        if (!mActivityRule.getActivity().isFinishing()) {
-            // Press next button on cross profile apps whitelisting
-            onView(withText(R.string.cross_profile_consent_summary));
-            onView(withText(R.string.next)).perform(click());
-        }
         // THEN the activity should finish
         onView(withId(R.id.provisioning_progress));
         assertTrue(mActivityRule.getActivity().isFinishing());
@@ -417,14 +410,6 @@ public class ProvisioningActivityTest {
 
         // Press next button on provisioning complete
         onView(withText(R.string.next)).perform(click());
-
-        // The next screen might be the cross profile apps whitelisting if the whitelist is not
-        // empty.
-        if (!mActivityRule.getActivity().isFinishing()) {
-            // Press next button on cross profile apps whitelisting
-            onView(withText(R.string.cross_profile_consent_summary));
-            onView(withText(R.string.next)).perform(click());
-        }
 
         // THEN verify starting TEST_ACTIVITY
         intended(allOf(hasComponent(TEST_ACTIVITY), hasAction(ACTION_STATE_USER_SETUP_COMPLETE)));
