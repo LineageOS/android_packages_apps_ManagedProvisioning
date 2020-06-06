@@ -24,6 +24,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import static org.robolectric.Shadows.shadowOf;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
@@ -38,6 +39,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,6 +63,8 @@ public class CreateManagedProfileTaskRoboTest {
     private final PackageManager mPackageManager = mContext.getPackageManager();
     private final CrossProfileApps mCrossProfileApps =
             mContext.getSystemService(CrossProfileApps.class);
+    private final DevicePolicyManager mDevicePolicyManager =
+            mContext.getSystemService(DevicePolicyManager.class);
 
     private @Mock AbstractProvisioningTask.Callback mCallback;
 
@@ -70,31 +74,52 @@ public class CreateManagedProfileTaskRoboTest {
     }
 
     @Test
-    public void run_clearsConsentedCrossProfilePackages() {
-        final ManagedProvisioningSharedPreferences sharedPreferences =
-                new ManagedProvisioningSharedPreferences(mContext);
-        sharedPreferences.writeConsentedCrossProfilePackages(
-                new HashSet<>(Arrays.asList("com.example.testapp1", "com.example.testapp2")));
-
-        new CreateManagedProfileTask(mContext, TEST_PARAMS, mCallback).run(TEST_USER_ID);
-
-        assertThat(sharedPreferences.getConsentedCrossProfilePackages()).isEmpty();
-    }
-
-    @Test
-    public void run_clearsInteractAcrossProfilesAppOps() {
+    public void run_clearsNonDefaultInteractAcrossProfilesAppOps() {
         final String testPackage1 = "com.example.testapp1";
         final String testPackage2 = "com.example.testapp2";
         shadowOf(mPackageManager).installPackage(buildTestPackageInfo(testPackage1));
         shadowOf(mPackageManager).installPackage(buildTestPackageInfo(testPackage2));
-        mCrossProfileApps.setInteractAcrossProfilesAppOp(testPackage1, MODE_ALLOWED);
-        mCrossProfileApps.setInteractAcrossProfilesAppOp(testPackage1, MODE_ALLOWED);
+        mCrossProfileApps.setInteractAcrossProfilesAppOp(testPackage1, MODE_DEFAULT);
+        mCrossProfileApps.setInteractAcrossProfilesAppOp(testPackage2, MODE_ALLOWED);
+        shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(new HashSet<>());
 
         new CreateManagedProfileTask(mContext, TEST_PARAMS, mCallback).run(TEST_USER_ID);
 
         assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(testPackage1))
                 .isEqualTo(MODE_DEFAULT);
         assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(testPackage2))
+                .isEqualTo(MODE_DEFAULT);
+    }
+
+    @Test
+    public void run_grantsDefaultConfigurableInteractAcrossProfilesAppOps() {
+        final String crossProfilePackage = "com.example.testapp1";
+        Set<String> packages = new HashSet<>();
+        packages.add(crossProfilePackage);
+        shadowOf(mPackageManager).installPackage(buildTestPackageInfo(crossProfilePackage));
+        mCrossProfileApps.setInteractAcrossProfilesAppOp(crossProfilePackage, MODE_DEFAULT);
+        shadowOf(mCrossProfileApps).addCrossProfilePackage(crossProfilePackage);
+        shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(packages);
+
+        new CreateManagedProfileTask(mContext, TEST_PARAMS, mCallback).run(TEST_USER_ID);
+
+        assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(crossProfilePackage))
+                .isEqualTo(MODE_ALLOWED);
+    }
+
+    @Test
+    public void run_clearsDefaultNotConfigurableInteractAcrossProfilesAppOps() {
+        final String nonCrossProfilePackage = "com.example.testapp2";
+        Set<String> packages = new HashSet<>();
+        packages.add(nonCrossProfilePackage);
+        shadowOf(mPackageManager).installPackage(buildTestPackageInfo(nonCrossProfilePackage));
+        mCrossProfileApps.setInteractAcrossProfilesAppOp(nonCrossProfilePackage, MODE_ALLOWED);
+        shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(packages);
+
+        new CreateManagedProfileTask(mContext, TEST_PARAMS, mCallback).run(TEST_USER_ID);
+
+        assertThat(shadowOf(mCrossProfileApps)
+                .getInteractAcrossProfilesAppOp(nonCrossProfilePackage))
                 .isEqualTo(MODE_DEFAULT);
     }
 

@@ -421,16 +421,4 @@
   <string name="install_creditor_app_description">Install the <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> app so you can make payments for this device</string>
   <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as restricting access if the user doesn't make payments. [CHAR LIMIT=NONE]-->
   <string name="lock_device_description">Restrict access to this device if you don\'t make payments</string>
-
-  <!-- Title of a full-screen message. This screen lets users connect certain apps in their work and personal profiles so they can access work and personal data together. [CHAR LIMIT=NONE]-->
-  <string name="cross_profile_consent_title">Connect work &amp; personal apps</string>
-  <!-- Subtext on a screen. This text lets users know what will happen if they turn on the toggles next to the apps on this screen. Each app's toggle will let the user access both work and personal data. [CHAR LIMIT=NONE]-->
-  <string name="cross_profile_consent_summary">Connected apps let you access work and personal data together. You can make changes anytime in Settings.</string>
-
-  <!-- Notification title. This notification lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
-  <string name="cross_profile_notification_title">Connect work &amp; personal apps</string>
-  <!-- Text in a notification. This notification lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
-  <string name="cross_profile_notification_text">Access work and personal data together. Tap to set up.</string>
-  <!-- Notification channel name. This channel lets users connect certain apps in their work and personal profiles so they can access work and personal data together. -->
-  <string name="cross_profile_notification_channel_name">Connect work &amp; personal apps</string>
 </resources>
