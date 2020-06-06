@@ -164,7 +164,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"設定管理員應用程式"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"進行其他設定"</string>
     <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"新增個人帳戶即可讓裝置發揮更大的效用"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"工作資料夾已設定完成。你還可以新增個人 Google 帳戶，藉此存取你的應用程式和內容。"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"工作資料夾已設定完成。你還可以新增個人 Google 帳戶，就能存取你的應用程式和內容。"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"這個裝置為貴機構所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下應用程式將用於管理及監控這支手機"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在準備工作設定…"</string>
@@ -181,7 +181,7 @@
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在設定你的裝置…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"使用這個裝置輕鬆存取你的工作應用程式。請注意，這不是私人裝置，因此你的 IT 管理員或許可以查看你的資料和活動。如要瞭解詳情，請與你的 IT 管理員聯絡。"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式會保存在工作資料夾中，並由你的 IT 管理員管理"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"系統會區隔個人應用程式與工作應用程式，因此兩者不會同時顯示"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"系統會區隔個人與工作應用程式，因此兩者不會同時顯示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"你的 IT 管理員可以控制這部裝置及封鎖特定應用程式"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"工作應用程式會保存在你的工作資料夾中，並由你的 IT 管理員管理。系統會區隔個人應用程式與工作應用程式，因此兩者不會同時顯示。你的 IT 管理員可以控制這部裝置及封鎖特定應用程式。"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"請稍候…"</string>

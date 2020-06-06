@@ -181,7 +181,7 @@
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Gerät wird eingerichtet…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Mit diesem Gerät kannst du jederzeit problemlos auf deine Apps für die Arbeit zugreifen. Das Gerät ist nicht privat, d. h., dein IT-Administrator kann deine Daten und Aktivitäten möglicherweise sehen. Wende dich an deinen IT-Administrator, um weitere Informationen zu erhalten."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Geschäftl. Apps werden im Arbeitsprofil abgelegt &amp; von IT verwaltet"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Priv. Apps &amp; geschäftl. Apps können sich nicht sehen"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Private Apps &amp; geschäftliche Apps sind voneinander getrennt"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Der IT-Admin kann dieses Gerät steuern &amp; Apps blockieren"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Geschäftliche Apps werden in deinem Arbeitsprofil abgelegt und von deinem IT-Administrator verwaltet. Private Apps sind separat und für geschäftliche Apps nicht sichtbar. Dein IT-Administrator kann dieses Gerät steuern und bestimmte Apps blockieren."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Bitte warten…"</string>
