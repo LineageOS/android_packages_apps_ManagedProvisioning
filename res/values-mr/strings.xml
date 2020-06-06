@@ -179,7 +179,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"हे डिव्हाइस खाजगी नाही"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तुमचे डिव्हाइस सेट करत आहे…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तुमची ऑफिस अ‍ॅप्स सहजपणे अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल. अधिक जाणून घेण्यासाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तुमची कार्य अ‍ॅप्स सहजपणे अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल. अधिक जाणून घेण्यासाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य प्रोफाइलमधील कार्य अ‍ॅप्स आयटी ॲडमिन व्यवस्थापित करतात"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"वैयक्तिक अ‍ॅप्स कामासंबंधी अ‍ॅप्सहून वेगळी व लपवलेली असतात"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>
