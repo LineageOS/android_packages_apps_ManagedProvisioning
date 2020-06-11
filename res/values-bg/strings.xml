@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може да:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Инсталира приложението на <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, за да можете да извършвате плащания за това устройство."</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Ограничи достъпа до това устройство, ако не извършвате плащания."</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Свързване на служебните и личните приложения"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Свързаните приложения ви дават достъп едновременно до служебните и личните данни. Можете да променяте настройките по всяко време."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Свързване на служебните и личните приложения"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Осъществяване на достъп както до служебните, така и до личните данни. Докоснете, за да настроите."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Свързване на служебните и личните приложения"</string>
 </resources>

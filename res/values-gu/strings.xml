@@ -192,10 +192,5 @@
     <string name="financed_device_screen_header" msgid="7890706080917322376">"આ ડિવાઇસને <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>માંથી ક્રેડિટ પર ખરીદ્યું હતું"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> આ કરી શકે છે:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ઍપ ઇન્સ્ટૉલ કરો જેથી તમે આ ડિવાઇસ માટે ચુકવણીઓ કરી શકો"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"જો તમે ચુકવણીઓ ન કરો, તો આ ડિવાઇસનો ઍક્સેસ પ્રતિબંધિત કરી શકો છો"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેની ઍપને કનેક્ટ કરો"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"કનેક્ટ થયેલી ઍપ તમને કાર્યસંબંધિત અને વ્યક્તિગત ડેટાને એકસાથે ઍક્સેસ કરવા દે છે. તમે સેટિંગમાં કોઈપણ સમયે ફેરફારો કરી શકો છો."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેની ઍપને કનેક્ટ કરો"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેના ડેટાનો એકસાથે ઍક્સેસ કરો. સેટઅપ કરવા માટે ટૅપ કરો."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"કાર્ય સંબંધિત અને વ્યક્તિગત ઉપયોગ માટેની ઍપને કનેક્ટ કરો"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"જો તમે ચુકવણીઓ ન કરો, તો આ ડિવાઇસનો ઍક્સેસ પ્રતિબંધિત કરી શકે છે"</string>
 </resources>

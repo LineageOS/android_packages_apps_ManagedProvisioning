@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> করতে পারবেন:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"এই ডিভাইসের জন্য পেমেন্ট করতে <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ইনস্টল করুন"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"আপনি পেমেন্ট না করে থাকলে এই ডিভাইসে অ্যাক্সেস সীমাবদ্ধ করুন"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"অফিস এবং ব্যক্তিগত অ্যাপ কানেক্ট করুন"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"কানেক্ট করা অ্যাপ আপনাকে অফিস এবং ব্যক্তিগত ডেটা একসাথে অ্যাক্সেস করার সুবিধা দেয়। আপনি যেকোনও সময় সেটিংস থেকে পরিবর্তন করতে পারবেন।"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"অফিস এবং ব্যক্তিগত অ্যাপ কানেক্ট করুন"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"অফিস এবং ব্যক্তিগত ডেটা একসাথে অ্যাক্সেস করুন। সেট-আপ করতে ট্যাপ করুন।"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"অফিস এবং ব্যক্তিগত অ্যাপ কানেক্ট করুন"</string>
 </resources>

@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Magagawa ng <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> na:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"I-install ang <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> app para makapagbayad ka para sa device na ito"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Paghigpitan ang access sa device na ito kung hindi ka magbabayad"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Ikonekta ang mga app para sa trabaho at personal na app"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Pinapayagan ka ng mga nakakonektang app na ma-access nang sabay ang data sa trabaho at ang personal na data. Puwede kang gumawa ng mga pagbabago anumang oras sa Mga Setting."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Ikonekta ang mga app para sa trabaho at personal na app"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"I-access ang data ng trabaho at personal na data. I-tap para i-set up."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Ikonekta ang mga app para sa trabaho at personal na app"</string>
 </resources>

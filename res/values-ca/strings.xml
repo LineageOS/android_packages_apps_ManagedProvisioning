@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pot fer el següent:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Instal·la l\'aplicació <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> per poder fer pagaments per a aquest dispositiu"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Restringir l\'accés a aquest dispositiu si no fas cap pagament"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Connecta les aplicacions de feina i les personals"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Les aplicacions connectades et permeten accedir tant a les dades de treball com a les personals. Pots fer canvis en qualsevol moment a Configuració."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Connecta les aplicacions de feina i les personals"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Accedeix alhora a les dades professionals i a les personals. Toca per configurar."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Connecta les aplicacions de feina i les personals"</string>
 </resources>

@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>এ এই কার্যসমূহ কৰিব পাৰে:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"আপুনি যাতে এই ডিভাইচটোৰ বাবে পৰিশোধসমূহ কৰিব পাৰে, তাৰবাবে <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> এপ্‌টো ইনষ্টল কৰা"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"আপুনি পৰিশোধসমূহ নকৰিলে এই ডিভাইচটোলৈ এক্সেছ সীমাবদ্ধ কৰা"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"কৰ্মস্থানৰ আৰু ব্যক্তিগত এপ্‌সমূহ সংযোগ কৰক"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"সংযুক্ত এপ্‌সমূহে আপোনাক কর্মস্থানৰ আৰু ব্যক্তিগত ডেটালৈ একেলগে এক্সেছ দিয়ে। আপুনি ছেটিংসমূহত যিকোনো সময়তে সালসলনি কৰিব পাৰে।"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"কৰ্মস্থানৰ আৰু ব্যক্তিগত এপ্‌সমূহ সংযোগ কৰক"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"কৰ্মস্থানৰ আৰু ব্যক্তিগত ডেটালৈ একেলগে এক্সেছ পাওক। ছেট আপ কৰিবলৈ টিপক।"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"কৰ্মস্থানৰ আৰু ব্যক্তিগত এপ্‌সমূহ সংযোগ কৰক"</string>
 </resources>

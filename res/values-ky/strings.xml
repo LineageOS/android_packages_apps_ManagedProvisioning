@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> төмөнкүлөрдү кыла алат:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> колдонмосун орнотуп алып, бул түзмөк үчүн төлөмдөрдү аткарыңыз"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Төлөм кылбасаңыз, түзмөккө кирүүнү чектейт"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Жумуш жана жеке колдонмолорду туташтыруу"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Туташтырылган колдонмолор аркылуу жумуш жана жеке маалыматка мүмкүнчүлүк ала аласыз. Жөндөөлөргө өтүп, каалаган убакта өзгөртүү киргизе аласыз."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Жумуш жана жеке колдонмолорду туташтыруу"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Жумуш жана жеке маалыматка чогуу кирүү мүмкүнчүлүгү. Жөндөө үчүн таптап коюңуз."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Жумуш жана жеке колдонмолорду туташтыруу"</string>
 </resources>

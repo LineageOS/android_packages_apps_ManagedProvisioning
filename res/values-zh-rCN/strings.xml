@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>可以执行以下操作："</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"在此设备上安装<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>应用，以便您付款"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"限制您对此设备的访问权限（如果您不付款）"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"关联工作应用和个人应用"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"关联的应用可让您同时访问工作数据和个人数据。您随时可以在“设置”中进行更改。"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"关联工作应用和个人应用"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"同时访问工作数据和个人数据。点按即可设置。"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"关联工作应用和个人应用"</string>
 </resources>
