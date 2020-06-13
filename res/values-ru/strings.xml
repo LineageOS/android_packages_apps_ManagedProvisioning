@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Кредитор \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\" может:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Установить приложение \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", чтобы вы могли вносить платежи."</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Заблокировать устройство, если платежи по кредиту не внесены."</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Подключение рабочих и личных приложений"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Подключенные приложения позволяют получать доступ как к рабочим, так и к личным данным. Изменить параметры можно в любое время в настройках."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Подключение рабочих и личных приложений"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Получите доступ одновременно к рабочим и личным данным. Нажмите, чтобы настроить."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Подключение рабочих и личных приложений"</string>
 </resources>

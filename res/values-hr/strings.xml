@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> može:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"instalirati aplikaciju <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kako biste mogli otplaćivati ovaj uređaj"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"ograničiti pristup ovom uređaju ako ga ne otplaćujete"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povezivanje poslovnih i osobnih aplikacija"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Povezane aplikacije omogućuju vam da istovremeno pristupate poslovnim i osobnim podacima. Promjene možete unijeti u Postavkama."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povezivanje poslovnih i osobnih aplikacija"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Pristupajte poslovnim i osobnim podacima istovremeno. Dodirnite da biste postavili."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Povezivanje poslovnih i osobnih aplikacija"</string>
 </resources>

@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Bitti"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu cihaz <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> tarafından sağlanan krediyle satın alınmıştır"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> şunları yapabilir:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu cihazın ödemelerini yapabilmek için <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> uygulamasını yükleyin"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Ödeme yapmazsanız bu cihaza erişim kısıtlanır"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"İş ve kişisel uygulamaları bağlayın"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Bağlı uygulamalar, iş ve kişisel verilere birlikte erişmenizi sağlar. Ayarlar\'da istediğiniz zaman değişiklik yapabilirsiniz."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"İş ve kişisel uygulamaları bağlayın"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"İş ve kişisel verilere birlikte erişin. Ayarlamak için dokunun."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"İş ve kişisel uygulamaları bağlayın"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu cihazın ödemelerini yapabilmeniz için <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> uygulamasını yükleyebilir"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Ödeme yapmazsanız bu cihaza erişimi kısıtlayabilir"</string>
 </resources>

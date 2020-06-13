@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> వీటిని చేయగలదు:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> యాప్‌ను ఇన్‌స్టాల్ చేస్తే, దాని ద్వారా ఈ పరికర చెల్లింపులను చేయవచ్చు"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"మీరు చెల్లింపు చేయకపోతే, ఈ పరికరానికి యాక్సెస్‌ను పరిమితం చేయండి"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"కనెక్ట్ అయిన యాప్‌లు అనేవి కార్యాలయ డేటాను, వ్యక్తిగత డేటాను కలిపి యాక్సెస్ చేయడానికి మిమ్మల్ని అనుమతిస్తాయి. సెట్టింగ్‌లలో మీరు ఏ సమయంలోనైనా మార్పులు చేయవచ్చు."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"పని, వ్యక్తిగత డేటాలను కలిపి యాక్సెస్ చేయండి. సెటప్ చేయడానికి ట్యాప్ చేయండి."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
 </resources>

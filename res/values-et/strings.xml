@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Valmis"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"See seade osteti krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> antud krediidiga"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> saab teha järgmist:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installige krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> rakendus, et saaksite selle seadme eest makseid teha"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Piirake juurdepääsu sellele seadmele, kui te makseid ei tee"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Töö- ja isiklike rakenduste ühendamine"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Ühendatud rakendused võimaldavad teil korraga juurde pääseda nii töö- kui ka isiklikele andmetele. Muudatusi saate alati teha menüüs Seaded."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Töö- ja isiklike rakenduste ühendamine"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Pääsete juurde nii töö- kui ka isiklikele andmetele. Puudutage seadistamiseks."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Töö- ja isiklike rakenduste ühendamine"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installida krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> rakenduse, et saaksite selle seadme eest makseid teha"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Piirata juurdepääsu sellele seadmele, kui te makseid ei tee"</string>
 </resources>

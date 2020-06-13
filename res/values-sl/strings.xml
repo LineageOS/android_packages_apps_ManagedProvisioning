@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> lahko:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Namesti aplikacijo posojilodajalca <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, da boste lahko plačevali obroke za to napravo."</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Omeji dostop do te naprave, če ne plačujete obrokov."</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povežite delovne in osebne aplikacije"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Povezane aplikacije omogočajo hkraten dostop do službenih in osebnih podatkov. Spremembe lahko kadar koli izvedete v nastavitvah."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povežite delovne in osebne aplikacije"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Hkrati dostopajte do službenih in osebnih podatkov. Dotaknite se, če želite nastaviti."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Povezava delovnih in osebnih aplikacij"</string>
 </resources>

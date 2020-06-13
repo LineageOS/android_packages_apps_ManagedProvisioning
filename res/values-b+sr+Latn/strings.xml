@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Gotovo"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Ovaj uređaj je kupljen na kredit koji pruža <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> može:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalirajte aplikaciju kreditora <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> da biste mogli da plaćate za ovaj uređaj"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"da instalira aplikaciju kreditora <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kako biste mogli da plaćate za ovaj uređaj"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"da ograniči pristup ovom uređaju ako ne platite"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povežite poslovne aplikacije i lične aplikacije"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Povezane aplikacije vam omogućavaju da pristupate poslovnim i ličnim podacima zajedno. Možete da unesete promene u bilo kom trenutku u Podešavanjima."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povežite poslovne aplikacije i lične aplikacije"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Pristupajte poslovnim i ličnim podacima zajedno. Dodirnite da biste podesili."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Povežite poslovne aplikacije i lične aplikacije"</string>
 </resources>

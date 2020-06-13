@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> यह कर सकता है:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ऐप्लिकेशन इंस्टॉल करें, ताकि आप इस डिवाइस के लिए पैसे चुका सकें"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"अगर आप पैसे नहीं चुकाते, तो डिवाइस के ऐक्सेस पर रोक लगा दी जाएगी"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"कनेक्ट किए गए ऐप्लिकेशन से, आपको निजी और काम से जुड़े डेटा को एक साथ ऐक्सेस करने की सुविधा मिलती है. आप जब चाहें, सेटिंग में जाकर इसे बदल सकते हैं."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"निजी और काम से जुड़े डेटा को एक साथ ऐक्सेस करें. सेट अप करने के लिए टैप करें."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"निजी और काम से जुड़े ऐप्लिकेशन को कनेक्ट करें"</string>
 </resources>

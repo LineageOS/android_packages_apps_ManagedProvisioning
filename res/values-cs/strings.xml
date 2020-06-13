@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Hotovo"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Toto zařízení bylo zakoupeno na úvěr od věřitele <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> může:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Nainstalujte aplikaci společnosti <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, abyste zařízení mohli začít splácet"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Pokud nebudete splácet, přístup k zařízení může být omezen"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Propojení pracovních a osobních aplikací"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Připojené aplikace umožňují přístup k pracovním i osobním datům současně. Změny můžete provést kdykoli v Nastavení."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Propojení pracovních a osobních aplikací"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Používejte pracovní i osobní data současně. Klepnutím zahájíte nastavení."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Propojení pracovních a osobních aplikací"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Nainstalovat aplikaci společnosti <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, abyste zařízení mohli začít splácet"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Omezit přístup k zařízení, pokud nebudete splácet"</string>
 </resources>

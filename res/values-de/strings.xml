@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> hat folgende Möglichkeiten:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Die App <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> installieren, damit du Zahlungen für das Gerät vornehmen kannst"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Den Zugriff auf das Gerät einschränken, wenn keine Zahlungen vorgenommen werden"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Berufliche und private Apps verknüpfen"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Mit verbundenen Apps kannst du sowohl auf geschäftliche als auch auf private Daten zugreifen. Du kannst dies jederzeit in den Einstellungen ändern."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Berufliche und private Apps verknüpfen"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Greife gleichzeitig auf berufliche und persönliche Daten zu. Zum Einrichten tippen."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Berufliche und private Apps verknüpfen"</string>
 </resources>

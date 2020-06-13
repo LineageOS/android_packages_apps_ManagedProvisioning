@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହା କରିପାରିବ:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରନ୍ତୁ, ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟଗୁଡ଼ିକ କରିପାରିବେ"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"ଯଦି ଆପଣ କୌଣସି ପେମେଣ୍ଟ କରି ନାହାଁନ୍ତି, ତେବେ ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରନ୍ତୁ"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଓ ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକୁ ସଂଯୋଗ କରନ୍ତୁ"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ସଂଯୁକ୍ତ ହୋଇଥିବା ଆପଗୁଡ଼ିକ ଆପଣଙ୍କୁ କାର୍ଯ୍ୟସ୍ଥଳୀ କିମ୍ବା ବ୍ୟକ୍ତିଗତ ଡାଟା ଏକାଠି ଆକ୍ସେସ୍ କରିବାକୁ ଦେଇଥାଏ। ଆପଣ ସେଟିଂସରେ ଯେ କୌଣସି ସମୟରେ ପରିବର୍ତ୍ତନଗୁଡ଼ିକ କରିପାରିବେ।"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଓ ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକୁ ସଂଯୋଗ କରନ୍ତୁ"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଏବଂ ବ୍ୟକ୍ତିଗତ ଡାଟାକୁ ଏକାଠି ଆକ୍ସେସ୍ କରନ୍ତୁ। ସେଟ୍ ଅପ୍ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ।"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଓ ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକୁ ସଂଯୋଗ କରନ୍ତୁ"</string>
 </resources>

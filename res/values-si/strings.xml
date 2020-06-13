@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> හට මේවා කළ හැකිය:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"මෙම උපාංගය සඳහා ඔබට ගෙවීම් කළ හැකි වන ලෙස <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> යෙදුම ස්ථාපනය කරන්න"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"ඔබ ගෙවීම් නොකරන්නේ නම් මෙම උපාංගය වෙත ප්‍රවේශය අවහිර කරන්න"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"කාර්යාල &amp; පෞද්ගලික යෙදුම් සම්බන්ධ කරන්න"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"සම්බන්ධිත උපාංග ඔබට කාර්යාල සහ පෞද්ගලික දත්ත එකට ප්‍රවේශ වීමට ඉඩ දේ. ඔබට සැකසීම් තුළ ඕනෑම වේලාවක වෙනස් කිරීම් කළ හැකිය."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"කාර්යාල &amp; පෞද්ගලික යෙදුම් සම්බන්ධ කරන්න"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"කාර්යාල සහ පෞද්ගලික දත්ත එකට ප්‍රවේශ වන්න. පිහිටුවීමට තට්ටු කරන්න."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"කාර්යාල &amp; පෞද්ගලික යෙදුම් සම්බන්ධ කරන්න"</string>
 </resources>
