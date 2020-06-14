@@ -189,7 +189,7 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"你的 IT 管理員或許可以查看你在這個裝置的資料和活動"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"你的裝置已準備就緒！"</string>
     <string name="done" msgid="7755227776955952318">"完成"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"這部裝置是你使用抵免額向「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」購買"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"這部裝置是你以抵免額向「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」購買的"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」可以執行以下動作："</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"在這部裝置上安裝「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」應用程式，以便你付款"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"如果你未付款，就可以限制你存取這部裝置"</string>

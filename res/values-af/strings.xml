@@ -192,5 +192,5 @@
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Hierdie toestel is by <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> op krediet gekoop"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Die <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-program installeer sodat jy betalings vir hierdie toestel kan doen"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Toegang tot hierdie toestel beperk as jy nie betalings doen nie"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Toegang tot hierdie toestel beperk as jy nie betalings maak nie"</string>
 </resources>

@@ -190,7 +190,7 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Түзмөгүңүз даяр!"</string>
     <string name="done" msgid="7755227776955952318">"Бүттү"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Бул түзмөк <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> компаниясынан насыяга алынган"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> төмөнкүлөрдү кыла алат:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> колдонмосун орнотуп алып, бул түзмөк үчүн төлөмдөрдү аткарыңыз"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Төлөм кылбасаңыз, түзмөккө кирүүнү чектейт"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Кандайдыр бир нерселердин акысын төлөй алышыңыз үчүн, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> колдонмосун орнотуп берет."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Насыяны төлөп турбасаңыз, түзмөктү бөгөттөп салат"</string>
 </resources>

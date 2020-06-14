@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तुमचे डिव्हाइस सेट करत आहे…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तुमची कार्य अ‍ॅप्स सहजपणे अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल. अधिक जाणून घेण्यासाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य प्रोफाइलमधील कार्य अ‍ॅप्स आयटी ॲडमिन व्यवस्थापित करतात"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य प्रोफाइलमध्ये ठेवलेली तुमची कार्य अ‍ॅप्स आयटी ॲडमिन व्यवस्थापित करतात"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"वैयक्तिक अ‍ॅप्स कामासंबंधी अ‍ॅप्सहून वेगळी व लपवलेली असतात"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाईलमध्ये ठेवली जातात आणि तुमच्या आयटी ॲडमिनद्वारे व्यवस्थापित केली जातात. वैयक्तिक अ‍ॅप्स कार्य अ‍ॅप्सपासून वेगळे आणि लपवलेले असतात. तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित आणि विशिष्ट ॲप्स ब्लॉक करू शकतो."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"फक्त एक सेकंद…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
@@ -190,7 +190,7 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तुमचे डिव्हाइस वापरण्यासाठी तयार आहे!"</string>
     <string name="done" msgid="7755227776955952318">"पूर्ण झाले"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"हे डिव्हाइस <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> कडून क्रेडिटवर खरेदी केले आहे"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> करू शकतो:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ॲप इंस्टॉल करा जेणेकरून तुम्ही या डिव्हाइसचे पेमेंट करू शकाल"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"तुम्ही पेमेंट केली नाहीत तर या डिव्हाइसचा अ‍ॅक्सेस प्रतिबंधित करा"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> करू शकते:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ॲप इंस्टॉल करू शकते जेणेकरून तुम्ही या डिव्हाइसचे पेमेंट करू शकाल"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"तुम्ही पेमेंट केली नाहीत तर या डिव्हाइसचा अ‍ॅक्सेस प्रतिबंधित करू शकते"</string>
 </resources>

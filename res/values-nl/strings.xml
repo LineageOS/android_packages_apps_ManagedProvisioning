@@ -191,6 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Gereed"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Dit apparaat is gekocht op krediet van <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installeer de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-app zodat je betalingen kunt doen voor dit apparaat"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"De <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-app installeren zodat je betalingen kunt doen voor dit apparaat"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"De toegang tot dit apparaat beperken als je geen betalingen doet"</string>
 </resources>
