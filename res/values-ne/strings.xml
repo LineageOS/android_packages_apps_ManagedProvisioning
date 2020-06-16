@@ -189,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तपाईंका IT व्यवस्थापकले यस यन्त्रको तपाईंको डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"तपाईंको यन्त्र प्रयोग गर्नुभए हुन्छ!"</string>
     <string name="done" msgid="7755227776955952318">"सम्पन्न भयो"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"यो <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> बाट किस्ताबन्दीमा लिइएको यन्त्र हो"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> निम्न कुराहरू गर्न सक्नुहुन्छ:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"तपाईं यो यन्त्रको किस्ता रकम तिर्न सक्नुहोस् भन्नाका खातिर <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> एप इन्स्टल गर्नुहोस्"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"तपाईंले यो यन्त्रको किस्ता रकम नतिर्नुभएका खण्डमा यो यन्त्रका सबै सुविधा प्रयोग गर्न पाउनुहुन्न"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"यो <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> बाट उधारोमा खरिद गरिएको यन्त्र हो"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> निम्न कुराहरू गर्न सक्छ:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"यो यन्त्रको रकम तिर्न सकियोस् भन्नाका खातिर <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> एप इन्स्टल गर्नुहोस्"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"तपाईंले यो यन्त्रको रकम तिर्नुभएन भने तपाईं यो यन्त्रका सबै सुविधा प्रयोग गर्न पाउनुहुन्न"</string>
 </resources>

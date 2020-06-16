@@ -182,7 +182,7 @@
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"የእርስዎን የሥራ መተግበሪያዎች በቀላሉ ለመድረስ ይህን መሣሪያ ይጠቀሙ። ይህ መሣሪያ የግል አይደለም ስለዚህ የእርስዎ አይቲ አስተዳዳሪ የእርስዎን ውሂብ እና እንቅስቃሴ ሊመለከት ይችላል። የበለጠ ለመረዳት፣ የእርስዎን አይቲ አስተዳዳሪ ያነጋግሩ።"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"የሥራ መተግበሪያዎች በየሥራ መገለጫዎ ውስጥ ይቀመጣሉ እና በአይቲ አስተዳዳሪዎ የሚተዳደሩ ናቸው"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"የግል መተግበሪያዎች የተለዩ እና ከሥራ መተግበሪያዎች የተደበቁ ናቸው"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"የእርስዎ አይቲ አስተዳዳሪ ይህን መሣሪያ ሊቆጣጠር እና የተወሰኑ መተግበሪያዎችን ማገድ ይችላል"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"የእርስዎ አይቲ አስተዳዳሪ ይህን መሣሪያ ሊቆጣጠር እና የተወሰኑ መተግበሪያዎችን ሊያግድ ይችላል"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"የሥራ መተግበሪያዎች በእርስዎ የሥራ መገለጫ ውስጥ ይቀመጣሉ እና በእርስዎ አይቲ አስተዳዳሪ የሚተዳደሩ ናቸው። የግል መተግበሪያዎች የተለዩ እና ከሥራ መተግበሪያዎች የተደበቁ ናቸው። የእርስዎ አይቲ አስተዳዳሪ ይህ መሣሪያ መቆጣጠር እና የተወሰኑ መተግበሪያዎችን ማገድ ይችላሉ።"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"አንዴ ይጠብቁ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"የግላዊነት አስታዋሽ"</string>

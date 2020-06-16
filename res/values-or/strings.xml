@@ -191,6 +191,6 @@
     <string name="done" msgid="7755227776955952318">"ହୋଇଗଲା"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"ଏହି ଡିଭାଇସ୍ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>ରୁ କ୍ରେଡିଟରେ କିଣା ଯାଇଥିଲା"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହା କରିପାରିବ:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରନ୍ତୁ, ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟଗୁଡ଼ିକ କରିପାରିବେ"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"ଯଦି ଆପଣ କୌଣସି ପେମେଣ୍ଟ କରି ନାହାଁନ୍ତି, ତେବେ ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରନ୍ତୁ"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରିପାରିବ, ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟଗୁଡ଼ିକ କରିପାରିବେ"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"ଯଦି ଆପଣ କୌଣସି ପେମେଣ୍ଟ କରିବେ ନାହିଁ, ତେବେ ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରିପାରିବ"</string>
 </resources>

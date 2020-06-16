@@ -191,6 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Selesai"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Perangkat ini dibeli secara kredit dari <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> dapat:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instal aplikasi <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> sehingga Anda dapat melakukan pembayaran untuk perangkat ini"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Batasi akses ke perangkat ini jika Anda tidak melakukan pembayaran"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Menginstal aplikasi <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> sehingga Anda dapat melakukan pembayaran untuk perangkat ini"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Membatasi akses ke perangkat ini jika Anda tidak melakukan pembayaran"</string>
 </resources>

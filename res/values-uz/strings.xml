@@ -191,6 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Tayyor"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu qurilma <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> doʻkonidan kreditga olingan"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> quyidagilarni bajara oladi:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu qurilma uchun toʻlovlarni amalga oshirish uchun <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ilovasini oʻrnating"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Toʻlovlar vaqtida bajarilmasa, qurilmaga ruxsatni yopish"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Toʻlovlarni amalga oshirishingiz uchun <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ilovasini oʻrnatish"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Toʻlovlar vaqtida bajarilmasa, qurilmani bloklash"</string>
 </resources>

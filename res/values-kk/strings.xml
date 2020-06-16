@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Әкімші осы құрылғыдағы деректеріңізді және әрекеттеріңізді көруі мүмкін."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Құрылғы реттелуде…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Жұмыс қолданбаларына оңай кіру үшін осы құрылғыны пайдаланыңыз. Бұл жеке құрылғы емес, сондықтан деректеріңіз бен әрекеттеріңізді әкімші көруі мүмкін. Толығырақ ақпарат үшін әкімшімен хабарласыңыз."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Жұмыс қолданбалары профильге сақталып, әкімшімен басқарылады"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Жұмыс қолданбалары жұмыс профиліңізге сақталады және оларды әкімші басқарады"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Жеке қолданбалар жұмыстікінен бөлек және жасырын орналасқан"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Әкімші құрылғыны басқарып, кейбір қолданбаларды бөгей алады"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Әкімші осы құрылғыны басқара алады және кейбір қолданбаларды бөгей алады."</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Жұмыс қолданбалары жұмыс профилінде сақталады және оларды әкімші басқарады. Жеке қолданбалар жасырылған және жұмыс қолданбаларынан бөлек орналасқан. Әкімші осы құрылғыны басқара алады және кейбір қолданбаларды бөгей алады."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Сәл күтіңіз…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Құпиялылық туралы еске салғыш"</string>

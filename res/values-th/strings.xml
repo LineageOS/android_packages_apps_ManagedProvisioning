@@ -190,7 +190,7 @@
     <string name="device_provisioning_finished" msgid="3981783240592092906">"อุปกรณ์พร้อมใช้งานแล้ว"</string>
     <string name="done" msgid="7755227776955952318">"เสร็จสิ้น"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"อุปกรณ์นี้ซื้อด้วยเครดิตจาก <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ดำเนินการต่อไปนี้ได้:"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ดำเนินการต่อไปนี้ได้"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"ติดตั้งแอป <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> เพื่อให้ดำเนินการชำระเงินสำหรับอุปกรณ์นี้ได้"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"จำกัดการเข้าถึงอุปกรณ์นี้หากไม่ชำระเงิน"</string>
 </resources>

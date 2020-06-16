@@ -191,6 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Hotovo"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Toto zariadenie bolo zakúpené na splátky od veriteľa <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> môže:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Nainštalujte si aplikáciu <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, aby ste mohli splácať toto zariadenie"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Obmedzte prístup k tomuto zariadeniu používateľom, ktorí neuskutočňujú platby"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Nainštalovať aplikáciu spoločnosti <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, aby ste mohli splácať toto zariadenie"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Obmedziť prístup k tomuto zariadeniu, ak ho nebudete splácať"</string>
 </resources>
