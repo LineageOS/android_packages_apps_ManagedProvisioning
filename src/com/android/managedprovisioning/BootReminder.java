@@ -19,6 +19,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.android.managedprovisioning.ota.CrossProfileAppsPregrantController;
 import com.android.managedprovisioning.preprovisioning.EncryptionController;
 
 /**
@@ -27,6 +28,8 @@ import com.android.managedprovisioning.preprovisioning.EncryptionController;
 public class BootReminder extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        new CrossProfileAppsPregrantController(context).checkCrossProfileAppsPermissions();
+
         // For encryption flows during setup wizard, this acts as a backup to
         // PostEncryptionActivity in case the PackageManager has not yet written the package state
         // to disk when the reboot is triggered.
