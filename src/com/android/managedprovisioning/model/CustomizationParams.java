@@ -38,9 +38,6 @@ public class CustomizationParams {
     /** Color used in everywhere else */
     public final int mainColor;
 
-    /** Name of the organization where the device is being provisioned. */
-    public final @Nullable String orgName;
-
     /** Support url of the organization where the device is being provisioned. */
     public final @Nullable String supportUrl;
 
@@ -51,13 +48,11 @@ public class CustomizationParams {
      */
     public static CustomizationParams createInstance(
             ProvisioningParams params, Context context, Utils utils) {
-        return createInstance(
-                params.mainColor, params.organizationName, params.supportUrl, context, utils);
+        return createInstance(params.mainColor, params.supportUrl, context, utils);
     }
 
     private static CustomizationParams createInstance(
             @Nullable Integer mainColor,
-            @Nullable String orgName,
             @Nullable String supportUrl,
             Context context,
             Utils utils) {
@@ -73,16 +68,15 @@ public class CustomizationParams {
 
         supportUrl = URLUtil.isNetworkUrl(supportUrl) ? supportUrl : null;
 
-        return new CustomizationParams(
-                mainColor, statusBarColor, useSetupStatusBarColor, orgName, supportUrl);
+        return new CustomizationParams(mainColor, statusBarColor, useSetupStatusBarColor,
+                supportUrl);
     }
 
     private CustomizationParams(int mainColor, int statusBarColor, boolean useSetupStatusBarColor,
-            String orgName, String supportUrl) {
+            String supportUrl) {
         this.mainColor = mainColor;
         this.statusBarColor = statusBarColor;
         this.useSetupStatusBarColor = useSetupStatusBarColor;
-        this.orgName = orgName;
         this.supportUrl = supportUrl;
     }
 }
