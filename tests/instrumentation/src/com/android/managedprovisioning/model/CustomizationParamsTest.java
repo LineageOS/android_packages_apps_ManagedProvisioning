@@ -100,30 +100,6 @@ public class CustomizationParamsTest {
     }
 
     @Test
-    public void orgNameDefaultsToNull() {
-        // given
-        ProvisioningParams params = createParams(null, null, null, null);
-
-        // when
-        CustomizationParams instance = createInstance(params);
-
-        // then
-        assertThat(instance.orgName, nullValue());
-    }
-
-    @Test
-    public void respectsOrgName() {
-        // given
-        ProvisioningParams params = createParams(null, null, null, SAMPLE_ORG_NAME);
-
-        // when
-        CustomizationParams instance = createInstance(params);
-
-        // then
-        assertThat(instance.orgName, equalTo(SAMPLE_ORG_NAME));
-    }
-
-    @Test
     public void respectsUrl() {
         // given
         ProvisioningParams params = createParams(null, null, SAMPLE_URL, null);
