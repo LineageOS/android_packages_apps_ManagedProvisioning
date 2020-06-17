@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Eginda"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen maileguarekin erosi da gailu hau"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Hauek egiteko gai da <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalatu <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen aplikazioa gailuari dagozkion ordainketak egin ahal izan ditzazun"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Ordainketaren bat egiten ez baduzu gailurako sarbidea mugatu."</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Konektatu laneko aplikazioak eta aplikazio pertsonalak"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Konektatutako aplikazioek laneko profileko eta profil pertsonaleko datuak aldi berean atzitzen utziko dizute. Ezarpenak atalean alda daiteke aukera hori."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Konektatu laneko aplikazioak eta aplikazio pertsonalak"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Atzitu laneko profileko eta profil pertsonaleko datuak aldi berean. Sakatu konfiguratzeko."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Konektatu laneko aplikazioak eta aplikazio pertsonalak"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen aplikazioa instalatu, gailuari dagozkion ordainketak egin ahal izan ditzazun."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Gailurako sarbidea mugatu ordainketaren bat egiten ez baduzu."</string>
 </resources>

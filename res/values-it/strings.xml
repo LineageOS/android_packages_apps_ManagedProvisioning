@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Il tuo amministratore IT potrebbe visualizzare i tuoi dati e la tua attività su questo dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurazione del dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Usa questo dispositivo per accedere facilmente alle tue app di lavoro. Questo dispositivo non è privato, perciò il tuo amministratore IT potrebbe visualizzare i tuoi dati e le tue attività. Per ulteriori informazioni, contatta il tuo amministratore IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Le app di lavoro sono nel profilo lavoro e gestite dall\'amm IT"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Le app personali sono separate e nascoste dalle app di lavoro"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'amm IT può controllare il dispositivo e bloccare alcune app"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Le app di lavoro sono mantenute nel tuo profilo di lavoro e gestite dall\'amministratore IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Le app personali sono separate e vengono nascoste dalle app di lavoro"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'amministratore IT può controllare questo dispositivo e bloccare alcune app"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro e gestite dall\'amministratore IT. Le app personali sono separate e vengono nascoste dalle app di lavoro. L\'amministratore IT può controllare questo dispositivo e bloccare alcune app."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Solo un secondo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Promemoria sulla privacy"</string>
@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> può:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Installare l\'app di <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> per poter effettuare pagamenti per questo dispositivo"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Limitare l\'accesso a questo dispositivo se non effettui i pagamenti"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Collega app di lavoro e personali"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Le app connesse ti consentono di accedere sia ai dati di lavoro sia ai dati personali. Puoi apportare modifiche in qualsiasi momento nelle Impostazioni."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Collega app di lavoro e personali"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Accedi sia ai dati di lavoro che ai dati personali. Tocca per impostare."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Collega app di lavoro e personali"</string>
 </resources>

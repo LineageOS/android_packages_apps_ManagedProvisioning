@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Vaš IT administrator može vidjeti vaše podatke i aktivnost na ovom uređaju."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Postavljanje uređaja…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Koristite ovaj uređaj za lakši pristup radnim aplikacijama. Ovo nije privatni uređaj, stoga vaš IT administrator može vidjeti vaše podatke i aktivnost. Obratite se IT administratoru da saznate više."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Posl. apl. se čuvaju na radnom profilu i njima upravlja IT admin."</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene od poslovnih aplik."</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT admin. može upravljati ovim uređ. i blokirati odr. aplik."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije se čuvaju na radnom profilu i njima upravlja IT administrator"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene od poslovnih aplikacija"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administrator može upravljati ovim uređajem i blokirati određene aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Poslovne aplikacije se čuvaju na radnom profilu i njima upravlja IT administrator. Lične aplikacije su odvojene i skrivene od poslovnih aplikacija. IT administrator može upravljati ovim uređajem i blokirati određene aplikacije."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Samo trenutak…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsjetnik o privatnosti"</string>
@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> može:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalirati aplikaciju <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> da možete vršiti plaćanje za ovaj uređaj"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Ograničiti pristup uređaju ako ne izvršite plaćanje"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Povežite poslovne i lične aplikacije"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Povezane aplikacije vam pružaju pristup poslovnim i ličnim podacima zajedno. Promjene možete izvršiti bilo kada u Postavkama."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Povežite poslovne i lične aplikacije"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Pristupite poslovnim i ličnim podacima zajedno. Dodirnite za postavke"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Povežite poslovne i lične aplikacije"</string>
 </resources>

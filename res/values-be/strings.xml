@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Гатова"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Гэта прылада куплена ў крэдыт у крэдытора \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\""</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Крэдытор \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\" можа:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Усталюйце праграму крэдытора \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", і тады вы зможаце ажыццяўляць плацяжы за гэту прыладу"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Калі вы не робіце плацяжоў, абмяжуйце доступ да гэтай прылады"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Падключэнне працоўных і прыватных праграм"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Падключаныя праграмы дазваляюць вам мець доступ і да працоўных, і да асабістых даных. Гэты параметр можна ў любы час змяніць у Наладах."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Падключэнне працоўных і прыватных праграм"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Атрымлівайце доступ і да працоўных, і да прыватных даных. Дакраніцеся, каб наладзіць."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Падключэнне працоўных і прыватных праграм"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Усталяваць праграму \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", каб вы маглі ажыццяўляць плацяжы"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Калі вы не робіце плацяжоў, абмяжоўваць доступ да гэтай прылады"</string>
 </resources>

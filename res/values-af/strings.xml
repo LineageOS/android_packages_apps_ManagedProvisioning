@@ -192,10 +192,5 @@
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Hierdie toestel is by <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> op krediet gekoop"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Die <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-program installeer sodat jy betalings vir hierdie toestel kan doen"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Toegang tot hierdie toestel beperk as jy nie betalings doen nie"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Koppel werk- en persoonlike programme"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"As programme gekoppel is, kan hulle toegang tot werk- en persoonlike data saam kry. Jy kan enige tyd veranderinge in Instellings aanbring."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Koppel werk- en persoonlike programme"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Kry toegang tot werk- en persoonlike data saam. Tik om op te stel."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Koppel werk- en persoonlike programme"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Toegang tot hierdie toestel beperk as jy nie betalings maak nie"</string>
 </resources>

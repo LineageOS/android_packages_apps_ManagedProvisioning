@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ಅವರು ಇದನ್ನು ಮಾಡಬಹುದು:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ಆ್ಯಪ್ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ ಇದರಿಂದ ನೀವು ಈ ಸಾಧನಕ್ಕೆ ಪಾವತಿಯನ್ನು ಮಾಡಬಹುದು"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"ನೀವು ಪಾವತಿಗಳನ್ನು ಮಾಡದಿದ್ದರೆ ಈ ಸಾಧನಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗುತ್ತದೆ"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"ಕೆಲಸ ಮತ್ತು ವೈಯಕ್ತಿಕ ಆ್ಯಪ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ಕನೆಕ್ಟ್ ಮಾಡಲಾದ ಆ್ಯಪ್‌ಗಳು, ಕೆಲಸದ ಡೇಟಾ ಹಾಗೂ ವೈಯಕ್ತಿಕ ಡೇಟಾಕ್ಕೆ ಜೊತೆಯಾಗಿ ಪ್ರವೇಶಿಸಲು ಅವಕಾಶ ನೀಡುತ್ತವೆ. ನೀವು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಯಾವಾಗ ಬೇಕಾದರೂ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಬಹುದು."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"ಕೆಲಸ ಮತ್ತು ವೈಯಕ್ತಿಕ ಆ್ಯಪ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"ಕೆಲಸ ಮತ್ತು ವೈಯಕ್ತಿಕ ಡೇಟಾ ಎರಡನ್ನೂ ಪ್ರವೇಶಿಸಿ. ಸೆಟಪ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ಕೆಲಸ ಮತ್ತು ವೈಯಕ್ತಿಕ ಆ್ಯಪ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
 </resources>

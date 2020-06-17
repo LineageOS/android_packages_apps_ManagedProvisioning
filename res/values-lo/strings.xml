@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"ແລ້ວໆ"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"ອຸປະກອນນີ້ຖືກຊື້ໂດຍໃຊ້ເຄຣດິດຈາກ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ສາມາດ:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"ກະລຸນາຕິດຕັ້ງແອັບ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ເພື່ອໃຫ້ທ່ານສາມາດຈ່າຍເງິນສຳລັບອຸປະກອນນີ້ໄດ້"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"ກະລຸນາຈຳກັດສິດເຂົ້າເຖິງຫາອຸປະກອນນີ້ຫາກທ່ານບໍ່ຕ້ອງການຈ່າຍເງິນ"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"ເຊື່ອມຕໍ່ແອັບວຽກ ແລະ ແອັບສ່ວນຕົວ"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ແອັບທີ່ເຊື່ອມຕໍ່ແລ້ວຈະເຮັດໃຫ້ທ່ານສາມາດເຂົ້າເຖິງຂໍ້ມູນວຽກ ແລະ ຂໍ້ມູນສ່ວນຕົວພ້ອມກັນໄດ້. ທ່ານສາມາດປ່ຽນແປງໄດ້ຕະຫຼອດເວລາໃນການຕັ້ງຄ່າ."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"ເຊື່ອມຕໍ່ແອັບວຽກ ແລະ ແອັບສ່ວນຕົວ"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"ເຂົ້າເຖິງຂໍ້ມູນວຽກ ແລະ ຂໍ້ມູນສ່ວນຕົວໄດ້ພ້ອມໆກັນ ແຕະເພື່ອຕັ້ງຄ່າ."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ເຊື່ອມຕໍ່ແອັບວຽກ ແລະ ແອັບສ່ວນຕົວ"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"ຕິດຕັ້ງແອັບ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ເພື່ອໃຫ້ທ່ານສາມາດຈ່າຍເງິນສຳລັບອຸປະກອນນີ້ໄດ້"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"ຈຳກັດສິດເຂົ້າເຖິງຫາອຸປະກອນນີ້ຫາກທ່ານບໍ່ຕ້ອງການຈ່າຍເງິນ"</string>
 </resources>

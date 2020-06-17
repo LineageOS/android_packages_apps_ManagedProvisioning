@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"完了"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"これは、<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> からクレジットで購入したデバイスです"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> は以下を行えます。"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"このデバイスの支払いを行えるよう、<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> アプリをインストールしてください"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"支払いが行われない場合、このデバイスの利用は制限されます"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"仕事用アプリと個人用アプリを接続"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"接続されているアプリでは、仕事用データと個人データの両方にアクセスできます。この設定は [設定] でいつでも変更できます。"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"仕事用アプリと個人用アプリを接続"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"仕事用データと個人データの両方にアクセスします。タップしてセットアップします。"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"仕事用アプリと個人用アプリを接続"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"このデバイスの支払いを行えるよう、<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> アプリをインストールします"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"支払いが行われない場合、このデバイスの利用を制限します"</string>
 </resources>

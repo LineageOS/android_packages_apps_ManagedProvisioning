@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> can:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Install the <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> app so that you can make payments for this device"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Restrict access to this device if you don\'t make payments"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Connect work &amp; personal apps"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Connected apps let you access work and personal data together. You can make changes at any time in settings."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Connect work &amp; personal apps"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Access work and personal data together. Tap to set up."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Connect work &amp; personal apps"</string>
 </resources>

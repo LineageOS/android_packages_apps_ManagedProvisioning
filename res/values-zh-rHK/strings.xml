@@ -180,7 +180,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"您的 IT 管理員或可查看您在此裝置上的資料和活動。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在設定您的裝置…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"用呢部裝置可以幫您輕鬆存取工作應用程式。呢部裝置唔係私人裝置，所以您嘅 IT 管理員可能會睇到您嘅資料同活動。如果需要瞭解詳情，請聯絡您嘅 IT 管理員。"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式均儲存在工作設定檔中，並由 IT 管理員管理"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式儲存於工作設定檔，並由 IT 管理員管理"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人應用程式會獨立儲存，兩者不會同時顯示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理員可控制此裝置並封鎖特定應用程式"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"工作應用程式均儲存在工作設定檔中，並由 IT 管理員管理。個人應用程式會獨立儲存，並在工作應用程式中隱藏。IT 管理員可控制此裝置並封鎖部分應用程式。"</string>
@@ -192,10 +192,5 @@
     <string name="financed_device_screen_header" msgid="7890706080917322376">"此裝置以「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」抵免額購買"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」可以："</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"安裝「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」應用程式，以便您為此裝置付款"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"限制此裝置的存取權 (如果您不付款)"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"連結工作和個人應用程式"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"已連結的應用程式可讓您同時存取工作和個人資料。您可隨時在「設定」中變更。"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"連結工作和個人應用程式"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"同時存取工作和個人資料。輕按即可設定。"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"連結工作和個人應用程式"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"限制您存取此裝置 (如果您不付款)"</string>
 </resources>

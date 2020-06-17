@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"A(z) <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> jogosult a következőkre:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Telepítheti a(z) <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> alkalmazást annak érdekében, hogy Ön kifizethesse a tartozását"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Korlátozhatja az Ön eszközhöz való hozzáférését, ha nem fizet"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Munkahelyi és személyes alkalmazások összekapcsolása"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Az összekapcsolt alkalmazásokban egyszerre hozzáférhet a munkahelyi és a személyes adataihoz is. Ez bármikor módosítható a Beállításokban."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Munkahelyi és személyes alkalmazások összekapcsolása"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"A munkahelyi és a személyes adataihoz is hozzáférhet. Koppintson a beállításhoz."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Munkahelyi és személyes alkalmazások összekapcsolása"</string>
 </resources>
