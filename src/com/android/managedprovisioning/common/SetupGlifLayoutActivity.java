@@ -84,20 +84,24 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         }
 
         TextView header = findViewById(R.id.suc_layout_title);
-        header.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        if (header != null) {
+            header.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                adjustHeaderMaxLines();
-            }
-        });
+                @Override
+                public void afterTextChanged(Editable s) {
+                    adjustHeaderMaxLines();
+                }
+            });
 
-        adjustHeaderMaxLines();
+            adjustHeaderMaxLines();
+        }
 
         layout.setIcon(LogoUtils.getOrganisationLogo(this, params.mainColor));
     }
