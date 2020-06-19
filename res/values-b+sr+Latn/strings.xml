@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT administrator možda može da vidi podatke ili aktivnosti na ovom uređaju."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Uređaj se podešava…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Koristite ovaj uređaj da biste jednostavno pristupali poslovnim aplikacijama. Ovaj uređaj nije privatan, pa će ID administrator moći da vidi vaše podatke i aktivnosti. Kontaktirajte IT administratora da biste saznali više."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije su na poslovnom profilu kojim upravlja IT admin."</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene od poslovnih"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT admin. može da kontroliše ovaj uređaj i blokira aplikacije"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije se čuvaju na poslovnom profilu i njima upravlja IT administrator"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene kada se prikazuju poslovne aplikacije"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Poslovne aplikacije se čuvaju na poslovnom profilu i njima upravlja IT administrator. Lične aplikacije su odvojene i skrivene kada se prikazuju poslovne aplikacije. IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Samo trenutak…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsetnik o privatnosti"</string>

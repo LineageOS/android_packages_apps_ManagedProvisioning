@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando o teu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utiliza este dispositivo para acceder facilmente ás túas aplicacións do traballo. Este dispositivo non é privado, polo que o teu administrador de TI pode ter acceso aos teus datos e á túa actividade. Para consultar máis información, ponte en contacto co teu administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"O admin. xestiona as apps laborais no perfil de traballo"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As apps persoais están separadas das do traballo e ocultas"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador pode controlar o dispositivo e bloquear apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"O administrador de TI xestiona as aplicacións laborais no teu perfil de traballo"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As aplicacións persoais están separadas das do traballo e, ademais, ocultas"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador de TI pode controlar o dispositivo e bloquear determinadas aplicacións"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"As aplicacións gárdanse no teu perfil de traballo e xestiónaas o teu administrador de TI. As aplicacións persoais están separadas das aplicacións do traballo e non se mostran nelas. O teu administrador de TI pode controlar este dispositivo e bloquear determinadas aplicacións."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un segundo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidade"</string>

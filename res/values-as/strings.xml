@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"আপোনাৰ আইটি প্ৰশাসকে হয়তো এই ডিভাইচত আপোনাৰ ডেটা আৰু কাৰ্যকলাপ চাব পাৰিব।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"আপোনাৰ ডিভাইচটো ছেট আপ কৰি থকা হৈছে…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"আপোনাৰ কৰ্মস্থানৰ এপ্‌সমূহ সহজে এক্সেছ কৰিবলৈ এই ডিভাইচটো ব্যৱহাৰ কৰক। এই ডিভাইচটো ব্যক্তিগত নহয়, সেয়ে আপোনাৰ আইটি প্ৰশাসকে আপোনাৰ ডেটা আৰু কাৰ্যকলাপসমূহ হয়তো চাব পাৰে। অধিক জানিবলৈ আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"আইটি প্ৰশাসক পৰিচালিত কর্মস্থানৰ এপ আপোনাৰ ৱৰ্ক প্ৰ\'ফাইলত ৰখা হয়"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"আপোনাৰ আইটি প্ৰশাসকৰ দ্বাৰা পৰিচালিত কর্মস্থানৰ এপ্‌সমূহ আপোনৰ কৰ্মস্থানৰ প্ৰ\'ফাইলত ৰখা হয়"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ব্যক্তিগত এপবোৰ পৃথক আৰু কৰ্মস্থানৰ এপৰ পৰা লুকুৱাই ৰখা হয়"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আইটি প্ৰশাসকে ডিভাইচটো নিয়ন্ত্ৰণ আৰু কিছু এপ অৱৰোধ কৰিব পাৰে"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আপোনাৰ আইটি প্ৰশাসকে এই ডিভাইচটো নিয়ন্ত্ৰণ আৰু নিৰ্দিষ্ট কিছুমান এপ্ অৱৰোধ কৰিব পাৰে"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"আইটি প্ৰশাসকৰ দ্বাৰা পৰিচালিত কৰ্মস্থানৰ এপ্‌সমূহ আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলত ৰখা হয়। ব্যক্তিগত এপ্‌সমূহ পৃথক আৰু কৰ্মস্থানৰ এপ্‌সমূহৰ পৰা লুকুওৱাই ৰখা হয়। আপোনাৰ আইটি প্ৰশাসকে এই ডিভাইচটো নিয়ন্ত্ৰণ আৰু নিৰ্দিষ্ট কিছুমান এপ্ অৱৰোধ কৰিব পাৰে"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"এক ছেকেণ্ড ৰ\'ব…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"গোপনীয়তা সম্পৰ্কীয় ৰিমাইণ্ডাৰ"</string>
