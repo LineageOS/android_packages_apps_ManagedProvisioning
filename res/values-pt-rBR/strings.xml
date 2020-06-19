@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode ver seus dados e atividade neste dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando seu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Use este dispositivo para acessar seus apps de trabalho com facilidade. Ele não é privado e, portanto, o administrador de TI pode ver seus dados e atividade. Para saber mais, entre em contato com o administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apps de trab. são do perfil de trab. e gerenciados pelo adm de TI"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apps pessoais ficam separados e ocultos dos apps de trabalho"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O adm de TI pode controlar o dispositivo e bloquear alguns apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Os apps de trabalho estão no perfil de trabalho e são gerenciados pelo administrador de TI"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Os apps pessoais ficam separados e ocultos dos apps de trabalho"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador de TI pode controlar este dispositivo e bloquear alguns apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Os apps de trabalho são mantidos no perfil de trabalho e gerenciados pelo administrador de TI. Os apps pessoais ficam separados e ocultos dos apps de trabalho. O administrador de TI pode controlar este dispositivo e bloquear determinados apps."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Só um segundo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lembrete de privacidade"</string>

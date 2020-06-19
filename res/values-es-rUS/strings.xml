@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Es posible que el administrador de TI pueda ver tus datos y tu actividad en este dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando tu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Usa este dispositivo para acceder fácilmente a tus apps de trabajo. Este dispositivo no es privado, por lo que es posible que el administrador de TI pueda ver tus datos y tu actividad. Para obtener más información, comunícate con tu administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"El admr. de TI administra las apps de trabajo en tu perfil"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales están separadas de las de trabajo"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu admr. de TI puede controlar el dispositivo y bloquear apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"El administrador de TI administra las apps de trabajo que se guardan en tu perfil"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Las apps personales están separadas y ocultas de las de trabajo"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Tu administrador de TI puede controlar este dispositivo y bloquear determinadas apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"El administrador de TI administra las apps de trabajo, que se almacenan en tu perfil de trabajo. Las apps personales se mantienen separadas y ocultas de las apps de trabajo. Tu administrador de TI puede controlar este dispositivo y bloquear determinadas apps."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un momento…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidad"</string>
