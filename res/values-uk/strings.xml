@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ІТ-адміністратор може бачити ваші дані й активність на цьому пристрої."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ваш пристрій налаштовується…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Легко відкривайте робочі додатки на цьому пристрої. Він не є особистим, тому ІТ-адміністратор може бачити ваші дані й активність. Щоб дізнатися більше, зверніться до ІТ-адміністратора."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Робочі додатки – у робочому профілі (керує IT-адміністратор)"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Особисті додатки зберігаються окремо від робочих"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-адміністратор керує цим пристроєм і може щось блокувати"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Робочі додатки зберігаються в робочому профілі, ними керує IT-адміністратор"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Особисті додатки приховані від робочих і зберігаються окремо"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-адміністратор може керувати цим пристроєм і блокувати певні додатки"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Робочі додатки зберігаються в робочому профілі. Ними керує ваш IT-адмністратор. Особисті додатки зберігаються окремо, вони недоступні для робочих додатків. Ваш IT-адміністратор може керувати цим пристроєм і блокувати певні додатки."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Зачекайте…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Нагадування про конфіденційність"</string>

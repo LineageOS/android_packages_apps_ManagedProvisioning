@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Baka makita ng iyong IT admin ang data at aktibidad mo sa device na ito."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Sine-set up ang iyong device…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gamitin ang device na ito para madaling ma-access ang iyong mga app para sa trabaho. Hindi pribado ang device na ito, kaya baka makita ng iyong IT admin ang data at aktibidad mo. Para matuto pa, makipag-ugnayan sa iyong IT admin."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Nasa work profile mo ang work apps na mina-manage ng IT admin mo"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang personal apps at nakatago mula sa work apps"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng IT admin mo itong device at makakapag-block ng ilang app"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Nasa profile mo sa trabaho ang apps para sa trabaho at mina-manage ito ng IT admin mo"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang mga personal na app at nakatago ito mula sa mga app para sa trabaho"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho at pinapamahalaan ng IT admin mo ang mga ito. Nakahiwalay ang mga personal na app at nakatago ang mga ito mula sa mga app para sa trabaho. Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang partikular na app."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Sandali lang…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Paalala sa privacy"</string>

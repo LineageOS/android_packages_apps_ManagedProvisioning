@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Määritetään laitetta…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi. Pyydä lisätietoja IT-järjestelmänvalvojalta."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Työsovellukset ovat työprofiilissa &amp; IT-valvojan ylläpitämiä"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Työsovellukset ovat työprofiilissa ja ne ovat IT- järjestelmänvalvojan ylläpitämiä"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Omat sovellukset ovat erillisiä ja piilossa työsovelluksilta"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-valvoja voi käyttää tätä laitetta &amp; estää sovelluksia"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-järjestelmänvalvoja voi käyttää tätä laitetta ja estää sovelluksia"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Työsovelluksia säilytetään työprofiilissa ja IT-järjestelmänvalvoja ylläpitää niitä. Henkilökohtaiset sovellukset ovat erillisiä ja piilotettu työsovelluksilta. IT-järjestelmänvalvoja ei voi kontrolloida tätä laitetta tai estää tiettyjä sovelluksia."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Hetki vain…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Tietosuojamuistutus"</string>

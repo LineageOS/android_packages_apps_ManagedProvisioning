@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Administratori i teknologjisë së informacionit mund të arrijë t\'i shikojë të dhënat e tua dhe aktivitetin tënd në këtë pajisje."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Pajisja po konfigurohet…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Përdor këtë pajisje për të pasur qasje me lehtësi tek aplikacionet e tua të punës. Kjo pajisje nuk është private, kështu që administratori yt i teknologjisë së informacionit mund të arrijë të shikojë të dhënat e tua dhe aktivitetin tënd. Për të mësuar më shumë, kontakto me administratorin tënd të teknologjisë së informacionit."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl. e punës në profilin e punës; Të drejtat: administratori"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl. personale janë të ndara e të fshehura nga apl. e punës"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administratori, të drejta kontrolli/bllokimi aplikacionesh"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl. e punës mbahen në profilin tënd të punës dhe menaxhohen nga administratori yt i TI-së"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikacionet personale janë të ndara dhe të fshehura nga aplikacionet e punës"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin. i TI-së mund ta kontrollojë këtë pajisje e të bllokojë aplikacione të caktuara"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Aplikacionet e punës mbahen në profilin tënd të punës dhe menaxhohen nga administratori yt i teknologjisë së informacionit. Aplikacionet personale janë të ndara dhe të fshehura nga aplikacionet e punës. Administratori yt i teknologjisë së informacionit mund të kontrollojë këtë pajisje dhe të bllokojë aplikacione të caktuara."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Vetëm një sekondë…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rikujtuesi i privatësisë"</string>

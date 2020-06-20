@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"আপনার ডিভাইস সেট-আপ করা হচ্ছে…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"আপনার অফিসের অ্যাপ সহজে অ্যাক্সেস করতে এই ডিভাইস ব্যবহার করুন। এই ডিভাইস ব্যক্তিগত নয়, তাই আপনার আইটি অ্যাডমিন আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন। আরও জানতে আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"অফিস প্রোফাইলে থাকা অফিস অ্যাপগুলি আইটি অ্যাডমিন ম্যানেজ করে"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"অফিস অ্যাপগুলিকে অফিস প্রোফাইলে রাখা হয় এবং তা আপনার আইটি অ্যাডমিন ম্যানেজ করে"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"অফিস অ্যাপের থেকে ব্যক্তিগত অ্যাপ আলাদা করে লুকিয়ে রাখা হয়"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আইটি অ্যাডমিন এই ডিভাইস নিয়ন্ত্রণ করতে ও নির্দিষ্ট অ্যাপ ব্লক করতে পারেন"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আপনার আইটি অ্যাডমিন এই ডিভাইস নিয়ন্ত্রণ করতে ও নির্দিষ্ট অ্যাপ ব্লক করতে পারেন"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"আপনার অফিসে প্রোফাইলে অফিসের অ্যাপ থাকে এবং সেটি আইটি অ্যাডমিন ম্যানেজ করে। অফিসের অ্যাপের থেকে ব্যক্তিগত অ্যাপ আলাদা করে লুকিয়ে রাখা হয়। আপনার আইটি অ্যাডমিন এই ডিভাইস নিয়ন্ত্রণ করতে ও নির্দিষ্ট অ্যাপ ব্লক করতে পারেন।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"একটু অপেক্ষা করুন…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"গোপনীয়তা সংক্রান্ত রিমাইন্ডার"</string>
