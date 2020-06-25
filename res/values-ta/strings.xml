@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"இந்தச் சாதனத்தில் உள்ள தரவையும் செயல்பாட்டையும் உங்கள் IT நிர்வாகி பார்க்கக்கூடும்."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"உங்கள் சாதனத்தை அமைக்கிறது…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"உங்கள் பணிக்கான ஆப்ஸை எளிதாக அணுக இந்தச் சாதனத்தைப் பயன்படுத்துங்கள். இந்தச் சாதனம் தனிப்பட்டதில்லை என்பதால் இதிலுள்ள உங்கள் தரவையும் செயல்பாட்டையும் IT நிர்வாகி பார்க்கக்கூடும். மேலும் அறிய IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"பணி ஆப்ஸ் பணி கணக்கில் இருக்கும், IT நிர்வாகி நிர்வகிப்பார்"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"பணி ஆப்ஸ் உங்கள் பணி கணக்கில் இருக்கும், இவற்றை IT நிர்வாகி நிர்வகிப்பார்"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"தனிப்பட்ட ஆப்ஸ் தனியாக, பணி ஆப்ஸிலிருந்து மறைந்திருக்கும்"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT நிர்வாகி சாதனத்தை கட்டுப்படுத்த, சில ஆப்ஸை தடுக்கமுடியும்"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT நிர்வாகி சாதனத்தை கட்டுப்படுத்த, சில ஆப்ஸைத் தடுக்கமுடியும்"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"பணி ஆப்ஸ் உங்கள் பணிக் கணக்கில் வைக்கப்படுவதுடன் உங்கள் IT நிர்வாகியால் நிர்வகிக்கப்படும். தனிப்பட்ட ஆப்ஸ் பணி ஆப்ஸுடன் சேர்ந்ததல்ல என்பதோடு பணி ஆப்ஸில் இருந்து அவை மறைக்கப்பட்டிருக்கும். உங்கள் IT நிர்வாகியால் இந்தச் சாதனத்தை நிர்வகிக்க முடிவதுடன் குறிப்பிட்ட ஆப்ஸைத் தடுக்கவும் முடியும்."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"காத்திருக்கவும்…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"தனியுரிமை நினைவூட்டல்"</string>

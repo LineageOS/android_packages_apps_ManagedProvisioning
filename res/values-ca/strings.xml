@@ -163,7 +163,7 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"S\'està preparant per configurar el dispositiu de la feina…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"S\'està configurant l\'aplicació d\'administració"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Configura la resta d\'elements"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Afegeix un compte personal per treure més profit al teu dispositiu"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Afegeix un compte personal per treure més profit del teu dispositiu"</string>
     <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ara que el teu perfil de treball ja està a punt, també pots afegir un Compte personal de Google per accedir a les teves aplicacions i al teu contingut."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Aquest dispositiu pertany a la teva organització"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"S\'utilitzarà l\'aplicació següent per gestionar i supervisar aquest telèfon"</string>
@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"L\'administrador de TI podrà veure les teves dades i la teva activitat en aquest dispositiu."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"S\'està configurant el dispositiu…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilitza aquest dispositiu per accedir fàcilment a les aplicacions de treball. Aquest dispositiu no és privat i, per tant, l\'administrador de TI podrà veure les teves dades i la teva activitat. Per obtenir més informació, contacta amb l\'administrador de TI."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"L\'admin. de TI gestiona apps de treball al perfil de treball"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les apps personals es mantenen ocultes de les de treball"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'admin. de TI pot controlar el dispositiu i bloquejar apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"L\'administrador de TI gestiona les apps de treball, que es desen al perfil de treball."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les aplicacions personals s\'amaguen separades de les de treball"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'administrador de TI pot controlar el dispositiu i bloquejar aplicacions determinades"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"L\'administrador de TI gestiona les teves aplicacions de treball, que es desen al teu perfil de treball. Les aplicacions personals s\'oculten i se separen de les aplicacions de treball. L\'administrador de TI pot controlar aquest dispositiu i bloquejar aplicacions determinades."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un moment…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatori de privadesa"</string>

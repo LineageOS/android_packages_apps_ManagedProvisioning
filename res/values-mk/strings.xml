@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста на уредов."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Уредот се поставува…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Користете го уредов за лесен пристап до работните апликации. Уредов не е приватен, па затоа вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста. За да дознаете повеќе, контактирајте со вашиот IT-администратор."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Раб. апл. се чуваат во раб. профил и со нив управ. IT-админ."</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните апликации се одделени и сокриени од работните апл."</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-админ. може да го контрол. уредов и да блокира одр. апл."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Работните апликации се чуваат во работниот профил и со нив управува IT-администраторот"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните апликации се одделни и сокриени од работните апликации"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-администраторот може да го контролира уредов и да блокира одредени апликации"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Работните апликации се чуваат во вашиот работен профил и со нив управува IT-администраторот. Личните апликации се одделени и сокриени од работните апликации. IT-администраторот може да го контролира уредов и да блокира одредени апликации."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Само момент…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Потсетник за приватност"</string>

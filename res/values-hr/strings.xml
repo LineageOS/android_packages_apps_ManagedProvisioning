@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Vaš IT administrator možda može vidjeti vaše podatke i aktivnosti na ovom uređaju."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Postavljanje uređaja…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Na ovom uređaju možete lako pristupati radnim aplikacijama. Ovaj uređaj nije privatan, pa vaš IT administrator možda može vidjeti vaše podatke i aktivnosti. Da biste saznali više, obratite se IT administratoru."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne apl. su na poslov. profilu – upravlja administrator"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije nalaze se na vašem poslovnom profilu i njima upravlja IT administrator"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobne aplikacije su odvojene i skrivene od poslovnih"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator može upravljati uređajem i blokirati neke apl."</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator može upravljati uređajem i blokirati neke aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Poslovne aplikacije nalaze se na vašem poslovnom profilu i njima upravlja vaš IT administrator. Osobne aplikacije su odvojene i skrivene od poslovnih aplikacija. Vaš IT administrator može upravljati ovim uređajem i blokirati određene aplikacije."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Samo tren…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsjetnik o privatnosti"</string>
