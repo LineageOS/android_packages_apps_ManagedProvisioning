@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Skrbnik za IT bo morda lahko videl podatke in dejavnost v tej napravi."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Nastavljanje naprave …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"S to napravo lahko preprosto dostopate do delovnih aplikacij. Ta naprava ni zasebna, zato bo skrbnik za IT morda lahko videl vaše podatke in dejavnost. Če želite izvedeti več, se obrnite na skrbnika za IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Delovne aplikacije so v delovnem profilu, upravlja IT skrbnik"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osebne aplikacije so ločene in skrite pred delovnimi"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT skrbnik lahko upravlja to napravo in blokira aplikacije"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Delovne aplikacije so shranjene v delovnem profilu, upravlja pa jih skrbnik za IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osebne aplikacije so ločene in skrite pred delovnimi aplikacijami"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Skrbnik za IT lahko upravlja to napravo in blokira nekatere aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Delovne aplikacije so shranjene v delovnem profilu, upravlja pa jih skrbnik za IT. Osebne aplikacije so ločene in skrite pred delovnimi aplikacijami. Skrbnik za IT lahko upravlja to napravo in blokira nekatere aplikacije."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Samo trenutek …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Opomnik glede zasebnosti"</string>
