@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Msimamizi wako wa TEHAMA anaweza kuona data na shughuli zako kwenye kifaa hiki."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Inaweka mipangilio ya kifaa chako…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Tumia kifaa hiki kufikia programu zako za kazini kwa urahisi. Kifaa hiki si cha faragha, kwa hivyo msimamizi wako wa TEHAMA anaweza kuona data na shughuli zako. Ili upate maelezo zaidi, wasiliana na msimamizi wako wa TEHAMA."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Programu za kazini huwa kwenye wasifu wa kazi, chini ya msimamizi TEHAMA"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Programu za kazini huwa kwenye wasifu wako wa kazini na hudhibitiwa na msimamizi TEHAMA"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Programu za binafsi huwa kando na hazionyeshwi kwenye za kazini"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Msimamizi TEHAMA anaweza kudhibiti kifaa na kuzuia programu"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Msimamizi wa TEHAMA anaweza kudhibiti kifaa hiki na kuzuia baadhi ya programu"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Programu za kazini huwekwa kwenye wasifu wako wa kazini na kudhibitiwa na msimamizi wako wa TEHAMA. Programu za binafsi ni tofauti na hazionyeshwi kwenye programu za kazini. Msimamizi wako wa TEHAMA anaweza kudhibiti kifaa hiki na kuzuia programu fulani."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Subiri kidogo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Kikumbusho cha faragha"</string>
@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Nimemaliza"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Kifaa hiki kilinunuliwa kwa mkopo kutoka <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> inaweza:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Sakinisha programu ya <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ili ulipie kifaa hiki"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Kusakinisha programu ya <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ili ulipie kifaa hiki"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"Kuzuia uwezo wa kufikia kifaa hiki usipokilipia"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Unganisha programu za kazini na binafsi"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Programu zilizounganishwa hukuruhusu ufikie data ya binafsi na ya kazini pamoja. Unaweza kufanya mabadiliko wakati wowote katika Mipangilio."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Unganisha programu za kazini na binafsi"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Fikia data ya binafsi na ya kazini pamoja. Gusa ili uweke mipangilio."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Unganisha programu za kazini na binafsi"</string>
 </resources>
