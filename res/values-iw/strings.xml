@@ -180,7 +180,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"מגדיר את המכשיר שלך…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏אפשר להשתמש במכשיר הזה כדי לגשת בקלות אל אפליקציות העבודה. המכשיר הזה אינו פרטי, כך שייתכן כי מנהל ה-IT יכול לראות את הנתונים והפעילות שלך. כדי לקבל מידע נוסף יש לפנות אל מנהל ה-IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות עבודה מאוחסנות בפרופיל שלך ומנוהלות בידי מנהל ה-IT"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות לעבודה מאוחסנות בפרופיל שלך ומנוהלות על ידי מנהל ה-IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"אפליקציות אישיות מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏מנהל ה-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"‏אפליקציות לעבודה נשמרות בפרופיל העבודה ומנוהלות על ידי מנהל ה-IT. אפליקציות לשימוש אישי מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה. מנהל ה-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות."</string>
@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"סיום"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"המכשיר הזה נרכש דרך זיכוי מ-<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"ל-<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> יש אפשרות:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"יש להתקין את האפליקציה <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> כדי לבצע תשלומים עבור המכשיר הזה"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"יש להגביל את הגישה למכשיר הזה אם לא מתבצעים תשלומים"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"חיבור בין אפליקציות אישיות לאפליקציות לעבודה"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"אפליקציות מקושרות נותנות גישה לנתוני עבודה ולמידע האישי יחד. אפשר לערוך שינויים בכל שלב בהגדרות."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"חיבור בין אפליקציות אישיות לאפליקציות לעבודה"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"ניתן יהיה לגשת לנתוני העבודה ולמידע האישי יחד. יש להקיש כדי להגדיר."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"חיבור בין אפליקציות אישיות לאפליקציות לעבודה"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"להתקין את האפליקציה <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> כדי לבצע תשלומים עבור המכשיר הזה"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"להגביל את הגישה למכשיר הזה אם לא מתבצעים תשלומים"</string>
 </resources>

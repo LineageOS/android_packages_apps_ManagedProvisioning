@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"installere <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-appen, slik at du kan betale for denne enheten"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"begrense tilgangen til denne enheten hvis du ikke betaler"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Koble til jobbapper og personlige apper"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Med tilknyttede apper får du tilgang til både jobbdata og personlige data. Du kan når som helst gjøre endringer i innstillingene."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Koble til jobbapper og personlige apper"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Få tilgang til både jobbdata og personlige data. Trykk for å konfigurere."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Koble til jobbapper og personlige apper"</string>
 </resources>

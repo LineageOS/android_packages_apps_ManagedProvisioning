@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Teie seadme seadistamine …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie andmeid ja tegevusi näha. Lisateabe saamiseks võtke ühendust IT-administraatoriga."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendusi hoitakse tööprofiilil ja neid haldab IT-admin."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendused on tööprofiilil ja neid haldab IT-administraator."</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Isiklikke rakendusi hoitakse töörakendustest eraldi"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-admin. saab seda seadet juhtida ja rakendusi blokeerida"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administraator saab seda seadet juhtida ja rakendusi blokeerida"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Töörakendusi hoitakse teie tööprofiilil ja neid haldab teie IT-administraator. Isiklikke rakendusi hoitakse töörakendustest eraldi. Teie IT-administraator saab seda seadet juhtida ja teatud rakendused blokeerida."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Üks hetk …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatsuse meeldetuletus"</string>
@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Valmis"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"See seade osteti krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> antud krediidiga"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> saab teha järgmist:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installige krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> rakendus, et saaksite selle seadme eest makseid teha"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Piirake juurdepääsu sellele seadmele, kui te makseid ei tee"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Töö- ja isiklike rakenduste ühendamine"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Ühendatud rakendused võimaldavad teil korraga juurde pääseda nii töö- kui ka isiklikele andmetele. Muudatusi saate alati teha menüüs Seaded."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Töö- ja isiklike rakenduste ühendamine"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Pääsete juurde nii töö- kui ka isiklikele andmetele. Puudutage seadistamiseks."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Töö- ja isiklike rakenduste ühendamine"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installida krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> rakenduse, et saaksite selle seadme eest makseid teha"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Piirata juurdepääsu sellele seadmele, kui te makseid ei tee"</string>
 </resources>
