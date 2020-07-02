@@ -368,6 +368,20 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    public void testManagedProfile_restrictedFromRemovingExisting() throws Exception {
+        // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
+        prepareMocksForManagedProfileIntent(false);
+        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
+        when(mUserManager.hasUserRestriction(
+                UserManager.DISALLOW_REMOVE_MANAGED_PROFILE)).thenReturn(true);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
+        // THEN show an error dialog
+        verify(mUi).showErrorAndClose(eq(R.string.cant_replace_or_remove_work_profile),
+                eq(R.string.work_profile_cant_be_added_contact_admin), any());
+        verifyNoMoreInteractions(mUi);
+    }
+
     public void testNfc() throws Exception {
         // GIVEN provisioning was started via an NFC tap and device is already encrypted
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
