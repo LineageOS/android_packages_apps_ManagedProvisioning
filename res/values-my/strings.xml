@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"သင့်စက်ပစ္စည်း စနစ်ထည့်သွင်းနေသည်…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။ ပိုမိုလေ့လာရန် သင့် IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်အက်ပ်များကို အလုပ်ပရိုဖိုင်တွင် IT စီမံသူက ထိန်းချုပ်၏"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ကိုယ်ပိုင်အက်ပ်များကို အလုပ်အက်ပ်များမှ ဖျောက်ထားသည်"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT စီမံသူက စက်ကိုထိန်းချုပ်ပြီး အချို့အက်ပ်များ ပိတ်နိုင်သည်"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်အက်ပ်များကို အလုပ်ပရိုဖိုင်တွင်သိမ်းထားပြီး IT စီမံသူက ထိန်းချုပ်သည်"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ကိုယ်ပိုင်အက်ပ်များကို အလုပ်အက်ပ်များမှ ခွဲပြီးဖျောက်ထားသည်"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"သင်၏ IT စီမံသူက ဤစက်ကိုထိန်းချုပ်ပြီး အချို့အက်ပ်များ ပိတ်ထားနိုင်သည်"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"အလုပ်အက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားပြီး သင်၏ IT စီမံခန့်ခွဲသူက ထိန်းချုပ်ပါသည်။ ကိုယ်ပိုင်အက်ပ်များသည် သီးသန့်ဖြစ်ပြီး အလုပ်အက်ပ်များမှ ဖျောက်ထားသည်။ သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ကို ထိန်းချုပ်ပြီး အချို့သောအက်ပ်များကို ပိတ်ထားနိုင်သည်။"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ခဏစောင့်ပါ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ပုဂ္ဂိုလ်ရေးလုံခြုံမှု သတိပေးချက်"</string>
@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> က အောက်ပါတို့ကို လုပ်နိုင်သည်−"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"ဤစက်အတွက် ငွေပေးချေမှုများ ပြုလုပ်နိုင်ရန် <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> အက်ပ်ကို ထည့်သွင်းနိုင်သည်"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"သင်ငွေမပေးချေပါက ဤစက်အသုံးပြုခွင့်ကို ကန့်သတ်နိုင်သည်"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေးအက်ပ်များကို ချိတ်ဆက်ပါ"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"ချိတ်ဆက်ထားသောအက်ပ်များက အလုပ်နှင့် ကိုယ်ပိုင်ဒေတာများ အတူတကွ အသုံးပြုခွင့်ပေးသည်။ \'ဆက်တင်များ\' တွင် အချိန်မရွေး ပြောင်းလဲနိုင်သည်။"</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေးအက်ပ်များကို ချိတ်ဆက်ပါ"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေး အချက်အလက်များ အတူတကွ အသုံးပြုပါ။ စနစ်ထည့်သွင်းရန် တို့ပါ။"</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"အလုပ်နှင့် ပုဂ္ဂိုလ်ရေးအက်ပ်များကို ချိတ်ဆက်ပါ"</string>
 </resources>

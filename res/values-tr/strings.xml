@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Cihazınız ayarlanıyor…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"İş uygulamalarınıza kolayca erişmek için bu cihazı kullanın. Bu cihaz gizli olmadığından IT yöneticiniz verilerinizi ve etkinliklerinizi görebilir. Daha fazla bilgi edinmek için IT yöneticinizle iletişime geçin."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizdedir ve BT yöneticinizin kontrolündedir"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Yöneticiniz bu cihazı kontrol edebilir, uygulamaları engelleyebilir"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir. Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir. BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Bir saniye…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Gizlilik hatırlatıcısı"</string>
@@ -191,11 +191,6 @@
     <string name="done" msgid="7755227776955952318">"Bitti"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu cihaz <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> tarafından sağlanan krediyle satın alınmıştır"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> şunları yapabilir:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu cihazın ödemelerini yapabilmek için <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> uygulamasını yükleyin"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Ödeme yapmazsanız bu cihaza erişim kısıtlanır"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"İş ve kişisel uygulamaları bağlayın"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Bağlı uygulamalar, iş ve kişisel verilere birlikte erişmenizi sağlar. Ayarlar\'da istediğiniz zaman değişiklik yapabilirsiniz."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"İş ve kişisel uygulamaları bağlayın"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"İş ve kişisel verilere birlikte erişin. Ayarlamak için dokunun."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"İş ve kişisel uygulamaları bağlayın"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu cihazın ödemelerini yapabilmeniz için <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> uygulamasını yükleyebilir"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Ödeme yapmazsanız bu cihaza erişimi kısıtlayabilir"</string>
 </resources>

@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"మీ పరికరాన్ని సెటప్ చేస్తోంది…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"మీ కార్యాలయ యాప్‌లను సులభంగా యాక్సెస్ చేయడానికి ఈ పరికరాన్ని ఉపయోగించండి. ఈ పరికరం వ్యక్తిగతమైనది కాదు, కనుక మీ IT నిర్వాహకులు మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది. మరింత తెలుసుకోవడానికి, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లను అడ్మిన్ నిర్వహిస్తారు&amp;ఆఫీస్ ప్రొఫైల్‌లో ఉంటాయి"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి&amp;ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT అడ్మిన్ డివైజ్‌ను నియంత్రించి&amp;యాప్‌లను బ్లాక్ చేయగలరు"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లను అడ్మిన్ నిర్వహిస్తారు &amp; ఆఫీస్ ప్రొఫైల్‌లో ఉంటాయి"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి &amp; ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించగలరు &amp; కొన్ని యాప్‌లను బ్లాక్ చేయగలరు"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి, అలాగే మీ IT అడ్మిన్ ద్వారా నిర్వహించబడతాయి. వ్యక్తిగత యాప్‌లు అన్నవి విడిగా ఉంటాయి, అలాగే కార్యాలయ యాప్‌లలో కనిపించవు మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించవచ్చు మరియు కొన్ని యాప్‌లను నిరోధించవచ్చు"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ఒక్క క్షణం ఆగండి…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
@@ -193,9 +193,4 @@
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> వీటిని చేయగలదు:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> యాప్‌ను ఇన్‌స్టాల్ చేస్తే, దాని ద్వారా ఈ పరికర చెల్లింపులను చేయవచ్చు"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"మీరు చెల్లింపు చేయకపోతే, ఈ పరికరానికి యాక్సెస్‌ను పరిమితం చేయండి"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"కనెక్ట్ అయిన యాప్‌లు అనేవి కార్యాలయ డేటాను, వ్యక్తిగత డేటాను కలిపి యాక్సెస్ చేయడానికి మిమ్మల్ని అనుమతిస్తాయి. సెట్టింగ్‌లలో మీరు ఏ సమయంలోనైనా మార్పులు చేయవచ్చు."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"పని, వ్యక్తిగత డేటాలను కలిపి యాక్సెస్ చేయండి. సెటప్ చేయడానికి ట్యాప్ చేయండి."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"పనిని &amp; వ్యక్తిగత యాప్‌లను కనెక్ట్ చేయండి"</string>
 </resources>
