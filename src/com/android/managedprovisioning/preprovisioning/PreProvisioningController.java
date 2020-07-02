@@ -289,15 +289,23 @@ public class PreProvisioningController {
 
         // PO preconditions
         if (isProfileOwnerProvisioning()) {
-            // If there is already a managed profile, setup the profile deletion dialog.
+            // If there is already a managed profile, first check it may be removed.
+            // If so, setup the profile deletion dialog.
+
             int existingManagedProfileUserId = mUtils.alreadyHasManagedProfile(mContext);
             if (existingManagedProfileUserId != -1) {
-                ComponentName mdmPackageName = mDevicePolicyManager
-                        .getProfileOwnerAsUser(existingManagedProfileUserId);
-                String domainName = mDevicePolicyManager
-                        .getProfileOwnerNameAsUser(existingManagedProfileUserId);
-                mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
-                        existingManagedProfileUserId);
+                if (isRemovingManagedProfileDisallowed()) {
+                    mUi.showErrorAndClose(R.string.cant_replace_or_remove_work_profile,
+                            R.string.work_profile_cant_be_added_contact_admin,
+                            "Cannot remove existing work profile");
+                } else {
+                    ComponentName mdmPackageName = mDevicePolicyManager
+                            .getProfileOwnerAsUser(existingManagedProfileUserId);
+                    String domainName = mDevicePolicyManager
+                            .getProfileOwnerNameAsUser(existingManagedProfileUserId);
+                    mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
+                            existingManagedProfileUserId);
+                }
                 return;
             }
         }
