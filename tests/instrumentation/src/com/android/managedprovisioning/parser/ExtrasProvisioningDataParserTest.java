@@ -342,6 +342,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setKeepAccountMigrated(false)
                         // THEN leave all system apps is always true
                         .setLeaveAllSystemAppsEnabled(true)
+                        // THEN skip user setup is always false
+                        .setSkipUserSetup(false)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setDeviceAdminLabel(TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                         .setOrganizationName(TEST_ORGANIZATION_NAME)
