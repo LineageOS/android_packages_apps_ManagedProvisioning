@@ -554,6 +554,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 skipUserSetup = getBooleanExtraFromLongName(
                         intent, EXTRA_PROVISIONING_SKIP_USER_SETUP,
                         ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
+            } else if (isFinancedDeviceProvisioning) {
+                skipUserSetup = false;
             }
 
             // Only current DeviceOwner can specify EXTRA_PROVISIONING_SKIP_USER_CONSENT when
