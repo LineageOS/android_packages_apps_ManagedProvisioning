@@ -20,6 +20,7 @@ import android.annotation.Nullable;
 import android.net.IpConfiguration;
 import android.net.IpConfiguration.ProxySettings;
 import android.net.ProxyInfo;
+import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiEnterpriseConfig;
 import android.text.TextUtils;
@@ -326,7 +327,7 @@ public class WifiConfigurationProvider {
             ipConfig.setHttpProxy(new ProxyInfo(proxyHost, proxyPort, proxyBypassHosts));
         } else {
             ipConfig.setProxySettings(ProxySettings.PAC);
-            ipConfig.setHttpProxy(new ProxyInfo(pacUrl));
+            ipConfig.setHttpProxy(new ProxyInfo(Uri.parse(pacUrl)));
         }
         wifiConf.setIpConfiguration(ipConfig);
     }
