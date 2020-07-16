@@ -37,7 +37,11 @@ public class ConsentUiHelperFactory {
     }
 
     private static boolean shouldShowLegacyUi(Activity activity) {
-        // Android Auto still uses the old UI, so we need to ensure compatibility with it.
-        return activity.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
+      // TODO(b/161493464): Ideally LegacyConsentUiHelper, BenefitsAnimation, and the resource
+      // files used by both should be removed, but somehow removing them breaks
+      // CustomizationParamsTest due to access to public fields on CustomizationParams
+      // (probably a test setup / build issue).
+        return false
+                && activity.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
     }
 }
