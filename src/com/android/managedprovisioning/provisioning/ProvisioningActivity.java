@@ -52,7 +52,6 @@ import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
-import com.android.managedprovisioning.transition.TransitionActivity;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupcompat.util.WizardManagerHelper;
@@ -73,10 +72,17 @@ import java.util.Map;
 public class ProvisioningActivity extends AbstractProvisioningActivity
         implements TransitionAnimationCallback {
     private static final int POLICY_COMPLIANCE_REQUEST_CODE = 1;
-    private static final int TRANSITION_ACTIVITY_REQUEST_CODE = 2;
-    private static final int CROSS_PROFILE_PACKAGES_CONSENT_REQUEST_CODE = 3;
-    private static final int RESULT_CODE_ADD_PERSONAL_ACCOUNT = 120;
+    private static final int CROSS_PROFILE_PACKAGES_CONSENT_REQUEST_CODE = 2;
     private static final int RESULT_CODE_COMPLETE_DEVICE_FINANCE = 121;
+    // reserved for a follow-up CL
+    private static final int RESULT_CODE_WORK_PROFILE_CREATED = 122;
+    // reserved for a follow-up CL
+    private static final int RESULT_CODE_DEVICE_OWNER_SET = 123;
+    /**
+     * Result code returned after the DPC has finished its setup in the
+     * admin-integrated flow (POLICY_COMPLIANCE screen).
+     */
+    private static final int RESULT_CODE_WORK_PROFILE_DPC_SETUP_COMPLETE = 124;
 
     static final int PROVISIONING_MODE_WORK_PROFILE = 1;
     static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 2;
@@ -228,7 +234,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         finish();
     }
 
-    boolean shouldShowTransitionScreen() {
+    boolean shouldReturnManagedProfileFinalizedResultCode() {
         return mParams.isOrganizationOwnedProvisioning
                 && mParams.provisioningMode == ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE
                 && mUtils.isConnectedToNetwork(getApplicationContext());
@@ -247,11 +253,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 getProvisioningAnalyticsTracker().logDpcSetupCompleted(this, resultCode);
 
                 if (resultCode == RESULT_OK) {
-                    if (shouldShowTransitionScreen()) {
-                        Intent intent = new Intent(this, TransitionActivity.class);
-                        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
-                        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
-                        startActivityForResult(intent, TRANSITION_ACTIVITY_REQUEST_CODE);
+                    if (shouldReturnManagedProfileFinalizedResultCode()) {
+                        setResult(RESULT_CODE_WORK_PROFILE_DPC_SETUP_COMPLETE);
+                        finish();
                     } else {
                         setResult(Activity.RESULT_OK);
                         finish();
@@ -263,10 +267,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                             /* messageId */ R.string.contact_your_admin_for_help,
                             /* resetRequired = */ true);
                 }
-                break;
-            case TRANSITION_ACTIVITY_REQUEST_CODE:
-                setResult(RESULT_CODE_ADD_PERSONAL_ACCOUNT);
-                finish();
                 break;
             case CROSS_PROFILE_PACKAGES_CONSENT_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
