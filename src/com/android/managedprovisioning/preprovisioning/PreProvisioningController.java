@@ -50,6 +50,7 @@ import static com.android.managedprovisioning.model.ProvisioningParams.PROVISION
 import android.accounts.Account;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
@@ -184,15 +185,6 @@ public class PreProvisioningController {
         void startProvisioning(int userId, ProvisioningParams params);
 
         /**
-         * Show a dialog to delete an existing managed profile.
-         * @param mdmPackageName the {@link ComponentName} of the existing profile's profile owner
-         * @param domainName domain name of the organization which owns the managed profile
-         * @param userId the user id of the existing profile
-         */
-        void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
-                int userId);
-
-        /**
          * Show an error dialog indicating that the current launcher does not support managed
          * profiles and ask the user to choose a different one.
          */
@@ -287,27 +279,22 @@ public class PreProvisioningController {
             return;
         }
 
-        // PO preconditions
-        if (isProfileOwnerProvisioning()) {
-            // If there is already a managed profile, first check it may be removed.
-            // If so, setup the profile deletion dialog.
+        // Profile Owner pre-provisioning check: Bail out if we are trying to provision a work
+        // profile but one already exists.
+        if (isProfileOwnerProvisioning() && mUtils.alreadyHasManagedProfile(mContext) != -1) {
+            mUi.showErrorAndClose(R.string.cant_add_work_profile,
+                    R.string.work_profile_cant_be_added_contact_admin,
+                    "A work profile already exists.");
+            return;
+        }
 
-            int existingManagedProfileUserId = mUtils.alreadyHasManagedProfile(mContext);
-            if (existingManagedProfileUserId != -1) {
-                if (isRemovingManagedProfileDisallowed()) {
-                    mUi.showErrorAndClose(R.string.cant_replace_or_remove_work_profile,
-                            R.string.work_profile_cant_be_added_contact_admin,
-                            "Cannot remove existing work profile");
-                } else {
-                    ComponentName mdmPackageName = mDevicePolicyManager
-                            .getProfileOwnerAsUser(existingManagedProfileUserId);
-                    String domainName = mDevicePolicyManager
-                            .getProfileOwnerNameAsUser(existingManagedProfileUserId);
-                    mUi.showDeleteManagedProfileDialog(mdmPackageName, domainName,
-                            existingManagedProfileUserId);
-                }
-                return;
-            }
+        // Check whether provisioning is allowed for the current action. This check needs to happen
+        // before any actions that might affect the state of the device.
+        // Note that checkDevicePolicyPreconditions takes care of calling
+        // showProvisioningErrorAndClose. So we only need to show the factory reset dialog (if
+        // applicable) and return.
+        if (!checkDevicePolicyPreconditions()) {
+            return;
         }
 
         if (isDeviceOwnerProvisioning()) {
@@ -389,14 +376,7 @@ public class PreProvisioningController {
     void showUserConsentScreen() {
         // Check whether provisioning is allowed for the current action
         if (!checkDevicePolicyPreconditions()) {
-            if (mParams.isOrganizationOwnedProvisioning) {
-                ProvisionLogger.loge(
-                        "Provisioning preconditions failed for organization-owned provisioning.");
-                mUi.showFactoryResetDialog(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help);
-            } else {
-                return;
-            }
+            return;
         }
 
         ProvisionLogger.logd("Sending user consent:" + mParams.provisioningAction);
@@ -859,6 +839,20 @@ public class PreProvisioningController {
         UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
         ProvisionLogger.logw("DevicePolicyManager.checkProvisioningPreCondition returns code: "
                 + provisioningPreCondition);
+        // If this is organization-owned provisioning, do not show any other error dialog, just
+        // show the factory reset dialog and return.
+        // This cannot be abused by regular apps to force a factory reset because
+        // isOrganizationOwnedProvisioning is only set to true if the provisioning action was
+        // from a trusted source. See Utils.isOrganizationOwnedProvisioning where we check for
+        // ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE which is guarded by the
+        // DISPATCH_PROVISIONING_MESSAGE system|privileged permission.
+        if (mParams.isOrganizationOwnedProvisioning) {
+            ProvisionLogger.loge(
+                    "Provisioning preconditions failed for organization-owned provisioning.");
+            mUi.showFactoryResetDialog(R.string.cant_set_up_device,
+                    R.string.contact_your_admin_for_help);
+            return;
+        }
         switch (provisioningPreCondition) {
             case CODE_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
@@ -877,7 +871,8 @@ public class PreProvisioningController {
                 } else {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
                             R.string.work_profile_cant_be_added_contact_admin,
-                            "Exiting managed profile provisioning, cannot add more managed profiles");
+                            "Exiting managed profile provisioning, cannot add more managed "
+                                    + "profiles");
                 }
                 break;
             case CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER:
