@@ -261,7 +261,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        verify(mUi).showDeleteManagedProfileDialog(any(), any(), eq(TEST_USER_ID));
+        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
+                eq(R.string.work_profile_cant_be_added_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -377,7 +378,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.cant_replace_or_remove_work_profile),
+        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
                 eq(R.string.work_profile_cant_be_added_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
@@ -653,12 +654,9 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
         // THEN not starting profile owner provisioning
         verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
-        // THEN show UI to delete user
-        verify(mUi).showDeleteManagedProfileDialog(any(), any(), anyInt());
-        // WHEN user agrees to remove the current profile and continue provisioning
-        mController.continueProvisioningAfterUserConsent();
-        // THEN start profile owner provisioning
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
+        // THEN show an error.
+        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
+                eq(R.string.work_profile_cant_be_added_contact_admin), any());
     }
 
     public void testInitiateProvisioning_showsWifiPicker() {
