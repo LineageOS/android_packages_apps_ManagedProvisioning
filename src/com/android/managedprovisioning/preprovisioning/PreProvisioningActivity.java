@@ -83,7 +83,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private static final String BACK_PRESSED_DIALOG_CLOSE_ACTIVITY =
             "PreProvBackPressedDialogCloseActivity";
     private static final String LAUNCHER_INVALID_DIALOG = "PreProvCurrentLauncherInvalidDialog";
-    private static final String DELETE_MANAGED_PROFILE_DIALOG = "PreProvDeleteManagedProfileDialog";
 
     private PreProvisioningController mController;
     private ControllerProvider mControllerProvider;
@@ -246,10 +245,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case LAUNCHER_INVALID_DIALOG:
                 dialog.dismiss();
                 break;
-            case DELETE_MANAGED_PROFILE_DIALOG:
-                setResult(Activity.RESULT_CANCELED);
-                finish();
-                break;
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
         }
@@ -269,12 +264,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 break;
             case LAUNCHER_INVALID_DIALOG:
                 requestLauncherPick();
-                break;
-            case DELETE_MANAGED_PROFILE_DIALOG:
-                DeleteManagedProfileDialog d = (DeleteManagedProfileDialog) dialog;
-                mController.removeUser(d.getUserId());
-                mController.initiateProvisioning(getIntent(), /* cached params */ null,
-                        getCallingPackage());
                 break;
             case ERROR_DIALOG_RESET:
                 getUtils().sendFactoryResetBroadcast(this, "Error during preprovisioning");
@@ -404,13 +393,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         if (v instanceof TextView) {
             mContextMenuMaker.populateMenuContent(menu, (TextView) v);
         }
-    }
-
-    @Override
-    public void showDeleteManagedProfileDialog(ComponentName mdmPackageName, String domainName,
-            int userId) {
-        showDialog(() -> DeleteManagedProfileDialog.newInstance(userId,
-                mdmPackageName, domainName), DELETE_MANAGED_PROFILE_DIALOG);
     }
 
     @Override
