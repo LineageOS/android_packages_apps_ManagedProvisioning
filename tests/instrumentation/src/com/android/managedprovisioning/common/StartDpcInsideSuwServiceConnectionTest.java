@@ -54,7 +54,6 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
     private static final ComponentName TEST_MDM_ADMIN = new ComponentName(TEST_MDM_PACKAGE_NAME,
             TEST_MDM_ADMIN_RECEIVER);
     private static final PersistableBundle TEST_MDM_EXTRA_BUNDLE = createTestAdminExtras();
-    private static final String TEST_DPC_INTENT_CATEGORY = "test_category";
     private static final int TEST_REQUEST_CODE = 3;
     private static final String TEST_SUW_PACKAGE_NAME = "suw.package.name";
     private static final String TEST_SUW_SERVICE_CLASS = TEST_SUW_PACKAGE_NAME + ".TestService";
@@ -87,7 +86,7 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection();
         mDpcIntentSender = () ->
                 policyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                        mActivity, mParams, TEST_DPC_INTENT_CATEGORY, TEST_REQUEST_CODE, mUtils,
+                        mActivity, mParams, TEST_REQUEST_CODE, mUtils,
                         mProvisioningAnalyticsTracker);
     }
 
@@ -562,8 +561,6 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
         // THEN the admin extras bundle should contain mdm extras
         assertExtras(intentCaptor.getValue());
-        // THEN the intent should have the category that was passed into the parent activity
-        assertTrue(intentCaptor.getValue().hasCategory(TEST_DPC_INTENT_CATEGORY));
         // THEN a metric should be logged
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(eq(activity), eq(intentAction));
     }
@@ -590,7 +587,7 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         final PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
         final Runnable dpcIntentSenderForRestoredActivity = () ->
                 policyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                        mRestoredActivity, mParams, TEST_DPC_INTENT_CATEGORY, TEST_REQUEST_CODE,
+                        mRestoredActivity, mParams, TEST_REQUEST_CODE,
                         mUtils, mProvisioningAnalyticsTracker);
 
         return new StartDpcInsideSuwServiceConnection(mRestoredActivity, savedInstanceState,

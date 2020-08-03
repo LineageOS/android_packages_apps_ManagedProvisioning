@@ -163,25 +163,14 @@ public final class FinalizationController {
         }
 
         mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
-        if (mUtils.isAdminIntegratedFlow(params)) {
-            // Don't send ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to DPC or launch DPC by
-            // ACTION_PROVISIONING_SUCCESSFUL intent if it's admin integrated flow.
-            if (mUtils.isDeviceOwnerAction(params.provisioningAction)) {
-                mProvisioningIntentProvider.launchFinalizationScreenForResult(mActivity, params,
-                        FINAL_SCREEN_REQUEST_CODE);
-                mProvisioningFinalizedResult =
-                        PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED;
-            }
+        if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+            mProvisioningFinalizedResult =
+                    mFinalizationControllerLogic.notifyDpcManagedProfile(
+                            params, DPC_SETUP_REQUEST_CODE);
         } else {
-            if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-                mProvisioningFinalizedResult =
-                        mFinalizationControllerLogic.notifyDpcManagedProfile(
-                                params, DPC_SETUP_REQUEST_CODE);
-            } else {
-                mProvisioningFinalizedResult =
-                        mFinalizationControllerLogic.notifyDpcManagedDeviceOrUser(
-                                params, DPC_SETUP_REQUEST_CODE);
-            }
+            mProvisioningFinalizedResult =
+                    mFinalizationControllerLogic.notifyDpcManagedDeviceOrUser(
+                            params, DPC_SETUP_REQUEST_CODE);
         }
     }
 
