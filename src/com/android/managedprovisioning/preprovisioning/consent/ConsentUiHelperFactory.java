@@ -16,6 +16,7 @@
 package com.android.managedprovisioning.preprovisioning.consent;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
@@ -28,7 +29,19 @@ public class ConsentUiHelperFactory {
         Activity activity, AccessibilityContextMenuMaker contextMenuMaker,
         ConsentUiHelperCallback callback, Utils utils,
         SettingsFacade settingsFacade) {
-        // Currently there's just one
-        return new PrimaryConsentUiHelper(activity, callback, utils);
+        if (shouldShowLegacyUi(activity)) {
+            return new LegacyConsentUiHelper(activity, contextMenuMaker, callback, utils);
+        } else {
+            return new PrimaryConsentUiHelper(activity, callback, utils);
+        }
+    }
+
+    private static boolean shouldShowLegacyUi(Activity activity) {
+      // TODO(b/161493464): Ideally LegacyConsentUiHelper, BenefitsAnimation, and the resource
+      // files used by both should be removed, but somehow removing them breaks
+      // CustomizationParamsTest due to access to public fields on CustomizationParams
+      // (probably a test setup / build issue).
+        return false
+                && activity.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
     }
 }

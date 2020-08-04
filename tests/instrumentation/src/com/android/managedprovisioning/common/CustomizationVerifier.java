@@ -36,6 +36,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.preprovisioning.anim.ColorMatcher;
+import com.android.managedprovisioning.preprovisioning.anim.SwiperThemeMatcher;
 
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
