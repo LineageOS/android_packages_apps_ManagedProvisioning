@@ -139,7 +139,7 @@
     <string name="setup_device_encryption" msgid="7852944465414197103">"Je apparaat instellen. Versleuteling"</string>
     <string name="setup_device_progress" msgid="7035335208571175393">"Je apparaat instellen. Voortgang weergeven"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Knop \'Meer informatie\'"</string>
-    <string name="mdm_icon_label" msgid="3399134595549660561">"Pictogram <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"Icoon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"Kop van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
     <string name="section_content" msgid="8875502515704374394">"Content van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Uitvouwen"</string>
