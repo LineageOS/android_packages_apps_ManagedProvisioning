@@ -79,7 +79,6 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
-import com.android.managedprovisioning.common.MdmPackageInfo;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StoreUtils;
@@ -214,11 +213,6 @@ public class PreProvisioningController {
          * The desired provisioning mode - values are defined in {@link ProvisioningMode}.
          */
         public @ProvisioningMode int provisioningMode;
-        /**
-         * Admin-related package information, e.g. icon, app label.
-         * <p>These are inferred from the installed admin application.
-         */
-        public MdmPackageInfo packageInfo;
         /**
          * Defined by the organization in the provisioning trigger (e.g. QR code).
          */
@@ -388,8 +382,6 @@ public class PreProvisioningController {
 
         // show UI so we can get user's consent to continue
         final String packageName = mParams.inferDeviceAdminPackageName();
-        final MdmPackageInfo packageInfo =
-            MdmPackageInfo.createFromPackageName(mContext, packageName);
         final UiParams uiParams = new UiParams();
         uiParams.customization = customization;
         uiParams.deviceAdminIconFilePath = mParams.deviceAdminIconFilePath;
@@ -399,7 +391,6 @@ public class PreProvisioningController {
         uiParams.provisioningAction = mParams.provisioningAction;
         uiParams.packageName = packageName;
         uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
-        uiParams.packageInfo = packageInfo;
         uiParams.viewTermsIntent = createViewTermsIntent();
         uiParams.isSilentProvisioning = Utils.isSilentProvisioning(mContext, mParams);
         uiParams.isOrganizationOwnedProvisioning = mParams.isOrganizationOwnedProvisioning;
