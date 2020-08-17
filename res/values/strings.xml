@@ -341,14 +341,6 @@
   <string name="setup_provisioning_header">Preparing to set up work device\u2026</string>
   <string name="setup_provisioning_header_description">Setting up admin app</string>
 
-  <!-- Transition screen strings -->
-  <!-- Screen title. This is letting the user know that they're finished setting up their work profile, and they can finish setting up the rest of their phone. [CHAR LIMIT=NONE]-->
-  <string name="set_up_everything_else">Set up everything else</string>
-  <!-- Screen title. This is letting the user know that they're finished setting up their work profile, and they can add a personal account to get their personal apps and content on the phone. [CHAR LIMIT=NONE]-->
-  <string name="now_lets_set_up_everything_else">Add a personal account to get more from your device</string>
-  <!-- Subtext on a screen. This is letting the user know that adding a personal account is an optional step. [CHAR LIMIT=NONE]-->
-  <string name="now_lets_set_up_everything_else_explanation">Now that your work profile is ready, you can also add a personal Google Account to access your apps and content.</string>
-
   <!-- Organization brand screen -->
   <!-- Screen title. This is letting the user know that their organization (e.g. company) owns the device. [CHAR LIMIT=NONE]-->
   <string name="brand_screen_header">This device belongs to your organization</string>

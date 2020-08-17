@@ -220,11 +220,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".transition.TransitionActivity"
-            android:theme="@style/SudThemeGlifV3.Light"
-            android:immersive="true"/>
-
         <service android:name=".provisioning.ProvisioningService" />
         <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />
