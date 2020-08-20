@@ -102,7 +102,7 @@ public final class ProvisioningParams extends PersistableBundlable {
     public static final int PROVISIONING_MODE_UNDECIDED = 0;
     public static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 1;
     public static final int PROVISIONING_MODE_MANAGED_PROFILE = 2;
-    public static final int PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE = 3;
+    public static final int PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
     public static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY = 4;
 
     // Provisioning mode for financed device provisioning
@@ -112,7 +112,7 @@ public final class ProvisioningParams extends PersistableBundlable {
             PROVISIONING_MODE_UNDECIDED,
             PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
             PROVISIONING_MODE_MANAGED_PROFILE,
-            PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE,
+            PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE,
             PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY,
             PROVISIONING_MODE_FINANCED_DEVICE
     })

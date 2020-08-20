@@ -36,7 +36,7 @@ import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -566,7 +566,7 @@ public class Utils {
         return params.provisioningMode == PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 || params.provisioningMode == PROVISIONING_MODE_MANAGED_PROFILE
                 || params.provisioningMode
-                    == PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_NAMAGED_DEVICE;
+                    == PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE;
     }
 
     /**
