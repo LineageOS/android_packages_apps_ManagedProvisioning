@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"Организација ће штитити овај уређај и управљаће њиме"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Припрема се подешавање уређаја за посао…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Апликација за администраторе се подешава"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Подесите све остало"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Додајте лични налог да бисте искористили додатне погодности уређаја"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Пословни профил је спреман, па можете да додате и лични Google налог да бисте приступали апликацијама и садржају."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Овај уређај припада организацији"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следећа апликација ће се користити за праћење овог телефона и управљање њимe"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подешавање за посао се припрема…"</string>

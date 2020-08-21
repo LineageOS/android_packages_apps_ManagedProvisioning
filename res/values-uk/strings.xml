@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"Організація керуватиме цим пристроєм і дбатиме про його безпеку"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Підготовка до налаштування робочого пристрою…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Налаштування додатка адміністратора"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Налаштуйте решту параметрів"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Додайте особистий обліковий запис, щоб користуватися всіма можливостями пристрою"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Тепер, коли робочий профіль налаштовано, ви можете додати особистий обліковий запис Google, щоб отримати доступ до своїх додатків і контенту."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Цей пристрій належить вашій організації"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"За допомогою цього додатка ви зможете керувати телефоном і відстежувати його"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Підготовка до налаштування для роботи…"</string>

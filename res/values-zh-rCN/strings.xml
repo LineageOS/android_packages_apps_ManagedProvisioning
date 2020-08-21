@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"此设备将由贵单位确保其安全并负责管理"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"正在准备设置工作设备…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"设置管理应用"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"设置所有其他内容"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"添加个人帐号即可更充分地利用您的设备"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"您的工作资料已设置完毕，您还可以添加个人 Google 帐号，以便访问您的应用和内容。"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"此设备归贵单位所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在准备工作设置…"</string>

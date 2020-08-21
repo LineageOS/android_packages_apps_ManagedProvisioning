@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"سازمانتان این دستگاه را به‌طور امن نگه‌می‌دارد و آن را مدیریت می‌کند"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"درحال راه‌اندازی دستگاه کاری…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"درحال راه‌اندازی برنامه سرپرست"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"همه‌ چیزهای دیگر را راه‌اندازی کنید"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"با افزودن حساب شخصی، بهره بیشتری از دستگاهتان ببرید"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"‏اکنون که نمایه کاری‌تان آماده است، می‌توانید «حساب Google» شخصی نیز برای دسترسی به برنامه‌ها و محتوا اضافه کنید."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"این دستگاه به سازمان شما تعلق دارد"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"از برنامه زیر برای مدیریت و نظارت بر این تلفن استفاده می‌شود"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"درحال آماده شدن برای راه‌اندازی دستگاه برای کار…"</string>
