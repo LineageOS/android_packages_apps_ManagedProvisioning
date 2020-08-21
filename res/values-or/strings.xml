@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"ଏହି ଡିଭାଇସ୍‌କୁ ସୁରକ୍ଷିତ ରଖାଯିବ ଏବଂ ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ଵାରା ପରିଚାଳିତ ହେବ"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"ୱର୍କ ଡିଭାଇସ୍ ସେଟ୍ ଅପ୍ କରିବାକୁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ବ୍ୟବସ୍ଥାପକ ଆପ୍ ସେଟ‍୍‌ ଅପ୍ କରାଯାଉଛି"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"ବାକି ସବୁକିଛି ସେଟ୍‌ଅପ୍ କରନ୍ତୁ"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"ଆପଣଙ୍କ ଡିଭାଇସ୍ ଠାରୁ ଅଧିକ ପାଇବାକୁ ଏକ ବ୍ୟକ୍ତିଗତ ଆକାଉଣ୍ଟ ଯୋଗ କରନ୍ତୁ"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"ବର୍ତ୍ତମାନ ଆପଣଙ୍କର କାର୍ଯ୍ୟ ପ୍ରୋଫାଇଲ୍ ପ୍ରସ୍ତୁତ ହୋଇଛି, ଆପଣ ଆପଣଙ୍କର ଆପ୍ସ ଏବଂ ବିଷୟବସ୍ତୁ ଆକ୍ସେସ୍ କରିବାକୁ ଏକ Google ଆକାଉଣ୍ଟ ମଧ୍ୟ ଯୋଗ କରିପାରିବେ।"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ଏହି ଡିଭାଇସ୍ ଆପଣଙ୍କ ସଂସ୍ଥାର ଅନ୍ତର୍ଗତ ଅଟେ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ଏହି ଫୋନ୍‌କୁ ପରିଚଳନା ଏବଂ ମନିଟର୍ କରିବାକୁ ନିମ୍ନୋକ୍ତ ଆପ୍‌ର ବ୍ୟବହାର ହେବ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ୱର୍କ ସେଟ୍‌ଅପ୍ ପାଇଁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>

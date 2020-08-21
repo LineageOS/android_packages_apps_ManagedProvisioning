@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"ອຸປະກອນນີ້ຈະຖືກເກັບຮັກສາໄວ້ຢ່າງປອດໄພ ແລະ ຖືກຈັດການໂດຍອົງກອນຂອງທ່ານ"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"ກຳລັງກະກຽມຕັ້ງຄ່າອຸປະກອນບ່ອນເຮັດວຽກ…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ກຳລັງຕັ້ງຄ່າແອັບຜູ້ເບິ່ງແຍງລະບົບ"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"ຕັ້ງຄ່າທຸກຢ່າງທີ່ເຫຼືອ"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"ເພີ່ມບັນຊີສ່ວນຕົວເພື່ອໃຊ້ປະໂຫຍດເພີ່ມເຕີມຈາກອຸປະກອນຂອງທ່ານ"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"ຕອນນີ້ໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານພ້ອມແລ້ວ, ທ່ານສາມາດເພີ່ມບັນຊີ Google ສ່ວນຕົວໃສ່ໄດ້ເພື່ອເຂົ້າເຖິງແອັບ ແລະ ເນື້ອຫາຂອງທ່ານ."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ອຸປະກອນນີ້ເປັນຂອງອົງການທ່ານ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ແອັບຕໍ່ໄປນີ້ຈະຖືກໃຊ້ເພື່ອຈັດການ ແລະ ຕິດຕາມໂທລະສັບໜ່ວຍນີ້"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ກຳລັງກຽມພ້ອມສຳລັບການຕັ້ງຄ່າວຽກ…"</string>

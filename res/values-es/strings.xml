@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"Tu organización administrará y protegerá este dispositivo"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparando la configuración de tu dispositivo de trabajo…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando aplicación de administración"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Configurar el resto de opciones"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Añade una cuenta personal para aprovechar más tu dispositivo"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ahora que tu perfil de trabajo ya está listo, puedes añadir tu cuenta de Google personal para acceder a tus aplicaciones y contenido."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertenece a tu organización"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"La siguiente aplicación se utilizará para gestionar y supervisar este teléfono"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando la configuración del dispositivo de trabajo…"</string>

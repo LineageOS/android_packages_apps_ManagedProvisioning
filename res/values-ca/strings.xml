@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"La teva organització gestionarà i protegirà aquest dispositiu"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"S\'està preparant per configurar el dispositiu de la feina…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"S\'està configurant l\'aplicació d\'administració"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Configura la resta d\'elements"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Afegeix un compte personal per treure més profit del teu dispositiu"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Ara que el teu perfil de treball ja està a punt, també pots afegir un Compte personal de Google per accedir a les teves aplicacions i al teu contingut."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Aquest dispositiu pertany a la teva organització"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"S\'utilitzarà l\'aplicació següent per gestionar i supervisar aquest telèfon"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"S\'està preparant per a la configuració professional…"</string>

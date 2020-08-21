@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"Tổ chức của bạn sẽ giữ an toàn và quản lý thiết bị này"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Đang chuẩn bị thiết lập thiết bị làm việc…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Thiết lập ứng dụng quản trị"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Thiết lập các tính năng khác"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Thêm tài khoản cá nhân để làm việc hiệu quả hơn với thiết bị của bạn"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Vì hồ sơ công việc của bạn đã sẵn sàng, nên bạn cũng có thể thêm một Tài khoản Google cá nhân để truy cập vào ứng dụng và nội dung của mình."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Thiết bị này thuộc sở hữu của tổ chức bạn"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Ứng dụng sau đây sẽ được dùng để quản lý và giám sát điện thoại này"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Đang chuẩn bị thiết lập thiết bị làm việc…"</string>

@@ -162,9 +162,6 @@
     <string name="device_owner_description" msgid="168013145812679664">"हे डिव्‍हाइस सुरक्षित ठेवले जाईल आणि तुमच्‍या संस्‍थेद्वारे व्‍यवस्‍थापित केले जाईल"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"तुमचे ऑफिसचे डिव्हाइस सेट करण्यासाठी तयार होत आहे…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ॲडमिन अ‍ॅप सेट करत आहे"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"बाकीचे सर्व सेट करा"</string>
-    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"तुमच्या डिव्हाइसमधून आणखी सेवा मिळवण्यासाठी एखादे वैयक्तिक खाते जोडा"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"तुमची कार्य प्रोफाइल आता तयार झाल्यामुळे तुम्ही तुमची ॲप्स आणि आशय अ‍ॅक्सेस करण्यासाठी एखादे वैयक्तिक Google खाते सुद्धा जोडू शकता."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"हे डिव्हाइस तुमच्या संस्थेचे आहे"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"हा फोन व्यवस्थापित आणि मॉनिटर करण्यासाठी पुढील अ‍ॅप वापरले जाईल"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कार्य सेटअपसाठी तयार करत आहे…"</string>
