@@ -89,7 +89,7 @@
     <string name="reset_device" msgid="5483853913241939262">"Berrezarri gailua eta saiatu berriro konfiguratzen"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Konfiguratuta dago gailua"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Ezin izan da konektatu wifi-sarera"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Jatorrizko datuak berrezartzearen aurkako babesa aktibatuta du gailuak. Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan."</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Jatorrizko datuak berrezartzearen aurkako babesa aktibatuta dauka gailuak. Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Ezabatzen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Itxaron, mesedez…"</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Ezin izan da erabili gailua administratzeko aplikazioa, errore bat gertatu delako batuketa egitean. Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan."</string>
