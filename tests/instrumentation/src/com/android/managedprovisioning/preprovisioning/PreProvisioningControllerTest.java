@@ -47,6 +47,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.VectorDrawable;
+import android.net.ConnectivityManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
@@ -169,6 +170,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(false);
         mController = new PreProvisioningController(mContext, mUi, mTimeLogger, mMessageParser,
                 mUtils, mSettingsFacade, mEncryptionController, mSharedPreferences);
+        when(mSettingsFacade.isDeveloperMode(mContext)).thenReturn(true);
     }
 
     public void testManagedProfile() throws Exception {
@@ -363,6 +365,20 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN show an error indicating that this device does not support encryption
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.device_doesnt_allow_encryption_contact_admin), any());
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void testManagedProfile_restrictedFromRemovingExisting() throws Exception {
+        // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
+        prepareMocksForManagedProfileIntent(false);
+        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
+        when(mUserManager.hasUserRestriction(
+                UserManager.DISALLOW_REMOVE_MANAGED_PROFILE)).thenReturn(true);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
+        // THEN show an error dialog
+        verify(mUi).showErrorAndClose(eq(R.string.cant_replace_or_remove_work_profile),
+                eq(R.string.work_profile_cant_be_added_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -669,8 +685,9 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verify(mUi, never()).requestWifiPick();
     }
 
-    public void testInitiateProvisioning_connectedToWifi_noWifiPicker() {
-        when(mUtils.isConnectedToWifi(mContext)).thenReturn(true);
+    public void testInitiateProvisioning_connectedToWifiOrEthernet_noWifiPicker() {
+        when(mUtils.isNetworkTypeConnected(mContext, ConnectivityManager.TYPE_WIFI,
+                ConnectivityManager.TYPE_ETHERNET)).thenReturn(true);
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .build();
         initiateProvisioning(params);

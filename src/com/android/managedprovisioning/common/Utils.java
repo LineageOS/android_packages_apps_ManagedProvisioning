@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.common;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
@@ -486,6 +487,7 @@ public class Utils {
             case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
             case ACTION_PROVISION_MANAGED_USER:
             case ACTION_PROVISION_MANAGED_PROFILE:
+            case ACTION_PROVISION_FINANCED_DEVICE:
                 dpmProvisioningAction = intent.getAction();
                 break;
 
@@ -525,13 +527,6 @@ public class Utils {
         return dpmProvisioningAction;
     }
 
-    public boolean isCloudEnrollment(Intent intent) {
-        return PROVISIONING_TRIGGER_CLOUD_ENROLLMENT ==
-                intent.getIntExtra(
-                        DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
-                        /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
-    }
-
     /**
      * Returns if the given intent for a organization owned provisioning.
      * Only QR, cloud enrollment and NFC are owned by organization.
@@ -553,6 +548,13 @@ public class Utils {
             default:
                 return false;
         }
+    }
+
+    public boolean isQrProvisioning(Intent intent) {
+        return PROVISIONING_TRIGGER_QR_CODE ==
+                intent.getIntExtra(
+                        DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
+                        /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
     }
 
     /**
@@ -600,6 +602,13 @@ public class Utils {
     }
 
     /**
+     * Returns whether the given provisioning action is a financed device action.
+     */
+    public final boolean isFinancedDeviceAction(String action) {
+        return ACTION_PROVISION_FINANCED_DEVICE.equals(action);
+    }
+
+    /**
      * Returns whether the device currently has connectivity.
      */
     public boolean isConnectedToNetwork(Context context) {
@@ -629,13 +638,22 @@ public class Utils {
     }
 
     /**
-     * Returns whether the device is currently connected to a wifi.
+     * Returns whether the device is currently connected to specific network type, such as {@link
+     * ConnectivityManager.TYPE_WIFI} or {@link ConnectivityManager.TYPE_ETHERNET}
+     *
+     * {@see ConnectivityManager}
      */
-    public boolean isConnectedToWifi(Context context) {
-        NetworkInfo info = getActiveNetworkInfo(context);
-        return info != null
-                && info.isConnected()
-                && info.getType() == ConnectivityManager.TYPE_WIFI;
+    public boolean isNetworkTypeConnected(Context context, int... types) {
+        final NetworkInfo networkInfo = getActiveNetworkInfo(context);
+        if (networkInfo != null && networkInfo.isConnected()) {
+            final int activeNetworkType = networkInfo.getType();
+            for (int type : types) {
+                if (activeNetworkType == type) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -820,19 +838,39 @@ public class Utils {
             textView.setText(contactDeviceProvider);
             return;
         }
-        final SpannableString spannableString = new SpannableString(contactDeviceProvider);
         final Intent intent = WebActivity.createIntent(
                 context, customizationParams.supportUrl, customizationParams.statusBarColor);
+
+        handlePartialClickableTextView(textView, contactDeviceProvider, deviceProvider, intent,
+                clickableSpanFactory);
+
+        contextMenuMaker.registerWithActivity(textView);
+    }
+
+    /**
+     * Utility function to make a TextView partial clickable. It also associates the TextView with
+     * an Intent. The intent will be triggered when the clickable part is clicked.
+     *
+     * @param textView The TextView which hosts the clickable string.
+     * @param content The content of the TextView.
+     * @param clickableString The substring which is clickable.
+     * @param intent The Intent that will be launched.
+     * @param clickableSpanFactory The factory which is used to create ClickableSpan to decorate
+     *                             clickable string.
+     */
+    public void handlePartialClickableTextView(TextView textView, String content,
+            String clickableString, Intent intent, ClickableSpanFactory clickableSpanFactory) {
+        final SpannableString spannableString = new SpannableString(content);
         if (intent != null) {
             final ClickableSpan span = clickableSpanFactory.create(intent);
-            final int startIx = contactDeviceProvider.indexOf(deviceProvider);
-            final int endIx = startIx + deviceProvider.length();
-            spannableString.setSpan(span, startIx, endIx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            textView.setMovementMethod(LinkMovementMethod.getInstance()); // make clicks work
+            final int startIdx = content.indexOf(clickableString);
+            final int endIdx = startIdx + clickableString.length();
+
+            spannableString.setSpan(span, startIdx, endIdx, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
 
         textView.setText(spannableString);
-        contextMenuMaker.registerWithActivity(textView);
     }
 
     public static boolean isSilentProvisioningForTestingDeviceOwner(
