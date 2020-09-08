@@ -179,7 +179,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
                             c.close();
                             onDownloadSuccess();
                         } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)) {
-                            int reason = c.getColumnIndex(DownloadManager.COLUMN_REASON);
+                            final int reason =
+                                    c.getInt(c.getColumnIndex(DownloadManager.COLUMN_REASON));
                             c.close();
                             onDownloadFail(reason);
                         }
@@ -210,9 +211,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
     }
 
     private void onDownloadFail(int errorCode) {
-        ProvisionLogger.loge("Downloading package failed.");
-        ProvisionLogger.loge("COLUMN_REASON in DownloadManager response has value: "
-                + errorCode);
+        ProvisionLogger.loge("Downloading package failed (download id " + mDownloadId
+                + "). COLUMN_REASON in DownloadManager response has value: " + errorCode);
         error(ERROR_DOWNLOAD_FAILED);
     }
 

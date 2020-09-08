@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /**
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,13 @@
  * limitations under the License.
  */
 -->
-<resources>
-    <style name="CarToolbar">
-        <item name="android:subtitleTextAppearance">@style/TextAppearance.Car.Body3.Light</item>
-        <item name="android:titleTextAppearance">@style/TextAppearance.Car.Body1.Medium.Light</item>
-        <item name="android:navigationIcon">@drawable/car_terms_back_button</item>
-        <item name="android:navigationContentDescription">@*android:string/action_bar_up_description</item>
-    </style>
-</resources>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M2,12C2,6.48 6.48,2 12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12ZM13,11V17H11V11H13ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20ZM13,7V9H11V7H13Z"
+      android:fillColor="#1967D2"
+      android:fillType="evenOdd"/>
+</vector>

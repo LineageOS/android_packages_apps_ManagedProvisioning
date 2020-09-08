@@ -1,5 +1,5 @@
 /*
- * Copyright 2016, The Android Open Source Project
+ * Copyright 2019, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,7 @@
 
 package com.android.managedprovisioning.finalization;
 
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
-import android.os.Bundle;
 
 /**
  * This class is used to make sure that we start the MDM after we shut the setup wizard down.
@@ -30,19 +28,18 @@ import android.os.Bundle;
  * ACTION_PROFILE_PROVISIONING_COMPLETE broadcast to the MDM, which can then present it's own
  * activities.
  */
-public class FinalizationActivity extends Activity {
+public class FinalizationPostSuwActivity extends FinalizationActivityBase {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected FinalizationController createFinalizationController() {
+        return new FinalizationController(this, new FinalizationPostSuwControllerLogic(this));
+    }
 
-        // To prevent b/131315856, we finish this activity now only if we do not expect to launch
-        // the admin app. Otherwise let android:noHistory automatically finish it.
-        final FinalizationController finalizationController = new FinalizationController(this);
-        finalizationController.provisioningFinalized();
-        final int result = finalizationController.getProvisioningFinalizedResult();
-        if (result != FinalizationController.PROVISIONING_FINALIZED_RESULT_ADMIN_WILL_LAUNCH) {
-            finish();
-        }
+    @Override
+    protected void onFinalizationCompletedWithChildActivityLaunched() {
+        // Commit state immediately, without waiting for child activity to complete.
+        getFinalizationController().commitFinalizedState();
+        // To prevent b/131315856, we don't call finish() when we have launched the admin app.
+        // Instead, we let android:noHistory automatically finish this activity.
     }
 }

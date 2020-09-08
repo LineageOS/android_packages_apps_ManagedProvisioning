@@ -385,7 +385,6 @@ public class WifiConfigurationProviderTest {
         assertEquals(TEST_SSID, wifiConf.SSID);
         assertEquals(TEST_HIDDEN, wifiConf.hiddenSSID);
         assertEquals(WifiConfiguration.Status.ENABLED, wifiConf.status);
-        assertEquals(WifiConfiguration.USER_APPROVED, wifiConf.userApproved);
     }
 
     private void assertEnterpriseConfig(WifiConfiguration wifiConf,

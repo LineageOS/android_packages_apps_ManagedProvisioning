@@ -106,7 +106,6 @@ public class WifiConfigurationProvider {
         wifiConf.SSID = wifiInfo.ssid;
         wifiConf.status = WifiConfiguration.Status.ENABLED;
         wifiConf.hiddenSSID = wifiInfo.hidden;
-        wifiConf.userApproved = WifiConfiguration.USER_APPROVED;
         String securityType = wifiInfo.securityType != null ? wifiInfo.securityType : NONE;
         switch (securityType) {
             case WPA:
