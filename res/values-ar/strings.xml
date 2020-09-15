@@ -73,7 +73,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"جارٍ إزالة تطبيقات النظام غير المطلوبة…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"جارٍ وضع اللمسات النهائية…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"جارٍ تعيين مالك الجهاز..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"جارٍ تهيئة الجهاز…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"جارٍ إعداد الجهاز…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"لا يسمح هذا الجهاز بالتشفير، وهو أمر لازم للإعداد. يمكنك التواصل مع مشرف تكنولوجيا المعلومات للحصول على مساعدة."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"هل تريد إيقاف الإعداد وإعادة ضبط الجهاز؟"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"سيؤدي هذا إلى إعادة ضبط جهازك ورجوعك إلى الشاشة الأولى"</string>
