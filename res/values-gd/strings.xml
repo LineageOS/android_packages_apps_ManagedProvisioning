@@ -19,6 +19,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="provisioning_error_title">Oich!</string>
   <string name="setup_work_profile">Suidhich pròifil obrach</string>
+  <string name="company_controls_workspace">Tha a’ phròifil seo fo smachd a’ bhuidhinn agad agus cumaidh iadsan tèarainte i. Bidh smachd agad fhèin air a h-uile càil eile air an fhòn seo.</string>
+  <string name="company_controls_device">Bidh smachd aig a’ bhuidheann agad air an uidheam seo agus cumaidh iad sàbhailte e.</string>
+  <string name="the_following_is_your_mdm">Feumaidh an aplacaid seo a’ phròifil seo inntrigeadh:</string>
+  <string name="the_following_is_your_mdm_for_device">Stiùirich an aplacaid seo an t-uidheam agad:</string>
   <string name="next">Air adhart</string>
   <string name="theft_protection_disabled_warning">Airson gleusan dìon o ghoid a chleachdadh, feumaidh tu glasadh na sgrìn le dìon facail-fhaire a chur an comas.</string>
   <string name="learn_more_link">Barrachd fiosrachaidh </string>
@@ -27,25 +31,53 @@
   <string name="user_consent_msg">Aontaich ris</string>
   <string name="default_managed_profile_name">Pròifil na h-obrach</string>
   <string name="default_first_meat_user_name">Prìomh-chleachdaiche</string>
+  <string name="read_more_delete_profile"><a href="#read_this_link">Leugh seo</a> mus lean thu air adhart.</string>
   <string name="sure_you_want_to_delete_profile">Ma leanas tu air adhart, thèid a h-uile aplacaid is dàta sa phròifil seo a sguabadh às.</string>
   <string name="delete_profile">Sguab às</string>
   <string name="cancel_delete_profile">Sguir dheth</string>
   <string name="encrypt">Crioptaich</string>
+  <string name="continue_provisioning_notify_title">Tha an crioptachadh deiseil</string>
   <string name="continue_provisioning_notify_text">Thoit gnogag a leantainn air adhart le suidheachadh pròifil na h-obrach agad</string>
+  <string name="managed_provisioning_error_text">Cha b’ urrainn dhuinn pròifil na h-obrach agad a shuidheachadh. Cuir fios gun sgioba ICT agad no feuch ris a-rithist uaireigin eile.</string>
   <string name="cancel_provisioning">Sguir dheth</string>
   <string name="pick_launcher">Ceart ma-thà</string>
   <string name="user_setup_incomplete">Chan eil suidheachadh a’ chleachdaiche coileanta</string>
+  <string name="default_owned_device_username">Cleachdaiche uidheim obrach</string>
+  <string name="progress_data_process">A’ pròiseasadh dàta an t-suidheachaidh\u2026</string>
+  <string name="progress_connect_to_wifi">A’ ceangal ri WiFi…</string>
   <string name="progress_connect_to_mobile_network">’Ga cheangal ri lìonra mobile\u2026</string>
+  <string name="progress_download">A’ luchdadh a-nuas aplacaid na rianachd\u2026</string>
+  <string name="progress_install">A’ stàladh aplacaid na rianachd\u2026</string>
+  <string name="progress_set_owner">A’ suidheachadh seilbheadair an uidheim\u2026</string>
+  <string name="device_owner_cancel_message">An cuir thu stad air an t-suidheachadh ’s an suath thu bàn dàta an uidheim agad?</string>
   <string name="device_owner_cancel_cancel">Sguir dheth</string>
   <string name="device_owner_error_ok">Ceart ma-thà</string>
   <string name="reset">Ath-shuidhich</string>
+  <string name="error_wifi">Cha b’ urrainn dhuinn ceangal WiFi a dhèanamh</string>
+  <string name="frp_clear_progress_title">’Ga shuathadh bàn</string>
   <string name="frp_clear_progress_text">Fuirich ort…</string>
+  <string name="error_download_failed">Cha b’ urrainn dhuinn aplacaid na rianachd a luchdadh a-nuas</string>
+  <string name="error_installation_failed">Cha b’ urrainn dhuinn aplacaid na rianachd a stàladh</string>
+  <string name="profile_owner_cancel_message">An cuir thu stad air an t-suidheachadh?</string>
   <string name="profile_owner_cancel_cancel">Chan eil</string>
   <string name="profile_owner_cancel_ok">Tha</string>
+  <string name="profile_owner_cancelling">A’ sgur dheth\u2026</string>
+  <string name="work_profile_setup_later_title">An cuir thu stad air suidheachadh na pròifil?</string>
   <string name="continue_button">Lean air adhart</string>
   <string name="work_profile_setup_stop">Cuir stad air</string>
   <string name="device_owner_info">Thèid an t-uidheam seo a stiùireadh, chumail sùil air ’s a chumail tèarainte le <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Bidh teirmichean an sàs. <xliff:g id="view_terms" example="View Terms">%2$s</xliff:g></string>
   <string name="device_owner_info_with_terms_headers">Thèid an t-uidheam seo a stiùireadh, chumail sùil air ’s a chumail tèarainte le <xliff:g id="your organization" example="your organization">%1$s</xliff:g>. Bidh teirmichean aig <xliff:g id="terms_headers" example="EMM Partner A, Company B and Google">%2$s</xliff:g> an sàs. <xliff:g id="view_terms" example="View Terms">%3$s</xliff:g></string>
+  <string name="set_up_your_device">Suidhich an t-uidheam agad</string>
+  <string name="provisioning">Solar</string>
+  <string name="copying_certs">A’ suidheachadh teisteanasan ùghdarrais</string>
+  <string name="setup_profile">Suidhich a’ phròifil agad</string>
+  <string name="setup_profile_encryption">Suidhich a’ phròifil agad. Crioptachadh</string>
+  <string name="setup_profile_progress">Suidhich a’ phròifil agad. A’ sealltainn an adhartais</string>
+  <string name="setup_device">Suidhich an t-uidheam agad</string>
+  <string name="setup_device_encryption">Suidhich an t-uidheam agad. Crioptachadh</string>
+  <string name="setup_device_progress">Suidhich an t-uidheam agad. A’ sealltainn an adhartais</string>
+  <string name="learn_more_label">Putan “Barrachd fiosrachaidh”</string>
+  <string name="mdm_icon_label">Ìomhaigheag <xliff:g id="icon_label" example="Test App">%1$s</xliff:g></string>
   <string name="cancel_setup_and_factory_reset_dialog_title">A bheil thu airson sgur dheth agus tilleadh gu roghainnean an fhactaraidh?</string>
   <string name="cancel_setup_and_factory_reset_dialog_msg">Ma chuireas tu stad air an t-suidheachadh seo, thèid roghainnean an fhactaraidh a chur air an uidheam agad a-rithist agus bheir sinn air ais dhan chiad sgrìn thu.</string>
   <string name="cancel_setup_and_factory_reset_dialog_cancel">Sguir dheth</string>
@@ -53,4 +85,5 @@
   <string name="take_a_few_minutes">Faodaidh gum feum seo greiseag</string>
   <string name="work_profile_description">Thèid aplacaidean na h-obrach agad a chumail sa phròifil seo ’s fo stiùireadh a’ bhuidhinn agad</string>
   <string name="device_owner_description">Thèid an t-uidheam seo a chumail tèarainte ’s fo stiùireadh a’ bhuidhinn agad</string>
+  <string name="work_profile_provisioning_progress_label">A’ suidheachadh pròifil na h-obrach agad…</string>
 </resources>
