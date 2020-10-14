@@ -83,7 +83,7 @@
     <string name="reset" msgid="6467204151306265796">"Nulstil"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profilen kan ikke konfigureres"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Enheden kan ikke konfigureres"</string>
-    <string name="something_went_wrong" msgid="3593223774041784329">"Der opstod en fejl"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"Noget gik galt"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Enheden kunne ikke konfigureres. Kontakt din it-administrator for at få hjælp."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kontakt din it-administrator for at få hjælp"</string>
     <string name="reset_device" msgid="5483853913241939262">"Nulstil denne enhed, og prøv at konfigurere den igen"</string>
