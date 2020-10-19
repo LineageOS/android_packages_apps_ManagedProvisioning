@@ -67,7 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"कार्य डिव्हाइस सेट अप करत आहे..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटावर प्रक्रिया करत आहे..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाय-फाय ला कनेक्ट करत आहे..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाईल नेटवर्कशी कनेक्ट करत आहे…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाइल नेटवर्कशी कनेक्ट करत आहे…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ॲडमिन अ‍ॅप डाउनलोड करत आहे..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ॲडमिन अ‍ॅप इंस्टॉल करत आहे..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"आवश्यक-नसलेले सिस्टम अ‍ॅप्स काढत आहे..."</string>
