@@ -75,8 +75,8 @@ public class MessageParserTest extends AndroidTestCase {
         System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
 
         MockitoAnnotations.initMocks(this);
-
-        mMessageParser = new MessageParser(mContext, mUtils = spy(new Utils()));
+        mUtils = spy(new Utils());
+        mMessageParser = new MessageParser(mContext, mUtils, new ParserUtils());
     }
 
     public void test_correctParserUsedToParseNfcIntent() throws Exception {

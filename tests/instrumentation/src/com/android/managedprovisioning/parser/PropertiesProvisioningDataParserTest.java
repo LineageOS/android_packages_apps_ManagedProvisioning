@@ -228,7 +228,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
 
         when(mSharedPreferences.incrementAndGetProvisioningId()).thenReturn(TEST_PROVISIONING_ID);
         mPropertiesProvisioningDataParser = new PropertiesProvisioningDataParser(mContext,
-                new Utils(), mSharedPreferences);
+                new ParserUtils(), mSharedPreferences);
     }
 
     // TODO(alexkershaw): split this huge test into individual tests using

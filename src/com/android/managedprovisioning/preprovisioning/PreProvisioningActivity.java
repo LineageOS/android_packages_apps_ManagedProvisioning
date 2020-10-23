@@ -16,18 +16,13 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
-import static android.app.admin.DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE;
-import static android.app.admin.DevicePolicyManager.ACTION_GET_PROVISIONING_MODE;
-
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FINANCED_DEVICE;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_UNSPECIFIED;
 
 import android.annotation.IntDef;
 import android.annotation.Nullable;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.DialogFragment;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -41,6 +36,7 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
@@ -70,7 +66,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     protected static final int PROVISIONING_REQUEST_CODE = 2;
     private static final int WIFI_REQUEST_CODE = 3;
     private static final int CHANGE_LAUNCHER_REQUEST_CODE = 4;
-    private static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 5;
+    private static final int ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE = 5;
     private static final int GET_PROVISIONING_MODE_REQUEST_CODE = 6;
     private static final int FINANCED_DEVICE_PREPARE_REQUEST_CODE = 7;
 
@@ -184,9 +180,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                             getCallingPackage());
                 }
                 break;
-            case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
+            case ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
-                    maybeShowAdminGetProvisioningModeScreen();
+                    startAppropriateFlow();
                 } else {
                     setResult(resultCode);
                     finish();
@@ -327,31 +323,48 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-    private void maybeShowAdminGetProvisioningModeScreen() {
-        final String adminPackage = mController.getParams().inferDeviceAdminPackageName();
-        final Intent intentGetMode = new Intent(ACTION_GET_PROVISIONING_MODE);
-        intentGetMode.setPackage(adminPackage);
-        final Intent intentPolicy = new Intent(ACTION_ADMIN_POLICY_COMPLIANCE);
-        intentPolicy.setPackage(adminPackage);
-        final ActivityManager activityManager = getSystemService(ActivityManager.class);
-        if (!activityManager.isLowRamDevice()
-                && !mController.getParams().isNfc
-                && intentGetMode.resolveActivity(getPackageManager()) != null
-                && intentPolicy.resolveActivity(getPackageManager()) != null) {
-            mController.putExtrasIntoGetModeIntent(intentGetMode);
-            startActivityForResult(intentGetMode, GET_PROVISIONING_MODE_REQUEST_CODE);
+    // TODO: The below group of methods do not belong in the activity.
+    // Move them to the controller instead.
+    /**
+     * Starts either the admin-integrated or the legacy flow, depending on the device state and
+     * DPC capabilities.
+     */
+    private void startAppropriateFlow() {
+        boolean shouldPerformAdminIntegratedFlow = mUtils.shouldPerformAdminIntegratedFlow(
+                this,
+                mController.getParams(),
+                mController.getPolicyComplianceUtils(),
+                mController.getGetProvisioningModeUtils());
+        if (shouldPerformAdminIntegratedFlow) {
+            startAdminIntegratedFlow();
         } else {
             startManagedDeviceLegacyFlow();
         }
     }
 
+    private void startAdminIntegratedFlow() {
+        ProvisionLogger.logi("Starting the admin-integrated flow.");
+        GetProvisioningModeUtils provisioningModeUtils = mController.getGetProvisioningModeUtils();
+        if (provisioningModeUtils
+                .isGetProvisioningModeActivityResolvable(this, mController.getParams())) {
+            Bundle additionalExtras = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+            provisioningModeUtils.startGetProvisioningModeActivityIfResolved(
+                    this, mController.getParams(), additionalExtras,
+                    GET_PROVISIONING_MODE_REQUEST_CODE);
+        } else {
+            mController.updateProvisioningFlowState(FLOW_TYPE_LEGACY);
+            mController.showUserConsentScreen();
+        }
+    }
+
     private void startManagedDeviceLegacyFlow() {
-        mController.setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY);
+        ProvisionLogger.logi("Starting the legacy flow.");
+        mController.updateProvisioningFlowState(FLOW_TYPE_LEGACY);
         mController.showUserConsentScreen();
     }
 
     private void startFinancedDeviceFlow() {
-        mController.setProvisioningMode(PROVISIONING_MODE_FINANCED_DEVICE);
+        mController.updateProvisioningFlowState(FLOW_TYPE_LEGACY);
         mController.continueProvisioningAfterUserConsent();
     }
 
@@ -372,11 +385,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     @Override
-    public void prepareAdminIntegratedFlow(ProvisioningParams params) {
+    public void showOrganizationOwnedLandingScreen(ProvisioningParams params) {
         Intent intent = new Intent(this, LandingActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
+        startActivityForResult(intent, ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE);
     }
 
     @Override

@@ -23,8 +23,6 @@ import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationL
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.CANCEL_PROVISIONING_DIALOG_OK;
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.ERROR_DIALOG_OK;
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.ERROR_DIALOG_RESET;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.RESULT_CODE_DEVICE_OWNER_SET;
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.RESULT_CODE_WORK_PROFILE_CREATED;
 
@@ -90,13 +88,13 @@ public class ProvisioningActivityRoboTest {
             .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
             .setDeviceAdminComponentName(ADMIN)
             .setIsOrganizationOwnedProvisioning(true)
-            .setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE)
+            .setFlowType(ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED)
             .build();
     private static final ProvisioningParams QR_PROVISIONING_PARAMS_PO = new ProvisioningParams.Builder()
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
             .setIsOrganizationOwnedProvisioning(true)
-            .setProvisioningMode(PROVISIONING_MODE_WORK_PROFILE)
+            .setFlowType(ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED)
             .build();
     private static final Intent PROFILE_OWNER_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, PROFILE_OWNER_PARAMS);

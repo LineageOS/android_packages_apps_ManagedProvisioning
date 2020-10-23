@@ -20,6 +20,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
 
@@ -32,11 +33,11 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 public class PolicyComplianceUtils {
 
     /**
-     * Returns whether the DPC handles the policy compliance activity.
+     * Returns whether the DPC handles the policy compliance activity on a given user.
      */
-    public boolean isPolicyComplianceActivityResolvable(Activity parentActivity,
-            ProvisioningParams params, Utils utils) {
-        return getPolicyComplianceIntentIfResolvable(parentActivity, params, utils) != null;
+    public boolean isPolicyComplianceActivityResolvableForUser(
+            Context context, ProvisioningParams params, Utils utils, UserHandle userHandle) {
+        return getPolicyComplianceIntentIfResolvable(context, params, utils, userHandle) != null;
     }
 
     /**
@@ -48,7 +49,7 @@ public class PolicyComplianceUtils {
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         final UserHandle userHandle = getPolicyComplianceUserHandle(parentActivity, params, utils);
         final Intent policyComplianceIntent = getPolicyComplianceIntentIfResolvable(
-                parentActivity, params, utils);
+                parentActivity, params, utils, userHandle);
 
         if (policyComplianceIntent != null) {
             parentActivity.startActivityForResultAsUser(
@@ -63,33 +64,29 @@ public class PolicyComplianceUtils {
         return false;
     }
 
-    private Intent getPolicyComplianceIntentIfResolvable(Activity parentActivity,
-            ProvisioningParams params, Utils utils) {
-        final UserHandle userHandle = getPolicyComplianceUserHandle(parentActivity, params, utils);
+    private Intent getPolicyComplianceIntentIfResolvable(Context context,
+            ProvisioningParams params, Utils utils, UserHandle userHandle) {
         final Intent policyComplianceIntent = getPolicyComplianceIntent(params);
-
-        final boolean intentResolvable = utils.canResolveIntentAsUser(parentActivity,
+        final boolean intentResolvable = utils.canResolveIntentAsUser(context,
                 policyComplianceIntent, userHandle.getIdentifier());
         return intentResolvable ? policyComplianceIntent : null;
     }
 
     private Intent getPolicyComplianceIntent(ProvisioningParams params) {
         final String adminPackage = params.inferDeviceAdminPackageName();
-
         final Intent policyComplianceIntent =
                 new Intent(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
         policyComplianceIntent.putExtra(
                 DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
                 params.adminExtrasBundle);
         policyComplianceIntent.setPackage(adminPackage);
-
         return policyComplianceIntent;
     }
 
-    private UserHandle getPolicyComplianceUserHandle(Activity parentActivity,
+    private UserHandle getPolicyComplianceUserHandle(Context context,
             ProvisioningParams params, Utils utils) {
         return params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)
-                ? utils.getManagedProfile(parentActivity)
+                ? utils.getManagedProfile(context)
                 : UserHandle.of(UserHandle.myUserId());
     }
 }

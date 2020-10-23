@@ -124,7 +124,7 @@ public final class FinalizationController {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
                 params.keepAccountMigrated, mUtils.getManagedProfile(mActivity),
                 params.inferDeviceAdminPackageName(), mUtils,
-                mUtils.isAdminIntegratedFlow(params));
+                params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED);
     }
 
     /**

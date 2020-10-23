@@ -247,7 +247,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         when(mSharedPreferences.incrementAndGetProvisioningId()).thenReturn(TEST_PROVISIONING_ID);
         mUtils = spy(new Utils());
         mExtrasProvisioningDataParser = new ExtrasProvisioningDataParser(mContext, mUtils,
-                mSharedPreferences);
+                new ParserUtils(), mSharedPreferences);
     }
 
     public void testParse_trustedSourceProvisioningIntent() throws Exception {

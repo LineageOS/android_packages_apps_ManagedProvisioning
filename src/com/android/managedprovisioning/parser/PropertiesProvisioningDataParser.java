@@ -92,19 +92,19 @@ import java.util.Properties;
 @VisibleForTesting
 public class PropertiesProvisioningDataParser implements ProvisioningDataParser {
 
-    private final Utils mUtils;
+    private final ParserUtils mParserUtils;
     private final Context mContext;
     private final ManagedProvisioningSharedPreferences mSharedPreferences;
 
-    PropertiesProvisioningDataParser(Context context, Utils utils) {
-        this(context, utils, new ManagedProvisioningSharedPreferences(context));
+    PropertiesProvisioningDataParser(Context context, ParserUtils parserUtils) {
+        this(context, parserUtils, new ManagedProvisioningSharedPreferences(context));
     }
 
     @VisibleForTesting
-    PropertiesProvisioningDataParser(Context context, Utils utils,
+    PropertiesProvisioningDataParser(Context context, ParserUtils parserUtils,
             ManagedProvisioningSharedPreferences sharedPreferences) {
         mContext = checkNotNull(context);
-        mUtils = checkNotNull(utils);
+        mParserUtils = checkNotNull(parserUtils);
         mSharedPreferences = checkNotNull(sharedPreferences);
     }
 
@@ -141,7 +141,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                         .setProvisioningId(mSharedPreferences.incrementAndGetProvisioningId())
                         .setStartedByTrustedSource(true)
                         .setIsNfc(true)
-                        .setProvisioningAction(mUtils.mapIntentToDpmAction(nfcIntent))
+                        .setProvisioningAction(mParserUtils.extractProvisioningAction(nfcIntent))
                         .setDeviceAdminPackageName(
                                 getPropertyFromLongName(
                                         props, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));
@@ -181,8 +181,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                         props, EXTRA_PROVISIONING_USE_MOBILE_DATA)) != null) {
                     builder.setUseMobileData(Boolean.parseBoolean(s));
                 }
-                builder.setIsOrganizationOwnedProvisioning(
-                        mUtils.isOrganizationOwnedProvisioning(nfcIntent));
+                builder.setIsOrganizationOwnedProvisioning(true);
                 ProvisionLogger.logi("End processing Nfc Payload.");
                 return builder.build();
             } catch (IOException e) {

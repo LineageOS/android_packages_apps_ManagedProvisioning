@@ -100,7 +100,7 @@ public class FinalizationPostSuwControllerLogic implements FinalizationControlle
     public boolean shouldFinalizePrimaryProfile(ProvisioningParams params) {
         // If we're not in the admin-integrated flow, SendDpcBroadcastService has already invoked
         // PrimaryProfileFinalizationHelper, so we don't invoke it again in commitFinalizedState().
-        return mUtils.isAdminIntegratedFlow(params);
+        return params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
     }
 
     @Override

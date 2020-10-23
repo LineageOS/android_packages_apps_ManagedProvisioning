@@ -18,25 +18,14 @@ package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
-import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
 import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-
-import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -47,6 +36,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.StringRes;
 import android.annotation.WorkerThread;
+import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -89,6 +79,7 @@ import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.parser.ParserUtils;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
@@ -457,116 +448,53 @@ public class Utils {
         return pdbManager != null;
     }
 
-    /**
-     * Translates a given managed provisioning intent to its corresponding provisioning flow, using
-     * the action from the intent.
-     *
-     * <p/>This is necessary because, unlike other provisioning actions which has 1:1 mapping, there
-     * are multiple actions that can trigger the device owner provisioning flow. This includes
-     * {@link ACTION_PROVISION_MANAGED_DEVICE}, {@link ACTION_NDEF_DISCOVERED} and
-     * {@link ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}. These 3 actions are equivalent
-     * excepts they are sent from a different source.
-     *
-     * @return the appropriate DevicePolicyManager declared action for the given incoming intent.
-     * @throws IllegalProvisioningArgumentException if intent is malformed
-     */
-    // TODO: Add unit tests
-    public String mapIntentToDpmAction(Intent intent)
-            throws IllegalProvisioningArgumentException {
-        if (intent == null || intent.getAction() == null) {
-            throw new IllegalProvisioningArgumentException("Null intent action.");
-        }
-
-        // Map the incoming intent to a DevicePolicyManager.ACTION_*, as there is a N:1 mapping in
-        // some cases.
-        String dpmProvisioningAction;
-        switch (intent.getAction()) {
-            // Trivial cases.
-            case ACTION_PROVISION_MANAGED_DEVICE:
-            case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
-            case ACTION_PROVISION_MANAGED_USER:
-            case ACTION_PROVISION_MANAGED_PROFILE:
-            case ACTION_PROVISION_FINANCED_DEVICE:
-                dpmProvisioningAction = intent.getAction();
-                break;
-
-            // Silent device owner is same as device owner.
-            case ACTION_PROVISION_MANAGED_DEVICE_SILENTLY:
-                dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
-                break;
-
-            // NFC cases which need to take mime-type into account.
-            case ACTION_NDEF_DISCOVERED:
-                String mimeType = intent.getType();
-                if (mimeType == null) {
-                    throw new IllegalProvisioningArgumentException(
-                            "Unknown NFC bump mime-type: " + mimeType);
-                }
-                switch (mimeType) {
-                    case MIME_TYPE_PROVISIONING_NFC:
-                        dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
-                        break;
-
-                    default:
-                        throw new IllegalProvisioningArgumentException(
-                                "Unknown NFC bump mime-type: " + mimeType);
-                }
-                break;
-
-            // Device owner provisioning from a trusted app.
-            // TODO (b/27217042): review for new management modes in split system-user model
-            case ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE:
-                dpmProvisioningAction = ACTION_PROVISION_MANAGED_DEVICE;
-                break;
-
-            default:
-                throw new IllegalProvisioningArgumentException("Unknown intent action "
-                        + intent.getAction());
-        }
-        return dpmProvisioningAction;
-    }
 
     /**
-     * Returns if the given intent for a organization owned provisioning.
-     * Only QR, cloud enrollment and NFC are owned by organization.
+     * Returns {@code true} if the admin-integrated flow should be performed.
+     * <p>To perform the admin-integrated flow, all of the following criteria must be fulfilled:
+     * <ul>
+     *     <li>The DPC has an activity with intent filter with action {@link
+     *     DevicePolicyManager#ACTION_GET_PROVISIONING_MODE}</li>
+     *     <li>The DPC has an activity with intent filter with action {@link
+     *     DevicePolicyManager#ACTION_ADMIN_POLICY_COMPLIANCE}</li>
+     *     <li>Device is organization-owned (see {@link
+     *     ParserUtils#isOrganizationOwnedProvisioning(Context, Intent, SettingsFacade)}
+     *     for details)</li>
+     *     <li>The provisioning is not triggered by NFC</li>
+     *     <li>{@link ActivityManager#isLowRamDevice()} returns {@code false}</li>
+     * </ul>
      */
-    public boolean isOrganizationOwnedProvisioning(Intent intent) {
-        if (ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            return true;
-        }
-        if (!ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())) {
+    public boolean shouldPerformAdminIntegratedFlow(Context context, ProvisioningParams params,
+            PolicyComplianceUtils policyComplianceUtils,
+            GetProvisioningModeUtils provisioningModeUtils) {
+        boolean isPolicyComplianceScreenAvailable =
+                policyComplianceUtils.isPolicyComplianceActivityResolvableForUser(context, params,
+                        this, UserHandle.SYSTEM);
+        if (!isPolicyComplianceScreenAvailable) {
+            ProvisionLogger.logi("Policy compliance DPC screen not available.");
             return false;
         }
-        //  Do additional check under ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE
-        // in order to exclude force DO.
-        switch (intent.getIntExtra(DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
-                PROVISIONING_TRIGGER_UNSPECIFIED)) {
-            case PROVISIONING_TRIGGER_CLOUD_ENROLLMENT:
-            case PROVISIONING_TRIGGER_QR_CODE:
-                return true;
-            default:
-                return false;
+        boolean isGetProvisioningModeScreenAvailable =
+                provisioningModeUtils.isGetProvisioningModeActivityResolvable(context, params);
+        if (!isGetProvisioningModeScreenAvailable) {
+            ProvisionLogger.logi("Get provisioning mode DPC screen not available.");
+            return false;
         }
-    }
-
-    public boolean isQrProvisioning(Intent intent) {
-        return PROVISIONING_TRIGGER_QR_CODE ==
-                intent.getIntExtra(
-                        DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER,
-                        /* defValue= */ PROVISIONING_TRIGGER_UNSPECIFIED);
-    }
-
-    /**
-     * Returns if the given parameter is for provisioning the admin integrated flow.
-     */
-    public boolean isAdminIntegratedFlow(ProvisioningParams params) {
         if (!params.isOrganizationOwnedProvisioning) {
+            ProvisionLogger.logi("Device not organization-owned.");
             return false;
         }
-        return params.provisioningMode == PROVISIONING_MODE_FULLY_MANAGED_DEVICE
-                || params.provisioningMode == PROVISIONING_MODE_MANAGED_PROFILE
-                || params.provisioningMode
-                    == PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE;
+        if (params.isNfc) {
+            ProvisionLogger.logi("NFC provisioning");
+            return false;
+        }
+        final ActivityManager activityManager = context.getSystemService(ActivityManager.class);
+        boolean lowRamDevice = activityManager.isLowRamDevice();
+        if (lowRamDevice) {
+            ProvisionLogger.logi("This is a low RAM device.");
+            return false;
+        }
+        return true;
     }
 
     /**
