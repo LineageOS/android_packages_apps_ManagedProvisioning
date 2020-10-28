@@ -23,12 +23,17 @@ import static com.android.managedprovisioning.common.LogoUtils.saveOrganisationL
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.CANCEL_PROVISIONING_DIALOG_OK;
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.ERROR_DIALOG_OK;
 import static com.android.managedprovisioning.provisioning.AbstractProvisioningActivity.ERROR_DIALOG_RESET;
+import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
+import static com.android.managedprovisioning.provisioning.ProvisioningActivity.RESULT_CODE_DEVICE_OWNER_SET;
+import static com.android.managedprovisioning.provisioning.ProvisioningActivity.RESULT_CODE_WORK_PROFILE_CREATED;
 
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.robolectric.Shadows.shadowOf;
+import static org.robolectric.shadows.ShadowUserManager.FLAG_MANAGED_PROFILE;
 
 import android.app.Activity;
 import android.app.Application;
@@ -44,7 +49,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
+import android.os.UserManager;
 import android.widget.ImageView;
+
+import androidx.test.core.content.pm.ApplicationInfoBuilder;
+import androidx.test.core.content.pm.PackageInfoBuilder;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -77,10 +86,26 @@ public class ProvisioningActivityRoboTest {
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
             .build();
+    private static final ProvisioningParams QR_PROVISIONING_PARAMS_DO = new ProvisioningParams.Builder()
+            .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+            .setDeviceAdminComponentName(ADMIN)
+            .setIsOrganizationOwnedProvisioning(true)
+            .setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE)
+            .build();
+    private static final ProvisioningParams QR_PROVISIONING_PARAMS_PO = new ProvisioningParams.Builder()
+            .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+            .setDeviceAdminComponentName(ADMIN)
+            .setIsOrganizationOwnedProvisioning(true)
+            .setProvisioningMode(PROVISIONING_MODE_WORK_PROFILE)
+            .build();
     private static final Intent PROFILE_OWNER_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, PROFILE_OWNER_PARAMS);
     private static final Intent DEVICE_OWNER_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, DEVICE_OWNER_PARAMS);
+    private static final Intent ADMIN_INTEGRATED_FLOW_INTENT_PO = new Intent()
+            .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, QR_PROVISIONING_PARAMS_PO);
+    private static final Intent ADMIN_INTEGRATED_FLOW_INTENT_DO = new Intent()
+            .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, QR_PROVISIONING_PARAMS_DO);
     private static final int ERROR_MESSAGE_ID = R.string.managed_provisioning_error_text;
     private static final int DEFAULT_MAIN_COLOR = -15043608;
     private static final int CUSTOM_COLOR = Color.parseColor("#d40000");
@@ -278,6 +303,84 @@ public class ProvisioningActivityRoboTest {
         clickOnPositiveButton(activity, (DialogFragment) dialog);
 
         verify(mMockProvisioningManager).cancelProvisioning();
+    }
+
+    @Test
+    public void activity_profileOwner_adminIntegrated_returnsIntermediateResult() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class,
+                        ADMIN_INTEGRATED_FLOW_INTENT_PO)
+                        .setup().get();
+        shadowOf(activity.getPackageManager())
+                .installPackage(
+                        PackageInfoBuilder.newBuilder()
+                                .setPackageName(ADMIN_PACKAGE)
+                                .setApplicationInfo(ApplicationInfoBuilder.newBuilder()
+                                        .setPackageName(ADMIN_PACKAGE)
+                                        .build())
+                                .build());
+
+
+        activity.preFinalizationCompleted();
+        activity.onAllTransitionsShown();
+
+        UserManager userManager = activity.getSystemService(UserManager.class);
+        shadowOf(userManager).addProfile(0, 10, "profile name", FLAG_MANAGED_PROFILE);
+
+        activity.onNextButtonClicked();
+
+        assertThat(activity.isFinishing()).isTrue();
+        assertThat(shadowOf(activity).getResultCode()).isEqualTo(RESULT_CODE_WORK_PROFILE_CREATED);
+    }
+
+    @Test
+    public void activity_deviceOwner_adminIntegrated_returnsIntermediateResult() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class,
+                        ADMIN_INTEGRATED_FLOW_INTENT_DO)
+                        .setup().get();
+        shadowOf(activity.getPackageManager())
+                .installPackage(
+                        PackageInfoBuilder.newBuilder()
+                                .setPackageName(ADMIN_PACKAGE)
+                                .setApplicationInfo(ApplicationInfoBuilder.newBuilder()
+                                        .setPackageName(ADMIN_PACKAGE)
+                                        .build())
+                                .build());
+
+
+        activity.preFinalizationCompleted();
+        activity.onAllTransitionsShown();
+
+        activity.onNextButtonClicked();
+
+        assertThat(activity.isFinishing()).isTrue();
+        assertThat(shadowOf(activity).getResultCode()).isEqualTo(RESULT_CODE_DEVICE_OWNER_SET);
+    }
+
+    @Test
+    public void activity_deviceOwner_notAdminIntegrated_returnsOk() {
+        final ProvisioningActivity activity =
+                Robolectric.buildActivity(ProvisioningActivity.class,
+                        DEVICE_OWNER_INTENT)
+                        .setup().get();
+        shadowOf(activity.getPackageManager())
+                .installPackage(
+                        PackageInfoBuilder.newBuilder()
+                                .setPackageName(ADMIN_PACKAGE)
+                                .setApplicationInfo(ApplicationInfoBuilder.newBuilder()
+                                        .setPackageName(ADMIN_PACKAGE)
+                                        .build())
+                                .build());
+
+
+        activity.preFinalizationCompleted();
+        activity.onAllTransitionsShown();
+
+        activity.onNextButtonClicked();
+
+        assertThat(activity.isFinishing()).isTrue();
+        assertThat(shadowOf(activity).getResultCode()).isEqualTo(Activity.RESULT_OK);
     }
 
     private Intent createProvisioningIntent(String action, int mainColor) {

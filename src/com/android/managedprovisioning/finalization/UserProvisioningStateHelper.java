@@ -18,6 +18,7 @@ package com.android.managedprovisioning.finalization;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_PROFILE_COMPLETE;
+import static android.app.admin.DevicePolicyManager.STATE_USER_PROFILE_FINALIZED;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_COMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
@@ -140,12 +141,11 @@ public class UserProvisioningStateHelper {
      */
     @VisibleForTesting
     public void markUserProvisioningStateFinalized(ProvisioningParams params) {
-
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             // Managed profiles are a special case as two users are involved.
             final int managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
             setUserProvisioningState(STATE_USER_SETUP_FINALIZED, managedProfileUserId);
-            setUserProvisioningState(STATE_USER_UNMANAGED, mMyUserId);
+            setUserProvisioningState(STATE_USER_PROFILE_FINALIZED, mMyUserId);
         } else {
             setUserProvisioningState(STATE_USER_SETUP_FINALIZED, mMyUserId);
         }

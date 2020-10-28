@@ -24,6 +24,8 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PR
 
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
@@ -74,11 +76,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
             TEST_MDM_ADMIN_RECEIVER);
     private static final PersistableBundle TEST_MDM_EXTRA_BUNDLE = createTestAdminExtras();
     private static final Account TEST_ACCOUNT = new Account("test@account.com", "account.type");
-    private static final String TEST_DPC_INTENT_CATEGORY = "test_category";
     private static final Intent ACTIVITY_INTENT =
-            new Intent("android.app.action.PROVISION_FINALIZATION_INSIDE_SUW")
-            .putExtra(FinalizationInsideSuwControllerLogic.EXTRA_DPC_INTENT_CATEGORY,
-                    TEST_DPC_INTENT_CATEGORY);
+            new Intent("android.app.action.PROVISION_FINALIZATION_INSIDE_SUW");
 
     @Mock private Activity mActivity;
     @Mock private Utils mUtils;
@@ -384,9 +383,12 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         // THEN the user provisioning state is not yet finalized
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
 
-        // THEN no intent should be sent to the dpc.
-        verify(mActivity, never()).startActivityForResultAsUser(
-                any(Intent.class), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        // THEN the DPC policy compliance screen should be shown on the work profile.
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mActivity).startActivityForResultAsUser(
+                intentCaptor.capture(), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        assertThat(intentCaptor.getValue().getAction())
+                .isEqualTo(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
 
         // WHEN calling provisioningFinalized again
         mFinalizationController.provisioningFinalized();
@@ -394,9 +396,12 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         // THEN the user provisioning state is not yet finalized
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
 
-        // THEN no intent should be sent to the dpc.
-        verify(mActivity, never()).startActivityForResultAsUser(
-                any(Intent.class), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        // THEN the DPC policy compliance screen should be shown on the work profile.
+        intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mActivity).startActivityForResultAsUser(
+                intentCaptor.capture(), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        assertThat(intentCaptor.getValue().getAction())
+                .isEqualTo(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
 
         // WHEN the provisioning state changes are now committed
         mFinalizationController.commitFinalizedState();
@@ -423,8 +428,6 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
         // THEN the admin extras bundle should contain mdm extras
         assertExtras(intentCaptor.getValue());
-        // THEN the intent should have the category that was passed into the parent activity
-        assertTrue(intentCaptor.getValue().hasCategory(TEST_DPC_INTENT_CATEGORY));
         // THEN a metric should be logged
         verify(mProvisioningAnalyticsTracker, times(numTimes)).logDpcSetupStarted(
                 eq(mActivity), eq(intentAction));
