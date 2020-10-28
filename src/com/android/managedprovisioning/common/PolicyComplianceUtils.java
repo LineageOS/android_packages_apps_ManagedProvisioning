@@ -18,13 +18,11 @@ package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
-import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.UserHandle;
 
-import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -37,9 +35,8 @@ public class PolicyComplianceUtils {
      * Returns whether the DPC handles the policy compliance activity.
      */
     public boolean isPolicyComplianceActivityResolvable(Activity parentActivity,
-            ProvisioningParams params, @Nullable String category, Utils utils) {
-        return getPolicyComplianceIntentIfResolvable(parentActivity, params, category, utils) !=
-                null;
+            ProvisioningParams params, Utils utils) {
+        return getPolicyComplianceIntentIfResolvable(parentActivity, params, utils) != null;
     }
 
     /**
@@ -47,11 +44,11 @@ public class PolicyComplianceUtils {
      * activity was started.
      */
     public boolean startPolicyComplianceActivityForResultIfResolved(Activity parentActivity,
-            ProvisioningParams params, @Nullable String category, int requestCode, Utils utils,
+            ProvisioningParams params, int requestCode, Utils utils,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         final UserHandle userHandle = getPolicyComplianceUserHandle(parentActivity, params, utils);
         final Intent policyComplianceIntent = getPolicyComplianceIntentIfResolvable(
-                parentActivity, params, category, utils);
+                parentActivity, params, utils);
 
         if (policyComplianceIntent != null) {
             parentActivity.startActivityForResultAsUser(
@@ -67,24 +64,20 @@ public class PolicyComplianceUtils {
     }
 
     private Intent getPolicyComplianceIntentIfResolvable(Activity parentActivity,
-            ProvisioningParams params, @Nullable String category, Utils utils) {
+            ProvisioningParams params, Utils utils) {
         final UserHandle userHandle = getPolicyComplianceUserHandle(parentActivity, params, utils);
-        final Intent policyComplianceIntent = getPolicyComplianceIntent(params, category);
+        final Intent policyComplianceIntent = getPolicyComplianceIntent(params);
 
         final boolean intentResolvable = utils.canResolveIntentAsUser(parentActivity,
                 policyComplianceIntent, userHandle.getIdentifier());
-
         return intentResolvable ? policyComplianceIntent : null;
     }
 
-    private Intent getPolicyComplianceIntent(ProvisioningParams params, @Nullable String category) {
+    private Intent getPolicyComplianceIntent(ProvisioningParams params) {
         final String adminPackage = params.inferDeviceAdminPackageName();
 
         final Intent policyComplianceIntent =
                 new Intent(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
-        if (category != null) {
-            policyComplianceIntent.addCategory(category);
-        }
         policyComplianceIntent.putExtra(
                 DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
                 params.adminExtrasBundle);

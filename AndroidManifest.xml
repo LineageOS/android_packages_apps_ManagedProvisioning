@@ -288,11 +288,6 @@
             android:theme="@style/SudThemeGlifV3.Light"
             android:immersive="true" />
 
-        <activity
-            android:name=".finalization.FinalScreenActivity"
-            android:theme="@style/SudThemeGlifV3.Light"
-            android:immersive="true" />
-
         <service
             android:name=".analytics.ProcessMetricsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>

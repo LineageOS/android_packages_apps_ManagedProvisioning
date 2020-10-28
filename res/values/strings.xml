@@ -399,11 +399,6 @@
   <!-- Notification message. This text is letting the user know about a privacy reminder before they start using their new work device, and that their IT admin may be able to see their data and activity on this device. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_privacy_body">Your IT admin may be able to see your data and activity on this device</string>
 
-  <!-- Common to both work profile and fully managed device setup screens -->
-  <!-- Screen title. This text is letting the user know that their device is ready. "Ready to go" is equivalent to "ready to use." [CHAR LIMIT=NONE]-->
-  <string name="device_provisioning_finished">Your device is ready to go!</string>
-  <string name="done">Done</string>
-
   <!-- Financed device provisioning landing screen -->
   <!-- Screen title in the device setup process. This is reminding the user that this device is provided by a creditor. This means the creditor can control the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
   <string name="financed_device_screen_header">This device was purchased on credit from <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g></string>
