@@ -911,10 +911,6 @@ public class Utils {
         return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.next);
     }
 
-    public static FooterButton addDoneButton(GlifLayout layout, @NonNull OnClickListener listener) {
-        return setPrimaryButton(layout, listener, ButtonType.DONE, R.string.done);
-    }
-
     public static FooterButton addAcceptAndContinueButton(GlifLayout layout,
         @NonNull OnClickListener listener) {
         return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.accept_and_continue);
