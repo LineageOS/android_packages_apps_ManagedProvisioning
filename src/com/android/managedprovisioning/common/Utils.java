@@ -574,6 +574,8 @@ public class Utils {
      */
     // TODO: Move the FR intent into a Globals class.
     public void sendFactoryResetBroadcast(Context context, String reason) {
+        // TODO (b/171603586): skip factory reset for Auto before driving restrictions implemented
+        PackageManager pm = context.getPackageManager();
         Intent intent = new Intent(Intent.ACTION_FACTORY_RESET);
         // Send explicit broadcast due to Broadcast Limitations
         intent.setPackage("android");
@@ -693,6 +695,7 @@ public class Utils {
         return wifiIntent;
     }
 
+    // TODO (b/137101239): clean up split system user codes
     /**
      * Returns whether the device has a split system user.
      *
@@ -701,6 +704,13 @@ public class Utils {
      */
     public boolean isSplitSystemUser() {
         return UserManager.isSplitSystemUser();
+    }
+
+    /**
+     * Returns whether the device is in headless system user mode.
+     */
+    public boolean isHeadlessSystemUserMode() {
+        return UserManager.isHeadlessSystemUserMode();
     }
 
     /**

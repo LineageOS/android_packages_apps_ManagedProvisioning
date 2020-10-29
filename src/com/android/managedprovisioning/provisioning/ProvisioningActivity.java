@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -138,7 +139,15 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         super.onCreate(savedInstanceState);
 
         if (mUserProvisioningStateHelper == null) {
-            mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
+            // In headless system user mode, DO will always be set on system user
+            // regardless of the calling user.
+            if (mUtils.isHeadlessSystemUserMode()
+                    && mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+                mUserProvisioningStateHelper =
+                        new UserProvisioningStateHelper(this, UserHandle.USER_SYSTEM);
+            } else {
+                mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
+            }
         }
     }
 
