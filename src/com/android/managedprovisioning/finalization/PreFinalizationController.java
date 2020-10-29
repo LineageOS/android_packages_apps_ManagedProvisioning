@@ -101,10 +101,8 @@ public final class PreFinalizationController {
      */
     public final void deviceManagementEstablished(ProvisioningParams params) {
         if (!mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
-            // In any other state than STATE_USER_UNMANAGED and STATE_USER_SETUP_FINALIZED, we've
-            // already run this method, so don't do anything.
-            // STATE_USER_SETUP_FINALIZED can occur here if a managed profile is provisioned on a
-            // device owner device.
+            // In any other state than STATE_USER_SETUP_FINALIZED, STATE_USER_PROFILE_FINALIZED and
+            // STATE_USER_UNMANAGED, we've already run this method, so don't do anything.
             ProvisionLogger.logw("deviceManagementEstablished called, but state is not finalized "
                     + "or unmanaged");
             return;

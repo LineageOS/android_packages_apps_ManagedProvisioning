@@ -157,7 +157,9 @@ public class UserProvisioningStateHelper {
     @VisibleForTesting
     public boolean isStateUnmanagedOrFinalized() {
         final int currentState = mDevicePolicyManager.getUserProvisioningState();
-        return currentState == STATE_USER_UNMANAGED || currentState == STATE_USER_SETUP_FINALIZED;
+        return currentState == STATE_USER_UNMANAGED
+                || currentState == STATE_USER_SETUP_FINALIZED
+                || currentState == STATE_USER_PROFILE_FINALIZED;
     }
 
     private boolean isUserProvisioningStateProfileFinalized() {
