@@ -184,8 +184,6 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Bir saniye…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Gizlilik hatırlatıcısı"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir"</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"Cihazınız kullanıma hazır!"</string>
-    <string name="done" msgid="7755227776955952318">"Bitti"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu cihaz <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> tarafından sağlanan krediyle satın alınmıştır"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> şunları yapabilir:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu cihazın ödemelerini yapabilmeniz için <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> uygulamasını yükleyebilir"</string>

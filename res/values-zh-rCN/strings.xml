@@ -184,8 +184,6 @@
     <string name="just_a_sec" msgid="6244676028626237220">"请稍候…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"隐私权提醒"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"您的 IT 管理员或许可以查看您在此设备上的数据和活动"</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"您的设备已准备就绪！"</string>
-    <string name="done" msgid="7755227776955952318">"完成"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"此设备是您向<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>赊购的"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>可以执行以下操作："</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"在此设备上安装<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>应用，以便您付款"</string>
