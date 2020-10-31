@@ -42,7 +42,7 @@
     <string name="managed_device_info" msgid="1529447646526616811">"Maelezo kuhusu kifaa kinachosimamiwa"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Wasifu wa kazini"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"Mtumiaji wa kwanza"</string>
-    <string name="delete_profile_title" msgid="2841349358380849525">"Futa wasifu uliopo?"</string>
+    <string name="delete_profile_title" msgid="2841349358380849525">"Ifute wasifu uliopo?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Tayari una wasifu wa kazini. Unadhibitiwa kwa kutumia programu ifuatayo:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Kabla ya kuendelea, "<a href="#read_this_link">"soma hapa"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ukiendelea, utafuta data na programu zote zilizo kwenye wasifu huu."</string>
