@@ -184,8 +184,6 @@
     <string name="just_a_sec" msgid="6244676028626237220">"තත්පරයක් ඉන්න…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"පෞද්ගලිකත්ව සිහි කැඳවීම"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට මෙම උපාංගය මත ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලිය හැකි වීමට ඉඩ ඇත"</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"ඔබේ උපාංගය භාවිතයට සූදානම්!"</string>
-    <string name="done" msgid="7755227776955952318">"කළා"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"මෙම උපාංගය <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>ගෙන් ණයට ලබා ගන්නා ලදී"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> හට මේවා කළ හැකිය:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"මෙම උපාංගය සඳහා ඔබට ගෙවීම් කළ හැකි වන ලෙස <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> යෙදුම ස්ථාපනය කරන්න"</string>
