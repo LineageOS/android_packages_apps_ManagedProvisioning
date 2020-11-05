@@ -173,7 +173,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         assertTrue(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_SETUP_FINALIZED));
         assertFalse(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_PROFILE_COMPLETE));
         assertFalse(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_SETUP_INCOMPLETE));
-        assertFalse(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_PROFILE_COMPLETE));
+        assertTrue(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_PROFILE_FINALIZED));
     }
 
     private boolean isStateUnmanagedOrFinalizedWithCurrentState(int currentState) {
