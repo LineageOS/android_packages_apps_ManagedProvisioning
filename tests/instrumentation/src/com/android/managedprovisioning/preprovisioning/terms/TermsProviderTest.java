@@ -21,8 +21,10 @@ import static com.android.managedprovisioning.provisioning.ProvisioningActivityT
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assume.assumeTrue;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
@@ -38,34 +40,28 @@ import java.util.List;
 
 @SmallTest
 public class TermsProviderTest {
-    private TermsProvider mTermsProvider;
-    private String stringGeneralPo;
-    private String stringGeneralDo;
-    private String stringAdminDisclaimerDo;
-    private String stringAdminDisclaimerPo;
+    private final Context mContext = InstrumentationRegistry.getTargetContext();
+    private final String mStringGeneralPo = mContext.getString(R.string.work_profile_info);
+    private final String mStringGeneralDo = mContext.getString(R.string.managed_device_info);
+    private final String mStringAdminDisclaimerDo = mContext.getString(R.string.admin_has_ability_to_monitor_device);
+    private final String mStringAdminDisclaimerPo = mContext.getString(R.string.admin_has_ability_to_monitor_profile);
 
-    @Before
-    public void setUp() {
-        Context context = InstrumentationRegistry.getTargetContext();
-        mTermsProvider = new TermsProvider(context, s -> "", new Utils());
-        stringGeneralPo = context.getString(R.string.work_profile_info);
-        stringGeneralDo = context.getString(R.string.managed_device_info);
-        stringAdminDisclaimerDo = context.getString(R.string.admin_has_ability_to_monitor_device);
-        stringAdminDisclaimerPo = context.getString(R.string.admin_has_ability_to_monitor_profile);
-    }
+    private final TermsProvider mTermsProvider = new TermsProvider(mContext, s -> "", new Utils());
 
     @Test
     public void generalHeading_presentAsFirst_profileOwner() throws Exception {
+        assumeHasManagedUsersFeature();
         List<TermsDocument> terms = mTermsProvider.getTerms(PROFILE_OWNER_PARAMS, 0);
-        assertThat(terms.get(0).getHeading(), equalTo(stringGeneralPo));
-        assertThat(terms.get(0).getContent(), equalTo(stringAdminDisclaimerPo));
+        assertThat(terms.get(0).getHeading(), equalTo(mStringGeneralPo));
+        assertThat(terms.get(0).getContent(), equalTo(mStringAdminDisclaimerPo));
     }
 
     @Test
     public void generalHeading_presentAsFirst_deviceOwner() throws Exception {
+        assumeHasDeviceAdminFeature();
         List<TermsDocument> terms = mTermsProvider.getTerms(DEVICE_OWNER_PARAMS, 0);
-        assertThat(terms.get(0).getHeading(), equalTo(stringGeneralDo));
-        assertThat(terms.get(0).getContent(), equalTo(stringAdminDisclaimerDo));
+        assertThat(terms.get(0).getHeading(), equalTo(mStringGeneralDo));
+        assertThat(terms.get(0).getContent(), equalTo(mStringAdminDisclaimerDo));
     }
 
     @Test
@@ -75,9 +71,21 @@ public class TermsProviderTest {
             List<TermsDocument> terms = mTermsProvider.getTerms(p,
                     TermsProvider.Flags.SKIP_GENERAL_DISCLAIMER);
             if (terms != null && !terms.isEmpty()) {
-                assertThat(terms.get(0), not(equalTo(stringGeneralPo)));
-                assertThat(terms.get(0), not(equalTo(stringGeneralDo)));
+                assertThat(terms.get(0), not(equalTo(mStringGeneralPo)));
+                assertThat(terms.get(0), not(equalTo(mStringGeneralDo)));
             }
         }
+    }
+
+    private void assumeHasManagedUsersFeature() {
+        assumeTrue("Device doesn't support managed profile",
+                mContext.getPackageManager()
+                        .hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS));
+    }
+
+    private void assumeHasDeviceAdminFeature() {
+        assumeTrue("Device doesn't support managed device",
+                mContext.getPackageManager()
+                        .hasSystemFeature(PackageManager.FEATURE_DEVICE_ADMIN));
     }
 }
