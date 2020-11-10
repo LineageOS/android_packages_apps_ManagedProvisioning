@@ -162,12 +162,9 @@
     <string name="device_owner_description" msgid="168013145812679664">"Təşkilatınız bu cihazı təhlükəsiz saxlayaraq idarə edəcək"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"İş cihazının quraşdırılması hazırlanır…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Admin tətbiqi quraşdırılır"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Digərlərini quraşdırın"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"İndi isə digərlərini quraşdırın"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu cihaz təşkilatınıza məxsusdur"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdakı tətbiqdən bu telefonu idarə etmək və nəzarət etmək üçün istifadə ediləcək"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Cihaz iş quraşdırması üçün hazırlanır…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Əvvəlcə iş profili quraşdırın"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"İş profili quraşdırın"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"İş tətbiqləri iş profilinizdə saxlanılır"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"İşiniz bitdikdə iş tətbiqlərini dayandırın"</string>
@@ -180,17 +177,15 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT admini bu cihazda data və fəaliyyətinizə baxa bilər."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Cihaz quraşdırılır..."</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"İş tətbiqlərinə asanlıqla daxil olmaq üçün bu cihazdan istifadə edin. Bu cihaz şəxsi deyil, buna görə də IT admini data və fəaliyyətinizə baxa bilər. Ətraflı məlumat üçün IT admini ilə əlaqə saxlayın."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş tətbiqləri iş profilinizdə saxlanılır və IT admininiz tərəfindən idarə edilir"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş tətbiqləri iş profilində qalır və İT admini onları idarə edir"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Şəxsi tətbiqlər iş tətbiqlərindən ayrı və gizli olur"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT admininiz bu cihazı idarə edə və müəyyən tətbiqləri bloklaya bilər"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT admini bu cihazı idarə və bəzi tətbiqləri bloklaya bilər"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"İş tətbiqləri iş profilinizdə saxlanılır və IT admininiz tərəfindən idarə edilir. Şəxsi tətbiqlər iş tətbiqlərindən ayrı və gizli olur. IT admininiz bu cihazı idarə edə və müəyyən tətbiqləri bloklaya bilər."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Bir saniyə…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Məxfilik xatırlatması"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT admini bu cihazda data və fəaliyyətinizə baxa bilər"</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"Cihaz hazırdır!"</string>
-    <string name="done" msgid="7755227776955952318">"Hazırdır"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"İş və şəxsi tətbiqləri birləşdirin"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Qoşulmuş tətbiqlər sizə iş və şəxsi datanıza birlikdə daxil olmaq imkanı verir. İstənilən vaxt Ayarlarda dəyişiklik edə bilərsiniz."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"İş və şəxsi tətbiqləri birləşdirin"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"İş və şəxsi dataya birlikdə giriş. Ayarlamaq üçün toxunun."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"İş və şəxsi tətbiqləri birləşdirin"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu cihaz kredit əsasında <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> adlı kreditordan alınıb"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> bunu edə bilər:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Bu cihaz üçün ödəniş etmək üçün <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> tətbiqini quraşdırın"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Ödəniş etmirsinizsə, bu cihaza girişi məhdudlaşdırın"</string>
 </resources>

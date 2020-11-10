@@ -73,7 +73,7 @@
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"جارٍ إزالة تطبيقات النظام غير المطلوبة…"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"جارٍ وضع اللمسات النهائية…"</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"جارٍ تعيين مالك الجهاز..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"جارٍ تهيئة الجهاز…"</string>
+    <string name="progress_initialize" msgid="1104643492713424939">"جارٍ إعداد الجهاز…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"لا يسمح هذا الجهاز بالتشفير، وهو أمر لازم للإعداد. يمكنك التواصل مع مشرف تكنولوجيا المعلومات للحصول على مساعدة."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"هل تريد إيقاف الإعداد وإعادة ضبط الجهاز؟"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"سيؤدي هذا إلى إعادة ضبط جهازك ورجوعك إلى الشاشة الأولى"</string>
@@ -83,12 +83,10 @@
     <string name="reset" msgid="6467204151306265796">"إعادة الضبط"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"يتعذر إعداد الملف الشخصي"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"يتعذر إعداد الجهاز"</string>
-    <!-- no translation found for something_went_wrong (3593223774041784329) -->
-    <skip />
+    <string name="something_went_wrong" msgid="3593223774041784329">"حدث خطأ."</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"تعذر إعداد الجهاز. يمكنك التواصل مع مشرف تكنولوجيا المعلومات للحصول على مساعدة."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"يُرجى التواصل مع مشرف تكنولوجيا المعلومات للحصول على مساعدة."</string>
-    <!-- no translation found for reset_device (5483853913241939262) -->
-    <skip />
+    <string name="reset_device" msgid="5483853913241939262">"يُرجى إعادة ضبط هذا الجهاز ثم إعادة محاولة إعداده."</string>
     <string name="device_already_set_up" msgid="507881934487140294">"سبق إعداد الجهاز"</string>
     <string name="error_wifi" msgid="1850288843966836571">"‏تعذّر الاتصال بشبكة Wi-Fi."</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"تم تفعيل حماية إعادة الضبط في جهازك. يمكنك التواصل مع مشرف تكنولوجيا المعلومات للحصول على مساعدة."</string>
@@ -164,41 +162,30 @@
     <string name="device_owner_description" msgid="168013145812679664">"سيظل هذا الجهاز محميًا وتحت إدارة مؤسستك."</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"جارٍ إعداد جهاز العمل…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"إعداد تطبيق المشرف"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"إعداد بقية التطبيقات"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"حان الآن وقت إعداد بقية التطبيقات."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"هذا الجهاز يخص مؤسستك."</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"سيتمّ استخدام التطبيق التالي لإدارة هذا الهاتف ومراقبته."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"جارٍ إعداد الجهاز للاستخدام في العمل…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"يحين أولاً إعداد الملف الشخصي للعمل."</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"لنبدأ في إعداد الملف الشخصي للعمل."</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل."</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل"</string>
-    <!-- no translation found for work_profile_provisioning_step_3_header (4316106639726774330) -->
-    <skip />
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"تكون البيانات في ملفك الشخصي للعمل مرئية لمشرف تكنولوجيا المعلومات في مؤسستك."</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"جارٍ إعداد الملف الشخصي للعمل…"</string>
-    <!-- no translation found for work_profile_provisioning_summary (3436190271657388747) -->
-    <skip />
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل. يمكنك إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل. إنّ بيانات ملفك الشخصي للعمل مرئية لمشرف تكنولوجيا المعلومات في مؤسستك."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"حان وقت إعداد جهاز العمل."</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"التحكم بسهولة في تطبيقات العمل"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"هذا الجهاز ليس خاصًا."</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"جارٍ إعداد جهازك…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"يمكنك استخدام هذا الجهاز للوصول سريعًا إلى تطبيقات العمل. هذا الجهاز ليس خاصًا، ولذلك قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك. لمعرفة مزيد من المعلومات، يمكنك التواصل مع مشرف تكنولوجيا المعلومات."</string>
-    <!-- no translation found for cope_provisioning_step_1_header (1945759718804756423) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_2_header (2388399739294883042) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_step_3_header (7161795433847296201) -->
-    <skip />
-    <!-- no translation found for cope_provisioning_summary (993014104601034878) -->
-    <skip />
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"يُحتفظ بتطبيقات العمل بالملف الشخصي للعمل ويُديرها مشرف تقنية المعلومات"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"يستطيع مشرف تقنية المعلومات التحكم بالجهاز وحظر التطبيقات"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل ويديرها مشرف تكنولوجيا المعلومات في مؤسستك. تكون التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها. يستطيع مشرف تكنولوجيا المعلومات التحكّم في هذا الجهاز وحظر بعض التطبيقات."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"لحظة من فضلك…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"تذكير الخصوصية"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"تطبيقك جاهز."</string>
-    <string name="done" msgid="7755227776955952318">"تمّ"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"ربط تطبيقات العمل والتطبيقات الشخصية"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"تسمح لك التطبيقات المرتبطة بالوصول إلى كل من بيانات العمل والبيانات الشخصية. يمكنك إجراء تغييرات في أي وقت من \"الإعدادات\"."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"ربط تطبيقات العمل والتطبيقات الشخصية"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"يمكنك الوصول إلى كل من بيانات العمل والبيانات الشخصية. انقر للإعداد."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"ربط تطبيقات العمل والتطبيقات الشخصية"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"تم شراء هذا الجهاز بالائتمان من <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"بإمكان <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> تنفيذ ما يلي:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"تثبيت تطبيق <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> لتسديد الدفعات مقابل شراء هذا الجهاز."</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"تقييد الوصول إلى هذا الجهاز إذا لم تسدد الدفعات"</string>
 </resources>

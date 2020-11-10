@@ -162,12 +162,9 @@
     <string name="device_owner_description" msgid="168013145812679664">"Organisaatiosi vastaa laitteen turvallisuudesta ja hallinnoi sitä."</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Valmistellaan työlaitteen määritystä…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Hallintasovellusta määritetään"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Määritä kaikki muu"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Määritetään nyt kaikki muu"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Tämä on organisaatiosi laite"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Tätä puhelinta ylläpidetään ja valvotaan seuraavalla sovelluksella"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Valmistellaan työprofiilin määritystä…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Määritetään ensin työprofiilisi"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Määritetään työprofiilisi"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Työsovelluksia säilytetään työprofiilissa"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Keskeytä työsovellukset, kun päivä on pulkassa"</string>
@@ -180,17 +177,15 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Määritetään laitetta…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi. Pyydä lisätietoja IT-järjestelmänvalvojalta."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Työsovelluksia säilytetään työprofiilissa ja IT-järjestelmänvalvoja ylläpitää niitä"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Henkilökohtaiset sovellukset ovat erillisiä ja piilotettu työsovelluksilta"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-järjestelmänvalvoja ei voi kontrolloida tätä laitetta tai estää tiettyjä sovelluksia"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Työsovellukset ovat työprofiilissa ja ne ovat IT- järjestelmänvalvojan ylläpitämiä"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Omat sovellukset ovat erillisiä ja piilossa työsovelluksilta"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-järjestelmänvalvoja voi käyttää tätä laitetta ja estää sovelluksia"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Työsovelluksia säilytetään työprofiilissa ja IT-järjestelmänvalvoja ylläpitää niitä. Henkilökohtaiset sovellukset ovat erillisiä ja piilotettu työsovelluksilta. IT-järjestelmänvalvoja ei voi kontrolloida tätä laitetta tai estää tiettyjä sovelluksia."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Hetki vain…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Tietosuojamuistutus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"Laite on valmiina käyttöön."</string>
-    <string name="done" msgid="7755227776955952318">"Valmis"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Yhdistä työ- ja henkilökohtaisia sovelluksia"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Liitettyjen sovellusten avulla sinulla on pääsy sekä työ- että henkilökohtaiseen dataan yhtä aikaa. Voit tehdä muutoksia milloin tahansa asetuksissa."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Yhdistä työ- ja henkilökohtaisia sovelluksia"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Käytä työ- ja henkilökohtaista dataa yhdessä. Ota käyttöön napauttamalla."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Yhdistä työ- ja henkilökohtaisia sovelluksia"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Tämä laite ostettiin luottosopimuksella: <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> voi"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"asentaa sovelluksen <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, jotta voit tehdä tämän laitteen maksuja"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"rajoittaa pääsyä tälle laitteelle, jos et suorita maksuja"</string>
 </resources>

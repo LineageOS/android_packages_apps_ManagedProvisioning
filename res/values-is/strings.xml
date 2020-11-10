@@ -162,12 +162,9 @@
     <string name="device_owner_description" msgid="168013145812679664">"Fyrirtækið þitt mun stjórna þessu tæki og halda því öruggu"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Undirbýr uppsetningu vinnutækis…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Setur upp stjórnunarforritið"</string>
-    <string name="set_up_everything_else" msgid="4407706086957916501">"Setja upp allt annað"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Nú skulum við setja upp allt annað"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Þetta tæki tilheyrir fyrirtækinu þínu"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Eftirfarandi forrit verður notað til að hafa umsjón með þessum síma og fylgjast með honum"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Undirbýr uppsetningu fyrir vinnu…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Fyrst skulum við setja upp vinnusniðið þitt"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Setjum upp vinnusniðið þitt"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Vinnuforrit eru geymd á vinnusniðinu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Gerðu hlé á vinnuforritum í lok vinnudags"</string>
@@ -180,17 +177,15 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Kerfisstjórinn þinn kann að geta séð gögn og virkni í þessu tæki."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Setur tækið upp…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Notaðu þetta tæki til að hafa greiðan aðgang að vinnuforritunum þínum. Þetta tæki er ekki einkatæki og því gæti kerfisstjóri séð gögn og virkni þína. Hafðu samband við kerfisstjórann til að fá frekari upplýsingar."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Vinnuforrit eru geymd á vinnusniðinu þínu og þeim er stjórnað af kerfisstjóranum"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Vinnuforrit eru geymd á vinnusniði og stjórnað af kerfisstjóra"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Forrit til einkanota eru aðskilin og falin fyrir vinnuforritum"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Kerfisstjórinn þinn getur stjórnað þessu tæki og lokað á tiltekin forrit"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Kerfisstjóri getur stjórnað tækinu og lokað á tiltekin forrit"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Vinnuforrit eru geymd á vinnusniðinu þínu og stjórnað af kerfisstjóranum. Forrit til einkanota eru aðskilin og falin fyrir vinnuforritum. Kerfisstjórinn þinn getur stjórnað þessu tæki og lokað á tiltekin forrit."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Augnablik…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Áminning um persónuvernd"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Kerfisstjórinn þinn kann að geta séð gögn og virkni í þessu tæki"</string>
-    <string name="device_provisioning_finished" msgid="3981783240592092906">"Tækið þitt er tilbúið!"</string>
-    <string name="done" msgid="7755227776955952318">"Lokið"</string>
-    <string name="cross_profile_consent_title" msgid="2780947113502387039">"Tengja vinnugögn og persónuleg gögn"</string>
-    <string name="cross_profile_consent_summary" msgid="2334089765948376631">"Tengd forrit gera þér kleift að nota bæði vinnugögn og persónuleg gögn. Þú getur gert breytingar hvenær sem er í stillingunum."</string>
-    <string name="cross_profile_notification_title" msgid="1583188168823827262">"Tengja vinnugögn og persónuleg gögn"</string>
-    <string name="cross_profile_notification_text" msgid="735572491868902064">"Opna vinnugögn og persónuleg gögn saman. Ýttu til að setja upp."</string>
-    <string name="cross_profile_notification_channel_name" msgid="6918542631093390263">"Tengja vinnugögn og persónuleg gögn"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Þetta tæki var keypt fyrir inneign frá <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> má:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"Setja upp <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> forritið svo þú getir greitt fyrir þetta tæki"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"Takmarka aðgang að þessu tæki ef þú greiðir ekki"</string>
 </resources>
