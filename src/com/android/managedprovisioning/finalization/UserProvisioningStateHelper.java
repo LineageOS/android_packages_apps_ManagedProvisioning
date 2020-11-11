@@ -54,6 +54,10 @@ public class UserProvisioningStateHelper {
         this(context, new Utils(), new SettingsFacade(), UserHandle.myUserId());
     }
 
+    public UserProvisioningStateHelper(Context context, int userId) {
+        this(context, new Utils(), new SettingsFacade(), userId);
+    }
+
     @VisibleForTesting
     UserProvisioningStateHelper(Context context,
             Utils utils,

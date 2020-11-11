@@ -116,7 +116,7 @@ public class SetDevicePolicyTask extends AbstractProvisioningTask {
     }
 
     private void setActiveAdmin(ComponentName component, int userId) {
-        ProvisionLogger.logd("Setting " + component + " as active admin.");
+        ProvisionLogger.logd("Setting " + component + " as active admin for user: " + userId);
         mDevicePolicyManager.setActiveAdmin(component, true, userId);
     }
 

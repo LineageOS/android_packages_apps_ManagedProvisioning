@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -41,10 +42,13 @@ public class ProvisioningControllerFactory {
             ProvisioningParams params,
             ProvisioningControllerCallback callback) {
         if (mUtils.isDeviceOwnerAction(params.provisioningAction)) {
+            int deviceOwner = mUtils.isHeadlessSystemUserMode()
+                        ? UserHandle.USER_SYSTEM : UserHandle.myUserId();
+            ProvisionLogger.logi("Setting device owner on user: " + deviceOwner);
             return new DeviceOwnerProvisioningController(
                     context,
                     params,
-                    UserHandle.myUserId(),
+                    deviceOwner,
                     callback);
         } else if (mUtils.isFinancedDeviceAction(params.provisioningAction)) {
             return new FinancedDeviceProvisioningController(
