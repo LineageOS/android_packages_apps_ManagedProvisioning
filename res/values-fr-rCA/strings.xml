@@ -150,7 +150,7 @@
     <string name="read_terms" msgid="1745011123626640728">"Lire les conditions"</string>
     <string name="close_list" msgid="9053538299788717597">"Fermer la liste"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Temin. la config. et réinitialiser l\'appareil?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Si vous annulez cette configuration, votre appareil sera réinitialisé à ses paramètres d\'usine et vous serez redirigé vers le premier écran."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Si vous annulez cette configuration, votre appareil sera réinitialisé à ses paramètres par défaut et vous serez redirigé vers le premier écran."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Annuler"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Réinitialiser l\'appareil"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> et <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
