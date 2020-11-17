@@ -54,10 +54,6 @@ public class UserProvisioningStateHelper {
         this(context, new Utils(), new SettingsFacade(), UserHandle.myUserId());
     }
 
-    public UserProvisioningStateHelper(Context context, int userId) {
-        this(context, new Utils(), new SettingsFacade(), userId);
-    }
-
     @VisibleForTesting
     UserProvisioningStateHelper(Context context,
             Utils utils,
@@ -130,6 +126,7 @@ public class UserProvisioningStateHelper {
 
         if (newState != null) {
             setUserProvisioningState(newState, mMyUserId);
+            maybeSetHeadlessSystemUserProvisioningState(newState);
         }
         if (newProfileState != null) {
             setUserProvisioningState(newProfileState, managedProfileUserId);
@@ -137,7 +134,7 @@ public class UserProvisioningStateHelper {
     }
 
     /**
-     * Finalize the current users userProvisioningState depending on the following factors:
+     * Finalize the current user's userProvisioningState depending on the following factors:
      * <ul>
      *     <li>We're setting up a managed-profile - need to set state on two users.</li>
      * </ul>
@@ -155,9 +152,14 @@ public class UserProvisioningStateHelper {
             setUserProvisioningState(STATE_USER_PROFILE_FINALIZED, mMyUserId);
         } else {
             setUserProvisioningState(STATE_USER_SETUP_FINALIZED, mMyUserId);
+            maybeSetHeadlessSystemUserProvisioningState(STATE_USER_SETUP_FINALIZED);
         }
     }
 
+    /**
+     * Returns whether the calling user's provision state is unmanaged, finanalized or
+     * user profile finalized.
+     */
     @VisibleForTesting
     public boolean isStateUnmanagedOrFinalized() {
         final int currentState = mDevicePolicyManager.getUserProvisioningState();
@@ -174,5 +176,13 @@ public class UserProvisioningStateHelper {
     private void setUserProvisioningState(int state, int userId) {
         ProvisionLogger.logi("Setting userProvisioningState for user " + userId + " to: " + state);
         mDevicePolicyManager.setUserProvisioningState(state, userId);
+    }
+
+    private void maybeSetHeadlessSystemUserProvisioningState(int newState) {
+        if (mUtils.isHeadlessSystemUserMode() && mMyUserId != UserHandle.USER_SYSTEM) {
+            // Headless system user's DO has to be set on system user and therefore system
+            // user has to be marked the same as the calling user.
+            setUserProvisioningState(newState, UserHandle.USER_SYSTEM);
+        }
     }
 }
