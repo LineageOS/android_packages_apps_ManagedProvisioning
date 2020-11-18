@@ -84,18 +84,18 @@
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Не може да се постави профил"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Не може да се постави уредот"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"Нешто тргна наопаку"</string>
-    <string name="couldnt_set_up_device" msgid="5137950404283642302">"Уредот не можеше да се постави. За помош, контактирајте со вашиот IT-администратор."</string>
+    <string name="couldnt_set_up_device" msgid="5137950404283642302">"Уредот не може да се постави. За помош, контактирајте со вашиот IT-администратор."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Контактирајте со вашиот IT-администратор за помош"</string>
     <string name="reset_device" msgid="5483853913241939262">"Ресетирајте го уредов и поставете го повторно"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Уредот е веќе поставен"</string>
-    <string name="error_wifi" msgid="1850288843966836571">"Не можеше да се поврзе на Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Не може да се поврзе на Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"На вашиот уред е вклучена заштита од ресетирање. За помош, контактирајте со вашиот IT-администратор."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Се брише"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Почекајте..."</string>
-    <string name="error_hash_mismatch" msgid="1145488923243178454">"Не можеше да се користи апликацијата за администратор поради грешка со контролна сума. За помош, контактирајте со вашиот IT-администратор."</string>
-    <string name="error_download_failed" msgid="3274283629837019452">"Не можеше да се преземе апликацијата за администратор"</string>
+    <string name="error_hash_mismatch" msgid="1145488923243178454">"Не може да се користи апликацијата за администратор поради грешка со контролна сума. За помош, контактирајте со вашиот IT-администратор."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Не може да се преземе апликацијата за администратор"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Не може да се користи апликацијата за администратор. Или ѝ недостасуваат компоненти или е оштетена. За помош, контактирајте со вашиот IT-администратор."</string>
-    <string name="error_installation_failed" msgid="2282903750318407285">"Не можеше да се инсталира апликацијата за администратор"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Не може да се инсталира апликацијата за администратор"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Дали да се запре поставувањето?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Не"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Да"</string>
