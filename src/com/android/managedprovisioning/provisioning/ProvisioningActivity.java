@@ -18,7 +18,6 @@ package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 
 import android.Manifest.permission;
 import android.annotation.IntDef;
@@ -117,11 +116,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private FooterButton mNextButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
-    private PolicyComplianceUtils mPolicyComplianceUtils;
 
     public ProvisioningActivity() {
         super(new Utils());
-        mPolicyComplianceUtils = new PolicyComplianceUtils();
     }
 
     @VisibleForTesting
@@ -131,7 +128,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         super(utils);
         mProvisioningManager = provisioningManager;
         mUserProvisioningStateHelper = userProvisioningStateHelper;
-        mPolicyComplianceUtils = policyComplianceUtils;
     }
 
     @Override
@@ -206,7 +202,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private void markDeviceManagementEstablishedAndFinish() {
         new PreFinalizationController(this, mUserProvisioningStateHelper)
                 .deviceManagementEstablished(mParams);
-        if (mUtils.isAdminIntegratedFlow(mParams)) {
+        if (mParams.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
             if (mUtils.isProfileOwnerAction(mParams.provisioningAction)) {
                 setResult(RESULT_CODE_WORK_PROFILE_CREATED);
             } else if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {

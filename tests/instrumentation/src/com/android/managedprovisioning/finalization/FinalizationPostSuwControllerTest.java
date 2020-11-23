@@ -29,7 +29,6 @@ import static com.android.managedprovisioning.finalization.SendDpcBroadcastServi
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -242,14 +241,13 @@ public class FinalizationPostSuwControllerTest extends AndroidTestCase {
         final ProvisioningParams params =
                 createProvisioningParamsBuilder(ACTION_PROVISION_MANAGED_PROFILE, true)
                         .setIsOrganizationOwnedProvisioning(true)
-                        .setProvisioningMode(PROVISIONING_MODE_MANAGED_PROFILE)
+                        .setFlowType(ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED)
                         .build();
 
         when(mSettingsFacade.isUserSetupCompleted(mActivity)).thenReturn(false);
         when(mSettingsFacade.isDuringSetupWizard(mActivity)).thenReturn(true);
         when(mUtils.getManagedProfile(mActivity))
                 .thenReturn(MANAGED_PROFILE_USER_HANDLE);
-        when(mUtils.isAdminIntegratedFlow(params)).thenCallRealMethod();
 
         // Mock DPM for testing access to device IDs is granted.
         final DevicePolicyManager mockDpm = mock(DevicePolicyManager.class);

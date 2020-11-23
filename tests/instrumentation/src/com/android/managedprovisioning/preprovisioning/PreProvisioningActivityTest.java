@@ -36,7 +36,9 @@ import androidx.test.rule.ActivityTestRule;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.CustomizationVerifier;
+import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.UriBitmap;
 import com.android.managedprovisioning.common.Utils;
@@ -82,7 +84,9 @@ public class PreProvisioningActivityTest {
                                 mUtils,
                                 new SettingsFacade(),
                                 EncryptionController.getInstance(activity),
-                                new ManagedProvisioningSharedPreferences(activity)) {
+                                new ManagedProvisioningSharedPreferences(activity),
+                                new PolicyComplianceUtils(),
+                                new GetProvisioningModeUtils()) {
                             @Override
                             protected boolean checkDevicePolicyPreconditions() {
                                 return true;

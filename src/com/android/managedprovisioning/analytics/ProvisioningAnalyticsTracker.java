@@ -347,10 +347,9 @@ public class ProvisioningAnalyticsTracker {
         if (!params.isOrganizationOwnedProvisioning) {
             return;
         }
-        final boolean isAdminIntegratedFlow = new Utils().isAdminIntegratedFlow(params);
         mMetricsWriter.write(DevicePolicyEventLogger
                 .createEvent(DevicePolicyEnums.PROVISIONING_FLOW_TYPE)
-                .setInt(isAdminIntegratedFlow
+                .setInt(params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED
                         ? PROVISIONING_FLOW_TYPE_ADMIN_INTEGRATED
                         : PROVISIONING_FLOW_TYPE_LEGACY)
                 .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));

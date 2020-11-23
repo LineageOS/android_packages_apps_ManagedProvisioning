@@ -20,6 +20,9 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
@@ -48,9 +51,12 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.VectorDrawable;
 import android.net.ConnectivityManager;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.service.persistentdata.PersistentDataBlockManager;
+import android.telephony.TelephonyManager;
 import android.test.AndroidTestCase;
 import android.text.TextUtils;
 
@@ -59,8 +65,10 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
@@ -89,6 +97,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                     .setPackageChecksum(new byte[] {1})
                     .setSignatureChecksum(new byte[] {1})
                     .build();
+    private static final String TEST_IMEI = "my imei";
 
     @Mock
     private Context mContext;
@@ -122,10 +131,16 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     private TimeLogger mTimeLogger;
     @Mock
     private ManagedProvisioningSharedPreferences mSharedPreferences;
+    @Mock
+    private TelephonyManager mTelephonyManager;
 
     private ProvisioningParams mParams;
 
     private PreProvisioningController mController;
+    public static final PersistableBundle TEST_ADMIN_BUNDLE = new PersistableBundle();
+    static {
+        TEST_ADMIN_BUNDLE.putInt("someKey", 123);
+    }
 
     @Override
     public void setUp() throws PackageManager.NameNotFoundException {
@@ -152,6 +167,10 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         when(mContext.getPackageName()).thenReturn(MP_PACKAGE_NAME);
         when(mContext.getResources()).thenReturn(
                 InstrumentationRegistry.getTargetContext().getResources());
+        when(mContext.getSystemServiceName(TelephonyManager.class))
+                .thenReturn(Context.TELEPHONY_SERVICE);
+        when(mContext.getSystemService(TelephonyManager.class)).thenReturn(mTelephonyManager);
+        when(mTelephonyManager.getImei()).thenReturn(TEST_IMEI);
 
         when(mUserManager.getUserHandle()).thenReturn(TEST_USER_ID);
 
@@ -169,7 +188,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_INACTIVE);
         when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(false);
         mController = new PreProvisioningController(mContext, mUi, mTimeLogger, mMessageParser,
-                mUtils, mSettingsFacade, mEncryptionController, mSharedPreferences);
+                mUtils, mSettingsFacade, mEncryptionController, mSharedPreferences,
+                new PolicyComplianceUtils(), new GetProvisioningModeUtils());
         when(mSettingsFacade.isDeveloperMode(mContext)).thenReturn(true);
     }
 
@@ -706,6 +726,71 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .build();
         initiateProvisioning(params);
         verify(mUi, never()).requestWifiPick();
+    }
+
+    public void
+    testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_hasExactlyThreeExtras() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.size()).isEqualTo(3);
+    }
+
+    public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_imeiPassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getString(EXTRA_PROVISIONING_IMEI)).isEqualTo(TEST_IMEI);
+    }
+
+    public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_serialNumberPassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_SERIAL_NUMBER)).isTrue();
+    }
+
+    public void
+    testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_onlyAdminBundlePassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.keySet()).containsExactly(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        assertThat((PersistableBundle) bundle.getParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
+                .isEqualTo(TEST_ADMIN_BUNDLE);
+    }
+
+    public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_adminBundlePassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat((PersistableBundle) bundle.getParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
+                .isEqualTo(TEST_ADMIN_BUNDLE);
     }
 
     private ProvisioningParams.Builder createProvisioningParamsBuilderForInitiateProvisioning() {

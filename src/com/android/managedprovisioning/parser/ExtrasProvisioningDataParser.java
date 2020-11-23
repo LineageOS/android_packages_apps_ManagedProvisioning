@@ -65,6 +65,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
@@ -97,7 +98,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IllformedLocaleException;
@@ -364,18 +364,20 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     }
 
     private final Utils mUtils;
+    private final ParserUtils mParserUtils;
     private final Context mContext;
     private final ManagedProvisioningSharedPreferences mSharedPreferences;
 
-    ExtrasProvisioningDataParser(Context context, Utils utils) {
-        this(context, utils, new ManagedProvisioningSharedPreferences(context));
+    ExtrasProvisioningDataParser(Context context, Utils utils, ParserUtils parserUtils) {
+        this(context, utils, parserUtils, new ManagedProvisioningSharedPreferences(context));
     }
 
     @VisibleForTesting
-    ExtrasProvisioningDataParser(Context context, Utils utils,
+    ExtrasProvisioningDataParser(Context context, Utils utils, ParserUtils parserUtils,
             ManagedProvisioningSharedPreferences sharedPreferences) {
         mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
+        mParserUtils = checkNotNull(parserUtils);
         mSharedPreferences = checkNotNull(sharedPreferences);
     }
 
@@ -515,7 +517,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 ACTION_PROVISION_FINANCED_DEVICE.equals(intent.getAction());
         try {
             final long provisioningId = mSharedPreferences.incrementAndGetProvisioningId();
-            String provisioningAction = mUtils.mapIntentToDpmAction(intent);
+            String provisioningAction = mParserUtils.extractProvisioningAction(intent);
             final boolean isManagedProfileAction =
                     ACTION_PROVISION_MANAGED_PROFILE.equals(provisioningAction);
 
@@ -614,6 +616,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                                     intent, EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                                     ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED));
 
+            int provisioningTrigger = mParserUtils.extractProvisioningTrigger(intent);
             return ProvisioningParams.Builder.builder()
                     .setProvisioningId(provisioningId)
                     .setProvisioningAction(provisioningAction)
@@ -638,9 +641,10 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setOrganizationName(organizationName)
                     .setSupportUrl(supportUrl)
                     .setDeviceAdminIconFilePath(deviceAdminIconFilePath)
-                    .setIsQrProvisioning(mUtils.isQrProvisioning(intent))
+                    .setIsQrProvisioning(provisioningTrigger == PROVISIONING_TRIGGER_QR_CODE)
                     .setIsOrganizationOwnedProvisioning(
-                            mUtils.isOrganizationOwnedProvisioning(intent));
+                            mParserUtils.isOrganizationOwnedProvisioning(intent))
+                    .setProvisioningTrigger(provisioningTrigger);
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
@@ -661,7 +665,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS)) {
             return false;
         }
-        if (mUtils.isOrganizationOwnedProvisioning(intent)) {
+        if (mParserUtils.isOrganizationOwnedProvisioning(intent)) {
             return false;
         }
         return isFullyManagedDeviceAction(intent);

@@ -36,16 +36,18 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 public class MessageParser implements ProvisioningDataParser {
 
     private final Utils mUtils;
+    private final ParserUtils mParserUtils;
     private final Context mContext;
 
     public MessageParser(Context context) {
-        this(context, new Utils());
+        this(context, new Utils(), new ParserUtils());
     }
 
     @VisibleForTesting
-    MessageParser(Context context, Utils utils) {
+    MessageParser(Context context, Utils utils, ParserUtils parserUtils) {
         mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
+        mParserUtils = checkNotNull(parserUtils);
     }
 
     @Override
@@ -57,9 +59,9 @@ public class MessageParser implements ProvisioningDataParser {
     @VisibleForTesting
     ProvisioningDataParser getParser(Intent provisioningIntent) {
         if (ACTION_NDEF_DISCOVERED.equals(provisioningIntent.getAction())) {
-            return new PropertiesProvisioningDataParser(mContext, mUtils);
+            return new PropertiesProvisioningDataParser(mContext, mParserUtils);
         } else {
-            return new ExtrasProvisioningDataParser(mContext, mUtils);
+            return new ExtrasProvisioningDataParser(mContext, mUtils, mParserUtils);
         }
     }
 }

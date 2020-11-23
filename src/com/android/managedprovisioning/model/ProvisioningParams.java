@@ -36,6 +36,10 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 
 import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -49,6 +53,7 @@ import static com.android.managedprovisioning.common.StoreUtils.putPersistableBu
 
 import android.accounts.Account;
 import android.annotation.IntDef;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.Parcel;
@@ -98,26 +103,26 @@ public final class ProvisioningParams extends PersistableBundlable {
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
-    // Possible provisioning modes for organization owned provisioning.
-    public static final int PROVISIONING_MODE_UNDECIDED = 0;
-    public static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE = 1;
-    public static final int PROVISIONING_MODE_MANAGED_PROFILE = 2;
-    public static final int PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
-    public static final int PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY = 4;
+    public static final int FLOW_TYPE_UNSPECIFIED = 0;
+    public static final int FLOW_TYPE_LEGACY = 1;
+    public static final int FLOW_TYPE_ADMIN_INTEGRATED = 2;
 
-    // Provisioning mode for financed device provisioning
-    public static final int PROVISIONING_MODE_FINANCED_DEVICE = 5;
-
-    @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
-            PROVISIONING_MODE_UNDECIDED,
-            PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
-            PROVISIONING_MODE_MANAGED_PROFILE,
-            PROVISIONING_MODE_MANAGED_PROFILE_ON_FULLY_MANAGED_DEVICE,
-            PROVISIONING_MODE_FULLY_MANAGED_DEVICE_LEGACY,
-            PROVISIONING_MODE_FINANCED_DEVICE
+    @IntDef(prefix = { "PROVISIONING_TRIGGER_" }, value = {
+            PROVISIONING_TRIGGER_UNSPECIFIED,
+            PROVISIONING_TRIGGER_CLOUD_ENROLLMENT,
+            PROVISIONING_TRIGGER_QR_CODE,
+            PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER
     })
     @Retention(RetentionPolicy.SOURCE)
-    public @interface ProvisioningMode {}
+    public @interface ProvisioningTrigger {}
+
+    @IntDef(prefix = { "FLOW_TYPE_" }, value = {
+            FLOW_TYPE_UNSPECIFIED,
+            FLOW_TYPE_LEGACY,
+            FLOW_TYPE_ADMIN_INTEGRATED
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface FlowType {}
 
     private static final String TAG_PROVISIONING_ID = "provisioning-id";
     private static final String TAG_PROVISIONING_PARAMS = "provisioning-params";
@@ -129,9 +134,10 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_PROVISIONING_ACTION = "provisioning-action";
     private static final String TAG_IS_ORGANIZATION_OWNED_PROVISIONING =
             "is-organization-owned-provisioning";
+    private static final String TAG_FLOW_TYPE = "flow-type";
     private static final String TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD =
             "is-transitioning-from-regular-to-child";
-    private static final String TAG_PROVISIONING_MODE = "provisioning-mode";
+    private static final String TAG_PROVISIONING_TRIGGER = "provisioning-trigger";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
             = new Parcelable.Creator<ProvisioningParams>() {
@@ -257,10 +263,20 @@ public final class ProvisioningParams extends PersistableBundlable {
     public final boolean isTransitioningFromRegularToChild;
 
     /**
-     * The provisioning mode for organization owned provisioning. This is only used for
-     * admin integrated flow.
+     * The type of flow to be performed.
+     * <p>Must be one of {@link #FLOW_TYPE_UNSPECIFIED}, {@link #FLOW_TYPE_LEGACY} or {@link
+     * #FLOW_TYPE_ADMIN_INTEGRATED}.
+     **/
+    public final @FlowType int flowType;
+
+    /**
+     * The way provisioning was started.
+     * <p>Can be one of {@link DevicePolicyManager#PROVISIONING_TRIGGER_CLOUD_ENROLLMENT}, {@link
+     * DevicePolicyManager#PROVISIONING_TRIGGER_QR_CODE}, {@link
+     * DevicePolicyManager#PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER} or {@link
+     * DevicePolicyManager#PROVISIONING_TRIGGER_UNSPECIFIED}.
      */
-    public final @ProvisioningMode int provisioningMode;
+    public final @ProvisioningTrigger int provisioningTrigger;
 
     public static String inferStaticDeviceAdminPackageName(ComponentName deviceAdminComponentName,
             String deviceAdminPackageName) {
@@ -327,8 +343,9 @@ public final class ProvisioningParams extends PersistableBundlable {
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
         isOrganizationOwnedProvisioning = builder.mIsOrganizationOwnedProvisioning;
+        flowType = builder.mFlowType;
         isTransitioningFromRegularToChild = builder.mIsTransitioningFromRegularToChild;
-        provisioningMode = builder.mProvisioningMode;
+        provisioningTrigger = builder.mProvisioningTrigger;
 
         validateFields();
     }
@@ -379,9 +396,10 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, skipEducationScreens);
         bundle.putBoolean(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, keepAccountMigrated);
         bundle.putBoolean(TAG_IS_ORGANIZATION_OWNED_PROVISIONING, isOrganizationOwnedProvisioning);
+        bundle.putInt(TAG_FLOW_TYPE, flowType);
         bundle.putBoolean(TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD,
                  isTransitioningFromRegularToChild);
-        bundle.putInt(TAG_PROVISIONING_MODE, provisioningMode);
+        bundle.putInt(TAG_PROVISIONING_TRIGGER, provisioningTrigger);
         return bundle;
     }
 
@@ -433,9 +451,10 @@ public final class ProvisioningParams extends PersistableBundlable {
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
         builder.setIsOrganizationOwnedProvisioning(bundle.getBoolean(
                 TAG_IS_ORGANIZATION_OWNED_PROVISIONING));
+        builder.setFlowType(bundle.getInt(TAG_FLOW_TYPE));
         builder.setIsTransitioningFromRegularToChild(bundle.getBoolean(
                 TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD));
-        builder.setProvisioningMode(bundle.getInt(TAG_PROVISIONING_MODE));
+        builder.setProvisioningTrigger(bundle.getInt(TAG_PROVISIONING_TRIGGER));
         return builder;
     }
 
@@ -552,8 +571,9 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
         private boolean mUseMobileData = DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
         private boolean mIsOrganizationOwnedProvisioning = false;
+        private @FlowType int mFlowType = FLOW_TYPE_UNSPECIFIED;
         private boolean mIsTransitioningFromRegularToChild = false;
-        private @ProvisioningMode int mProvisioningMode = PROVISIONING_MODE_UNDECIDED;
+        private @ProvisioningTrigger int mProvisioningTrigger = PROVISIONING_TRIGGER_UNSPECIFIED;
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -696,14 +716,19 @@ public final class ProvisioningParams extends PersistableBundlable {
             return this;
         }
 
+        public Builder setFlowType(@FlowType int flowType) {
+            mFlowType = flowType;
+            return this;
+        }
+
         public Builder setIsTransitioningFromRegularToChild(
                 boolean isTransitioningFromRegularToChild) {
             mIsTransitioningFromRegularToChild = isTransitioningFromRegularToChild;
             return this;
         }
 
-        public Builder setProvisioningMode(@ProvisioningMode int provisioningMode) {
-            mProvisioningMode = provisioningMode;
+        public Builder setProvisioningTrigger(@ProvisioningTrigger int provisioningTrigger) {
+            mProvisioningTrigger = provisioningTrigger;
             return this;
         }
 

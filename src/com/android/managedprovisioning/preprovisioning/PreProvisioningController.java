@@ -44,13 +44,11 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
 
 import android.accounts.Account;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
@@ -63,11 +61,11 @@ import android.content.pm.UserInfo;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserManager;
-import android.provider.Settings;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -77,15 +75,17 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.model.ProvisioningParams.ProvisioningMode;
+import com.android.managedprovisioning.model.ProvisioningParams.FlowType;
 import com.android.managedprovisioning.parser.MessageParser;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
@@ -99,6 +99,8 @@ public class PreProvisioningController {
     private final Ui mUi;
     private final MessageParser mMessageParser;
     private final Utils mUtils;
+    private final PolicyComplianceUtils mPolicyComplianceUtils;
+    private final GetProvisioningModeUtils mGetProvisioningModeUtils;
     private final SettingsFacade mSettingsFacade;
     private final EncryptionController mEncryptionController;
 
@@ -122,7 +124,9 @@ public class PreProvisioningController {
                 new TimeLogger(context, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
                 new MessageParser(context), new Utils(), new SettingsFacade(),
                 EncryptionController.getInstance(context),
-                new ManagedProvisioningSharedPreferences(context));
+                new ManagedProvisioningSharedPreferences(context),
+                new PolicyComplianceUtils(),
+                new GetProvisioningModeUtils());
     }
     @VisibleForTesting
     PreProvisioningController(
@@ -133,13 +137,19 @@ public class PreProvisioningController {
             @NonNull Utils utils,
             @NonNull SettingsFacade settingsFacade,
             @NonNull EncryptionController encryptionController,
-            @NonNull ManagedProvisioningSharedPreferences sharedPreferences) {
+            @NonNull ManagedProvisioningSharedPreferences sharedPreferences,
+            @NonNull PolicyComplianceUtils policyComplianceUtils,
+            @NonNull GetProvisioningModeUtils getProvisioningModeUtils) {
         mContext = checkNotNull(context, "Context must not be null");
         mUi = checkNotNull(ui, "Ui must not be null");
         mTimeLogger = checkNotNull(timeLogger, "Time logger must not be null");
         mMessageParser = checkNotNull(parser, "MessageParser must not be null");
         mSettingsFacade = checkNotNull(settingsFacade);
         mUtils = checkNotNull(utils, "Utils must not be null");
+        mPolicyComplianceUtils = checkNotNull(policyComplianceUtils,
+                "PolicyComplianceUtils cannot be null");
+        mGetProvisioningModeUtils = checkNotNull(getProvisioningModeUtils,
+                "GetProvisioningModeUtils cannot be null");
         mEncryptionController = checkNotNull(encryptionController,
                 "EncryptionController must not be null");
         mSharedPreferences = checkNotNull(sharedPreferences);
@@ -189,7 +199,7 @@ public class PreProvisioningController {
          */
         void showCurrentLauncherInvalid();
 
-        void prepareAdminIntegratedFlow(ProvisioningParams params);
+        void showOrganizationOwnedLandingScreen(ProvisioningParams params);
 
         void prepareFinancedDeviceFlow(ProvisioningParams params);
 
@@ -209,10 +219,6 @@ public class PreProvisioningController {
      * or {@link Object#toString()}.
      */
     public static class UiParams {
-        /**
-         * The desired provisioning mode - values are defined in {@link ProvisioningMode}.
-         */
-        public @ProvisioningMode int provisioningMode;
         /**
          * Defined by the organization in the provisioning trigger (e.g. QR code).
          */
@@ -319,7 +325,7 @@ public class PreProvisioningController {
         mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
 
         if (mParams.isOrganizationOwnedProvisioning) {
-            mUi.prepareAdminIntegratedFlow(mParams);
+            mUi.showOrganizationOwnedLandingScreen(mParams);
         } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(mParams);
         } else {
@@ -387,7 +393,6 @@ public class PreProvisioningController {
         uiParams.deviceAdminIconFilePath = mParams.deviceAdminIconFilePath;
         uiParams.deviceAdminLabel = mParams.deviceAdminLabel;
         uiParams.disclaimerHeadings = getDisclaimerHeadings();
-        uiParams.provisioningMode = mParams.provisioningMode;
         uiParams.provisioningAction = mParams.provisioningAction;
         uiParams.packageName = packageName;
         uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
@@ -401,17 +406,17 @@ public class PreProvisioningController {
     boolean updateProvisioningParamsFromIntent(Intent resultIntent) {
         final int provisioningMode = resultIntent.getIntExtra(
                 DevicePolicyManager.EXTRA_PROVISIONING_MODE, 0);
-        final ProvisioningParams.Builder builder = mParams.toBuilder();
+        ProvisioningParams.Builder builder = mParams.toBuilder();
         switch (provisioningMode) {
             case DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
-                builder.setProvisioningMode(PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
+                builder.setFlowType(FLOW_TYPE_ADMIN_INTEGRATED);
                 builder.setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE);
                 maybeUpdateAdminExtrasBundle(builder, resultIntent);
                 maybeUpdateSkipEducationScreens(builder, resultIntent);
                 mParams = builder.build();
                 return true;
             case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
-                builder.setProvisioningMode(PROVISIONING_MODE_MANAGED_PROFILE);
+                builder.setFlowType(FLOW_TYPE_ADMIN_INTEGRATED);
                 builder.setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE);
                 maybeUpdateAccountToMigrate(builder, resultIntent);
                 maybeUpdateAdminExtrasBundle(builder, resultIntent);
@@ -451,15 +456,20 @@ public class PreProvisioningController {
         }
     }
 
-    void setProvisioningMode(int provisioningMode) {
-        mParams = mParams.toBuilder().setProvisioningMode(provisioningMode).build();
+    void updateProvisioningFlowState(@FlowType int flowType) {
+        mParams = mParams.toBuilder().setFlowType(flowType).build();
     }
 
-    void putExtrasIntoGetModeIntent(Intent intentGetMode) {
-        final TelephonyManager telephonyManager = mContext.getSystemService(TelephonyManager.class);
-        intentGetMode.putExtra(EXTRA_PROVISIONING_IMEI, telephonyManager.getImei());
-        intentGetMode.putExtra(EXTRA_PROVISIONING_SERIAL_NUMBER, Build.getSerial());
-        intentGetMode.putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mParams.adminExtrasBundle);
+    Bundle getAdditionalExtrasForGetProvisioningModeIntent() {
+        Bundle bundle = new Bundle();
+        if (mParams.isOrganizationOwnedProvisioning) {
+            final TelephonyManager telephonyManager = mContext.getSystemService(
+                    TelephonyManager.class);
+            bundle.putString(EXTRA_PROVISIONING_IMEI, telephonyManager.getImei());
+            bundle.putString(EXTRA_PROVISIONING_SERIAL_NUMBER, Build.getSerial());
+        }
+        bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mParams.adminExtrasBundle);
+        return bundle;
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {
@@ -774,6 +784,14 @@ public class PreProvisioningController {
 
     SettingsFacade getSettingsFacade() {
         return mSettingsFacade;
+    }
+
+    public PolicyComplianceUtils getPolicyComplianceUtils() {
+        return mPolicyComplianceUtils;
+    }
+
+    public GetProvisioningModeUtils getGetProvisioningModeUtils() {
+        return mGetProvisioningModeUtils;
     }
 
     // TODO: review the use of async task for the case where the activity might have got killed

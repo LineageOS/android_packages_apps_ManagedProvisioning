@@ -22,6 +22,7 @@ import static com.android.managedprovisioning.finalization.FinalizationControlle
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.UserHandle;
 
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
@@ -69,15 +70,15 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
         // those conditions aren't met, skip finalization now, so that we do it after SUW instead.
 
         if (params.isOrganizationOwnedProvisioning) {
-            if (!mUtils.isAdminIntegratedFlow(params)) {
-                ProvisionLogger.logw("Skipping finalization during SUW for organization "
+            if (params.flowType != ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
+                ProvisionLogger.logi("Skipping finalization during SUW for organization "
                         + "owned provisioning, which is not admin integrated flow");
                 return false;
             }
         } else {
-            if (!mPolicyComplianceUtils.isPolicyComplianceActivityResolvable(
-                    mActivity, params, mUtils)) {
-                ProvisionLogger.logw("Skipping finalization during SUW for non-organization "
+            if (!mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                    mActivity, params, mUtils, UserHandle.SYSTEM)) {
+                ProvisionLogger.logi("Skipping finalization during SUW for non-organization "
                         + "owned provisioning, because DPC doesn't implement intent handler");
                 return false;
             }
@@ -146,8 +147,8 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
 
     private @ProvisioningFinalizedResult int startPolicyComplianceActivityForResultIfResolved(
             ProvisioningParams params, int requestCode) {
-        if (!mPolicyComplianceUtils.isPolicyComplianceActivityResolvable(mActivity, params,
-                mUtils)) {
+        if (!mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                mActivity, params, mUtils, UserHandle.SYSTEM)) {
             return PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
         }
 

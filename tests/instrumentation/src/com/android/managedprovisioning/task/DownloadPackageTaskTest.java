@@ -52,6 +52,7 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
@@ -129,6 +130,7 @@ public class DownloadPackageTaskTest {
         verifyNoMoreInteractions(mCallback);
     }
 
+    @Ignore("b/171307633")
     @Test
     public void testDownloadFailed() throws Exception {
         // GIVEN the download succeeds
@@ -148,6 +150,7 @@ public class DownloadPackageTaskTest {
         verifyNoMoreInteractions(mCallback);
     }
 
+    @Ignore("b/171307633")
     @Test
     public void testDownloadSucceeded() throws Exception {
         // GIVEN the download succeeds
@@ -168,6 +171,7 @@ public class DownloadPackageTaskTest {
     }
 
     /** Test that it works fine even if DownloadManager sends the broadcast twice */
+    @Ignore("b/171307633")
     @Test
     public void testSendBroadcastTwice() throws Exception {
         // GIVEN the download succeeds

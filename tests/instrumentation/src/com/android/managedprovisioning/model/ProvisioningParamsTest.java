@@ -15,7 +15,16 @@
  */
 package com.android.managedprovisioning.model;
 
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_UNSPECIFIED;
+
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.ArgumentMatchers.eq;
@@ -282,6 +291,66 @@ public class ProvisioningParamsTest extends AndroidTestCase {
         assertThat(createDefaultProvisioningParamsBuilder().build().useMobileData).isFalse();
     }
 
+    @SmallTest
+    public void testSetFlowType_legacy_areEqual() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setFlowType(FLOW_TYPE_LEGACY).build();
+
+        assertThat(provisioningParams.flowType).isEqualTo(FLOW_TYPE_LEGACY);
+    }
+
+    @SmallTest
+    public void testSetFlowType_adminIntegrated_areEqual() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setFlowType(FLOW_TYPE_ADMIN_INTEGRATED).build();
+
+        assertThat(provisioningParams.flowType).isEqualTo(FLOW_TYPE_ADMIN_INTEGRATED);
+    }
+
+    @SmallTest
+    public void testSetFlowType_defaultsToUnspecified() {
+        assertThat(createDefaultProvisioningParamsBuilder().build().flowType)
+                .isEqualTo(FLOW_TYPE_UNSPECIFIED);
+    }
+
+    @SmallTest
+    public void testSetProvisioningTrigger_cloudEnrollment_areEqual() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setProvisioningTrigger(PROVISIONING_TRIGGER_CLOUD_ENROLLMENT).build();
+
+        assertThat(provisioningParams.provisioningTrigger)
+                .isEqualTo(PROVISIONING_TRIGGER_CLOUD_ENROLLMENT);
+    }
+
+    @SmallTest
+    public void testSetProvisioningTrigger_qrCode_areEqual() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setProvisioningTrigger(PROVISIONING_TRIGGER_QR_CODE).build();
+
+        assertThat(provisioningParams.provisioningTrigger).isEqualTo(PROVISIONING_TRIGGER_QR_CODE);
+    }
+
+    @SmallTest
+    public void testSetProvisioningTrigger_persistentDeviceOwner_areEqual() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setProvisioningTrigger(PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER)
+                        .build();
+
+        assertThat(provisioningParams.provisioningTrigger)
+                .isEqualTo(PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER);
+    }
+
+    @SmallTest
+    public void testSetProvisioningTrigger_defaultsToUnspecified() {
+        assertThat(createDefaultProvisioningParamsBuilder().build().provisioningTrigger)
+                .isEqualTo(PROVISIONING_TRIGGER_UNSPECIFIED);
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()
@@ -309,6 +378,9 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setWifiInfo(TEST_WIFI_INFO)
                 .setUseMobileData(TEST_USE_MOBILE_DATA)
                 .setAdminExtrasBundle(createTestAdminExtras())
+                .setIsOrganizationOwnedProvisioning(true)
+                .setFlowType(FLOW_TYPE_ADMIN_INTEGRATED)
+                .setProvisioningTrigger(DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE)
                 .build();
     }
 }
