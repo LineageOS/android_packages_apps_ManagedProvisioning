@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik poslovnog uređaja"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Podešava se poslovni uređaj..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Obrađuju se podaci podešavanja..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezujete se sa Wi-Fi-jem..."</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezujete se sa WiFi-em..."</string>
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezujemo se sa mobilnom mrežom…"</string>
     <string name="progress_download" msgid="3522436271691064624">"Preuzima se aplikacija za administratora..."</string>
     <string name="progress_install" msgid="2258045670385866183">"Instalira se aplikacija za administratora..."</string>
@@ -88,7 +88,7 @@
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Potražite pomoć od IT administratora"</string>
     <string name="reset_device" msgid="5483853913241939262">"Resetujte ovaj uređaj i probajte ponovo da ga podesite"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Uređaj je već podešen"</string>
-    <string name="error_wifi" msgid="1850288843966836571">"Povezivanje na Wi-Fi mrežu nije uspelo"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Povezivanje na WiFi mrežu nije uspelo"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Zaštita resetovanja je uključena za uređaj. Potražite pomoć od IT administratora."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Brisanje"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Sačekajte..."</string>
