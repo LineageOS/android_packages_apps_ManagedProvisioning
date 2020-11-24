@@ -15,6 +15,7 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -25,12 +26,14 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assume.assumeTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.provider.Settings;
 
 import androidx.test.InstrumentationRegistry;
@@ -62,8 +65,10 @@ import java.util.Map;
 @SmallTest
 public class TermsActivityTest {
 
-    private static final String HEADER_0_TOP = InstrumentationRegistry.getTargetContext()
-        .getString(R.string.work_profile_info);
+    private static final String HEADER_0_PO = InstrumentationRegistry.getTargetContext()
+            .getString(R.string.work_profile_info);
+    private static final String HEADER_0_DO = InstrumentationRegistry.getTargetContext()
+            .getString(R.string.managed_device_info);
     private static final String HEADER_1 = "header1";
     private static final String HEADER_2 = "header2";
     private static final String HEADER_3_BOTTOM = "header3";
@@ -101,18 +106,36 @@ public class TermsActivityTest {
     @FlakyTest
     @Test
     public void expanderTest() throws InterruptedException {
+        PackageManager pm = InstrumentationRegistry.getTargetContext().getPackageManager();
+        boolean isPOSupported = pm.hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
+        boolean isDOSupported = pm.hasSystemFeature(PackageManager.FEATURE_DEVICE_ADMIN);
+        assumeTrue("Device doesn't support managed device or managed profile",
+                 isPOSupported || isDOSupported);
         // given an intent with disclaimers
         DisclaimersParam.Disclaimer[] extraDisclaimers = {
                 setUpDisclaimer(HEADER_1, "path1", CONTENT_1),
                 setUpDisclaimer(HEADER_2, "path2", CONTENT_2_HTML),
                 setUpDisclaimer(HEADER_3_BOTTOM, "path3", CONTENT_3)};
-        Intent intent = createIntent(ACTION_PROVISION_MANAGED_PROFILE, extraDisclaimers);
 
         // when an activity is launched
-        mActivityRule.launchActivity(intent);
+        if (isPOSupported) {
+            mActivityRule.launchActivity(
+                        createIntent(ACTION_PROVISION_MANAGED_PROFILE, extraDisclaimers));
+            // main header is displayed if setting up PO
+            onView(withText(HEADER_0_PO)).check(matches(isDisplayed()));
+        } else {
+            mActivityRule.launchActivity(
+                        createIntent(ACTION_PROVISION_MANAGED_DEVICE, extraDisclaimers));
+            // main header is displayed if setting up DO
+            onView(withText(HEADER_0_DO)).check(matches(isDisplayed()));
+        }
 
-        // then all headers are displayed
-        onView(withText(HEADER_0_TOP)).check(matches(isDisplayed()));
+        // TODO (b/172526111) Temporarily skipping the rest as it's broken on automotive.
+        if (pm.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
+            return;
+        }
+
+        // all headers are displayed
         for (DisclaimersParam.Disclaimer d : extraDisclaimers) {
             onView(withText(d.mHeader)).check(matches(isDisplayed()));
         }
