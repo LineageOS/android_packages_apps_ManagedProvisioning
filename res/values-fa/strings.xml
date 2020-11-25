@@ -185,7 +185,7 @@
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل کند و برخی از برنامه‌ها را مسدود کند"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"برنامه‌های کاری در نمایه کاری نگه داشته می‌شوند و سرپرست فناوری اطلاعات می‌تواند آن‌ها را مدیریت کند. برنامه‌های شخصی مجزا هستند و از دسترس برنامه‌های کاری پنهان هستند. سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل کند و برخی از برنامه‌ها را مسدود کند."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"لحظه‌ای صبر کنید…"</string>
-    <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"یادآوری حریم خصوصی"</string>
+    <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"یادآوری حریم‌خصوصی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏ممکن است سرپرست IT بتواند داده‌ها و فعالیت شما را در این دستگاه ببیند"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"دستگاهتان آماده استفاده است!"</string>
     <string name="done" msgid="7755227776955952318">"تمام"</string>

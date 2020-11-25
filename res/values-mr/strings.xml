@@ -67,7 +67,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"कार्य डिव्हाइस सेट अप करत आहे..."</string>
     <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटावर प्रक्रिया करत आहे..."</string>
     <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाय-फाय ला कनेक्ट करत आहे..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाईल नेटवर्कशी कनेक्ट करत आहे…"</string>
+    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाइल नेटवर्कशी कनेक्ट करत आहे…"</string>
     <string name="progress_download" msgid="3522436271691064624">"ॲडमिन अ‍ॅप डाउनलोड करत आहे..."</string>
     <string name="progress_install" msgid="2258045670385866183">"ॲडमिन अ‍ॅप इंस्टॉल करत आहे..."</string>
     <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"आवश्यक-नसलेले सिस्टम अ‍ॅप्स काढत आहे..."</string>
@@ -141,7 +141,7 @@
     <string name="learn_more_label" msgid="2723716758654655009">"अधिक जाणून घ्‍या बटण"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"<xliff:g id="ICON_LABEL">%1$s</xliff:g> आयकन"</string>
     <string name="section_heading" msgid="3924666803774291908">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग कॅप्शन."</string>
-    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग सामग्री: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
+    <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> विभाग आशय: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"विस्तृत करा"</string>
     <string name="collapse" msgid="7817530505064432580">"संकुचित करा"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"दुव्यांच्या सूची अ‍ॅक्सेस करा"</string>
