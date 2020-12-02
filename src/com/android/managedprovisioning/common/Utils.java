@@ -503,7 +503,6 @@ public class Utils {
     // TODO: Move the FR intent into a Globals class.
     public void sendFactoryResetBroadcast(Context context, String reason) {
         // TODO (b/171603586): skip factory reset for Auto before driving restrictions implemented
-        PackageManager pm = context.getPackageManager();
         Intent intent = new Intent(Intent.ACTION_FACTORY_RESET);
         // Send explicit broadcast due to Broadcast Limitations
         intent.setPackage("android");

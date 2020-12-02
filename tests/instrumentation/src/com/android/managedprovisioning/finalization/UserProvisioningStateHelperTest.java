@@ -25,6 +25,7 @@ import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_UNMANAGED;
 import static android.content.Context.DEVICE_POLICY_SERVICE;
+import static org.junit.Assume.assumeTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -45,6 +46,7 @@ import org.mockito.MockitoAnnotations;
  * Unit tests for {@link UserProvisioningStateHelper}.
  */
 public class UserProvisioningStateHelperTest extends AndroidTestCase {
+    private static final int SYSTEM_USER_ID = 0;
     private static final int PRIMARY_USER_ID = 1;
     private static final int MANAGED_PROFILE_USER_ID = 2;
     private static final String TEST_MDM_PACKAGE_NAME = "mdm.package.name";
@@ -121,6 +123,25 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testInitiallyDone_DeviceOwnerSkipUserSetup_HeadlessSystemUser() {
+        setHeadlessSystemUserMode();
+        // GIVEN that we've provisioned a device owner with skip user setup true
+        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
+            true);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
+
+        // WHEN calling markUserProvisioningStateInitiallyDone
+        mHelper.markUserProvisioningStateInitiallyDone(params);
+
+        // THEN both the user who is setting DO and the headless system user's states
+        // should be set to COMPLETE
+        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_COMPLETE,
+            PRIMARY_USER_ID);
+        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_COMPLETE,
+            SYSTEM_USER_ID);
+    }
+
+    @SmallTest
     public void testInitiallyDone_DeviceOwnerDontSkipUserSetup() {
         // GIVEN that we've provisioned a device owner with skip user setup false
         final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
@@ -133,6 +154,25 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // THEN the primary user's state should be set to INCOMPLETE
         verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_INCOMPLETE,
                 PRIMARY_USER_ID);
+    }
+
+    @SmallTest
+    public void testInitiallyDone_DeviceOwnerDontSkipUserSetup_HeadlessSystemUser() {
+        setHeadlessSystemUserMode();
+        // GIVEN that we've provisioned a device owner with skip user setup false
+        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
+            false);
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
+
+        // WHEN calling markUserProvisioningStateInitiallyDone
+        mHelper.markUserProvisioningStateInitiallyDone(params);
+
+        // THEN both the user who is setting DO and the headless system user's states
+        // should be set to INCOMPLETE
+        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_INCOMPLETE,
+            PRIMARY_USER_ID);
+        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_INCOMPLETE,
+            SYSTEM_USER_ID);
     }
 
     @SmallTest
@@ -168,6 +208,25 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testFinalized_DeviceOwner_HeadlessSystemUser() {
+        setHeadlessSystemUserMode();
+        // GIVEN that we've provisioned a device owner with skip user setup false
+        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
+            false);
+
+        // WHEN calling markUserProvisioningStateFinalized
+        mHelper.markUserProvisioningStateFinalized(params);
+
+        // THEN both the user who is setting DO and the headless system user's states
+        // should be set to FINALIZED
+        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
+            PRIMARY_USER_ID);
+        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
+            SYSTEM_USER_ID);
+    }
+
+
+    @SmallTest
     public void testIsStateUnmanagedOrFinalized() {
         assertTrue(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_UNMANAGED));
         assertTrue(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_SETUP_FINALIZED));
@@ -187,5 +246,9 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
                 .setProvisioningAction(action)
                 .setSkipUserSetup(skipUserSetup)
                 .build();
+    }
+
+    private void setHeadlessSystemUserMode() {
+        when(mUtils.isHeadlessSystemUserMode()).thenReturn(true);
     }
 }

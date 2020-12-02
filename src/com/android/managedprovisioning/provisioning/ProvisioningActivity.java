@@ -135,15 +135,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         super.onCreate(savedInstanceState);
 
         if (mUserProvisioningStateHelper == null) {
-            // In headless system user mode, DO will always be set on system user
-            // regardless of the calling user.
-            if (mUtils.isHeadlessSystemUserMode()
-                    && mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
-                mUserProvisioningStateHelper =
-                        new UserProvisioningStateHelper(this, UserHandle.USER_SYSTEM);
-            } else {
-                mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
-            }
+            mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
         }
     }
 
