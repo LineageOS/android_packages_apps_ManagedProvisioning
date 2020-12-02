@@ -102,6 +102,7 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_SSID_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT;
+
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.Mockito.when;
@@ -124,8 +125,8 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StoreUtils;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
@@ -228,7 +229,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
 
         when(mSharedPreferences.incrementAndGetProvisioningId()).thenReturn(TEST_PROVISIONING_ID);
         mPropertiesProvisioningDataParser = new PropertiesProvisioningDataParser(mContext,
-                new ParserUtils(), mSharedPreferences);
+                new ParserUtils(), new SettingsFacade(), mSharedPreferences);
     }
 
     // TODO(alexkershaw): split this huge test into individual tests using

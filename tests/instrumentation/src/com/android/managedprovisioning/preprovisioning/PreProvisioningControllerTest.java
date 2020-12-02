@@ -21,8 +21,13 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
@@ -78,6 +83,9 @@ import com.android.managedprovisioning.parser.MessageParser;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SmallTest
 public class PreProvisioningControllerTest extends AndroidTestCase {
@@ -729,22 +737,32 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void
-    testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_hasExactlyThreeExtras() {
+            testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_hasExactlyFourExtras() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.size()).isEqualTo(3);
+        assertThat(bundle.size()).isEqualTo(4);
     }
 
     public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_imeiPassed() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -757,6 +775,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -766,18 +789,54 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void
-    testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_onlyAdminBundlePassed() {
+            testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_adminBundlePassed() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(false)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.keySet()).containsExactly(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        assertThat(bundle.keySet()).contains(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
         assertThat((PersistableBundle) bundle.getParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
                 .isEqualTo(TEST_ADMIN_BUNDLE);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_allowedModesPassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getIntegerArrayList(EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES))
+                .containsExactly(PROVISIONING_MODE_MANAGED_PROFILE);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_hasExactlyTwoExtras() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.size()).isEqualTo(2);
     }
 
     public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_adminBundlePassed() {
