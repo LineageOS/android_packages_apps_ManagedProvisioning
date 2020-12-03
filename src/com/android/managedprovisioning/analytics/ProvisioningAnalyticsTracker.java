@@ -50,9 +50,9 @@ import android.content.Intent;
 import android.stats.devicepolicy.DevicePolicyEnums;
 
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
+
 import java.util.List;
 
 /**
@@ -116,7 +116,6 @@ public class ProvisioningAnalyticsTracker {
     public void logProvisioningStarted(Context context, ProvisioningParams params) {
         logDpcPackageInformation(context, params.inferDeviceAdminPackageName());
         logNetworkType(context);
-        maybeLogProvisioningFlowType(params);
     }
 
     /**
@@ -343,10 +342,7 @@ public class ProvisioningAnalyticsTracker {
      *
      * @param params Used to extract whether this is the admin integrated flow
      */
-    private void maybeLogProvisioningFlowType(ProvisioningParams params) {
-        if (!params.isOrganizationOwnedProvisioning) {
-            return;
-        }
+    public void logProvisioningFlowType(ProvisioningParams params) {
         mMetricsWriter.write(DevicePolicyEventLogger
                 .createEvent(DevicePolicyEnums.PROVISIONING_FLOW_TYPE)
                 .setInt(params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED
