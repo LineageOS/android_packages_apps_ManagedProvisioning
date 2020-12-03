@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.UserHandle;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.AddWifiNetworkTask;
@@ -38,7 +39,29 @@ import com.android.managedprovisioning.task.VerifyPackageTask;
  */
 public class DeviceOwnerProvisioningController extends AbstractProvisioningController {
 
-    public DeviceOwnerProvisioningController(
+    // To be used in a follow-up CL.
+    private Utils mUtils;
+
+    /**
+     * Instantiates a new {@link DeviceOwnerProvisioningController} instance and creates the
+     * relevant tasks.
+     *
+     * @return the newly created instance
+     */
+    static DeviceOwnerProvisioningController createInstance(
+            Context context,
+            ProvisioningParams params,
+            int userId,
+            ProvisioningControllerCallback callback,
+            Utils utils) {
+        DeviceOwnerProvisioningController controller =
+                new DeviceOwnerProvisioningController(context, params, userId, callback);
+        controller.mUtils = utils;
+        controller.setUpTasks();
+        return controller;
+    }
+
+    private DeviceOwnerProvisioningController(
             Context context,
             ProvisioningParams params,
             int userId,

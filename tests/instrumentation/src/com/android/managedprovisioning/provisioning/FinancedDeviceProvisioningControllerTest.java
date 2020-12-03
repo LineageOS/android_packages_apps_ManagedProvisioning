@@ -108,7 +108,7 @@ public class FinancedDeviceProvisioningControllerTest extends ProvisioningContro
     }
 
     private void createController(ProvisioningParams params) {
-        mController = new FinancedDeviceProvisioningController(
+        mController = FinancedDeviceProvisioningController.createInstance(
                 getContext(),
                 params,
                 TEST_USER_ID,

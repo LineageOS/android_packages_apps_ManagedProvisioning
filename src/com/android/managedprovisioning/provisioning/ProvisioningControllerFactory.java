@@ -45,19 +45,20 @@ public class ProvisioningControllerFactory {
             int deviceOwner = mUtils.isHeadlessSystemUserMode()
                         ? UserHandle.USER_SYSTEM : UserHandle.myUserId();
             ProvisionLogger.logi("Setting device owner on user: " + deviceOwner);
-            return new DeviceOwnerProvisioningController(
+            return DeviceOwnerProvisioningController.createInstance(
                     context,
                     params,
                     deviceOwner,
-                    callback);
+                    callback,
+                    mUtils);
         } else if (mUtils.isFinancedDeviceAction(params.provisioningAction)) {
-            return new FinancedDeviceProvisioningController(
+            return FinancedDeviceProvisioningController.createInstance(
                     context,
                     params,
                     UserHandle.myUserId(),
                     callback);
         } else {
-            return new ProfileOwnerProvisioningController(
+            return ProfileOwnerProvisioningController.createInstance(
                     context,
                     params,
                     UserHandle.myUserId(),

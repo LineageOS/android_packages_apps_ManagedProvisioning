@@ -41,7 +41,24 @@ import com.android.managedprovisioning.task.StartManagedProfileTask;
 public class ProfileOwnerProvisioningController extends AbstractProvisioningController {
     private final int mParentUserId;
 
-    public ProfileOwnerProvisioningController(
+    /**
+     * Instantiates a new {@link ProfileOwnerProvisioningController} instance and creates the
+     * relevant tasks.
+     *
+     * @return the newly created instance
+     */
+    static ProfileOwnerProvisioningController createInstance(
+            Context context,
+            ProvisioningParams params,
+            int userId,
+            ProvisioningControllerCallback callback) {
+        ProfileOwnerProvisioningController controller =
+                new ProfileOwnerProvisioningController(context, params, userId, callback);
+        controller.setUpTasks();
+        return controller;
+    }
+
+    private ProfileOwnerProvisioningController(
             Context context,
             ProvisioningParams params,
             int userId,
