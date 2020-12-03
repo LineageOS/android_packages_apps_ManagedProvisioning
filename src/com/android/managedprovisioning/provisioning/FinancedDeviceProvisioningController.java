@@ -33,7 +33,24 @@ import com.android.managedprovisioning.task.VerifyPackageTask;
  */
 public final class FinancedDeviceProvisioningController extends AbstractProvisioningController  {
 
-    public FinancedDeviceProvisioningController(
+    /**
+     * Instantiates a new {@link FinancedDeviceProvisioningController} instance and creates the
+     * relevant tasks.
+     *
+     * @return the newly created instance
+     */
+    static FinancedDeviceProvisioningController createInstance(
+            Context context,
+            ProvisioningParams params,
+            int userId,
+            ProvisioningControllerCallback callback) {
+        FinancedDeviceProvisioningController controller =
+                new FinancedDeviceProvisioningController(context, params, userId, callback);
+        controller.setUpTasks();
+        return controller;
+    }
+
+    private FinancedDeviceProvisioningController(
             Context context,
             ProvisioningParams params,
             int userId,

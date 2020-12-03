@@ -33,7 +33,24 @@ import com.android.managedprovisioning.task.VerifyPackageTask;
  */
 public class AdminIntegratedFlowPrepareController extends AbstractProvisioningController {
 
-    public AdminIntegratedFlowPrepareController(
+    /**
+     * Instantiates a new {@link AdminIntegratedFlowPrepareController} instance and creates the
+     * relevant tasks.
+     *
+     * @return the newly created instance
+     */
+    static AdminIntegratedFlowPrepareController createInstance(
+            Context context,
+            ProvisioningParams params,
+            int userId,
+            ProvisioningControllerCallback callback) {
+        AdminIntegratedFlowPrepareController controller =
+                new AdminIntegratedFlowPrepareController(context, params, userId, callback);
+        controller.setUpTasks();
+        return controller;
+    }
+
+    private AdminIntegratedFlowPrepareController(
             Context context,
             ProvisioningParams params,
             int userId,

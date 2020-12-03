@@ -84,8 +84,6 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         mProvisioningAnalyticsTracker = new ProvisioningAnalyticsTracker(
                 MetricsWriterFactory.getMetricsWriter(mContext, new SettingsFacade()),
                 new ManagedProvisioningSharedPreferences(context));
-
-        setUpTasks();
     }
 
     @MainThread

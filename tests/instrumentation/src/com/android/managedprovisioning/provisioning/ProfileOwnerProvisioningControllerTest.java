@@ -203,7 +203,7 @@ public class ProfileOwnerProvisioningControllerTest extends ProvisioningControll
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
                 .build();
 
-        mController = new ProfileOwnerProvisioningController(
+        mController = ProfileOwnerProvisioningController.createInstance(
                 mContext,
                 mParams,
                 TEST_PARENT_USER_ID,

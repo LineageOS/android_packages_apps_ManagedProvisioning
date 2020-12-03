@@ -27,6 +27,7 @@ import android.content.ComponentName;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
@@ -64,7 +65,11 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
             .setSignatureChecksum(TEST_PACKAGE_CHECKSUM)
             .build();
 
-    @Mock private ProvisioningControllerCallback mCallback;
+    @Mock
+    private ProvisioningControllerCallback mCallback;
+
+    @Mock
+    private Utils mUtils;
 
     @SmallTest
     public void testRunAllTasks() throws Exception {
@@ -232,11 +237,12 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
     }
 
     private void createController(ProvisioningParams params) {
-        mController = new DeviceOwnerProvisioningController(
+        mController = DeviceOwnerProvisioningController.createInstance(
                 getContext(),
                 params,
                 TEST_USER_ID,
-                mCallback);
+                mCallback,
+                mUtils);
     }
 
     private ProvisioningParams.Builder createProvisioningParamsBuilder() {

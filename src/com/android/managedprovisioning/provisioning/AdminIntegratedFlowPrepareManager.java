@@ -143,7 +143,7 @@ class AdminIntegratedFlowPrepareManager implements ProvisioningControllerCallbac
     }
 
     private AbstractProvisioningController getController(ProvisioningParams params) {
-        return new AdminIntegratedFlowPrepareController(
+        return AdminIntegratedFlowPrepareController.createInstance(
                 mContext,
                 params,
                 UserHandle.myUserId(),
