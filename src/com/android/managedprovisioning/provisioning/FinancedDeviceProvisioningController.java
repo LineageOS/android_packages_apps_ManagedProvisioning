@@ -23,10 +23,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.DeviceOwnerInitializeProvisioningTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
-import com.android.managedprovisioning.task.DownloadPackageTask;
-import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
-import com.android.managedprovisioning.task.VerifyPackageTask;
 
 /**
  * Controller for financed device provisioning.
@@ -62,12 +59,8 @@ public final class FinancedDeviceProvisioningController extends AbstractProvisio
     protected void setUpTasks() {
         addTasks(new DeviceOwnerInitializeProvisioningTask(mContext, mParams, this));
 
-        if (mParams.deviceAdminDownloadInfo != null) {
-            DownloadPackageTask downloadTask = new DownloadPackageTask(mContext, mParams, this);
-            addTasks(downloadTask,
-                    new VerifyPackageTask(downloadTask, mContext, mParams, this),
-                    new InstallPackageTask(downloadTask, mContext, mParams, this));
-        }
+        addDownloadAndInstallDeviceOwnerPackageTasks();
+
         addTasks(
                 new SetDevicePolicyTask(mContext, mParams, this),
                 new DisallowAddUserTask(mContext, mParams, this));

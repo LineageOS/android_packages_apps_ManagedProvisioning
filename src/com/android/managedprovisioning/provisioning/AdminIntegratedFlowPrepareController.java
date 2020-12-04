@@ -66,12 +66,7 @@ public class AdminIntegratedFlowPrepareController extends AbstractProvisioningCo
             addTasks(new ConnectMobileNetworkTask(mContext, mParams, this));
         }
 
-        if (mParams.deviceAdminDownloadInfo != null) {
-            DownloadPackageTask downloadTask = new DownloadPackageTask(mContext, mParams, this);
-            addTasks(downloadTask,
-                    new VerifyPackageTask(downloadTask, mContext, mParams, this),
-                    new InstallPackageTask(downloadTask, mContext, mParams, this));
-        }
+        addDownloadAndInstallDeviceOwnerPackageTasks();
     }
 
     @Override
