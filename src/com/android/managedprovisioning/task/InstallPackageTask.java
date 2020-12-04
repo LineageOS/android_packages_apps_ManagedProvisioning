@@ -122,7 +122,8 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         String packageLocation = mDownloadPackageTask.getDownloadedPackageLocation();
         String packageName = mProvisioningParams.inferDeviceAdminPackageName();
 
-        ProvisionLogger.logi("Installing package " + packageName);
+        ProvisionLogger.logi("Installing package " + packageName + " on user " + userId + " from "
+                + packageLocation);
         if (TextUtils.isEmpty(packageLocation)) {
             // Do not log time if not installing any package, as that isn't useful.
             success();

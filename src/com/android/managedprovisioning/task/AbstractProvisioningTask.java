@@ -24,7 +24,6 @@ import android.content.Context;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.AnalyticsUtils;
 import com.android.managedprovisioning.analytics.MetricsLoggerWrapper;
-import com.android.managedprovisioning.analytics.MetricsWriter;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.analytics.TimeLogger;
