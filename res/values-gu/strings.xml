@@ -25,7 +25,7 @@
     <string name="company_controls_workspace" msgid="2808025277267917221">"તમારી સંસ્થા આ પ્રોફાઇલને નિયંત્રિત કરે છે અને તેને સુરક્ષિત રાખે છે. તમે તમારા ઉપકરણ પર બાકીનું બધું નિયંત્રિત કરો છો."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"તમારી સંસ્થા આ ઉપકરણનું નિયંત્રણ કરશે અને તેને સુરક્ષિત રાખશે."</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"નીચેની એપ્લિકેશનને આ પ્રોફાઇલ ઍક્સેસ કરવાની જરૂર પડશે:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની ઍપ્લિકેશન તમારા ઉપકરણને સંચાલિત કરશે:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની ઍપ તમારા ડિવાઇસને મેનેજ કરશે:"</string>
     <string name="next" msgid="1004321437324424398">"આગલું"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"કાર્યાલયની પ્રોફાઇલ સેટ કરી રહ્યાં છીએ..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"તમારા IT વ્યવસ્થાપક સેટિંગ, કૉર્પોરેટ ઍક્સેસ, ઍપ, પરવાનગીઓ અને તમારી નેટવર્ક પ્રવૃત્તિ સહિતનો આ પ્રોફાઇલ સાથે સંલગ્ન ડેટા, ઉપરાંત તમારા ડિવાઇસનું સ્થાન, કૉલ ઇતિહાસ અને સંપર્ક શોધ ઇતિહાસને મૉનિટર અને મેનેજ કરવાની ક્ષમતા ધરાવે છે.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>તમારી સંસ્થાની પ્રાઇવસી પૉલિસી સહિતની વધુ માહિતી માટે તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો."</string>
@@ -39,7 +39,7 @@
     <string name="url_error" msgid="5958494012986243186">"આ લિંક પ્રદર્શિત કરી શકાશે નહીં."</string>
     <string name="terms" msgid="8295436105384703903">"શરતો"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"કાર્ય પ્રોફાઇલની માહિતી"</string>
-    <string name="managed_device_info" msgid="1529447646526616811">"સંચાલિત ઉપકરણની માહિતી"</string>
+    <string name="managed_device_info" msgid="1529447646526616811">"મેનેજ કરેલ ડિવાઇસની માહિતી"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ઑફિસની પ્રોફાઇલ"</string>
     <string name="default_first_meat_user_name" msgid="7540515892748490540">"પ્રાથમિક વપરાશકર્તા"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"વર્તમાન પ્રોફાઇલ કાઢી નાખીએ?"</string>

@@ -70,7 +70,7 @@
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ಮೊಬೈಲ್‌ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="progress_download" msgid="3522436271691064624">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_install" msgid="2258045670385866183">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ಸಿಸ್ಟಂ ಅಗತ್ಯವಿಲ್ಲದ ಆಪ್‌ ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ"</string>
+    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ಸಿಸ್ಟಂ ಅಗತ್ಯವಿಲ್ಲದ ಆ್ಯಪ್‌ ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ"</string>
     <string name="progress_finishing_touches" msgid="9037776404089697198">"ಅಂತಿಮ ಸ್ಪರ್ಶಗಳನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ..."</string>
     <string name="progress_set_owner" msgid="8214062820093757961">"ಸಾಧನದ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="progress_initialize" msgid="1104643492713424939">"ಸಾಧನವನ್ನು ಆರಂಭಿಸಲಾಗುತ್ತಿದೆ..."</string>
