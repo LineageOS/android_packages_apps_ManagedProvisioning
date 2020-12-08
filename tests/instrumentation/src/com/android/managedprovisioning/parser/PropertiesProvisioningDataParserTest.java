@@ -38,8 +38,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
@@ -82,8 +80,6 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT;
@@ -154,7 +150,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = "true";
     private static final boolean TEST_SKIP_ENCRYPTION = true;
     private static final boolean TEST_USE_MOBILE_DATA = false;
-    private static final boolean TEST_SKIP_USER_SETUP = true;
     private static final long TEST_PROVISIONING_ID = 2000L;
     private static final String TEST_ACCOUNT_TO_MIGRATE ="user@gmail.com";
     private static final String INVALID_MIME_TYPE = "invalid-mime-type";
@@ -207,7 +202,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_ORGANIZATION_NAME = "TestOrganizationName";
     private static final String TEST_SUPPORT_URL = "https://www.support.url/";
     private static final String TEST_DEVICE_ADMIN_PACKAGE_LABEL = "TestPackage";
-    private static final String TEST_SKIP_USER_CONSENT = "true";
     private static final Uri TEST_URI = Uri.parse("https://www.google.com/");
     private static final String TEST_URI_STRING = "https://www.google.com/";
     private static final String TEST_DISCLAMER_HEADER = "Google";
@@ -467,13 +461,8 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT,
                 TEST_DEVICE_ADMIN_PACKAGE_LABEL);
         propsShort.setProperty(
-                EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT, TEST_SKIP_USER_CONSENT);
-        propsShort.setProperty(
                 EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT,
                 Boolean.toString(TEST_USE_MOBILE_DATA));
-        propsShort.setProperty(
-                EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT,
-                Boolean.toString(TEST_SKIP_USER_SETUP));
         propsShort.setProperty(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT, TEST_URI_STRING);
         propsShort.setProperty(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI_STRING);
@@ -512,11 +501,8 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         propsLong.setProperty(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL);
         propsLong.setProperty(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL, TEST_DEVICE_ADMIN_PACKAGE_LABEL);
-        propsLong.setProperty(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT);
         propsLong.setProperty(
                 EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(TEST_USE_MOBILE_DATA));
-        propsLong.setProperty(
-                EXTRA_PROVISIONING_SKIP_USER_SETUP, Boolean.toString(TEST_SKIP_USER_SETUP));
         propsLong.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI, TEST_URI_STRING);
         propsLong.setProperty(EXTRA_PROVISIONING_LOGO_URI, TEST_URI_STRING);
 

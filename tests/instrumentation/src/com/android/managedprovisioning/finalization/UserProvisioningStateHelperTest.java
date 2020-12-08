@@ -75,8 +75,8 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     @SmallTest
     public void testInitiallyDone_ProfileAfterSuw() {
         // GIVEN that we've provisioned a managed profile after SUW
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE,
-                false);
+        final ProvisioningParams params =
+                createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
         when(mUtils.isManagedProfileProvisioningStartedByDpc(mContext, params, mSettingsFacade))
@@ -96,8 +96,8 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     @SmallTest
     public void testInitiallyDone_ProfileDuringSuw() {
         // GIVEN that we've provisioned a managed profile during SUW
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE,
-                false);
+        final ProvisioningParams params =
+                createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
 
@@ -113,78 +113,10 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     }
 
     @SmallTest
-    public void testInitiallyDone_DeviceOwnerSkipUserSetup() {
-        // GIVEN that we've provisioned a device owner with skip user setup true
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
-                true);
-        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
-
-        // WHEN calling markUserProvisioningStateInitiallyDone
-        mHelper.markUserProvisioningStateInitiallyDone(params);
-
-        // THEN the primary user's state should be set to COMPLETE
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_COMPLETE,
-                PRIMARY_USER_ID);
-    }
-
-    @SmallTest
-    public void testInitiallyDone_DeviceOwnerSkipUserSetup_HeadlessSystemUser() {
-        setHeadlessSystemUserMode();
-        // GIVEN that we've provisioned a device owner with skip user setup true
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
-            true);
-        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
-
-        // WHEN calling markUserProvisioningStateInitiallyDone
-        mHelper.markUserProvisioningStateInitiallyDone(params);
-
-        // THEN both the user who is setting DO and the headless system user's states
-        // should be set to COMPLETE
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_COMPLETE,
-            PRIMARY_USER_ID);
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_COMPLETE,
-            SYSTEM_USER_ID);
-    }
-
-    @SmallTest
-    public void testInitiallyDone_DeviceOwnerDontSkipUserSetup() {
-        // GIVEN that we've provisioned a device owner with skip user setup false
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
-                false);
-        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
-
-        // WHEN calling markUserProvisioningStateInitiallyDone
-        mHelper.markUserProvisioningStateInitiallyDone(params);
-
-        // THEN the primary user's state should be set to INCOMPLETE
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_INCOMPLETE,
-                PRIMARY_USER_ID);
-    }
-
-    @SmallTest
-    public void testInitiallyDone_DeviceOwnerDontSkipUserSetup_HeadlessSystemUser() {
-        setHeadlessSystemUserMode();
-        // GIVEN that we've provisioned a device owner with skip user setup false
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
-            false);
-        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
-
-        // WHEN calling markUserProvisioningStateInitiallyDone
-        mHelper.markUserProvisioningStateInitiallyDone(params);
-
-        // THEN both the user who is setting DO and the headless system user's states
-        // should be set to INCOMPLETE
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_INCOMPLETE,
-            PRIMARY_USER_ID);
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_INCOMPLETE,
-            SYSTEM_USER_ID);
-    }
-
-    @SmallTest
     public void testFinalized_ManagedProfile() {
         // GIVEN that we've provisioned a managed profile
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE,
-                false);
+        final ProvisioningParams params =
+                createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
 
         // WHEN calling markUserProvisioningStateFinalized
@@ -201,8 +133,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     @SmallTest
     public void testFinalized_DeviceOwner() {
         // GIVEN that we've provisioned a device owner with skip user setup false
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
-                false);
+        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
 
         // WHEN calling markUserProvisioningStateFinalized
         mHelper.markUserProvisioningStateFinalized(params);
@@ -216,8 +147,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
     public void testFinalized_DeviceOwner_HeadlessSystemUser() {
         setHeadlessSystemUserMode();
         // GIVEN that we've provisioned a device owner with skip user setup false
-        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE,
-            false);
+        final ProvisioningParams params = createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
 
         // WHEN calling markUserProvisioningStateFinalized
         mHelper.markUserProvisioningStateFinalized(params);
@@ -245,11 +175,10 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         return mHelper.isStateUnmanagedOrFinalized();
     }
 
-    private ProvisioningParams createProvisioningParams(String action, boolean skipUserSetup) {
+    private ProvisioningParams createProvisioningParams(String action) {
         return new ProvisioningParams.Builder()
                 .setDeviceAdminPackageName(TEST_MDM_PACKAGE_NAME)
                 .setProvisioningAction(action)
-                .setSkipUserSetup(skipUserSetup)
                 .build();
     }
 
