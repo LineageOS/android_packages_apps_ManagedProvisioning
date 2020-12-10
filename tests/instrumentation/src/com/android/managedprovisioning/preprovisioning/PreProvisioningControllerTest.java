@@ -174,7 +174,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
         when(mUserManager.getUserHandle()).thenReturn(TEST_USER_ID);
 
-        when(mUtils.isSplitSystemUser()).thenReturn(false);
         when(mUtils.isEncryptionRequired()).thenReturn(false);
         when(mUtils.currentLauncherSupportsManagedProfiles(mContext)).thenReturn(true);
         when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(-1);

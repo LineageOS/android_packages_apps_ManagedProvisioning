@@ -20,8 +20,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
@@ -98,8 +96,6 @@ public class ParserUtils {
         switch (intent.getAction()) {
             // Trivial cases.
             case ACTION_PROVISION_MANAGED_DEVICE:
-            case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
-            case ACTION_PROVISION_MANAGED_USER:
             case ACTION_PROVISION_MANAGED_PROFILE:
             case ACTION_PROVISION_FINANCED_DEVICE:
                 return intent.getAction();

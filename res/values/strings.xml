@@ -72,9 +72,6 @@
   <!-- Default profile name used for the creation of work profiles. [CHAR LIMIT=NONE] -->
   <string name="default_managed_profile_name">Work profile</string>
 
-  <!-- Default name used for the creation of the first meat user on a device with system-user split. [CHAR LIMIT=NONE] -->
-  <string name="default_first_meat_user_name">Primary user</string>
-
   <!-- Title on the dialog that prompts the user to confirm that they really want to delete their existing work profile-->
   <string name="delete_profile_title">Delete existing profile?</string>
 

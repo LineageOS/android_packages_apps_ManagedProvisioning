@@ -20,15 +20,11 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.CODE_CANNOT_ADD_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.CODE_HAS_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
 import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
-import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER_SPLIT;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
-import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER;
 import static android.app.admin.DevicePolicyManager.CODE_USER_SETUP_COMPLETED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
@@ -59,7 +55,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.net.ConnectivityManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -530,15 +525,8 @@ public class PreProvisioningController {
         } else { // DO case
             // Cancel the boot reminder as provisioning has now started.
             mEncryptionController.cancelEncryptionReminder();
-            if (isMeatUserCreationRequired(mParams.provisioningAction)) {
-                // Create the primary user, and continue the provisioning in this user.
-                // successful end of this task triggers provisioning
-                // TODO: refactor as evil - logic should be less spread out
-                new CreatePrimaryUserTask().execute();
-            } else {
-                stopTimeLogger();
-                mUi.startProvisioning(mUserManager.getUserHandle(), mParams);
-            }
+            stopTimeLogger();
+            mUi.startProvisioning(mUserManager.getUserHandle(), mParams);
         }
     }
 
@@ -707,27 +695,6 @@ public class PreProvisioningController {
     }
 
     /**
-     * Returns whether meat user creation is required or not.
-     * @param action Intent action that started provisioning
-     */
-    public boolean isMeatUserCreationRequired(String action) {
-        if (mUtils.isSplitSystemUser()
-                && ACTION_PROVISION_MANAGED_DEVICE.equals(action)) {
-            List<UserInfo> users = mUserManager.getUsers();
-            if (users.size() > 1) {
-                mUi.showErrorAndClose(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help,
-                        "Cannot start Device Owner Provisioning because there are already "
-                                + users.size() + " users");
-                return false;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Returns whether activity to pick wifi can be requested or not.
      */
     private boolean canRequestWifiPick() {
@@ -794,50 +761,13 @@ public class PreProvisioningController {
         return mGetProvisioningModeUtils;
     }
 
-    // TODO: review the use of async task for the case where the activity might have got killed
-    private class CreatePrimaryUserTask extends AsyncTask<Void, Void, UserInfo> {
-        @Override
-        protected UserInfo doInBackground(Void... args) {
-            // Create the user where we're going to install the device owner.
-            UserInfo userInfo = mUserManager.createUser(
-                    mContext.getString(R.string.default_first_meat_user_name),
-                    UserInfo.FLAG_PRIMARY | UserInfo.FLAG_ADMIN);
-
-            if (userInfo != null) {
-                ProvisionLogger.logi("Created user " + userInfo.id + " to hold the device owner");
-            }
-            return userInfo;
-        }
-
-        @Override
-        protected void onPostExecute(UserInfo userInfo) {
-            if (userInfo == null) {
-                mUi.showErrorAndClose(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help,
-                        "Could not create user to hold the device owner");
-            } else {
-                mActivityManager.switchUser(userInfo.id);
-                stopTimeLogger();
-                // TODO: refactor as evil - logic should be less spread out
-                mUi.startProvisioning(userInfo.id, mParams);
-            }
-        }
-    }
-
     private void showProvisioningErrorAndClose(String action, int provisioningPreCondition) {
         // Try to show an error message explaining why provisioning is not allowed.
         switch (action) {
-            case ACTION_PROVISION_MANAGED_USER:
-                mUi.showErrorAndClose(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help,
-                        "Exiting managed user provisioning, setup incomplete");
-                return;
             case ACTION_PROVISION_MANAGED_PROFILE:
                 showManagedProfileErrorAndClose(provisioningPreCondition);
                 return;
             case ACTION_PROVISION_MANAGED_DEVICE:
-            case ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE:
-                showDeviceOwnerErrorAndClose(provisioningPreCondition);
                 return;
         }
         // This should never be the case, as showProvisioningError is always called after
@@ -884,11 +814,6 @@ public class PreProvisioningController {
                                     + "profiles");
                 }
                 break;
-            case CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER:
-                mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                        R.string.contact_your_admin_for_help,
-                        "Exiting managed profile provisioning, a device owner exists");
-                break;
             default:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
                         R.string.contact_your_admin_for_help,
@@ -913,11 +838,6 @@ public class PreProvisioningController {
                 mUi.showErrorAndClose(R.string.cant_set_up_device,
                         R.string.contact_your_admin_for_help,
                         "Device owner can only be set up for USER_SYSTEM.");
-                return;
-            case CODE_NOT_SYSTEM_USER_SPLIT:
-                mUi.showErrorAndClose(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help,
-                        "System User Device owner can only be set on a split-user system.");
                 return;
         }
         mUi.showErrorAndClose(R.string.cant_set_up_device, R.string.contact_your_admin_for_help,

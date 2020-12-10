@@ -20,8 +20,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
@@ -43,9 +41,9 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -118,8 +116,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     private static final Set<String> PROVISIONING_ACTIONS_SUPPORT_MIN_PROVISIONING_DATA =
             new HashSet<>(Arrays.asList(
                     ACTION_PROVISION_MANAGED_DEVICE,
-                    ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE,
-                    ACTION_PROVISION_MANAGED_USER,
                     ACTION_PROVISION_MANAGED_PROFILE,
                     ACTION_PROVISION_MANAGED_DEVICE_SILENTLY));
 
@@ -498,7 +494,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
      *     <li>{@link EXTRA_PROVISIONING_MAIN_COLOR}</li>
      *     <li>
      *         {@link EXTRA_PROVISIONING_SKIP_USER_SETUP} only in
-     *         {@link ACTION_PROVISION_MANAGED_USER} and {@link ACTION_PROVISION_MANAGED_DEVICE}.
+     *         {@link ACTION_PROVISION_MANAGED_DEVICE}.
      *     </li>
      *     <li>{@link EXTRA_PROVISIONING_SKIP_ENCRYPTION}</li>
      *     <li>{@link EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED}</li>
@@ -545,14 +541,12 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 deviceAdminPackageName = null;
             }
 
-            // Parse skip user setup in ACTION_PROVISION_MANAGED_USER and
-            // ACTION_PROVISION_MANAGED_DEVICE (sync auth) only. This extra is not supported if
-            // provisioning was started by trusted source, as it is not clear where SUW should
-            // continue from.
+            // Parse skip user setup ACTION_PROVISION_MANAGED_DEVICE (sync auth) only.
+            // This extra is not supported if provisioning was started by trusted source,
+            // as it is not clear where SUW should continue from.
             boolean skipUserSetup = ProvisioningParams.DEFAULT_SKIP_USER_SETUP;
             if (!isProvisionManagedDeviceFromTrustedSourceIntent
-                    && (provisioningAction.equals(ACTION_PROVISION_MANAGED_USER)
-                            || provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE))) {
+                    && provisioningAction.equals(ACTION_PROVISION_MANAGED_DEVICE)) {
                 skipUserSetup = getBooleanExtraFromLongName(
                         intent, EXTRA_PROVISIONING_SKIP_USER_SETUP,
                         ProvisioningParams.DEFAULT_SKIP_USER_SETUP);
