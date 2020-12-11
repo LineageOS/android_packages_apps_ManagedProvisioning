@@ -182,7 +182,7 @@ public class ProvisioningActivityTest {
     @Before
     public void setup() {
         mUtils = spy(new Utils());
-        doNothing().when(mUtils).sendFactoryResetBroadcast(any(Context.class), anyString());
+        doNothing().when(mUtils).factoryReset(any(Context.class), anyString());
         doReturn(DEFAULT_MAIN_COLOR).when(mUtils).getAccentColor(any());
     }
 
@@ -363,8 +363,7 @@ public class ProvisioningActivityTest {
                 .perform(click());
 
         // THEN factory reset should be invoked
-        verify(mUtils, timeout(BROADCAST_TIMEOUT))
-                .sendFactoryResetBroadcast(any(Context.class), anyString());
+        verify(mUtils, timeout(BROADCAST_TIMEOUT)).factoryReset(any(Context.class), anyString());
     }
 
     @Test

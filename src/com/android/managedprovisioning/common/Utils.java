@@ -522,17 +522,10 @@ public class Utils {
     }
 
     /**
-     * Sends an intent to trigger a factory reset.
+     * Factory resets the device.
      */
-    // TODO: Move the FR intent into a Globals class.
-    public void sendFactoryResetBroadcast(Context context, String reason) {
-        // TODO (b/171603586): skip factory reset for Auto before driving restrictions implemented
-        Intent intent = new Intent(Intent.ACTION_FACTORY_RESET);
-        // Send explicit broadcast due to Broadcast Limitations
-        intent.setPackage("android");
-        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-        intent.putExtra(Intent.EXTRA_REASON, reason);
-        context.sendBroadcast(intent);
+    public void factoryReset(Context context, String reason) {
+        context.getSystemService(DevicePolicyManager.class).factoryReset(reason);
     }
 
     /**

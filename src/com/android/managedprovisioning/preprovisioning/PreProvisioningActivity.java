@@ -273,15 +273,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 onProvisioningAborted();
                 break;
             case BACK_PRESSED_DIALOG_RESET:
-                mUtils.sendFactoryResetBroadcast(this,
-                        "Provisioning cancelled by user on consent screen");
+                mUtils.factoryReset(this, "Provisioning cancelled by user on consent screen");
                 onProvisioningAborted();
                 break;
             case LAUNCHER_INVALID_DIALOG:
                 requestLauncherPick();
                 break;
             case ERROR_DIALOG_RESET:
-                getUtils().sendFactoryResetBroadcast(this, "Error during preprovisioning");
+                getUtils().factoryReset(this, "Error during preprovisioning");
                 setResult(Activity.RESULT_CANCELED);
                 finish();
                 break;

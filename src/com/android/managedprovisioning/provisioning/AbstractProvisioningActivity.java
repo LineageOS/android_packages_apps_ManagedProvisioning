@@ -20,13 +20,16 @@ import android.annotation.IntDef;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
+
 import androidx.annotation.VisibleForTesting;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -188,14 +191,14 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
                 onProvisioningAborted();
                 break;
             case CANCEL_PROVISIONING_DIALOG_RESET:
-                getUtils().sendFactoryResetBroadcast(this, "Provisioning cancelled by user");
+                getUtils().factoryReset(this, "Provisioning cancelled by user");
                 onProvisioningAborted();
                 break;
             case ERROR_DIALOG_OK:
                 onProvisioningAborted();
                 break;
             case ERROR_DIALOG_RESET:
-                getUtils().sendFactoryResetBroadcast(this, "Error during provisioning");
+                getUtils().factoryReset(this, "Error during provisioning");
                 onProvisioningAborted();
                 break;
             default:
