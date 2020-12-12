@@ -21,6 +21,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
 import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
@@ -36,7 +38,6 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.StringRes;
 import android.annotation.WorkerThread;
-import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -79,7 +80,6 @@ import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.parser.ParserUtils;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
@@ -451,22 +451,27 @@ public class Utils {
 
     /**
      * Returns {@code true} if the admin-integrated flow should be performed.
+     *
+     * <p>This method must not be called before the admin app has been installed. If it has not
+     * yet been installed, consider using {@link
+     * #checkAdminIntegratedFlowPreconditions(ProvisioningParams)}.
+     *
      * <p>To perform the admin-integrated flow, all of the following criteria must be fulfilled:
      * <ul>
+     *     <li>All of the preconditions in {@link
+     *     #checkAdminIntegratedFlowPreconditions(ProvisioningParams)}</li>
      *     <li>The DPC has an activity with intent filter with action {@link
      *     DevicePolicyManager#ACTION_GET_PROVISIONING_MODE}</li>
      *     <li>The DPC has an activity with intent filter with action {@link
      *     DevicePolicyManager#ACTION_ADMIN_POLICY_COMPLIANCE}</li>
-     *     <li>Device is organization-owned (see {@link
-     *     ParserUtils#isOrganizationOwnedProvisioning(Context, Intent, SettingsFacade)}
-     *     for details)</li>
-     *     <li>The provisioning is not triggered by NFC</li>
-     *     <li>{@link ActivityManager#isLowRamDevice()} returns {@code false}</li>
      * </ul>
      */
     public boolean shouldPerformAdminIntegratedFlow(Context context, ProvisioningParams params,
             PolicyComplianceUtils policyComplianceUtils,
             GetProvisioningModeUtils provisioningModeUtils) {
+        if (!checkAdminIntegratedFlowPreconditions(params)) {
+            return false;
+        }
         boolean isPolicyComplianceScreenAvailable =
                 policyComplianceUtils.isPolicyComplianceActivityResolvableForUser(context, params,
                         this, UserHandle.SYSTEM);
@@ -480,18 +485,37 @@ public class Utils {
             ProvisionLogger.logi("Get provisioning mode DPC screen not available.");
             return false;
         }
-        if (!params.isOrganizationOwnedProvisioning) {
-            ProvisionLogger.logi("Device not organization-owned.");
-            return false;
-        }
+        return true;
+    }
+
+    /**
+     * Returns {@code true} if the admin-integrated flow preconditions are met.
+     *
+     * <p>This method can be called before the admin app has been installed. Returning {@code true}
+     * does not mean the admin-integrated flow should be performed (for that, use {@link
+     * #shouldPerformAdminIntegratedFlow(Context, ProvisioningParams, PolicyComplianceUtils,
+     * GetProvisioningModeUtils)}), but returning {@code false} can be used as an early indication
+     * that it should <i>not</i> be performed.
+     *
+     * <p>The preconditions are:
+     * <ul>
+     *     <li>Provisioning was started using {@link
+     *     DevicePolicyManager#ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}</li>
+     *     <li>The provisioning is not triggered by NFC</li>
+     *     <li>This is not a financed device provisioning</li>
+     * </ul>
+     */
+    public boolean checkAdminIntegratedFlowPreconditions(ProvisioningParams params) {
         if (params.isNfc) {
             ProvisionLogger.logi("NFC provisioning");
             return false;
         }
-        final ActivityManager activityManager = context.getSystemService(ActivityManager.class);
-        boolean lowRamDevice = activityManager.isLowRamDevice();
-        if (lowRamDevice) {
-            ProvisionLogger.logi("This is a low RAM device.");
+        if (isFinancedDeviceAction(params.provisioningAction)) {
+            ProvisionLogger.logi("Financed device provisioning");
+            return false;
+        }
+        if (!params.startedByTrustedSource) {
+            ProvisionLogger.logi("Provisioning not started by a trusted source");
             return false;
         }
         return true;
@@ -879,6 +903,31 @@ public class Utils {
         final int negativeResId = R.string.profile_owner_cancel_cancel;
         final int dialogMsgResId = R.string.profile_owner_cancel_message;
         return getBaseDialogBuilder(positiveResId, negativeResId, dialogMsgResId);
+    }
+
+    // TODO(b/175017533): determine whether to show the ownership disclaimer screen for
+    // managed account provisioning in an upcoming CL
+    public boolean shouldShowOwnershipDisclaimerScreen(ProvisioningParams params) {
+        return true;
+    }
+
+    public boolean isOrganizationOwnedAllowed(ProvisioningParams params) {
+        return params.initiatorRequestedProvisioningModes == SUPPORTED_MODES_ORGANIZATION_OWNED
+                || params.initiatorRequestedProvisioningModes
+                        == SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
+    }
+
+    public boolean isManagedProfileProvisioningStartedByDpc(
+            Context context,
+            ProvisioningParams params,
+            SettingsFacade settingsFacade) {
+        if (!ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)) {
+            return false;
+        }
+        if (params.startedByTrustedSource) {
+            return false;
+        }
+        return settingsFacade.isUserSetupCompleted(context);
     }
 
     private SimpleDialog.Builder getBaseDialogBuilder(

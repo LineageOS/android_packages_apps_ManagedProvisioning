@@ -24,41 +24,34 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHA
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES;
 
 import android.app.admin.DevicePolicyManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A utility class with methods related to parsing the provisioning extras
  */
 public class ParserUtils {
-
-    /**
-     * Returns whether the given intent is for organization owned provisioning.
-     *
-     * <p>QR, cloud enrollment and NFC are considered owned by an organization.
-     */
-    boolean isOrganizationOwnedProvisioning(Intent intent) {
-        if (ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            return true;
-        }
-        int provisioningTrigger = extractProvisioningTrigger(intent);
-        switch (provisioningTrigger) {
-            case PROVISIONING_TRIGGER_CLOUD_ENROLLMENT:
-            case PROVISIONING_TRIGGER_QR_CODE:
-                return true;
-            default:
-                return false;
-        }
-    }
 
     /**
      * Returns the provisioning trigger supplied in the provisioning extras only if it was supplied
@@ -87,7 +80,8 @@ public class ParserUtils {
      * @return the appropriate DevicePolicyManager declared action for the given incoming intent.
      * @throws IllegalProvisioningArgumentException if intent is malformed
      */
-    String extractProvisioningAction(Intent intent)
+    String extractProvisioningAction(Intent intent,
+            SettingsFacade settingsFacade, Context context)
             throws IllegalProvisioningArgumentException {
         if (intent == null || intent.getAction() == null) {
             throw new IllegalProvisioningArgumentException("Null intent action.");
@@ -123,15 +117,119 @@ public class ParserUtils {
                         throw new IllegalProvisioningArgumentException(
                                 "Unknown NFC bump mime-type: " + mimeType);
                 }
-
-            // Device owner provisioning from a trusted app.
-            // TODO (b/27217042): review for new management modes in split system-user model
             case ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE:
-                return ACTION_PROVISION_MANAGED_DEVICE;
-
+                return settingsFacade.isDuringSetupWizard(context)
+                        ? ACTION_PROVISION_MANAGED_DEVICE
+                        : ACTION_PROVISION_MANAGED_PROFILE;
             default:
                 throw new IllegalProvisioningArgumentException("Unknown intent action "
                         + intent.getAction());
         }
+    }
+
+    /**
+     * Returns an {@link ArrayList} containing the allowed provisioning modes that can be returned
+     * by the DPC for the admin-integrated flow.
+     *
+     * <p>The array will be a subset of {{@link
+     * DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE}, {@link
+     * DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE}, {@link
+     * DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE}}.
+     *
+     * {@code initiatorRequestedSupportedModes} is a validated value passed by the provisioning
+     * initiator via the {@link DevicePolicyManager#EXTRA_PROVISIONING_SUPPORTED_MODES} extra.
+     * Its value can be one of {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED},
+     * {@link DevicePolicyManager#SUPPORTED_MODES_PERSONALLY_OWNED}, {@link
+     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED} or {@link
+     * com.android.managedprovisioning.model.ProvisioningParams
+     * #DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES} if the value is not passed
+     * as part of {@link DevicePolicyManager#ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}.
+     *
+     * <p>If the intent action is not {@link
+     * DevicePolicyManager#ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}, an empty array
+     * is returned, since the result is only relevant to the admin-integrated flow.
+     *
+     * <p>If {@link DevicePolicyManager#EXTRA_PROVISIONING_SUPPORTED_MODES} is not provided,
+     * {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED} is used as default.
+     *
+     * <ul>
+     *     <li>
+     *         If only organization-owned provisioning is supported, allow
+     *         {@link DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE} and
+     *         {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE} on an organization
+     *         -owned device.
+     *     </li>
+     *     <li>
+     *          If only personally-owned provisioning is supported, allow just
+     *          {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE} on a
+     *          personally-owned device.
+     *     </li>
+     *     <li>
+     *          If both are supported, allow
+     *          {@link DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE},
+     *          {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE} on an
+     *          organization-owned device, and {@link
+     *          DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE} for a
+     *          managed profile on a personally-owned device.
+     *     </li>
+     *     </li>
+     * </ul>
+     *
+     * <p>The device serial number and IMEI wil be sent to the DPC with the
+     * {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE} and
+     * {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE} extras
+     * only in the first case when organization-owned provisioning is the only ownership model
+     * supported.
+     */
+    /*
+     The method's return type is ArrayList because the result is passed to a Bundle} object via its
+     Bundle#putIntegerArrayList method. This is done to avoid using Bundle#putSerializable with
+     HashSet which is not recommended.
+     */
+    public ArrayList<Integer> getAllowedProvisioningModes(Context context,
+            int initiatorRequestedSupportedModes) {
+        if (initiatorRequestedSupportedModes == DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES) {
+            ProvisionLogger.logi("Not admin-integrated flow, "
+                    + "no allowed provisioning modes necessary.");
+            return new ArrayList<>();
+        }
+        ArrayList<Integer> result = new ArrayList<>();
+        switch (initiatorRequestedSupportedModes) {
+            case SUPPORTED_MODES_ORGANIZATION_OWNED:
+                result.addAll(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE));
+                break;
+            case SUPPORTED_MODES_PERSONALLY_OWNED:
+                result.addAll(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE));
+                break;
+            case SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED:
+                result.addAll(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+                        PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE));
+                break;
+        }
+        ProvisionLogger.logi("Allowed provisioning modes before checking for managed users "
+                + "support: " + result);
+        boolean supportsManagedUsers = supportsManagedUsers(context);
+        if (!supportsManagedUsers) {
+            result.removeAll(List.of(
+                    PROVISIONING_MODE_MANAGED_PROFILE,
+                    PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE));
+        }
+        ProvisionLogger.logi("Supports managed users: " + supportsManagedUsers);
+        if (result.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "No available supported provisioning modes. Requested support mode was "
+                            + initiatorRequestedSupportedModes);
+        }
+        ProvisionLogger.logi("Allowed provisioning modes: " + result);
+        return result;
+    }
+
+    private boolean supportsManagedUsers(Context context) {
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_MANAGED_USERS);
     }
 }

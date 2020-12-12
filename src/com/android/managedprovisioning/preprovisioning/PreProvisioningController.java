@@ -32,12 +32,15 @@ import static android.app.admin.DevicePolicyManager.CODE_SPLIT_SYSTEM_USER_DEVIC
 import static android.app.admin.DevicePolicyManager.CODE_USER_SETUP_COMPLETED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
@@ -199,7 +202,7 @@ public class PreProvisioningController {
          */
         void showCurrentLauncherInvalid();
 
-        void showOrganizationOwnedLandingScreen(ProvisioningParams params);
+        void showOwnershipDisclaimerScreen(ProvisioningParams params);
 
         void prepareFinancedDeviceFlow(ProvisioningParams params);
 
@@ -211,6 +214,8 @@ public class PreProvisioningController {
          *  Abort provisioning and close app
          */
         void abortProvisioning();
+
+        void prepareAdminIntegratedFlow(ProvisioningParams params);
     }
 
     /**
@@ -324,8 +329,14 @@ public class PreProvisioningController {
         mTimeLogger.start();
         mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
 
-        if (mParams.isOrganizationOwnedProvisioning) {
-            mUi.showOrganizationOwnedLandingScreen(mParams);
+        if (mUtils.checkAdminIntegratedFlowPreconditions(mParams)) {
+            // TODO(b/175398565): Remove logic which determines whether the ownership
+            // disclaimer screen is shown
+            if (mUtils.shouldShowOwnershipDisclaimerScreen(mParams)) {
+                mUi.showOwnershipDisclaimerScreen(mParams);
+            } else {
+                mUi.prepareAdminIntegratedFlow(mParams);
+            }
         } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(mParams);
         } else {
@@ -379,6 +390,11 @@ public class PreProvisioningController {
             return;
         }
 
+        if (mParams.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)
+                && mParams.isOrganizationOwnedProvisioning) {
+            mProvisioningAnalyticsTracker.logOrganizationOwnedManagedProfileProvisioning();
+        }
+
         ProvisionLogger.logd("Sending user consent:" + mParams.provisioningAction);
 
         CustomizationParams customization =
@@ -406,22 +422,32 @@ public class PreProvisioningController {
     boolean updateProvisioningParamsFromIntent(Intent resultIntent) {
         final int provisioningMode = resultIntent.getIntExtra(
                 DevicePolicyManager.EXTRA_PROVISIONING_MODE, 0);
-        ProvisioningParams.Builder builder = mParams.toBuilder();
+        if (!mParams.allowedProvisioningModes.contains(provisioningMode)) {
+            ProvisionLogger.loge("Invalid provisioning mode chosen by the DPC: " + provisioningMode
+                    + ", but expected one of " + mParams.allowedProvisioningModes.toString());
+            return false;
+        }
         switch (provisioningMode) {
             case DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
-                builder.setFlowType(FLOW_TYPE_ADMIN_INTEGRATED);
-                builder.setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE);
-                maybeUpdateAdminExtrasBundle(builder, resultIntent);
-                maybeUpdateSkipEducationScreens(builder, resultIntent);
-                mParams = builder.build();
+                updateParamsPostProvisioningModeDecision(
+                        resultIntent,
+                        ACTION_PROVISION_MANAGED_DEVICE,
+                        /* isOrganizationOwnedProvisioning */ true,
+                        /* updateAccountToMigrate */ false);
                 return true;
             case DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE:
-                builder.setFlowType(FLOW_TYPE_ADMIN_INTEGRATED);
-                builder.setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE);
-                maybeUpdateAccountToMigrate(builder, resultIntent);
-                maybeUpdateAdminExtrasBundle(builder, resultIntent);
-                maybeUpdateSkipEducationScreens(builder, resultIntent);
-                mParams = builder.build();
+                updateParamsPostProvisioningModeDecision(
+                        resultIntent,
+                        ACTION_PROVISION_MANAGED_PROFILE,
+                        mUtils.isOrganizationOwnedAllowed(mParams),
+                        /* updateAccountToMigrate */ true);
+                return true;
+            case PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE:
+                updateParamsPostProvisioningModeDecision(
+                        resultIntent,
+                        ACTION_PROVISION_MANAGED_PROFILE,
+                        /* isOrganizationOwnedProvisioning */ false,
+                        /* updateAccountToMigrate */ true);
                 return true;
             default:
                 ProvisionLogger.logw("Unknown returned provisioning mode:"
@@ -430,8 +456,27 @@ public class PreProvisioningController {
         }
     }
 
+    private void updateParamsPostProvisioningModeDecision(Intent resultIntent,
+            String provisioningAction, boolean isOrganizationOwnedProvisioning,
+            boolean updateAccountToMigrate) {
+        ProvisioningParams.Builder builder = mParams.toBuilder();
+        builder.setFlowType(FLOW_TYPE_ADMIN_INTEGRATED);
+        builder.setProvisioningAction(provisioningAction);
+        builder.setIsOrganizationOwnedProvisioning(isOrganizationOwnedProvisioning);
+        maybeUpdateAdminExtrasBundle(builder, resultIntent);
+        maybeUpdateSkipEducationScreens(builder, resultIntent);
+        if (updateAccountToMigrate) {
+            maybeUpdateAccountToMigrate(builder, resultIntent);
+        }
+        mParams = builder.build();
+    }
+
     private void maybeUpdateSkipEducationScreens(ProvisioningParams.Builder builder,
             Intent resultIntent) {
+        // TODO(b/175396701): Remove this hack
+        if (mParams.skipEducationScreens) {
+            return;
+        }
         if (resultIntent.hasExtra(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS)) {
             builder.setSkipEducationScreens(resultIntent.getBooleanExtra(
                     EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, /* defaultValue */ false));
@@ -447,12 +492,21 @@ public class PreProvisioningController {
         }
     }
 
+    /**
+     * Appends the admin bundle in {@code resultIntent}, if provided, to the existing admin bundle,
+     * if it exists, and stores the result in {@code builder}.
+     */
     private void maybeUpdateAdminExtrasBundle(ProvisioningParams.Builder builder,
             Intent resultIntent) {
         if (resultIntent.hasExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE)) {
-            final PersistableBundle bundle = resultIntent.getParcelableExtra(
-                    EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
-            builder.setAdminExtrasBundle(bundle);
+            PersistableBundle resultBundle =
+                    resultIntent.getParcelableExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+            if (mParams.adminExtrasBundle != null) {
+                PersistableBundle existingBundle = new PersistableBundle(mParams.adminExtrasBundle);
+                existingBundle.putAll(resultBundle);
+                resultBundle = existingBundle;
+            }
+            builder.setAdminExtrasBundle(resultBundle);
         }
     }
 
@@ -462,14 +516,20 @@ public class PreProvisioningController {
 
     Bundle getAdditionalExtrasForGetProvisioningModeIntent() {
         Bundle bundle = new Bundle();
-        if (mParams.isOrganizationOwnedProvisioning) {
+        if (shouldPassPersonalDataToAdminApp()) {
             final TelephonyManager telephonyManager = mContext.getSystemService(
                     TelephonyManager.class);
             bundle.putString(EXTRA_PROVISIONING_IMEI, telephonyManager.getImei());
             bundle.putString(EXTRA_PROVISIONING_SERIAL_NUMBER, Build.getSerial());
         }
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mParams.adminExtrasBundle);
+        bundle.putIntegerArrayList(EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES,
+                mParams.allowedProvisioningModes);
         return bundle;
+    }
+
+    private boolean shouldPassPersonalDataToAdminApp() {
+        return mParams.initiatorRequestedProvisioningModes == SUPPORTED_MODES_ORGANIZATION_OWNED;
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {
@@ -512,9 +572,6 @@ public class PreProvisioningController {
         }
 
         if (isProfileOwnerProvisioning()) { // PO case
-            if (mParams.isOrganizationOwnedProvisioning) {
-                mProvisioningAnalyticsTracker.logOrganizationOwnedManagedProfileProvisioning();
-            }
             // Check whether the current launcher supports managed profiles.
             if (!mUtils.currentLauncherSupportsManagedProfiles(mContext)) {
                 mUi.showCurrentLauncherInvalid();
@@ -769,6 +826,10 @@ public class PreProvisioningController {
                 CANCELLED_BEFORE_PROVISIONING);
     }
 
+    public void logProvisioningFlowType() {
+        mProvisioningAnalyticsTracker.logProvisioningFlowType(mParams);
+    }
+
     /**
      * Removes a user profile. If we are in COMP case, and were blocked by having to delete a user,
      * resumes COMP provisioning.
@@ -855,7 +916,7 @@ public class PreProvisioningController {
         // from a trusted source. See Utils.isOrganizationOwnedProvisioning where we check for
         // ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE which is guarded by the
         // DISPATCH_PROVISIONING_MESSAGE system|privileged permission.
-        if (mParams.isOrganizationOwnedProvisioning) {
+        if (mUtils.isOrganizationOwnedAllowed(mParams)) {
             ProvisionLogger.loge(
                     "Provisioning preconditions failed for organization-owned provisioning.");
             mUi.showFactoryResetDialog(R.string.cant_set_up_device,

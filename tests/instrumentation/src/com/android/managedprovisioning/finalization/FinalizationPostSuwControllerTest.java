@@ -169,10 +169,8 @@ public class FinalizationPostSuwControllerTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile after SUW
         final ProvisioningParams params = createProvisioningParams(
                 ACTION_PROVISION_MANAGED_PROFILE, true);
-        when(mSettingsFacade.isUserSetupCompleted(mActivity)).thenReturn(true);
-        when(mSettingsFacade.isDuringSetupWizard(mActivity)).thenReturn(false);
-        when(mUtils.getManagedProfile(mActivity))
-                .thenReturn(MANAGED_PROFILE_USER_HANDLE);
+        when(mUtils.isManagedProfileProvisioningStartedByDpc(mActivity, params, mSettingsFacade))
+                .thenReturn(true);
 
         // WHEN calling deviceManagementEstablished
         mPreFinalizationController.deviceManagementEstablished(params);
