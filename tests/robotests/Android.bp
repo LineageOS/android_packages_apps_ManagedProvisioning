@@ -18,7 +18,6 @@ android_robolectric_test {
         "androidx.test.core",
         "androidx.test.rules",
         "androidx.core_core",
-        "testng", // used only for assertThrows
     ],
 
     static_libs: ["managedprovisioning_protoslite"],
