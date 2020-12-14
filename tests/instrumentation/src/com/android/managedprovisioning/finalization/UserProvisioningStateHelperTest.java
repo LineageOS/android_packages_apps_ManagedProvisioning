@@ -79,13 +79,18 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
                 false);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
+        when(mUtils.isManagedProfileProvisioningStartedByDpc(mContext, params, mSettingsFacade))
+                .thenReturn(true);
 
         // WHEN calling markUserProvisioningStateInitiallyDone
         mHelper.markUserProvisioningStateInitiallyDone(params);
 
+        // THEN the primary profile's state should be set to STATE_USER_PROFILE_FINALIZED
+        verify(mDevicePolicyManager)
+                .setUserProvisioningState(STATE_USER_PROFILE_FINALIZED, PRIMARY_USER_ID);
         // THEN the managed profile's state should be set to FINALIZED
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
-                MANAGED_PROFILE_USER_ID);
+        verify(mDevicePolicyManager)
+                .setUserProvisioningState(STATE_USER_SETUP_FINALIZED, MANAGED_PROFILE_USER_ID);
     }
 
     @SmallTest

@@ -15,6 +15,9 @@
  */
 package com.android.managedprovisioning.model;
 
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
@@ -47,6 +50,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /** Tests for {@link ProvisioningParams} */
@@ -349,6 +354,54 @@ public class ProvisioningParamsTest extends AndroidTestCase {
     public void testSetProvisioningTrigger_defaultsToUnspecified() {
         assertThat(createDefaultProvisioningParamsBuilder().build().provisioningTrigger)
                 .isEqualTo(PROVISIONING_TRIGGER_UNSPECIFIED);
+    }
+
+    @SmallTest
+    public void testSetAllowedProvisioningModes_defaultsToEmptyArray() {
+        assertThat(createDefaultProvisioningParamsBuilder().build().allowedProvisioningModes)
+                .isEmpty();
+    }
+
+    @SmallTest
+    public void testSetAllowedProvisioningModes_personallyOwned_areEqual() {
+        ProvisioningParams params =
+                createDefaultProvisioningParamsBuilder()
+                        .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                                PROVISIONING_MODE_MANAGED_PROFILE)))
+                        .build();
+
+        assertThat(params.allowedProvisioningModes)
+                .containsExactly(PROVISIONING_MODE_MANAGED_PROFILE);
+    }
+
+    @SmallTest
+    public void testSetAllowedProvisioningModes_organizationOwned_areEqual() {
+        ProvisioningParams params =
+                createDefaultProvisioningParamsBuilder()
+                        .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                                PROVISIONING_MODE_MANAGED_PROFILE,
+                                PROVISIONING_MODE_FULLY_MANAGED_DEVICE)))
+                        .build();
+
+        assertThat(params.allowedProvisioningModes).containsExactly(
+                PROVISIONING_MODE_MANAGED_PROFILE,
+                PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
+    }
+
+    @SmallTest
+    public void testSetAllowedProvisioningModes_organizationAndPersonallyOwned_areEqual() {
+        ProvisioningParams params =
+                createDefaultProvisioningParamsBuilder()
+                        .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                                PROVISIONING_MODE_MANAGED_PROFILE,
+                                PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+                                PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE)))
+                        .build();
+
+        assertThat(params.allowedProvisioningModes).containsExactly(
+                PROVISIONING_MODE_MANAGED_PROFILE,
+                PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+                PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE);
     }
 
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
