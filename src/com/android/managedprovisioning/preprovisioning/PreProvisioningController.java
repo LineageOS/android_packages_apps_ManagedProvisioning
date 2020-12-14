@@ -34,6 +34,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_T
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
@@ -47,6 +49,8 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
 
 import android.accounts.Account;
@@ -340,8 +344,7 @@ public class PreProvisioningController {
         } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(mParams);
         } else {
-            // skipUserConsent can only be set from a device owner provisioning to a work profile.
-            if (mParams.skipUserConsent || Utils.isSilentProvisioning(mContext, mParams)) {
+            if (Utils.isSilentProvisioning(mContext, mParams)) {
                 continueProvisioningAfterUserConsent();
             } else {
                 showUserConsentScreen();
@@ -468,6 +471,10 @@ public class PreProvisioningController {
         if (updateAccountToMigrate) {
             maybeUpdateAccountToMigrate(builder, resultIntent);
         }
+        if (provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+            maybeUpdateKeepAccountMigrated(builder, resultIntent);
+            maybeUpdateLeaveAllSystemAppsEnabled(builder, resultIntent);
+        }
         mParams = builder.build();
     }
 
@@ -507,6 +514,28 @@ public class PreProvisioningController {
                 resultBundle = existingBundle;
             }
             builder.setAdminExtrasBundle(resultBundle);
+        }
+    }
+
+    private void maybeUpdateKeepAccountMigrated(
+            ProvisioningParams.Builder builder,
+            Intent resultIntent) {
+        if (resultIntent.hasExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION)) {
+            final boolean keepAccountMigrated = resultIntent.getBooleanExtra(
+                    EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION,
+                    DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED);
+            builder.setKeepAccountMigrated(keepAccountMigrated);
+        }
+    }
+
+    private void maybeUpdateLeaveAllSystemAppsEnabled(
+            ProvisioningParams.Builder builder,
+            Intent resultIntent) {
+        if (resultIntent.hasExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED)) {
+            final boolean leaveAllSystemAppsEnabled = resultIntent.getBooleanExtra(
+                    EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
+                    DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED);
+            builder.setLeaveAllSystemAppsEnabled(leaveAllSystemAppsEnabled);
         }
     }
 

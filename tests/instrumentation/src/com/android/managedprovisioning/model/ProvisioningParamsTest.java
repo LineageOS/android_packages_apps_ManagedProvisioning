@@ -71,8 +71,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
     private static final boolean TEST_IS_NFC = true;
     private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
     private static final boolean TEST_SKIP_ENCRYPTION = true;
-    private static final boolean TEST_SKIP_USER_SETUP = true;
-    private static final boolean TEST_SKIP_USER_CONSENT = true;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
     private static final boolean TEST_USE_MOBILE_DATA = true;
@@ -176,7 +174,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
                 .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                .setSkipUserSetup(TEST_SKIP_USER_SETUP)
                 .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
                 .setWifiInfo(TEST_WIFI_INFO)
                 .setUseMobileData(TEST_USE_MOBILE_DATA)
@@ -194,7 +191,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
                 .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                .setSkipUserSetup(TEST_SKIP_USER_SETUP)
                 .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
                 .setWifiInfo(TEST_WIFI_INFO)
                 .setUseMobileData(TEST_USE_MOBILE_DATA)
@@ -425,8 +421,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setIsNfc(TEST_IS_NFC)
                 .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                .setSkipUserSetup(TEST_SKIP_USER_SETUP)
-                .setSkipUserConsent(TEST_SKIP_USER_CONSENT)
                 .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
                 .setWifiInfo(TEST_WIFI_INFO)
                 .setUseMobileData(TEST_USE_MOBILE_DATA)

@@ -44,8 +44,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED_MODES;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -100,8 +98,6 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT;
@@ -180,9 +176,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final boolean TEST_STARTED_BY_TRUSTED_SOURCE = true;
     private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
     private static final boolean TEST_SKIP_ENCRYPTION = true;
-    private static final boolean TEST_SKIP_USER_CONSENT = true;
     private static final boolean TEST_KEEP_ACCOUNT_MIGRATED = true;
-    private static final boolean TEST_SKIP_USER_SETUP = true;
     private static final long TEST_PROVISIONING_ID = 1000L;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
@@ -292,7 +286,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtras(getTestDeviceAdminDownloadExtras())
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
@@ -323,8 +316,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         // THEN the trusted source is set to true.
                         .setStartedByTrustedSource(true)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                        // THEN skipping user consent flag is ignored
-                        .setSkipUserConsent(false)
                         // THEN keep account migrated flag is ignored
                         .setKeepAccountMigrated(false)
                         .setLeaveAllSystemAppsEnabled(true)
@@ -351,7 +342,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
                 .putExtras(getTestDeviceAdminDownloadExtras())
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                     TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
@@ -372,14 +362,10 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setProvisioningId(TEST_PROVISIONING_ID)
                         // THEN customizable color is not supported.
                         .setMainColor(ProvisioningParams.DEFAULT_MAIN_COLOR)
-                        // THEN skipping user consent flag is ignored
-                        .setSkipUserConsent(false)
                         // THEN keep account migrated flag is ignored
                         .setKeepAccountMigrated(false)
                         // THEN leave all system apps is always true
                         .setLeaveAllSystemAppsEnabled(true)
-                        // THEN skip user setup is always false
-                        .setSkipUserSetup(false)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setDeviceAdminLabel(TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                         .setOrganizationName(TEST_ORGANIZATION_NAME)
@@ -413,7 +399,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
@@ -442,8 +427,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         // THEN leave all system apps flag is ignored
                         .setLeaveAllSystemAppsEnabled(false)
-                        // THEN skipping user consent flag is ignored
-                        .setSkipUserConsent(false)
                         .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
@@ -479,7 +462,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setWifiInfo(null)
                         .setMainColor(TEST_MAIN_COLOR)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                        .setSkipUserConsent(TEST_SKIP_USER_CONSENT)
                         .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
@@ -491,7 +473,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         // GIVEN a managed profile provisioning intent and other extras.
         Intent intent = new Intent(ACTION_PROVISION_MANAGED_PROFILE)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED);
 
         // GIVEN the device admin is installed.
@@ -509,8 +490,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
                         .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
                         .setProvisioningId(TEST_PROVISIONING_ID)
-                        // THEN skipping user consent flag is ignored
-                        .setSkipUserConsent(false)
                         .setKeepAccountMigrated(TEST_KEEP_ACCOUNT_MIGRATED)
                         .build())
                 .isEqualTo(params);
@@ -944,12 +923,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL_SHORT, TEST_SUPPORT_URL)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT,
                         TEST_DEVICE_ADMIN_PACKAGE_LABEL)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT,
-                        TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT,
                         TEST_USE_MOBILE_DATA)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP_SHORT,
-                        ExtrasProvisioningDataParserTest.TEST_SKIP_USER_SETUP)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort);
@@ -977,10 +952,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
                         TEST_DEVICE_ADMIN_PACKAGE_LABEL)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA, TEST_USE_MOBILE_DATA)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_SETUP,
-                        ExtrasProvisioningDataParserTest.TEST_SKIP_USER_SETUP)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_LOGO_URI, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS, parcelablesLong);
@@ -996,7 +968,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
                 .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
@@ -1020,7 +991,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtras(getTestDeviceAdminDownloadExtras())
                 .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_SKIP_USER_CONSENT, TEST_SKIP_USER_CONSENT)
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)

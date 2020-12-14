@@ -125,11 +125,6 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     @Override
     public void onBackPressed() {
-        // if EXTRA_PROVISIONING_SKIP_USER_CONSENT is specified, don't allow user to cancel
-        if (mParams.skipUserConsent) {
-            return;
-        }
-
         decideCancelProvisioningDialog();
     }
 
