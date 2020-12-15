@@ -117,12 +117,8 @@ public class UserProvisioningStateHelper {
                 // User setup was previously completed this is an unexpected case.
                 ProvisionLogger.logw("user_setup_complete set, but provisioning was started");
             }
-        } else if (params.skipUserSetup) {
-            // DPC requested setup-wizard is skipped, indicate this to SUW.
-            newState = STATE_USER_SETUP_COMPLETE;
         } else {
-            // DPC requested setup-wizard is not skipped, indicate this to SUW.
-            newState = STATE_USER_SETUP_INCOMPLETE;
+            newState = STATE_USER_SETUP_COMPLETE;
         }
 
         if (newState != null) {
