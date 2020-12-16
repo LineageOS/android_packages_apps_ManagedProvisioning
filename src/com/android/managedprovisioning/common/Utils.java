@@ -525,7 +525,7 @@ public class Utils {
      * Factory resets the device.
      */
     public void factoryReset(Context context, String reason) {
-        context.getSystemService(DevicePolicyManager.class).factoryReset(reason);
+        context.getSystemService(DevicePolicyManager.class).wipeData(/* flags=*/ 0, reason);
     }
 
     /**
