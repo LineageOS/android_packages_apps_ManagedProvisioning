@@ -34,8 +34,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -79,7 +79,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -303,7 +302,6 @@ public class ProvisioningActivityTest {
     }
 
     @FlakyTest
-    @Ignore
     @Test
     public void testCancelProfileOwner_CompProvisioningWithoutSkipConsent() throws Throwable {
         // GIVEN launching profile intent without skipping user consent

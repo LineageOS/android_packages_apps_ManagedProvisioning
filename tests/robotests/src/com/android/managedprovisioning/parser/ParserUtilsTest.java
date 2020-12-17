@@ -22,41 +22,23 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
-import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import static org.robolectric.Shadows.shadowOf;
-import static org.testng.Assert.assertThrows;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.provider.Settings;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
-import com.android.managedprovisioning.common.SettingsFacade;
-import com.android.managedprovisioning.model.ProvisioningParams;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.RuntimeEnvironment;
 
 /**
  * Tests for {@link ParserUtils}.
@@ -64,15 +46,50 @@ import org.robolectric.RuntimeEnvironment;
 @RunWith(RobolectricTestRunner.class)
 public class ParserUtilsTest {
 
-    private static final int INVALID_PROVISIONING_MODES = -1;
     private final ParserUtils mParserUtils = new ParserUtils();
-    private final SettingsFacade mSettingsFacade = new SettingsFacade();
-    private final Context mContext = RuntimeEnvironment.application;
 
-    @Before
-    public void setUp() {
-        shadowOf(mContext.getPackageManager())
-                .setSystemFeature(PackageManager.FEATURE_MANAGED_USERS, /* supported */ true);
+    @Test
+    public void isOrganizationOwnedProvisioning_nfcIntent_returnsTrue() {
+        Intent nfcIntent = new Intent(ACTION_NDEF_DISCOVERED);
+
+        assertThat(mParserUtils.isOrganizationOwnedProvisioning(nfcIntent)).isTrue();
+    }
+
+    @Test
+    public void isOrganizationOwnedProvisioning_cloudEnrollmentIntent_returnsTrue() {
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
+        intent.putExtra(EXTRA_PROVISIONING_TRIGGER, PROVISIONING_TRIGGER_CLOUD_ENROLLMENT);
+
+        assertThat(mParserUtils.isOrganizationOwnedProvisioning(intent)).isTrue();
+    }
+
+    @Test
+    public void isOrganizationOwnedProvisioning_qrIntent_returnsTrue() {
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
+        intent.putExtra(EXTRA_PROVISIONING_TRIGGER, PROVISIONING_TRIGGER_QR_CODE);
+
+        assertThat(mParserUtils.isOrganizationOwnedProvisioning(intent)).isTrue();
+    }
+
+    @Test
+    public void isOrganizationOwnedProvisioning_provisionManagedProfileIntent_returnsFalse() {
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_PROFILE);
+
+        assertThat(mParserUtils.isOrganizationOwnedProvisioning(intent)).isFalse();
+    }
+
+    @Test
+    public void isOrganizationOwnedProvisioning_provisionManagedDeviceIntent_returnsFalse() {
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE);
+
+        assertThat(mParserUtils.isOrganizationOwnedProvisioning(intent)).isFalse();
+    }
+
+    @Test
+    public void isOrganizationOwnedProvisioning_provisionTrustedSourceIntentWithNoProvisioningTrigger_returnsFalse() {
+        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
+
+        assertThat(mParserUtils.isOrganizationOwnedProvisioning(intent)).isFalse();
     }
 
     @Test
@@ -125,7 +142,7 @@ public class ParserUtilsTest {
             throws IllegalProvisioningArgumentException {
         Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE);
 
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
+        assertThat(mParserUtils.extractProvisioningAction(intent))
                 .isEqualTo(ACTION_PROVISION_MANAGED_DEVICE);
     }
 
@@ -135,7 +152,7 @@ public class ParserUtilsTest {
             throws IllegalProvisioningArgumentException {
         Intent intent = new Intent(ACTION_PROVISION_MANAGED_PROFILE);
 
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
+        assertThat(mParserUtils.extractProvisioningAction(intent))
                 .isEqualTo(ACTION_PROVISION_MANAGED_PROFILE);
     }
 
@@ -145,7 +162,7 @@ public class ParserUtilsTest {
             throws IllegalProvisioningArgumentException {
         Intent intent = new Intent(ACTION_PROVISION_FINANCED_DEVICE);
 
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
+        assertThat(mParserUtils.extractProvisioningAction(intent))
                 .isEqualTo(ACTION_PROVISION_FINANCED_DEVICE);
     }
 
@@ -155,7 +172,7 @@ public class ParserUtilsTest {
             throws IllegalProvisioningArgumentException {
         Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_SILENTLY);
 
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
+        assertThat(mParserUtils.extractProvisioningAction(intent))
                 .isEqualTo(ACTION_PROVISION_MANAGED_DEVICE);
     }
 
@@ -165,7 +182,7 @@ public class ParserUtilsTest {
         Intent intent = new Intent(ACTION_NDEF_DISCOVERED);
         intent.setType(MIME_TYPE_PROVISIONING_NFC);
 
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
+        assertThat(mParserUtils.extractProvisioningAction(intent))
                 .isEqualTo(ACTION_PROVISION_MANAGED_DEVICE);
     }
 
@@ -174,7 +191,7 @@ public class ParserUtilsTest {
             throws IllegalProvisioningArgumentException {
         Intent intent = new Intent(ACTION_NDEF_DISCOVERED);
 
-        mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext);
+        mParserUtils.extractProvisioningAction(intent);
     }
 
     @Test(expected = IllegalProvisioningArgumentException.class)
@@ -183,99 +200,6 @@ public class ParserUtilsTest {
         Intent intent = new Intent(ACTION_NDEF_DISCOVERED);
         intent.setType("wrongMimeType");
 
-        mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext);
-    }
-
-    @Test
-    public void
-            extractProvisioningAction_trustedSourceDuringSetupWizard_returnsProvisionManagedDevice()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
-        markDuringSetupWizard();
-
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
-                .isEqualTo(ACTION_PROVISION_MANAGED_DEVICE);
-    }
-
-    @Test
-    public void
-            extractProvisioningAction_trustedSourceAfterSetupWizard_returnsProvisionManagedProfile()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = new Intent(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
-        markAfterSetupWizard();
-
-        assertThat(mParserUtils.extractProvisioningAction(intent, mSettingsFacade, mContext))
-                .isEqualTo(ACTION_PROVISION_MANAGED_PROFILE);
-    }
-
-    @Test
-    public void
-            getAllowedProvisioningModes_organizationOwned_returnsManagedProfileAndManagedDevice() {
-        assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_ORGANIZATION_OWNED)).containsExactly(
-                        PROVISIONING_MODE_MANAGED_PROFILE,
-                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
-    }
-
-    @Test
-    public void
-            getAllowedProvisioningModes_personallyOwned_returnsManagedProfileOnly() {
-        assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_PERSONALLY_OWNED)).containsExactly(
-                        PROVISIONING_MODE_MANAGED_PROFILE);
-    }
-
-    @Test
-    public void getAllowedProvisioningModes_organizationAndPersonallyOwned_returnsManagedProfileManagedDevicePersonalManagedProfile() {
-        assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED)).containsExactly(
-                        PROVISIONING_MODE_MANAGED_PROFILE,
-                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
-                        PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE);
-    }
-
-    @Test
-    public void getAllowedProvisioningModes_invalidValue_throwsException() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> mParserUtils
-                        .getAllowedProvisioningModes(mContext, INVALID_PROVISIONING_MODES));
-    }
-
-    @Test
-    public void
-            getAllowedProvisioningModes_organizationOwnedAndManagedUsersNotSupported_returnsManagedDeviceOnly() {
-        shadowOf(mContext.getPackageManager())
-                .setSystemFeature(PackageManager.FEATURE_MANAGED_USERS, /* supported = */ false);
-
-        assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_ORGANIZATION_OWNED)).containsExactly(
-                PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
-    }
-
-    @Test
-    public void
-            getAllowedProvisioningModes_personallyOwnedAndManagedUsersNotSupported_throwsException() {
-        shadowOf(mContext.getPackageManager())
-                .setSystemFeature(PackageManager.FEATURE_MANAGED_USERS, /* supported */ false);
-
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> mParserUtils
-                        .getAllowedProvisioningModes(mContext, SUPPORTED_MODES_PERSONALLY_OWNED));
-    }
-
-    @Test
-    public void getAllowedProvisioningModes_defaultValue_returnsEmptyArray() {
-        assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES)).isEmpty();
-    }
-
-    private boolean markDuringSetupWizard() {
-        return Settings.Secure.putInt(mContext.getContentResolver(), USER_SETUP_COMPLETE, 0);
-    }
-
-    private boolean markAfterSetupWizard() {
-        return Settings.Secure.putInt(mContext.getContentResolver(), USER_SETUP_COMPLETE, 1);
+        mParserUtils.extractProvisioningAction(intent);
     }
 }

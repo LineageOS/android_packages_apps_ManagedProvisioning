@@ -30,6 +30,7 @@ import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -44,7 +45,6 @@ import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -132,7 +132,6 @@ public class ProvisioningManagerTest {
     }
 
     @FlakyTest(bugId = 131866915)
-    @Ignore
     @Test
     public void testListener_error() {
         // GIVEN a listener is registered
@@ -164,7 +163,6 @@ public class ProvisioningManagerTest {
     }
 
     @FlakyTest(bugId = 131866915)
-    @Ignore
     @Test
     public void testListener_preFinalizationCompleted() throws InterruptedException {
         // GIVEN provisioning has been started
