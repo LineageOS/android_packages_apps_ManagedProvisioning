@@ -114,13 +114,12 @@ public final class PreFinalizationController {
                 markIsProfileOwnerOnOrganizationOwnedDevice();
                 restrictRemovalOfManagedProfile();
             }
-            if (mUtils.isManagedProfileProvisioningStartedByDpc(
-                    mActivity, params, mSettingsFacade)) {
+            if (!mSettingsFacade.isDuringSetupWizard(mActivity)) {
                 // If a managed profile was provisioned after SUW, notify the DPC straight away.
                 mSendDpcBroadcastServiceUtils.startSendDpcBroadcastService(mActivity, params);
             }
         }
-        if (!mUtils.isManagedProfileProvisioningStartedByDpc(mActivity, params, mSettingsFacade)) {
+        if (mSettingsFacade.isDuringSetupWizard(mActivity)) {
             // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
         }

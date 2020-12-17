@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_UNSPECIFIED;
 
 import android.annotation.IntDef;
 import android.annotation.Nullable;
@@ -44,14 +45,12 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
+import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperFactory;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelper;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperCallback;
-import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperFactory;
-import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
 import com.android.managedprovisioning.provisioning.FinancedDeviceLandingActivity;
 import com.android.managedprovisioning.provisioning.LandingActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
-
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.lang.annotation.Retention;
@@ -70,7 +69,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private static final int ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE = 5;
     private static final int GET_PROVISIONING_MODE_REQUEST_CODE = 6;
     private static final int FINANCED_DEVICE_PREPARE_REQUEST_CODE = 7;
-    private static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 8;
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
@@ -184,7 +182,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 break;
             case ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
-                    startAppropriateFlowPostDpcInstall();
+                    startAppropriateFlow();
                 } else {
                     setResult(resultCode);
                     finish();
@@ -197,28 +195,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     } else {
                         ProvisionLogger.loge(
                                 "Invalid data object returned from GET_PROVISIONING_MODE.");
-                        if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
-                            showFactoryResetDialog(R.string.cant_set_up_device,
-                                    R.string.contact_your_admin_for_help);
-                        } else {
-                            showErrorAndClose(
-                                    R.string.cant_set_up_device,
-                                    R.string.contact_your_admin_for_help,
-                                    "Failed provisioning personally-owned device.");
-                        }
+                        showFactoryResetDialog(R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help);
                     }
                 } else {
                     ProvisionLogger.loge("Invalid result code from GET_PROVISIONING_MODE. Expected "
                             + RESULT_OK + " but got " + resultCode + ".");
-                    if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
-                        showFactoryResetDialog(R.string.cant_set_up_device,
-                                R.string.contact_your_admin_for_help);
-                    } else {
-                        showErrorAndClose(
-                                R.string.cant_set_up_device,
-                                R.string.contact_your_admin_for_help,
-                                "Failed to provision personally-owned device.");
-                    }
+                    showFactoryResetDialog(R.string.cant_set_up_device,
+                            R.string.contact_your_admin_for_help);
                 }
                 break;
             case FINANCED_DEVICE_PREPARE_REQUEST_CODE:
@@ -228,9 +212,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     setResult(resultCode);
                     finish();
                 }
-                break;
-            case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
-                startAppropriateFlowPostDpcInstall();
                 break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
@@ -326,18 +307,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         onProvisioningAborted();
     }
 
-    @Override
-    public void prepareAdminIntegratedFlow(ProvisioningParams params) {
-        if (AdminIntegratedFlowPrepareActivity.shouldRunPrepareActivity(mUtils, this, params)) {
-            final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
-            WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
-            intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-            startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
-        } else {
-            startAppropriateFlowPostDpcInstall();
-        }
-    }
-
     private void requestLauncherPick() {
         Intent changeLauncherIntent = new Intent(Settings.ACTION_HOME_SETTINGS);
         changeLauncherIntent.putExtra(EXTRA_SUPPORT_MANAGED_PROFILES, true);
@@ -359,45 +328,32 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
      * Starts either the admin-integrated or the legacy flow, depending on the device state and
      * DPC capabilities.
      */
-    private void startAppropriateFlowPostDpcInstall() {
+    private void startAppropriateFlow() {
         boolean shouldPerformAdminIntegratedFlow = mUtils.shouldPerformAdminIntegratedFlow(
                 this,
                 mController.getParams(),
                 mController.getPolicyComplianceUtils(),
                 mController.getGetProvisioningModeUtils());
         if (shouldPerformAdminIntegratedFlow) {
-            startAdminIntegratedFlowWithoutPredeterminedMode();
-        } else if (isLegacyFlowAllowed()) {
-            startManagedDeviceLegacyFlow();
+            startAdminIntegratedFlow();
         } else {
-            ProvisionLogger.loge("The admin app does not have handlers for both "
-                    + "ACTION_GET_PROVISIONING_MODE and ACTION_ADMIN_POLICY_COMPLIANCE "
-                    + "intent actions.");
-            if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
-                showFactoryResetDialog(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help);
-            } else {
-                showErrorAndClose(
-                        R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help,
-                        "Failed provisioning personally-owned device.");
-            }
+            startManagedDeviceLegacyFlow();
         }
-        mController.logProvisioningFlowType();
     }
 
-    private boolean isLegacyFlowAllowed() {
-        return mController.getParams().isNfc
-                || mUtils.isFinancedDeviceAction(mController.getParams().provisioningAction);
-    }
-
-    private void startAdminIntegratedFlowWithoutPredeterminedMode() {
+    private void startAdminIntegratedFlow() {
         ProvisionLogger.logi("Starting the admin-integrated flow.");
         GetProvisioningModeUtils provisioningModeUtils = mController.getGetProvisioningModeUtils();
-        Bundle additionalExtras = mController.getAdditionalExtrasForGetProvisioningModeIntent();
-        provisioningModeUtils.startGetProvisioningModeActivityIfResolved(
-                this, mController.getParams(), additionalExtras,
-                GET_PROVISIONING_MODE_REQUEST_CODE);
+        if (provisioningModeUtils
+                .isGetProvisioningModeActivityResolvable(this, mController.getParams())) {
+            Bundle additionalExtras = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+            provisioningModeUtils.startGetProvisioningModeActivityIfResolved(
+                    this, mController.getParams(), additionalExtras,
+                    GET_PROVISIONING_MODE_REQUEST_CODE);
+        } else {
+            mController.updateProvisioningFlowState(FLOW_TYPE_LEGACY);
+            mController.showUserConsentScreen();
+        }
     }
 
     private void startManagedDeviceLegacyFlow() {
@@ -407,7 +363,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     private void startFinancedDeviceFlow() {
-        ProvisionLogger.logi("Starting the financed device flow.");
         mController.updateProvisioningFlowState(FLOW_TYPE_LEGACY);
         mController.continueProvisioningAfterUserConsent();
     }
@@ -429,7 +384,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     @Override
-    public void showOwnershipDisclaimerScreen(ProvisioningParams params) {
+    public void showOrganizationOwnedLandingScreen(ProvisioningParams params) {
         Intent intent = new Intent(this, LandingActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
@@ -454,7 +409,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void onBackPressed() {
-        if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+        if (mController.getParams().isOrganizationOwnedProvisioning) {
             showDialog(mUtils.createCancelProvisioningResetDialogBuilder(),
                     BACK_PRESSED_DIALOG_RESET);
         } else {

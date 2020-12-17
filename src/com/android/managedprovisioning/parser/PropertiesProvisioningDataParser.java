@@ -67,8 +67,8 @@ import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
@@ -95,20 +95,16 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
     private final ParserUtils mParserUtils;
     private final Context mContext;
     private final ManagedProvisioningSharedPreferences mSharedPreferences;
-    private final SettingsFacade mSettingsFacade;
 
-    PropertiesProvisioningDataParser(Context context, ParserUtils parserUtils,
-            SettingsFacade settingsFacade) {
-        this(context, parserUtils, settingsFacade,
-                new ManagedProvisioningSharedPreferences(context));
+    PropertiesProvisioningDataParser(Context context, ParserUtils parserUtils) {
+        this(context, parserUtils, new ManagedProvisioningSharedPreferences(context));
     }
 
     @VisibleForTesting
     PropertiesProvisioningDataParser(Context context, ParserUtils parserUtils,
-            SettingsFacade settingsFacade, ManagedProvisioningSharedPreferences sharedPreferences) {
+            ManagedProvisioningSharedPreferences sharedPreferences) {
         mContext = checkNotNull(context);
         mParserUtils = checkNotNull(parserUtils);
-        mSettingsFacade = checkNotNull(settingsFacade);
         mSharedPreferences = checkNotNull(sharedPreferences);
     }
 
@@ -145,8 +141,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                         .setProvisioningId(mSharedPreferences.incrementAndGetProvisioningId())
                         .setStartedByTrustedSource(true)
                         .setIsNfc(true)
-                        .setProvisioningAction(mParserUtils.extractProvisioningAction(
-                                nfcIntent, mSettingsFacade, mContext))
+                        .setProvisioningAction(mParserUtils.extractProvisioningAction(nfcIntent))
                         .setDeviceAdminPackageName(
                                 getPropertyFromLongName(
                                         props, EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));

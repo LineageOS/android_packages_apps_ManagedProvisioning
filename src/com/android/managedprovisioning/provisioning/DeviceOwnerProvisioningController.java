@@ -39,6 +39,7 @@ import com.android.managedprovisioning.task.VerifyPackageTask;
  */
 public class DeviceOwnerProvisioningController extends AbstractProvisioningController {
 
+    // To be used in a follow-up CL.
     private Utils mUtils;
 
     /**
@@ -71,10 +72,8 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
     protected void setUpTasks() {
         addTasks(new DeviceOwnerInitializeProvisioningTask(mContext, mParams, this));
 
-        // If the admin-integrated flow preconditions aren't met, then the admin app was not
-        // installed as part of the admin-integrated flow preparation.
-        // We must install the admin app here instead.
-        if (!mUtils.checkAdminIntegratedFlowPreconditions(mParams)) {
+        // If new flow is not supported then we should still download the package.
+        if (!mParams.isOrganizationOwnedProvisioning) {
             if (mParams.wifiInfo != null) {
                 addTasks(new AddWifiNetworkTask(mContext, mParams, this));
             } else if (mParams.useMobileData) {
