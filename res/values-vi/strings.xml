@@ -164,6 +164,10 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Thiết lập ứng dụng quản trị"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Thiết bị này thuộc sở hữu của tổ chức bạn"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Ứng dụng sau đây sẽ được dùng để quản lý và giám sát điện thoại này"</string>
+    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
+    <skip />
+    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
+    <skip />
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Đang chuẩn bị thiết lập thiết bị làm việc…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Hãy cùng thiết lập hồ sơ công việc của bạn"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc của bạn"</string>

@@ -164,6 +164,10 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"관리자 앱 설정"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"내 조직에 속한 기기입니다."</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"다음 앱이 이 휴대전화를 관리하고 모니터링하는 데 사용됩니다."</string>
+    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
+    <skip />
+    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
+    <skip />
     <string name="downloading_administrator_header" msgid="8660294318893902915">"직장 설정 준비 중…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"직장 프로필 설정"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"업무용 앱은 직장 프로필에 보관됩니다."</string>

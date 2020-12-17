@@ -164,6 +164,10 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"درحال راه‌اندازی برنامه سرپرست"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"این دستگاه به سازمان شما تعلق دارد"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"از برنامه زیر برای مدیریت و نظارت بر این تلفن استفاده می‌شود"</string>
+    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
+    <skip />
+    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
+    <skip />
     <string name="downloading_administrator_header" msgid="8660294318893902915">"درحال آماده شدن برای راه‌اندازی دستگاه برای کار…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ابتدا بیایید نمایه کاری‌تان را راه‌اندازی کنیم"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"برنامه‌های کاری در نمایه کاری‌تان حفظ می‌شوند"</string>

@@ -164,6 +164,10 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurerer administrationsappen"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Denne enhed tilhører din organisation"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app bruges til at administrere eller overvåge denne telefon"</string>
+    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
+    <skip />
+    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
+    <skip />
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Forbereder konfiguration til arbejde…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Lad os konfigurere din arbejdsprofil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Arbejdsapps gemmes i din arbejdsprofil"</string>
