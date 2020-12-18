@@ -38,7 +38,6 @@ import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
 import com.android.managedprovisioning.task.DeviceOwnerInitializeProvisioningTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
-import com.android.managedprovisioning.task.InstallPackageTask;
 import com.android.managedprovisioning.task.SetDevicePolicyTask;
 import com.android.managedprovisioning.task.VerifyPackageTask;
 
@@ -91,8 +90,8 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         // THEN the verify package task should be run
         taskSucceeded(VerifyPackageTask.class);
 
-        // THEN the install package task should be run
-        taskSucceeded(InstallPackageTask.class);
+        // THEN the install package tasks should be run
+        tasksDownloadAndInstallDeviceOwnerPackageSucceeded(TEST_USER_ID);
 
         // THEN the delete non-required apps task should be run
         taskSucceeded(DeleteNonRequiredAppsTask.class);
@@ -124,8 +123,8 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         // THEN the verify package task should be run
         taskSucceeded(VerifyPackageTask.class);
 
-        // THEN the install package task should be run
-        taskSucceeded(InstallPackageTask.class);
+        // THEN the install package tasks should be run
+        tasksDownloadAndInstallDeviceOwnerPackageSucceeded(TEST_USER_ID);
 
         // THEN the delete non-required apps task should be run
         taskSucceeded(DeleteNonRequiredAppsTask.class);
