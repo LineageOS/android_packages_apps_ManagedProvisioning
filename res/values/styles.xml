@@ -92,7 +92,8 @@
         <item name="android:windowBackground">@color/white</item>
         <item name="android:colorBackground">@color/white</item>
         <item name="swiper_color">@color/teal2</item>
-        <item name="sudMarginSides">@dimen/intro_margin</item>
+        <item name="sudMarginStart">@dimen/intro_margin</item>
+        <item name="sudMarginEnd">@dimen/intro_margin</item>
     </style>
 
     <style name="Provisioning2Theme.Text">
