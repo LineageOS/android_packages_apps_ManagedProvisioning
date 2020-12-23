@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfiguracja aplikacji administratora"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"To urządzenie należy do Twojej organizacji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Do zarządzania tym telefonem i monitorowania go posłuży poniższa aplikacja"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Konto jest zarządzane"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Administrator IT wykorzystuje zarządzanie urządzeniami mobilnymi do egzekwowania zasad bezpieczeństwa"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Przygotowuję się do konfiguracji profilu służbowego…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Skonfiguruj profil służbowy"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Aplikacje służbowe znajdują się w profilu służbowym"</string>

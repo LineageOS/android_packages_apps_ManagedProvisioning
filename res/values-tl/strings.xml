@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Sine-set up ang admin app"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Pagmamay-ari ng iyong organisasyon ang device na ito"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Gagamitin ang sumusunod na app para pamahalaan at subaybayan ang teleponong ito"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Pinamamahalaan ang iyong account"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Gumagamit ang iyong IT admin ng pamamahala ng mobile device para magpatupad ng mga patakaran sa seguridad"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Naghahanda para sa pag-set up ng trabaho…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"I-set up natin ang iyong profile sa trabaho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho"</string>

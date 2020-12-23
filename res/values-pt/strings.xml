@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando app de administração"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertence à sua organização"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"O app a seguir será usado para gerenciar e monitorar este smartphone"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Sua conta é gerenciada"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Seu administrador de TI usa o gerenciamento de dispositivos móveis para aplicar políticas de segurança"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando para configuração de trabalho…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos configurar seu perfil de trabalho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Os apps de trabalho ficam no seu perfil de trabalho"</string>
