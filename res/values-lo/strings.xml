@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ກຳລັງຕັ້ງຄ່າແອັບຜູ້ເບິ່ງແຍງລະບົບ"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ອຸປະກອນນີ້ເປັນຂອງອົງການທ່ານ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ແອັບຕໍ່ໄປນີ້ຈະຖືກໃຊ້ເພື່ອຈັດການ ແລະ ຕິດຕາມໂທລະສັບໜ່ວຍນີ້"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"ບັນຊີຂອງທ່ານມີການຈັດການ"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານໃຊ້ການຈັດການອຸປະກອນມືຖືເພື່ອບັງຄັບໃຊ້ນະໂຍບາຍຄວາມປອດໄພ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ກຳລັງກຽມພ້ອມສຳລັບການຕັ້ງຄ່າວຽກ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ມາຕັ້ງຄ່າໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານກັນ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ແອັບວຽກແມ່ນຖືກເກັບໄວ້ໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານ"</string>

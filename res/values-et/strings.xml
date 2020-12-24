@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administraatorirakenduse seadistamine"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"See seade kuulub teie organisatsioonile"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Selle telefoni haldamiseks ja jälgimiseks kasutatakse järgmist rakendust"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Teie kontot hallatakse"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Teie IT-administraator kasutab turvaeeskirjade jõustamiseks mobiilseadmete haldamist"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Tööks seadistamise ettevalmistamine …"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Seadistame teie tööprofiili"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Töörakendusi hoitakse teie tööprofiilil"</string>

@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"กำลังตั้งค่าแอปผู้ดูแลระบบ"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"องค์กรของคุณเป็นเจ้าของอุปกรณ์นี้"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"แอปต่อไปนี้จะใช้เพื่อจัดการและตรวจสอบโทรศัพท์เครื่องนี้"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"บัญชีของคุณได้รับการจัดการแล้ว"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"ผู้ดูแลระบบไอทีจะใช้การจัดการอุปกรณ์เคลื่อนที่เพื่อบังคับใช้นโยบายความปลอดภัย"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"กำลังเตรียมอุปกรณ์เพื่อตั้งค่าสำหรับการทำงาน…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ก่อนอื่นมาตั้งค่าโปรไฟล์งานกัน"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"แอปการทำงานเก็บอยู่ในโปรไฟล์งาน"</string>

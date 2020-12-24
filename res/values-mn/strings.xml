@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Админ аппыг тохируулж байна"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Энэ төхөөрөмжийг танай байгууллага эзэмшдэг"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Энэ утсыг удирдаж, хянахын тулд дараах аппыг ашиглана"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Таны бүртгэлийг удирдаж байна"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Таны IT админ аюулгүй байдлын бодлогыг хэрэгжүүлэхийн тулд мобайл төхөөрөмжийн менежментийг ашигладаг"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ажлын тохируулгад бэлтгэж байна…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Таны ажлын профайлыг тохируулцгаая"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ажлын аппуудыг таны ажлын профайлд хадгалдаг"</string>

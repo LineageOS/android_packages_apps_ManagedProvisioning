@@ -164,10 +164,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"প্ৰশাসক এপ্ ছেট আপ কৰি থকা হৈছে"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"এইটো আপোনাৰ প্ৰতিষ্ঠানৰ ডিভাইচ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"এই ফ’নটো পৰিচালনা আৰি নিৰীক্ষণ কৰিবলৈ তলৰ এপ্‌টো ব্যৱহাৰ কৰা হ’ব"</string>
-    <!-- no translation found for account_management_disclaimer_header (8013083414694316564) -->
-    <skip />
-    <!-- no translation found for account_management_disclaimer_subheader (5146471918840236988) -->
-    <skip />
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"আপোনাৰ একাউণ্টটো পৰিচালনা কৰা হয়"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"সুৰক্ষা নীতিসমূহ বলৱৎ কৰিবলৈ আপোনাৰ আইটি প্ৰশাসকে ম’বাইল ডিভাইচ পৰিচালনা ব্যৱহাৰ কৰে"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"কৰ্মস্থানৰ বাবে ছেট আপ কৰিবলৈ সাজু কৰি থকা হৈছে…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"প্ৰথমে আমি আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলটো ছেট আপ কৰোঁ আহক"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলত থকা কৰ্মস্থানৰ এপ্‌সমূহ"</string>
