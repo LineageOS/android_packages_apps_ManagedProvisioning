@@ -15,6 +15,9 @@
  */
 package com.android.managedprovisioning.task;
 
+import static android.app.PendingIntent.FLAG_MUTABLE;
+import static android.app.PendingIntent.FLAG_ONE_SHOT;
+import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.content.pm.PackageManager.INSTALL_ALL_WHITELIST_RESTRICTED_PERMISSIONS;
 import static android.content.pm.PackageManager.INSTALL_REPLACE_EXISTING;
 
@@ -159,9 +162,11 @@ public class InstallPackageTask extends AbstractProvisioningTask {
                 mContext.registerReceiver(new PackageInstallReceiver(packageName),
                         new IntentFilter(action));
 
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, sessionId,
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        mContext,
+                        sessionId,
                         new Intent(action),
-                        PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_UPDATE_CURRENT);
+                        FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT | FLAG_MUTABLE);
                 session.commit(pendingIntent.getIntentSender());
             }
         } catch (IOException e) {

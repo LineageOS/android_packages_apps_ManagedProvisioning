@@ -15,6 +15,9 @@
  */
 package com.android.managedprovisioning.common;
 
+import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -58,7 +61,7 @@ public class NotificationHelper {
         notificationManager.createNotificationChannel(channel);
 
         final PendingIntent resumePendingIntent = PendingIntent.getActivity(
-                mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                mContext, 0, intent, FLAG_UPDATE_CURRENT | FLAG_IMMUTABLE);
         final Notification.Builder notify = new Notification.Builder(mContext)
                 .setChannelId(CHANNEL_ID)
                 .setContentIntent(resumePendingIntent)
