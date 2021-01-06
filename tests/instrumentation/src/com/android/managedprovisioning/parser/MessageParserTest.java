@@ -37,6 +37,7 @@ import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 
 import org.mockito.Mock;
@@ -75,7 +76,8 @@ public class MessageParserTest extends AndroidTestCase {
 
         MockitoAnnotations.initMocks(this);
         mUtils = spy(new Utils());
-        mMessageParser = new MessageParser(mContext, mUtils, new ParserUtils());
+        mMessageParser = new MessageParser(
+                mContext, mUtils, new ParserUtils(), new SettingsFacade());
     }
 
     public void test_correctParserUsedToParseNfcIntent() throws Exception {

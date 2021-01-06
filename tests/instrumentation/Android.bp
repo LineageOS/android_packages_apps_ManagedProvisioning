@@ -18,6 +18,7 @@ android_test {
         "androidx.test.espresso.core",
         "androidx.test.espresso.intents",
         "truth-prebuilt",
+        "testng", // used only for assertThrows
     ],
 
     instrumentation_for: "ManagedProvisioning",
