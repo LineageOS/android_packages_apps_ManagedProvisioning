@@ -15,6 +15,9 @@
  */
 package com.android.managedprovisioning.provisioning;
 
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,8 +62,15 @@ public class LandingActivity extends SetupGlifLayoutActivity {
     }
 
     private void initializeUi(ProvisioningParams params) {
-        final int headerResId = R.string.brand_screen_header;
-        final int titleResId = R.string.setup_device_progress;
+        int headerResId = R.string.brand_screen_header;
+        int titleResId = R.string.setup_device_progress;
+
+        // TODO(b/175622930): Remove references to managed account provisioning
+        if (params.provisioningTrigger == PROVISIONING_TRIGGER_MANAGED_ACCOUNT
+                || params.provisioningTrigger == PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER) {
+            headerResId = R.string.account_management_disclaimer_header;
+            titleResId = R.string.account_management_disclaimer_subheader;
+        }
 
         final CustomizationParams customizationParams =
                 CustomizationParams.createInstance(params, this, mUtils);
