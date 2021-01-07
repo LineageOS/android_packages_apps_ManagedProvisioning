@@ -37,6 +37,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -149,6 +150,8 @@ public class ProvisioningActivityRoboTest {
 
     @Test
     public void error_factoryReset_resets() throws Exception {
+        DevicePolicyManager devicePolicyManager =
+                mContext.getSystemService(DevicePolicyManager.class);
         final ProvisioningActivity activity =
                 Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT).get();
         activity.error(R.string.cant_set_up_device, ERROR_MESSAGE_ID, /* resetRequired= */ true);
@@ -156,8 +159,7 @@ public class ProvisioningActivityRoboTest {
         final Fragment dialog = activity.getFragmentManager().findFragmentByTag(ERROR_DIALOG_RESET);
         clickOnPositiveButton(activity, (DialogFragment) dialog);
 
-        final List<Intent> intents = shadowOf(mContext).getBroadcastIntents();
-        assertThat(intentsContainsAction(intents, Intent.ACTION_FACTORY_RESET)).isTrue();
+        assertThat(shadowOf(devicePolicyManager).getWipeCalledTimes()).isEqualTo(1);
     }
 
     @Test
