@@ -38,6 +38,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
@@ -567,7 +568,8 @@ public class PreProvisioningController {
     }
 
     private boolean shouldPassPersonalDataToAdminApp() {
-        return mParams.initiatorRequestedProvisioningModes == SUPPORTED_MODES_ORGANIZATION_OWNED;
+        return mParams.initiatorRequestedProvisioningModes == SUPPORTED_MODES_ORGANIZATION_OWNED
+                || mParams.initiatorRequestedProvisioningModes == SUPPORTED_MODES_DEVICE_OWNER;
     }
 
     private @NonNull List<String> getDisclaimerHeadings() {

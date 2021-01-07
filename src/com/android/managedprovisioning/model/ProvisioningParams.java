@@ -279,9 +279,9 @@ public final class ProvisioningParams extends PersistableBundlable {
      *
      * <p>Can be one of {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED}, {@link
      * DevicePolicyManager#SUPPORTED_MODES_PERSONALLY_OWNED} or {@link
-     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED} or if not relevant
-     * to the admin-integrated flow, {@link
-     * ProvisioningParams#DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES}.
+     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED}, {@link
+     * DevicePolicyManager#SUPPORTED_MODES_DEVICE_OWNER} or if not relevant to the
+     * admin-integrated flow, {@link ProvisioningParams#DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES}.
      *
      */
     public final int initiatorRequestedProvisioningModes;

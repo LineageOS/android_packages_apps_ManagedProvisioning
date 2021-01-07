@@ -66,6 +66,7 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_E
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -259,7 +260,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             new ArrayList<>(List.of(
                     SUPPORTED_MODES_ORGANIZATION_OWNED,
                     SUPPORTED_MODES_PERSONALLY_OWNED,
-                    SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED));
+                    SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED,
+                    SUPPORTED_MODES_DEVICE_OWNER));
 
     private static Map<String, String> buildShorterExtrasMap() {
         Map<String, String> shorterExtras = new HashMap<>();

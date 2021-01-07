@@ -29,6 +29,7 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_E
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -232,6 +233,13 @@ public class ParserUtilsTest {
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
                         PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE);
+    }
+
+    @Test
+    public void getAllowedProvisioningModes_deviceOwner_returnsManagedDevice() {
+        assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
+                SUPPORTED_MODES_DEVICE_OWNER)).containsExactly(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
     }
 
     @Test

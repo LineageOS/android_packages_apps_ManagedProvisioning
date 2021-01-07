@@ -19,6 +19,7 @@ package com.android.managedprovisioning.common;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
@@ -892,7 +893,8 @@ public class Utils {
     public boolean isOrganizationOwnedAllowed(ProvisioningParams params) {
         return params.initiatorRequestedProvisioningModes == SUPPORTED_MODES_ORGANIZATION_OWNED
                 || params.initiatorRequestedProvisioningModes
-                        == SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
+                        == SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED
+                || params.initiatorRequestedProvisioningModes == SUPPORTED_MODES_DEVICE_OWNER;
     }
 
     public boolean isManagedProfileProvisioningStartedByDpc(

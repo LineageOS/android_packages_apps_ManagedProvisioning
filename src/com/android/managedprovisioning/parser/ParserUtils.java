@@ -26,6 +26,7 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANA
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -136,7 +137,8 @@ public class ParserUtils {
      * initiator via the {@link DevicePolicyManager#EXTRA_PROVISIONING_SUPPORTED_MODES} extra.
      * Its value can be one of {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED},
      * {@link DevicePolicyManager#SUPPORTED_MODES_PERSONALLY_OWNED}, {@link
-     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED} or {@link
+     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED}, {@link
+     * DevicePolicyManager#SUPPORTED_MODES_DEVICE_OWNER} or {@link
      * com.android.managedprovisioning.model.ProvisioningParams
      * #DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES} if the value is not passed
      * as part of {@link DevicePolicyManager#ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}.
@@ -168,6 +170,9 @@ public class ParserUtils {
      *          DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE} for a
      *          managed profile on a personally-owned device.
      *     </li>
+     *     <li>
+     *         If {@link DevicePolicyManager#SUPPORTED_MODES_DEVICE_OWNER} is used, allow just
+     *         {@link DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE}.
      *     </li>
      * </ul>
      *
@@ -205,6 +210,10 @@ public class ParserUtils {
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
                         PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE));
+                break;
+            case SUPPORTED_MODES_DEVICE_OWNER:
+                result.addAll(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE));
                 break;
         }
         ProvisionLogger.logi("Allowed provisioning modes before checking for managed users "

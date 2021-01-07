@@ -23,6 +23,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -176,6 +177,16 @@ public class UtilsRoboTest {
         ProvisioningParams params = createTrustedSourceParamsBuilder()
                 .setInitiatorRequestedProvisioningModes(
                         SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED)
+                .build();
+
+        assertThat(mUtils.isOrganizationOwnedAllowed(params)).isTrue();
+    }
+
+    @Test
+    public void isOrganizationOwnedAllowed_deviceOwnerProvisioning_returnsTrue() {
+        ProvisioningParams params = createTrustedSourceParamsBuilder()
+                .setInitiatorRequestedProvisioningModes(
+                        SUPPORTED_MODES_DEVICE_OWNER)
                 .build();
 
         assertThat(mUtils.isOrganizationOwnedAllowed(params)).isTrue();

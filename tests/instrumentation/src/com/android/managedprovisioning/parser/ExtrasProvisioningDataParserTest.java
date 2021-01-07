@@ -66,6 +66,7 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANA
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -766,6 +767,18 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
 
         assertThat(params.initiatorRequestedProvisioningModes)
                 .isEqualTo(SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED);
+    }
+
+    public void testParse_trustedSourceWithDeviceOwnerSupportedMode_areEqual()
+            throws Exception {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES, SUPPORTED_MODES_DEVICE_OWNER);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.initiatorRequestedProvisioningModes)
+                .isEqualTo(SUPPORTED_MODES_DEVICE_OWNER);
     }
 
     public void
