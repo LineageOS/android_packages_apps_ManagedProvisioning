@@ -130,31 +130,6 @@ public class OtaControllerTest {
     }
 
     @Test
-    public void testDeviceOwnerSeparate() {
-        OtaController controller = new OtaController(mContext, mTaskExecutor,
-                mCrossProfileIntentFiltersSetter, NO_MISSING_SYSTEM_IME_PROVIDER,
-                mProvisioningAnalyticsTracker);
-
-        // GIVEN that there is a device owner on a non-system meat user
-        addMeatUser(DEVICE_OWNER_USER_ID);
-        setDeviceOwner(DEVICE_OWNER_USER_ID, ADMIN_COMPONENT);
-
-        // WHEN running the OtaController
-        controller.run();
-
-        // THEN the task list should contain DeleteNonRequiredAppsTask and DisallowAddUserTask
-        assertTaskList(
-                Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
-                Pair.create(DEVICE_OWNER_USER_ID, DeleteNonRequiredAppsTask.class),
-                Pair.create(DEVICE_OWNER_USER_ID, DisallowAddUserTask.class),
-                Pair.create(UserHandle.USER_SYSTEM, UpdateInteractAcrossProfilesAppOpTask.class));
-
-        // THEN cross profile intent filters setter should be invoked for both users
-        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
-        verify(mCrossProfileIntentFiltersSetter).resetFilters(DEVICE_OWNER_USER_ID);
-    }
-
-    @Test
     public void testManagedProfileWithoutMissingSystemIme() {
         OtaController controller = new OtaController(mContext, mTaskExecutor,
                 mCrossProfileIntentFiltersSetter, NO_MISSING_SYSTEM_IME_PROVIDER,
@@ -253,12 +228,6 @@ public class OtaControllerTest {
         public synchronized void execute(int userId, AbstractProvisioningTask task) {
             mTasks.add(Pair.create(userId, task));
         }
-    }
-
-    private void addMeatUser(int userId) {
-        UserInfo ui = new UserInfo(userId, null, 0);
-        mUsers.add(ui);
-        when(mUserManager.getProfiles(userId)).thenReturn(Collections.singletonList(ui));
     }
 
     private void setDeviceOwner(int userId, ComponentName admin) {

@@ -19,8 +19,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
@@ -28,7 +26,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
-
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
@@ -36,12 +33,12 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
@@ -65,6 +62,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECU
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE_SHORT;
@@ -80,12 +78,12 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMERS_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMER_CONTENT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMER_HEADER_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_USER_CONSENT_SHORT;
@@ -110,6 +108,7 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE_SHORT;
 
 import static com.google.common.truth.Truth.assertThat;
+
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
@@ -126,6 +125,7 @@ import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
+
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -135,13 +135,13 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.stream.Stream;
-
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 /** Tests for {@link ExtrasProvisioningDataParser}. */
 @SmallTest
@@ -480,45 +480,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .isEqualTo(params);
     }
 
-    public void testParse_managedUserIntent() throws Exception {
-        // GIVEN a managed user provisioning intent and other extras.
-        Intent intent = new Intent(ACTION_PROVISION_MANAGED_USER)
-                // GIVEN a device admin package name and component name
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
-                .putExtras(getTestTimeTimeZoneAndLocaleExtras())
-                .putExtras(getTestWifiInfoExtras())
-                .putExtras(getTestDeviceAdminDownloadExtras())
-                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
-                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
-
-        // WHEN the intent is parsed by the parser.
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        // THEN ProvisionParams is constructed as expected.
-        assertThat(
-                ProvisioningParams.Builder.builder()
-                        // THEN provisioning action is ACTION_PROVISION_MANAGED_USER
-                        .setProvisioningAction(ACTION_PROVISION_MANAGED_USER)
-                        .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                        .setProvisioningId(TEST_PROVISIONING_ID)
-                        // THEN device admin package name is not supported in Managed User
-                        // provisioning.
-                        .setDeviceAdminPackageName(null)
-                        // THEN device admin download info is not supported.
-                        .setDeviceAdminDownloadInfo(null)
-                        // THEN wifi info is not supported.
-                        .setWifiInfo(null)
-                        .setMainColor(TEST_MAIN_COLOR)
-                        .setSkipEncryption(TEST_SKIP_ENCRYPTION)
-                        .setAdminExtrasBundle(createTestAdminExtras())
-                        .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
-                        .build())
-                .isEqualTo(params);
-    }
-
     public void testParse_shortExtras_sameAsLongExtras() throws Exception {
         assertThat(mExtrasProvisioningDataParser.parse(buildIntentWithAllLongExtras()))
             .isEqualTo(mExtrasProvisioningDataParser.parse(buildIntentWithAllShortExtras()));
@@ -559,46 +520,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setMainColor(TEST_MAIN_COLOR)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         .setLeaveAllSystemAppsEnabled(true)
-                        // THEN wifi configuration is not supported.
-                        .setWifiInfo(null)
-                        .setAdminExtrasBundle(createTestAdminExtras())
-                        .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
-                        .build())
-                .isEqualTo(params);
-    }
-
-    public void testParse_managedSharableDeviceIntent() throws Exception {
-        // GIVEN a managed device provisioning intent and other extras.
-        Intent intent = new Intent(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)
-                // GIVEN a device admin package name and component name
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
-                .putExtras(getTestTimeTimeZoneAndLocaleExtras())
-                .putExtras(getTestWifiInfoExtras())
-                .putExtras(getTestDeviceAdminDownloadExtras())
-                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, createTestAdminExtras())
-                .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
-                .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
-
-        // WHEN the intent is parsed by the parser.
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        // THEN ProvisionParams is constructed as expected.
-        assertThat(
-                ProvisioningParams.Builder.builder()
-                        // THEN provisioning action is ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE
-                        .setProvisioningAction(ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE)
-                        .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                        .setProvisioningId(TEST_PROVISIONING_ID)
-                        // THEN device admin package name is not supported in Device Owner
-                        // provisioning.
-                        .setDeviceAdminPackageName(null)
-                        // THEN Device Admin download info is not supported.
-                        .setDeviceAdminDownloadInfo(null)
-                        // THEN time, time zone and locale are not supported.
-                        .setMainColor(TEST_MAIN_COLOR)
-                        .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         // THEN wifi configuration is not supported.
                         .setWifiInfo(null)
                         .setAdminExtrasBundle(createTestAdminExtras())

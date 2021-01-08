@@ -148,7 +148,7 @@ public class OtaController {
                 new DeleteNonRequiredAppsTask(false, context, fakeParams, mTaskExecutor,
                         mProvisioningAnalyticsTracker));
         mTaskExecutor.execute(userId,
-                new DisallowAddUserTask(UserManager.isSplitSystemUser(), context, fakeParams,
+                new DisallowAddUserTask(UserManager.isHeadlessSystemUserMode(), context, fakeParams,
                         mTaskExecutor, mProvisioningAnalyticsTracker));
     }
 

@@ -19,8 +19,6 @@ package com.android.managedprovisioning.common;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
 import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
@@ -509,8 +507,7 @@ public class Utils {
      */
     // TODO: Move the list of device owner actions into a Globals class.
     public final boolean isProfileOwnerAction(String action) {
-        return ACTION_PROVISION_MANAGED_PROFILE.equals(action)
-                || ACTION_PROVISION_MANAGED_USER.equals(action);
+        return ACTION_PROVISION_MANAGED_PROFILE.equals(action);
     }
 
     /**
@@ -518,8 +515,7 @@ public class Utils {
      */
     // TODO: Move the list of device owner actions into a Globals class.
     public final boolean isDeviceOwnerAction(String action) {
-        return ACTION_PROVISION_MANAGED_DEVICE.equals(action)
-                || ACTION_PROVISION_MANAGED_SHAREABLE_DEVICE.equals(action);
+        return ACTION_PROVISION_MANAGED_DEVICE.equals(action);
     }
 
     /**
@@ -613,17 +609,6 @@ public class Utils {
         wifiIntent.putExtra("extra_prefs_show_button_bar", true);
         wifiIntent.putExtra("wifi_enable_next_on_connect", true);
         return wifiIntent;
-    }
-
-    // TODO (b/137101239): clean up split system user codes
-    /**
-     * Returns whether the device has a split system user.
-     *
-     * <p>Split system user means that user 0 is system only and all meat users are separate from
-     * the system user.
-     */
-    public boolean isSplitSystemUser() {
-        return UserManager.isSplitSystemUser();
     }
 
     /**
