@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Beheer-app instellen"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Dit apparaat is eigendom van je organisatie"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"De volgende app wordt gebruikt om deze telefoon te beheren en te controleren"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Je account wordt beheerd"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Je IT-beheerder gebruikt beheer van mobiele apparaten om beveiligingsbeleid af te dwingen"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Instellingen klaarmaken voor werk…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Laten we eerst je werkprofiel instellen"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werk-apps worden bewaard in je werkprofiel"</string>

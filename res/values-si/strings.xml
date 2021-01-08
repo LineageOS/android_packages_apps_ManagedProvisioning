@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"පරිපාලක යෙදුම සැකසීම"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"මෙම උපාංගය ඔබේ සංවිධානයට අයත් වේ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"මෙම දුරකථනය කළමනා කිරීමටත් නිරීක්‍ෂණ කිරීමටත් පහත සඳහන් යෙදුම භාවිත කෙරේ"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"ඔබගේ ගිණුම කළමනාකරණය කෙරේ"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"ආරක්ෂක ප්‍රතිපත්ති බලාත්මක කිරීම සඳහා ඔබගේ තොරතුරු තාක්ෂණ පරිපාලක ජංගම උපාංග කළමනාකරණය භාවිත කරයි"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"කාර්යාල සැකසීම සඳහා සූදානම් වේ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"අපි ඔබේ වැඩ පැතිකඩ පිහිටුවමු"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"කාර්යාල යෙදුම් ඔබේ කාර්යාල පැතිකඩේ තබනු ලැබේ"</string>

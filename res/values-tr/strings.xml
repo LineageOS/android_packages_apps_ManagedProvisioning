@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Yönetici uygulamasını kurma"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu cihaz, kuruluşunuza ait"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdaki uygulama bu telefonu yönetmek ve izlemek için kullanılacaktır"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Hesabınız yönetiliyor"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"BT yöneticiniz, güvenlik politikalarını zorunlu tutmak için mobil cihaz yönetimini kullanıyor"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"İş kurulumu için hazırlanıyor…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Şimdi iş profilinizi oluşturalım"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"İş uygulamaları iş profilinizde tutulur"</string>

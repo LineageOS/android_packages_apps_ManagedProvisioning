@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"მიმდინარეობს ადმინისტრატორის აპის დაყენება"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ეს მოწყობილობა თქვენს ორგანიზაციას ეკუთვნის"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ქვემოთ მითითებული აპი გამოყენებული იქნება ამ ტელეფონის სამართავად და მონიტორინგისთვის"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"თქვენი ანგარიში იმართება"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"თქვენი IT ადმინისტრატორი, უსაფრთხოების წესების ასამოქმედებლად, მობილური მოწყობილობის მართვას იყენებს"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"მზადება სამსახურისთვის დასაყენებლად…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"მოდით, გავმართოთ თქვენი სამსახურის პროფილი"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება"</string>

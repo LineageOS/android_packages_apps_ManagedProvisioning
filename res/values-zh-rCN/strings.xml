@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"设置管理应用"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"此设备归贵单位所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下应用将用于管理和监控此手机"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"您的帐号是受管理的帐号"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"您的 IT 管理员使用移动设备管理服务强制执行安全政策"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在准备工作设置…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"请设置您的工作资料"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作应用位于您的工作资料中"</string>

@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Rendszergazdai alkalmazás beállítása"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Az eszköz a szervezet tulajdona"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"A következő alkalmazást a telefon kezelésére és figyelésére fogják használni"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Fiókja felügyelet alatt áll"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Rendszergazdája mobileszköz-kezelést használ a biztonsági házirendek betartatásához"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Felkészülés a munkahelyi használatra való beállításra…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Munkaprofil beállítása"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"A munkahelyi alkalmazásokat a munkaprofil tárolja"</string>

@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Menyediakan apl pentadbir"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Peranti ini milik organisasi anda"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Apl berikut akan digunakan untuk mengurus dan memantau telefon ini"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Akaun anda telah diuruskan"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Pentadbir IT anda menggunakan pengurusan peranti mudah alih untuk menguatkuasakan dasar keselamatan"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Bersedia untuk persediaan kerja…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Mari sediakan profil kerja anda"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Apl kerja disimpan dalam profil kerja anda"</string>

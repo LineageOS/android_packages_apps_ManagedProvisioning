@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Се поставува апликацијата за администратор"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Уредов е во сопственост на организацијата"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следнава апликација ќе се користи за управување и следење на телефонов"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Вашата сметка е управувана"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Вашиот администратор користи управување со мобилни уреди за да спроведе политики за безбедност"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка за поставување работен профил…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Ајде да го поставиме вашиот работен профил"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Работните апликации се чуваат во вашиот работен профил"</string>

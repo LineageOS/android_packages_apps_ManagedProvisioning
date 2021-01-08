@@ -164,8 +164,6 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Administratzeko aplikazioa konfiguratzen"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Gailua erakundearena da"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Telefono hau kudeatzeko eta kontrolatzeko erabiliko da aplikazioa"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Kudeatuta dago kontua"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Gailu mugikorren kudeaketa erabiltzen du IKT saileko administratzaileak segurtasun-gidalerroak aplikatzeko"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Laneko konfigurazioa gauzatzeko prestatzen…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfiguratu laneko profila"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Laneko profilean gordetzen dira laneko aplikazioak"</string>
