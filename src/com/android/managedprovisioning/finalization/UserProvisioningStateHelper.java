@@ -164,6 +164,14 @@ public class UserProvisioningStateHelper {
                 || currentState == STATE_USER_PROFILE_FINALIZED;
     }
 
+    /**
+     * Resets the provisioning state for {@link UserHandle#USER_SYSTEM} to {@link
+     * DevicePolicyManager#STATE_USER_UNMANAGED}.
+     */
+    public void resetPrimaryUserProvisioningState() {
+        setUserProvisioningState(STATE_USER_UNMANAGED, UserHandle.USER_SYSTEM);
+    }
+
     private boolean isUserProvisioningStateProfileFinalized() {
         final int currentState = mDevicePolicyManager.getUserProvisioningState();
         return currentState == STATE_USER_PROFILE_FINALIZED;
