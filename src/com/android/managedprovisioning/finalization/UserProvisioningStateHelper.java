@@ -21,9 +21,9 @@ import static android.app.admin.DevicePolicyManager.STATE_USER_PROFILE_COMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_PROFILE_FINALIZED;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_COMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
-import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_UNMANAGED;
 import static android.content.Context.DEVICE_POLICY_SERVICE;
+
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.admin.DevicePolicyManager;
@@ -92,8 +92,7 @@ public class UserProvisioningStateHelper {
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             // Managed profiles are a special case as two users are involved.
             managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
-            if (mUtils.isManagedProfileProvisioningStartedByDpc(
-                    mContext, params, mSettingsFacade)) {
+            if (userSetupCompleted) {
                 // SUW on current user is complete, so nothing much to do beyond indicating we're
                 // all done.
                 if (!isUserProvisioningStateProfileFinalized()) {
@@ -101,8 +100,8 @@ public class UserProvisioningStateHelper {
                 }
                 newProfileState = STATE_USER_SETUP_FINALIZED;
             } else {
-                // Indicate that a managed-profile was setup on current user, and that we're
-                // awaiting finalization on both.
+                // We're still in SUW, so indicate that a managed-profile was setup on current user,
+                // and that we're awaiting finalization on both.
                 newState = STATE_USER_PROFILE_COMPLETE;
                 newProfileState = STATE_USER_SETUP_COMPLETE;
             }

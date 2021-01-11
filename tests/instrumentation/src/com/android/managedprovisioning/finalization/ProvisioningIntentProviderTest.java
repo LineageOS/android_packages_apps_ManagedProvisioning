@@ -16,9 +16,14 @@
 package com.android.managedprovisioning.finalization;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
+import static android.app.admin.DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISIONING_SUCCESSFUL;
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+
 import static com.google.common.truth.Truth.assertThat;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
@@ -33,10 +38,13 @@ import android.os.PersistableBundle;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -56,6 +64,7 @@ public class ProvisioningIntentProviderTest {
     @Mock private Context mContext;
     @Mock private Utils mUtils;
     @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    @Mock private PolicyComplianceUtils mPolicyComplianceUtils;
 
     @Before
     public void setUp() {
@@ -69,14 +78,37 @@ public class ProvisioningIntentProviderTest {
     }
 
     @Test
-    public void maybeLaunchDpc_success() {
+    public void maybeLaunchDpc_provisioningSuccessAction_success() {
         when(mUtils.canResolveIntentAsUser(any(), any(), anyInt())).thenReturn(true);
 
         mProvisioningIntentProvider.maybeLaunchDpc(mParams, 0, mUtils, mContext,
-                mProvisioningAnalyticsTracker);
+                mProvisioningAnalyticsTracker, mPolicyComplianceUtils);
 
-        verify(mContext).startActivityAsUser(any(), any());
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
+        assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_PROVISIONING_SUCCESSFUL);
+    }
+
+    @Test
+    public void maybeLaunchDpc_policyComplianceAction_success() {
+        when(mUtils.canResolveIntentAsUser(any(), any(), anyInt())).thenReturn(true);
+        ProvisioningParams params = new ProvisioningParams.Builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+                .setDeviceAdminComponentName(DEVICE_ADMIN_COMPONENT_NAME)
+                .setAdminExtrasBundle(ADMIN_EXTRAS_BUNDLE)
+                .setStartedByTrustedSource(true)
+                .setFlowType(ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED)
+                .build();
+        PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
+
+        mProvisioningIntentProvider.maybeLaunchDpc(params, 0, mUtils, mContext,
+                mProvisioningAnalyticsTracker, policyComplianceUtils);
+
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
+        verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
+        assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_ADMIN_POLICY_COMPLIANCE);
     }
 
     @Test
@@ -84,7 +116,7 @@ public class ProvisioningIntentProviderTest {
         when(mUtils.canResolveIntentAsUser(any(), any(), anyInt())).thenReturn(false);
 
         mProvisioningIntentProvider.maybeLaunchDpc(mParams, 0, mUtils, mContext,
-                mProvisioningAnalyticsTracker);
+                mProvisioningAnalyticsTracker, mPolicyComplianceUtils);
 
         verify(mContext, never()).startActivityAsUser(any(), any());
         verify(mProvisioningAnalyticsTracker, never()).logDpcSetupStarted(any(), any());

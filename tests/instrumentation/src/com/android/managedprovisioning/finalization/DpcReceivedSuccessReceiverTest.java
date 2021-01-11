@@ -70,8 +70,7 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
         // GIVEN that no account migration occurred during provisioning
         final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(
                 /* migratedAccount */ null, /* keepAccountMigrated */ false,
-                MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME, mUtils, /* callback */ null,
-                /* isAdminIntegratedFlow */ false);
+                MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME, mUtils, /* callback */ null);
 
         // WHEN the profile provisioning complete intent was received by the DPC
         receiver.onReceive(mContext, TEST_INTENT);
@@ -96,7 +95,7 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
         // GIVEN that account migration occurred during provisioning
         final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
                 /* keepAccountMigrated */ false, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
-                mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
+                mUtils, /* callback */ null);
 
         // WHEN receiver.onReceive is called
         invokeOnReceiveAndVerifyIntent(receiver, /* postOnReceive */ aVoid -> {
@@ -115,7 +114,7 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
         // GIVEN that account copy occurred during provisioning
         final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
                 /* keepAccountMigrated */ true, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
-                mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
+                mUtils, /* callback */ null);
 
         // WHEN receiver.onReceive is called
         invokeOnReceiveAndVerifyIntent(receiver, /* postOnReceive */ aVoid -> {

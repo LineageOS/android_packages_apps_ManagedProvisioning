@@ -16,13 +16,12 @@
 
 package com.android.managedprovisioning.finalization;
 
-import static com.android.internal.util.Preconditions.checkNotNull;
-
 import android.accounts.Account;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
+
 import androidx.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -46,18 +45,17 @@ public class DpcReceivedSuccessReceiver extends BroadcastReceiver {
 
     public DpcReceivedSuccessReceiver(@Nullable Account migratedAccount,
             boolean keepAccountMigrated, UserHandle managedUserHandle, String mdmPackageName,
-            Callback callback, boolean isAdminIntegratedFlow) {
+            Callback callback) {
         this(migratedAccount, keepAccountMigrated, managedUserHandle, mdmPackageName, new Utils(),
-                callback, isAdminIntegratedFlow);
+                callback);
     }
 
     @VisibleForTesting
     DpcReceivedSuccessReceiver(Account migratedAccount, boolean keepAccountMigrated,
-            UserHandle managedUserHandle, String mdmPackageName, Utils utils, Callback callback,
-            boolean isAdminIntegratedFlow) {
+            UserHandle managedUserHandle, String mdmPackageName, Utils utils, Callback callback) {
         mCallback = callback;
         mHelper = new PrimaryProfileFinalizationHelper(migratedAccount, keepAccountMigrated,
-                managedUserHandle, mdmPackageName, utils, isAdminIntegratedFlow);
+                managedUserHandle, mdmPackageName, utils);
     }
 
     @Override

@@ -21,23 +21,43 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISIONING_SUCCESSF
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 
 import android.annotation.NonNull;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.google.android.setupcompat.util.WizardManagerHelper;
 
 /**
  * Helper class for creating intents in finalization controller.
  */
 class ProvisioningIntentProvider {
     void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            PolicyComplianceUtils policyComplianceUtils) {
+        if (params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
+            launchPolicyComplianceDpcHandler(
+                    context, params, utils, provisioningAnalyticsTracker, policyComplianceUtils);
+        } else {
+            launchProvisioningSuccessfulDpcHandler(
+                    params, userId, utils, context, provisioningAnalyticsTracker);
+        }
+    }
+
+    private void launchPolicyComplianceDpcHandler(
+            Context context, ProvisioningParams params, Utils utils,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            PolicyComplianceUtils policyComplianceUtils) {
+        policyComplianceUtils.startPolicyComplianceActivityIfResolved(
+                context, params, utils, provisioningAnalyticsTracker);
+    }
+
+    private void launchProvisioningSuccessfulDpcHandler(ProvisioningParams params, int userId,
+            Utils utils, Context context,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         final Intent dpcLaunchIntent = createDpcLaunchIntent(params);
         if (utils.canResolveIntentAsUser(context, dpcLaunchIntent, userId)) {
