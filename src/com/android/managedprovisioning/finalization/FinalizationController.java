@@ -158,10 +158,6 @@ public final class FinalizationController {
             return;
         }
 
-        if (!mFinalizationControllerLogic.isReadyForFinalization(params)) {
-            return;
-        }
-
         mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             mProvisioningFinalizedResult =
