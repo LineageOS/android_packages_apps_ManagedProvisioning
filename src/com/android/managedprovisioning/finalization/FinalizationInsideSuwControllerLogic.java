@@ -65,29 +65,6 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
     }
 
     @Override
-    public boolean isReadyForFinalization(ProvisioningParams params) {
-        // In this release, we only allow provisioning during SUW under certain conditions.  If
-        // those conditions aren't met, skip finalization now, so that we do it after SUW instead.
-
-        if (params.isOrganizationOwnedProvisioning) {
-            if (params.flowType != ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
-                ProvisionLogger.logi("Skipping finalization during SUW for organization "
-                        + "owned provisioning, which is not admin integrated flow");
-                return false;
-            }
-        } else {
-            if (!mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
-                    mActivity, params, mUtils, UserHandle.SYSTEM)) {
-                ProvisionLogger.logi("Skipping finalization during SUW for non-organization "
-                        + "owned provisioning, because DPC doesn't implement intent handler");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    @Override
     public @ProvisioningFinalizedResult int notifyDpcManagedProfile(
             ProvisioningParams params, int requestCode) {
         return startPolicyComplianceActivityForResultIfResolved(params, requestCode);
