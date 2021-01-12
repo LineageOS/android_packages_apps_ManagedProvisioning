@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Work profile info"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Managed device info"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Work profile"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primary user"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Delete existing profile?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"You already have a work profile. It\'s managed using the following app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Before proceeding, "<a href="#read_this_link">"read this"</a>"."</string>

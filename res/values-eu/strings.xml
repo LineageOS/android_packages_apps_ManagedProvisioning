@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Laneko profileko informazioa"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Kudeatutako gailuko informazioa"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Laneko profila"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Erabiltzaile nagusia"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Dagoen profila ezabatu nahi duzu?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Dagoeneko baduzu laneko profil bat. Aplikazio honen bidez kudeatzen da:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Aurrera egin aurretik, "<a href="#read_this_link">"irakurri hau"</a>"."</string>

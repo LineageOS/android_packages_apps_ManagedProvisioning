@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Podatki o delovnem profilu"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Podatki o upravljani napravi"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Delovni profil"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primarni uporabnik"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Želite izbrisati obstoječi profil?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Delovni profil že imate. Upravlja ga ta aplikacija:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Preden nadaljujete, "<a href="#read_this_link">"preberite to"</a>"."</string>

@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"ຂໍ້ມູນໂປຣໄຟລ໌ບ່ອນເຮັດວຽກ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ຂໍ້ມູນອຸປະກອນທີ່ມີການຈັດການ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"​ໂປຣ​ໄຟລ໌​ບ່ອນ​ເຮັດ​ວຽກ"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ຜູ້​ໃຊ້​ຕົ້ນ​ຕໍ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ລຶບໂປຣໄຟລ໌ທີ່ມີຢູ່ແລ້ວອອກບໍ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ທ່ານມີໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຢູ່ກ່ອນແລ້ວ. ມັນຖືກຈັດການໂດຍໃຊ້ແອັບຕໍ່ໄປນີ້:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ກ່ອນດຳເນີນການ, "<a href="#read_this_link">"ໃຫ້ອ່ານ"</a>" ນີ້."</string>

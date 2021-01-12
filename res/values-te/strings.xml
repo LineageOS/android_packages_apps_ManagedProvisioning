@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"కార్యాలయ ప్రొఫైల్ సమాచారం"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"నిర్వహించబడిన పరికర సమాచారం"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"కార్యాలయ ప్రొఫైల్‌"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ప్రాథమిక వినియోగదారు"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ప్రస్తుతం ఉన్న ప్రొఫైల్‌ని తొలగించాలా?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ఇప్పటికే మీ వద్ద కార్యాలయ ప్రొఫైల్ ఉంది. కింది యాప్ ద్వారా ఇది నిర్వహించబడుతోంది:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"కొనసాగడానికి ముందు, "<a href="#read_this_link">"దీన్ని చదవండి"</a>"."</string>

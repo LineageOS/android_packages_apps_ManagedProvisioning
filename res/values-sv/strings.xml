@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Information om jobbprofil"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Information om hanterad enhet"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Jobbprofil"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primär användare"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Vill du radera den nuvarande profilen?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Du har redan en jobbprofil. Den hanteras med följande app:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Läs detta"</a>" innan du fortsätter."</string>

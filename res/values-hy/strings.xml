@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Աշխատանքային պրոֆիլի տվյալները"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Կառավարվող սարքի տվյալները"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Աշխատանքային պրոֆիլ"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Առաջնային օգտատեր"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Ջնջե՞լ առկա պրոֆիլը:"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Դուք արդեն ունեք աշխատանքային պրոֆիլ: Այն կառավարվում է հետևյալ հավելվածի օգնությամբ՝"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Շարունակելուց առաջ "<a href="#read_this_link">"կարդացեք սա"</a>":"</string>

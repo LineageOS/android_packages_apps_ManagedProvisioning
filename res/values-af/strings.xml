@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Inligting oor werkprofiel"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Inligting oor bestuurde toestel"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Werkprofiel"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Primêre gebruiker"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Vee bestaande profiel uit?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Jy het reeds \'n werkprofiel. Dit word met die volgende program bestuur:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees hier"</a>" voordat jy voortgaan."</string>

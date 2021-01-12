@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Informácie o pracovnom profile"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Informácie o spravovanom zariadení"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Pracovný profil"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Hlavný používateľ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Odstrániť existujúci profil?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Už máte pracovný profil. Je spravovaný nasledujúcou aplikáciou:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Skôr ako budete pokračovať, "<a href="#read_this_link">"prečítajte si tieto informácie"</a>"."</string>

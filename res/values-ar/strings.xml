@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"معلومات الملف الشخصي للعمل"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"معلومات الجهاز المُدار"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"الملف الشخصي للعمل"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"المستخدم الأساسي"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"هل تريد حذف الملف الشخصي الحالي؟"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"لديك مسبقًا ملف شخصي للعمل تتم إدارته باستخدام التطبيق التالي:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل المتابعة، يجب "<a href="#read_this_link">"قراءة هذا"</a>"."</string>

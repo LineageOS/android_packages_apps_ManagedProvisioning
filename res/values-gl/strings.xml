@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Información do perfil de traballo"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Información sobre o dispositivo xestionado"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Perfil do traballo"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Usuario principal"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Queres eliminar o perfil existente?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Xa tes un perfil de traballo que se xestiona mediante a seguinte aplicación:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Antes de proceder, "<a href="#read_this_link">"le esta información"</a>"."</string>

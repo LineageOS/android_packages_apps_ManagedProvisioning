@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"ഔദ്യോഗിക പ്രൊഫൈൽ വിവരം"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"മാനേജുചെയ്യപ്പെടുന്ന ഉപകരണത്തിന്റെ വിവരങ്ങൾ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ഔദ്യോഗിക പ്രൊഫൈൽ"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"പ്രാഥമിക ഉപയോക്താവ്"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"നിലവിലെ പ്രൊഫൈൽ ഇല്ലാതാക്കണോ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"നിങ്ങൾക്ക് ഇതിനകം തന്നെ ഒരു ഔദ്യോഗിക പ്രൊഫൈലുണ്ട്. ഇനിപ്പറയുന്ന ആപ്പ് ഉപയോഗിച്ചുകൊണ്ടാണത് മാനേജുചെയ്യുന്നത്:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"തുടരുന്നതിന് മുമ്പ്, "<a href="#read_this_link">"ഇത് വായിക്കുക"</a>"."</string>
