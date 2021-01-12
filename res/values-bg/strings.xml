@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Информация за служебния потребителски профил"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Информация за управляваното устройство"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Служебен потребителски профил"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Основен потребител"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Да се изтрие ли съществуващият потребителски профил?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Вече имате служебен потребителски профил. Той се управлява посредством следното приложение:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Преди да продължите, "<a href="#read_this_link">"прочетете това"</a>"."</string>

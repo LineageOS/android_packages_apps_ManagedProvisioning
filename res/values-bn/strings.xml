@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"কর্মস্থলের প্রোফাইলের তথ্য"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"পরিচালিত ডিভাইসের তথ্য"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"কর্মস্থলের প্রোফাইল"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"প্রাথমিক ব্যবহারকারী"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"বর্তমান প্রোফাইলটি মুছবেন?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"আগে থেকেই আপনার একটি কর্মস্থলের প্রোফাইল আছে। এই অ্যাপটি ব্যবহার করে সেটির পরিচালনা করা হয়:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"প্রক্রিয়ার আগে, "<a href="#read_this_link">"এটি পড়ুন"</a>"৷"</string>

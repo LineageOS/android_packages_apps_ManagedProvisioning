@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"कार्य प्रोफाइल माहिती"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"व्यवस्थापित डिव्हाइस माहिती"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाईल"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक वापरकर्ता"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइल हटवायचे?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तुमची आधीपासून एक कार्य प्रोफाइल आहे. ती खालील अ‍ॅप वापरून व्यवस्थापित केली जाते:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"पुढे जाण्यापूर्वी, "<a href="#read_this_link">"हे वाचा"</a>"."</string>

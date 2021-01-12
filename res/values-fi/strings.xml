@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Työprofiilin tiedot"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Hallinnoidun laitteen tiedot"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Työprofiili"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Ensisijainen käyttäjä"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Poistetaanko nykyinen profiili?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Sinulla on jo työprofiili, jota hallinnoi seuraava sovellus:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lue tämä"</a>" ennen kuin jatkat."</string>

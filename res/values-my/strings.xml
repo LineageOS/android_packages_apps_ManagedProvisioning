@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"အလုပ်ပရိုဖိုင် အချက်အလက်များ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"စီမံခန့်ခွဲထားသည့် စက်ပစ္စည်းအချက်အလက်များ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"အလုပ် ပရိုဖိုင်"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"ပထမအသုံးပြုသူ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"လက်ရှိပရိုဖိုင်ကို ဖျက်လိုပါသလား။"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"သင့်တွင် အလုပ်ပရိုဖိုင်တစ်ခုရှိပြီးသားဖြစ်ပါသည်။ ၎င်းကို အောက်ပါ အက်ပ်က စီမံခန့်ခွဲပါသည်-"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ရှေ့မဆက်မှီ၊ "<a href="#read_this_link">"ဖတ်ပါ"</a>"။"</string>

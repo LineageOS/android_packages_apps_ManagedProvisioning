@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Інформація про робочий профіль"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Інформація про керований пристрій"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Робочий профіль"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Основний користувач"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Видалити наявний профіль?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"У вас уже є робочий профіль, яким керує додаток"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Перш ніж продовжити, "<a href="#read_this_link">"прочитайте цю інформацію"</a>"."</string>

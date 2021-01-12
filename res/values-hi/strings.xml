@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"वर्क प्रोफ़ाइल की जानकारी"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"प्रबंधित डिवाइस की जानकारी"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"वर्क प्रोफ़ाइल"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"प्राथमिक उपयोगकर्ता"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"मौजूदा प्रोफ़ाइल हटाना चाहते हैं?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"आपकी एक वर्क प्रोफ़ाइल पहले से है. उसका प्रबंधन इस ऐप्लिकेशन के उपयोग से किया जाता है:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"आगे बढ़ने से पहले, "<a href="#read_this_link">"यह पढ़ें"</a>"."</string>

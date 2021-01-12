@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Ishchi profilga oid ma’lumotlar"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Boshqariluvchi qurilmaga oid ma’lumotlar"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Ish profili"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Asosiy foydalanuvchi"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Mavjud profil o‘chirib tashlansinmi?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Sizda allaqachon quyidagi ilova tomonidan boshqariladigan ish profili bor:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Davom etishdan oldin "<a href="#read_this_link">"buni o‘qib chiqing"</a>"."</string>

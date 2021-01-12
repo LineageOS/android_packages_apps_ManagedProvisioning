@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"工作资料信息"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"受管理设备的信息"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"工作资料"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"主用户"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"要删除现有的工作资料吗？"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"您已拥有可通过以下应用管理的工作资料："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"请先"<a href="#read_this_link">"阅读此文"</a>"，然后再继续。"</string>

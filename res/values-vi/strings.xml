@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"Thông tin hồ sơ công việc"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Thông tin thiết bị được quản lý"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Hồ sơ công việc"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"Người dùng chính"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Xóa hồ sơ hiện có?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Bạn đã có hồ sơ công việc. Hồ sơ này do ứng dụng sau quản lý:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Trước khi tiếp tục, "<a href="#read_this_link">"hãy đọc thông tin sau"</a>"."</string>

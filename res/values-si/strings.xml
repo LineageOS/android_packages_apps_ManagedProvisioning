@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"කාර්යාල පැතිකඩ තොරතුරු"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"කළමනාකරණය කළ උපාංග තොරතුරු"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"කාර්යාල පැතිකඩ"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"මූලික පරිශීලක"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"තිබන පැතිකඩ මකන්නද?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ඔබට දැනටමත් කාර්යාල පැතිකඩක් තිබේ. එය පහත යෙදුම මඟින් කළමනාකරණය කෙරේ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ඉදිරියට යාමට පෙර, "<a href="#read_this_link">"මෙය කියවන්න"</a>"."</string>

@@ -41,7 +41,6 @@
     <string name="work_profile_info" msgid="5433388376309583996">"工作設定檔資料"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"受管理的裝置資料"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"公司檔案"</string>
-    <string name="default_first_meat_user_name" msgid="7540515892748490540">"主要使用者"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"要刪除現有設定檔嗎？"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"您可以透過下列應用程式管理現有的工作設定檔："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"請在開始前"<a href="#read_this_link">"閱讀此資訊"</a>"。"</string>
