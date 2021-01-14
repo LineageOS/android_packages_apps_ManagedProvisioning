@@ -16,6 +16,7 @@ android_test {
         "androidx.test.rules",
         "mockito-target-minus-junit4",
         "androidx.test.espresso.core",
+        "androidx.test.espresso.contrib",
         "androidx.test.espresso.intents",
         "truth-prebuilt",
         "testng", // used only for assertThrows
