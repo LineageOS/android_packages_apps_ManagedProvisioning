@@ -15,8 +15,8 @@
  */
 package com.android.managedprovisioning.provisioning;
 
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,6 +31,7 @@ import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifLayout;
 
@@ -65,11 +66,8 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         int headerResId = R.string.brand_screen_header;
         int titleResId = R.string.setup_device_progress;
 
-        // TODO(b/175622930): Remove references to managed account provisioning
-        if (params.provisioningTrigger == PROVISIONING_TRIGGER_MANAGED_ACCOUNT
-                || params.provisioningTrigger == PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER) {
+        if (shouldShowAccountManagementDisclaimer(params.initiatorRequestedProvisioningModes)) {
             headerResId = R.string.account_management_disclaimer_header;
-            titleResId = R.string.account_management_disclaimer_subheader;
         }
 
         final CustomizationParams customizationParams =
@@ -77,13 +75,25 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         initializeLayoutParams(R.layout.landing_screen, headerResId, customizationParams);
         setTitle(titleResId);
 
-        handleSupportUrl(customizationParams);
+        if (shouldShowAccountManagementDisclaimer(params.initiatorRequestedProvisioningModes)) {
+            ((TextView) findViewById(R.id.provider_info))
+                    .setText(R.string.account_management_disclaimer_subheader);
+        } else {
+            handleSupportUrl(customizationParams);
+        }
+
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         Utils.addNextButton(layout, v -> onNextButtonClicked(params));
 
         if (Utils.isSilentProvisioning(this, params)) {
             onNextButtonClicked(params);
         }
+    }
+
+    private boolean shouldShowAccountManagementDisclaimer(int initiatorRequestedProvisioningModes) {
+        return initiatorRequestedProvisioningModes
+                        == SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED
+                || initiatorRequestedProvisioningModes == SUPPORTED_MODES_PERSONALLY_OWNED;
     }
 
     private void onNextButtonClicked(ProvisioningParams params) {
