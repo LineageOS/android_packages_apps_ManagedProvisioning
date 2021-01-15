@@ -260,7 +260,10 @@
                   android:launchMode="singleTop"
                   android:theme="@style/SudThemeGlifV3.Light">
             <intent-filter>
+                <!-- TODO (b/177666246): Remove PROVISION_FINALIZATION_INSIDE_SUW
+                after the setup wizard change which calls PROVISION_FINALIZATION is in prebuilt -->
                 <action android:name="android.app.action.PROVISION_FINALIZATION_INSIDE_SUW" />
+                <action android:name="android.app.action.PROVISION_FINALIZATION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
