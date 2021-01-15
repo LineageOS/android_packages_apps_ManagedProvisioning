@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"設定管理員應用程式"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"這個裝置為貴機構所有"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下應用程式將用於管理及監控這支手機"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"你的帳戶是受管理的帳戶"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"你的 IT 管理員透過行動裝置管理服務強制執行安全性政策"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在準備工作設定…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"設定你的工作資料夾"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作應用程式會儲存在你的工作資料夾中"</string>

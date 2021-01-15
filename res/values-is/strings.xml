@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Setur upp stjórnunarforritið"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Þetta tæki tilheyrir fyrirtækinu þínu"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Eftirfarandi forrit verður notað til að hafa umsjón með þessum síma og fylgjast með honum"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Reikningnum þínum er stjórnað"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Kerfisstjórinn notar snjalltækjastjórnun til að framfylgja öryggisreglum"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Undirbýr uppsetningu fyrir vinnu…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Setjum upp vinnusniðið þitt"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Vinnuforrit eru geymd á vinnusniðinu"</string>

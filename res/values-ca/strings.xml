@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"S\'està configurant l\'aplicació d\'administració"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Aquest dispositiu pertany a la teva organització"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"S\'utilitzarà l\'aplicació següent per gestionar i supervisar aquest telèfon"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"El teu compte està gestionat"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"El teu administrador de TI utilitza la gestió de dispositius mòbils per aplicar les polítiques de seguretat"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"S\'està preparant per a la configuració professional…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurem el teu perfil de treball"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les aplicacions de treball es desaran al teu perfil de treball"</string>

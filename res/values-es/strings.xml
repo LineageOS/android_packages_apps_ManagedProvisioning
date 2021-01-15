@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurando aplicación de administración"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Este dispositivo pertenece a tu organización"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"La siguiente aplicación se utilizará para gestionar y supervisar este teléfono"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Tu cuenta está gestionada"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Tu administrador de TI utiliza la gestión de dispositivos móviles para hacer cumplir políticas de seguridad"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparando la configuración del dispositivo de trabajo…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos a configurar tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo"</string>
