@@ -815,8 +815,13 @@ public class Utils {
     public static boolean isSilentProvisioningForTestingDeviceOwner(
                 Context context, ProvisioningParams params) {
         final DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-        final ComponentName currentDeviceOwner =
-                dpm.getDeviceOwnerComponentOnCallingUser();
+
+        // TODO(b/177502490): need to instantiate a new Utils() because
+        // getCurrentDeviceOwnerComponentName() on SetDevicePolicyTaskTest. If this method doesn't
+        // go away, we should change the latter to use ExtendedMockito so it can mock static
+        // methods.
+        final ComponentName currentDeviceOwner = new Utils()
+                .getCurrentDeviceOwnerComponentName(dpm);
         final ComponentName targetDeviceAdmin = params.deviceAdminComponentName;
 
         switch (params.provisioningAction) {
@@ -828,6 +833,17 @@ public class Utils {
             default:
                 return false;
         }
+    }
+
+    /**
+     * Gets the device's current device owner admin component.
+     */
+    @Nullable
+    public ComponentName getCurrentDeviceOwnerComponentName(DevicePolicyManager dpm) {
+        // TODO(b/177502490): might go away once silent provisioning is refactored
+        return isHeadlessSystemUserMode()
+                ? dpm.getDeviceOwnerComponentOnAnyUser()
+                : dpm.getDeviceOwnerComponentOnCallingUser();
     }
 
     private static boolean isSilentProvisioningForTestingManagedProfile(
