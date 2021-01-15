@@ -16,11 +16,18 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.Intents.times;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -59,7 +66,7 @@ public class LandingActivityTest {
     @Test
     public void onNextButtonClicked_shouldRunPrepareActivity_runsPrepareActivity() {
         ProvisioningParams params = generateProvisioningParamsThatShouldRunPrepareActivity();
-        launchProvisioningActivityWithParams(params);
+        launchLandingActivityWithParams(params);
 
         onView(withText(R.string.next)).perform(click());
 
@@ -70,7 +77,7 @@ public class LandingActivityTest {
     @Test
     public void onNextButtonClicked_shouldNotRunPrepareActivity_doesNotRunPrepareActivity() {
         ProvisioningParams params = generateProvisioningParamsThatShouldNotRunPrepareActivity();
-        launchProvisioningActivityWithParams(params);
+        launchLandingActivityWithParams(params);
 
         onView(withText(R.string.next)).perform(click());
 
@@ -78,11 +85,66 @@ public class LandingActivityTest {
         intended(hasComponent(AdminIntegratedFlowPrepareActivity.class.getName()), times(0));
     }
 
-    private void launchProvisioningActivityWithParams(ProvisioningParams params) {
+    @Test
+    public void onCreate_personallyOwned_showsAccountManagementDisclaimer() {
+        ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
+                SUPPORTED_MODES_PERSONALLY_OWNED);
+        launchLandingActivityWithParams(params);
+
+        assertAccountManagementDisclaimerShown();
+    }
+
+    @Test
+    public void onCreate_organizationAndPersonallyOwned_showsAccountManagementDisclaimer() {
+        ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
+                SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED);
+        launchLandingActivityWithParams(params);
+
+        assertAccountManagementDisclaimerShown();
+    }
+
+    @Test
+    public void onCreate_organizationOwned_showsOwnershipDisclaimer() {
+        ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
+                SUPPORTED_MODES_ORGANIZATION_OWNED);
+        launchLandingActivityWithParams(params);
+
+        assertOwnershipDisclaimerShown();
+    }
+
+    @Test
+    public void onCreate_deviceOwner_showsOwnershipDisclaimer() {
+        ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
+                SUPPORTED_MODES_DEVICE_OWNER);
+        launchLandingActivityWithParams(params);
+
+        assertOwnershipDisclaimerShown();
+    }
+
+    private void assertAccountManagementDisclaimerShown() {
+        onView(withText(R.string.account_management_disclaimer_header))
+                .check(matches(isDisplayed()));
+        onView(withText(R.string.account_management_disclaimer_subheader))
+                .check(matches(isDisplayed()));
+    }
+
+    private void assertOwnershipDisclaimerShown() {
+        onView(withText(R.string.brand_screen_header))
+                .check(matches(isDisplayed()));
+    }
+
+    private void launchLandingActivityWithParams(ProvisioningParams params) {
         Intent intent = new Intent();
         intent.putExtra(EXTRA_PROVISIONING_PARAMS, params);
         mActivityRule.launchActivity(intent);
         onView(withId(R.id.setup_wizard_layout));
+    }
+
+    private ProvisioningParams generateProvisioningParamsWithRequestedProvisioningModes(
+            int requestedProvisioningModes) {
+        return createDefaultProvisioningParamsBuilder()
+                .setInitiatorRequestedProvisioningModes(requestedProvisioningModes)
+                .build();
     }
 
     private ProvisioningParams generateProvisioningParamsThatShouldRunPrepareActivity() {
