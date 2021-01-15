@@ -506,24 +506,10 @@ public class PreProvisioningController {
                     resultIntent.getParcelableExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
             if (mParams.adminExtrasBundle != null) {
                 PersistableBundle existingBundle = new PersistableBundle(mParams.adminExtrasBundle);
-                removeKeysFromResultBundleIfTheyExist(resultBundle, existingBundle);
                 existingBundle.putAll(resultBundle);
                 resultBundle = existingBundle;
             }
             builder.setAdminExtrasBundle(resultBundle);
-        }
-    }
-
-    // TODO(b/177074830): Remove temporary hack
-    private void removeKeysFromResultBundleIfTheyExist(PersistableBundle resultBundle,
-            PersistableBundle existingBundle) {
-        String restoreModeKey = "restore_mode";
-        if (existingBundle.containsKey(restoreModeKey)) {
-            resultBundle.remove(restoreModeKey);
-        }
-        String sourceDeviceIdKey = "source_device_id";
-        if (existingBundle.containsKey(sourceDeviceIdKey)) {
-            resultBundle.remove(sourceDeviceIdKey);
         }
     }
 
