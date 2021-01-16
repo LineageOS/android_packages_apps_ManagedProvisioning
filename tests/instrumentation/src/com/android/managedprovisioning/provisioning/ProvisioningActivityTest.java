@@ -44,7 +44,6 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mockingDetails;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.timeout;
@@ -64,7 +63,6 @@ import android.provider.Settings;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
-import androidx.test.filters.FlakyTest;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
@@ -79,7 +77,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -165,6 +162,9 @@ public class ProvisioningActivityTest {
     @Mock private ProvisioningManager mProvisioningManager;
     @Mock private PackageManager mPackageManager;
     @Mock private UserProvisioningStateHelper mUserProvisioningStateHelper;
+    @Mock
+    private PolicyComplianceUtils mPolicyComplianceUtils;
+
     private Utils mUtils;
     private static int mRotationLocked;
 
@@ -201,7 +201,7 @@ public class ProvisioningActivityTest {
                 (classLoader, className, intent) ->
                         new ProvisioningActivity(
                                 mProvisioningManager, mUtils, mUserProvisioningStateHelper,
-                                new PolicyComplianceUtils()) {
+                                mPolicyComplianceUtils) {
                             @Override
                             public PackageManager getPackageManager() {
                                 return mPackageManager;
@@ -349,6 +349,8 @@ public class ProvisioningActivityTest {
                 eq(0))).thenReturn(resolveInfoList);
         when(mPackageManager.checkPermission(eq(permission.DISPATCH_PROVISIONING_MESSAGE),
                 eq(activityInfo.packageName))).thenReturn(PackageManager.PERMISSION_GRANTED);
+        when(mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                any(), any(), any(), any())).thenReturn(true);
 
         // GIVEN the activity was launched with a nfc intent
         launchActivityAndWait(NFC_INTENT);
