@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"நிர்வாக ஆப்ஸை அமைக்கிறது"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"இந்தச் சாதனம் உங்கள் நிறுவனத்துக்குச் சொந்தமானது"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"இந்த மொபைலை நிர்வகிக்கவும் கண்காணிக்கவும் பின்வரும் ஆப்ஸ் பயன்படும்"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"உங்கள் கணக்கு நிர்வகிக்கப்படுகிறது"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"பாதுகாப்புக் கொள்கைகளைச் செயல்படுத்த, உங்கள் IT நிர்வாகி மொபைல் சாதன நிர்வாகத்தைப் பயன்படுத்துகிறார்"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"பணி அமைவிற்குத் தயாராகிறது…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"உங்கள் பணிக் கணக்கை அமைப்போம்"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"பணிக்கான ஆப்ஸ் உங்கள் பணிக் கணக்கில் இருக்கும்"</string>

@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Admin tətbiqi quraşdırılır"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Bu cihaz təşkilatınıza məxsusdur"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aşağıdakı tətbiqdən bu telefonu idarə etmək və nəzarət etmək üçün istifadə ediləcək"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Hesabınız idarə edilir"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"İT admininiz təhlükəsizlik siyasətlərini tətbiq etmək üçün mobil cihaz idarəetməsindən istifadə edir"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Cihaz iş quraşdırması üçün hazırlanır…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"İş profili quraşdırın"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"İş tətbiqləri iş profilinizdə saxlanılır"</string>

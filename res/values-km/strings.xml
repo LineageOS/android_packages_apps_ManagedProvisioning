@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"កំពុង​រៀបចំ​កម្មវិធី​អ្នកគ្រប់គ្រង"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ឧបករណ៍​នេះគឺជា​កម្មសិទ្ធិរបស់​ស្ថាប័ន​អ្នក"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"កម្មវិធី​ខាងក្រោម​នឹងត្រូវ​បានប្រើប្រាស់​ដើម្បី​គ្រប់គ្រង និង​ត្រួតពិនិត្យ​ទូរសព្ទនេះ"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"គណនីរបស់អ្នក​ត្រូវបានគ្រប់គ្រង"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក​ប្រើ​ការគ្រប់គ្រង​ឧបករណ៍​ចល័ត ដើម្បីអនុវត្តគោលការណ៍​សុវត្ថិភាព"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"កំពុងត្រៀមរៀបចំការងារ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"សូម​រៀបចំ​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"កម្មវិធី​ការងារ​ត្រូវបាន​រក្សាទុក​នៅក្នុងកម្រង​ព័ត៌មាន​ការងារ​របស់អ្នក"</string>

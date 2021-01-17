@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"વ્યવસ્થાપક ઍપનું સેટઅપ કરી રહ્યાં છીએ"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"આ ડિવાઇસ તમારી સંસ્થાનું છે"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"આ ફોન મેનેજ અને મૉનિટર કરવા માટે નીચેની ઍપનો ઉપયોગ થશે"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"તમારું એકાઉન્ટ મેનેજ કરવામાં આવ્યું છે"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"તમારા IT વ્યવસ્થાપક, સુરક્ષા નીતિઓને લાગુ કરવા માટે મોબાઇલ ડિવાઇસ મેનેજમેન્ટનો ઉપયોગ કરે છે"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"કાર્યાલયના સેટઅપ માટે તૈયારી કરી રહ્યાં છીએ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ચાલો, તમારી કાર્યાલયની પ્રોફાઇલને સેટઅપ કરીએ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"કાર્ય સંબંધી ઍપ તમારા કાર્યાલયના પ્રોફાઇલમાં રાખવામાં આવે છે"</string>

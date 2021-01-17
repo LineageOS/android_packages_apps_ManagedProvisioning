@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"စီမံခန့်ခွဲသူအက်ပ် စနစ်ထည့်သွင်းနေသည်"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ဤစက်ကို သင့်အဖွဲ့အစည်းက ပိုင်ဆိုင်သည်"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"အောက်ပါအက်ပ် အသုံးပြု၍ ဤဖုန်းကို စီမံခန့်ခွဲခြင်း၊ စောင့်ကြည့်ခြင်းတို့ ပြုလုပ်ပါမည်"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"သင့်အကောင့်ကို စီမံခန့်ခွဲထားပါသည်"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"လုံခြုံရေးမူဝါဒများကို ကျင့်သုံးရန် သင်၏ IT စီမံခန့်ခွဲသူက မိုဘိုင်းစက်ကိရိယာ စီမံခန့်ခွဲမှုကို အသုံးပြုပါသည်"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"အလုပ်ဆိုင်ရာ စနစ်ထည့်သွင်းမှုအတွက် အသင့်ပြင်နေသည်…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"သင့်အလုပ်ပရိုဖိုင်ကို စနစ်ထည့်သွင်းကြပါစို့"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားသည်"</string>

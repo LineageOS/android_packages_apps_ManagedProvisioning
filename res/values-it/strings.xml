@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configurazione dell\'app di amministrazione"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Questo dispositivo appartiene alla tua organizzazione"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'app seguente verrà usata per gestire e monitorare questo telefono"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Il tuo account è gestito"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"L\'amministratore IT usa Gestione dei dispositivi mobili per applicare criteri di sicurezza"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparazione per la configurazione del profilo di lavoro…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configura il tuo profilo di lavoro"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro"</string>

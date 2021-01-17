@@ -163,6 +163,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ідзе наладжванне праграмы адміністратара"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Гэта прылада належыць вашай арганізацыі"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Наступная праграма будзе выкарыстоўвацца для кіравання гэтым тэлефонам і яго кантролю"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Ваш уліковы запіс знаходзіцца пад кіраваннем"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Ваш ІТ-адміністратар выкарыстоўвае кіраванне мабільнымі прыладамі для выканання палітык бяспекі"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Ідзе падрыхтоўка для працоўных налад…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Давайце наладзім працоўны профіль"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Працоўныя праграмы захоўваюцца ў вашым працоўным профілі"</string>
