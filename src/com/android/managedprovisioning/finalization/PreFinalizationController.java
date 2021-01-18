@@ -44,17 +44,17 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  * {@link FinalizationController}.
  */
 public final class PreFinalizationController {
-    private final Activity mActivity;
+    private final Context mContext;
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
     private final UserProvisioningStateHelper mUserProvisioningStateHelper;
     private final ProvisioningParamsUtils mProvisioningParamsUtils;
     private final SendDpcBroadcastServiceUtils mSendDpcBroadcastServiceUtils;
 
-    public PreFinalizationController(Activity activity,
+    public PreFinalizationController(Context context,
           UserProvisioningStateHelper userProvisioningStateHelper) {
         this(
-                activity,
+                context,
                 new Utils(),
                 new SettingsFacade(),
                 userProvisioningStateHelper,
@@ -62,24 +62,24 @@ public final class PreFinalizationController {
                 new SendDpcBroadcastServiceUtils());
     }
 
-    public PreFinalizationController(Activity activity) {
+    public PreFinalizationController(Context context) {
         this(
-                activity,
+                context,
                 new Utils(),
                 new SettingsFacade(),
-                new UserProvisioningStateHelper(activity),
+                new UserProvisioningStateHelper(context),
                 new ProvisioningParamsUtils(),
                 new SendDpcBroadcastServiceUtils());
     }
 
     @VisibleForTesting
-    PreFinalizationController(Activity activity,
+    PreFinalizationController(Context context,
             Utils utils,
             SettingsFacade settingsFacade,
             UserProvisioningStateHelper helper,
             ProvisioningParamsUtils provisioningParamsUtils,
             SendDpcBroadcastServiceUtils sendDpcBroadcastServiceUtils) {
-        mActivity = checkNotNull(activity);
+        mContext = checkNotNull(context);
         mUtils = checkNotNull(utils);
         mSettingsFacade = checkNotNull(settingsFacade);
         mUserProvisioningStateHelper = checkNotNull(helper);
@@ -115,30 +115,30 @@ public final class PreFinalizationController {
                 restrictRemovalOfManagedProfile();
             }
             if (mUtils.isManagedProfileProvisioningStartedByDpc(
-                    mActivity, params, mSettingsFacade)) {
+                    mContext, params, mSettingsFacade)) {
                 // If a managed profile was provisioned after SUW, notify the DPC straight away.
-                mSendDpcBroadcastServiceUtils.startSendDpcBroadcastService(mActivity, params);
+                mSendDpcBroadcastServiceUtils.startSendDpcBroadcastService(mContext, params);
             }
         }
-        if (!mUtils.isManagedProfileProvisioningStartedByDpc(mActivity, params, mSettingsFacade)) {
+        if (!mUtils.isManagedProfileProvisioningStartedByDpc(mContext, params, mSettingsFacade)) {
             // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
         }
     }
 
     private void restrictRemovalOfManagedProfile() {
-        final UserManager userManager = UserManager.get(mActivity);
+        final UserManager userManager = UserManager.get(mContext);
         userManager.setUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE, true);
     }
 
     private void markIsProfileOwnerOnOrganizationOwnedDevice() {
-        final DevicePolicyManager dpm = mActivity.getSystemService(DevicePolicyManager.class);
-        final int managedProfileUserId = mUtils.getManagedProfile(mActivity).getIdentifier();
+        final DevicePolicyManager dpm = mContext.getSystemService(DevicePolicyManager.class);
+        final int managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
         final ComponentName admin = dpm.getProfileOwnerAsUser(managedProfileUserId);
         if (admin != null) {
             try {
-                final Context profileContext = mActivity.createPackageContextAsUser(
-                        mActivity.getPackageName(), 0 /* flags */,
+                final Context profileContext = mContext.createPackageContextAsUser(
+                        mContext.getPackageName(), 0 /* flags */,
                         UserHandle.of(managedProfileUserId));
                 final DevicePolicyManager profileDpm =
                         profileContext.getSystemService(DevicePolicyManager.class);
@@ -150,6 +150,6 @@ public final class PreFinalizationController {
     }
 
     private void storeProvisioningParams(ProvisioningParams params) {
-        params.save(mProvisioningParamsUtils.getProvisioningParamsFile(mActivity));
+        params.save(mProvisioningParamsUtils.getProvisioningParamsFile(mContext));
     }
 }
