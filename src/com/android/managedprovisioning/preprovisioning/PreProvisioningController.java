@@ -860,6 +860,7 @@ public class PreProvisioningController {
                 showManagedProfileErrorAndClose(provisioningPreCondition);
                 return;
             case ACTION_PROVISION_MANAGED_DEVICE:
+                showDeviceOwnerErrorAndClose(provisioningPreCondition);
                 return;
         }
         // This should never be the case, as showProvisioningError is always called after
