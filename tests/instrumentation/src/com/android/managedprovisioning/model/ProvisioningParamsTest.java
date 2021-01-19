@@ -400,6 +400,35 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE);
     }
 
+    @SmallTest
+    public void testSetSkipOwnershipDisclaimer_setTrue_isTrue() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setSkipOwnershipDisclaimer(true)
+                        .build();
+
+        assertThat(provisioningParams.skipOwnershipDisclaimer).isTrue();
+    }
+
+    @SmallTest
+    public void testSetSkipOwnershipDisclaimer_setFalse_isFalse() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setSkipOwnershipDisclaimer(false)
+                        .build();
+
+        assertThat(provisioningParams.skipOwnershipDisclaimer).isFalse();
+    }
+
+    @SmallTest
+    public void testSetSkipOwnershipDisclaimer_notSet_isFalse() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .build();
+
+        assertThat(provisioningParams.skipOwnershipDisclaimer).isFalse();
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()

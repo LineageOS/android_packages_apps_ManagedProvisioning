@@ -63,8 +63,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECU
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
@@ -77,7 +75,6 @@ import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MA
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
-import static com.android.managedprovisioning.model.ProvisioningParams.inferStaticDeviceAdminPackageName;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -625,7 +622,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setAllowedProvisioningModes(mParserUtils.getAllowedProvisioningModes(
                             mContext, initiatorRequestedProvisioningModes))
                     .setInitiatorRequestedProvisioningModes(
-                            initiatorRequestedProvisioningModes);
+                            initiatorRequestedProvisioningModes)
+                    .setSkipOwnershipDisclaimer(getSkipOwnershipDisclaimer(intent));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
@@ -633,6 +631,16 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         } catch (NullPointerException e) {
             throw new IllegalProvisioningArgumentException("Compulsory parameter not found!", e);
         }
+    }
+
+    private boolean getSkipOwnershipDisclaimer(Intent intent) {
+        if (!intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
+            return ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER;
+        }
+        return getBooleanExtraFromLongName(
+                intent,
+                DevicePolicyManager.EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER,
+                ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER);
     }
 
     private int getInitiatorRequestedProvisioningModes(Intent intent) {

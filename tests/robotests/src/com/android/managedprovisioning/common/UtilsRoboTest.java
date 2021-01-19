@@ -20,9 +20,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_GET_PROVISIONING_MODE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
@@ -38,6 +35,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.ResolveInfo;
 
 import androidx.test.core.app.ApplicationProvider;
@@ -47,9 +45,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RunWith(RobolectricTestRunner.class)
 public class UtilsRoboTest {
@@ -94,7 +89,7 @@ public class UtilsRoboTest {
         shadowOf(mContext.getPackageManager())
                 .addResolveInfoForIntent(getProvisioningModeIntent, info);
 
-        assertThat(mUtils.shouldPerformAdminIntegratedFlow(mContext, PARAMS_ORG_OWNED,
+        assertThat(mUtils.canPerformAdminIntegratedFlow(mContext, PARAMS_ORG_OWNED,
                 mPolicyComplianceUtils, mGetProvisioningModeUtils)).isTrue();
     }
 
@@ -105,7 +100,7 @@ public class UtilsRoboTest {
         shadowOf(mContext.getPackageManager())
                 .addResolveInfoForIntent(getProvisioningModeIntent, info);
 
-        assertThat(mUtils.shouldPerformAdminIntegratedFlow(mContext, PARAMS_ORG_OWNED,
+        assertThat(mUtils.canPerformAdminIntegratedFlow(mContext, PARAMS_ORG_OWNED,
                 mPolicyComplianceUtils, mGetProvisioningModeUtils)).isFalse();
     }
 
@@ -116,7 +111,7 @@ public class UtilsRoboTest {
         shadowOf(mContext.getPackageManager())
                 .addResolveInfoForIntent(policyComplianceIntent, info);
 
-        assertThat(mUtils.shouldPerformAdminIntegratedFlow(mContext, PARAMS_ORG_OWNED,
+        assertThat(mUtils.canPerformAdminIntegratedFlow(mContext, PARAMS_ORG_OWNED,
                 mPolicyComplianceUtils, mGetProvisioningModeUtils)).isFalse();
     }
 
@@ -130,7 +125,7 @@ public class UtilsRoboTest {
         shadowOf(mContext.getPackageManager())
                 .addResolveInfoForIntent(getProvisioningModeIntent, info);
 
-        assertThat(mUtils.shouldPerformAdminIntegratedFlow(mContext, PARAMS_NFC,
+        assertThat(mUtils.canPerformAdminIntegratedFlow(mContext, PARAMS_NFC,
                 mPolicyComplianceUtils, mGetProvisioningModeUtils)).isFalse();
     }
 
@@ -190,6 +185,41 @@ public class UtilsRoboTest {
                 .build();
 
         assertThat(mUtils.isOrganizationOwnedAllowed(params)).isTrue();
+    }
+
+    @Test
+    public void shouldShowOwnershipDisclaimerScreen_skipOwnershipDisclaimerFalse_returnsTrue() {
+        ProvisioningParams params = createTrustedSourceParamsBuilder()
+                .setSkipOwnershipDisclaimer(false)
+                .build();
+
+        assertThat(mUtils.shouldShowOwnershipDisclaimerScreen(params)).isTrue();
+    }
+
+    @Test
+    public void shouldShowOwnershipDisclaimerScreen_showOwnershipDisclaimerTrue_returnsFalse() {
+        ProvisioningParams params = createTrustedSourceParamsBuilder()
+                .setSkipOwnershipDisclaimer(true)
+                .build();
+
+        assertThat(mUtils.shouldShowOwnershipDisclaimerScreen(params)).isFalse();
+    }
+
+    @Test
+    public void isPackageInstalled_packageExists_returnsTrue() {
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.applicationInfo = new ApplicationInfo();
+        packageInfo.packageName = "com.example.package";
+        shadowOf(mContext.getPackageManager()).installPackage(packageInfo);
+
+        assertThat(mUtils
+                .isPackageInstalled("com.example.package", mContext.getPackageManager())).isTrue();
+    }
+
+    @Test
+    public void isPackageInstalled_packageDoesNotExist_returnsFalse() {
+        assertThat(mUtils
+                .isPackageInstalled("com.example.package", mContext.getPackageManager())).isFalse();
     }
 
     private static ProvisioningParams.Builder createTrustedSourceParamsBuilder() {

@@ -42,6 +42,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED_MODES;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -814,6 +815,49 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThrows(
                 IllegalProvisioningArgumentException.class,
                 () -> mExtrasProvisioningDataParser.parse(intent));
+    }
+
+    public void testParse_trustedSourceWithSkipOwnershipDisclaimerTrue_areEqual()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER, true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.skipOwnershipDisclaimer).isTrue();
+    }
+
+    public void testParse_trustedSourceWithSkipOwnershipDisclaimerFalse_areEqual()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER, false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.skipOwnershipDisclaimer).isFalse();
+    }
+
+    public void testParse_trustedSourceWithoutSkipOwnershipDisclaimer_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.skipOwnershipDisclaimer).isFalse();
+    }
+
+    public void testParse_managedProfileWithSkipOwnershipDisclaimerTrue_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER, true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.skipOwnershipDisclaimer).isFalse();
     }
 
     private Stream<Field> buildAllShortExtras() {

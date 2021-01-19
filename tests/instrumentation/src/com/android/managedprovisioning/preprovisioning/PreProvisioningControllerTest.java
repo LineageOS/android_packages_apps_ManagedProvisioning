@@ -75,7 +75,6 @@ import androidx.test.filters.SmallTest;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
-import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -85,7 +84,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.parser.MessageParser;
 
-import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -415,6 +413,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    // TODO(b/177575786): Migrate outdated PreProvisioningControllerTest tests to robolectric
+    /*
     public void testNfc() throws Exception {
         // GIVEN provisioning was started via an NFC tap and device is already encrypted
         prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
@@ -627,11 +627,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    public void testNullParams() throws Exception {
-        // THEN verifying params is null initially
-        assertThat(mController.getParams()).isNull();
-    }
-
     public void testDeviceOwner_frp() throws Exception {
         // GIVEN device owner provisioning is invoked with FRP active
         prepareMocksForDoIntent(false);
@@ -643,6 +638,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.device_has_reset_protection_contact_admin), any());
         verifyNoMoreInteractions(mUi);
+    }*/
+
+    public void testNullParams() throws Exception {
+        // THEN verifying params is null initially
+        assertThat(mController.getParams()).isNull();
     }
 
     public void testInitiateProvisioning_showsWifiPicker() {

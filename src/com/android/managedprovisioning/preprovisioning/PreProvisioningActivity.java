@@ -183,12 +183,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE:
-                if (resultCode == RESULT_OK) {
-                    startAppropriateFlowPostDpcInstall();
-                } else {
-                    setResult(resultCode);
-                    finish();
-                }
+            case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
+                handleAdminIntegratedFlowPreparerResult();
                 break;
             case GET_PROVISIONING_MODE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
@@ -229,12 +225,27 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     finish();
                 }
                 break;
-            case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
-                startAppropriateFlowPostDpcInstall();
-                break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
                 break;
+        }
+    }
+
+    private void handleAdminIntegratedFlowPreparerResult() {
+        String adminPackageName = mController.getParams().inferDeviceAdminPackageName();
+        if (mUtils.isPackageInstalled(adminPackageName, getPackageManager())) {
+            startAdminIntegratedFlowPostDpcInstall();
+        } else {
+            ProvisionLogger.loge("Package name " + adminPackageName + " is not installed.");
+            if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+                showFactoryResetDialog(R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help);
+            } else {
+                showErrorAndClose(
+                        R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
+                        "Failed to provision personally-owned device.");
+            }
         }
     }
 
@@ -334,7 +345,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
             startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
         } else {
-            startAppropriateFlowPostDpcInstall();
+            handleAdminIntegratedFlowPreparerResult();
         }
     }
 
@@ -359,16 +370,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
      * Starts either the admin-integrated or the legacy flow, depending on the device state and
      * DPC capabilities.
      */
-    private void startAppropriateFlowPostDpcInstall() {
-        boolean shouldPerformAdminIntegratedFlow = mUtils.shouldPerformAdminIntegratedFlow(
+    private void startAdminIntegratedFlowPostDpcInstall() {
+        boolean canPerformAdminIntegratedFlow = mUtils.canPerformAdminIntegratedFlow(
                 this,
                 mController.getParams(),
                 mController.getPolicyComplianceUtils(),
                 mController.getGetProvisioningModeUtils());
-        if (shouldPerformAdminIntegratedFlow) {
+        if (canPerformAdminIntegratedFlow) {
             startAdminIntegratedFlowWithoutPredeterminedMode();
-        } else if (isLegacyFlowAllowed()) {
-            startManagedDeviceLegacyFlow();
         } else {
             ProvisionLogger.loge("The admin app does not have handlers for both "
                     + "ACTION_GET_PROVISIONING_MODE and ACTION_ADMIN_POLICY_COMPLIANCE "
@@ -386,11 +395,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mController.logProvisioningFlowType();
     }
 
-    private boolean isLegacyFlowAllowed() {
-        return mController.getParams().isNfc
-                || mUtils.isFinancedDeviceAction(mController.getParams().provisioningAction);
-    }
-
     private void startAdminIntegratedFlowWithoutPredeterminedMode() {
         ProvisionLogger.logi("Starting the admin-integrated flow.");
         GetProvisioningModeUtils provisioningModeUtils = mController.getGetProvisioningModeUtils();
@@ -398,12 +402,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         provisioningModeUtils.startGetProvisioningModeActivityIfResolved(
                 this, mController.getParams(), additionalExtras,
                 GET_PROVISIONING_MODE_REQUEST_CODE);
-    }
-
-    private void startManagedDeviceLegacyFlow() {
-        ProvisionLogger.logi("Starting the legacy flow.");
-        mController.updateProvisioningFlowState(FLOW_TYPE_LEGACY);
-        mController.showUserConsentScreen();
     }
 
     private void startFinancedDeviceFlow() {

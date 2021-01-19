@@ -49,6 +49,7 @@ import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVI
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 
 import android.accounts.Account;
 import android.annotation.NonNull;
@@ -330,8 +331,6 @@ public class PreProvisioningController {
         mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
 
         if (mUtils.checkAdminIntegratedFlowPreconditions(mParams)) {
-            // TODO(b/175398565): Remove logic which determines whether the ownership
-            // disclaimer screen is shown
             if (mUtils.shouldShowOwnershipDisclaimerScreen(mParams)) {
                 mUi.showOwnershipDisclaimerScreen(mParams);
             } else {
@@ -339,12 +338,41 @@ public class PreProvisioningController {
             }
         } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(mParams);
+        } else if (mParams.isNfc) {
+            startNfcFlow();
+        } else if (isProfileOwnerProvisioning()) {
+            startManagedProfileFlow();
+        } else if (isDpcTriggeredManagedDeviceProvisioning(intent)) {
+            // TODO(b/175678720): Fail provisioning if flow started by PROVISION_MANAGED_DEVICE
+            startManagedDeviceFlow();
+        }
+    }
+
+    private void startNfcFlow() {
+        ProvisionLogger.logi("Starting the NFC provisioning flow.");
+        updateProvisioningFlowState(FLOW_TYPE_LEGACY);
+        maybeShowUserConsentScreen();
+    }
+
+    private void startManagedProfileFlow() {
+        ProvisionLogger.logi("Starting the managed profile flow.");
+        maybeShowUserConsentScreen();
+    }
+
+    private void startManagedDeviceFlow() {
+        ProvisionLogger.logi("Starting the legacy managed device flow.");
+        maybeShowUserConsentScreen();
+    }
+
+    private boolean isDpcTriggeredManagedDeviceProvisioning(Intent intent) {
+        return ACTION_PROVISION_MANAGED_DEVICE.equals(intent.getAction());
+    }
+
+    private void maybeShowUserConsentScreen() {
+        if (Utils.isSilentProvisioning(mContext, mParams)) {
+            continueProvisioningAfterUserConsent();
         } else {
-            if (Utils.isSilentProvisioning(mContext, mParams)) {
-                continueProvisioningAfterUserConsent();
-            } else {
-                showUserConsentScreen();
-            }
+            showUserConsentScreen();
         }
     }
 
