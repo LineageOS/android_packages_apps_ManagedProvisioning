@@ -429,6 +429,35 @@ public class ProvisioningParamsTest extends AndroidTestCase {
         assertThat(provisioningParams.skipOwnershipDisclaimer).isFalse();
     }
 
+    @SmallTest
+    public void testSetReturnBeforePolicyCompliance_setTrue_isTrue() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setReturnBeforePolicyCompliance(true)
+                        .build();
+
+        assertThat(provisioningParams.returnBeforePolicyCompliance).isTrue();
+    }
+
+    @SmallTest
+    public void testSetReturnBeforePolicyCompliance_setFalse_isFalse() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setReturnBeforePolicyCompliance(false)
+                        .build();
+
+        assertThat(provisioningParams.returnBeforePolicyCompliance).isFalse();
+    }
+
+    @SmallTest
+    public void testSetReturnBeforePolicyCompliance_notSet_isFalse() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .build();
+
+        assertThat(provisioningParams.returnBeforePolicyCompliance).isFalse();
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()

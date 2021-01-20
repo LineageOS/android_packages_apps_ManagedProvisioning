@@ -20,7 +20,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -114,13 +113,14 @@ public final class PreFinalizationController {
                 markIsProfileOwnerOnOrganizationOwnedDevice();
                 restrictRemovalOfManagedProfile();
             }
-            if (mUtils.isManagedProfileProvisioningStartedByDpc(
-                    mContext, params, mSettingsFacade)) {
-                // If a managed profile was provisioned after SUW, notify the DPC straight away.
+            if (!params.returnBeforePolicyCompliance) {
+                // If a managed profile was provisioned and the provisioning initiator has requested
+                // managed profile provisioning and DPC setup to happen in one step, notify the
+                // DPC straight away.
                 mSendDpcBroadcastServiceUtils.startSendDpcBroadcastService(mContext, params);
             }
         }
-        if (!mUtils.isManagedProfileProvisioningStartedByDpc(mContext, params, mSettingsFacade)) {
+        if (params.returnBeforePolicyCompliance) {
             // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
         }

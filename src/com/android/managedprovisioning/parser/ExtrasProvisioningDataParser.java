@@ -41,6 +41,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED_MODES;
@@ -623,7 +624,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                             mContext, initiatorRequestedProvisioningModes))
                     .setInitiatorRequestedProvisioningModes(
                             initiatorRequestedProvisioningModes)
-                    .setSkipOwnershipDisclaimer(getSkipOwnershipDisclaimer(intent));
+                    .setSkipOwnershipDisclaimer(getSkipOwnershipDisclaimer(intent))
+                    .setReturnBeforePolicyCompliance(getReturnBeforePolicyCompliance(intent));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
@@ -641,6 +643,16 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 intent,
                 DevicePolicyManager.EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER,
                 ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER);
+    }
+
+    private boolean getReturnBeforePolicyCompliance(Intent intent) {
+        if (!intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
+            return false;
+        }
+        return getBooleanExtraFromLongName(
+                intent,
+                EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE,
+                /* defaultValue */ true);
     }
 
     private int getInitiatorRequestedProvisioningModes(Intent intent) {

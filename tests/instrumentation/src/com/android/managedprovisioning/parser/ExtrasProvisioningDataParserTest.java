@@ -40,6 +40,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER;
@@ -330,6 +331,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                                 PROVISIONING_MODE_MANAGED_PROFILE,
                                 PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                         )))
+                        .setReturnBeforePolicyCompliance(true)
                         .build())
                 .isEqualTo(params);
     }
@@ -657,6 +659,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE)))
+                .setReturnBeforePolicyCompliance(true)
                 .setWifiInfo(WifiInfo.Builder.builder()
                         .setSsid(TEST_SSID)
                         .setHidden(TEST_HIDDEN)
@@ -858,6 +861,59 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.skipOwnershipDisclaimer).isFalse();
+    }
+
+    public void testParse_trustedSourceWithReturnBeforePolicyComplianceTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
+    public void testParse_trustedSourceWithReturnBeforePolicyComplianceFalse_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isFalse();
+    }
+
+    public void testParse_trustedSourceWithReturnBeforePolicyComplianceNotSet_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
+    public void testParse_managedProfileWithReturnBeforePolicyComplianceTrue_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isFalse();
+    }
+
+    public void testParse_managedProfileWithReturnBeforePolicyComplianceNotSet_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isFalse();
     }
 
     private Stream<Field> buildAllShortExtras() {

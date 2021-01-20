@@ -20,7 +20,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIAN
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 
@@ -451,7 +450,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         ProvisioningParams.Builder builder = new ProvisioningParams.Builder()
                 .setDeviceAdminComponentName(TEST_MDM_ADMIN)
                 .setProvisioningAction(action)
-                .setAdminExtrasBundle(TEST_MDM_EXTRA_BUNDLE);
+                .setAdminExtrasBundle(TEST_MDM_EXTRA_BUNDLE)
+                .setReturnBeforePolicyCompliance(true);
 
         if (migrateAccount) {
             builder.setAccountToMigrate(TEST_ACCOUNT);

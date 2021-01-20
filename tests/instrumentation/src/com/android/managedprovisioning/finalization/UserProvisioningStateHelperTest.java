@@ -25,7 +25,7 @@ import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_FINALIZED;
 import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_UNMANAGED;
 import static android.content.Context.DEVICE_POLICY_SERVICE;
-import static org.junit.Assume.assumeTrue;
+
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -79,15 +79,10 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
                 createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
         when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
-        when(mUtils.isManagedProfileProvisioningStartedByDpc(mContext, params, mSettingsFacade))
-                .thenReturn(true);
 
         // WHEN calling markUserProvisioningStateInitiallyDone
         mHelper.markUserProvisioningStateInitiallyDone(params);
 
-        // THEN the primary profile's state should be set to STATE_USER_PROFILE_FINALIZED
-        verify(mDevicePolicyManager)
-                .setUserProvisioningState(STATE_USER_PROFILE_FINALIZED, PRIMARY_USER_ID);
         // THEN the managed profile's state should be set to FINALIZED
         verify(mDevicePolicyManager)
                 .setUserProvisioningState(STATE_USER_SETUP_FINALIZED, MANAGED_PROFILE_USER_ID);

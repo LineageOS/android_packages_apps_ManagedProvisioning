@@ -123,8 +123,7 @@ public final class FinalizationController {
             ProvisioningParams params) {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
                 params.keepAccountMigrated, mUtils.getManagedProfile(mActivity),
-                params.inferDeviceAdminPackageName(), mUtils,
-                params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED);
+                params.inferDeviceAdminPackageName(), mUtils);
     }
 
     /**

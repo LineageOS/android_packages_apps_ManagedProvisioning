@@ -40,17 +40,14 @@ class PrimaryProfileFinalizationHelper {
     private final boolean mKeepAccountMigrated;
     private final Utils mUtils;
     private final UserHandle mManagedUserHandle;
-    private final boolean mIsAdminIntegratedFlow;
 
     PrimaryProfileFinalizationHelper(Account migratedAccount, boolean keepAccountMigrated,
-        UserHandle managedUserHandle, String mdmPackageName, Utils utils,
-        boolean isAdminIntegratedFlow) {
+                UserHandle managedUserHandle, String mdmPackageName, Utils utils) {
         mMigratedAccount = migratedAccount;
         mKeepAccountMigrated = keepAccountMigrated;
         mMdmPackageName = checkNotNull(mdmPackageName);
         mManagedUserHandle = checkNotNull(managedUserHandle);
         mUtils = checkNotNull(utils);
-        mIsAdminIntegratedFlow = isAdminIntegratedFlow;
     }
 
     void finalizeProvisioningInPrimaryProfile(Context context,
