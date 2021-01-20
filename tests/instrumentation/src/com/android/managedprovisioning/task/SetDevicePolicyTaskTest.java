@@ -18,6 +18,7 @@ package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -34,10 +35,7 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
-import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
-import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -77,7 +75,7 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
 
         when(mPackageManager.getApplicationEnabledSetting(ADMIN_PACKAGE_NAME))
                 .thenReturn(PackageManager.COMPONENT_ENABLED_STATE_DEFAULT);
-        when(mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser()).thenReturn(null);
+        when(mUtils.getCurrentDeviceOwnerComponentName(mDevicePolicyManager)).thenReturn(null);
         when(mDevicePolicyManager.setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
                 TEST_USER_ID)).thenReturn(true);
         when(mUtils.findDeviceAdmin(null, ADMIN_COMPONENT_NAME, mContext, TEST_USER_ID))

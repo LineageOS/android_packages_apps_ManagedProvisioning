@@ -24,11 +24,11 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -122,7 +122,7 @@ public class SetDevicePolicyTask extends AbstractProvisioningTask {
 
     private boolean setDeviceOwner(ComponentName component, String owner, int userId) {
         ProvisionLogger.logd("Setting " + component + " as device owner of user " + userId);
-        if (!component.equals(mDevicePolicyManager.getDeviceOwnerComponentOnCallingUser())) {
+        if (!component.equals(mUtils.getCurrentDeviceOwnerComponentName(mDevicePolicyManager))) {
             return mDevicePolicyManager.setDeviceOwner(component, owner, userId);
         }
         return true;
