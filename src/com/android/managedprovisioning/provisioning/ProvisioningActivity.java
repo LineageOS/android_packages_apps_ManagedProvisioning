@@ -17,7 +17,9 @@
 package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
+import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.Manifest.permission;
 import android.annotation.IntDef;
@@ -34,27 +36,30 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
+
 import androidx.annotation.VisibleForTesting;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.finalization.PreFinalizationController;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
-import com.google.android.setupdesign.GlifLayout;
+
 import com.google.android.setupcompat.template.FooterButton;
-import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.google.android.setupdesign.GlifLayout;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
@@ -116,9 +121,14 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private FooterButton mNextButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
+    private PolicyComplianceUtils mPolicyComplianceUtils;
 
     public ProvisioningActivity() {
-        super(new Utils());
+        this(
+                /* provisioningManager */ null, // defined in getProvisioningManager()
+                new Utils(),
+                /* userProvisioningStateHelper */ null, // defined in onCreate()
+                new PolicyComplianceUtils());
     }
 
     @VisibleForTesting
@@ -128,6 +138,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         super(utils);
         mProvisioningManager = provisioningManager;
         mUserProvisioningStateHelper = userProvisioningStateHelper;
+        mPolicyComplianceUtils = checkNotNull(policyComplianceUtils);
     }
 
     @Override
@@ -153,6 +164,14 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             return;
         }
 
+        if (!validatePolicyComplianceExists()) {
+            ProvisionLogger.loge("POLICY_COMPLIANCE handler not implemented by the admin app.");
+            error(R.string.cant_set_up_device,
+                    R.string.contact_your_admin_for_help,
+                    /* resetRequired */ mParams.isOrganizationOwnedProvisioning);
+            return;
+        }
+
         ProvisionLogger.logi("ProvisioningActivity pre-finalization completed");
 
         // TODO: call this for the new flow after new NFC flow has been added
@@ -162,6 +181,18 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             updateProvisioningFinalizedScreen();
         }
         mState = STATE_PROVISIONING_FINALIZED;
+    }
+
+    // Enforces DPCs to implement the POLICY_COMPLIANCE handler for NFC and financed device
+    // provisioning, since we no longer set up the DPC on setup wizard's exit procedure.
+    // No need to verify it for the other flows, as that was already done earlier.
+    // TODO(b/177849035): Remove NFC and financed device-specific logic
+    private boolean validatePolicyComplianceExists() {
+        if (!mParams.isNfc && !mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
+            return true;
+        }
+        return mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                this, mParams, mUtils, UserHandle.SYSTEM);
     }
 
     private void updateProvisioningFinalizedScreen() {

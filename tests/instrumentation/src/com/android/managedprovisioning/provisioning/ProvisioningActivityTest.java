@@ -162,6 +162,9 @@ public class ProvisioningActivityTest {
     @Mock private ProvisioningManager mProvisioningManager;
     @Mock private PackageManager mPackageManager;
     @Mock private UserProvisioningStateHelper mUserProvisioningStateHelper;
+    @Mock
+    private PolicyComplianceUtils mPolicyComplianceUtils;
+
     private Utils mUtils;
     private static int mRotationLocked;
 
@@ -198,7 +201,7 @@ public class ProvisioningActivityTest {
                 (classLoader, className, intent) ->
                         new ProvisioningActivity(
                                 mProvisioningManager, mUtils, mUserProvisioningStateHelper,
-                                new PolicyComplianceUtils()) {
+                                mPolicyComplianceUtils) {
                             @Override
                             public PackageManager getPackageManager() {
                                 return mPackageManager;
@@ -346,6 +349,8 @@ public class ProvisioningActivityTest {
                 eq(0))).thenReturn(resolveInfoList);
         when(mPackageManager.checkPermission(eq(permission.DISPATCH_PROVISIONING_MESSAGE),
                 eq(activityInfo.packageName))).thenReturn(PackageManager.PERMISSION_GRANTED);
+        when(mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                any(), any(), any(), any())).thenReturn(true);
 
         // GIVEN the activity was launched with a nfc intent
         launchActivityAndWait(NFC_INTENT);
