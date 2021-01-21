@@ -76,7 +76,7 @@ public class SendDpcBroadcastServiceTest {
                     .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
                     .setDeviceAdminComponentName(TEST_MDM_ADMIN)
                     .setAdminExtrasBundle(TEST_MDM_EXTRA_BUNDLE)
-                    .setFlowType(ProvisioningParams.FLOW_TYPE_LEGACY)
+                    .setFlowType(ProvisioningParams.FLOW_TYPE_UNSPECIFIED)
                     .build();
     private static final ProvisioningParams PARAMS_TRUSTED_SOURCE =
             ProvisioningParams.Builder.builder()
@@ -144,7 +144,7 @@ public class SendDpcBroadcastServiceTest {
     }
 
     @Test
-    public void onStartCommand_legacyFlow_sendsOrderedBroadcast() {
+    public void onStartCommand_nonSpecifiedFlow_sendsOrderedBroadcast() {
         shadowOf(mPackageManager)
                 .addResolveInfoForIntent(createDpcLaunchIntent(), new ResolveInfo());
 

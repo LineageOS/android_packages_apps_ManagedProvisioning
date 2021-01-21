@@ -51,14 +51,14 @@ public class SendDpcBroadcastService extends Service implements Callback {
         Utils utils = new Utils();
         ProvisioningIntentProvider helper = new ProvisioningIntentProvider();
         UserHandle managedProfileUserHandle = utils.getManagedProfile(context);
-        if (params.flowType == ProvisioningParams.FLOW_TYPE_LEGACY) {
-            sendDpcReceivedSuccessReceiver(
-                    context, params, utils, helper, managedProfileUserHandle);
-        } else if (params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
+        if (params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
             new PrimaryProfileFinalizationHelper(
                     params.accountToMigrate, params.keepAccountMigrated, managedProfileUserHandle,
                     params.inferDeviceAdminPackageName(), utils)
                 .finalizeProvisioningInPrimaryProfile(/* context */ this, /* callback */ this);
+        } else {
+            sendDpcReceivedSuccessReceiver(
+                    context, params, utils, helper, managedProfileUserHandle);
         }
 
         maybeLaunchDpc(context, params, utils, helper, managedProfileUserHandle);
