@@ -646,8 +646,12 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     }
 
     private boolean getReturnBeforePolicyCompliance(Intent intent) {
-        if (!intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
+        if (intent.getAction().equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             return false;
+        }
+        // TODO(b/177849035): Remove financed device-specific logic
+        if (intent.getAction().equals(ACTION_PROVISION_FINANCED_DEVICE)) {
+            return true;
         }
         return getBooleanExtraFromLongName(
                 intent,

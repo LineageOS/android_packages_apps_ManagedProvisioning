@@ -372,6 +372,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setDeviceAdminLabel(TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                         .setOrganizationName(TEST_ORGANIZATION_NAME)
                         .setSupportUrl(TEST_SUPPORT_URL)
+                        .setReturnBeforePolicyCompliance(true)
                         .build())
                 .isEqualTo(params);
     }
@@ -541,6 +542,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setWifiInfo(null)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
+                        .setReturnBeforePolicyCompliance(true)
                         .build())
                 .isEqualTo(params);
     }
@@ -916,6 +918,38 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThat(params.returnBeforePolicyCompliance).isFalse();
     }
 
+    public void testParse_financedDeviceProvisioningWithReturnBeforePolicyComplianceTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
+    public void testParse_financedDeviceProvisioningWithReturnBeforePolicyComplianceFalse_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
+    public void testParse_financedDeviceProvisioningWithReturnBeforePolicyComplianceNotSet_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
     private Stream<Field> buildAllShortExtras() {
         Field[] fields = ExtrasProvisioningDataParser.class.getDeclaredFields();
         return Arrays.stream(fields)
@@ -1004,6 +1038,12 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
+    }
+
+    private static Intent buildTestFinancedDeviceIntent() {
+        return new Intent(ACTION_PROVISION_FINANCED_DEVICE)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
+                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME);
     }
 
     private static Intent bildTestNonTrustedSourceIntent() {

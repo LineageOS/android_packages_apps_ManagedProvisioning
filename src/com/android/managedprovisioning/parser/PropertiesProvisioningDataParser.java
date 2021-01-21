@@ -187,6 +187,8 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                     builder.setUseMobileData(Boolean.parseBoolean(s));
                 }
                 builder.setIsOrganizationOwnedProvisioning(true);
+                // TODO(b/177849035): Remove NFC-specific logic
+                builder.setReturnBeforePolicyCompliance(true);
                 ProvisionLogger.logi("End processing Nfc Payload.");
                 return builder.build();
             } catch (IOException e) {

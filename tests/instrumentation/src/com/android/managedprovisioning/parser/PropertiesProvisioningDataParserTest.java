@@ -37,6 +37,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
@@ -279,6 +280,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                         .setStartedByTrustedSource(true)
                         .setIsNfc(true)
                         .setIsOrganizationOwnedProvisioning(true)
+                        .setReturnBeforePolicyCompliance(true)
                         .build())
                 .isEqualTo(params);
     }
@@ -339,25 +341,26 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
 
         assertThat(params).isEqualTo(createTestProvisioningParamsBuilder()
-            .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-            .setWifiInfo(WifiInfo.Builder.builder()
-                    .setSsid(TEST_SSID)
-                    .setHidden(TEST_HIDDEN)
-                    .setSecurityType(TEST_SECURITY_TYPE_EAP)
-                    .setPassword(TEST_PASSWORD)
-                    .setEapMethod(TEST_EAP_METHOD)
-                    .setPhase2Auth(TEST_PHASE2_AUTH)
-                    .setCaCertificate(TEST_CA_CERT)
-                    .setUserCertificate(TEST_USER_CERT)
-                    .setIdentity(TEST_IDENTITY)
-                    .setAnonymousIdentity(TEST_ANONYMOUS_IDENTITY)
-                    .setDomain(TEST_DOMAIN)
-                    .setProxyHost(TEST_PROXY_HOST)
-                    .setProxyPort(TEST_PROXY_PORT)
-                    .setProxyBypassHosts(TEST_PROXY_BYPASS_HOSTS)
-                    .setPacUrl(TEST_PAC_URL)
-                    .build())
-            .build());
+                .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
+                .setReturnBeforePolicyCompliance(true)
+                .setWifiInfo(WifiInfo.Builder.builder()
+                        .setSsid(TEST_SSID)
+                        .setHidden(TEST_HIDDEN)
+                        .setSecurityType(TEST_SECURITY_TYPE_EAP)
+                        .setPassword(TEST_PASSWORD)
+                        .setEapMethod(TEST_EAP_METHOD)
+                        .setPhase2Auth(TEST_PHASE2_AUTH)
+                        .setCaCertificate(TEST_CA_CERT)
+                        .setUserCertificate(TEST_USER_CERT)
+                        .setIdentity(TEST_IDENTITY)
+                        .setAnonymousIdentity(TEST_ANONYMOUS_IDENTITY)
+                        .setDomain(TEST_DOMAIN)
+                        .setProxyHost(TEST_PROXY_HOST)
+                        .setProxyPort(TEST_PROXY_PORT)
+                        .setProxyBypassHosts(TEST_PROXY_BYPASS_HOSTS)
+                        .setPacUrl(TEST_PAC_URL)
+                        .build())
+                .build());
     }
 
     private ProvisioningParams.Builder createTestProvisioningParamsBuilder() {
@@ -423,6 +426,35 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         // THEN valid record should be returned
         assertThat(PropertiesProvisioningDataParser.getFirstNdefRecord(nfcIntent))
                 .isEqualTo(record);
+    }
+
+    public void testParse_nfcProvisioningWithReturnBeforePolicyComplianceFalse_isTrue()
+            throws Exception {
+        Intent intent = buildNfcProvisioningIntent(buildNfcProvisioningProperties())
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, false);
+
+        ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
+    public void testParse_nfcProvisioningWithReturnBeforePolicyComplianceTrue_isTrue()
+            throws Exception {
+        Intent intent = buildNfcProvisioningIntent(buildNfcProvisioningProperties())
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, true);
+
+        ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
+    }
+
+    public void testParse_nfcProvisioningWithReturnBeforePolicyComplianceNotSet_isTrue()
+            throws Exception {
+        Intent intent = buildNfcProvisioningIntent(buildNfcProvisioningProperties());
+
+        ProvisioningParams params = mPropertiesProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
     }
 
     private Intent buildIntentWithAllShortExtras() throws Exception {
