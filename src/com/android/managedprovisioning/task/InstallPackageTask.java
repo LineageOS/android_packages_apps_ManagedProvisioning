@@ -18,11 +18,9 @@ package com.android.managedprovisioning.task;
 import static android.app.PendingIntent.FLAG_MUTABLE;
 import static android.app.PendingIntent.FLAG_ONE_SHOT;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
-import static android.content.pm.PackageManager.INSTALL_ALL_WHITELIST_RESTRICTED_PERMISSIONS;
 import static android.content.pm.PackageManager.INSTALL_REPLACE_EXISTING;
 
-import static com.android.internal.logging.nano.MetricsProto.MetricsEvent
-        .PROVISIONING_INSTALL_PACKAGE_TASK_MS;
+import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_INSTALL_PACKAGE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.annotation.NonNull;
@@ -133,7 +131,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
             return;
         }
 
-        int installFlags = INSTALL_REPLACE_EXISTING | INSTALL_ALL_WHITELIST_RESTRICTED_PERMISSIONS;
+        int installFlags = INSTALL_REPLACE_EXISTING;
         // Current device owner (if exists) must be test-only, so it is fine to replace it with a
         // test-only package of same package name. No need to further verify signature as
         // installation will fail if signatures don't match.
@@ -143,7 +141,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
 
         PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(
                 PackageInstaller.SessionParams.MODE_FULL_INSTALL);
-        params.installFlags = installFlags;
+        params.installFlags |= installFlags;
 
         File source = new File(packageLocation);
         PackageInstaller pi = mPm.getPackageInstaller();
