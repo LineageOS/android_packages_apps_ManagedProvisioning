@@ -20,12 +20,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.UserHandle;
-import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -109,10 +104,6 @@ public final class PreFinalizationController {
 
         mUserProvisioningStateHelper.markUserProvisioningStateInitiallyDone(params);
         if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)) {
-            if (params.isOrganizationOwnedProvisioning) {
-                markIsProfileOwnerOnOrganizationOwnedDevice();
-                restrictRemovalOfManagedProfile();
-            }
             if (!params.returnBeforePolicyCompliance) {
                 // If a managed profile was provisioned and the provisioning initiator has requested
                 // managed profile provisioning and DPC setup to happen in one step, notify the
@@ -123,29 +114,6 @@ public final class PreFinalizationController {
         if (params.returnBeforePolicyCompliance) {
             // Store the information and wait for provisioningFinalized to be called
             storeProvisioningParams(params);
-        }
-    }
-
-    private void restrictRemovalOfManagedProfile() {
-        final UserManager userManager = UserManager.get(mContext);
-        userManager.setUserRestriction(UserManager.DISALLOW_REMOVE_MANAGED_PROFILE, true);
-    }
-
-    private void markIsProfileOwnerOnOrganizationOwnedDevice() {
-        final DevicePolicyManager dpm = mContext.getSystemService(DevicePolicyManager.class);
-        final int managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
-        final ComponentName admin = dpm.getProfileOwnerAsUser(managedProfileUserId);
-        if (admin != null) {
-            try {
-                final Context profileContext = mContext.createPackageContextAsUser(
-                        mContext.getPackageName(), 0 /* flags */,
-                        UserHandle.of(managedProfileUserId));
-                final DevicePolicyManager profileDpm =
-                        profileContext.getSystemService(DevicePolicyManager.class);
-                profileDpm.markProfileOwnerOnOrganizationOwnedDevice(admin);
-            } catch (NameNotFoundException e) {
-                ProvisionLogger.logw("Error setting access to Device IDs: " + e.getMessage());
-            }
         }
     }
 

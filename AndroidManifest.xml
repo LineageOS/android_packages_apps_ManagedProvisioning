@@ -245,13 +245,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter$RestrictionChangedReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.app.action.DATA_SHARING_RESTRICTION_CHANGED" />
-            </intent-filter>
-        </receiver>
-
         <!-- TODO (b/146135268): Add permission for setup-wizard to guard access? -->
         <activity android:name=".finalization.FinalizationInsideSuwActivity"
                   android:excludeFromRecents="true"

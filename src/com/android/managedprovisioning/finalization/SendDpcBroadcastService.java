@@ -52,9 +52,8 @@ public class SendDpcBroadcastService extends Service implements Callback {
         ProvisioningIntentProvider helper = new ProvisioningIntentProvider();
         UserHandle managedProfileUserHandle = utils.getManagedProfile(context);
         if (params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
-            new PrimaryProfileFinalizationHelper(
-                    params.accountToMigrate, params.keepAccountMigrated, managedProfileUserHandle,
-                    params.inferDeviceAdminPackageName(), utils)
+            new PrimaryProfileFinalizationHelper(params.accountToMigrate, managedProfileUserHandle,
+                    params.inferDeviceAdminPackageName())
                 .finalizeProvisioningInPrimaryProfile(/* context */ this, /* callback */ this);
         } else {
             sendDpcReceivedSuccessReceiver(
@@ -88,8 +87,8 @@ public class SendDpcBroadcastService extends Service implements Callback {
         // Avoids a lag in the transition between provisioning and the DPC.
         BroadcastReceiver dpcReceivedSuccessReceiver =
                 new DpcReceivedSuccessReceiver(params.accountToMigrate,
-                        params.keepAccountMigrated, managedProfileUserHandle,
-                        params.inferDeviceAdminPackageName(), this);
+                        managedProfileUserHandle, params.inferDeviceAdminPackageName(),
+                        this);
         sendOrderedBroadcastAsUser(completeIntent, managedProfileUserHandle, null,
                 dpcReceivedSuccessReceiver, null, Activity.RESULT_OK, null, null);
         ProvisionLogger.logd("Provisioning complete broadcast has been sent to user "

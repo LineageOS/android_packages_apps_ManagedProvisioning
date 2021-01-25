@@ -108,9 +108,4 @@ public class AdminIntegratedFlowPrepareController extends AbstractProvisioningCo
     protected boolean getRequireFactoryReset(AbstractProvisioningTask task, int errorCode) {
         return !(task instanceof AddWifiNetworkTask);
     }
-
-    @Override
-    protected void performCleanup() {
-        // Do nothing, because a factory reset will be triggered.
-    }
 }

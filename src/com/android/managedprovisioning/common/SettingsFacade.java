@@ -17,8 +17,8 @@
 package com.android.managedprovisioning.common;
 
 import static android.provider.Settings.Global.DEVICE_PROVISIONED;
-import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
 import static android.provider.Settings.Secure.CROSS_PROFILE_CALENDAR_ENABLED;
+import static android.provider.Settings.Secure.MANAGED_PROFILE_CONTACT_REMOTE_SEARCH;
 import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
 
 import android.content.Context;
@@ -73,12 +73,5 @@ public class SettingsFacade {
     public boolean isDuringSetupWizard(Context context) {
         // If the flow is running in SUW, the primary user is not set up at this point
         return !isUserSetupCompleted(context);
-    }
-
-    /**
-     * Returns whether ADB is enabled (developer mode)
-     */
-    public boolean isDeveloperMode(Context context) {
-        return Global.getInt(context.getContentResolver(), Global.ADB_ENABLED, 0) > 0;
     }
 }
