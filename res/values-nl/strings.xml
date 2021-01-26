@@ -164,7 +164,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Beheer-app instellen"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"De rest instellen"</string>
     <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Voeg een persoonlijk account toe om meer uit je apparaat te halen"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Nu je werkprofiel gereed is, kun je ook een persoonlijk Google-account toevoegen voor toegang tot je apps en content."</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Nu je werkprofiel klaar is, kun je ook een persoonlijk Google-account toevoegen voor toegang tot je apps en content."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Dit apparaat is eigendom van je organisatie"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"De volgende app wordt gebruikt om deze telefoon te beheren en te controleren"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Instellingen klaarmaken voor werk…"</string>
@@ -188,7 +188,7 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privacyherinnering"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Je kunt je apparaat nu gebruiken."</string>
-    <string name="done" msgid="7755227776955952318">"Gereed"</string>
+    <string name="done" msgid="7755227776955952318">"Klaar"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Dit apparaat is gekocht op krediet van <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"De <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-app installeren zodat je betalingen kunt doen voor dit apparaat"</string>

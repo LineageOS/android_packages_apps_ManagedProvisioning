@@ -75,12 +75,12 @@
     <string name="progress_set_owner" msgid="8214062820093757961">"Menyetel pemilik perangkat..."</string>
     <string name="progress_initialize" msgid="1104643492713424939">"Memulai perangkat..."</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Perangkat ini tidak mengizinkan enkripsi yang diperlukan untuk penyiapan. Hubungi admin IT untuk meminta bantuan."</string>
-    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Hentikan penyiapan &amp; setel ulang perangkat?"</string>
+    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Hentikan penyiapan &amp; reset perangkat?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Tindakan ini akan menyetel ulang perangkat dan membawa Anda kembali ke layar pertama"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Berhenti menyiapkan dan hapus data perangkat?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Batal"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Oke"</string>
-    <string name="reset" msgid="6467204151306265796">"Setel ulang"</string>
+    <string name="reset" msgid="6467204151306265796">"Reset"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Tidak dapat menyiapkan profil"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Tidak dapat menyiapkan perangkat"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"Terjadi masalah"</string>
@@ -89,7 +89,7 @@
     <string name="reset_device" msgid="5483853913241939262">"Reset perangkat ini dan coba setel kembali"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Perangkat sudah disiapkan"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Tidak dapat terhubung ke Wi-Fi"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Perangkat telah mengaktifkan perlindungan penyetelan ulang. Hubungi admin IT untuk meminta bantuan."</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Perangkat telah mengaktifkan perlindungan peresetan. Hubungi admin IT untuk meminta bantuan."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Menghapus"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Harap tunggu..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Tidak dapat menggunakan aplikasi admin karena terjadi error checksum. Harap hubungi admin IT Anda untuk meminta bantuan."</string>
@@ -152,7 +152,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Selesaikan dan kembalikan ke setelan pabrik?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Menyelesaikan penyiapan ini akan mengembalikan perangkat ke setelan pabrik dan membawa Anda kembali ke layar pertama."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Batal"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Setel ulang perangkat"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Reset perangkat"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> dan <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g>, dan <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
