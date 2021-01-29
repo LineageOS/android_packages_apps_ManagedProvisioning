@@ -99,6 +99,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PreProvisioningController {
+    private static final String EXTRA_IS_SETUP_FLOW = "isSetupFlow";
+
     private final Context mContext;
     private final Ui mUi;
     private final MessageParser mMessageParser;
@@ -339,7 +341,7 @@ public class PreProvisioningController {
         } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(mParams);
         } else if (mParams.isNfc) {
-            startNfcFlow();
+            startNfcFlow(intent);
         } else if (isProfileOwnerProvisioning()) {
             startManagedProfileFlow();
         } else if (isDpcTriggeredManagedDeviceProvisioning(intent)) {
@@ -348,10 +350,16 @@ public class PreProvisioningController {
         }
     }
 
-    private void startNfcFlow() {
+    private void startNfcFlow(Intent intent) {
         ProvisionLogger.logi("Starting the NFC provisioning flow.");
+        addAdditionalNfcProvisioningExtras(intent);
         updateProvisioningFlowState(FLOW_TYPE_LEGACY);
         maybeShowUserConsentScreen();
+    }
+
+    // TODO(178822333): Remove NFC-specific logic after adding support for the admin-integrated flow
+    private void addAdditionalNfcProvisioningExtras(Intent intent) {
+        intent.putExtra(EXTRA_IS_SETUP_FLOW, true);
     }
 
     private void startManagedProfileFlow() {
