@@ -53,6 +53,7 @@ public class FinalizationController {
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
     private final UserProvisioningStateHelper mHelper;
+    private ProvisioningParams mParams;
 
     public FinalizationController(Context context) {
         this(
@@ -120,7 +121,7 @@ public class FinalizationController {
             return;
         }
 
-        final ProvisioningParams params = loadProvisioningParamsAndClearFile();
+        final ProvisioningParams params = getProvisioningParams();
         if (params == null) {
             ProvisionLogger.logw("FinalizationController invoked, but no stored params");
             return;
@@ -142,6 +143,13 @@ public class FinalizationController {
         }
 
         mHelper.markUserProvisioningStateFinalized(params);
+    }
+
+    ProvisioningParams getProvisioningParams() {
+        if (mParams == null) {
+            mParams = loadProvisioningParamsAndClearFile();
+        }
+        return mParams;
     }
 
     /**

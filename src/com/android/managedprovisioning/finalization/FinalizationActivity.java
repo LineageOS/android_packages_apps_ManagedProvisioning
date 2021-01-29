@@ -16,9 +16,21 @@
 
 package com.android.managedprovisioning.finalization;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
+import static android.content.Intent.ACTION_USER_UNLOCKED;
+import android.os.UserHandle;
+import android.content.Context;
+import android.content.Intent;
+
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.os.Bundle;
+import android.content.BroadcastReceiver;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import android.os.UserManager;
+import com.android.managedprovisioning.common.Utils;
+import android.content.IntentFilter;
+
 
 /**
  * This class is used to make sure that we start the MDM after we shut the setup wizard down.
@@ -32,11 +44,70 @@ import android.os.Bundle;
  */
 public class FinalizationActivity extends Activity {
 
+    private boolean mIsReceiverRegistered;
+    private FinalizationController mFinalizationController;
+
+    private final BroadcastReceiver mUserUnlockedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (!ACTION_USER_UNLOCKED.equals(intent.getAction())) {
+                return;
+            }
+            int userId = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, /* defaultValue= */ -1);
+            UserManager userManager = getSystemService(UserManager.class);
+            if (!userManager.isManagedProfile(userId)) {
+                return;
+            }
+            unregisterUserUnlockedReceiver();
+            tryFinalizeProvisioning();
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        new FinalizationController(this).provisioningFinalized();
+        mFinalizationController = new FinalizationController(this);
+        ProvisioningParams params = mFinalizationController.getProvisioningParams();
+
+        registerUserUnlockedReceiver();
+        UserManager userManager = getSystemService(UserManager.class);
+        Utils utils = new Utils();
+        if (!params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)
+                || userManager.isUserUnlocked(utils.getManagedProfile(this))) {
+            unregisterUserUnlockedReceiver();
+            tryFinalizeProvisioning();
+        }
+    }
+
+    private void tryFinalizeProvisioning() {
+        mFinalizationController.provisioningFinalized();
         finish();
+    }
+
+    private void registerUserUnlockedReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_USER_UNLOCKED);
+        registerReceiverAsUser(
+                mUserUnlockedReceiver,
+                UserHandle.ALL,
+                filter,
+                /* broadcastPermission= */ null,
+                /* scheduler= */ null);
+        mIsReceiverRegistered = true;
+    }
+
+    private void unregisterUserUnlockedReceiver() {
+        if (!mIsReceiverRegistered) {
+            return;
+        }
+        unregisterReceiver(mUserUnlockedReceiver);
+        mIsReceiverRegistered = false;
+    }
+
+    @Override
+    public final void onDestroy() {
+        unregisterUserUnlockedReceiver();
+        super.onDestroy();
     }
 }
