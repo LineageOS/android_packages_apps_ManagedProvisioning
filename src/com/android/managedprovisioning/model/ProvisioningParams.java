@@ -105,6 +105,7 @@ public final class ProvisioningParams extends PersistableBundlable {
     public static final int DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES = 0;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE = false;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT = false;
 
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
@@ -151,6 +152,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_SKIP_OWNERSHIP_DISCLAIMER = "skip-ownership-disclaimer";
     private static final String TAG_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE =
             "provisioning-return-before-policy-compliance";
+    private static final String TAG_DEVICE_OWNER_PERMISSION_GRANT_OPT_OUT =
+            "device-owner-opt-out-of-permission-grants";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
             = new Parcelable.Creator<ProvisioningParams>() {
@@ -322,6 +325,12 @@ public final class ProvisioningParams extends PersistableBundlable {
      */
     public final boolean returnBeforePolicyCompliance;
 
+    /**
+     * True if the device owner has opted out of controlling permission grants for
+     * sensors-related permissions. See {@link DevicePolicyManager#setPermissionGrantState}
+     */
+    public final boolean deviceOwnerPermissionGrantOptOut;
+
     public static String inferStaticDeviceAdminPackageName(ComponentName deviceAdminComponentName,
             String deviceAdminPackageName) {
         if (deviceAdminComponentName != null) {
@@ -392,6 +401,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         provisioningTrigger = builder.mProvisioningTrigger;
         skipOwnershipDisclaimer = builder.mSkipOwnershipDisclaimer;
         returnBeforePolicyCompliance = builder.mReturnBeforePolicyCompliance;
+        deviceOwnerPermissionGrantOptOut = builder.mDeviceOwnerPermissionGrantOptOut;
 
         validateFields();
     }
@@ -451,6 +461,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(TAG_SKIP_OWNERSHIP_DISCLAIMER, skipOwnershipDisclaimer);
         bundle.putBoolean(TAG_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE,
                 returnBeforePolicyCompliance);
+        bundle.putBoolean(TAG_DEVICE_OWNER_PERMISSION_GRANT_OPT_OUT,
+                deviceOwnerPermissionGrantOptOut);
         return bundle;
     }
 
@@ -511,6 +523,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         builder.setSkipOwnershipDisclaimer(bundle.getBoolean(TAG_SKIP_OWNERSHIP_DISCLAIMER));
         builder.setReturnBeforePolicyCompliance(bundle.getBoolean(
                 TAG_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE));
+        builder.setDeviceOwnerPermissionGrantOptOut(
+                bundle.getBoolean(TAG_DEVICE_OWNER_PERMISSION_GRANT_OPT_OUT));
         return builder;
     }
 
@@ -645,6 +659,8 @@ public final class ProvisioningParams extends PersistableBundlable {
                 DEFAULT_EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER;
         private boolean mReturnBeforePolicyCompliance =
                 DEFAULT_EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
+        private boolean mDeviceOwnerPermissionGrantOptOut =
+                DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -817,6 +833,14 @@ public final class ProvisioningParams extends PersistableBundlable {
          */
         public Builder setReturnBeforePolicyCompliance(boolean returnBeforePolicyCompliance) {
             mReturnBeforePolicyCompliance = returnBeforePolicyCompliance;
+            return this;
+        }
+
+        /**
+         * Setter for whether the admin has opted out of controlling permission grants.
+         */
+        public Builder setDeviceOwnerPermissionGrantOptOut(boolean optout) {
+            mDeviceOwnerPermissionGrantOptOut = optout;
             return this;
         }
 

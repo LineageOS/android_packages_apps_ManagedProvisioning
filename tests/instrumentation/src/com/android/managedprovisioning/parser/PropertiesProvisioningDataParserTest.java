@@ -37,6 +37,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
@@ -80,6 +81,7 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
@@ -206,6 +208,7 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final Uri TEST_URI = Uri.parse("https://www.google.com/");
     private static final String TEST_URI_STRING = "https://www.google.com/";
     private static final String TEST_DISCLAMER_HEADER = "Google";
+    private static final boolean TEST_OPT_OUT_OF_PERMISSION_CONTROL = true;
 
     @Mock
     private Context mContext;
@@ -498,6 +501,8 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         propsShort.setProperty(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT, TEST_URI_STRING);
         propsShort.setProperty(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI_STRING);
+        propsShort.setProperty(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT,
+                Boolean.toString(TEST_OPT_OUT_OF_PERMISSION_CONTROL));
 
         Intent intentShort = buildNfcProvisioningIntent(propsShort);
         intentShort.putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort);
@@ -537,6 +542,8 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(TEST_USE_MOBILE_DATA));
         propsLong.setProperty(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI, TEST_URI_STRING);
         propsLong.setProperty(EXTRA_PROVISIONING_LOGO_URI, TEST_URI_STRING);
+        propsLong.setProperty(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT,
+                Boolean.toString(TEST_OPT_OUT_OF_PERMISSION_CONTROL));
 
         Intent intentLong = buildNfcProvisioningIntent(propsLong);
         intentLong.putExtra(EXTRA_PROVISIONING_DISCLAIMERS, parcelablesLong);

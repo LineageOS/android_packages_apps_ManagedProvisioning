@@ -458,6 +458,19 @@ public class ProvisioningParamsTest extends AndroidTestCase {
         assertThat(provisioningParams.returnBeforePolicyCompliance).isFalse();
     }
 
+    @SmallTest
+    public void testDeviceOwnerDoesNotOptOutOfSensorsPermissionGrantsByDefault() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder().build();
+        assertThat(params.deviceOwnerPermissionGrantOptOut).isFalse();
+    }
+
+    @SmallTest
+    public void testDeviceOwnerCanOptOutOfSensorsPermissionGrants() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setDeviceOwnerPermissionGrantOptOut(true).build();
+        assertThat(params.deviceOwnerPermissionGrantOptOut).isTrue();
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()

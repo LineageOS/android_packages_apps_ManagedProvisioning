@@ -41,6 +41,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
@@ -252,6 +253,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     @VisibleForTesting
     static final String EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT = "a.a.e.PUMD";
 
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT = "a.a.e.PPGOO";
+
     private static final Map<String, String> SHORTER_EXTRAS = buildShorterExtrasMap();
 
     private static final ArrayList<Integer> SUPPORTED_MODES_ALLOWED_VALUES =
@@ -361,6 +365,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_USE_MOBILE_DATA, EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT);
+        shorterExtras.put(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT,
+                EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT);
         return shorterExtras;
     }
 
@@ -596,6 +602,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             int provisioningTrigger = mParserUtils.extractProvisioningTrigger(intent);
             int initiatorRequestedProvisioningModes =
                     getInitiatorRequestedProvisioningModes(intent);
+
+            final boolean adminOptedOutOfSensorsPermissionGrants =
+                    getBooleanExtraFromLongName(intent,
+                            EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT,
+                            ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT);
             return ProvisioningParams.Builder.builder()
                     .setProvisioningId(provisioningId)
                     .setProvisioningAction(provisioningAction)
@@ -625,7 +636,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setInitiatorRequestedProvisioningModes(
                             initiatorRequestedProvisioningModes)
                     .setSkipOwnershipDisclaimer(getSkipOwnershipDisclaimer(intent))
-                    .setReturnBeforePolicyCompliance(getReturnBeforePolicyCompliance(intent));
+                    .setReturnBeforePolicyCompliance(getReturnBeforePolicyCompliance(intent))
+                    .setDeviceOwnerPermissionGrantOptOut(
+                            adminOptedOutOfSensorsPermissionGrants);
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
