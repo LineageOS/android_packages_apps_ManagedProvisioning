@@ -20,13 +20,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.widget.ImageView;
+
 import androidx.annotation.VisibleForTesting;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import com.google.android.setupdesign.GlifLayout;
 
 /**
@@ -47,6 +50,10 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
 
     public static boolean shouldRunPrepareActivity(
             Utils utils, Context context, ProvisioningParams params) {
+        // TODO(b/177849035): Remove NFC-specific logic
+        if (params.isNfc) {
+            return false;
+        }
         if (params.wifiInfo != null) {
             return true;
         }

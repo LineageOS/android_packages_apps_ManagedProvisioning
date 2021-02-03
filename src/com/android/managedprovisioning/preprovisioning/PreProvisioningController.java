@@ -328,7 +328,12 @@ public class PreProvisioningController {
         } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(mParams);
         } else if (mParams.isNfc) {
-            startNfcFlow(intent);
+            // TODO(b/177849035): Remove NFC-specific logic
+            if (mUtils.shouldShowOwnershipDisclaimerScreen(mParams)) {
+                mUi.showOwnershipDisclaimerScreen(mParams);
+            } else {
+                startNfcFlow(intent);
+            }
         } else if (isProfileOwnerProvisioning()) {
             startManagedProfileFlow();
         } else if (isDpcTriggeredManagedDeviceProvisioning(intent)) {
@@ -337,7 +342,7 @@ public class PreProvisioningController {
         }
     }
 
-    private void startNfcFlow(Intent intent) {
+    void startNfcFlow(Intent intent) {
         ProvisionLogger.logi("Starting the NFC provisioning flow.");
         addAdditionalNfcProvisioningExtras(intent);
         updateProvisioningFlowState(FLOW_TYPE_LEGACY);

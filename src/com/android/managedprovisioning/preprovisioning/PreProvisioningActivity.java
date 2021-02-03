@@ -184,7 +184,28 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 break;
             case ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE:
             case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
-                handleAdminIntegratedFlowPreparerResult();
+                if (resultCode == RESULT_OK) {
+                    // TODO(b/177849035): Remove NFC-specific logic
+                    if (mController.getParams().isNfc) {
+                        mController.startNfcFlow(getIntent());
+                    } else {
+                        handleAdminIntegratedFlowPreparerResult();
+                    }
+                } else {
+                    ProvisionLogger.loge(
+                            "Provisioning was aborted in the preparation stage, "
+                                    + "requestCode = " + requestCode);
+                    if (isDpcInstalled()
+                            && mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+                        showFactoryResetDialog(R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help);
+                    } else {
+                        showErrorAndClose(
+                                R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help,
+                                "Failed provisioning device.");
+                    }
+                }
                 break;
             case GET_PROVISIONING_MODE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
@@ -231,21 +252,20 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         }
     }
 
-    private void handleAdminIntegratedFlowPreparerResult() {
+    private boolean isDpcInstalled() {
         String adminPackageName = mController.getParams().inferDeviceAdminPackageName();
-        if (mUtils.isPackageInstalled(adminPackageName, getPackageManager())) {
+        return mUtils.isPackageInstalled(adminPackageName, getPackageManager());
+    }
+
+    private void handleAdminIntegratedFlowPreparerResult() {
+        if (isDpcInstalled()) {
             startAdminIntegratedFlowPostDpcInstall();
         } else {
-            ProvisionLogger.loge("Package name " + adminPackageName + " is not installed.");
-            if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
-                showFactoryResetDialog(R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help);
-            } else {
-                showErrorAndClose(
-                        R.string.cant_set_up_device,
-                        R.string.contact_your_admin_for_help,
-                        "Failed to provision personally-owned device.");
-            }
+            String adminPackageName = mController.getParams().inferDeviceAdminPackageName();
+            showErrorAndClose(
+                    R.string.cant_set_up_device,
+                    R.string.contact_your_admin_for_help,
+                    "Package name " + adminPackageName + " is not installed.");
         }
     }
 

@@ -389,6 +389,32 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    public void testInitiateProvisioning_withNfc_showsOwnershipDisclaimer() throws Exception {
+        // GIVEN provisioning was started via an NFC tap and should show ownership disclaimer
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
+        when(mUtils.shouldShowOwnershipDisclaimerScreen(eq(mParams))).thenReturn(true);
+
+        // WHEN initiating NFC provisioning
+        mController.initiateProvisioning(mIntent, /* params= */ null, /* callingPackage= */ null);
+
+        // THEN show the ownership disclaimer
+        verify(mUi).showOwnershipDisclaimerScreen(eq(mParams));
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void testInitiateProvisioning_withNfc_skipsOwnershipDisclaimer() throws Exception {
+        // GIVEN provisioning was started via an NFC tap and should show ownership disclaimer
+        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
+        when(mUtils.shouldShowOwnershipDisclaimerScreen(eq(mParams))).thenReturn(false);
+
+        // WHEN initiating NFC provisioning
+        mController.initiateProvisioning(mIntent, /* params= */ null, /* callingPackage= */ null);
+
+        // THEN show the ownership disclaimer
+        verify(mUi).initiateUi(any());
+        verifyNoMoreInteractions(mUi);
+    }
+
     // TODO(b/177575786): Migrate outdated PreProvisioningControllerTest tests to robolectric
     /*
     public void testNfc() throws Exception {
@@ -1076,8 +1102,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 ".PreProvisioningActivityViaNfc"));
         when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
                 .thenReturn(CODE_OK);
-        when(mMessageParser.parse(mIntent)).thenReturn(
-                createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
+        mParams = createParamsBuilder(true, skipEncryption, TEST_WIFI_SSID, action,
+                TEST_MDM_PACKAGE)
+                .setIsNfc(true)
+                .build();
+        when(mMessageParser.parse(mIntent)).thenReturn(mParams);
     }
 
     private void prepareMocksForQrIntent(String action, boolean skipEncryption) throws Exception {
@@ -1112,7 +1141,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                         startedByTrustedSource, false, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
     }
 
-    private ProvisioningParams createParams(boolean startedByTrustedSource, boolean skipEncryption,
+    private ProvisioningParams.Builder createParamsBuilder(
+            boolean startedByTrustedSource, boolean skipEncryption,
             String wifiSsid, String action, String packageName) {
         ProvisioningParams.Builder builder = ProvisioningParams.Builder.builder()
                 .setStartedByTrustedSource(startedByTrustedSource)
@@ -1122,7 +1152,13 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         if (!TextUtils.isEmpty(wifiSsid)) {
             builder.setWifiInfo(WifiInfo.Builder.builder().setSsid(wifiSsid).build());
         }
-        return mParams = builder.build();
+        return builder;
+    }
+
+    private ProvisioningParams createParams(boolean startedByTrustedSource, boolean skipEncryption,
+            String wifiSsid, String action, String packageName) {
+        return mParams = createParamsBuilder(
+                startedByTrustedSource, skipEncryption, wifiSsid, action, packageName).build();
     }
 
     private void verifyInitiateProfileOwnerUi() {
