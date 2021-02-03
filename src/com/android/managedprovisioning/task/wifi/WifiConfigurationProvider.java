@@ -16,10 +16,12 @@
 
 package com.android.managedprovisioning.task.wifi;
 
+import static android.net.ProxyInfo.buildDirectProxy;
+import static android.net.ProxyInfo.buildPacProxy;
+
 import android.annotation.Nullable;
 import android.net.IpConfiguration;
 import android.net.IpConfiguration.ProxySettings;
-import android.net.ProxyInfo;
 import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiEnterpriseConfig;
@@ -28,6 +30,7 @@ import android.text.TextUtils;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.model.WifiInfo;
+import com.android.net.module.util.ProxyUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -324,10 +327,11 @@ public class WifiConfigurationProvider {
         IpConfiguration ipConfig = wifiConf.getIpConfiguration();
         if (!TextUtils.isEmpty(proxyHost)) {
             ipConfig.setProxySettings(ProxySettings.STATIC);
-            ipConfig.setHttpProxy(new ProxyInfo(proxyHost, proxyPort, proxyBypassHosts));
+            ipConfig.setHttpProxy(buildDirectProxy(proxyHost, proxyPort,
+                    ProxyUtils.exclusionStringAsList(proxyBypassHosts)));
         } else {
             ipConfig.setProxySettings(ProxySettings.PAC);
-            ipConfig.setHttpProxy(new ProxyInfo(Uri.parse(pacUrl)));
+            ipConfig.setHttpProxy(buildPacProxy(Uri.parse(pacUrl)));
         }
         wifiConf.setIpConfiguration(ipConfig);
     }
