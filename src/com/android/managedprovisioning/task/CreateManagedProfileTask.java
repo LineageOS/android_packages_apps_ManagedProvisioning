@@ -142,11 +142,6 @@ public class CreateManagedProfileTask extends AbstractProvisioningTask {
     }
 
     @Override
-    public int getStatusMsgId() {
-        return R.string.progress_initialize;
-    }
-
-    @Override
     protected int getMetricsCategory() {
         return PROVISIONING_CREATE_PROFILE_TASK_MS;
     }

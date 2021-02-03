@@ -36,10 +36,9 @@ import android.provider.Settings;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
@@ -90,11 +89,6 @@ public class DownloadPackageTask extends AbstractProvisioningTask {
         mDownloadManager.setAccessFilename(true);
         mPackageName = provisioningParams.inferDeviceAdminPackageName();
         mPackageDownloadInfo = checkNotNull(provisioningParams.deviceAdminDownloadInfo);
-    }
-
-    @Override
-    public int getStatusMsgId() {
-        return R.string.progress_download;
     }
 
     @Override

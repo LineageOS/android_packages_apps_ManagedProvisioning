@@ -24,7 +24,6 @@ import android.content.pm.PackageManager;
 import android.os.UserHandle;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -87,10 +86,6 @@ public class InstallExistingPackageTask extends AbstractProvisioningTask {
 
         mPackageName = checkNotNull(packageName);
         mUserId = userId;
-    }
-
-    public int getStatusMsgId() {
-        return R.string.progress_install;
     }
 
     @VisibleForTesting

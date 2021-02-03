@@ -22,7 +22,6 @@ import android.os.UserHandle;
 import android.os.UserManager;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -82,8 +81,4 @@ public class DisallowAddUserTask extends AbstractProvisioningTask {
         success();
     }
 
-    @Override
-    public int getStatusMsgId() {
-        return R.string.progress_finishing_touches;
-    }
 }

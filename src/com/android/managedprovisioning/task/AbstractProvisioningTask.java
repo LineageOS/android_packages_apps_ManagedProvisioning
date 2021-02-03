@@ -108,11 +108,6 @@ public abstract class AbstractProvisioningTask {
     public abstract void run(int userId);
 
     /**
-     * @return the resource id of the status message related to the task.
-     */
-    public abstract int getStatusMsgId();
-
-    /**
      * Callback class for provisioning tasks.
      *
      * <p>Every execution of run should result in exactly one of

@@ -68,11 +68,6 @@ public class SetDevicePolicyTask extends AbstractProvisioningTask {
     }
 
     @Override
-    public int getStatusMsgId() {
-        return R.string.progress_set_owner;
-    }
-
-    @Override
     public void run(int userId) {
         boolean success;
         try {

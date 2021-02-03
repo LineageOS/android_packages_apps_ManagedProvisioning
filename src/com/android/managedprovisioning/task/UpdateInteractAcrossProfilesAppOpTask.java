@@ -103,8 +103,4 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
         }
     }
 
-    @Override
-    public int getStatusMsgId() {
-        return 0;
-    }
 }

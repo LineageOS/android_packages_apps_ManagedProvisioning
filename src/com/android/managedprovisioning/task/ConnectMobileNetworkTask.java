@@ -20,7 +20,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.provider.Settings;
 
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -81,11 +80,6 @@ public class ConnectMobileNetworkTask extends AbstractProvisioningTask
         // Post time out event in case the NetworkMonitor doesn't call back.
         mTimeoutRunnable = () -> finishTask(false);
         mHandler.postDelayed(mTimeoutRunnable, RECONNECT_TIMEOUT_MS);
-    }
-
-    @Override
-    public int getStatusMsgId() {
-        return R.string.progress_connect_to_mobile_network;
     }
 
     @Override

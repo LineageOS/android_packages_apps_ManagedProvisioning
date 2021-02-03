@@ -25,7 +25,6 @@ import android.content.pm.Signature;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -127,11 +126,6 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
         }
 
         success();
-    }
-
-    @Override
-    public int getStatusMsgId() {
-        return R.string.progress_install;
     }
 
     private List<byte[]> computeHashesOfAllSignatures(Signature[] signatures) {
