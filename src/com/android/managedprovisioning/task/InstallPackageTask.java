@@ -35,7 +35,6 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -93,11 +92,6 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         mPm = context.getPackageManager();
         mDpm = context.getSystemService(DevicePolicyManager.class);
         mDownloadPackageTask = checkNotNull(downloadPackageTask);
-    }
-
-    @Override
-    public int getStatusMsgId() {
-        return R.string.progress_install;
     }
 
     private static void copyStream(@NonNull InputStream in, @NonNull OutputStream out)

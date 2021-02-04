@@ -130,24 +130,6 @@
 
   <!-- Title of the work device setup screen. [CHAR LIMIT=NONE] -->
   <string name="setup_work_device">Setting up work device\u2026</string>
-  <!-- Progress text indicating that the setup data is processed. [CHAR LIMIT=45] -->
-  <string name="progress_data_process">Processing setup data\u2026</string>
-  <!-- Progress text indicating that wifi is set up. [CHAR LIMIT=45] -->
-  <string name="progress_connect_to_wifi">Connecting to Wi-Fi\u2026</string>
-  <!-- Progress text indicating that mobile network is being set up. [CHAR LIMIT=45] -->
-  <string name="progress_connect_to_mobile_network">Connecting to mobile network\u2026</string>
-  <!-- Progress text indicating that the device admin package is being downloaded. [CHAR LIMIT=45] -->
-  <string name="progress_download">Downloading the admin app\u2026</string>
-  <!-- Progress text indicating that the device admin package is being installed. [CHAR LIMIT=45] -->
-  <string name="progress_install">Installing the admin app\u2026</string>
-  <!-- TODO: Confirm this string with UX. Progress text indicating that non-required system apps are being deleted. [CHAR LIMIT=45] -->
-  <string name="progress_delete_non_required_apps">Removing non-required system apps\u2026</string>
-  <!-- TODO: Confirm this string with UX. Progress text indicating that finishing touches are being put. [CHAR LIMIT=45] -->
-  <string name="progress_finishing_touches">Putting finishing touches\u2026</string>
-  <!-- Progress text indicating that the device admin package is set as owner. [CHAR LIMIT=45] -->
-  <string name="progress_set_owner">Setting the device owner\u2026</string>
-  <!-- TODO: Confirm this string with UX. Progress text indicating that the progress is being initialized. [CHAR LIMIT=45] -->
-  <string name="progress_initialize">Initializing device\u2026</string>
 
   <!-- Message of the error dialog in case a device does not support encryption, but encryption is necessary. [CHAR LIMIT=NONE] -->
   <string name="device_doesnt_allow_encryption_contact_admin">This device doesn\'t allow encryption, which is needed for setup. For help, contact your IT admin.</string>
