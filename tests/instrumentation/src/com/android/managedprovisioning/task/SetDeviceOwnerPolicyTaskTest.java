@@ -16,8 +16,11 @@
 
 package com.android.managedprovisioning.task;
 
+import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.DEVICE_OWNER_TYPE_FINANCED;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -212,6 +215,38 @@ public class SetDeviceOwnerPolicyTaskTest extends AndroidTestCase {
 
         // THEN an error should be returned
         verify(mCallback).onError(mTask, 0);
+        verifyNoMoreInteractions(mCallback);
+    }
+
+    @SmallTest
+    public void testSetDeviceOwnerType_asDeviceOwner_toFinancedDevice() {
+        // GIVEN that we are provisioning a financed device.
+        createTask(ACTION_PROVISION_FINANCED_DEVICE);
+
+        // WHEN running the task.
+        mTask.run(TEST_USER_ID);
+
+        // THEN the device owner type should have been set as financed when there is a device
+        // owner.
+        verify(mDevicePolicyManager).setDeviceOwner(ADMIN_COMPONENT_NAME, mDefaultOwnerName,
+                TEST_USER_ID);
+        verify(mDevicePolicyManager).setDeviceOwnerType(ADMIN_COMPONENT_NAME,
+                DEVICE_OWNER_TYPE_FINANCED);
+        verify(mCallback).onSuccess(mTask);
+        verifyNoMoreInteractions(mCallback);
+    }
+
+    @SmallTest
+    public void testSetDeviceOwnerType_asDeviceOwner_notCalledWhenProvisioningManagedDevice() {
+        // GIVEN that we are provisioning a managed device.
+        createTask(ACTION_PROVISION_MANAGED_DEVICE);
+
+        // WHEN running the task
+        mTask.run(TEST_USER_ID);
+
+        // THEN setting the device owner type should not have been called.
+        verify(mDevicePolicyManager, never()).setDeviceOwnerType(any(), anyInt());
+        verify(mCallback).onSuccess(mTask);
         verifyNoMoreInteractions(mCallback);
     }
 
