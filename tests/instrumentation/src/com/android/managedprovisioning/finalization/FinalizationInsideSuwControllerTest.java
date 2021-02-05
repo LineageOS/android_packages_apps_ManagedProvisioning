@@ -240,9 +240,6 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
 
         // THEN the service which starts the DPC, has never been started.
         verifySendDpcServiceNotStarted();
-
-        // THEN account migration is triggered exactly once
-        verify(mUtils).removeAccountAsync(eq(mActivity), eq(TEST_ACCOUNT), any());
     }
 
     @SmallTest
@@ -410,9 +407,6 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
 
         // THEN the user provisioning state is finalized
         verify(mHelper).markUserProvisioningStateFinalized(params);
-
-        // THEN account migration is triggered exactly once
-        verify(mUtils).removeAccountAsync(eq(mActivity), eq(TEST_ACCOUNT), any());
     }
 
     private void verifyDpcLaunchedForUser(UserHandle userHandle, int numTimes) {

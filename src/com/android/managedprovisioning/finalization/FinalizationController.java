@@ -125,8 +125,7 @@ public final class FinalizationController {
     final PrimaryProfileFinalizationHelper getPrimaryProfileFinalizationHelper(
             ProvisioningParams params) {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
-                params.keepAccountMigrated, mUtils.getManagedProfile(mActivity),
-                params.inferDeviceAdminPackageName(), mUtils);
+                mUtils.getManagedProfile(mActivity), params.inferDeviceAdminPackageName());
     }
 
     /**

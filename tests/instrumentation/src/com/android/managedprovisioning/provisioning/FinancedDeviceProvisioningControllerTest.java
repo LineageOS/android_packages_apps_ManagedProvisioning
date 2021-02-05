@@ -29,7 +29,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.DeviceOwnerInitializeProvisioningTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
-import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.SetDeviceOwnerPolicyTask;
 import com.android.managedprovisioning.task.VerifyPackageTask;
 
 import org.mockito.Mock;
@@ -74,7 +74,7 @@ public class FinancedDeviceProvisioningControllerTest extends ProvisioningContro
         tasksDownloadAndInstallDeviceOwnerPackageSucceeded(TEST_USER_ID);
 
         // THEN the set device policy task should be run
-        taskSucceeded(SetDevicePolicyTask.class);
+        taskSucceeded(SetDeviceOwnerPolicyTask.class);
 
         // THEN the disallow add user task should be run
         taskSucceeded(DisallowAddUserTask.class);
@@ -97,7 +97,7 @@ public class FinancedDeviceProvisioningControllerTest extends ProvisioningContro
         taskSucceeded(DeviceOwnerInitializeProvisioningTask.class);
 
         // THEN the set device policy task should be run
-        taskSucceeded(SetDevicePolicyTask.class);
+        taskSucceeded(SetDeviceOwnerPolicyTask.class);
 
         // THEN the disallow add user task should be run
         taskSucceeded(DisallowAddUserTask.class);

@@ -72,7 +72,6 @@ public class PreProvisioningActivityTest {
     @Before
     public void setup() {
         when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_MAIN_COLOR);
-        when(mUtils.alreadyHasManagedProfile(any())).thenReturn(-1);
 
         TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
                 (classLoader, className, intent) -> new PreProvisioningActivity(

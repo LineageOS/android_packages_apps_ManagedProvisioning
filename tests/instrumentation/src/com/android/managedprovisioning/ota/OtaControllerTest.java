@@ -38,9 +38,7 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
-import com.android.managedprovisioning.task.CrossProfileIntentFiltersSetter;
 import com.android.managedprovisioning.task.DeleteNonRequiredAppsTask;
-import com.android.managedprovisioning.task.DisableInstallShortcutListenersTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
 import com.android.managedprovisioning.task.InstallExistingPackageTask;
 import com.android.managedprovisioning.task.MigrateSystemAppsSnapshotTask;
@@ -61,7 +59,6 @@ import java.util.function.IntFunction;
  */
 @SmallTest
 public class OtaControllerTest {
-    private static final int DEVICE_OWNER_USER_ID = 12;
     private static final int MANAGED_PROFILE_USER_ID = 15;
     private static final int MANAGED_USER_USER_ID = 18;
 
@@ -78,7 +75,6 @@ public class OtaControllerTest {
     @Mock private DevicePolicyManager mDevicePolicyManager;
     @Mock private PackageManager mPackageManager;
     @Mock private UserManager mUserManager;
-    @Mock private CrossProfileIntentFiltersSetter mCrossProfileIntentFiltersSetter;
     @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private TaskExecutor mTaskExecutor;
@@ -109,7 +105,7 @@ public class OtaControllerTest {
     @Test
     public void testDeviceOwnerSystemUser() {
         OtaController controller = new OtaController(mContext, mTaskExecutor,
-                mCrossProfileIntentFiltersSetter, NO_MISSING_SYSTEM_IME_PROVIDER,
+                NO_MISSING_SYSTEM_IME_PROVIDER,
                 mProvisioningAnalyticsTracker);
 
         // GIVEN that there is a device owner on the system user
@@ -126,13 +122,13 @@ public class OtaControllerTest {
                 Pair.create(UserHandle.USER_SYSTEM, UpdateInteractAcrossProfilesAppOpTask.class));
 
         // THEN cross profile intent filters setter should be invoked for system user
-        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
+        verify(mDevicePolicyManager).resetDefaultCrossProfileIntentFilters(UserHandle.USER_SYSTEM);
     }
 
     @Test
     public void testManagedProfileWithoutMissingSystemIme() {
         OtaController controller = new OtaController(mContext, mTaskExecutor,
-                mCrossProfileIntentFiltersSetter, NO_MISSING_SYSTEM_IME_PROVIDER,
+                NO_MISSING_SYSTEM_IME_PROVIDER,
                 mProvisioningAnalyticsTracker);
 
         // GIVEN that there is a managed profile
@@ -145,13 +141,13 @@ public class OtaControllerTest {
         assertTaskList(
                 Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, InstallExistingPackageTask.class),
-                Pair.create(MANAGED_PROFILE_USER_ID, DisableInstallShortcutListenersTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, DeleteNonRequiredAppsTask.class),
                 Pair.create(UserHandle.USER_SYSTEM, UpdateInteractAcrossProfilesAppOpTask.class));
 
         // THEN the cross profile intent filters should be reset
-        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
-        verify(mCrossProfileIntentFiltersSetter, never()).resetFilters(MANAGED_PROFILE_USER_ID);
+        verify(mDevicePolicyManager).resetDefaultCrossProfileIntentFilters(UserHandle.USER_SYSTEM);
+        verify(mDevicePolicyManager, never()).resetDefaultCrossProfileIntentFilters(
+                MANAGED_PROFILE_USER_ID);
 
         // THEN the DISALLOW_WALLPAPER restriction should be set
         verify(mUserManager).setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,
@@ -164,7 +160,7 @@ public class OtaControllerTest {
                 (IntFunction<ArraySet<String>>) mock(IntFunction.class);
 
         OtaController controller = new OtaController(mContext, mTaskExecutor,
-                mCrossProfileIntentFiltersSetter, missingSystemImeProvider,
+                missingSystemImeProvider,
                 mProvisioningAnalyticsTracker);
 
         // GIVEN that there is a managed profile
@@ -183,13 +179,14 @@ public class OtaControllerTest {
                 Pair.create(UserHandle.USER_SYSTEM, MigrateSystemAppsSnapshotTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, InstallExistingPackageTask.class),
                 Pair.create(MANAGED_PROFILE_USER_ID, InstallExistingPackageTask.class),
-                Pair.create(MANAGED_PROFILE_USER_ID, DisableInstallShortcutListenersTask.class),
+
                 Pair.create(MANAGED_PROFILE_USER_ID, DeleteNonRequiredAppsTask.class),
                 Pair.create(UserHandle.USER_SYSTEM, UpdateInteractAcrossProfilesAppOpTask.class));
 
         // THEN the cross profile intent filters should be reset
-        verify(mCrossProfileIntentFiltersSetter).resetFilters(UserHandle.USER_SYSTEM);
-        verify(mCrossProfileIntentFiltersSetter, never()).resetFilters(MANAGED_PROFILE_USER_ID);
+        verify(mDevicePolicyManager).resetDefaultCrossProfileIntentFilters(UserHandle.USER_SYSTEM);
+        verify(mDevicePolicyManager, never()).resetDefaultCrossProfileIntentFilters(
+                MANAGED_PROFILE_USER_ID);
 
         // THEN the DISALLOW_WALLPAPER restriction should be set
         verify(mUserManager).setUserRestriction(UserManager.DISALLOW_WALLPAPER, true,
@@ -202,8 +199,7 @@ public class OtaControllerTest {
     @Test
     public void testManagedUser() {
         OtaController controller = new OtaController(mContext, mTaskExecutor,
-                mCrossProfileIntentFiltersSetter, NO_MISSING_SYSTEM_IME_PROVIDER,
-                mProvisioningAnalyticsTracker);
+                NO_MISSING_SYSTEM_IME_PROVIDER, mProvisioningAnalyticsTracker);
 
         // GIVEN that there is a managed profile
         addManagedUser(MANAGED_USER_USER_ID, ADMIN_COMPONENT);

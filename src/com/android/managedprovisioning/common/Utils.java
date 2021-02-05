@@ -28,15 +28,9 @@ import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.StringRes;
-import android.annotation.WorkerThread;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -56,9 +50,6 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
@@ -75,7 +66,6 @@ import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.TrampolineActivity;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -376,67 +366,6 @@ public class Utils {
             }
         }
         return null;
-    }
-
-    /**
-     * Returns the user id of an already existing managed profile or -1 if none exists.
-     */
-    // TODO: Add unit tests
-    public int alreadyHasManagedProfile(Context context) {
-        UserHandle managedUser = getManagedProfile(context);
-        if (managedUser != null) {
-            return managedUser.getIdentifier();
-        } else {
-            return -1;
-        }
-    }
-
-    /**
-     * Removes an account asynchronously.
-     *
-     * @see #removeAccount(Context, Account)
-     */
-    public void removeAccountAsync(Context context, Account accountToRemove,
-            RemoveAccountListener callback) {
-        new RemoveAccountAsyncTask(context, accountToRemove, this, callback).execute();
-    }
-
-    /**
-     * Removes an account synchronously.
-     *
-     * This method is blocking and must never be called from the main thread.
-     *
-     * <p>This removes the given account from the calling user's list of accounts.
-     *
-     * @param context a {@link Context} object
-     * @param account the account to be removed
-     */
-    // TODO: Add unit tests
-    @WorkerThread
-    void removeAccount(Context context, Account account) {
-        final AccountManager accountManager =
-                (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
-        final AccountManagerFuture<Bundle> bundle = accountManager.removeAccount(account,
-                null, null /* callback */, null /* handler */);
-        // Block to get the result of the removeAccount operation
-        try {
-            final Bundle result = bundle.getResult();
-            if (result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT, /* default */ false)) {
-                ProvisionLogger.logw("Account removed from the primary user.");
-            } else {
-                final Intent removeIntent = result.getParcelable(AccountManager.KEY_INTENT);
-                if (removeIntent != null) {
-                    ProvisionLogger.logi("Starting activity to remove account");
-                    new Handler(Looper.getMainLooper()).post(() -> {
-                        TrampolineActivity.startActivity(context, removeIntent);
-                    });
-                } else {
-                    ProvisionLogger.logw("Could not remove account from the primary user.");
-                }
-            }
-        } catch (OperationCanceledException | AuthenticatorException | IOException e) {
-            ProvisionLogger.logw("Exception removing account from the primary user.", e);
-        }
     }
 
     /**

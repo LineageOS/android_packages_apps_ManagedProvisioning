@@ -38,6 +38,7 @@ import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVI
 
 import static com.google.common.truth.Truth.assertThat;
 
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.anyString;
@@ -187,7 +188,8 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
         when(mUtils.isEncryptionRequired()).thenReturn(false);
         when(mUtils.currentLauncherSupportsManagedProfiles(mContext)).thenReturn(true);
-        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(-1);
+        when(mUserManager.canAddMoreManagedProfiles(anyInt(), anyBoolean())).thenReturn(
+                true);
 
         when(mPackageManager.getApplicationIcon(anyString())).thenReturn(new VectorDrawable());
         when(mPackageManager.getApplicationLabel(any())).thenReturn(TEST_MDM_PACKAGE_LABEL);
@@ -200,7 +202,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         mController = new PreProvisioningController(mContext, mUi, mTimeLogger, mMessageParser,
                 mUtils, mSettingsFacade, mEncryptionController, mSharedPreferences,
                 new PolicyComplianceUtils(), new GetProvisioningModeUtils());
-        when(mSettingsFacade.isDeveloperMode(mContext)).thenReturn(true);
     }
 
     public void testManagedProfile() throws Exception {
@@ -282,17 +283,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN start profile provisioning
         verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testManagedProfile_withExistingProfile() throws Exception {
-        // GIVEN a managed profile currently exist on the device
-        prepareMocksForManagedProfileIntent(false);
-        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
-        // WHEN initiating managed profile provisioning
-        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
-                eq(R.string.work_profile_cant_be_added_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -396,20 +386,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         // THEN show an error indicating that this device does not support encryption
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.device_doesnt_allow_encryption_contact_admin), any());
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testManagedProfile_restrictedFromRemovingExisting() throws Exception {
-        // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
-        prepareMocksForManagedProfileIntent(false);
-        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(TEST_USER_ID);
-        when(mUserManager.hasUserRestriction(
-                UserManager.DISALLOW_REMOVE_MANAGED_PROFILE)).thenReturn(true);
-        // WHEN initiating provisioning
-        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
-                eq(R.string.work_profile_cant_be_added_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 

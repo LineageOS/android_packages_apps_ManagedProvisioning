@@ -17,7 +17,6 @@
 package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
@@ -42,7 +41,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class SetDevicePolicyTaskTest extends AndroidTestCase {
+public class SetDeviceOwnerPolicyTaskTest extends AndroidTestCase {
     private static final String ADMIN_PACKAGE_NAME = "com.admin.test";
     private static final String ADMIN_RECEIVER_NAME = ADMIN_PACKAGE_NAME + ".AdminReceiver";
     private static final ComponentName ADMIN_COMPONENT_NAME = new ComponentName(ADMIN_PACKAGE_NAME,
@@ -56,7 +55,7 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
     @Mock private Utils mUtils;
 
     private String mDefaultOwnerName;
-    private SetDevicePolicyTask mTask;
+    private SetDeviceOwnerPolicyTask mTask;
 
     @Override
     protected void setUp() throws Exception {
@@ -216,30 +215,12 @@ public class SetDevicePolicyTaskTest extends AndroidTestCase {
         verifyNoMoreInteractions(mCallback);
     }
 
-    @SmallTest
-    public void testSetProfileOwner() {
-        // GIVEN that we are provisioning a managed profile
-        createTask(ACTION_PROVISION_MANAGED_PROFILE);
-        // GIVEN that setting the profile owner succeeds
-        when(mDevicePolicyManager.setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID)).thenReturn(true);
-
-        // WHEN running the task
-        mTask.run(TEST_USER_ID);
-
-        // THEN the management app should have been set as profile owner
-        verify(mDevicePolicyManager).setProfileOwner(ADMIN_COMPONENT_NAME, ADMIN_PACKAGE_NAME,
-                TEST_USER_ID);
-        verify(mCallback).onSuccess(mTask);
-        verifyNoMoreInteractions(mCallback);
-    }
-
     private void createTask(String action) {
         ProvisioningParams params = new ProvisioningParams.Builder()
                 .setDeviceAdminComponentName(ADMIN_COMPONENT_NAME)
                 .setProvisioningAction(action)
                 .build();
-        mTask = new SetDevicePolicyTask(mUtils, mContext, params, mCallback,
+        mTask = new SetDeviceOwnerPolicyTask(mUtils, mContext, params, mCallback,
                 mock(ProvisioningAnalyticsTracker.class));
     }
 }

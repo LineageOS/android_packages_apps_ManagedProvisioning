@@ -23,11 +23,12 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.task.AbstractProvisioningTask;
 import com.android.managedprovisioning.task.DeviceOwnerInitializeProvisioningTask;
 import com.android.managedprovisioning.task.DisallowAddUserTask;
-import com.android.managedprovisioning.task.SetDevicePolicyTask;
+import com.android.managedprovisioning.task.SetDeviceOwnerPolicyTask;
 
 /**
  * Controller for financed device provisioning.
  */
+// TODO(b/178711424): move any business logic from here into the framework.
 public final class FinancedDeviceProvisioningController extends AbstractProvisioningController  {
 
     /**
@@ -62,13 +63,8 @@ public final class FinancedDeviceProvisioningController extends AbstractProvisio
         addDownloadAndInstallDeviceOwnerPackageTasks();
 
         addTasks(
-                new SetDevicePolicyTask(mContext, mParams, this),
+                new SetDeviceOwnerPolicyTask(mContext, mParams, this),
                 new DisallowAddUserTask(mContext, mParams, this));
-    }
-
-    @Override
-    protected void performCleanup() {
-        // do nothing here because factory reset will be enforced
     }
 
     @Override
