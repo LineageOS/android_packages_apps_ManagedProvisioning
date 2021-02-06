@@ -77,7 +77,7 @@
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Op dit apparaat is versleuteling niet toegestaan, wat is vereist voor het instellen. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Instellen stoppen en apparaat resetten?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Hiermee wordt je apparaat gereset en ga je terug naar het eerste scherm"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Configureren stoppen en de gegevens op je apparaat wissen?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Instellen stoppen en de gegevens op je apparaat wissen?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Annuleren"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
     <string name="reset" msgid="6467204151306265796">"Resetten"</string>
@@ -96,7 +96,7 @@
     <string name="error_download_failed" msgid="3274283629837019452">"Kan de beheer-app niet downloaden"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Kan de beheer-app niet gebruiken. Er ontbreken onderdelen of de app is beschadigd. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"Kan de beheer-app niet installeren"</string>
-    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Configureren stoppen?"</string>
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Instellen stoppen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nee"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annuleren…"</string>
