@@ -30,19 +30,24 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.os.RemoteException;
+import android.support.test.uiautomator.UiDevice;
 
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,6 +67,10 @@ public class LandingActivityTest {
     public IntentsTestRule<LandingActivity> mActivityRule =
             new IntentsTestRule(LandingActivity.class, true, false);
 
+    @Before
+    public void setup() throws RemoteException {
+        TestUtils.wakeupDeviceAndPressHome(UiDevice.getInstance(getInstrumentation()));
+    }
 
     @Test
     public void onNextButtonClicked_shouldRunPrepareActivity_runsPrepareActivity() {
