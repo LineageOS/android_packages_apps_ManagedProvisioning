@@ -24,6 +24,7 @@ import android.app.admin.ManagedProfileProvisioningParams;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.UserHandle;
+import android.stats.devicepolicy.DevicePolicyEnums;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
@@ -161,7 +162,6 @@ public class CreateAndProvisionManagedProfileTask extends AbstractProvisioningTa
 
     @Override
     protected int getMetricsCategory() {
-        // TODO(b/178458861): Add metric constant
-        return 0;
+        return DevicePolicyEnums.PROVISIONING_PROVISION_MANAGED_PROFILE_TASK_MS;
     }
 }
