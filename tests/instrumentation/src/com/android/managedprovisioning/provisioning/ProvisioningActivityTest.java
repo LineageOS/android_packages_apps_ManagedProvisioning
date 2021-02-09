@@ -31,6 +31,7 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -59,7 +60,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.provider.Settings;
+import android.support.test.uiautomator.UiDevice;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -67,6 +70,7 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
+import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.Utils;
@@ -180,10 +184,11 @@ public class ProvisioningActivityTest {
     }
 
     @Before
-    public void setup() {
+    public void setup() throws RemoteException {
         mUtils = spy(new Utils());
         doNothing().when(mUtils).factoryReset(any(Context.class), anyString());
         doReturn(DEFAULT_MAIN_COLOR).when(mUtils).getAccentColor(any());
+        TestUtils.wakeupDeviceAndPressHome(UiDevice.getInstance(getInstrumentation()));
     }
 
     @AfterClass
