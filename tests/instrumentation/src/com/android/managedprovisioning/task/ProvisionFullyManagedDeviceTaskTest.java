@@ -18,6 +18,8 @@ package com.android.managedprovisioning.task;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doThrow;
@@ -27,6 +29,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import android.app.admin.DevicePolicyManager;
+import android.app.admin.FullyManagedDeviceProvisioningParams;
 import android.app.admin.ProvisioningException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -43,6 +46,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -74,6 +79,8 @@ public class ProvisionFullyManagedDeviceTaskTest {
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private Utils mUtils;
     @Mock private Resources mResources;
+
+    @Captor private ArgumentCaptor<FullyManagedDeviceProvisioningParams> mParamsCaptor;
 
     @Before
     public void setUp() throws Exception {
@@ -122,6 +129,39 @@ public class ProvisionFullyManagedDeviceTaskTest {
         verify(mCallback).onSuccess(task);
         verifyNoMoreInteractions(mCallback);
         verifyNoMoreInteractions(mSystemAppsSnapshot);
+    }
+
+    @Test
+    public void testCanGrantSensorsPermissionsByDefault() throws ProvisioningException {
+        ProvisionFullyManagedDeviceTask task = createProvisioningTask(TEST_PARAMS);
+
+        task.run(TEST_USER_ID);
+
+        verify(mCallback).onSuccess(task);
+        verifyNoMoreInteractions(mCallback);
+        verify(mSystemAppsSnapshot).takeNewSnapshot(TEST_USER_ID);
+        verify(mDevicePolicyManager).provisionFullyManagedDevice(mParamsCaptor.capture());
+        FullyManagedDeviceProvisioningParams capturedParams = mParamsCaptor.getValue();
+        assertThat(capturedParams.canDeviceOwnerGrantSensorsPermissions()).isTrue();
+    }
+
+    @Test
+    public void testCanOptOutOfGrantingSensorsPermissions() throws ProvisioningException {
+        final ProvisioningParams testParams = new ProvisioningParams.Builder()
+                .setDeviceAdminComponentName(ADMIN)
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setDeviceOwnerPermissionGrantOptOut(true)
+                .build();
+        ProvisionFullyManagedDeviceTask task = createProvisioningTask(testParams);
+
+        task.run(TEST_USER_ID);
+
+        verify(mCallback).onSuccess(task);
+        verifyNoMoreInteractions(mCallback);
+        verify(mSystemAppsSnapshot).takeNewSnapshot(TEST_USER_ID);
+        verify(mDevicePolicyManager).provisionFullyManagedDevice(mParamsCaptor.capture());
+        FullyManagedDeviceProvisioningParams capturedParams = mParamsCaptor.getValue();
+        assertThat(capturedParams.canDeviceOwnerGrantSensorsPermissions()).isFalse();
     }
 
 
