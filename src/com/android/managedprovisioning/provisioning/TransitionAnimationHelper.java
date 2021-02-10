@@ -20,7 +20,6 @@ import static com.android.managedprovisioning.provisioning.ProvisioningActivity.
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE;
 
-import android.annotation.DrawableRes;
 import android.annotation.StringRes;
 import android.content.Context;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -29,12 +28,14 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.CrossFadeHelper;
 import com.android.managedprovisioning.common.CrossFadeHelper.Callback;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,18 +59,6 @@ class TransitionAnimationHelper {
         new TransitionScreenWrapper(R.string.work_profile_provisioning_step_3_header,
                 R.drawable.not_private_animation)
     }, R.string.work_profile_provisioning_summary);
-
-    @VisibleForTesting
-    static final ProvisioningModeWrapper FULLY_MANAGED_DEVICE_WRAPPER
-            = new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-        new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_1_header,
-                R.drawable.connect_on_the_go_animation),
-        new TransitionScreenWrapper(R.string.fully_managed_device_provisioning_step_2_header,
-                R.drawable.not_private_animation,
-                R.string.fully_managed_device_provisioning_step_2_subheader,
-                /* showContactAdmin */ true,
-                /* shouldLoop */ true)
-    }, R.string.fully_managed_device_provisioning_summary);
 
     @VisibleForTesting
     static final ProvisioningModeWrapper WORK_PROFILE_ON_ORG_OWNED_DEVICE_WRAPPER
@@ -100,10 +89,12 @@ class TransitionAnimationHelper {
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
 
     TransitionAnimationHelper(@ProvisioningMode int provisioningMode,
+            boolean adminCanGrantSensorsPermissions,
             AnimationComponents animationComponents, TransitionAnimationCallback callback) {
         mAnimationComponents = checkNotNull(animationComponents);
         mCallback = checkNotNull(callback);
-        mProvisioningModeWrapper = getProvisioningModeWrapper(provisioningMode);
+        mProvisioningModeWrapper = getProvisioningModeWrapper(provisioningMode,
+                adminCanGrantSensorsPermissions);
         mCrossFadeHelper = getCrossFadeHelper();
         mShowAnimations = shouldShowAnimations();
 
@@ -188,6 +179,15 @@ class TransitionAnimationHelper {
         mRepeatingVectorAnimation.stop();
     }
 
+    private void setTextViewIfResourceValid(TextView textView, int resId) {
+        if (resId != 0) {
+            textView.setVisibility(View.VISIBLE);
+            textView.setText(resId);
+        } else {
+            textView.setVisibility(View.GONE);
+        }
+    }
+
     @VisibleForTesting
     void updateUiValues(int currentTransitionIndex) {
         final TransitionScreenWrapper transition =
@@ -202,13 +202,15 @@ class TransitionAnimationHelper {
             image.setVisibility(View.GONE);
         }
 
-        final TextView subHeader = mAnimationComponents.subHeader;
-        if (transition.subHeader != 0) {
-            subHeader.setVisibility(View.VISIBLE);
-            subHeader.setText(transition.subHeader);
-        } else {
-            subHeader.setVisibility(View.INVISIBLE);
-        }
+        // First subheader and its title
+        setTextViewIfResourceValid(mAnimationComponents.subHeaderTitle, transition.subHeaderTitle);
+        setTextViewIfResourceValid(mAnimationComponents.subHeader, transition.subHeader);
+
+        // Second subheader and its title
+        setTextViewIfResourceValid(mAnimationComponents.secondSubHeaderTitle,
+                transition.secondarySubHeaderTitle);
+        setTextViewIfResourceValid(mAnimationComponents.secondSubHeader,
+                transition.secondarySubHeader);
 
         final TextView providerInfo = mAnimationComponents.providerInfo;
         if (transition.showContactAdmin) {
@@ -225,16 +227,54 @@ class TransitionAnimationHelper {
 
     @VisibleForTesting
     ProvisioningModeWrapper getProvisioningModeWrapper(
-            @ProvisioningMode int provisioningMode) {
+            @ProvisioningMode int provisioningMode, boolean adminCanGrantSensorsPermissions) {
         switch (provisioningMode) {
             case PROVISIONING_MODE_WORK_PROFILE:
                 return WORK_PROFILE_WRAPPER;
             case PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
-                return FULLY_MANAGED_DEVICE_WRAPPER;
+                return getProvisioningModeWrapperForFullyManaged(adminCanGrantSensorsPermissions);
             case PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE:
                 return WORK_PROFILE_ON_ORG_OWNED_DEVICE_WRAPPER;
         }
         throw new IllegalStateException("Unexpected provisioning mode " + provisioningMode);
+    }
+
+    /** Return the provisioning mode wrapper for a fully-managed device.
+     * The second screen, as well as the accessible summary, will be different, depending on whether
+     * the admin can grant sensors-related permissions on this device or not.
+     */
+    private ProvisioningModeWrapper getProvisioningModeWrapperForFullyManaged(
+            boolean adminCanGrantSensorsPermissions) {
+        // Common second screen activity.
+        TransitionScreenWrapper.Builder secondScreenBuilder =
+                new TransitionScreenWrapper.Builder();
+        secondScreenBuilder.setHeader(
+                R.string.fully_managed_device_provisioning_step_2_header)
+                .setSubHeaderTitle(
+                        R.string.fully_managed_device_provisioning_step_2_subheader_title)
+                .setSubHeader(R.string.fully_managed_device_provisioning_step_2_subheader)
+                .setShowContactAdmin(false)
+                .setAnimation(R.drawable.not_private_animation)
+                .setShouldLoop(true);
+
+        final int provisioningSummaryId;
+
+        if (adminCanGrantSensorsPermissions) {
+            secondScreenBuilder.setSecondarySubHeaderTitle(
+                    R.string.fully_managed_device_provisioning_permissions_title)
+                    .setSecondarySubHeader(
+                            R.string.fully_managed_device_provisioning_permissions_subheader);
+            //TODO(b/180386738): Change to new summary.
+            provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
+        } else {
+            provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
+        }
+
+        TransitionScreenWrapper firstScreen = new TransitionScreenWrapper(
+                R.string.fully_managed_device_provisioning_step_1_header,
+                R.drawable.connect_on_the_go_animation);
+        return new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
+                firstScreen, secondScreenBuilder.build()}, provisioningSummaryId);
     }
 
     private boolean shouldShowAnimations() {
@@ -246,30 +286,6 @@ class TransitionAnimationHelper {
         final TextView header = mAnimationComponents.header;
         final Context context = header.getContext();
         header.setContentDescription(context.getString(mProvisioningModeWrapper.summary));
-    }
-
-    private static final class TransitionScreenWrapper {
-        final @StringRes int header;
-        final @DrawableRes int drawable;
-        final @StringRes int subHeader;
-        final boolean showContactAdmin;
-        final boolean shouldLoop;
-
-        TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable) {
-            this(header, drawable, /* subHeader */ 0, /* showContactAdmin */ false,
-                    /* shouldLoop */ true);
-        }
-
-        TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable,
-                @StringRes int subHeader, boolean showContactAdmin, boolean shouldLoop) {
-            this.header = checkNotNull(header,
-                    "Header resource id must be a positive number.");
-            this.drawable = checkNotNull(drawable,
-                    "Drawable resource id must be a positive number.");
-            this.subHeader = subHeader;
-            this.showContactAdmin = showContactAdmin;
-            this.shouldLoop = shouldLoop;
-        }
     }
 
     private static final class ProvisioningModeWrapper {
@@ -284,20 +300,29 @@ class TransitionAnimationHelper {
 
     static final class AnimationComponents {
         private final TextView header;
+        private final TextView subHeaderTitle;
         private final TextView subHeader;
+        private final TextView secondSubHeaderTitle;
+        private final TextView secondSubHeader;
         private final ImageView image;
         private final TextView providerInfo;
 
         AnimationComponents(
-                TextView header, TextView subHeader, ImageView image, TextView providerInfo) {
+                TextView header, TextView subHeaderTitle, TextView subHeader,
+                TextView secondSubHeaderTitle, TextView secondSubHeader,
+                ImageView image, TextView providerInfo) {
             this.header = checkNotNull(header);
+            this.subHeaderTitle = checkNotNull(subHeaderTitle);
             this.subHeader = checkNotNull(subHeader);
+            this.secondSubHeaderTitle = checkNotNull(secondSubHeaderTitle);
+            this.secondSubHeader = checkNotNull(secondSubHeader);
             this.image = checkNotNull(image);
             this.providerInfo = checkNotNull(providerInfo);
         }
 
         List<View> asList() {
-            return Arrays.asList(header, subHeader, image, providerInfo);
+            return Arrays.asList(header, subHeaderTitle, subHeader, secondSubHeaderTitle,
+                    secondSubHeader, image, providerInfo);
         }
     }
 }

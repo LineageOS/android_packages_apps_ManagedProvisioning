@@ -28,7 +28,25 @@
       android:layout_height="match_parent"
       android:orientation="vertical">
     <TextView
-        android:id="@+id/subheader"
+        android:id="@+id/subheader_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        style="@style/SudDescription.Glif"/>
+    <TextView
+        android:id="@+id/subheader_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        style="@style/SudDescription.Glif"/>
+    <TextView
+        android:id="@+id/secondary_subheader_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        style="@style/SudDescription.Glif"/>
+    <TextView
+        android:id="@+id/secondary_subheader_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"

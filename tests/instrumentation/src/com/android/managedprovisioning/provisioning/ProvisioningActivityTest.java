@@ -77,6 +77,8 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import junit.framework.AssertionFailedError;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -403,6 +405,59 @@ public class ProvisioningActivityTest {
     }
 
     @Test
+    public void testInitializeUi_deviceOwnerPermissionGrantOptOut() throws Throwable {
+        final ProvisioningParams deviceOwnerParams = new ProvisioningParams.Builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
+                .setDeviceAdminComponentName(ADMIN)
+                .setDeviceOwnerPermissionGrantOptOut(true)
+                .build();
+
+        final Intent deviceOwnerIntent = new Intent()
+                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, deviceOwnerParams);
+
+        // GIVEN the activity was launched with a device owner intent
+        launchActivityAndWait(deviceOwnerIntent);
+
+        // THEN the description should be empty
+        onView(withId(R.id.provisioning_progress)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
+
+        // THEN the animation is shown.
+        onView(withId(R.id.animation)).check(matches(isDisplayed()));
+        waitForFullyManagedDeviceHeader();
+
+        onView(withId(R.id.subheader_title)).check(matches(
+                withText(R.string.fully_managed_device_provisioning_step_2_subheader_title)));
+        onView(withId(R.id.subheader_description)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
+        onView(withId(R.id.secondary_subheader_title)).check(matches(not(isDisplayed())));
+        onView(withId(R.id.secondary_subheader_description)).check(matches(not(isDisplayed())));
+    }
+
+    @Test
+    public void testInitializeUi_deviceOwnerDefault() throws Throwable {
+        // GIVEN the activity was launched with a device owner intent
+        launchActivityAndWait(DEVICE_OWNER_INTENT);
+
+        // THEN the description should be empty
+        onView(withId(R.id.provisioning_progress)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
+
+        // THEN the animation is shown.
+        onView(withId(R.id.animation)).check(matches(isDisplayed()));
+        waitForFullyManagedDeviceHeader();
+
+        onView(withId(R.id.subheader_title)).check(matches(
+                withText(R.string.fully_managed_device_provisioning_step_2_subheader_title)));
+        onView(withId(R.id.subheader_description)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
+        onView(withId(R.id.secondary_subheader_title)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_permissions_title)));
+        onView(withId(R.id.secondary_subheader_description)).check(matches(withText(
+                R.string.fully_managed_device_provisioning_permissions_subheader)));
+    }
+
+    @Test
     public void testInitializeUi_financedDevice() throws Throwable {
         // GIVEN the activity was launched with a financed device intent
         launchActivityAndWait(FINANCED_DEVICE_INTENT);
@@ -420,5 +475,20 @@ public class ProvisioningActivityTest {
     private void launchActivityAndWait(Intent intent) {
         mActivityRule.launchActivity(intent);
         onView(withId(R.id.setup_wizard_layout));
+    }
+
+    // TODO(b/180399632): Utilize a callback, IdlingResource, etc.
+    private void waitForFullyManagedDeviceHeader() throws InterruptedException {
+        int numAttempts = 0;
+        while (numAttempts < 40) {
+            try {
+                onView(withId(R.id.subheader_title)).check(matches(withText(
+                        R.string.fully_managed_device_provisioning_step_2_subheader_title)));
+                break;
+            } catch (AssertionFailedError e) {
+                numAttempts++;
+            }
+            Thread.sleep(500);
+        }
     }
 }
