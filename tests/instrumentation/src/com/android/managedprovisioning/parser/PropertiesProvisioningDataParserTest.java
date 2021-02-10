@@ -35,7 +35,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
@@ -79,7 +78,6 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_MAIN_COLOR_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
@@ -148,8 +146,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
     private static final long TEST_LOCAL_TIME = 1456939524713L;
     private static final Locale TEST_LOCALE = Locale.UK;
     private static final String TEST_TIME_ZONE = "GMT";
-    private static final Integer TEST_MAIN_COLOR = 65280;
-    private static final boolean TEST_STARTED_BY_TRUSTED_SOURCE = true;
     private static final String TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = "true";
     private static final boolean TEST_SKIP_ENCRYPTION = true;
     private static final boolean TEST_USE_MOBILE_DATA = false;
@@ -246,8 +242,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         props.setProperty(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION,
                 Boolean.toString(TEST_SKIP_ENCRYPTION));
-        // GIVEN main color is supplied even though it is not supported in NFC provisioning.
-        props.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, Integer.toString(TEST_MAIN_COLOR));
 
         Intent intent = buildNfcProvisioningIntent(props);
 
@@ -275,8 +269,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                         .setLocalTime(TEST_LOCAL_TIME)
                         .setLocale(TEST_LOCALE)
                         .setTimeZone(TEST_TIME_ZONE)
-                        // THEN main color is not supported in NFC intent.
-                        .setMainColor(null)
                         .setSkipEncryption(TEST_SKIP_ENCRYPTION)
                         .setWifiInfo(TEST_WIFI_INFO)
                         .setAdminExtrasBundle(getTestAdminExtrasPersistableBundle())
@@ -381,7 +373,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
                 .putExtra(EXTRA_PROVISIONING_SKIP_ENCRYPTION, TEST_SKIP_ENCRYPTION)
-                .putExtra(EXTRA_PROVISIONING_MAIN_COLOR, TEST_MAIN_COLOR)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE);
 
         try {
@@ -480,8 +471,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         propsShort.setProperty(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT,
                 Boolean.toString(TEST_SKIP_ENCRYPTION));
-        propsShort.setProperty(
-                EXTRA_PROVISIONING_MAIN_COLOR_SHORT, Integer.toString(TEST_MAIN_COLOR));
         propsShort.setProperty(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT,
                 TEST_LEAVE_ALL_SYSTEM_APP_ENABLED);
         propsShort.setProperty(
@@ -526,7 +515,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
         propsLong.setProperty(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION,
                 Boolean.toString(TEST_SKIP_ENCRYPTION));
-        propsLong.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, Integer.toString(TEST_MAIN_COLOR));
         propsLong.setProperty(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 TEST_LEAVE_ALL_SYSTEM_APP_ENABLED);
@@ -699,7 +687,6 @@ public class PropertiesProvisioningDataParserTest extends AndroidTestCase {
                 Boolean.toString(TEST_SKIP_ENCRYPTION));
         properties.setProperty(
                 EXTRA_PROVISIONING_USE_MOBILE_DATA, Boolean.toString(TEST_USE_MOBILE_DATA));
-        properties.setProperty(EXTRA_PROVISIONING_MAIN_COLOR, Integer.toString(TEST_MAIN_COLOR));
         return properties;
     }
 

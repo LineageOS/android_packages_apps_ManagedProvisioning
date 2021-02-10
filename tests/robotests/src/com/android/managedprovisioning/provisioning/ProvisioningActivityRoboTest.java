@@ -106,7 +106,7 @@ public class ProvisioningActivityRoboTest {
     private static final Intent ADMIN_INTEGRATED_FLOW_INTENT_DO = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, QR_PROVISIONING_PARAMS_DO);
     private static final int ERROR_MESSAGE_ID = R.string.managed_provisioning_error_text;
-    private static final int DEFAULT_MAIN_COLOR = -15043608;
+    private static final int DEFAULT_LOGO_COLOR = -15043608;
     private static final int CUSTOM_COLOR = Color.parseColor("#d40000");
     private static final Uri LOGO_URI = Uri.parse("http://logo");
 
@@ -206,7 +206,7 @@ public class ProvisioningActivityRoboTest {
     public void managedProfileIntent_defaultColor_colorCorrect() {
         assertColorsCorrect(
                 PROFILE_OWNER_INTENT,
-                DEFAULT_MAIN_COLOR,
+                DEFAULT_LOGO_COLOR,
                 /* statusBarColor= */ Color.TRANSPARENT);
     }
 
@@ -214,24 +214,8 @@ public class ProvisioningActivityRoboTest {
     public void deviceOwnerIntent_defaultColor_colorCorrect() {
         assertColorsCorrect(
                 DEVICE_OWNER_INTENT,
-                DEFAULT_MAIN_COLOR,
+                DEFAULT_LOGO_COLOR,
                 /* statusBarColor= */ Color.TRANSPARENT);
-    }
-
-    @Test
-    public void managedProfileIntent_customColor_colorCorrect() {
-        assertColorsCorrect(
-                createProvisioningIntent(ACTION_PROVISION_MANAGED_PROFILE, CUSTOM_COLOR),
-                /* mainColor= */ CUSTOM_COLOR,
-                /* statusBarColor= */ CUSTOM_COLOR);
-    }
-
-    @Test
-    public void deviceOwnerIntent_customColor_colorCorrect() {
-        assertColorsCorrect(
-                createProvisioningIntent(ACTION_PROVISION_MANAGED_DEVICE, CUSTOM_COLOR),
-                /* mainColor= */ CUSTOM_COLOR,
-                /* statusBarColor= */ CUSTOM_COLOR);
     }
 
     @Test
@@ -383,11 +367,10 @@ public class ProvisioningActivityRoboTest {
         assertThat(shadowOf(activity).getResultCode()).isEqualTo(Activity.RESULT_OK);
     }
 
-    private Intent createProvisioningIntent(String action, int mainColor) {
+    private Intent createProvisioningIntent(String action) {
         final ProvisioningParams provisioningParams = new ProvisioningParams.Builder()
                 .setProvisioningAction(action)
                 .setDeviceAdminComponentName(ADMIN)
-                .setMainColor(mainColor)
                 .build();
 
         final Intent intent = new Intent();
@@ -395,12 +378,12 @@ public class ProvisioningActivityRoboTest {
         return intent;
     }
 
-    private void assertColorsCorrect(Intent intent, int mainColor, int statusBarColor) {
+    private void assertColorsCorrect(Intent intent, int logoColor, int statusBarColor) {
         final ProvisioningActivity activity =
                 Robolectric.buildActivity(ProvisioningActivity.class, intent)
                         .setup().get();
 
-        assertDefaultLogoColorCorrect(activity, mainColor);
+        assertDefaultLogoColorCorrect(activity, logoColor);
         assertStatusBarColorCorrect(activity, statusBarColor);
     }
 

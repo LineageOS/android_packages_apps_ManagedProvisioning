@@ -39,7 +39,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
@@ -142,9 +141,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
 
     @VisibleForTesting
     static final String EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT = "a.a.e.PKAOM";
-
-    @VisibleForTesting
-    static final String EXTRA_PROVISIONING_MAIN_COLOR_SHORT = "a.a.e.PMC";
 
     @VisibleForTesting
     static final String EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT = "a.a.e.PLASAE";
@@ -281,8 +277,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         shorterExtras.put(
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION,
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION_SHORT);
-        shorterExtras.put(
-                EXTRA_PROVISIONING_MAIN_COLOR, EXTRA_PROVISIONING_MAIN_COLOR_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT);
@@ -506,7 +500,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
      *         {@link ACTION_PROVISION_MANAGED_PROFILE}.
      *     </li>
      *     <li>{@link EXTRA_PROVISIONING_LOGO_URI}</li>
-     *     <li>{@link EXTRA_PROVISIONING_MAIN_COLOR}</li>
      *     <li>{@link EXTRA_PROVISIONING_SKIP_ENCRYPTION}</li>
      *     <li>{@link EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED}</li>
      *     <li>{@link EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE}</li>
@@ -561,15 +554,10 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                                 ProvisioningParams
                                         .DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED);
 
-            // Parse main color and organization's logo. This is not supported in managed device
+            // Parse organization's logo. This is not supported in managed device
             // from trusted source provisioning because, currently, there is no way to send
             // organization logo to the device at this stage.
-            Integer mainColor = ProvisioningParams.DEFAULT_MAIN_COLOR;
             if (!isProvisionManagedDeviceFromTrustedSourceIntent) {
-                if (hasExtraFromLongName(intent, EXTRA_PROVISIONING_MAIN_COLOR)) {
-                    mainColor = getIntExtraFromLongName(
-                            intent, EXTRA_PROVISIONING_MAIN_COLOR, 0 /* not used */);
-                }
                 parseOrganizationLogoUrlFromExtras(context, intent);
             }
 
@@ -619,7 +607,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setLeaveAllSystemAppsEnabled(leaveAllSystemAppsEnabled)
                     .setAdminExtrasBundle(getParcelableExtraFromLongName(
                             intent, EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
-                    .setMainColor(mainColor)
                     .setDisclaimersParam(disclaimersParam)
                     .setKeepAccountMigrated(keepAccountMigrated)
                     .setSkipEducationScreens(skipEducationScreens)

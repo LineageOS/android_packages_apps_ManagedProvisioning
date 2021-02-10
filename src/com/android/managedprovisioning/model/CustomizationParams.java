@@ -32,11 +32,8 @@ public class CustomizationParams {
     /** Status bar color */
     public final int statusBarColor;
 
-    /** Use Status bar color from SUW partner configuration */
-    public final boolean useSetupStatusBarColor;
-
     /** Color used in everywhere else */
-    public final int mainColor;
+    public final int logoColor;
 
     /** Support url of the organization where the device is being provisioned. */
     public final @Nullable String supportUrl;
@@ -48,35 +45,24 @@ public class CustomizationParams {
      */
     public static CustomizationParams createInstance(
             ProvisioningParams params, Context context, Utils utils) {
-        return createInstance(params.mainColor, params.supportUrl, context, utils);
+        return createInstance(params.supportUrl, context, utils);
     }
 
     private static CustomizationParams createInstance(
-            @Nullable Integer mainColor,
             @Nullable String supportUrl,
             Context context,
             Utils utils) {
-        int statusBarColor;
-        boolean useSetupStatusBarColor = false;
-        if (mainColor != null) {
-            statusBarColor = mainColor;
-        } else {
-            useSetupStatusBarColor = true;
-            statusBarColor = context.getColor(DEFAULT_STATUS_BAR_COLOR_ID);
-            mainColor = utils.getAccentColor(context);
-        }
+        int statusBarColor = context.getColor(DEFAULT_STATUS_BAR_COLOR_ID);
+        int logoColor = utils.getAccentColor(context);
 
         supportUrl = URLUtil.isNetworkUrl(supportUrl) ? supportUrl : null;
 
-        return new CustomizationParams(mainColor, statusBarColor, useSetupStatusBarColor,
-                supportUrl);
+        return new CustomizationParams(logoColor, statusBarColor, supportUrl);
     }
 
-    private CustomizationParams(int mainColor, int statusBarColor, boolean useSetupStatusBarColor,
-            String supportUrl) {
-        this.mainColor = mainColor;
+    private CustomizationParams(int logoColor, int statusBarColor, String supportUrl) {
+        this.logoColor = logoColor;
         this.statusBarColor = statusBarColor;
-        this.useSetupStatusBarColor = useSetupStatusBarColor;
         this.supportUrl = supportUrl;
     }
 }
