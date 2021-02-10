@@ -119,6 +119,10 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
                 .setTimeZone(mProvisioningParams.timeZone)
                 .setLocalTime(mProvisioningParams.localTime)
                 .setLocale(mProvisioningParams.locale)
+                // The device owner can grant sensors permissions if it has not opted
+                // out of controlling them.
+                .setDeviceOwnerCanGrantSensorsPermissions(
+                        !mProvisioningParams.deviceOwnerPermissionGrantOptOut)
                 .build();
     }
 
