@@ -27,8 +27,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
@@ -210,12 +208,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     static final String EXTRA_PROVISIONING_SUPPORT_URL_SHORT = "a.a.e.PSU";
 
     @VisibleForTesting
-    static final String EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT = "a.a.e.PDAPL";
-
-    @VisibleForTesting
-    static final String EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT = "a.a.e.PDAPIU";
-
-    @VisibleForTesting
     static final String EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE_SHORT = "a.a.e.PDAMVC";
 
     @VisibleForTesting
@@ -326,12 +318,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_ORGANIZATION_NAME, EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_SUPPORT_URL, EXTRA_PROVISIONING_SUPPORT_URL_SHORT);
-        shorterExtras.put(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT);
-        shorterExtras.put(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI,
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE,
                 EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE_SHORT);
@@ -565,19 +551,12 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .parse(getParcelableArrayExtraFromLongName(
                             intent, EXTRA_PROVISIONING_DISCLAIMERS));
 
-            String deviceAdminLabel = null;
             String organizationName = null;
             String supportUrl = null;
-            String deviceAdminIconFilePath = null;
             if (isProvisionManagedDeviceFromTrustedSourceIntent || isFinancedDeviceProvisioning) {
-                deviceAdminLabel = getStringExtraFromLongName(intent,
-                        EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL);
                 organizationName = getStringExtraFromLongName(
                         intent,EXTRA_PROVISIONING_ORGANIZATION_NAME);
                 supportUrl = getStringExtraFromLongName(intent,EXTRA_PROVISIONING_SUPPORT_URL);
-                deviceAdminIconFilePath = new DeviceAdminIconParser(context, provisioningId).parse(
-                        getParcelableExtraFromLongName(intent,
-                                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI));
             }
 
             final boolean leaveAllSystemAppsEnabled = isManagedProfileAction
@@ -612,10 +591,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setSkipEducationScreens(skipEducationScreens)
                     .setAccountToMigrate(getParcelableExtraFromLongName(
                             intent, EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE))
-                    .setDeviceAdminLabel(deviceAdminLabel)
                     .setOrganizationName(organizationName)
                     .setSupportUrl(supportUrl)
-                    .setDeviceAdminIconFilePath(deviceAdminIconFilePath)
                     .setIsQrProvisioning(provisioningTrigger == PROVISIONING_TRIGGER_QR_CODE)
                     .setProvisioningTrigger(provisioningTrigger)
                     .setAllowedProvisioningModes(mParserUtils.getAllowedProvisioningModes(

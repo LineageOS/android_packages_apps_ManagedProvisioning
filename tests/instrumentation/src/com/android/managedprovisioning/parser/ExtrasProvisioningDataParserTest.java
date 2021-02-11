@@ -26,8 +26,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
@@ -84,8 +82,6 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_DISCLAIMERS_SHORT;
@@ -179,7 +175,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final long TEST_PROVISIONING_ID = 1000L;
     private static final Account TEST_ACCOUNT_TO_MIGRATE =
             new Account("user@gmail.com", "com.google");
-    private static final String TEST_DEVICE_ADMIN_PACKAGE_LABEL = "TestPackage";
     private static final String TEST_ORGANIZATION_NAME = "TestOrganizationName";
     private static final String TEST_SUPPORT_URL = "https://www.support.url/";
     private static final String TEST_ILL_FORMED_LOCALE = "aaa_";
@@ -288,8 +283,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
-                        TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                 .putExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME, TEST_ORGANIZATION_NAME)
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL);
 
@@ -317,7 +310,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setWifiInfo(TEST_WIFI_INFO)
                         .setAdminExtrasBundle(createTestAdminExtras())
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
-                        .setDeviceAdminLabel(TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                         .setOrganizationName(TEST_ORGANIZATION_NAME)
                         .setSupportUrl(TEST_SUPPORT_URL)
                         .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
@@ -341,8 +333,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                     TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
-                    TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                 .putExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME, TEST_ORGANIZATION_NAME)
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL);
 
@@ -361,7 +351,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         // THEN leave all system apps is always true
                         .setLeaveAllSystemAppsEnabled(true)
                         .setAdminExtrasBundle(createTestAdminExtras())
-                        .setDeviceAdminLabel(TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                         .setOrganizationName(TEST_ORGANIZATION_NAME)
                         .setSupportUrl(TEST_SUPPORT_URL)
                         .setReturnBeforePolicyCompliance(true)
@@ -981,11 +970,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT,
                         TEST_ORGANIZATION_NAME)
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL_SHORT, TEST_SUPPORT_URL)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL_SHORT,
-                        TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT,
                         TEST_USE_MOBILE_DATA)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort)
                 .putExtra(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT, true);
@@ -1010,10 +996,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, TEST_KEEP_ACCOUNT_MIGRATED)
                 .putExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME, TEST_ORGANIZATION_NAME)
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
-                        TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA, TEST_USE_MOBILE_DATA)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_LOGO_URI, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS, parcelablesLong)
                 .putExtra(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT, true);
@@ -1061,8 +1044,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                         TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, TEST_ACCOUNT_TO_MIGRATE)
-                .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL,
-                        TEST_DEVICE_ADMIN_PACKAGE_LABEL)
                 .putExtra(EXTRA_PROVISIONING_ORGANIZATION_NAME, TEST_ORGANIZATION_NAME)
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL, TEST_SUPPORT_URL);
     }

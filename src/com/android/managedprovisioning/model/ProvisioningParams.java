@@ -19,8 +19,6 @@ package com.android.managedprovisioning.model;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
@@ -205,10 +203,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     @Nullable
     public final ComponentName deviceAdminComponentName;
 
-    public final String deviceAdminLabel;
     public final String organizationName;
     public final String supportUrl;
-    public final String deviceAdminIconFilePath;
 
     /** {@link Account} that should be migrated to the managed profile. */
     @Nullable
@@ -360,10 +356,8 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         deviceAdminComponentName = builder.mDeviceAdminComponentName;
         deviceAdminPackageName = builder.mDeviceAdminPackageName;
-        deviceAdminLabel = builder.mDeviceAdminLabel;
         organizationName = builder.mOrganizationName;
         supportUrl = builder.mSupportUrl;
-        deviceAdminIconFilePath = builder.mDeviceAdminIconFilePath;
 
         deviceAdminDownloadInfo = builder.mDeviceAdminDownloadInfo;
         disclaimersParam = builder.mDisclaimersParam;
@@ -415,10 +409,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, deviceAdminPackageName);
         bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME,
                 StoreUtils.componentNameToString(deviceAdminComponentName));
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL, deviceAdminLabel);
         bundle.putString(EXTRA_PROVISIONING_ORGANIZATION_NAME, organizationName);
         bundle.putString(EXTRA_PROVISIONING_SUPPORT_URL, supportUrl);
-        bundle.putString(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI, deviceAdminIconFilePath);
         bundle.putPersistableBundle(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, accountToMigrate == null
                 ? null : accountToPersistableBundle(accountToMigrate));
         bundle.putString(TAG_PROVISIONING_ACTION, provisioningAction);
@@ -470,12 +462,8 @@ public final class ProvisioningParams extends PersistableBundlable {
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME));
         builder.setDeviceAdminComponentName(getStringAttrFromPersistableBundle(bundle,
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, StoreUtils::stringToComponentName));
-        builder.setDeviceAdminLabel(bundle.getString(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL));
         builder.setOrganizationName(bundle.getString(EXTRA_PROVISIONING_ORGANIZATION_NAME));
         builder.setSupportUrl(bundle.getString(EXTRA_PROVISIONING_SUPPORT_URL));
-        builder.setDeviceAdminIconFilePath(bundle.getString(
-                EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI));
         builder.setAccountToMigrate(getObjectAttrFromPersistableBundle(bundle,
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, StoreUtils::persistableBundleToAccount));
         builder.setProvisioningAction(bundle.getString(TAG_PROVISIONING_ACTION));
@@ -561,9 +549,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         if (disclaimersParam != null) {
             disclaimersParam.cleanUp();
         }
-        if (deviceAdminIconFilePath != null) {
-            new File(deviceAdminIconFilePath).delete();
-        }
     }
 
     /**
@@ -612,10 +597,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         private WifiInfo mWifiInfo;
         private String mDeviceAdminPackageName;
         private ComponentName mDeviceAdminComponentName;
-        private String mDeviceAdminLabel;
         private String mOrganizationName;
         private String mSupportUrl;
-        private String mDeviceAdminIconFilePath;
         private Account mAccountToMigrate;
         private String mProvisioningAction;
         private PackageDownloadInfo mDeviceAdminDownloadInfo;
@@ -681,11 +664,6 @@ public final class ProvisioningParams extends PersistableBundlable {
             return this;
         }
 
-        public Builder setDeviceAdminLabel(String deviceAdminLabel) {
-            mDeviceAdminLabel = deviceAdminLabel;
-            return this;
-        }
-
         public Builder setOrganizationName(String organizationName) {
             mOrganizationName = organizationName;
             return this;
@@ -693,11 +671,6 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setSupportUrl(String supportUrl) {
             mSupportUrl = supportUrl;
-            return this;
-        }
-
-        public Builder setDeviceAdminIconFilePath(String deviceAdminIconFilePath) {
-            mDeviceAdminIconFilePath = deviceAdminIconFilePath;
             return this;
         }
 
