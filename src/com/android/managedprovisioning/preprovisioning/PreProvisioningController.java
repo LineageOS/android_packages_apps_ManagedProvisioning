@@ -33,6 +33,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_P
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
@@ -578,6 +579,12 @@ public class PreProvisioningController {
         bundle.putParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, mParams.adminExtrasBundle);
         bundle.putIntegerArrayList(EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES,
                 mParams.allowedProvisioningModes);
+
+        if (mParams.allowedProvisioningModes.contains(
+                DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE)) {
+            bundle.putBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT,
+                    mParams.deviceOwnerPermissionGrantOptOut);
+        }
         return bundle;
     }
 

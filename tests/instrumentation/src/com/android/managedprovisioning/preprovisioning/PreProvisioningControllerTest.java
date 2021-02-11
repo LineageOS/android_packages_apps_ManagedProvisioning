@@ -26,9 +26,11 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MODE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -697,7 +699,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void
-            testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_hasExactlyFourExtras() {
+            testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_exactExtras() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
@@ -711,7 +713,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.size()).isEqualTo(4);
+        assertThat(bundle.size()).isEqualTo(5);
     }
 
     public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_imeiPassed() {
@@ -831,7 +833,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void
-    testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_hasExactlyFourExtras() {
+            testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_exactExtras() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
@@ -844,7 +846,7 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.size()).isEqualTo(4);
+        assertThat(bundle.size()).isEqualTo(5);
     }
 
     public void testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_imeiPassed() {
@@ -877,6 +879,135 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
         assertThat(bundle.containsKey(EXTRA_PROVISIONING_SERIAL_NUMBER)).isTrue();
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManaged_hasOptOutExtra() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(false);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManaged_optOutExtraIsTrue() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setDeviceOwnerPermissionGrantOptOut(true)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(true);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_managedProfile_optOutExtraIsFalseByDefault() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(false);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManaged_optOutExtraIsFalse() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setDeviceOwnerPermissionGrantOptOut(false)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(false);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_managedProfileByo_optOutExtraNotPresent() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(
+                                List.of(PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(false);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_managedProfile_optOutExtraNotPresent() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setDeviceOwnerPermissionGrantOptOut(true)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(false);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_managedProfileByo_optOutExtraHasNoEffect() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(
+                                List.of(PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setDeviceOwnerPermissionGrantOptOut(true)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+                .isEqualTo(false);
     }
 
     public void testUpdateProvisioningParamsFromIntent_managedProfileModeWithAccountMigratedExtraTrue_setsParamToTrue() {
