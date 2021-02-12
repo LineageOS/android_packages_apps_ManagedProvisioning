@@ -229,14 +229,6 @@ public class PreProvisioningController {
      */
     public static class UiParams {
         /**
-         * Defined by the organization in the provisioning trigger (e.g. QR code).
-         */
-        public String deviceAdminIconFilePath;
-        /**
-         * Defined by the organization in the provisioning trigger (e.g. QR code).
-         */
-        public String deviceAdminLabel;
-        /**
          * Admin application package name.
          */
         public String packageName;
@@ -434,8 +426,6 @@ public class PreProvisioningController {
         final String packageName = mParams.inferDeviceAdminPackageName();
         final UiParams uiParams = new UiParams();
         uiParams.customization = customization;
-        uiParams.deviceAdminIconFilePath = mParams.deviceAdminIconFilePath;
-        uiParams.deviceAdminLabel = mParams.deviceAdminLabel;
         uiParams.disclaimerHeadings = getDisclaimerHeadings();
         uiParams.provisioningAction = mParams.provisioningAction;
         uiParams.packageName = packageName;
