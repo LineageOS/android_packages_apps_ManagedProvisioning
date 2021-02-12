@@ -16,10 +16,8 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
-import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 
 import static com.android.managedprovisioning.e2eui.ManagedProfileAdminReceiver.COMPONENT_NAME;
 
@@ -59,8 +57,7 @@ import java.io.IOException;
 @RunWith(MockitoJUnitRunner.class)
 // TODO: Currently only color and logo functionality are covered. Fill in the rest (b/32131665).
 public class PreProvisioningActivityTest {
-    private static final int SAMPLE_COLOR = Color.parseColor("#ffd40000");
-    private static final int DEFAULT_MAIN_COLOR = Color.rgb(99, 99, 99);
+    private static final int DEFAULT_LOGO_COLOR = Color.rgb(99, 99, 99);
 
     @Mock
     private Utils mUtils;
@@ -71,7 +68,7 @@ public class PreProvisioningActivityTest {
 
     @Before
     public void setup() {
-        when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_MAIN_COLOR);
+        when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_LOGO_COLOR);
 
         TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
                 (classLoader, className, intent) -> new PreProvisioningActivity(
@@ -104,40 +101,11 @@ public class PreProvisioningActivityTest {
     }
 
     @Test
-    public void profileOwnerDefaultColors() {
+    public void deviceOwnerDefaultLogo() {
         Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_PROFILE, null));
+                createIntent(ACTION_PROVISION_MANAGED_DEVICE));
         CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(Color.TRANSPARENT);
-        v.assertSwiperColorCorrect(DEFAULT_MAIN_COLOR);
-    }
-
-    @Test
-    public void profileOwnerCustomColors() {
-        Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_PROFILE, SAMPLE_COLOR));
-
-        CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(SAMPLE_COLOR);
-        v.assertSwiperColorCorrect(SAMPLE_COLOR);
-    }
-
-    @Test
-    public void deviceOwnerDefaultColorsAndLogo() {
-        Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_DEVICE, null));
-        CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(Color.TRANSPARENT);
-        v.assertDefaultLogoCorrect(DEFAULT_MAIN_COLOR);
-    }
-
-    @Test
-    public void deviceOwnerCustomColor() {
-        Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_DEVICE, SAMPLE_COLOR));
-        CustomizationVerifier v = new CustomizationVerifier(activity);
-        v.assertStatusBarColorCorrect(SAMPLE_COLOR);
-        v.assertDefaultLogoCorrect(SAMPLE_COLOR);
+        v.assertDefaultLogoCorrect(DEFAULT_LOGO_COLOR);
     }
 
     @Test
@@ -145,18 +113,15 @@ public class PreProvisioningActivityTest {
         UriBitmap expectedLogo = UriBitmap.createSimpleInstance();
 
         Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_DEVICE, SAMPLE_COLOR).putExtra(
+                createIntent(ACTION_PROVISION_MANAGED_DEVICE).putExtra(
                         EXTRA_PROVISIONING_LOGO_URI, expectedLogo.getUri()));
         CustomizationVerifier v = new CustomizationVerifier(activity);
         v.assertCustomLogoCorrect(expectedLogo.getBitmap());
     }
 
-    private Intent createIntent(String provisioningAction, Integer mainColor) {
+    private Intent createIntent(String provisioningAction) {
         Intent intent = new Intent(provisioningAction).putExtra(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, COMPONENT_NAME);
-        if (mainColor != null) {
-            intent.putExtra(EXTRA_PROVISIONING_MAIN_COLOR, mainColor);
-        }
         return intent;
     }
 }

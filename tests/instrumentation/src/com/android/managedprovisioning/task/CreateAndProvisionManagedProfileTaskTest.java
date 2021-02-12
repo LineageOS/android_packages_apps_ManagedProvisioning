@@ -22,9 +22,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -33,7 +31,6 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.UserHandle;
 
 import androidx.test.filters.SmallTest;
@@ -66,15 +63,6 @@ public class CreateAndProvisionManagedProfileTaskTest {
     private static final ProvisioningParams TEST_PARAMS = new ProvisioningParams.Builder()
             .setDeviceAdminComponentName(ADMIN)
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-            .build();
-    private static final ProvisioningParams NO_COLOR_PARAMS = new ProvisioningParams.Builder()
-            .setDeviceAdminComponentName(ADMIN)
-            .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-            .build();
-    private static final ProvisioningParams COLOR_PARAMS = new ProvisioningParams.Builder()
-            .setDeviceAdminComponentName(ADMIN)
-            .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-            .setMainColor(Color.GREEN)
             .build();
     private static final ProvisioningParams LEAVE_SYSTEM_APPS_PARAMS =
             new ProvisioningParams.Builder()
@@ -131,33 +119,6 @@ public class CreateAndProvisionManagedProfileTaskTest {
         verifyNoMoreInteractions(mCallback);
         verifyNoMoreInteractions(mSystemAppsSnapshot);
         verifyNoMoreInteractions(mCrossProfileAppsSnapshot);
-    }
-
-    @Test
-    public void testNoMainColor() throws Exception {
-        CreateAndProvisionManagedProfileTask task = createProvisioningTask(NO_COLOR_PARAMS);
-        when(mDevicePolicyManager.createAndProvisionManagedProfile(any()))
-                .thenReturn(new UserHandle(TEST_USER_ID));
-
-        task.run(TEST_PARENT_USER_ID);
-
-        verify(mCallback).onSuccess(task);
-        verifyNoMoreInteractions(mCallback);
-        verify(mDevicePolicyManager, never())
-                .setOrganizationColorForUser(anyInt(), eq(TEST_USER_ID));
-    }
-
-    @Test
-    public void testMainColor() throws Exception {
-        CreateAndProvisionManagedProfileTask task = createProvisioningTask(COLOR_PARAMS);
-        when(mDevicePolicyManager.createAndProvisionManagedProfile(any()))
-                .thenReturn(new UserHandle(TEST_USER_ID));
-
-        task.run(TEST_PARENT_USER_ID);
-
-        verify(mCallback).onSuccess(task);
-        verifyNoMoreInteractions(mCallback);
-        verify(mDevicePolicyManager).setOrganizationColorForUser(Color.GREEN, TEST_USER_ID);
     }
 
     @Test

@@ -117,9 +117,6 @@ public class CreateAndProvisionManagedProfileTask extends AbstractProvisioningTa
         // Take default cross profiles apps snapshot and system apps snapshot if required.
         takeAppsSnapshots(userId, mProvisioningParams.leaveAllSystemAppsEnabled);
 
-        // Set the main color of managed provisioning from the provisioning params.
-        maybeSetProvisioningMainColor();
-
         stopTaskTimer();
         success();
     }
@@ -147,13 +144,6 @@ public class CreateAndProvisionManagedProfileTask extends AbstractProvisioningTa
             mSystemAppsSnapshot.takeNewSnapshot(mProfileUserId);
         }
         mCrossProfileAppsSnapshot.takeNewSnapshot(parentUserId);
-    }
-
-    private void maybeSetProvisioningMainColor() {
-        if (mProvisioningParams.mainColor != null) {
-            mDpm.setOrganizationColorForUser(
-                    mProvisioningParams.mainColor, mProfileUserId);
-        }
     }
 
     public int getProfileUserId() {

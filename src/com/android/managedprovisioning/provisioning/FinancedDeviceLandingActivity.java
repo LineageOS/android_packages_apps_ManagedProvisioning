@@ -16,19 +16,16 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
 import com.google.android.setupdesign.GlifLayout;
 
 /**
@@ -59,16 +56,9 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
     }
 
     private void initializeUi(ProvisioningParams params) {
-        final CustomizationParams customizationParams =
-                CustomizationParams.createInstance(params, this, mUtils);
         setContentView(R.layout.financed_device_landing_screen);
 
-        if (!customizationParams.useSetupStatusBarColor) {
-            setStatusBarColor(customizationParams.statusBarColor);
-        }
-
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.setPrimaryColor(ColorStateList.valueOf(customizationParams.mainColor));
         final String headerString = getString(R.string.financed_device_screen_header,
                 params.organizationName);
         layout.setHeaderText(headerString);

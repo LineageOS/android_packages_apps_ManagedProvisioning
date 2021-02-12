@@ -25,7 +25,6 @@ import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 
-import android.accounts.Account;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -44,7 +43,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Locale;
 import java.util.Properties;
 
 /** Tests {@link MessageParser} */
@@ -54,13 +52,6 @@ public class MessageParserTest extends AndroidTestCase {
     private static final ComponentName TEST_COMPONENT_NAME =
             ComponentName.unflattenFromString(
                     "com.afwsamples.testdpc/com.afwsamples.testdpc.DeviceAdminReceiver");
-    private static final long TEST_LOCAL_TIME = 1456939524713L;
-    private static final Locale TEST_LOCALE = Locale.UK;
-    private static final String TEST_TIME_ZONE = "GMT";
-    private static final Integer TEST_MAIN_COLOR = 65280;
-    private static final boolean TEST_SKIP_ENCRYPTION = true;
-    private static final Account TEST_ACCOUNT_TO_MIGRATE =
-            new Account("user@gmail.com", "com.google");
 
     @Mock
     private Context mContext;

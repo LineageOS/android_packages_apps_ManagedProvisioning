@@ -133,7 +133,7 @@ public class ProvisioningActivityTest {
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, FINANCED_DEVICE_PARAMS);
     private static final Intent NFC_INTENT = new Intent()
             .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, NFC_PARAMS);
-    private static final int DEFAULT_MAIN_COLOR = Color.rgb(1, 2, 3);
+    private static final int DEFAULT_LOGO_COLOR = Color.rgb(1, 2, 3);
     private static final int BROADCAST_TIMEOUT = 1000;
     private static final int WAIT_PROVISIONING_COMPLETE_MILLIS = 60_000;
 
@@ -187,7 +187,7 @@ public class ProvisioningActivityTest {
     public void setup() throws RemoteException {
         mUtils = spy(new Utils());
         doNothing().when(mUtils).factoryReset(any(Context.class), anyString());
-        doReturn(DEFAULT_MAIN_COLOR).when(mUtils).getAccentColor(any());
+        doReturn(DEFAULT_LOGO_COLOR).when(mUtils).getAccentColor(any());
         TestUtils.wakeupDeviceAndPressHome(UiDevice.getInstance(getInstrumentation()));
     }
 

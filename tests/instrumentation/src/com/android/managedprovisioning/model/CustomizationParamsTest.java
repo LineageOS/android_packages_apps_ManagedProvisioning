@@ -48,61 +48,46 @@ public class CustomizationParamsTest {
     private static final ComponentName COMPONENT_NAME = new ComponentName("org.test", "ATestDPC");
     private static final int SAMPLE_COLOR = Color.rgb(11, 22, 33);
     private static final String SAMPLE_URL = "http://d.android.com";
-    private static final String SAMPLE_ORG_NAME = "Organization Inc.";
-    private static final int DEFAULT_MAIN_COLOR = Color.rgb(99, 99, 99);
+    private static final int DEFAULT_LOGO_COLOR = Color.rgb(99, 99, 99);
 
     @Mock
     private Utils mUtils;
 
     @Before
     public void setup() {
-        when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_MAIN_COLOR);
+        when(mUtils.getAccentColor(any())).thenReturn(DEFAULT_LOGO_COLOR);
     }
 
     @Test
     public void defaultColorManagedProfile() {
         // given
-        ProvisioningParams params = createParams(ACTION_PROVISION_MANAGED_PROFILE, null, null,
-                null);
+        ProvisioningParams params = createParams(ACTION_PROVISION_MANAGED_PROFILE, null, null);
 
         // when
         CustomizationParams instance = createInstance(params);
 
         // then
         assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_STATUS_BAR_COLOR_ID)));
-        assertThat(instance.mainColor, equalTo(DEFAULT_MAIN_COLOR));
+        assertThat(instance.logoColor, equalTo(DEFAULT_LOGO_COLOR));
     }
 
     @Test
     public void defaultColorDeviceOwner() {
         // given
-        ProvisioningParams params = createParams(ACTION_PROVISION_MANAGED_DEVICE, null, null, null);
+        ProvisioningParams params = createParams(ACTION_PROVISION_MANAGED_DEVICE, null, null);
 
         // when
         CustomizationParams instance = createInstance(params);
 
         // then
         assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_STATUS_BAR_COLOR_ID)));
-        assertThat(instance.mainColor, equalTo(DEFAULT_MAIN_COLOR));
-    }
-
-    @Test
-    public void respectsMainColor() {
-        // given
-        ProvisioningParams params = createParams(null, SAMPLE_COLOR, null, null);
-
-        // when
-        CustomizationParams instance = createInstance(params);
-
-        // then
-        assertThat(instance.statusBarColor, equalTo(SAMPLE_COLOR));
-        assertThat(instance.mainColor, equalTo(SAMPLE_COLOR));
+        assertThat(instance.logoColor, equalTo(DEFAULT_LOGO_COLOR));
     }
 
     @Test
     public void respectsUrl() {
         // given
-        ProvisioningParams params = createParams(null, null, SAMPLE_URL, null);
+        ProvisioningParams params = createParams(null, SAMPLE_URL, null);
 
         // when
         CustomizationParams instance = createInstance(params);
@@ -114,7 +99,7 @@ public class CustomizationParamsTest {
     @Test
     public void urlDefaultsToNull() {
         // given
-        ProvisioningParams params = createParams(null, null, null, null);
+        ProvisioningParams params = createParams(null, null, null);
 
         // when
         CustomizationParams instance = createInstance(params);
@@ -126,7 +111,7 @@ public class CustomizationParamsTest {
     @Test
     public void ignoresInvalidUrl() {
         // given
-        ProvisioningParams params = createParams(null, null, "not a valid web url", null);
+        ProvisioningParams params = createParams(null, "not a valid web url", null);
 
         // when
         CustomizationParams instance = createInstance(params);
@@ -139,17 +124,13 @@ public class CustomizationParamsTest {
         return CustomizationParams.createInstance(params, mContext, mUtils);
     }
 
-    private ProvisioningParams createParams(String provisioningAction, Integer mainColor,
-            String supportUrl, String orgName) {
+    private ProvisioningParams createParams(
+            String provisioningAction, String supportUrl, String orgName) {
         ProvisioningParams.Builder builder =
                 new ProvisioningParams.Builder().setDeviceAdminComponentName(COMPONENT_NAME);
 
         builder.setProvisioningAction(provisioningAction == null ? ACTION_PROVISION_MANAGED_DEVICE
                 : provisioningAction);
-
-        if (mainColor != null) {
-            builder.setMainColor(mainColor);
-        }
 
         if (supportUrl != null) {
             builder.setSupportUrl(supportUrl);

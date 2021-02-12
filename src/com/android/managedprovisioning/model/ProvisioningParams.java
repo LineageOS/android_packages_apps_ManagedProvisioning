@@ -27,7 +27,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
@@ -43,10 +42,8 @@ import static com.android.internal.util.Preconditions.checkArgument;
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences.DEFAULT_PROVISIONING_ID;
 import static com.android.managedprovisioning.common.StoreUtils.accountToPersistableBundle;
-import static com.android.managedprovisioning.common.StoreUtils.getIntegerAttrFromPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.getObjectAttrFromPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.getStringAttrFromPersistableBundle;
-import static com.android.managedprovisioning.common.StoreUtils.putIntegerIfNotNull;
 import static com.android.managedprovisioning.common.StoreUtils.putPersistableBundlableIfNotNull;
 
 import android.accounts.Account;
@@ -90,7 +87,6 @@ import java.util.stream.Collectors;
  */
 public final class ProvisioningParams extends PersistableBundlable {
     public static final long DEFAULT_LOCAL_TIME = -1;
-    public static final Integer DEFAULT_MAIN_COLOR = null;
     public static final boolean DEFAULT_STARTED_BY_TRUSTED_SOURCE = false;
     public static final boolean DEFAULT_IS_NFC = false;
     public static final boolean DEFAULT_IS_QR_PROVISIONING = false;
@@ -223,14 +219,6 @@ public final class ProvisioningParams extends PersistableBundlable {
 
     /** Provisioning action comes along with the provisioning data. */
     public final String provisioningAction;
-
-    /**
-     * The main color theme used in managed profile only.
-     *
-     * <p>{@code null} means the default value.
-     */
-    @Nullable
-    public final Integer mainColor;
 
     /** The download information of device admin package. */
     @Nullable
@@ -389,7 +377,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         skipEncryption = builder.mSkipEncryption;
         accountToMigrate = builder.mAccountToMigrate;
         provisioningAction = checkNotNull(builder.mProvisioningAction);
-        mainColor = builder.mMainColor;
         skipEducationScreens = builder.mSkipEducationScreens;
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
@@ -435,7 +422,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putPersistableBundle(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, accountToMigrate == null
                 ? null : accountToPersistableBundle(accountToMigrate));
         bundle.putString(TAG_PROVISIONING_ACTION, provisioningAction);
-        putIntegerIfNotNull(bundle, EXTRA_PROVISIONING_MAIN_COLOR, mainColor);
         putPersistableBundlableIfNotNull(bundle, TAG_PACKAGE_DOWNLOAD_INFO,
                 deviceAdminDownloadInfo);
         putPersistableBundlableIfNotNull(bundle, EXTRA_PROVISIONING_DISCLAIMERS,
@@ -493,8 +479,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         builder.setAccountToMigrate(getObjectAttrFromPersistableBundle(bundle,
                 EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE, StoreUtils::persistableBundleToAccount));
         builder.setProvisioningAction(bundle.getString(TAG_PROVISIONING_ACTION));
-        builder.setMainColor(getIntegerAttrFromPersistableBundle(bundle,
-                EXTRA_PROVISIONING_MAIN_COLOR));
         builder.setDeviceAdminDownloadInfo(getObjectAttrFromPersistableBundle(bundle,
                 TAG_PACKAGE_DOWNLOAD_INFO, PackageDownloadInfo::fromPersistableBundle));
         builder.setDisclaimersParam(getObjectAttrFromPersistableBundle(bundle,
@@ -634,7 +618,6 @@ public final class ProvisioningParams extends PersistableBundlable {
         private String mDeviceAdminIconFilePath;
         private Account mAccountToMigrate;
         private String mProvisioningAction;
-        private Integer mMainColor = DEFAULT_MAIN_COLOR;
         private PackageDownloadInfo mDeviceAdminDownloadInfo;
         private DisclaimersParam mDisclaimersParam;
         private PersistableBundle mAdminExtrasBundle;
@@ -725,11 +708,6 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setProvisioningAction(String provisioningAction) {
             mProvisioningAction = provisioningAction;
-            return this;
-        }
-
-        public Builder setMainColor(Integer mainColor) {
-            mMainColor = mainColor;
             return this;
         }
 

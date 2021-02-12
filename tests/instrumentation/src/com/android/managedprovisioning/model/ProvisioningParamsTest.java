@@ -66,7 +66,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
     private static final long TEST_LOCAL_TIME = 1456939524713L;
     private static final Locale TEST_LOCALE = Locale.UK;
     private static final String TEST_TIME_ZONE = "GMT";
-    private static final Integer TEST_MAIN_COLOR = 65280;
     private static final boolean TEST_STARTED_BY_TRUSTED_SOURCE = true;
     private static final boolean TEST_IS_NFC = true;
     private static final boolean TEST_LEAVE_ALL_SYSTEM_APP_ENABLED = true;
@@ -170,7 +169,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setLocalTime(TEST_LOCAL_TIME)
                 .setLocale(TEST_LOCALE)
                 .setTimeZone(TEST_TIME_ZONE)
-                .setMainColor(TEST_MAIN_COLOR)
                 .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
                 .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .setSkipEncryption(TEST_SKIP_ENCRYPTION)
@@ -187,7 +185,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setLocalTime(TEST_LOCAL_TIME)
                 .setLocale(TEST_LOCALE)
                 .setTimeZone(TEST_TIME_ZONE)
-                .setMainColor(TEST_MAIN_COLOR)
                 .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
                 .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
                 .setSkipEncryption(TEST_SKIP_ENCRYPTION)
@@ -487,7 +484,6 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setLocalTime(TEST_LOCAL_TIME)
                 .setLocale(TEST_LOCALE)
                 .setTimeZone(TEST_TIME_ZONE)
-                .setMainColor(TEST_MAIN_COLOR)
                 .setStartedByTrustedSource(TEST_STARTED_BY_TRUSTED_SOURCE)
                 .setIsNfc(TEST_IS_NFC)
                 .setLeaveAllSystemAppsEnabled(TEST_LEAVE_ALL_SYSTEM_APP_ENABLED)
