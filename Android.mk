@@ -2,6 +2,8 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := managedprovisioning_protoslite
+LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0
+LOCAL_LICENSE_CONDITIONS := notice
 LOCAL_SRC_FILES := $(call all-proto-files-under, proto)
 LOCAL_PROTOC_OPTIMIZE_TYPE := lite
 LOCAL_MODULE_TAGS := optional
