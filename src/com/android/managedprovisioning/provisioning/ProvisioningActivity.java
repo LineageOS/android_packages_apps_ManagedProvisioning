@@ -367,8 +367,10 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     private void setupTransitionAnimationHelper(GlifLayout layout) {
         final TextView header = layout.findViewById(R.id.suc_layout_title);
+        final ImageView subHeaderIcon = layout.findViewById(R.id.subheader_icon);
         final TextView subHeaderTitle = layout.findViewById(R.id.subheader_title);
         final TextView subHeader = layout.findViewById(R.id.subheader_description);
+        final ImageView secondarySubHeaderIcon = layout.findViewById(R.id.secondary_subheader_icon);
         final TextView secondarySubHeaderTitle = layout.findViewById(
                 R.id.secondary_subheader_title);
         final TextView secondarySubHeader = layout.findViewById(
@@ -378,8 +380,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         final TextView providerInfo = layout.findViewById(R.id.provider_info);
         final int provisioningMode = getProvisioningMode();
         final AnimationComponents animationComponents =
-                new AnimationComponents(header, subHeaderTitle, subHeader, secondarySubHeaderTitle,
-                        secondarySubHeader, drawable, providerInfo);
+                new AnimationComponents(header, subHeaderIcon, subHeaderTitle, subHeader,
+                        secondarySubHeaderIcon, secondarySubHeaderTitle, secondarySubHeader,
+                        drawable, providerInfo);
         mTransitionAnimationHelper = new TransitionAnimationHelper(provisioningMode,
                 /* adminCanGrantSensorsPermissions= */ !mParams.deviceOwnerPermissionGrantOptOut,
                 animationComponents, this);

@@ -188,6 +188,13 @@ class TransitionAnimationHelper {
         }
     }
 
+    private void setImageViewIconIfResourceValid(ImageView imageView, int iconResId) {
+        if (iconResId != 0) {
+            Context context = imageView.getContext();
+            imageView.setImageDrawable(context.getDrawable(iconResId));
+        }
+    }
+
     @VisibleForTesting
     void updateUiValues(int currentTransitionIndex) {
         final TransitionScreenWrapper transition =
@@ -205,12 +212,16 @@ class TransitionAnimationHelper {
         // First subheader and its title
         setTextViewIfResourceValid(mAnimationComponents.subHeaderTitle, transition.subHeaderTitle);
         setTextViewIfResourceValid(mAnimationComponents.subHeader, transition.subHeader);
+        setImageViewIconIfResourceValid(mAnimationComponents.subHeaderIcon,
+                transition.subHeaderIcon);
 
         // Second subheader and its title
-        setTextViewIfResourceValid(mAnimationComponents.secondSubHeaderTitle,
+        setTextViewIfResourceValid(mAnimationComponents.secondarySubHeaderTitle,
                 transition.secondarySubHeaderTitle);
-        setTextViewIfResourceValid(mAnimationComponents.secondSubHeader,
+        setTextViewIfResourceValid(mAnimationComponents.secondarySubHeader,
                 transition.secondarySubHeader);
+        setImageViewIconIfResourceValid(mAnimationComponents.secondarySubHeaderIcon,
+                transition.secondarySubHeaderIcon);
 
         final TextView providerInfo = mAnimationComponents.providerInfo;
         if (transition.showContactAdmin) {
@@ -253,6 +264,7 @@ class TransitionAnimationHelper {
                 .setSubHeaderTitle(
                         R.string.fully_managed_device_provisioning_step_2_subheader_title)
                 .setSubHeader(R.string.fully_managed_device_provisioning_step_2_subheader)
+                .setSubHeaderIcon(R.drawable.ic_history)
                 .setShowContactAdmin(false)
                 .setAnimation(R.drawable.not_private_animation)
                 .setShouldLoop(true);
@@ -263,7 +275,8 @@ class TransitionAnimationHelper {
             secondScreenBuilder.setSecondarySubHeaderTitle(
                     R.string.fully_managed_device_provisioning_permissions_title)
                     .setSecondarySubHeader(
-                            R.string.fully_managed_device_provisioning_permissions_subheader);
+                            R.string.fully_managed_device_provisioning_permissions_subheader)
+                    .setSecondarySubHeaderIcon(R.drawable.ic_perm_device_information);
             //TODO(b/180386738): Change to new summary.
             provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
         } else {
@@ -300,29 +313,35 @@ class TransitionAnimationHelper {
 
     static final class AnimationComponents {
         private final TextView header;
+        private final ImageView subHeaderIcon;
         private final TextView subHeaderTitle;
         private final TextView subHeader;
-        private final TextView secondSubHeaderTitle;
-        private final TextView secondSubHeader;
+        private final ImageView secondarySubHeaderIcon;
+        private final TextView secondarySubHeaderTitle;
+        private final TextView secondarySubHeader;
         private final ImageView image;
         private final TextView providerInfo;
 
         AnimationComponents(
-                TextView header, TextView subHeaderTitle, TextView subHeader,
-                TextView secondSubHeaderTitle, TextView secondSubHeader,
-                ImageView image, TextView providerInfo) {
+                TextView header, ImageView subHeaderIcon, TextView subHeaderTitle,
+                TextView subHeader, ImageView secondarySubHeaderIcon,
+                TextView secondarySubHeaderTitle, TextView secondarySubHeader, ImageView image,
+                TextView providerInfo) {
             this.header = checkNotNull(header);
+            this.subHeaderIcon = checkNotNull(subHeaderIcon);
             this.subHeaderTitle = checkNotNull(subHeaderTitle);
             this.subHeader = checkNotNull(subHeader);
-            this.secondSubHeaderTitle = checkNotNull(secondSubHeaderTitle);
-            this.secondSubHeader = checkNotNull(secondSubHeader);
+            this.secondarySubHeaderIcon = checkNotNull(secondarySubHeaderIcon);
+            this.secondarySubHeaderTitle = checkNotNull(secondarySubHeaderTitle);
+            this.secondarySubHeader = checkNotNull(secondarySubHeader);
             this.image = checkNotNull(image);
             this.providerInfo = checkNotNull(providerInfo);
         }
 
         List<View> asList() {
-            return Arrays.asList(header, subHeaderTitle, subHeader, secondSubHeaderTitle,
-                    secondSubHeader, image, providerInfo);
+            return Arrays.asList(header, subHeaderIcon, subHeaderTitle, subHeader,
+                    secondarySubHeaderIcon, secondarySubHeaderTitle, secondarySubHeader,
+                    image, providerInfo);
         }
     }
 }

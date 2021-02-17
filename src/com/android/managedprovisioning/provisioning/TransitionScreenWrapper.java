@@ -29,10 +29,12 @@ final class TransitionScreenWrapper {
     public final @DrawableRes int drawable;
     public final @StringRes int subHeaderTitle;
     public final @StringRes int subHeader;
+    public final @DrawableRes int subHeaderIcon;
     public final boolean showContactAdmin;
     public final boolean shouldLoop;
     public final @StringRes int secondarySubHeaderTitle;
     public final @StringRes int secondarySubHeader;
+    public final @DrawableRes int secondarySubHeaderIcon;
 
     TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable) {
         this(header, drawable, /* subHeader */ 0, /* showContactAdmin */ false,
@@ -41,22 +43,24 @@ final class TransitionScreenWrapper {
 
     TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable,
             @StringRes int subHeader, boolean showContactAdmin, boolean shouldLoop) {
-        this(header, drawable, 0, subHeader, showContactAdmin, shouldLoop, 0, 0);
+        this(header, drawable, 0, subHeader, 0, showContactAdmin, shouldLoop, 0, 0, 0);
     }
 
     private TransitionScreenWrapper(int header, int drawable, int subHeaderTitle, int subHeader,
-            boolean showContactAdmin, boolean shouldLoop, int secondarySubHeaderTitle,
-            int secondarySubHeader) {
+            int subHeaderIcon, boolean showContactAdmin, boolean shouldLoop,
+            int secondarySubHeaderTitle, int secondarySubHeader, int secondarySubHeaderIcon) {
         this.header = checkNotNull(header,
                 "Header resource id must be a positive number.");
         this.drawable = checkNotNull(drawable,
                 "Drawable resource id must be a positive number.");
         this.subHeaderTitle = subHeaderTitle;
         this.subHeader = subHeader;
+        this.subHeaderIcon = subHeaderIcon;
         this.showContactAdmin = showContactAdmin;
         this.shouldLoop = shouldLoop;
         this.secondarySubHeaderTitle = secondarySubHeaderTitle;
         this.secondarySubHeader = secondarySubHeader;
+        this.secondarySubHeaderIcon = secondarySubHeaderIcon;
     }
 
     public static final class Builder {
@@ -64,10 +68,12 @@ final class TransitionScreenWrapper {
         @DrawableRes int mDrawable;
         @StringRes private int mSubHeaderTitle;
         @StringRes int mSubHeader;
+        @DrawableRes int mSubHeaderIcon;
         boolean mShowContactAdmin;
         boolean mShouldLoop;
         @StringRes int mSecondarySubHeaderTitle;
         @StringRes int mSecondarySubHeader;
+        @DrawableRes int mSecondarySubHeaderIcon;
 
         public Builder setHeader(int header) {
             mHeader = header;
@@ -86,6 +92,11 @@ final class TransitionScreenWrapper {
 
         public Builder setSubHeader(int subHeader) {
             mSubHeader = subHeader;
+            return this;
+        }
+
+        public Builder setSubHeaderIcon(int subHeaderIcon) {
+            mSubHeaderIcon = subHeaderIcon;
             return this;
         }
 
@@ -109,9 +120,15 @@ final class TransitionScreenWrapper {
             return this;
         }
 
+        public Builder setSecondarySubHeaderIcon(int secondarySubHeaderIcon) {
+            mSecondarySubHeaderIcon = secondarySubHeaderIcon;
+            return this;
+        }
+
         public TransitionScreenWrapper build() {
             return new TransitionScreenWrapper(mHeader, mDrawable, mSubHeaderTitle, mSubHeader,
-                    mShowContactAdmin, mShouldLoop, mSecondarySubHeaderTitle, mSecondarySubHeader);
+                    mSubHeaderIcon, mShowContactAdmin, mShouldLoop, mSecondarySubHeaderTitle,
+                    mSecondarySubHeader, mSecondarySubHeaderIcon);
         }
     }
 }
