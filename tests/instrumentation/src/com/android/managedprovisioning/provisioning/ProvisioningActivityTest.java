@@ -65,6 +65,7 @@ import android.provider.Settings;
 import android.support.test.uiautomator.UiDevice;
 
 import androidx.test.InstrumentationRegistry;
+import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.filters.SmallTest;
 
@@ -76,6 +77,8 @@ import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
+import com.google.common.collect.Iterables;
 
 import junit.framework.AssertionFailedError;
 
@@ -455,6 +458,58 @@ public class ProvisioningActivityTest {
                 matches(withText(R.string.fully_managed_device_provisioning_permissions_title)));
         onView(withId(R.id.secondary_subheader_description)).check(matches(withText(
                 R.string.fully_managed_device_provisioning_permissions_subheader)));
+    }
+
+    @Test
+    public void testInitializeUi_deviceOwnerCanAbort() throws Throwable {
+        // GIVEN the activity was launched with a device owner intent
+        launchActivityAndWait(DEVICE_OWNER_INTENT);
+
+        // THEN the description should be empty
+        onView(withId(R.id.provisioning_progress)).check(
+                matches(withText(R.string.fully_managed_device_provisioning_progress_label)));
+
+        // THEN the animation is shown.
+        onView(withId(R.id.animation)).check(matches(isDisplayed()));
+        waitForFullyManagedDeviceHeader();
+        // WHEN preFinalization is completed
+        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().preFinalizationCompleted());
+        // THEN the cancel button should be available.
+        waitForCancelSetupButtonAndClickIt();
+
+        // Check
+        Intent receivedIntent = Iterables.getOnlyElement(Intents.getIntents());
+        assertThat(receivedIntent).isNotNull();
+        assertThat(receivedIntent.getComponent()).isEqualTo(
+                new ComponentName(InstrumentationRegistry.getTargetContext(),
+                        ResetAndReturnDeviceActivity.class));
+        assertThat(receivedIntent.hasExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS)).isTrue();
+        assertThat(receivedIntent.hasExtra("wizardBundle")).isTrue();
+    }
+
+    //TODO(b/180399632): Replace this wait with callbacks or another mechanism where the
+    //activity-under-test is more collaborative with the testing infrastructure to indicate
+    //its state.
+    private void waitForCancelSetupButtonAndClickIt() throws InterruptedException {
+        final int cancelButtonId = 3;
+        int numAttempts = 0;
+        while (numAttempts < 40) {
+            try {
+                onView(withId(cancelButtonId))
+                        .check(matches(
+                                withText(R.string.fully_managed_device_cancel_setup_button)));
+                onView(withId(cancelButtonId)).check(matches(isDisplayed()));
+                break;
+            } catch (AssertionFailedError e) {
+                numAttempts++;
+            }
+            Thread.sleep(500);
+        }
+
+        // Click the cancel button.
+        onView(withId(cancelButtonId))
+                .check(matches(withText(R.string.fully_managed_device_cancel_setup_button)))
+                .perform(click());
     }
 
     @Test
