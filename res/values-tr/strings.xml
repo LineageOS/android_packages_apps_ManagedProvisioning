@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Kullanıcı Kurulumu Tamamlanmadı"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"İş cihazının kullanıcısı"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"İş cihazı kurulumu yapılıyor…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Kurulum verileri işleniyor…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Kablosuz ağa bağlanılıyor…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Mobil ağa bağlanıyor…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Yönetici uygulaması indiriliyor…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Yönetici uygulaması yükleniyor…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Gereksiz sistem uygulamaları kaldırılıyor…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Son rötuşlar yapılıyor…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Cihaz sahibi ayarlanıyor…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Cihaz ilk kullanıma hazırlanıyor…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Bu cihaz, kurulum için gerekli olan şifreleme işlemine izin vermiyor. Yardım için IT yöneticinize başvurun."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Kurulum durdurulsun ve cihaz sıfırlansın mı?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Bu işlem cihazınızı sıfırlar ve sizi tekrar ilk ekrana götürür."</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"İş cihazınızın kurulumunu yapalım"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"İş uygulamalarınızı parmaklarınızın ucunda tutun"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu cihaz gizli değil"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Etkinliğiniz ve verileriniz"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Uygulama izinleri"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"BT yöneticiniz, bu cihazdaki uygulamaların mikrofon, kamera ve konum dahil olmak üzere ayarlara erişmesine izin verebilir."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Cihazınız ayarlanıyor…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"İş uygulamalarınıza kolayca erişmek için bu cihazı kullanın. Bu cihaz gizli olmadığından IT yöneticiniz verilerinizi ve etkinliklerinizi görebilir. Daha fazla bilgi edinmek için IT yöneticinizle iletişime geçin."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir"</string>

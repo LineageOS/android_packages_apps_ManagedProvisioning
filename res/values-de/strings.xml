@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nutzerverwaltungskonfiguration unvollständig"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Nutzer des Dienstgeräts"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Dienstgerät wird eingerichtet…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Einrichtungsdaten werden verarbeitet…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"WLAN-Verbindung wird hergestellt…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Verbindung mit Mobilfunknetz wird hergestellt…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Admin-App wird heruntergeladen…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Admin-App wird installiert…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Nicht benötigte System-Apps werden entfernt…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Ein paar Kleinigkeiten werden angepasst…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Geräteeigentümer wird eingerichtet…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Gerät wird initialisiert…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Auf dem Gerät ist keine Verschlüsselung möglich. Diese ist jedoch für die Einrichtung erforderlich. Bitte wende dich an den IT-Administrator."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Einrichtung unterbrechen und Gerät zurücksetzen?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Dein Gerät wird zurückgesetzt und der erste Bildschirm wird wieder angezeigt"</string>
@@ -175,7 +166,13 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Arbeitsgerät einrichten"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Deine Apps für die Arbeit – jederzeit zur Hand"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Dieses Gerät ist nicht privat"</string>
+    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
+    <skip />
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Dein IT-Administrator kann deine Daten und deine Geräteaktivitäten möglicherweise sehen."</string>
+    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
+    <skip />
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Gerät wird eingerichtet…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Mit diesem Gerät kannst du jederzeit problemlos auf deine Apps für die Arbeit zugreifen. Das Gerät ist nicht privat, d. h., dein IT-Administrator kann deine Daten und Aktivitäten möglicherweise sehen. Wende dich an deinen IT-Administrator, um weitere Informationen zu erhalten."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Geschäftliche Apps werden im Arbeitsprofil abgelegt &amp; vom IT-Administrator verwaltet"</string>

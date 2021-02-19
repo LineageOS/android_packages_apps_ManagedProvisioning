@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"පරිශීලක පිහිටුවීම අසම්පූර්ණයි"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"කාර්යාල උපාංගයේ පරිශීලකයා"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"වැඩ උපාංගය පිහිටුවමින්..."</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"පිහිටුවීම් දත්ත සකසමින්..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi වෙත සම්බන්ධ වෙමින්..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ජංගම ජාලයට සම්බන්ධ වෙමින්..."</string>
-    <string name="progress_download" msgid="3522436271691064624">"පරිපාලක යෙදුම බාගනිමින්..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"පරිපාලක යෙදුම ස්ථාපනය කරමින්..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"අවශ්‍ය නොවන පද්ධති යෙදුම් ඉවත් කරමින්..."</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"අවසන් කිරීමේ දේවල් කරමින්…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"උපාංග හිමිකරු සකසමින්..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"උපාංගය මූලාරම්භ කරමින්…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"මෙම උපාංගය සැකසීමට අවශ්‍ය සංකේතනයට අවසර නොදෙයි. උදවු සඳහා, ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයා සම්බන්ධ කර ගන්න."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"උපාංග ස්ථාපනය නවතා යලි සකසන්නද?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"මෙමඟින් පිහිටුවීම අවසන් කර ඔබේ උපාංගය යළි සකසා ඔබව ආපසු මුල් තිරයට ගෙන යනු ඇත"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ඔබේ කාර්යාල උපාංගය සකසමු"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ඔබේ කාර්යා යෙදුම් ඔබේ ඇඟිලි තුඩුවල තබා ගන්න"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"මෙම උපාංගය පුද්ගලික නොවේ"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ඔබගේ ක්‍රියාකාරකම් සහ දත්ත"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට මෙම උපාංගය මත ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලිය හැකි වීමට ඉඩ ඇත."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"යෙදුම් අවසර"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ඔබගේ IT පරිපාලකට මයික්‍ර‍ෆෝනය, කැමරාව සහ ස්ථානය ඇතුළුව මෙම උපාංගයේ සැකසීම්වලට ප්‍රවේශ වීමට යෙදුම්වලට ඉඩ දිය හැකිය."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ඔබේ උපාංගය සැකසීම…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"පහසුවෙන් ඔබේ කාර්යා යෙදුම් වෙත ප්‍රවේශ වීමට මෙම උපාංගය භාවිත කරන්න. මෙම උපාංගය පුද්ගලික නොවේ, එබැවින් ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලීමට හැකි වෙයි. තවත් දැන ගැනීමට, ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයා සම්බන්ධ කර ගන්න."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"කාර්යාල යෙදුම් කාර්යාල පැතිකඩේ ඇති අතර, IT පාලක කළමනා. කරයි"</string>

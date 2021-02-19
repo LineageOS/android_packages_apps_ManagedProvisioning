@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"사용자 설정 완료되지 않음"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"업무 기기의 사용자"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"직장 기기 설정 중…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"설정 데이터 처리 중..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi에 연결 중..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"모바일 네트워크에 연결 중…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"관리 앱 다운로드 중..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"관리 앱 설치 중..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"불필요한 시스템 앱 삭제 중…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"마무리하는 중…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"기기 소유자 설정 중..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"기기 초기화 중..."</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"이 기기는 설정에 필요한 암호화를 허용하지 않습니다. 도움이 필요하면 IT 관리자에게 문의하세요."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"설정을 중단하고 기기를 재설정하시겠습니까?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"기기가 재설정되고 처음 화면으로 이동합니다."</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"직장 기기 설정하기"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"간편하게 업무용 앱 사용"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"비공개 기기가 아님"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"활동 및 데이터"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"앱 권한"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT 관리자가 앱에서 마이크, 카메라, 위치를 비롯한 기기 설정에 액세스하도록 허용할 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"기기 설정 중…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"이 기기를 사용하여 업무용 앱에 간편하게 액세스하세요. 이 기기는 비공개 기기가 아니므로 IT 관리자가 내 데이터와 활동을 볼 수 있습니다. 자세히 알아보려면 IT 관리자에게 문의하세요."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"직장 앱은 직장 프로필에 보관되며 IT 관리자가 관리합니다"</string>

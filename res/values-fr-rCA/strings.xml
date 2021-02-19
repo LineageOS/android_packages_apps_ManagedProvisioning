@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuration de l\'utilisateur incomplète"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utilisateur de l\'appareil professionnel"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Configuration de l\'appareil professionnel en cours…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Traitement des données de configuration…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Connexion au Wi-Fi en cours…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Connexion au réseau cellulaire en cours…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Téléchargement de l\'appli d\'administration…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installation de l\'appli d\'administration…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Suppression des applis système non requises…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Finalisation du processus en cours…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Définition du propriétaire de l\'appareil…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Initialisation de l\'appareil en cours…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Ce dispositif n\'autorise pas le chiffrement, qui est nécessaire pour la configuration. Pour obtenir de l\'aide, communiquez avec votre administrateur informatique."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Arrêter la configuration et réinitialiser l\'appareil?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Votre appareil sera réinitialisé à ses paramètres d\'usine et vous serez redirigé vers le premier écran."</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Configurons votre appareil professionnel"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Accédez à vos applications professionnelles en toute simplicité"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Cet appareil n\'est pas privé"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Vos activités et vos données"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Il se peut que votre administrateur informatique puisse voir vos données et votre activité sur cet appareil."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Autorisations de l\'application"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Votre administrateur informatique peut autoriser les applications à accéder aux paramètres de cet appareil, y compris le microphone, l\'appareil photo et la position."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil en cours…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utiliser cet appareil pour accéder facilement à vos applications professionnelles. Cet appareil n\'est pas privé, alors il se peut que votre administrateur informatique puisse voir vos données et votre activité. Communiquez avec votre administrateur informatique pour en savoir plus."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis sont conservées dans votre profil professionnel et gérées par l\'administrateur"</string>

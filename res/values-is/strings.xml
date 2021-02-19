@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Uppsetningu notanda ekki lokið"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Notandi vinnutækis"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Setur upp vinnutæki…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Vinnur úr uppsetningargögnum…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Tengist Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Tengist farsímakerfi…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Sækir stjórnforritið…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Setur upp stjórnforritið…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Fjarlægir ónauðsynleg kerfisforrit…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Lýkur við frágang…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Stillir eiganda tækisins…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Frumstillir tæki…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Þetta tæki leyfir ekki dulkóðun, sem krafist er við uppsetningu. Leitaðu aðstoðar hjá kerfisstjóra."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Viltu stöðva uppsetningu og endurstilla tækið?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Þetta endurstillir tækið þitt og flytur þig aftur á fyrsta skjáinn"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Setjum upp vinnutækið þitt"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hafðu vinnuforritin innan handar"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Þetta er ekki einkatæki"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Þínar aðgerðir og gögn"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Kerfisstjórinn þinn kann að geta séð gögn og virkni í þessu tæki."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Heimildir forrits"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Kerfisstjórinn getur heimilað aðgang forrita að stillingum þessa tækis, þ. á m. hljóðnema, myndavél og staðsetningu."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Setur tækið upp…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Notaðu þetta tæki til að hafa greiðan aðgang að vinnuforritunum þínum. Þetta tæki er ekki einkatæki og því gæti kerfisstjóri séð gögn og virkni þína. Hafðu samband við kerfisstjórann til að fá frekari upplýsingar."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Vinnuforrit eru geymd á vinnusniði og stjórnað af kerfisstjóra"</string>

@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ಬಳಕೆದಾರ ಸೆಟಪ್ ಅಪೂರ್ಣವಾಗಿದೆ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ಕೆಲಸದ ಸಾಧನದ ಬಳಕೆದಾರರು"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ಕೆಲಸದ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"ಸೆಟಪ್‌ ಡೇಟಾ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ವೈ-ಫೈಗೆ ಸಂಪರ್ಕಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ಮೊಬೈಲ್‌ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ..."</string>
-    <string name="progress_download" msgid="3522436271691064624">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"ನಿರ್ವಾಹಕ ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ಸಿಸ್ಟಂ ಅಗತ್ಯವಿಲ್ಲದ ಆ್ಯಪ್‌ ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"ಅಂತಿಮ ಸ್ಪರ್ಶಗಳನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ..."</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"ಸಾಧನದ ಮಾಲೀಕರನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"ಸಾಧನವನ್ನು ಆರಂಭಿಸಲಾಗುತ್ತಿದೆ..."</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ಸೆಟಪ್‌ಗಾಗಿ ಅಗತ್ಯವಿರುವ ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಅನ್ನು ಈ ಸಾಧನ ಅನುಮತಿಸುವುದಿಲ್ಲ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"ಸೆಟಪ್ ನಿಲ್ಲಿಸಿ ಸಾಧನ ಮರುಹೊಂದಿಸುವುದೇ?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ಇದು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸುತ್ತದೆ ಮತ್ತು ಮೊದಲ ಪರದೆಗೆ ನಿಮ್ಮನ್ನು ಮರಳಿ ಕರೆದೊಯ್ಯುತ್ತದೆ"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ನಿಮ್ಮ ಕೆಲಸದ ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸುವಂತೆ ಇರಿಸಿಕೊಳ್ಳಿ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ನಿಮ್ಮ ಚಟುವಟಿಕೆ &amp; ಡೇಟಾ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಈ ಸಾಧನದಲ್ಲಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ಆ್ಯಪ್ ಅನುಮತಿಗಳು"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ನಿಮ್ಮ ಐಟಿ ನಿರ್ವಾಹಕರು ಈ ಸಾಧನದಲ್ಲಿ ಮೈಕ್ರೋಫೋನ್, ಕ್ಯಾಮರಾ ಮತ್ತು ಸ್ಥಳ ಒಳಗೊಂಡಂತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ಆ್ಯಪ್‌ಗಳಿಗೆ ಅನುಮತಿಸಬಹುದು."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಈ ಸಾಧನವನ್ನು ಬಳಸಿ. ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ, ಆದ್ದರಿಂದ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು ಇನ್ನಷ್ಟು ತಿಳಿಯಲು, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ವರ್ಕ್ ಆ್ಯಪ್ಸ್ ವರ್ಕ್ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರುತ್ತವೆ. ಇವನ್ನು ಐಟಿ ಅಡ್ಮಿನ್ ನಿರ್ವಹಿಸುತ್ತಾರೆ"</string>

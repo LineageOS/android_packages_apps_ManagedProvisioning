@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Brukerkonfigureringen er ikke fullført"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Bruker av arbeidsenhet"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Konfigurerer jobbenheten …"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Behandler konfigureringsdata …"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Kobler til Wi-Fi …"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Kobler til mobilnettverk …"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Laster ned admin-appen …"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installerer admin-appen …"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Fjerner unødvendige systemapper …"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Setter siste hånd på verket …"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Angir enhetseieren …"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Initialiserer enheten …"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Denne enheten tillater ikke kryptering, som kreves for konfigurering. Ta kontakt med IT-administratoren din for å få hjelp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Vil du stoppe konfigureringen og tilbakestille enheten?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Dette tilbakestiller enheten din, og du blir ført tilbake til den første skjermen"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"La oss konfigurere jobbenheten din"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Få enkel tilgang til jobbappene dine"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Denne enheten er ikke privat"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Aktiviteten din og dataene dine"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-administratoren din kan se dataene dine og aktiviteten din på denne enheten."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Apptillatelser"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT-administratoren din kan gi apper tilgang til innstillinger på denne enheten, inkludert mikrofonen, kameraet og posisjonen."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerer enheten din …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Bruk denne enheten for å få tilgang til jobbappene dine. Denne enheten er ikke privat, så IT-administratoren din kan se dataene dine og aktiviteten din. For å finne ut mer, kontakt IT-administratoren din."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apper i jobbprofilen din administreres av IT-administratoren"</string>

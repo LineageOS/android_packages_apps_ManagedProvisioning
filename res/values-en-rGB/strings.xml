@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"User Setup Incomplete"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"User of work device"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Setting up work device…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Processing setup data…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Connecting to Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Connecting to mobile network…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Downloading the admin app…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installing the admin app…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Removing non-required system apps…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Putting finishing touches…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Setting the device owner…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Initialising device…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"This device doesn\'t allow encryption, which is needed for setup. For help, contact your IT admin."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Stop setup &amp; reset device?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"This will reset your device and take you back to the first screen"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Let\'s set up your work device"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Keep your work apps at your fingertips"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"This device isn\'t private"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Your activity &amp; data"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Your IT admin may be able to see your data and activity on this device."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"App permissions"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Your IT admin can allow apps to access settings on this device, including the microphone, camera and location."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Setting up your device…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Use this device to easily access your work apps. This device isn\'t private, so your IT admin may be able to see your data and activity. To learn more, contact your IT admin."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Work apps are kept in your work profile and managed by your IT admin"</string>

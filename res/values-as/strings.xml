@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ব্যৱহাৰকাৰীৰ ছেট আপ কার্য সম্পূর্ণ নহ\'ল"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"কৰ্মস্থানৰ ডিভাইচৰ ব্যৱহাৰকাৰী"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"কৰ্মস্থানৰ ডিভাইচ ছেট আপ কৰি থকা হৈছে…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"ডেটা ছেট আপ প্ৰক্ৰিয়া চলি আছে…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ৱাই-ফাইৰ লগত সংযোগ কৰি থকা হৈছে…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ম’বাইল নেটৱৰ্কৰ সৈতে সংযোগ কৰি থকা হৈছে…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"প্ৰশাসক এপ্ ডাউনল’ড কৰি থকা হৈছে…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"প্ৰশাসক এপ্ ইনষ্টল কৰি থকা হৈছে…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"অপ্ৰয়োজনীয় ছিষ্টেম এপসমূহ আঁতৰাই থকা হৈছে…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"অন্তিম পৰ্যায়ৰ কামবোৰ কৰি থকা হৈছে…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"ডিভাইচৰ গৰাকী ছেট আপ কৰি থকা হৈছে…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"ডিভাইচটো আৰম্ভ কৰি থকা হৈছে…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"এই ডিভাইচটোৱে এনক্ৰিপ্ট কৰিবলৈ অনুমতি নিদিয়ে, যিটো ছেটআপৰ বাবে প্ৰয়োজনীয়। সহায়ৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"ছেট আপ বন্ধ কৰি ডিভাইচটো ৰিছেট কৰিবনে?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"এই কাৰ্যই আপোনাৰ ডিভাইচটো ৰিছেট কৰিব আৰু আপোনাক আৰম্ভণিৰ স্ক্ৰীণখনলৈ লৈ যাব"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"আপোনাৰ কৰ্মস্থানৰ ডিভাইচটো ছেট আপ কৰোঁ আহক"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"আপোনাৰ কৰ্মস্থানৰ এপ্‌সমূহ নিজৰ হাতৰ মুঠিত ৰাখক"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"এই ডিভাইচটো ব্যক্তিগত নহয়"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"আপোনাৰ কাৰ্যকলাপ আৰু ডেটা"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"আপোনাৰ আইটি প্ৰশাসকে হয়তো এই ডিভাইচত আপোনাৰ ডেটা আৰু কাৰ্যকলাপ চাব পাৰিব।"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"এপৰ অনুমতি"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"আপোনাৰ আইটি প্ৰশাসকে এপ্‌সমূহক এই ডিভাইচটোত মাইক্ৰ’ফ’ন, কেমেৰা আৰু অৱস্থানকে ধৰি ছেটিংসমূহ এক্সেছ কৰাৰ অনুমতি দিয়ে।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"আপোনাৰ ডিভাইচটো ছেট আপ কৰি থকা হৈছে…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"আপোনাৰ কৰ্মস্থানৰ এপ্‌সমূহ সহজে এক্সেছ কৰিবলৈ এই ডিভাইচটো ব্যৱহাৰ কৰক। এই ডিভাইচটো ব্যক্তিগত নহয়, সেয়ে আপোনাৰ আইটি প্ৰশাসকে আপোনাৰ ডেটা আৰু কাৰ্যকলাপসমূহ হয়তো চাব পাৰে। অধিক জানিবলৈ আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"আপোনাৰ আইটি প্ৰশাসকৰ দ্বাৰা পৰিচালিত কর্মস্থানৰ এপ্‌সমূহ আপোনৰ কৰ্মস্থানৰ প্ৰ\'ফাইলত ৰখা হয়"</string>

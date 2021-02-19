@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Oprettelsen af brugeren er ikke fuldført"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Bruger af arbejdsenhed"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Arbejdsenheden konfigureres..."</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Behandler konfigurationsdata…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Opretter forbindelse til Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Opretter forbindelse til netværk…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Downloader administrationsappen…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installerer administrationsappen…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Fjerner systemapps, der ikke er påkrævede…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Forbereder de sidste detaljer…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Angiver enhedens ejer…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Initialiserer enheden…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Denne enhed tillader ikke kryptering, som er nødvendig for konfigurationen. Kontakt din it-administrator for at få hjælp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Vil du afbryde konfigurationen og nulstille enheden?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Dette vil nulstille enheden og føre dig tilbage til den første skærm"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Lad os konfigurere din arbejdsenhed"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Få nem adgang til dine arbejdsapps"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Denne enhed er ikke privat"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Din aktivitet og dine data"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Din it-administrator kan muligvis se dine data og din aktivitet på denne enhed."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Apptilladelser"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Din it-administrator kan give apps adgang til indstillinger på denne enhed, bl.a. for mikrofonen, kameraet og din placering."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerer din enhed…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Brug denne enhed til nemt at få adgang til dine arbejdsapps. Denne enhed er ikke privat, så din it-administrator kan muligvis se dine data og din aktivitet. Kontakt din it-administrator for at få flere oplysninger."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Arbejdsapps gemmes på arbejdsprofilen og administreres af it-administratoren"</string>

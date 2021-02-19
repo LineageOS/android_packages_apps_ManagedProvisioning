@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Наладжванне карыстальніка не завершана"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Карыстальнік працоўнай прылады"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Ідзе наладжванне працоўнай прылады…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Апрацоўка даных наладжвання..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Падлучэнне да Wi-Fi..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Ідзе падключэнне да мабільнага інтэрнэту…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Спампоўка праграмы для адміністравання..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"Усталёўка праграмы для адміністравання..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Ідзе выдаленне непатрэбных сістэмных праграм…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Дадаюцца апошнія штрыхі…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Выбар уладальніка прылады..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Ідзе ініцыялізацыя прылады…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Гэта прылада не дазваляе выкарыстоўваць шыфраванне, якое патрабуецца для наладкі. Звярніцеся па дапамогу да IT-адміністратара."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Спыніць наладку і выканаць скід на прыладзе?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Гэта прывядзе да скіду прылады, вы вернецеся на першы экран"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Давайце наладзім вашу працоўную прыладу"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Заўсёды трымайце свае працоўныя праграмы пад рукой"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Гэта прылада не прыватная"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Вашы дзеянні і даныя"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ваш IT-адміністратар можа праглядаць вашы даныя і дзеянні на гэтай прыладзе."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Дазволы праграм"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Ваш ІТ-адміністратар можа даць праграмам доступ да налад на гэтай прыладзе, у тым ліку да мікрафона, камеры і даных пра месцазнаходжанне."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ваша прылада наладжваецца…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Карыстайцеся гэтай прыладай, каб мець хуткі доступ да працоўных праграм. Гэта прылада не прыватная, таму ваш IT-адміністратар можа праглядаць на ёй даныя і дзеянні Каб даведацца больш, звярніцеся да IT-адміністратара."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Працоўныя праграмы захаваны ў працоўным профілі і кіруюцца адміністратарам"</string>

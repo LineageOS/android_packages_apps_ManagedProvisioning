@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Μη ολοκληρωμένη ρύθμιση χρήστη"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Χρήστης συσκευής εργασίας"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Ρύθμιση συσκευής εργασίας..."</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Επεξεργασία δεδομένων ρύθμισης…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Σύνδεση με Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Σύνδεση σε δίκτυο κινητής τηλεφωνίας…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Λήψη εφαρμογής διαχείρισης…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Εγκατάσταση εφαρμογής διαχείρισης…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Κατάργηση μη απαιτούμενων εφαρμ. συστήματος…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Προσθήκη τελευταίων στοιχείων…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Ρύθμιση του κατόχου της συσκευής…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Αρχικοποίηση συσκευής…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Αυτή η συσκευή δεν επιτρέπει κρυπτογράφηση που απαιτείται για τη ρύθμιση. Για βοήθεια, επικοινωνήστε με τον διαχειριστή IT σας."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Διακοπή ρύθμισης και επαναφορά της συσκευής;"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Με αυτή την ενέργεια, θα γίνει επαναφορά της συσκευής και θα επιστρέψετε στην αρχική οθόνη"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Ας ρυθμίσουμε τη συσκευή εργασίας σας"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Διατηρήσετε στη διάθεσή σας τις εφαρμογές εργασίας σας"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Αυτή η συσκευή δεν είναι ιδιωτική"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Η δραστηριότητα και τα δεδομένα σας"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Άδειες εφαρμογών"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Ο διαχειριστής IT μπορεί να επιτρέψει στις εφαρμογές να έχουν πρόσβαση στις ρυθμίσεις σε αυτήν τη συσκευή, συμπεριλαμβανομένου του μικροφώνου, της κάμερας και της τοποθεσίας."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ρύθμιση της συσκευής σας…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Χρησιμοποιήστε αυτήν τη συσκευή για εύκολη πρόσβαση στις εφαρμογές εργασίας σας. Αυτή η συσκευή δεν είναι ιδιωτική, επομένως ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας. Για να μάθετε περισσότερα, επικοινωνήστε με τον διαχειριστή IT σας."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Οι εφαρ. είναι στο προφίλ σας και ελέγχ. από τον διαχ/στή."</string>

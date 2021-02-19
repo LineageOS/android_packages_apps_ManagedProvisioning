@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configurarea utilizatorului nu s-a finalizat"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utilizatorul dispozitivului de serviciu"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Se configurează dispozitivul..."</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Se procesează datele de configurare..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Se conectează la Wi-Fi..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Se conectează la rețeaua mobilă…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Se descarcă aplicația de administrare..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"Se instalează aplicația de administrare..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Se elimină aplicațiile de sistem nenecesare…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Se adaugă ultimele setări…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Se setează proprietarul dispozitivului..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Se inițializează dispozitivul…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Acest dispozitiv nu permite criptarea, care este necesară pentru configurare. Pentru ajutor, contactați administratorul IT."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Opriți configurarea și resetați dispozitivul?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Astfel veți reseta dispozitivul și veți reveni la primul ecran"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Să configurăm dispozitivul de serviciu"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Păstrați aplicațiile de serviciu la îndemână"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Dispozitivul nu este privat"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Activitatea și datele dvs."</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Administratorul IT poate vedea datele și activitatea de pe acest dispozitiv."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Permisiuni pentru aplicații"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Administratorul IT poate permite aplicațiilor să acceseze setări de pe acest dispozitiv, inclusiv microfonul, camera și locația."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Se configurează dispozitivul…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Folosiți acest dispozitiv pentru a accesa cu ușurință aplicațiile de serviciu. Acest dispozitiv nu este privat, iar administratorul IT vă poate vedea datele și activitatea. Pentru a afla mai multe, contactați administratorul IT."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplicațiile de serviciu se află în profilul de serviciu, gestionate de administratorul IT"</string>

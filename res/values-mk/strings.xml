@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Поставувањето корисник е нецелосно"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Корисник на работен уред"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Се поставува работен уред…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Податоците за поставување се обработуваат..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Се поврзува на Wi-Fi..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Се поврзува со мобилна мрежа…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Администраторската апликација се презема..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"Администраторската апликација се инсталира..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Отстранување непотребни системски апликации…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Додавање крајни финеси…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Се поставува сопственикот на уредот..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Уредот се иницијализира…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Уредов не дозволува шифрирање, а тоа е потребно за поставување. За помош, контактирајте со вашиот IT-администратор."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Да се сопре поставувањето и да се ресетира уредот?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Со ова уредот ќе се ресетира и ќе се врати на првиот екран"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Ајде да го поставиме вашиот работен уред"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Имајте лесен пристап до работните апликации"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Уредов не е приватен"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Вашата активност и податоците"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста на уредов."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Дозволи за апликации"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Вашиот IT-администратор може да им дозволи на апликациите да пристапуваат до поставките на уредов, вклучувајќи ги оние за микрофонот, камерата и локацијата."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Уредот се поставува…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Користете го уредов за лесен пристап до работните апликации. Уредов не е приватен, па затоа вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста. За да дознаете повеќе, контактирајте со вашиот IT-администратор."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Работните апликации се чуваат во работниот профил и со нив управува IT-администраторот"</string>

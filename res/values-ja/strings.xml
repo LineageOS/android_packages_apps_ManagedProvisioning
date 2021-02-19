@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ユーザー設定が完了していません"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"業務用デバイスのユーザー"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"仕事用デバイスを設定中…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"セットアップデータを処理しています…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fiに接続しています…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"モバイル ネットワークに接続しています…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"管理アプリをダウンロードしています…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"管理アプリをインストールしています…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"不要なシステムアプリを削除しています…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"最終調整を行っています…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"デバイスの所有者を設定しています…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"デバイスを初期化しています…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"このデバイスではセットアップに必要な暗号化が許可されていません。詳しくは、IT 管理者にお問い合わせください。"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"デバイスのセットアップとリセットの停止"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"これで、デバイスが初期状態にリセットされて最初の画面に戻ります"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"仕事用のデバイスをセットアップしましょう"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"簡単に仕事用アプリにアクセス"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"このデバイスは非公開ではありません"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"あなたのアクティビティとデータ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"アプリの権限"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT 管理者は、このデバイスの設定（マイク、カメラ、位置情報を含む）にアクセスする権限をアプリに付与できます。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"デバイスをセットアップしています…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"このデバイスを使用して仕事用アプリに簡単にアクセスできます。このデバイスは非公開ではないため、IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。詳しくは、IT 管理者にお問い合わせください。"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者が管理します"</string>

@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"အသုံးပြုသူ ပြင်ဆင်သတ်မှတ်မှု မပြီးစီးပါ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"အလုပ်စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ်နေပါသည်…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"ဖွဲ့စည်းပုံအချက်အလက်ကို စီမံဆောင်ရွက်နေသည်..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ကြိုးမဲ့အင်တာနက်သို့ ချိတ်ဆက်နေသည်..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"မိုဘိုင်းကွန်ရက်သို့ ချိတ်ဆက်နေသည်…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ဒေါင်းလုဒ်လုပ်နေသည်..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"စီမံအုပ်ချုပ်သူ အပ်ဖ်ကို ထည့်သွင်းနေသည်..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"မလိုအပ်သည့် စနစ်အက်ပ်များကို ဖယ်ရှားနေသည်…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"အပြီးသတ်ပြင်ဆင်မှုများ ပြုလုပ်နေသည်…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"စက်ပစ္စည်းပိုင်ရှင်ကို အသင့်သုံးနိုင်ရန်စီစဉ်နေသည်..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"စက်ပစ္စည်းကို စတင်နေသည်…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ဤစက်ပစ္စည်းသည် စနစ်ထည့်သွင်းမှုအတွက် လိုအပ်သည့် အသွင်ဝှက်ခြင်းကို ခွင့်မပြုပါ။ အကူအညီရယူရန် သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"စနစ်ထည့်သွင်းမှုကိုရပ်ပြီး စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ် လိုပါသလား။"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"၎င်းသည် သင်၏ စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ်ပြီး ပထမဆုံးစာမျက်နှာသို့ ပြန်ပို့ပေးပါမည်"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"သင့်အလုပ်သုံး စက်ပစ္စည်းကို စနစ်ထည့်သွင်းရအောင်"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူသုံးနိုင်အောင် ပြုလုပ်ပါ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်ပါ"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"သင့်လုပ်ဆောင်ချက်နှင့် ဒေတာ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"အက်ပ်ခွင့်ပြုချက်များ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"သင့် IT စီမံခန့်ခွဲသူသည် မိုက်ခရိုဖုန်း၊ ကင်မရာနှင့် တည်နေရာ အပါအဝင် ဤစက်ပေါ်ရှိ ဆက်တင်များကို သုံးရန် အက်ပ်များကို ခွင့်ပြုနိုင်သည်။"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"သင့်စက်ပစ္စည်း စနစ်ထည့်သွင်းနေသည်…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။ ပိုမိုလေ့လာရန် သင့် IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်အက်ပ်များကို အလုပ်ပရိုဖိုင်တွင်သိမ်းထားပြီး IT စီမံသူက ထိန်းချုပ်သည်"</string>

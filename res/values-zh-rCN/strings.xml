@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"用户设置未完成"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作设备的用户"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"正在设置工作设备…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"正在处理设置数据…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在连接到 WLAN 网络…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"正在连接到移动网络…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"正在下载管理应用…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"正在安装管理应用…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"正在移除不需要的系统应用…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"正在进行最后几项设置…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"正在设置设备所有者…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"正在初始化设备…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"此设备不支持加密功能，但如果不进行加密就无法完成设置。如需帮助，请与您的 IT 管理员联系。"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"要停止设置并重置设备吗？"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"此操作将重置您的设备，您将会回到首屏画面"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"请设置您的工作用设备"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"让您的工作应用触手可及"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"此设备并非私人设备"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"您的活动记录和数据"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"您的 IT 管理员或许可以查看您在此设备上的数据和活动。"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"应用权限"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"您的 IT 管理员可允许应用访问此设备上的设置，包括麦克风、相机和位置信息设置。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在设置您的设备…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"使用此设备可轻松访问您的工作应用。此设备并非私人设备，因此，您的 IT 管理员或许可以查看您的数据和活动。如需了解详情，请与您的 IT 管理员联系。"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作应用会保存在您的工作资料中，并由您的 IT 管理员管理"</string>

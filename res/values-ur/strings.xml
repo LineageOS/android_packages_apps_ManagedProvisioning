@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"صارف سیٹ اپ نا مکمل ہے"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"کام کے آلہ کا صارف"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"دفتری آلہ ترتیب دیا جا رہا ہے…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"سیٹ اپ ڈیٹا پر کارروائی کی جا رہی ہے…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏Wi-Fi سے منسلک ہو رہا ہے…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"موبائل نیٹ ورک سے منسلک کیا جا رہا ہے…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"منتظم کی ایپ ڈاؤن لوڈ ہو رہی ہے…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"منتظم کی ایپ انسٹال ہو رہی ہے…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"غیر مطلوبہ سسٹم ایپس ہٹائی جا رہی ہیں…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"حتمی شکل دی جا رہی ہے…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"آلہ کا مالک سیٹ کیا جا رہا ہے…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"آلہ شروع ہو رہا ہے…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"‏یہ آلہ سیٹ اپ کے لیے درکار مرموز کاری کی اجازت نہیں دیتا ہے۔ مدد کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"سیٹ اپ روکیں اور آلہ کو ری سیٹ کریں؟"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"یہ آپ کے آلے کو ری سیٹ کر دے گا اور آپ واپس پہلی اسکرین پر چلے جائیں گے"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"آئیے آپ کا دفتری آلہ سیٹ اپ کریں"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"اپنی دفتری ایپس کو اپنے لیے بآسانی قابل رسائی بنائيں"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"یہ آلہ نجی نہیں ہے"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"آپ کی سرگرمی اور ڈیٹا"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ایپ کی اجازتیں"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"‏آپ کا IT منتظم ایپس کو بشمول مائیکروفون، کیمرا اور مقام اس آلہ کی ترتیبات تک رسائی کی اجازت دے سکتا ہے۔"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"آپ کا آلہ سیٹ اپ کیا جا رہا ہے…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏اپنی دفتری ایپس تک آسانی سے رسائی حاصل کرنے کے لیے یہ آلہ استعمال کریں۔ یہ آلہ نجی نہیں ہے، اس لیے آپ کا IT منتظم آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔ مزید جاننے کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏دفتری ایپس آپکی دفتری پروفائل میں IT منتظم کے زیر انتظام ہوتی ہیں"</string>

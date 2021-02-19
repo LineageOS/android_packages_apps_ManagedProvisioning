@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Postavljanje korisnika nije dovršeno"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik radnog uređaja"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Postavljanje radnog uređaja…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Obrada podataka o postavljanju…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Povezivanje s Wi-Fijem…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezivanje s mobilnom mrežom…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Preuzimanje administratorske aplikacije…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Instaliranje administratorske aplikacije…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Brisanje aplikacija sustava koje nisu nužne…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Dodavanje završnih detalja…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Postavljanje vlasnika uređaja…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Inicijalizacija uređaja…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Ovaj uređaj ne dopušta enkripciju koja je potrebna za postavljanje. Ako vam je potrebna pomoć, obratite se IT administratoru."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Želite li zaustaviti postavljanje i vratiti uređaj na zadano?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Uređaj će se vratiti na tvorničke postavke i na prvi zaslon"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Postavimo vaš radni uređaj"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Zadržite radne aplikacije nadohvat ruke"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Ovaj uređaj nije privatan"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Vaše aktivnosti i podaci"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Vaš IT administrator možda može vidjeti vaše podatke i aktivnosti na ovom uređaju."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Dopuštenja aplikacije"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Vaš IT administrator može dopustiti aplikacijama da pristupe postavkama na ovom uređaju, uključujući mikrofon, fotoaparat i lokaciju."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Postavljanje uređaja…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Na ovom uređaju možete lako pristupati radnim aplikacijama. Ovaj uređaj nije privatan, pa vaš IT administrator možda može vidjeti vaše podatke i aktivnosti. Da biste saznali više, obratite se IT administratoru."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije nalaze se na vašem poslovnom profilu i njima upravlja IT administrator"</string>

@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"إعداد حساب المستخدم غير مكتمل"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"مستخدم جهاز العمل"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"جارٍ إعداد جهاز العمل…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"جارٍ معالجة بيانات الإعداد…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏جارٍ الاتصال بشبكة Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"جارٍ الاتصال بشبكة جوّال…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"جارٍ تنزيل تطبيق المشرف…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"جارٍ تثبيت تطبيق المشرف…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"جارٍ إزالة تطبيقات النظام غير المطلوبة…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"جارٍ وضع اللمسات النهائية…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"جارٍ تعيين مالك الجهاز..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"جارٍ إعداد الجهاز…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"لا يسمح هذا الجهاز بالتشفير، وهو أمر لازم للإعداد. يمكنك التواصل مع مشرف تكنولوجيا المعلومات للحصول على مساعدة."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"هل تريد إيقاف الإعداد وإعادة ضبط الجهاز؟"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"سيؤدي هذا إلى إعادة ضبط جهازك ورجوعك إلى الشاشة الأولى"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"حان وقت إعداد جهاز العمل."</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"التحكم بسهولة في تطبيقات العمل"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"هذا الجهاز ليس خاصًا."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"النشاط والبيانات"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"أذونات التطبيقات"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"يمكن أن يسمح مشرف تكنولوجيا المعلومات للتطبيقات بالوصول إلى الإعدادات على هذا الجهاز، بما في ذلك إعدادات الميكروفون والكاميرا والموقع الجغرافي."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"جارٍ إعداد جهازك…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"يمكنك استخدام هذا الجهاز للوصول سريعًا إلى تطبيقات العمل. هذا الجهاز ليس خاصًا، ولذلك قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك. لمعرفة مزيد من المعلومات، يمكنك التواصل مع مشرف تكنولوجيا المعلومات."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"يُحتفظ بتطبيقات العمل بالملف الشخصي للعمل ويُديرها مشرف تقنية المعلومات"</string>

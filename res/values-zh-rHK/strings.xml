@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"使用者設定未完成"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"工作裝置的使用者"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"正在設定工作裝置…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"正在處理設定資料…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"正在連線至 Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"正在連線至流動網絡…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"正在下載管理員應用程式…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"正在安裝管理員應用程式…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"正在移除非必要的系統應用程式…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"正在完成設定…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"正在設定裝置擁有者…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"正在初始化裝置…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"此裝置不允許加密，而裝置需要加密方可設定。如需協助，請聯絡您的 IT 管理員。"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"要停止設定和重設裝置嗎？"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"您的裝置將會重設，螢幕將會轉至起始畫面"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"現在開始設定您的工作裝置"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"讓您的工作應用程式觸手可及"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"此裝置並非私人裝置"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"您的活動和資料"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"您的 IT 管理員或可查看您在此裝置上的資料和活動。"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"應用程式權限"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"您的 IT 管理員可允許應用程式存取此裝置上的設定，包括麥克風、相機和位置。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在設定您的裝置…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"用呢部裝置可以幫您輕鬆存取工作應用程式。呢部裝置唔係私人裝置，所以您嘅 IT 管理員可能會睇到您嘅資料同活動。如果需要瞭解詳情，請聯絡您嘅 IT 管理員。"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式儲存於工作設定檔，並由 IT 管理員管理"</string>

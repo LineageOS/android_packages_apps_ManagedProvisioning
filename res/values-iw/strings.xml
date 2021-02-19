@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"הגדרת המשתמש אינה מלאה"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"משתמש של מכשיר עבודה"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"המערכת מגדירה מכשיר לעבודה…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"מעבד נתונים להגדרה…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"‏מתחבר ל-Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"מתחבר לרשת סלולרית…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"מוריד את אפליקציית הניהול…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"מתקין את אפליקציית הניהול…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"מסיר אפליקציות מערכת שאינן נחוצות…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"מוסיף ליטושים אחרונים..."</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"מגדיר את בעל המכשיר…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"מאתחל את המכשיר…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"‏המכשיר הזה לא מתיר הצפנה, והיא נחוצה להגדרה. לקבלת עזרה כדאי ליצור קשר עם מנהל ה-IT."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"להפסיק את ההגדרה ולאפס את המכשיר?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"פעולה זו תאפס את המכשיר להגדרות היצרן ותחזיר אותך למסך הראשון"</string>
@@ -175,7 +166,13 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"נתחיל להגדיר את מכשיר העבודה שלך"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"אפשר לשמור את אפליקציות העבודה במקום נגיש"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"המכשיר הזה אינו פרטי"</string>
+    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
+    <skip />
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה."</string>
+    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
+    <skip />
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"מגדיר את המכשיר שלך…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏אפשר להשתמש במכשיר הזה כדי לגשת בקלות אל אפליקציות העבודה. המכשיר הזה אינו פרטי, כך שייתכן כי מנהל ה-IT יכול לראות את הנתונים והפעילות שלך. כדי לקבל מידע נוסף יש לפנות אל מנהל ה-IT."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות לעבודה מאוחסנות בפרופיל שלך ומנוהלות על ידי מנהל ה-IT"</string>

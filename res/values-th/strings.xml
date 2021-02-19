@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"การตั้งค่าผู้ใช้ไม่สมบูรณ์"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ผู้ใช้อุปกรณ์ในการทำงาน"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"กำลังตั้งค่าอุปกรณ์ที่ทำงาน…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"กำลังดำเนินการกับข้อมูลการตั้งค่า…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"กำลังเชื่อมต่อ Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"กำลังเชื่อมต่อเครือข่ายมือถือ…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"กำลังดาวน์โหลดแอปผู้ดูแลระบบ…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"กำลังติดตั้งแอปผู้ดูแลระบบ…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"กำลังนำแอประบบที่ไม่จำเป็นออก…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"กำลังตกแต่งขั้นสุดท้าย…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"กำลังตั้งค่าเจ้าของอุปกรณ์…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"กำลังเริ่มต้นอุปกรณ์…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"อุปกรณ์นี้ไม่อนุญาตการเข้ารหัสลับซึ่งจำเป็นสำหรับการตั้งค่า โปรดติดต่อผู้ดูแลระบบไอทีเพื่อรับความช่วยเหลือ"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"หยุดตั้งค่าและรีเซ็ตอุปกรณ์ไหม"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"การดำเนินการนี้จะรีเซ็ตอุปกรณ์และนำคุณกลับสู่หน้าจอแรก"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"มาตั้งค่าอุปกรณ์สำหรับการทำงานกัน"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปการทำงานได้ด้วยปลายนิ้ว"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"อุปกรณ์นี้ไม่เป็นส่วนตัว"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"กิจกรรมและข้อมูลของคุณ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"สิทธิ์ของแอป"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ผู้ดูแลระบบไอทีอนุญาตให้แอปเข้าถึงการตั้งค่าในอุปกรณ์นี้ได้ ซึ่งรวมถึงไมโครโฟน กล้อง และตำแหน่ง"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"กำลังตั้งค่าอุปกรณ์…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ใช้อุปกรณ์นี้เพื่อเข้าถึงแอปการทำงานได้ง่ายๆ นี่ไม่ใช่อุปกรณ์ส่วนตัว ดังนั้นผู้ดูแลระบบไอทีจึงอาจดูข้อมูลและกิจกรรมของคุณได้ โปรดติดต่อผู้ดูแลระบบไอทีเพื่อดูข้อมูลเพิ่มเติม"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"แอปงานเก็บอยู่ในโปรไฟล์งานและจัดการโดยผู้ดูแลระบบไอที"</string>

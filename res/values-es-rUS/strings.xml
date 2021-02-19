@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configuración de usuario incompleta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Usuario de dispositivo de trabajo"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Configurando el dispositivo de trabajo…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Procesando los datos de configuración…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Conectando a Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Estableciendo conexión con red móvil…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Descargando la aplicación de administración…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Instalando la aplicación de administración…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Quitando apps del sistema no necesarias…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Últimos retoques…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Configurando propietario del dispositivo…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Iniciando dispositivo…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Este dispositivo no permite la encriptación, que es necesaria para la configuración. Para obtener ayuda, comunícate con tu administrador de TI."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"¿Detener configuración y restablecer dispositivo?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Este proceso restablecerá tu dispositivo y regresarás a la primera pantalla"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos a configurar tu dispositivo de trabajo"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Mantén tus apps de trabajo a tu alcance"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo no es privado"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Tu actividad y tus datos"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Es posible que el administrador de TI pueda ver tus datos y tu actividad en este dispositivo."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Permisos de apps"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Tu administrador de TI puede permitir que las apps accedan a la configuración de este dispositivo, lo que incluye el micrófono, la cámara y la ubicación."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando tu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Usa este dispositivo para acceder fácilmente a tus apps de trabajo. Este dispositivo no es privado, por lo que es posible que el administrador de TI pueda ver tus datos y tu actividad. Para obtener más información, comunícate con tu administrador de TI."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"El administrador de TI administra las apps de trabajo que se guardan en tu perfil"</string>

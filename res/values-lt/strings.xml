@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Naudotojo sąranka nebaigta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Darbo įrenginio naudotojas"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Nustatomas darbo įrenginys…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Apdorojami sąrankos duomenys..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Prisijungiama prie „Wi-Fi“..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Prisijungiama prie mobiliojo ryšio tinklo…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Atsisiunčiama administratoriaus programa..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"Diegiama administratoriaus programa..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Šalinamos nebūtinos sistemos programos…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Baigiama…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Nustatomas įrenginio savininkas..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Inicijuojamas įrenginys…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Šiame įrenginyje neleidžiama naudoti šifruotės, kuri reikalinga atliekant sąranką. Jei reikia pagalbos, susisiekite su IT administratoriumi."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Sustabdyti sąranką ir atkurti įrenginio gamyklinius nustatymus?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Tai atlikus bus atkurti gamykliniai įrenginio duomenys ir jūs būsite nukreipti į pirmąjį ekraną"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Nustatykime jūsų darbo įrenginį"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Lengvai pasiekite savo darbo programas"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Šis įrenginys nėra privatus"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Jūsų aktyvumas ir duomenys"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Jūsų IT administratorius gali peržiūrėti jūsų duomenis ir veiklą šiame įrenginyje."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Programos leidimai"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT administratorius gali leisti programoms pasiekti šio įrenginio nustatymus, įskaitant mikrofono, fotoaparato ir vietovės."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Nustatomas įrenginys…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Naudokite šį įrenginį, kad lengvai pasiektumėte darbo programas. Šis įrenginys nėra privatus, todėl IT administratorius gali peržiūrėti jūsų duomenis ir veiklą. Jei norite sužinoti daugiau, susisiekite su savo IT administratoriumi."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Darbo programos saugomos darbo profilyje ir jas tvarko IT administratorius"</string>

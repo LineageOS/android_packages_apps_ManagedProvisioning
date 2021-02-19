@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Användarkonfigureringen har inte slutförts"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Person som använder en arbetsenhet"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Konfigurera jobbenheten …"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Bearbetar konfigurationsdata …"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Ansluter till Wi-Fi …"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Ansluter till mobilt nätverk …"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Laddar ned administrationsappen …"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installerar administrationsappen …"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Tar bort systemappar som inte är nödvändiga …"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Gör klart det sista …"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Ställer in enhetsägare …"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Enheten initieras …"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Kryptering krävs för att konfigurera, men enheten har inte stöd för kryptering. Kontakta IT-administratören om du behöver hjälp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Vill du avbryta konfigurationen och återställa enheten?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Enheten återställs och första skärmen visas igen"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Sätt igång att konfigurera jobbenheten"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ha jobbapparna nära till hands"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Enheten är inte privat"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Din aktivitet och data"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-administratören kanske kan visa din aktivitet och data på enheten."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Appbehörigheter"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT-administratören tillåter inte att appar får åtkomst till inställningar på den här enheten, till exempel för mikrofon, kamera och plats."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerar enheten …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Få enkelt åtkomst till dina jobbappar på den här enheten. Enheten är inte privat, så IT-administratören kanske kan se din aktivitet och data på enheten. Kontakta IT-administratören om du vill veta mer."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Jobbappar i jobbprofilen hanteras av IT-administratören"</string>

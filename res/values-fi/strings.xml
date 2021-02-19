@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Määritys ei ole valmis"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Työpaikan laitteen käyttäjä"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Määritetään työlaitetta…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Käsitellään määritystietoja…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Muodostetaan Wi-Fi-yhteyttä…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Yhdistetään mobiiliverkkoon…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Ladataan hallintasovellusta…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Asennetaan hallintasovellusta…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Poistetaan valinnaisia järjestelmäsovelluksia"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Viimeistellään…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Määritetään laitteen omistajaa…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Alustetaan laitetta…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Määrittäminen edellyttää salaamista, mutta laite ei salli sitä. Pyydä apua IT-järjestelmänvalvojalta."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Lopetetaanko määritys ja palautetaanko laite?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Tämä palauttaa laitteesi tehdasasetukset ja vie sinut asennuksen alkuun."</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Määritetään työlaitteesi"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Pidä työsovellukset ulottuvillasi"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Tämä laite ei ole yksityinen"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Toimintasi ja datasi"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Sovellusluvat"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Järjestelmänvalvoja voi sallia sovelluksille pääsyn laitteen asetuksiin, esim. mikrofoniin, kameraan ja sijaintiin."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Määritetään laitetta…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi. Pyydä lisätietoja IT-järjestelmänvalvojalta."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Työsovellukset ovat työprofiilissa ja ne ovat IT- järjestelmänvalvojan ylläpitämiä"</string>

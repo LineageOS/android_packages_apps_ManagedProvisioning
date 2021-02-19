@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ການ​ຕັ້ງ​ຜູ້​ໃຊ້​ບໍ່​ສຳ​ເລັດ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"​​ຜູ່​ໃຊ້​ອຸ​ປະ​ກອນ​ບ່ອນ​ເຮັດ​ວຽກ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ກຳລັງຕັ້ງຄ່າອຸປະກອນບ່ອນເຮັດວຽກ..."</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"ກຳ​ລັງ​ປະ​ມວນ​ຜົນ​ຂໍ້​ມູນ​ການ​ຕັ້ງ​ຄ່າ..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ກຳ​ລັງ​ເຊື່ອມ​ຕໍ່​ກັ​ບ Wi-Fi..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"ກຳລັງເຊື່ອມຕໍ່ຫາເຄືອຂ່າຍມືຖື…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"ກຳ​ລັງ​ດາວ​ໂຫລດ​ແອັບຯ​ຜູ້ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"ກຳ​ລັງ​ຕິດ​ຕັ້ງ​ແອັບຯ​ຜູ້​ຄວບ​ຄຸມ​ລະ​ບົບ..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"ກຳລັງລຶບແອັບລະບົບທີ່ບໍ່ຕ້ອງໃຊ້ອອກ…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"ກຳລັງດຳເນີນຂັ້ນຕອນສຸດທ້າຍ…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"ກຳ​ລັງ​ຕັ້ງ​ຄ່າ​ເຈົ້າ​ຂອງ​ອຸ​ປະ​ກອນ..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"ກຳລັງເລີ່ມຕົ້ນອຸປະກອນ…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ອຸປະກອນນີ້ບໍ່ອະນຸຍາດໃຫ້ເຂົ້າລະຫັດ, ເຊິ່ງຈຳເປັນຕ້ອງໃຊ້ສຳລັບການຕັ້ງຄ່າ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານ."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"ຢຸດການຕັ້ງຄ່າ ແລ້ວຣີເຊັດອຸປະກອນບໍ?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ນີ້ຈະເປັນການຣີເຊັດອຸປະກອນຂອງທ່ານ ແລະ ພາທ່ານໄປໜ້າຈໍຫຼັກ"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ມາຕັ້ງຄ່າອຸປະກອນບ່ອນເຮັດວຽກຂອງທ່ານກັນ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ເກັບຮັກສາແອັບວຽກຂອງທ່ານໄວ້ປາຍນິ້ວຂອງທ່ານ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ອຸປະກອນນີ້ບໍ່ແມ່ນອຸປະກອນສ່ວນຕົວ"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ການເຄື່ອນໄຫວ ແລະ ຂໍ້ມູນຂອງທ່ານ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານສາມາດເບິ່ງຂໍ້ມູນ ແລະ ການເຄື່ອນໄຫວຂອງທ່ານຢູ່ອຸປະກອນນີ້ໄດ້."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ການອະນຸຍາດແອັບ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານສາມາດອະນຸຍາດໃຫ້ແອັບເຂົ້າເຖິງການຕັ້ງຄ່າຢູ່ອຸປະກອນນີ້ໄດ້, ຮວມທັງໄມໂຄຣໂຟນ, ກ້ອງຖ່າຍຮູບ ແລະ ສະຖານທີ່."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ການຕັ້ງອຸປະກອນຂອງທ່ານ…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ໃຊ້ອຸປະກອນນີ້ເພື່ອເຂົ້າເຖິງແອັບວຽກຂອງທ່ານໄດ້ຢ່າງງ່າຍດາຍ. ອຸປະກອນນີ້ບໍ່ແມ່ນອຸປະກອນສ່ວນຕົວ, ດັ່ງນັ້ນຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານສາມາດເບິ່ງເຫັນຂໍ້ມູນ ແລະ ການເຄື່ອນໄຫວຂອງທ່ານໄດ້. ເພື່ອສຶກສາເພີ່ມເຕີມ, ກະລຸນາຕິດຕໍ່ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານ."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ແອັບວຽກຈະຖືກເກັບໄວ້ໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານ ແລະ ຈັດການໂດຍຜູ້ເບິ່ງແຍງລະບົບໄອທີຂອງທ່ານ"</string>

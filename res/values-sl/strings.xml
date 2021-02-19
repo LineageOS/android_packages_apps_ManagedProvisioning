@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Nastavitev uporabnika ni dokončana"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Uporabnik delovne naprave"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Nastavljanje delovne naprave …"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Obdelava podatkov za nastavitev …"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Vzpostavljanje povezave z omrežjem Wi-Fi …"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Povezovanje z mobilnim omrežjem …"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Prenašanje skrbniške aplikacije …"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Nameščanje skrbniške aplikacije …"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Odstranjevanje neobveznih sistem. aplikacij …"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Urejanje zadnjih podrobnosti …"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Nastavljanje lastnika naprave …"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Inicializiranje naprave …"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Ta naprava ne dovoljuje šifriranja, ki je potrebno za nastavitev. Za pomoč se obrnite na skrbnika za IT."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Želite ustaviti nastavljanje in ponastaviti napravo?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"S tem bo naprava ponastavljena in prikazan bo prvotni zaslon."</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Nastavimo vašo službeno napravo"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Delovne aplikacije imejte na dosegu prstov"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Ta naprava ni zasebna"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Vaša dejavnost in podatki"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Skrbnik za IT bo morda lahko videl podatke in dejavnost v tej napravi."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Dovoljenja za aplikacije"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Skrbnik za IT lahko aplikacijam v tej napravi dovoli dostop do nastavitev, vključno z mikrofonom, fotoaparatom in lokacijo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Nastavljanje naprave …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"S to napravo lahko preprosto dostopate do delovnih aplikacij. Ta naprava ni zasebna, zato bo skrbnik za IT morda lahko videl vaše podatke in dejavnost. Če želite izvedeti več, se obrnite na skrbnika za IT."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Delovne aplikacije so shranjene v delovnem profilu, upravlja pa jih skrbnik za IT"</string>

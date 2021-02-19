@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Instellen van gebruikers niet voltooid"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van zakelijk apparaat"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Werkapparaat instellen…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Configuratiegegevens verwerken…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Verbinding maken met wifi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Verbinding maken met mobiel netwerk…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"De beheer-app downloaden…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"De beheer-app installeren…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Niet-vereiste systeemapps verwijderen…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Nog even de puntjes op de i zetten…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"De eigenaar van het apparaat instellen…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Apparaat initialiseren…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Op dit apparaat is versleuteling niet toegestaan, wat is vereist voor het instellen. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Instellen stoppen en apparaat resetten?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Hiermee wordt je apparaat gereset en ga je terug naar het eerste scherm"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Laten we je werkapparaat instellen"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Houd je werk-apps binnen handbereik"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Dit is geen privéapparaat"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Je activiteit en gegevens"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"App-rechten"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Je IT-beheerder kan apps toegang geven tot instellingen op dit apparaat, waaronder de microfoon, camera en locatie."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Je apparaat instellen…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gebruik dit apparaat voor eenvoudige toegang tot je werk-apps. Dit is geen privéapparaat, dus je IT-beheerder kan mogelijk je gegevens en activiteit bekijken. Neem voor meer informatie contact op met je IT-beheerder."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werk-apps worden in je werkprofiel bewaard en beheerd door je IT-beheerder"</string>

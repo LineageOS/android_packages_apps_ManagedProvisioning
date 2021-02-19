@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ব্যবহারকারীর সেট-আপ সম্পূর্ণ হয়নি"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"কর্মস্থলের ডিভাইসের ব্যবহারকারী"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"কর্মস্থলের ডিভাইস সেট-আপ করা হচ্ছে…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"সেটআপ ডেটার প্রক্রিয়া হচ্ছে..."</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"ওয়াই-ফাই -এ সংযুক্ত হচ্ছে..."</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"মোবাইল নেটওয়ার্কে কানেক্ট করা হচ্ছে…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"প্রশাসক অ্যাপ্লিকেশান ডাউনলোড হচ্ছে..."</string>
-    <string name="progress_install" msgid="2258045670385866183">"প্রশাসক অ্যাপ্লিকেশান ইনস্টল হচ্ছে..."</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"অ-প্রয়োজনীয় সিস্টেম অ্যাপ্সকে সরানো হচ্ছে…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"শেষের কয়েকটি জিনিস যোগ করা হচ্ছে…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"ডিভাইসের মালিক সেট করা হচ্ছে..."</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"ডিভাইস আরম্ভ করা হচ্ছে…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"এই ডিভাইসে এনক্রিপশন কাজ করে না যা সেট-আপ করার জন্য প্রয়োজনীয়। সাহায্যের জন্য আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"সেট-আপ বন্ধ করে ডিভাইসটি আবার সেট করবেন?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"এটি আপনার ডিভাইসকে আবার সেট করে আপনাকে প্রথম স্ক্রিনে নিয়ে যাবে"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"আপনার অফিসের ডিভাইস সেট-আপ করা যাক"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"অফিসের অ্যাপ আপনার হাতের কাছে রাখুন"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"এই ডিভাইস ব্যক্তিগত নয়"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"আপনার অ্যাক্টিভিটি এবং ডেটা"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন।"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"অ্যাপকে দেওয়া অনুমতি"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"মাইক্রোফোন, ক্যামেরা এবং লোকেশন ছাড়াও আপনার আইটি অ্যাডমিন এই ডিভাইসের সেটিংস অ্যাক্সেস করার জন্য অ্যাপকে অনুমতি দিতে পারবেন।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"আপনার ডিভাইস সেট-আপ করা হচ্ছে…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"আপনার অফিসের অ্যাপ সহজে অ্যাক্সেস করতে এই ডিভাইস ব্যবহার করুন। এই ডিভাইস ব্যক্তিগত নয়, তাই আপনার আইটি অ্যাডমিন আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন। আরও জানতে আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"অফিস অ্যাপগুলিকে অফিস প্রোফাইলে রাখা হয় এবং তা আপনার আইটি অ্যাডমিন ম্যানেজ করে"</string>

@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Gebruiker se opstelling is onvoltooid"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Gebruiker van werktoestel"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Stel tans werktoestel op …"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"Verwerk tans opstellingdata …"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Koppel tans aan Wi-Fi …"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Koppel tans aan mobiele netwerk …"</string>
-    <string name="progress_download" msgid="3522436271691064624">"Laai tans die administrasieprogram af …"</string>
-    <string name="progress_install" msgid="2258045670385866183">"Installeer tans die administrasieprogram …"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"Verwyder tans nie-vereiste stelselprogramme …"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"Doen tans afrondingswerk …"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"Stel tans die toesteleienaar …"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"Inisieer toestel tans …"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Hierdie toestel maak nie vir enkripsie voorsiening nie, wat vir opstelling nodig is. Kontak jou IT-administrateur vir hulp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Staak opstelling en stel toestel terug?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Dit sal jou toestel terugstel en jou na die eerste skerm terugneem"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Kom ons stel jou werktoestel op"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hou jou werkprogramme binne jou bereik"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Hierdie toestel is nie privaat nie"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Jou aktiwiteit en data"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Jou IT-administrateur kan dalk jou data en aktiwiteit op hierdie toestel sien."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Programtoestemmings"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Jou IT-admin kan programme toegang tot instellings op hierdie toestel gee, insluitend die mikrofoon, kamera en ligging."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Stel tans jou toestel op …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gebruik hierdie toestel om maklik toegang tot jou werkprogramme te kry. Hierdie toestel is nie privaat nie en jou IT-administrateur kan dalk jou data en aktiwiteit sien. Kontak jou IT-administrateur om meer te wete te kom."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werkprogramme word in jou werkprofiel gehou en deur jou IT-administrateur bestuur"</string>

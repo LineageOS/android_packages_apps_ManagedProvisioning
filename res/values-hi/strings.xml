@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"उपयोगकर्ता सेटअप अधूरा है"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"वर्क डिवाइस का उपयोगकर्ता"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"वर्क डिवाइस सेट अप किया जा रहा है…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"सेटअप डेटा संसाधित हो रहा है…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"वाई-फ़ाई से कनेक्ट हो रहा है…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"मोबाइल नेटवर्क से जोड़ा जा रहा है…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"नियंत्रक ऐप डाउनलोड हो रहा है…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"नियंत्रक ऐप इंस्टॉल हो रहा है…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"अनावश्यक सिस्टम ऐप्लिकेशन निकाले जा रहे हैं…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"अंतिम रूप दिया जा रहा है…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"डिवाइस स्वामी सेट किया जा रहा है…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"डिवाइस शुरू हो रहा है…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"यह डिवाइस सुरक्षित करने की अनुमति नहीं देता है, जो सेटअप के लिए ज़रूरी है. सहायता के लिए, अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"सेटअप रोकेंं और डिवाइस रीसेट करें?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"इससे आपका डिवाइस रीसेट हो जाएगा और आप वापस पहली स्क्रीन पर चले जाएंगे"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चलिए आपके काम से जुड़ा फ़ोन सेट अप करते हैं"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"काम के लिए इस्तेमाल किए जाने वाले ऐप्लिकेशन अपनी उंगली की नोक पर रखें"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"यह डिवाइस निजी नहीं है"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"आपकी गतिविधि और डेटा"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"आपका आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकता है."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ऐप्लिकेशन की अनुमतियां"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"आपका आईटी एडमिन, अलग-अलग ऐप्लिकेशन को इस डिवाइस की सेटिंग ऐक्सेस करने की अनुमति दे सकता है. इनमें माइक्रोफ़ोन, कैमरा, और जगह की जानकारी की सेटिंग का ऐक्सेस भी शामिल है."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"आपका डिवाइस सेट किया जा रहा है…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"इस डिवाइस का इस्तेमाल अपने काम से जुड़े ऐप्लिकेशन आसानी से ऐक्सेस करने के लिए करें. यह डिवाइस निजी नहीं है इसलिए आपके आईटी एडमिन आपका डेटा और गतिविधि देख सकते हैं. ज़्यादा जानने के लिए अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ऑफ़िस के काम के ऐप, वर्क प्रोफ़ाइल में रखे जाते हैं. इन्हें आईटी एडमिन प्रबंधित करता है"</string>

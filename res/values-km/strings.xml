@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ការដំឡើងអ្នកប្រើមិនពេញលេញ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"អ្នកប្រើ​ឧបករណ៍​ការងារ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"កំពុង​រៀប​ចំ​ឧបករណ៍ការងារ…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"កំពុងដំណើរការទិន្នន័យដំឡើង…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"កំពុងភ្ជាប់ទៅ Wi-Fi…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"កំពុង​ភ្ជាប់ទៅ​បណ្ដាញ​​ទូរសព្ទ​ចល័ត…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"កំពុងទាញយកកម្មវិធីគ្រប់គ្រង…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"កំពុងដំឡើងកម្មវិធីគ្រប់គ្រង…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"កំពុងលុបកម្មវិធីប្រព័ន្ធដែលមិនចាំបាច់…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"កំពុងបន្ថែមចំណុចកែសម្រួលចុងក្រោយ…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"កំពុងកំណត់ម្ចាស់ឧបករណ៍…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"កំពុងចាប់ផ្តើមឧបករណ៍…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ឧបករណ៍នេះ​មិន​អនុញ្ញាត​ការ​អ៊ីនគ្រីប ដែលចាំបាច់សម្រាប់ការរៀបចំទេ។ សូម​ទាក់ទង​អ្នក​គ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យា​របស់​អ្នក ដើម្បី​ទទួល​បាន​ជំនួយ។"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"បញ្ឈប់​ការរៀបចំ ហើយ​កំណត់​ឧបករណ៍​ឡើង​វិញ?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"វា​នឹង​កំណត់​ឧបករណ៍​របស់អ្នក​ឡើងវិញ រួច​នាំអ្នក​ត្រលប់​ទៅ​អេក្រង់​ដំបូង​វិញ"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"សូម​រៀបចំ​ឧបករណ៍​​ការងារ​របស់អ្នក"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"រក្សាកម្មវិធី​ការងារ​របស់អ្នកនៅចុងម្រាមដៃ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ឧបករណ៍​នេះ​មិនមាន​លក្ខណៈឯកជនទេ"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ទិន្នន័យ និងសកម្មភាព​របស់អ្នក"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ។"</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ការអនុញ្ញាតកម្មវិធី"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យា​របស់អ្នកអាចអនុញ្ញាតឱ្យ​កម្មវិធីចូលប្រើ​ការកំណត់នៅលើ​ឧបករណ៍នេះ រួមទាំងមីក្រូហ្វូន កាមេរ៉ា និងទីតាំង​ផងដែរ។"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"កំពុងរៀបចំឧបករណ៍របស់អ្នក…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ប្រើ​ឧបករណ៍​នេះ ដើម្បី​ចូលប្រើ​កម្មវិធី​ការងារ​របស់អ្នក​បានងាយស្រួល។ ឧបករណ៍​នេះ​មិន​មានលក្ខណៈឯកជន​ទេ ដូច្នេះ​អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាចមើលឃើញ​ទិន្នន័យ និងសកម្មភាព​របស់អ្នក។ ដើម្បី​ស្វែងយល់បន្ថែម សូមទាក់ទង​អ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"កម្មវិធីការងាររក្សាទុកក្នុងកម្រងព័ត៌មានការងារ និងគ្រប់គ្រងដោយអ្នកគ្រប់គ្រងព័ត៌មានវិទ្យា"</string>

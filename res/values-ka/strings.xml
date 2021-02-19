@@ -64,15 +64,6 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"მომხმარებლის ანგარიშის გამართვა ვერ მოხერხდა"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"სამუშაო მოწყობილობის მომხმარებელი"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"მიმდინარეობს სამსახურის მოწყობილობის დაყენება…"</string>
-    <string name="progress_data_process" msgid="1707745321954672971">"დაყენების მონაცემების დამუშავება…"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Wi-Fi-თან დაკავშირება…"</string>
-    <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"მიმდინარეობს მობილურ ქსელთან დაკავშირება…"</string>
-    <string name="progress_download" msgid="3522436271691064624">"ადმინისტრატორის აპის ჩამოტვირთვა…"</string>
-    <string name="progress_install" msgid="2258045670385866183">"ადმინისტრატორის აპის ინსტალაცია…"</string>
-    <string name="progress_delete_non_required_apps" msgid="7633458399262691256">"არასაჭირო სისტემური აპების ამოშლა…"</string>
-    <string name="progress_finishing_touches" msgid="9037776404089697198">"მიმდინარეობს ბოლო შტრიხების შეტანა…"</string>
-    <string name="progress_set_owner" msgid="8214062820093757961">"მოწყობილობის მფლობელის დაყენება…"</string>
-    <string name="progress_initialize" msgid="1104643492713424939">"მიმდინარეობს მოწყობილობის ინიცირება…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ამ მოწყობილობის მიერ მხარდაუჭერელია დაშიფვრა, რომელიც საჭიროა დაყენებისას. დახმარებისთვის დაუკავშირდით თქვენს IT ადმინისტრატორს."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"გსურთ დაყენების შეწყვეტა და მოწყობილობის გადაყენება?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ეს ქმედება გადააყენებს თქვენს მოწყობილობას და პირველ ეკრანს დაუბრუნდებით"</string>
@@ -175,7 +166,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"მოდით, გავმართოთ თქვენი სამუშაო მოწყობილობა"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"იქონიეთ სამსახურის აპები ადვილად მისაწვდომ ადგილზე"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ეს მოწყობილობა არ არის პირადი"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"თქვენი აქტივობა და მონაცემები"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"თქვენი IT ადმინისტრატორი შეიძლება ხედავდეს თქვენს მონაცემებს და აქტივობას ამ მოწყობილობაზე."</string>
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"აპის ნებართვები"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"თქვენს IT ადმინისტრატორს შეუძლია, დაუშვას აპებისთვის წვდომა ამ მოწყობილობის პარამეტრებზე, მათ შორის, მიკროფონზე, კამერასა და მდებარეობაზე."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"მიმდინარეობს თქვენი მოწყობილობის დაყენება…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"გამოიყენეთ ეს მოწყობილობა თქვენს სამუშაო აპებზე მარტივად წვდომისთვის. ეს მოწყობილობა არ არის პირადი, ამიტომ თქვენი IT ადმინისტრატორი შეიძლება ხედავდეს თქვენს მონაცემებს და აქტივობას. დამატებითი ინფორმაციისთვის დაუკავშირდით თქვენს IT ადმინისტრატორს."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება. მათ თქვენი IT ადმინისტრატორი მართავს"</string>
