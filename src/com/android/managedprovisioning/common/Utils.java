@@ -801,6 +801,13 @@ public class Utils {
         return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.accept_and_continue);
     }
 
+    /** Adds a primary "Cancel setup" button */
+    public static FooterButton addResetButton(GlifLayout layout,
+            @NonNull OnClickListener listener) {
+        return setPrimaryButton(layout, listener, ButtonType.CANCEL,
+                R.string.fully_managed_device_reset_and_return_button);
+    }
+
     private static FooterButton setPrimaryButton(GlifLayout layout, OnClickListener listener,
         @ButtonType int buttonType, @StringRes int label) {
         final FooterBarMixin mixin = layout.getMixin(FooterBarMixin.class);
@@ -812,6 +819,22 @@ public class Utils {
             .build();
         mixin.setPrimaryButton(primaryButton);
         return primaryButton;
+    }
+
+    /** Adds a secondary "abort & reset" button. */
+    public static FooterButton addAbortAndResetButton(GlifLayout layout,
+            @NonNull OnClickListener listener) {
+        final int buttonType = ButtonType.CANCEL;
+        final int buttonLabel = R.string.fully_managed_device_cancel_setup_button;
+        final FooterBarMixin mixin = layout.getMixin(FooterBarMixin.class);
+        final FooterButton secondaryButton = new FooterButton.Builder(layout.getContext())
+                .setText(buttonLabel)
+                .setListener(listener)
+                .setButtonType(buttonType)
+                .setTheme(R.style.SudGlifButton_Primary)
+                .build();
+        mixin.setSecondaryButton(secondaryButton);
+        return secondaryButton;
     }
 
     public SimpleDialog.Builder createCancelProvisioningResetDialogBuilder() {

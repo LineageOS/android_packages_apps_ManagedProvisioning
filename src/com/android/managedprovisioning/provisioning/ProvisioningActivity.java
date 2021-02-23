@@ -58,6 +58,7 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.An
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
 
 import com.google.android.setupcompat.template.FooterButton;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifLayout;
 
 import java.lang.annotation.Retention;
@@ -120,6 +121,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private FooterButton mNextButton;
+    private FooterButton mAbortButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
     private PolicyComplianceUtils mPolicyComplianceUtils;
 
@@ -200,6 +202,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
             layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
             mNextButton.setVisibility(View.VISIBLE);
+            mAbortButton.setVisibility(View.VISIBLE);
         }
 
         if (shouldSkipEducationScreens() || Utils.isSilentProvisioning(this, mParams)) {
@@ -210,6 +213,14 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @VisibleForTesting
     protected void onNextButtonClicked() {
         markDeviceManagementEstablishedAndFinish();
+    }
+
+    @VisibleForTesting
+    protected void onAbortButtonClicked() {
+        final Intent intent = new Intent(this, ResetAndReturnDeviceActivity.class);
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
+        startActivity(intent);
     }
 
     private void finishActivity() {
@@ -343,6 +354,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         }
         mNextButton = Utils.addNextButton(layout, v -> onNextButtonClicked());
         mNextButton.setVisibility(View.INVISIBLE);
+        mAbortButton = Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
+        mAbortButton.setVisibility(View.INVISIBLE);
 
         handleSupportUrl(layout, customizationParams);
     }

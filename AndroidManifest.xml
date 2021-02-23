@@ -116,6 +116,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".provisioning.ResetAndReturnDeviceActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:theme="@style/SudThemeGlifV3.Light"/>
+
         <!--
             Nfc bump entry for device owner provisioning, protected by a permission so only the Nfc
             stack can trigger this.
