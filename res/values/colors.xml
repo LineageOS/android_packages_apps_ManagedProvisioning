@@ -44,4 +44,5 @@
     <color name="term_status_bar">#E8EAED</color>
     <color name="header_text_color">#000000</color>
     <color name="grey_text">#5F6368</color>
+    <color name="description_icon_color">?android:attr/textColorSecondary</color>
 </resources>
