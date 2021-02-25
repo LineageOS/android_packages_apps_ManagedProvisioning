@@ -16,6 +16,9 @@
 
 package com.android.managedprovisioning.task;
 
+
+import static android.app.admin.DevicePolicyManager.DEVICE_OWNER_TYPE_FINANCED;
+
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.admin.DevicePolicyManager;
@@ -80,6 +83,10 @@ public class SetDeviceOwnerPolicyTask extends AbstractProvisioningTask {
             success = setDeviceOwner(adminComponent,
                     mContext.getResources().getString(R.string.default_owned_device_username),
                     userId);
+
+            if (success && mUtils.isFinancedDeviceAction(mProvisioningParams.provisioningAction)) {
+                mDevicePolicyManager.setDeviceOwnerType(adminComponent, DEVICE_OWNER_TYPE_FINANCED);
+            }
         } catch (Exception e) {
             ProvisionLogger.loge("Failure setting device owner", e);
             error(0);
