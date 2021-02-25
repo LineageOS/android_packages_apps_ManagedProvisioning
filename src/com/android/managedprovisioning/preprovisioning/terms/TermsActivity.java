@@ -42,6 +42,9 @@ import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferenc
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
 import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapter;
@@ -68,7 +71,8 @@ public class TermsActivity extends SetupLayoutActivity {
     @VisibleForTesting
     TermsActivity(StoreUtils.TextFileReader textFileReader,
             AccessibilityContextMenuMaker contextMenuMaker, SettingsFacade settingsFacade) {
-        super(new Utils());
+        super(new Utils(), settingsFacade,
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
         mTermsProvider = new TermsProvider(this, textFileReader, mUtils);
         mContextMenuMaker =
                 contextMenuMaker != null ? contextMenuMaker : new AccessibilityContextMenuMaker(

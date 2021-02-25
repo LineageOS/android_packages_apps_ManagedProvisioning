@@ -699,7 +699,6 @@ public class Utils {
     }
 
     public void handleSupportUrl(Context context, CustomizationParams customizationParams,
-                ClickableSpanFactory clickableSpanFactory,
                 AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
                 String deviceProvider, String contactDeviceProvider) {
         if (customizationParams.supportUrl == null) {
@@ -709,8 +708,9 @@ public class Utils {
         final Intent intent = WebActivity.createIntent(
                 context, customizationParams.supportUrl, customizationParams.statusBarColor);
 
-        handlePartialClickableTextView(textView, contactDeviceProvider, deviceProvider, intent,
-                clickableSpanFactory);
+        final ClickableSpanFactory spanFactory = new ClickableSpanFactory(getAccentColor(context));
+        handlePartialClickableTextView(
+                textView, contactDeviceProvider, deviceProvider, intent, spanFactory);
 
         contextMenuMaker.registerWithActivity(textView);
     }
@@ -794,6 +794,14 @@ public class Utils {
 
     public static FooterButton addNextButton(GlifLayout layout, @NonNull OnClickListener listener) {
         return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.next);
+    }
+
+    /**
+     * Adds an encryption primary button mixin to a {@link GlifLayout} screen.
+     */
+    public static FooterButton addEncryptButton(
+            GlifLayout layout, @NonNull OnClickListener listener) {
+        return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.encrypt);
     }
 
     public static FooterButton addAcceptAndContinueButton(GlifLayout layout,

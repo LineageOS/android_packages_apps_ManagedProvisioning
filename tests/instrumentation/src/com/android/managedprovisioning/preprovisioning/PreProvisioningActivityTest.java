@@ -38,6 +38,9 @@ import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.UriBitmap;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.parser.MessageParser;
@@ -92,7 +95,11 @@ public class PreProvisioningActivityTest {
                             protected boolean verifyActionAndCaller(Intent intent, String caller) {
                                 return true;
                             }
-                        }, null, mUtils));
+                        }, null,
+                        mUtils,
+                        new SettingsFacade(),
+                        new ThemeHelper(
+                                new DefaultNightModeChecker(), new DefaultSetupWizardBridge())));
     }
 
     @AfterClass

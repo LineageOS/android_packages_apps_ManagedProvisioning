@@ -25,8 +25,10 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -68,8 +70,9 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     protected @ProvisioningState int mState;
 
     @VisibleForTesting
-    protected AbstractProvisioningActivity(Utils utils) {
-        super(utils);
+    protected AbstractProvisioningActivity(
+            Utils utils, SettingsFacade settingsFacade, ThemeHelper themeHelper) {
+        super(utils, settingsFacade, themeHelper);
     }
 
     // Lazily initialize ProvisioningManager, since we can't call in ProvisioningManager.getInstance

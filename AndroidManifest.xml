@@ -80,7 +80,8 @@
         android:allowClearUserData="false"
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:name=".ManagedProvisioningApplication">
 
         <!--
              Note: Setup activities are android:immersive to prevent full-screen notifications (USB
@@ -92,7 +93,7 @@
              android:excludeFromRecents="true"
              android:immersive="true"
              android:launchMode="singleTop"
-             android:theme="@style/SudThemeGlifV3.Light">
+             android:theme="@style/SudThemeGlifV3.DayNight">
         </activity>
 
         <activity
@@ -100,7 +101,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV3.Light">
+            android:theme="@style/SudThemeGlifV3.DayNight">
         </activity>
 
         <activity
@@ -109,7 +110,7 @@
             android:immersive="true"
             android:launchMode="singleTop"
             android:exported="true"
-            android:theme="@style/SudThemeGlifV3.Light">
+            android:theme="@style/SudThemeGlifV3.DayNight">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
@@ -174,7 +175,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/NonGlifTheme"/>
+            android:theme="@style/SudThemeGlifV3.DayNight"/>
         <activity
             android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
@@ -198,7 +199,7 @@
             android:name=".preprovisioning.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/NonGlifTheme"
+            android:theme="@style/SudThemeGlifV3.DayNight"
             android:process=":webview">
         </activity>
 
@@ -258,7 +259,7 @@
                   android:exported="true"
                   android:immersive="true"
                   android:launchMode="singleTop"
-                  android:theme="@style/SudThemeGlifV3.Light">
+                  android:theme="@style/SudThemeGlifV3.DayNight">
             <intent-filter>
                 <!-- TODO (b/177666246): Remove PROVISION_FINALIZATION_INSIDE_SUW
                 after the setup wizard change which calls PROVISION_FINALIZATION is in prebuilt -->
@@ -270,12 +271,12 @@
 
         <activity
             android:name=".provisioning.LandingActivity"
-            android:theme="@style/SudThemeGlifV3.Light"
+            android:theme="@style/SudThemeGlifV3.DayNight"
             android:immersive="true" />
 
         <activity
             android:name=".provisioning.FinancedDeviceLandingActivity"
-            android:theme="@style/SudThemeGlifV3.Light"
+            android:theme="@style/SudThemeGlifV3.DayNight"
             android:immersive="true" />
 
         <service

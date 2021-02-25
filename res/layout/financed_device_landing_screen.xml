@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacer_8"
         android:gravity="center_horizontal"
-        style="@style/Provisioning2Theme.Text.Secondary.SmallerLineSpacing"/>
+        style="@style/Provisioning2Theme.Text.Primary.Small"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacer_16"
           android:text="@string/install_creditor_app_description"
-          style="@style/Provisioning2Theme.Text.Secondary.SmallerLineSpacing"/>
+          style="@style/Provisioning2Theme.Text.Primary.Small"/>
     </LinearLayout>
 
     <LinearLayout
@@ -75,7 +75,7 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacer_16"
           android:text="@string/lock_device_description"
-          style="@style/Provisioning2Theme.Text.Secondary.SmallerLineSpacing"/>
+          style="@style/Provisioning2Theme.Text.Primary.Small"/>
     </LinearLayout>
 
   </LinearLayout>

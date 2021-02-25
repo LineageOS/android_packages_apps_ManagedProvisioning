@@ -123,11 +123,11 @@ public class EncryptDeviceActivityTest {
         Activity activity = mActivityRule.launchActivity(PROFILE_OWNER_INTENT);
 
         // THEN the profile owner description should be present
-        onView(withId(R.id.encrypt_main_text))
+        onView(withId(R.id.sud_layout_subtitle))
                 .check(matches(withText(R.string.encrypt_device_text_for_profile_owner_setup)));
 
         // WHEN pressing the encrypt button
-        onView(withId(R.id.encrypt_button)).perform(click());
+        onView(withText(R.string.encrypt)).perform(click());
 
         // THEN encryption reminder should be set
         verify(mController).setEncryptionReminder(PROFILE_OWNER_PARAMS);
@@ -143,11 +143,11 @@ public class EncryptDeviceActivityTest {
         Activity activity = mActivityRule.launchActivity(DEVICE_OWNER_INTENT);
 
         // THEN the profile owner description should be present
-        onView(withId(R.id.encrypt_main_text))
+        onView(withId(R.id.sud_layout_subtitle))
                 .check(matches(withText(R.string.encrypt_device_text_for_device_owner_setup)));
 
         // WHEN pressing the encrypt button
-        onView(withId(R.id.encrypt_button)).perform(click());
+        onView(withText(R.string.encrypt)).perform(click());
 
         // THEN encryption reminder should be set
         verify(mController).setEncryptionReminder(DEVICE_OWNER_PARAMS);

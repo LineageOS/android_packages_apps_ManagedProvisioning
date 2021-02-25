@@ -74,6 +74,10 @@ import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
+import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -173,9 +177,12 @@ public class ProvisioningActivityTest {
     @Mock private UserProvisioningStateHelper mUserProvisioningStateHelper;
     @Mock
     private PolicyComplianceUtils mPolicyComplianceUtils;
+    @Mock private SettingsFacade mSettingsFacade;
 
     private Utils mUtils;
     private static int mRotationLocked;
+    private final ThemeHelper mThemeHelper =
+            new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge());
 
     @BeforeClass
     public static void setUpClass() {
@@ -211,7 +218,7 @@ public class ProvisioningActivityTest {
                 (classLoader, className, intent) ->
                         new ProvisioningActivity(
                                 mProvisioningManager, mUtils, mUserProvisioningStateHelper,
-                                mPolicyComplianceUtils) {
+                                mPolicyComplianceUtils, mSettingsFacade, mThemeHelper) {
                             @Override
                             public PackageManager getPackageManager() {
                                 return mPackageManager;
