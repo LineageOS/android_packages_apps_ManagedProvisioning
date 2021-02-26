@@ -15,7 +15,6 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms.adapters;
 
-import android.annotation.ColorInt;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,10 +23,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
+
+import java.util.List;
 
 /**
  * Allows for displaying {@link TermsDocument} objects in an
@@ -37,13 +36,10 @@ public class TermsListAdapterCar extends RecyclerView.Adapter<TermsListAdapterCa
 
     private final List<TermsDocument> mTerms;
     private final Context mContext;
-    private final int mStatusBarColor;
 
-    public TermsListAdapterCar(Context context, List<TermsDocument> terms,
-            @ColorInt int statusBarColor) {
+    public TermsListAdapterCar(Context context, List<TermsDocument> terms) {
         mTerms = terms;
         mContext = context;
-        mStatusBarColor = statusBarColor;
     }
 
     @Override
@@ -62,8 +58,7 @@ public class TermsListAdapterCar extends RecyclerView.Adapter<TermsListAdapterCa
         holder.mHeaderTextView.setContentDescription(mContext.getResources()
                 .getString(R.string.section_heading, disclaimer.getHeading()));
 
-        TermsAdapterUtils.populateContentTextView(mContext, holder.mContentTextView, disclaimer,
-                mStatusBarColor);
+        TermsAdapterUtils.populateContentTextView(mContext, holder.mContentTextView, disclaimer);
     }
 
     @Override

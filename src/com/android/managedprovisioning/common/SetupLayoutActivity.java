@@ -16,21 +16,14 @@
 
 package com.android.managedprovisioning.common;
 
-import static android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 
-import android.app.ActivityManager.TaskDescription;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,36 +81,6 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
 
     protected Utils getUtils() {
         return mUtils;
-    }
-
-    /**
-     * @param statusBarColor integer representing the color (i.e. not resource id)
-     */
-    protected void setStatusBarColor(int statusBarColor) {
-        statusBarColor = toSolidColor(statusBarColor);
-
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(statusBarColor);
-
-        // set status bar icon style
-        View decorView = getWindow().getDecorView();
-        int visibility = decorView.getSystemUiVisibility();
-        decorView.setSystemUiVisibility(getUtils().isBrightColor(statusBarColor)
-                ? (visibility | SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-                : (visibility & ~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR));
-
-        setTaskDescription(new TaskDescription(null /* label */, null /* icon */, statusBarColor));
-    }
-
-    /**
-     * Removes transparency from the color
-     *
-     * <p>Needed for correct calculation of Status Bar icons (light / dark)
-     */
-    private Integer toSolidColor(Integer color) {
-        return Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
     }
 
     /**

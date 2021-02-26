@@ -20,15 +20,12 @@ import static com.google.common.truth.Truth.assertThat;
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 import androidx.test.rule.ActivityTestRule;
-
-import com.android.managedprovisioning.common.CustomizationVerifier;
 
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -42,7 +39,6 @@ import java.util.concurrent.atomic.AtomicReference;
 @RunWith(MockitoJUnitRunner.class)
 public class WebActivityTest {
     private static final String TEST_URL = "http://www.test.com/support";
-    private static final int STATUS_BAR_COLOR = Color.parseColor("#BDBDBD"); // any color would do
 
     @Rule
     public ActivityTestRule<WebActivity> mActivityRule = new ActivityTestRule<>(
@@ -51,8 +47,7 @@ public class WebActivityTest {
 
     @Test
     public void testNoUrl() {
-        Intent intent = WebActivity.createIntent(mInstrumentation.getTargetContext(), null,
-                STATUS_BAR_COLOR);
+        Intent intent = WebActivity.createIntent(mInstrumentation.getTargetContext(), null);
 
         assertThat(intent).isNull();
     }
@@ -64,13 +59,12 @@ public class WebActivityTest {
 
         Activity activity = mActivityRule.launchActivity(
                 WebActivity.createIntent(mInstrumentation.getTargetContext(),
-                        TEST_URL, STATUS_BAR_COLOR));
+                        TEST_URL));
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 urlRef.set(((WebView) ((ViewGroup) activity
                         .findViewById(android.R.id.content)).getChildAt(0)).getUrl()));
 
         assertThat(activity.isFinishing()).isFalse();
         assertThat(urlRef.get()).isEqualTo(TEST_URL);
-        new CustomizationVerifier(activity).assertStatusBarColorCorrect(STATUS_BAR_COLOR);
     }
 }

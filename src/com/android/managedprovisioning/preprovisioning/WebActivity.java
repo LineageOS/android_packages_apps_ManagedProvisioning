@@ -23,7 +23,6 @@ import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.webkit.URLUtil;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -31,6 +30,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -49,7 +50,6 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
  */
 public class WebActivity extends SetupLayoutActivity {
     private static final String EXTRA_URL = "extra_url";
-    private static final String EXTRA_STATUS_BAR_COLOR = "extra_status_bar_color";
 
     private WebView mWebView;
     private SettingsFacade mSettingsFacade = new SettingsFacade();
@@ -63,11 +63,6 @@ public class WebActivity extends SetupLayoutActivity {
             Toast.makeText(this, R.string.url_error, Toast.LENGTH_SHORT).show();
             ProvisionLogger.loge("No url provided to WebActivity.");
             finish();
-        }
-
-        Bundle extras = getIntent().getExtras();
-        if (extras.containsKey(EXTRA_STATUS_BAR_COLOR)) {
-            setStatusBarColor(extras.getInt(EXTRA_STATUS_BAR_COLOR));
         }
 
         mWebView = new WebView(this);
@@ -122,11 +117,10 @@ public class WebActivity extends SetupLayoutActivity {
      * @param url the url to be shown upon launching this activity
      */
     @Nullable
-    public static Intent createIntent(Context context, String url, int statusBarColor) {
+    public static Intent createIntent(Context context, String url) {
         if (URLUtil.isNetworkUrl(url)) {
             return new Intent(context, WebActivity.class)
-                    .putExtra(EXTRA_URL, url)
-                    .putExtra(EXTRA_STATUS_BAR_COLOR, statusBarColor);
+                    .putExtra(EXTRA_URL, url);
         }
         return null;
     }

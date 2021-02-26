@@ -212,8 +212,7 @@ public class ProvisioningActivityRoboTest {
     public void managedProfileIntent_defaultColor_colorCorrect() {
         assertColorsCorrect(
                 PROFILE_OWNER_INTENT,
-                DEFAULT_LOGO_COLOR,
-                /* statusBarColor= */ Color.TRANSPARENT);
+                DEFAULT_LOGO_COLOR);
     }
 
     @Ignore("b/181326453")
@@ -221,8 +220,7 @@ public class ProvisioningActivityRoboTest {
     public void deviceOwnerIntent_defaultColor_colorCorrect() {
         assertColorsCorrect(
                 DEVICE_OWNER_INTENT,
-                DEFAULT_LOGO_COLOR,
-                /* statusBarColor= */ Color.TRANSPARENT);
+                DEFAULT_LOGO_COLOR);
     }
 
     @Ignore("b/181326453")
@@ -393,13 +391,12 @@ public class ProvisioningActivityRoboTest {
         return intent;
     }
 
-    private void assertColorsCorrect(Intent intent, int logoColor, int statusBarColor) {
+    private void assertColorsCorrect(Intent intent, int logoColor) {
         final ProvisioningActivity activity =
                 Robolectric.buildActivity(ProvisioningActivity.class, intent)
                         .setup().get();
 
         assertDefaultLogoColorCorrect(activity, logoColor);
-        assertStatusBarColorCorrect(activity, statusBarColor);
     }
 
     private void assertDefaultLogoColorCorrect(Activity activity, int targetColor) {
@@ -408,11 +405,6 @@ public class ProvisioningActivityRoboTest {
         PorterDuffColorFilter colorFilter = (PorterDuffColorFilter) actualLogo.getColorFilter();
 
         assertThat(colorFilter.getColor()).isEqualTo(targetColor);
-    }
-
-    private void assertStatusBarColorCorrect(Activity activity, int targetColor) {
-        final int statusBarColor = activity.getWindow().getStatusBarColor();
-        assertThat(statusBarColor).isEqualTo(targetColor);
     }
 
     private static boolean intentsContainsAction(List<Intent> intents, String action) {

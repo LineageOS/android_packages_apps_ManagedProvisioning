@@ -41,11 +41,6 @@ public class CustomizationVerifier {
         mActivity = activity;
     }
 
-    public void assertStatusBarColorCorrect(int targetColor) {
-        int statusBarColor = mActivity.getWindow().getStatusBarColor();
-        assertThat(statusBarColor, equalTo(targetColor));
-    }
-
     public void assertDefaultLogoCorrect(int targetColor) {
         Drawable actualLogo = extractLogo();
         Drawable expectedLogo = makeDefaultLogo(targetColor);

@@ -57,7 +57,7 @@ public class TermsListAdapterTest {
     public void returnsCorrectDocument() {
         // given: an adapter
         TermsListAdapter adapter = new TermsListAdapter(mContext, mDocs, mLayoutInflater,
-                mContextMenuMaker, mGroupInfoAlwaysCollapsed, /* statusBarColor= */ 1);
+                mContextMenuMaker, mGroupInfoAlwaysCollapsed);
 
         // when: asked for a document from the initially passed-in list
         for (int i = 0; i < mDocs.size(); i++) {

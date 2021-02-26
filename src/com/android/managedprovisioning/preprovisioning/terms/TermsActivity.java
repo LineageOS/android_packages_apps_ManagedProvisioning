@@ -20,7 +20,6 @@ import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.annotation.ColorInt;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.ArraySet;
@@ -97,16 +96,12 @@ public class TermsActivity extends SetupGlifLayoutActivity {
         ProvisioningParams params = checkNotNull(
                 getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS));
         List<TermsDocument> terms = mTermsProvider.getTerms(params);
-
-        int statusBarColor = getColor(R.color.term_status_bar);
-        setUpTermsList(terms, statusBarColor);
+        setUpTermsList(terms);
 
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
             ToolbarController toolbar = CarUi.requireToolbar(this);
             toolbar.setTitle(R.string.terms);
             toolbar.setState(com.android.car.ui.toolbar.Toolbar.State.SUBPAGE);
-            // TODO(b/181336374): Investigate whether this is still needed for Auto
-            setStatusBarColor(statusBarColor);
         } else {
             initializeUiForHandhelds(params);
         }
@@ -141,11 +136,10 @@ public class TermsActivity extends SetupGlifLayoutActivity {
         viewGroup.addView(toolbar, /* index= */ 0);
     }
 
-    private void setUpTermsList(List<TermsDocument> terms, @ColorInt int statusBarColor) {
+    private void setUpTermsList(List<TermsDocument> terms) {
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
             CarUiRecyclerView listView = findViewById(R.id.terms_container);
-            listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms,
-                    statusBarColor));
+            listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms));
 
         } else {
             ExpandableListView container = findViewById(R.id.terms_container);
@@ -153,7 +147,7 @@ public class TermsActivity extends SetupGlifLayoutActivity {
                     new TermsListAdapter(getApplicationContext(), terms,
                             getLayoutInflater(),
                             new AccessibilityContextMenuMaker(this),
-                            container::isGroupExpanded, statusBarColor));
+                            container::isGroupExpanded));
             if (terms.size() > 0) {
                 container.expandGroup(/* groupPos= */ 0);
             }

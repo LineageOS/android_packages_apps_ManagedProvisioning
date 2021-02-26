@@ -18,8 +18,6 @@ package com.android.managedprovisioning.model;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
-import static com.android.managedprovisioning.model.CustomizationParams.DEFAULT_STATUS_BAR_COLOR_ID;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
@@ -46,7 +44,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class CustomizationParamsTest {
     private static final Context mContext = InstrumentationRegistry.getTargetContext();
     private static final ComponentName COMPONENT_NAME = new ComponentName("org.test", "ATestDPC");
-    private static final int SAMPLE_COLOR = Color.rgb(11, 22, 33);
     private static final String SAMPLE_URL = "http://d.android.com";
     private static final int DEFAULT_LOGO_COLOR = Color.rgb(99, 99, 99);
 
@@ -67,7 +64,6 @@ public class CustomizationParamsTest {
         CustomizationParams instance = createInstance(params);
 
         // then
-        assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_STATUS_BAR_COLOR_ID)));
         assertThat(instance.logoColor, equalTo(DEFAULT_LOGO_COLOR));
     }
 
@@ -80,7 +76,6 @@ public class CustomizationParamsTest {
         CustomizationParams instance = createInstance(params);
 
         // then
-        assertThat(instance.statusBarColor, equalTo(getColor(DEFAULT_STATUS_BAR_COLOR_ID)));
         assertThat(instance.logoColor, equalTo(DEFAULT_LOGO_COLOR));
     }
 

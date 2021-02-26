@@ -19,19 +19,12 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.webkit.URLUtil;
 
-import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.Utils;
 
 /**
  * Captures parameters related to brand customization (e.g. tint color).
  */
 public class CustomizationParams {
-    @VisibleForTesting
-    public static final int DEFAULT_STATUS_BAR_COLOR_ID = android.R.color.white;
-
-    /** Status bar color */
-    public final int statusBarColor;
-
     /** Color used in everywhere else */
     public final int logoColor;
 
@@ -52,17 +45,13 @@ public class CustomizationParams {
             @Nullable String supportUrl,
             Context context,
             Utils utils) {
-        int statusBarColor = context.getColor(DEFAULT_STATUS_BAR_COLOR_ID);
         int logoColor = utils.getAccentColor(context);
-
         supportUrl = URLUtil.isNetworkUrl(supportUrl) ? supportUrl : null;
-
-        return new CustomizationParams(logoColor, statusBarColor, supportUrl);
+        return new CustomizationParams(logoColor, supportUrl);
     }
 
-    private CustomizationParams(int logoColor, int statusBarColor, String supportUrl) {
+    private CustomizationParams(int logoColor, String supportUrl) {
         this.logoColor = logoColor;
-        this.statusBarColor = statusBarColor;
         this.supportUrl = supportUrl;
     }
 }

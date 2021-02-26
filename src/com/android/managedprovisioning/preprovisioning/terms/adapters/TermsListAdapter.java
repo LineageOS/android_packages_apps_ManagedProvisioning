@@ -17,7 +17,6 @@ package com.android.managedprovisioning.preprovisioning.terms.adapters;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.annotation.ColorInt;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,21 +41,18 @@ public class TermsListAdapter extends BaseExpandableListAdapter {
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final GroupExpandedInfo mGroupExpandedInfo;
     private final Context mContext;
-    private final int mStatusBarColor;
 
     /**
      * Creates a new instance of the class.
      */
     public TermsListAdapter(Context context, List<TermsDocument> termsDocuments,
             LayoutInflater layoutInflater, AccessibilityContextMenuMaker
-            contextMenuMaker, GroupExpandedInfo groupExpandedInfo,
-            @ColorInt int statusBarColor) {
+            contextMenuMaker, GroupExpandedInfo groupExpandedInfo) {
         mTermsDocuments = checkNotNull(termsDocuments);
         mInflater = checkNotNull(layoutInflater);
         mGroupExpandedInfo = checkNotNull(groupExpandedInfo);
         mContextMenuMaker = checkNotNull(contextMenuMaker);
         mContext = checkNotNull(context);
-        mStatusBarColor = statusBarColor;
     }
 
     @Override
@@ -131,7 +127,7 @@ public class TermsListAdapter extends BaseExpandableListAdapter {
 
         TermsDocument disclaimer = getDisclaimer(groupPosition);
         TextView textView = view.findViewById(R.id.disclaimer_content);
-        TermsAdapterUtils.populateContentTextView(mContext, textView, disclaimer, mStatusBarColor);
+        TermsAdapterUtils.populateContentTextView(mContext, textView, disclaimer);
         mContextMenuMaker.registerWithActivity(textView);
         return view;
     }
