@@ -48,6 +48,7 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -92,7 +93,8 @@ public class PreProvisioningActivityTest {
                             }
 
                             @Override
-                            protected boolean verifyActionAndCaller(Intent intent, String caller) {
+                            protected boolean verifyActionAndCaller(Intent intent,
+                                    String caller) {
                                 return true;
                             }
                         }, null,
@@ -107,6 +109,7 @@ public class PreProvisioningActivityTest {
         TestInstrumentationRunner.unregisterReplacedActivity(TermsActivity.class);
     }
 
+    @Ignore("b/181323689")
     @Test
     public void deviceOwnerDefaultLogo() {
         Activity activity = mActivityRule.launchActivity(
@@ -115,6 +118,7 @@ public class PreProvisioningActivityTest {
         v.assertDefaultLogoCorrect(DEFAULT_LOGO_COLOR);
     }
 
+    @Ignore("b/181323689")
     @Test
     public void deviceOwnerCustomLogo() throws IOException {
         UriBitmap expectedLogo = UriBitmap.createSimpleInstance();

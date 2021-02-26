@@ -19,7 +19,6 @@ import static com.android.managedprovisioning.provisioning.ProvisioningActivityT
 import static com.android.managedprovisioning.provisioning.ProvisioningActivityTest.PROFILE_OWNER_PARAMS;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assume.assumeTrue;
 
@@ -31,12 +30,8 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.ProvisioningParams;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 @SmallTest
 public class TermsProviderTest {
@@ -49,32 +44,19 @@ public class TermsProviderTest {
     private final TermsProvider mTermsProvider = new TermsProvider(mContext, s -> "", new Utils());
 
     @Test
-    public void generalHeading_presentAsFirst_profileOwner() throws Exception {
+    public void getGeneralDisclaimer_presentAsFirst_profileOwner() {
         assumeHasManagedUsersFeature();
-        List<TermsDocument> terms = mTermsProvider.getTerms(PROFILE_OWNER_PARAMS, 0);
-        assertThat(terms.get(0).getHeading(), equalTo(mStringGeneralPo));
-        assertThat(terms.get(0).getContent(), equalTo(mStringAdminDisclaimerPo));
+        TermsDocument terms = mTermsProvider.getGeneralDisclaimer(PROFILE_OWNER_PARAMS);
+        assertThat(terms.getHeading(), equalTo(mStringGeneralPo));
+        assertThat(terms.getContent(), equalTo(mStringAdminDisclaimerPo));
     }
 
     @Test
-    public void generalHeading_presentAsFirst_deviceOwner() throws Exception {
+    public void getGeneralDisclaimer_presentAsFirst_deviceOwner() {
         assumeHasDeviceAdminFeature();
-        List<TermsDocument> terms = mTermsProvider.getTerms(DEVICE_OWNER_PARAMS, 0);
-        assertThat(terms.get(0).getHeading(), equalTo(mStringGeneralDo));
-        assertThat(terms.get(0).getContent(), equalTo(mStringAdminDisclaimerDo));
-    }
-
-    @Test
-    public void flag_skipGeneral() {
-        ProvisioningParams[] params = {PROFILE_OWNER_PARAMS, DEVICE_OWNER_PARAMS};
-        for (ProvisioningParams p : params) {
-            List<TermsDocument> terms = mTermsProvider.getTerms(p,
-                    TermsProvider.Flags.SKIP_GENERAL_DISCLAIMER);
-            if (terms != null && !terms.isEmpty()) {
-                assertThat(terms.get(0), not(equalTo(mStringGeneralPo)));
-                assertThat(terms.get(0), not(equalTo(mStringGeneralDo)));
-            }
-        }
+        TermsDocument terms = mTermsProvider.getGeneralDisclaimer(DEVICE_OWNER_PARAMS);
+        assertThat(terms.getHeading(), equalTo(mStringGeneralDo));
+        assertThat(terms.getContent(), equalTo(mStringAdminDisclaimerDo));
     }
 
     private void assumeHasManagedUsersFeature() {

@@ -48,6 +48,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -117,6 +118,7 @@ public class EncryptDeviceActivityTest {
         TestInstrumentationRunner.unregisterReplacedActivity(EncryptDeviceActivity.class);
     }
 
+    @Ignore("b/181323689")
     @Test
     public void testProfileOwner() {
         // WHEN launching EncryptDeviceActivity with a profile owner intent
@@ -137,6 +139,7 @@ public class EncryptDeviceActivityTest {
                 TestEncryptionActivity.sLastLaunchedIntent.getAction());
     }
 
+    @Ignore("b/181323689")
     @Test
     public void testDeviceOwner() {
         // WHEN launching EncryptDeviceActivity with a profile owner intent
@@ -157,6 +160,7 @@ public class EncryptDeviceActivityTest {
                 TestEncryptionActivity.sLastLaunchedIntent.getAction());
     }
 
+    @Ignore("b/181323689")
     @Test
     public void testNoParams() {
         // WHEN launching EncryptDeviceActivity without a params object

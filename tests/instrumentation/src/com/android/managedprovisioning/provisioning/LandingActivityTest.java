@@ -48,6 +48,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,6 +73,7 @@ public class LandingActivityTest {
         TestUtils.wakeupDeviceAndPressHome(UiDevice.getInstance(getInstrumentation()));
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onNextButtonClicked_shouldRunPrepareActivity_runsPrepareActivity() {
         ProvisioningParams params = generateProvisioningParamsThatShouldRunPrepareActivity();
@@ -83,6 +85,7 @@ public class LandingActivityTest {
         intended(hasComponent(AdminIntegratedFlowPrepareActivity.class.getName()));
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onNextButtonClicked_shouldNotRunPrepareActivity_doesNotRunPrepareActivity() {
         ProvisioningParams params = generateProvisioningParamsThatShouldNotRunPrepareActivity();
@@ -94,6 +97,7 @@ public class LandingActivityTest {
         intended(hasComponent(AdminIntegratedFlowPrepareActivity.class.getName()), times(0));
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onCreate_personallyOwned_showsAccountManagementDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
@@ -103,6 +107,7 @@ public class LandingActivityTest {
         assertAccountManagementDisclaimerShown();
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onCreate_organizationAndPersonallyOwned_showsAccountManagementDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
@@ -112,6 +117,7 @@ public class LandingActivityTest {
         assertAccountManagementDisclaimerShown();
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onCreate_organizationOwned_showsOwnershipDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
@@ -121,6 +127,7 @@ public class LandingActivityTest {
         assertOwnershipDisclaimerShown();
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onCreate_deviceOwner_showsOwnershipDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(

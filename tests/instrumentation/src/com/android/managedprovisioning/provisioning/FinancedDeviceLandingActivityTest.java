@@ -38,6 +38,7 @@ import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,6 +63,7 @@ public class FinancedDeviceLandingActivityTest {
         TestUtils.wakeupDeviceAndPressHome(UiDevice.getInstance(getInstrumentation()));
     }
 
+    @Ignore("b/181323689")
     @Test
     public void onAcceptAndContinueButtonClicked() {
         // GIVEN the activity launched
