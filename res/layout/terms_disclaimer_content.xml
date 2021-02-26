@@ -29,6 +29,5 @@
         android:paddingEnd="@dimen/spacer_16"
         android:paddingTop="@dimen/spacer_16"
         android:paddingBottom="@dimen/spacer_16"
-        style="@style/Provisioning2Theme.Text.Secondary"/>
-    <View style="@style/Provisioning2Theme.Divider"/>
+        style="@style/Provisioning2Theme.Text.Primary.Medium"/>
 </LinearLayout>

@@ -22,7 +22,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -111,8 +110,6 @@ public class TermsListAdapter extends BaseExpandableListAdapter {
 
         ImageView chevron = groupView.findViewById(R.id.chevron);
         chevron.setRotation(isExpanded ? 90 : -90); // chevron down / up retrospectively
-        groupView.findViewById(R.id.divider).setVisibility(
-                shouldShowGroupDivider(groupPosition) ? View.VISIBLE : View.INVISIBLE);
 
         return groupView;
     }

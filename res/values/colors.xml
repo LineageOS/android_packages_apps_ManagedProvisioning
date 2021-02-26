@@ -37,7 +37,6 @@
     <color name="gray2">#EEE</color>
     <color name="gray_button_focused">#c0c0c0</color>
     <color name="gray_button_text">#8A000000</color>
-    <color name="gray_divider">#DCDCDC</color>
     <color name="gray_status_bar">#BDBDBD</color>
     <color name="white">#FFF</color>
     <color name="teal2">#FF26A599</color>
