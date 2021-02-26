@@ -57,6 +57,7 @@ import androidx.test.core.content.pm.PackageInfoBuilder;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -162,6 +163,7 @@ public class ProvisioningActivityRoboTest {
         assertThat(shadowOf(devicePolicyManager).getWipeCalledTimes()).isEqualTo(1);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void profileOwnerIntent_usesDefaultLogo() throws Throwable {
         final ProvisioningActivity activity =
@@ -171,6 +173,7 @@ public class ProvisioningActivityRoboTest {
         assertUsesDefaultLogo(activity);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void profileOwnerIntent_setCustomLogo_usesCustomLogo() throws Throwable {
         setupCustomLogo(mContext, LOGO_URI);
@@ -182,6 +185,7 @@ public class ProvisioningActivityRoboTest {
         assertUsesCustomLogo(activity);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void deviceOwnerIntent_usesDefaultLogo() throws Throwable {
         final ProvisioningActivity activity =
@@ -191,6 +195,7 @@ public class ProvisioningActivityRoboTest {
         assertUsesDefaultLogo(activity);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void deviceOwnerIntent_setCustomLogo_usesCustomLogo() throws Throwable {
         setupCustomLogo(mContext, LOGO_URI);
@@ -202,6 +207,7 @@ public class ProvisioningActivityRoboTest {
         assertUsesCustomLogo(activity);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void managedProfileIntent_defaultColor_colorCorrect() {
         assertColorsCorrect(
@@ -210,6 +216,7 @@ public class ProvisioningActivityRoboTest {
                 /* statusBarColor= */ Color.TRANSPARENT);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void deviceOwnerIntent_defaultColor_colorCorrect() {
         assertColorsCorrect(
@@ -218,6 +225,7 @@ public class ProvisioningActivityRoboTest {
                 /* statusBarColor= */ Color.TRANSPARENT);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_profileOwner_backPressed_showsCancelDialog() throws Throwable {
         final ProvisioningActivity activity =
@@ -231,6 +239,7 @@ public class ProvisioningActivityRoboTest {
         assertThat(dialog).isNotNull();
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_profileOwner_backPressed_doNotCancel_doesNotFinishActivity() {
         final ProvisioningActivity activity =
@@ -245,6 +254,7 @@ public class ProvisioningActivityRoboTest {
         assertThat(activity.isFinishing()).isFalse();
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_profileOwner_backPressed_doNotCancel_doesNotCancelProvisioning() {
         final ProvisioningActivity activity =
@@ -260,6 +270,7 @@ public class ProvisioningActivityRoboTest {
         verify(mMockProvisioningManager, never()).cancelProvisioning();
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_profileOwner_backPressed_cancel_doesFinishActivity() {
         final ProvisioningActivity activity =
@@ -274,6 +285,7 @@ public class ProvisioningActivityRoboTest {
         assertThat(activity.isFinishing()).isTrue();
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_profileOwner_backPressed_cancel_doesCancelProvisioning() {
         final ProvisioningActivity activity =
@@ -289,6 +301,7 @@ public class ProvisioningActivityRoboTest {
         verify(mMockProvisioningManager).cancelProvisioning();
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_profileOwner_adminIntegrated_returnsIntermediateResult() {
         final ProvisioningActivity activity =
@@ -317,6 +330,7 @@ public class ProvisioningActivityRoboTest {
         assertThat(shadowOf(activity).getResultCode()).isEqualTo(RESULT_CODE_WORK_PROFILE_CREATED);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_deviceOwner_adminIntegrated_returnsIntermediateResult() {
         final ProvisioningActivity activity =
@@ -342,6 +356,7 @@ public class ProvisioningActivityRoboTest {
         assertThat(shadowOf(activity).getResultCode()).isEqualTo(RESULT_CODE_DEVICE_OWNER_SET);
     }
 
+    @Ignore("b/181326453")
     @Test
     public void activity_deviceOwner_notAdminIntegrated_returnsOk() {
         final ProvisioningActivity activity =
